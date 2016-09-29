@@ -43,7 +43,7 @@ Each Azure subscription has an Azure Active Directory. Users, groups, and applic
 
 With the Azure Resource Manager model, you create your key vault in a resource group and control access to the management plane of this key vault by using Azure Active Directory. For example, you can give specific users ability to set key vault access policy, while other users can only view and list key vaults in this resource group, but not change key vault access policy.
 
-You can grant access to users, groups and applications at a specific scope by assigning appropriate RBAC roles. For example, to grant access to a user to manage key vaults you would assign a predefined role 'Key Vault Contributor' to this user at a specific scope. The scope in this case would be either a subscription, a resource group, or just a specific key vault. A role assigned at subscription level applies to all resource groups and resources within that subscription. A role assigned at resource group level applies to all resources in that resource group. A role assigned for a specific resource only applies to that resource. There are several predefined roles (see [RBAC: Built-in roles](https://azure.microsoft.com/en-us/documentation/articles/role-based-access-built-in-roles/)), and if the predefined roles do not fit your needs you can also define your own roles .
+You can grant access to users, groups and applications at a specific scope by assigning appropriate RBAC roles. For example, to grant access to a user to manage key vaults you would assign a predefined role 'Key Vault Contributor' to this user at a specific scope. The scope in this case would be either a subscription, a resource group, or just a specific key vault. A role assigned at subscription level applies to all resource groups and resources within that subscription. A role assigned at resource group level applies to all resources in that resource group. A role assigned for a specific resource only applies to that resource. There are several predefined roles (see [RBAC: Built-in roles](../role-based-access-built-in-roles.md)), and if the predefined roles do not fit your needs you can also define your own roles .
 
 >[AZURE.IMPORTANT] Note that if a user has Contributor permissions (RBAC) to a key vault management plane, she can grant herself access to data plane, by setting Key Vault access policy. Therefore it is recommended to tightly control who has 'Contributor' access to your key vaults to ensure only authorized persons can access and manage your key vaults, keys, and secrets.
 
@@ -184,7 +184,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 
     This article explains the Resource Manager deployment and classic deployment models, and explains the benefits of using the Resource Manager and resource groups
 
--    [Manage Role-Based Access Control with Azure PowerShell](../role-based-access-control-manage-access-powershell/)
+-    [Manage Role-Based Access Control with Azure PowerShell](../role-based-access-control-manage-access-powershell.md)
 
      This article explains how to manage role-based access control with Azure PowerShell
 
@@ -192,27 +192,23 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 
 	This article shows how to use the REST API to manage RBAC.
 
--   [Key Vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx)
-
-	This document is the reference for the REST APIs to manage your key vault programmatically, including setting Key Vault access policy.
-
--   [Developer’s guide to auth with Azure Resource Manager API](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)
-
-	This article shows how to authenticate using the Resource Manager APIs.
-
 -   [Role-Based Access Control for Microsoft Azure from Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
 
     This is a link to a video on Channel 9 from the 2015 MS Ignite conference. In this session, they talk about access management and reporting capabilities in Azure, and explore best practices around securing access to Azure subscriptions using Azure Active Directory.
 
--   [Key access control](https://msdn.microsoft.com/en-us/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
+-   [Key Vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx)
+
+	This document is the reference for the REST APIs to manage your key vault programmatically, including setting Key Vault access policy.
+
+-   [Key access control](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
 
     Link to Key access control reference documentation.
 
--   [Secret access control](https://msdn.microsoft.com/en-us/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
+-   [Secret access control](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
 
     Link to Key access control reference documentation.
 
--   [Set](https://msdn.microsoft.com/en-us/library/mt603625.aspx) and [Remove](https://msdn.microsoft.com/en-us/library/mt619427.aspx) Key Vault access policy using PowerShell
+-   [Set](https://msdn.microsoft.com/library/mt603625.aspx) and [Remove](https://msdn.microsoft.com/library/mt619427.aspx) Key Vault access policy using PowerShell
 
     Links to reference documentation for PowerShell cmdlets to manage key vault access policy.
 
