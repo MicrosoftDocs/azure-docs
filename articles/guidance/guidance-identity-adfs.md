@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/10/2016"
+   ms.date="09/29/2016"
    ms.author="telmos"/>
 
 # Implementing a secure hybrid network architecture with federated identities in Azure
@@ -51,27 +51,27 @@ The following diagram highlights the important components in this architecture (
 >
 >- A user connecting to your VNet by using an authorized device and running a web application hosted inside you Azure VNet.
 >
->Not all of these use cases might be relevant in your own scenario.
+>Not all of these use cases might be relevant for your organization or situation.
 >
 >Additionally, this architecture focuses on passive federation, where the federation servers make the decisions concerning how and when to authenticate; the user is expected to provide sign in information when an application starts running. This is the mechanism most commonly used by web browsers and involves a protocol that redirects the browser to a site where the user can provide their credentials. AD FS also supports active federation whereby an application takes on responsibility for supplying credentials without further user interaction, but this case is outside the scope of this architecture.
 
-- **AD DS subnet.** The AD DS servers are bounded in a separate subnet. NSG rules help to protect the AD DS servers and can provide a firewall against traffic from unexpected sources.
+- **AD DS subnet.** The AD DS servers are contained within their own subnet. NSG rules help to protect the AD DS servers and can provide a firewall against traffic from unexpected sources.
 
 - **AD DS Servers.** These are domain controllers running as VMs in the cloud. These servers can provide authentication of local identities within the domain.
 
-- **AD FS subnet.** The AD FS servers can be contained within their own subnet, with NSG rules acting as a firewall.
+- **AD FS subnet.** The AD FS servers can be loacted within their own subnet, with NSG rules acting as a firewall.
 
 - **AD FS servers.** The AD FS servers provide federated authorization and authentication. In this architecture, they perform the following tasks:
 
-	- They can receive security tokens containing claims made by a partner federation server on behalf of a partner user. AD FS can verify that these tokens are valid before passing the claims to web application running in Azure. The corporate web application (in Azure) can use these claims to authorize requests. In this scenario, the corporate web application is the *relying party*, and it is the responsibility of the partner federation server to issue claims that will be understood by the corporate web application. The parter federation servers are referred to as *account partners* because they submit access requests on behalf of authenticated accounts in the partner organization.The AD FS servers are called *resource partners* because they provide access to resources (web applications, in this case).
+	- They can receive security tokens containing claims made by a partner federation server on behalf of a partner user. AD FS can verify that these tokens are valid before passing the claims to web application running in Azure. The corporate web application (in Azure) can use these claims to authorize requests. In this scenario, the corporate web application is the *relying party*, and it is the responsibility of the partner federation server to issue claims that will be understood by the corporate web application. The partner federation servers are referred to as *account partners* because they submit access requests on behalf of authenticated accounts in the partner organization.The AD FS servers are called *resource partners* because they provide access to resources (web applications, in this case).
 
-	- They can authenticate (via AD DS and the [Active Directory Device Registration Service][ADDRS]) and authorize incoming requests external users running a web browser or device that needs access to your corporate web applications. 
+	- They can authenticate (via AD DS and the [Active Directory Device Registration Service][ADDRS]) and authorize incoming requests from external users running a web browser or device that needs access to your corporate web applications. 
 
 	The AD FS servers are configured as a farm, accessed through an an Azure load balancer. This structure helps to improve availability and scalability. Also, note that the AD FS servers are not exposed directly to the Internet, rather all Internet traffic is filtered through AD FS web application proxy servers and a DMZ.
 
-- **AD FS proxy subnet.** The AD FS proxy servers can be contained within their own subnet, with NSG rules acting as a firewall. The servers in this subnet are exposed to the Internet through a set of network virtual appliances that provide a firewall between your Azure virtual network and the Internet.
+- **AD FS proxy subnet.** The AD FS proxy servers can be contained within their own subnet, with NSG rules providing protection. The servers in this subnet are exposed to the Internet through a set of network virtual appliances that provide a firewall between your Azure virtual network and the Internet.
 
-- **AD FS web application proxy (WAP) servers.** These computers act as AD FS servers for incoming requests from partner organizations and external devices. The WAP servers act as a filter, protecting the AD FS servers from direct access from the public Internet. As with the AD FS servers, deploying the WAP servers in a farm with load balancing gives you greater availability and scalability than deploying a collection of stand-alone servers.
+- **AD FS web application proxy (WAP) servers.** These computers act as AD FS servers for incoming requests from partner organizations and external devices. The WAP servers act as a filter, shielding the AD FS servers from direct access from the public Internet. As with the AD FS servers, deploying the WAP servers in a farm with load balancing gives you greater availability and scalability than deploying a collection of stand-alone servers.
 
 	>[AZURE.NOTE] For detailed information about installing WAP servers, see [Install and Configure the Web Application Proxy Server][install_and_configure_the_web_application_proxy_server]
 
@@ -92,7 +92,7 @@ This section summarizes recommendations for implementing AD FS in Azure, coverin
 
 ### VM recommendations
 
-Create VMs with sufficient resources to handle the expected volume of traffic. Use the size of the machines hosting AD FS on premises as a starting point. Monitor the resource utilization; you can resize the VMs and scale down if they are too large.
+Create VMs with sufficient resources to handle the expected volume of traffic. Use the size of the existing machines hosting AD FS on premises as a starting point. Monitor the resource utilization; you can resize the VMs and scale down if they are too large.
 
 Follow the recommendations listed in [Running a Windows VM on Azure][vm-recommendations].
 
@@ -144,7 +144,7 @@ The article [Deploying a Federation Server Farm][Deploying_a_federation_server_f
 
 1. Obtain a publicly trusted certificate for performing server authentication. The *subject name* must contain the name by which clients access the federation service. This can be the DNS name registered for the load balancer, for example, *adfs.contoso.com* (avoid using wildcard names such as **.contoso.com*, for security reasons). You should use the same certificate on all AD FS server VMs. You can purchase a certificate from a trusted certification authority, but if your organization uses Active Directory Certificate Services you can create your own. 
 
-	The *subject alternative name* is used by the DRS to enable access from external devices. This should be of the form enterpriseregistration.contoso.com.
+	The *subject alternative name* is used by the DRS to enable access from external devices. This should be of the form *enterpriseregistration.contoso.com*.
 
 	For more information, see [Obtain and Configure an SSL Certificate for AD FS][adfs_certificates].
 
@@ -156,7 +156,7 @@ The article [Deploying a Federation Server Farm][Deploying_a_federation_server_f
 
 3. Add each AD FS server VM to the domain.
 
->[AZURE.NOTE] The domain controller running the PDC emulator FSMO role for the domain must be running and accessible from the AD FS VMs to install AD FS.
+>[AZURE.NOTE] To install AD FS, the domain controller running the PDC emulator FSMO role for the domain must be running and accessible from the AD FS VMs.
 
 ### AD FS Trust recommendations
 
@@ -186,11 +186,11 @@ You can use either SQL Server or the Windows Internal Database (WID) to hold AD 
 
 AD FS is heavily dependent on the HTTPS protocol, so make sure that the NSG rules for the subnet containing the web tier VMs permit HTTPS requests. These requests can originate from the on-premises network, the subnets containing the web tier, business tier, data tier, private DMZ, and public DMZ, as well as the subnet containing the AD FS servers.
 
-You may also consider using a set of network virtual appliances that logs detailed information on traffic traversing the edge of your virtual network for auditing purposes.
+You should also consider using a set of network virtual appliances that logs detailed information on traffic traversing the edge of your virtual network for auditing purposes.
 
 ## Scalability considerations
 
-The following considerations, adapted from the document [Plan your AD FS deployment][plan-your-adfs-deployment], give a starting point for sizing AD FS farms:
+The following considerations, summarized from the document [Plan your AD FS deployment][plan-your-adfs-deployment], give a starting point for sizing AD FS farms:
 
 - If you have fewer than 1000 users, do not create dedicated AD FS servers, but instead install AD FS on each of the AD DS servers in the cloud (make sure that you have at least two AD DS servers, to maintain availability). Create a single WAP server.
 
@@ -198,7 +198,7 @@ The following considerations, adapted from the document [Plan your AD FS deploym
 
 - If you have between 15000 and 60000 users, create between three and five dedicated AD FS servers, and at least two dedicated WAP servers.
 
-These figures assume you are using quad-core VMs (D3_V2 Standard, or better) to host the servers in Azure.
+These figures assume you are using dual quad-core VMs (Standard D4_v2, or better) to host the servers in Azure.
 
 Note that if you are using the Windows Internal Database to store AD FS configuration data, you are limited to eight AD FS servers in the farm. If you anticipate needing more, then use SQL Server. For further information, see [The Role of the AD FS Configuration Database][adfs-configuration-database].
 
@@ -214,8 +214,6 @@ DevOps staff should be prepared to perform the following tasks:
 
 - Backing up AD FS components.
 
-For more information, see [Managing ADFS Components][managing-adfs-components]
-
 ## Monitoring considerations
 
 The [Microsoft System Center Management Pack for Active Directory Federation Services 2012 R2][oms-adfs-pack] provides both proactive and reactive monitoring of your AD FS deployment for the federation server. This management pack monitors:
@@ -226,7 +224,7 @@ The [Microsoft System Center Management Pack for Active Directory Federation Ser
 
 - The overall health of the AD FS system and web applications (relying parties), and provides alerts for critical issues and warnings.
 
-<!--
+<!-- *This content to be enabled when the building blocks for AD FS are available*
 ## Solution components
 
 <!-- The following text is boilerplate, and should be used in all RA docs -->
@@ -305,7 +303,7 @@ To run the script that deploys the solution:
 
 5. Open a bash shell and move to the folder containing the azuredeploy.sh script.
 
-6. Log in to your Azure account. In the bash shell enter the following command:
+6. Log in to your Azure account. In the bash shell, run the following command:
 
 	```cli
     azure login
@@ -313,7 +311,7 @@ To run the script that deploys the solution:
 
 	Follow the instructions to connect to Azure.
 
-7. Run the following command:
+7. Execute the following command to run the bash script:
 
 	```powershell
 	./azuredeploy.sh
@@ -321,7 +319,7 @@ To run the script that deploys the solution:
 
 8. Follow the instructions, and verify that the script completes successfully. You can simply re-run the script if an error occurs.
 
-<!-- *THIS SECTION TO BE UPDATED WHEN BBs ARE AVAILABLE*
+<!-- *THIS SECTION TO REPLACE THE ABOVE CONTENT AND BE UPDATED WHEN THE BBs ARE AVAILABLE*
 
 The solution assumes the following prerequisites:
 
