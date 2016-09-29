@@ -19,6 +19,10 @@
 
 # Accelerated networking for a virtual machine
 
+> [AZURE.SELECTOR]
+- [Azure Portal](virtual-network-accelerated-networking-portal.md)
+- [PowerShell](virtual-network-accelerated-networking-powershell.md)
+
 Accelerated Networking enables Single Root I/O Virtualization (SR-IOV) to a virtual machine (VM), greatly improving its networking performance. This high-performance path bypasses the host from the datapath reducing latency, jitter, and CPU utilization for use with the most demanding network workloads on supported VM types. This article explains how to use PowerShell to configure Accelerated Networking in the Azure Resource Manager deployment model.
 
 The following picture shows communication between two virtual machines (VM) with and without Accelerated Networking:
@@ -49,12 +53,12 @@ The following limitations exist when using this capability:
 - **Supported operating system:** Microsoft Windows Server 2012 R2 and Windows Server 2016 Technical Preview 5. Linux and Windows Server 2012 support will be added soon.
 - **VM Size:** Standard_D15_v2 and Standard_DS15_v2 are the only supported VM instance sizes. For more information, see the [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md) article. The set of supported VM instance sizes will expand in the future.
 
-Changes to these limitations will be announced through the [Azure Virtual Networking updates](https://azure.microsoft.com/updates/?product=virtual-network&updatetype=&platform=) page.
+Changes to these limitations will be announced through the [Azure Virtual Networking updates](https://azure.microsoft.com/updates/accelerated-networking-in-preview) page.
 
 ## Create a Windows VM with Accelerated Networking
 
 1. Open a PowerShell command prompt and complete the remaining steps in this section within a single PowerShell session. If you don't already have PowerShell installed and configured, complete the steps in the [How to install and configure Azure PowerShell](../powershell-install-configure.md) article.
-2. To register for the preview, send an email to [Accelerated Networking Subscriptions](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your subscription ID and intended use.
+2. To register for the preview, send an email to [Accelerated Networking Subscriptions](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your subscription ID and intended use. Do not complete the remaining steps until after you receive an e-email notifying you that you've been accepted into the preview.
 3. Register the capability with your subscription by entering the following commands:
 
 		Register-AzureRmProviderFeature -FeatureName AllowAcceleratedNetworkingFeature -ProviderNamespace Microsoft.Network
