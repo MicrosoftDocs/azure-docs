@@ -157,7 +157,7 @@ if (!namespaceManager.TopicExists("TestTopic"))
 You can also create topic subscriptions using the [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) class. Subscriptions are named and can have an optional filter that
 restricts the set of messages passed to the subscription's virtual queue.
 
-In order for messages to be received by a subscription, you must create that subscription before sending any messages to the topic. If there are no subscriptions to a topic, the topic discards those messages.
+> [AZURE.IMPORTANT] In order for messages to be received by a subscription, you must create that subscription before sending any messages to the topic. If there are no subscriptions to a topic, the topic discards those messages.
 
 ### Create a subscription with the default (MatchAll) filter
 
