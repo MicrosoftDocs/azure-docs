@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="big-compute"
-   ms.date="09/06/2016"
+   ms.date="09/30/2016"
    ms.author="marsma"/>
 
 # Get started with Azure Batch CLI
@@ -215,7 +215,11 @@ To create a new application and add a package version:
 
 **Activate** the package:
 
-    azure batch application package activate "resgroup002" "azbatch002" "MyTaskApplication" "1.10-beta3" zip
+    azure batch application package activate "resgroup001" "batchaccount001" "MyTaskApplication" "1.10-beta3" zip
+
+Set the **default version** for the application:
+
+    azure batch application set "resgroup001" "batchaccount001" "MyTaskApplication" --default-version "1.10-beta3"
 
 ### Deploy an application package
 
@@ -225,7 +229,9 @@ This command specifies a package at pool creation, and is deployed as each node 
 
     azure batch pool create --id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
 
-You can't currently specify which package version to deploy by using command-line options. You must first set a default version for the application by using the Azure portal before you can assign it to a pool. See how to set a default version in [Application deployment with Azure Batch application packages](batch-application-packages.md). You can, however, specify a default version if you use a [JSON file](#json-files) instead of command line options when you create a pool.
+When you create a pool by using command line options, you cannot currently specify the application package version (for example, "1.10-beta3") to deploy to the compute nodes. You must first specify a default version for the application with `azure batch application set` before you specify an application package at pool creation (see previous section). You can, however, specify a package version for the pool if you use a [JSON file](#json-files) instead of command line options when you create it.
+
+You can find more information on application packages in [Application deployment with Azure Batch application packages](batch-application-packages.md).
 
 >[AZURE.IMPORTANT] You must [link an Azure Storage account](#linked-storage-account-autostorage) to your Batch account to use application packages.
 
