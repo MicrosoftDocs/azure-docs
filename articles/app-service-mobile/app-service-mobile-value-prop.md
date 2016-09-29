@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="adrianhall"
-	manager="dwrede"
+	manager="yochayk"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="05/03/2016"
-	ms.author="glennga"/>
+	ms.author="adrianha"/>
 
 # <a name="getting-started"> </a>What are Mobile Apps?
 
