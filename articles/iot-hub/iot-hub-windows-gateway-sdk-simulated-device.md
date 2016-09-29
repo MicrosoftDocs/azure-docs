@@ -145,4 +145,4 @@ To further explore the capabilities of IoT Hub, see:
 
 [lnk-physical-device]: iot-hub-gateway-sdk-physical-device.md
 
-[lnk-devguide]: iot-hub-devguide.md
+[lnk-devguide]: ./iot-hub-devguide.md
