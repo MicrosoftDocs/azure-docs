@@ -76,6 +76,7 @@ Principles
 Let's say you are developing a web application that uses a certificate for SSL, Azure storage for storing data, and also uses an RSA 2048-bit key for sign operations. Let's say this web application is running in a VM (or a VM Scale Set). You can use key vault to store all the application secrets, and also use key vault to store the bootstrap certificate that is used by the application to authenticate with Azure Active Directory.
 
 So here's a summary of all the keys and secrets to be stored in a key vault.
+
 - **SSL Cert** - used for SSL
 - **Storage Key** - used to get access to Storage account
 - **RSA 2048-bit key** - used for sign operations
