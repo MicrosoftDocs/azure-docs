@@ -3,7 +3,7 @@
 	description="Manage access permissions for Key Vault for managing vaults and keys and secrets. Authentication and authorization model for Key Vault and best practices."
 	services="key-vault"
 	documentationCenter=""
-	authors="ambapat"
+	authors="amitbapat"
 	manager="mbaldwin"
 	tags="azure-resource-manager"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="authentication-and-authorization"
-	ms.date="09/23/2016"
+	ms.date="09/29/2016"
 	ms.author="ambapat"/>
 
 
@@ -43,7 +43,7 @@ Each Azure subscription has an Azure Active Directory. Users, groups, and applic
 
 With the Azure Resource Manager model, you create your key vault in a resource group and control access to the management plane of this key vault by using Azure Active Directory. For example, you can give specific users ability to set key vault access policy, while other users can only view and list key vaults in this resource group, but not change key vault access policy.
 
-You can grant access to users, groups and applications at a specific scope by assigning appropriate RBAC roles. For example, to grant access to a user to manage key vaults you would assign a predefined role 'Key Vault Contributor' to this user at a specific scope. The scope in this case would be either a subscription, a resource group, or just a specific key vault. A role assigned at subscription level applies to all resource groups and resources within that subscription. A role assigned at resource group level applies to all resources in that resource group. A role assigned for a specific resource only applies to that resource. There are several predefined roles (see [RBAC: Built-in roles](../role-based-access-built-in-roles.md)), and if the predefined roles do not fit your needs you can also define your own roles .
+You can grant access to users, groups and applications at a specific scope by assigning appropriate RBAC roles. For example, to grant access to a user to manage key vaults you would assign a predefined role 'Key Vault Contributor' to this user at a specific scope. The scope in this case would be either a subscription, a resource group, or just a specific key vault. A role assigned at subscription level applies to all resource groups and resources within that subscription. A role assigned at resource group level applies to all resources in that resource group. A role assigned for a specific resource only applies to that resource. There are several predefined roles (see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md)), and if the predefined roles do not fit your needs you can also define your own roles .
 
 >[AZURE.IMPORTANT] Note that if a user has Contributor permissions (RBAC) to a key vault management plane, she can grant herself access to data plane, by setting Key Vault access policy. Therefore it is recommended to tightly control who has 'Contributor' access to your key vaults to ensure only authorized persons can access and manage your key vaults, keys, and secrets.
 
@@ -75,7 +75,7 @@ Principles
 
 Let's say you are developing a web application that uses a certificate for SSL, Azure storage for storing data, and also uses an RSA 2048-bit key for sign operations. Let's say this web application is running in a VM (or a VM Scale Set). You can use key vault to store all the application secrets, and also use key vault to store the bootstrap certificate that is used by the application to authenticate with Azure Active Directory.
 
-So here's a summary of all the keys and secrets you'll be storing in a key vault.
+So here's a summary of all the keys and secrets to be stored in a key vault.
 - **SSL Cert** - used for SSL
 - **Storage Key** - used to get access to Storage account
 - **RSA 2048-bit key** - used for sign operations
@@ -123,7 +123,7 @@ The following PowerShell snippets assume the following:
 
 - The Azure Active Directory administrator has created following security groups that represent the three roles: Contoso Security Team, Contoso App Devops, Contoso App Auditors. 
 
-- ContosoAppRG is the resource group where all the resouces reside, contosologstorage is where the logs are stored. 
+- ContosoAppRG is the resource group where all the resources reside, contosologstorage is where the logs are stored. 
 
 - key vault and storage account where the logs are stored must be in the same Azure location
 
@@ -184,7 +184,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 
     This article explains the Resource Manager deployment and classic deployment models, and explains the benefits of using the Resource Manager and resource groups
 
--    [Manage Role-Based Access Control with Azure PowerShell](../role-based-access-control-manage-access-powershell.md)
+-    [Manage Role-Based Access Control with Azure PowerShell](role-based-access-control-manage-access-powershell.md)
 
      This article explains how to manage role-based access control with Azure PowerShell
 
