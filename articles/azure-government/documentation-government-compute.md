@@ -22,7 +22,7 @@
 
 ##  Virtual Machines
 
-For details on this service and how to use it, see [Azure Virtual Machines public documentation](../virtual-machines/windows/).
+For details on this service and how to use it, see [Azure Virtual Machines public documentation](../virtual-machines/windows.md).
 
 ### Variations
 
@@ -36,7 +36,7 @@ DSv1|GA|-|None
 Dv2|Planned|GA|None 
 F|Planned|GA|None
 
-For additional details, and the most up to date information see [Sizes for Virtual Machines in Azure](../virtual-machines-windows-sizes/)>.
+For additional details, and the most up to date information see [Sizes for Virtual Machines in Azure](../virtual-machines-windows-sizes.md)>.
 
 ###  Data Considerations
 
