@@ -22,13 +22,13 @@
 
 Cancel your Azure subscription from the [Azure Account Center](https://account.windowsazure.com/subscriptions). After you cancel the subscription, your access to Azure services and resources will end.
 
-#### Before you cancel your subscription 
+**Before you cancel your subscription**
 
-- Back up your data. For example, if you're storing data in Azure storage or SQL, download a copy. If you have a virtual machine, you may want to obtain an image of it and save it locally.
+- Back up your data. For example, if you're storing data in Azure storage or SQL, download a copy. If you have a virtual machine, save an image of it locally.
 
 - Shut down your services. Go to the [resources page in the management portal](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources), and **Stop** any running virtual machines, applications, or other services.
 
-> [AZURE.NOTE] An [Azure Support plan](https://azure.microsoft.com/support/plans/) has a 6-month term and Microsoft requires continued monetary commitment for the duration of the term. Cancellation before the term expires does not forgive the remaining commitment or provide refunds any pre-paid amount. 
+> [AZURE.NOTE] If you pay for an [Azure Support plan](https://azure.microsoft.com/support/plans/), you will still be billed monthly for any time left of the 6-months term.
 
 ## Cancel subscription
 
