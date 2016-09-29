@@ -21,11 +21,11 @@
 
 ## Install Azure PowerShell
  
-See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about how to install the latest version of Azure PowerShell, select the subscription that you want to use, and sign in to your Azure account.
+See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 
 ## Set variables
 
-All of the commands in the article require the name of the resource group where the virtual machine is located and the name of the virtual machine to manage. Replace the value of **$rgName** with the name of the resource group that contains the virtual machine. Replace the value of **$vmName** with the name of the VM. Create the variables.
+All the commands in the article require the name of the resource group where the virtual machine is located and the name of the virtual machine to manage. Replace the value of **$rgName** with the name of the resource group that contains the virtual machine. Replace the value of **$vmName** with the name of the VM. Create the variables.
 
     $rgName = "resource-group-name"
     $vmName = "VM-name"
@@ -36,7 +36,7 @@ Get the virtual machine information.
   
     Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
-It returns something like this:
+It returns something like this example:
 
     ResourceGroupName        : rg1
     Id                       : /subscriptions/{subscription-id}/resourceGroups/
@@ -118,7 +118,7 @@ You're asked for confirmation:
         
 Enter **Y** to stop the virtual machine.
 
-After a few minutes, it returns something like this:
+After a few minutes, it returns something like this example:
 
     StatusCode : Succeeded
     StartTime  : 9/13/2016 12:11:57 PM
@@ -130,7 +130,7 @@ Start the virtual machine if it's stopped.
 
     Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
-After a few minutes, it returns something like this:
+After a few minutes, it returns something like this example:
 
     StatusCode : Succeeded
     StartTime  : 9/13/2016 12:32:55 PM
@@ -144,7 +144,7 @@ Restart the running virtual machine.
 
     Restart-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
-It returns something like this:
+It returns something like this example:
 
     StatusCode : Succeeded
     StartTime  : 9/13/2016 12:54:40 PM
@@ -158,13 +158,13 @@ Delete the virtual machine.
 
 > [AZURE.NOTE] You can use the **-Force** parameter to skip the confirmation prompt.
 
-You're asked for confirmation if you didn't use the -Force parameter:
+If you didn't use the -Force parameter, you're asked for confirmation:
 
     Virtual machine removal operation
     This cmdlet will remove the specified virtual machine. Do you want to continue?
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
 
-It returns something like this:
+It returns something like this example:
 
     RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
     ---------  -------------------  ----------  ------------
@@ -179,7 +179,7 @@ This example shows how to update the size of the virtual machine.
     $vm.HardwareProfile.vmSize = $vmSize
     Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
     
-It returns something like this:
+It returns something like this example:
 
     RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
     ---------  -------------------  ----------  ------------
@@ -202,7 +202,7 @@ The disk that you add is not initialized. To initialize the disk, you can log in
     $fileName = "script-file-name"
     Set-AzureRmVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
 
-The script file can contain something like this to initialize the disks:
+The script file can contain something like this code to initialize the disks:
 
     $disks = Get-Disk |   Where partitionstyle -eq 'raw' | sort number
 
@@ -222,4 +222,4 @@ The script file can contain something like this to initialize the disks:
 
 ## Next Steps
 
-If there were issues with a deployment, you might take a look at [Troubleshooting resource group deployments with Azure Portal](../resource-manager-troubleshoot-deployments-portal.md)
+If there were issues with a deployment, you might look at [Troubleshooting resource group deployments with Azure portal](../resource-manager-troubleshoot-deployments-portal.md)
