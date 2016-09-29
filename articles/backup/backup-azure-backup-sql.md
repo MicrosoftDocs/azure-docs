@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/27/2016"
-	ms.author="giridham; jimpark;markgal;trinadhk"/>
+	ms.author="adigan;giridham; jimpark;markgal;trinadhk"/>
 
 
 # Azure Backup for SQL Server workloads using DPM
@@ -70,7 +70,7 @@ Before you begin, ensure that all the [prerequisites](../backup-azure-dpm-introd
 
     By default, DPM creates one volume per data source (SQL Server database) which is used for the initial backup copy. Using this approach, the Logical Disk Manager (LDM) limits DPM protection to 300 data sources (SQL Server databases). To work around this limitation, select the **Co-locate data in DPM Storage Pool**, option. If you use this option, DPM uses a single volume for multiple data sources, which allows DPM to protect up to 2000 SQL databases.
 
-    If the **Automatically grow the volumes** option is selected, DPM can account for the increased backup volume as the production data grows. If the **Automatically grow the volumes** option is not selected, DPM limits the backup storage used to the data sources in the protection group.
+    If **Automatically grow the volumes** option is selected, DPM can account for the increased backup volume as the production data grows. If **Automatically grow the volumes** option is not selected, DPM limits the backup storage used to the data sources in the protection group.
 
 9. Administrators are given the choice of transferring this initial backup manually (off network) to avoid bandwidth congestion or over the network. They can also configure the time at which the initial transfer can happen. Click **Next**.
 
@@ -78,13 +78,13 @@ Before you begin, ensure that all the [prerequisites](../backup-azure-dpm-introd
 
     The initial backup copy requires transfer of the entire data source (SQL Server database) from production server (SQL Server machine) to the DPM server. This data might be large, and transferring the data over the network could exceed bandwidth. For this reason, administrators can choose to transfer the initial backup: **Manually** (using removable media) to avoid bandwidth congestion, or **Automatically over the network** (at a specified time).
 
-    Once the initial backup is complete, the remainder of the backups are incremental backups on top of initial backup copy. Incremental backups tend to be small and are easily transferred across the network.
+    Once the initial backup is complete, the rest of the backups are incremental backups on the initial backup copy. Incremental backups tend to be small and are easily transferred across the network.
 
 10. Choose when you want the consistency check to run and click **Next**.
 
     ![Consistency check](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    DPM can perform a consistency check to check the integrity of the backup point. It calculates the checksum of the backup file on the production server (SQL Server machine in this scenario) and the backed-up data for that file at DPM. In the case of a conflict, it is assumed that the backed up file at DPM is corrupt. DPM rectifies the backed-up data by sending the blocks corresponding to the checksum mismatch. As the consistency check is a performance-intensive operation, administrators have the option of scheduling the consistency check or running it automatically.
+    DPM can perform a consistency check to check the integrity of the backup point. It calculates the checksum of the backup file on the production server (SQL Server machine in this scenario) and the backed-up data for that file at DPM. In the case of a conflict, it is assumed that the backed-up file at DPM is corrupt. DPM rectifies the backed-up data by sending the blocks corresponding to the checksum mismatch. As the consistency check is a performance-intensive operation, administrators have the option of scheduling the consistency check or running it automatically.
 
 11. To specify online protection of the datasources, select the databases to be protected to Azure and click **Next**.
 
@@ -148,7 +148,7 @@ The following steps are required to recover a protected entity (SQL Server datab
 
     ![Select Recovery point](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
 
-2. Right click the database name and click **Recover**.
+2. Right-click the database name and click **Recover**.
 
     ![Recover from Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
 

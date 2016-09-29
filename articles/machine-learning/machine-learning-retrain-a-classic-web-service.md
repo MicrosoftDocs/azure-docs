@@ -47,7 +47,7 @@ You can add scoring endpoints using the sample code provided in this [github rep
 
 ### Use the Azure classic portal to add an endpoint
 
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
+1. Sign in to the [classic Azure portal](https://manage.windowsazure.com).
 2. In the left menu, click **Machine Learning**.
 3. Under Name, click your workspace and then click **Web Services**.
 4. Under Name, click **Census Model [predictive exp.]**.
@@ -57,7 +57,7 @@ You can add scoring endpoints using the sample code provided in this [github rep
 
 To complete the retraining process, you must update the trained model of the new endpoint that you added.
 
-* If you added the new endpoint using the Azure portal, you can click the new endpoint's name in the Azure portal, then the **UpdateResource** link to get the URL you would need to update the endpoint's model.
+* If you added the new endpoint using the classic Azure portal, you can click the new endpoint's name in the portal, then the **UpdateResource** link to get the URL you would need to update the endpoint's model.
 * If you added the endpoint using the sample code, this includes location of the help URL identified by the *HelpLocationURL* value in the output.
  
 To retrieve the path URL:
