@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/06/2016"
+    ms.date="09/29/2016"
     ms.author="sethm" />
 
 # Install Apache Qpid Proton-C on an Azure Linux VM
@@ -23,19 +23,19 @@ This section shows how to create a CentOS Linux VM using Azure Virtual Machines 
 
 The first step is performed using the [Azure classic portal][]. The following screen shot shows how a CentOS VM named "scott-centos" is created:
 
-![Proton on a Azure Linux VM][0]
+![Proton on an Azure Linux VM][0]
 
 After provisioning, the portal displays the following:
 
-![Proton on a Azure Linux VM][1]
+![Proton on an Azure Linux VM][1]
 
 In order to log on to the computer, you must know the endpoint port for SSH. You can obtain this value from the [Azure classic portal][] by selecting the newly created VM and clicking on the **Endpoints** tab. The following screen shot shows that the public SSH port for this computer is 57146.
 
-![Proton on a Azure Linux VM][2]
+![Proton on an Azure Linux VM][2]
 
 You can now connect to the computer using SSH. This example uses the PuTTY tool, as in the following screen shot:
 
-![Proton on a Azure Linux VM][3]
+![Proton on an Azure Linux VM][3]
 
 For the Python and PHP apps, this example uses the Proton client libraries from Apache. These libraries are available for download from [http://qpid.apache.org/download.html](http://qpid.apache.org/download.html). The Readme file in the distribution package explains the steps required to install the dependencies and build Proton. Here's a summary of the steps:
 
