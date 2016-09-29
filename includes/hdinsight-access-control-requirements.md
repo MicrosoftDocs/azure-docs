@@ -1,4 +1,8 @@
-If you use an Azure subscription where you are not the administrator/owner, such as a company owned subscription, your user account must have at least __Contributor__ access to the subscription. You must also have __Contributor__ access to the Azure Resource Group that the HDInsight cluster will be created in.
+If you use an Azure subscription where you are not the administrator/owner, such as a company owned subscription, you must verify the following before using the steps in this document:
+
+* Your Azure login must have at least __Contributor__ access to the Azure resource group that you use when creating HDInsight (and other Azure resources.)
+
+* Someone with at least __Contributor__ access to the Azure subscription must have previously registered the provider for the resource you are using. Provider registration happens when a user with Contributor access to the subscription creates a resource for the first time on the subscription. It can also be accomplished without creating a resource by [registering a provider using REST](https://msdn.microsoft.com/library/azure/dn790548.aspx).
 
 For more information on working with access management, see the following documents:
 

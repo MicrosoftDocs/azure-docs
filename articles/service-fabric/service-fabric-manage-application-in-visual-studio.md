@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/07/2016"
-   ms.author="seanmck"/>
+   ms.date="09/09/2016"
+   ms.author="seanmck;mikhegn"/>
 
 # Use Visual Studio to simplify writing and managing your Service Fabric applications
 
@@ -30,26 +30,32 @@ By default, deploying an application combines the following steps into one simpl
 4. Removing any running application instances
 5. Creating a new application instance
 
-In Visual Studio, pressing **F5** will also deploy your application and attach the debugger to all application instances. You can use **Ctrl+F5** to deploy an application without debugging, or you can publish to a local or remote cluster by using the publish profile. For more information, refer to [Publish an application to a remote cluster by using Visual Studio](service-fabric-publish-app-remote-cluster.md).
+In Visual Studio, pressing **F5** will also deploy your application and attach the debugger to all application instances. You can use **Ctrl+F5** to deploy an application without debugging, or you can publish to a local or remote cluster by using the publish profile. For more information, see [Publish an application to a remote cluster by using Visual Studio](service-fabric-publish-app-remote-cluster.md).
 
 ### Application Debug Mode
 
-By default, Visual Studio will remove existing instances of your application type when you stop debugging or (if you deployed the app without attaching the debugger), when you redeploy the application. In that case, all of the application's data will be removed. While debugging locally, you may want to keep data that you've already created when testing a new version of the application. The Visual Studio Service Fabric Tools provide a property called **Application Debug Mode**, which controls whether the **F5** should uninstall the application or keep the application after a debug session ends.
+By default, Visual Studio removes existing instances of your application type when you stop debugging or (if you deployed the app without attaching the debugger), when you redeploy the application. In that case, all the application's data is removed. While debugging locally, you may want to keep data that you've already created when testing a new version of the application, you want to keep the application running or you want subsequent debug sessions to upgrade the application. Visual Studio Service Fabric Tools provide a property called **Application Debug Mode**, which controls whether the **F5** should uninstall the application, keep the application running after a debug session ends or enable the application to be upgraded on subsequent debugging sessions, rather than removed and redeployed.
 
 #### To set the Application Debug Mode property
 
 1. On the application project's shortcut menu, choose **Properties** (or press the **F4** key).
-2. In the **Properties** window, set the **Application Debug Mode** property to either **Remove** or **Auto Upgrade**.
+2. In the **Properties** window, set the **Application Debug Mode** property.
 
     ![Set Application Debug Mode Property][debugmodeproperty]
 
-Setting this property value to **Auto Upgrade** will leave the application running on the local cluster. The next **F5** will treat the deployment as an upgrade by using unmonitored auto mode to quickly upgrade the application to a newer version with a date string appended. The upgrade process preserves any data that you entered in a previous debug session.
+These are the **Application Debug Mode** options available.
 
-![Example of new application version with date1 appended][preservedate]
+1. **Auto Upgrade**: The application continues to run when the debug session ends. The next **F5** will treat the deployment as an upgrade by using unmonitored auto mode to quickly upgrade the application to a newer version with a date string appended. The upgrade process preserves any data that you entered in a previous debug session.
 
-Data is preserved by leveraging the application upgrade capabilities of Service Fabric, but it is tuned to optimize for performance rather than safety. For more information about upgrading applications and how you might perform an upgrade in a real enviornment, refer to [Service Fabric application upgrade](service-fabric-application-upgrade.md).
+2. **Keep Application**: The application keeps running in the cluster when the debug session ends. On the next **F5** the application will be removed and the newly built application will be deployed to the cluster.
 
->[AZURE.NOTE] This property doesn't exist prior to version 1.1 of the Service Fabric Tools for Visual Studio. Prior to 1.1, please use the **Preserve Data On Start** property to achieve the same behavior.
+3. **Remove Application** causes the application to be removed when the debug session ends.
+
+For **Auto Upgrade** data is preserved by applying the application upgrade capabilities of Service Fabric, but it is tuned to optimize for performance rather than safety. For more information about upgrading applications and how you might perform an upgrade in a real environment, see [Service Fabric application upgrade](service-fabric-application-upgrade.md).
+
+![Example of new application version with date appended][preservedata]
+
+>[AZURE.NOTE] This property doesn't exist prior to version 1.1 of the Service Fabric Tools for Visual Studio. Prior to 1.1, please use the **Preserve Data On Start** property to achieve the same behavior. The "Keep Application" option was introduced in version 1.2 of the Service Fabric Tools for Visual Studio.
 
 ## Add a service to your Service Fabric application
 
@@ -67,7 +73,7 @@ The new service will be added to your solution and existing application package.
 
 ## Package your Service Fabric application
 
-To deploy the application and its services to a cluster, you need to create an application package.  The package organizes the application manifest, service manifest(s), and other necessary files in a specific layout.  Visual Studio sets up and manages the package in the application project's folder, in the 'pkg' directory.  Clicking **Package**  from the **Application** context menu creates or updates the application package.  You may want to do this if you deploy the application by using custom PowerShell scripts.
+To deploy the application and its services to a cluster, you need to create an application package.  The package organizes the application manifest, service manifest(s), and other necessary files in a specific layout.  Visual Studio sets up and manages the package in the application project's folder, in the 'pkg' directory.  Clicking **Package** from the **Application** context menu creates or updates the application package.  You may want to do this if you deploy the application by using custom PowerShell scripts.
 
 ## Remove applications and application types using Cloud Explorer
 
@@ -93,5 +99,4 @@ You can perform basic cluster management operations from within Visual Studio us
 [newservice]:./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]:./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 [preservedata]:./media/service-fabric-manage-application-in-visual-studio/preservedata.png
-[preservedate]:./media/service-fabric-manage-application-in-visual-studio/preservedate.png
 [debugmodeproperty]:./media/service-fabric-manage-application-in-visual-studio/debugmodeproperty.png

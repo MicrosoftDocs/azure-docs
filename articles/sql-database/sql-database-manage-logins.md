@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/24/2016"
+   ms.date="09/14/2016"
    ms.author="rickbyh"/>
 
 # SQL Database Authentication and Authorization: Granting Access 
@@ -40,7 +40,7 @@ A single login account is created when a logical SQL instance is created, called
 One Azure Active Directory account can also be configured as an administrator. This account can be an individual Azure AD User, or can be an Azure AD Group containing several Azure AD Users. It is optional to configure an Azure AD administrator, but an Azure AD administrator must be configured if you want to use Windows Authentication for Azure AD accounts to connect to SQL Database. For more information about configuring Azure Active Directory access, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) and [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
 
 ### Configuring the firewall
-When the server-level firewall is configured, the Azure SQL Database Subscriber Account and the Azure Active Directory account can connect to the virtual master database and all the user databases. The server-level firewall can be configured through the portal. Once a connection is made, additional server-level firewall rules can also be configured by using the [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) Transact-SQL statement. For more information about configuring the firewall see [How to: Configure an Azure SQL Database firewall using the Azure portal](sql-database-configure-firewall-settings.md).
+When the server-level firewall is configured, the Azure SQL Database Subscriber Account and the Azure Active Directory account can connect to the master database and all the user databases. The server-level firewall can be configured through the portal. Once a connection is made, additional server-level firewall rules can also be configured by using the [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) Transact-SQL statement. For more information about configuring the firewall see [How to: Configure an Azure SQL Database firewall using the Azure portal](sql-database-configure-firewall-settings.md).
 
 ### Administrator access path
 
@@ -70,6 +70,8 @@ The administrative accounts can create new databases. To create an additional ac
      ```
 
      > [AZURE.NOTE] Use a strong password when creating a login or contained database user. For more information, see [Strong Passwords](https://msdn.microsoft.com/library/ms161962.aspx).
+
+    To improve performance, logins (server-level principals) are temporarily cached at the database level. To refresh the authentication cache, see [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
 
 3.	In the virtual master database, create a user by using the [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) statement. The user can be an Azure Active Directory authentication contained database user (if you have configured your environment for Azure AD authentication), or a SQL Server authentication contained database user, or a SQL Server authentication user based on a SQL Server authentication login (created in the previous step.) Sample statements:
 

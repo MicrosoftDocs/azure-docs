@@ -3,7 +3,7 @@
    description="Troubleshoot classic deployment issues when you create a new Linux virtual machine in Azure"
    services="virtual-machines-linux"
    documentationCenter=""
-   authors="jiangchen79"
+   authors="JiangChen79"
    manager="felixwu"
    editor=""
    tags="top-support-issue"/>
@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="vm-linux"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="06/20/2016"
+  ms.date="09/06/2016"
   ms.author="cjiang"/>
 
 # Troubleshoot classic deployment issues with creating a new Linux virtual machine in Azure

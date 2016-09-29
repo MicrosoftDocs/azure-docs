@@ -22,6 +22,7 @@
 
 > [AZURE.SELECTOR]
 - [C# script](../articles/azure-functions/functions-reference-csharp.md)
+- [F# script](../articles/azure-functions/functions-reference-fsharp.md)
 - [Node.js](../articles/azure-functions/functions-reference-node.md)
 
 The Node/JavaScript experience for Azure Functions makes it easy to export a function which is passed a `context` object for communicating with the runtime, and for receiving and sending data via bindings.
@@ -199,4 +200,5 @@ For more information, see the following resources:
 
 * [Azure Functions developer reference](functions-reference.md)
 * [Azure Functions C# developer reference](functions-reference-csharp.md)
+* [Azure Functions F# developer reference](functions-reference-fsharp.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)

@@ -65,6 +65,13 @@ Using the example function.json above, the body of the event message will be log
 	    log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
 	}
 
+#### Azure Event Hub trigger F# example
+
+Using the example function.json above, the body of the event message will be logged using the F# function code below:
+
+	let Run(myEventHubMessage: string, log: TraceWriter) =
+	    log.Info(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
+
 #### Azure Event Hub trigger Node.js example
  
 Using the example function.json above, the body of the event message will be logged using the Node.js function code below:
@@ -100,7 +107,7 @@ The *function.json* file for an Azure Event Hub output binding specifies the fol
 
 #### Azure Event Hub C# code example for output binding
  
-The following C# example function code demonstrates writing a event to an Event Hub event stream. This example represents the Event Hub output binding shown above applied to a C# timer trigger.  
+The following C# example function code demonstrates writing an event to an Event Hub event stream. This example represents the Event Hub output binding shown above applied to a C# timer trigger.  
  
 	using System;
 	
@@ -112,6 +119,15 @@ The following C# example function code demonstrates writing a event to an Event 
 	    
 	    outputEventHubMessage = msg;
 	}
+
+#### Azure Event Hub F# code example for output binding
+
+The following F# example function code demonstrates writing an event to an Event Hub event stream. This example represents the Event Hub output binding shown above applied to a C# timer trigger.
+
+	let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWriter) =
+	    let msg = sprintf "TimerTriggerFSharp1 executed at: %s" DateTime.Now.ToString()
+	    log.Verbose(msg);
+	    outputEventHubMessage <- msg;
 
 #### Azure Event Hub Node.js code example for output binding
  

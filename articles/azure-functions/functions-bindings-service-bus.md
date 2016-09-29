@@ -67,6 +67,13 @@ public static void Run(string myQueueItem, TraceWriter log)
 }
 ```
 
+#### F# code example that processes a Service Bus queue message
+
+```fsharp
+let Run(myQueueItem: string, log: TraceWriter) =
+    log.Info(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
+```
+
 #### Node.js code example that processes a Service Bus queue message
 
 ```javascript
@@ -166,6 +173,15 @@ public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> ou
     outputSbQueue.Add("1 " + message);
     outputSbQueue.Add("2 " + message);
 }
+```
+
+#### F# code example that creates a Service Bus queue message
+
+```fsharp
+let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
+    let message = sprintf "Service Bus queue message created at: %s" (DateTime.Now.ToString())
+    log.Info(message)
+    outputSbQueue = message
 ```
 
 #### Node.js code example that creates a Service Bus queue message

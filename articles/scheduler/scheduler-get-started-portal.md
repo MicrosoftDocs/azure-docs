@@ -3,8 +3,8 @@
  description="Get started with Azure Scheduler in Azure portal"
  services="scheduler"
  documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
+ authors="derek1ee"
+ manager="kevinlam1"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,7 +13,7 @@
  ms.devlang="dotnet"
  ms.topic="hero-article"
  ms.date="08/10/2016"
- ms.author="krisragh"/>
+ ms.author="deli"/>
 
 # Get started with Azure Scheduler in Azure portal
 

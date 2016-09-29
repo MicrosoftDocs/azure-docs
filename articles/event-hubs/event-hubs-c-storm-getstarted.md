@@ -3,7 +3,7 @@
 	description="Follow this tutorial to get started using Azure Event Hubs; sending events in C and receiving them in an Apache Storm cluster."
 	services="event-hubs"
 	documentationCenter=""
-	authors="fsautomata"
+	authors="jtaubensee"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="java"
 	ms.topic="article"
 	ms.date="08/16/2016"
-	ms.author="sethm"/>
+	ms.author="jotaub;sethm"/>
 
 # Get started with Event Hubs
 

@@ -3,7 +3,7 @@
 	description="Follow this tutorial to get started using Azure Event Hubs with C# and using the EventProcessorHost."
 	services="event-hubs"
 	documentationCenter=""
-	authors="fsautomata"
+	authors="jtaubensee"
 	manager="timlt"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/19/2016"
-	ms.author="sethm"/>
+	ms.date="09/02/2016"
+	ms.author="jotaub;sethm"/>
 
 # Get started with Event Hubs
 
