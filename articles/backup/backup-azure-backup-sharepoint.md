@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/04/2016"
-	ms.author="giridham;jimpark;trinadhk;markgal"/>
+	ms.date="09/29/2016"
+	ms.author="adigan;giridham;jimpark;trinadhk;markgal"/>
 
 
 # Back up a SharePoint farm to Azure
-You back up a SharePoint farm to Microsoft Azure by using System Center Data Protection Manager (DPM) in much the same way that you back up other data sources. Azure Backup provides flexibility in the backup schedule to create daily, weekly, monthly, or yearly backup points and gives you retention policy options for various backup points. DPM provides the capability to store local disk copies for quick recovery-time objectives (RTO) and to store copies to Azure for economical, long term retention.
+You back up a SharePoint farm to Microsoft Azure by using System Center Data Protection Manager (DPM) in much the same way that you back up other data sources. Azure Backup provides flexibility in the backup schedule to create daily, weekly, monthly, or yearly backup points and gives you retention policy options for various backup points. DPM provides the capability to store local disk copies for quick recovery-time objectives (RTO) and to store copies to Azure for economical, long-term retention.
 
 ## SharePoint supported versions and related protection scenarios
-Azure Backup for DPM supports the following scenarios.
+Azure Backup for DPM supports the following scenarios:
 
 | Workload | Version | SharePoint deployment | DPM deployment type | DPM - System Center 2012 R2 | Protection and recovery |
 | -------- | ------- | --------------------- | ------------------- | --------------------------- | ----------------------- |
@@ -150,7 +150,7 @@ In the following example, the *Recovering SharePoint item* has been accidentally
 
     ![DPM SharePoint Protection6](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection7.png)
 
-4. Select the appropriate recovery point from the search results, right click the item, and then select **Recover**.
+4. Select the appropriate recovery point from the search results, right-click the item, and then select **Recover**.
 
 5. You can also browse through various recovery points and select a database or item to recover. Select **Date > Recovery time**, and then select the correct **Database > SharePoint farm > Recovery point > Item**.
 
