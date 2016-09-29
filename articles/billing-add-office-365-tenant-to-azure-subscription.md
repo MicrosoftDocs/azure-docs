@@ -147,6 +147,7 @@ To associate the Office 365 tenant with the Azure subscription, follow these ste
 
 ## Next steps
 Related scenarios include:
+
 - You already have an Office 365 subscription and are ready for an Azure subscription, but you want to use the existing Office 365 user account(s) for your Azure subscription.
 - You are an Azure subscriber and want to get an Office 365 subscription for the users in your existing Azure Active Directory.
 
