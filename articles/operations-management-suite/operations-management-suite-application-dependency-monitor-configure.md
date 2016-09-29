@@ -56,17 +56,17 @@ If you are using the OMS Direct Agent, you need to configure the OMS Agent itsel
 
 ### Avoiding duplicate data
 
-Using both configurations with the same workspace in each will cause duplication of data. Using both with different workspaces can result in conflicting configuration (one with ADM solution enabled and the other without) that may prevent data from flowing to ADM completely.
-NOTE: Even if the machine itself isn’t specified in the SCOM Console’s OMS configuration, if an Instance Group such as “Windows Server Instances Group” is active, it may still result in the machine receiving OMS configuration via SCOM.
+If you are a SCOM customer, you should not configure your SCOM agents to communicate directly to OMS, or data will be reported twice.  In ADM, this will result in computers appearing twice in the Machine List.
 
 Configuration of OMS should happen in only one of the following locations:
 
 - The SCOM Console Operations Management Suite panel for Managed Computers
 - Azure Operational Insights configuration in the MMA properties
 
-Using both configurations with the same workspace in each will cause duplication of data. Using both with different workspaces can result in conflicting configuration (one with ADM solution enabled and the other without) that may prevent data from flowing to ADM completely.
+Using both configurations with the same workspace in each will cause duplication of data. Using both with different workspaces can result in conflicting configuration (one with ADM solution enabled and the other without) that may prevent data from flowing to ADM completely.  
 
-NOTE: Even if the machine itself isn’t specified in the SCOM Console’s OMS configuration, if an Instance Group such as "Windows Server Instances Group" is active, it may still result in the machine receiving OMS configuration via SCOM.
+Note that even if the machine itself isn’t specified in the SCOM Console’s OMS configuration, if an Instance Group such as “Windows Server Instances Group” is active, it may still result in the machine receiving OMS configuration via SCOM.
+
 
 
 ## Management packs
