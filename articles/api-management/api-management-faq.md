@@ -52,7 +52,7 @@ You can contact us by using one of these options:
 
 ### What does it mean when a feature is in preview?
 
-When a feature is in preview, it means that we're actively seeking feedback on how the feature is working for you. A feature in preview is functionally complete, but it's possible that we'll make a breaking change in response to customer feedback. We recommend that you don't depend on a feature that is in preview in your production environment. If you have any feedback on preview features, please let us know through one of the contact options in [How can I ask the Microsoft Azure API Management team a question?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
+When a feature is in preview, it means that we're actively seeking feedback on how the feature is working for you. A feature in preview is functionally complete, but it's possible that we'll make a breaking change in response to customer feedback. We recommend that you don't depend on a feature that is in preview in your production environment. If you have any feedback on preview features, please let us know through one of the contact options in [How can I ask the Microsoft Azure API Management team a question?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question).
 
 ### How can I secure the connection between the API Management gateway and my back-end services?
 
@@ -117,7 +117,7 @@ To set up multiple environments, for example, a test environment and a productio
 
 ### Can I use SOAP with API Management?
 
-Currently, we offer limited support for Simple Object Access Protocol (SOAP) in Azure API Management. It's a feature that we're investigating. We're interested in seeing examples of your Web Services Description Language (WSDL) documents. Your examples could help us validate our thinking. If you have examples to share with us, please contact us through one of the contact methods in [How can I ask the Microsoft Azure API Management team a question?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
+Currently, we offer limited support for Simple Object Access Protocol (SOAP) in Azure API Management. It's a feature that we're investigating. We're interested in seeing examples of your Web Services Description Language (WSDL) documents. Your examples could help us validate our thinking. If you have examples to share with us, please contact us through one of the contact methods in [How can I ask the Microsoft Azure API Management team a question?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question).
 
 If you need to get SOAP with API Management working right now, some members of our community have suggested workarounds. For details, see [Azure API Management: APIM, consuming a SOAP WCF service over HTTP](http://mostlydotnetdev.blogspot.com/2015/03/azure-api-management-apim-consuming.html).
 
