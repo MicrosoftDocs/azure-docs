@@ -22,13 +22,13 @@
 
 Cancel your Azure subscription from the [Azure Account Center](https://account.windowsazure.com/subscriptions). After you cancel the subscription, your access to Azure services and resources will end.
 
-**Before you cancel your subscription**
+Before you cancel your subscription:
 
 - Back up your data. For example, if you're storing data in Azure storage or SQL, download a copy. If you have a virtual machine, save an image of it locally.
 
 - Shut down your services. Go to the [resources page in the management portal](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources), and **Stop** any running virtual machines, applications, or other services.
 
-> [AZURE.NOTE] If you pay for an [Azure Support plan](https://azure.microsoft.com/support/plans/), you will still be billed monthly for any time left of the 6-months term.
+If you cancel a paid [Azure Support plan](https://azure.microsoft.com/support/plans/), you will still be billed monthly for the rest of the 6-months term.
 
 ## Cancel subscription
 
@@ -52,7 +52,7 @@ After you cancel your subscription, we wait 90 days before permanently deleting 
 
 ## Reactivate subscription
 
-If you canceled your Pay-As-You-Go subscription accidentally, you can [reactive it in the Accounts Center](billing-subscription-become-disable.md#how-to-re-enable-non-pay-as-you-go-subscriptions).
+If you canceled your Pay-As-You-Go subscription accidentally, you can [reactivate it in the Accounts Center](billing-subscription-become-disable.md#how-to-re-enable-non-pay-as-you-go-subscriptions).
 
 ## Need help? Contact support.
 
