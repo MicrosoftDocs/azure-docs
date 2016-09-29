@@ -16,7 +16,7 @@
  ms.date="09/30/2016" 
  ms.author="juanpere"/>
 
-# Tutorial: Schedule and broadcast jobs
+# Tutorial: Schedule and broadcast jobs (preview)
 
 ## Introduction
 Azure IoT Hub is a fully managed service that enables an application back end to create and track jobs that schedule and update millions of devices.  Jobs can be used for the following actions:
