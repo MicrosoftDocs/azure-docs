@@ -3,8 +3,8 @@
 	description="Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines. Azure DS-series, DSv2-series and GS-series VMs support Premium Storage."
 	services="storage"
 	documentationCenter=""
-	authors="aungoo-msft"
-	manager="tadb"
+	authors="yuemlu"
+	manager="aungoo-msft"
 	editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/19/2016"
-	ms.author="aungoo;robinsh"/>
+	ms.date="09/28/2016"
+	ms.author="yuemlu;aungoo;robinsh"/>
 
 
 # Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads
