@@ -1,5 +1,5 @@
 <properties
- pageTitle="Troubleshooting"
+ pageTitle="Troubleshooting | Microsoft Azure"
  description="Troubleshooting page for Raspberry Pi Node.js experience"
  services="iot-hub"
  documentationCenter=""

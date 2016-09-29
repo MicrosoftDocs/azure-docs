@@ -1,5 +1,5 @@
 <properties
- pageTitle="Get Started with Raspberry Pi 3"
+ pageTitle="Get Started with Raspberry Pi 3 | Microsoft Azure"
  description="Get Started with Raspberry Pi 3, Create your Azure IoT Hub and connect your Pi to the IoT hub"
  services="iot-hub"
  documentationCenter=""
@@ -19,7 +19,7 @@
 
 # Get Started with Raspberry Pi 3
 
-In this tutorial, you begin by learning the basics of working with Raspberry Pi 3 device. You then learn how to seamlessly connect your devices to the cloud with Microsoft Azure IoT.
+In this tutorial, you begin by learning the basics of working with Raspberry Pi 3 device. You then learn how to seamlessly connect your devices to the cloud with [Azure IoT Hub](iot-hub-what-is-iot-hub.md).
 
 ## Lesson 1: Get started with your Raspberry Pi
 

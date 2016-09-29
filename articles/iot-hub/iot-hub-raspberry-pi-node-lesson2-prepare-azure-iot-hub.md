@@ -1,5 +1,5 @@
 <properties
- pageTitle="Create your Azure IoT Hub and the register your Raspberry Pi 3 device"
+ pageTitle="Create your Azure IoT Hub and the register your Raspberry Pi 3 device | Microsoft Azure"
  description="Create your resource group, provision your first Azure IoT Hub, and add your first device to the Azure IoT Hub using Azure CLI. When you use the Azure CLI to add a device to your IoT hub, the service generates a key that your Raspberry Pi must use to authenticate with the service. You might need 10 minutes to complete this section."
  services="iot-hub"
  documentationCenter=""

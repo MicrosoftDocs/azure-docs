@@ -1,5 +1,5 @@
 <properties
- pageTitle="Get Azure tools (Windows 7+)"
+ pageTitle="Get Azure tools (Windows 7+) | Microsoft Azure"
  description="Install Azure Command-Line Interface (Azure CLI). You might need 10 minutes to complete this section."
  services="iot-hub"
  documentationCenter=""

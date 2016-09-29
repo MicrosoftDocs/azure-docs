@@ -1,5 +1,5 @@
 <properties
- pageTitle="Create an Azure function app and a storage account to process and store IoT hub messages"
+ pageTitle="Create an Azure function app and a storage account to process and store IoT hub messages | Microsoft Azure"
  description="Use an Azure Resource Manager (ARM) template to create an Azure function app and a storage account. The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure table storage."
  services="iot-hub"
  documentationCenter=""

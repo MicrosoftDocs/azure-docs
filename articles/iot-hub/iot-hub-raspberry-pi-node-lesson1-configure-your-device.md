@@ -1,5 +1,5 @@
 <properties
- pageTitle="Configure your Raspberry Pi 3 device"
+ pageTitle="Configure your Raspberry Pi 3 device | Microsoft Azure"
  description="Configure your Raspberry Pi 3 for first time use and install the Raspbian OS, a free operating system that is optimized for the Raspberry Pi hardware."
  services="iot-hub"
  documentationCenter=""
@@ -31,6 +31,7 @@ In this section, you will learn:
 
 ## 1.1.3 What you need
 To complete this section, you need the following parts from your Raspberry Pi Starter Kit:
+
 - Raspberry Pi 3 board
 - 16GB SD/MicroSD Memory Card
 - 5V 2A Switching Power Supply with 6' Micro USB Cable

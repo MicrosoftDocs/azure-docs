@@ -1,5 +1,5 @@
 <properties
- pageTitle="Create and deploy the blink sample application"
+ pageTitle="Create and deploy the blink sample application | Microsoft Azure"
  description="Clone the sample Node.js application from Github, and gulp to deploy this application to your Raspberry Pi 3 board. This sample application blinks the LED connected to the board every two seconds."
  services="iot-hub"
  documentationCenter=""

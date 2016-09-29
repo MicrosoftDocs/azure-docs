@@ -1,5 +1,5 @@
 <properties
- pageTitle="Run the Azure blink sample application on your Raspberry Pi 3"
+ pageTitle="Run the Azure blink sample application on your Raspberry Pi 3 | Microsoft Azure"
  description="Deploy and run a sample application to your Raspberry Pi 3 device that sends messages to IoT hub."
  services="iot-hub"
  documentationCenter=""

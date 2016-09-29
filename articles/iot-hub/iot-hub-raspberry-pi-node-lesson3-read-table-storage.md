@@ -1,5 +1,5 @@
 <properties
- pageTitle="Read messages persisted in Azure Storage"
+ pageTitle="Read messages persisted in Azure Storage | Microsoft Azure"
  description="Monitor the device-to-cloud messages as they are written to your Azure storage."
  services="iot-hub"
  documentationCenter=""

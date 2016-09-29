@@ -1,5 +1,5 @@
 <properties
- pageTitle="Get Azure tools (Mac OS X 10.10)"
+ pageTitle="Get Azure tools (Mac OS X 10.10) | Microsoft Azure"
  description="Install Azure Command-Line Interface (Azure CLI). You might need 10 minutes to complete this section."
  services="iot-hub"
  documentationCenter=""
