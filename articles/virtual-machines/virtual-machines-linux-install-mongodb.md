@@ -51,7 +51,7 @@ To add the installation sources for MongoDB, create a `yum` repository file as f
 sudo touch /etc/yum.repos.d/mongodb-org-3.2.repo
 ```
 
-Open the MongoDB repo file for editing. Add the following:
+Open the MongoDB repo file for editing. Add the following lines:
 
 ```bash
 [mongodb-org-3.2]
@@ -68,7 +68,7 @@ Install MongoDB using `yum` as follows:
 sudo yum install -y mongodb-org
 ```
 
-By default, SELinux is enforced on CentOS images which prevents you from accessing MongoDB. Install policy management tools and configure SELinux to allow MongoDB to operate on its default TCP port 27017 as follows. 
+By default, SELinux is enforced on CentOS images that prevents you from accessing MongoDB. Install policy management tools and configure SELinux to allow MongoDB to operate on its default TCP port 27017 as follows. 
 
 ```bash
 sudo yum install -y policycoreutils-python
