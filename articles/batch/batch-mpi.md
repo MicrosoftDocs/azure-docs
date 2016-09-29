@@ -13,12 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="09/28/2016"
+	ms.date="09/29/2016"
 	ms.author="marsma" />
 
 # Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch
 
 Multi-instance tasks allow you to run an Azure Batch task on multiple compute nodes simultaneously. These tasks enable high performance computing scenarios like Message Passing Interface (MPI) applications in Batch. In this article, you learn how to execute multi-instance tasks using the [Batch .NET][api_net] library.
+
+>[AZURE.NOTE] While the examples in this article focus on Batch .NET, MS-MPI, and Windows compute nodes, the multi-instance task concepts discussed here are applicable to other platforms and technologies (Python and Intel MPI on Linux nodes, for example).
 
 ## Multi-instance task overview
 
@@ -161,15 +163,15 @@ The following environment variables are created by the Batch service for use by 
 
 For details on these and the other Batch compute node environment variables, including their contents and visibility, see [Compute node environment variables][msdn_env_var].
 
->[AZURE.TIP] The Batch Linux MPI code sample contains an example of how these environment variables can be used. The [coordination-command][coord_cmd_example] Bash script enables a Network File System (NFS) share on the master node, and configures the other nodes allocated to the multi-instance task as clients.
+>[AZURE.TIP] The Batch Linux MPI code sample contains an example of how several of these environment variables can be used. The [coordination-cmd][coord_cmd_example] Bash script downloads common application and input files from Azure Storage, enables a Network File System (NFS) share on the master node, and configures the other nodes allocated to the multi-instance task as NFS clients.
 
 ## Resource files
 
 There are two sets of resource files to consider for multi-instance tasks: **common resource files** that *all* tasks download (both primary and subtasks), and the **resource files** specified for the multi-instance task itself, which *only the primary* task downloads.
 
-You can specify one or more **common resource files** in the multi-instance settings for a task. These common resource files are downloaded from [Azure Storage](./../storage/storage-introduction.md) into each node's task **shared directory** by the primary and all subtasks. You can access the task shared directory from application and coordination command lines by using the `AZ_BATCH_TASK_SHARED_DIR` environment variable. The `AZ_BATCH_TASK_SHARED_DIR` path is identical on every node allocated to the multi-instance task, thus you can "share" a single coordination command line between the primary and all subtasks. The directory is not shared in the remote access sense by default, but can be used as a mount or share point as mentioned in the preceding tip.
+You can specify one or more **common resource files** in the multi-instance settings for a task. These common resource files are downloaded from [Azure Storage](./../storage/storage-introduction.md) into each node's **task shared directory** by the primary and all subtasks. You can access the task shared directory from application and coordination command lines by using the `AZ_BATCH_TASK_SHARED_DIR` environment variable. The `AZ_BATCH_TASK_SHARED_DIR` path is identical on every node allocated to the multi-instance task, thus you can share a single coordination command between the primary and all subtasks. Batch does not "share" the directory in a remote access sense, but you can use it as a mount or share point as mentioned earlier in the tip on environment variables.
 
-Resource files that you specify for the multi-instance task itself (downloaded by the primary task only) are downloaded to the task's working directory, `AZ_BATCH_TASK_WORKING_DIR`.
+Resource files that you specify for the multi-instance task itself (downloaded by the primary task only) are downloaded to the task's working directory, `AZ_BATCH_TASK_WORKING_DIR`. The primary task's command line (the application command) has full read/write access to this directory on the node on which it executes.
 
 > [AZURE.IMPORTANT] Always use the environment variables `AZ_BATCH_TASK_SHARED_DIR` and `AZ_BATCH_TASK_WORKING_DIR` to refer to these directories in your command lines. Do not attempt to construct the paths manually.
 
