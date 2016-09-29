@@ -19,7 +19,7 @@
 
 # Overview
 
-Azure Key Vault is a cloud service that safeguards encryption keys and secrets (such as certificates, connection strings, passwords etc.) for your cloud applications. Since this data is sensitive and business critical, you want to secure access to your key vaults so that only authorized applications and users will get access to your key vault. This article will provide an overview of Key Vault access model, how to secure access to Key Vault and recommended best practices for setting up and using Key Vault for your cloud applications.
+Azure Key Vault is a cloud service that safeguards encryption keys and secrets (such as certificates, connection strings, passwords) for your cloud applications. Since this data is sensitive and business critical, you want to secure access to your key vaults so that only authorized applications and users can access to your key vault. This article provides an overview of Key Vault access model, how to secure access to Key Vault and recommended best practices for setting up and using Key Vault for your cloud applications.
 
 # Management plane and data plane
 
@@ -36,22 +36,22 @@ The management plane and data plane access control work independently. For examp
 
 # Management plane access control
 
-The management plane consists of operations that affect the key vault itself. For example, you can create or delete a key vault, get a list of vaults in a subscription, retrieve key vault properties (such as SKU, tags) and also set key vault access policies that control the users and applications that can access keys and secrets in the key vault. Management plane access control uses RBAC.
+The management plane consists of operations that affect the key vault itself. For example, you can create or delete a key vault. Get a list of vaults in a subscription. Retrieve key vault properties (such as SKU, tags) and also set key vault access policies that control the users and applications that can access keys and secrets in the key vault. Management plane access control uses RBAC.
 
 ## Role-based Access Control (RBAC)
-Each Azure subscription has an Azure Active Directory. Users, groups and applications from this directory can be granted access to manage resources in the Azure subscription that use the Azure Resource Manager deployment model. This is referred to as Role-Based Access Control (RBAC). To manage this access, you can use the [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md), or the [Key Vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx).
+Each Azure subscription has an Azure Active Directory. Users, groups, and applications from this directory can be granted access to manage resources in the Azure subscription that use the Azure Resource Manager deployment model. This is referred to as Role-Based Access Control (RBAC). To manage this access, you can use the [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md), or the [Key Vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx).
 
 With the Azure Resource Manager model, you create your key vault in a resource group and control access to the management plane of this key vault by using Azure Active Directory. For example, you can give specific users ability to set key vault access policy, while other users can only view and list key vaults in this resource group, but not change key vault access policy.
 
-You can grant access to users, groups and applications at a specific scope by assigning appropriate RBAC roles. For example, to grant access to a user to manage key vaults you would assign a predefined role 'Key Vault Contributor' to this user at a specific scope. The scope in this case would be either a subscription, a resource group or just a specific key vault. A role assigned at subscription level will apply to all resource groups and resources within that subscription. A role assigned at resource group level will apply to all resources in that resource group. A role assigned for a specific resource will only apply to that resource. There are several predefined roles (see [RBAC: Built-in roles](https://azure.microsoft.com/en-us/documentation/articles/role-based-access-built-in-roles/)), and you can also define your own roles if the predefined roles do not fit your needs.
+You can grant access to users, groups and applications at a specific scope by assigning appropriate RBAC roles. For example, to grant access to a user to manage key vaults you would assign a predefined role 'Key Vault Contributor' to this user at a specific scope. The scope in this case would be either a subscription, a resource group, or just a specific key vault. A role assigned at subscription level applies to all resource groups and resources within that subscription. A role assigned at resource group level applies to all resources in that resource group. A role assigned for a specific resource only applies to that resource. There are several predefined roles (see [RBAC: Built-in roles](https://azure.microsoft.com/en-us/documentation/articles/role-based-access-built-in-roles/)), and if the predefined roles do not fit your needs you can also define your own roles .
 
->[AZURE.IMPORTANT] Note that if a user has Contributor permissions (RBAC) to a key vault management plane, she can grant herself access to data plane, by setting Key Vault access policy. Therefore it is recommended to tightly control who has 'Contributor' access to your key vaults to ensure only authorized persons can access and manage your key vaults, keys and secrets.
+>[AZURE.IMPORTANT] Note that if a user has Contributor permissions (RBAC) to a key vault management plane, she can grant herself access to data plane, by setting Key Vault access policy. Therefore it is recommended to tightly control who has 'Contributor' access to your key vaults to ensure only authorized persons can access and manage your key vaults, keys, and secrets.
 
 # Data plane access control
 
-The Key Vault data plane consists of operations that affects the objects inside (such as keys, secrets and certificates) a key vault. This includes key operations such as create, import, update, list, backup and restore keys; cryptographic operations such as sign, verify, encrypt, decrypt, wrap and unwrap; and also set tags and other attributes for keys. Similarly for secrets it includes, get, set, list, delete.
+The Key Vault data plane consists of operations that affects the objects inside (such as keys, secrets and certificates) a key vault. This includes key operations such as create, import, update, list, backup, and restore keys, cryptographic operations such as sign, verify, encrypt, decrypt, wrap, and unwrap, and also set tags and other attributes for keys. Similarly for secrets it includes, get, set, list, delete.
 
-Data plane access is granted by setting access policies for a key vault. A user, group or an application must have Contributor permissions (RBAC) for management plane for a key vault to be able to set access policies for that key vault. A user, group or application can be granted access to perform specific operations for a keys or secrets in a key vault. Key Vault support up to 16 access policy entries for a key vault. It is recommended to create an Azure Active Directory security group and add users to that group to grant data plane access to a large number of users to a key vault.
+Data plane access is granted by setting access policies for a key vault. A user, group, or an application must have Contributor permissions (RBAC) for management plane for a key vault to be able to set access policies for that key vault. A user, group, or application can be granted access to perform specific operations for keys or secrets in a key vault. Key Vault support up to 16 access policy entries for a key vault. Create an Azure Active Directory security group and add users to that group to grant data plane access to several users to a key vault.
 
 ## Key Vault Access Policies
 
@@ -63,7 +63,7 @@ Authentication models - users, applications, native client applications, web app
 
 # Best practices
 
-An example that illustrates separation of duties, 3 roles: Key Vault owner, developers/operators and auditors.
+An example that illustrates separation of duties, three roles: Key Vault owner, developers/operators, and auditors.
 
 Principles
 1. Grant access to specific operations to perform designated tasks
@@ -73,23 +73,23 @@ Principles
 
 # Example
 
-Let's say you are developing a web application that uses a certificate for SSL, Azure storage for storing data, and also uses a RSA 2048 bit key for sign operations. Let's say this web application is running in a VM (or a VM Scale Set). You can use key vault to store all the application secrets, and also use key vault to store the bootstrap certificate that will be used by the application to authenticate with Azure Active Directory.
+Let's say you are developing a web application that uses a certificate for SSL, Azure storage for storing data, and also uses an RSA 2048-bit key for sign operations. Let's say this web application is running in a VM (or a VM Scale Set). You can use key vault to store all the application secrets, and also use key vault to store the bootstrap certificate that is used by the application to authenticate with Azure Active Directory.
 
 So here's a summary of all the keys and secrets you'll be storing in a key vault.
 - **SSL Cert** - used for SSL
 - **Storage Key** - used to get access to Storage account
-- **RSA 2048bit key** - used for sign operations
+- **RSA 2048-bit key** - used for sign operations
 - **Bootstrap certificate** - used to authenticate to Azure Active Directory, to get access to Key Vault to fetch the storage key and use the RSA key for signing.
 
-Now let's meet the people who will be managing, deploying and auditing this application. We'll use three roles in this example.
+Now let's meet the people who are managing, deploying and auditing this application. We'll use three roles in this example.
 
-- **Security team** - These are typically IT staff from the 'office of the CSO (Chief Security Officer)' or equivalent, responsible for the proper safekeeping of secrets such as SSL certificates, RSA keys used for signing etc.
-- **Developers/operators** - These are the folks who develop this application and then deploy it in cloud. Typically they are not part of security team, and hence they should not have access to any sensitive data, such as SSL certs, RSA keys etc, but the application they deploy should have access to those.
-- **Auditors** - This is usually a different set of people, isolated from the developers and general IT staff. Their responsibility is to review proper use and maintenance of certificates, keys, etc and also ensure compliance with data security standards. 
+- **Security team** - These are typically IT staff from the 'office of the CSO (Chief Security Officer)' or equivalent, responsible for the proper safekeeping of secrets such as SSL certificates, RSA keys used for signing.
+- **Developers/operators** - These are the folks who develop this application and then deploy it in cloud. Typically they are not part of security team, and hence they should not have access to any sensitive data, such as SSL certs, RSA keys, but the application they deploy should have access to those.
+- **Auditors** - This is usually a different set of people, isolated from the developers and general IT staff. Their responsibility is to review proper use and maintenance of certificates, keys, etc. and also ensure compliance with data security standards. 
 
-There is one more role that is outside the scope of this application, but relevent here to be mentioned, and that would be the subscription (or resource group) administrator. Subscription administrator will set up initial access permissions for the above three roles. Here we assume that the subscription administrator has granted access to security team to a resource group in which all the resources needed for this application will reside.
+There is one more role that is outside the scope of this application, but relevant here to be mentioned, and that would be the subscription (or resource group) administrator. Subscription administrator sets up initial access permissions for the above three roles. Here we assume that the subscription administrator has granted access to the security team to a resource group in which all the resources needed for this application reside.
 
-Now let's see what actions each role will perform in the context of this application.
+Now let's see what actions each role performs in the context of this application.
 
 -   Security team
 	- Create Key Vaults
@@ -109,32 +109,32 @@ Now let's see what access permissions to key vault are needed by each role (and 
 | User Role    | Management plane permissions | Data plane permissions |
 |--------------|------------------------------|------------------------|
 |Security Team|Key Vault Contributor|Keys: backup, create, delete, get, import, list, restore <br> Secrets: all|
-|Developers/Operator| Key Vault deploy permission so that the VMs they deploy can fetch secrets from the designated key vault | Keys: list<br>Secrets:list |
-|Auditors| None | Keys: list<br>Secrets:list|
+|Developers/Operator| Key Vault deploy permission so that the VMs they deploy can fetch secrets from the designated key vault | Keys: list<br>Secrets: list |
+|Auditors| None | Keys: list<br>Secrets: list|
 |Application| None | Keys: sign<br>Secrets: get |
 
-Besides permission to key vault, all three roles will also need access to other resources. For example, to be able to deploy VMs (or Web Apps etc) Developers/Operators will also need 'Contributor' access to those resource types. Audiotors need read access to the storage account where the key vault logs will be stored. 
+Besides permission to key vault, all three roles also need access to other resources. For example, to be able to deploy VMs (or Web Apps etc.) Developers/Operators also need 'Contributor' access to those resource types. Auditors need read access to the storage account where the key vault logs are be stored. 
 
-Since the focus of this article is on authentication and authorization for Key Vault, we will only illustrate the relevant portions pertaining to that and skip details regarding deploying certificates, accessing keys and secrets programmatically etc. Those details are already covered elsewhere. Deploying certificates stored in key vault to VMs is covered in a [blog post](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/), and there is a [sample code](https://www.microsoft.com/download/details.aspx?id=45343) available that illustrates how to use boostrap certificate to authenticate to Azure AD to get access to key vault.
+Since the focus of this article is on authentication and authorization for Key Vault, we only illustrate the relevant portions pertaining to that and skip details regarding deploying certificates, accessing keys and secrets programmatically etc. Those details are already covered elsewhere. Deploying certificates stored in key vault to VMs is covered in a [blog post](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/), and there is a [sample code](https://www.microsoft.com/download/details.aspx?id=45343) available that illustrates how to use bootstrap certificate to authenticate to Azure AD to get access to key vault.
 
-Most of the access permissions can be granted using Azure Portal, but when it comes to granting granular permissions you'll need to use Azure PowerShell (or Azure CLI) to achieve the desired result. 
+Most of the access permissions can be granted using Azure portal, but to grant granular permissions you need to use Azure PowerShell (or Azure CLI) to achieve the desired result. 
 
-The PowerShell snippetes below assume the following:
+The following PowerShell snippets assume the following:
 
-- The Azure Active Directory administrator has created following security groups that represents the three roles: Contoso Security Team, Contoso App Devops, Contoso App Auditors. 
+- The Azure Active Directory administrator has created following security groups that represent the three roles: Contoso Security Team, Contoso App Devops, Contoso App Auditors. 
 
-- ContosoAppRG is the resource group where all the resouces will reside, contosologstorage is where the logs are stored. 
+- ContosoAppRG is the resource group where all the resouces reside, contosologstorage is where the logs are stored. 
 
 - key vault and storage account where the logs are stored must be in the same Azure location
 
 
-First the subscription administrator will assing 'Key Vault Contributor' role to the security team.
+First the subscription administrator assigns 'Key Vault Contributor' role to the security team.
 
 ```
 New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "Key Vault Contributor" -ResourceGroupName ContosoAppRG
 ```
 
-The script below illustrates how the security team can create a key vault, setup logging, and set access permissions for other roles and the application. 
+The following script illustrates how the security team can create a key vault, setup logging, and set access permissions for other roles and the application. 
 
 
 
@@ -178,7 +178,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 
 -   [RBAC: Built in Roles](../active-directory/role-based-access-built-in-roles.md)
 
-    This article details all of the built-in roles available in RBAC.
+    This article details all the built-in roles available in RBAC.
 
 -   [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md)
 
@@ -186,7 +186,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 
 -    [Manage Role-Based Access Control with Azure PowerShell](../role-based-access-control-manage-access-powershell/)
 
-     This article explains how to manage role based access control with Azure PowerShell
+     This article explains how to manage role-based access control with Azure PowerShell
 
 -   [Managing Role-Based Access Control with the REST API](../active-directory/role-based-access-control-manage-access-rest.md)
 
@@ -194,7 +194,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 
 -   [Key Vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx)
 
-	This is the reference for the REST APIs to manage your key vault programmatically, including setting Key Vault access policy.
+	This document is the reference for the REST APIs to manage your key vault programmatically, including setting Key Vault access policy.
 
 -   [Developer’s guide to auth with Azure Resource Manager API](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)
 
