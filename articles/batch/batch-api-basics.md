@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="09/08/2016"
+	ms.date="09/29/2016"
 	ms.author="marsma"/>
 
 # Batch feature overview for developers
@@ -283,30 +283,13 @@ Check out [Task dependencies in Azure Batch](batch-task-dependencies.md) and the
 
 ## Environment settings for tasks
 
-Each task that executes within a Batch job has access to environment variables that are set both by the Batch service (service-defined, as described in the following table) and custom environment variables that you can set for your tasks. The applications and scripts that run on the nodes by your tasks have access to these environment variables during execution.
+Each task executed the Batch service has access to environment variables that it sets on compute nodes. This includes environment variables defined by the Batch service ([service-defined][msdn_env_vars]) and custom environment variables that you can define for your tasks. The applications and scripts your tasks execute have access to these environment variables during execution.
 
 You can set custom environment variables at the task or job level by populating the *environment settings* property for these entities. For example, see the [Add a task to a job][rest_add_task] operation (Batch REST API), or the [CloudTask.EnvironmentSettings][net_cloudtask_env] and [CloudJob.CommonEnvironmentSettings][net_job_env] properties in Batch .NET.
 
 Your client application or service can obtain a task's environment variables, both service-defined and custom, by using the [Get information about a task][rest_get_task_info] operation (Batch REST) or by accessing the [CloudTask.EnvironmentSettings][net_cloudtask_env] property (Batch .NET). Processes executing on a compute node can access these and other environment variables on the node, for example, by using the familiar `%VARIABLE_NAME%` (Windows) or `$VARIABLE_NAME` (Linux) syntax.
 
-The following environment variables are set by the Batch service, and are available for access by your tasks:
-
-| Environment Variable Name       | Description                                                              |
-|---------------------------------|--------------------------------------------------------------------------|
-| `AZ_BATCH_ACCOUNT_NAME`         | The name of the account that the task belongs to.                       |
-| `AZ_BATCH_JOB_ID`               | The ID of the job that the task belongs to.                             |
-| `AZ_BATCH_JOB_PREP_DIR`         | The full path of the job preparation task directory on the node.         |
-| `AZ_BATCH_JOB_PREP_WORKING_DIR` | The full path of the job preparation task working directory on the node. |
-| `AZ_BATCH_NODE_ID`              | The ID of the node that the task is running on.                         |
-| `AZ_BATCH_NODE_ROOT_DIR`        | The full path of the root directory on the node.                         |
-| `AZ_BATCH_NODE_SHARED_DIR`      | The full path of the shared directory on the node.                       |
-| `AZ_BATCH_NODE_STARTUP_DIR`     | The full path of the compute node startup task directory on the node.    |
-| `AZ_BATCH_POOL_ID`              | The ID of the pool that the task is running on.                         |
-| `AZ_BATCH_TASK_DIR`             | The full path of the task directory on the node.                         |
-| `AZ_BATCH_TASK_ID`              | The ID of the current task.                                              |
-| `AZ_BATCH_TASK_WORKING_DIR`     | The full path of the task working directory on the node.                 |
-
->[AZURE.IMPORTANT] These environment variables are available only in the context of the **task user**--that is, the user account on the node under which a task is executed. You will *not* see these if you [connect remotely](#connecting-to-compute-nodes) to a compute node via Remote Desktop Protocol (RDP) or Secure Shell (SSH) and list the environment variables. This is because the user account that is used for remote connection is not the same as the account that is used by the task.
+You can find a full list of all service-defined environment variables in [Compute node environment variables][msdn_env_vars].
 
 ## Files and directories
 
@@ -474,6 +457,7 @@ In situations where some of your tasks are failing, your Batch client applicatio
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
 [github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
+[msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
 [net_cloudjob_priority]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.priority.aspx
 [net_cloudpool_starttask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.starttask.aspx
