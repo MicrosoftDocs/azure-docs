@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="How to use AMQP 1.0 with the .NET Service Bus API | Microsoft Azure" 
 	description="Learn how to use Advanced Message Queuing Protodol (AMQP) 1.0 with the Azure .NET Service Bus API." 
-	services="service-bus-messaging,service-bus" 
+	services="service-bus-messaging" 
 	documentationCenter=".net" 
 	authors="sethmanheim" 
 	manager="timlt" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="09/29/2016" 
 	ms.author="sethm"/>
 
 # How to use AMQP 1.0 with the Service Bus .NET API
@@ -26,11 +26,11 @@ This article explains how to use the Service Bus brokered messaging features (qu
 
 ## Get started with Service Bus
 
-This article assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Azure portal][]. For more information about how to create Service Bus namespaces and queues, see [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md).
+This article assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Azure portal][]. For more information about how to create Service Bus namespaces and queues, see [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md#1-create-a-namespace-using-the-Azure-portal).
 
 ## Download the Service Bus SDK
 
-AMQP 1.0 support is available in Service Bus SDK version 2.1 or later. You can download the latest SDK from NuGet at [http://nuget.org/packages/WindowsAzure.ServiceBus/](http://nuget.org/packages/WindowsAzure.ServiceBus/).
+AMQP 1.0 support is available in Service Bus SDK version 2.1 or later. You can download the latest bits from NuGet at [http://nuget.org/packages/WindowsAzure.ServiceBus/](http://nuget.org/packages/WindowsAzure.ServiceBus/).
 
 ## Code .NET applications
 
