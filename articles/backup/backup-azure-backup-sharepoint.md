@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/04/2016"
-	ms.author="giridham;jimpark;trinadhk;markgal"/>
+	ms.date="09/29/2016"
+	ms.author="adigan;giridham;jimpark;trinadhk;markgal"/>
 
 
 # Back up a SharePoint farm to Azure
