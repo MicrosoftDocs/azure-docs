@@ -16,7 +16,7 @@
  ms.date="09/30/2016" 
  ms.author="juanpere"/>
 
-# Tutorial: Get started with device management 
+# Tutorial: Get started with device management (preview)
 
 ## Introduction
 IoT cloud applications can use primitives in Azure IoT Hub, namely the device twin and direct methods, to remotely start and monitor device management actions on devices.  This article provides guidance and code for how an IoT cloud application and a device work together to initiate and monitor a remote device reboot using IoT Hub.

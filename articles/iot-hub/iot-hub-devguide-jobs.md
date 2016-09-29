@@ -16,7 +16,7 @@
  ms.date="09/30/2016" 
  ms.author="juanpere"/>
 
-# Schedule jobs on multiple devices
+# Schedule jobs on multiple devices (preview)
 
 ## Overview
 
