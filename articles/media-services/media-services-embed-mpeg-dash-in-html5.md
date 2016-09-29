@@ -41,8 +41,8 @@ Initializing the player can be completed in just a handful of lines of JavaScrip
 
 ##Creating the HTML Page
 
-The first step is to create a standard HTML page containing the <video> element, save this file as basicPlayer.html, as the following example illustrates:
-	
+The first step is to create a standard HTML page containing the **video** element, save this file as basicPlayer.html, as the following example illustrates:
+
 	<!DOCTYPE html>
 	<html>
 	  <head><title>Adaptive Streaming in HTML5</title></head>
