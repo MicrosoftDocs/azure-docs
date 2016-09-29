@@ -49,19 +49,17 @@ Before you start, make sure that you at least 85 GB of space.
 
 5. On the POC machine, run the following PowerShell script to download the Azure Stack TP2 support files:
 
-    `# Variables`
-    
-    `$Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/'`
-    
-    `$LocalPath = 'c:\AzureStack_TP2_SupportFiles'`
+    ```powershell
+    # Variables
+    $Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/'
+    $LocalPath = 'c:\AzureStack_TP2_SupportFiles'
 
-    `# Create folder`
-    
-    `New-Item $LocalPath -type directory`
+    # Create folder
+    New-Item $LocalPath -type directory
 
-    `# Download files`
-    
-    `( 'BootMenuNoKVM.ps1', 'PrepareBootFromVHD.ps1', 'Unattend.xml', 'unattend_NoKVM.xml') | foreach { Invoke-WebRequest `
+    # Download files
+    ( 'BootMenuNoKVM.ps1', 'PrepareBootFromVHD.ps1', 'Unattend.xml', 'unattend_NoKVM.xml') | foreach { Invoke-WebRequest ($uri + $_) -OutFile ($LocalPath + '\' + $_) } 
+    ```
 
     This downloads the Azure Stack TP2 support files to the folder specified by the $LocalPath parameter.
     
