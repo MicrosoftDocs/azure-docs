@@ -161,7 +161,7 @@ The following environment variables are created by the Batch service for use by 
 
 For details on these and the other Batch compute node environment variables, including their contents and visibility, see [Compute node environment variables][msdn_env_var].
 
->[AZURE.TIP] You can see an example of how these can be used in the [coordination-command][coord_cmd_example] Bash script in the Batch Linux MPI code sample. This script sets up a Network File System (NFS) share on the master node, and configures the other nodes allocated to the multi-instance task as clients.
+>[AZURE.TIP] The Batch Linux MPI code sample contains an example of how these environment variables can be used. The [coordination-command][coord_cmd_example] Bash script enables a Network File System (NFS) share on the master node, and configures the other nodes allocated to the multi-instance task as clients.
 
 ## Resource files
 
