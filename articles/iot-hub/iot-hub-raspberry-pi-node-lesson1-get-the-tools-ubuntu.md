@@ -56,7 +56,7 @@ You will use [gulp.js](http://gulpjs.com) to automate the deployment of code to 
 Run the following command in your Terminal prompt:
 
 ```bash
-npm install -g device-discovery-cli gulp
+sudo npm install -g device-discovery-cli gulp
 ```
 
 If you experience issues installing Node.js and additional tools on Ubuntu, click [here](iot-hub-raspberry-pi-node-troubleshooting.md) to follow a simple troubleshooting guide.

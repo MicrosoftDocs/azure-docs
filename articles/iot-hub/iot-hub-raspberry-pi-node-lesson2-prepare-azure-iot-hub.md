@@ -73,4 +73,4 @@ az iot device create --device-id myraspberrypi --hub {my hub name} --resource-gr
 You have created an Azure IoT hub and a device identity for your Raspberry Pi 3 in your Azure IoT hub. Continue to the next lesson to learn how to send messages from your Pi to cloud.
 
 ## Next Steps
-[Lesson 3 - Send device-to-cloud messages](iot-hub-raspberry-pi-node-lesson3.md)
+You are now ready to start on Lesson 3, beginning with [Create an Azure function app and a storage account to process and store IoT hub messages](iot-hub-raspberry-pi-node-lesson3-deploy-arm-template.md)
