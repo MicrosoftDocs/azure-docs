@@ -83,7 +83,6 @@ This section lists articles which were updated recently, where the update was bi
 
 | &nbsp; | Title | Description |
 | --: | :-- | :-- |
-| 25 | [Get the client id and key for connecting to SQL Database from code](sql-database-client-id-keys.md) | Get the client id and key for accessing SQL Database from code. |
 | 26 | [Connect to SQL Database by using Java with JDBC on Windows](sql-database-develop-java-simple.md) | Presents a Java code sample you can use to connect to Azure SQL Database. The sample uses JDBC, and it runs on a Windows client computer. |
 | 27 | [Connect to SQL Database by using Node.js](sql-database-develop-nodejs-simple.md) | Presents a Node.js code sample you can use to connect to Azure SQL Database. |
 | 28 | [SQL Database Development Overview](sql-database-develop-overview.md) | Learn about available connectivity libraries and best practices for applications connecting to SQL Database. |
