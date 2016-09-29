@@ -41,7 +41,7 @@ The following sections explain the command and its requirements using Ubuntu Ser
 
 ## VM quick-create aliases
 
-A quick way to choose a distribution is to use the Azure CLI aliases mapped to the most common OS distributions. The following table lists the aliases (as of Azure CLI version 0.10). All deployments that use `quick-create` default to VMs that are backed by solid-state drive (SSD) storage, which offer faster provisioning and high performance disk access. (These aliases represent a tiny portion of the available distributions on Azure. Find more images in the Azure Marketplace by [searching for an image](virtual-machines-linux-cli-ps-findimage.md), or [upload your own custom image](virtual-machines-linux-create-upload-generic.md).)
+A quick way to choose a distribution is to use the Azure CLI aliases mapped to the most common OS distributions. The following table lists the aliases (as of Azure CLI version 0.10). All deployments that use `quick-create` default to VMs that are backed by solid-state drive (SSD) storage, which offers faster provisioning and high-performance disk access. (These aliases represent a tiny portion of the available distributions on Azure. Find more images in the Azure Marketplace by [searching for an image](virtual-machines-linux-cli-ps-findimage.md), or [upload your own custom image](virtual-machines-linux-create-upload-generic.md).)
 
 | Alias     | Publisher | Offer        | SKU         | Version |
 |:----------|:----------|:-------------|:------------|:--------|
@@ -60,11 +60,11 @@ The previous `quick-create` example only called out the `-M` flag to identify th
 
 - resource group name (any string is typically fine for your first Azure resource group)
 - VM name
-- location (westus or westeurope are good defaults)
+- location (`westus` or `westeurope` are good defaults)
 - linux (to let Azure know which OS you want)
 - username
 
-The following specifies all the values so that no further prompting is required. So long as you have an `~/.ssh/id_rsa.pub` as a ssh-rsa format public key file, it works as is:
+The following example specifies all the values so that no further prompting is required. So long as you have an `~/.ssh/id_rsa.pub` as a ssh-rsa format public key file, it works as is:
 
 ```bash
 azure vm quick-create \
@@ -161,7 +161,7 @@ Log in to your VM by using the public IP address listed in the output. You can a
 ssh -i ~/.ssh/id_rsa.pub exampleAdminUser@138.91.247.29
 ```
 
-The login process should look something like the following:
+The login process should look something like the following output block:
 
 ```bash
 Warning: Permanently added '138.91.247.29' (ECDSA) to the list of known hosts.
@@ -203,4 +203,4 @@ The `azure vm quick-create` command is the way to quickly deploy a VM so you can
 - [Create your own custom environment for a Linux VM using Azure CLI commands directly](virtual-machines-linux-create-cli-complete.md)
 - [Create an SSH Secured Linux VM on Azure using templates](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 
-You can also [use the `docker-machine` Azure driver with various commands to quickly create a Linux VM as a docker host](virtual-machines-linux-docker-machine.md) as well.
+You can also [use the `docker-machine` Azure driver with various commands to quickly create a Linux VM as a docker host](virtual-machines-linux-docker-machine.md).
