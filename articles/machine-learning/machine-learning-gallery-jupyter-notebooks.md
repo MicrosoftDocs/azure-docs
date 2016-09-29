@@ -27,9 +27,45 @@
 include code, data visualizations, and documentation in a single, interactive canvas. 
 Notebooks in the Gallery provide tutorials and detailed explanations of advanced machine learning techniques and solutions.
   
-  
-[AZURE.INCLUDE [machine-learning-gallery-discover-and-learn](../../includes/machine-learning-gallery-discover-and-learn.md)]
+## Discover
 
+  To browse for 
+ notebooks 
+  in the Gallery, open the [Gallery](http://gallery.cortanaintelligence.com) and click 
+**Notebooks** 
+ at the top of the Gallery home page. 
+
+ The 
+**[Jupyter Notebooks](https://gallery.cortanaintelligence.com/notebooks)**
+ page displays a list of the most popular 
+notebooks. 
+ Click **See all** to view all 
+notebooks.
+ From this page you can browse all the 
+notebooks 
+ in the Gallery, or you can search by selecting filter criteria on the left of the page and entering search terms at the top. 
+ 
+ Click any 
+notebook 
+ to open the 
+notebook's 
+ details page and read more information. On this page you can comment, provide feedback, or ask questions through the comments section. You can even share it with friends or colleagues using the share capabilities of LinkedIn or Twitter. You can also email a link to the 
+notebook 
+ to invite other users to view the page.
+
+![Share this item with friends](media\machine-learning-gallery-how-to-use-contribute-publish\share-links.png)
+![Add your own comments](media\machine-learning-gallery-how-to-use-contribute-publish\comments.png)
+
+## Download
+
+You can download any notebook and open it in Machine Learning Studio. Just click 
+
+1. Open the notebook's details page
+2. Click **Open in Studio**
+3. Select the Region and Workspace you want to use
+
+A copy of the notebook is downloaded and opened in your workspace in the Jupyter Notebooks section of Machine Learning Studio.
+The notebook will be listed, along with your other notebooks, on the **Notebooks** page of Studio (on the [Studio home page](https://studio.azureml.net/), click **Notebooks** on the left).
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
 

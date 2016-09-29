@@ -29,24 +29,24 @@
 
 The Cortana Intelligence Gallery contains a variety of resources that you can use to develop your own analytics solutions.
 
-- **[Experiments](https://gallery.cortanaintelligence.com/experiments)** - The Gallery contains a wide variety of experiments that have been developed in Azure Machine Learning Studio. These range from quick proof-of-concept experiments that demonstrate a specific machine learning technique, to fully-developed solutions for complex machine learning problems.
+- **[Experiments](machine-learning-gallery-experiments.md)** - The Gallery contains a wide variety of experiments that have been developed in Azure Machine Learning Studio. These range from quick proof-of-concept experiments that demonstrate a specific machine learning technique, to fully-developed solutions for complex machine learning problems.
 
-- **[Jupyter Notebooks](https://gallery.cortanaintelligence.com/notebooks)** - Jupyter Notebooks include code, data visualizations, and documentation in a single, interactive canvas. 
+- **[Jupyter Notebooks](machine-learning-gallery-jupyter-notebooks.md)** - Jupyter Notebooks include code, data visualizations, and documentation in a single, interactive canvas. 
 Notebooks in the Gallery provide tutorials and detailed explanations of advanced machine learning techniques and solutions.
 
-- **[Machine Learning APIs](https://gallery.cortanaintelligence.com/machineLearningAPIs)** - A solution developed in Azure Machine Learning can be launched as a web service so that the analytics model can be accessed by others through a set of REST APIs. A variety of these solutions are available in the Gallery, such as a product recommendation engine or cloud-based face and speech recognition.
+- **[Machine Learning APIs](https://machine-learning-gallery-apis.md)** - A solution developed in Azure Machine Learning can be launched as a web service so that the analytics model can be accessed by others through a set of REST APIs. A variety of these solutions are available in the Gallery, such as a product recommendation engine or cloud-based face and speech recognition.
 
--  **[Solution Templates](https://gallery.cortanaintelligence.com/solutionTemplates)** - A Solution Template provides a starting point to quickly build a complete end-to-end solution for an industry-specific problem. These templates include extensive documentation and all the tools you need to get you going on your own solution.
+-  **[Solution Templates](machine-learning-gallery-solution-templates.md)** - A Solution Template provides a starting point to quickly build a complete end-to-end solution for an industry-specific problem. These templates include extensive documentation and all the tools you need to get you going on your own solution.
 
-- **[Tutorials](https://gallery.cortanaintelligence.com/tutorials)** - A number of tutorials are available to walk you through machine learning technologies and concepts, or to describe advanced methods for solving various machine learning problems.
+- **[Tutorials](machine-learning-gallery-tutorials.md)** - A number of tutorials are available to walk you through machine learning technologies and concepts, or to describe advanced methods for solving various machine learning problems.
 
 These basic Gallery resources can be grouped together logically in a couple different ways:
 
-- **[Collections](https://gallery.cortanaintelligence.com/collections)** - A collection allows you to group together experiments, APIs, and other Gallery items that address a specific solution or concept.
+- **[Collections](machine-learning-gallery-collections.md)** - A collection allows you to group together experiments, APIs, and other Gallery items that address a specific solution or concept.
 
-- **[Industry-specific Solutions](https://gallery.cortanaintelligence.com/industries)** - The Industries section of the Gallery brings together various resources that are specific to such industries as retail, manufacturing, banking, and healthcare.
+- **[Industry-specific Solutions](machine-learning-gallery-industry-solutions.md)** - The Industries section of the Gallery brings together various resources that are specific to such industries as retail, manufacturing, banking, and healthcare.
 
-Finally, **[Competitions](https://gallery.cortanaintelligence.com/competitions)** provide an exciting opportunity to compete with the community of data scientsts to solve complex problems using Cortana Intelligence Suite.
+Finally, **[Competitions](machine-learning-gallery-competitions.md)** provide an exciting opportunity to compete with the community of data scientsts to solve complex problems using Cortana Intelligence Suite.
   
 ## How can I use the Gallery?
 
@@ -66,6 +66,8 @@ You can comment, provide feedback, or ask questions through the comments section
 You can even share a solution of interest with friends or colleagues using the share capabilities of LinkedIn or Twitter.
 You may also email links to these solutions to invite other users to view the pages.
 
+![Share this item with friends](media\machine-learning-gallery-how-to-use-contribute-publish\share-links.png)
+![Add your own comments](media\machine-learning-gallery-how-to-use-contribute-publish\comments.png)
 
 
 ### Contribute

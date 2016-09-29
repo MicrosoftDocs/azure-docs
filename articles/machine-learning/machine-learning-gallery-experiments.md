@@ -31,21 +31,38 @@ that have been developed in Azure Machine Learning Studio. These range from quic
 
 ## Discover
 
-To browse for experiments in the Gallery, open the [Gallery](http://gallery.cortanaintelligence.com) and click **Experiments** at the top of the Gallery home page. 
-The **Experiments** page displays a list of the most recently added and most popular experiments. 
+  To browse for 
+ experiments 
+  in the Gallery, open the [Gallery](http://gallery.cortanaintelligence.com) and click 
+**Experiments** 
+ at the top of the Gallery home page. 
 
-Click **See all** to view all experiments.
-From this page you can browse all the experiments in the Gallery, or you can search by selecting filter criteria on the left of the page and entering search terms at the top. Click any experiment to open the experiment's details page and read information about what the experiment does. 
+ The 
+**[Experiments](https://gallery.cortanaintelligence.com/experiments)** 
+ page displays a list of the most recently added and most popular 
+experiments. 
+ Click **See all** to view all 
+experiments.
+ From this page you can browse all the 
+experiments 
+ in the Gallery, or you can search by selecting filter criteria on the left of the page and entering search terms at the top. 
+ 
+ Click any 
+experiment 
+ to open the 
+experiment's 
+ details page and read information about what the 
+experiment 
+ does. On this page you can comment, provide feedback, or ask questions through the comments section. You can even share it with friends or colleagues using the share capabilities of LinkedIn or Twitter. You can also email a link to the 
+experiment 
+ to invite other users to view the page.
 
-You can comment, provide feedback, or ask questions through the comments section on the experiment details page.
-You can even share it with friends or colleagues using the share capabilities of LinkedIn or Twitter.
-You may also email a link to the experiment to invite other users to view the page.
-
-![Comment on and share experiments](media\machine-learning-gallery-experiments\experiment-details-page-in-gallery.png)
+![Share this item with friends](media\machine-learning-gallery-how-to-use-contribute-publish\share-links.png)
+![Add your own comments](media\machine-learning-gallery-how-to-use-contribute-publish\comments.png)
 
 ## Download
 
-You can download a copy of any experiment from the Gallery and modify it to create your own solutions.
+You can download a copy of any experiment from the Gallery into your workspace and then modify your copy to create your own solutions.
 
 ### From the Gallery
 
