@@ -45,7 +45,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
 	
 		> [AZURE.NOTE] The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
 	2. Select your Azure **subscription**.
-	3. For Resource Group, do one of the following: 
+	3. For Resource Group, do one of the following steps: 
 		1. Select **Use existing** to select an existing resource group.
 		2. Select **Create new** to enter a name for a resource group.
 
@@ -76,7 +76,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
 	![Copy Tool - Source data store page](./media/data-factory-copy-data-wizard-tutorial/copy-tool-source-data-store-page.png)
 5. On the **Specify the Azure Blob storage account** page:
 	1. Enter **AzureStorageLinkedService** for **Linked service name**.
-	2. Confirm that **From Azure subscriptions** is selected for **Account selection method**.
+	2. Confirm that **From Azure subscriptions** option is selected for **Account selection method**.
 	3. Select your Azure **subscription**.  
 	3. Select an **Azure storage account** from the list of Azure storage accounts available in the selected subscription. You can also choose to enter storage account settings manually by selecting **Enter manually** option for the **Account selection method**, and then click **Next**. 
 
@@ -98,7 +98,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
 	![Copy Tool - Choose destination store](./media/data-factory-copy-data-wizard-tutorial/choose-destination-store.png)
 9. On **Specify the Azure SQL database** page:
 	1. Enter **AzureSqlLinkedService** for the **Connection name** field.
-	2. Confirm that **From Azure subscriptions** is selected for **Server / database selection method**.
+	2. Confirm that **From Azure subscriptions** option is selected for **Server / database selection method**.
 	3. Select your Azure **subscription**.  
 	2. Select **Server name** and **Database**.
 	4. Enter **User name** and **Password**.
