@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/26/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using .NET SDK
@@ -112,9 +112,9 @@ In the remaining sections of the article, you can see how to use the available .
 
 ## Authentication
 
-### If you are using end-user authentication
+### If you are using end-user authentication (recommended for this tutorial)
 
-Use this with an existing Azure AD "Native Client" Application; one is provided for you below.
+Use this with an existing Azure AD "Native Client" Application; one is provided for you below. To help you complete this tutorial faster, we recommend you use this approach.
 
     // User login via interactive popup
     // Use the client ID of an existing AAD "Native Client" application.
@@ -124,7 +124,10 @@ Use this with an existing Azure AD "Native Client" Application; one is provided 
     var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
     var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
 
-In the snippet above, we use an Azure AD domain and client ID that is available by default for all Azure subscriptions. If you want to use your own Azure AD domain and application client ID, you must create an Azure AD native application. See [Create an Active Directory Application](../resource-group-create-service-principal-portal.md#create-an-active-directory-application) for instructions.
+Couple of things to know about this snippet above.
+
+* To help you complete the tutorial faster, this snippet uses an an Azure AD domain and client ID that is available by default for all Azure subscriptions. So, you can **use this snippet as-is in your application**.
+* However, if you do want to use your own Azure AD domain and application client ID, you must create an Azure AD native application and then use the Azure AD domain, client ID, and redirect URI for the application you created. See [Create an Active Directory Application](../resource-group-create-service-principal-portal.md#create-an-active-directory-application) for instructions.
 
 >[AZURE.NOTE] The instructions in the above links are for an Azure AD web application. However, the steps are exactly the same even if you chose to create a native client application instead. 
 
