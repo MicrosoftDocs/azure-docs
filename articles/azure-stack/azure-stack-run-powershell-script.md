@@ -47,12 +47,24 @@ Before you start, make sure that you at least 85 GB of space.
 
     > [AZURE.NOTE] If you choose not to use the recommended script to prepare your POC host computer (steps 5 – step 7), do not enter any license key at the activation page. Included is a trial version of Windows Server 2016 image and entering license key will result in expiration warning messages
 
-5. Download these support files from [Github](https://aka.ms/azurestackdeploytools).
+5. On the POC machine, run the following PowerShell script to download the Azure Stack TP2 support files:
 
-    - PrepareBootFromVHD.ps1
-    - unattend.xml
-    - unattend_NoKVM.xml 
+    `# Variables`
+    
+    `$Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/'`
+    
+    `$LocalPath = 'c:\AzureStack_TP2_SupportFiles'`
 
+    `# Create folder`
+    
+    `New-Item $LocalPath -type directory`
+
+    `# Download files`
+    
+    `( 'BootMenuNoKVM.ps1', 'PrepareBootFromVHD.ps1', 'Unattend.xml', 'unattend_NoKVM.xml') | foreach { Invoke-WebRequest `
+
+    This downloads the Azure Stack TP2 support files to the folder specified by the $LocalPath parameter.
+    
 6. Open an elevated PowerShell console and change the directory to where you copied the files.
 
 7. Run the PrepareBootFromVHD.ps1 script. This and the unattend files are available with the other support scripts provided along with this build.
