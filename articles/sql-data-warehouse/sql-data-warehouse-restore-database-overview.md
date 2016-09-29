@@ -90,8 +90,7 @@ You can also use data warehouse restore to retain a backup for longer than seven
 
 To perform a data warehouse restore, restore using:
 
-- Azure portal, see [Restore a 
-- data warehouse using the Azure portal](sql-data-warehouse-restore-database-portal.md)
+- Azure portal, see [Restore a data warehouse using the Azure portal](sql-data-warehouse-restore-database-portal.md)
 - PowerShell cmdlets, see [Restore a data warehouse using PowerShell cmdlets](sql-data-warehouse-restore-database-powershell.md)
 - REST APIs, see [Restore a data warehouse using the REST APIs](sql-data-warehouse-restore-database-rest-api.md)
 
