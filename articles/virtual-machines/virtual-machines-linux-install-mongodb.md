@@ -74,7 +74,7 @@ Install management tools and configure SELinux to allow MongoDB to operate on it
 
 ```bash
 sudo yum install -y policycoreutils-python
-semanage port -a -t mongod_port_t -p tcp 27017
+sudo semanage port -a -t mongod_port_t -p tcp 27017
 ```
 
 Start the MongoDB service as follows:
@@ -83,7 +83,7 @@ Start the MongoDB service as follows:
 sudo service mongod start
 ```
 
-Verify the MongoDB installation by connecting using the local client as follows:
+Verify the MongoDB installation by connecting using the local `mongo` client as follows:
 
 ```bash
 mongo
@@ -121,6 +121,37 @@ azure group create --name BasicMongoDBCentOS --location WestUS \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
 
+> [AZURE.NOTE] The Azure CLI returns you to a prompt within a few seconds of creating the deployment, but the installation and configuration takes a few minutes to complete. Check the status of the deployment with `azure group deployment show BasicMongoDBCentOS`, adjusting the name of your resource group accordingly. Wait until the `ProvisioningState` shows 'Succeeded' before trying to SSH to the VM.
+
+Once the deployment has completed, SSH to the VM. Obtain the IP address of your VM using the `azure vm show` command as in the following example:
+
+```bash
+azure vm show --resource-group BasicMongoDBCentOS --name myLinuxVM
+```
+
+Near the end of the output, the `Public IP address` is displayed. SSH to your VM with the IP address of your VM:
+
+```bash
+ssh ops@138.91.149.74
+```
+
+Verify the MongoDB installation by connecting using the local `mongo` client as follows:
+
+```bash
+mongo
+```
+
+Now test the instance by adding some data and searching as follows:
+
+```
+> db
+test
+> db.foo.insert( { a : 1 } )  
+> db.foo.find()  
+{ "_id" : ObjectId("57ec477cd639891710b90727"), "a" : 1 }
+> exit
+```
+
 
 ## Create a complex MongoDB Sharded Cluster on CentOS using a template
 You can create a complex MongoDB sharded cluster using the following Azure quickstart template from Github:
@@ -129,7 +160,7 @@ You can create a complex MongoDB sharded cluster using the following Azure quick
 
 This template follows the [MongoDB sharded cluster best practices](https://docs.mongodb.com/manual/core/sharded-cluster-components/) to provide redundancy and high availability. The template creates two shards, with three nodes in each replica set. One config server replica set with three nodes is also created, plus two `mongos` router servers to provide consistency to applications from across the shards.
 
-> [AZURE.NOTE] Deploying this complex MongoDB sharded cluster requires more than 20 cores, which is typically the default core count per region for a subscription. Open an Azure support request to increase your core count. The Azure CLI returns you to a prompt within a few seconds of creating the deployment, but the installation and configuration can take over an hour to complete.
+> [AZURE.WARNING] Deploying this complex MongoDB sharded cluster requires more than 20 cores, which is typically the default core count per region for a subscription. Open an Azure support request to increase your core count.
 
 The following example creates a resource group with the name `MongoDBShardedCluster` in the `WestUS` region. Enter your own values as follows:
 
@@ -137,6 +168,8 @@ The following example creates a resource group with the name `MongoDBShardedClus
 azure group create --name MongoDBShardedCluster --location WestUS \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 ```
+
+> [AZURE.NOTE] The Azure CLI returns you to a prompt within a few seconds of creating the deployment, but the installation and configuration can take over an hour to complete. Check the status of the deployment with `azure group deployment show MongoDBShardedCluster`, adjusting the name of your resource group accordingly. Wait until the `ProvisioningState` shows 'Succeeded' before connecting to the VMs.
 
 
 ## Next steps
