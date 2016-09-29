@@ -17,24 +17,28 @@
    ms.author="iainfou"/>
 
 # Install and Configure MongoDB on a Linux VM in Azure
-[MongoDB](http://www.mongodb.org) is a popular open-source, high-performance NoSQL database. This article guides you through creating a Linux virtual machine (VM) using the Resource Manager deployment model. Examples are shown that detail how to:
+[MongoDB](http://www.mongodb.org) is a popular open-source, high-performance NoSQL database. This article shows you how to install and configure MongoDB on a Linux VM in Azure using the Resource Manager deployment model. Examples are shown that detail how to:
 
 - [Manually install and configure a basic MongoDB instance](#manually-install-and-configure-mongodb-on-a-vm) - uses a single VM to understand the steps involved.
-- [Create a basic MongoDB instance using a template](#create-basic-mongodb-instance-on-centos-using-a-template) - uses a single VM, suitable for development and testing.
-- [Create a complex MongoDB sharded cluster with replica sets using a template](#create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template) - multiple nodes, replica sets, config servers, and `mongos` routers for a redundant and highly available environment.
+- [Create a basic MongoDB instance using a Resource Manager template](#create-basic-mongodb-instance-on-centos-using-a-template) - automated install using custom script extension on a single VM, suitable for development and testing.
+- [Create a complex MongoDB sharded cluster with replica sets using a Resource Manager template](#create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template) - creates multiple nodes, replica sets, config servers, and `mongos` routers for a redundant and highly available environment.
 
 
 ## Prerequisites
-Make sure that you have the latest [Azure CLI](../xplat-cli-install.md) installed and logged in using Resource Manager mode (`azure config mode arm`).
+This article requires the following:
+
+- an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)).
+- the [Azure CLI](../xplat-cli-install.md) logged in with `azure login`
+- the Azure CLI *must be* in Azure Resource Manager mode using `azure config mode arm`
 
 
 ## Manually install and configure MongoDB on a VM
 You can manually install MongoDB using the [appropriate installation instructions](https://docs.mongodb.com/manual/administration/install-on-linux/) for your particular Linux distro. In the following example, we use a CentOS VM. MongoDB provide installation instructions for other Linux distros including SUSE, Ubuntu, and Debian.
 
-The following example creates a `CoreOS` VM using an SSH key stored at `.ssh/azure_id_rsa.pub`. Create a CentOS VM with your own values, answering prompts for the resource group name, VM name, location, and admin username as follows:
+The following example creates a `CoreOS` VM using an SSH key stored at `.ssh/azure_id_rsa.pub`. Create a CentOS VM with your own values, answering prompts for the resource group name, VM name, location, and admin username:
 
 ```bash
-azure vm quick-create --ssh-publickey-file .ssh/azure_id_rsa.pub -Q CentOS
+azure vm quick-create --ssh-publickey-file .ssh/azure_id_rsa.pub --image-urn CentOS
 ```
 
 Log on to the VM using the public IP address displayed at the end of the preceding VM creation step as follows:
@@ -73,7 +77,7 @@ sudo yum install -y policycoreutils-python
 semanage port -a -t mongod_port_t -p tcp 27017
 ```
 
-Start the MongoDB service:
+Start the MongoDB service as follows:
 
 ```bash
 sudo service mongod start
@@ -85,7 +89,7 @@ Verify the MongoDB installation by connecting using the local client as follows:
 mongo
 ```
 
-Now test the instance by adding some data and then searching as follows:
+Now test the instance by adding some data and searching as follows:
 
 ```
 > db
