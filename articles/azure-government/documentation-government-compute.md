@@ -22,7 +22,7 @@
 
 ##  Virtual Machines
 
-For details on this service and how to use it, see [Azure Virtual Machines public documentation](../documentation/services/virtual-machines/windows.md).
+For details on this service and how to use it, see [Azure Virtual Machines public documentation](/documentation/services/virtual-machines/windows/).
 
 ### Variations
 
