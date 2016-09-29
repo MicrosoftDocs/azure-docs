@@ -67,8 +67,6 @@ You can restore a database to any restore point within the last seven days. Snap
 
 The storage charge for the restored data warehouse is billed at the Azure Premium Storage rate. 
 
-If you don't need both the primary data warehouse and the newly restored data warehouse, you can delete one of them. The storage charge continues on the deleted data warehouse for seven days since it is logically deleted but remains as a backup. 
-
 If you pause a restored data warehouse, you are charged for storage at the Azure Premium Storage rate. The advantage of pausing is you are not charged for the DWU computing resources.
 
 For more information about SQL Data Warehouse pricing, see [SQL Data Warehouse Pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
