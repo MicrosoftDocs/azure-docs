@@ -77,7 +77,7 @@ Changes to these limitations will be announced through the [Azure Virtual Networ
 
 		$NICName = "VM1-NIC1"
 
-7. The network interface must be connected to a subnet within an existing Azure Virtual Network (VNet) in the same location and [subscription](../azure-glossary-cloud-terminology.md#subscription) as the network interface. Learn more about VNets by reading the [Virtual network overview](virtual-networks-overview.md) article if you're not familiar with them. To create a VNet, complete the steps in the [Create a VNet](virtual-networks-create-vnet-arm-ps.md) article. Change the "values" of the following $Variables to the name of the VNet and subnet you want to connect the network interface to, and the name of the resource group the VNet is in.
+7. The network interface must be connected to a subnet within an existing Azure Virtual Network (VNet) in the same location and [subscription](../azure-glossary-cloud-terminology.md#subscription) as the network interface. Learn more about VNets by reading the [Virtual network overview](virtual-networks-overview.md) article if you're not familiar with them. To create a VNet, complete the steps in the [Create a VNet](virtual-networks-create-vnet-arm-ps.md) article. Change the "values" of the following $Variables to the name of the VNet and subnet you want to connect the network interface to.
 
 		$VNetName   = "VNet1"
 		$SubnetName = "Subnet1"
