@@ -49,7 +49,7 @@ SQL Data Warehouse always restores the backup to a new data warehouse. You can e
 
 ### Can I restore a deleted data warehouse?
 
-Yes, for the next seven calendar days. When you delete a data warehouse, SQL Data Warehouse actually keeps the data warehouse and its snapshots for seven days just in case you need the data. After seven days, the data will disappear and you won't be able to restore to any of the restore points.
+Yes, for the next seven calendar days. When you delete a data warehouse, SQL Data Warehouse actually keeps the data warehouse and its snapshots for seven days just in case you need the data. After seven days, the data disappears and you won't be able to restore to any of the restore points.
 
 ### Can I restore a paused data warehouse?
 
@@ -57,17 +57,17 @@ To restore a data warehouse that is paused, you need to first bring it back onli
 
 ## Restore to a geo-redundant region
 
-If you are using the geo-redundant storage, you can restore the data warehouse to your paired data center in a different geographical region. This restores the data warehouse to the last daily backup. 
+If you are using the geo-redundant storage, you can restore the data warehouse to your paired data center in a different geographical region. The data warehouse is restored from the last daily backup. 
 
 ## Restore timeline
 
-You can restore a database to any restore point within the last seven days. Snapshots start every four to eight hours and are available for seven days. When a snapshot is older than 7 days, it expires and its restore point is no longer available.
+You can restore a database to any restore point within the last seven days. Snapshots start every four to eight hours and are available for seven days. When a snapshot is older than seven days, it expires and its restore point is no longer available.
 
 ## Restore costs
 
-The charge for storing the restored data warehouse will be billed at the Azure Premium Storage rate. 
+The storage charge for the restored data warehouse is billed at the Azure Premium Storage rate. 
 
-If you don't need both the primary data warehouse and the newly restored data warehouse, you can delete one of them. The charge for storage continues on the deleted data warehouse for seven days since it is logically deleted but remains as a backup. 
+If you don't need both the primary data warehouse and the newly restored data warehouse, you can delete one of them. The storage charge continues on the deleted data warehouse for seven days since it is logically deleted but remains as a backup. 
 
 If you pause a restored data warehouse, you are charged for storage at the Azure Premium Storage rate. The advantage of pausing is you are not charged for the DWU computing resources.
 
@@ -88,9 +88,10 @@ You can also use data warehouse restore to retain a backup for longer than seven
 
 <!-- ### Tasks -->
 
-To perform a data warehouse restore using:
+To perform a data warehouse restore, restore using:
 
-- Azure portal, see [Restore a data warehouse using the Azure Portal](sql-data-warehouse-restore-database-portal.md)
+- Azure portal, see [Restore a 
+- data warehouse using the Azure portal](sql-data-warehouse-restore-database-portal.md)
 - PowerShell cmdlets, see [Restore a data warehouse using PowerShell cmdlets](sql-data-warehouse-restore-database-powershell.md)
 - REST APIs, see [Restore a data warehouse using the REST APIs](sql-data-warehouse-restore-database-rest-api.md)
 
