@@ -22,7 +22,7 @@
 
 ##  Virtual Machines
 
-For details on this service and how to use it, see [Azure Virtual Machines public documentation](../virtual-machines/windows.md).
+For details on this service and how to use it, see [Azure Virtual Machines public documentation](../documentation/services/virtual-machines/windows.md).
 
 ### Variations
 
@@ -31,12 +31,12 @@ The following VM SKUs are generally available (GA) in Azure Government:
 VM SKU|US Gov VA|US Gov IA|Notes
 ---|---|---|---
 A0-A7|GA|GA|None
-Dv1|GA|-|None
-DSv1|GA|-|None
-Dv2|Planned|GA|None 
-F|Planned|GA|None
+D1-D14 v1|GA|-|None
+DS1-DS14 v1|GA|-|None
+D1-D14 v2|Planned|GA|15 is coming soon
+F1-F16|Planned|GA|None
 
-For additional details, and the most up to date information see [Sizes for Virtual Machines in Azure](../virtual-machines-windows-sizes.md)>.
+For additional details, and the most up to date information see [Sizes for Virtual Machines in Azure](../virtual-machines-windows-sizes.md).
 
 ###  Data Considerations
 
