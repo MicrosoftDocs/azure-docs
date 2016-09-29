@@ -23,7 +23,7 @@
 - [Azure Portal](virtual-network-accelerated-networking-portal.md)
 - [PowerShell](virtual-network-accelerated-networking-powershell.md)
 
-Accelerated Networking enables Single Root I/O Virtualization (SR-IOV) to a virtual machine (VM), greatly improving its networking performance. This high-performance path bypasses the host from the datapath reducing latency, jitter, and CPU utilization for use with the most demanding network workloads on supported VM types. This article explains how to use Azure PowerShell to configure Accelerated Networking in the Azure Resource Manager deployment model. You can also create a VM with Accelerated Networking using the Azure Portal. To learn now, click the Azure Portal box at the top of this article.
+Accelerated Networking enables Single Root I/O Virtualization (SR-IOV) to a virtual machine (VM), greatly improving its networking performance. This high-performance path bypasses the host from the datapath reducing latency, jitter, and CPU utilization for use with the most demanding network workloads on supported VM types. This article explains how to use Azure PowerShell to configure Accelerated Networking in the Azure Resource Manager deployment model. You can also create a VM with Accelerated Networking using the Azure Portal. To learn how, click the Azure Portal box at the top of this article.
 
 The following picture shows communication between two virtual machines (VM) with and without Accelerated Networking:
 
