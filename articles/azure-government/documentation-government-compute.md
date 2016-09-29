@@ -14,13 +14,29 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="09/14/2016"
+	ms.date="09/29/2016"
 	ms.author="ryansoc"/>
 
 
 #  Azure Government Compute
 
 ##  Virtual Machines
+
+For details on this service and how to use it, please see the <a href=https://azure.microsoft.com/en-us/documentation/services/virtual-machines/windows/> Azure Virtual Machines public documentation </a>.
+
+### Variations
+
+The following VM SKUs are generally available (GA) in Azure Government:
+
+VM SKU|US Gov VA|US Gov IA|Notes
+---|---|---|---
+A0-A7|GA|GA|None
+D|GA|-|None
+DS|GA|-|None
+Dv2|Planned|GA|None 
+F|Planned|GA|None
+
+For additional details, please see <a href=https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-sizes/> Sizes for Virtual Machines in Azure </a>.
 
 ###  Data Considerations
 
@@ -30,7 +46,7 @@ The following information identifies the Azure Government boundary for Azure Vir
 |--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Data entered, stored and processed within a VM can contain export controlled data. Binaries running within Azure Virtual Machines. Static authenticators, such as passwords and smartcard PINs for access to Azure platform components. Private keys of certificates used to manage Azure platform components. SQL connection strings.  Other security information/secrets, such as certificates, encryption keys, master keys, and storage keys stored in Azure services.  | Metadata is not permitted to contain export controlled data. This metadata includes all configuration data entered when creating and maintaining your Azure Virtual Machine.  Do not enter Regulated/controlled data into the following fields:  Tenant role names, Resource groups, Deployment names, Resource names,  Resource tags  
 
-For additional information, please see the <a href=https://azure.microsoft.com/en-us/documentation/services/virtual-machines/windows/> Azure Virtual Machines public documentation </a>.
+### Next Steps
 
 For supplemental information and updates please subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
