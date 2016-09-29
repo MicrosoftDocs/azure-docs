@@ -54,7 +54,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
 	4. Select **Pin to dashboard** check box at the bottom of the blade.  
 	5. Click **Create**.
 	
-		![New data factory blade](media/data-factory-copy-data-wizard-tutorialnew-data-factory-blade.png)			
+		![New data factory blade](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)			
 10. After the creation is complete, you see the **Data Factory** blade as shown in the following image:
 
     ![Data factory home page](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
