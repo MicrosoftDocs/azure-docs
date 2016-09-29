@@ -28,7 +28,7 @@ Securing data in Azure Data Lake Store is a three-step approach.
 
 4. Additionally, you can also set an IP address range for clients that can access the data in Data Lake Store.
 
-This article provides instructions on how to use the Azure portal to perform the above tasks. For in-depth information on how Data Lake Store implements security at the account and data level, see [Security in Azure Data Lake Store](data-lake-store-security-overview.md).
+This article provides instructions on how to use the Azure portal to perform the above tasks. For in-depth information on how Data Lake Store implements security at the account and data level, see [Security in Azure Data Lake Store](data-lake-store-security-overview.md). For deep-dive information on how ACLs are implemented in Azure Data Lake Store, see [Overview of Access Control in Data Lake Store](data-lake-store-access-control.md).
 
 ## Prerequisites
 
