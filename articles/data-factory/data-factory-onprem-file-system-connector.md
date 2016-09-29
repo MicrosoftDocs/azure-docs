@@ -388,6 +388,7 @@ Data is copied to a new file every hour. The folderPath and fileName for the blo
 	}
 
 **Pipeline with a copy activity:**
+
 The pipeline contains a copy activity that is configured to use the input and output datasets, and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **SqlSource**, and the **sink** type is set to **FileSystemSink**. The SQL query that is specified for the **SqlReaderQuery** property selects the data in the past hour to copy.
 
 
