@@ -51,10 +51,10 @@ What kind of features should be created to enhance the data set when training a 
 
 When starting with Azure Machine Learning, it is easiest to grasp this process concretely by using samples provided in Machine Learning Studio. Two examples are presented here:
 
-* A regression example ([Prediction of the number of bike rentals](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4)) in a supervised experiment where the target values are known
+* A regression example ([Prediction of the number of bike rentals](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) in a supervised experiment where the target values are known
 * A text-mining classification example using [Feature Hashing][feature-hashing]
 
-### Example 1: adding temporal features for a regression model ###
+### Example 1: Adding temporal features for a regression model ###
 
 To demonstrate how to engineer features for a regression task, let's use the experiment "Demand forecasting of bikes" in Azure Machine Learning Studio. The objective of this experiment is to predict the demand for the bikes, that is, the number of bike rentals within a specific month, day, or hour. The data set **Bike Rental UCI data set** is used as the raw input data.
 
@@ -77,7 +77,7 @@ The following table summarizes the comparison of the performance results of the 
 
 ![Compare performance results](./media/machine-learning-feature-selection-and-engineering/result1.png)
 
-### <a name="example2"></a> Example 2: creating features in text mining  
+### <a name="example2"></a> Example 2: Creating features in text mining  
 
 Feature engineering is widely applied in tasks related to text mining, such as document classification and sentiment analysis. For example, when you want to classify documents into several categories, a typical assumption is that the words or phrases included in one document category are less likely to occur in another document category. In other words, the frequency of the word or phrase distribution is able to characterize different document categories. In text mining applications, the feature engineering process is needed to create the features involving word or phrase frequencies because individual pieces of text-contents usually serve as the input data.
 
@@ -117,7 +117,7 @@ For example, use the [Filter-Based Feature Selection][filter-based-feature-selec
 
 The following figure shows the resulting data sets. Each feature is scored based on the Pearson Correlation between itself and the target attribute **Col1**. The features with top scores are kept.
 
-![Filter-based feature selection data sets ](./media/machine-learning-feature-selection-and-engineering/feature-Selection2.png)
+![Filter-based feature selection data sets](./media/machine-learning-feature-selection-and-engineering/feature-Selection2.png)
 
 The following figure shows the corresponding scores of the selected features.
 
