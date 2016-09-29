@@ -17,7 +17,7 @@
    ms.author="lakshmir;barbkess;sonyama"/>
 
 
-# SQL Data Warehouse restore (Overview)
+# SQL Data Warehouse restore
 
 > [AZURE.SELECTOR]
 - [Overview][]
