@@ -36,8 +36,6 @@ DS1-DS14 v1|GA|-|None
 D1-D14 v2|Planned|GA|15 is coming soon
 F1-F16|Planned|GA|None
 
-For additional details, and the most up to date information see [Sizes for Virtual Machines in Azure](../virtual-machines-windows-sizes.md).
-
 ###  Data Considerations
 
 The following information identifies the Azure Government boundary for Azure Virtual Machines:
