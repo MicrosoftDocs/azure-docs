@@ -34,6 +34,15 @@ The management plane and data plane interfaces are accessed through different en
 
 The management plane and data plane access control work independently. For example, if you want to grant an application access to use keys in a key vault, you only need to grant data plane access permissions using Key Vault access policies and no management plane access is needed for this application. And conversely, if you want a user to be able to read vault properties and tags, but not have any access to keys or secrets, you can grant this user, 'read' access using RBAC and no access to data plane is required.
 
+## Key Vault authentication using Azure Active Directory
+
+To access Key Vault an application needs to authenticate with Azure Active Directory. This applies to both management plane and data plane access. In both cases, an application can access Key Vault in two ways:
+-  **user+app access** - usually this is for applications that access key vault on behalf of a signed-in user. Azure PowerShell, Azure Portal are examples of this type of access.
+-  **app-only** access - for applications that run daemon services, background jobs etc. The application's identity is granted access to the key vault.
+
+In both types of applications, the application authenticates with with Azure Active Directory using any of the [supported authentication methods](../active-directory/active-directory-authentication-scenarios.md) and acquires a token. Authentication methods depends on the application type. Then the application uses this token and sends REST API request to Key Vault. In case of management plane access the requests are essentially routed through Azure Resource Manager endpoint. When accessing data plane, the applications talks directly to a Key Vault endpoint.
+
+
 ## Management plane access control
 
 The management plane consists of operations that affect the key vault itself. For example, you can create or delete a key vault. Get a list of vaults in a subscription. Retrieve key vault properties (such as SKU, tags) and also set key vault access policies that control the users and applications that can access keys and secrets in the key vault. Management plane access control uses RBAC.
@@ -57,10 +66,6 @@ Data plane access is granted by setting access policies for a key vault. A user,
 
 Key Vault access policies grant permissions to keys, secrets and certificates separately. For example, you can give a user access to only keys, but no permissions for secrets. However permissions to access keys or secrets or certificates are at the vault level. In other words, Key Vault access policy does not support object level permissions. For example, if a user has permission to perform a backup operation for a key vault, she can perform backup operation for **any** key in that key vault.
 
-## Key Vault authentication using Azure Active Directory
-
-Authentication models - users, applications, native client applications, web applications on behalf of users
-
 ## Best practices
 
 An example that illustrates separation of duties, three roles: Key Vault owner, developers/operators, and auditors.
@@ -69,6 +74,7 @@ Principles
 1. Grant access to specific operations to perform designated tasks
 2. Use one key vault per application instance
 3. Periodically rotate your secrets
+4. Use X509 certificate based authentication for your key vault client applications
 
 
 ## Example
