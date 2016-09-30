@@ -192,14 +192,14 @@ To learn more about VM images, review the following blog posts:
 Please read the links given below for guidance on capturing the VM using API/PowerShell/Azure CLI.
 
 - [API](https://msdn.microsoft.com/library/mt163560.aspx )
-- [PowerShell](../virtual-machines-windows-capture-image.md )
+- [PowerShell](../virtual-machines-windows-capture-image.md)
 -	[Azure CLI](../virtual-machines-linux-capture-image.md )
 
 ### Generalize Image
 Please read the links given below for guidance on capturing the VM using API/PowerShell/Azure CLI.
 
 - [API](https://msdn.microsoft.com/library/mt269439.aspx )
-- [PowerShell](../virtual-machines-windows-capture-image.md  )
+- [PowerShell](../virtual-machines-windows-capture-image.md)
 - [Azure CLI](../virtual-machines-linux-capture-image.md)
 
 ### 4.2 Deploy a VM from a user VM image
