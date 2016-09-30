@@ -26,8 +26,8 @@ This article explains how to configure and code Azure DocumentDB bindings in Azu
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
-For more information on Azure DocumentDB review the [Introduction to DocumentDB](../documentdb/documentdb-introduction.md) 
-and the [Getting Started tutorial](../documentdb/documentdb-get-started.md).
+For more information on Azure DocumentDB, see [Introduction to DocumentDB](../documentdb/documentdb-introduction.md) 
+and [Build a DocumentDB console application](../documentdb/documentdb-get-started.md).
 
 <a id="docdbtrigger"></a>
 ## DocumentDB as trigger
@@ -54,20 +54,20 @@ The DocumentDB input to a function uses the following JSON object in the `bindin
  
 Note the following:
 
-- `id` supports bindings similar to "{queueTrigger}", which will use the string value of the queue message as the document Id.
+- `id` supports bindings similar to "{queueTrigger}", which uses the string value of the queue message as the document Id.
 - `connection` must be the name of an app setting that points to the endpoint for your DocumentDB account (with the value 
 `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). If you create a DocumentDB account through the 
-Functions portal UI, a new App setting will be created for you. To use an existing DocumentDB account, you need to 
+Functions portal UI, the account creation process creates a new app setting for you. To use an existing DocumentDB account, you need to 
 [configure this app setting manually](). 
-- If the specified document is not found, the named input parameter to the function will be `null`. 
+- If the specified document is not found, the named input parameter to the function is set to `null`. 
 
 ## Input usage
 
-In C# and F# functions, any changes made to the input document (named input parameter) will be automatically sent back to the 
+In C# and F# functions, any changes made to the input document (named input parameter) is automatically sent back to the 
 collection when the function exits successfully. 
 In Node.js functions, updates to the document in the input binding are not sent 
 back to the collection. However, you can use `context.bindings.<documentName>In` and `context.bindings.<documentName>Out` to 
-make updates to input documents. See how this is done in the [Node.js sample](#innodejs).
+make updates to input documents. See how it is done in the [Node.js sample](#innodejs).
 
 Suppose you have the following DocumentDB input binding in the `bindings` array of function.json:
 
@@ -81,7 +81,7 @@ Suppose you have the following DocumentDB input binding in the `bindings` array 
       "direction": "in"
     }
 
-See the language specific sample that uses this input binding to update the document's text value.
+See the language-specific sample that uses this input binding to update the document's text value.
 
 > [AZURE.SELECTOR]
 - [C#](#incsharp)
@@ -103,7 +103,7 @@ See the language specific sample that uses this input binding to update the docu
     let Run(myQueueItem: string, inputDocument: obj) =
         inputDocument?text <- "This has changed."
 
-You will need to add a `project.json` file that specifies the `FSharp.Interop.Dynamic` and `Dynamitey` NuGet 
+You need to add a `project.json` file that specifies the `FSharp.Interop.Dynamic` and `Dynamitey` NuGet 
 dependencies:
 
     {
@@ -117,7 +117,7 @@ dependencies:
       }
     }
 
-To add a `project.json` file, see []().
+To add a `project.json` file, see [F# package management](functions-reference-fsharp.md#package).
 
 <a name="innodejs"></a>
 ### Input usage in Node.js
@@ -145,12 +145,12 @@ following JSON object in the `bindings` array of function.json:
 
 Note the following:
 
-- Set `createIfNotExists` to `true` to create the collection if it doesn't exist. The default value is `false`. New collections are 
-created with reserved throughput, which has pricing implications. For more details, please see 
+- Set `createIfNotExists` to `true` to create the database and collection if it doesn't exist. The default value is `false`. New collections are 
+created with reserved throughput, which has pricing implications. For more information, see 
 [DocumentDB pricing](https://azure.microsoft.com/pricing/details/documentdb/).
 - `connection` must be the name of an app setting that points to the endpoint for your DocumentDB account (with the value 
 `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). If you create a DocumentDB account through the 
-Functions portal UI, a new App setting will be created for you. To use an existing DocumentDB account, you need to 
+Functions portal UI, the account creation process creates a new app setting for you. To use an existing DocumentDB account, you need to 
 [configure this app setting manually](). 
 
 ## Output usage
@@ -188,7 +188,7 @@ And you want to create DocumentDB documents in the following format for each rec
         "address": "A town nearby"
     }
 
-See the language specific sample that uses this output binding to create new documents.
+See the language specific sample that uses this output binding to add documents to your database.
 
 > [AZURE.SELECTOR]
 - [C#](#outcsharp)
@@ -240,7 +240,7 @@ See the language specific sample that uses this output binding to create new doc
               employeeId = employee?employeeId
               address = employee?address }
 
-You will need to add a `project.json` file that specifies the `FSharp.Interop.Dynamic` and `Dynamitey` NuGet 
+You need to add a `project.json` file that specifies the `FSharp.Interop.Dynamic` and `Dynamitey` NuGet 
 dependencies:
 
     {
@@ -254,7 +254,7 @@ dependencies:
       }
     }
 
-To add a `project.json` file, see []().
+To add a `project.json` file, see [F# package management](functions-reference-fsharp.md#package).
 
 <a name="outnodejs"></a>
 ### Output usage in Node.js
@@ -272,20 +272,3 @@ To add a `project.json` file, see []().
     };
 
 
-<!--
-## DocumentDB as trigger
-
-There is no function trigger for DocumentDB.
-
-## DocumentDB as input
-
-[AZURE.INCLUDE [DocumentDB input](../../includes/functions-bindings-ref/documentDBIn.md)]
-
-## DocumentDB as output
-
-[AZURE.INCLUDE [DocumentDB output](../../includes/functions-bindings-ref/documentDBOut.md)]
-
-## Next steps
-
-[AZURE.INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
--->

@@ -189,6 +189,7 @@ let Run(blob: string, output: byref<string>, log: TraceWriter) =
 
 When Azure Functions executes your code, it processes the source with `COMPILED` defined, so the editor prelude will be ignored.
 
+<a name="package"></a>
 ## Package management
 
 To use NuGet packages in an F# function, add a `project.json` file to the the function's folder in the function app's file system. Here is an example `project.json` file that adds a NuGet package reference to `Microsoft.ProjectOxford.Face` version 1.1.0:
