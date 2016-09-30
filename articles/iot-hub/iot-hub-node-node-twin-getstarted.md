@@ -16,42 +16,46 @@
      ms.date="09/13/2016"
      ms.author="elioda"/>
 
-# Tutorial: Get started with IoT Hub twins
+# Tutorial: Get started with IoT Hub device twins (preview)
 
 ## Introduction
 
-Device twins are JSON documents persisted in an IoT hub that are used to store device meta-data and to facilitate the synchronization of device configurations and conditions between an IoT solution's device app and back end.
+Device twins are JSON documents that store device state information (meta-data, configurations, and conditions). IoT Hub persists a device twin for each device that you connect to IoT Hub.
 
-Common use cases include:
+Use device twins to:
 
-* Solution back ends storing device meta-data.
-* Device apps reporting current state information such as available capabilities and device conditions (such as whether the device is connected through wifi).
-* Device apps and back ends synchronizing the state of long-running workflows (for example,firmware or configuration updates).
-* Solution back ends querying devices based on meta-data, configuration, or conditions.
+* Store device meta-data from your back end.
+* Report current state information such as available capabilities and conditions (for example, the connectivity method used) from your device app.
+* Synchronize the state of long-running workflows (such as firmware and configuration updates) between device app and back end.
+* Query your device meta-data, configuration, or state.
 
-> AZURE.NOTE Twins are designed for synchronization and for querying  device configurations and conditions. Use [device-to-cloud messages][lnk-d2c] for sequences of timestamped events (such as telemetry streams of time-based sensor data) and [cloud-to-device methods][lnk-methods] for interactive control of devices, such as turning on a fan from a user-controlled app.
+> [AZURE.NOTE] Device twins are designed for synchronization and for querying device configurations and conditions. Use [device-to-cloud messages][lnk-d2c] for sequences of timestamped events (such as telemetry streams of time-based sensor data) and [cloud-to-device methods][lnk-methods] for interactive control of devices, such as turning on a fan from a user-controlled app.
 
-A device twin contains *tags*, device meta-data accessible only by the back end, and *desired properties* in a JSON object modifiable by the back end and observable by the device app. A device twin contains *reported properties* in a JSON object modifiable by the device app and readable by the back end. Tags and properties cannot contain arrays, but objects can be nested. Additionally, the app back end can query device twins based on all the above data. 
+Device twins are stored in an IoT hub and contain:
 
-Refer to [Use device twins to synchronize state and configurations][lnk-twins] for more information about twins and to the [IoT Hub query language][lnk-query] reference for querying.
+* *tags*, device meta-data accessible only by the back end;
+* *desired properties*, JSON objects modifiable by the back end and observable by the device app; and
+* *reported properties*, JSON objects modifiable by the device app and readable by the back end. Tags and properties cannot contain arrays, but objects can be nested.
+
+Additionally, the app back end can query device twins based on all the above data.
+
+Refer to [Understand device twins][lnk-twins] for more information about device twins and to the [IoT Hub query language][lnk-query] reference for querying.
 
 This tutorial shows you how to:
 
-- Use the Azure portal to create an IoT hub.
-- Create a device identity in your IoT hub using the **iothubexplorer** Node.js tool.
-- Create a cloud back-end app that adds *tags* to a device twin, and a simulated device that reports its connectivity channel as a *reported property* on the device twin.
-- From a back-end app, query devices in the IoT hub using filters on the tags and properties previously created.
+- Create a back-end app that adds *tags* to a device twin, and a simulated device that reports its connectivity channel as a *reported property* on the device twin.
+- Query devices from your back end app using filters on the tags and properties previously created.
 
-At the end of this tutorial, you have two Node.js console applications:
+At the end of this tutorial, you will have two Node.js console applications:
 
-* **AddTagsAndQuery.js**, a Node.js app meant to be run from the cloud, which adds device tags and queries twins.
+* **AddTagsAndQuery.js**, a Node.js app meant to be run from the app back end, which adds tags and queries device twins.
 * **TwinSimulatedDevice.js**, a Node.js app which simulates a device that connects to your IoT hub with the device identity created earlier, and reports its connectivity condition.
 
 > [AZURE.NOTE] The article [IoT Hub SDKs][lnk-hub-sdks] provides information about the various SDKs that you can use to build both device and back-end applications.
 
 To complete this tutorial you need the following:
 
-+ Node.js version 0.12.x or later. <br/> [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
++ Node.js version 0.10.x or later.
 
 + An active Azure account. (If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].)
 
@@ -122,7 +126,7 @@ In this section, you create a Node.js console app that adds location meta-data t
                 }
             });
             
-            query = registry.createQuery("SELECT * FROM devices WHERE tags.building = '43' AND properties.reported.connectivity.type = 'cellular'", 100);
+            query = registry.createQuery("SELECT * FROM devices WHERE tags.location.plant = 'Redmond43' AND properties.reported.connectivity.type = 'cellular'", 100);
             query.nextAsTwin(function(err, results) {
                 if (err) {
                     console.error('Failed to fetch the results: ' + err.message);
@@ -132,9 +136,9 @@ In this section, you create a Node.js console app that adds location meta-data t
             });
         };
 
-    The previous code executes two queries: the first selects only the twins of devices located in the **Redmond43** plant, and the second refines the query to select only the devices that are also connected through cellular network.
+    The previous code executes two queries: the first selects only the device twins of devices located in the **Redmond43** plant, and the second refines the query to select only the devices that are also connected through cellular network.
 
-    Note that the previous code, when it creates the **query** object, specifies a maximum number of returned documents. The **query** object contains a **hasMoreResults** boolean property that you can use to invoke the **nextAsTwin** methods multiple times to retrieve all results. A method called **next** is available for results that are not twins for example, results of aggregation queries.
+    Note that the previous code, when it creates the **query** object, specifies a maximum number of returned documents. The **query** object contains a **hasMoreResults** boolean property that you can use to invoke the **nextAsTwin** methods multiple times to retrieve all results. A method called **next** is available for results that are not device twins for example, results of aggregation queries.
 
 8. Run the application with:
 

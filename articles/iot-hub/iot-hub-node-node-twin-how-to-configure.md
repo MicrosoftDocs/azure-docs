@@ -16,20 +16,22 @@
      ms.date="09/13/2016"
      ms.author="elioda"/>
 
-# Tutorial: Use desired properties to configure devices
+# Tutorial: Use desired properties to configure devices (preview)
 
 ## Introduction
 
-Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of IoT devices and an application back end. In [Get started with IoT Hub twins][lnk-twin-tutorial], you learned how to set device meta-data from your solution back end using *tags*, report device conditions from a device app using *reported properties*, and query this information using a SQL-like language.
+In [Get started with IoT Hub twins][lnk-twin-tutorial], you learned how to set device meta-data from your solution back end using *tags*, report device conditions from a device app using *reported properties*, and query this information using a SQL-like language.
 
-In this tutorial, you learn how to use the the twin's *desired properties* in conjunction with *reported properties*, to remotely configure large sets of devices. More specifically, this tutorial shows how twin's reported and desired properties enable a multi-step configuration of a device application setting, and provide the required visibility to the solution back end of the status of this operation across all devices.
+In this tutorial, you will learn how to use the the twin's *desired properties* in conjunction with *reported properties*, to remotely configure device apps. More specifically, this tutorial shows how twin's reported and desired properties enable a multi-step configuration of a device application setting, and provide the visibility to the solution back end of the status of this operation across all devices.
 
-At a high level, this tutorial follows the *desired state pattern* for device management. The fundamental idea of this pattern is to have the solution back end specify the desired state for the managed devices, instead of sending specific commands. This puts the device in charge of establishing the best way to reach the desired state (very important in IoT scenarios where specific device conditions affect the ability to immediately carry out specific commands), while continually reporting to the back end the current state and potential error conditions. This enables the back end to have full visibility of the state of the configuration process across large sets of devices.
+At a high level, this tutorial follows the *desired state pattern* for device management. The fundamental idea of this pattern is to have the solution back end specify the desired state for the managed devices, instead of sending specific commands. This puts the device in charge of establishing the best way to reach the desired state (very important in IoT scenarios where specific device conditions affect the ability to immediately carry out specific commands), while continually reporting to the back end the current state and potential error conditions. The desired state pattern is instrumental to the management of large sets of devices, as it enables the back end to have full visibility of the state of the configuration process across all devices.
 You can find more information regarding the role of the desired state pattern in device management in [Overview of Azure IoT Hub device management][lnk-dm-overview].
 
-> AZURE.NOTE In scenarios where devices are controlled in a more interactive fashion (turn on a fan from a user-controlled app), consider using [cloud-to-device methods][lnk-methods].
+> [AZURE.NOTE] In scenarios where devices are controlled in a more interactive fashion (turn on a fan from a user-controlled app), consider using [cloud-to-device methods][lnk-methods].
 
-In this tutorial, the application back end changes the telemetry configuration of a target device. The configuration is represented in the device twin's desired properties in the following way:
+In this tutorial, the application back end changes the telemetry configuration of a target device and, as a result of that, the device app follows a multi-step process to apply a configuration update (e.g. requiring a software module restart), which this tutorial simulates with a simple delay).
+
+The back-end stores the configuration in the device twin's desired properties in the following way:
 
         {
             ...
@@ -46,18 +48,36 @@ In this tutorial, the application back end changes the telemetry configuration o
             ...
         }
 
-You assign ids to configuration changes to simplify the tracking of long running configuration update processes.
+> [AZURE.NOTE] Since configurations can be complex objects, they are usually assigned unique ids (hashes or [GUIDs][lnk-guid]) to simplify their comparisons.
 
-On the device-side, you assume that the device app should follow a multi-step process to apply a configuration update (for example, requiring a software module restart), which in this tutorial is simulated by a simple delay. In order to keep track of the update process, the application reports information using the following object in the twin's reported properties:
+The device app reports its current configuration mirroring the desired property **telemetryConfig** in the reported properties:
 
         {
             "properties": {
                 ...
                 "reported": {
                     "telemetryConfig": {
-                        "changeId": "{id of the active configuration}",
-                        "sendFrequency": "{active configuration}",
-                        "status": "{Success | Pending | Error}",
+                        "changeId": "{id of the current configuration}",
+                        "sendFrequency": "{current configuration}",
+                        "status": "Success",
+                    }
+                }
+                ...
+            }
+        }
+
+Note how the reported **telemetryConfig** has an additional property **status**, used to report the state of the configuration update process.
+
+When a new desired configuration is received, the device app reports a pending configuration by changing the information:
+
+        {
+            "properties": {
+                ...
+                "reported": {
+                    "telemetryConfig": {
+                        "changeId": "{id of the current configuration}",
+                        "sendFrequency": "{current configuration}",
+                        "status": "Pending",
                         "pendingConfig": {
                             "changeId": "{id of the pending configuration}",
                             "sendFrequency": "{pending configuration}"
@@ -68,27 +88,28 @@ On the device-side, you assume that the device app should follow a multi-step pr
             }
         }
 
-Note how the **telemetryConfig** property mirrors its desired counterpart, but adds information about the status of the configuration update process, and distinguishes between active and pending configurations.
+Then, at some later time, the device app will report the success of failure of this operation by updating the above property.
+Note how the back end is able, at any time, to query the status of the configuration process across all the devices.
 
 This tutorial shows you how to:
 
-- Use the Azure portal to create an IoT hub.
-- Create a device identity in your IoT hub using the **iothubexplorer** Node.js tool.
 - Create a simulated device that receives configuration updates from the back end and reports multiple updates as *reported properties* on the configuration update process.
 - Create a back-end app that updates the desired configuration of a device, and then queries the configuration update process.
 
-At the end of this tutorial, you have two Node.js console applications:
+At the end of this tutorial, you will have two Node.js console applications:
 
 * **SimulateDeviceConfiguration.js**, a simulated device app that waits for a desired configuration update and reports the status of a simulated configuration update process.
-* **SetDesiredConfigurationAndQuery.js**, a Node.js app meant to be run from the cloud, which sets the desired configuration on a device and queries the configuration update process.
+* **SetDesiredConfigurationAndQuery.js**, a Node.js app meant to be run from the back end, which sets the desired configuration on a device and queries the configuration update process.
 
 > [AZURE.NOTE] The article [IoT Hub SDKs][lnk-hub-sdks] provides information about the various SDKs that you can use to build both device and back-end applications.
 
 To complete this tutorial you need the following:
 
-+ Node.js version 0.12.x or later. <br/> [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
++ Node.js version 0.10.x or later.
 
 + An active Azure account. (If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].)
+
+If you followed the [Get started with device twins][lnk-twin-tutorial] tutorial, you already have a device management enabled hub and a device identity called **myDeviceId**; and you can skip to the [Create the simulated device app][lnk-how-to-configure-createapp] section.
 
 [AZURE.INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
 
@@ -148,7 +169,7 @@ In this section, you create a Node.js console app that connects to your hub as *
 
     Note that for the sake of simplicity, the previous code uses a hard-coded default for the inital configuration. A real app would probably load that configuration from a local storage.
     
-> [AZURE.IMPORTANT] Since desired property change events are always emitted once at device connection, the handler function has to verify that there is an actual change in the desired properties.
+> [AZURE.IMPORTANT] Desired property change events are always emitted once at device connection, make sure to check that there is an actual change in the desired properties before performing any action.
 
 5. Add the following methods before the `client.open()` invocation:
 
@@ -191,19 +212,21 @@ In this section, you create a Node.js console app that connects to your hub as *
             });
         };
 
-    The **initConfigChange** method updates reported properties on the local twin object with the config update request and sets the status to **Pending**, then creates a patch to update the device twin on the service. After successfully updating the twin, it simulates a long running process that terminates in the execution of **completeConfigChange**. This method updates the local twin's reported properties setting the status to **Success** and removing the **pendingConfig** object. It then updates the twin on the service.
+    The **initConfigChange** method updates reported properties on the local twin object with the config update request and sets the status to **Pending**, then updates the device twin on the service. After successfully updating the twin, it simulates a long running process that terminates in the execution of **completeConfigChange**. This method updates the local twin's reported properties setting the status to **Success** and removing the **pendingConfig** object. It then updates the twin on the service.
 
-> [AZURE.NOTE] This tutorial does not simulate any behavior for concurrent configuration updates. Some configuration update processes might be able to accommodate changes of target configuration while running, others might have to queue them, and others could reject them with an error condition. The device app code should deal with the above conditions by reporting changes of the configuration update status accordingly.
+    Note that, to save bandwidth, reported properties are updated by specifying only the properties to be modified (named **patch** in the above code), instead of replacing the whole document.
+
+> [AZURE.NOTE] This tutorial does not simulate any behavior for concurrent configuration updates. Some configuration update processes might be able to accommodate changes of target configuration while the update is running, others might have to queue them, and others could reject them with an error condition. Make sure to consider the desired behavior for your specific configuration process, and add the appropriate logic before initiating the configuration change.
 
 6. Run the device app:
 
         node SimulateDeviceConfiguration.js
 
-    You should see the message `retrieve device twin`. Keep the app running.
+    You should see the message `retrieved device twin`. Keep the app running.
 
 ## Create the service app
 
-In this section, you create a Node.js console app that updates the *desired properties* on the twin associated with **myDeviceId** with a new telemetry configuration object. It then queries the twin collection stored in the hub and shows the difference between the desired and reported configurations of the device.
+In this section, you will create a Node.js console app that updates the *desired properties* on the twin associated with **myDeviceId** with a new telemetry configuration object. It then queries the device twins stored in the hub and shows the difference between the desired and reported configurations of the device.
 
 1. Create a new empty folder called **setdesiredandqueryapp**. In the **setdesiredandqueryapp** folder, create a new package.json file using the following command at your command-prompt. Accept all the defaults:
 
@@ -257,11 +280,9 @@ In this section, you create a Node.js console app that updates the *desired prop
 
     The **Registry** object exposes all the methods required to interact with device twins from the service. The previous code, after it initializes the **Registry** object, retrieves the twin for **myDeviceId**, and updates its desired properties with a new telemetry configuration object. After that, it calls the **queryTwins** function event 10 seconds.
 
-    In the previous code, the app only changes the configuration of a single device. Use [Jobs][lnk-devguide-jobs] to simultaneously change the desired state of large sets of devices.
+> [AZURE.IMPORTANT] This application queries IoT Hub every 10 seconds for illustrative purposes. Use queries to generate user-facing reports across many devices, and not to detect changes. If your solution requires real-time notifications of device events use [device-to-cloud messages][lnk-d2c].
 
-> [AZURE.IMPORTANT] In a real back-end app, you use queries to generate user-facing reports across many devices, which are not generated at such a high frequency. If your solution requires real-time notifications of device events use [device-to-cloud messages][lnk-d2c].
-
-7. Add the following code right before the `registry.getDeviceTwin()` invocation to implement the **queryTwins** function:
+5. Add the following code right before the `registry.getDeviceTwin()` invocation to implement the **queryTwins** function:
 
         var queryTwins = function() {
             var query = registry.createQuery("SELECT * FROM devices WHERE deviceId = 'myDeviceId'", 100);
@@ -323,3 +344,7 @@ To learn how to extend your IoT solution to send telemetry from devices follow t
 [lnk-device-management]: iot-hub-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-iothub-getstarted]: iot-hub-node-node-getstarted.md
+
+[lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
+
+[lnk-how-to-configure-createapp]: iot-hub-node-node-twin-how-to-configure.md#create-the-simulated-device-app
