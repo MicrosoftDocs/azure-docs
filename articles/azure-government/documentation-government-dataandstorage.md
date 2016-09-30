@@ -26,7 +26,7 @@ For details on this service and how to use it, see [Azure Storage public documen
 
 ### Variations
 
-The URL for storage accounts in Azure Government will be different:
+The URL for storage accounts in Azure Government is different:
 
 Service Type|Azure Public|Azure Government
 ---|---|---
@@ -40,7 +40,7 @@ The following information identifies the Azure Government boundary for Azure Sto
 
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 |--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Data entered, stored and processed within an Azure Storage product can contain export controlled data. Static authenticators, such as passwords and smartcard PINs for access to Azure platform components. Private keys of certificates used to manage Azure platform components. Other security information/secrets, such as certificates, encryption keys, master keys, and storage keys stored in Azure services. | Azure Storage metadata is not permitted to contain export controlled data. This metadata includes all configuration data entered when creating and maintaining your storage product.  Do not enter Regulated/controlled data into the following fields:  Resource groups, Deployment names, Resource names, Resource tags  
+| Data entered, stored, and processed within an Azure Storage product can contain export controlled data. Static authenticators, such as passwords and smartcard PINs for access to Azure platform components. Private keys of certificates used to manage Azure platform components. Other security information/secrets, such as certificates, encryption keys, master keys, and storage keys stored in Azure services. | Azure Storage metadata is not permitted to contain export controlled data. This metadata includes all configuration data entered when creating and maintaining your storage product.  Do not enter Regulated/controlled data into the following fields:  Resource groups, Deployment names, Resource names, Resource tags  
 
 ##  Premium Storage
 
@@ -64,7 +64,7 @@ Refer to the<a href="https://msdn.microsoft.com/en-us/library/bb510589.aspx"> Mi
 
 SQL Database is generally available in Azure Government.
 
-The Address for SQL Azure Servers in Azure Government will be different:
+The Address for SQL Azure Servers in Azure Government is different:
 
 Service Type|Azure Public|Azure Government
 ---|---|---
@@ -80,5 +80,5 @@ The following information identifies the Azure Government boundary for Azure Sto
 
 ##  Next Steps
 
-For supplemental information and updates please subscribe to the
+For supplemental information and updates subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
