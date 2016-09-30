@@ -179,7 +179,7 @@ At the time of writing, the Gateway SDK only supports gateways that use BLE modu
 
 ### Configure two sample devices in your IoT Hub
 
-- [Create an IoT hub][lnk-create-hub] in your Azure subscription, you will need the name of your hub to complete this walkthrough. If you don't already have an Azure subscription, you can get a [free account][lnk-free-trial].
+- Create an IoT hub in your Azure subscription, you will need the name of your hub to complete this walkthrough. If you don't already have an Azure subscription, you can get a [free account][lnk-free-trial].
 - Add one device called **SensorTag_01** to your IoT hub and make a note of its id and device key. You can use the [Device Explorer or iothub-explorer][lnk-explorer-tools] tools to add this device to the IoT hub you created in the previous step and to retrieve its key. You will map this device to the SensorTag device when you configure the gateway.
 
 ### Build the Gateway SDK on your Edison device
@@ -421,32 +421,21 @@ The default behavior for a device using the HTTP protocol to connect to IoT Hub 
 
 If you want to gain a more advanced understanding of the Gateway SDK and experiment with some code examples, visit the following developer tutorials and resources:
 
-- [Manage a gateway device][lnk-manage-devices]
-- [Azure IoT Gateway SDK][lnk-gateway-sdk]
+- [Azure IoT Gateway SDK][lnk-sdk]
 
 To further explore the capabilities of IoT Hub, see:
 
-- [Designing your solution][lnk-design]
 - [Developer guide][lnk-devguide]
-- [Exploring device management using the sample UI][lnk-dmui]
-- [Using the Azure Portal to manage IoT Hub][lnk-portal]
 
 <!-- Links -->
 [lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/ble_gateway_hl
-[lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
-[lnk-create-hub]: iot-hub-manage-through-portal.md
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-explorer-tools]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-setup-win64]: https://software.intel.com/get-started-edison-windows
 [lnk-setup-win32]: https://software.intel.com/get-started-edison-windows-32
 [lnk-setup-osx]: https://software.intel.com/get-started-edison-osx
 [lnk-setup-linux]: https://software.intel.com/get-started-edison-linux
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 
-[lnk-manage-devices]: iot-hub-gateway-sdk-device-management.md
 
-[lnk-design]: iot-hub-guidance.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-dmui]: iot-hub-device-management-ui-sample.md
-[lnk-portal]: iot-hub-manage-through-portal.md

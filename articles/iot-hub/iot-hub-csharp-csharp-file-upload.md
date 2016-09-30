@@ -41,7 +41,7 @@ In order to complete this tutorial, you need the following:
 
 Because the simulated device uploads a file to an Azure Storage blob, you must have an [Azure Storage] account associated to IoT Hub. When you associate a storage account with an IoT hub, the hub can generate a SAS URI that a device can use to securely upload a file to a blob container. The IoT Hub service and the device SDKs coordinate the process that generates the SAS URI and makes it available to a device to use to upload a file.
 
-Follow the instructions in [Manage IoT hubs through the Azure portal] to associate an Azure Storage account to your IoT hub.
+Follow the instructions in [Configure file uploads using the Azure portal][lnk-configure-upload] to associate an Azure Storage account to your IoT hub.
 
 ## Upload a file from a simulated device
 
@@ -157,10 +157,7 @@ In this tutorial, you learned how to leverage the file upload capabilities of Io
 
 To further explore the capabilities of IoT Hub, see:
 
-- [Designing your solution][lnk-design]
-- [Exploring device management using the sample UI][lnk-dmui]
 - [Simulating a device with the Gateway SDK][lnk-gateway]
-- [Using the Azure Portal to manage IoT Hub][lnk-portal]
 
 <!-- Images. -->
 
@@ -182,16 +179,14 @@ To further explore the capabilities of IoT Hub, see:
 
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
-[Manage IoT hubs through the Azure portal]: iot-hub-manage-through-portal.md#file-upload
+[lnk-configure-upload]: iot-hub-configure-file-upload.md
 [Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
-[lnk-sdks]: iot-hub-sdks-summary.md
+[lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-design]: iot-hub-guidance.md
-[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-[lnk-portal]: iot-hub-manage-through-portal.md
+
 
