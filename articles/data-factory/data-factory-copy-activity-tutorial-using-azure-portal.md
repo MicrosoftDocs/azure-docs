@@ -19,12 +19,13 @@
 # Tutorial: Create a pipeline with Copy Activity using Azure portal
 > [AZURE.SELECTOR]
 - [Overview and prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 - [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
+
 
 
 This tutorial shows you how to create and monitor an Azure data factory using the Azure portal. The pipeline in the data factory uses a Copy Activity to copy data from Azure Blob Storage to Azure SQL Database.

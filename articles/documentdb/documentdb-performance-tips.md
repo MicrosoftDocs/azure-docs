@@ -135,7 +135,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 10. **Increase number of threads/tasks**
 
-	See [Increase number of threads/tasks](increase-threads.md) in the Networking section.
+	See [Increase number of threads/tasks](#increase-threads) in the Networking section.
 
 ## Indexing Policy
 

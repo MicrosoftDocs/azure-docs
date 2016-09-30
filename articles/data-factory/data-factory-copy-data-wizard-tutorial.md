@@ -19,12 +19,13 @@
 # Tutorial: Create a pipeline with Copy Activity using Data Factory Copy Wizard
 > [AZURE.SELECTOR]
 - [Overview and prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 - [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
+
 
 The Azure Data Factory **Copy Wizard** allows you to easily and quickly create a pipeline that implements the data ingestion/movement scenario. Therefore, we recommend that you use the wizard as a first step to create a sample pipeline for data movement scenario. This tutorial shows you how to create an Azure data factory, launch the Copy Wizard, go through a series of steps to provide details about your data ingestion/movement scenario. When you finish steps in the wizard, the wizard automatically creates a pipeline with a Copy Activity to copy data from an Azure blob storage to an Azure SQL database. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity. 
 

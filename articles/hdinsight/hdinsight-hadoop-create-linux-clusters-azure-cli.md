@@ -40,6 +40,11 @@ The steps in this document walk through the process of creating a new HDInsight 
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
+
+### Access control requirements
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+
 ##Log in to your Azure subscription
 
 Follow the steps documented in [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md) and connect to your subscription using the __login__ method.
