@@ -26,6 +26,38 @@ Azure VM's can be built upon standard storage disks or premium storage disks.  W
 
 ![screen1](../media/virtual-machines-linux-azure-storage-overview/screen1.png)
 
+When creating a VM from the `azure-cli` you can choose between standard and premium when choosing the VM size via the `-z` or `--vm-size` cli flag.
+
+### Create a VM with standard storage VM on the cli
+
+The cli flag `-z` chooses Standard_A1 with A1 being a standard storage based Linux VM.
+
+```bash
+azure vm quick-create -g rbg \
+exampleVMname \
+-l westus \
+-y Linux \
+-Q Debian \
+-u exampleAdminUser \
+-M ~/.ssh/id_rsa.pub
+-z Standard_A1
+```
+
+### Create a VM with premium storage on the cli
+
+The cli flag `-z` chooses Standard_DS1 with DS1 being a premium storage based Linux VM.
+
+```bash
+azure vm quick-create -g rbg \
+exampleVMname \
+-l westus \
+-y Linux \
+-Q Debian \
+-u exampleAdminUser \
+-M ~/.ssh/id_rsa.pub
+-z Standard_DS1
+```
+
 ## Standard storage
 
 Azure Standard Storage is the default type of storage.  Standard storage is cost effective while still being performant.  
