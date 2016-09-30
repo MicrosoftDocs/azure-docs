@@ -109,11 +109,11 @@ To associate the Office 365 tenant with the Azure subscription, follow these ste
 
 	![Screenshot of "Change the associated directory"](./media/billing-add-office-365-tenant-to-azure-subscription/s318_azure-change-associated-directory.png)
 
-		> [AZURE.WARNING] You will receive a warning that all co-administrators will be removed.
+	> [AZURE.WARNING] You will receive a warning that all co-administrators will be removed.
 
 	![azure-confirm-directory-mapping](./media/billing-add-office-365-tenant-to-azure-subscription/s322_azure-confirm-directory-mapping.png)
 
-		>[AZURE.WARNING] Additionally, all [Role-Based Access Control (RBAC)](./active-directory/role-based-access-control-configure.md) users with Assigned access in the existing resource groups will also be removed. However, the warning you receive only mentions the removal of co-administrators.
+	>[AZURE.WARNING] Additionally, all [Role-Based Access Control (RBAC)](./active-directory/role-based-access-control-configure.md) users with Assigned access in the existing resource groups will also be removed. However, the warning you receive only mentions the removal of co-administrators.
 
 	![assigned-users-removed-resource-groups](./media/billing-add-office-365-tenant-to-azure-subscription/s325_assigned-users-removed-resource-groups.png)
 
