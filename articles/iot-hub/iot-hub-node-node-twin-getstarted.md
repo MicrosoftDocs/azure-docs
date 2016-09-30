@@ -16,7 +16,7 @@
      ms.date="09/13/2016"
      ms.author="elioda"/>
 
-# Tutorial: Get started with IoT Hub device twins (preview)
+# Tutorial: Get started with device twins (preview)
 
 ## Introduction
 
@@ -224,13 +224,11 @@ In this section, you create a Node.js console app that connects to your hub as *
 ## Next steps
 In this tutorial, you configured a new IoT hub in the portal, and then created a device identity in the hub's identity registry. You added device meta-data as tags from a back-end application, and wrote a simulated device app to report device connectivity information in the device twin. You also learned how to query this information using the IoT Hub SQL-like query language.
 
-To continue getting started with IoT Hub and to explore other IoT scenarios see:
+Use the follwing resources to learn how to:
 
-- [Connecting your device][lnk-connect-device]
-- [Getting started with device management][lnk-device-management]
-- [Getting started with the Gateway SDK][lnk-gateway-SDK]
-
-To learn how to extend your IoT solution to send telemetry from devices follow the [Get started with IoT Hub][lnk-iothub-getstarted] tutorial. To learn about twin's desired properties follow the [Use desired properties to configure devices][lnk-twin-how-to-configure] tutorial.
+- send telemetry from devices with the [Get started with IoT Hub][lnk-iothub-getstarted] tutorial,
+- configure devices using twin's desired properties with the [Use desired properties to configure devices][lnk-twin-how-to-configure] tutorial,
+- control devices interactively (such as turning on a fan from a user-controlled app), with the [Use direct methods][lnk-methods-tutorial] tutorial.
 
 <!-- images -->
 [1]: media/iot-hub-node-node-twin-getstarted/service1.png
@@ -254,4 +252,4 @@ To learn how to extend your IoT solution to send telemetry from devices follow t
 [lnk-twin-how-to-configure]: iot-hub-node-node-twin-how-to-configure.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 
-[img-identity]: media/iot-hub-get-started-create-hub-pp/devidentity.png
+[lnk-methods-tutorial]: iot-hub-c2d-methods.md
