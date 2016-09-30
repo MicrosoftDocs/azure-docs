@@ -77,7 +77,7 @@ There are some other important considerations when working with virtual machines
 - Virtual machines deployed with the Resource Manager deployment model must be included in a virtual network.
 - Virtual machines deployed with the classic deployment model don't have to be included in a virtual network.
 
-To learn about connecting virtual networks from different deployment models, see [Connecting classic VNets to new VNets](./virtual-network/virtual-networks-arm-asm-s2s.md).
+To learn about connecting virtual networks from different deployment models, see [Connect virtual networks from different deployment models in the portal](./vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
 Only resources created through Resource Manager support tags. You cannot apply tags to classic resources. For more information about using tags in Resource Manager, see [Using tags to organize your Azure resources](resource-group-using-tags.md).
 
