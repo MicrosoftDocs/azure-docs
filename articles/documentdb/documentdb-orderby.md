@@ -123,7 +123,7 @@ You cannot perform the following:
 - Order By with queries on databases, collections, users, permissions or attachments (coming soon).
 - Order By with computed properties e.g. the result of an expression or a UDF/built-in function.
 
-Order by is not currently supported for cross-partition queries when using Query Explorer in the Azure portal.
+Order By is not currently supported for cross-partition queries when using Query Explorer in the Azure portal.
 
 ## Troubleshooting
 
