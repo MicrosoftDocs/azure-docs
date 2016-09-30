@@ -225,11 +225,11 @@ Set the **default version** for the application:
 
 You can specify one or more application packages for deployment when you create a new pool. When you specify a package at pool creation time, it is deployed to each node as the node joins pool. Packages are also deployed when a node is rebooted or reimaged.
 
-Specify the `--app-package-ref` option when creating a pool to deploy an application package to the pool's nodes as they join the pool. The `--app-package-ref` option accepts a semicolon delimited list of application ids to deploy to the compute nodes.
+Specify the `--app-package-ref` option when creating a pool to deploy an application package to the pool's nodes as they join the pool. The `--app-package-ref` option accepts a semicolon-delimited list of application ids to deploy to the compute nodes.
 
     azure batch pool create --pool-id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
 
-When you create a pool by using command line options, you cannot currently specify *which* application package version to deploy to the compute nodes, for example "1.10-beta3". Therefore, you must first specify a default version for the application with `azure batch application set [options] --default-version <version-id>` before you create the pool (see previous section). You can, however, specify a package version for the pool if you use a [JSON file](#json-files) instead of command line options when you create the pool.
+When you create a pool by using command-line options, you cannot currently specify *which* application package version to deploy to the compute nodes, for example "1.10-beta3". Therefore, you must first specify a default version for the application with `azure batch application set [options] --default-version <version-id>` before you create the pool (see previous section). You can, however, specify a package version for the pool if you use a [JSON file](#json-files) instead of command line options when you create the pool.
 
 You can find more information on application packages in [Application deployment with Azure Batch application packages](batch-application-packages.md).
 
