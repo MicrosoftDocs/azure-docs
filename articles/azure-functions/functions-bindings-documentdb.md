@@ -30,7 +30,7 @@ For more information on Azure DocumentDB, see [Introduction to DocumentDB](../do
 and [Build a DocumentDB console application](../documentdb/documentdb-get-started.md).
 
 <a id="docdbinput"></a>
-## Input binding
+## DocumentDB input binding
 
 The DocumentDB input binding retrieves a DocumentDB document and passes it to the named input parameter of the function. The document 
 ID can be determined based on the trigger that invokes the function. 
@@ -124,7 +124,7 @@ To add a `project.json` file, see [F# package management](functions-reference-fs
       context.done();
     };
 
-## <a id="docdboutput"></a>Output binding
+## <a id="docdboutput"></a>DocumentDB output binding
 
 The DocumentDB output binding lets you write a new document to an Azure DocumentDB database. The output binding uses the 
 following JSON object in the `bindings` array of function.json: 
