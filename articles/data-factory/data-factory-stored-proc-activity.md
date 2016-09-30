@@ -18,7 +18,7 @@
 
 # SQL Server Stored Procedure Activity
 
-You can use the SQL Server Stored Procedure activity in a Data Factory [pipeline](data-factory-create-pipelines.md) to invoke a stored procedure in one of the following data stores. 
+You can use the SQL Server Stored Procedure activity in a Data Factory [pipeline](data-factory-create-pipelines.md) to invoke a stored procedure in one of the following data stores: 
 
 
 - Azure SQL Database 
@@ -59,14 +59,15 @@ This article builds on the [data transformation activities](data-factory-data-tr
 	> [AZURE.IMPORTANT] **Name** and **casing** of the parameter (DateTime in this example) must match that of parameter specified in the pipeline/activity JSON. In the stored procedure definition, ensure that **@** is used as a prefix for the parameter.
 	
 ### Create a data factory  
-4. After logging in to the [Azure portal](https://portal.azure.com/), do the following: Click **NEW** on the left menu, click **Intelligence + Analytics**, and click **Data Factory**.
+4. Log in to [Azure portal](https://portal.azure.com/). 
+5. Click **NEW** on the left menu, click **Intelligence + Analytics**, and click **Data Factory**.
 	
 	![New data factory](media/data-factory-stored-proc-activity/new-data-factory.png)	
 4.	In the **New data factory** blade, enter **SProcDF** for the Name. Azure Data Factory names are **globally unique**. You need to prefix the name of the data factory with your name, to enable the successful creation of the factory.
 
 	![New data factory](media/data-factory-stored-proc-activity/new-data-factory-blade.png)		 
 3.	Select your **Azure subscription**. 
-4.	For **Resource Group**, do one of the following: 
+4.	For **Resource Group**, do one of the following steps: 
 	1.	Click **Create new** and enter a name for the resource group.
 	2.	Click **Use existing** and select an existing resource group.  
 5.	Select the **location** for the data factory.
@@ -82,7 +83,11 @@ After creating the data factory, you create an Azure SQL linked service that lin
 2.	Click **New data store** on the command bar and choose **Azure SQL Database**. You should see the JSON script for creating an Azure SQL linked service in the editor. 
 
 	![New data store](media/data-factory-stored-proc-activity/new-data-store.png)
-4. Replace **&lt;servername&gt;** with the name of your Azure SQL Database server, **&lt;databasename&gt;** with the database in which you created the table and the stored procedure, **&lt;username@servername&gt;** with the user account that has access to the database, and **&lt;password&gt;** with the password for the user account. 
+4. In the JSON script, make the following changes: 
+	1. Replace **&lt;servername&gt;** with the name of your Azure SQL Database server.
+	2. Replace **&lt;databasename&gt;** with the database in which you created the table and the stored procedure.
+	3. Replace **&lt;username@servername&gt;** with the user account that has access to the database.
+	4. Replace **&lt;password&gt;** with the password for the user account. 
 
 	![New data store](media/data-factory-stored-proc-activity/azure-sql-linked-service.png)
 5. Click **Deploy** on the command bar to deploy the linked service. Confirm that you see the AzureSqlLinkedService in the tree view on the left. 
@@ -169,7 +174,7 @@ Now, let's create a pipeline with a SqlServerStoredProcedure activity.
 
 	See [Monitor the pipeline](data-factory-monitor-manage-pipelines.md) for detailed information about monitoring Azure Data Factory pipelines.  
 
-> [AZURE.NOTE] In the above example, the SprocActivitySample has no inputs. If you want to chain this activity with an activity upstream (that is, prior processing), the output(s) of the upstream activity can be used as input(s) in this activity. In such a case, this activity does not execute until the upstream activity is completed and the output(s) of the upstream activities are available (in Ready status). The input(s) cannot be used directly as a parameter to the stored procedure activity
+> [AZURE.NOTE] In this example, the SprocActivitySample has no inputs. If you want to chain this activity with an activity upstream (that is, prior processing), the outputs of the upstream activity can be used as inputs in this activity. In such a case, this activity does not execute until the upstream activity is completed and the outputs of the upstream activities are available (in Ready status). The inputs cannot be used directly as a parameter to the stored procedure activity
 
 ## JSON format
 	{
@@ -215,7 +220,7 @@ Now, let’s consider adding another column named ‘Scenario’ in the table co
 	    VALUES (newid(), @DateTime, @Scenario)
 	END
 
-Now, pass the Scenario parameter and the value from the stored procedure activity. The typeProperties section in the above sample looks like the following snippet:
+Now, pass the Scenario parameter and the value from the stored procedure activity. The typeProperties section in the preceding sample looks like the following snippet:
 
 	"typeProperties":
 	{
