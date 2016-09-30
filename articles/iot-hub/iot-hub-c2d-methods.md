@@ -1,6 +1,6 @@
 <properties
- pageTitle="Use cloud-to-device methods | Microsoft Azure"
- description="This tutorial shows you how to use cloud-to-device methods"
+ pageTitle="Use direct methods | Microsoft Azure"
+ description="This tutorial shows you how to use direct methods"
  services="iot-hub"
  documentationCenter=""
  authors="nberdy"
@@ -16,7 +16,7 @@
  ms.date="09/30/2016"
  ms.author="nberdy"/>
 
-# Tutorial: Use cloud-to-device methods
+# Tutorial: Use direct methods
 
 ## Introduction
 
