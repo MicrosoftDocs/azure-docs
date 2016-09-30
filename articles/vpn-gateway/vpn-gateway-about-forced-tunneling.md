@@ -29,12 +29,12 @@ Without forced tunneling, Internet-bound traffic from your VMs in Azure will alw
 
 ### Deployment models and methods for forced tunneling
 
-Forced tunneling can be configured for both the classic, and the Resource Manager deployment models. See the following table for more information. We update this table as new articles, and additional tools become available for this configuration. When an article is available, we link directly to it from the table.<br><br>
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+
+Forced tunneling can be configured for both deployment models. We update the following table as new articles and additional deployment methods become available for this configuration. When an article is available, we link directly to it from the table.<br><br>
 
 [AZURE.INCLUDE [vpn-gateway-forcedtunnel](../../includes/vpn-gateway-table-forcedtunnel-include.md)] 
-<br>
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 >[AZURE.IMPORTANT] There is a change in forced tunneling configurations with Azure VPN gateway. Right now, when you set the default site on the gateway, it will generate a default route in the gateway routing table, and propagated the default route to the entire virtual network.<br><br>For subnets to which you want to enable forced tunneling, you don't need to do anything.<br><br>For subnets to which you do NOT want to enable forced tunneling, you need to add a default route (via user-defined routes) to the subnet routing tables to point to the Internet.<br><br>If you apply forced tunneling to a VNet, or to a number of subnets in a VNet, any VMs in those subnets cannot accept incoming connection requests from the Internet directly. The VMs can initiate connections to the Internet, but those connections will be redirected back to the on-premises site before they can reach the Internet. The traffic will be subject to your on-premises security or proxy settings.
 
