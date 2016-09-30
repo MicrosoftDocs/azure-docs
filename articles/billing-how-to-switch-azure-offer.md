@@ -19,7 +19,7 @@
 
 # Switch your Azure subscription to another offer
 
-As a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) customer, you might be able to switch your Azure subscription to another offer in the [Account Center](https://account.windowsazure.com/Subscriptions), without any service downtime. For example, you can use this feature to take get the [monthly credits for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). If you're on [Free Trial](https://azure.microsoft.com/free/), learn how to [upgrade to Pay-As-You-Go](billing-buy-sign-up-azure-subscription.md#upgrade-azure-free-trial-to-pay-as-you-go).
+As a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) customer, you might be able to switch your Azure subscription to another offer in the [Account Center](https://account.windowsazure.com/Subscriptions). For example, you can use this feature to take advantage of the [monthly credits for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). If you're on [Free Trial](https://azure.microsoft.com/free/), learn how to [upgrade to Pay-As-You-Go](billing-buy-sign-up-azure-subscription.md#upgrade-azure-free-trial-to-pay-as-you-go).
 
 #### What's supported:
 
@@ -32,7 +32,7 @@ As a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) customer,
 | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)            |
 | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Enterprise (Bizspark)](https://azure.microsoft.com/offers/ms-azr-0064p/) |
 
-> [AZURE.NOTE] For other offer changes, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> [AZURE.NOTE] For other offer changes, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 	
 ## Switch subscription offer
 
@@ -54,7 +54,7 @@ As a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) customer,
 
 	![thingstonote](./media/billing-how-to-switch-azure-offer/thingstonote.png)
 
-6.	You can to rename your subscription. By default, we set it to the new offer name. Click **Switch Offer** to complete the process.
+6.	You can rename your subscription. By default, we set it to the new offer name. Click **Switch Offer** to complete the process.
 
 	![confirmpage](./media/billing-how-to-switch-azure-offer/confirmpage.png)
 
@@ -64,7 +64,7 @@ As a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) customer,
 
 You might not see **Switch to another offer** if:
 
-- You're not on [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/). Only Pay-As-You-Go subscriptions can be switched to another offer at this time.
+- You're not on [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/). Currently only Pay-As-You-Go subscriptions can be switched to another offer.
 
 	- If you're on [Free Trial](https://azure.microsoft.com/free/), learn how to [upgrade to Pay-As-You-Go](billing-buy-sign-up-azure-subscription.md#upgrade-azure-free-trial-to-pay-as-you-go).
 
@@ -86,13 +86,13 @@ There is no service downtime for any users associated with the subscription. How
 
 ### Billing
 
-On the day you switch, an invoice will be generated for all outstanding charges. Subsequently, your subscription will be billed per the new offer’s pricing terms. Your subscription billing anniversary changes to the date on which you changed offers. Usage and billing data prior to the offer change will not be retained, so we recommend that you download these prior to switching.
+On the day you switch, an invoice is generated for all outstanding charges. Then, your subscription will be billed per the new offer’s pricing terms. Your subscription billing anniversary changes to the date on which you changed offers. Usage and billing data before the offer change is not retained, so we recommend that you download a copy before switching.
 
 > [AZURE.NOTE] Due to billing-related constraints, offer switches are not possible within the first billing cycle after creating a subscription.
 
 ## Can I use this mechanism to migrate from web direct to [Cloud Solution Provider](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP), or an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA) offer?
 
-This mechanism can be used to switch from - and to - only web direct offers. To move your existing subscription into EA, have your enrollment admin add your account into the EA. You will then receive an invitation email. When you follow the instructions to accept the invitation, your subscriptions will automatically be moved under the Enterprise Agreement. There is no option to move an existing web direct subscription into CSP today.
+This mechanism can be used to switch from - and to - only web direct offers. To move your existing subscription into EA, have your enrollment admin add your account into the EA. Then, you'll receive an invitation email. When you follow the instructions to accept the invitation, your subscriptions will automatically be moved under the Enterprise Agreement. There is no option to move an existing web direct subscription into CSP today.
 
 ## Next steps
 
