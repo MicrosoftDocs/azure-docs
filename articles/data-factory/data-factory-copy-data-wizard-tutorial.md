@@ -127,7 +127,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
 
 	![Monitoring App](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png) 
  	
-	[AZURE.NOTE] Click **Refresh** button in the **ACTIVITY WINDOWS** list at the bottom to see the latest status. It is not automatically refreshed. 
+	> [AZURE.NOTE] Click **Refresh** button in the **ACTIVITY WINDOWS** list at the bottom to see the latest status. It is not automatically refreshed. 
 
 ## See Also
 | Topic | Description |
