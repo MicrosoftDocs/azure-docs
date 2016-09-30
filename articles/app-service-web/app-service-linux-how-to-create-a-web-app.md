@@ -23,19 +23,19 @@
 You can start creating your Web App on Linux from the [management portal](https://portal.azure.com) as shown in the image below.
 ![][1]
 
-Once you select the option below you will be shown the Create blade as shown in the image below. 
+Once you select the option below, you will be shown the Create blade as shown in the image below. 
 ![][2]
 -	Give your web app a name
 -	Choose and existing Resource Group or create a new one. (See regions available in the [limitations section](./app-service-linux-intro.md))
 -	Choose an existing app service plan or create a new one (See app service plan notes in the [limitations section](./app-service-linux-intro.md)). 
 -	Choose the application stack you intend to use. You will get to choose between several versions of Node.js and PHP. 
 
-Once you have the app created you can change the application stack from the application settings as shown in the image below.
+Once you have the app created, you can change the application stack from the application settings as shown in the image below.
 ![][3]
 
 ## Deploying your web app
 
-Choosing "deployment options" from the management portal will give you the option to use local a Git repository or a GitHub respoitory to deploy your application. The instructions thereafter are similary to a non-Linux web app and you can follow the instructions in either our [local Git deployment](./app-service-deploy-local-git) or our [continuous deployment](./app-service-continuous-deployment.md) article for GitHub.
+Choosing "deployment options" from the management portal gives you the option to use local a Git repository or a GitHub repository to deploy your application. The instructions thereafter are similarly to a non-Linux web app and you can follow the instructions in either our [local Git deployment](./app-service-deploy-local-git) or our [continuous deployment](./app-service-continuous-deployment.md) article for GitHub.
 
 You can also use FTP to upload your application to your site. You can get the FTP endpoint for your web app from the diagnostics logs section as shown in the image below.
 ![][4]
