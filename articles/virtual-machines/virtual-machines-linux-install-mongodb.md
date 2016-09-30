@@ -33,7 +33,7 @@ This article requires the following:
 
 
 ## Manually install and configure MongoDB on a VM
-The following example creates a `CoreOS` VM using an SSH key stored at `.ssh/azure_id_rsa.pub`. MongoDB [provide installation instructions](https://docs.mongodb.com/manual/administration/install-on-linux/) for other Linux distros including SUSE, Ubuntu, and Debian. Create your VM, answering any prompts for storage account name, DNS name, and admin credentials:
+MongoDB [provide installation instructions](https://docs.mongodb.com/manual/administration/install-on-linux/) for Linux distros including Red Hat / CentOS, SUSE, Ubuntu, and Debian. The following example creates a `CoreOS` VM using an SSH key stored at `.ssh/azure_id_rsa.pub`. Answer the prompts for storage account name, DNS name, and admin credentials:
 
 ```bash
 azure vm quick-create --ssh-publickey-file .ssh/azure_id_rsa.pub --image-urn CentOS
@@ -110,19 +110,19 @@ You can create a basic MongoDB instance on a single CentOS VM using the followin
 
 - [Basic MongoDB instance on CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 
-The following example creates a resource group with the name `BasicMongoDBCentOS` in the `WestUS` region. Enter your own values as follows:
+The following example creates a resource group with the name `myResourceGroup` in the `WestUS` region. Enter your own values as follows:
 
 ```bash
 azure group create --name BasicMongoDBCentOS --location WestUS \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
 
-> [AZURE.NOTE] The Azure CLI returns you to a prompt within a few seconds of creating the deployment, but the installation and configuration takes a few minutes to complete. Check the status of the deployment with `azure group deployment show BasicMongoDBCentOS`, entering the name of your resource group accordingly. Wait until the `ProvisioningState` shows 'Succeeded' before trying to SSH to the VM.
+> [AZURE.NOTE] The Azure CLI returns you to a prompt within a few seconds of creating the deployment, but the installation and configuration takes a few minutes to complete. Check the status of the deployment with `azure group deployment show myResourceGroup`, entering the name of your resource group accordingly. Wait until the `ProvisioningState` shows 'Succeeded' before trying to SSH to the VM.
 
 Once the deployment is complete, SSH to the VM. Obtain the IP address of your VM using the `azure vm show` command as in the following example:
 
 ```bash
-azure vm show --resource-group BasicMongoDBCentOS --name myLinuxVM
+azure vm show --resource-group myResourceGroup --name myVM
 ```
 
 Near the end of the output, the `Public IP address` is displayed. SSH to your VM with the IP address of your VM:
@@ -156,14 +156,14 @@ You can create a complex MongoDB sharded cluster using the following Azure quick
 
 > [AZURE.WARNING] Deploying this complex MongoDB sharded cluster requires more than 20 cores, which is typically the default core count per region for a subscription. Open an Azure support request to increase your core count.
 
-The following example creates a resource group with the name `MongoDBShardedCluster` in the `WestUS` region. Enter your own values as follows:
+The following example creates a resource group with the name `myResourceGroup` in the `WestUS` region. Enter your own values as follows:
 
 ```bash
-azure group create --name MongoDBShardedCluster --location WestUS \
+azure group create --name myResourceGroup --location WestUS \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 ```
 
-> [AZURE.NOTE] The Azure CLI returns you to a prompt within a few seconds of creating the deployment, but the installation and configuration can take over an hour to complete. Check the status of the deployment with `azure group deployment show MongoDBShardedCluster`, adjusting the name of your resource group accordingly. Wait until the `ProvisioningState` shows 'Succeeded' before connecting to the VMs.
+> [AZURE.NOTE] The Azure CLI returns you to a prompt within a few seconds of creating the deployment, but the installation and configuration can take over an hour to complete. Check the status of the deployment with `azure group deployment show myResourceGroup`, adjusting the name of your resource group accordingly. Wait until the `ProvisioningState` shows 'Succeeded' before connecting to the VMs.
 
 
 ## Next steps
