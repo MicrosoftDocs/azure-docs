@@ -70,12 +70,12 @@ As shown in the following screenshot, you can also use a **custom** variable and
 ![Using custom variable](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 
 
-### Scalable experience for diverse data and object types
+## Support for diverse data and object types
 By using the Copy Wizard, you can efficiently move hundreds of folders, files, or tables.
 
 ![Select tables from which to copy data](./media/data-factory-copy-wizard/select-tables-to-copy-data.png)
 
-### Richer scheduling options
+## Scheduling options
 You can run the copy operation once or on a schedule (hourly, daily, and so on). Both of these options can be used for the breadth of the connectors across on-premises, cloud, and local desktop copy.
 
 A one-time copy operation enables data movement from a source to a destination only once. It applies to data of any size and any supported format. The scheduled copy allows you to copy data on a prescribed recurrence. You can use rich settings (like retry, timeout, and alerts) to configure the scheduled copy.
