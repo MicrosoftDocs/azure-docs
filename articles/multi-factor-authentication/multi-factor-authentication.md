@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="kgremban"
 	manager="femila"
-	editor="curtland"/>
+	editor="yossib"/>
 
 <tags
 	ms.service="multi-factor-authentication"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2016"
+	ms.date="09/29/2016"
 	ms.author="kgremban"/>
 
 # What is Azure Multi-Factor Authentication?
@@ -90,6 +90,7 @@ Azure Multi-Factor Authentication | Azure Multi-Factor Authentication offers the
 ## Feature comparison of versions
 The following table provides a list of the features that are available in the various versions of Azure Multi-Factor Authentication.
 
+>[AZURE.NOTE] This comparison table discusses the features that are part of each subscription. If you have Azure AD Premium or Enterprise Mobility Suite, some features may not be available depending on whether you use [MFA in the cloud or MFA on-premises](multi-factor-authentication-get-started.md).
 
 Feature | Multi-Factor Authentication for Office 365 (included in Office 365 SKUs)|Multi-Factor Authentication for Azure Administrators (included with Azure subscription) | Azure Multi-Factor Authentication (included in Azure AD Premium and Enterprise Mobility Suite)
 ------------- | :-------------: |:-------------: |:-------------: |
