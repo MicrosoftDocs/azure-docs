@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="09/28/2016"
+    ms.date="09/30/2016"
     ms.author="markvi"/>
 
 #List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory
@@ -110,6 +110,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_FlatterFiles.png)| [Flatter Files](https://go.microsoft.com/fwLink/?LinkID=530224&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_FMSystems.png)| [FM:Systems](https://go.microsoft.com/fwLink/?LinkID=512744&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Freshdesk.png)| [Freshdesk](https://go.microsoft.com/fwLink/?LinkID=522553&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Freshgrade.png)| [Freshgrade](https://go.microsoft.com/fwLink/?LinkID=823739&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Freshservice.png)| [FreshService](https://go.microsoft.com/fwLink/?LinkID=512743&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Front.png)| [Front](https://go.microsoft.com/fwLink/?LinkID=823725&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Fuse.png)| [Fuse](https://go.microsoft.com/fwLink/?LinkID=691858&clcid=0x409)|
@@ -279,7 +280,6 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.png)| [Zscaler Two](https://go.microsoft.com/fwLink/?LinkID=512734&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.png)| [Zscaler ZSCloud](https://go.microsoft.com/fwLink/?LinkID=512735&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.png)| [Zscaler](https://go.microsoft.com/fwLink/?LinkID=510254&clcid=0x409)|
-
 
 
 
