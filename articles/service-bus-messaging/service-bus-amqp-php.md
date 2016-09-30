@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/06/2016"
+    ms.date="09/29/2016"
     ms.author="sethm" />
 
 # Using Service Bus from PHP with AMQP 1.0
@@ -38,7 +38,7 @@ The following code shows how to send a message to a Service Bus messaging entity
 ```
 $messenger = new Messenger();
 $message = new Message();
-$message->address = "amqps://[username]:[password]@[namespace].servicebus.windows.net/[entity]";
+$message->address = "amqps://[keyname]:[password]@[namespace].servicebus.windows.net/[entity]";
 
 $message->body = "This is a text string";
 $messenger->put($message);
@@ -51,7 +51,7 @@ The following code shows how to receive a message from a Service Bus messaging e
 
 ```
 $messenger = new Messenger();
-$address = "amqps://[username]:[password]@[namespace].servicebus.windows.net/[entity]";
+$address = "amqps://[keyname]:[password]@[namespace].servicebus.windows.net/[entity]";
 $messenger->subscribe($address);
 
 $messenger->start();
