@@ -48,11 +48,11 @@ To change your service administrator, follow these steps:
 2. Select the subscription you want to change.
 3. Select **Edit subscription details**.
 
-  ![Screenshot of Azure subscription information, with "Edit subscription details" highlighted](./media/billing-add-office-365-tenant-to-azure-subscription/s33_azure-edit-subscription-details.png)
+    ![Screenshot of Azure subscription information, with "Edit subscription details" highlighted](./media/billing-add-office-365-tenant-to-azure-subscription/s33_azure-edit-subscription-details.png)
 
 4. In the **SERVICE ADMINISTRATOR** box, enter the email address of the new service administrator.
 
-![Screenshot of "Edit your subscription" dialog box](./media/billing-add-office-365-tenant-to-azure-subscription/s34_change-subscription-service-admin.png)
+    ![Screenshot of "Edit your subscription" dialog box](./media/billing-add-office-365-tenant-to-azure-subscription/s34_change-subscription-service-admin.png)
 
 ### Associate the Office 365 tenant with the Azure subscription
 To associate the Office 365 tenant with the Azure subscription, follow these steps:
