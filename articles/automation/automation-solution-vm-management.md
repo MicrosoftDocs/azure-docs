@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/22/2016"
+    ms.date="09/30/2016"
     ms.author="magoedte"/>
 
 # Start/Stop VMs during off-hours (Preview) solution in Automation
@@ -26,7 +26,7 @@ The Start/Stop VMs during off-hours (Preview) solution starts and stops your Azu
 
 - This solution can only manage VMs which are in the same subscription and resource group as where the Automation account resides.  
 
-- This solution only works in the following Azure regions - Australia Southeast, East US, Southeast Asia, and West Europe.
+- This solution only deploys to the following Azure regions - Australia Southeast, East US, Southeast Asia, and West Europe.  The runbooks that manage the VM schedule can target VMs in any region.  
 
 - To send email notifications when the start and stop VM runbooks complete, an Office 365  business-class subscription is required.  
 
@@ -37,8 +37,8 @@ This solution consists of the following resources that will be imported and adde
 ### Runbooks
 
 Runbook | Description|
-----------|------------|
-CleanSolution-MS-Mgmt-VM | This runbook will remove all contained resources, remove all locks, and schedules when you go to delete the solution from your subscription.|  
+--------|------------|
+CleanSolution-MS-Mgmt-VM | This runbook will remove all contained resources, and schedules when you go to delete the solution from your subscription.|  
 SendMailO365-MS-Mgmt | This runbook sends an email through Office 365 Exchange.|
 StartByResourceGroup-MS-Mgmt-VM | This runbook is intended to start VMs (both classic and ARM based VMs) that resides in a given list of Azure resource group(s).
 StopByResourceGroup-MS-Mgmt-VM | This runbook is intended to stop VMs (both classic and ARM based VMs) that resides in a given list of Azure resource group(s).|
@@ -47,7 +47,7 @@ StopByResourceGroup-MS-Mgmt-VM | This runbook is intended to stop VMs (both clas
 ### Variables
 
 Variable | Description|
-----------|------------|
+---------|------------|
 **SendMailO365-MS-Mgmt** Runbook ||
 SendMailO365-IsSendEmail-MS-Mgmt | Specifies if StartByResourceGroup-MS-Mgmt-VM and StopByResourceGroup-MS-Mgmt-VM runbooks can send email notification upon completion.  Select **True** to enable and **False** to disable email alerting. Default value is **False**.| 
 **StartByResourceGroup-MS-Mgmt-VM** Runbook ||
@@ -74,9 +74,15 @@ StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Specifies the subscription
 ### Schedules
 
 Schedule | Description|
-----------|------------|
+---------|------------|
 StartByResourceGroup-Schedule-MS-Mgmt | Schedule for StartByResourceGroup runbook.|
 StopByResourceGroup-Schedule-MS-Mgmt | Schedule for StopByResourceGroup runbook.|
+
+### Credentials
+
+Credential | Description|
+-----------|------------|
+O365Credential | Specifies a valid Office 365 user account to send email.  Only required if variable **SendMailO365-IsSendEmail-MS-Mgmt** is set to **True**.
 
 ## Configuration
 
@@ -94,13 +100,18 @@ Perform the following steps to add the Start/Stop VMs during off-hours (Preview)
       - **Subscription** - A subscription to link to by selecting from the drop-down list if the default selected is not appropriate.
       - **Resource Group** - Select either an existing Resource Group or a new Resource Group.
       - **Location** - Currently the only locations provided for selection are **Australia Southeast**, **East US**, **Southeast Asia**, and **West Europe**.
-      - **Pricing tier** - The solution offered in three tiers: free, standalone, and OMS.  and two paid. The free tier has a limit on the amount of data collected daily, retention period, and runbook job runtime minutes. The Standard paid tier has <x>.  The OMS paid tier does not have a limit on the amount of data collected daily.
+      - **Pricing tier** - The solution is offered in two tiers: free and OMS paid tier.  The free tier has a limit on the amount of data collected daily, retention period, and runbook job runtime minutes.  The OMS paid tier does not have a limit on the amount of data collected daily. 
+      
+        >[AZURE.NOTE] While the Stadalone paid tier is displayed as an option, it is not applicable.  If you select it and proceed with the creation of this solution in your subscription, it will fail.  This will be addressed when this solution is officially released.  
+
+        >[AZURE.NOTE] If you use this solution, it will only use automation job minutes and log ingestion. The solution does not add additional OMS nodes to your environment.  
 
     b. Automation Account:  If you are creating a new OMS workspace, you will be required to also create a new Automation account that will be tied to the new OMS workspace specified above, including the Azure subscription, resource group and region.  You can select  **Create an Automation account** and in the **Add Automation account** blade you are asked to provide:
 
       - **Name** - the name of the Automation account.
       
       All other options are automatically populated based on the OMS workspace selected and an Azure Run As account is the default authentication method for the runbooks included in this solution. These options cannot be modified.  Once you click **OK**, the configuration options are validated and the Automation account is created.  
+
     c. Configuration: on the **Parameters** blade, you are asked to provide:
 
       - **Target ResourceGroup Names** - The resource group name that contain VMs to be managed by this solution.  You can enter more than one name and separate each using a semi-colon (values are case-sensitive).  Using a wildcard is supported if you want to target VMs in all resource groups in the subscription.  
@@ -110,11 +121,38 @@ Perform the following steps to add the Start/Stop VMs during off-hours (Preview)
 
 ## Collection frequency
 
-Automation job log and job stream data is ingested into the OMS repository every five (5) minutes.  
+Automation job log and job stream data is ingested into the OMS repository every five minutes.  
 
 ## Using the solution
 
 When you add the VM Management solution, in your OMS workspace the **StartStopVM View** tile will be added to your OMS dashboard.  This tile displays a count and graphical representation of the runbooks jobs for the solution that have started and have completed successfully.<br><br> ![VM Management StartStopVM View Tile](media/automation-solution-vm-management/vm-management-solution-startstopvm-view-tile.png)  
+
+In your Automation account, you can access and manage the solution by selecting the **Solutions** tile and then from the **Solutions** blade, selecting the solution **Start-Stop-VM[AutomationAccountName]** from the list.<br> ![Automation Solutions List](media/automation-solution-vm-management/vm-management-solution-autoaccount-solution-list.png)  
+
+Selecting the solution will display the **Start-Stop-VM[AutomationAccountName]** solution blade, where you can review important details such as the **StartStopVM** tile, like in your OMS workspace, which displays a count and graphical representation of the runbooks jobs for the solution that have started and have completed successfully.<br> ![Automation VM Solution Blade](media/automation-solution-vm-management/vm-management-solution-solution-blade.png)  
+
+### Configuring e-mail notifications
+
+To enable email notifications when the start and stop VM runbooks complete, you will need to modify the **O365Credential** credential and at a minimum, the following variables:
+
+- SendMailO365-IsSendEmail-MS-Mgmt
+- StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt
+- StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt
+
+To configure the O365Credential credential, perform the following steps:
+
+1. From your automation account, click **All Settings** at the top of the window. 
+2. On the **Settings** blade under the section **Automation Resources**, select **Assets**. 
+3. On the **Assets** blade, select the **Credential** tile and from the **Credential** blade, select the **O365Credential**.  
+4. Enter a valid Office 365 username and password and then click **Save** to save your changes.  
+
+To configure these variables, perform the following steps:
+
+1. From your automation account, click **All Settings** at the top of the window. 
+2. On the **Settings** blade under the section **Automation Resources**, select **Assets**. 
+3. On the **Assets** blade, select the **Variables** tile and from the **Variables** blade, select the variable listed above and then modify its value following the description for it specified in the [variable](##variables) section earlier.  
+4. Click **Save** to save the changes to the variable.   
+
 
 ## Log Analytics records
 
@@ -124,33 +162,65 @@ Automation creates two types of records in the OMS repository.
 
 Property | Description|
 ----------|----------|
-Time | Date and time when the runbook job executed.|
-resourceId | Specifies the resource type in Azure.  For Automation, the value is the Automation account associated with the runbook.|
+Caller |  Who initiated the operation.  Possible values are either an email address or system for scheduled jobs.|
+Category | Classification of the type of data.  For Automation, the value is JobLogs.|
+CorrelationId | GUID that is the Correlation Id of the runbook job.|
+JobId | GUID that is the Id of the runbook job.|
 operationName | Specifies the type of operation performed in Azure.  For Automation, the value will be Job.|
+resourceId | Specifies the resource type in Azure.  For Automation, the value is the Automation account associated with the runbook.|
+ResourceGroup | Specifies the resource group  name of the runbook job.|
+ResourceProvider | Specifies the Azure service that supplies the resources you can deploy and manage.  For Automation, the value is Azure Automation.|
+ResourceType | Specifies the resource type in Azure.  For Automation, the value is the Automation account associated with the runbook.|
 resultType | The status of the runbook job.  Possible values are:<br>- Started<br>- Stopped<br>- Suspended<br>- Failed<br>- Succeeded|
 resultDescription | Describes the runbook job result state.  Possible values are:<br>- Job is started<br>- Job Failed<br>- Job Completed|
-CorrelationId | GUID that is the Correlation Id of the runbook job.|
-Category | Classification of the type of data.  For Automation, the value is JobLogs.|
-RunbookName | The name of the runbook.|
+RunbookName | Specifies the name of the runbook.|
 SourceSystem | Specifies the source system for the data submitted.  For Automation, the value will be :OpsManager|
-JobId | GUID that is the Id of the runbook job.|
-Caller |  Who initiated the operation.  Possible values are either an email address or system for scheduled jobs.|
+StreamType | Specifies the type of event. Possible values are:<br>- Verbose<br>- Output<br>- Error<br>- Warning|
+SubscriptionId | Specifies the subscription ID of the job.
+Time | Date and time when the runbook job executed.|
+
 
 ### Job Streams
 
 Property | Description|
 ----------|----------|
-Time | Date and time when the runbook job executed.|
-resourceId | Specifies the resource Id in Azure.  For Automation, the value is the Automation account associated with the runbook.|
-ResourceType | Specifies the resource type in Azure.  For Automation, the value is the Automation account associated with the runbook.|
+Caller |  Who initiated the operation.  Possible values are either an email address or system for scheduled jobs.|
+Category | Classification of the type of data.  For Automation, the value is JobStreams.|
+JobId | GUID that is the Id of the runbook job.|
 operationName | Specifies the type of operation performed in Azure.  For Automation, the value will be Job.|
+ResourceGroup | Specifies the resource group  name of the runbook job.|
+resourceId | Specifies the resource Id in Azure.  For Automation, the value is the Automation account associated with the runbook.|
+ResourceProvider | Specifies the Azure service that supplies the resources you can deploy and manage.  For Automation, the value is Azure Automation.|
+ResourceType | Specifies the resource type in Azure.  For Automation, the value is the Automation account associated with the runbook.|
 resultType | The result of the runbook job at the time the event was generated.  Possible values are:<br>- InProgress|
 resultDescription | Includes the output stream from the runbook.|
-Category | Classification of the type of data.  For Automation, the value is JobStreams.|
 RunbookName | The name of the runbook.|
-JobId | GUID that is the Id of the runbook job.|
-Caller | Who initiated the operation.  Possible values are either an email address or system for scheduled jobs.| 
-SourceSystem | Specifies the source system for the data submitted.  For Automation, the value will be :OpsManager|
+SourceSystem | Specifies the source system for the data submitted.  For Automation, the value will be OpsManager|
 StreamType | The type of job stream. Possible values are:<br>-Progress<br>- Output<br>- Warning<br>- Error<br>- Debug<br>- Verbose|
+Time | Date and time when the runbook job executed.|
+
+When you perform any log search that returns records of category of **JobLogs** or **JobStreams**, you can select the **JobLogs** or **JobStreams** view which displays a set of tiles summarizing the updates returned by the search.
+
+## Sample log searches
+
+The following table provides sample log searches for job records collected by this solution. 
+
+Query | Description|
+----------|----------|
+Find jobs for runbook StartVM that have completed successfully | Category=JobLogs RunbookName_s="StartByResourceGroup-MS-Mgmt-VM" ResultType=Succeeded &#124; measure count() by JobId_g|
+Find jobs for runbook StopVM that have completed successfully | Category=JobLogs RunbookName_s="StartByResourceGroup-MS-Mgmt-VM" ResultType=Failed &#124; measure count() by JobId_g
+Show job status over time for StartVM and StopVM runbooks | Category=JobLogs RunbookName_s="StartByResourceGroup-MS-Mgmt-VM" OR "StopByResourceGroup-MS-Mgmt-VM" NOT(ResultType="started") | measure Count() by ResultType interval 1day|
+
+## Next steps
+
+- To learn more about how to construct different search queries and review the Automation job logs with Log Analytics, see [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md)
+- To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](automation-runbook-execution.md)
+- To learn more about OMS Log Analytics and data collection sources, see [Collecting Azure storage data in Log Analytics overview](../log-analytics/log-analytics-azure-storage.md)
+
+
+
+
+
+
    
 
