@@ -37,7 +37,7 @@ This topic performs the following steps:
 
 ![Architecture](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Setup.png)
 
-> [AZURE.NOTE]  This topic uses the [Azure CLI](../xplat-cli.md) tools, so make sure to download them and connect them to your Azure subscription according to the instructions. If you need a reference to the commands available in the Azure CLI, check out this link for the [Azure CLI command reference](../virtual-machines-command-line-tools.md). You will also need to [create an SSH key for authentication] and make note of the **.pem file location**.
+> [AZURE.NOTE]  This topic uses the [Azure CLI](../xplat-cli-install.md) tools, so make sure to download them and connect them to your Azure subscription according to the instructions. If you need a reference to the commands available in the Azure CLI, check out this link for the [Azure CLI command reference](../virtual-machines-command-line-tools.md). You will also need to [create an SSH key for authentication] and make note of the **.pem file location**.
 
 
 ## Creating the template
@@ -355,7 +355,7 @@ Will result in the table below
 
 In this article, you created a 3 node MariaDB + Galera highly-available cluster on Azure Virtual Machines running CentOS 7. The VMs are load balanced with the Azure Load Balancer.
 
-You may want to take a look at [another way to cluster MySQL on Linux](virtual-machines-linux-mysql-cluster.md) and ways to [optimize and test MySQL performance on Azure Linux VMs](virtual-machines-linux-optimize-mysql-perf.md).
+You may want to take a look at [another way to cluster MySQL on Linux](virtual-machines-linux-classic-mysql-cluster.md) and ways to [optimize and test MySQL performance on Azure Linux VMs](virtual-machines-linux-classic-optimize-mysql.md).
 
 <!--Anchors-->
 [Architecture overview]: #architecture-overview
