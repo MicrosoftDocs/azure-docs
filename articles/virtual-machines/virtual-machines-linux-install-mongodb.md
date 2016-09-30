@@ -113,7 +113,7 @@ You can create a basic MongoDB instance on a single CentOS VM using the followin
 The following example creates a resource group with the name `myResourceGroup` in the `WestUS` region. Enter your own values as follows:
 
 ```bash
-azure group create --name BasicMongoDBCentOS --location WestUS \
+azure group create --name myResourceGroup --location WestUS \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
 
