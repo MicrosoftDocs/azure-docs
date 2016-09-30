@@ -203,7 +203,7 @@ this will output something like `5112500ae3b842c8b9c604889f8753c3__OpenLogic-Cen
     - RSYNC: `firewall-cmd --zone=public --add-port=4444/tcp --permanent`
     - Reload the firewall: `firewall-cmd --reload`
 
-9.  Optimize the system for performance. Refer to this article on [performance tuning strategy](virtual-machines-linux-optimize-mysql-perf.md) for more details
+9.  Optimize the system for performance. Refer to this article on [performance tuning strategy](virtual-machines-linux-classic-optimize-mysql.md) for more details
 
 	- Edit the MySQL configuration file again
 
