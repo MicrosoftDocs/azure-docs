@@ -646,7 +646,7 @@ The configuration illustrated in these steps consists of two instances of the Az
 
 2. In the Azure portal, navigate to the resource group holding the VMs for the AD DS domain controllers (*ra-aad-onpremise-rg* by default), and connect to the *ra-aad-onpremise-ad-vm1* VM. Log in as *testuser* with password *AweS0me@PW*.
 
-3. Using the *Active Directory Users and Computers* console, add a new domain user named John Smith, with logon name jsmith@contoso.com. Specify a password of your choice. Make the user a member of the local Administrators group (this is only so you can log locally on as this user later - the only machines in the domain are DCs).
+3. Using the *Active Directory Users and Computers* console, add a new domain user named Diane Tibbot, with logon name dianet@contoso.com. Specify a password of your choice. Make the user a member of the local Administrators group (this is only so you can log locally on as this user later - the only machines in the domain are DCs).
 
 4. Switch to the *ra-aad-onpremise-adc-vm1* VM, open a PowerShell window, and run the following commands:
 
@@ -659,11 +659,11 @@ The configuration illustrated in these steps consists of two instances of the Az
 
 	>[AZURE.NOTE] This step is necessary because by default the synchronization process is scheduled to run at 30 minute intervals. These commands force a synchronization to occur immediately.
 
-5. Return to the Azure portal, switch to your AAD directory, open the Azure Active Directory blade, click *Users and Groups*, and then click *All users*. You should now see John Smith (jsmith@*myaadname*.onmicrosoft.com) appear in the list of users.
+5. Return to the Azure portal, switch to your AAD directory, open the Azure Active Directory blade, click *Users and Groups*, and then click *All users*. You should now see Diane Tibbot (dianet@*myaadname*.onmicrosoft.com) appear in the list of users.
 
-6. In the Azure Active Directory blade, click *Enterprise Applications*, and then click *All applications*.  Click the *ContosoWebApp1* application, and then click *Users and groups*. In the toolbar, click *Add*. Click *Users and groups*, and select *John Smith*. Click *Assign*.
+6. In the Azure Active Directory blade, click *Enterprise Applications*, and then click *All applications*.  Click the *ContosoWebApp1* application, and then click *Users and groups*. In the toolbar, click *Add*. Click *Users and groups*, and select *Diane Tibbot*. Click *Assign*.
 
-7. Using Internet Explorer, navigate to the site https://account.activedirectory.windowsazure.com. Log in as jsmith@*myaadname*.onmicrosoft.com with the password you specified earlier.
+7. Using Internet Explorer, navigate to the site https://account.activedirectory.windowsazure.com. Log in as dianet@*myaadname*.onmicrosoft.com with the password you specified earlier.
 
 	>[AZURE.NOTE] Do not click the ContosoWebApp icon in the list of applications. AAD will try and find the web application at the publicly listed DNS address for www.contoso.com, which is different from the address of your web-tier load balancer.
 
@@ -686,7 +686,7 @@ The configuration illustrated in these steps consists of two instances of the Az
 	```
 5. Using Internet Explorer, navigate to https://www.contoso.com. Verify that the AAD sign-in page for the ContosoWebApp1 web application appears.
 
-6. Log in as jsmith@*myaadname*.onmicrosoft.com. The application should run and sign you in correctly.
+6. Log in as dianet@*myaadname*.onmicrosoft.com. The application should run and sign you in correctly.
 
 ## Next steps
 
