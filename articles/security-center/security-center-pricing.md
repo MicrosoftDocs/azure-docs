@@ -44,16 +44,6 @@ The following table summarizes the features available in each tier.  Click the l
 
 ## Free tier
 
-### Security policy, assessment, and recommendations
-
-Security Center lets you define policies for your Azure subscriptions and resource groups based on your company’s security requirements, the types of applications that you use, and the sensitivity of your data.
-
-You can monitor the security health of your Azure resources.
-
-You can collect and analyze security data from your Azure resources, the network, and partner solutions integrated with Azure.
-
-Security center provides you with policy-driven security recommendations to guide you through the process of implementing needed controls.
-
 ### Connected partner solutions
 
 Security Center enables you to deploy security services and appliances from Microsoft and partners.
@@ -69,3 +59,13 @@ To learn more about Security Center, see the following:
 - [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
 - [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
 - [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Find blog posts about Azure security and compliance.
+
+### Security policy, assessment, and recommendations
+
+Security Center lets you define policies for your Azure subscriptions and resource groups based on your company’s security requirements, the types of applications that you use, and the sensitivity of your data.
+
+You can monitor the security health of your Azure resources.
+
+You can collect and analyze security data from your Azure resources, the network, and partner solutions integrated with Azure.
+
+Security center provides you with policy-driven security recommendations to guide you through the process of implementing needed controls.
