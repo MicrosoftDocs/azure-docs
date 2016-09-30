@@ -102,16 +102,19 @@ Perform the following steps to add the Start/Stop VMs during off-hours (Preview)
       - **Location** - Currently the only locations provided for selection are **Australia Southeast**, **East US**, **Southeast Asia**, and **West Europe**.
       - **Pricing tier** - The solution is offered in two tiers: free and OMS paid tier.  The free tier has a limit on the amount of data collected daily, retention period, and runbook job runtime minutes.  The OMS paid tier does not have a limit on the amount of data collected daily. 
       
-        >[AZURE.NOTE] While the Stadalone paid tier is displayed as an option, it is not applicable.  If you select it and proceed with the creation of this solution in your subscription, it will fail.  This will be addressed when this solution is officially released.  
+        >[AZURE.NOTE] 
+        >While the Stadalone paid tier is displayed as an option, it is not applicable.  If you select it and proceed with the creation of this solution in your subscription, it will fail.  This will be addressed when this solution is officially released.  
         >If you use this solution, it will only use automation job minutes and log ingestion. The solution does not add additional OMS nodes to your environment.  
 
-    b. Automation Account: If you are creating a new OMS workspace, you will be required to also create a new Automation account that will be tied to the new OMS workspace specified above, including the Azure subscription, resource group and region.  You can select  **Create an Automation account** and in the **Add Automation account** blade you are asked to provide:<br> 
+    b. Automation Account: If you are creating a new OMS workspace, you will be required to also create a new Automation account that will be tied to the new OMS workspace specified above, including the Azure subscription, resource group and region.  You can select  **Create an Automation account** and in the **Add Automation account** blade you are asked to provide: 
+
 
       - **Name** - the name of the Automation account.
        
       All other options are automatically populated based on the OMS workspace selected and an Azure Run As account is the default authentication method for the runbooks included in this solution. These options cannot be modified.  Once you click **OK**, the configuration options are validated and the Automation account is created.<br>
 
-    c. Configuration: On the **Parameters** blade, you are asked to provide:<br> 
+    c. Configuration: On the **Parameters** blade, you are asked to provide: 
+ 
 
       - **Target ResourceGroup Names** - The resource group name that contain VMs to be managed by this solution.  You can enter more than one name and separate each using a semi-colon (values are case-sensitive).  Using a wildcard is supported if you want to target VMs in all resource groups in the subscription.  
       - **Schedule** - Enter a recurring date and time for starting and stopping the VM's in the target resource group(s). 
@@ -138,14 +141,14 @@ To enable email notifications when the start and stop VM runbooks complete, you 
 - StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt
 - StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt
 <br>  
-To configure the O365Credential credential, perform the following steps:
+To configure the **O365Credential** credential, perform the following steps:
 
 1. From your automation account, click **All Settings** at the top of the window. 
 2. On the **Settings** blade under the section **Automation Resources**, select **Assets**. 
 3. On the **Assets** blade, select the **Credential** tile and from the **Credential** blade, select the **O365Credential**.  
 4. Enter a valid Office 365 username and password and then click **Save** to save your changes.  
 <br> 
-To configure these variables, perform the following steps:
+To configure the variables highlighted earlier, perform the following steps:
 
 1. From your automation account, click **All Settings** at the top of the window. 
 2. On the **Settings** blade under the section **Automation Resources**, select **Assets**. 
