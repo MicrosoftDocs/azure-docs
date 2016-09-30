@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
+	ms.date="09/29/2016" 
 	ms.author="rnagpal"/>
 
 # DocumentDB APIs and SDKs
@@ -34,10 +34,17 @@
 <tr><td>**SDK installation instructions**</td><td>[Python SDK installation instructions](http://azure.github.io/azure-documentdb-python/)</td></tr>
 <tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
 <tr><td>**Get started**</td><td>[Get started with the Python SDK](documentdb-python-application.md)</td></tr>
-<tr><td>**Current supported platform**</td><td>[Python 2.7](https://www.python.org/download/releases/2.7/)</td></tr>
+<tr><td>**Current supported platform**</td><td>[Python 2.7](https://www.python.org/download/releases/2.7/) and [Python 3.4](https://www.python.org/download/releases/3.4/)</td></tr>
 </table></br>
 
 ## Release notes
+
+### <a name="2.0.0"/>[2.0.0](https://pypi.python.org/pypi/pydocumentdb/2.0.0)
+- Added support for Python 3.4.
+- Added support for connection pooling using a requests module.
+- Added support for session consistency.
+- Added support for TOP/ORDERBY queries for partitioned collections.
+
 
 ### <a name="1.9.0"/>[1.9.0](https://pypi.python.org/pypi/pydocumentdb/1.9.0)
 - Added retry policy support for throttled requests. (Throttled requests receive a request rate too large exception, error code 429.) By default, DocumentDB retries nine times for each request when error code 429 is encountered, honoring the retryAfter time in the response header. A fixed retry interval time can now be set as part of the RetryOptions property on the ConnectionPolicy object if you want to ignore the retryAfter time returned by server between the retries. DocumentDB now waits for a maximum of 30 seconds for each request that is being throttled (irrespective of retry count) and returns the response with error code 429. This time can also be overriden in the RetryOptions property on ConnectionPolicy object.
@@ -93,6 +100,7 @@ All versions of the Azure DocumentDB SDK for Python prior to version **1.0.0** w
 
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [2.0.0](#2.0.0) | September 29, 2016 |---
 | [1.9.0](#1.9.0) | July 07, 2016 |---
 | [1.8.0](#1.8.0) | June 14, 2016 |---
 | [1.7.0](#1.7.0) | April 26, 2016 |---

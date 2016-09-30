@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/06/2016"
+    ms.date="09/29/2016"
     ms.author="sethm" />
 
 # Use Service Bus from Java with AMQP 1.0
@@ -83,8 +83,8 @@ Where `[namespace]`, `[username]`, and `[password]` have the following meanings:
 | Name          | Meaning                                                                        |   |   |   |   |
 |---------------|--------------------------------------------------------------------------------|---|---|---|---|
 | `[namespace]` | The Service Bus namespace obtained from the [Azure portal][].                      |   |   |   |   |
-| `[username]`  | The Service Bus issuer name obtained from the [Azure portal][].                    |   |   |   |   |
-| `[password]`  | URL-encoded form of the Service Bus issuer key obtained from the [Azure portal][]. |   |   |   |   |
+| `[username]`  | The Service Bus SAS key name obtained from the [Azure portal][].                    |   |   |   |   |
+| `[password]`  | URL-encoded form of the Service Bus SAS key obtained from the [Azure portal][]. |   |   |   |   |
 
 > [AZURE.NOTE] You must URL-encode the password manually. A useful URL encoding utility is available at [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
@@ -92,13 +92,13 @@ For example, if the information obtained from the portal is as follows:
 
 | Namespace:   | test.servicebus.windows.net                  |
 |--------------|----------------------------------------------|
-| Issuer name: | owner                                        |
+| Issuer name: | RootManageSharedAccessKey                                        |
 | Issuer key:  | abcdefg |
 
 Then in order to define a **ConnectionFactory** object named `SBCONNECTIONFACTORY`, the configuration string would be as follows:
 
 ```
-connectionfactory.SBCONNECTIONFACTORY = amqps://owner:abcdefg@test.servicebus.windows.net
+connectionfactory.SBCONNECTIONFACTORY = amqps://RootManageSharedAccessKey:abcdefg@test.servicebus.windows.net
 ```
 
 #### Configure destinations
