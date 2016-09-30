@@ -90,7 +90,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
 7. On the **Choose the input file or folder** page, click **Next**. Do not select **Binary copy**. 
 
 	![Copy Tool - Choose the input file or folder](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
-8. On the **File format settings** page, select **default** values and click **Next**.
+8. On the **File format settings** page, you see the delimiters and the schema that is auto-detected by the wizard by parsing the file. You can also enter the delimiters manually for the copy wizard to stop auto-detecting or to override. Click **Next** after you review the delimiters and preview data. 
 
 	![Copy Tool - File format settings](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)  
 8. On the Destination data store page, select **Azure SQL Database**, and click **Next**.
