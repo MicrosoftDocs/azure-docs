@@ -68,7 +68,7 @@ Service Type|Azure Public|Azure Government
 ---|---|---
 SQL Database|*.database.windows.net|*.database.usgovcloudapi.net
 
-## Considerations
+### Considerations
 
 The following information identifies the Azure Government boundary for Azure Storage:
 
