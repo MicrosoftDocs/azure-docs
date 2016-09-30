@@ -44,7 +44,7 @@ The following table summarizes the features available in each tier.  Click the l
 
 ## Free tier
 
-# Security policy, assessment, and recommendations
+### Security policy, assessment, and recommendations
 
 Security Center lets you define policies for your Azure subscriptions and resource groups based on your company’s security requirements, the types of applications that you use, and the sensitivity of your data.
 
