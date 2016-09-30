@@ -54,7 +54,7 @@ A device twin is a JSON document that includes:
 Here is an example of a device twin JSON document:
 
         {
-            "deviceId: "devA",
+            "deviceId": "devA",
             "generationId": "123",
             "status": "enabled",
             "statusReason": "provisioned",

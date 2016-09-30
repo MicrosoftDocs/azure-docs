@@ -126,7 +126,7 @@ In this section, you create a Node.js console app that connects to your hub as *
 2. At your command-prompt in the **simulatedeviceconfiguration** folder, run the following command to install the **azure-iot-device**, and **azure-iot-device-mqtt** package:
 
     ```
-    npm install azure-iot-device azure-iot-device-mqtt --save
+    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
     ```
 
 3. Using a text editor, create a new **SimulateDeviceConfiguration.js** file in the **simulatedeviceconfiguration** folder.
@@ -237,7 +237,7 @@ In this section, you will create a Node.js console app that updates the *desired
 2. At your command-prompt in the **setdesiredandqueryapp** folder, run the following command to install the **azure-iothub** package:
 
     ```
-    npm install azure-iothub node-uuid --save
+    npm install azure-iothub@dtpreview node-uuid --save
     ```
 
 3. Using a text editor, create a new **SetDesiredAndQuery.js** file in the **addtagsandqueryapp** folder.
@@ -348,3 +348,5 @@ To learn how to extend your IoT solution to send telemetry from devices follow t
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
 [lnk-how-to-configure-createapp]: iot-hub-node-node-twin-how-to-configure.md#create-the-simulated-device-app
+
+[img-identity]: media/iot-hub-get-started-create-hub-pp/devidentity.png

@@ -38,7 +38,6 @@ Device twins are stored in an IoT hub and contain:
 * *reported properties*, JSON objects modifiable by the device app and readable by the back end. Tags and properties cannot contain arrays, but objects can be nested.
 
 Additionally, the app back end can query device twins based on all the above data.
-
 Refer to [Understand device twins][lnk-twins] for more information about device twins and to the [IoT Hub query language][lnk-query] reference for querying.
 
 This tutorial shows you how to:
@@ -74,7 +73,7 @@ In this section, you create a Node.js console app that adds location meta-data t
 2. At your command-prompt in the **addtagsandqueryapp** folder, run the following command to install the **azure-iothub** package:
 
     ```
-    npm install azure-iothub --save
+    npm install azure-iothub@dtpreview --save
     ```
 
 3. Using a text editor, create a new **AddTagsAndQuery.js** file in the **addtagsandqueryapp** folder.
@@ -163,7 +162,7 @@ In this section, you create a Node.js console app that connects to your hub as *
 2. At your command-prompt in the **reportconnectivity** folder, run the following command to install the **azure-iot-device**, and **azure-iot-device-mqtt** package:
 
     ```
-    npm install azure-iot-device azure-iot-device-mqtt --save
+    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
     ```
 
 3. Using a text editor, create a new **ReportConnectivity.js** file in the **reportconnectivity** folder.
@@ -255,4 +254,4 @@ To learn how to extend your IoT solution to send telemetry from devices follow t
 [lnk-twin-how-to-configure]: iot-hub-node-node-twin-how-to-configure.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 
-
+[img-identity]: media/iot-hub-get-started-create-hub-pp/devidentity.png
