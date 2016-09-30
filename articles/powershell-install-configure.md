@@ -23,6 +23,29 @@
 ##What is Azure PowerShell?
 Azure PowerShell is a set of modules that provide cmdlets to manage Azure with Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure platform. In most cases, the cmdlets can be used for the same tasks as the Azure Management Portal, such as creating and configuring cloud services, virtual machines, virtual networks, and web apps.
 
+## How versioning works
+
+Azure PowerShell uses Semantic Versioning, which means that if version A > version B, then version A has the most up-to-date APIs. Also, it means that changes in the major version mean a breaking change in one or more cmdlets.  So, for example, version 1.7.0 is a hotfix to address a breaking change in the 1.x versions of Azure PowerShell.
+
+For more information about Semantic Versioning practices in Azure PowerShell, see the Semantic Versioning Specification at: http://semver.org
+ 
+To get the latest APIs, you should use version 2.x. But if you have scripts written against version 1.x and you don’t want to absorb the breaking changes in version 2.x described in the 2.x [Release Notes](https://github.com/Azure/azure-powershell/blob/dev/documentation/release-notes/migration-guide.2.0.0.md), then you should install 1.7.0.
+
+A version mismatch can result if the latest version of the profile module is installed, and an earlier version of a module that depends on it is subsequently loaded. The simplest way to resolve this is to install from the latest .msi. The .msi automatically cleans up older versions of the modules.
+ 
+###Installing module versions side-by-side
+
+Version 2.1.0 (and version 1.2.6 for AzureStack) are the first module versions designed to be installed and used side-by-side. Because Azure PowerShell uses binary modules, you must open a new PowerShell window and use **Import-Module** to import a specific version of the AzureRM cmdlets:
+
+**Import-Module AzureRM – RequiredVersion 2.1.0**
+
+Versions before 2.1.0 (other than 1.2.6) do not work well side-by-side with other Azure PowerShell module versions. When loading an earlier version of the Azure PowerShell modules using a command like the one above, incompatible versions of the **AzureRM.Profile** module will be loaded, resulting in the cmdlets asking you to log in whenever you execute a cmdlet, even after you have logged in.
+
+The easiest way to resolve this is to install the latest Azure PowerShell from the WebPI feed or .msi – this removes earlier versions of the modules installed from the gallery. 
+
+Note that both Azure and AzureRM modules have dependencies in common, so if you use both modules, when updating one, you should update both. Earlier versions of the Azure module have the same issue with side-by-side module loading that earlier versions of the AzureRM module have.
+
+
 <a id="Install"></a>
 ## Step 1: Install
 
