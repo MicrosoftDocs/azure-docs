@@ -225,15 +225,29 @@ Set the **default version** for the application:
 
 You can specify one or more application packages for deployment when you create a new pool. When you specify a package at pool creation time, it is deployed to each node as the node joins pool. Packages are also deployed when a node is rebooted or reimaged.
 
-This command specifies a package at pool creation, and is deployed as each node joins the new pool:
+Specify the `--app-package-ref` option when creating a pool to deploy an application package to the pool's nodes as they join the pool. The `--app-package-ref` option accepts a semicolon delimited list of application ids to deploy to the compute nodes.
 
-    azure batch pool create --id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
+    azure batch pool create --pool-id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
 
-When you create a pool by using command line options, you cannot currently specify the application package version (for example, "1.10-beta3") to deploy to the compute nodes. You must first specify a default version for the application with `azure batch application set` before you specify an application package at pool creation (see previous section). You can, however, specify a package version for the pool if you use a [JSON file](#json-files) instead of command line options when you create it.
+When you create a pool by using command line options, you cannot currently specify *which* application package version to deploy to the compute nodes, for example "1.10-beta3". Therefore, you must first specify a default version for the application with `azure batch application set [options] --default-version <version-id>` before you create the pool (see previous section). You can, however, specify a package version for the pool if you use a [JSON file](#json-files) instead of command line options when you create the pool.
 
 You can find more information on application packages in [Application deployment with Azure Batch application packages](batch-application-packages.md).
 
 >[AZURE.IMPORTANT] You must [link an Azure Storage account](#linked-storage-account-autostorage) to your Batch account to use application packages.
+
+### Update a pool's application packages
+
+To update the applications assigned to an existing pool, issue the `azure batch pool set` command with the `--app-package-ref` option:
+
+    azure batch pool set --pool-id "pool001" --app-package-ref "MyTaskApplication2"
+
+To deploy the new application package to compute nodes already in an existing pool, you must restart or reimage those nodes:
+
+    azure batch node reboot --pool-id "pool001" --node-id "tvm-3105992504_1-20160930t164509z"
+
+>[AZURE.TIP] You can obtain a list of the nodes in a pool, along with their node ids, with `azure batch node list`.
+
+Keep in mind that you must already have configured the application with a default version prior to deployment (`azure batch application set [options] --default-version <version-id>`).
 
 ## Troubleshooting tips
 
