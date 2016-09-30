@@ -44,6 +44,7 @@ To complete this section, you need the following parts from your Raspberry Pi St
 ![Things in your Starter Kit](media/iot-hub-raspberry-pi-lessons/lesson1/starter_kit.jpg)
 
 You also need:
+
 - Access to a wired or wireless connection for the Pi to connect to
 - A desktop machine (Windows, Mac, or Linux) to prepare an SD card with the Raspbian OS
 - An internet connection to download the tools and software
