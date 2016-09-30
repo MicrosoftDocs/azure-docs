@@ -76,13 +76,23 @@ IoT Hub enables the following set of (initial) device management patterns.  As s
 
 1. **Reboot** - The back-end application informs the device through a D2C method that a reboot has been initiated.  The device uses the device twin reported properties to update the reboot status of the device. 
 
+    ![][img-reboot_pattern]
+
 2. **Factory Reset** - The back-end application informs the device through a D2C method that a factory reset has been initiated.  The device uses the device twin reported properties to update the factory reset status of the device.
+
+    ![][img-facreset_pattern]
 
 3. **Configuration** - The back-end application uses the device twin desired properties to configure software running on the device.  The device uses the device twin reported properties to update configuration status of the device. 
 
+    ![][img-config_pattern]
+
 4. **Firmware Update** - The back-end application informs the device through a D2C method that a firmware update has been initiated.  The device initiates a multi-step process to download the firmware package, apply the firmware package, and finally reconnect to the IoT Hub service.  Throughout the mult-step process, the device uses the device twin reported properties to update the progress and status of the device. 
 
+    ![][img-fwupdate_pattern]
+
 5. **Reporting progress and status** - The application back-end runs device twin queries, across a set of devices, to report on the status and progress of actions running on the device.
+
+    ![][img-report_progress_pattern]
 
 ## Next Steps
 
@@ -93,6 +103,11 @@ To continue learning about the Azure IoT Hub device management features, see the
 <!-- Images and links -->
 [img-dm_principles]: media/iot-hub-device-management-overview/image4.png
 [img-device_lifecycle]: media/iot-hub-device-management-overview/image5.png
+[img-config_pattern]: media/iot-hub-device-management-overview/configuration-pattern.png
+[img-facreset_pattern]: media/iot-hub-device-management-overview/facreset-pattern.png
+[img-fwupdate_pattern]: media/iot-hub-device-management-overview/fwupdate-pattern.png
+[img-reboot_pattern]: media/iot-hub-device-management-overview/reboot-pattern.png
+[img-report_progress_pattern]: media/iot-hub-device-management-overview/report-progress-pattern.png
 
 [lnk-get-started]: iot-hub-device-management-get-started.md
 [lnk-twins-getstarted]: iot-hub-device-management-device-twin.md
