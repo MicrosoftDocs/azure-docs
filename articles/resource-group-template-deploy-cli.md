@@ -99,7 +99,7 @@ If you have not previously used Azure CLI with Resource Manager, see [Using the 
 
             azure group deployment create --template-uri <LinkToTemplate> -p "{\"ParameterName\":{\"value\":\"ParameterValue\"}}" -g ExampleResourceGroup -n ExampleDeployment
 
-     3. Use a parameter file. For information about the template file, see [Parameter file](./#parameter-file).
+     3. Use a parameter file. For information about the template file, see [Parameter file](#parameter-file).
     
             azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
