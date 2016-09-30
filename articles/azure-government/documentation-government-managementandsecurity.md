@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="09/22/2016"
+	ms.date="09/23/2016"
 	ms.author="ryansoc"/>
 
 
@@ -53,6 +53,16 @@ The following Log Analytics features and solutions are not currently available i
   - Selecting virtual machines to enable the Log Analytics agent must be done through PowerShell or Resource Manager templates
 + Linux monitoring
 + OMS Mobile applications
++ Microsoft Monitoring Agent VM Extension
++ OMS Linux Agent VM Extension
++ Usage data
++ Alerting emails and remediation using Azure Automation
+
+The following Log Analytics features have different behavior in Azure Government:
+
++ The Windows agent must be downloaded from the Log Analytics portal for Azure Government.
++ The Security and Audit solution does not have support for Malicious IP detection.
++ Uploading data using the Data Collector API requires the use of the Azure Government URL.
 
 ### Frequently asked questions
 

@@ -96,10 +96,10 @@ Other reference topics in this IoT Hub developer guide include:
 [lnk-dotnet-ref]: https://msdn.microsoft.com/library/mt488521.aspx
 [lnk-c-ref]: http://azure.github.io/azure-iot-sdks/c/api_reference/index.html
 [lnk-java-ref]: http://azure.github.io/azure-iot-sdks/java/device/api_reference/index.html
-[lnk-node-ref]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.14/index.html
+[lnk-node-ref]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.15/index.html
 [lnk-rest-ref]: https://msdn.microsoft.com/library/mt548492.aspx
 [lnk-java-service-ref]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/index.html
-[lnk-node-service-ref]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.16/index.html
+[lnk-node-service-ref]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.17/index.html
 [lnk-gateway-ref]: http://azure.github.io/azure-iot-gateway-sdk/api_reference/c/html/
 
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md

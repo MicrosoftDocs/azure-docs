@@ -13,22 +13,35 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/30/2016"
-	ms.author="krisragh"/>
+	ms.date="09/23/2016"
+	ms.author="adrianha"/>
 
 # How to Use iOS Client Library for Azure Mobile Apps
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-This guide teaches you to perform common scenarios using the latest [Azure Mobile Apps iOS SDK](https://github.com/Azure/azure-mobile-apps-ios-client/blob/master/README.md#ios-client-sdk). If you are new to Azure Mobile Apps, first complete [Azure Mobile Apps Quick Start] to create a backend, create a table, and download a pre-built iOS Xcode project. In this guide, we focus on the client-side iOS SDK. To learn more about the .NET server-side SDK for the backend, see [Work with .NET Backend](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
+This guide teaches you to perform common scenarios using the latest [Azure Mobile Apps iOS SDK][1]. If you are 
+new to Azure Mobile Apps, first complete [Azure Mobile Apps Quick Start] to create a backend, create a table, 
+and download a pre-built iOS Xcode project. In this guide, we focus on the client-side iOS SDK. To learn more 
+about the server-side SDK for the backend, see the Server SDK HOWTOs.
 
 ## Reference documentation
 
-The reference documentation for the iOS client SDK is located here: [Azure Mobile Apps iOS Client Reference](http://azure.github.io/azure-mobile-apps-ios-client/).
+The reference documentation for the iOS client SDK is located here: [Azure Mobile Apps iOS Client Reference][2].
+
+## Supported Platforms
+
+The iOS SDK supports Objective-C projects, Swift 2.2 projects, and Swift 2.3 projects for iOS versions 8.0 or later.
+
+The "server-flow" authentication uses a WebView for the presented UI.  If the device is not able to present 
+a WebView UI, then another method of authentication is required that is outside the scope of the product.  
+This SDK is thus not suitable for Watch-type or similarly restricted devices.
 
 ##<a name="Setup"></a>Setup and Prerequisites
 
-This guide assumes that you have created a backend with a table. This guide assumes that the table has the same schema as the tables in those tutorials. This guide also assumes that in your code, you reference `MicrosoftAzureMobile.framework` and import `MicrosoftAzureMobile/MicrosoftAzureMobile.h`.
+This guide assumes that you have created a backend with a table. This guide assumes that the table has the 
+same schema as the tables in those tutorials. This guide also assumes that in your code, you reference 
+`MicrosoftAzureMobile.framework` and import `MicrosoftAzureMobile/MicrosoftAzureMobile.h`.
 
 ##<a name="create-client"></a>How to: Create Client
 
@@ -154,7 +167,8 @@ let query = table.query()
 let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 ```
 
-`MSQuery` lets you control several query behaviors, including the following. Execute an `MSQuery` query by calling `readWithCompletion` on it, as shown in the next example.
+`MSQuery` lets you control several query behaviors.
+
 * Specify order of results
 * Limit which fields to return
 * Limit how many records to return
@@ -162,10 +176,12 @@ let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 * Specify custom query string parameters in request
 * Apply additional functions
 
+Execute an `MSQuery` query by calling `readWithCompletion` on the object.
 
 ## <a name="sorting"></a>How to: Sort Data with MSQuery
 
-To sort results, let's look at an example. To first ascendingly by field `text` and then descendingly by field `completion`, invoke `MSQuery` like so:
+To sort results, let's look at an example. To sort by field 'text' ascending, then by 'complete' descending, 
+invoke `MSQuery` like so:
 
 **Objective-C**:
 
@@ -202,7 +218,8 @@ query.readWithCompletion { (result, error) in
 
 ## <a name="selecting"></a><a name="parameters"></a>How to: Limit Fields and Expand Query String Parameters with MSQuery
 
-To limit fields to be returned in a query, specify the names of the fields in the **selectFields** property. This returns only the text and completed fields:
+To limit fields to be returned in a query, specify the names of the fields in the **selectFields** 
+property. This example returns only the text and completed fields:
 
 **Objective-C**:
 
@@ -235,11 +252,15 @@ query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 
 ##<a name="inserting"></a>How to: Insert Data
 
-To insert a new table row, create a new `NSDictionary` and invoke `table insert`. Mobile Services automatically generates new columns based on the `NSDictionary` if [Dynamic Schema] is not disabled.
+To insert a new table row, create a `NSDictionary` and invoke `table insert`. If [Dynamic Schema] is enabled,
+the Azure App Service mobile backend automatically generates new columns based on the `NSDictionary`.
 
-If `id` is not provided, the backend automatically generates a new unique ID. Provide your own `id` to use email addresses, usernames, or your own custom values as ID. Providing your own ID may ease joins and business-oriented database logic.
+If `id` is not provided, the backend automatically generates a new unique ID. Provide your own `id` to use 
+email addresses, usernames, or your own custom values as ID. Providing your own ID may ease joins and 
+business-oriented database logic.
 
-The `result` contains the new item that was inserted; depending on your server logic, it may have additional or modified data compared to what was passed to the server.
+The `result` contains the new item that was inserted. Depending on your server logic, it may have additional 
+or modified data compared to what was passed to the server.
 
 **Objective-C**:
 
@@ -388,12 +409,12 @@ At minimum, the `id` attribute must be set when making deletes.
 
 With a custom API, you can expose any backend functionality. It doesn't have to map to a table operation. Not only do you gain more control over messaging, you can even read/set headers and change the response body format. To learn how to create a custom API on the backend, read [Custom APIs](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
 
-To call a custom API, call `MSClient.invokeAPI` as shown below. The request and response content are treated as JSON. To use other media types, [use the other overload of `invokeAPI`](http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:)
-
-To make a `GET` request instead of a `POST` request, set parameter `HTTPMethod` to `"GET"` and parameter `body` to `nil` (since GET requests do not have message bodies.) If your custom API supports other HTTP verbs, change `HTTPMethod` appropriately.
+To call a custom API, call `MSClient.invokeAPI`. The request and response content are treated as JSON. To use 
+other media types, [use the other overload of `invokeAPI`][5].  To make a `GET` request instead of a `POST` 
+request, set parameter `HTTPMethod` to `"GET"` and parameter `body` to `nil` (since GET requests do not have 
+message bodies.) If your custom API supports other HTTP verbs, change `HTTPMethod` appropriately.
 
 **Objective-C**:
-
 
 ```
 [self.client invokeAPI:@"sendEmail"
@@ -430,7 +451,7 @@ client.invokeAPI("sendEmail",
 
 ##<a name="templates"></a>How to: Register push templates to send cross-platform notifications
 
-To register templates, simply pass along templates with your **client.push registerDeviceToken** method in your client app.
+To register templates, pass templates with your **client.push registerDeviceToken** method in your client app.
 
 **Objective-C**:
 
@@ -452,7 +473,7 @@ To register templates, simply pass along templates with your **client.push regis
     })
 ```
 
-Your templates will be of type NSDictionary and can contain multiple templates in the following format:
+Your templates are of type NSDictionary and can contain multiple templates in the following format:
 
 **Objective-C**:
 
@@ -466,15 +487,18 @@ NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"aler
 let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 ```
 
-Note that all tags will be stripped away for security. To add tags to installations or templates within installations, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
-
-To send notifications utilizing these registered templates, work with [Notification Hubs APIs](https://msdn.microsoft.com/library/azure/dn495101.aspx)
+All tags are stripped from the request for security.  To add tags to installations or templates within 
+installations, see [Work with the .NET backend server SDK for Azure Mobile Apps][4].  To send notifications 
+using these registered templates, work with [Notification Hubs APIs][3].
 
 ##<a name="errors"></a>How to: Handle Errors
 
-When you call a mobile service, the completion block contains an `NSError` parameter. When an error occurs, this parameter is non-nil. In your code, you should check this parameter and handle the error as needed, as demonstrated in the code snippets above.
+When you call an Azure App Service mobile backend, the completion block contains an `NSError` parameter. When 
+an error occurs, this parameter is non-nil. In your code, you should check this parameter and handle the error 
+as needed, as demonstrated in the preceding code snippets.
 
-The file [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h) defines the constants `MSErrorResponseKey`, `MSErrorRequestKey`, and `MSErrorServerItemKey` to get more data related to the error, obtainable as follows:
+The file [`<WindowsAzureMobileServices/MSError.h>`][6] defines the constants `MSErrorResponseKey`, 
+`MSErrorRequestKey`, and `MSErrorServerItemKey`. To get more data related to the error:
 
 **Objective-C**:
 
@@ -488,7 +512,7 @@ NSDictionary *serverItem = [error.userInfo objectForKey:MSErrorServerItemKey];
 let serverItem = error.userInfo[MSErrorServerItemKey]
 ```
 
-In addition, the file defines constants for each error code, which may be used as shown below:
+In addition, the file defines constants for each error code:
 
 **Objective-C**:
 
@@ -504,30 +528,41 @@ if (error.code == MSErrorPreconditionFailed) {
 
 ## <a name="adal"></a>How to: Authenticate users with the Active Directory Authentication Library
 
-You can use the Active Directory Authentication Library (ADAL) to sign users into your application using Azure Active Directory. This is often preferable to using the `loginWithProvider:completion:` method, as it provides a more native UX feel and allows for additional customization.
+You can use the Active Directory Authentication Library (ADAL) to sign users into your application using 
+Azure Active Directory. Client flow authentication using an identity provider SDK is preferable to using 
+the `loginWithProvider:completion:` method.  Client flow authentication provides a more native UX feel 
+and allows for additional customization.
 
-1. Configure your mobile app backend for AAD sign-in by following the [How to configure App Service for Active Directory login](app-service-mobile-how-to-configure-active-directory-authentication.md) tutorial. Make sure to complete the optional step of registering a native client application. For iOS, it is recommended (but not required) that the redirect URI is of the form `<app-scheme>://<bundle-id>`. Please see the [ADAL iOS quickstart](active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem) for more details.
+1. Configure your mobile app backend for AAD sign-in by following the [How to configure App Service for Active Directory login][7] 
+   tutorial. Make sure to complete the optional step of registering a native client application. For iOS, we 
+   recommend that the redirect URI is of the form `<app-scheme>://<bundle-id>`. For more information, see 
+   the [ADAL iOS quickstart][8].
 
-2. Install ADAL using Cocoapods. Edit your Podfile to include the following, replacing **YOUR-PROJECT** with the name of your Xcode project:
+2. Install ADAL using Cocoapods. Edit your Podfile to include the following definition, replacing **YOUR-PROJECT** 
+   with the name of your Xcode project:
 
 		source 'https://github.com/CocoaPods/Specs.git'
 		link_with ['YOUR-PROJECT']
 		xcodeproj 'YOUR-PROJECT'
-and the Pod:
+
+   and the Pod:
 
 		pod 'ADALiOS'
 
-3. Using the Terminal, run `pod install` from the directory containing your project, and then open the generated Xcode workspace (not the project).
+3. Using the Terminal, run `pod install` from the directory containing your project, and then open the generated 
+   Xcode workspace (not the project).
 
-4. Add the below code to your application, according to the language you are using. In each, make the following replacements:
+4. Add the following code to your application, according to the language you are using. In each, make these 
+   replacements:
 
-* Replace **INSERT-AUTHORITY-HERE** ith the name of the tenant in which you provisioned your application. The format should be https://login.windows.net/contoso.onmicrosoft.com. This value can be copied out of the Domain tab in your Azure Active Directory in the [Azure classic portal].
-
-* Replace **INSERT-RESOURCE-ID-HERE** with the client ID for your mobile app backend. You can obtain this from the **Advanced** tab under **Azure Active Directory Settings** in the portal.
-
-* Replace **INSERT-CLIENT-ID-HERE** with the client ID you copied from the native client application.
-
-* Replace **INSERT-REDIRECT-URI-HERE** with your site's _/.auth/login/done_ endpoint, using the HTTPS scheme. This value should be similar to _https://contoso.azurewebsites.net/.auth/login/done_.
+    * Replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application. The 
+      format should be https://login.windows.net/contoso.onmicrosoft.com. This value can be copied from the Domain 
+      tab in your Azure Active Directory in the [Azure classic portal].
+    * Replace **INSERT-RESOURCE-ID-HERE** with the client ID for your mobile app backend. You can obtain the 
+      client ID from the **Advanced** tab under **Azure Active Directory Settings** in the portal.
+    * Replace **INSERT-CLIENT-ID-HERE** with the client ID you copied from the native client application.
+    * Replace **INSERT-REDIRECT-URI-HERE** with your site's _/.auth/login/done_ endpoint, using the HTTPS 
+      scheme. This value should be similar to _https://contoso.azurewebsites.net/.auth/login/done_.
 
 **Objective-C**:
 
@@ -590,16 +625,20 @@ and the Pod:
     		}
 	}
 
-
 ## <a name="facebook-sdk"></a>How to: Authenticate users with the Facebook SDK for iOS
 
-You can use the Facebook SDK for iOS to sign users into your application using Facebook. This is often preferable to using the `loginWithProvider:completion:` method, as it provides a more native UX feel and allows for additional customization.
+You can use the Facebook SDK for iOS to sign users into your application using Facebook.  Using a client flow
+authentication is preferable to using the `loginWithProvider:completion:` method.  The client flow authentication
+provides a more native UX feel and allows for additional customization.
 
-1. Configure your mobile app backend for Facebook sign-in by following the [How to configure App Service for Facebook login](app-service-mobile-how-to-configure-facebook-authentication.md) tutorial.
+1. Configure your mobile app backend for Facebook sign-in by following the 
+   [How to configure App Service for Facebook login][9] tutorial.
 
-2. Install the Facebook SDK for iOS by following the [Facebook SDK for iOS - Getting Started](https://developers.facebook.com/docs/ios/getting-started) documentation. Instead of creating a new app, you can add the iOS platform to your existing registration. 
+2. Install the Facebook SDK for iOS by following the [Facebook SDK for iOS - Getting Started][10]
+   documentation. Instead of creating an app, you can add the iOS platform to your existing registration. 
 
-    Facebook's documentation includes some Objective-C code in the App Delegate. If you are using **Swift**, you can use the following translations for AppDelegate.swift:
+3. Facebook's documentation includes some Objective-C code in the App Delegate. If you are using **Swift**, you 
+   can use the following translations for AppDelegate.swift:
   
 		// Add the following import to your bridging header:
 		//		#import <FBSDKCoreKit/FBSDKCoreKit.h>
@@ -616,9 +655,10 @@ You can use the Facebook SDK for iOS to sign users into your application using F
 			return handled
 		}
 
-3. In addition to adding `FBSDKCoreKit.framework` to your project, also add a reference to `FBSDKLoginKit.framework` in the same way. 
+4. In addition to adding `FBSDKCoreKit.framework` to your project, also add a reference to `FBSDKLoginKit.framework` 
+   in the same way. 
 
-4. Add the below code to your application, according to the language you are using. 
+4. Add the following code to your application, according to the language you are using. 
 
 **Objective-C**:
 
@@ -646,7 +686,6 @@ You can use the Facebook SDK for iOS to sign users into your application using F
 	     }];
 	}
 
-
 **Swift**:
 
 	// Add the following imports to your bridging header:
@@ -671,15 +710,22 @@ You can use the Facebook SDK for iOS to sign users into your application using F
 
 ## <a name="twitter-fabric"></a>How to: Authenticate users with Twitter Fabric for iOS
 
-You can use Fabric for iOS to sign users into your application using Twitter. This is often preferable to using the `loginWithProvider:completion:` method, as it provides a more native UX feel and allows for additional customization.
+You can use Fabric for iOS to sign users into your application using Twitter. Client Flow authentication is 
+preferable to using the `loginWithProvider:completion:` method, as it provides a more native UX feel and allows 
+for additional customization.
 
 1. Configure your mobile app backend for Twitter sign-in by following the [How to configure App Service for Twitter login](app-service-mobile-how-to-configure-twitter-authentication.md) tutorial.
 
-2. Add Fabric to your project by following the [Fabric for iOS - Getting Started](https://docs.fabric.io/ios/fabric/getting-started.html) documentation and setting up TwitterKit.
+2. Add Fabric to your project by following the [Fabric for iOS - Getting Started] documentation and setting up 
+   TwitterKit.
 
-    > [AZURE.NOTE] By default, Fabric will create a new Twitter application for you. You can change this by registering the Consumer Key and Consumer Secret you created earlier using the code snippets below.	Alternatively, you can replace the Consumer Key and Consumer Secret values that you provide to App Service with the values you see in the [Fabric Dashboard](https://www.fabric.io/home). If you choose this option, be sure to set the callback URL to a placeholder value, such as `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`.
+    > [AZURE.NOTE] By default, Fabric creates a Twitter application for you. You can avoid creating an 
+    application by registering the Consumer Key and Consumer Secret you created earlier using the following 
+    code snippets.	Alternatively, you can replace the Consumer Key and Consumer Secret values that you provide 
+    to App Service with the values you see in the [Fabric Dashboard]. If you choose this option, be sure to set 
+    the callback URL to a placeholder value, such as `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`.
 
-	If you choose to use the secrets you created earlier, add the following to your App Delegate:
+	If you choose to use the secrets you created earlier, add the following code to your App Delegate:
 	
 	**Objective-C**:
 
@@ -706,7 +752,7 @@ You can use Fabric for iOS to sign users into your application using Twitter. Th
 			return true
 		}
 	
-3. Add the below code to your application, according to the language you are using. 
+3. Add the following code to your application, according to the language you are using. 
 
 **Objective-C**:
 
@@ -745,13 +791,17 @@ You can use Fabric for iOS to sign users into your application using Twitter. Th
 
 ## <a name="google-sdk"></a>How to: Authenticate users with the Google Sign-In SDK for iOS
 
-You can use the Google Sign-In SDK for iOS to sign users into your application using a Google account. This is often preferable to using the `loginWithProvider:completion:` method, as it provides a more native UX feel and allows for additional customization.
+You can use the Google Sign-In SDK for iOS to sign users into your application using a Google account.  Google 
+recently announced changes to their OAuth security policies.  These policy changes will require the use of the
+Google SDK in the future.
 
 1. Configure your mobile app backend for Google sign-in by following the [How to configure App Service for Google login](app-service-mobile-how-to-configure-google-authentication.md) tutorial.
 
-2. Install the Google SDK for iOS by following the [Google Sign-In for iOS - Start integrating](https://developers.google.com/identity/sign-in/ios/start-integrating) documentation. You may skip the "Authenticate with a Backend Server" section, as App Service will handle this for you.
+2. Install the Google SDK for iOS by following the [Google Sign-In for iOS - Start integrating](https://developers.google.com/identity/sign-in/ios/start-integrating) 
+   documentation. You may skip the "Authenticate with a Backend Server" section.
 
-3. In addition to the code follow, add the following to your delegate's `signIn:didSignInForUser:withError:` method, according to the language you are using.
+3. Add the following to your delegate's `signIn:didSignInForUser:withError:` method, according to the language 
+   you are using.
 
 **Objective-C**:
 
@@ -771,19 +821,22 @@ You can use the Google Sign-In SDK for iOS to sign users into your application u
 			// ...
 		}
 
-4. Make sure you also add the following to `application:didFinishLaunchingWithOptions:` in your app delegate, replacing "SERVER_CLIENT_ID" with the same ID that you used to configure App Service in step 1.
+4. Make sure you also add the following to `application:didFinishLaunchingWithOptions:` in your app delegate, 
+   replacing "SERVER_CLIENT_ID" with the same ID that you used to configure App Service in step 1.
 
 **Objective-C**:
 
  		[GIDSignIn sharedInstance].serverClientID = @"SERVER_CLIENT_ID";
- 
  
  **Swift**:
  
 		GIDSignIn.sharedInstance().serverClientID = "SERVER_CLIENT_ID"
 
  
- 5. Add the below code to your application in a UIViewController that implements the `GIDSignInUIDelegate` protocol, according to the language you are using. Note that the user is signed out before being signed in again, and although they won't need to enter their credentials a second time, they will see a consent dialog. This is required to obtain a new server auth code, which is needed in a previous step. Only call this method when the session token has expired.
+ 5. Add the following code to your application in a UIViewController that implements the `GIDSignInUIDelegate` 
+    protocol, according to the language you are using.  You are signed out before being signed in 
+    again, and although you don't need to enter your credentials again, you see a consent dialog.  Only call 
+    this method when the session token has expired.
  
  **Objective-C**:
 
@@ -855,3 +908,16 @@ You can use the Google Sign-In SDK for iOS to sign users into your application u
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
+
+[Fabric Dashboard]: https://www.fabric.io/home
+[Fabric for iOS - Getting Started]: https://docs.fabric.io/ios/fabric/getting-started.html
+[1]: https://github.com/Azure/azure-mobile-apps-ios-client/blob/master/README.md#ios-client-sdk
+[2]: http://azure.github.io/azure-mobile-apps-ios-client/
+[3]: https://msdn.microsoft.com/library/azure/dn495101.aspx
+[4]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags
+[5]: http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
+[6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
+[7]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[8]: ../active-directory/active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem
+[9]: app-service-mobile-how-to-configure-facebook-authentication.md
+[10]: https://developers.facebook.com/docs/ios/getting-started

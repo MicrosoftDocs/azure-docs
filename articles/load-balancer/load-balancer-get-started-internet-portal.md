@@ -17,7 +17,7 @@
    ms.date="09/14/2016"
    ms.author="annahar" />
 
-# Get started creating an Internet-facing load balancer using the Azure portal
+# Creating an Internet-facing load balancer using the Azure portal
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 

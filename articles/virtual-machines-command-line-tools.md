@@ -14,22 +14,22 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="09/22/2016"
 	ms.author="danlep"/>
 
 # Azure CLI commands in Azure Service Management (asm) mode
 
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)] You can also [read about all the Resource Manager model commands](virtual-machines/azure-cli-arm-commands.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)] You can also [read about all the Resource Manager model commands](virtual-machines/azure-cli-arm-commands.md), and use the CLI to [migrate resources](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md) from the classic to the Resource Manager model.
 
 This article provides syntax and options for Azure CLI commands you'd commonly use to create and manage Azure resources in the classic deployment model. You access these commands by running the CLI in Azure Service Management (asm) mode. This is not a complete reference, and your CLI version may show slightly different commands or parameters. 
 
 To get started, first [install the Azure CLI](xplat-cli-install.md) and [connect to your Azure subscription](xplat-cli-connect.md).
 
-For current command syntax and options at the command line in asm mode, type `azure help` or, to display help for a specific command, `azure help [command]`. You'll also find CLI examples in the documentation for creating and managing specific Azure services.
+For current command syntax and options at the command line, type `azure help` or, to display help for a specific command, `azure help [command]`. You'll also find CLI examples in the documentation for creating and managing specific Azure services.
 
 Optional parameters are shown in square brackets (for example, `[parameter]`). All other parameters are required.
 
-In addition to command-specific optional parameters documented here, there are three optional parameters that can be used to display detailed output such as request options and status codes. The `-v` parameter provides verbose output, and the `-vv` parameter provides even more detailed verbose output. The `--json` option will output the result in raw json format.
+In addition to command-specific optional parameters documented here, there are three optional parameters that can be used to display detailed output such as request options and status codes. The `-v` parameter provides verbose output, and the `-vv` parameter provides even more detailed verbose output. The `--json` option outputs the result in raw json format.
 
 ## Setting asm mode
 
@@ -40,7 +40,7 @@ Currently the asm mode is enabled by default when you first install the CLI. If 
 >[AZURE.NOTE] The CLI's Azure Resource Manager mode and asm mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
 
 ## Manage your account information and publish settings
-One way the CLI can connect to your account is by using your Azure subscription information. (See [Connect to an Azure subscription from the Azure CLI](xplat-cli-connect.md) for other options.) This information can be obtained from the Azure classic portal in a publish settings file as described here. You can import the publish settings file as a persistent local configuration setting that the CLI will use for subsequent operations. You only need to import your publish settings once.
+One way the CLI can connect to your account is by using your Azure subscription information. (See [Connect to an Azure subscription from the Azure CLI](xplat-cli-connect.md) for other options.) This information can be obtained from the Azure classic portal in a publish settings file as described here. You can import the publish settings file as a persistent local configuration setting that the CLI uses for subsequent operations. You only need to import your publish settings once.
 
 **account download [options]**
 
@@ -56,7 +56,7 @@ This command launches a browser to download your .publishsettings file from the 
 **account import [options] &lt;file>**
 
 
-This command imports a publishsettings file or certificate so that it can be used by the tool going forward.
+This command imports a publishsettings file or certificate so that it can be used by the tool in future sessions.
 
 	~$ azure account import publishsettings.publishsettings
 	info:   Importing publish settings file publishsettings.publishsettings
@@ -72,7 +72,7 @@ This command imports a publishsettings file or certificate so that it can be use
 
 **account clear [options]**
 
-This command removes the stored publishsettings that have been imported. Use this command if you're finished using the tool on this machine and want to assure that the tool cannot be used with your account going forward.
+This command removes the stored publishsettings that have been imported. Use this command if you finished using the tool on this machine and want to assure that the tool cannot be used with your account in future sessions.
 
 	~$ azure account clear
 	Clearing account info.
@@ -113,7 +113,7 @@ Affinity groups can be set when a group of virtual machines spans multiple physi
 
 **account affinity-group create [options] &lt;name&gt;**
 
-This command creates a new affinity group
+This command creates an affinity group
 
 	~$ azure account affinity-group create opentec -l "West US"
 	info:    Executing command account affinity-group create
@@ -195,7 +195,7 @@ The following diagram shows how classic Azure virtual machines are hosted in the
 
 **vm create [options] &lt;dns-name> &lt;image> &lt;userName> [password]**
 
-This command creates a new Azure virtual machine. By default, each virtual machine (vm) is created in its own cloud service; however, you can specify that a virtual machine should be added to an existing cloud service through use of the -c option as documented here.
+This command creates an Azure virtual machine. By default, each virtual machine (vm) is created in its own cloud service. You can specify that a virtual machine should be added to an existing cloud service through use of the -c option as documented here.
 
 The vm create command, like the Azure classic portal, only creates virtual machines in the production deployment environment. There is no option to create a virtual machine in the staging deployment environment of a cloud service. If your subscription does not have an existing Azure storage account, the command creates one.
 
@@ -203,14 +203,14 @@ You can specify a location through the --location parameter, or you can specify 
 
 The supplied password must be 8-123 characters long and meet the password complexity requirements of the operating system that you are using for this virtual machine.
 
-If you anticipate the need to use SSH to manage a deployed Linux virtual machine (as is usually the case), you must enable SSH via the -e option when you create the virtual machine. It is not possible enable SSH after the virtual machine has been created.
+If you plan to use SSH to manage a deployed Linux virtual machine (as is usually the case), you must enable SSH via the -e option when you create the virtual machine. It is not possible to enable SSH after the virtual machine has been created.
 
 Windows virtual machines can enable RDP later by adding port 3389 as an endpoint.
 
 The following optional parameters are supported for this command:
 
-**-c, --connect** create the virtual machine inside an already created deployment in a hosting service. If -vmname is not used with this option, the name of the new virtual machine will be generated automatically.<br />
-**-n, --vm-name** Specify the name of the virtual machine. This parameter takes hosting service name by default. If -vmname is not specified, the name for the new virtual machine is generated as &lt;service-name>&lt;id>, where &lt;id> is the number of existing virtual machines in the service plus 1 For example, if you use this command to add a new virtual machine to a hosting service MyService that has one existing virtual machine, the new virtual machine is named MyService2.<br />
+**-c, --connect** create the virtual machine inside an already created deployment in a hosting service. If -vmname is not used with this option, the name of the new virtual machine is generated automatically.<br />
+**-n, --vm-name** Specify the name of the virtual machine. This parameter takes hosting service name by default. If -vmname is not specified, the name for the new virtual machine is generated as &lt;service-name>&lt;id>, where &lt;id> is the number of existing virtual machines in the service plus 1. For example, if you use this command to add a virtual machine to a hosting service MyService that has one existing virtual machine, the new virtual machine is named MyService2.<br />
 **-u, --blob-url** Specify the target blob storage URL at which to create the virtual machine system disk. <br />
 **-z, --vm-size** Specify the size of the virtual machine. Valid values are:
 "ExtraSmall", "Small", "Medium", "Large", "ExtraLarge", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "Basic_A0", "Basic_A1", "Basic_A2", "Basic_A3", "Basic_A4", "Standard_D1", "Standard_D2", "Standard_D3", "Standard_D4", "Standard_D11", "Standard_D12", "Standard_D13", "Standard_D14", "Standard_DS1", "Standard_DS2", "Standard_DS3", "Standard_DS4", "Standard_DS11", "Standard_DS12", "Standard_DS13", "Standard_DS14", "Standard_G1", "Standard_G2", "Standard_G3", "Standard_G4", "Standard_G55". The default value is "Small". <br />
@@ -234,7 +234,7 @@ In this example, MSFT__Win2K8R2SP1-120514-1520-141205-01-en-us-30GB is an image 
 
 **vm create-from &lt;dns-name> &lt;role-file>**
 
-This command creates a new Azure virtual machine from a JSON role file.
+This command creates an Azure virtual machine from a JSON role file.
 
 	~$ azure vm create-from my-vm example.json
 	info:   OK
@@ -317,7 +317,7 @@ This command restarts an Azure virtual machine.
 
 **vm shutdown [options] &lt;name>**
 
-This command shuts down an Azure virtual machine. You may use the -p option to specify that the compute resource not be released on shutdown.
+This command shuts down an Azure virtual machine. You may use the -p option to specify that the compute resource are not released on shutdown.
 
 ```
 ~$ azure vm shutdown my-vm
@@ -329,7 +329,7 @@ info:   vm shutdown command OK
 
 This command captures an Azure virtual machine image.
 
-A virtual machine image can only be captured if the virtual machine state is **Stopped**. Shutdown the virtual machine before continuing.
+A virtual machine image can only be captured if the virtual machine state is **Stopped**. Shut down the virtual machine before continuing.
 
 	~$ azure.cmd vm capture my-vm mycaptureimagename --delete
 	info:   Executing command vm capture
@@ -348,7 +348,7 @@ This command exports an Azure virtual machine image to a file
 	info:   vm export command OK
 
 ##  Commands to manage your Azure virtual machine endpoints
-The following diagram shows the architecture of a typical deployment of multiple instances of a classic virtual machine. Note that in this example port 3389 is open on each virtual machine (for RDP access), and there is also an internal IP address (for example, 168.55.11.1) on each virtual machine that is used by the load balancer to route traffic to the virtual machine. This internal IP address can also be used for communication between virtual machines.
+The following diagram shows the architecture of a typical deployment of multiple instances of a classic virtual machine. In this example, port 3389 is open on each virtual machine (for RDP access). There is also an internal IP address (for example, 168.55.11.1) on each virtual machine that is used by the load balancer to route traffic to the virtual machine. This internal IP address can also be used for communication between virtual machines.
 
 ![azurenetworkdiagram](./media/virtual-machines-command-line-tools/networkdiagram.jpg)
 
@@ -432,7 +432,7 @@ Virtual machine images are captures of already configured virtual machines that 
 
 **vm image list [options]**
 
-This command gets a list of virtual machine images. There are three types of images: images created by Microsoft, which are prefixed with "MSFT", images created by third parties, which are usually prefixed with the name of the vendor, and images you create. To create images, you can either capture an existing virtual machine or create an image from a custom .vhd uploaded to blob storage. For more information about using a custom .vhd, see vm image create.
+This command gets a list of virtual machine images. There are three types of images: images created by Microsoft, which are prefixed with "MSFT", images created by third parties, which are prefixed with the name of the vendor, and images you create. To create images, you can either capture an existing virtual machine or create an image from a custom .vhd uploaded to blob storage. For more information about using a custom .vhd, see vm image create.
 The --json option specifies that the results are returned in raw JSON format.
 
 	~$ azure vm image list
@@ -503,7 +503,7 @@ The commands for attaching data disks (azure vm disk attach and azure vm disk at
 
 When you detach a data disk with the azure vm disk detach command, use the &lt;lun&gt; parameter to indicate which disk to detach.
 
-> [AZURE>NOTE] Note that you should always detach data disks in reverse order, starting with the highest-numbered LUN that has been assigned. The Linux SCSI layer does not support detaching a lower-numbered LUN while a higher-numbered LUN is still attached. For example, you should not detach LUN 0 if LUN 1 is still attached.
+> [AZURE>NOTE] You should always detach data disks in reverse order, starting with the highest-numbered LUN that has been assigned. The Linux SCSI layer does not support detaching a lower-numbered LUN while a higher-numbered LUN is still attached. For example, you should not detach LUN 0 if LUN 1 is still attached.
 
 **vm disk show [options] &lt;name>**
 
@@ -555,7 +555,7 @@ This command deletes an Azure disk from a personal repository. The disk must be 
 
 **vm disk create &lt;name> [source-path]**
 
-This command uploads and registers an Azure disk. --blob-url, --location, or --affinity-group must be specified. If you use this command with [source-path], the .vhd file specified is uploaded and a new image is created. You can then attach this image to a virtual machine by using vm disk attach.
+This command uploads and registers an Azure disk. --blob-url, --location, or --affinity-group must be specified. If you use this command with [source-path], the .vhd file specified is uploaded and an image is created. You can then attach this image to a virtual machine by using vm disk attach.
 
 Some systems impose per-process file descriptor limits. If this limit is exceeded, the tool displays a file descriptor limit error. You can run the command again using the -p &lt;number> parameter to reduce the maximum number of parallel uploads. The default maximum number of parallel uploads is 96.
 
@@ -586,7 +586,7 @@ This command attaches an existing disk in blob storage to an existing virtual ma
 
 **vm disk attach-new &lt;vm-name> &lt;size-in-gb> [blob-url]**
 
-This command attaches a data disk to an Azure virtual machine. In this example, 20 is the size of the new disk, in gigabytes, to be attached. You can optionally use a blob URL as the last argument to explicitly specify the target blob to create. If you do not specify a blob URL, a blob object will be automatically generated.
+This command attaches a data disk to an Azure virtual machine. In this example, 20 is the size of the new disk, in gigabytes, to be attached. You can optionally use a blob URL as the last argument to explicitly specify the target blob to create. If you do not specify a blob URL, a blob object is automatically generated.
 
 	~$ azure vm disk attach-new nick-test36 20 http://nghinazz.blob.core.azure-preview.com/vhds/vmdisk1.vhd
 	info:   Executing command vm disk attach-new
@@ -606,7 +606,7 @@ Azure cloud services are applications and services hosted on web roles and worke
 
 **service create [options] &lt;serviceName>**
 
-This command creates a new cloud service
+This command creates a cloud service
 
 	~$ azure service create newservicemsopentech
 	info:    Executing command service create
@@ -718,7 +718,7 @@ This command lists your web apps.
 
 **site set [options] [name]**
 
-This command will set configuration options for your web app [name]
+This command sets configuration options for your web app [name]
 
 	~$ azure site set
 	info:    Executing command site set
@@ -729,7 +729,7 @@ This command will set configuration options for your web app [name]
 
 **site deploymentscript [options]**
 
-This command will generate a custom deployment script
+This command generates a custom deployment script
 
 	~$ azure site deploymentscript --node
 	info:    Executing command site deploymentscript
@@ -739,7 +739,7 @@ This command will generate a custom deployment script
 
 **site create [options] [name]**
 
-This command creates a new web app and local directory.
+This command creates a web app and local directory.
 
 	~$ azure site create mysite
 	info:   Executing command site create
@@ -830,7 +830,7 @@ This command stops a web app.
 	info:   Site mysite has been stopped
 	info:   site stop command OK
 
-**site restart [options] [name]
+**site restart [options] [name]**
 
 This command stops and then starts a specified web app.
 
@@ -1453,7 +1453,7 @@ Specify the -q parameter to delete the table without confirmation. Do this to pr
 
 **mobile data truncate [options] [servicename] [tablename]**
 
-This commands removes all rows of data from the table.
+This command removes all rows of data from the table.
 
 	~$azure mobile data truncate todolist TodoItem
 	info:    Executing command mobile data truncate
@@ -1505,13 +1505,13 @@ This command supports the following additional options:
 
 **mobile script upload [options] [servicename] [scriptname]**
 
-This command uploads a new script named `todoitem.insert.js` from the `table` subfolder.
+This command uploads a script named `todoitem.insert.js` from the `table` subfolder.
 
 	~$azure mobile script upload todolist table/todoitem.insert.js
 	info:    Executing command mobile script upload
 	info:    mobile script upload command OK
 
-The name of the file must be composed from the table and operation names, and it must be located in the table subfolder relative to the location where the command is executed. You can also use the **-f `<file>`** or **--file `<file>`** parameter to specify a different filename and path to the file that contains the script to register.
+The name of the file must be composed from the table and operation names. It must be located in the table subfolder relative to the location where the command is executed. You can also use the **-f `<file>`** or **--file `<file>`** parameter to specify a different filename and path to the file that contains the script to register.
 
 
 **mobile script delete [options] [servicename] [scriptname]**
@@ -1541,7 +1541,7 @@ This command lists scheduled jobs.
 
 **mobile job create [options] [servicename] [jobname]**
 
-This command creates a new job named `getUpdates` that is scheduled to run hourly.
+This command creates a job named `getUpdates` that is scheduled to run hourly.
 
 	~$azure mobile job create -i 1 -u hour todolist getUpdates
 	info:    Executing command mobile job create
@@ -1621,7 +1621,7 @@ This command supports the following additional options:
 + **-c `<mode>`** or **--computeMode `<mode>`**: The compute mode must be either `Free` or `Reserved`.
 + **-i `<count>`** or **--numberOfInstances `<count>`**: The number of instances used when running in reserved mode.
 
-> [AZURE.NOTE] When you set compute mode to `Reserved`, all of your mobile services in the same region run in premium mode.
+> [AZURE.NOTE] When you set compute mode to `Reserved`, all your mobile services in the same region run in premium mode.
 
 
 ###Commands to enable preview features for your Mobile Service
@@ -1642,7 +1642,7 @@ This command displays the preview features available on the specified service an
 
 **mobile preview enable [options] [servicename] [featurename]**
 
-This command enables the specified preview feature for a mobile service. Note that once enabled, preview features cannot be disabled for a mobile service.
+This command enables the specified preview feature for a mobile service. Once enabled, preview features cannot be disabled for a mobile service.
 
 ###Commands to manage your mobile service APIs
 
@@ -1672,7 +1672,7 @@ Creates a mobile service custom API
 
 This command supports the following additional option:
 
-**-p** or **--permissions** &lt;permissions>:  A comma delimited list of &lt;method>=&lt;permission> pairs.
+**-p** or **--permissions** &lt;permissions>:  A comma-delimited list of &lt;method>=&lt;permission> pairs.
 
 **mobile api update [options] [servicename] [apiname]**
 
@@ -1682,7 +1682,7 @@ This command supports the following additional option:
 
 This command supports the following additional options:
 
-+ **-p** or **--permissions** &lt;permissions>: A comma delimited list of &lt;method>=&lt;permission>  pairs.
++ **-p** or **--permissions** &lt;permissions>: A comma-delimited list of &lt;method>=&lt;permission>  pairs.
 + **-f** or **--force**: Overrides any custom changes to the permissions metadata file.
 
 **mobile api delete [options] [servicename] [apiname]**
@@ -1771,7 +1771,7 @@ Check that a service bus namespace is legal and available.
 
 **sb namespace create &lt;name> &lt;location>**
 
-Creates a new Service Bus namespace.
+Creates a Service Bus namespace.
 
 	~$ azure sb namespace create mysbnamespacea-test "West US"
 	info:    Executing command sb namespace create
@@ -2070,7 +2070,7 @@ Use these commands to manage your SQL Servers
 
 **sql server create &lt;administratorLogin> &lt;administratorPassword> &lt;location>**
 
-Create a new database server
+Create a database server
 
 	~$ azure sql server create test T3stte$t "West US"
 	info:    Executing command sql server create
@@ -2119,7 +2119,7 @@ Use these commands to manage your SQL Databases.
 
 **sql db create [options] &lt;serverName> &lt;databaseName> &lt;administratorPassword>**
 
-Creates a new database instance
+Creates a database instance
 
 	~$ azure sql db create fr8aelne00 newdb test
 	info:    Executing command sql db create
@@ -2211,7 +2211,7 @@ Use these commands to manage your SQL Server firewall rules
 
 **sql firewallrule create [options] &lt;serverName> &lt;ruleName> &lt;startIPAddress> &lt;endIPAddress>**
 
-Create a new firewall rule for a SQL Server.
+Create a firewall rule for a SQL Server.
 
 	~$ azure sql firewallrule create fr8aelne00 allowed 131.107.0.0 131.107.255.255
 	info:    Executing command sql firewallrule create
@@ -2250,7 +2250,7 @@ List the firewall rules.
 
 **sql firewallrule delete [options] &lt;serverName> &lt;ruleName>**
 
-This command will delete a firewall rule.
+This command deletes a firewall rule.
 
 	~$ azure sql firewallrule delete fr8aelne00 allowed
 	info:    Executing command sql firewallrule delete
@@ -2264,7 +2264,7 @@ Use these commands to manage your Virtual Networks
 
 **network vnet create [options] &lt;location>**
 
-Create a new Virtual Network.
+Create a Virtual Network.
 
 	~$ azure network vnet create vnet1 --location "West US" -v
 	info:    Executing command network vnet create
@@ -2328,7 +2328,7 @@ Deletes the specified Virtual Network.
 
 **network export [file-path]**
 
-For advanced network configuration, you can export your network configuration locally. Note that the exported network configuration includes DNS server settings, virtual network settings, local network site settings, and other settings.
+For advanced network configuration, you can export your network configuration locally. The exported network configuration includes DNS server settings, virtual network settings, local network site settings, and other settings.
 
 **network import [file-path]**
 

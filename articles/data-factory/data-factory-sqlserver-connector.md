@@ -3,7 +3,7 @@
 	description="Learn about how to move data to/from SQL Server database that is on-premises or in an Azure VM using Azure Data Factory."
 	services="data-factory"
 	documentationCenter=""
-	authors="spelluru"
+	authors="linda33wj"
 	manager="jhubbard"
 	editor="monicar"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/31/2016"
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Move data to and from SQL Server on-premises or on IaaS (Azure VM) using Azure Data Factory
 

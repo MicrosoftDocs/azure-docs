@@ -1,7 +1,7 @@
 <properties
    pageTitle="Continuous deployment for Azure Functions | Microsoft Azure"
    description="Use continuous deployment facilities of Azure App Service to publish your Azure Functions."
-   services="azure-functions"
+   services="functions"
    documentationCenter="na"
    authors="ggailey777"
    manager="erikre"
@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="08/15/2016"
+   ms.date="09/25/2016"
    ms.author="glenga"/>
 
 # Continuous deployment for Azure Functions 

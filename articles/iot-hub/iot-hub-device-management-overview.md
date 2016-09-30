@@ -16,7 +16,15 @@
  ms.date="09/16/2016"
  ms.author="bzurcher"/>
 
+
+
 # Overview of Azure IoT Hub device management (preview)
+
+## The Azure IoT device management approach
+
+Azure IoT Hub device management provides the features and extensibility model for devices and back-ends to leverage IoT device management for the diversity of devices and protocols in IoT.  Devices in IoT range from very constrained sensors, single purposed microcontrollers, to more powerful gateways that enable other devices and protocols.  IoT solutions also vary significantly in vertical domains and applications with unique use cases for operators in each domain.  IoT solutions can leverage IoT Hub device management capabilities, patterns, code libraries, samples, and guidance to enable a device management for their diverse set of devices and users.  
+
+## Introduction
 
 A crucial part of creating a successful IoT solution is to provide a strategy for how operators handle the ongoing management of their device fleet. IoT operators require tools and applications which are both simple and reliable, and enable them to focus on the more strategic aspects of their jobs. Azure IoT Hub provides you with the building blocks to create IoT applications that facilitate the most important device management patterns.
 
@@ -36,7 +44,7 @@ IoT brings with it a unique set of management challenges and a solution must acc
 
 - **Service many roles**: Support for the unique workflows and processes of IoT operations roles is crucial. The operations staff must also work harmoniously with the given constraints of internal IT departments, and surface relevant device operations information to supervisors and other management roles.
 
-## IoT device lifecycle and managment patterns
+## IoT device lifecycle 
 
 Although IoT projects differ greatly, there is a set of common patterns for managing devices. In Azure IoT, these patterns are identified within the IoT device lifecycle that is comprised of five distinct stages:
 
@@ -61,8 +69,20 @@ Although IoT projects differ greatly, there is a set of common patterns for mana
 5. **Retire**:  Replace or decommission devices after a failure, upgrade cycle, or at the end of the service lifetime.
 
     *Related building blocks*:
+    
+## IoT Hub device management patterns
 
+IoT Hub enables the following set of (initial) device management patterns.  As shown in the [tutorials][lnk-get-started], you can extend these patterns to fit your exact scenario and design new patterns for other scnarios based on these core patterns.
 
+1. **Reboot** - The back-end application informs the device through a D2C method that a reboot has been initiated.  The device uses the device twin reported properties to update the reboot status of the device. 
+
+2. **Factory Reset** - The back-end application informs the device through a D2C method that a factory reset has been initiated.  The device uses the device twin reported properties to update the factory reset status of the device.
+
+3. **Configuration** - The back-end application uses the device twin desired properties to configure software running on the device.  The device uses the device twin reported properties to update configuration status of the device. 
+
+4. **Firmware Update** - The back-end application informs the device through a D2C method that a firmware update has been initiated.  The device initiates a multi-step process to download the firmware package, apply the firmware package, and finally reconnect to the IoT Hub service.  Throughout the mult-step process, the device uses the device twin reported properties to update the progress and status of the device. 
+
+5. **Reporting progress and status** - The application back-end runs device twin queries, across a set of devices, to report on the status and progress of actions running on the device.
 
 ## Next Steps
 

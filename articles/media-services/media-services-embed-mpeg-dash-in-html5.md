@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Embedding a MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js" 
+	pageTitle="Embedding a MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js | Microsoft Azure" 
 	description="This topic demonstrates how to embed an MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js." 
 	authors="Juliako" 
 	manager="erikre" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 

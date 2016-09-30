@@ -40,7 +40,7 @@ To complete this tutorial, you need the following:
 
 As a final step, make a note of the **Primary key** value, and then click **Messaging**. On the **Messaging** blade, make a note of the **Event Hub-compatible name** and the **Event Hub-compatible endpoint**. You need these three values when you create your **read-d2c-messages** application.
 
-![][6]
+![Azure portal IoT Hub Messaging blade][6]
 
 You have now created your IoT hub, and you have the IoT Hub hostname, IoT Hub connection string, IoT Hub Primary Key, Event Hubs-compatible name, and Event Hubs-compatible endpoint you need to complete this tutorial.
 
@@ -445,7 +445,7 @@ You are now ready to run the applications.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![][7]
+    ![Java IoT Hub service client application to monitor device-to-cloud messages][7]
 
 2. At a command-prompt in the simulated-device folder, run the following command to begin sending telemetry data to your IoT hub:
 
@@ -453,11 +453,11 @@ You are now ready to run the applications.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
 
-    ![][8]
+    ![Java IoT Hub device client application to send device-to-cloud messages][8]
 
 3. The **Usage** tile in the [Azure portal][lnk-portal] shows the number of messages sent to the hub:
 
-    ![][43]
+    ![Azure portal Usage tile showing number of messages sent to IoT Hub][43]
 
 ## Next steps
 

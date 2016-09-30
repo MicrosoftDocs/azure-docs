@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="09/25/2016"
 	ms.author="davidmu"/>
 
 # Create a Windows Virtual Machine Scale Set using Azure PowerShell
@@ -84,7 +84,7 @@ A virtual machine scale set must be contained in a resource group.
 
 ### Storage account
 
-A storage account is used by a virtual machine to store the operating system disk and diagnostic data used for scaling. When possible, it is best practice to have a storage account for each virtual machine created in a scale set. If not possible, plan for no more than 20 VMs per storage account. The example in this article shows 3 storage accounts being created for 3 virtual machines in a scale set.
+A storage account is used by a virtual machine to store the operating system disk and diagnostic data used for scaling. It is a best practice to have one storage account for every 20 virtual machines created in a scale set. Since scale sets are designed to be easy to scale out, create as many storage accounts as you need for the maximum number of virtual machines you plan your scale set to grow to. The example in this article shows 3 storage accounts being created, allowing the scale set to grow comfortably to 60 virtual machines.
 
 1. Replace the value of **saName** with the name that you want to use for the storage account and then create the variable: 
 
@@ -205,7 +205,7 @@ You have all the resources that you need for the scale set configuration, so let
         
 3. Create the configuration for the scale set:
 
-        $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
+        $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A1" -UpgradePolicyMode "manual"
         
     This example shows a scale set being created with 3 virtual machines. See [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md) for more about the capacity of scale sets. This step also includes setting the size (referred to as SkuName) of the virtual machines in the set. Look at [Sizes for virtual machines](../virtual-machines/virtual-machines-windows-sizes.md) to find a size that meets your needs.
     

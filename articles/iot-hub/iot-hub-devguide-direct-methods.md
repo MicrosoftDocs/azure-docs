@@ -34,7 +34,7 @@ Device methods are similar to [cloud-to-device messages][lnk-devguide-messages] 
 
 Methods follow a request-response pattern and are not durable. The lack of durability provides two immediate benefits when you are commanding devices:
 
-- **Immediate feedback on method execution** means there is no correlation needed for request/reply patterns.
+- **Immediate feedback on method execution** means there is no need for you to manage the correlation between request and reply.
 - **Higher throughput** means the operations can be performed faster because IoT Hub is not providing any durability. IoT Hub allows more method calls per unit than cloud-to-device messages.
 
 Cloud-to-device messages are not necessarily commands to the device, but rather represent a cloud service passing some bit of information to the device for it to pick up at its leisure, and to which the device may or may not respond. Cloud-to-device messages have a longer timeout time (up to 48 hours) while methods expire much more quickly.
@@ -43,7 +43,7 @@ Use device methods for immediate command invocation on a device and jobs for sch
 
 ## Method lifecycle
 
-Methods are implemented on the device and may require zero or more inputs in the method payload to correctly instantiate. You invoke a direct method through a service-facing URI (`{iot hub}/twins/{device id}/methods/`). A device receives direct methods through a device-specific MQTT topic (`$iothub/methods/POST/{method name}/`).
+Methods are implemented on the device and may require zero or more inputs in the method payload to correctly instantiate. You invoke a direct method through a service-facing URI (`{iot hub}/twins/{device id}/methods/`). A device receives direct methods through a device-specific MQTT topic (`$iothub/methods/POST/{method name}/`). We may support methods on additional device-side networking protocols in the future.
 
 > [AZURE.NOTE] When you invoke a direct method on a device, property names and values can only contain US-ASCII printable alphanumeric, except any in the following set: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
 
@@ -63,16 +63,16 @@ Direct method invocations on a device are HTTP calls which comprise:
 - *Headers* which contain the authorization, request ID, content type, and content encoding
 - A transparent JSON *body* in the following format:
 
-  ```
-  {
-    "methodName": "reboot",
-    "timeout": 200,
-    "payload": {
-      "input1": "someInput",
-      "input2": "anotherInput"
+    ```
+    {
+        "methodName": "reboot",
+        "timeoutInSeconds": 200,
+        "payload": {
+            "input1": "someInput",
+            "input2": "anotherInput"
+        }
     }
-  }
-  ```
+    ```
 
   Timeout is in seconds. If timeout is not set, it defaults to 30 seconds.
   
@@ -83,12 +83,12 @@ The back-end receives a response which comprises:
 - *Headers* which contain the etag, request ID, content type, and content encoding
 - A JSON *body* in the following format:
 
-  ```
-  {
-    "status" : "OK",
-    "body" : {...}
-  }
-  ```
+    ```
+    {
+        "status" : "OK",
+        "payload" : {...}
+    }
+    ```
   
    Both `status` and `body` are provided by the device and used to respond with the device's own status code and/or description.
 
@@ -102,8 +102,8 @@ The body which the device receives is in the following format:
 
 ```
 {
-  "input1": "someInput",
-  "input2": "anotherInput"
+    "input1": "someInput",
+    "input2": "anotherInput"
 }
 ```
 

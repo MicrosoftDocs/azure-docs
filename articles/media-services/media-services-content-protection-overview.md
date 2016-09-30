@@ -19,12 +19,11 @@
 #Protecting content overview
 
 
-Microsoft Azure Media Services enables you to secure your media from the time it leaves your computer through storage, processing, and delivery. Media Services allows you to deliver your content encrypted dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and common encryption (CENC) using PlayReady and/or Widevine DRM. Media Services also provides a service for delivering AES keys and PlayReady licenses to authorized clients. You can also use the following AMS partners to help you deliver Widevine licenses: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
+Microsoft Azure Media Services enables you to secure your media from the time it leaves your computer through storage, processing, and delivery. Media Services allows you to deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) or any of the major DRMs: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients. 
 
 - The following image demonstrates the "PlayReady and/or Widevine DRM dynamic common encryption" workflow. For details, see [Using PlayReady and/or Widevine DRM dynamic common encryption](media-services-protect-with-drm.md).
 
 ![Protect with PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
-
 
 - The following image demonstrates the "AES-128 dynamic encryption" workflow. For details, see [Use AES-128 Dynamic Encryption and Key Delivery Service](media-services-protect-with-aes128.md).
 

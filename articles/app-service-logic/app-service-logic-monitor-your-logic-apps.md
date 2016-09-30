@@ -33,6 +33,8 @@ There are a few sections on this blade that are helpful:
 	- **Trigger History** lists all the trigger activity for this logic app.  Trigger activity could be a "Skipped" check for new data (e.g. looking to see if a new file was added to FTP), "Succeeded" meaning data was returned to fire a logic app, or "Failed" corresponding an error in configuration.
 - **Diagnostics** allows you to view runtime details and events, and subscribe to [Azure Alerts](#adding-azure-alerts)
 
+>[AZURE.NOTE] All runtime details and events are encrypted at rest within the Logic App service. They are only decrypted upon a view request from a user. Access to these events can also be controlled by Azure Role-Based Access Control (RBAC).
+
 ### View the run details
 
 This list of runs shows the **Status**, the **Start Time**, and the **Duration** of the particular run. Select any row to see details on that run.

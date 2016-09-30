@@ -3,7 +3,7 @@
  description="Azure IoT Hub developer guide - scheduling jobs to run on multiple devices connected to your hub"
  services="iot-hub"
  documentationCenter=".net"
- authors="juanpere"
+ authors="juanjperez"
  manager="timlt"
  editor=""/>
 
@@ -16,7 +16,7 @@
  ms.date="09/30/2016" 
  ms.author="juanpere"/>
 
-# Schedule jobs on multiple devices
+# Schedule jobs on multiple devices (preview)
 
 ## Overview
 

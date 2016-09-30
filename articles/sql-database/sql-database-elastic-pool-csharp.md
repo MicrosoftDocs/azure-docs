@@ -14,562 +14,305 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="08/18/2016"
+    ms.date="09/14/2016"
     ms.author="sstein"/>
 
 # C&#x23; database development: Create and configure an elastic database pool for SQL database
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-create-portal.md)
-- [C#](sql-database-elastic-pool-csharp.md)
+- [C#](sql-database-elastic-pool-create-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
 
-This article shows you how to create an [elastic database pool](sql-database-elastic-pool.md) for SQL databases from an application using C# database development techniques.
+This article describes how to use C# to create an Azure SQL elastic database pool with the [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). To create a stand-alone SQL database, see [Use C# to create a SQL database with the SQL Database Library for .NET](sql-database-get-started-csharp.md).
 
-> [AZURE.NOTE] Elastic pools are generally available (GA) in all Azure regions except North Central US and West India where it is currently in preview.  GA of elastic pools in these regions will be provided as soon as possible. Also, elastic pools do not currently support databases using [in-memory OLTP or in-memory analytics](sql-database-in-memory.md).
-
-The examples use the [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
-Individual code snippets are broken out for clarity and a sample console application brings all the commands together in the section at the bottom of this article.
+The Azure SQL Database Library for .NET provides an [Azure Resource Manager](../resource-group-overview.md)-based API that wraps the [Resource Manager-based SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
 
 > [AZURE.NOTE] The SQL Database Library for .NET is currently in preview.
 
 
+To complete the steps in this article, you need the following:
 
-If you do not have an Azure subscription, simply click **FREE TRIAL** at the top of this page, and then come back to this article. And for a free copy of Visual Studio, see the [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) page.
-
-## Installing the required libraries
-
-Get the required management libraries by installing the following packages using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) for development on SQL:
-
-    Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.Resources –Pre
-    Install-Package Microsoft.Azure.Common.Authentication –Pre
+- An Azure subscription. If you need an Azure subscription simply click **FREE ACCOUNT** at the top of this page, and then come back to finish this article.
+- Visual Studio. For a free copy of Visual Studio, see the [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) page.
 
 
-## Configure authentication with Azure Active Directory
+## Create a console app and install the required libraries
 
-Before you start SQL development in C#, you must complete some tasks in the Azure portal. First enable your application to access the REST API by setting up the required authentication.
-
-The [Azure Resource Manager REST APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx) use Azure Active Directory for authentication rather than the certificates used by the earlier classic deployment model.
-
-To authenticate your client application, you must first register your application in the AAD domain in the subscription where the Azure resources have been created. If your Azure subscription was created with a Microsoft account rather than a work or school account, you already have a default AAD domain. Register the application in the [classic portal](https://manage.windowsazure.com/).
-
-To create an application, and register it in the correct active directory do the following:
-
-1. Locate the **Active Directory** service and open it.
-
-    ![C# SQL database development: Active Directory setup][1]
-
-2. Select the directory to authenticate your application and click its **Name**.
-
-    ![Select a directory.][4]
-
-3. On the directory page, click **APPLICATIONS**.
-
-    ![Click Applications.][5]
-
-4. Click **ADD** to create an application.
-
-    ![Click Add button: Create C# application.][6]
-
-5. Select **Add an application my organization is developing**.
-
-5. Provide a **NAME** for the app, and select **NATIVE CLIENT APPLICATION**.
-
-    ![Add application][7]
-
-6. Provide a **REDIRECT URI**. It doesn't need to be an actual endpoint, just a valid URI.
-
-    ![Add application][8]
-
-7. Finish creating the app, click **CONFIGURE**, and copy the **CLIENT ID** (you need the client id in your code).
-
-    ![Get client ID][9]
+1. Start Visual Studio.
+2. Click **File** > **New** > **Project**.
+3. Create a C# **Console Application** and name it: *SqlElasticPoolConsoleApp*
 
 
-1. On the bottom of the page click **Add application**.
-1. Select **Microsoft Apps**.
-1. Select **Azure Service Management API**, and then complete the wizard.
-2. With the API selected you now need to grant the specific permissions required to access this API by selecting **Access Azure Service Management (preview)**.
+To create a SQL database with C#, load the required management libraries (using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console)):
 
-    ![Set permissions][2]
-
-2. Click **SAVE**.
-
-
-
-### Identify the domain name
-
-The domain name is required for your code. An easy way to identify the proper domain name is to:
-
-1. Go to the [Azure portal](https://portal.azure.com).
-2. Hover over your name in the upper right corner and note the Domain that appears in the pop-up window. Replace **domain.onmicrosoft.com** in the code snippet with the value for your account.
-
-    ![Identify domain name][3]
-
-
-
-**Additional AAD Resources**  
-
-Additional information about using Azure Active Directory for authentication can be found in [this useful blog post](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/).
-
-
-### Retrieve the access token for the current user
-
-The client application must retrieve the application access token for the current user. The first time the code is executed you are prompted to enter your credentials and the resulting token is cached locally. Subsequent executions retrieve the token from the cache and only prompt you to log in if the token has expired.
-
-
-    private static AuthenticationResult GetAccessToken()
-    {
-        AuthenticationContext authContext = new AuthenticationContext
-            ("https://login.windows.net/" + domainName /* Tenant ID or AAD domain */);
-
-        AuthenticationResult token = authContext.AcquireToken
-            ("https://management.azure.com/"/* the Azure Resource Management endpoint */,
-                clientId,
-        new Uri(redirectUri) /* redirect URI */,
-        PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
-
-        return token;
-    }
+1. Click **Tools** > **NuGet Package Manager** > **Package Manager Console**.
+2. Type `Install-Package Microsoft.Azure.Management.Sql –Pre` to install the [Microsoft Azure SQL Management Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
+3. Type `Install-Package Microsoft.Azure.Management.ResourceManager –Pre` to install the [Microsoft Azure Resource Manager Library](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
+4. Type `Install-Package Microsoft.Azure.Common.Authentication –Pre` to install the [Microsoft Azure Common Authentication Library](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
 
 
 
 > [AZURE.NOTE] The examples in this article use a synchronous form of each API request and block until completion of the REST call on the underlying service. There are async methods available.
 
 
+## Create a SQL elastic database pool - C# example
 
-## Create a resource group
+The following sample creates a resource group, server, firewall rule, elastic pool, and then creates a SQL database in the pool. See, [Create a service principal to access resources](#create-a-service-principal-to-access-resources) to get the `_subscriptionId, _tenantId, _applicationId, and _applicationSecret` variables.
 
-With Resource Manager, all resources must be created in a resource group. A resource group is a container that holds related resources for an application. To create an elastic database pool, you need an Azure SQL Database server in an existing resource group. Run the following C# code to create the resource group:
+Replace the contents of **Program.cs** with the following, and update the `{variables}` with your app values (do not include the `{}`).
 
 
-    // Create a resource management client
-    ResourceManagementClient resourceClient = new ResourceManagementClient(new TokenCloudCredentials("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /*subscription id*/, token.AccessToken ));
+```
+using Microsoft.Azure;
+using Microsoft.Azure.Management.ResourceManager;
+using Microsoft.Azure.Management.ResourceManager.Models;
+using Microsoft.Azure.Management.Sql;
+using Microsoft.Azure.Management.Sql.Models;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using System;
 
-    // Resource group parameters
-    ResourceGroup resourceGroupParameters = new ResourceGroup()
-    {
-        Location = "South Central US"
-    };
-
-    //Create a resource group
-    var resourceGroupResult = resourceClient.ResourceGroups.CreateOrUpdate("resourcegroup-name", resourceGroupParameters);
-
-
-
-## Create a server
-
-Elastic database pools are contained within Azure SQL Database servers so the next step is to create a server. The server name must be globally unique among all Azure SQL servers so you get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete. To enable an application to connect to the server you must also create a firewall rule on the server to open access from the client IP address.
-
-
-    // Create a SQL Database management client
-    SqlManagementClient sqlClient = new SqlManagementClient(new TokenCloudCredentials("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* Subscription id*/, token.AccessToken));
-
-    // Create a server
-    ServerCreateOrUpdateParameters serverParameters = new ServerCreateOrUpdateParameters()
-    {
-        Location = "South Central US",
-        Properties = new ServerCreateOrUpdateProperties()
-        {
-            AdministratorLogin = "ServerAdmin",
-            AdministratorLoginPassword = "P@ssword1",
-            Version = "12.0"
-        }
-    };
-
-    var serverResult = sqlClient.Servers.CreateOrUpdate("resourcegroup-name", "server-name", serverParameters);
-
-
-
-
-## Create a server firewall rule to allow access to the server
-
-By default a server has no firewall rules so it cannot be connected to from any location. In order to connect to a server, or to any databases on the server, a [firewall rule](sql-database-firewall-configure.md) must be defined that allows access from the client IP address.
-
-The following example creates a server firewall rule that opens access to the server from any IP address. It is recommended that you create appropriate SQL logins and passwords to secure your database and not rely on firewall rules as a primary defense against intrusion. For details, see [Managing databases and logins in Azure SQL Database](sql-database-manage-logins.md).
-
-
-    // Create a firewall rule on the server to allow TDS connection
-    FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
-    {
-        Properties = new FirewallRuleCreateOrUpdateProperties()
-        {
-            StartIpAddress = "0.0.0.0",
-            EndIpAddress = "255.255.255.255"
-        }
-    };
-
-    var firewallResult = sqlClient.FirewallRules.CreateOrUpdate("resourcegroup-name", "server-name", "FirewallRule1", firewallParameters);
-
-
-
-
-To allow other Azure services to access a server, add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0. This allows Azure traffic from *any* Azure subscription to access the server.
-
-
-## Create a database
-
-The following example creates a new Basic database; if a database with the same name exists on the server, then the existing database will be updated.
-
-        // Create a database
-
-        // Retrieve the server on which the database will be created
-        Server currentServer = sqlClient.Servers.Get("resourcegroup-name", "server-name").Server;
-
-        // Create a database: configure create or update parameters and properties explicitly
-        DatabaseCreateOrUpdateParameters newDatabaseParameters = new DatabaseCreateOrUpdateParameters()
-        {
-            Location = currentServer.Location,
-            Properties = new DatabaseCreateOrUpdateProperties()
-            {
-                Edition = "Basic",
-                RequestedServiceObjectiveName = "Basic",
-                MaxSizeBytes = 2147483648,
-                Collation = "SQL_Latin1_General_CP1_CI_AS"
-            }
-        };
-
-        var dbResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", newDatabaseParameters);
-
-
-
-## Create an elastic database pool
-
-The following example creates a new elastic database pool:
-
-
-
-    // Create elastic pool: configure create or update parameters and properties explicitly
-    ElasticPoolCreateOrUpdateParameters newPoolParameters = new ElasticPoolCreateOrUpdateParameters()
-    {
-        Location = "South Central US",
-        Properties = new ElasticPoolCreateOrUpdateProperties()
-        {
-            Edition = "Standard",
-            Dtu = 100,  // alternatively set StorageMB, if both are specified they must agree based on the eDTU:storage ratio of the edition
-            DatabaseDtuMin = 0,
-            DatabaseDtuMax = 100
-         }
-    };
-
-    // Create the pool
-    var newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
-
-
-## Update an elastic database pool
-
-The following example updates the performance characteristics of an existing elastic database pool:
-
-    // Retrieve existing pool properties
-    var currentPool = sqlClient.ElasticPools.Get("resourcegroup-name", "server-name", "ElasticPool1").ElasticPool;
-
-    // Configure create or update parameters with existing property values, override those to be changed.
-    ElasticPoolCreateOrUpdateParameters updatePoolParameters = new ElasticPoolCreateOrUpdateParameters()
-    {
-        Location = currentPool.Location,
-        Properties = new ElasticPoolCreateOrUpdateProperties()
-        {
-            Edition = currentPool.Properties.Edition,
-            DatabaseDtuMax = 50, /* Setting DatabaseDtuMax to 50 limits the eDTUs that any one database can consume */
-            DatabaseDtuMin = 10, /* Setting DatabaseDtuMin above 0 limits the number of databases that can be stored in the pool */
-            Dtu = (int)currentPool.Properties.Dtu,
-            StorageMB = currentPool.Properties.StorageMB,  /* For a Standard pool there is 1 GB of storage per eDTU. */
-        }
-    };
-
-    newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
-
-
-
-## Move an existing database into an elastic database pool
-
-After creating a pool you can also use Transact-SQL for moving existing databases in and out of a pool. For details see, [Monitor and manage an elastic database pool with Transact-SQL](sql-database-elastic-pool-manage-tsql.md).*
-
-The following example moves an existing Azure SQL database into a pool:
-
-
-    // Update database service objective to add the database to a pool
-
-    // Retrieve current database properties
-    currentDatabase = sqlClient.Databases.Get("resourcegroup-name", "server-name", "Database1").Database;
-
-    // Configure create or update parameters with existing property values, override those to be changed.
-    DatabaseCreateOrUpdateParameters updatePooledDbParameters = new DatabaseCreateOrUpdateParameters()
-    {
-        Location = currentDatabase.Location,
-        Properties = new DatabaseCreateOrUpdateProperties()
-        {
-            Edition = "Standard",
-            RequestedServiceObjectiveName = "ElasticPool",
-            ElasticPoolName = "ElasticPool1",
-            MaxSizeBytes = currentDatabase.Properties.MaxSizeBytes,
-            Collation = currentDatabase.Properties.Collation,
-        }
-    };
-
-    // Update the database
-    var dbUpdateResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", updatePooledDbParameters);
-
-
-
-
-## Create a new database in an elastic database pool
-
-*After creating a pool you can also use Transact-SQL for creating new elastic databases in the pool. For details see, [Monitor and manage an elastic database pool with Transact-SQL](sql-database-elastic-pool-manage-tsql.md).*
-
-The following example creates a new database directly in a pool:
-
-
-    // Create a new database in the pool
-
-    // Create a database: configure create or update parameters and properties explicitly
-    DatabaseCreateOrUpdateParameters newPooledDatabaseParameters = new DatabaseCreateOrUpdateParameters()
-    {
-        Location = currentServer.Location,
-        Properties = new DatabaseCreateOrUpdateProperties()
-        {
-            Edition = "Standard",
-            RequestedServiceObjectiveName = "ElasticPool",
-            ElasticPoolName = "ElasticPool1",
-            MaxSizeBytes = 268435456000, // 250 GB,
-            Collation = "SQL_Latin1_General_CP1_CI_AS"
-        }
-    };
-
-    var poolDbResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database2", newPooledDatabaseParameters);
-
-
-
-## List all databases in an elastic database pool
-
-The following example lists all databases in a pool:
-
-    //List databases in the elastic pool
-    DatabaseListResponse dbListInPool = sqlClient.ElasticPools.ListDatabases("resourcegroup-name", "server-name", "ElasticPool1");
-    Console.WriteLine("Databases in Elastic Pool {0}", "server-name.ElasticPool1");
-    foreach (Database db in dbListInPool)
-    {
-        Console.WriteLine("  Database {0}", db.Name);
-    }
-
-
-
-
-## Sample console application
-
-
-    using Microsoft.Azure;
-    using Microsoft.Azure.Management.Resources;
-    using Microsoft.Azure.Management.Resources.Models;
-    using Microsoft.Azure.Management.Sql;
-    using Microsoft.Azure.Management.Sql.Models;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using System;
-    using System.Security;
-
-    namespace AzureSqlDatabaseRestApiExamples
-    {
+namespace SqlElasticPoolConsoleApp
+{
     class Program
-    {
-        /// <summary>
-        /// Prompts for user credentials when first run or if the cached credentials have expired.
-        /// </summary>
-        /// <returns>The access token from AAD.</returns>
-        private static AuthenticationResult GetAccessToken()
         {
-            AuthenticationContext authContext = new AuthenticationContext
-                ("https://login.windows.net/" + domainName /* Tenant ID or AAD domain */);
 
-            AuthenticationResult token = authContext.AcquireToken
-                ("https://management.azure.com/"/* the Azure Resource Management endpoint */,
-                    clientId,
-            new Uri(redirectUri) /* redirect URI */,
-            PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
+        // For details about these four (4) values, see
+        // https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/
+        static string _subscriptionId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}";
+        static string _tenantId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}";
+        static string _applicationId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}";
+        static string _applicationSecret = "{your-password}";
 
-            return token;
-        }
+        // Create management clients for the Azure resources your app needs to work with.
+        // This app works with Resource Groups, and Azure SQL Database.
+        static ResourceManagementClient _resourceMgmtClient;
+        static SqlManagementClient _sqlMgmtClient;
 
-        private static AuthenticationResult GetAccessTokenUsingUserCredentials(UserCredential userCredential)
-        {
-            AuthenticationContext authContext = new AuthenticationContext
-                ("https://login.windows.net/" /* AAD URI */
-                + "YOU.onmicrosoft.com" /* Tenant ID or AAD domain */);
+        // Authentication token
+        static AuthenticationResult _token;
 
-            AuthenticationResult token = authContext.AcquireToken(
-                "https://management.azure.com/"/* the Azure Resource Management endpoint */,
-                "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* application client ID from AAD*/,
-                userCredential);
+        // Azure resource variables
+        static string _resourceGroupName = "{resource-group-name}";
+        static string _resourceGrouplocation = "{Azure-region}";
 
-            return token;
-        }
-        private static SecureString convertToSecureString(string secret)
-        {
-            var secureStr = new SecureString();
-            if (secret.Length > 0)
-            {
-                foreach (var c in secret.ToCharArray()) secureStr.AppendChar(c);
-            }
-            return secureStr;
-        }
+        static string _serverlocation = _resourceGrouplocation;
+        static string _serverName = "{server-name}";
+        static string _serverAdmin = "{server-admin-login}";
+        static string _serverAdminPassword = "{server-admin-password}";
+
+        static string _firewallRuleName = "{firewall-rule-name}";
+        static string _startIpAddress = "{0.0.0.0}";
+        static string _endIpAddress = "{255.255.255.255}";
+
+        static string _poolName = "{pool-name}";
+        static string _poolEdition = "{Standard}";
+        static int _poolDtus = {100};
+        static int _databaseMinDtus = {10};
+        static int _databaseMaxDtus = {100};
+
+        static string _databaseName = "{elasticdbfromcsarticle}";
+
+
 
         static void Main(string[] args)
         {
-            var token = GetAccessToken();
+            // Authenticate:
+            _token = GetToken(_tenantId, _applicationId, _applicationSecret);
+            Console.WriteLine("Token acquired. Expires on:" + _token.ExpiresOn);
 
-            // Who am I?
-            Console.WriteLine("Identity is {0} {1}", token.UserInfo.GivenName, token.UserInfo.FamilyName);
-            Console.WriteLine("Token expires on {0}", token.ExpiresOn);
-            Console.WriteLine("");
+            // Instantiate management clients:
+            _resourceMgmtClient = new ResourceManagementClient(new Microsoft.Rest.TokenCredentials(_token.AccessToken));
+            _sqlMgmtClient = new SqlManagementClient(new TokenCloudCredentials(_subscriptionId, _token.AccessToken));
 
-            // Create a resource management client
-            ResourceManagementClient resourceClient = new ResourceManagementClient(new TokenCloudCredentials("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /*subscription id*/, token.AccessToken));
 
-            // Resource group parameters
+            Console.WriteLine("Resource group...");
+            ResourceGroup rg = CreateOrUpdateResourceGroup(_resourceMgmtClient, _subscriptionId, _resourceGroupName, _resourceGrouplocation);
+            Console.WriteLine("Resource group: " + rg.Id);
+
+
+            Console.WriteLine("Server...");
+            ServerGetResponse sgr = CreateOrUpdateServer(_sqlMgmtClient, _resourceGroupName, _serverlocation, _serverName, _serverAdmin, _serverAdminPassword);
+            Console.WriteLine("Server: " + sgr.Server.Id);
+
+            Console.WriteLine("Server firewall...");
+            FirewallRuleGetResponse fwr = CreateOrUpdateFirewallRule(_sqlMgmtClient, _resourceGroupName, _serverName, _firewallRuleName, _startIpAddress, _endIpAddress);
+            Console.WriteLine("Server firewall: " + fwr.FirewallRule.Id);
+
+            Console.WriteLine("Elastic pool...");
+            ElasticPoolCreateOrUpdateResponse epr = CreateOrUpdateElasticDatabasePool(_sqlMgmtClient, _resourceGroupName, _serverName, _poolName, _poolEdition, _poolDtus, _databaseMinDtus, _databaseMaxDtus);
+            Console.WriteLine("Elastic pool: " + epr.ElasticPool.Id);
+
+            Console.WriteLine("Database...");
+            DatabaseCreateOrUpdateResponse dbr = CreateOrUpdateDatabase(_sqlMgmtClient, _resourceGroupName, _serverName, _databaseName, _poolName);
+            Console.WriteLine("Database: " + dbr.Database.Id);
+
+
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+        }
+
+        static ResourceGroup CreateOrUpdateResourceGroup(ResourceManagementClient resourceMgmtClient, string subscriptionId, string resourceGroupName, string resourceGroupLocation)
+        {
             ResourceGroup resourceGroupParameters = new ResourceGroup()
             {
-                Location = "South Central US"
+                Location = resourceGroupLocation,
             };
+            resourceMgmtClient.SubscriptionId = subscriptionId;
+            ResourceGroup resourceGroupResult = resourceMgmtClient.ResourceGroups.CreateOrUpdate(resourceGroupName, resourceGroupParameters);
+            return resourceGroupResult;
+        }
 
-            //Create a resource group
-            var resourceGroupResult = resourceClient.ResourceGroups.CreateOrUpdate("resourcegroup-name", resourceGroupParameters);
-
-            Console.WriteLine("Resource group {0} create or update completed with status code {1} ", resourceGroupResult.ResourceGroup.Name, resourceGroupResult.StatusCode);
-
-            //create a SQL Database management client
-            TokenCloudCredentials tokenCredentials = new TokenCloudCredentials("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* Subscription id*/, token.AccessToken);
-
-            SqlManagementClient sqlClient = new SqlManagementClient(tokenCredentials);
-
-            // Create a server
+        static ServerGetResponse CreateOrUpdateServer(SqlManagementClient sqlMgmtClient, string resourceGroupName, string serverLocation, string serverName, string serverAdmin, string serverAdminPassword)
+        {
             ServerCreateOrUpdateParameters serverParameters = new ServerCreateOrUpdateParameters()
             {
-                Location = "South Central US",
+                Location = serverLocation,
                 Properties = new ServerCreateOrUpdateProperties()
                 {
-                    AdministratorLogin = "ServerAdmin",
-                    AdministratorLoginPassword = "P@ssword1",
+                    AdministratorLogin = serverAdmin,
+                    AdministratorLoginPassword = serverAdminPassword,
                     Version = "12.0"
                 }
             };
+            ServerGetResponse serverResult = sqlMgmtClient.Servers.CreateOrUpdate(resourceGroupName, serverName, serverParameters);
+            return serverResult;
+        }
 
-            var serverResult = sqlClient.Servers.CreateOrUpdate("resourcegroup-name", "server-name", serverParameters);
 
-            var serverGetResult = sqlClient.Servers.Get("resourcegroup-name", "server-name");
-
-
-            Console.WriteLine("Server {0} create or update completed with status code {1}", serverResult.Server.Name, serverResult.StatusCode);
-
-            // Create a firewall rule on the server to allow TDS connection
-
+        static FirewallRuleGetResponse CreateOrUpdateFirewallRule(SqlManagementClient sqlMgmtClient, string resourceGroupName, string serverName, string firewallRuleName, string startIpAddress, string endIpAddress)
+        {
             FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
             {
                 Properties = new FirewallRuleCreateOrUpdateProperties()
                 {
-                    StartIpAddress = "0.0.0.0",
-                    EndIpAddress = "255.255.255.255"
+                    StartIpAddress = startIpAddress,
+                    EndIpAddress = endIpAddress
                 }
             };
-
-            var firewallResult = sqlClient.FirewallRules.CreateOrUpdate("resourcegroup-name", "server-name", "FirewallRule1", firewallParameters);
-
-            Console.WriteLine("Firewall rule {0} create or update completed with status code {1}", firewallResult.FirewallRule.Name, firewallResult.StatusCode);
-
-
-            var dbResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", newDatabaseParameters);
-
-            Console.WriteLine("Database {0} create or update completed with status code {1}. Service Objective {2} ", dbResponse.Database.Name, dbResponse.StatusCode, dbResponse.Database.Properties.ServiceObjective);
+            FirewallRuleGetResponse firewallResult = sqlMgmtClient.FirewallRules.CreateOrUpdate(resourceGroupName, serverName, firewallRuleName, firewallParameters);
+            return firewallResult;
+        }
 
 
-           // Create an elastic database pool
-            var newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
-            Console.WriteLine("Elastic pool {0} create or update completed with status code {1}.", newPoolResponse.ElasticPool.Name, newPoolResponse.StatusCode);
+        static ElasticPoolCreateOrUpdateResponse CreateOrUpdateElasticDatabasePool(SqlManagementClient sqlMgmtClient, string resourceGroupName, string serverName, string poolName, string poolEdition, int poolDtus, int databaseMinDtus, int databaseMaxDtus)
+        {
+            // Retrieve the server that will host this elastic pool
+            Server currentServer = sqlMgmtClient.Servers.Get(resourceGroupName, serverName).Server;
 
-            // Update pool: retrieve existing pool properties
-            var currentPool = sqlClient.ElasticPools.Get("resourcegroup-name", "server-name", "ElasticPool1").ElasticPool;
-
-            // Update pool: configure create or update parameters with existing property values, override those to be changed.
-            ElasticPoolCreateOrUpdateParameters updatePoolParameters = new ElasticPoolCreateOrUpdateParameters()
+            // Create elastic pool: configure create or update parameters and properties explicitly
+            ElasticPoolCreateOrUpdateParameters newPoolParameters = new ElasticPoolCreateOrUpdateParameters()
             {
-                Location = currentPool.Location,
+                Location = currentServer.Location,
                 Properties = new ElasticPoolCreateOrUpdateProperties()
                 {
-                    Edition = currentPool.Properties.Edition,
-                    DatabaseDtuMax = 50, /* Setting DatabaseDtuMax to 50 limits the eDTUs that any one database can consume */
-                    DatabaseDtuMin = 10, /* Setting DatabaseDtuMin above 0 limits the number of databases that can be stored in the pool */
-                    Dtu = (int)currentPool.Properties.Dtu,
-                    StorageMB = currentPool.Properties.StorageMB,  /* For a Standard pool there is 1 GB of storage per eDTU. */
-                }
-            };
-            newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
-
-            Console.WriteLine("Elastic pool {0} create or update completed with status code {1}.", newPoolResponse.ElasticPool.Name, newPoolResponse.StatusCode);
-
-            // Update a databases service objective to add the database to a pool
-
-            // Update database: retrieve current database properties
-            currentDatabase = sqlClient.Databases.Get("resourcegroup-name", "server-name", "Database1").Database;
-
-            // Update database: configure create or update parameters with existing property values, override those to be changed.
-            DatabaseCreateOrUpdateParameters updatePooledDbParameters = new DatabaseCreateOrUpdateParameters()
-            {
-                Location = currentDatabase.Location,
-                Properties = new DatabaseCreateOrUpdateProperties()
-                {
-                    Edition = "Standard",
-                    RequestedServiceObjectiveName = "ElasticPool",
-                    ElasticPoolName = "ElasticPool1",
-                    MaxSizeBytes = currentDatabase.Properties.MaxSizeBytes,
-                    Collation = currentDatabase.Properties.Collation,
+                    Edition = poolEdition,
+                    Dtu = poolDtus,
+                    DatabaseDtuMin = databaseMinDtus,
+                    DatabaseDtuMax = databaseMaxDtus
                 }
             };
 
+            // Create the pool
+            var newPoolResponse = sqlMgmtClient.ElasticPools.CreateOrUpdate(resourceGroupName, serverName, poolName, newPoolParameters);
+            return newPoolResponse;
+        }
 
-            // Create a new database in the pool
+
+
+
+        static DatabaseCreateOrUpdateResponse CreateOrUpdateDatabase(SqlManagementClient sqlMgmtClient, string resourceGroupName, string serverName, string databaseName, string poolName)
+        {
+            // Retrieve the server that will host this database
+            Server currentServer = sqlMgmtClient.Servers.Get(resourceGroupName, serverName).Server;
 
             // Create a database: configure create or update parameters and properties explicitly
-            DatabaseCreateOrUpdateParameters newPooledDatabaseParameters = new DatabaseCreateOrUpdateParameters()
+            DatabaseCreateOrUpdateParameters newDatabaseParameters = new DatabaseCreateOrUpdateParameters()
             {
                 Location = currentServer.Location,
                 Properties = new DatabaseCreateOrUpdateProperties()
                 {
-                    Edition = "Standard",
-                    RequestedServiceObjectiveName = "ElasticPool",
-                    ElasticPoolName = "ElasticPool1",
-                    MaxSizeBytes = 268435456000, // 250 GB,
-                    Collation = "SQL_Latin1_General_CP1_CI_AS"
+                    CreateMode = DatabaseCreateMode.Default,
+                    ElasticPoolName = poolName
                 }
             };
+            DatabaseCreateOrUpdateResponse dbResponse = sqlMgmtClient.Databases.CreateOrUpdate(resourceGroupName, serverName, databaseName, newDatabaseParameters);
+            return dbResponse;
+        }
 
-            var poolDbResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database2", newPooledDatabaseParameters);
 
-            Console.WriteLine("Database {0} create or update completed with status code {1}. Service Objective: {2}({3}) ", poolDbResponse.Database.Name, poolDbResponse.StatusCode, poolDbResponse.Database.Properties.ServiceObjective, poolDbResponse.Database.Properties.ElasticPoolName);
-      }
+
+        private static AuthenticationResult GetToken(string tenantId, string applicationId, string applicationSecret)
+        {
+            AuthenticationContext authContext = new AuthenticationContext("https://login.windows.net/" + tenantId);
+            _token = authContext.AcquireToken("https://management.core.windows.net/", new ClientCredential(applicationId, applicationSecret));
+            return _token;
+        }
     }
+}
+```
 
 
 
 
 
+## Create a service principal to access resources
 
+The following PowerShell script creates the Active Directory (AD) application and the service principal that we need to authenticate our C# app. The script outputs values we need for the preceding C# sample. For detailed information, see [Use Azure PowerShell to create a service principal to access resources](../resource-group-authenticate-service-principal.md).
+
+   
+    # Sign in to Azure.
+    Add-AzureRmAccount
+    
+    # If you have multiple subscriptions, uncomment and set to the subscription you want to work with.
+    #$subscriptionId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}"
+    #Set-AzureRmContext -SubscriptionId $subscriptionId
+    
+    # Provide these values for your new AAD app.
+    # $appName is the display name for your app, must be unique in your directory.
+    # $uri does not need to be a real uri.
+    # $secret is a password you create.
+    
+    $appName = "{app-name}"
+    $uri = "http://{app-name}"
+    $secret = "{app-password}"
+    
+    # Create a AAD app
+    $azureAdApplication = New-AzureRmADApplication -DisplayName $appName -HomePage $Uri -IdentifierUris $Uri -Password $secret
+    
+    # Create a Service Principal for the app
+    $svcprincipal = New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+    
+    # To avoid a PrincipalNotFound error, I pause here for 15 seconds.
+    Start-Sleep -s 15
+    
+    # If you still get a PrincipalNotFound error, then rerun the following until successful. 
+    $roleassignment = New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+    
+    
+    # Output the values we need for our C# application to successfully authenticate
+    
+    Write-Output "Copy these values into the C# sample app"
+    
+    Write-Output "_subscriptionId:" (Get-AzureRmContext).Subscription.SubscriptionId
+    Write-Output "_tenantId:" (Get-AzureRmContext).Tenant.TenantId
+    Write-Output "_applicationId:" $azureAdApplication.ApplicationId.Guid
+    Write-Output "_applicationSecret:" $secret
+
+
+  
+
+## Next steps
+
+- [Manage your pool](sql-database-elastic-pool-manage-csharp.md)
+- [Create elastic jobs](sql-database-elastic-jobs-overview.md): Elastic jobs let you run T-SQL scripts against any number of databases in a pool.
+- [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md): Use elastic database tools to scale out.
 
 ## Additional Resources
 
+- [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Azure Resource Management APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-[SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
-
-[Azure Resource Management APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-
-<!--Image references-->
-[1]: ./media/sql-database-elastic-pool-csharp/aad.png
-[2]: ./media/sql-database-elastic-pool-csharp/permissions.png
-[3]: ./media/sql-database-elastic-pool-csharp/getdomain.png
-[4]: ./media/sql-database-elastic-pool-csharp/aad2.png
-[5]: ./media/sql-database-elastic-pool-csharp/aad-applications.png
-[6]: ./media/sql-database-elastic-pool-csharp/add.png
-[7]: ./media/sql-database-elastic-pool-csharp/add-application.png
-[8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
-[9]: ./media/sql-database-elastic-pool-csharp/clientid.png

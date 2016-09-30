@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="jhubbard"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags
@@ -39,28 +39,34 @@ For more information about Machine Learning Studio, see [What is Machine Learnin
 
 The Machine Learning API service enables you to deploy predictive models, such as those built in Machine Learning Studio, as scalable, fault-tolerant, web services. The web services created by the Machine Learning API service are REST APIs that provide an interface for communication between external applications and your predictive analytics models.
 
-See [Connect to a Machine Learning web service](machine-learning-connect-to-azure-machine-learning-web-service.md) for more information.
+For more information, see [Connect to a Machine Learning web service](machine-learning-connect-to-azure-machine-learning-web-service.md).
 
-**Where are my classic web services listed? Where are my new ARM based web services listed?**
+**Where are my classic web services listed? Where are my new Azure Resource Manager based web services listed?**
 
-Classic web services are listed in [Machine Learning Studio](http://studio.azureml.net) on the web services tab. New ARM based web services are listed in the [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/) portal. There is no cross listing available.
+Classic web services are listed in [Machine Learning Studio](http://studio.azureml.net) on the web services tab. New Azure Resource Manager based web services are listed in the [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/) portal. There is no cross listing available.
 
 ## Microsoft Azure Machine Learning Web Service questions
 
 **What are Azure ML Web Services?**
 
-With the Azure Machine Learning web service, an external application communicates with a Machine Learning workflow scoring model in real time. A Machine Learning web service call returns prediction results to an external application. To make a Machine Learning web service call, you pass an API key which was created when you deployed the web service. The Machine Learning web service is based on REST, a popular architecture choice for web programming projects.
+With the Azure Machine Learning web service, an external application communicates with a Machine Learning workflow scoring model in real time. A Machine Learning web service call returns prediction results to an external application. To make a Machine Learning web service call, you pass an API key that was created when you deployed the web service. The Machine Learning web service is based on REST, a popular architecture choice for web programming projects.
 
 Azure Machine Learning has two types of services:
 
 * Request-Response Service (RRS) - A low latency, highly scalable service that provides an interface to the stateless models created and deployed from the Machine Learning Studio.
 * Batch Execution Service (BES) - An asynchronous service that scores a batch for data records.
 
-There are several ways to consume the REST API and access the web service. For example, you can write an application in C#, R, or Python using the sample code generated for you when you deployed the web service (available on the API Help Page in the web service dashboard in Machine Learning Studio). Or you can use the sample Microsoft Excel workbook created for you (also available in the web service dashboard in Studio).
+There are several ways to consume the REST API and access the web service. For example, you can write an application in C#, R, or Python using the sample code generated for you when you deployed the web service. 
+
+The sample code is available on:
+The Consume page for the Web service in the Azure Machine Learning Web Services portal, 
+The API Help Page in the web service dashboard in Machine Learning Studio. 
+
+Or you can use the sample Microsoft Excel workbook created for you (also available in the web service dashboard in Studio).
 
 **What are the main updates with the new Azure ML Web Services?**
 
-For more information about the New Azure Machine Learning Web Services, please refer to the [related documentation](machine-learning-whats-new.md). 
+For more information about the New Azure Machine Learning Web Services, refer to the [related documentation](machine-learning-whats-new.md). 
 
 ## Machine Learning Studio questions
 
@@ -74,7 +80,7 @@ For more information, see [Manage experiment iterations in Machine Learning Stud
 
 ### Deploying an experiment
 
-**Can I deploy a predictive experiment as a new (ARM based) web service if I have already deployed it as a classic web service?**
+**Can I deploy a predictive experiment as a New (Azure Resource Manager based) web service if I have already deployed it as a classic web service?**
 
 No, you cannot deploy an experiment that has been previously deployed as a classic web service. You must create a new predictive experiment and deploy it instead.
 
@@ -83,7 +89,7 @@ No, you cannot deploy an experiment that has been previously deployed as a class
 
 **What data sources does Machine Learning support?**
 
-Data can be loaded into a Machine Learning Studio experiment in one of three ways: by uploading a local file as a dataset, by using a module to import data from cloud data services, or by importing a dataset saved from another experiment. See [Import training data into Machine Learning Studio](machine-learning-data-science-import-data.md) to learn more about supported file formats.
+Data can be loaded into a Machine Learning Studio experiment in one of three ways: by uploading a local file as a dataset, by using a module to import data from cloud data services, or by importing a dataset saved from another experiment. To learn more about supported file formats, see [Import training data into Machine Learning Studio](machine-learning-data-science-import-data.md).
 
 
 #### <a id="ModuleLimit"></a>How large can the data set be for my modules?
@@ -103,7 +109,7 @@ The following modules are limited to datasets less than 10GB:
 - SMOTE module
 - Scripting modules: R, Python, SQL
 - Modules where the output data size can be larger than input data size, such as Join or Feature Hashing.
-- Cross-validation, Tune Model Hyperparameters, Ordinal Regression and One-vs-All Multiclass, when number of iterations is very large.
+- Cross-validation, Tune Model Hyperparameters, Ordinal Regression, and One-vs-All Multiclass, when number of iterations is very large.
 
 For datasets larger than a few GB, you should upload data to Azure storage or Azure SQL Database or use HDInsight, rather than directly uploading from local file.
 
@@ -133,20 +139,20 @@ You can visit the [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=4
 
 Yes, you can bring your existing R or Python code into Machine Learning Studio, run it in the same experiment with Azure Machine Learning learners, and deploy the solution as a web service via Azure Machine Learning. For more information, see [Extend your experiment with R](machine-learning-extend-your-experiment-with-r.md) and [Execute Python machine learning scripts in Azure Machine Learning Studio](machine-learning-execute-python-scripts.md).
 
-**Is it possible to use something like [PMML](http://en.wikipedia.org/wiki/Predictive_Model_Markup_Language)  to define a model?**
+**Is it possible to use something like [PMML](http://en.wikipedia.org/wiki/Predictive_Model_Markup_Language) to define a model?**
 
 No, that is not supported, however custom R and Python code can be used to define a module.
 
 **How many modules can I execute in parallel in my experiment?**  
 
-You can execute up to 4 modules in parallel in an experiment.
+You can execute up to four modules in parallel in an experiment.
 
 
 ### Data processing
 
 **Is there an ability to visualize data (beyond R visualizations) interactively within the experiment?**
 
-By clicking on the output of a module you can visualize the data and get statistics.
+By clicking the output of a module, you can visualize the data and get statistics.
 
 **When previewing results or data in the browser, the number of rows and columns is limited, why?**
 
@@ -156,14 +162,14 @@ Since the data is being transmitted to the browser and may be large, the data si
 
 **What existing algorithms are supported in Machine Learning Studio?**
 
-Machine Learning Studio provides state of the art algorithms, such as Scalable Boosted Decision trees, Bayesian Recommendation systems, Deep Neural Networks, and Decision Jungles developed at Microsoft Research. Scalable open-source machine learning packages like Vowpal Wabbit are also included. Machine Learning Studio supports machine learning algorithms for multiclass and binary classification, regression, and clustering. See the complete list of [Machine Learning Modules][machine-learning-modules].
+Machine Learning Studio provides state-of-the-art algorithms, such as Scalable Boosted Decision trees, Bayesian Recommendation systems, Deep Neural Networks, and Decision Jungles developed at Microsoft Research. Scalable open-source machine learning packages like Vowpal Wabbit are also included. Machine Learning Studio supports machine learning algorithms for multiclass and binary classification, regression, and clustering. See the complete list of [Machine Learning Modules][machine-learning-modules].
 
 **Do you automatically suggest the right Machine Learning algorithm to use for my data?**
 
-No, however there are a number of ways in Machine Learning Studio to compare the results of each algorithm to determine the right one for your problem.
+No, however there are various ways in Machine Learning Studio to compare the results of each algorithm to determine the right one for your problem.
 
 **Do you have any guidelines on picking one algorithm over another for the provided algorithms?**
-See [How to choose an algorithm ](machine-learning-algorithm-choice.md).
+See [How to choose an algorithm](machine-learning-algorithm-choice.md).
 
 **Are the provided algorithms written in R or Python?**
 
@@ -189,7 +195,7 @@ Currently new custom modules can only be created in R.
 
 **What R packages are available in Machine Learning Studio?**
 
-Machine Learning Studio supports 400+ CRAN R packages today, and here is the [current list](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) of all included packages. Also, see [Extend your experiment with R ](machine-learning-extend-your-experiment-with-r.md) to learn how to retreive this list yourself. If the package you want is not in this list, provide the name of package at [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231).
+Machine Learning Studio supports 400+ CRAN R packages today, and here is the [current list](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) of all included packages. Also, see [Extend your experiment with R](machine-learning-extend-your-experiment-with-r.md) to learn how to retrieve this list yourself. If the package you want is not in this list, provide the name of package at [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231).
 
 **Is it possible to build a custom R module?**
 
@@ -211,11 +217,11 @@ You can use the Jupyter Notebooks in Machine Learning Studio. For more informati
 
 ## Web service
 
-###Retrainining Models Programmatically
+###Retraining Models Programmatically
 
 **How do I Retrain Azure Machine Learning models programmatically?**
 
-Use the Retraining APIs. See [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically.md) for more information. Sample code is also available in the [Microsoft Azure Maching Learning Retraining Demo](https://azuremlretrain.codeplex.com/).
+Use the Retraining APIs. for more information, see [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically.md). Sample code is also available in the [Microsoft Azure Machine Learning Retraining Demo](https://azuremlretrain.codeplex.com/).
 
 ### Create
 
@@ -236,10 +242,10 @@ The Request Response service (RRS) is a low-latency, high-scale web service that
 
 **How do I update the model for the deployed web service?**
 
-Updating a predictive model for an already deployed service is as simple as modifying and re-running the experiment that you used to author and save the trained model. Once you have a new version of the trained model available, Machine Learning Studio will ask you if you want to update your web service. See [Deploy a Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md) for details on how to update a deployed web service.
+Updating a predictive model for an already deployed service is as simple as modifying and rerunning the experiment that you used to author and save the trained model. Once you have a new version of the trained model available, Machine Learning Studio asks you if you want to update your web service. For details on how to update a deployed web service, see [Deploy a Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
 
 You can also use the Retraining APIs.
-See [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically.md) for more information. Sample code is also available in the [Microsoft Azure Maching Learning Retraining Demo](https://azuremlretrain.codeplex.com/).
+For more information, see [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically.md). Sample code is also available in the [Microsoft Azure Machine Learning Retraining Demo](https://azuremlretrain.codeplex.com/).
 
 **How do I monitor my web service deployed in production?**
 
@@ -261,7 +267,7 @@ See [Machine Learning Module Error Codes](https://msdn.microsoft.com/library/azu
 
 **What is the scalability of the web service?**
 
-Currently, the default endpoint is provisioned with 20 concurrent RRS requests per endpoint. You can scale this to 200 concurrent requests per endpoint and you can scale each web service to 10,000 endpoints per web service as described in [Scaling API endpoints](machine-learning-scaling-endpoints.md). For BES, each endpoint allows processing 40 requests at a time and additional requests beyond 40 requests are queued. These queued requests will run automatically as the queue drains.
+Currently, the default endpoint is provisioned with 20 concurrent RRS requests per endpoint. You can scale this to 200 concurrent requests per endpoint and you can scale each web service to 10,000 endpoints per web service as described in [Scaling API endpoints](machine-learning-scaling-endpoints.md). For BES, each endpoint allows processing 40 requests at a time and additional requests beyond 40 requests are queued. These queued requests run automatically as the queue drains.
 
 
 **Are R jobs spread across nodes?**
@@ -280,7 +286,7 @@ The following types of data can expand into larger datasets during feature norma
 - strings
 - binary data
 
-The following modules are limited to datasets less than 10GB:
+The following modules are limited to datasets less than 10 GB:
 
 - Recommender modules
 - SMOTE module
@@ -306,18 +312,18 @@ No.
 After a web service is deployed, a default endpoint is created for that service. The default endpoint can be called using its API Key. Additional endpoints can be added with their own keys from the Azure classic portal or programmatically using the Web Service Management APIs. Access keys are needed to make calls to the web service. For more information, see [Connect to a Machine Learning web service](machine-learning-connect-to-azure-machine-learning-web-service.md).
 
 
-**What happens if my Asure storage account can't be found?**
+**What happens if my Azure storage account can't be found?**
 
 Machine Learning Studio relies on a user supplied Azure storage account to save intermediary data when executing the workflow. This storage account is provided to Machine Learning Studio at the time a workspace is created. After the workspace is created, if the storage account is deleted and can no longer be found, the workspace will stop functioning and all experiments in that workspace will fail.
 
-If you accidentally deleted the storage account, the only way to recover from it is to recreate the storage account with the same name in the same region as the deleted storage account. After that, re-sync the Access Key.
+If you accidentally deleted the storage account, recreate the storage account with the same name in the same region as the deleted storage account. After that, resync the Access Key.
 
 
 **What happens if my storage account access key is out of sync?**
 
-Machine Learning Studio relies on a user supplied Azure storage account to save intermediary data when executing the workflow. This storage account is provided to Machine Learning Studio at the time a workspace is created and the Access Keys are associated with that workspace. After the workspace is created, if the Access Keys are changed, that workspace can no longer access the storage account - it will stop functioning and all experiments in that workspace will fail.
+Machine Learning Studio relies on a user supplied Azure storage account to store intermediary data when executing the workflow. This storage account is provided to Machine Learning Studio at the time a workspace is created and the Access Keys are associated with that workspace. if the Access Keys are changed, after the workspace is created, the workspace can no longer access the storage account. It will stop functioning and all experiments in that workspace will fail.
 
-If you have changed storage account Access Keys, re-sync the Access Keys in the workspace using the Azure classic portal.  
+If you have changed storage account Access Keys, resync the Access Keys in the workspace using the Azure classic portal.  
 
 
 ## Azure Marketplace
@@ -328,9 +334,9 @@ See the [FAQ for publishing and using apps in the Machine Learning Marketplace](
 
 **Where can I get training for Azure Machine Learning?**
 
-[Azure Machine Learning Documentation Center](https://azure.microsoft.com/services/machine-learning/) hosts video tutorials as well as how-to guides. These step-by-step guides provide an introduction to the services and walk through the data science life cycle of importing data, cleaning data, building predictive models and deploying them in production with Azure Machine Learning.
+[Azure Machine Learning Documentation Center](https://azure.microsoft.com/services/machine-learning/) hosts video tutorials and how-to guides. These step-by-step guides provide an introduction to the services and walk through the data science life cycle of importing data, cleaning data, building predictive models and deploying them in production with Azure Machine Learning.
 
-We will be adding new material to the Machine Learning Center on an ongoing basis. You can submit requests for additional learning material on Machine Learning Center at the [user feedback forum](https://windowsazure.uservoice.com/forums/257792-machine-learning).
+We are adding new material to the Machine Learning Center on an ongoing basis. You can submit requests for additional learning material on Machine Learning Center at the [user feedback forum](https://windowsazure.uservoice.com/forums/257792-machine-learning).
 
 You can also find training at [Microsoft Virtual Academy](http://www.microsoftvirtualacademy.com/training-courses/getting-started-with-microsoft-azure-machine-learning).
 
@@ -350,15 +356,15 @@ While you are evaluating Machine Learning Studio, you can use the free billing t
 
 Once you have decided that Azure Machine Learning meets your needs, you can sign up for the standard tier. To sign up, you must have a Microsoft Azure Subscription.
 
-In the standard tier youâ€™re billed a monthly per seat fee for usage of Machine Learning Studio. When you run an experiment in the studio, you are billed for compute resources when you are running an experiment. When you deploy a Classic Web Service, transactions and compute hours are billed on a Pay As You Go (PAYG) basis. 
+In the standard tier you are billed a monthly for each workspace you define in Machine Learning Studio. When you run an experiment in the studio, you are billed for compute resources when you are running an experiment. When you deploy a Classic Web Service, transactions and compute hours are billed on a Pay As You Go (PAYG) basis. 
 
-The New Machine Learning Web Services introduce Billing Plans that allow for more predictability in costs. Tiered pricing is for customers that need a lot of capacity while offering discounted rates.
+The New Machine Learning Web Services introduce Billing Plans that allow for more predictability in costs. Tiered pricing offers discounted rates to customers that need a large amount of capacity.
 
-When you create a plan you commit to a fixed cost that comes with an included quantity of API compute hours and API transactions. If you need more included quantities, you can add additional instances to your plan. If you need a lot more included quantities, you can choose a higher tier plan that provides considerably more included quantities and a better discounted rate.
+When you create a plan, you commit to a fixed cost that comes with an included quantity of API compute hours and API transactions. If you need more included quantities, you can add additional instances to your plan. If you need a lot more included quantities, you can choose a higher tier plan that provides considerably more included quantities and a better discounted rate.
 
-After the included quantities in existing instance(s) are used up, additional usage is charged at the overage rate associated with the billing plan tier.
+After the included quantities in existing instances are used up, additional usage is charged at the overage rate associated with the billing plan tier.
 
-Note: Included quantities is reallocated every 30 days and unused included quantities do not roll over to the next period.
+Note: Included quantities are reallocated every 30 days and unused included quantities do not roll over to the next period.
 
 For additional billing and pricing information, see [Machine Learning Pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
 
@@ -390,7 +396,7 @@ A Studio Compute hour is the billing unit for the aggregate time your experiment
 
 **In the New Web Services, what is the dev/test tier meant for?**
 
-The Azure ML new Web Services provide multiple tiers that you can use to provision your billing plan. The dev/test tier is a tier that provides limited included quantities which allows you to test your experiment as new web service without incurring costs. You have the opportunity to "Kick the Tires" to see how it works.
+The Azure ML new Web Services provide multiple tiers that you can use to provision your billing plan. The dev/test tier is a tier that provides limited included quantities that allow you to test your experiment as new web service without incurring costs. You have the opportunity to "Kick the Tires" to see how it works.
 
 **Are there separate storage charges?** 
 
@@ -402,7 +408,7 @@ Production API call times can vary significantly, generally ranging from hundred
 
 **What specific kind of compute resources will my production API calls be run on?**
 
-The Machine Learning service is a multitenant service, and actual compute resources used on the backend will vary and are optimized for performance and predictability.
+The Machine Learning service is a multitenant service, and actual compute resources used on the backend vary and are optimized for performance and predictability.
 
 ### Management of New Web Services 
 
@@ -414,7 +420,7 @@ Note: You cannot delete a plan that is in use by a web service. To delete the pl
 
 **What is a plan instance?**
 
-A plan instance is a unit of included quantities that you can add to your billing plan. When you select a billing tier for you billing plan, it comes with one instance. If you need more included quantities, you can add instances of the selected billing tier to your plan. 
+A plan instance is a unit of included quantities that you can add to your billing plan. When you select a billing tier for your billing plan, it comes with one instance. If you need more included quantities, you can add instances of the selected billing tier to your plan. 
 
 **How many plan instances can I add?**
 
@@ -432,7 +438,7 @@ Note: Included quantities are allocated per period and unused quantities do not 
 
 **What happens when I increase the instances in a plan?**
 
-Included quantities are included on a prorated basis and may take 24 hours to be effective. 
+Quantities are included on a prorated basis and may take 24 hours to be effective. 
 
 **What happens when I delete an instance of a plan?**
 
@@ -449,9 +455,9 @@ When you first deploy a new web service, you can choose an existing plan or crea
 
 Plans created in this manner are in your default region and your web service will be deployed to that region. 
 
-You may want define your billing plans before you deploy your service; for instance, if you want deploy services to regions other than your default region.
+If you want to deploy services to regions other than your default region, you may want to define your billing plans before you deploy your service,
 
-In that case you can log into the Azure Machine Learning Web Services portal and navigate to the plans page. From there you can Add and Delete plans, as well as modify existing plans.
+In that case you can log into the Azure Machine Learning Web Services portal and navigate to the plans page. From there, you can Add and Delete plans, as well as modify existing plans.
 
 **Which plan should I choose to start off with?**
 
@@ -467,13 +473,13 @@ The new billing plans are available in the three production regions in which we 
 
 **I have web services in multiple regions. Do I need a plan for every region?**
 
-Yes. Plan pricing varies by region. When you deploy a web service to another region you will need to assign it a plan specific to that region.
+Yes. Plan pricing varies by region. When you deploy a web service to another region, you need to assign it a plan specific to that region.
 
 ### New Web Services - Overages
 
 **How do I check if my web service usage is in overage?**
 
-You can view the usage on all your plans on the Plans page in the Azure Machine Learning Web Services portal. Log in to the portal and click on the Plans menu option. 
+You can view the usage on all your plans on the Plans page in the Azure Machine Learning Web Services portal. sign in to the portal and click the Plans menu option. 
 
 In the Transactions and Compute columns of the table, you can see the included quantities of the plan and the percentage used. 
 
@@ -483,9 +489,13 @@ Services that have a dev/test tier assigned them are stopped until the next peri
 
 **For Classic Web Services and Overages of New Web Services, how are prices calculated for Request Response (RRS) and Batch (BES) workloads?** 
 
-For a RRS workload you will be charged for every API transaction call that you make as well as for the compute time associated with those requests. Your RRS Production API Transaction costs will therefore be calculated as the total number of API calls that you make multiplied by the price per 1,000 transactions (prorated by individual transaction). Your RRS API Production API Compute Hour costs will be calculated as the amount of time required for each API call to run, multiplied by the total number of API transactions multiplied by the price per Production API Compute Hour. For example for Standard S1 overage, 1,000,000 API Transactions that take 0.72 seconds each to run would result in (1,000,000 * $0.50/1K API transactions) in $500 in Production API Transaction costs and (1,000,000 * 0.72 sec * $2/hr) $400 in Production API Compute Hours, for a total of $900.
+For an RRS workload, you are charged for every API transaction call that you make and for the compute time associated with those requests. Your RRS Production API Transaction costs are calculated as the total number of API calls that you make multiplied by the price per 1,000 transactions (prorated by individual transaction). Your RRS API Production API Compute Hour costs are calculated as the amount of time required for each API call to run, multiplied by the total number of API transactions multiplied by the price per Production API Compute Hour. 
 
-For a BES workload you will be charged in the same manner, however, the API transaction costs represent the number of batch jobs that you submit and the compute costs represent the compute time associated with those batch jobs. Your BES Production API Transaction costs will therefore be calculated as the total number of jobs submitted multiplied by the price per 1,000 transactions (prorated by individual transaction). Your BES API Production API Compute Hour costs will be calculated as the amount of time required for each row in your job to run multiplied by the total number of rows in your job multiplied by the total number of jobs multiplied by the price per Production API Compute Hour. When using the Machine Learning calculator, the transaction meter represents the number of jobs that you plan to submit and the time per transaction field represents the combined time needed for all the rows in each job to run. For example with Standard S1 overage, if you submit 100 jobs per day that each consist of 500 rows that take 0.72 seconds each, then your monthly overage costs would be (100 jobs per day = 3,100 jobs/mo * $0.50/1K API transactions) $1.55 in Production API Transaction costs and (500 rows * 0.72 sec * 3,100 Jobs * $2/hr) $620 in Production API Compute Hours, for a total of $621.55.
+For example for Standard S1 overage, 1,000,000 API Transactions that take 0.72 seconds each to run would result in (1,000,000 * $0.50/1K API transactions) in $500 in Production API Transaction costs and (1,000,000 * 0.72 sec * $2/hr) $400 in Production API Compute Hours, for a total of $900.
+
+For a BES workload, you are charged in the same manner, however, the API transaction costs represent the number of batch jobs that you submit and the compute costs represent the compute time associated with those batch jobs. Your BES Production API Transaction costs are calculated as the total number of jobs submitted multiplied by the price per 1,000 transactions (prorated by individual transaction). Your BES API Production API Compute Hour costs are calculated as the amount of time required for each row in your job to run multiplied by the total number of rows in your job multiplied by the total number of jobs multiplied by the price per Production API Compute Hour. When using the Machine Learning calculator, the transaction meter represents the number of jobs that you plan to submit and the time per transaction field represents the combined time needed for all the rows in each job to run. 
+
+For example with Standard S1 overage, if you submit 100 jobs per day that each consist of 500 rows that take 0.72 seconds each, then your monthly overage costs would be (100 jobs per day = 3,100 jobs/mo * $0.50/1K API transactions) $1.55 in Production API Transaction costs and (500 rows * 0.72 sec * 3,100 Jobs * $2/hr) $620 in Production API Compute Hours, for a total of $621.55.
 
 ### Azure ML Classic Web Services
 
@@ -496,39 +506,39 @@ Yes, Classic Web Services are still available in Azure Machine Learning.
 
 **What is included in the Azure Machine Learning Free tier?**
 
-The Azure Machine Learning Free tier is intended to provide an in-depth introduction to the Azure Machine Learning Studio. All you need is a Microsoft account to sign up. The Free tier includes free access to one Azure Machine Learning Studio workspace per [Microsoft account](https://www.microsoft.com/account/default.aspx). It includes the ability to use up to 10GB of storage and the ability to operationalize models as staging APIs. Free tier workloads are not covered by an SLA and are intended for development and personal use only. Free tier workloads canâ€™t access data by connecting to an on-premises SQL server. The table above outlines many differences between the Free and Standard Tiers, however other differences may exist and Free tier features are subject to change at any time.
+The Azure Machine Learning Free tier is intended to provide an in-depth introduction to the Azure Machine Learning Studio. All you need is a Microsoft account to sign up. The Free tier includes free access to one Azure Machine Learning Studio workspace per [Microsoft account](https://www.microsoft.com/account/default.aspx). It includes the ability to use up to 10 GB of storage and the ability to operationalize models as staging APIs. Free tier workloads are not covered by an SLA and are intended for development and personal use only. Free tier workloads canâ€™t access data by connecting to an on-premises SQL server. 
 
 **What is included in the Azure Machine Learning Standard tier and plans?**
 
-The Azure Machine Learning Standard tier is a paid production version of Azure Machine Learning Studio. The Azure ML service Studio monthly fee is billed on a per seat per month basis and prorated for partial months. Azure ML Studio experiment hours are billed per compute hour for active experimentation. Billing is prorated for partial hours.  
+The Azure Machine Learning Standard tier is a paid production version of Azure Machine Learning Studio. The Azure ML service Studio monthly fee is billed on a per workspace per month basis and prorated for partial months. Azure ML Studio experiment hours are billed per compute hour for active experimentation. Billing is prorated for partial hours.  
 
 The Azure ML API service is billed depending on whether it's a classic web services or a new web service. 
 
-Charges below are aggregated per workspace for your subscription. 
+The following charges are aggregated per workspace for your subscription. 
 
-* ML Seat Subscription - The ML Seat Subscription is a monthly fee which provides access to an ML Studio workspace and is required to run experiments both in the studio and utilizing the production APIs.
+* Machine Learning Workspace Subscription - The Machine Learning Workspace Subscription is a monthly fee that provides access to an ML Studio workspace and is required to run experiments both in the studio and utilizing the production APIs.
 * Studio Experiment Hours - this meter aggregates all compute charges accrued by running experiments in ML Studio and running production API calls in the staging environment.
 * Access data by connecting to an on-premises SQL server in your models for your training and scoring.
 * For Classic Web Services: 
 	* Production API Compute Hours - this meter includes compute charges accrued by Web services running in production.
 	* Production API Transactions (in 1000s) - this meter includes charges accrued per call to your production web service.
 
-Apart from the above charges, in the case of New Web Services, charges are aggregated to the plan selected: 
+Apart from the preceding charges, in the case of New Web Services, charges are aggregated to the plan selected: 
 
-* Standard S1/S2/S3 API Plan (Units) - this meters represents the type of instance selected for new Web Services
-* Standard S1/S2/S3 Overage API Compute Hours - this meters includes compute charges accrued by the New Web Services running in production after the included quantities in existing instance(s) are used up. The additional usage is charged at the overate rate associated with S1/S2/S3 plan tier.
-* Standard S1/S2/S3 Overage API Transactions (in 1,000s) - this meters includes charges accrued per call to your production New Web Service after the included quantities in existing instance(s) are used up. The additional usage is charged at the overate rate associated with S1/S2/S3 plan tier.
-* Included Quantity API Compute Hours - with the New Web Services, this meters represented the included quantity of API Compute Hours 
-* Included Quantity API Transactions (in 1,000s) - with the New Web Services, this meters represented the included quantity of API Transactions 
+* Standard S1/S2/S3 API Plan (Units) - this meter represents the type of instance selected for new Web Services
+* Standard S1/S2/S3 Overage API Compute Hours - this meter includes compute charges accrued by the New Web Services running in production after the included quantities in existing instance(s) are used up. The additional usage is charged at the overate rate associated with S1/S2/S3 plan tier.
+* Standard S1/S2/S3 Overage API Transactions (in 1,000s) - this meter includes charges accrued per call to your production New Web Service after the included quantities in existing instance(s) are used up. The additional usage is charged at the overate rate associated with S1/S2/S3 plan tier.
+* Included Quantity API Compute Hours - with the New Web Services, this meter represents the included quantity of API Compute Hours 
+* Included Quantity API Transactions (in 1,000s) - with the New Web Services, this meter represents the included quantity of API Transactions 
 
 
 **How do I sign up for Azure ML Free tier?**
 
-All you need is a Microsoft account. Go to [Azure Machine Learning home](https://azure.microsoft.com/services/machine-learning/), and click on Start Now button. Log in with your Microsoft account and a workspace in Free tier is created for you. You can start to explore and create Machine Learning experiments right away.
+All you need is a Microsoft account. Go to [Azure Machine Learning home](https://azure.microsoft.com/services/machine-learning/), and click **Start Now**. Log in with your Microsoft account and a workspace in Free tier is created for you. You can start to explore and create Machine Learning experiments right away.
 
 **How do I sign up for Azure ML Standard tier?**
 
-You must first have access to an Azure subscription in order to create a Standard ML workspace. You can sign up for a 30-day free trial Azure subscription and later upgrade to a paid Azure subscription, or purchase a paid Azure subscription outright. You can then create a Machine Learning workspace from the Microsoft Azure classic portal after gaining access to the subscription. Please view the [step-by-step instructions](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
+You must first have access to an Azure subscription in order to create a Standard ML workspace. You can sign up for a 30-day free trial Azure subscription and later upgrade to a paid Azure subscription, or purchase a paid Azure subscription outright. You can then create a Machine Learning workspace from the Microsoft Azure classic portal after gaining access to the subscription. View the [step-by-step instructions](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
 
 Alternatively, you can be invited by a Standard ML workspace owner to access the owner's workspace.
 
@@ -538,42 +548,38 @@ No, the Standard tier is equivalent to the version of the Machine Learning servi
 
 **Can I deploy my machine learning models as APIs in the Free tier?**
 
-Yes, you can operationalize machine learning models to staging API services as part of the free tier. In order to put the staging API service into production and get a production end point for the operationalized service you must use the Standard tier. 
+Yes, you can operationalize machine learning models to staging API services as part of the free tier. In order to put the staging API service into production and get a production end point for the operationalized service, you must use the Standard tier. 
 
 **What is the difference between Azure Free trial and Azure Machine Learning Free tier?**
 
-The [Microsoft Azure free trial](https://azure.microsoft.com/free/) offers credits that can be applied to any Azure service for one month while the Azure Machine Learning Free tier offers continuous access specifically to the Azure Machine Learning service for non-production workloads.
+The [Microsoft Azure free trial](https://azure.microsoft.com/free/) offers credits that can be applied to any Azure service for one month. The Azure Machine Learning Free tier offers continuous access specifically to the Azure Machine Learning service for non-production workloads.
 
 **How do I move an experiment from the Free tier to the Standard tier?**
 
-To copy your experiments from the Free tier to the Standard tier, follow the steps described below.
+To copy your experiments from the Free tier to the Standard tier:
 
 1.	Log into Azure Machine Learning Studio and make sure you can see both the Free workspace and the Standard workspace in the workspace selector in the top navigation bar.
 2.	Switch to Free workspace if you are in the Standard workspace.
-3.	In the experiment list view, select an experiment you'd like to copy, and click on the Copy command button.
-4.	Select the Standard workspace from the pop-up dialog box and click on the Copy button.
-5.	Please note that all the associated datasets, trained model, etc. will be copied together with the experiment into the Standard workspace.
-6.	You will need to re-run the experiment and republish your web service in the Standard workspace.
+3.	In the experiment list view, select an experiment you'd like to copy, and click the Copy command button.
+4.	Select the Standard workspace from the pop-up dialog box and click the Copy button.
+    All the associated datasets, trained model, etc. are copied together with the experiment into the Standard workspace.
+6.	You need to rerun the experiment and republish your web service in the Standard workspace.
 
 ### Studio Workspace
 
-**What is a Machine Learning Seat Subscription and when do I need one?**
-
-A Machine Learning Seat represents a workspace. It is recommended that any user running experiments in ML Studio or a production API service be covered by a Machine Learning Seat Subscription.
-
 **Will I see different bills for different workspaces?**
 
-Workspace charges will be broken out separately for each applicable meter on a single bill.
+Workspace charges are broken out separately for each applicable meter on a single bill.
 
 **What specific kind of compute resources will my experiments be run on?**
 
-The Machine Learning service is a multitenant service, and actual compute resources used on the backend will vary and are optimized for performance and predictability.
+The Machine Learning service is a multitenant service, and actual compute resources used on the backend vary and are optimized for performance and predictability.
 
 ### Guest access
 
 **What is Guest Access to Azure Machine Learning Studio?**
 
-Guest Access is a restricted trial experience that allows you to create and run experiments in the Azure Machine Learning Studio at no cost and without authentication. Guest sessions are non-persistent (cannot be saved) and limited to 8 hours. Other limitations include lack of R and Python support, lack of staging APIs and restricted dataset size and storage capacity. By comparison, users who choose to sign in with a Microsoft account will have full access to the Free-tier of Machine Learning Studio described above which includes a persistent workspace and more comprehensive capabilities. Choose your free Machine Learning experience by clicking on the "Get started" button on [https://studio.azureml.net](https://studio.azureml.net), and selecting either Guess Access or Sign-In with Microsoft account.
+Guest Access is a restricted trial experience that allows you to create and run experiments in the Azure Machine Learning Studio at no cost and without authentication. Guest sessions are non-persistent (cannot be saved) and limited to 8 hours. Other limitations include lack of R and Python support, lack of staging APIs and restricted dataset size and storage capacity. By comparison, users who choose to sign in with a Microsoft account have full access to the Free-tier of Machine Learning Studio described above which includes a persistent workspace and more comprehensive capabilities. Choose your free Machine Learning experience by clicking **Get started** on [https://studio.azureml.net](https://studio.azureml.net), and selecting either Guess Access or sign in with a Microsoft account.
 
 <!-- Module References -->
 [image-reader]: https://msdn.microsoft.com/library/azure/893f8c57-1d36-456d-a47b-d29ae67f5d84/
