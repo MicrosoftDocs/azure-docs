@@ -1,5 +1,5 @@
 <properties
- pageTitle="Developer guide - device twins | Microsoft Azure"
+ pageTitle="Developer guide - Understand device twins | Microsoft Azure"
  description="Azure IoT Hub developer guide - use device twins to synchronize state and configuration data between IoT Hub and your devices"
  services="iot-hub"
  documentationCenter=".net"
@@ -54,7 +54,7 @@ A device twin is a JSON document that includes:
 Here is an example of a device twin JSON document:
 
         {
-            "deviceId: "devA",
+            "deviceId": "devA",
             "generationId": "123",
             "status": "enabled",
             "statusReason": "provisioned",
@@ -130,9 +130,9 @@ In the above example, the `telemetryConfig` desired and reported properties are 
 
 In many cases twins are used to synchronize long-running operations such as firmware updates. Refer to [Use desired properties to configure devices][lnk-twin-properties] for more information on how to use properties to synchronize and track long running operations across devices.
 
-### Back end operations
+## Back end operations
 
-The application back end operates on the twin using the following atomic operations, exposed through HTTP:
+The back end operates on the twin using the following atomic operations, exposed through HTTP:
 
 1. **Retrieve twin by id**. This operation returns the content of the twin's document, including tags and desired, reported and system properties.
 2. **Partially update twin**. This operation enables the back end to partially update the twin's tags or desired properties. The partial update is expressed as a JSON document that adds or updates any property mentioned. Properties set to `null` are removed. For example, the following creates a new desired property with value `{"newProperty": "newValue"}`, overwrites the existing value of `existingProperty` with `"otherNewValue"`, and removes completely `otherOldProperty`. No changes happen to other existing desired properties or tags:
@@ -152,11 +152,11 @@ The application back end operates on the twin using the following atomic operati
 3. **Replace desired properties**. This operation enables the back end to completely overwrite all existing desired properties and substitute a new JSON document for `properties/desired`.
 4. **Replace tags**. Analogously to replace desired properties, this operations allows the back end to completely overwrite all existing tags and substitute a new JSON document for `tags`.
 
-All the above operations support [Optimistic concurrency][lnk-concurrency].
+All the above operations support [Optimistic concurrency][lnk-concurrency] and require the **ServiceConnect** permission, as defined in the [Security][lnk-security] article.
 
 In addition to these operations, the back end can query the twins using a SQL-like [query language][lnk-query], and perform operations on large sets of twins using [jobs][lnk-jobs].
 
-### Device operations
+## Device operations
 
 The device app operates on the twin using the following atomic operations:
 
@@ -164,13 +164,15 @@ The device app operates on the twin using the following atomic operations:
 2. **Partially update reported properties**. This operation enables the partial update of the reported properties of the currently connected device. This uses the same JSON update format as the back end facing partial update of desired properties.
 3. **Observe desired properties**. The currently connected device can choose to be notified of updates to the desired properties as soon as they happen. The device receives the same form of update (partial or full replacement) executed by the back end.
 
+All the above operations require the **DeviceConnect** permission, as defined in the [Security][lnk-security] article.
+
 The [Azure IoT device SDKs][lnk-sdks] make it easy to use the above operations from many languages and platforms. More information on the details of IoT Hub's primitives for desired properties synchronization can be found in [Device reconnection flow][lnk-reconnection].
 
 > [AZURE.NOTE] Currently, device twins are accessible only from devices that connect to IoT Hub using the MQTT protocol.
 
 ## Reference
 
-### Tags and properties
+### Tags and properties format
 
 Tags, desired and reported properties are JSON objects with the following restrictions:
 
@@ -286,6 +288,7 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-identity]: iot-hub-devguide-identity-registry.md
 [lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
 [lnk-methods]: iot-hub-devguide-direct-methods.md
+[lnk-security]: iot-hub-devguide-security.md
 
 [ISO8601]: https://en.wikipedia.org/wiki/ISO_8601
 [RFC7232]: https://tools.ietf.org/html/rfc7232

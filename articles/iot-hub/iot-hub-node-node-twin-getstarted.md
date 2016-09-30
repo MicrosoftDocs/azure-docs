@@ -16,7 +16,7 @@
      ms.date="09/13/2016"
      ms.author="elioda"/>
 
-# Tutorial: Get started with IoT Hub device twins (preview)
+# Tutorial: Get started with device twins (preview)
 
 ## Introduction
 
@@ -38,7 +38,6 @@ Device twins are stored in an IoT hub and contain:
 * *reported properties*, JSON objects modifiable by the device app and readable by the back end. Tags and properties cannot contain arrays, but objects can be nested.
 
 Additionally, the app back end can query device twins based on all the above data.
-
 Refer to [Understand device twins][lnk-twins] for more information about device twins and to the [IoT Hub query language][lnk-query] reference for querying.
 
 This tutorial shows you how to:
@@ -74,7 +73,7 @@ In this section, you create a Node.js console app that adds location meta-data t
 2. At your command-prompt in the **addtagsandqueryapp** folder, run the following command to install the **azure-iothub** package:
 
     ```
-    npm install azure-iothub --save
+    npm install azure-iothub@dtpreview --save
     ```
 
 3. Using a text editor, create a new **AddTagsAndQuery.js** file in the **addtagsandqueryapp** folder.
@@ -163,7 +162,7 @@ In this section, you create a Node.js console app that connects to your hub as *
 2. At your command-prompt in the **reportconnectivity** folder, run the following command to install the **azure-iot-device**, and **azure-iot-device-mqtt** package:
 
     ```
-    npm install azure-iot-device azure-iot-device-mqtt --save
+    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
     ```
 
 3. Using a text editor, create a new **ReportConnectivity.js** file in the **reportconnectivity** folder.
@@ -225,13 +224,11 @@ In this section, you create a Node.js console app that connects to your hub as *
 ## Next steps
 In this tutorial, you configured a new IoT hub in the portal, and then created a device identity in the hub's identity registry. You added device meta-data as tags from a back-end application, and wrote a simulated device app to report device connectivity information in the device twin. You also learned how to query this information using the IoT Hub SQL-like query language.
 
-To continue getting started with IoT Hub and to explore other IoT scenarios see:
+Use the follwing resources to learn how to:
 
-- [Connecting your device][lnk-connect-device]
-- [Getting started with device management][lnk-device-management]
-- [Getting started with the Gateway SDK][lnk-gateway-SDK]
-
-To learn how to extend your IoT solution to send telemetry from devices follow the [Get started with IoT Hub][lnk-iothub-getstarted] tutorial. To learn about twin's desired properties follow the [Use desired properties to configure devices][lnk-twin-how-to-configure] tutorial.
+- send telemetry from devices with the [Get started with IoT Hub][lnk-iothub-getstarted] tutorial,
+- configure devices using twin's desired properties with the [Use desired properties to configure devices][lnk-twin-how-to-configure] tutorial,
+- control devices interactively (such as turning on a fan from a user-controlled app), with the [Use direct methods][lnk-methods-tutorial] tutorial.
 
 <!-- images -->
 [1]: media/iot-hub-node-node-twin-getstarted/service1.png
@@ -255,4 +252,4 @@ To learn how to extend your IoT solution to send telemetry from devices follow t
 [lnk-twin-how-to-configure]: iot-hub-node-node-twin-how-to-configure.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 
-
+[lnk-methods-tutorial]: iot-hub-c2d-methods.md

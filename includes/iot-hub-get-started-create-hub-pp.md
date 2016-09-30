@@ -53,7 +53,7 @@ Finally, create a new device identity called `myDeviceId` with the command:
 
 Make sure to copy the device connection string from the result. This connection string is used by the device app to connect to your IoT Hub as a device.
 
-        ![][img-identity]
+![][img-identity]
 
 Refer to [Getting started with IoT Hub][lnk-getstarted] for a way to create device identities programmatically.
 
@@ -69,3 +69,4 @@ Refer to [Getting started with IoT Hub][lnk-getstarted] for a way to create devi
 [iot-hub-explorer]: https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer
 
 [lnk-getstarted]: ../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md
+[Using resource groups to manage your Azure resources]: ../azure-portal/resource-group-portal.md

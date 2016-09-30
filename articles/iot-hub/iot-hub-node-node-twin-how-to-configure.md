@@ -126,7 +126,7 @@ In this section, you create a Node.js console app that connects to your hub as *
 2. At your command-prompt in the **simulatedeviceconfiguration** folder, run the following command to install the **azure-iot-device**, and **azure-iot-device-mqtt** package:
 
     ```
-    npm install azure-iot-device azure-iot-device-mqtt --save
+    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
     ```
 
 3. Using a text editor, create a new **SimulateDeviceConfiguration.js** file in the **simulatedeviceconfiguration** folder.
@@ -169,7 +169,7 @@ In this section, you create a Node.js console app that connects to your hub as *
 
     Note that for the sake of simplicity, the previous code uses a hard-coded default for the inital configuration. A real app would probably load that configuration from a local storage.
     
-> [AZURE.IMPORTANT] Desired property change events are always emitted once at device connection, make sure to check that there is an actual change in the desired properties before performing any action.
+    > [AZURE.IMPORTANT] Desired property change events are always emitted once at device connection, make sure to check that there is an actual change in the desired properties before performing any action.
 
 5. Add the following methods before the `client.open()` invocation:
 
@@ -216,7 +216,7 @@ In this section, you create a Node.js console app that connects to your hub as *
 
     Note that, to save bandwidth, reported properties are updated by specifying only the properties to be modified (named **patch** in the above code), instead of replacing the whole document.
 
-> [AZURE.NOTE] This tutorial does not simulate any behavior for concurrent configuration updates. Some configuration update processes might be able to accommodate changes of target configuration while the update is running, others might have to queue them, and others could reject them with an error condition. Make sure to consider the desired behavior for your specific configuration process, and add the appropriate logic before initiating the configuration change.
+    > [AZURE.NOTE] This tutorial does not simulate any behavior for concurrent configuration updates. Some configuration update processes might be able to accommodate changes of target configuration while the update is running, others might have to queue them, and others could reject them with an error condition. Make sure to consider the desired behavior for your specific configuration process, and add the appropriate logic before initiating the configuration change.
 
 6. Run the device app:
 
@@ -237,7 +237,7 @@ In this section, you will create a Node.js console app that updates the *desired
 2. At your command-prompt in the **setdesiredandqueryapp** folder, run the following command to install the **azure-iothub** package:
 
     ```
-    npm install azure-iothub node-uuid --save
+    npm install azure-iothub@dtpreview node-uuid --save
     ```
 
 3. Using a text editor, create a new **SetDesiredAndQuery.js** file in the **addtagsandqueryapp** folder.
@@ -280,7 +280,7 @@ In this section, you will create a Node.js console app that updates the *desired
 
     The **Registry** object exposes all the methods required to interact with device twins from the service. The previous code, after it initializes the **Registry** object, retrieves the twin for **myDeviceId**, and updates its desired properties with a new telemetry configuration object. After that, it calls the **queryTwins** function event 10 seconds.
 
-> [AZURE.IMPORTANT] This application queries IoT Hub every 10 seconds for illustrative purposes. Use queries to generate user-facing reports across many devices, and not to detect changes. If your solution requires real-time notifications of device events use [device-to-cloud messages][lnk-d2c].
+    > [AZURE.IMPORTANT] This application queries IoT Hub every 10 seconds for illustrative purposes. Use queries to generate user-facing reports across many devices, and not to detect changes. If your solution requires real-time notifications of device events use [device-to-cloud messages][lnk-d2c].
 
 5. Add the following code right before the `registry.getDeviceTwin()` invocation to implement the **queryTwins** function:
 
@@ -313,7 +313,7 @@ In this section, you will create a Node.js console app that updates the *desired
 
     You should see the reported configuration change from **Success** to **Pending** to **Success** again with the new active send frequency of five minutes instead of 24 hours.
 
-> [AZURE.IMPORTANT] There is a delay of up to a minute between the device report operation and the query result. This is to enable the query infrastructure to work at very high scale. To retrieve consistent views of a single twin use the **getDeviceTwin** method in the **Registry** class.
+    > [AZURE.IMPORTANT] There is a delay of up to a minute between the device report operation and the query result. This is to enable the query infrastructure to work at very high scale. To retrieve consistent views of a single twin use the **getDeviceTwin** method in the **Registry** class.
 
 ## Next steps
 
@@ -348,3 +348,5 @@ To learn how to extend your IoT solution to send telemetry from devices follow t
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
 [lnk-how-to-configure-createapp]: iot-hub-node-node-twin-how-to-configure.md#create-the-simulated-device-app
+
+[img-identity]: media/iot-hub-get-started-create-hub-pp/devidentity.png
