@@ -13,7 +13,7 @@ ms.workload="identity"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="09/12/2016"
+ms.date="09/30/2016"
 ms.author="curtand"/>
 
 # Add company branding to your sign-in page in the Azure Active Directory preview
@@ -45,6 +45,23 @@ When you visit a service with non-tenant specific URLs (e.g.: https://mail.offic
 >
 - Your domain name must appear as “Active" in the **Domains** portion of the Azure portal in which you have configured branding. For more information, see [Add custom domain names](active-directory-domains-add-azure-portal.md).
 - Sign-in page branding doesn’t carry over to the consumer sign in page of Microsoft. If you sign in with a Microsoft account, you may see a branded list of user tiles rendered by Azure AD, but the branding of your organization does not apply to the Microsoft account sign-in page.
+
+On your sign-in page, the **Keep me signed in** checkbox allows a user to remain signed in when they close and re-open their browser. 
+
+   ![Keep me signed-in](./media/active-directory-branding-custom-signon-azure-portal/01.png)
+
+It does not effect session lifetime. You can hide the checkbox on the Azure Active Directory sign-in page.
+Whether the checkbox is displayed depends on the setting of **Keep me signed in disabled**.
+
+   ![Keep me signed-in](./media/active-directory-branding-custom-signon-azure-portal/02.png)
+
+
+To hide the checkbox, configure this setting to **Yes**. 
+
+> [AZURE.NOTE] Some features of SharePoint Online and Office 2010 depend on users being able to check this box. If you configure this setting to hidden, your users may see additional and unexpected prompts to sign-in.
+
+
+
 
 **To add company branding to your directory:**
 
