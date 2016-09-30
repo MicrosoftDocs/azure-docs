@@ -186,7 +186,7 @@ These two services will not start until the configuration is complete.
 ## Installing the Azure AD Connect Health Agent for AD DS on Server Core. 
 After installing the .exe file, you can complete the registration process by using the following PowerShell command:
 
-`Register-AzureADConnectHealthADDSAgent -Credentials $cred
+`Register-AzureADConnectHealthADDSAgent -Credential $cred`
 
 ## Configure Azure AD Connect Health Agents to use HTTP Proxy
 You can configure Azure AD Connect Health Agents to work with an HTTP Proxy.
