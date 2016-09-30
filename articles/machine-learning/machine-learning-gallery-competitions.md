@@ -55,9 +55,7 @@ competition
 
 ![Add your own comments](media\machine-learning-gallery-how-to-use-contribute-publish\comments.png)
 
-<!-- adding space to make the H2 below display correctly -->f
-
- ## Enter a competition
+## Enter a competition
 
 If the competition is open, the status on the details page will be **Active**. To enter the competition, click **Enter Competition** and you will be given instructions on the resources you need and the steps you need to take.
 
