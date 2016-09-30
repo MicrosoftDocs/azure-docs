@@ -20,7 +20,7 @@
 
 The cross-platform Azure Command-Line Interface (Azure CLI) enables you to manage your Batch accounts and resources such as pools, jobs, and tasks in Linux, Mac, and Windows command shells. With the Azure CLI, you can perform and script many of the same tasks you carry out with the Batch APIs, Azure portal, and Batch PowerShell cmdlets.
 
-This article is based on Azure CLI version 0.10.3.
+This article is based on Azure CLI version 0.10.5.
 
 ## Prerequisites
 
