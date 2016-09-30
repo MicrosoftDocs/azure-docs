@@ -28,8 +28,8 @@ Once you select the option below, you will be shown the Create blade as shown in
 
 ![][2]
 
--	Give your web app a name
--	Choose and existing Resource Group or create a new one. (See regions available in the [limitations section](./app-service-linux-intro.md))
+-	Give your web app a name.
+-	Choose an existing Resource Group or create a new one. (See regions available in the [limitations section](./app-service-linux-intro.md)).
 -	Choose an existing app service plan or create a new one (See app service plan notes in the [limitations section](./app-service-linux-intro.md)). 
 -	Choose the application stack you intend to use. You will get to choose between several versions of Node.js and PHP. 
 
@@ -44,6 +44,9 @@ Choosing "deployment options" from the management portal gives you the option to
 You can also use FTP to upload your application to your site. You can get the FTP endpoint for your web app from the diagnostics logs section as shown in the image below.
 
 ![][4]
+
+
+## Next Steps ##
 
 * [What is App Service on Linux?](./app-service-linux-intro.md)
 * [Using PM2 Configuration for Node.js in Web Apps on Linux](./app-service-linux-using-nodejs-pm2.md)

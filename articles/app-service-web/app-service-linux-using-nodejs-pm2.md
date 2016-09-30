@@ -24,6 +24,7 @@ If you set the application stack to Node.js for Web Apps on Linux, you will get 
 ![][1]
 
 You can use this to either
+
 -	Specify the startup script for your Node.js app (for example: /bin/server.js)
 -	Specify the PM2 configuration file to use for your Node.js app (for example: /foo/process.json)
 
@@ -46,12 +47,14 @@ You can check the Node.js [process file documentation](http://pm2.keymetrics.io/
 		}
 
 Important things to note in this configuration are 
+
 -	The "script" property specifies your application's start script.
 -	The "instances" property specifies how many instances of the node process to launch. If you are running your application on larger VM sizes that have multiple cores, you want to maximize your resources by setting a higher value here.
 -	The "watch" array specifies all files for whose change you want to restart your node processes.
 -	For the "watch_options", you currently need to specify "usePolling" as true because of the way your application content is mounted.
 
 
+## Next Steps ##
 
 * [What is App Service on Linux?](./app-service-linux-intro.md)
 
