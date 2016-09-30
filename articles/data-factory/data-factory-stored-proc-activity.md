@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/18/2016" 
+	ms.date="09/30/2016" 
 	ms.author="spelluru"/>
 
 # SQL Server Stored Procedure Activity
@@ -78,13 +78,21 @@ This article builds on the [data transformation activities](data-factory-data-tr
 ### Create an Azure SQL linked service  
 After creating the data factory, you create an Azure SQL linked service that links your Azure SQL Database to the data factory. This database contains the sampletable table and sp_sample stored procedure.
 
-7.	Click **Author and deploy** on the **Data Factory** blade for **SProcDF** to launch the Data Factory Editor. 
-2.	Click **New data store** on the command bar and choose **Azure SQL**. You should see the JSON script for creating an Azure SQL linked service in the editor. 
-4. Replace **servername** with the name of your Azure SQL Database server, **databasename** with the database in which you created the table and the stored procedure, **username@servername** with the user account that has access to the database, and **password** with the password for the user account. 
-5. Click **Deploy** on the command bar to deploy the linked service.
+7.	Click **Author and deploy** on the **Data Factory** blade for **SProcDF** to launch the Data Factory Editor.
+2.	Click **New data store** on the command bar and choose **Azure SQL Database**. You should see the JSON script for creating an Azure SQL linked service in the editor. 
+
+	![New data store](media/data-factory-stored-proc-activity/new-data-store.png)
+4. Replace **&lt;servername&gt;** with the name of your Azure SQL Database server, **&lt;databasename&gt;** with the database in which you created the table and the stored procedure, **&lt;username@servername&gt;** with the user account that has access to the database, and **&lt;password&gt;** with the password for the user account. 
+
+	![New data store](media/data-factory-stored-proc-activity/azure-sql-linked-service.png)
+5. Click **Deploy** on the command bar to deploy the linked service. Confirm that you see the AzureSqlLinkedService in the tree view on the left. 
+
+	![tree view with linked service](media/data-factory-stored-proc-activity/tree-view.png)
 
 ### Create an output dataset
-6. Click **New dataset** on the command bar and select **Azure SQL**.
+6. Click **... More** on the toolbar, click **New dataset**, and click **Azure SQL**. **New dataset** on the command bar and select **Azure SQL**.
+
+	![tree view with linked service](media/data-factory-stored-proc-activity/new-dataset.png)
 7. Copy/paste the following JSON script in to the JSON editor.
 
 		{			    
@@ -101,12 +109,14 @@ After creating the data factory, you create an Azure SQL linked service that lin
 				}
 			}
 		}
-7. Click **Deploy** on the command bar to deploy the dataset. 
+7. Click **Deploy** on the command bar to deploy the dataset. Confirm that you see the dataset in the tree view. 
+
+	![tree view with linked services](media/data-factory-stored-proc-activity/tree-view-2.png)
 
 ### Create a pipeline with SqlServerStoredProcedure activity
 Now, let's create a pipeline with a SqlServerStoredProcedure activity.
  
-9. Click **... (ellipsis)** on the command bar and click **New pipeline**. 
+9. Click **... More** on the command bar and click **New pipeline**. 
 9. Copy/paste the following JSON snippet. The **storedProcedureName** set to **sp_sample**. Name and casing of the parameter **DateTime** must match the name and casing of the parameter in the stored procedure definition.  
 
 		{
@@ -145,8 +155,14 @@ Now, let's create a pipeline with a SqlServerStoredProcedure activity.
 ### Monitor the pipeline
 
 6. Click **X** to close Data Factory Editor blades and to navigate back to the Data Factory blade, and click **Diagram**.
-7. In the Diagram View, you see an overview of the pipelines, and datasets used in this tutorial. 
-8. In the Diagram View, double-click the dataset **sprocsampleout**. You see the slices in Ready state. There should be five slices because a slice is produced for each hour between the start time and end time from the JSON. 
+
+	![diagram tile](media/data-factory-stored-proc-activity/data-factory-diagram-tile.png)
+7. In the **Diagram View**, you see an overview of the pipelines, and datasets used in this tutorial. 
+
+	![diagram tile](media/data-factory-stored-proc-activity/data-factory-diagram-view.png)
+8. In the Diagram View, double-click the dataset **sprocsampleout**. You see the slices in Ready state. There should be five slices because a slice is produced for each hour between the start time and end time from the JSON.
+
+	![diagram tile](media/data-factory-stored-proc-activity/data-factory-slices.png) 
 10. When a slice is in **Ready** state, run a **select * from sampletable** query against the Azure SQL database to verify that the data was inserted in to the table by the stored procedure.
 
 	![Output data](./media/data-factory-stored-proc-activity/output.png)
@@ -155,7 +171,7 @@ Now, let's create a pipeline with a SqlServerStoredProcedure activity.
 
 > [AZURE.NOTE] In the above example, the SprocActivitySample has no inputs. If you want to chain this activity with an activity upstream (that is, prior processing), the output(s) of the upstream activity can be used as input(s) in this activity. In such a case, this activity does not execute until the upstream activity is completed and the output(s) of the upstream activities are available (in Ready status). The input(s) cannot be used directly as a parameter to the stored procedure activity
 
-## Syntax
+## JSON format
 	{
     	"name": "SQLSPROCActivity",
     	"description": "description", 
@@ -173,7 +189,7 @@ Now, let's create a pipeline with a SqlServerStoredProcedure activity.
     	}
 	}
 
-## Syntax details
+## JSON properties
 
 Property | Description | Required
 -------- | ----------- | --------
