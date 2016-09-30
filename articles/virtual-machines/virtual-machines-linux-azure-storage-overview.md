@@ -20,6 +20,16 @@
 
 Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers.  In addition to making it possible for developers to build large-scale applications to support new scenarios, Azure Storage also provides the storage foundation for Azure Virtual Machines.
 
+## Azure Storage: Standard and Premium
+
+Azure VM's can be built upon standard storage disks or premium storage disks.  When using the Portal to choose your VM you must toggle a dropdown on the Basics screen to view both standard and premium disks.  The screenshot below highlights that toggle menu.
+
+![screen1](../media/virtual-machines-linux-azure-storage-overview/screen1.png)
+
+## Standard storage
+
+Azure Standard Storage is the default type of storage.  Standard storage is cost effective while still being performant.  
+
 ## Premium storage
 
 Azure Premium Storage delivers high-performance, low-latency disk support for virtual machines running I/O-intensive workloads. Virtual machine (VM) disks that use Premium Storage store data on solid state drives (SSDs). You can migrate your application's VM disks to Azure Premium Storage to take advantage of the speed and performance of these disks.
