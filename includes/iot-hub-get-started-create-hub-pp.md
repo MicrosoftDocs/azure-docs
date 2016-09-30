@@ -55,7 +55,7 @@ Make sure to copy the device connection string from the result. This connection 
 
         ![][img-identity]
 
-Refer to [Getting started with IoT Hub][lnk-getstarted] for a way to create device identities using a GUI app.
+Refer to [Getting started with IoT Hub][lnk-getstarted] for a way to create device identities programmatically.
 
 <!-- images and links -->
 [img-new-hub]: media/iot-hub-get-started-create-hub-pp/image1.png
