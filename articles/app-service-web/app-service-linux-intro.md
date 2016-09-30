@@ -44,7 +44,7 @@ For Kudu some of the basic functionality will work
 
 ## Limitations ##
 
-The Azure management portal will only show currently supported features for App Service on Linux and hide the rest. As our team enabling more features we will keep reflecting this on the management portal. Some features like VNET integration and AAD / third party authentication or Kudu site extensions do not currently work. But as we get these working we will update our documentation and blog about changes.
+The Azure management portal will only show currently supported features for App Service on Linux and hide the rest. As our team enabling more features we will keep reflecting this on the management portal. Some features like VNET integration and AAD / third-party authentication or Kudu site extensions do not currently work. But as we get these working we will update our documentation and blog about changes.
 
 This public preview is currently only available in the following regions
 -	West US
