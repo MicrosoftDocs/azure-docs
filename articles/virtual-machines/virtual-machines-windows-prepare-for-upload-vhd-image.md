@@ -22,7 +22,11 @@ To upload a Windows VM from on-premises to Azure, you must correctly prepare the
 
 ## Prepare the virtual disk
 
->[AZURE.NOTE] The newer VHDX format is not supported in Azure. The VHD must be a Fixed size, not Dynamic. If needed, the instructions below detail converting from VHDX or Dynamic disks. The maximum size allowed for the VHD is 1,023 GB.
+>[AZURE.NOTE] 
+> Azure only supports [generation 1 virtual machines](http://blogs.technet.com/b/ausoemteam/archive/2015/04/21/deciding-when-to-use-generation-1-or-generation-2-virtual-machines-with-hyper-v.aspx) that are in the VHD file format. The newer VHDX format is not supported in Azure. 
+>
+> The VHD must be a Fixed size, not Dynamic. If needed, the instructions below detail converting from VHDX or Dynamic disks. The maximum size allowed for the VHD is 1,023 GB.
+
 
 Make sure that the Windows VHD is working correctly on the local server. Resolve any errors within the VM itself before trying to convert or upload to Azure.
 

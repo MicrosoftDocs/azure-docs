@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Copying an Existing Blob into a Media Services Asset" 
+	pageTitle="Copying an Existing Blob into a Media Services Asset | Microsoft Azure" 
 	description="This topic shows how to copy an existing blob into a Media Services Asset." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 #Copying an Existing Blob into a Media Services Asset

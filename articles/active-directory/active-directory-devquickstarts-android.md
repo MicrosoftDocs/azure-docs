@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
-[AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+[AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)] 
 
 If you're developing a desktop application, Azure AD makes it simple and straightforward for you to authenticate your users by using their Active Directory accounts.  It also enables your application to securely consume any web API protected by Azure AD, such as the Office 365 APIs or the Azure API.
 
@@ -31,6 +31,8 @@ For Android clients that need to access protected resources, Azure AD provides t
 -	Signs users out.
 
 To get started, you'll need an Azure AD tenant in which you can create users and register an application.  If you don't already have a tenant, [learn how to get one](active-directory-howto-tenant.md).
+
+> [AZURE.TIP] Try the preview of our new [developer portal](https://identity.microsoft.com/Docs/Android) that will help you get up and running with Azure Active Directory in just a few minutes!  The developer portal will walk you through the process of registering an app and integrating Azure AD into your code.  When you’re finished, you will have a simple application that can authenticate users in your tenant and a backend that can accept tokens and perform validation. 
 
 ## Step 1: Download and run the Node.js REST API TODO Sample Server
 

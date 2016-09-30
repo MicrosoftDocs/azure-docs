@@ -13,8 +13,8 @@
      ms.topic="get-started-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="04/20/2016"
-     ms.author="cstreet"/>
+     ms.date="08/25/2016"
+     ms.author="andbuc"/>
 
 
 # IoT Gateway SDK (beta) - Get started using Linux
@@ -59,6 +59,13 @@ Before you get started, you must [set up your development environment][lnk-setup
           "module name" : "hello_world",
           "module path" : "./build/modules/hello_world/libhello_world_hl.so",
           "args" : null
+        }
+      ],
+      "links" :
+      [
+        {
+          "source": "hello_world",
+          "sink": "logger_hl"
         }
       ]
     }

@@ -13,8 +13,8 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="04/20/2016"
-     ms.author="cstreet"/>
+     ms.date="08/29/2016"
+     ms.author="andbuc"/>
 
 
 # IoT Gateway SDK (beta) – send device-to-cloud messages with a simulated device using Linux
@@ -41,11 +41,12 @@ To run the sample:
 
 In a text editor, open the file **samples/simulated_device_cloud_upload/src/simulated_device_cloud_upload_lin.json** in your local copy of the **azure-iot-gateway-sdk** repository. This file configures the modules in the sample gateway:
 
-- The **IoTHub** module connects to your IoT hub. You must configure it to send data to your IoT hub. Specifically, set the **IoTHubName** value to the name of your IoT hub and set the value of **IoTHubSuffix** to **azure-devices.net**.
+- The **IoTHub** module connects to your IoT hub. You must configure it to send data to your IoT hub. Specifically, set the **IoTHubName** value to the name of your IoT hub and set the **IoTHubSuffix** value to **azure-devices.net**. Set the **Transport** value to one of: "HTTP", "AMQP", or "MQTT". Note that currently, only "HTTP" will share one TCP connection for all device messages. If you set the value to "AMQP", or "MQTT", the gateway will maintain a separate TCP connection to IoT Hub for each device.
 - The **mapping** module maps the MAC addresses of your simulated devices to your IoT Hub device ids. Make sure that **deviceId** values match the ids of the two devices you added to your IoT hub, and that the **deviceKey** values contain the keys of your two devices.
 - The **BLE1** and **BLE2** modules are the simulated devices. Note how their MAC addresses match those in the **mapping** module.
 - The **Logger** module logs your gateway activity to a file.
 - The **module path** values shown below assume that you will run the sample from the root of your local copy of the **azure-iot-gateway-sdk** repository.
+- The **links** array at the bottom of the JSON file connects the **BLE1** and **BLE2** modules to the **mapping** module, and the **mapping** module to the **IoTHub** module. It also ensures that all messages are logged by the **Logger** module.
 
 ```
 {
@@ -53,27 +54,28 @@ In a text editor, open the file **samples/simulated_device_cloud_upload/src/simu
     [ 
         {
             "module name" : "IoTHub",
-            "module path" : "./build/modules/iothubhttp/libiothubhttp_hl.so",
+            "module path" : "./build/modules/iothub/libiothub_hl.so",
             "args" : 
             {
                 "IoTHubName" : "{Your IoT hub name}",
-                "IoTHubSuffix" : "azure-devices.net"
+                "IoTHubSuffix" : "azure-devices.net",
+                "Transport": "HTTP"
             }
         },
         {
             "module name" : "mapping",
-            "module path" : "./build/modules/identitymap/libidentitymap_hl.so",
+            "module path" : "./build/modules/identitymap/libidentity_map_hl.so",
             "args" : 
             [
                 {
                     "macAddress" : "01-01-01-01-01-01",
-                    "deviceId"   : "GW-ble1-demo",
-                    "deviceKey"  : "{Device key}"
+                    "deviceId"   : "{Device ID 1}",
+                    "deviceKey"  : "{Device key 1}"
                 },
                 {
                     "macAddress" : "02-02-02-02-02-02",
-                    "deviceId"   : "GW-ble2-demo",
-                    "deviceKey"  : "{Device key}"
+                    "deviceId"   : "{Device ID 2}",
+                    "deviceKey"  : "{Device key 2}"
                 }
             ]
         },
@@ -101,6 +103,12 @@ In a text editor, open the file **samples/simulated_device_cloud_upload/src/simu
                 "filename":"./deviceCloudUploadGatewaylog.log"
             }
         }
+    ],
+    "links" : [
+        { "source" : "*", "sink" : "Logger" },
+        { "source" : "BLE1", "sink" : "mapping" },
+        { "source" : "BLE2", "sink" : "mapping" },
+        { "source" : "mapping", "sink" : "IoTHub" }
     ]
 }
 

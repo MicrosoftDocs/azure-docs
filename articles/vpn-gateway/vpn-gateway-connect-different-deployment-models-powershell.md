@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/23/2016"
    ms.author="cherylmc" />
 
 # Connect virtual networks from different deployment models using PowerShell
@@ -39,7 +39,7 @@ Before beginning, verify the following:
 
 ### <a name="exampleref"></a>Example settings
 
-You can use the example settings as a reference when using the PowerShell cmdlets in the following steps.
+You can use the example settings as a reference when using the PowerShell cmdlets.
 
 **Classic VNet settings**
 
@@ -55,8 +55,8 @@ GatewayType = DynamicRouting
 
 VNet Name = RMVNet <br>
 Resource Group = RG1 <br>
-Virtual Network IP Address Spaces = 192.168.1.0/16 <br>
-Subnet -1 = 192.168.1.0/24 <br>
+Virtual Network IP Address Spaces = 192.168.0.0/16 <br>
+Subnet-1 = 192.168.1.0/24 <br>
 GatewaySubnet = 192.168.0.0/26 <br>
 Location = East US <br>
 Gateway public IP name = gwpip <br>
@@ -69,13 +69,13 @@ Gateway IP addressing configuration = gwipconfig
 
 ### Part 1 - Download your network configuration file
 
-1. Log in to your Azure account in the PowerShell console. This cmdlet prompts you for the login credentials for your Azure Account. After logging in, it downloads your account settings so that they are available to Azure PowerShell. You will be using the SM PowerShell cmdlets to complete this part of the configuration.
+1. Log in to your Azure account in the PowerShell console with elevated rights. The following cmdlet prompts you for the login credentials for your Azure Account. After logging in, it downloads your account settings so that they are available to Azure PowerShell. You will be using the SM PowerShell cmdlets to complete this part of the configuration.
 
 		Add-AzureAccount
 
 2. Export your Azure network configuration file by running the following command. You can change the location of the file to export to a different location if necessary. You will edit the file and then import it to Azure.
 
-		Get-AzureVNetConfig -ExportToFile c:\AzureNet\NetworkConfig.xml
+		Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 
 3. Open the .xml file that you downloaded to edit it. For an example of the network configuration file, see the [Network Configuration Schema](https://msdn.microsoft.com/library/jj157100.aspx).
  
@@ -107,7 +107,7 @@ The local network site you add represents the RM VNet to which you want to conne
     <LocalNetworkSites>
       <LocalNetworkSite name="RMVNetLocal">
         <AddressSpace>
-          <AddressPrefix>192.168.1.0/16</AddressPrefix>
+          <AddressPrefix>192.168.0.0/16</AddressPrefix>
         </AddressSpace>
         <VPNGatewayAddress>13.68.210.16</VPNGatewayAddress>
       </LocalNetworkSite>
@@ -129,7 +129,7 @@ In this section, we specify the local network site that you want to connect the 
 
 Save the file, then import it to Azure by running the following command. Make sure you change the file path as necessary for your environment.
 
-		Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\ClassicVNet.xml
+		Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
 
 You should see something similar to this result showing that the import succeeded.
 
@@ -137,25 +137,15 @@ You should see something similar to this result showing that the import succeede
 		--------------------        -----------                      ---------------                                                
 		Set-AzureVNetConfig        e0ee6e66-9167-cfa7-a746-7casb9    Succeeded 
 
-### Part 6 - Create the virtual network gateway 
+### Part 6 - Create the gateway 
 
-You can create your virtual network gateway either by using the classic portal, or by using PowerShell. Currently, it's not possible to create a classic gateway in the Azure portal. 
+You can create the VNet gateway either by using the classic portal, or by using PowerShell.
 
-#### To create your gateway in the classic portal
-
-1. In the [classic portal](https://manage.windowsazure.com), go to **Networks** and click the classic VNet for which you want to create a virtual network gateway. This opens the main page for your VNet.
-2. Click **Dashboard** at the top of the page to change to the Dashboard page. 
-3. On the bottom of the Dashboard page, click **Create Gateway**, then click **Dynamic Routing**. 
-4. Click **Yes** to begin creating your gateway. 
-5. Wait for the gateway to be created. This can sometimes take 45 minutes or more to complete.
-6. After the gateway has been created, you can view the Gateway IP address on the **Dashboard** page. This is the public IP address of your gateway. Write down or copy the public IP address. You use it in later steps when you create the local network for your Resource Manager VNet configuration.
-7. You can optionally use this cmdlet to retrieve your gateway settings and check the status of the gateway: `Get-AzureVirtualNetworkGateway`
-
-#### To create your gateway by using PowerShell
-
-To create your gateway by using PowerShell, use the following example.
+Use the following example to create a dynamic routing gateway:
 
 	New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
+
+You can check the status of the gateway by using the `Get-AzureVNetGateway` cmdlet.
 
 
 ## <a name="creatermgw"></a>Section 2: Configure the RM VNet gateway
@@ -184,7 +174,7 @@ To create a VPN gateway for the RM VNet, follow the following instructions. Don'
 			-Location "West US" -AddressPrefix "10.0.0.0/24" `
 			-GatewayIpAddress "n.n.n.n" -ResourceGroupName RG1
 
-3. **Request a public IP address** to be allocated to your Azure Resource Manager VNet VPN gateway. You cannot specify the IP address that you want to use. It is dynamically allocated to your gateway. However, this does not mean the IP address will change. The only time the Azure VPN gateway IP address changes is when the gateway is deleted and recreated. It won't change across resizing, resetting, or other internal maintenance/upgrades of your Azure VPN gateway.<br>In this step, we also set a variable that is used in a later step.
+3. **Request a public IP address** to be allocated to the virtual network gateway for the Resource Manager VNet. You can't specify the IP address that you want to use. The IP address is dynamically allocated to the virtual network gateway. However, this does not mean the IP address will change. The only time the virtual network gateway IP address changes is when the gateway is deleted and recreated. It won't change across resizing, resetting, or other internal maintenance/upgrades of the gateway.<br>In this step, we also set a variable that is used in a later step.
 
 
 		$ipaddress = New-AzureRmPublicIpAddress -Name gwpip `
@@ -207,7 +197,7 @@ To create a VPN gateway for the RM VNet, follow the following instructions. Don'
 		-Name gwipconfig -SubnetId $subnet.id `
 		-PublicIpAddressId $ipaddress.id
 	
-7. **Create the Resource Manager VNet gateway** by running the following command. The `-VpnType` must be *RouteBased*.
+7. **Create the Resource Manager virtual network gateway** by running the following command. The `-VpnType` must be *RouteBased*. It can take 45 minutes or more for this to complete.
 
 		New-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1 `
 		-Location "EastUS" -GatewaySKU Standard -GatewayType Vpn `
@@ -248,7 +238,7 @@ Creating a connection between the gateways requires PowerShell. You may need to 
 		
 	Add-AzureAccount
 
-1. **Set your shared key** by running the following command. In this sample, `-VNetName` is the name of the classic VNet and `-LocalNetworkSiteName` is the name you specified for the local network when you configured it in the classic portal. The `-SharedKey` is a value that you can generate and specify. The value you specify here must be the same value that you specify in the next step when you create your connection. The return for this sample should show Status: Successful.
+1. **Set your shared key** by running the following command. In this sample, `-VNetName` is the name of the classic VNet and `-LocalNetworkSiteName` is the name you specified for the local network when you configured it in the classic portal. The `-SharedKey` is a value that you can generate and specify. The value you specify here must be the same value that you specify in the next step when you create your connection. The return for this sample should show **Status: Successful**.
 
 		Set-AzureVNetGatewayKey -VNetName ClassicVNet `
 		-LocalNetworkSiteName RMVNetLocal -SharedKey abc123

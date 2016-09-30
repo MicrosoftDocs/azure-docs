@@ -41,22 +41,22 @@ Before beginning, verify the following:
 
 ### <a name="values"></a>Example settings
 
-You can use the example settings as reference when using the PowerShell cmdlets in the following steps.
+You can use the example settings as reference when using the PowerShell cmdlets in the following steps:
 
 **Classic VNet settings**
 
 VNet Name = ClassicVNet <br>
 Location = West US <br>
-Virtual Network Address Spaces = 10.0.0.0/8 <br>
-Subnet-1 = 10.0.0.0/11 <br>
-GatewaySubnet = 10.32.0.0/29 <br>
+Virtual Network Address Spaces = 10.0.0.0/24 <br>
+Subnet-1 = 10.0.0.0/27 <br>
+GatewaySubnet = 10.0.0.32/29 <br>
 Local Network Name = RMVNetLocal <br>
 
 **Resource Manager VNet settings**
 
 VNet Name = RMVNet <br>
 Resource Group = RG1 <br>
-Virtual Network IP Address Spaces = 192.168.1.0/16 <br>
+Virtual Network IP Address Spaces = 192.168.0.0/16 <br>
 Subnet-1 = 192.168.1.0/24 <br>
 GatewaySubnet = 192.168.0.0/26 <br>
 Location = East US <br>
@@ -171,7 +171,7 @@ In this section, we create the connection between the VNets. The steps for this 
 		Set-AzureVNetGatewayKey -VNetName ClassicVNet `
 		-LocalNetworkSiteName RMVNetLocal -SharedKey abc123
 
-4. Create the VPN connection by running the following commands.
+4. Create the VPN connection by running the following commands:
 	
 	**Set the variables**
 

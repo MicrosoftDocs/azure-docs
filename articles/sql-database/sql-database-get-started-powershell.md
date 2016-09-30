@@ -132,7 +132,7 @@ The following PowerShell script creates a SQL database and all its dependent res
 ## Next steps
 After you create a SQL database and perform basic database setup tasks, you're ready for the following:
 
-- [Manage SQL Database with PowerShell](sql-database-command-line-tools.md)
+- [Manage SQL Database with PowerShell](sql-database-manage-powershell.md)
 - [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
 
 

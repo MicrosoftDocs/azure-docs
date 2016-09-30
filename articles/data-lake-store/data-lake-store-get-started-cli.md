@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/13/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using Azure Command Line
@@ -37,36 +37,40 @@ The Azure CLI is implemented in Node.js. It can be used on any platform that sup
 Before you begin this article, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+
 - **Azure CLI** - See [Install and configure the Azure CLI](../xplat-cli-install.md) for installation and configuration information. Make sure you reboot your computer after you install the CLI.
+
+## Authentication
+
+This article uses a simpler authentication approach with Data Lake Store where you log in as an end-user user. The access level to Data Lake Store account and file system is then governed by the access level of the logged in user. However, there are other approaches as well to authenticate with Data Lake Store, which are **end-user authentication** or **service-to-service authentication**. For instructions and more information on how to authenticate, see [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
 ##Login to your Azure subscription
 
-Follow the steps documented in [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md) and connect to your subscription using the __login__ method.
+1. Follow the steps documented in [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md) and connect to your subscription using the `azure login` method.
+
+2. List the subscriptions that are associated with your account using the `azure account list` command.
+
+		info:    Executing command account list
+		data:    Name              Id                                    Current
+		data:    ----------------  ------------------------------------  -------
+		data:    Azure-sub-1       ####################################  true
+		data:    Azure-sub-2       ####################################  false
+
+	From the output above, **Azure-sub-1** is currently enabled, and the other subscription is **Azure-sub-2**. 
+
+3. Select the subscription you want to work under. If you want to work under the Azure-sub-2 subscription, use the `azure account set` command.
+
+		azure account set Azure-sub-2
 
 
 ## Create an Azure Data Lake Store account
 
 Open a command prompt, shell, or a terminal session and run the following commands.
 
-1. Log in to your Azure subscription:
-
-		azure login
-
-	You will be prompted to open a web page and enter an authentication code. Follow the instructions on the page to log in to your Azure subscription.
-
 2. Switch to Azure Resource Manager mode using the following command:
 
 		azure config mode arm
 
-
-3. List the Azure subscriptions for your account.
-
-		azure account list
-
-
-4. If you have multiple Azure subscriptions, use the following command to set the subscription that the Azure CLI commands will use:
-
-		azure account set <subscriptionname>
 
 5. Create a new resource group. In the following command, provide the parameter values you want to use.
 
