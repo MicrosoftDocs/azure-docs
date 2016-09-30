@@ -979,7 +979,7 @@ Or, retrieve the list with Azure CLI. The following example retrieves all the op
 
     azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains(\"list\"))"
 
-The resourceId can be specified by using the [resourceId function](./#resourceid) or by using the format **{providerNamespace}/{resourceType}/{resourceName}**.
+The resourceId can be specified by using the [resourceId function](#resourceid) or by using the format **{providerNamespace}/{resourceType}/{resourceName}**.
 
 The following example shows how to return the primary and secondary keys from a storage account in the outputs section.
 
