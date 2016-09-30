@@ -21,7 +21,7 @@
 <div class="dev-center-tutorial-selector sublanding"><a href="/manage/install-and-configure-windows-powershell/" title="PowerShell" class="current">PowerShell</a><a href="/manage/install-and-configure-cli/" title="Azure CLI">Azure  CLI</a></div>
 
 ##What is Azure PowerShell?
-Azure PowerShell is a set of modules that provide cmdlets to manage Azure with Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure platform. In most cases, the cmdlets can be used for the same tasks as the Azure Management Portal, such as creating and configuring cloud services, virtual machines, virtual networks, and web apps.
+Azure PowerShell is a set of modules that provide cmdlets to manage Azure with Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure platform. In most cases, the cmdlets can be used for the same tasks as the Azure Portal, such as creating and configuring cloud services, virtual machines, virtual networks, and web apps.
 
 ## How versioning works
 
@@ -93,7 +93,8 @@ Install Azure PowerShell 1.3.0 or greater from the PowerShell Gallery using an e
 
 ####More about these commands
 
-- **Install-Module AzureRM** installs a rollup module for the Azure Resource Manager cmdlets. The AzureRM module module depends on a particular version range for each Azure Resource Manager module. The included version range assures that no breaking module changes can be included when installing AzureRM modules with the same major version. When you install the AzureRM module, any Azure Resource Manager module that has not previously been installed will be downloaded and installed from the PowerShell Gallery. For more information on the semantic versioning used by Azure PowerShell modules, see [semver.org](http://semver.org). 
+- **Install-Module AzureRM** installs a rollup module for the Azure Resource Manager cmdlets. The AzureRM module depends on 
+- a particular version range for each Azure Resource Manager module. The included version range assures that no breaking module changes can be included when installing AzureRM modules with the same major version. When you install the AzureRM module, any Azure Resource Manager module that has not previously been installed will be downloaded and installed from the PowerShell Gallery. For more information on the semantic versioning used by Azure PowerShell modules, see [semver.org](http://semver.org). 
 - **Install-Module Azure** installs the Azure module. This module is the Service Management module from Azure PowerShell 0.9.x. This should have no major changes and be interchangeable for the previous version of the Azure module.
 
 ## Step 2: Start
@@ -111,10 +112,10 @@ You can also run the **Windows PowerShell ISE** to use menu items and keyboard s
     # To make sure the Azure PowerShell module is available after you install
     Get-Module –ListAvailable 
 	
-    # To login to Azure Resource Manager
+    # To log in to Azure Resource Manager
     Login-AzureRmAccount
 
-    # You can also use a specific Tenant if you would like a faster login experience
+    # You can also use a specific Tenant if you would like a faster log in experience
     # Login-AzureRmAccount -TenantId xxxx
 
     # To view all subscriptions for your account
@@ -156,9 +157,9 @@ Sign into your work or school account:
     $loadersubscription = Get-AzureRmSubscription -SubscriptionName $YourSubscriptionName -TenantId $YourAssociatedSubscriptionTenantId
 
 
-> [AZURE.NOTE] This non-interactive login method only works with a work or school account. A work or school account is a user that is managed by your work or school, and defined in the Azure Active Directory instance for your work or school. If you do not currently have a work or school account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
+> [AZURE.NOTE] This non-interactive log in method only works with a work or school account. A work or school account is a user that is managed by your work or school, and defined in the Azure Active Directory instance for your work or school. If you do not currently have a work or school account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
 
-> 1. Login to the [Azure classic portal](https://manage.windowsazure.com), and click on **Active Directory**.
+> 1. Log in to the [Azure classic portal](https://manage.windowsazure.com), and click on **Active Directory**.
 
 > 2. If no directory exists, select **Create your directory** and provide the requested information.
 
