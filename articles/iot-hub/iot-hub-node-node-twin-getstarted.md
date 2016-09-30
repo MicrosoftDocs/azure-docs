@@ -33,7 +33,6 @@ Use device twins to:
 
 Device twins are stored in an IoT hub and contain:
 
-* *device identity properties*, containing read-only information provided by IoT Hub, such as last activity time and connection state, as in the [device identity registry][lnk-identity];
 * *tags*, device meta-data accessible only by the back end;
 * *desired properties*, JSON objects modifiable by the back end and observable by the device app; and
 * *reported properties*, JSON objects modifiable by the device app and readable by the back end. Tags and properties cannot contain arrays, but objects can be nested.
