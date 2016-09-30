@@ -106,7 +106,7 @@ You can get more information about load balancer components with Azure Resource 
 
 ## Remove a Load Balancer
 
-To delete a load balancer, select the load balancer you want to remove. In the *Load Balancer* blade, click on **Delete** located at the stop of the blade. Then select **Yes** when prompted.
+To delete a load balancer, select the load balancer you want to remove. In the *Load Balancer* blade, click on **Delete** located at the top of the blade. Then select **Yes** when prompted.
 
 ## Next steps
 
