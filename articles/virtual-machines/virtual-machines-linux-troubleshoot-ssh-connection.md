@@ -139,7 +139,7 @@ azure vm extension set <resource group> <vmname> VMAccessForLinux Microsoft.OSTC
 
 
 ## Restart a VM
-If you have reset the SSH configuration and user credentials, or encountered an error in doing so, you can try restarting the VM to address underlying
+If you have reset the SSH configuration and user credentials, or encountered an error in doing so, you can try restarting the VM to address underlying compute issues.
 
 ### Azure portal
 To restart a VM using the Azure portal, select **Browse** > **Virtual machines** > *your VM* > ***Restart** as in the following example:
