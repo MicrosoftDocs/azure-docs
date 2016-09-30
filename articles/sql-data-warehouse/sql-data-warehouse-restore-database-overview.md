@@ -44,14 +44,14 @@ As a benefit of using Azure Premium Storage, SQL Data Warehouse uses Azure Stora
 
 SQL Data Warehouse always restores the backup to a new data warehouse. You can either keep the restored data warehouse and the current one, or delete one of them. If you want to replace the current data warehouse with the restored data warehouse, you can rename it.
 
+If you need to restore a deleted or paused data warehouse, you can [create a support ticket](sql-data-warehouse-get-started-create-support-ticket.md). 
 
+<!-- 
 ### Can I restore a deleted data warehouse?
 
-Yes, for the next seven calendar days. When you delete a data warehouse, SQL Data Warehouse actually keeps the data warehouse and its snapshots for seven days just in case you need the data. After seven days, you won't be able to restore to any of the restore points.
+Yes, you can restore the last available restore point.
 
-### Can I restore a paused data warehouse?
-
-No, to restore a data warehouse that is paused, you need to first bring it back online. Once the data warehouse is back online, you can restore to any of the restore points that were available before you paused the data warehouse. 
+Yes, for the next seven calendar days. When you delete a data warehouse, SQL Data Warehouse actually keeps the data warehouse and its snapshots for seven days just in case you need the data. After seven days, you won't be able to restore to any of the restore points. -->
 
 ## Geo-redundant restore
 
