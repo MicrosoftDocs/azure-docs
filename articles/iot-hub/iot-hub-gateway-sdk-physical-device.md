@@ -436,6 +436,6 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-setup-osx]: https://software.intel.com/get-started-edison-osx
 [lnk-setup-linux]: https://software.intel.com/get-started-edison-linux
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
-[lnk-create-hub]: iot-hub-create-through-portal.md
+
 
 [lnk-devguide]: iot-hub-devguide.md
