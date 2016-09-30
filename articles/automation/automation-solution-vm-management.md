@@ -60,7 +60,7 @@ StartByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | Specifies the text for 
 StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Specifies the recipient(s) of the email.  Enter separate names by using semi-colon(;).|
 StartByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Enter VM names to be excluded from management operation; separate names by using semi-colon(;). Values are case-sensitive and wildcard (asterisk) is supported.  Default value (asterisk) will include all resource groups in the subscription.|
 StartByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Specifies the subscription that contains VMs to be managed by this solution.  This must be the same subscription where the Automation account of this solution resides.|
-**StopByResourceGroup-MS-Mgmt-VM ** Runbook ||
+**StopByResourceGroup-MS-Mgmt-VM** Runbook ||
 StopByResourceGroup-ExcludeList-MS-Mgmt-VM | Enter VM names to be excluded from management operation; separate names by using semi-colon(;). Values are case-sensitive and wildcard (asterisk) is supported.|
 StopByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | Text that can be appended to the beginning of the email message body.|
 StopByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | Specifies the name of the Automation Account that contains the Email runbook.  **Do not modify this variable.**|
@@ -94,7 +94,7 @@ Perform the following steps to add the Start/Stop VMs during off-hours (Preview)
   
 4. On the **Add Solution** blade, you are required to configure the following before the solution can be created in your Automation account:
 
-    a. Workspace: you can select an OMS workspace that is linked to the same Azure subscription that the Automation account is in.  If you do not have an OMS workpace, you can select  **Create New Workspace** and in the **OMS Workspace** blade you are asked to provide: 
+    a. Workspace: You can select an OMS workspace that is linked to the same Azure subscription that the Automation account is in.  If you do not have an OMS workpace, you can select  **Create New Workspace** and in the **OMS Workspace** blade you are asked to provide: 
 
       - **OMS Workspace** - Provide a name for a new workspace.  
       - **Subscription** - A subscription to link to by selecting from the drop-down list if the default selected is not appropriate.
@@ -105,13 +105,13 @@ Perform the following steps to add the Start/Stop VMs during off-hours (Preview)
         >[AZURE.NOTE] While the Stadalone paid tier is displayed as an option, it is not applicable.  If you select it and proceed with the creation of this solution in your subscription, it will fail.  This will be addressed when this solution is officially released.  
         >If you use this solution, it will only use automation job minutes and log ingestion. The solution does not add additional OMS nodes to your environment.  
 
-    b. Automation Account:  If you are creating a new OMS workspace, you will be required to also create a new Automation account that will be tied to the new OMS workspace specified above, including the Azure subscription, resource group and region.  You can select  **Create an Automation account** and in the **Add Automation account** blade you are asked to provide: 
+    b. Automation Account: If you are creating a new OMS workspace, you will be required to also create a new Automation account that will be tied to the new OMS workspace specified above, including the Azure subscription, resource group and region.  You can select  **Create an Automation account** and in the **Add Automation account** blade you are asked to provide:<br> 
 
       - **Name** - the name of the Automation account.
        
-      All other options are automatically populated based on the OMS workspace selected and an Azure Run As account is the default authentication method for the runbooks included in this solution. These options cannot be modified.  Once you click **OK**, the configuration options are validated and the Automation account is created.
+      All other options are automatically populated based on the OMS workspace selected and an Azure Run As account is the default authentication method for the runbooks included in this solution. These options cannot be modified.  Once you click **OK**, the configuration options are validated and the Automation account is created.<br>
 
-    c. Configuration: On the **Parameters** blade, you are asked to provide: 
+    c. Configuration: On the **Parameters** blade, you are asked to provide:<br> 
 
       - **Target ResourceGroup Names** - The resource group name that contain VMs to be managed by this solution.  You can enter more than one name and separate each using a semi-colon (values are case-sensitive).  Using a wildcard is supported if you want to target VMs in all resource groups in the subscription.  
       - **Schedule** - Enter a recurring date and time for starting and stopping the VM's in the target resource group(s). 
