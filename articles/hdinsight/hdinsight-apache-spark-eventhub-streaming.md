@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/25/2016" 
+	ms.date="09/30/2016" 
 	ms.author="nitinme"/>
 
 
@@ -35,7 +35,7 @@ You must have the following:
 - Oracle Java Development kit. You can install it from [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 - A Java IDE. This article uses IntelliJ IDEA 15.0.1. You can install it from [here](https://www.jetbrains.com/idea/download/).
 - Microsoft JDBC driver for SQL Server, v4.1 or later. This is required to write the event data into a SQL Server database. You can install it from [here](https://msdn.microsoft.com/sqlserver/aa937724.aspx).
-- An Azure SQL database. For instructions, see [Create a SQL database in minutes](../sql-database/sql-database-get-started.md)
+- An Azure SQL database. For instructions, see [Create a SQL database in minutes](../sql-database/sql-database-get-started.md).
 
 ## What does this solution do?
 
@@ -112,35 +112,25 @@ A sample Scala application to receive the event and route it to different destin
 
 	![Project View](./media/hdinsight-apache-spark-eventhub-streaming/project-view.png)
 	
-4. Open the **pom.xml** and make sure the Spark version is correct. Under <properties> node, look for the following snippet and verify the Spark version.
+4. Make sure the application code is compiled with Java8. To ensure this, click **File**, click **Project Structure**, and on the **Project** tab, make sure Project language level is set to **8 - Lambdas, type annotations, etc.**.
+
+	![Project structure](./media/hdinsight-apache-spark-eventhub-streaming/java-8-compiler.png)
+
+5. Open the **pom.xml** and make sure the Spark version is correct. Under <properties> node, look for the following snippet and verify the Spark version.
 
 		<scala.version>2.10.4</scala.version>
     	<scala.compat.version>2.10.4</scala.compat.version>
     	<scala.binary.version>2.10</scala.binary.version>
-    	<spark.version>1.6.1</spark.version>
-
-	Make sure the value for **spark.version** is set to **1.5.1**.
-
+    	<spark.version>1.6.2</spark.version>
+	
 5. The application requires two dependency jars:
 
-	* **EventHub receiver jar**. This is required for Spark to receive the messages from Event Hub. To include this jar, update the **pom.xml** to include the following under between `<repositories>..</repositories>` element. If the `<repositories>` element does not exist, create it at the same level as `<properties>`:
-
-			  <repository>
-			  	<id>spark-eventhubs</id>
-			  	<url>https://raw.github.com/hdinsight/spark-eventhubs/maven-repo/</url>
-			  	<snapshots>
-					<enabled>true</enabled>
-					<updatePolicy>always</updatePolicy>
-			  	</snapshots>
-			  </repository>
-			
-
-		Also, add the following under `<dependencies>`.
+	* **EventHub receiver jar**. This is required for Spark to receive the messages from Event Hub. To use this jar, update the **pom.xml** to add the following under `<dependencies>`.
 
 			<dependency>
 			  <groupId>com.microsoft.azure</groupId>
 			  <artifactId>spark-streaming-eventhubs_2.10</artifactId>
-			  <version>1.0.0</version>
+			  <version>1.6.0</version>
 			</dependency> 
 
 	* **JDBC driver jar**. This is required to write the messages received from Event Hub into an Azure SQL database. You can download v4.1 or later of this jar file from [here](https://msdn.microsoft.com/sqlserver/aa937724.aspx). Add reference to this jar in the project library. Perform the following steps:
