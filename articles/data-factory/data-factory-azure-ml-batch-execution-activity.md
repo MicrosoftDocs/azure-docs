@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # Create predictive pipelines using Azure Machine Learning activities   
-## Overview
+> [AZURE.SELECTOR]
 [Hive](data-factory-hive-activity.md)  
 [Pig](data-factory-pig-activity.md)  
 [MapReduce](data-factory-map-reduce.md)  

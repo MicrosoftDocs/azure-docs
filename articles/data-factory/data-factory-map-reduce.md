@@ -17,6 +17,7 @@
 	ms.author="spelluru"/>
 
 # Invoke MapReduce Programs from Data Factory
+> [AZURE.SELECTOR]
 [Hive](data-factory-hive-activity.md)  
 [Pig](data-factory-pig-activity.md)  
 [MapReduce](data-factory-map-reduce.md)  

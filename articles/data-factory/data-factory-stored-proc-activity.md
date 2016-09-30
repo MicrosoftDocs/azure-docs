@@ -17,6 +17,7 @@
 	ms.author="spelluru"/>
 
 # SQL Server Stored Procedure Activity
+> [AZURE.SELECTOR]
 [Hive](data-factory-hive-activity.md)  
 [Pig](data-factory-pig-activity.md)  
 [MapReduce](data-factory-map-reduce.md)  

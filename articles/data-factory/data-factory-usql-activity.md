@@ -17,6 +17,7 @@
 	ms.author="spelluru"/>
 
 # Run U-SQL script on Azure Data Lake Analytics from Azure Data Factory
+> [AZURE.SELECTOR]
 [Hive](data-factory-hive-activity.md)  
 [Pig](data-factory-pig-activity.md)  
 [MapReduce](data-factory-map-reduce.md)  
