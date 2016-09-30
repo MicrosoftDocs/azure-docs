@@ -26,9 +26,9 @@ Azure Security Center is offered in two tiers: free and standard.
 
 The following table summarizes the features available in each tier.  Click the link in the table for more information about the feature and to see screen shots of what you gain with that feature.
 
-| Features: | Free | Standard |
+| **Features:** | Free | Standard |
 |-----|-----|-----|
-| [Security policy, assessment, and recommendations](security-center-pricing.md#secrity-policy,-assessment,-and-recommendations) | X | X |
+| [Security policy, assessment, and recommendations](security-center-pricing.md#security-policy,-assessment,-and-recommendations) | X | X |
 | Connected partner solutions | X | X |
 | Basic security alerting | X | X |
 | **Advanced threat detection:** | -- | X |
@@ -40,7 +40,7 @@ The following table summarizes the features available in each tier.  Click the l
 | Daily data allocation | Not applicable | 500 MB per day |
 | Price | Free | $15/node/month |
 
-> [AZURE.NOTE] The Security Center uses Azure storage to save security data generated from your protected nodes. Costs associated with this storage is not included in the price of the service and will be charged separately at regular Azure storage rates. Storage charges apply even during the trial.
+> [AZURE.NOTE] The Security Center uses Azure storage to save security data generated from your protected nodes. Costs associated with this storage are not included in the price of the service and will be charged separately at regular Azure storage rates. Storage charges apply even during the trial.
 
 ## Free tier
 
