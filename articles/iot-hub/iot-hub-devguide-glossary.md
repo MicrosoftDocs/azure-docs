@@ -28,9 +28,17 @@ This article lists some of the common terms associated with IoT Hub.
 
 Usually used to refer to messages sent from IoT Hub to a connected device. Often, these messages are commands that instruct the device to take some action. For more information, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
 
+## Condition
+
+Refers to device state information, such as the connectivity method currently in use, as reported by a device app. Devices can also report their capabilities. You can query condition and capability using the device twin.
+
 ## Data-point message
 
 A data-point message is a cloud-to-device message that contains telemetry data such as wind speed or temperature.
+
+## Desired properties
+
+In the context of device twins, desired properties are used in conjunction with *reported properties* to synchronize device configuration or condition. Desired properties can only be set by the application back end and are observed by the device app. 
 
 ## Device-to-cloud (D2C)
 
@@ -46,7 +54,7 @@ In the context of IoT, a device is typically a small-scale, standalone computing
 
 ## Device twin
 
-A [device twin](iot-hub-devguide-device-twins.md) is a copy in  IoT Hub of the state and configuration settings of a physical device. You can use a device twin to manage the state and configuration of the physical device.
+A [device twin](iot-hub-devguide-device-twins.md) is a copy in  IoT Hub of the condition and configuration settings of a physical device. You can use a device twin to manage the configuration of the physical device.
 
 ## Direct method
 
@@ -59,6 +67,10 @@ To read device-to-cloud messages sent to your IoT hub, you can connect to an end
 ## Field gateway
 
 A field gateway enables connectivity for devices that cannot connect directly to IoT Hub and is typically deployed locally with your devices. For more information, see [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md).
+
+## Job
+
+Your solution back end can use jobs to schedule and track activities on a set of devices registered with your IoT hub. Activities include updating device twin desired properties, updating device twin tags, and invoking direct methods.
 
 ## Protocol gateway
 
@@ -83,3 +95,15 @@ A [job](iot-hub-devguide-jobs.md) in IoT Hub enables you to perform operations s
 ## MQTT
 
 [MQTT](http://mqtt.org/) is one of the messaging protocols that IoT Hub supports for communicating with devices. For more information about the messaging protocols that IoT Hub supports, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
+
+## Reported properties
+
+In the context of device twins, reported properties are used in conjunction with *desired properties* to synchronize device configuration or condition. Reported properties can only be set by the device app and can be read and queried by the application back end.
+
+## Tags
+
+In the context of devcie twins, tags are device meta-data stored and retrieved by the application back end in the form of a JSON document. Tags are not visible to apps on a device.
+
+## System properties
+
+In the context of device twins, system properties are read-only and include information regarding the device usage such as last activity time and connection state.
