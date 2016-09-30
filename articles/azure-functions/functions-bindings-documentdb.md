@@ -83,13 +83,12 @@ Suppose you have the following DocumentDB input binding in the `bindings` array 
 
 See the language-specific sample that uses this input binding to update the document's text value.
 
-> [AZURE.SELECTOR]
 - [C#](#incsharp)
 - [F#](#infsharp)
 - [Node.js](#innodejs)
 
 <a name="incsharp"></a>
-### Input usage in C#
+### Input usage in C\#
  
     public static void Run(string myQueueItem, dynamic inputDocument)
     {   
@@ -97,7 +96,7 @@ See the language-specific sample that uses this input binding to update the docu
     }
 
 <a name="infsharp"></a>
-### Input usage in F#
+### Input usage in F\#
 
     open FSharp.Interop.Dynamic
     let Run(myQueueItem: string, inputDocument: obj) =
@@ -190,13 +189,12 @@ And you want to create DocumentDB documents in the following format for each rec
 
 See the language specific sample that uses this output binding to add documents to your database.
 
-> [AZURE.SELECTOR]
 - [C#](#outcsharp)
 - [F#](#outfsharp)
 - [Node.js](#outnodejs)
 
 <a name="outcsharp"></a>
-### Output usage in C#
+### Output usage in C\#
 
     #r "Newtonsoft.Json"
 
@@ -219,7 +217,7 @@ See the language specific sample that uses this output binding to add documents 
     }
  
 <a name="outfsharp"></a>
-### Output usage in F#
+### Output usage in F\#
 
     open FSharp.Interop.Dynamic
     open Newtonsoft.Json
