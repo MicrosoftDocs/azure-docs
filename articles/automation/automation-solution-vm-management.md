@@ -59,7 +59,7 @@ StartByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | Specifies 
 StartByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | Specifies the text for the subject line of the email.|  
 StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Specifies the recipient(s) of the email.  Enter separate names by using semi-colon(;).|
 StartByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Enter VM names to be excluded from management operation; separate names by using semi-colon(;). Values are case-sensitive and wildcard (asterisk) is supported.  Default value (asterisk) will include all resource groups in the subscription.|
-StartByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Specifies the subscription that contains VMs to be managed by this solution.  This must be the same subscription where the Automation account of this solution resides.|   
+StartByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Specifies the subscription that contains VMs to be managed by this solution.  This must be the same subscription where the Automation account of this solution resides.|
 **StopByResourceGroup-MS-Mgmt-VM ** ||
 StopByResourceGroup-ExcludeList-MS-Mgmt-VM | Enter VM names to be excluded from management operation; separate names by using semi-colon(;). Values are case-sensitive and wildcard (asterisk) is supported.|
 StopByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | Text that can be appended to the beginning of the email message body.|
@@ -82,7 +82,7 @@ StopByResourceGroup-Schedule-MS-Mgmt | Schedule for StopByResourceGroup runbook.
 
 Credential | Description|
 -----------|------------|
-O365Credential | Specifies a valid Office 365 user account to send email.  Only required if variable **SendMailO365-IsSendEmail-MS-Mgmt** is set to **True**.
+O365Credential | Specifies a valid Office 365 user account to send email.  Only required if variable SendMailO365-IsSendEmail-MS-Mgmt is set to **True**.
 
 ## Configuration
 
@@ -103,18 +103,17 @@ Perform the following steps to add the Start/Stop VMs during off-hours (Preview)
       - **Pricing tier** - The solution is offered in two tiers: free and OMS paid tier.  The free tier has a limit on the amount of data collected daily, retention period, and runbook job runtime minutes.  The OMS paid tier does not have a limit on the amount of data collected daily. 
       
         >[AZURE.NOTE] While the Stadalone paid tier is displayed as an option, it is not applicable.  If you select it and proceed with the creation of this solution in your subscription, it will fail.  This will be addressed when this solution is officially released.  
-
-        >[AZURE.NOTE] If you use this solution, it will only use automation job minutes and log ingestion. The solution does not add additional OMS nodes to your environment.  
+        >If you use this solution, it will only use automation job minutes and log ingestion. The solution does not add additional OMS nodes to your environment.  
 
     b. Automation Account:  If you are creating a new OMS workspace, you will be required to also create a new Automation account that will be tied to the new OMS workspace specified above, including the Azure subscription, resource group and region.  You can select  **Create an Automation account** and in the **Add Automation account** blade you are asked to provide:
 
-      - **Name** - the name of the Automation account.
+      - **Name** - the name of the Automation account. 
       
       All other options are automatically populated based on the OMS workspace selected and an Azure Run As account is the default authentication method for the runbooks included in this solution. These options cannot be modified.  Once you click **OK**, the configuration options are validated and the Automation account is created.  
 
-    c. Configuration: on the **Parameters** blade, you are asked to provide:
+    c. Configuration: On the **Parameters** blade, you are asked to provide:
 
-      - **Target ResourceGroup Names** - The resource group name that contain VMs to be managed by this solution.  You can enter more than one name and separate each using a semi-colon (values are case-sensitive).  Using a wildcard is supported if you want to target VMs in all resource groups in the subscription.  
+      - **Target ResourceGroup Names** - The resource group name that contain VMs to be managed by this solution.  You can enter more than one name and separate each using a semi-colon (values are case-sensitive).  Using a wildcard is supported if you want to target VMs in all resource groups in the subscription. 
       - **Schedule** - Enter a recurring date and time for starting and stopping the VM's in the target resource group(s).  
   
 5. Once you have completed configuring the initial settings required for the solution, select **Create**.  All settings will be validated and then it will attempt to deploy in your subscription.  This process can take several seconds to complete.  
@@ -127,9 +126,9 @@ Automation job log and job stream data is ingested into the OMS repository every
 
 When you add the VM Management solution, in your OMS workspace the **StartStopVM View** tile will be added to your OMS dashboard.  This tile displays a count and graphical representation of the runbooks jobs for the solution that have started and have completed successfully.<br><br> ![VM Management StartStopVM View Tile](media/automation-solution-vm-management/vm-management-solution-startstopvm-view-tile.png)  
 
-In your Automation account, you can access and manage the solution by selecting the **Solutions** tile and then from the **Solutions** blade, selecting the solution **Start-Stop-VM[AutomationAccountName]** from the list.<br> ![Automation Solutions List](media/automation-solution-vm-management/vm-management-solution-autoaccount-solution-list.png)  
+In your Automation account, you can access and manage the solution by selecting the **Solutions** tile and then from the **Solutions** blade, selecting the solution **Start-Stop-VM[AutomationAccountName]** from the list.<br><br> ![Automation Solutions List](media/automation-solution-vm-management/vm-management-solution-autoaccount-solution-list.png)  
 
-Selecting the solution will display the **Start-Stop-VM[AutomationAccountName]** solution blade, where you can review important details such as the **StartStopVM** tile, like in your OMS workspace, which displays a count and graphical representation of the runbooks jobs for the solution that have started and have completed successfully.<br> ![Automation VM Solution Blade](media/automation-solution-vm-management/vm-management-solution-solution-blade.png)  
+Selecting the solution will display the **Start-Stop-VM[AutomationAccountName]** solution blade, where you can review important details such as the **StartStopVM** tile, like in your OMS workspace, which displays a count and graphical representation of the runbooks jobs for the solution that have started and have completed successfully.<br><br> ![Automation VM Solution Blade](media/automation-solution-vm-management/vm-management-solution-solution-blade.png)  
 
 ### Configuring e-mail notifications
 
@@ -138,21 +137,21 @@ To enable email notifications when the start and stop VM runbooks complete, you 
 - SendMailO365-IsSendEmail-MS-Mgmt
 - StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt
 - StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt
-
+<br>  
 To configure the O365Credential credential, perform the following steps:
 
 1. From your automation account, click **All Settings** at the top of the window. 
 2. On the **Settings** blade under the section **Automation Resources**, select **Assets**. 
 3. On the **Assets** blade, select the **Credential** tile and from the **Credential** blade, select the **O365Credential**.  
 4. Enter a valid Office 365 username and password and then click **Save** to save your changes.  
-
+<br> 
 To configure these variables, perform the following steps:
 
 1. From your automation account, click **All Settings** at the top of the window. 
 2. On the **Settings** blade under the section **Automation Resources**, select **Assets**. 
 3. On the **Assets** blade, select the **Variables** tile and from the **Variables** blade, select the variable listed above and then modify its value following the description for it specified in the [variable](##variables) section earlier.  
 4. Click **Save** to save the changes to the variable.   
-
+<br> 
 
 ## Log Analytics records
 
