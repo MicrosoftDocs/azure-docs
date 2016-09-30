@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/17/2016"
+   ms.date="09/30/2016"
    ms.author="masashin"/>
 
 # Content Delivery Network (CDN) guidance
@@ -108,7 +108,7 @@ Deploying content through the CDN simply requires you to specify an HTTP and/or 
 
 The endpoint can specify an Azure blob storage container that holds the static content you want to deliver through the CDN. The container must be marked as public. Only blobs in a public container that have public read access will be available through the CDN.
 
-The endpoint can specify a folder named **cdn** in the root of one of application’s compute layers (such as a web role or a virtual machine). The results from requests for resources, including dynamic resources such as ASPX pages, will be cached on the CDN. The minimum cache period is 300 seconds. Any shorter period will prevent the content from being deployed to the CDN (see the section [cache control](#cache-control) for more information).
+The endpoint can specify a folder named **cdn** in the root of one of application’s compute layers (such as a web role or a virtual machine). The results from requests for resources, including dynamic resources such as ASPX pages, will be cached on the CDN. The minimum cache period is 300 seconds. Any shorter period will prevent the content from being deployed to the CDN (see the heading *Cache control* below for more information).
 
 If you are using Azure Web Apps, the endpoint is set to the root folder of the site by selecting the site when creating the CDN instance. All of the content for the site will be available through the CDN.
 
@@ -280,6 +280,6 @@ Note that using URL rewriting requires you to make some changes to the bundling 
 
 + [Azure CDN](https://azure.microsoft.com/services/cdn/)
 + [Azure Content Delievery Network (CDN) Documentation](https://azure.microsoft.com/documentation/services/cdn/)
-+ [Serve Content from Azure CDN in Your Web Application](./cdn/cdn-serve-content-from-cdn-in-your-web-application/)
++ [Using Azure CDN](./cdn/cdn-create-new-endpoint.md/)
 + [Integrate a cloud service with Azure CDN](./cdn/cdn-cloud-service-with-cdn.md/)
 + [Best Practices for the Microsoft Azure Content Delivery Network](https://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)

@@ -71,7 +71,7 @@ If the regular expression matches, your rule will replace the **Access-Control-A
  
 #### Request header rule for each origin.
 
-Rather than regular expressions, you can instead create a separate rule for each origin you wish to allow using the **Request Header Wildcard** [match condition](cdn-rules-engine-details.md#match-conditions). As with the regular expression method, the rules engine alone sets the CORS headers. 
+Rather than regular expressions, you can instead create a separate rule for each origin you wish to allow using the **Request Header Wildcard** [match condition](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_1). As with the regular expression method, the rules engine alone sets the CORS headers. 
   
 ![Rules example without regular expression](./media/cdn-cors/cdn-cors-no-regex.png)
 
