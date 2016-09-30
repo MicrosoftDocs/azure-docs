@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="09/26/2016"
+   ms.date="09/30/2016"
    ms.author="hascipio; v-divte"/>
 
 # Guide to create a virtual machine image for the Azure Marketplace
@@ -184,23 +184,23 @@ To learn more about VM images, review the following blog posts:
 - [About VM images in Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
 ### Set up the necessary tools, PowerShell and Azure CLI
-- [How to setup PowerShell](https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/ )
-- [How to setup Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/)
+- [How to setup PowerShell](../powershell-install-configure.md )
+- [How to setup Azure CLI](../xplat-cli-install.md)
 
 ### 4.1 Create a user VM image
 #### Capture VM
 Please read the links given below for guidance on capturing the VM using API/PowerShell/Azure CLI.
 
-- [API](https://msdn.microsoft.com/en-us/library/mt163560.aspx )
-- [PowerShell](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-capture-image/ )
--	[Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-capture-image/ )
+- [API](https://msdn.microsoft.com/library/mt163560.aspx )
+- [PowerShell](../virtual-machines-windows-capture-image.md )
+-	[Azure CLI](../virtual-machines-linux-capture-image.md )
 
 ### Generalize Image
 Please read the links given below for guidance on capturing the VM using API/PowerShell/Azure CLI.
 
-- [API](https://msdn.microsoft.com/en-us/library/mt269439.aspx )
-- [PowerShell](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-capture-image/  )
-- [Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-capture-image/)
+- [API](https://msdn.microsoft.com/library/mt269439.aspx )
+- [PowerShell](../virtual-machines-windows-capture-image.md  )
+- [Azure CLI](../virtual-machines-linux-capture-image.md)
 
 ### 4.2 Deploy a VM from a user VM image
 To deploy a VM from a user VM image, you can use the current [Azure portal](https://manage.windowsazure.com) or PowerShell.

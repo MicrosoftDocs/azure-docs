@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/26/2016"
+   ms.date="09/30/2016"
    ms.author="hascipio" />
 
 # How to publish and manage an offer in the Azure Marketplace
