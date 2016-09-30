@@ -5,6 +5,6 @@
 |**Classic/Resource Manager connection** | [Article*](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) | [Article*](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) |[Article](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)|
 
 (+) denotes this deployment method is available only for VNets in the same subscription.<br>
-(*) denotes partial support.
+(*) denotes that this deployment method also requires PowerShell.
 
 
