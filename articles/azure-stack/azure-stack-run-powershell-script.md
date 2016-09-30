@@ -99,7 +99,7 @@ Before you start, make sure that you at least 85 GB of space.
 
 6. Enter the credentials for your Azure Active Directory account. This user must be the Global Admin in the directory tenant.
 
-7. The deployment process will take a couple of hours, during which one automated system reboot will occur. If you want to monitor the deployment progress, sign in as azurestack\AzureStackAdmin. If the deployment fails, you can try to [rerun it](azure-stack-rerun-deploy.md).
+7. The deployment process will take a couple of hours, during which one automated system reboot will occur. If you want to monitor the deployment progress, sign in as azurestack\AzureStackAdmin. If the deployment fails, you can try to [rerun it](azure-stack-rerun-deploy.md). Or, you can [redeploy](azure-stack-redeploy.md) it from scratch.
 
 ### Deployment script examples
 
