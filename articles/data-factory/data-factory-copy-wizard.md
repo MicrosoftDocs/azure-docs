@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2016"
+	ms.date="09/29/2016"
 	ms.author="spelluru"/>
 
 # Data Factory Copy Wizard
-The Azure Data Factory Copy Wizard is to ease the process of ingesting data, which is usually a first step in an end-to-end data integration scenario. When going through the Azure Data Factory Copy Wizard, you do not need to understand any JSON definitions for linked services, datasets, and pipelines. However, after you complete all the steps in the wizard, the wizard automatically creates a pipeline to copy data from the selected data source to the selected destination. In addition, the Copy Wizard helps to validate the environment for data ingestion at the time of authoring. This saves a lot of your time, especially when you are ingesting data for the first time from the data source. To start the Copy Wizard, click the **Copy data** tile on the home page of your data factory.
+The Azure Data Factory Copy Wizard is to ease the process of ingesting data, which is usually a first step in an end-to-end data integration scenario. When going through the Azure Data Factory Copy Wizard, you do not need to understand any JSON definitions for linked services, datasets, and pipelines. However, after you complete all the steps in the wizard, the wizard automatically creates a pipeline to copy data from the selected data source to the selected destination. In addition, the Copy Wizard helps you to validate the environment for data ingestion at the time of authoring, which saves much of your time, especially when you are ingesting data for the first time from the data source. To start the Copy Wizard, click the **Copy data** tile on the home page of your data factory.
 
 ![Copy Wizard](./media/data-factory-copy-wizard/copy-data-wizard.png)
 
@@ -32,7 +32,7 @@ This wizard allows you to easily move data from a wide variety of sources to des
 The wizard is designed with big data in mind from the start. It is simple and efficient to author Data Factory pipelines that move hundreds of folders, files, or tables using the Copy Data wizard. The wizard supports the following three features: Automatic data preview, schema capture and mapping, and filtering data. 
 
 ## Automatic data preview 
-The copy wizard provides you an opportunity to review part of the data from the selected data source for you to verify/validate whether the data it is the right data you want to copy. In addition, if the source data is in a text file, the copy wizard parses the text file to learn row and column delimiters, and schema automatically. 
+The copy wizard allows you to review part of the data from the selected data source for you to verify/validate whether the data it is the right data you want to copy. In addition, if the source data is in a text file, the copy wizard parses the text file to learn row and column delimiters, and schema automatically. 
 
 ![File format settings](./media/data-factory-copy-wizard/file-format-settings.png)
 
@@ -44,13 +44,15 @@ The copy wizard automatically maps columns in the source schema to columns in th
 ![Schema mapping](./media/data-factory-copy-wizard/schema-mapping.png)
 
 ## Filtering data  
-The wizard allows you to filter source data to select only the data that needs to be copied to the destination/sink data store. This reduces the volume of the data to copied to the sink data store and therefore enhances the throughput of the copy operation. It provides a flexible way to filter the data in a relational database by using SQL query language or filter files/blobs in an Azure blob folder by using [Data Factory functions and variables](data-factory-functions-variables.md).   
+The wizard allows you to filter source data to select only the data that needs to be copied to the destination/sink data store. Filtering reduces the volume of the data to be copied to the sink data store and therefore enhances the throughput of the copy operation. It provides a flexible way to filter data in a relational database by using SQL query language (or) filter files in an Azure blob folder by using [Data Factory functions and variables](data-factory-functions-variables.md).   
 
 ### Filtering of data in a database  
+In the example, the SQL query uses the Text.Format function and WindowStart variable. 
+
 ![Validate expressions](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### Filtering of data in an Azure blob folder
-You can use variables in the folder path to copy data from a folder that is determined at runtime based on [WindowStart system variables](data-factory-functions-variables.md#data-factory-system-variables). The supported variables are: **{year}**, **{month}**, **{day}**, **{hour}**, **{minute}**, and **{custom}**. Example: inputfolder/{year}/{month}/{day}.
+You can use variables in the folder path to copy data from a folder that is determined at runtime based on [system variables](data-factory-functions-variables.md#data-factory-system-variables). The supported variables are: **{year}**, **{month}**, **{day}**, **{hour}**, **{minute}**, and **{custom}**. Example: inputfolder/{year}/{month}/{day}.
 
 Suppose that you have input folders in the following format:
 
@@ -59,7 +61,7 @@ Suppose that you have input folders in the following format:
 	2016/03/01/03
 	...
 
-Click the **Browse** button for **File or folder**, browse to one of these folders (for example, 2016->03->01->02), and click **Choose**. You should see **2016/03/01/02** in the text box. Now, replace **2016** with **{year}**, **03** with **{month}**, **01** with **{day}**, and **02** with **{hour}**, and press Tab. You should see drop-down lists to select the format for these four variables:
+Click the **Browse** button for **File or folder**, browse to one of these folders (for example, 2016->03->01->02), and click **Choose**. You should see `2016/03/01/02` in the text box. Now, replace **2016** with **{year}**, **03** with **{month}**, **01** with **{day}**, and **02** with **{hour}**, and press Tab. You should see drop-down lists to select the format for these four variables:
 
 ![Using system variables](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
@@ -69,7 +71,7 @@ As shown in the following screenshot, you can also use a **custom** variable and
 
 
 ### Scalable experience for diverse data and object types
-By using the Copy Wizard, you can efficiently and simply move hundreds of folders, files, or tables.
+By using the Copy Wizard, you can efficiently move hundreds of folders, files, or tables.
 
 ![Select tables from which to copy data](./media/data-factory-copy-wizard/select-tables-to-copy-data.png)
 
