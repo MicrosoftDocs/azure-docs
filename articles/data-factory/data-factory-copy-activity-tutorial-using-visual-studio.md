@@ -19,12 +19,13 @@
 # Tutorial: Create a pipeline with Copy Activity using Visual Studio
 > [AZURE.SELECTOR]
 - [Overview and prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 - [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
+
 
 This tutorial shows you how to create and monitor an Azure data factory using the Visual Studio. The pipeline in the data factory uses a Copy Activity to copy data from Azure Blob Storage to Azure SQL Database.
 
@@ -253,9 +254,9 @@ You have created input/output linked services and tables so far. Now, you create
 
 	Note the following points:
 
-	- In the activities section, there is only one activity whose **type** is set to **CopyActivity**.
+	- In the activities section, there is only one activity whose **type** is set to **Copy**.
 	- Input for the activity is set to **InputDataset** and output for the activity is set to **OutputDataset**.
-	- In the **transformation** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type.
+	- In the **typeProperties** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type.
 
 	Replace the value of the **start** property with the current day and **end** value with the next day. You can specify only the date part and skip the time part of the date time. For example, "2016-02-03", which is equivalent to "2016-02-03T00:00:00Z"
 	

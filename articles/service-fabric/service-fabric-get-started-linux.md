@@ -18,6 +18,12 @@
 
 # Prepare your development environment on Linux
 
+
+> [AZURE.SELECTOR]
+-[ Windows](service-fabric-get-started.md)
+- [Linux](service-fabric-get-started-linux.md)
+- [OSX](service-fabric-get-started-mac.md)
+
  To deploy and run [Azure Service Fabric applications](service-fabric-application-model.md) on your Linux development machine, install the runtime and common SDK. You can also install optional SDKs for Java and .NET Core.
 
 ## Prerequisites
@@ -163,6 +169,8 @@ The .NET Core SDK provides the libraries and templates required to build Service
 ## Next steps
 
 - [Create your first Java application on Linux](service-fabric-create-your-first-linux-application-with-java.md)
+
+- [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
 
 
 <!-- Links -->

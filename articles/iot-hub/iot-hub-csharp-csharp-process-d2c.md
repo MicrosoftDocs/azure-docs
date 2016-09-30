@@ -418,7 +418,7 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub Develope
 [Azure Blob storage]: ../storage/storage-dotnet-how-to-use-blobs.md
 [Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
 [HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
-[Service Bus queue]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
+[Service Bus queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 
 [Azure IoT Hub developer guide - Device to cloud]: iot-hub-devguide.md#d2c
 

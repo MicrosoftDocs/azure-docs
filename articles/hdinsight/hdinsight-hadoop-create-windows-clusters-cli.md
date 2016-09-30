@@ -35,6 +35,10 @@ Before you begin the instructions in this article, you must have the following:
 
 	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
+### Access control requirements
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+
 ##Connect to Azure
 
 Use the following command to connect to Azure:

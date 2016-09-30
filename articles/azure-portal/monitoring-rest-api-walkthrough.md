@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2016"
+	ms.date="09/27/2016"
 	ms.author="mcollier"/>
 
 # Azure Monitoring REST API Walkthrough

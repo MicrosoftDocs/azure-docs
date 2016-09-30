@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/26/2016"
+	ms.date="09/27/2016"
 	ms.author="erikje"/>
 
 # Deploy Azure Stack POC
@@ -21,7 +21,7 @@ To deploy the Azure Stack POC, you first need to [prepare the deployment machine
 
 ## Download and extract Microsoft Azure Stack POC TP2
 
-Before you start, make sure that you have 65 GB of space.
+Before you start, make sure that you at least 85 GB of space.
 
 1. The download of Azure Stack POC TP2 is comprised of a zip file containing the following 12 files, totaling ~20GB:
     - 1 MicrosoftAzureStackPOC.EXE
@@ -45,12 +45,24 @@ Before you start, make sure that you have 65 GB of space.
 
 4. Copy the CloudBuilder.vhdx file to C:\CloudBuilder.vhdx.
 
-5. Download these support files from [Github](https://aka.ms/azurestackdeploytools).
+    > [AZURE.NOTE] If you choose not to use the recommended script to prepare your POC host computer (steps 5 – step 7), do not enter any license key at the activation page. Included is a trial version of Windows Server 2016 image and entering license key will result in expiration warning messages
 
-    - PrepareBootFromVHD.ps1
-    - unattend.xml
-    - unattend_NoKVM.xml 
+5. On the POC machine, run the following PowerShell script to download the Azure Stack TP2 support files:
 
+    ```powershell
+    # Variables
+    $Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/'
+    $LocalPath = 'c:\AzureStack_TP2_SupportFiles'
+
+    # Create folder
+    New-Item $LocalPath -type directory
+
+    # Download files
+    ( 'BootMenuNoKVM.ps1', 'PrepareBootFromVHD.ps1', 'Unattend.xml', 'unattend_NoKVM.xml') | foreach { Invoke-WebRequest ($uri + $_) -OutFile ($LocalPath + '\' + $_) } 
+    ```
+
+    This downloads the Azure Stack TP2 support files to the folder specified by the $LocalPath parameter.
+    
 6. Open an elevated PowerShell console and change the directory to where you copied the files.
 
 7. Run the PrepareBootFromVHD.ps1 script. This and the unattend files are available with the other support scripts provided along with this build.
@@ -87,7 +99,7 @@ Before you start, make sure that you have 65 GB of space.
 
 6. Enter the credentials for your Azure Active Directory account. This user must be the Global Admin in the directory tenant.
 
-7. The deployment process will take a couple of hours, during which one automated system reboot will occur. If you want to monitor the deployment progress, sign in as azurestack\AzureStackAdmin.
+7. The deployment process will take a couple of hours, during which one automated system reboot will occur. If you want to monitor the deployment progress, sign in as azurestack\AzureStackAdmin. If the deployment fails, you can try to [rerun it](azure-stack-rerun-deploy.md). Or, you can [redeploy](azure-stack-redeploy.md) it from scratch.
 
 ### Deployment script examples
 
@@ -113,7 +125,7 @@ If your environment DOES NOT have DHCP enabled, you will need to include the fol
     -NatIPv4Subnet 10.10.10.0/24 -NatIPv4Address 10.10.10.3 -NatIPv4DefaultGateway 10.10.10.1
 
 
-### InstallAzureStack.ps1 optional parameters
+### InstallAzureStackPOC.ps1 optional parameters
 
 | Parameter | Required/Optional | Description |
 | --------- | ----------------- | ----------- |
@@ -126,8 +138,7 @@ If your environment DOES NOT have DHCP enabled, you will need to include the fol
 | NatIPv4DefaultGateway | Required for DHCP NAT support | Sets the default gateway used with the static IP address for the NAT VM. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet.  |
 | NatIPv4Subnet | Required for DHCP NAT support | IP Subnet prefix used for DHCP over NAT support. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet.  |
 | NatSubnetPrefix | Required for DHCP NAT support | IP Subnet prefix to be used for DHCP over NAT support. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet. |
-| PublicVLan | Optional | Sets the VLAN ID. Only use this parameter if the host and NATVM must configure VLAN ID to access the physical network (and Internet).
-For example, `.\InstallAzureStackPOC.ps1 –Verbose –PublicVLan 305` |
+| PublicVLan | Optional | Sets the VLAN ID. Only use this parameter if the host and NATVM must configure VLAN ID to access the physical network (and Internet). For example, `.\InstallAzureStackPOC.ps1 –Verbose –PublicVLan 305` |
 | Rerun | Optional | Use this flag to re-run deployment.  All previous input will be used. Re-entering data previously provided is not supported because several unique values are generated and used for deployment. |
 | TimeServer | Optional | Use this parameter if you need to specify a specific time server. |
 

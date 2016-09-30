@@ -38,7 +38,7 @@ To restore a database:
 2. Begin your restore by using the [Create database restore request][] operation.
 3. Track the status of your restore by using the [Database operation status][] operation.
 
->[AZURE.NOTE] After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
+>[AZURE.NOTE] After the restore has completed, you can configure your recovered database by following [Configure your database after recovery][].
 
 ## Restore a deleted database
 

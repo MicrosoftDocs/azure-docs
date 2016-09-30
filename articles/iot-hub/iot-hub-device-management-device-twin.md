@@ -125,7 +125,7 @@ To learn more about the Azure IoT Hub device management features you can go thro
 - [How to use device jobs to update device firmware][lnk-tutorial-jobs]
 - [Enable managed devices behind an IoT gateway][lnk-dm-gateway]
 - [Introducing the Azure IoT Hub device management client library][lnk-library-c]
-- The device management client libraries provides an end to end sample using an [Intel Edison device][lnk-edison].
+- The device management client libraries provide an end to end sample using an [Intel Edison device][lnk-edison].
 
 To further explore the capabilities of IoT Hub, see:
 
