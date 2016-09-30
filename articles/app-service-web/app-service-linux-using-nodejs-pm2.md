@@ -20,6 +20,7 @@
 # Using PM2 Configuration for Node.js in Web Apps on Linux
 
 If you set the application stack to Node.js for Web Apps on Linux, you will get the option to set a Node.js startup file as shown in the image below.
+
 ![][1]
 
 You can use this to either

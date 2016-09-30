@@ -25,28 +25,33 @@ Customers can use App Service on Linux to host web apps natively on Linux for su
 
 ## Features ##
 App Service on Linux currently supports the following application stacks
--	Node.js
--	PHP
+
+- Node.js
+- PHP
 
 Customers can deploy their applications using
--	FTP
--	Local Git
--	GitHub or BitBucket
+- FTP
+- Local Git
+- GitHub or BitBucket
 
 For application scaling
--	Customers can scale their web app up and down by changing the tier in their App Service Plan. 
--	Customers can scale out their applications out and run their app across multiple instances within the confines of their SKU.
+
+
+- Customers can scale their web app up and down by changing the tier in their App Service Plan. 
+- Customers can scale out their applications out and run their app across multiple instances within the confines of their SKU.
 
 For Kudu some of the basic functionality will work
--	Environment 
--	Deployments 
--	Basic console
+
+- Environment 
+- Deployments 
+- Basic console
 
 ## Limitations ##
 
 The Azure management portal will only show currently supported features for App Service on Linux and hide the rest. As our team enabling more features we will keep reflecting this on the management portal. Some features like VNET integration and AAD / third-party authentication or Kudu site extensions do not currently work. But as we get these working we will update our documentation and blog about changes.
 
 This public preview is currently only available in the following regions
+
 -	West US
 -	West Europe
 -	Southeast Asia
