@@ -51,12 +51,12 @@ On your sign-in page, the **Keep me signed in** checkbox allows a user to remain
    ![Keep me signed-in](./media/active-directory-branding-custom-signon-azure-portal/01.png)
 
 It does not effect session lifetime. You can hide the checkbox on the Azure Active Directory sign-in page.
-Whether the checkbox is displayed depends on the setting of **Hide KMSI**.
+Whether the checkbox is displayed depends on the setting of **Keep me signed in disabled**.
 
    ![Keep me signed-in](./media/active-directory-branding-custom-signon-azure-portal/02.png)
 
 
-To hide the checkbox, configure this setting to **Hidden**. 
+To hide the checkbox, configure this setting to **Yes**. 
 
 > [AZURE.NOTE] Some features of SharePoint Online and Office 2010 depend on users being able to check this box. If you configure this setting to hidden, your users may see additional and unexpected prompts to sign-in.
 
