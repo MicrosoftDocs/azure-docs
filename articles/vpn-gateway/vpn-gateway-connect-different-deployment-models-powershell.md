@@ -24,14 +24,26 @@
 
 Azure currently has two management models: classic and Resource Manager (RM). If you have been using Azure for some time, you probably have Azure VMs and instance roles running in a classic VNet. Your newer VMs and role instances may be running in a VNet created in Resource Manager. This article walks you through connecting classic VNets to Resource Manager VNets to allow the resources located in the separate deployment models to communicate with each other over a gateway connection.
 
-You can create a connection between VNets that are in different subscriptions, in different regions, and in different deployment models. You can also connect VNets that already have connections to on-premises networks, as long as the gateway that they have been configured with is dynamic or route-based. For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article.
+You can create a connection between VNets that are in different subscriptions and in different regions. You can also connect VNets that already have connections to on-premises networks, as long as the gateway that they have been configured with is dynamic or route-based. For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article.
+
+### Deployment models and methods for connecting VNets in different deployment models
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+
+We update the following table as new articles and additional tools become available for this configuration. When an article is available, we link directly to it from the table.<br><br>
+
+[AZURE.INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)] 
+
+#### VNet peering
+
 [AZURE.INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
+
 
 ## Before beginning
 
 The following steps walk you through the settings necessary to configure a dynamic or route-based gateway for each VNet and create a VPN connection between the gateways. This configuration does not support static or policy-based gateways.
 
-Before beginning, verify the following:
+### Prerequisites
 
  - Both VNets have already been created.
  - The address ranges for the VNets do not overlap with each other, or overlap with any of the ranges for other connections that the gateways may be connected to.
@@ -39,7 +51,7 @@ Before beginning, verify the following:
 
 ### <a name="exampleref"></a>Example settings
 
-You can use the example settings as a reference when using the PowerShell cmdlets.
+You can use the example settings as a reference.
 
 **Classic VNet settings**
 
