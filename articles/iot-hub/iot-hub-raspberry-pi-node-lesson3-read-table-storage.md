@@ -40,3 +40,5 @@ gulp run --read-storage
 ### 3.3.5 Summary
 You have now successfully connected your Raspberry Pi 3 device to the cloud and used the Azure blink sample application to send device-to-cloud messages. You also used the Azure function app to persist incoming IoT hub messages to your Azure table storage. Now you can move to the next lesson to send cloud-to-device messages to your Raspberry Pi 3.
 
+## Next Steps
+Lesson 4: Send cloud-to-device messages. Coming Soon...
