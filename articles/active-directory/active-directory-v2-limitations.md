@@ -29,8 +29,6 @@ Over time, the v2.0 endpoint will grow to eliminate the restrictions listed here
 
 If you have an existing app with Azure AD that does not use the v2.0 endpoint, there's no need to start from scratch.  In the future, we will be providing a way for you to enable your existing Azure AD applications for use with the v2.0 endpoint.
 
-Temporary text
-
 ## Restrictions on apps
 The following types of apps are not currently supported by the v2.0 endpoint.  For a description of the supported types of apps, refer to [this article](active-directory-v2-flows.md).
 
