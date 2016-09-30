@@ -22,7 +22,7 @@
 
 ##  Azure Storage
 
-For details on this service and how to use it, see [Azure Storage public documentation](../services/storage.md).
+For details on this service and how to use it, see [Azure Storage public documentation](https://azure.microsoft.com/documentation/services/storage/).
 
 ### Variations
 
@@ -44,7 +44,7 @@ The following information identifies the Azure Government boundary for Azure Sto
 
 ##  Premium Storage
 
-For details on this service and how to use it, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage-premium-storage.md).
+For details on this service and how to use it, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md).
 
 ###  Variations
 
@@ -56,7 +56,7 @@ The same storage data considerations listed above apply to premium storage accou
 
 ##  SQL Database
 
-Refer to the<a href="https://msdn.microsoft.com/en-us/library/bb510589.aspx"> Microsoft Security Center for SQL Database Engine </a> and [Azure SQL Database Public Documentation](../sql-database.md) for additional guidance on metadata visibility configuration, and protection best practices.
+Refer to the<a href="https://msdn.microsoft.com/en-us/library/bb510589.aspx"> Microsoft Security Center for SQL Database Engine </a> and [Azure SQL Database Public Documentation](https://azure.microsoft.com/en-us/documentation/services/sql-database/) for additional guidance on metadata visibility configuration, and protection best practices.
 
 ### Variations
 
