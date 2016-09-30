@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/26/2016"
+	ms.date="09/30/2016"
 	ms.author="dastrock"/>
 
 # Scopes, permissions, & consent in the v2.0 endpoint
