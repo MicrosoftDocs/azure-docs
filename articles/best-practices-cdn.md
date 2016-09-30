@@ -138,7 +138,7 @@ You cannot set up a CDN endpoint for an application in the local Azure emulator 
 
 Consider which compression approach you want your CDN to support:
 
-+ You can [enable compression](./cdn/cdn-improve-performance) on your origin server, in which case the CDN will support compression by default and deliver compressed content to clients in a format such as zip or gzip. When using an application folder as the CDN endpoint, the server may compress some content automatically in the same way as when delivering it directly to a web browser or other type of client. The format depends on the value of the **Accept-Encoding** header in the request sent by the client. In Azure the default mechanism is to automatically compress content when CPU utilization is below 50%. If you are using a cloud service to host the application, changing the settings may require using a startup task to turn on compression of dynamic output in IIS. See [Enabling gzip compression with Microsoft Azure CDN through a Web Role](http://blogs.msdn.com/b/avkashchauhan/archive/2012/03/05/enableing-gzip-compression-with-windows-azure-cdn-through-web-role.aspx) for more information.
++ You can [enable compression](./cdn/cdn-improve-performance.md) on your origin server, in which case the CDN will support compression by default and deliver compressed content to clients in a format such as zip or gzip. When using an application folder as the CDN endpoint, the server may compress some content automatically in the same way as when delivering it directly to a web browser or other type of client. The format depends on the value of the **Accept-Encoding** header in the request sent by the client. In Azure the default mechanism is to automatically compress content when CPU utilization is below 50%. If you are using a cloud service to host the application, changing the settings may require using a startup task to turn on compression of dynamic output in IIS. See [Enabling gzip compression with Microsoft Azure CDN through a Web Role](http://blogs.msdn.com/b/avkashchauhan/archive/2012/03/05/enableing-gzip-compression-with-windows-azure-cdn-through-web-role.aspx) for more information.
 
 + You can enable compression directly on CDN edge servers, in which case the CDN will compress the files and serve it to end users. For more information, see [Azure CDN Compression](./cdn/cdn-improve-performance.md).
 
@@ -211,7 +211,7 @@ Consider analyzing the CDN traffic for usage patterns. The Azure portal provides
 + Cache HIT Ratio, and
 + Ratio of IPV4/IPV6 requests.
 
-For more information, see [Analyze CDN usage patterns](./cdn/cdn-analyze-usage-patterns.md/).
+For more information, see [Analyze CDN usage patterns](./cdn/cdn-analyze-usage-patterns.md).
 
 ### Cost implications
 
