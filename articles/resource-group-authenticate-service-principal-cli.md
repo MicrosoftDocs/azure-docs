@@ -51,10 +51,7 @@ Now, proceed to a section for either [password](#create-service-principal-with-p
 
 ## Create service principal with password
 
-In this section, you perform the steps to:
-
-- create the AD application with a password, and the service principal
-- assign the Reader role to the service principal
+In this section, you perform the steps to create the AD application with a password, and assign the Reader role to the service principal.
 
 Let's go through these steps.
 
@@ -64,17 +61,17 @@ Let's go through these steps.
 
 1. You have two options for creating the AD application. You can either create the AD application and the service principal in one step, or create them separately. Create them in one step if you do not need specify a home page and identifier URIs for your app. Create them separately if you need to set these values for a web app. Both options are shown in this step.
 
-     - To create the AD application and service principal in one step, use the following command. Provide the name of the app and a password.
+     - To create the AD application and service principal in one step, provide the name of the app and a password, as shown in the following command:
      
-        azure ad sp create -n exampleapp -p {your-password}     
+          azure ad sp create -n exampleapp -p {your-password}     
      
-     - To create the AD application separately, use the following command. Provide the name of the app, a home page URI, identifier URIs, and a password.
+     - To create the AD application separately, provide the name of the app, a home page URI, identifier URIs, and a password, as shown in the following command:
      
-        azure ad app create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example -p <Your_Password>
+          azure ad app create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example -p <Your_Password>
 
-     The preceding command returns an AppId value. To create a service principal, provide that value as a parameter in the following command.
+       The preceding command returns an AppId value. To create a service principal, provide that value as a parameter in the following command:
      
-        azure ad sp create -a <AppId>
+          azure ad sp create -a <AppId>
      
      If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context".
     
@@ -157,17 +154,17 @@ To complete these steps, you must have [OpenSSL](http://www.openssl.org/) instal
 
 1. You have two options for creating the AD application. You can either create the AD application and the service principal in one step, or create them separately. Create them in one step if you do not need specify a home page and identifier URIs for your app. Create them separately if you need to set these values for a web app. Both options are shown in this step.
 
-     - To create the AD application and service principal in one step, use the following command. Provide the name of the app and the certificate data.
+     - To create the AD application and service principal in one step, provide the name of the app and the certificate data, as shown in the following command:
      
-        azure ad sp create -n exampleapp --cert-value <certificate data>
+          azure ad sp create -n exampleapp --cert-value <certificate data>
      
-     - To create the AD application separately, use the following command. Provide the name of the app, a home page URI, identifier URIs, and the certificate data.
+     - To create the AD application separately, provide the name of the app, a home page URI, identifier URIs, and the certificate data, as shown in the following command:
      
-        azure ad app create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example --cert-value <certificate data>
+          azure ad app create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example --cert-value <certificate data>
 
-     The preceding command returns an AppId value. To create a service principal, provide that value as a parameter in the following command.
+       The preceding command returns an AppId value. To create a service principal, provide that value as a parameter in the following command:
      
-        azure ad sp create -a <AppId>
+          azure ad sp create -a <AppId>
   
      If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context".
     
