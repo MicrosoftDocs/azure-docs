@@ -48,14 +48,11 @@ These basic Gallery resources can be grouped together logically in a couple diff
 
 Finally, **[Competitions](machine-learning-gallery-competitions.md)** provide an exciting opportunity to compete with the community of data scientsts to solve complex problems using Cortana Intelligence Suite.
   
-## How can I use the Gallery?
+## Discover and learn
 
-Anyone can browse and search the solutions in the Gallery and learn from others.
-If you log in using your Microsoft account, you can also download experiments to your own Machine Learning Studio workspace, and you can contribute your own solutions to the Gallery.
-
-### Discover and learn
-
-Search and browse the different types of solutions that have been contributed by Microsoft and the advanced analytics community. Use these to get a head start on solving your own data analysis problems.
+Anyone can browse and search the different types of solutions in the Gallery that have been contributed by Microsoft and the advanced analytics community.
+Use these to learn more and get a head start on solving your own data analysis problems.
+If you log in using your Microsoft account, you can also download items such as experiments and Jupyter notebooks to your own Machine Learning Studio workspace.
 
 You can easily find recently published and popular solutions in the Gallery, or you can search by name, tags, algorithms, and other attributes.
 View contributions from a particular author by clicking the author name from within any of the tiles.
@@ -66,52 +63,22 @@ You can comment, provide feedback, or ask questions through the comments section
 You can even share a solution of interest with friends or colleagues using the share capabilities of LinkedIn or Twitter.
 You may also email links to these solutions to invite other users to view the pages.
 
-![Share this item with friends](media\machine-learning-gallery-how-to-use-contribute-publish\share-links.png)
-
-![Add your own comments](media\machine-learning-gallery-how-to-use-contribute-publish\comments.png)
+![Share this item with friends](media\machine-learning-gallery-how-to-use-contribute-publish\comment-and-share.png)
 
 
-### Contribute
+## Contribute to the Gallery
 
-When you sign in you become a member of the Gallery community. This allows you to contribute your own experiments and collections so that others can benefit from the solutions you've discovered.
+When you sign in you become a member of the Gallery community. This allows you to contribute your own Gallery items so that others can benefit from the solutions you've discovered.
 
-See the section below, [Suggestions for publishing and for quality documentation](#suggestions-for-publishing-and-for-quality-documentation), for more details and tips on how to create a quality gallery contribution.
+As others come across your contribution in the Gallery, you can follow the number of views and downloads you've had. Users can also add comments and share your contribution with other members of the data science community. 
 
+![Share this item with friends](media\machine-learning-gallery-how-to-use-contribute-publish\view-and-download-counts.png)
 
-#### Contribute collections
+You can contribute the following items to the Gallery - follow these links for more information:
 
-A *collection* is a list of related items from Cortana Intelligence Gallery that are grouped together for later reference, use, or sharing.
-Your collection can contain items that you own or items that have been contributed by the community.
-
-For example, you can use a collection to group together items on a specific topic, or you can group together a multi-step experiment that solves a complex problem.
-The initial collections contributed by Microsoft consist of multi-step machine learning experiment templates for solving real world problems, such as online fraud detection, text classification, retail forecasting, and predictive maintenance.
-
-Follow these steps to create and contribute a collection to the Cortana Intelligence Gallery:
-
-- Sign in to the Gallery using your Microsoft account
-- Click your image at the top of the window and click your name
-- Click **New Collection**
-- Give the collection a name, a brief summary, a description, and any tags that will help users find the collection
-- Add an image to identify the collection
-- Click **Create**
-
-Your collection is now part of the Cortana Intelligence Gallery.
-
-You can add items to your collection by opening the collection, clicking **Edit**, and then clicking **Add Item**. Or, if you find an item while browsing through the Gallery that you want to include, just open the item, click **Add to collection**, and specify the collection you want to add it to.
-
-You can change the summary, description, or tags of your collection by opening the collection and clicking **Edit**.
-While you're editing your collection, you can also change the order of the items in the collection by using the arrow buttons next to an item to move it in the list. And you add notes to the items in your collection by clicking the upper-right corner of an item and selecting **Add/Edit note**.
-
-<!--
-![Publish](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png)
--->
-
-## Suggestions for publishing and for quality documentation
-
-- While you can assume that the reader has prior data science experience, it still helps to simplify your language and explain things in detail wherever possible.
-- Not all readers will be familiar with the Cortana Intelligence Suite, given that it is relatively new; therefore, provide enough information and step-by-step explanations to help such readers navigate through your work.
-- Visuals including experiment graphs or screenshots of data can be very helpful for readers to interpret and use your content the right way. See [this collection](https://gallery.cortanaintelligence.com/Collection/Publishing-Guidelines-and-Examples-1) for more information on how to include images in your documentation.
-- If your dataset is part of your experiment and not being imported through a reader module, it is part of your experiment and will get published to the Gallery. Therefore, ensure that the dataset you’re publishing has appropriate licensing terms for sharing and downloading by anyone. Gallery contributions are covered under the Azure [Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/).
+- **[Collections](machine-learning-gallery-collections.md#contribute)**
+- **[Experiments](machine-learning-gallery-experiments.md#contribute)**
+- **[Tutorials](machine-learning-gallery-tutorials.md#contribute)**
 
 
 ## We want to hear from you!
