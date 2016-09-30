@@ -56,8 +56,6 @@ The same storage data considerations listed above apply to premium storage accou
 
 ##  SQL Database
 
-##  SQL Database
-
 Refer to the<a href="https://msdn.microsoft.com/en-us/library/bb510589.aspx"> Microsoft Security Center for SQL Database Engine </a> and [Azure SQL Database Public Documentation](../sql-database.md) for additional guidance on metadata visibility configuration, and protection best practices.
 
 ### Variations
