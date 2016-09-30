@@ -28,7 +28,7 @@ The following table summarizes the features available in each tier.  Click the l
 
 | **Features:** | Free | Standard |
 |-----|-----|-----|
-| [Security policy, assessment, and recommendations](#security-policy,-assessment,-and-recommendations) | X | X |
+| [Security policy, assessment, and recommendations](#security-policy-assessment-and-recommendations) | X | X |
 | [Connected partner solutions](#connected-partner-solutions) | X | X |
 | Basic security alerting | X | X |
 | **Advanced threat detection:** | -- | X |
