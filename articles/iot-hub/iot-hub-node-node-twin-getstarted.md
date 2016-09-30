@@ -33,9 +33,12 @@ Use device twins to:
 
 Device twins are stored in an IoT hub and contain:
 
+* *device identity properties*, containing read-only information provided by IoT Hub, such as last activity time and connection state, as in the [device identity registry][lnk-identity];
 * *tags*, device meta-data accessible only by the back end;
 * *desired properties*, JSON objects modifiable by the back end and observable by the device app; and
 * *reported properties*, JSON objects modifiable by the device app and readable by the back end. Tags and properties cannot contain arrays, but objects can be nested.
+
+![][img-twin]
 
 Additionally, the app back end can query device twins based on all the above data.
 Refer to [Understand device twins][lnk-twins] for more information about device twins and to the [IoT Hub query language][lnk-query] reference for querying.
@@ -233,7 +236,7 @@ Use the follwing resources to learn how to:
 <!-- images -->
 [1]: media/iot-hub-node-node-twin-getstarted/service1.png
 [3]: media/iot-hub-node-node-twin-getstarted/service2.png
-
+[img-twin]: media/iot-hub-node-node-twin-getstarted/twin.png
 
 <!-- links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
@@ -243,6 +246,7 @@ Use the follwing resources to learn how to:
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-twins]: iot-hub-devguide-device-twins.md
 [lnk-query]: iot-hub-devguide-query-language.md
+[lnk-identity]: iot-hub-devguide-identity-registry.md
 
 [lnk-iothub-getstarted]: iot-hub-node-node-getstarted.md
 [lnk-device-management]: iot-hub-device-management-get-started.md

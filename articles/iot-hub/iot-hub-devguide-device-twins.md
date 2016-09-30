@@ -20,7 +20,10 @@
 
 ## Overview
 
-*Device twins* are JSON documents that store device state information (meta-data, configurations, and conditions). IoT Hub persists a device twin for each device that you connect to IoT Hub.
+*Device twins* are JSON documents that store device state information (meta-data, configurations, and conditions). IoT Hub persists a device twin for each device that you connect to IoT Hub. This article will describe:
+
+* the structure of the device twin: *tags*, *desired* and *reported properties*, and
+* the operations that device apps and back ends can perform on device twins.
 
 > [AZURE.NOTE] Currently, device twins are accessible only from devices that connect to IoT Hub using the MQTT protocol.
 
@@ -46,10 +49,13 @@ The lifecycle of a device twins is linked to the corresponding [device identity]
 
 A device twin is a JSON document that includes:
 
+* **Device identity properties**. Read-only information provided by IoT Hub, such as last activity time and connection state, as in the [device identity registry][lnk-identity].
 * **Tags**. A JSON document read and written by the back end. Tags are not visible to device apps.
 * **Desired properties**. Used in conjunction with reported properties to synchronize device configuration or condition. Desired properties can only be set by the application back end and can be read by the device app. The device app can also be notified in real time of changes on the desired properties.
 * **Reported properties**. Used in conjunction with desired properties to synchronize device configuration or condition. Reported properties can only be set by the device app and can be read and queried by the application back end.
-* **System properties**. System properties contain read-only information provided by IoT Hub, such as last activity time and connection state. This is the same information reported in the [device identity registry][lnk-identity].
+
+
+![][img-twin]
 
 Here is an example of a device twin JSON document:
 
@@ -301,3 +307,5 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-twin-metadata]: iot-hub-devguide-device-twins.md#twin-metadata
 [lnk-concurrency]: iot-hub-devguide-device-twins.md#optimistic-concurrency
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow
+
+[img-twin]: media/iot-hub-devguide-device-twins/twin.png
