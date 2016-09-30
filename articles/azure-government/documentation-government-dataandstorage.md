@@ -26,13 +26,19 @@ For details on this service and how to use it, see [Azure Storage public documen
 
 ### Variations
 
-The URL for storage accounts in Azure Government is different:
+The URL for storage accounts in Azure Government are different:
 
 Service Type|Azure Public|Azure Government
 ---|---|---
 Blob Storage|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net
 Queue Storage|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
 Table Storage|*.table.core.windows.net|*.table.core.usgovcloudapi.net
+
+NOTE:  All of your scripts and code needs to account for the appropriate endpoints.  See [Configure Azure Storage Connection Strings](https://azure.microsoft.com/en-us/documentation/articles/storage-configure-connection-string/#creating-a-connection-string-to-an-explicit-storage-endpoint/). 
+
+For more information on APIs see the <a href="https://msdn.microsoft.com/en-us/library/azure/mt616540.aspx"> Cloud Storage Account Constructor</a>.
+
+The endpoint suffix to use in these overloads is core.usgovcloudapi.net 
 
 ### Considerations
 
@@ -60,7 +66,7 @@ Refer to the<a href="https://msdn.microsoft.com/en-us/library/bb510589.aspx"> Mi
 
 ### Variations
 
-SQL Database is generally available in Azure Government.
+SQL V12 Database is generally available in Azure Government.
 
 The Address for SQL Azure Servers in Azure Government is different:
 
