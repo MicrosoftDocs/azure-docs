@@ -30,13 +30,13 @@ If you configure write-back, changes occurring in your Azure AD directory are sy
 
 
 ## Synchronization from your Azure AD tenant to your managed domain
-User accounts, group memberships, and credential hashes are synchronized from your Azure AD tenant to your Azure AD Domain Services managed domain. This synchronization process is automatic. You do not need to configure, monitor or manage this synchronization process. The synchronization process is also one-way/unidirectional in nature. Your managed domain is largely read-only except for any custom OUs you create. Therefore, you cannot make changes to user attributes, user passwords, or group memberships within the managed domain. As a result, there is no reverse synchronization of changes from your managed domain back to your Azure AD tenant.
+User accounts, group memberships, and credential hashes are synchronized from your Azure AD tenant to your Azure AD Domain Services managed domain. This synchronization process is automatic. You do not need to configure, monitor, or manage this synchronization process. The synchronization process is also one-way/unidirectional in nature. Your managed domain is largely read-only except for any custom OUs you create. Therefore, you cannot make changes to user attributes, user passwords, or group memberships within the managed domain. As a result, there is no reverse synchronization of changes from your managed domain back to your Azure AD tenant.
 
 
 ## Synchronization from a multi-forest on-premises environment
 Many organizations have a fairly complex on-premises identity infrastructure consisting of multiple account forests. Azure AD Connect supports synchronizing users, groups, and credential hashes from multi-forest environments to your Azure AD tenant.
 
-In contrast, your Azure AD tenant is a much simpler and flat namespace. Resolve UPN conflicts across user accounts in different forests to enable users to reliably access applications secured by Azure AD. Your Azure AD Domain Services managed domain bears close resemblance to your Azure AD tenant. Therefore, you see a flat OU structure in your managed domain. All users and groups are stored within the 'AADDC Users' container, regardless of the on-premises domain or forest from which they were synced in. You may have configured a hierarchical OU structure on-premises. However, your managed domain still has a simple flat OU structure.
+In contrast, your Azure AD tenant is a much simpler and flat namespace. To enable users to reliably access applications secured by Azure AD, resolve UPN conflicts across user accounts in different forests. Your Azure AD Domain Services managed domain bears close resemblance to your Azure AD tenant. Therefore, you see a flat OU structure in your managed domain. All users and groups are stored within the 'AADDC Users' container, regardless of the on-premises domain or forest from which they were synced in. You may have configured a hierarchical OU structure on-premises. However, your managed domain still has a simple flat OU structure.
 
 
 ## Exclusions - what isn't synchronized to your managed domain
