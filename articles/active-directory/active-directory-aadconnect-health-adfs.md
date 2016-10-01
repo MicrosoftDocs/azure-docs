@@ -30,7 +30,7 @@ You can double-click an active or resolved alert, to open a new blade with addit
 
 
 ## Usage Analytics for AD FS
-Azure AD Connect Health Usage Analytics analyzes the authentication traffic of your federation servers. You can double-click the usage analytics box, to open the usage analytics blade which shows you several metrics and groupings.
+Azure AD Connect Health Usage Analytics analyzes the authentication traffic of your federation servers. You can double-click the usage analytics box, to open the usage analytics blade, which shows you several metrics and groupings.
 
 >[AZURE.NOTE] To use Usage Analytics with AD FS, you must ensure that AD FS auditing is enabled. For more information, see [Enable Auditing for AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
 
@@ -44,13 +44,13 @@ To select additional metrics, specify a time range, or to change the grouping, r
 |  | Application | Groups the total requests based on the targeted relying party. This grouping is useful to understand which application is receiving how much percentage of the total traffic. |
 |  | Server | Groups the total requests based on the server that processed the request. This grouping is useful to understand the load distribution of the total traffic. |
 |  | Workplace Join | Groups the total requests based on whether they are coming from devices that are workplace joined (known). This grouping is useful to understand if your resources are accessed using devices that are unknown to the identity infrastructure. |
-|  | Authentication Method | Groups the total requests based on the authentication method used for authentication. This grouping is useful to understand the common authentication method that gets used for authentication. Following are the possible authentication methods <ol> <li>Windows Integrated Authentication (Windows)</li> <li>Forms Based Authentication (Forms)</li> <li>SSO (Single Sign On)</li> <li>X509 Certificate Authentication (Certificate)</li> <br>Note that if the federation servers receive the request with an SSO Cookie, that request is counted as SSO (Single Sign On). In such cases, if the cookie is valid, the user is not asked to provide credentials and gets seamless access to the application. This is common if you have multiple relying parties protected by the federation servers. |
+|  | Authentication Method | Groups the total requests based on the authentication method used for authentication. This grouping is useful to understand the common authentication method that gets used for authentication. Following are the possible authentication methods <ol> <li>Windows Integrated Authentication (Windows)</li> <li>Forms Based Authentication (Forms)</li> <li>SSO (Single Sign On)</li> <li>X509 Certificate Authentication (Certificate)</li> <br>If the federation servers receive the request with an SSO Cookie, that request is counted as SSO (Single Sign On). In such cases, if the cookie is valid, the user is not asked to provide credentials and gets seamless access to the application. This is common if you have multiple relying parties protected by the federation servers. |
 |  | Network Location | Groups the total requests based on the network location of the user. It can be either intranet or extranet. This grouping is useful to know what percentage of the traffic is coming from the intranet versus extranet. |
-| Total Failed Requests: The total number failed requests processed by the federation service. <br> (This metric is only available on AD FS for Windows Server 2012 R2)| Error Type | Shows the number of errors based on predefined error types. This grouping is useful to understand the common types of errors. <ul><li>Incorrect Username or Password: Errors due to incorrect username or password.</li> <li>"Extranet Lockout": Failures due to the requests received from a user that was locked out from extranet </li><li> "Expired Password": Failures due to users logging in with an expired password.</li><li>"Disabled Account": Failures due to users logging with a disabled account.</li><li>"Device Authentication": Failures due to users failing to authenticate using Device Authentication.</li><li>"User Certificate Authentication": Failures due to users failing to authenticate because of an invalid certificate.</li><li>"MFA": Failures due to user failing to authenticate using Multi-Factor Authentication.</li><li>"Other Credential": "Issuance Authorization": Failures due to authorization failures.</li><li>"Issuance Delegation": Failures due to issuance delegation errors.</li><li>"Token Acceptance": Failures due to ADFS rejecting the token from a third party Identity Provider.</li><li>"Protocol": Failure due to protocol errors.</li><li>"Unknown": Catch all. Any other failures that do not fit into the defined categories.</li> |
+| Total Failed Requests: The total number failed requests processed by the federation service. <br> (This metric is only available on AD FS for Windows Server 2012 R2)| Error Type | Shows the number of errors based on predefined error types. This grouping is useful to understand the common types of errors. <ul><li>Incorrect Username or Password: Errors due to incorrect username or password.</li> <li>"Extranet Lockout": Failures due to the requests received from a user that was locked out from extranet </li><li> "Expired Password": Failures due to users logging in with an expired password.</li><li>"Disabled Account": Failures due to users logging with a disabled account.</li><li>"Device Authentication": Failures due to users failing to authenticate using Device Authentication.</li><li>"User Certificate Authentication": Failures due to users failing to authenticate because of an invalid certificate.</li><li>"MFA": Failures due to user failing to authenticate using Multi-Factor Authentication.</li><li>"Other Credential": "Issuance Authorization": Failures due to authorization failures.</li><li>"Issuance Delegation": Failures due to issuance delegation errors.</li><li>"Token Acceptance": Failures due to ADFS rejecting the token from a third-party Identity Provider.</li><li>"Protocol": Failure due to protocol errors.</li><li>"Unknown": Catch all. Any other failures that do not fit into the defined categories.</li> |
 |  | Server | Groups the errors based on the server. This grouping is useful to understand the error distribution across servers. Uneven distribution could be an indicator of a server in a faulty state. |
 |  | Network Location | Groups the errors based on the network location of the requests (intranet vs extranet). This grouping is useful to understand the type of requests that are failing. |
 |  | Application | Groups the failures based on the targeted application (relying party). This grouping is useful to understand which targeted application is seeing most number of errors. |
-| User Count: Average number of unique users active in the system | All | This metric provides a count of average number of users using the federation service in the selected time slice. The users are not grouped. <br>The average will depend on the time slice selected. |
+| User Count: Average number of unique users active in the system | All | This metric provides a count of average number of users using the federation service in the selected time slice. The users are not grouped. <br>The average depends on the time slice selected. |
 |  | Application | Groups the average number of users based on the targeted application (relying party). This grouping is useful to understand how many users are using which application. |
 
 
@@ -68,20 +68,20 @@ Azure AD Connect Health provides reports about activity and performance of AD FS
 
 ### Top 50 Users with failed Username/Password logins
 
-One of the common reasons for a failed authentication request on an AD FS server is a request with invalid credentials, that is, a wrong username or password. This commonly occurs because of complex passwords, forgotten passwords, or typos.
+One of the common reasons for a failed authentication request on an AD FS server is a request with invalid credentials, that is, a wrong username or password. Usually happens to users due to complex passwords, forgotten passwords, or typos.
 
-But there are other reasons that can result in an unexpected number of such requests being handled by your AD FS servers. An application that caches user credentials and the credentials expire or a malicious user attempting to sign into a user's account with a series of well-known passwords, are two valid reasons that could lead to a surge in requests.
+But there are other reasons that can result in an unexpected number of requests being handled by your AD FS servers, such as: An application that caches user credentials and the credentials expire or a malicious user attempting to sign into a user's account with a series of well-known passwords. These are two examples of reasons that could lead to a surge in requests.
 
-Azure AD Connect Health for ADFS provides a report about top 50 Users with failed login attempts due to invalid username or password. This is achieved by processing the audit events generated by all the AD FS servers in the farms
+Azure AD Connect Health for ADFS provides a report about top 50 Users with failed login attempts due to invalid username or password. This report is achieved by processing the audit events generated by all the AD FS servers in the farms
 
 ![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health-adfs/report1a.png)
 
 Within this report you have easy access to the following pieces of information:
 
 - Total # of failed requests with wrong username/password in the last 30 days
-- Average # of users that failed with a bad username/password login on a daily basis.
+- Average # of users that failed with a bad username/password login per day.
 
-Clicking this part takes you to the main report blade that provides additional details. This includes a graph with trending information to help establish a baseline about requests with wrong username or password. Additionally, it provides the list of top 50 users with the number of failed attempts.
+Clicking this part takes you to the main report blade that provides additional details. This blade includes a graph with trending information to help establish a baseline about requests with wrong username or password. Additionally, it provides the list of top 50 users with the number of failed attempts.
 
 The graph provides the following information:
 
@@ -100,7 +100,7 @@ The report provides the following information:
 
 
 
->[AZURE.NOTE] This report is automatically updated after every two hours with the new information collected within that time. As a result, login attempts within the last 2 hours may not be included in the report.
+>[AZURE.NOTE] This report is automatically updated after every two hours with the new information collected within that time. As a result, login attempts within the last two hours may not be included in the report.
 
 
 
