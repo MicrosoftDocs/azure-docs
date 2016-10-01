@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/29/2016"
+   ms.date="09/30/2016"
    ms.author="bwren" />
 
 # Custom solutions in Operations Management Suite (OMS) (Preview)
@@ -36,9 +36,19 @@ Solutions require an [OMS workspace](../log-analytics/log-analytics-manage-acces
 - The OMS workspace and Automation account used by a solution must have a link between each other. An OMS workspace may only be linked to one Automation account, and an Automation account may only be linked to one OMS workspace.
 - The OMS workspace and Automation account must be in the same resource group and region.  The exception is an OMS workspace in East US region and and Automation account in East US 2.
 
+### Creating a link between the OMS workspace and Automation account
+
 Currently, the only way to create a link between an OMS workspace and Automation account is through the user interface when a installs a solution from the Azure Marketplace using the Azure portal.  The user is prompted to select a workspace and account, and they are limited to the those with a matching resource group and region.  The link is created just before the solution is installed. 
 
-If your solution will be made available through Azure QuickStart templates, then you must link the OMS workspace and Automation account before installing the solution.  You can do this by installing any solution in the Azure Marketplace and selecting the OMS workspace and Automation account.  Once the link is created, then you can specify the name of the OMS workspace and Automation account when you install your solution. 
+If your solution will be made available through Azure QuickStart templates, then you must link the OMS workspace and Automation account before installing the solution.  You can do this by selecting any solution in the Azure Marketplace and selecting the OMS workspace and Automation account.  You don't have to actually install the solution because the link will be created as soon as the OMS workspace and Automation account are selected.  Once the link is created, then you can specify the name of the OMS workspace and Automation account when you install your solution. 
+
+### Verifying the link between an OMS workspace and Automation account
+You can verify the link between an OMS workspace and an Automation account using the following procedure.
+
+1. Select the Automation account in the Azure portal.
+2. Scroll to the bottom of the **Settings** pane.
+3. If there is a section called **OMS Resources** in the **Settings** pane, then this account is attached to an OMS workspace.
+4. Select **Workspace** to view the details of the OMS workspace linked to this Automation account.
 
 
 ## Solution file
@@ -61,7 +71,6 @@ The basic structure of a Resource Manager Template is as follows.  Each of the f
 The **parameters** element defines values that you require from the user when they install the solution.  If your solution is installed from the Azure Marketplace, it must include the parameters below.  When the user installs the solution, they are prompted to select an OMS workspace and an Automation account, and these values are used to populate the corresponding parameters.
 
 If your solution is not in the Azure Marketplace, it will still require these values to specify information about the OMS workspace and Automation account.
-
 
 You can add other parameters as required for your particular solution.    
 
@@ -140,6 +149,8 @@ The **resources** element defines the different resources included in your solut
 		}
 	]
 
+The **dependsOn** elements specifies a [dependency](../resource-group-define-dependencies.md) on another resource.  The other resource is created before the current one.  For example, your solution might [start a runbook](operations-management-suite-custom-solutions-resources-automation.md) when it's installed.  You do this by creating a **job** resource.  This resource would be dependent on the runbook resource to make sure that the runbook is created before the job is.
+
 You can get the details and samples of resources that are common to solutions in the following articles.
 
 - Custom views (Coming soon)
@@ -148,12 +159,25 @@ You can get the details and samples of resources that are common to solutions in
 #### Solution resource
 Each solution requires a resource entry in the **resources** element that defines the solution itself.  This will have a type of **Microsoft.OperationsManagement/solutions** and have the following structure.
 
-      "name": "[concat(variables('SolutionName'), '(' ,parameters('workspaceName'), ')')]",
-      "location": "[parameters('workspaceRegionId')]",
-      "tags": { },
-      "type": "Microsoft.OperationsManagement/solutions",
-      "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+	"name": "[concat(variables('SolutionName'), '[' ,parameters('workspacename'), ']')]",
+	"location": "[parameters('workspaceRegionId')]",
+	"tags": { },
+	"type": "Microsoft.OperationsManagement/solutions",
+	"apiVersion": "[variables('LogAnalyticsApiVersion')]",
+	"dependsOn": [],
+	"properties": {}
+	"plan": {}
 
+##### Solution name
+The solution name must be unique in your Azure subscription. A best practice is to use the OMS workspace name in the solution name to guarantee that it's unique as in the following.
+
+	My Solution Name [MyWorkspace]
+
+You can specify this name in the Solution resource with the following value that uses a variable for the solution name and the parameter for the workspace.
+
+	[concat(variables('SolutionName'), '[ ' ,parameters('workspaceName'), ']')] 
+
+##### Dependencies
 The solution resource must have a [dependency](../resource-group-define-dependencies.md) on every other resource in the solution since they need to exist before the solution can be created.  You do this by adding an entry for each resource in the **dependsOn** element.
 
 For example, a solution with a runbook, a schedule, and view would have a **dependsOn** element like the following.
@@ -164,6 +188,7 @@ For example, a solution with a runbook, a schedule, and view would have a **depe
 		"[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/views/', variables('MyViewName'))]"
 	]
 
+##### Properties
 The solution resource has the properties in the following table.  This includes the resources referenced and contained by the solution which defines how the resource is managed after the solution is installed.  Each resource in the solution should be listed in either the **referencedResources** or the **containedResources** property.
 
 | Property | Description |
@@ -184,6 +209,27 @@ For example, a solution with a runbook, a schedule, and view would have a **prop
           "[concat(resourceGroup().id, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspacename'), '/views/', variables('MyViewName'))]"
         ]
       },
+
+##### Plan
+The **plan** entity of the solution resource has the properties in the following table. 
+
+| Property | Description |
+|:--|:--|
+| name          | Name of the solution. |
+| version       | Version of the solution as determined by the author. |
+| product       | Unique string to identify the solution. |
+| publisher     | Publisher of the solution. |
+| promotionCode | |
+
+Following is an example of the **plan** entity.
+
+	"plan": {
+		"name": "[concat(variables('SolutionName'), '(' ,parameters('workspacename'), ')')]",
+		"Version": "[variables('SolutionVersion')]",
+		"product": "VmManagementSolution",
+		"publisher": "[variables('SolutionPublisher')]",
+		"promotionCode": ""
+	}
 
 ## Testing a custom solution
 Prior to deploying your custom solution, it is recommended that you test it using [Test-AzureRmResourceGroupDeployment](../resource-group-template-deploy.md#deploy-with-powershell).  This will validate your solution file and help you identify any problems before attempting to deploy it.

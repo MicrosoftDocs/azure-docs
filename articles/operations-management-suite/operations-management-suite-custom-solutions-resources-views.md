@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/25/2016"
+   ms.date="09/30/2016"
    ms.author="bwren" />
 
 # Views in OMS custom solutions (Preview)
@@ -40,6 +40,13 @@ The **resources** element of the view file will have a resource with a type of *
 
 
 ## Modify the view file
+The exported view file will include a resource for the OMS workspace with the view defined as a subelement.  The workspace should not be included in the solution, so you will only want to copy the view resource, but you must make some changes.
+
+### Resource type
+The **type** for the view resource will simply be **views** because it inherits from the parent element which is **Microsoft.OperationalInsights/workspaces**.  When the view resource is changed to a top level entity, you need to change its type to **Microsoft.OperationalInsights/workspaces/types**.
+
+
+### Parameters
 The exported view file requires similar parameters as the solution file but uses different names for them.  For example, solutions have a parameter called **workspaceName** that requires the name of the OMS workspace.  Views have an equivalent parameter called **workspace**.  
 
 You need to modify the view resource to use the parameter names in the solution.  You can do this by performing a search and replace for the text values in the following table. Replace the text in the **resources** element of the view file with the parameter or function from the solution file. 
@@ -83,31 +90,22 @@ For example, following is a view exported from View Designer.  An ellipse is use
 		},
 		"resources": [
 		{
-			"apiVersion": "[parameters('workspaceapiversion')]",
-			"name": "[parameters('workspace')]",
-			"type": "Microsoft.OperationalInsights/workspaces",
+			"apiVersion": "2015-11-01-preview",
+			"name": "My Custom View",
+			"type": "Microsoft.OperationalInsights/workspaces/views",
 			"location": "[parameters('location')]",
-			"id": "[Concat('/subscriptions/', parameters('subscriptionId'), '/resourceGroups/', parameters('resourcegroup'), '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspace'))]",
-			"resources": [
-				{
-					"apiVersion": "2015-11-01-preview",
-					"name": "My Custom View",
-					"type": "views",
-					"location": "[parameters('location')]",
-					"id": "[Concat('/subscriptions/', parameters('subscriptionId'), '/resourceGroups/', parameters('resourcegroup'), '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspace'),'/views/My Custom View')]",
-					"dependson": [
-						"[Concat('/subscriptions/', parameters('subscriptionId'), '/resourceGroups/', parameters('resourcegroup'), '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspace'))]"
-					],
-					"properties": {
-                        "Id": "My Custom View",
-                        "Name": "My Custom View",
-                        "Description": "",
-                        "Author": "user@contoso.com",
-                        "Source": "Local",
-						...
-					}
-				}
-			]
+			"id": "[Concat('/subscriptions/', parameters('subscriptionId'), '/resourceGroups/', parameters('resourcegroup'), '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspace'),'/views/My Custom View')]",
+			"dependson": [
+				"[Concat('/subscriptions/', parameters('subscriptionId'), '/resourceGroups/', parameters('resourcegroup'), '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspace'))]"
+			],
+			"properties": {
+				"Id": "My Custom View",
+				"Name": "My Custom View",
+				"Description": "",
+				"Author": "user@contoso.com",
+				"Source": "Local",
+				...
+			}
 		}
 	}
 
@@ -204,30 +202,21 @@ For example, the following sample shows the view above copied into a solution fi
 			},
 			{
 				"apiVersion": "[variables('LogAnalyticsApiVersion')]",
-				"name": "[parameters('workspaceName')]",
-				"type": "Microsoft.OperationalInsights/workspaces",
+				"name": "My Custom View",
+				"type": "Microsoft.OperationalInsights/workspaces/views",
 				"location": "[parameters('workspaceregionId')]",
-				"id": "[Concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
-				"resources": [
-					{
-						"apiVersion": "[variables('LogAnalyticsApiVersion')]",
-						"name": "My Custom View",
-						"type": "views",
-						"location": "[parameters('workspaceregionId')]",
-						"id": "[Concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'),'/views/My Custom View')]",
-						"dependson": [
-							"[Concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-						],
-						"properties": {
-		                    "Id": "My Custom View",
-		                    "Name": "My Custom View",
-		                    "Description": "",
-		                    "Author": "user@contoso.com",
-		                    "Source": "Local",
-							...
-						}
-					}
-				]
+				"id": "[Concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'),'/views/My Custom View')]",
+				"dependson": [
+					"[Concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+				],
+				"properties": {
+                    "Id": "My Custom View",
+                    "Name": "My Custom View",
+                    "Description": "",
+                    "Author": "user@contoso.com",
+                    "Source": "Local",
+					...
+				}
 			}
   		]
 	}

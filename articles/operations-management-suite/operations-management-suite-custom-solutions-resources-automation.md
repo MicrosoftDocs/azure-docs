@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/26/2016"
+   ms.date="09/30/2016"
    ms.author="bwren" />
 
 # Automation resources in OMS custom solutions (Preview)
@@ -26,30 +26,12 @@
 >[AZURE.NOTE]You can get sample Resource Manager templates for Automation resources from the [QuickStart templates in GitHub](https://github.com/azureautomation/automation-packs/tree/master/101-sample-automation-resource-templates).
 
 ## Automation account
-All resources in Azure Automation are associated with an [Automation account](../automation/automation-security-overview.md#automation-account-overview).  Solutions require the parameter **accountName** to specify the name of an automation account, and this name is used in the **name** property of each runbook and asset to specify their full path.  It's a best practice to also define the Automation account as a resource in your solution to ensure that it exists.  
+All resources in Azure Automation are contained in an [Automation account](../automation/automation-security-overview.md#automation-account-overview).  As described in [OMS workspace and Automation account](operations-management-suite-custom-solutions.md#oms-workspace-and-automation-account) the Automation account isn't included in the solution and but exist before the solution is installed.  If it isn't available, then the solution install will fail.
 
-Azure Automation account resources have a type of **Microsoft.Automation/automationAccounts** and have the properties in the following table.
+The name of their Automation account is in the name of each Automation resource.  This is done in the solution with the **accountName** parameter as in the following.
+	
+	"name": "[concat(parameters('accountName'), '/MyRunbook'))]"
 
-| Property | Description |
-|:--|:--|
-| sku | Subelement that includes a single property of **name** that includes the pricing tier of the account.   |
-
-A typical Automation account resource in a solution is below.
-
-	"name": "MyAutomationAccount",
-	"type": "Microsoft.Automation/automationAccounts",
-	"apiVersion": "[variables('LogAnalyticsApiVersion')]",
-	"location": "[parameters('regionId')]",
-	"tags": {},
-	"properties": {
-		"sku": {
-			"name": "[variables('pricingTier')]"
-		}
-	}
-
-Each Automation resource in the solution is stored in an Automation account.  There are two methods to ensure that the required Automation account is available for each resource.  One method is to define a [dependency](../resource-group-define-dependencies.md) for the resource on the account with a **dependsOn** element.  The other method is to specify the resources as subelements of the **automationAccounts** element.
-
-The samples in this article use a **dependsOn** element for the Automation account.
 
 ## Runbooks
 [Azure Automation runbook](../automation/automation-runbook-types.md) resources have a type of **Microsoft.Automation/automationAccounts/runbooks** and have the properties in the following table.
@@ -80,9 +62,48 @@ An example of a runbook resource is below.  In this case, it retrieves the runbo
 		}
 	}
 
+### Starting a runbook
+There are two methods to start a runbook in a solution.
 
-## Jobs
+- To start the runbook when the solution is installed, create a [job resource](#automation-jobs) as described below.
+- To start the runbook on a schedule, create a [schedule resource](#schedules) as described below. 
 
+
+## Automation jobs
+In order to start a runbook when the solution is installed, you create a **job** resource.  Job resources have a type of **Microsoft.Automation/automationAccounts/jobs** and have the properties in the following table.
+
+| Property | Description |
+|:--|:--|
+| runbook    | Single **name** entity with the name of the runbook.  |
+| parameters | Entity for each parameter required by the runbook. |
+
+
+The job includes the runbook name and any parameter values to be sent to the runbook.  The job must depend on the runbook that it's starting since the runbook must be created before the job.  You also create dependencies on other jobs for runbooks that should be completed before the current one.
+
+Following is an example of a job resource that starts a runbook when the solution is installed.  Two other runbooks must be completed before this one starts, so it has dependencies on the jobs for those runbooks.  The runbook also accepts parameters   
+
+	{
+		"name": "[concat(parameters('accountName'), '/', parameters('ScheduleReregisterJobIDGuid'))]",
+		"type": "Microsoft.Automation/automationAccounts/jobs",
+		"apiVersion": "[variables('AutomationApiVersion')]",
+		"location": "[parameters('regionId')]",
+		"dependsOn": [
+			"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('ScheduleReRegisterRunbookName'))]",
+			"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/jobs/', parameters('ScheduleCreationGuid'))]",
+			"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/jobs/', parameters('ElasticPoolScheduleCreationGuid'))]"
+		],
+		"tags": { },
+		"properties": {
+			"runbook": {
+				"name": "[variables('ScheduleReRegisterRunbookName')]"
+			},
+			"parameters": {
+				"targetSubscriptionId": "[subscription().subscriptionId]",
+				"resourcegroup": "[resourceGroup().name]",
+				"automationaccount": "[parameters('accountName')]"
+			}
+		}
+	}
 
 
 ## Certificates
@@ -159,6 +180,8 @@ An example of a schedule resource is below.
 		"interval": "day",
 		"frequency": "1"
 	}
+
+A schedule resource is limit
 
 ## Variables
 [Azure Automation variables](../automation/automation-variables.md) have a type of **Microsoft.Automation/automationAccounts/variables** and have the properties in the following table.
