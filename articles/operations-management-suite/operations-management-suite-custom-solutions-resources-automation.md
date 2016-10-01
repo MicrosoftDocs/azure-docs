@@ -210,6 +210,36 @@ An example of a variable resource is below.
 	}
 
 
+## Modules
+Your solution does not need to define global modules used by your runbooks because they will always be available.  You do need to include a resource for any other module used by your runbooks, and the runbook should depend on the module resource to ensure that it's created before the runbook.
+
+
+
+[Integration modules](../automation/automation-integration-modules.md) have a type of **Microsoft.Automation/automationAccounts/modules** and have the properties in the following table.
+
+| Property | Description |
+|:--|:--|
+| contentLink | Specifies the content of the module. <br><br>uri - Uri to the content of the runbook.  This will be a .ps1 file for PowerShell and Script runbooks, and an exported graphical runbook file for a Graph runbook.  <br> version - Version of the runbook for your own tracking. |
+
+An example of a module resource is below.
+
+	{		
+		"name": "[concat(parameters('accountName'), '/', variables('OMSIngestionModuleName'))]",
+		"type": "Microsoft.Automation/automationAccounts/modules",
+		"apiVersion": "[variables('AutomationApiVersion')]",
+		"dependsOn": [
+			"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/jobs/', parameters('ModuleImportGuid'))]",
+			"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/jobs/', parameters('SolutionCleanupJobIDGuid'))]"
+		],
+		"properties": {
+			"contentLink": {
+				"uri": "https://devopsgallerystorage.blob.core.windows.net/packages/omsingestionapi.1.3.0.nupkg"
+			}
+		}
+	}
+
+If you update a solution that includes a runbook that uses a schedule, and the new version of your solution has a new module used by that runbook, then the runbook may use the old version of the module.  The script [Update-ModulesinAutomationToLatestVersion](https://www.powershellgallery.com) will ensure that all of the modules used by runbooks in your solution are the latest version.  
+
 
 ## Next steps
 
