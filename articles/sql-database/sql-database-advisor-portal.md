@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="06/22/2016"
+   ms.date="09/30/2016"
    ms.author="sstein"/>
 
 # SQL Database Advisor
@@ -34,7 +34,7 @@ To view and apply recommendations, you need the correct [role-based access contr
 2. Click **BROWSE** > **SQL databases**, and select your database.
 5. Click **All settings** > **Recommendations** to view available **Recommendations** for the selected database.
 
-> [AZURE.NOTE] To get recommendations a database needs to have about a week of usage, and within that week there needs to be some activity. There also needs to be some consistent activity as well. The SQL Database Advisor can more easily optimize for consistent query patterns than it can for random spotty bursts of activity. If recommendations are not available, the **Recommendations** page should provide a message explaining why.
+> [AZURE.NOTE] To get recommendations a database needs to have about a day of usage, and there needs to be some activity. There also needs to be some consistent activity as well. The SQL Database Advisor can more easily optimize for consistent query patterns than it can for random spotty bursts of activity. If recommendations are not available, the **Recommendations** page should provide a message explaining why.
 
 ![Recommendations](./media/sql-database-advisor-portal/recommendations.png)
 

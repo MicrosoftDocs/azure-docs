@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="06/23/2016"
+   ms.date="09/30/2016"
    ms.author="sstein"/>
 
 # SQL Database Advisor
@@ -22,7 +22,7 @@
 - [SQL Database Advisor Overview](sql-database-advisor.md)
 - [Portal](sql-database-advisor-portal.md)
 
-The Azure SQL Database provides recommendations for creating and dropping indexes, parameterizing queries, and fixing schema issues. The SQL Database Advisor assesses performance by analyzing your SQL database's usage history. The recommendations that are best suited for running your database’s typical workload are recommended. 
+Azure SQL Database learns and adapts with your application and provides customized recommendations enabling you to maximize the performance of your SQL databases. The SQL Database Advisor provides recommendations for creating and dropping indexes, parameterizing queries, and fixing schema issues. The advisor assesses performance by analyzing your SQL database's usage history. The recommendations that are best suited for running your database’s typical workload are recommended. 
 
 The following recommendations are available for V12 servers (recommendations are not available for V11 servers). Currently you can set the create and drop index recommendations to be applied automatically, see [Automatic index management](sql-database-advisor-portal.md#enable-automatic-index-management) for details.
 
