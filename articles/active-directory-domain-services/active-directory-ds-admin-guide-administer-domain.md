@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory Domain Services preview: Administer a managed domain | Microsoft Azure"
+	pageTitle="Azure Active Directory Domain Services: Administer a managed domain | Microsoft Azure"
 	description="Administer Azure Active Directory Domain Services managed domains"
 	services="active-directory-ds"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/31/2016"
+	ms.date="10/02/2016"
 	ms.author="maheshu"/>
 
 # Administer an Azure Active Directory Domain Services managed domain

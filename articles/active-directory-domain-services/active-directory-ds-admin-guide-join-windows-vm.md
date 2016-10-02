@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory Domain Services preview: Administration Guide | Microsoft Azure"
+	pageTitle="Azure Active Directory Domain Services: Join a Windows Server VM to a managed domain | Microsoft Azure"
 	description="Join a Windows Server virtual machine to Azure AD Domain Services"
 	services="active-directory-ds"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/31/2016"
+	ms.date="10/02/2016"
 	ms.author="maheshu"/>
 
 # Join a Windows Server virtual machine to a managed domain
