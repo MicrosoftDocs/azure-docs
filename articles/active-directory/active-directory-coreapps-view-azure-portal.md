@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/12/2016"
+	ms.date="09/30/2016"
 	ms.author="curtand"/>
 
 # View all the enterprise apps that I can manage in Azure Active Directory preview
@@ -35,6 +35,6 @@ You can manage your enterprise applications in the Azure Active Directory (Azure
 ## Next steps
 
 - [Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
-- [Remove a user or group assignment from an enterprise app](active-directory-coreapps-remove-assignment-user-azure-portal.md)
+- [Remove a user or group assignment from an enterprise app](active-directory-coreapps-remove-assignment-azure-portal.md)
 - [Disable user sign-ins for an enterprise app](active-directory-coreapps-disable-app-azure-portal.md)
-- [Change the name or logo of an enterprise app](active-directory-coreapps-change-app-logo-azure-portal.md)
+- [Change the name or logo of an enterprise app](active-directory-coreapps-change-app-logo-user-azure-portal.md)
