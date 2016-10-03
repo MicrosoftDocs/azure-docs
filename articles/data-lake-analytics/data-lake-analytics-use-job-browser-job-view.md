@@ -93,6 +93,7 @@ Job view contains:
         In a particular stage, some numbers are shown in the placard.
 
         ![Azure Data Lake Analytics job graph stage](./media/data-lake-analytics-use-job-browser-job-view/data-lake-tools-job-graph-stage.png)
+
         - SV1 Extract: The name of a stage, named by a number and the operation method.
         - 84 vertices: The total count of vertices in this stage. This indicates how many pieces of work will be divided in this stage.
         - 12.90 s/vertex: The average vertex execution time for this stage. This is calculated by SUM (every vertex execution time) / (total Vertex count). Which means if you could assign all the vertices executed in parallelism, the whole stage will be done in 16.82 s. It also means if all the work in this stage is done serially, the cost would be #vertices * AVG time.
@@ -123,96 +124,73 @@ Job view contains:
 
     - Job Playback
 
-        Besides of running a job, Data Lake Analytics also archives the vertices running information, such as when the vertices are started, stopped, failed and how they are retried, etc. All of the information is automatically logged in the query store and stored in its Job Profile. You can download the Job Profile through “Load Profile” in Job View, and you can view the Job Playback after downloading the Job Profile.
-
-        Fig. 9. Download Profile to find more
+        Data Lake Analytics runs jobs and archives the vertices running information of the jobs, such as when the vertices are started, stopped, failed and how they are retried, etc. All of the information is automatically logged in the query store and stored in its Job Profile. You can download the Job Profile through “Load Profile” in Job View, and you can view the Job Playback after downloading the Job Profile.
 
         Job Playback is an epitome visualization of what happened in the cluster. It helps you watch job execution progress and visually detect out performance anomalies and bottlenecks in a very short time (less than 30s usually).
 
-        Place Holder for Job Playback GIF.
-
     - Job Heat Map Display 
 
-        Job Heat Map can be selected through Display dropdown in Job Graph, it shows the I/O, time and throughput heat map of a job, through which you can find where does the job spend most of the time, or if your job is an I/O boundary job, etc.
+        Job Heat Map can be selected through the Display dropdown in Job Graph. 
+        
+        ![Azure Data Lake Analytics job graph heapmap display](./media/data-lake-analytics-use-job-browser-job-view/data-lake-tools-job-graph-heat-map-display.png)
 
-        Fig. 10. Job Graph Heat Map Display
+        It shows the I/O, time and throughput heat map of a job, through which you can find where the job spends most of the time, or whether your job is an I/O boundary job, and so on.
 
-        Fig. 11. Job Graph Heat Map Example 
+        ![Azure Data Lake Analytics job graph heapmap example](./media/data-lake-analytics-use-job-browser-job-view/data-lake-tools-job-graph-heat-map-example.png)
         
         - Progress: The job execution progress, see Information in One stage.
-
         - Data read/written: The heat map of total data read/written in each stages.
-
         - Compute time: The heat map of SUM (every vertex execution time), you can consider this as how long it would take if all work in the stage is executed with only 1 vertex.
-
         - Average execution time per node: The heat map of SUM (every vertex execution time) / (Vertex Number). Which means if you could assign all the vertices executed in parallelism, the whole stage will be done in this time frame.
-
         - Input/Output throughput: The heat map of input/output throughput of each stage, you can confirm if your job is an I/O bound job through this.
 
-    - Metadata Operations
+- Metadata Operations
 
-        You can do some metadata operations in your U-SQL script, such as create a database, drop a table, etc. These operations are shown in Metadata Operation after compilation. You may find assertions, create entities, drop entities here.
+    You can perform some metadata operations in your U-SQL script, such as create a database, drop a table, etc. These operations are shown in Metadata Operation after compilation. You may find assertions, create entities, drop entities here.
 
-        Fig. 12. Metadata Operation in Job View
+    ![Azure Data Lake Analytics job view metadata operations](./media/data-lake-analytics-use-job-browser-job-view/data-lake-tools-job-view-metadata-operations.png)
+    
+- State History
 
-    - State History
+    The State History is also visualized in Job Summary, but you can get more details here. You can find the detailed information such as when the job is prepared, queued, started running, ended. Also you can find how many times the job has been compiled (the CcsAttempts: 1), when is the job dispatched to the cluster actually (the Detail: Dispatching job to cluster), etc.
 
-        The State History is also visualized in Job Summary, but you can get more details here. You can find the detailed information such as when the job is prepared, queued, started running, ended. Also you can find how many times the job has been compiled (the CcsAttempts: 1), when is the job dispatched to the cluster actually (the Detail: Dispatching job to cluster), etc.
+    ![Azure Data Lake Analytics job view state history](./media/data-lake-analytics-use-job-browser-job-view/data-lake-tools-job-view-state-history.png)
+    
+- Diagnostics
 
-        Fig. 13. State History in Job View
+    The tool diagnoses job execution automatically. You will receive alerts when there are some errors or performance issues in your jobs. Please note that you need to download Profile to get full information here. You can find more details through this guide (link TBD).
 
-    - Diagnostics
+    ![Azure Data Lake Analytics job view diagnostics](./media/data-lake-analytics-use-job-browser-job-view/data-lake-tools-job-view-diagnostics.png)
 
-        The tool diagnoses job execution automatically. You will receive alerts when there are some errors or performance issues in your jobs. Please note that you need to download Profile to get full information here. You can find more details through this guide (link TBD).
-
-        Fig. 14. Diagnostics in Job View
-
-        - Warnings: An alert shows up here with compiler warning. You can click “x issue(s)” link to have more details once the alert appears.
-
-        - Vertex run too long: If any vertex run out of time (say 5 hours), issues will be found here.
-
-        - Resource usage: If you allocated more or not enough Parallelism than need, issues will be found here. Also you can click Resource usage to see more details and perform what-if scenarios to find a better resource allocation (for more details, see this guide).
-
-        - Memory check: If any vertex uses more than 5 GB of memory, issues will be found here. Job execution may get killed by system if it uses more memory than system limitation.
+    - Warnings: An alert shows up here with compiler warning. You can click “x issue(s)” link to have more details once the alert appears.
+    - Vertex run too long: If any vertex run out of time (say 5 hours), issues will be found here.
+    - Resource usage: If you allocated more or not enough Parallelism than need, issues will be found here. Also you can click Resource usage to see more details and perform what-if scenarios to find a better resource allocation (for more details, see this guide).
+    - Memory check: If any vertex uses more than 5 GB of memory, issues will be found here. Job execution may get killed by system if it uses more memory than system limitation.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-Job Detail
+## Job Detail
 
 Job Detail shows the detailed information of the job, including Script, Resources and Vertex Execution View.
 
-Fig. 15. Job Detail in Job View
+![Azure Data Lake Analytics job detail](./media/data-lake-analytics-use-job-browser-job-view/data-lake-tools-job-details.png)
+    
 
-Script
+- Script
 
-The U-SQL script of the job is stored in the query store. You can view the original U-SQL script and re-submit it if needed.
+    The U-SQL script of the job is stored in the query store. You can view the original U-SQL script and re-submit it if needed.
 
-Resources
+- Resources
 
-You can find the job compilation outputs stored in the query store through Resources. For instance, you can find “algebra.xml” which is used to show the Job Graph, the assemblies you registered, etc. here.
+    You can find the job compilation outputs stored in the query store through Resources. For instance, you can find “algebra.xml” which is used to show the Job Graph, the assemblies you registered, etc. here.
 
-Vertex execution view
+- Vertex execution view
 
-It shows vertices execution details. The Job Profile archives every vertex execution log, such as total data read/written, runtime, state, etc. Through this view, you can get more details on how a job ran. Check this guide (link TBD) for more debugging tutorials.
-
-
-
+    It shows vertices execution details. The Job Profile archives every vertex execution log, such as total data read/written, runtime, state, etc. Through this view, you can get more details on how a job ran. Check this guide (link TBD) for more debugging tutorials.
 
 
 
 
-##See also
+## See also
 
 - To see a more complex query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 - To get started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
