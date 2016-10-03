@@ -111,14 +111,14 @@ There are a limited number of free scheduler jobs available post-migration.  Rev
 ### <a name="configure-cors"></a>Configure CORS if needed
 
 Cross-origin resource sharing is a technique to allow a website to access a Web API on a different domain.  If you are using Azure Mobile
-Services with an associated website, then you will need to configure CORS as part of the migration.  If you are accessing Azure Mobile
+Services with an associated website, then you need to configure CORS as part of the migration.  If you are accessing Azure Mobile
 Services exclusively from mobile devices, then CORS does not need to be configured except in rare cases.
 
 Your migrated CORS settings are available as the **MS_CrossDomainWhitelist** App Setting.  To migrate your site to the App Service CORS facility:
 
   1.  Log in to the [Azure portal].
   2.  Select **All resources** or **App Services** then click the name of your migrated Mobile Service.
-  3.  The Settings blade will open by default.
+  3.  The Settings blade opens by default.
   4.  Click **CORS** in the API menu.
   5.  Enter any Allowed Origins in the box provided, pressing Enter after each one.
   6.  Once your list of Allowed Origins is correct, Click the Save button.
@@ -131,7 +131,7 @@ CORS settings is an optional task, but provides for a better management experien
 ### <a name="download-publish-profile"></a>Download a new Publishing Profile
 
 The publishing profile of your site is changed when migrating to Azure App Service.  If you intend to publish
-your site from within Visual Studio, you need a new publishing profile .  To download the new publishing profile:
+your site from within Visual Studio, you need a new publishing profile.  To download the new publishing profile:
 
   1.  Log in to the [Azure portal].
   2.  Select **All resources** or **App Services** then click the name of your migrated Mobile Service.
@@ -161,7 +161,7 @@ them, you can reset them:
 
   1. Log in to the [Azure portal].
   2. Select **All resources** or **App Services** then click the name of your migrated Mobile Service.
-  3. The Settings blade will open by default.
+  3. The Settings blade opens by default.
   4. Click **Deployment credentials** in the PUBLISHING menu.
   5. Enter the new deployment credentials in the boxes provided, then click the Save button.
 
@@ -175,7 +175,7 @@ To view or change your app settings:
 
   1. Log in to the [Azure portal].
   2. Select **All resources** or **App Services** then click the name of your migrated Mobile Service.
-  3. The Settings blade will open by default.
+  3. The Settings blade opens by default.
   4. Click **Application settings** in the GENERAL menu.
   5. Scroll to the App Settings section and find your app setting.
   6. Click the value of the app setting to edit the value.  Click **Save** to save the value.
@@ -212,10 +212,10 @@ The _Data_ tab in Mobile Services has been replaced by _Easy Tables_ within the 
 
   1. Log in to the [Azure portal].
   2. Select **All resources** or **App Services** then click the name of your migrated Mobile Service.
-  3. The Settings blade will open by default.
+  3. The Settings blade opens by default.
   4. Click **Easy tables** in the MOBILE menu.
 
-You can add a table by clicking the **Add** button or access your existing tables by clicking on a table name.  There are various operations
+You can add a table by clicking the **Add** button or access your existing tables by clicking a table name.  There are various operations
 you can do from this blade, including:
 
 * Changing table permissions
@@ -231,7 +231,7 @@ The _API_ tab in Mobile Services has been replaced by _Easy APIs_ within the Azu
 
   1. Log in to the [Azure portal].
   2. Select **All resources** or **App Services** then click the name of your migrated Mobile Service.
-  3. The Settings blade will open by default.
+  3. The Settings blade opens by default.
   4. Click **Easy APIs** in the MOBILE menu.
 
 Your migrated APIs are already listed in the blade.  You can also add an API from this blade.  To manage a specific API, Click the API.
@@ -275,8 +275,8 @@ Your Notification Hub is managed through the [Azure portal].  Note the Notificat
   2. Select **Browse**>, then select **Notification Hubs**
   3. Click the Notification Hub name associated with the mobile service.
 
-> [AZURE.NOTE] Your notification hub is not visible if it is a "Mixed" type.  "Mixed" type notification hubs utilize both Notification Hubs and
-> legacy Service Bus features.  You must [convert your Mixed namespaces].  Once the conversion is complete, your notification hub
+> [AZURE.NOTE] If your Notification HUb is a "Mixed" type, it is not visible.  "Mixed" type notification hubs utilize both Notification Hubs and
+> legacy Service Bus features.  [Convert your Mixed namespaces] before continuing.  Once the conversion is complete, your notification hub
 > appears in the [Azure portal].
 
 For more information, review the [Notification Hubs] documentation.
@@ -342,7 +342,7 @@ Diagnostic Logging is normally disabled in an Azure App Service.  To enable diag
 
   1. Log in to the [Azure portal].
   2. Select **All resources** or **App Services** then click the name of your migrated Mobile Service.
-  3. The Settings blade will open by default.
+  3. The Settings blade opens by default.
   4. Select **Diagnostic Logs** under the FEATURES menu.
   5. Click **ON** for the following logs: **Application Logging (Filesystem)**, **Detailed error messages**, and **Failed request tracing**
   6. Click **File System** for Web server logging
@@ -355,7 +355,7 @@ To view the logs:
   3. Click the **Tools** button
   4. Select **Log Stream** under the OBSERVE menu.
 
-Logs stream into the window provided as they are generated.  You can also download the logs for later analysis using your deployment credentials. For
+Logs stream in to the window provided as they are generated.  You can also download the logs for later analysis using your deployment credentials. For
 more information, see the [Logging] documentation.
 
 ## <a name="known-issues"></a>Known Issues
@@ -395,8 +395,8 @@ For more information, see the [XDT Transform Samples] documentation on GitHub.
 
 ### Migrated Mobile Services cannot be added to Traffic Manager
 
-When you create a Traffic Manager profile, you cannot directly choose a migrated mobile service to the profile.  You need to use 
-an "external endpoint."  The external endpoint can only be added through PowerShell.  For more information, refer to the 
+When you create a Traffic Manager profile, you cannot directly choose a migrated mobile service to the profile.  Use an "external endpoint."  The 
+external endpoint can only be added through PowerShell.  For more information, see the 
 [Traffic Manager tutorial](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/).
 
 ## <a name="next-steps"></a>Next Steps
@@ -434,7 +434,7 @@ Now that your application is migrated to App Service, there are even more featur
 [Azure Region]: https://azure.microsoft.com/en-us/regions/
 [Azure Scheduler Plans]: ../scheduler/scheduler-plans-billing.md
 [continuously deploy]: ../app-service-web/app-service-continuous-deployment.md
-[convert your Mixed namespaces]: https://azure.microsoft.com/en-us/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[Convert your Mixed namespaces]: https://azure.microsoft.com/en-us/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [custom domain names]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
