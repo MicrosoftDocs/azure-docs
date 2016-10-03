@@ -86,13 +86,13 @@ There is no service downtime for any users associated with the subscription. How
 
 ### Billing
 
-On the day you switch, an invoice is generated for all outstanding charges. Then, your subscription will be billed per the new offer’s pricing terms. Your subscription billing anniversary changes to the date on which you changed offers. Usage and billing data before the offer change is not retained, so we recommend that you download a copy before switching.
+On the day you switch, an invoice is generated for all outstanding charges. Then, your subscription is billed per the new offer’s pricing terms. Your subscription billing anniversary changes to the date on which you changed offers. Usage and billing data before the offer change is not retained, so we recommend that you download a copy before switching.
 
 > [AZURE.NOTE] Due to billing-related constraints, offer switches are not possible within the first billing cycle after creating a subscription.
 
 ## Can I migrate from Pay-As-You-Go to [Cloud Solution Provider](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) or[Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
 
-We currently don't support offer switch to CSP or EA in the Accounts Center. To move your existing subscription into EA, have your enrollment admin add your account into the EA. Then, you'll receive an invitation email. When you follow the instructions to accept the invitation, your subscriptions will automatically be moved under the Enterprise Agreement. There is no option to move an existing subscription into CSP today.
+We currently don't support offer switch to CSP or EA in the Accounts Center. To move your existing subscription into EA, have your enrollment admin add your account into the EA. Then, you receive an invitation email. When you follow the instructions to accept the invitation, your subscriptions is automatically moved under the Enterprise Agreement. There is no option to move an existing subscription into CSP today.
 
 ## Next steps
 
