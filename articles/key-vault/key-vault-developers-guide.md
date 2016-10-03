@@ -79,8 +79,8 @@ For complete examples of using Key Vault with your applications, see:
 
 The following articles and scenarios provide task specific guidance for working with Azure Key Vault:
 
-- [Change key vault tenant ID after subscription move](https://azure.microsoft.com/en-us/documentation/articles/key-vault-subscription-move-fix/) - When you move your Azure subscription from tenant A to tenant B, your existing key vaults are inaccessible by the principals (users and applications) in tenant B. To fix this issue, you need to ...
-- [Accessing Key Vault behind firewall](https://azure.microsoft.com/en-us/documentation/articles/key-vault-access-behind-firewall/) - To access a key vault your key vault client application needs to be able to access multiple end-points for various functionalities.
+- [Change key vault tenant ID after subscription move](key-vault-subscription-move-fix/) - When you move your Azure subscription from tenant A to tenant B, your existing key vaults are inaccessible by the principals (users and applications) in tenant B. To fix this issue, you need to ...
+- [Accessing Key Vault behind firewall](key-vault-access-behind-firewall/) - To access a key vault your key vault client application needs to be able to access multiple end-points for various functionalities.
 
 - [How to Generate and Transfer HSM-Protected Keys for Azure Key Vault](key-vault-hsm-protected-keys.md) - This will help you plan for, generate and then transfer your own HSM-protected keys to use with Azure Key Vault.
 - [How to pass secure values (such as passwords) during deployment](../resource-manager-keyvault-parameter.md) - When you need to pass a secure value (like a password) as a parameter during deployment, you can store that value as a secret in an Azure Key Vault and reference the value in other Resource Manager templates.
