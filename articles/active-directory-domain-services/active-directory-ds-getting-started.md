@@ -43,7 +43,7 @@ In this configuration task, you create the administrative group and add one or m
 
 6. Create a group named **AAD DC Administrators**. Set **GROUP TYPE** to **Security**.
 
-    > [AZURE.WARNING] Create a group with this exact name to enable access within Azure AD Domain Services.
+    > [AZURE.WARNING] To enable access within your Azure AD Domain Services managed domain, create a group with this exact name.
 
 	![Create administrator group](./media/active-directory-domain-services-getting-started/create-admin-group.png)
 
