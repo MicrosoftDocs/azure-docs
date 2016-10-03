@@ -92,24 +92,21 @@ Perform the following steps to add the Start/Stop VMs during off-hours (Preview)
 2. In the Marketplace blade, type **Start VM** in the search box, and then select the solution **Start/Stop VMs during off-hours (Preview)** from the search results.  
 3. In the **Start/Stop VMs during off-hours preview** blade for the selected solution, review the summary information and then click **Create**, and the **Add Soultion** blade appears where you are prompted to configure the following items before you can import the solution into your Automation subscription.<br> ![VM Management Add Solution blade](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br> 
   
-    a. Workspace: You can select an OMS workspace that is linked to the same Azure subscription that the Automation account is in.  If you do not have an OMS workpace, you can select  **Create New Workspace** and in the **OMS Workspace** blade you are asked to provide: 
+    a. Workspace.  You can select an OMS workspace that is linked to the same Azure subscription that the Automation account is in.  If you do not have an OMS workpace, you can select  **Create New Workspace** and in the **OMS Workspace** blade you are asked to provide: 
 
       - **OMS Workspace** - Provide a name for a new workspace.  
       - **Subscription** - A subscription to link to by selecting from the drop-down list if the default selected is not appropriate.
       - **Resource Group** - Select either an existing Resource Group or a new Resource Group.
       - **Location** - Currently the only locations provided for selection are **Australia Southeast**, **East US**, **Southeast Asia**, and **West Europe**.
       - **Pricing tier** - The solution is offered in two tiers: free and OMS paid tier.  The free tier has a limit on the amount of data collected daily, retention period, and runbook job runtime minutes.  The OMS paid tier does not have a limit on the amount of data collected daily. 
-      
-        > [AZURE.NOTE] 
-        > While the Stadalone paid tier is displayed as an option, it is not applicable.  If you select it and proceed with the creation of this solution in your subscription, it will fail.  This will be addressed when this solution is officially released.<br>If you use this solution, it will only use automation job minutes and log ingestion.  The solution does not add additional OMS nodes to your environment.
 
-    b. Automation Account: If you are creating a new OMS workspace, you will be required to also create a new Automation account that will be tied to the new OMS workspace specified above, including the Azure subscription, resource group and region.  You can select  **Create an Automation account** and in the **Add Automation account** blade you are asked to provide:<br> 
+    b. Automation Account.  If you are creating a new OMS workspace, you will be required to also create a new Automation account that will be tied to the new OMS workspace specified above, including the Azure subscription, resource group and region.  You can select  **Create an Automation account** and in the **Add Automation account** blade you are asked to provide: 
   
       - **Name** - the name of the Automation account.
        
     All other options are automatically populated based on the OMS workspace selected and an Azure Run As account is the default authentication method for the runbooks included in this solution. These options cannot be modified.  Once you click **OK**, the configuration options are validated and the Automation account is created.
 
-    c. Configuration: On the **Parameters** blade, you are asked to provide:<br> 
+    c. Configuration.  On the **Parameters** blade, you are asked to provide: 
 
       - **Target ResourceGroup Names** - The resource group name that contain VMs to be managed by this solution.  You can enter more than one name and separate each using a semi-colon (values are case-sensitive).  Using a wildcard is supported if you want to target VMs in all resource groups in the subscription.    
       - **Schedule** - Enter a recurring date and time for starting and stopping the VM's in the target resource group(s). 
