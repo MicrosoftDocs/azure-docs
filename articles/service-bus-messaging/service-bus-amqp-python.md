@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/10/2016"
+    ms.date="09/29/2016"
     ms.author="sethm" />
 
 # Using Service Bus from Python with AMQP 1.0

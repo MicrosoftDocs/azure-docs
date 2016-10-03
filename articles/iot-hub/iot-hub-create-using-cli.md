@@ -99,7 +99,7 @@ To learn more about developing for IoT Hub, see the following:
 
 To further explore the capabilities of IoT Hub, see:
 
-- Using the Azure Portal to manage IoT Hub
+- [Using the Azure Portal to manage IoT Hub][lnk-portal]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -111,4 +111,4 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-CLI-arm]: ../xplat-cli-azure-resource-manager.md
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
-
+[lnk-portal]: iot-hub-create-through-portal.md 

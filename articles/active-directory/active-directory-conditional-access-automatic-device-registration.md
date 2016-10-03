@@ -3,8 +3,8 @@
 	description="IT admins can choose to have their domain-joined Windows devices to register automatically and silently with Azure Active Directory (Azure AD) ."
 	services="active-directory"
 	documentationCenter=""
-	authors="Markvi"
-	manager="swadhwa"
+	authors="markusvi"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/27/2016"
-	ms.author="femila"/>
+	ms.date="09/30/2016"
+	ms.author="markvi"/>
 
 # Automatic device registration with Azure Active Directory for Windows domain-joined devices
 

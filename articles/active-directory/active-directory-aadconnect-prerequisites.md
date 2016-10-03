@@ -51,7 +51,7 @@ Before you install Azure AD Connect, there are a few things that you will need.
 ### Accounts
 - An Azure AD Global Administrator account for the Azure AD directory you wish to integrate with. This must be a **school or organization account** and cannot be a **Microsoft account**.
 - An Enterprise Administrator account for your local Active Directory if you use express settings or upgrade from DirSync.
-- [Accounts is Active Directory](active-directory-aadconnect-accounts-permissions.md) if you use the custom settings installation path.
+- [Accounts in Active Directory](active-directory-aadconnect-accounts-permissions.md) if you use the custom settings installation path.
 
 ### Azure AD Connect server configuration
 - If your global administrators have MFA enabled, then the URL **https://secure.aadcdn.microsoftonline-p.com** must be in the trusted sites list. You will be prompted to add this to the trusted sites list if it is not added before you are prompted for an MFA challenge. You can use Internet Explorer to add it to your trusted sites.
