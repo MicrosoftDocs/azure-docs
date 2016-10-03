@@ -4,7 +4,7 @@
 	keywords="azure app service environment, virtual network, secure networking"
 	services="app-service" 
 	documentationCenter="" 
-	authors="yochay" 
+	authors="stefsch" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2016" 
+	ms.date="10/04/2016" 
 	ms.author="stefsch"/>
 
 # App Service Environment Documentation
