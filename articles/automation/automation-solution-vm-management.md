@@ -90,7 +90,7 @@ Perform the following steps to add the Start/Stop VMs during off-hours (Preview)
 
 1. From the home-screen in the Azure portal, select the **Marketplace** tile.  If the tile is no longer pinned to your home-screen, from the left navigation pane, select **New**.  
 2. In the Marketplace blade, type **Start VM** in the search box, and then select the solution **Start/Stop VMs during off-hours (Preview)** from the search results.  
-3. In the **Start/Stop VMs during off-hours preview** blade for the selected solution, review the summary information and then click **Create**.  The **Add Soultion** blade appears where you are prompted to configure the following items before you can import the solution into your Automation subscription.<br><br> ![VM Management Add Solution blade](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br><br>
+3. In the **Start/Stop VMs during off-hours (Preview)** blade for the selected solution, review the summary information and then click **Create**.  The **Add Soultion** blade appears where you are prompted to configure the following items before you can import the solution into your Automation subscription.<br><br> ![VM Management Add Solution blade](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br><br>
 
     a. Workspace.  You can select an OMS workspace that is linked to the same Azure subscription that the Automation account is in.  If you do not have an OMS workpace, you can select **Create New Workspace** and on the **OMS Workspace** blade perform the following: 
 
@@ -102,6 +102,7 @@ Perform the following steps to add the Start/Stop VMs during off-hours (Preview)
 
         > [AZURE.NOTE]
         > While the Stadalone paid tier is displayed as an option, it is not applicable.  If you select it and proceed with the creation of this solution in your subscription, it will fail.  This will be addressed when this solution is officially released.<br>If you use this solution, it will only use automation job minutes and log ingestion.  The solution does not add additional OMS nodes to your environment.
+<br>
 
     b. Automation Account.  If you are creating a new OMS workspace, you will be required to also create a new Automation account that will be tied to the new OMS workspace specified above, including the Azure subscription, resource group and region.  You can select **Create an Automation account** and on the **Add Automation account** blade, provide the following:
 
