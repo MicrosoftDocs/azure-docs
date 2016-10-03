@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="05/06/2016" 
+	ms.date="10/03/2016" 
 	ms.author="sethm"/>
 
 # How to use Service Bus queues

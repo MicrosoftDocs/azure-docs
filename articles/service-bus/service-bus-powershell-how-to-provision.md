@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="10/03/2016"
 	ms.author="sethm"/>
 
 # Manage Service Bus with PowerShell
@@ -38,7 +38,7 @@ information about obtaining a subscription, see [Purchase Options][],
 
 There are a limited number of PowerShell cmdlets available for managing Service Bus. To provision
 entities that are not exposed through the existing cmdlets, you can use the .NET client for
-Service Bus in the [Service Bus NuGet package].
+Service Bus in the [Service Bus NuGet package][].
 
 First, make sure that the script can locate the **Microsoft.ServiceBus.dll** assembly, which is installed with the NuGet package. In order to be flexible, the script performs these steps:
 
