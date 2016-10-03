@@ -179,7 +179,7 @@ In this section, you create a Node.js console app that initiates a remote reboot
     var connectionString = '{iothubconnectionstring}';
     var registry = Registry.fromConnectionString(connectionString);
     var client = Client.fromConnectionString(connectionString);
-    var deviceToReboot = myDeviceID;
+    var deviceToReboot = 'myDeviceId';
     ```
     
 6. Add the following function to invoke the device method to reboot the target device:
