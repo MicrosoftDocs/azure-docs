@@ -51,7 +51,7 @@ The Azure Stack POC offers services using the following VMs on the POC host:
 
  - **MAS-SUS01**  Virtual machine hosting Windows Server Update Services, and responsible for providing updates to other Azure Stack virtual machines.
 
- - **MAS-WAS01**  Virtual machine hosting Azure Consistent Storage services.
+ - **MAS-WAS01**  Virtual machine hosting portal and Azure Resource Manager services.
 
  - **MAS-Xrp01** Virtual machine that hosts the core resource providers of Microsoft Azure Stack, including the Compute, Network, and Storage resource providers.
 
