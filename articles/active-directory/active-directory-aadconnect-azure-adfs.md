@@ -101,7 +101,7 @@ While it is recommended to use ExpressRoute, you may choose any connection metho
 
 ### 2. Create storage accounts
 
-In order to maintain high availability and avoid dependence on a single storage account, you can create two storage accounts. Divide the machines in each availability set into two groups and then assign each group a separate storage account. Remember, you are only billed for the actual usage of the storage.
+In order to maintain high availability and avoid dependence on a single storage account, you can create two storage accounts. Divide the machines in each availability set into two groups and then assign each group a separate storage account.
 
 ![Create storage accounts](./media/active-directory-aadconnect-azure-adfs/storageaccount1.png)
 
