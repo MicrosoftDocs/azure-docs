@@ -52,7 +52,7 @@ Before working with Azure Key Vault in your code, you can create and manage vaul
 
 ## Coding with Key Vault
 
-The Key Vault management system for programmers consists of several interfaces, with REST as the foundation, [Key Vault REST API Reference](https://msdn.microsoft.com/library/azure/dn903609(v=azure.1).aspx).
+The Key Vault management system for programmers consists of several interfaces, with REST as the foundation, [Key Vault REST API Reference](https://msdn.microsoft.com/library/azure/dn903609.aspx).
 
 You can, subject to successful authorization, do the following:
 
