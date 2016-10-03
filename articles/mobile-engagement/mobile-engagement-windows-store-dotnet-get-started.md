@@ -64,7 +64,10 @@ You have now created a Windows Universal App project into which you next integra
 
 	![][3]
 
+
 	>[AZURE.TIP] If your App targets both Windows and Windows Phone platforms, you should still create two Mobile Engagement Applications - one for each supported platform. Having two apps ensures that you can create correct segmentation of the audience and can send appropriately targeted notifications for each platform.
+	
+	> [AZURE.IMPORTANT] NuGet does not automatically copy the SDK resources in your Windows 10 UWP application. You have to do it manually following the steps which show up (readme.txt) when the Nuget package is installed.  
 
 4. In the `App.xaml.cs` file:
 
