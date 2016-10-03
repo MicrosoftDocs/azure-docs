@@ -90,29 +90,29 @@ Perform the following steps to add the Start/Stop VMs during off-hours (Preview)
 
 1. From the home-screen in the Azure portal, select the **Marketplace** tile.  If the tile is no longer pinned to your home-screen, from the left navigation pane, select **New**.  
 2. In the Marketplace blade, type **Start VM** in the search box, and then select the solution **Start/Stop VMs during off-hours (Preview)** from the search results.  
-3. In the **Start/Stop VMs during off-hours preview** blade for the selected solution, review the summary information and then click **Create**, and the **Add Soultion** blade appears where you are prompted to configure the following items before you can import the solution into your Automation subscription.<br><br> ![VM Management Add Solution blade](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br><br>
+3. In the **Start/Stop VMs during off-hours preview** blade for the selected solution, review the summary information and then click **Create**.  The **Add Soultion** blade appears where you are prompted to configure the following items before you can import the solution into your Automation subscription.<br><br> ![VM Management Add Solution blade](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br><br>
 
-    a. Workspace.  You can select an OMS workspace that is linked to the same Azure subscription that the Automation account is in.  If you do not have an OMS workpace, you can select  **Create New Workspace** and in the **OMS Workspace** blade you are asked to provide: 
+    a. Workspace.  You can select an OMS workspace that is linked to the same Azure subscription that the Automation account is in.  If you do not have an OMS workpace, you can select  **Create New Workspace** and on the **OMS Workspace** blade perform the following: 
 
-      - **OMS Workspace** - Provide a name for a new workspace.
-      - **Subscription** - A subscription to link to by selecting from the drop-down list if the default selected is not appropriate.
-      - **Resource Group** - Select either an existing Resource Group or a new Resource Group.
-      - **Location** - Currently the only locations provided for selection are **Australia Southeast**, **East US**, **Southeast Asia**, and **West Europe**.
-      - **Pricing tier** - The solution is offered in two tiers: free and OMS paid tier.  The free tier has a limit on the amount of data collected daily, retention period, and runbook job runtime minutes.  The OMS paid tier does not have a limit on the amount of data collected daily.
+      - Specify a name for the new **OMS Workspace**.
+      - Select a **Subscription** to link to by selecting from the drop-down list if the default selected is not appropriate.
+      - Select a **Resource Group** for an existing Resource Group or specify a new Resource Group.
+      - Select a **Location**.  Currently the only locations provided for selection are **Australia Southeast**, **East US**, **Southeast Asia**, and **West Europe**.
+      - Select a **Pricing tier**.  The solution is offered in two tiers: free and OMS paid tier.  The free tier has a limit on the amount of data collected daily, retention period, and runbook job runtime minutes.  The OMS paid tier does not have a limit on the amount of data collected daily.
 
         > [AZURE.NOTE]
         > While the Stadalone paid tier is displayed as an option, it is not applicable.  If you select it and proceed with the creation of this solution in your subscription, it will fail.  This will be addressed when this solution is officially released.<br>If you use this solution, it will only use automation job minutes and log ingestion.  The solution does not add additional OMS nodes to your environment.
 
-    b. Automation Account.  If you are creating a new OMS workspace, you will be required to also create a new Automation account that will be tied to the new OMS workspace specified above, including the Azure subscription, resource group and region.  You can select  **Create an Automation account** and in the **Add Automation account** blade you are asked to provide:<br><br>- **Name** - the name of the Automation account.
+    b. Automation Account.  If you are creating a new OMS workspace, you will be required to also create a new Automation account that will be tied to the new OMS workspace specified above, including the Azure subscription, resource group and region.  You can select  **Create an Automation account** and on the **Add Automation account** blade provide the following:
+
+      - In the **Name** field, enter the name of the Automation account.
 
        All other options are automatically populated based on the OMS workspace selected and an Azure Run As account is the default authentication method for the runbooks included in this solution. These options cannot be modified.  Once you click **OK**, the configuration options are validated and the Automation account is created.
 
-    c. Configuration.  On the **Parameters** blade, you are asked to provide:<br>
+    c. Configuration.  On the **Parameters** blade, you are prompted to:
 
-
-      - **Target ResourceGroup Names** - The resource group name that contain VMs to be managed by this solution.  You can enter more than one name and separate each using a semi-colon (values are case-sensitive).  Using a wildcard is supported if you want to target VMs in all resource groups in the subscription.
-      - **Schedule** - Enter a recurring date and time for starting and stopping the VM's in the target resource group(s).
-      - 
+      - Specify the **Target ResourceGroup Names**, which is a resource group name that contains VMs to be managed by this solution.  You can enter more than one name and separate each using a semi-colon (values are case-sensitive).  Using a wildcard is supported if you want to target VMs in all resource groups in the subscription.
+      - Select a **Schedule** which is a recurring date and time for starting and stopping the VM's in the target resource group(s).
 
 4. Once you have completed configuring the initial settings required for the solution, select **Create**.  All settings will be validated and then it will attempt to deploy in your subscription.  This process can take several seconds to complete.  
 
