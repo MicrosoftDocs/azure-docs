@@ -34,7 +34,7 @@ Blob Storage|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net
 Queue Storage|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
 Table Storage|*.table.core.windows.net|*.table.core.usgovcloudapi.net
 
-NOTE:  All of your scripts and code needs to account for the appropriate endpoints.  See [Configure Azure Storage Connection Strings](https://azure.microsoft.com/en-us/documentation/articles/storage-configure-connection-string/#creating-a-connection-string-to-an-explicit-storage-endpoint/). 
+NOTE:  All of your scripts and code needs to account for the appropriate endpoints.  See [Configure Azure Storage Connection Strings](../storage-configure-connection-string/#creating-a-connection-string-to-an-explicit-storage-endpoint.md). 
 
 For more information on APIs see the <a href="https://msdn.microsoft.com/en-us/library/azure/mt616540.aspx"> Cloud Storage Account Constructor</a>.
 
@@ -62,7 +62,7 @@ The same storage data considerations listed above apply to premium storage accou
 
 ##  SQL Database
 
-Refer to the<a href="https://msdn.microsoft.com/en-us/library/bb510589.aspx"> Microsoft Security Center for SQL Database Engine </a> and [Azure SQL Database Public Documentation](https://azure.microsoft.com/en-us/documentation/services/sql-database/) for additional guidance on metadata visibility configuration, and protection best practices.
+Refer to the<a href="https://msdn.microsoft.com/en-us/library/bb510589.aspx"> Microsoft Security Center for SQL Database Engine </a> and [Azure SQL Database Public Documentation](https://azure.microsoft.com/documentation/services/sql-database/) for additional guidance on metadata visibility configuration, and protection best practices.
 
 ### Variations
 
