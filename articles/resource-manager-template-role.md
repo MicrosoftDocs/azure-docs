@@ -41,17 +41,17 @@ To create a role assignment, add the following schema to the resources section o
 
 The following tables describe the values you need to set in the schema.
 
-| Name | Required | Description | 
+| Name | Required | Description |
 | ---- | -------- | ----------- |
 | type | Yes    | The resource type to create.<br /><br /> For resource group:<br />**Microsoft.Authorization/roleAssignments**<br /><br />For resource:<br />**{provider-namespace}/{resource-type}/providers/roleAssignments** |
-| apiVersion |Yes | The API version to use for creating the resource.<br /><br /> Use **2015-07-01**. |  
+| apiVersion |Yes | The API version to use for creating the resource.<br /><br /> Use **2015-07-01**. | 
 | name | Yes | A globally-unique identifier for the new role assignment. |
-| dependsOn | No | A comma-separated array of a resource names or resource unique identifiers.<br /><br />The collection of resources this role assignment depends on. If assigning a role that scoped to a resource and that resource is deployed in the same template, include that resource name in this element to ensure the resource is deployed first. | 
-| properties | Yes | The properties object that identifies the role definition, principal, and scope. |  
+| dependsOn | No | A comma-separated array of a resource names or resource unique identifiers.<br /><br />The collection of resources this role assignment depends on. If assigning a role that scoped to a resource and that resource is deployed in the same template, include that resource name in this element to ensure the resource is deployed first. |
+| properties | Yes | The properties object that identifies the role definition, principal, and scope. |
 
 ### properties object
 
-| Name | Required | Description | 
+| Name | Required | Description |
 | ---- | -------- | ----------- |
 | roleDefinitionId | Yes |  The identifier of an existing role definition to be used in the role assignment.<br /><br /> Use the following format:<br /> **/subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}** |
 | principalId | Yes | The globally unique identifier for an existing principal. This value maps to the id inside the directory and can point to a user, service principal, or security group. |
