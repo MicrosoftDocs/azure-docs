@@ -31,7 +31,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 * [Maven](http://maven.apache.org/)
 
-* [An Windows-based HDInsight cluster with HBase](hdinsight-hbase-get-started.md#create-hbase-cluster)
+* [An Windows-based HDInsight cluster with HBase](hdinsight-hbase-tutorial-get-started.md#create-hbase-cluster)
 
     > [AZURE.NOTE] The steps in this document have been tested with HDInsight cluster versions 3.2 and 3.3. The default values provided in examples are for a HDInsight 3.3 cluster.
 
