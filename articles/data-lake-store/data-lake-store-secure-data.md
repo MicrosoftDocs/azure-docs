@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="09/06/2016"
+   ms.date="09/29/2016"
    ms.author="nitinme"/>
 
 # Securing data stored in Azure Data Lake Store
@@ -28,7 +28,7 @@ Securing data in Azure Data Lake Store is a three-step approach.
 
 4. Additionally, you can also set an IP address range for clients that can access the data in Data Lake Store.
 
-This article provides instructions on how to use the Azure portal to perform the above tasks. For in-depth information on how Data Lake Store implements security at the account and data level, see [Security in Azure Data Lake Store](data-lake-store-security-overview.md).
+This article provides instructions on how to use the Azure portal to perform the above tasks. For in-depth information on how Data Lake Store implements security at the account and data level, see [Security in Azure Data Lake Store](data-lake-store-security-overview.md). For deep-dive information on how ACLs are implemented in Azure Data Lake Store, see [Overview of Access Control in Data Lake Store](data-lake-store-access-control.md).
 
 ## Prerequisites
 
@@ -36,10 +36,6 @@ Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 - **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
-
-## Do you learn fast with videos?
-
-[Watch this video](https://mix.office.com/watch/1q2mgzh9nn5lx) on how to secure data stored in Data Lake Store. 
 
 ## Create security groups in Azure Active Directory
 
@@ -51,7 +47,7 @@ When you assign users or security groups to Azure Data Lake Store accounts, you 
 
 1. Open an Azure Data Lake Store account. From the left pane, click **Browse**, click **Data Lake Store**, and then from the Data Lake Store blade, click the account name to which you want to assign a user or security group.
 
-2. In your Data Lake Store account blade, click the user icon.
+2. In your Data Lake Store account blade, click **Settings**. From the **Settings** blade, click **Users**.
 
 	![Assign security group to Azure Data Lake Store account](./media/data-lake-store-secure-data/adl.select.user.icon.png "Assign security group to Azure Data Lake Store account")
 
@@ -92,13 +88,11 @@ When you assign users or security groups to Azure Data Lake Store accounts, you 
 
 By assigning user/security groups to the Azure Data Lake file system, you set access control on the data stored in Azure Data Lake Store.
 
->[AZURE.NOTE] In the current release, you can set ACLs only at the root node of the Data Lake Store account. Also, only users with the Owner role assigned can add/modify ACLs.
-
 1. In your Data Lake Store account blade, click **Data Explorer**.
 
 	![Create directories in Data Lake Store account](./media/data-lake-store-secure-data/adl.start.data.explorer.png "Create directories in Data Lake account")
 
-2. In the **Data Explorer** blade, click the root of your account, and then in your account blade, click the **Access** icon.
+2. In the **Data Explorer** blade, click the file or folder for which you want to configure the ACL, and then click **Access**. To assign ACL to a file, you must click **Access** from the **File Preview** blade.
 
 	![Set ACLs on Data Lake file system](./media/data-lake-store-secure-data/adl.acl.1.png "Set ACLs on Data Lake file system")
 
@@ -109,23 +103,17 @@ By assigning user/security groups to the Azure Data Lake file system, you set ac
 	* **Standard access** is the UNIX-style access, where you specify read, write, execute (rwx) to three distinct user classes: owner, group, and others.
 	* **Custom access** corresponds to the POSIX ACLs that enables you to set permissions for specific named users or groups, and not only the file's owner or group. 
 	
-	For more information, see [HDFS ACLs](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). 
+	For more information, see [HDFS ACLs](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). For more information on how ACLs are implemented in Data Lake Store, see [Access Control in Data Lake Store](data-lake-store-access-control.md).
 
 4. Click the **Add** icon to open the **Add Custom Access** blade. In this blade, click **Select User or Group**, and then in **Select User or Group** blade, look for the security group you created earlier in Azure Active Directory. If you have a lot of groups to search from, use the text box at the top to filter on the group name. Click the group you want to add and then click **Select**.
 
 	![Add a group](./media/data-lake-store-secure-data/adl.acl.3.png "Add a group")
 
-5. Click **Select Permissions**, select the permissions you want to assign to that group, and then click **OK**.
+5. Click **Select Permissions**, select the permissions and whether you want to assign the permissions as a default ACL, access ACL, or both. Click **OK**.
 
 	![Assign permissions to group](./media/data-lake-store-secure-data/adl.acl.4.png "Assign permissions to group")
 
-	The permissions can be understood as follows:
-
-	* **Read** - If this permission is set on a directory, it provides the ability to read the names of the files in the directory.
-	* **Write** - If this permission is set on a directory, it provides the ability to modify the entries in the directory such as create a file, delete a file, or rename a file.
-	* **Execute** - If this permission is set on a directory, it provides the ability to access the contents of the file in the directory. This also provides access to the metadata of the file, if the file name is known. However, this permission does not enable you to list files in the directory, unless the **Read** permission is also set.
-
-	>[AZURE.NOTE] **Read + Execute** permission is required for enumeration of directories and is often required when providing a user or group read-only access to data.
+	For more information about permissions in Data Lake Store, and Default/Access ACLs, see [Access Control in Data Lake Store](data-lake-store-access-control.md).
 
 
 6. In the **Add Custom Access** blade, click **OK**. The newly added group, with the associated permissions, will now be listed in the **Access** blade.
@@ -146,7 +134,7 @@ Azure Data Lake Store enables you to further lock down access to your data store
 
 When you remove security groups from Azure Data Lake Store accounts, you are only changing access to the management operations on the account using the Azure Portal and Azure Resource Manager APIs.
 
-1. In your Data Lake Store account blade, click the user icon.
+1. In your Data Lake Store account blade, click **Settings**. From the **Settings** blade, click **Users**.
 
 	![Assign security group to Azure Data Lake account](./media/data-lake-store-secure-data/adl.select.user.icon.png "Assign security group to Azure Data Lake account")
 
@@ -160,13 +148,13 @@ When you remove security groups from Azure Data Lake Store accounts, you are onl
 
 ## Remove security group ACLs from Azure Data Lake Store file system
 
-When you remove security groups ACLs from Azure Data Lake Store file system, you are changing access to the data in the Data Lake Store.
+When you remove security groups ACLs from Azure Data Lake Store file system, you change access to the data in the Data Lake Store.
 
 1. In your Data Lake Store account blade, click **Data Explorer**.
 
 	![Create directories in Data Lake account](./media/data-lake-store-secure-data/adl.start.data.explorer.png "Create directories in Data Lake account")
 
-2. In the **Data Explorer** blade, click the root of your account, and then in your account blade, click the **Access** icon.
+2. In the **Data Explorer** blade, click the file or folder for which you want to remove the ACL, and then in your account blade, click the **Access** icon. To remove ACL for a file, you must click **Access** from the **File Preview** blade.
 
 	![Set ACLs on Data Lake file system](./media/data-lake-store-secure-data/adl.acl.1.png "Set ACLs on Data Lake file system")
 

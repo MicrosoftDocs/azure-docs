@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/12/2016"
+	ms.date="09/30/2016"
 	ms.author="curtand"/>
 
 
@@ -48,4 +48,4 @@ It's easy to remove a user or a group from being assigned access to one of your 
 - [See all of my groups](active-directory-groups-view-azure-portal.md)
 - [Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
 - [Disable user sign-ins for an enterprise app](active-directory-coreapps-disable-app-azure-portal.md)
-- [Change the name or logo of an enterprise app](active-directory-coreapps-change-app-logo-azure-portal.md)
+- [Change the name or logo of an enterprise app](active-directory-coreapps-change-app-logo-user-azure-portal.md)

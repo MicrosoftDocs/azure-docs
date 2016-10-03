@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Secure cloud and on-premises resources by using Azure Multi-Factor Authentication Server with Windows Server 2012 R2 AD FS | Microsoft Azure"
+	pageTitle="MFA Server with Windows Server 2012 R2 AD FS | Microsoft Azure"
 	description="This article describes how to get started with Azure Multi-Factor Authentication and AD FS in Windows Server 2012 R2."
 	services="multi-factor-authentication"
 	documentationCenter=""
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/04/2016"
+	ms.date="09/22/2016"
 	ms.author="kgremban"/>
 
 
-# Secure cloud and on-premises resources by using Azure Multi-Factor Authentication Server with AD FS in Windows Server 2012 R2
+# Secure cloud and on-premises resources using Azure Multi-Factor Authentication Server with AD FS in Windows Server 2012 R2
 
 If your organization uses Active Directory Federation Services (AD FS) and you want to secure cloud or on-premises resources, you can deploy and configure Azure Multi-Factor Authentication Server to work with AD FS. This configuration triggers multi-factor authentication for high-value endpoints.
 
@@ -74,14 +74,55 @@ At this point, Multi-Factor Authentication Server is set up to be an additional 
 3. Run the MultiFactorAuthenticationAdfsAdapterSetup64.msi installation file.
 4. In the Multi-Factor Authentication AD FS adapter installer, click **Next** to perform the installation.
 5. Click **Close** when the installation is finished.
-6. Edit the MultiFactorAuthenticationAdfsAdapter.config file by doing the following:
 
-|MultiFactorAuthenticationAdfsAdapter.config Step| Sub step|
-|:------------- | :------------- |
-|Set the **UseWebServiceSdk** node to **true**.||
-|Set the value for **WebServiceSdkUrl** to the URL of the Multi-Factor Authentication Web Service SDK.</br></br>Example:  **https://contoso.com/&lt;certificatename&gt;/MultiFactorAuthWebServicesSdk/PfWsSdk.asmx**</br></br>Where certificatename is the name of your certificate. ||
-|Configure the Web Service SDK.<br><br>*Option 1*: By using a user name and password|<ol type="a"><li>Set the value for  **WebServiceSdkUsername** to an account that is a member of the PhoneFactor Admins security group. Use the &lt;domain&gt;&#92;&lt;user name&gt; format.<li>Set the value for **WebServiceSdkPassword** to the appropriate account password.</li></ol>
-|Configure the Web Service SDK, *continued*<br><br>*Option 2*: By using a client certificate|<ol type="a"><li>Obtain a client certificate from a certificate authority for the server that is running the Web Service SDK. Learn how to [obtain client certificates](https://technet.microsoft.com/library/cc770328.aspx).</li><li>Import the client certificate to the local computer personal certificate store on the server that is running the Web Service SDK. Note: Make sure that the certificate authority's public certificate is in Trusted Root Certificates certificate store.</li><li>Export the public and private keys of the client certificate to a .pfx file.</li><li>Export the public key in Base64 format to a .cer file.</li><li>In Server Manager, verify that the Web Server (IIS)\Web Server\Security\IIS Client Certificate Mapping Authentication feature is installed. If it is not installed, select **Add Roles and Features** to add this feature.</li><li>In IIS Manager, double-click **Configuration Editor** in the website that contains the Web Service SDK virtual directory. Note: It is very important to do this at the website level and not at the virtual directory level.</li><li>Go to the **system.webServer/security/authentication/iisClientCertificateMappingAuthentication** section.</li><li>Set **enabled** to **true**.</li><li>Set **oneToOneCertificateMappingsEnabled** to **true**.</li><li>Click the **...** button next to **oneToOneMappings**, and then click the **Add** link.</li><li>Open the Base64 .cer file you exported earlier. Remove *-----BEGIN CERTIFICATE-----*, *-----END CERTIFICATE-----*, and any line breaks. Copy the resulting string.</li><li>Set **certificate** to the string copied in the preceding step.</li><li>Set **enabled** to **true**.</li><li>Set **userName** to an account that is a member of the PhoneFactor Admins security group. Use the &lt;domain&gt;&#92;&lt;user name&gt; format.</li><li>Set the password to the appropriate account password, and then close Configuration Editor.</li><li>Click the **Apply** link.</li><li>In the Web Service SDK virtual directory, double-click **Authentication**.</li><li>Verify that **ASP.NET Impersonation** and **Basic Authentication** are set to **Enabled** and all other items are set to **Disabled**.</li><li>In the Web Service SDK virtual directory, double-click **SSL Settings**.</li><li>Set **Client Certificates** to **Accept**, and then click **Apply**.</li><li>Copy the .pfx file you exported earlier to the server that is running the AD FS adapter.</li><li>Import the .pfx file to the local computer personal certificate store.</li><li>Right-click and select **Manage Private Keys**, and then grant read access to the account you used to sign in to the AD FS service.</li><li>Open the client certificate and copy the thumbprint from the **Details** tab.</li><li>In the MultiFactorAuthenticationAdfsAdapter.config file, set **WebServiceSdkCertificateThumbprint** to the string copied in the previous step.</li></ol>
-| Edit the Register-MultiFactorAuthenticationAdfsAdapter.ps1 script by adding *-ConfigurationFilePath &lt;path&gt;* to the end of the `Register-AdfsAuthenticationProvider` command, where *&lt;path&gt;* is the full path to the MultiFactorAuthenticationAdfsAdapter.config file.||
+## Edit the MultiFactorAuthenticationAdfsAdapter.config file
 
-To register the adapter, run the \Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1 script in PowerShell. The adapter is registered as WindowsAzureMultiFactorAuthentication. You must restart the AD FS service for the registration to take effect.
+Follow these steps to edit the MultiFactorAuthenticationAdfsAdapter.config file:
+
+1. Set the **UseWebServiceSdk** node to **true**.  
+2. Set the value for **WebServiceSdkUrl** to the URL of the Multi-Factor Authentication Web Service SDK. For example:  **https://contoso.com/&lt;certificatename&gt;/MultiFactorAuthWebServicesSdk/PfWsSdk.asmx** Where certificatename is the name of your certificate.  
+3. Edit the Register-MultiFactorAuthenticationAdfsAdapter.ps1 script by adding *-ConfigurationFilePath &lt;path&gt;* to the end of the `Register-AdfsAuthenticationProvider` command, where *&lt;path&gt;* is the full path to the MultiFactorAuthenticationAdfsAdapter.config file.
+
+### Configure the Web Service SDK with a username and password
+
+There are two options for configuring the Web Service SDK. The first is with a username and password, the second is with a client certificate. Follow these steps for the first option, or skip ahead for the second.  
+
+1. Set the value for  **WebServiceSdkUsername** to an account that is a member of the PhoneFactor Admins security group. Use the &lt;domain&gt;&#92;&lt;user name&gt; format.  
+2. Set the value for **WebServiceSdkPassword** to the appropriate account password.
+
+### Configure the Web Service SDK with a client certificate
+
+If you don't want to use a username and password, follow these steps to configure the Web Service SDK with a client certificate.
+
+1. Obtain a client certificate from a certificate authority for the server that is running the Web Service SDK. Learn how to [obtain client certificates](https://technet.microsoft.com/library/cc770328.aspx).  
+2. Import the client certificate to the local computer personal certificate store on the server that is running the Web Service SDK. Note: Make sure that the certificate authority's public certificate is in Trusted Root Certificates certificate store.  
+3. Export the public and private keys of the client certificate to a .pfx file.  
+4. Export the public key in Base64 format to a .cer file.  
+5. In Server Manager, verify that the Web Server (IIS)\Web Server\Security\IIS Client Certificate Mapping Authentication feature is installed. If it is not installed, select **Add Roles and Features** to add this feature.  
+6. In IIS Manager, double-click **Configuration Editor** in the website that contains the Web Service SDK virtual directory. Note: It is very important to do this at the website level and not at the virtual directory level.  
+7. Go to the **system.webServer/security/authentication/iisClientCertificateMappingAuthentication** section.  
+8. Set **enabled** to **true**.  
+9. Set **oneToOneCertificateMappingsEnabled** to **true**.  
+10. Click the **...** button next to **oneToOneMappings**, and then click the **Add** link.  
+11. Open the Base64 .cer file you exported earlier. Remove *-----BEGIN CERTIFICATE-----*, *-----END CERTIFICATE-----*, and any line breaks. Copy the resulting string.  
+12. Set **certificate** to the string copied in the preceding step.  
+13. Set **enabled** to **true**.  
+14. Set **userName** to an account that is a member of the PhoneFactor Admins security group. Use the &lt;domain&gt;&#92;&lt;user name&gt; format.  
+15. Set the password to the appropriate account password, and then close Configuration Editor.  
+16. Click the **Apply** link.  
+17. In the Web Service SDK virtual directory, double-click **Authentication**.  
+18. Verify that **ASP.NET Impersonation** and **Basic Authentication** are set to **Enabled** and all other items are set to **Disabled**.  
+19. In the Web Service SDK virtual directory, double-click **SSL Settings**.  
+20. Set **Client Certificates** to **Accept**, and then click **Apply**.  
+21. Copy the .pfx file you exported earlier to the server that is running the AD FS adapter.  
+22. Import the .pfx file to the local computer personal certificate store.  
+23. Right-click and select **Manage Private Keys**, and then grant read access to the account you used to sign in to the AD FS service.  
+24. Open the client certificate and copy the thumbprint from the **Details** tab.  
+25. In the MultiFactorAuthenticationAdfsAdapter.config file, set **WebServiceSdkCertificateThumbprint** to the string copied in the previous step.  
+
+
+Finally, to register the adapter, run the \Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1 script in PowerShell. The adapter is registered as WindowsAzureMultiFactorAuthentication. You must restart the AD FS service for the registration to take effect.
+
+## Related topics
+
+For troubleshooting help, see the [Azure Multi-Factor Authentication FAQs](multi-factor-authentication-faq.md)

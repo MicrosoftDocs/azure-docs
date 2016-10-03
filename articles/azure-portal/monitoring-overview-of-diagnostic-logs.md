@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
+	ms.date="09/26/2016"
 	ms.author="johnkem"/>
 
 # Overview of Azure Diagnostic Logs
@@ -69,15 +69,23 @@ To enable Diagnostic Logs via the Azure PowerShell Cmdlets, use the following co
 
 To enable storage of Diagnostic Logs in a Storage Account, use this command:
 
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource Id] -StorageAccountId [your storage account id] -Enabled $true
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 
 The Storage Account ID is the resource id for the storage account to which you want to send the logs. 
 
 To enable streaming of Diagnostic Logs to an Event Hub, use this command:
 
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource Id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
 
 The Service Bus Rule ID is a string with this format: `{service bus resource ID}/authorizationrules/{key name}`.
+
+To enable sending of Diagnostic Logs to a Log Analytics workspace, use this command:
+
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [log analytics workspace id] -Enabled $true
+
+You can obtain your Log Analytics workspace ID in the Azure portal.
+
+You can combine these parameters to enable multiple output options.
 
 To enable Diagnostic Logs via the Azure CLI, use the following commands:
 
@@ -93,7 +101,33 @@ To enable streaming of Diagnostic Logs to an Event Hub, use this command:
 
 The Service Bus Rule ID is a string with this format: `{service bus resource ID}/authorizationrules/{key name}`.
 
+To enable sending of Diagnostic Logs to a Log Analytics workspace, use this command:
+
+    azure insights diagnostic set --resourceId <resourceId> --workspaceId <workspaceId> --enabled true
+
+You can obtain your Log Analytics workspace ID in the Azure portal.
+
+You can combine these parameters to enable multiple output options.
+
 To change Diagnostic Settings using the Insights REST API, see [this document](https://msdn.microsoft.com/library/azure/dn931931.aspx).
+
+## Manage Diagnostic Settings in the portal
+
+In order to ensure that all of your resources are correctly set up with diagnostic settings, you can navigate to the **Monitoring** blade in the portal and open the **Diagnostic Logs** blade.
+
+![Diagnostic Logs blade in the portal](./media/monitoring-overview-of-diagnostic-logs/manage-portal-nav.png)
+
+You may have to click "More services" to find the Monitoring blade.
+
+In this blade, you can view and filter all resources that support Diagnostic Logs to see if they have diagnostics enabled and which storage account, event hub, and/or Log Analytics workspace those logs are flowing to.
+
+![Diagnostic Logs blade results in portal](./media/monitoring-overview-of-diagnostic-logs/manage-portal-blade.png)
+
+Clicking on a resource will show all logs that have been stored in the storage account and give you the option to turn off or modify the diagnostic settings. Click the download icon to download logs for a particular time period.
+
+![Diagnostic Logs blade one resource](./media/monitoring-overview-of-diagnostic-logs/manage-portal-logs.png)
+
+> [AZURE.NOTE] Diagnostic logs will only appear in this view and be available for download if you have configured diagnostic settings to save them to a storage account.
 
 ## Supported services and schema for Diagnostic Logs
 The schema for Diagnostic Logs varies depending on the resource and log category. Below are the supported services and their schema.
@@ -133,6 +167,9 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Application Gateway Performance Log|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Application Gateway Firewall Log|
 |Microsoft.Search/searchServices|OperationLogs|Operation Logs|
+|Microsoft.ServerManagement/nodes|RequestLogs|Request Logs|
+|Microsoft.StreamAnalytics/streamingjobs|Execution|Execution|
+|Microsoft.StreamAnalytics/streamingjobs|Authoring|Authoring|
 
 ## Next Steps
 - [Stream Diagnostic Logs to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)

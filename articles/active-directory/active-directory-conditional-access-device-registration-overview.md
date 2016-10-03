@@ -14,16 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/21/2016"
+	ms.date="09/27/2016"
 	ms.author="Markvi"/>
 
 # Get started with Azure Active Directory Device Registration
 
 Azure Active Directory Device Registration is the foundation for device-based conditional access scenarios. When a device is registered, Azure Active Directory Device Registration provides the device with an identity which is used to authenticate the device when the user signs in. The authenticated device, and the attributes of the device, can then be used to enforce conditional access policies for applications that are hosted in the cloud and on-premises.
 
-When combined with a mobile device management(MDM) solution such as Intune, the device attributes in Azure Active Directory are updated with additional information about the device. This allows you to create conditional access rules that enforce access from devices to meet your standards for security and compliance. For more information on enrolling devices in Microsoft Intune, see [Enroll devices for management in Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune)
-
-Azure Active Directory Device Registration is available in your Azure Active Directory. The service includes support for iOS, Android, and Windows devices. The individual scenarios that utilize Azure Active Directory Device Registration may have more specific requirements and platform support.
+When combined with a mobile device management(MDM) solution such as Microsoft Intune, the device attributes in Azure Active Directory are updated with additional information about the device. This allows you to create conditional access rules that enforce access from devices to meet your standards for security and compliance. For more information on enrolling devices in Microsoft Intune, see [Enroll devices for management in Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune).
 
 ## Scenarios enabled by Azure Active Directory Device Registration
 
@@ -31,7 +29,7 @@ Azure Active Directory Device Registration includes support for iOS, Android, an
 
 - **Conditional access to applications that are hosted on-premises**: You can use registered devices with access policies for applications that are configured to use AD FS with Windows Server 2012 R2. For more information about setting up conditional access for on-premises, see [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](active-directory-conditional-access-on-premises-setup.md).
 
-- **Conditional access for Office 365 applications with Microsoft Intune** : IT admins can provision conditional access device policies to secure corporate resources, while at the same time allowing information workers on compliant devices to access the services. For more information, see Conditional Access Device Policies for Office 365 services.
+- **Conditional access for Office 365 applications with Microsoft Intune** : IT admins can provision conditional access device policies to secure corporate resources, while at the same time allowing information workers on compliant devices to access the services. For more information, see [Conditional Access Device Policies for Office 365 services](active-directory-conditional-access-device-policies.md).
 
 ##Setting up Azure Active Directory Device Registration
 
@@ -39,7 +37,7 @@ You need to enable Azure AD Device Registration in the Azure Portal so that mobi
 You can view and enable/disable registered devices using the Administrator Portal in Azure Active Directory.
 
 >[AZURE.NOTE]
- For latest instructions on how to set up automatic device registration see, [How to setup automatic registration of Windows domain joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
+ For latest instructions on how to set up automatic device registration see, [How to setup automatic registration of Windows domain joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
 
 ### Enable Azure Active Directory Device Registration Service
 
@@ -84,7 +82,7 @@ For example, if you use two UPN suffixes at your organization named @contoso.com
 
 ## Additional topics
 
-You can register your Windows 7 and Windows 8.1 Domain Joined devices with Azure AD Device Registration. The following topic provides more information about the prerequisites and the steps required to configure device registration on Windows 7 and Windows 8.1 devices.
+You can register your Windows 7 and Windows 8.1 Domain Joined devices with Azure AD Device Registration. The following topics provides more information about the prerequisites and the steps required to configure device registration on Windows 7 and Windows 8.1 devices.
 
 - [Automatic Device Registration with Azure Active Directory for Windows Domain-Joined Devices](active-directory-conditional-access-automatic-device-registration.md)
 - [Configure automatic device registration for Windows 7 domain joined devices](active-directory-conditional-access-automatic-device-registration-windows7.md)

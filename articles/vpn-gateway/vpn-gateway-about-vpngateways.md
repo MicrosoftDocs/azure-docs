@@ -34,7 +34,8 @@ Each virtual network can have only one virtual network gateway per gateway type.
 
 ## Gateway SKUs
 
-[AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)] 
+[AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
+For more information about gateway SKUs, see [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 The following table shows the gateway types and the estimated aggregate throughput. This table applies to both the Resource Manager and classic deployment models.
 
@@ -93,7 +94,7 @@ Azure currently has two deployment models: classic and Resource Manager. If you 
 
 #### VNet peering
 
-You may be able to use VNet peering to create your connection, as long as your virtual network meets certain requirements. VNet peering does not use a virtual network gateway. [VNet peering](../virtual-network/virtual-network-peering-overview.md) is currently in Preview.
+You may be able to use VNet peering to create your connection, as long as your virtual network meets certain requirements. VNet peering does not use a virtual network gateway. For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md).
 
 
 ### Deployment models and methods for VNet-to-VNet
