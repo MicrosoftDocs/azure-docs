@@ -97,13 +97,15 @@ The following is the HTTP 1.1 request details for updating device twin propertie
 The following is the HTTP 1.1 request details for querying for jobs:
 
     ```
-    GET /jobs/v2/<jobId>?api-version=2016-09-30-preview
+    GET /jobs/v2/query?api-version=2016-09-30-preview[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
     
     Authorization: <config.sharedAccessSignature>
     Content-Type: application/json; charset=utf-8
     Request-Id: <guid>
     User-Agent: <sdk-name>/<sdk-version>
     ```
+    
+The continuationToken is provided from the response.  
 
 ## Jobs Properties
 
