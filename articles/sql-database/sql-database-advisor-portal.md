@@ -16,7 +16,7 @@
    ms.date="09/30/2016"
    ms.author="sstein"/>
 
-# SQL Database Advisor
+# SQL Database Advisor using the Azure portal
 
 > [AZURE.SELECTOR]
 - [SQL Database Advisor Overview](sql-database-advisor.md)
