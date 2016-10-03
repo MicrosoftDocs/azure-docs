@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/24/2016"
+   ms.date="09/26/2016"
    ms.author="sonyama;barbkess"/>
 
 # Connect to Azure SQL Data Warehouse
@@ -33,9 +33,9 @@ The first step to connecting to SQL Data Warehouse is knowing how to find your s
 
 ## Supported drivers and connection strings
 
- Azure SQL Data Warehouse supports [ADO.NET][], [ODBC][], [PHP][], and [JDBC][]. Click on one of these drivers to find the latest version of each of these drivers.  To connect with one of these drivers, you can click on the **Show database connection strings** in the preceding example to have the portal automatically generate the connection string for the driver that you are using.  Following are also some examples of what a connection string looks like for each driver.
+Azure SQL Data Warehouse supports [ADO.NET][], [ODBC][], [PHP][], and [JDBC][]. Click on one of the preceding drivers to find the latest version and documentation. To automatically generate the connection string for the driver that you are using from the Azure portal, you can click on the **Show database connection strings** from the preceding example.  Following are also some examples of what a connection string looks like for each driver.
 
-> [AZURE.NOTE] Consider setting the connection timeout to 300 seconds to allow the connection to survive short periods of unavailability.
+> [AZURE.NOTE] Consider setting the connection timeout to 300 seconds to allow your connection to survive short periods of unavailability.
 
 ### ADO.NET connection string example
 
@@ -63,7 +63,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## Connection settings
 
-SQL Data Warehouse standardizes a few settings during connection and object creation. These settings cannot be overridden.
+SQL Data Warehouse standardizes some settings during connection and object creation. These settings cannot be overridden and include:
 
 | Database Setting       | Value                        |
 | :--------------------- | :--------------------------- |
@@ -74,7 +74,7 @@ SQL Data Warehouse standardizes a few settings during connection and object crea
 
 ## Next steps
 
-To learn how to connect and query with Visual Studio, see [Query with Visual Studio][]. To learn more about authentication options, see [Authentication to Azure SQL Data Warehouse][].
+To connect and query with Visual Studio, see [Query with Visual Studio][]. To learn more about authentication options, see [Authentication to Azure SQL Data Warehouse][].
 
 <!--Articles-->
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md

@@ -297,7 +297,7 @@
 
 By choosing Microsoft Azure as your SAP ready cloud partner, you will be able to reliably run your mission critical SAP workloads on a scaaleable, compliant, and enterprise-proven platform.  Get the scaleability, flexability, and cost savings of Azure. With the expanded partnership between Microsoft and SAP, you can run SAP applications across dev/test and production scenarios in azure - and be fully supported. From SAP NetWeaver to SAP S4/HANA, Linux to Windows, SAP HANA to SQL, we have you covered. 
 
-With Microsoft Azure virtual machine services, and SAP HANA on Azure large instances, Microsoft offers a comprehensive Infrastructure As A Service (IaaS) platform. Because a wide range of SAP solutions are supported on Azure, this "getting started document will serve as a Table of Contents for our current set of SAP documents. As more titles get added to our document library - you will see them added here. 
+With Microsoft Azure virtual machine services, and SAP HANA on Azure large instances, Microsoft offers a comprehensive Infrastructure As A Service (IaaS) platform. Because a wide range of SAP solutions are supported on Azure, this "getting started document" will serve as a Table of Contents for our current set of SAP documents. As more titles get added to our document library - you will see them added here. 
 
 ## SAP HANA Certifications on Microsoft Azure
 
@@ -305,7 +305,7 @@ With Microsoft Azure virtual machine services, and SAP HANA on Azure large insta
 SAP Product | Supported OS | Azure Offerings 
 ---------- | ------------ | ------------- 
 SAP HANA Developer Edition (including the HANA client software comprised of SQLODBC, ODBO-Windows only, ODBC, JDBC drivers, HANA studio, and HANA database) | Red Hat Enterprise Linux, SUSE Linux Enterprise | A7, A8
-MHANA One | Red Hat Enterprise Linux, SUSE Linux Enterprise | DS14_v2 (upon general availability)
+HANA One | Red Hat Enterprise Linux, SUSE Linux Enterprise | DS14_v2 (upon general availability)
 SAP S/4HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | Controlled Availability for GS5, SAP HANA on Azure (Large instances)
 Suite on HANA, OLTP | Red Hat Enterprise Linux, SUSE Linux Enterprise | SAP HANA on Azure (Large instances)
 HANA Enterprise for BW, OLAP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5 for single node deployments, SAP HANA on Azure (Large instances)

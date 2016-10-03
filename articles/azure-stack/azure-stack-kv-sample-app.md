@@ -16,9 +16,11 @@
 	ms.date="09/26/2016"
 	ms.author="ricardom"/>
 
-# Run the sample application for Key Vault #
+# Run the sample application for Key Vault 
 
-## Download the samples and prepare ##
+In this guide, you'll use a sample application to retrieve secrets and passwords from Key Vault.
+
+## Download the samples and prepare
 
 Download the Azure Key Vault client samples from the [Azure Key Vault client samples page](https://www.microsoft.com/en-us/download/details.aspx?id=45343).
 
@@ -43,3 +45,10 @@ That console application should run with no changes, except that the appropriate
 3. Launch the Windows PowerShell window.
 4. Run the GetAppConfigSettings.ps1 script within the PowerShell window.
 5. Copy the results of the script to the HelloKeyVault\App.config file.
+
+
+## Next steps
+
+[Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
+
+[Deploy a VM with a Key Vault certificate](azure-stack-kv-push-secret-into-vm.md)

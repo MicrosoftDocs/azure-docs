@@ -79,7 +79,7 @@ Install:
 
 -   [Azure Service Fabric SDK](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric). Required to build the [microservice](../service-fabric/service-fabric-get-started.md) extension.
 
-Also, make sure that you have the right Visual Studio extensions. Check that under **Tools**, you see **Android, iOS, Xamarin…**. If not, open Control Panel, and then select **Programs and Features** > **Microsoft** > **Visual Studio 2015** > **Modify**. Under **Cross-Platform development**, select **C\#/.Net (Xamarin)**. While you're there, check that **GitHub** is installed.
+Also, make sure that you have the right Visual Studio extensions. Check that under **Tools**, you see **Android, iOS, Xamarin…**. If not, open Control Panel, and then select **Programs and Features** > **Microsoft** > **Visual Studio 2015** > **Modify**. Under **Cross-Platform development**, select **C\#/.Net (Xamarin)**. While you're there, check that **Git for Windows** is installed.
 
 ### Mac development machine
 

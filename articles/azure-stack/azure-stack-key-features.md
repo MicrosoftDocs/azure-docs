@@ -24,11 +24,8 @@ If you’re new to Microsoft Azure Stack, these terms and feature descriptions m
 
 There are two varieties of users for Microsoft Azure Stack, the service administrator and the tenant (customer).
 
-                                                                                           |
-
-| ![](media/azure-stack-key-features/image1.png) | A **service administrator** can configure and manage resource providers, tenant offers, plans, services, quotas, and pricing.                                                                                           |
-|---|---|
-| ![](media/azure-stack-key-features/image2.png) | A **tenant** purchases (or acquires) services that the service administrator offers. Tenants can provision, monitor, and manage services that they have subscribed to, such as Web Apps, Storage, and Virtual Machines. |
+-  A **service administrator** can configure and manage resource providers, tenant offers, plans, services, quotas, and pricing.
+-  A **tenant** purchases (or acquires) services that the service administrator offers. Tenants can provision, monitor, and manage services that they have subscribed to, such as Web Apps, Storage, and Virtual Machines.
 
 
 ## Portal
@@ -48,7 +45,7 @@ In Azure Stack, services are delivered to tenants using regions, subscriptions, 
 Example hierarchy of a tenant’s subscriptions to offers, each with varying plans and services.
 
 ### Regions
-Azure Stack regions are the basic element of scale and management.  An organization may have multiple regions with resources available in each region.  Regions may also have different service offerings available.
+Azure Stack regions are a basic element of scale and management.  An organization may have multiple regions with resources available in each region.  Regions may also have different service offerings available.
 
 ### Services
 

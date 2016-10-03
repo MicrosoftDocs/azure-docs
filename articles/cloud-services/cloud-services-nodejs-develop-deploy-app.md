@@ -174,7 +174,7 @@ After deploying your application, you may want to disable it so you can avoid ex
 
 	![The status of the Remove-AzureService command][The status of the Remove-AzureService command]
 
-	> [AZURE.NOTE] Deleting the service does not delete the storage account that was created when the service was initially published, and you will continue to be billed for storage used. For more information on deleting a storage account, see [How to Delete a Storage Account from an Azure Subscription].
+	> [AZURE.NOTE] Deleting the service does not delete the storage account that was created when the service was initially published, and you will continue to be billed for storage used. If nothing else is using the storage, you may want to delete it.
 
 ## Next steps
 
@@ -188,7 +188,6 @@ For more information, see the [Node.js Developer Center].
 [Azure SDK for .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
 [Connect PowerShell]: ../powershell-install-configure.md#how-to-connect-to-your-subscription
 [nodejs.org]: http://nodejs.org/
-[How to Delete a Storage Account from an Azure Subscription]: ../storage/how-to-manage-a-storage-account.md
 [Overview of Creating a Hosted Service for Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Node.js Developer Center]: https://azure.microsoft.com/develop/nodejs/
 
@@ -198,7 +197,6 @@ For more information, see the [Node.js Developer Center].
 [The output of the Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
 [A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
 [The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
-[The full status output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
 [A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
 [The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
 [The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png

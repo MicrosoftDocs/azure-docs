@@ -1,6 +1,6 @@
 
 <properties 
-	pageTitle="Managing Media Services Entities with REST API" 
+	pageTitle="Managing Media Services Entities with REST API | Microsoft Azure" 
 	description="Learn how to manage Media Services entities with REST API." 
 	authors="juliako" 
 	manager="dwrede" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 #Managing Media Services Entities with REST API

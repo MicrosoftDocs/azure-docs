@@ -3,7 +3,7 @@
 	description="Follow this tutorial to get started using Azure Event Hubs; sending events in C# and receiving them in Java using the EventProcessorHost."
 	services="event-hubs"
 	documentationCenter=""
-	authors="fsautomata"
+	authors="jtaubensee"
 	manager="timlt"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/16/2016"
-	ms.author="jotaub"/>
+	ms.date="09/27/2016"
+	ms.author="jotaub;sethm"/>
 
 # Get started with Event Hubs
 

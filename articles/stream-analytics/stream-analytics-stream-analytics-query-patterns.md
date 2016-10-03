@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/27/2016"
+	ms.date="09/26/2016"
 	ms.author="jeffstok"/>
 
 
@@ -26,7 +26,7 @@ Queries in Azure Stream Analytics are expressed in a SQL-like query language, wh
 
 ## Query example: Data type conversions
 **Description**: Define the types of the properties on the input stream.
-e.g. Car weight is coming on the input stream as strings and needs to be converted to INT to perform SUM it up.
+For example, car weight is coming on the input stream as strings and needs to be converted to INT to perform SUM it up.
 
 **Input**:
 
@@ -58,7 +58,7 @@ Use a CAST statement on the Weight field to specify its type (see the list of su
 
 ## Query example: Using Like/Not like to do pattern matching
 **Description**: Check that a field value on the event matches a certain pattern
-e.g. Return license plates that start with A and end with 9
+For example, return license plates that start with A and end with 9
 
 **Input**:
 
@@ -89,7 +89,7 @@ Use the LIKE statement to check that the LicensePlate field value starts with A 
 
 ## Query example: Specify logic for different cases/values (CASE statements)
 **Description**: Provide different computation for a field based on some criteria.
-e.g. Provide a string description for how many cars passed of the same make with a special case for 1.
+For example, provide a string description for how many cars passed of the same make with a special case for 1.
 
 **Input**:
 
@@ -125,7 +125,7 @@ The CASE clause allows us to provide a different computation based on some crite
 
 ## Query example: Send data to multiple outputs
 **Description**: Send data to multiple output targets from a single job.
-e.g. Analyze data for a threshold-based alert and archive all events to blob storage
+For example, analyze data for a threshold-based alert and archive all events to blob storage
 
 **Input**:
 
@@ -181,7 +181,7 @@ The INTO clause tells Stream Analytics which of the outputs to write the data fr
 The first query is a pass-through of the data we received to an output that we named ArchiveOutput.
 The second query does some simple aggregation and filtering and sends the results to a downstream alerting system.
 *Note*: You can also reuse results of CTEs (i.e. WITH statements) in multiple output statements – this has the added benefit of opening fewer readers to the input source.
-e.g. 
+For example, 
 
 	WITH AllRedCars AS (
 		SELECT
@@ -196,7 +196,7 @@ e.g.
 
 ## Query example: Counting unique values
 **Description**: count the number of unique field values that appear in the stream within a time window.
-e.g. How many unique make of cars passed through the toll booth in a 2 second window?
+For example, how many unique make of cars passed through the toll booth in a 2 second window?
 
 **Input**:
 
@@ -242,7 +242,7 @@ We then do an aggregation of how many makes we got – given all unique values i
 
 ## Query example: Determine if a value has changed#
 **Description**: Look at a previous value to determine if it is different than the current value
-e.g. Is the previous car on the Toll Road the same make as the current car?
+For example, is the previous car on the Toll Road the same make as the current car?
 
 **Input**:
 
@@ -372,7 +372,7 @@ There are two steps in the query – the first one finds latest timestamp in 10 
 
 ## Query example: Detect the absence of events
 **Description**: Check that a stream has no value that matches a certain criteria.
-e.g. Have 2 consecutive cars from the same make entered the toll road within 90 seconds?
+For example, have 2 consecutive cars from the same make entered the toll road within 90 seconds?
 
 **Input**:
 
@@ -406,7 +406,7 @@ e.g. Have 2 consecutive cars from the same make entered the toll road within 90 
 Use LAG to peek into the input stream one event back and get the Make value. Then compare it to the Make on the current event and output the event if they are the same and use LAG to get data about the previous car.
 
 ## Query example: Detect duration between events
-**Description**: Find the duration of a given event. e.g. Given a web clickstream determine time spent on a feature.
+**Description**: Find the duration of a given event. For example, given a web clickstream determine time spent on a feature.
 
 **Input**:  
   
@@ -437,7 +437,7 @@ Use LAST function to retrieve last Time value when event type was ‘Start’. N
 
 ## Query example: Detect duration of a condition
 **Description**: Find out how long a condition occurred for.
-e.g. Suppose that a bug that resulted in all cars having an incorrect weight (above 20,000 pounds) – we want to compute the duration of the bug.
+For example, suppose that a bug that resulted in all cars having an incorrect weight (above 20,000 pounds) – we want to compute the duration of the bug.
 
 **Input**:
 

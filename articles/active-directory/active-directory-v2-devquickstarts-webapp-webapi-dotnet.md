@@ -20,10 +20,13 @@
 
 With the v2.0 endpoint, you can quickly add authentication to your web apps and web APIs with support for both personal Microsoft accounts and work or school accounts.  Here, we'll build an MVC web app that signs users in using OpenID Connect, with some help from Microsoft's OWIN middleware.  The web app will get OAuth 2.0 access tokens for a web api secured by OAuth 2.0 that allows create, read, and delete on a given user's "To-Do List".
 
-> [AZURE.NOTE]
-	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+> [AZURE.WARNING]
+	This tutorial currently uses an outdated, unsupported client library, `Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory` (ADAL Experimental).  We are working on updating this tutorial to the `Microsoft.Identity.Client` preview library (MSAL). In the meantime, we recommend replacing the usage of ADAL Experimental in this tutorial with MSAL.  More information on your options in choosing a client library is available in our [limitations article](active-directory-v2-limitations.md).
 
 This tutorial will focus primarily on using ADAL to acquire and use access tokens in a web app, described in full [here](active-directory-v2-flows.md#web-apps).  As prerequisites, you may want to first learn how to [add basic sign-in to a web app](active-directory-v2-devquickstarts-dotnet-web.md) or how to [properly secure a web API](active-directory-v2-devquickstarts-dotnet-api.md).
+
+> [AZURE.NOTE]
+	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
 ## Download sample code
 

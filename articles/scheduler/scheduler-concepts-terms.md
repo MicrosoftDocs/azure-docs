@@ -3,8 +3,8 @@
  description="Azure Scheduler concepts, terminology, and entity hierarchy, including jobs and job collections.  Shows a comprehensive example of a scheduled job."
  services="scheduler"
  documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
+ authors="derek1ee"
+ manager="kevinlam1"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,7 +13,7 @@
  ms.devlang="dotnet"
  ms.topic="get-started-article"
  ms.date="08/18/2016"
- ms.author="krisragh"/>
+ ms.author="deli"/>
 
 # Scheduler concepts, terminology, + entity hierarchy
 

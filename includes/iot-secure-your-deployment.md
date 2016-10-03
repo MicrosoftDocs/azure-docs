@@ -113,15 +113,15 @@ This article provides overview of implementation level details for designing and
 
 [img-overview]: media/iot-secure-your-deployment/overview.png
 
-[lnk-security-tokens]: ../articles/iot-hub/iot-hub-sas-tokens.md#security-token-structure
-[lnk-sas-tokens]: ../articles/iot-hub/iot-hub-sas-tokens.md#use-sas-tokens-as-a-device
-[lnk-identity-registry]: ../articles/iot-hub/iot-hub-devguide.md#device-identity-registry
-[lnk-protocols]: ../articles/iot-hub/iot-hub-devguide.md#security
-[lnk-custom-auth]: ../articles/iot-hub/iot-hub-guidance.md#custom-device-authentication
+[lnk-security-tokens]: ../articles/iot-hub/iot-hub-devguide-security.md#security-token-structure
+[lnk-sas-tokens]: ../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-as-a-device
+[lnk-identity-registry]: ../articles/iot-hub/iot-hub-devguide-identity-registry.md
+[lnk-protocols]: ../articles/iot-hub/iot-hub-devguide-security.md
+[lnk-custom-auth]: ../articles/iot-hub/iot-hub-devguide-security.md#custom-device-authentication
 [lnk-x509]: http://www.itu.int/rec/T-REC-X.509-201210-I/en
-[lnk-use-x509]: ../articles/iot-hub/iot-hub-sas-tokens.md
+[lnk-use-x509]: ../articles/iot-hub/iot-hub-devguide-security.md
 [lnk-tls12]: https://tools.ietf.org/html/rfc5246
-[lnk-service-tokens]: ../articles/iot-hub/iot-hub-sas-tokens.md#using-security-tokens-from-service-components
+[lnk-service-tokens]: ../articles/iot-hub/iot-hub-devguide-security.md#using-security-tokens-from-service-components
 [lnk-docdb]: https://azure.microsoft.com/services/documentdb/
 [lnk-asa]: https://azure.microsoft.com/services/stream-analytics/
 [lnk-appservices]: https://azure.microsoft.com/services/app-service/

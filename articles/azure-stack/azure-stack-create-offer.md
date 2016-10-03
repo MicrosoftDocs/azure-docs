@@ -41,6 +41,7 @@
 	![](media/azure-stack-create-offer/image04.png)
 
 Offers must be made public for tenants to get the full view when subscribing. Offers can be:
+
 - **Public**: Visible to tenants.
 
 - **Private**: Only visible to the service administrators. Useful while drafting the plan or offer, or if the service administrator wants to approve every subscription.

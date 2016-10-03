@@ -102,7 +102,7 @@ There are two ways to avoid this:
 
 ## Uploading a SUSE VM from on-premises to Azure
 
-For a description of the steps to upload a SUSE VM from on-premises to Azure, see [Prepare a SLES or openSUSE virtual machine for Azure] (virtual-machines-linux-create-upload-vhd-suse.md).
+For a description of the steps to upload a SUSE VM from on-premises to Azure, see [Prepare a SLES or openSUSE virtual machine for Azure] (virtual-machines-linux-suse-create-upload-vhd.md).
 
 If you want to upload a VM without the deprovision step at the end (for example, to keep an existing SAP installation, as well as the host name), check the following items:
 
