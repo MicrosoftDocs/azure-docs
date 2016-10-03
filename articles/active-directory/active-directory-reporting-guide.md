@@ -13,11 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/27/2016"
+   ms.date="09/30/2016"
    ms.author="femila"/>
 
 
 # Azure Active Directory Reporting Guide
+
+> [AZURE.SELECTOR]
+- [Azure portal](active-directory-reporting-azure-portal.md)
+- [Azure classic portal](active-directory-reporting-guide.md)
 
  - [Azure Active Directory reporting - preview](active-directory-reporting-azure-portal.md)
  - [Getting started with the Azure AD Reporting API](active-directory-reporting-api-getting-started.md)

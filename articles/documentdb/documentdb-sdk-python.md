@@ -34,13 +34,13 @@
 <tr><td>**SDK installation instructions**</td><td>[Python SDK installation instructions](http://azure.github.io/azure-documentdb-python/)</td></tr>
 <tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
 <tr><td>**Get started**</td><td>[Get started with the Python SDK](documentdb-python-application.md)</td></tr>
-<tr><td>**Current supported platform**</td><td>[Python 2.7](https://www.python.org/download/releases/2.7/) and [Python 3.4](https://www.python.org/download/releases/3.4/)</td></tr>
+<tr><td>**Current supported platform**</td><td>[Python 2.7](https://www.python.org/downloads/) and [Python 3.5](https://www.python.org/downloads/)</td></tr>
 </table></br>
 
 ## Release notes
 
 ### <a name="2.0.0"/>[2.0.0](https://pypi.python.org/pypi/pydocumentdb/2.0.0)
-- Added support for Python 3.4.
+- Added support for Python 3.5.
 - Added support for connection pooling using a requests module.
 - Added support for session consistency.
 - Added support for TOP/ORDERBY queries for partitioned collections.
