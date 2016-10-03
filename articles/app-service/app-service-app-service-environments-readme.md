@@ -40,7 +40,7 @@ Apps frequently need to access corporate resources such as internal databases an
 * [Scaling Apps in an App Service Environment](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
 * [Network Security and Architecture](../app-service-web/app-service-app-service-environment-network-architecture-overview.md)
 
-## How Tos
+## How To's
 
 [AZURE.INCLUDE [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
 
