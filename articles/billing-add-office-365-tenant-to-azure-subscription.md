@@ -44,7 +44,7 @@ For the association to work properly, the following prerequisites are necessary:
 
 To change your service administrator, follow these steps:
 
-1. Sign in to the [Account Management Portal](https://account.windowsazure.com/subscriptions).
+1. Sign in to the [Account Management portal](https://account.windowsazure.com/subscriptions).
 2. Select the subscription you want to change.
 3. Select **Edit subscription details**.
 
@@ -57,7 +57,7 @@ To change your service administrator, follow these steps:
 ### Associate the Office 365 tenant with the Azure subscription
 To associate the Office 365 tenant with the Azure subscription, follow these steps:
 
-1. 	Sign in to the [Account Management Portal](https://account.windowsazure.com/subscriptions) with the service administrator credentials.
+1. 	Sign in to the [Account Management portal](https://account.windowsazure.com/subscriptions) with the service administrator credentials.
 2.	In the left pane, select **ACTIVE DIRECTORY**.
 
 	![Screenshot of Active Directory entry](./media/billing-add-office-365-tenant-to-azure-subscription/s35-classic-portal-active-directory-entry.png)
@@ -88,7 +88,7 @@ To associate the Office 365 tenant with the Azure subscription, follow these ste
 
 	![Screenshot of sign-out](./media/billing-add-office-365-tenant-to-azure-subscription/s312_use-contoso-directory-azure-confirm-and-sign-out.png)
 
-	f. Sign in to the [Account Management Portal](https://account.windowsazure.com/subscriptions) with the service administrator credentials.
+	f. Sign in to the [Account Management portal](https://account.windowsazure.com/subscriptions) with the service administrator credentials.
 
 	![Screenshot of Azure sign-in](./media/billing-add-office-365-tenant-to-azure-subscription/s313_azure-sign-in-service-admin.png)
 
@@ -100,7 +100,7 @@ To associate the Office 365 tenant with the Azure subscription, follow these ste
 
 	a. Select **Settings**.
 
-	![azure-classic-portal-settings-icon](./media/billing-add-office-365-tenant-to-azure-subscription/s315_azure-classic-portal-settings-icon.png)
+	![Screenshot of Azure classic portal settings icon](./media/billing-add-office-365-tenant-to-azure-subscription/s315_azure-classic-portal-settings-icon.png)
 
 	b. Select your Azure subscription, and then select **EDIT DIRECTORY**.
 	![Screenshot of Azure subscription edit directory](./media/billing-add-office-365-tenant-to-azure-subscription/s316_azure-subscription-edit-directory.png)
@@ -123,7 +123,7 @@ To associate the Office 365 tenant with the Azure subscription, follow these ste
 
 	a. Select the **ADMINISTRATORS** tab, and then select **ADD**.
 
-	![Screenshot of Azure Classic portal settings administrators tab](./media/billing-add-office-365-tenant-to-azure-subscription/s319_azure-classic-portal-settings-administrators.png)
+	![Screenshot of Azure classic portal settings administrators tab](./media/billing-add-office-365-tenant-to-azure-subscription/s319_azure-classic-portal-settings-administrators.png)
 
 	b. Enter an organizational account of your Office 365 tenant, select the Azure subscription, and then select **Complete** ![complete-icon](./media/billing-add-office-365-tenant-to-azure-subscription/s38_complete-icon.png).
 
@@ -150,7 +150,7 @@ To associate the Office 365 tenant with the Azure subscription, follow these ste
 ## Next steps
 Related scenarios include:
 
-- You already have an Office 365 subscription and are ready for an Azure subscription, but you want to use the existing Office 365 user account(s) for your Azure subscription.
-- You are an Azure subscriber and want to get an Office 365 subscription for the users in your existing Azure Active Directory.
+- You already have an Office 365 subscription and are ready for an Azure subscription, but you want to use the existing Office 365 user accounts for your Azure subscription.
+- You are an Azure subscriber and want to get an Office 365 subscription for the users in your existing Azure Active Directory instance.
 
 To learn how to accomplish these tasks, see [Use your existing Office 365 account with your Azure subscription, or vice versa](billing-use-existing-office-365-account-azure-subscription.md).
