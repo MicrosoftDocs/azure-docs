@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Scale sets CLI portal create | Microsoft Azure"
+	pageTitle="Create a Virtual Machine Scale Set using the Azure portal | Microsoft Azure"
 	description="Deploy scale sets using Azure portal."
 	keywords="virtual machine scale sets" 
 	services="virtual-machine-scale-sets"
@@ -18,7 +18,7 @@
 	ms.date="09/15/2016"
 	ms.author="gatneil"/>
 
-# Create a scale set using the Azure Portal
+# Create a Virtual Machine Scale Set using the Azure portal
 
 This tutorial shows you how easy it is to create a Virtual Machine Scale Set in just a few minutes, by using the Azure portal. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -26,11 +26,11 @@ This tutorial shows you how easy it is to create a Virtual Machine Scale Set in 
 
 From the portal, you can easily deploy a scale set with CentOS, CoreOS, Debian, Open Suse, Red Hat Enterprise Linux, SUSE Linux Enterprise Server, Ubuntu Server, or Windows Server images.
 
-First, navigate to the [Azure portal](https://portal.azure.com) in a web browser. Click `New`, search for `scale set`, then select the `Virtual machine scale set` entry:
+First, navigate to the [Azure portal](https://portal.azure.com) in a web browser. Click `New`, search for `scale set`, and then select the `Virtual machine scale set` entry:
 
 ![ScaleSetPortalOverview](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalOverview.PNG)
 
-## Create the Windows virtual machine
+## Create the Linux virtual machine
 
 Now you can use the default settings and quickly create the virtual machine.
 
@@ -40,7 +40,7 @@ Now you can use the default settings and quickly create the virtual machine.
 
 ![ScaleSetPortalBasics](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalBasics.PNG)
 
-* Enter your desired resource group name and location, then click `OK`.
+* Enter your desired resource group name and location, and then click `OK`.
 
 * On the `Virtual machine scale set service settings` blade: enter your desired domain name label (the base of the FQDN for the load balancer in front of the scale set). This label must be unique across all of Azure.
 
@@ -50,11 +50,11 @@ Now you can use the default settings and quickly create the virtual machine.
 
 ![ScaleSetPortalService](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalService.PNG)
 
-* On the `Summary` blade, once validation is done, click `OK`.
+* On the `Summary` blade, when validation is done, click `OK`.
 
 * Finally, on the `Purchase` blade, click `Purchase` to start the scale set deployment.
 
-## Connect to a VM in the Scale Set
+## Connect to a VM in the scale set
 
 Once your scale set is deployed, navigate to the `Inbound NAT Rules` tab of the load balancer for the scale set:
 
@@ -66,7 +66,7 @@ You can connect to each VM in the scale set using these NAT rules. For instance,
 
 For documentation on how to deploy scale sets from the CLI, see [this documentation](./virtual-machine-scale-sets-cli-quick-create.md).
 
-For documentation on how to deploy scale sets from Powershell, see [this documentation](./virtual-machine-scale-sets-windows-create.md).
+For documentation on how to deploy scale sets from PowerShell, see [this documentation](./virtual-machine-scale-sets-windows-create.md).
 
 For documentation on how to deploy scale sets from Visual Studio, see [this documentation](./virtual-machine-scale-sets-vs-create.md).
 
