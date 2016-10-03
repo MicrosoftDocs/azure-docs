@@ -14,10 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/14/2016"
+	ms.date="09/30/2016"
 	ms.author="andkjell;billmath"/>
 
 # Integrating your on-premises identities with Azure Active Directory
+
 Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for your users for Office 365, Azure, and SaaS applications integrated with Azure AD. This topic will guide you through the planning, deployment, and operation steps. It is a collection of links to the topics related to this area.
 
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->

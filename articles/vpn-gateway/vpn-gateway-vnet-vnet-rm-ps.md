@@ -20,8 +20,8 @@
 # Configure a VNet-to-VNet connection for Resource Manager using PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
-- [PowerShell - Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
+- [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+- [Classic - Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 
 This article walks you through the steps to create a connection between VNets in the Resource Manager deployment model by using VPN Gateway. The virtual networks can be in the same or different regions, and from the same or different subscriptions.
 
@@ -29,24 +29,23 @@ This article walks you through the steps to create a connection between VNets in
 ![v2v diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 
-### Deployment models and tools for VNet-to-VNet
+### Deployment models and methods for VNet-to-VNet
 
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-A VNet-to-VNet connection can be configured in both deployment models and by using several different tools. See the following table for more information. We update this table as new articles, new deployment models, and additional tools become available for this configuration. When an article is available, we link directly to it from the table.
+A VNet-to-VNet connection can be configured in both deployment models and by using several different tools. We update the following table as new articles and additional tools become available for this configuration. When an article is available, we link directly to it from the table.<br><br>
 
 [AZURE.INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)] 
 
-
 #### VNet peering
 
-You may be able to use VNet peering to create your connection, as long as your virtual network configuration meets certain requirements. VNet peering does not use a virtual network gateway. [VNet peering](../virtual-network/virtual-network-peering-overview.md) is currently in Preview.
+[AZURE.INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 
 ## About VNet-to-VNet connections
 
-Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a VNet to an on-premises site location. Both connectivity types use an Azure VPN gateway to provide a secure tunnel using IPsec/IKE. The VNets you connect can be in different regions. Or in different subscriptions. You can even combine VNet-to-VNet communication with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram.
+Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a VNet to an on-premises site location. Both connectivity types use an Azure VPN gateway to provide a secure tunnel using IPsec/IKE. The VNets you connect can be in different regions. Or in different subscriptions. You can even combine VNet-to-VNet communication with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram:
 
 
 ![About connections](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
@@ -453,7 +452,7 @@ In this example, because the gateways are in the different subscriptions, we've 
 
 3. **[Subscription 1]** Create the TestVNet1 to TestVNet5 connection
 
-	In this step, you create the connection from TestVNet1 to TestVNet5. The difference here is that $vnet5gw cannot be obtained directly because it is in a different subscription. You will need to create a new PowerShell object with the values communicated from Subscription 1 in the steps above. Replace the Name, Id, and shared key with your own values. The important thing is that the shared key must match for both connections. Creating a connection can take a short while to complete.
+	In this step, you create the connection from TestVNet1 to TestVNet5. The difference here is that $vnet5gw cannot be obtained directly because it is in a different subscription. You will need to create a new PowerShell object with the values communicated from Subscription 1 in the steps above. Use the example below. Replace the Name, Id, and shared key with your own values. The important thing is that the shared key must match for both connections. Creating a connection can take a short while to complete.
 
 	Make sure you connect to Subscription 1. 
 	
