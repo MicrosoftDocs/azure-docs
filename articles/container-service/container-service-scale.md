@@ -20,11 +20,11 @@
 
 # Scale an Azure Container Service cluster
 
-You can scale out the amount of nodes your Azure Container Service has by using the Azure CLI tool. When you use the Azure CLI to scale, the tool will return you a new configuration file representing the change applied to the container.
+You can scale out the number of nodes your Azure Container Service has by using the Azure CLI tool. When you use the Azure CLI to scale, the tool returns you a new configuration file representing the change applied to the container.
 
 ## About the command
 
-The Azure CLI must be in Azure Resource Manager (arm) mode for you to interact with Azure Containers. You can switch to arm mode by calling `azure config mode arm`. The `acs` command has a child-command named `scale` which does all the scale operations for a container. You can get help about the various parameters used in the scale command by running `azure acs scale --help` which will output something similar to this:
+The Azure CLI must be in Azure Resource Manager (arm) mode for you to interact with Azure Containers. You can switch to arm mode by calling `azure config mode arm`. The `acs` command has a child-command named `scale` that does all the scale operations for a container. You can get help about the various parameters used in the scale command by running `azure acs scale --help`, which outputs something similar to this:
 
 ```azurecli
 azure acs scale --help
@@ -91,7 +91,7 @@ data:         StorageUri     : https://<storageid>.blob.core.windows.net/
 
 #### Scale to new count
 
-As it is probably already self evident, you can scale the conatiner by calling `azure acs scale` and supplying the **resource group**, **name**, and **agent count**. When you scale a container, Azure CLI will output a JSON string representing the new configuration of the container, including the new agent count.
+As it is probably already self-evident, you can scale the container by calling `azure acs scale` and supplying the **resource group**, **name**, and **agent count**. When you scale a container, Azure CLI returns a JSON string representing the new configuration of the container, including the new agent count.
 
 ```azurecli
 azure acs scale containers-test containerservice-containers-test 10
