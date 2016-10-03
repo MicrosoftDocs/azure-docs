@@ -1,3 +1,4 @@
+
 # Azure and Internet of Things
 
 Welcome to Microsoft Azure and the Internet of Things (IoT). This article introduces an IoT solution architecture that describes the common characteristics of an IoT solution you might deploy using Azure services. IoT solutions require secure, bidirectional communication between devices, possibly numbering in the millions, and a solution back end that, for example, uses automated, predictive analytics to uncover insights from your device-to-cloud event stream.
