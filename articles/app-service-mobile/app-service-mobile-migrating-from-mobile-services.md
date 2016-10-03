@@ -45,8 +45,6 @@ For more information on the benefits of Azure App Service, see the [Mobile Servi
 
 Before beginning any major work on your site, you should [Back up your Mobile Service] scripts and SQL database.
 
-If you wish to test the migration process before migrating your production site, duplicate your production Azure Mobile Service within a new [Azure Region] (complete with a copy of the data source) and test the migration against the new URL.  You will also need a test client implementation that points to the test site to properly test the migrated site.
-
 ## <a name="migrating-site"></a>Migrating your sites
 
 The migration process will migrate all sites within a single Azure Region.
