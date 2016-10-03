@@ -18,37 +18,57 @@
 	ms.date="08/17/2016"
 	ms.author="cjiang"/>
 
-# Understand your Azure Marketplace charges
-This article provides you an overview of how to understand charges related to your Marketplace orders. A few things to keep in mind while reviewing your bill are the different pricing types (Base Only, Usage Only and Base + Usage). Please note that each Marketplace order you place will have its own monthly billing cycle. These topics will be covered in detail below.
+# Understand your Azure External Service Charges
 
-> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+This article explains the billing of External Services in Azure. They are sometimes called Marketplace Orders. External Services are provided by independent service vendors, but are integrated completely within the Azure ecosystem. In this article you'll learn how to:
 
-## Review your Marketplace bill
-Once you log in the [Azure Accounts Portal](https://account.windowsazure.com/subscriptions/) you can review and download current and past bills.
+- Identify External Services
+- Understand how the billing differs from other Azure resources
+- View and track any costs you accrue from the use of external services
+- Manage external service orders and how you pay for them
 
-To view or download your bill:
+## Important traits of external services
 
-1. Sign in to the Azure Accounts Portal using your Org ID.
-2. Click **Marketplace**.
-The list being displayed is a complete list of all Marketplace orders that have been placed by your Azure account. You’ll notice that the orders are grouped by the parent Azure subscription name and ID.
+### Identifying External services
 
-    ![Marketplace orders](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
+When you provision a new resource, you'll see the following warning when the resource is an external service order:
 
-3. Clicking any of the displayed orders will take you to the summary overview of that order for the current billing cycle. An explanation of the different pricing models can be found on [Marketplace FAQ](https://azure.microsoft.com/marketplace/faq/).
+![Marketplace purchase warning](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
 
-    ![Order summary](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
+Remove next line?
 
-The summary view contains the following information for each order:
-- Price
-- Billing Cycle
-- Purchase Date
-- Associated Parent Subscription
-- Billing Currency
+In most cases these will be services published by companies that are not Microsoft. Certain Microsoft products are also leveraging the Azure Marketplace through the same channel and will also be categorized as External Services.
 
-Pleaes note that We made a few changes to how this information is displayed. Previously we displayed the cost of the order which included tax. This has been updated to show the price which may be tax exclusive or inclusive, depending on which country you are in. The location of the price has moved from the right hand navigation to the center as well. To help track which Azure subscription these charges are associated to we also added the Azure subscription name and ID to the right hand navigation as well as the **Change payment method** option.
+### External services are billed separately
 
-## Update Payment Method and Order Management
-The summary page has user actions, allowing you to update the payment model and order management functions:
+External services are treated as individual orders within your Azure subscription. The billing period for each service is set when you purchase the service. Not to be confused with the billing period of the subscription under which you purchased it. You will also receive separate bills and your credit card will be charged separately.
+
+### Payment models
+
+You need a credit card to buy External services. You will not be able to buy them if your subscription uses Invoice pay. Some services are billed in a pay-as-you-go fashion while others use a monthly base payment model.
+
+### Azure Free Credits and External services
+
+If you are using an azure subscription that includes [free credit](https://azure.microsoft.com/en-us/pricing/spending-limits/), you should be aware that this credit can't be applied to external service bills, this means that you must have a credit card associated with your subscription to purchase them, and this is the card that will be charged.
+
+## Viewing your External Service Spending and History
+
+You can view a list of the external services that are on each subscription within the [Azure Portal](https://portal.azure.com/): 
+
+1. Navigate to the Billing blade
+   
+  ![Change payment method](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
+
+2. Select a subscription
+   
+  ![Change payment method](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
+
+3. Use the External Services command and you'll see each one of your external service orders, the publisher name, service tier you bought, name you gave the resource, and the current order status.
+
+From here you can view past bill amounts including the tax breakdown.
+
+## How to Manage your Orders and Payments
+The summary page in the [Azure Account Center](https://account.windowsazure.com/) has user actions, allowing you to update your payment instrument:
 
 > [AZURE.NOTE] If you are using your organization ID to change personal information you will need to log a ticket with support.
 
@@ -67,38 +87,9 @@ To change your payment method, follow these steps:
 2. Select the payment method you want to change to. The **Pay with** option allows you to select your credit card. The **Add a new way to pay** option allows you add a new credit card.
 
     ![Change payment method](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
+    
+If you want to cancel your external service order, you need to delete the resource in the [Azure Portal](https://portal.azure.com).
 
-## Order management
-From the summary overview page you’ll see an **Manage Order** link. This link will bring you to your portal where you can see all your Marketplace orders, view service health and request support.
-
-![Portal](./media/billing-understand-your-azure-marketplace-charges/portal.jpg)
-
-To request support, click on the **Help + support** tile. This will bring up the following **Help + support** page where you can do the following:
-- Open a new support request.
-- Manage existing support requests.
-- Manage resource health.
-
-![Request support](./media/billing-understand-your-azure-marketplace-charges/request-support.jpg)
-
-## Billing History
-A new feature on the summary page is the ability to view usage based offers like virtual machines. You are now able to download usage based on billing cycle for both current and closed periods. To view usage, click on the **Download Usage** link per the period you would like to view.
-
-If you are interested in viewing your actual charges click **View Charges**. You will be redirected to a different portal where you’ll be able to view all charges including taxes. If you are using an organization ID, the **View Charges** button will not be enabled and you will need to submit a support ticket to request a summary of your charges.
-
-![Billing history](./media/billing-understand-your-azure-marketplace-charges/billing-history.png)
-
-To view actual charges, follow these steps:
-
-1. Click **View Charges** on the **BILLING HISTORY** page.
-
-	A new tab will open showing the [order history](https://account.microsoft.com/billing/orders#/).
-
-    Please note that if you are trying to access your raw usage in the Billing and Account Management Portal you’ll need to call support by clicking on the support link at the bottom of the page.)
-
-    ![Order history](./media/billing-understand-your-azure-marketplace-charges/order-history.jpg)
-
-2. Identify the order you would like to review and click **Details** to view a breakdown of your charges which will include subtotal, tax and total charges.
-
-    ![Order details](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
+     ![Delete Resource](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
 
 > [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
