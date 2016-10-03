@@ -92,7 +92,7 @@ Perform the following steps to add the Start/Stop VMs during off-hours (Preview)
 2. In the Marketplace blade, type **Start VM** in the search box, and then select the solution **Start/Stop VMs during off-hours (Preview)** from the search results.  
 3. In the **Start/Stop VMs during off-hours preview** blade for the selected solution, review the summary information and then click **Create**.  The **Add Soultion** blade appears where you are prompted to configure the following items before you can import the solution into your Automation subscription.<br><br> ![VM Management Add Solution blade](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br><br>
 
-    a. Workspace.  You can select an OMS workspace that is linked to the same Azure subscription that the Automation account is in.  If you do not have an OMS workpace, you can select  **Create New Workspace** and on the **OMS Workspace** blade perform the following: 
+    a. Workspace.  You can select an OMS workspace that is linked to the same Azure subscription that the Automation account is in.  If you do not have an OMS workpace, you can select **Create New Workspace** and on the **OMS Workspace** blade perform the following: 
 
       - Specify a name for the new **OMS Workspace**.
       - Select a **Subscription** to link to by selecting from the drop-down list if the default selected is not appropriate.
