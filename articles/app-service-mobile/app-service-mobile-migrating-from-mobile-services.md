@@ -121,9 +121,7 @@ Your migrated CORS settings are available as the **MS_CrossDomainWhitelist** App
   3.  The Settings blade opens by default.
   4.  Click **CORS** in the API menu.
   5.  Enter any Allowed Origins in the box provided, pressing Enter after each one.
-  6.  Once your list of Allowed Origins is correct, Click the Save button.
-
-CORS settings is an optional task, but provides for a better management experience going forward.
+  6.  Once your list of Allowed Origins is correct, click the Save button.
 
 > [AZURE.TIP]  One of the advantages of using an Azure App Service is that you can run your web site and mobile service on the same site.  For more
 > information, see the [next steps](#next-steps) section.
@@ -234,7 +232,7 @@ The _API_ tab in Mobile Services has been replaced by _Easy APIs_ within the Azu
   3. The Settings blade opens by default.
   4. Click **Easy APIs** in the MOBILE menu.
 
-Your migrated APIs are already listed in the blade.  You can also add an API from this blade.  To manage a specific API, Click the API.
+Your migrated APIs are already listed in the blade.  You can also add an API from this blade.  To manage a specific API, click the API.
 From the new blade, you can adjust the permissions and edit the scripts for the API.
 
 ### <a name="on-demand-jobs"></a>Scheduler Jobs
@@ -250,7 +248,7 @@ All scheduler jobs are available through the Scheduler Job Collections section. 
 Scheduled jobs are listed with the frequency you specified before migration.  On-demand jobs are disabled.  To run an on-demand job:
 
   1. Select the job you wish to run.
-  2. If necessary, Click **Enable** to enable the job.
+  2. If necessary, click **Enable** to enable the job.
   3. Click **Settings**, then **Schedule**.
   4. Select a Recurrence of **Once**, then Click **Save**
 
@@ -355,14 +353,14 @@ To view the logs:
   3. Click the **Tools** button
   4. Select **Log Stream** under the OBSERVE menu.
 
-Logs stream in to the window provided as they are generated.  You can also download the logs for later analysis using your deployment credentials. For
+Logs are displayed in the window as they are generated.  You can also download the logs for later analysis using your deployment credentials. For
 more information, see the [Logging] documentation.
 
 ## <a name="known-issues"></a>Known Issues
 
 ### Deleting a Migrated Mobile App Clone causes a site outage
 
-If you clone your migrated mobile service using Azure PowerShell then delete the clone, the DNS entry for your production service is 
+If you clone your migrated mobile service using Azure PowerShell, then delete the clone, the DNS entry for your production service is 
 removed.  Your site is no longer be accessible from the Internet.  
 
 Resolution: If you wish to clone your site, do so through the portal.
