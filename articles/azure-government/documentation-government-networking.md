@@ -27,7 +27,7 @@ ExpressRoute is generally available in Azure Government. For more information (i
 
 ExpressRoute is generally available (GA) in Azure Government. 
 
-- Gov customers connect to a physically isolated capacity over a dedicated Azure Government (Gov)  ExpressRoute (ER) connection
+- Government customers connect to a physically isolated capacity over a dedicated Azure Government (Gov)  ExpressRoute (ER) connection
 
 - Azure Gov provides Increased availability & durability by leveraging multiple region pairs located a minimum of 500 miles apart 
 
