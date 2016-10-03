@@ -52,13 +52,13 @@ Before you continue, create a [sample DocumentDB database](#apdx-sampledata) to 
 
 1. On your Azure Search service dashboard, click **Import data** in the command bar to start a wizard that both creates and populates an index.
 
-  ![][7]
+    ![][7]
 
 2. In the wizard, click **Data Source** > **DocumentDB** > **Name**, type a name for the data source. A data source is a connection object in Azure Search that can be used with other indexers. Once you create it, it becomes available as an "existing data source" in your service.
 
 3. Choose your existing DocumentDB account, and the database and collection. If you're using the sample data we provide, your data source definition looks like this:
 
-  ![][2]
+    ![][2]
 
 Notice that we are skipping the query. This is because we're not implementing change tracking in our dataset this time around. If your dataset includes a field that keeps track of when a record is updated, you can configure an Azure Search indexer to use change tracking for selective updates to your index.
 
