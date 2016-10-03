@@ -265,9 +265,9 @@ In this tutorial you have learned how to configure a VPN connection between two 
 
 
 [hdinsight-hbase-replication]: hdinsight-hbase-geo-replication.md
-[hdinsight-hbase-dns]: hdinsight-hbase-geo-replication-configure-DNS.md
+[hdinsight-hbase-dns]: hdinsight-hbase-geo-replication-configure-dns.md
 
 
-[img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-vnets/HDInsight.HBase.VPN.diagram.png
-[img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-vnets/HDInsight.HBase.VPN.LNet.diagram.png
-[img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-vnets/HDInsight.HBase.VPN.status.png 
+[img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-vnets/hdinsight-hbase-vpn-diagram.png
+[img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-vnets/hdinsight-hbase-vpn-lnet-diagram.png
+[img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-vnets/hdinsight-hbase-vpn-status-png 
