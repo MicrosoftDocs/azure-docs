@@ -1,6 +1,6 @@
 <properties
    pageTitle="Scale your ACS cluster with the Azure CLI | Microsoft Azure"
-   description="How the public and private agent pools work with an Azure Container Service cluster."
+   description="How to scale your Azure Container Service cluster using the Azure CLI."
    services="container-service"
    documentationCenter=""
    authors="Thraka"
@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/16/2016"
+   ms.date="10/03/2016"
    ms.author="adegeo"/>
 
 # Scale an Azure Container Service cluster
@@ -48,19 +48,91 @@ help:    Current Mode: arm (Azure Resource Management)
 
 ## Scale a container
 
-To scale a container, you first need to know the **resource group** and **name**, and also specify the new count of agents. By using a smaller or higher amount, you can scale down or up respectively.
+To scale a container, you first need to know the **resource group** and the **container name**, and also specify the new count of agents. By using a smaller or higher amount, you can scale down or up respectively.
 
-You may want to know what the current agent count for a container before you scale and choose a new count. Use the `azure acs show` command to output the container config. Note the <mark>BLAH</mark> result.
+You may want to know what the current agent count for a container before you scale. Use the `azure acs show <resource group> <container name>` command to output the container config. Note the <mark>Count</mark> result.
+
+#### See current count
 
 ```azurecli
+azure acs show containers-test containerservice-containers-test
 
+info:    Executing command acs show
+data:
+data:     Id                 : /subscriptions/<guid>/resourceGroups/containers-test/providers/Microsoft.ContainerService/containerServices/containerservice-containers-test
+data:     Name               : containerservice-containers-test
+data:     Type               : Microsoft.ContainerService/ContainerServices
+data:     Location           : westus
+data:     ProvisioningState  : Succeeded
+data:     OrchestratorProfile
+data:       OrchestratorType : DCOS
+data:     MasterProfile
+data:       Count            : 1
+data:       DnsPrefix        : myprefixmgmt
+data:       Fqdn             : myprefixmgmt.westus.cloudapp.azure.com
+data:     AgentPoolProfiles
+data:       #0
+data:         Name           : agentpools
+data:         <mark>Count          : 1</mark>
+data:         VmSize         : Standard_D2
+data:         DnsPrefix      : myprefixagents
+data:         Fqdn           : myprefixagents.westus.cloudapp.azure.com
+data:     LinuxProfile
+data:       AdminUsername    : azureuser
+data:       Ssh
+data:         PublicKeys
+data:           #0
+data:             KeyData    : ssh-rsa <ENCODED VALUE>
+data:     DiagnosticsProfile
+data:       VmDiagnostics
+data:         Enabled        : true
+data:         StorageUri     : https://<storageid>.blob.core.windows.net/
 ```  
+
+#### Scale to new count
 
 As it is probably already self evident, you can scale the conatiner by calling `azure acs scale` and supplying the **resource group**, **name**, and **agent count**. When you scale a container, Azure CLI will output a JSON string representing the new configuration of the container, including the new agent count.
 
 ```azurecli
-azure acs scale myresourcegroup mycontainer 10
+azure acs scale containers-test containerservice-containers-test 10
 
-
+info:    Executing command acs scale
+data:    {
+data:        id: '/subscriptions/<guid>/resourceGroups/containers-test/providers/Microsoft.ContainerService/containerServices/containerservice-containers-test',
+data:        name: 'containerservice-containers-test',
+data:        type: 'Microsoft.ContainerService/ContainerServices',
+data:        location: 'westus',
+data:        provisioningState: 'Succeeded',
+data:        orchestratorProfile: { orchestratorType: 'DCOS' },
+data:        masterProfile: {
+data:            count: 1,
+data:            dnsPrefix: 'myprefixmgmt',
+data:            fqdn: 'myprefixmgmt.westus.cloudapp.azure.com'
+data:        },
+data:        agentPoolProfiles: [
+data:            {
+data:                name: 'agentpools',
+data:                <mark>count: 10</mark>,
+data:                vmSize: 'Standard_D2',
+data:                dnsPrefix: 'myprefixagents',
+data:                fqdn: 'myprefixagents.westus.cloudapp.azure.com'
+data:            }
+data:        ],
+data:        linuxProfile: {
+data:            adminUsername: 'azureuser',
+data:            ssh: {
+data:                publicKeys: [
+data:                    { keyData: 'ssh-rsa <ENCODED VALUE>' }
+data:                ]
+data:            }
+data:        },
+data:        diagnosticsProfile: {
+data:            vmDiagnostics: { enabled: true, storageUri: 'https://<storageid>.blob.core.windows.net/' }
+data:        }
+data:    }
+info:    acs scale command OK
 ``` 
 
+## Next steps
+
+- [Deploy a cluster](container-service-deployment.md)
