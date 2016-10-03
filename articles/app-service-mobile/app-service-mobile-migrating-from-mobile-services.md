@@ -51,7 +51,7 @@ The migration process will migrate all sites within a single Azure Region.
 
 To migrate your site:
 
-  1.  Log onto the [Azure Classic Portal].
+  1.  Log in to the [Azure Classic Portal].
   2.  Select a Mobile Service in the region you wish to migrate.
   3.  Click on the **Migrate to App Service** button.
 
@@ -78,7 +78,7 @@ tier) are reverted if necessary.
 
 You have more flexibility in pricing after you migrate to Azure App Service.
 
-  1.  Log into the [Azure Portal].
+  1.  Log in to the [Azure portal].
   2.  Select **All resources** or **App Services** then click on the name of your migrated Mobile Service.
   3.  The Settings blade will open by default - if it doesn't, click on **Settings**.
   4.  Click on **App Service Plan** in the Settings menu.
@@ -104,7 +104,7 @@ full details on the pricing of your new App Service.
 Scheduler Jobs will not be visible until approximately 30 minutes after migration.  Any scheduled jobs will continue to run in the background.
 To view your scheduled jobs:
 
-  1.  Log into the [Azure Portal].
+  1.  Log in to the [Azure portal].
   2.  Select **Browse>**, enter **Schedule** in the _Filter_ box, then select **Scheduler Collections**.
 
 There are a limited number of free scheduler jobs available post-migration.  You should review your usage and the [Azure Scheduler Plans].
@@ -117,7 +117,7 @@ Services exclusively from mobile devices, then CORS does not need to be configur
 
 Your migrated CORS settings are available as the **MS_CrossDomainWhitelist** App Setting.  To migrate your site to the App Service CORS facility:
 
-  1.  Log into the [Azure Portal].
+  1.  Log in to the [Azure portal].
   2.  Select **All resources** or **App Services** then click on the name of your migrated Mobile Service.
   3.  The Settings blade will open by default - if it doesn't, click on **Settings**.
   4.  Click on **CORS** in the API menu.
@@ -131,10 +131,10 @@ This is an optional task, but provides for a better management experience going 
 
 ### <a name="download-publish-profile"></a>Download a new Publishing Profile
 
-The publishing profile of your site is changed when migrating to Azure App Service.  You will need a new publishing profile if you intend to publsh
+The publishing profile of your site is changed when migrating to Azure App Service.  You will need a new publishing profile if you intend to publish
 your site from within Visual Studio.  To download the new publishing profile:
 
-  1.  Log into the [Azure Portal].
+  1.  Log in to the [Azure portal].
   2.  Select **All resources** or **App Services** then click on the name of your migrated Mobile Service.
   3.  Click on **Get publish profile**.
 
@@ -150,7 +150,7 @@ The PublishSettings file will be downloaded to your computer.  It will normally 
 
 ## <a name="working-with-your-site"></a>Working with your site post-migration
 
-You will start working with your new App Service in the [Azure Portal] post-migration.  The following are some notes on specific operations that
+You will start working with your new App Service in the [Azure portal] post-migration.  The following are some notes on specific operations that
 you used to perform in the [Azure Classic Portal], together with their App Service equivalent.
 
 ### <a name="publishing-your-site"></a>Downloading and Publishing your migrated site
@@ -159,7 +159,7 @@ Your site is available via git or ftp and can be re-published with a number of d
  and FTP.  The deployment credentials are migrated with the rest of your site.  If you did not set your deployment credentials or you do not remember
  them, you can reset them:
 
-  1. Log into the [Azure Portal].
+  1. Log in to the [Azure portal].
   2. Select **All resources** or **App Services** then click on the name of your migrated Mobile Service.
   3. The Settings blade will open by default - if it doesn't, click on **Settings**.
   4. Click on **Deployment credentials** in the PUBLISHING menu.
@@ -170,10 +170,10 @@ information, see the [Azure App Service deployment documentation].
 
 ### <a name="appsettings"></a>Application Settings
 
-Most settings for a migrated mobile service are available via App Settings.  You can get a list of the app settings from the [Azure Portal].
+Most settings for a migrated mobile service are available via App Settings.  You can get a list of the app settings from the [Azure portal].
 To view or change your app settings:
 
-  1. Log into the [Azure Portal].
+  1. Log in to the [Azure portal].
   2. Select **All resources** or **App Services** then click on the name of your migrated Mobile Service.
   3. The Settings blade will open by default - if it doesn't, click on **Settings**.
   4. Click on **Application settings** in the GENERAL menu.
@@ -183,7 +183,7 @@ To view or change your app settings:
 You can update multiple app settings at the same time.
 
 > [AZURE.TIP]  You will notice that there are two Application Settings with the same value.  For example, you may see _ApplicationKey_ and
-> _MS_ApplicationKey_.  You only need to alter the app setting prefixed by **MS_**. However, it is a good idea to update both app settings at
+> _MS\_ApplicationKey_.  You only need to alter the app setting prefixed by **MS\_**. However, it is a good idea to update both app settings at
 > the same time.
 
 ### <a name="authentication"></a>Authentication
@@ -193,25 +193,25 @@ appropriate app settings.  The following table shows the appropriate app setting
 
 | Provider          | Client ID                 | Client Secret                | Other Settings             |
 | :---------------- | :------------------------ | :--------------------------- | :------------------------- |
-| Microsoft Account | **MS_MicrosoftClientID**  | **MS_MicrosoftClientSecret** | **MS_MicrosoftPackageSID** |
-| Facebook          | **MS_FacebookAppID**      | **MS_FacebookAppSecret**     |                            |
-| Twitter           | **MS_TwitterConsumerKey** | **MS_TwitterConsumerSecret** |                            |
-| Google            | **MS_GoogleClientID**     | **MS_GoogleClientSecret**    |                            |
-| Azure AD          | **MS_AadClientID**        |                              | **MS_AadTenants**          |
+| Microsoft Account | **MS\_MicrosoftClientID**  | **MS\_MicrosoftClientSecret** | **MS\_MicrosoftPackageSID** |
+| Facebook          | **MS\_FacebookAppID**      | **MS\_FacebookAppSecret**     |                            |
+| Twitter           | **MS\_TwitterConsumerKey** | **MS\_TwitterConsumerSecret** |                            |
+| Google            | **MS\_GoogleClientID**     | **MS\_GoogleClientSecret**    |                            |
+| Azure AD          | **MS\_AadClientID**        |                              | **MS\_AadTenants**          |
 
-Note: **MS_AadTenants** is stored as a comma-separated list of tenant domains (the "Allowed Tenants" fields in the Mobile Services portal).
+Note: **MS\_AadTenants** is stored as a comma-separated list of tenant domains (the "Allowed Tenants" fields in the Mobile Services portal).
 
 > [AZURE.WARNING] **Do not use the authentication mechanisms in the Settings menu**
 >
 > Azure App Service provides a separate "no-code" Authentication and Authorization system under the _Authentication / Authorization_
-> Settings menu and the (deprecated)  _Mobile Authentication_ option under the Settings menu.  These options are incompatible with a migrated Azure
+> Settings menu and the (deprecated) _Mobile Authentication_ option under the Settings menu.  These options are incompatible with a migrated Azure
 > Mobile Service.  You can [upgrade your site](app-service-mobile-net-upgrading-from-mobile-services.md) to take advantage of the Azure App Service authentication.
 
 ### <a name="easytables"></a>Data
 
-The _Data_ tab in Mobile Services has been replaced by _Easy Tables_ within the Azure Portal.  To access Easy Tables:
+The _Data_ tab in Mobile Services has been replaced by _Easy Tables_ within the Azure portal.  To access Easy Tables:
 
-  1. Log into the [Azure Portal].
+  1. Log in to the [Azure portal].
   2. Select **All resources** or **App Services** then click on the name of your migrated Mobile Service.
   3. The Settings blade will open by default - if it doesn't, click on **Settings**.
   4. Click on **Easy tables** in the MOBILE menu.
@@ -228,9 +228,9 @@ you can do from this blade, including:
 
 ### <a name="easyapis"></a>API
 
-The _API_ tab in Mobile Services has been replaced by _Easy APIs_ within the Azure Portal.  To access Easy APIs:
+The _API_ tab in Mobile Services has been replaced by _Easy APIs_ within the Azure portal.  To access Easy APIs:
 
-  1. Log into the [Azure Portal].
+  1. Log in to the [Azure portal].
   2. Select **All resources** or **App Services** then click on the name of your migrated Mobile Service.
   3. The Settings blade will open by default - if it doesn't, click on **Settings**.
   4. Click on **Easy APIs** in the MOBILE menu.
@@ -242,7 +242,7 @@ From the new blade, you can adjust the permissions and edit the scripts for the 
 
 All scheduler jobs are available through the Scheduler Job Collections section.  To access your scheduler jobs:
 
-  1. Log into the [Azure Portal].
+  1. Log in to the [Azure portal].
   2. Select **Browse>**, enter **Schedule** in the _Filter_ box, then select **Scheduler Collections**.
   3. Select the Job Collection for your site.  It will be named _sitename_-Jobs.
   4. Click on **Settings**.
@@ -270,19 +270,19 @@ after migration:
 | **MS_NotificationHubConnectionString** | The Notification Hub Connection String   |
 | **MS_NamespaceName**                   | An alias for MS_PushEntityNamespace      |
 
-Your Notification Hub will be managed through the [Azure Portal].  Note the Notification Hub name (you can find this using the App Settings):
+Your Notification Hub will be managed through the [Azure portal].  Note the Notification Hub name (you can find this using the App Settings):
 
-  1. Log into the [Azure Portal].
+  1. Log in to the [Azure portal].
   2. Select **Browse**>, then select **Notification Hubs**
   3. Click on the Notification Hub name associated with the mobile service.
 
-> [AZURE.NOTE] Your notification hub will not be visible if it a "Mixed" type.  "Mixed" type notification hubs utilize both Notification Hubs and
+> [AZURE.NOTE] Your notification hub will not be visible if it is a "Mixed" type.  "Mixed" type notification hubs utilize both Notification Hubs and
 > legacy Service Bus features.  You will need to [convert your Mixed namespaces].  Once the conversion is complete, your notification hub will
-> appear in the [Azure Portal] .
+> appear in the [Azure portal].
 
 For more information, review the [Notification Hubs] documentation.
 
-> [AZURE.TIP] Notification Hubs management features in the [Azure Portal] is still in preview.  The [Azure Classic Portal] remains available for
+> [AZURE.TIP] Notification Hubs management features in the [Azure portal] is still in preview.  The [Azure Classic Portal] remains available for
 > managing all your Notification Hubs.
 
 ### <a name="legacy-push"></a>Legacy Push Settings
@@ -305,7 +305,7 @@ The following additional app settings are migrated from your Mobile Service and 
 The application key and master key should be identical to the Application Keys from your original Mobile Service.  In particular, the Application Key is
 sent by mobile clients to validate their use of the mobile API.
 
-### <a name="cliequivalents"></a>Command Line Equivalents
+### <a name="cliequivalents"></a>Command-Line Equivalents
 
 You will no longer be able to utilize the _azure mobile_ command to manage your Azure Mobile Services site.  Instead, many functions have been replaced
 with the _azure site_ command.  Use the below table to find equivalents for common commands:
@@ -338,7 +338,7 @@ Edit files and publish your site via ftp or git.
 
 Diagnostic Logging is normally disabled in an Azure App Service.  To enable diagnostic logging:
 
-  1. Log into the [Azure Portal].
+  1. Log in to the [Azure portal].
   2. Select **All resources** or **App Services** then click on the name of your migrated Mobile Service.
   3. The Settings blade will open by default - if it doesn't, click on **Settings**.
   4. Select **Diagnostic Logs** under the FEATURES menu.
@@ -348,7 +348,7 @@ Diagnostic Logging is normally disabled in an Azure App Service.  To enable diag
 
 To view the logs:
 
-  1. Log into the [Azure Portal].
+  1. Log in to the [Azure portal].
   2. Select **All resources** or **App Services** then click on the name of your migrated Mobile Service.
   3. Click on the **Tools** button
   4. Select **Log Stream** under the OBSERVE menu.
@@ -389,7 +389,7 @@ For more information, consult the [XDT Transform Samples] documentation on GitHu
 
 ### Migrated Mobile Services cannot be added to Traffic Manager
 
-When you create a Traffic Manager profile, you cannot directly choose a migrated mobile servie to the profile.  You need to use an "external endpoint".  The external endpoint can only be added through PowerShell.  Refer to the [Traffic Manager tutorial](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) for more information.
+When you create a Traffic Manager profile, you cannot directly choose a migrated mobile service to the profile.  You need to use an "external endpoint".  The external endpoint can only be added through PowerShell.  Refer to the [Traffic Manager tutorial](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) for more information.
 
 ## <a name="next-steps"></a>Next Steps
 
@@ -405,7 +405,9 @@ Not that your application is migrated to App Service, there are even more featur
 
   * For Node.js-based server projects, the new [Mobile Apps Node.js SDK] provides a number of new features. For instance, you can now do local development and debugging, use any Node.js version above 0.10, and customize with any Express.js middleware.
 
-  * For .NET-based server projects, the new [Mobile Apps SDK NuGet packages](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) has more flexibility on NuGet dependencies, supports the new App Service authentication features, and composes with any ASP.NET project, including MVC. To learn more about upgrading, see [Upgrade your existing .NET Mobile Service to App Service](app-service-mobile-net-upgrading-from-mobile-services.md).
+  * For .NET-based server projects, the new [Mobile Apps SDK NuGet packages](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) have more 
+    flexibility on NuGet dependencies, supports the new App Service authentication features, and compose with any ASP.NET project, including MVC. To 
+    learn more about upgrading, see [Upgrade your existing .NET Mobile Service to App Service](app-service-mobile-net-upgrading-from-mobile-services.md).
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-migrating-from-mobile-services/migrate-to-app-service-button.PNG
@@ -419,7 +421,7 @@ Not that your application is migrated to App Service, there are even more featur
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [Azure App Service deployment documentation]: ../app-service-web/web-sites-deploy.md
 [Azure Classic Portal]: https://manage.windowsazure.com
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [Azure Region]: https://azure.microsoft.com/en-us/regions/
 [Azure Scheduler Plans]: ../scheduler/scheduler-plans-billing.md
 [continuously deploy]: ../app-service-web/app-service-continuous-deployment.md
