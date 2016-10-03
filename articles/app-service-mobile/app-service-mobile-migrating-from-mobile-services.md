@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="10/01/2016"
 	ms.author="adrianhall"/>
 
 # <a name="article-top"></a>Migrate your existing Azure Mobile Service to Azure App Service
