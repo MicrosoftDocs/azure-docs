@@ -90,7 +90,7 @@ On the day you switch, an invoice is generated for all outstanding charges. Then
 
 > [AZURE.NOTE] Due to billing-related constraints, offer switches are not possible within the first billing cycle after creating a subscription.
 
-## Can I migrate from Pay-As-You-Go to [Cloud Solution Provider](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) or[Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
+## Can I migrate from Pay-As-You-Go to [Cloud Solution Provider](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) or [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
 
 We currently don't support offer switch to CSP or EA in the Accounts Center. To move your existing subscription into EA, have your enrollment admin add your account into the EA. Then, you receive an invitation email. When you follow the instructions to accept the invitation, your subscriptions is automatically moved under the Enterprise Agreement. There is no option to move an existing subscription into CSP today.
 
