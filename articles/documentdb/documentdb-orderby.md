@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2016" 
+	ms.date="10/03/2016" 
 	ms.author="arramac"/>
 
 # Sorting DocumentDB data using Order By
@@ -127,7 +127,7 @@ Order By is not currently supported for cross-partition queries when using Query
 
 ## Troubleshooting
 
-If you receive an error that Order By is not supported, check to ensure that you're using a version of the [SDK](documentdb-sdk-dotnet.md) that supports Order By for single partition collections, or Order By for partitioned collections, which was added in later versions. 
+If you receive an error that Order By is not supported, check to ensure that you're using a version of the [SDK](documentdb-sdk-dotnet.md) that supports Order By. 
 
 ## Next steps
 
