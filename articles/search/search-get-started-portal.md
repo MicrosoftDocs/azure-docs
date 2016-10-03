@@ -30,20 +30,20 @@ The tutorial assumes a [sample Azure DocumentDB database](#apdx-sampledata) that
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Open the service dashboard of your Azure Search service. Here are a few ways to find the dashboard.
-	- In the Jumpbar, click **Search services**. The Jumpbar lists every service provisioned in your subscription. If a search service has been defined, you'll see **Search services** in the list.
+	- In the Jumpbar, click **Search services**. The Jumpbar lists every service provisioned in your subscription. If a search service has been defined, you see **Search services** in the list.
 	- In the Jumpbar, click **Browse** and then type "search" in the search box to produce a list of all search services created in your subscriptions.
 
 ## Check for space
 
-Many customers start with the free service. This version is limited to three indexes, three data sources, and three indexers. Make sure you have room for extra items before you begin. This walkthrough will create one of each object.
+Many customers start with the free service. This version is limited to three indexes, three data sources, and three indexers. Make sure you have room for extra items before you begin. This walkthrough creates one of each object.
 
 ## Create an index and load data
 
-Search queries iterate over an *index* containing searchable data, metadata, and constructs used for optimizing certain search behaviors. As a first step, you'll define and populate an index.
+Search queries iterate over an *index* containing searchable data, metadata, and constructs used for optimizing certain search behaviors. As a first step, define and populate an index.
 
 There are several ways to create an index. If your data is in a store that Azure Search can crawl - such as Azure SQL Database, SQL Server on an Azure VM, or DocumentDB - you can create and populate an index very easily using an *indexer*.
 
-To keep this task portal-based, we'll assume data from DocumentDB that can be crawled using an indexer via the **Import data** wizard. 
+To keep this task portal-based, we use data from DocumentDB that can be crawled using an indexer via the **Import data** wizard. 
 
 Before you continue, create a [sample DocumentDB database](#apdx-sampledata) to use with this tutorial, and then return to this section to complete the steps below.
 
@@ -56,7 +56,7 @@ Before you continue, create a [sample DocumentDB database](#apdx-sampledata) to 
 
 2. In the wizard, click **Data Source** > **DocumentDB** > **Name**, type a name for the data source. A data source is a connection object in Azure Search that can be used with other indexers. Once you create it, it becomes available as an "existing data source" in your service.
 
-3. Choose your existing DocumentDB account, and the database and collection. If you're using the sample data we provide, your data source definition will look like this:
+3. Choose your existing DocumentDB account, and the database and collection. If you're using the sample data we provide, your data source definition looks like this:
 
   ![][2]
 
@@ -141,7 +141,7 @@ To learn more about other features mentioned in this article, visit these links:
 
 You can try this same workflow, using the Import data wizard for other data sources like Azure SQL Database or SQL Server on Azure virtual machines.
 
-> [AZURE.NOTE] Newly announced is indexer support for crawling Azure Blob Storage, but that feature is in preview and not yet a portal option. To try that indexer, you'll need to write code. See [Indexing Azure Blob storage in Azure Search](search-howto-indexing-azure-blob-storage.md) for more information.
+> [AZURE.NOTE] Newly announced is indexer support for crawling Azure Blob Storage, but that feature is in preview and not yet a portal option. To try that indexer, you need to write code. See [Indexing Azure Blob storage in Azure Search](search-howto-indexing-azure-blob-storage.md) for more information.
 <a id="apdx-sampledata"></a>
 
 
@@ -149,7 +149,7 @@ You can try this same workflow, using the Import data wizard for other data sour
 
 This section creates a small database in DocumentDB that can be used to complete the tasks in this tutorial.
 
-The following instructions give you general guidance, but are not exhaustive. If you need more help with DocumentDB portal navigation or tasks, you can refer to DocumentDB documentation, but most of the commands you'll need are either in the service command bar at the top of the dashboard or in the database blade. 
+The following instructions give you general guidance, but are not exhaustive. If you need more help with DocumentDB portal navigation or tasks, you can refer to DocumentDB documentation, but most of the commands you need are either in the service command bar at the top of the dashboard or in the database blade. 
 
   ![][1]
 
@@ -157,7 +157,7 @@ The following instructions give you general guidance, but are not exhaustive. If
 
 1. [Click here](https://github.com/HeidiSteen/azure-search-get-started-sample-data) to download a ZIP file containing the music store JSON data files. We provide 246 JSON documents for this dataset.
 2. Add DocumentDB to your subscription and then open the service dashboard.
-2. Click **Add Database** to create a new database with an id of `musicstoredb`. It will show up in the database tile further down the page after it's created.
+2. Click **Add Database** to create a new database with an id of `musicstoredb`. It shows up in the database tile further down the page after it's created.
 2. Click on the database name to open the database blade.
 3. Click **Add Collection** to create a collection with an id of `musicstorecoll`.
 3. Click **Document Explorer**.
@@ -170,7 +170,7 @@ The following instructions give you general guidance, but are not exhaustive. If
 6. Repeat to get the next batch of files until you've uploaded the last one, 669.json.
 7. Click **Query Explorer** to verify the data is uploaded to meet the upload requirements of Document Explorer.
 
-An easy way to do this is to use the default query, but you can alos modify the default query so that it selects the top 300 (there are fewer than 300 items in this dataset).
+An easy way to do this is to use the default query, but you can also modify the default query so that it selects the top 300 (there are fewer than 300 items in this dataset).
 
 You should get back JSON output, starting with document number 386, and ending with document 669. Once the data is loaded, you can [return to the steps in this walkthrough](#defineDS) to build an index using the  **Import data wizard**.
 
