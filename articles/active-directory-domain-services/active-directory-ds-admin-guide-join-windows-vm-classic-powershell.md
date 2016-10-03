@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/20/2016"
+	ms.date="10/01/2016"
 	ms.author="maheshu"/>
 
 
@@ -84,7 +84,7 @@ Configure the VM - set VM name, instance size & image to be used.
 
     $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-Obtain local administrator credentials for the VM. Choose a strong local administrator password. To check its strength, see [Password Checker: Using Strong Passwords](https://www.microsoft.com/security/pc-security/password-checker.aspx).
+Obtain local administrator credentials for the VM. Choose a strong local administrator password.
 
     $localadmincred=Get-Credential –Message "Type the name and password of the local administrator account."
 

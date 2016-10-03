@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/28/2016"
+   ms.date="09/29/2016"
    ms.author="lakshmir;barbkess;sonyama"/>
 
 
@@ -38,30 +38,28 @@ For more information, see:
 -  [SQL Data Warehouse backups](sql-data-warehouse-backups.md)
 -  [Business continuity overview](../sql-database/sql-database-business-continuity.md)
 
-## Restore a data warehouse backup
+## Data warehouse restore points
 
 As a benefit of using Azure Premium Storage, SQL Data Warehouse uses Azure Storage Blob snapshots to backup the primary data warehouse. Each snapshot has a restore point that represents the time the snapshot started. To restore a data warehouse, you choose a restore point and issue a restore command.  
 
->[AZURE.NOTE] What really happens during a restore?  Logically, SQL Data Warehouse uses the changes recorded in a snapshot to roll back the primary data warehouse to a restore point. 
-
 SQL Data Warehouse always restores the backup to a new data warehouse. You can either keep the restored data warehouse and the current one, or delete one of them. If you want to replace the current data warehouse with the restored data warehouse, you can rename it.
 
+If you need to restore a deleted or paused data warehouse, you can [create a support ticket](sql-data-warehouse-get-started-create-support-ticket.md). 
 
+<!-- 
 ### Can I restore a deleted data warehouse?
 
-Yes, for the next seven calendar days. When you delete a data warehouse, SQL Data Warehouse actually keeps the data warehouse and its snapshots for seven days just in case you need the data. After seven days, the data disappears and you won't be able to restore to any of the restore points.
+Yes, you can restore the last available restore point.
 
-### Can I restore a paused data warehouse?
+Yes, for the next seven calendar days. When you delete a data warehouse, SQL Data Warehouse actually keeps the data warehouse and its snapshots for seven days just in case you need the data. After seven days, you won't be able to restore to any of the restore points. -->
 
-To restore a data warehouse that is paused, you need to first bring it back online. Once the data warehouse is back online, you have seven days of restore points to choose from. 
+## Geo-redundant restore
 
-## Restore to a geo-redundant region
-
-If you are using the geo-redundant storage, you can restore the data warehouse to your paired data center in a different geographical region. The data warehouse is restored from the last daily backup. 
+If you are using the geo-redundant storage, you can restore the data warehouse to your [paired data center](../best-practices-availability-paired-regions.md) in a different geographical region. The data warehouse is restored from the last daily backup. 
 
 ## Restore timeline
 
-You can restore a database to any restore point within the last seven days. Snapshots start every four to eight hours and are available for seven days. When a snapshot is older than seven days, it expires and its restore point is no longer available.
+You can restore a database to any available restore point within the last seven days. Snapshots start every four to eight hours and are available for seven days. When a snapshot is older than seven days, it expires and its restore point is no longer available.
 
 ## Restore costs
 

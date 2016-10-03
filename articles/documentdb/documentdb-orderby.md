@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2016" 
+	ms.date="10/03/2016" 
 	ms.author="arramac"/>
 
 # Sorting DocumentDB data using Order By
@@ -122,6 +122,12 @@ You cannot perform the following:
 - Order By multiple properties (coming soon).
 - Order By with queries on databases, collections, users, permissions or attachments (coming soon).
 - Order By with computed properties e.g. the result of an expression or a UDF/built-in function.
+
+Order By is not currently supported for cross-partition queries when using Query Explorer in the Azure portal.
+
+## Troubleshooting
+
+If you receive an error that Order By is not supported, check to ensure that you're using a version of the [SDK](documentdb-sdk-dotnet.md) that supports Order By. 
 
 ## Next steps
 
