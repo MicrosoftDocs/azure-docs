@@ -134,11 +134,11 @@ If your environment DOES NOT have DHCP enabled, you will need to include the fol
 | AdminPassword | Required | Sets the local administrator account and all other user accounts on all the virtual machines that will be created as part of POC deployment. This must match the current local administrator password on the host. |
 | AzureEnvironment | Optional | Select the Azure Environment with which you want to register this Azure Stack deployment. Options include *Public Azure*, *Azure - China*, *Azure - US Government*. |
 | EnvironmentDNS | Optional | A DNS server is created as part of the Azure Stack deployment. To allow computers inside of the solution to resolve names outside of the stamp, provide your existing infrastructure DNS server. The in-stamp DNS server will forward unknown name resolution requests to this server. |
-| NatIPv4Address | Required for DHCP NAT support | Sets a static IP address for the NAT VM. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet. |
-| NatIPv4DefaultGateway | Required for DHCP NAT support | Sets the default gateway used with the static IP address for the NAT VM. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet.  |
+| NatIPv4Address | Required for DHCP NAT support | Sets a static IP address for MAS-BGPNAT01. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet. |
+| NatIPv4DefaultGateway | Required for DHCP NAT support | Sets the default gateway used with the static IP address for MAS-BGPNAT01. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet.  |
 | NatIPv4Subnet | Required for DHCP NAT support | IP Subnet prefix used for DHCP over NAT support. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet.  |
 | NatSubnetPrefix | Required for DHCP NAT support | IP Subnet prefix to be used for DHCP over NAT support. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet. |
-| PublicVLan | Optional | Sets the VLAN ID. Only use this parameter if the host and NATVM must configure VLAN ID to access the physical network (and Internet). For example, `.\InstallAzureStackPOC.ps1 –Verbose –PublicVLan 305` |
+| PublicVLan | Optional | Sets the VLAN ID. Only use this parameter if the host and MAS-BGPNAT01 must configure VLAN ID to access the physical network (and Internet). For example, `.\InstallAzureStackPOC.ps1 –Verbose –PublicVLan 305` |
 | Rerun | Optional | Use this flag to re-run deployment.  All previous input will be used. Re-entering data previously provided is not supported because several unique values are generated and used for deployment. |
 | TimeServer | Optional | Use this parameter if you need to specify a specific time server. |
 
