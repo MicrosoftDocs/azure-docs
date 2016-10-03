@@ -121,6 +121,8 @@ To start sending data and ensuring that the users are active, you must send at l
 
 > [AZURE.IMPORTANT] If your page overrides the `OnNavigatedTo` method, be sure to call `base.OnNavigatedTo(e)`. Otherwise, the activity is not reported `EngagementPage` calls `StartActivity` inside its `OnNavigatedTo` method). This is especially important in a Windows Phone project where the default template has an `OnNavigatedTo` method.
 
+> [AZURE.IMPORTANT] For **Windows 10 Universal apps**, please use [this recommended method](https://azure.microsoft.com/en-us/documentation/articles/mobile-engagement-windows-store-advanced-reporting/#recommended-method-overload-your-codepagecode-classes), than the one mentioned above.
+
 ##<a id="monitor"></a>Connect app with real-time monitoring
 
 [AZURE.INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
