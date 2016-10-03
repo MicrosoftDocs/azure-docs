@@ -53,7 +53,7 @@ If you are using an azure subscription that includes [free credit](https://azure
 
 ## Viewing your External Service Spending and History
 
-You can view a list of the external services that are on each subscription within the [Azure Portal](https://portal.azure.com/): 
+You can view a list of the external services that are on each subscription within the [Azure portal](https://portal.azure.com/): 
 
 1. Navigate to the Billing blade
    
@@ -80,16 +80,16 @@ This link will bring you to a different portal where you will be able to make ch
 
 To change your payment method, follow these steps:
 
-1. Click on **Change how you pay**.
+1. Click **Change how you pay**.
 
     ![Subscriptions](./media/billing-understand-your-azure-marketplace-charges/subscriptions.jpg)
 
-2. Select the payment method you want to change to. The **Pay with** option allows you to select your credit card. The **Add a new way to pay** option allows you add a new credit card.
+2. Select the payment method you want to change to. The **Pay with** option allows you to select your credit card. The **Add a new way to pay** option allows you to add a new credit card.
 
     ![Change payment method](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
     
-If you want to cancel your external service order, you need to delete the resource in the [Azure Portal](https://portal.azure.com).
+If you want to cancel your external service order, you need to delete the resource in the [Azure portal](https://portal.azure.com).
 
      ![Delete Resource](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
 
-> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+> [AZURE.NOTE] If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
