@@ -31,10 +31,10 @@ The recommendations page is where you view the top recommendations based on thei
 To view and apply recommendations, you need the correct [role-based access control](../active-directory/role-based-access-control-configure.md) permissions in Azure. **Reader**, **SQL DB Contributor** permissions are required to view recommendations, and **Owner**, **SQL DB Contributor** permissions are required to execute any actions; create or drop indexes and cancel index creation.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Click **BROWSE** > **SQL databases**, and select your database.
-5. Click **All settings** > **Recommendations** to view available **Recommendations** for the selected database.
+2. Click **More services** > **SQL databases**, and select your database.
+5. Click **Performance recommendation** to view available recommendations for the selected database.
 
-> [AZURE.NOTE] To get recommendations a database needs to have about a day of usage, and there needs to be some activity. There also needs to be some consistent activity. The SQL Database Advisor can more easily optimize for consistent query patterns than it can for random spotty bursts of activity. If recommendations are not available, the **Recommendations** page should provide a message explaining why.
+> [AZURE.NOTE] To get recommendations a database needs to have about a day of usage, and there needs to be some activity. There also needs to be some consistent activity. The SQL Database Advisor can more easily optimize for consistent query patterns than it can for random spotty bursts of activity. If recommendations are not available, the **Performance recommendation** page should provide a message explaining why.
 
 ![Recommendations](./media/sql-database-advisor-portal/recommendations.png)
 
