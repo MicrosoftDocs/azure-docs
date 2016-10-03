@@ -19,9 +19,7 @@
 
 # Interpret model results in Azure Machine Learning
 
-**Understand and visualize a score model's output**
-
-This topic explains how to visualize and interpret prediction results in the Azure Machine Learning Studio. After you have trained a model and done predictions on top of it ("scored the model"), you need to understand and interpret the prediction result.
+This topic explains how to visualize and interpret prediction results in Azure Machine Learning Studio. After you have trained a model and done predictions on top of it ("scored the model"), you need to understand and interpret the prediction result.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -73,11 +71,11 @@ Figure 2. Visualize a score model result in two-class classification
 
 **Result interpretation**
 
-There are six columns in the results table. The left four columns are the four features. The right two columns, Scored Labels and Scored Probabilities, are the prediction results. The Scored Probabilities column shows the probability that a flower belongs to the positive class (Class 1). For example, the first number in the column (0.028571) means there is 0.028571 probability that the first flower belongs to Class 1. The Scored Labels column shows the predicted class for each flower. This is based on the Scored Probabilities column. If the scored probability of a flower is larger than 0.5, it is predicted as Class 1, otherwise, it is predicted as Class 0.
+There are six columns in the results table. The left four columns are the four features. The right two columns, Scored Labels and Scored Probabilities, are the prediction results. The Scored Probabilities column shows the probability that a flower belongs to the positive class (Class 1). For example, the first number in the column (0.028571) means there is 0.028571 probability that the first flower belongs to Class 1. The Scored Labels column shows the predicted class for each flower. This is based on the Scored Probabilities column. If the scored probability of a flower is larger than 0.5, it is predicted as Class 1. Otherwise, it is predicted as Class 0.
 
 **Web service publication**
 
-Once the prediction results have been understood and judged sound, the experiment can be published as a web service so that you can deploy it in various applications and call it to obtain class predictions on any new iris flower. To learn how to change a training experiment into a scoring experiment and publish it as a web service, see [Publish the Azure Machine Learning web service](machine-learning-walkthrough-5-publish-web-service.md). This procedure provides you with a scoring experiment as shown in Figure 3.
+After the prediction results have been understood and judged sound, the experiment can be published as a web service so that you can deploy it in various applications and call it to obtain class predictions on any new iris flower. To learn how to change a training experiment into a scoring experiment and publish it as a web service, see [Publish the Azure Machine Learning web service](machine-learning-walkthrough-5-publish-web-service.md). This procedure provides you with a scoring experiment as shown in Figure 3.
 
 ![Screenshot of scoring experiment](./media/machine-learning-interpret-model-results/3.png)
 
@@ -89,7 +87,7 @@ Now you need to set the input and output for the web service. The input is the r
 
 Figure 4. Final scoring experiment of an iris two-class classification problem
 
-After running the web service and entering some feature values of a test instance, the result returns two numbers. The first number is the scored label, the second is the scored probability. This flower is predicted as Class 1 with 0.9655 probability.
+After you run the web service and enter some feature values of a test instance, the result returns two numbers. The first number is the scored label, and the second is the scored probability. This flower is predicted as Class 1 with 0.9655 probability.
 
 ![Test interpreting score model](./media/machine-learning-interpret-model-results/4_1.png)
 
@@ -132,7 +130,7 @@ Figure 8. R code for extracting Scored Labels and the associated probabilities o
 
 Figure 9. Final scoring experiment of the letter-recognition multiclass classification problem
 
-After publishing and running the web service and entering some input feature values, the returned result looks like Figure 10. This hand-written letter, with its extracted 16 features, is predicted to be a “T” with 0.9715 probability.
+After you publish and run the web service and enter some input feature values, the returned result looks like Figure 10. This hand-written letter, with its extracted 16 features, is predicted to be a “T” with 0.9715 probability.
 
 ![Test interpreting score module](./media/machine-learning-interpret-model-results/9_1.png)
 
@@ -214,7 +212,7 @@ You can publish the clustering experiment into a web service and call it for clu
 
 Figure 18. Scoring experiment of an iris clustering problem
 
-After running the web service, the returned result looks like Figure 19. This flower is predicted to be in cluster 0.
+After you run the web service, the returned result looks like Figure 19. This flower is predicted to be in cluster 0.
 
 ![Test interpret scoring module](./media/machine-learning-interpret-model-results/18_1.png)
 
@@ -222,7 +220,7 @@ After running the web service, the returned result looks like Figure 19. This fl
 
 Figure 19. Web service result of iris two-class classification
 
-## Recommender System
+## Recommender system
 **Example experiment**
 
 For recommender systems, you can use the restaurant recommendation problem as an example: you can recommend restaurants for customers based on their rating history. The input data consists of three parts:
@@ -231,7 +229,7 @@ For recommender systems, you can use the restaurant recommendation problem as an
 * Customer feature data
 * Restaurant feature data
 
-There are several things we can do with Azure Machine Learning’s built-in [Train Matchbox Recommender][train-matchbox-recommender] module:
+There are several things we can do with the [Train Matchbox Recommender][train-matchbox-recommender] module in Azure Machine Learning:
 
 - Predict ratings for a given user and item
 - Recommend items to a given user
