@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/20/2016"
+	ms.date="10/03/2016"
 	ms.author="maheshu"/>
 
 # Create or select a virtual network for Azure AD Domain Services
@@ -35,7 +35,7 @@ Perform the following configuration steps to create an Azure virtual network in 
 
 2. Select the **Networks** node on the left pane.
 
-   ![Networks node](./media/active-directory-domain-services-getting-started/networks-node.png)
+    ![Networks node](./media/active-directory-domain-services-getting-started/networks-node.png)
 
 3. Click **NEW** on the task pane at the bottom of the page.
 
