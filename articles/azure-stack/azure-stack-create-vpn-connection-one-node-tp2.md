@@ -136,7 +136,7 @@ you log in.
     description blade. Enter the following values into the appropriate
     fields according to this table.
 
-| **Field**             | **Value** |
+  | **Field**             | **Value** |
     |----------------------- | ------ |
     | Name                  |vnet-01 |
     | Address space         | 10.0.10.0/23 |
@@ -366,7 +366,7 @@ you log in.
     description blade. Enter the following values for the appropriate
     fields listed in the table below.
 
-|**Field**              |**Value** |
+  |**Field**              |**Value** |
     | ----------------------|----------|
     | Name                  | vnet-02 |
     | Address space         | 10.0.20.0/23 |
