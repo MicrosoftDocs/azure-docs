@@ -10,17 +10,17 @@
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
-   ms.topic=""
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="09/3-/2016"
+   ms.date="10/03/2016"
    ms.author="jgao"/>
 
 # Use Job Browser and Job View for Azure Data lake Analytics jobs
 
 The Azure Data Lake Analytics service archives the submitted jobs in a [query store](#query-store). In this article, you learn how to use Job Browser and Job View in Azure Data Lake Tools for Visual Studio to find the historical job information. 
 
-By default, the Data Lake Analytics service archieves the jobs for 30 days. The expiration period can be configured from the Azure portal by configuring the customized expiration policy. You will not be able to access the job information after expiration. 
+By default, the Data Lake Analytics service archives the jobs for 30 days. The expiration period can be configured from the Azure portal by configuring the customized expiration policy. You will not be able to access the job information after expiration. 
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ See [Data Lake Tools for Visual Studio prerequisites](data-lake-analytics-data-l
 
 ## Open the Job Browser
 
-The Job browser is accessible via **Server Explorer>Azure>Data Lake Analytics>Jobs** in Visual Studio.  Using the browser, you can access the query store of an Data Lake Analytics account. The following screenshot shows the Job Browser. On the left is the Query store which shows basic information about jobs; on the right is the Job View which provides the detailed information about a job.
+The Job browser is accessible via **Server Explorer>Azure>Data Lake Analytics>Jobs** in Visual Studio.  Using the browser, you can access the query store of a Data Lake Analytics account. The following screenshot shows the Job Browser. On the left is the Query store which shows basic information about jobs; on the right is the Job View which provides the detailed information about a job.
 
 ![Data Lake Tools Visual Studio Job Browser](./media/data-lake-analytics-use-job-browser-job-view/data-lake-tools-open-job-browser.png)
 
@@ -195,7 +195,7 @@ Job Detail shows the detailed information of the job, including Script, Resource
 - To see a more complex query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 - To get started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).
-- For management tasks, see [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md).
+- For management tasks, see [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md).
 - To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 - To see the same tutorial using other tools, click the tab selectors on the top of the page.
 - To log diagnostics information, see [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)

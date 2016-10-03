@@ -239,7 +239,7 @@ The following video demonstrates the U-SQL local run feature:
     - In assembly registration (CREATE ASSEMBLY xyz FROM “/path/abc”): the script path will be searched, but not the DataRoot.
     - In registered TVF/View or other metadata entities: the DataRoot Path will be searched, but not the script path.
 
-    For scripts ran on Data Lake serivce, the default storage account will be used as root folder and will be searched accordingly.
+    For scripts ran on Data Lake service, the default storage account will be used as root folder and will be searched accordingly.
 
 ### Test U-SQL scripts locally
 For instructions on developing U-SQL scripts, see [Develop U-SQL scripts](#develop-and-test-u-sql-scripts). To build and run U-SQL scripts locally, select **(Local)** in the cluster drop-down list, and then click **Submit**. Please make sure you have the right data referenced - either refer to the absolute path or put the data under the DataRoot folder.
