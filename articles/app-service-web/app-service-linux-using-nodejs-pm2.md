@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Using PM2 Configuration for NodeJS in Web Apps on Linux" 
+	pageTitle="Using PM2 Configuration for NodeJS in Web Apps on Linux | Microsoft Azure" 
 	description="Using PM2 Configuration for NodeJS in Web Apps on Linux" 
 	keywords="azure app service, web app, nodejs, pm2, linux, oss"
 	services="app-service" 
@@ -28,7 +28,7 @@ You can use this to either
 -	Specify the startup script for your Node.js app (for example: /bin/server.js)
 -	Specify the PM2 configuration file to use for your Node.js app (for example: /foo/process.json)
 
-> Note: If you want your Node processes to automatically restart when certain files are modified, you will need to use PM2 configuration. Otherwise your application will not restart when it receives change notifications from things like continuous deployment when your application code changes.
+ >[AZURE.NOTE] If you want your Node processes to automatically restart when certain files are modified, you will need to use PM2 configuration. Otherwise your application will not restart when it receives change notifications from things like continuous deployment when your application code changes.
 
 You can check the Node.js [process file documentation](http://pm2.keymetrics.io/docs/usage/application-declaration/) for all the options, but below is a sample of what you would use as your process.json file
 

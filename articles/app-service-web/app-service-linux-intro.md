@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduction to App Service on Linux" 
+	pageTitle="Introduction to App Service on Linux | Microsoft Azure" 
 	description="Learn about App Service on Linux." 
 	keywords="azure app service, linux, oss"
 	services="app-service" 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to Create a Web App with App Service on Linux" 
+	pageTitle="How to Create a Web App with App Service on Linux | Microsoft Azure" 
 	description="Web app creation workflow for App Service on Linux." 
 	keywords="azure app service, web app, linux, oss"
 	services="app-service" 
