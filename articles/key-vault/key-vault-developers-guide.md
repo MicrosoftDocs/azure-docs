@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Key Vault Developer's Guide | Microsoft Azure"
    description="Developers can use Azure Key Vault to manage cryptographic keys within the Microsoft Azure environment. "
    services="key-vault"
@@ -52,7 +52,7 @@ Before working with Azure Key Vault in your code, you can create and manage vaul
 
 ## Coding with Key Vault
 
-The Key Vault management system for programmers consists of several interfaces, with REST as the foundation, [Key Vault REST API Reference](https://msdn.microsoft.com/library/azure/dn903609.aspx).
+The Key Vault management system for programmers consists of several interfaces, with REST as the foundation, [Key Vault REST API Reference](https://msdn.microsoft.com/library/azure/dn903609(v=azure.1).aspx).
 
 You can, subject to successful authorization, do the following:
 
@@ -66,7 +66,7 @@ The following SDKs are available for working with Key Vault:
 
 |[![.NET](./media/key-vault-developers-guide/msft.netlogo_purple.png)](https://msdn.microsoft.com/library/mt430941.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 |:--:|:--:|
-|[.NET SDK Documentation](https://msdn.microsoft.com/library/mt430941.aspx)|[Node.js SDK Documentation](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
+|[.NET SDK Documentation](https://msdn.microsoft.com/library/mt765854(Azure.1).aspx )|[Node.js SDK Documentation](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
 |[.NET SDK Package](https://azure.microsoft.com/documentation/api/)|[Node.js SDK Package](https://www.npmjs.com/package/azure-keyvault)|
 
 
@@ -78,6 +78,9 @@ For complete examples of using Key Vault with your applications, see:
 ## How-tos
 
 The following articles and scenarios provide task specific guidance for working with Azure Key Vault:
+
+- [Change key vault tenant ID after subscription move](https://azure.microsoft.com/en-us/documentation/articles/key-vault-subscription-move-fix/) - When you move your Azure subscription from tenant A to tenant B, your existing key vaults are inaccessible by the principals (users and applications) in tenant B. To fix this issue, you need to ...
+- [Accessing Key Vault behind firewall](https://azure.microsoft.com/en-us/documentation/articles/key-vault-access-behind-firewall/) - To access a key vault your key vault client application needs to be able to access multiple end-points for various functionalities.
 
 - [How to Generate and Transfer HSM-Protected Keys for Azure Key Vault](key-vault-hsm-protected-keys.md) - This will help you plan for, generate and then transfer your own HSM-protected keys to use with Azure Key Vault.
 - [How to pass secure values (such as passwords) during deployment](../resource-manager-keyvault-parameter.md) - When you need to pass a secure value (like a password) as a parameter during deployment, you can store that value as a secret in an Azure Key Vault and reference the value in other Resource Manager templates.
