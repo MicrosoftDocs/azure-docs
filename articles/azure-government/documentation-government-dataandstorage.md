@@ -26,7 +26,7 @@ For details on this service and how to use it, see [Azure Storage public documen
 
 ### Variations
 
-The URL for storage accounts in Azure Government are different:
+The URLs for storage accounts in Azure Government are different:
 
 Service Type|Azure Public|Azure Government
 ---|---|---
