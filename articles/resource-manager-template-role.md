@@ -47,27 +47,26 @@ The following tables describe the values you need to set in the schema.
 | apiVersion |Yes | The API version to use for creating the resource.<br /><br /> Use **2015-07-01**. |  
 | name | Yes | A globally-unique identifier for the new role assignment. |
 | dependsOn | No | A comma-separated array of a resource names or resource unique identifiers.<br /><br />The collection of resources this role assignment depends on. If assigning a role that scoped to a resource and that resource is deployed in the same template, include that resource name in this element to ensure the resource is deployed first. | 
-| properties | Yes | The properties object that identifies the role definition, princial, and scope. |  
+| properties | Yes | The properties object that identifies the role definition, principal, and scope. |  
 
 ### properties object
 
 | Name | Required | Description | 
 | ---- | -------- | ----------- |
 | roleDefinitionId | Yes |  The identifier of an existing role definition to be used in the role assignment.<br /><br /> Use the following format:<br /> **/subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}** |
-| principalId | Yes | The globally-unique identifier for an existing principal. This maps to the id inside the directory and can point to a user, service principal, or security group. |
+| principalId | Yes | The globally unique identifier for an existing principal. This value maps to the id inside the directory and can point to a user, service principal, or security group. |
 | scope | No | The scope at which this role assignment applies to.<br /><br />For resource groups, use:<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}**  <br /><br />For resources, use:<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}** |  |
 
 
 ## How to use the role assignment resource
 
-You add a role assignment to your template when you need to add a user, group, or service principal to a role during deployment. Role assignments are inherited from higher levels of scope, so 
-if you have already added a principal to a role at the subscription level, you do not need to re-assign it for the resource group or resource.
+You add a role assignment to your template when you need to add a user, group, or service principal to a role during deployment. Role assignments are inherited from higher levels of scope, so if you have already added a principal to a role at the subscription level, you do not need to reassign it for the resource group or resource.
 
 There are many identifier values you need to provide when working with role assignments. You can retrieve the values through PowerShell or Azure CLI.
 
 ### PowerShell
 
-The name of role assignment requires a globally-unique identifier. You can generate a new identifier for **name** with:
+The name of role assignment requires a globally unique identifier. You can generate a new identifier for **name** with:
 
     $name = [System.Guid]::NewGuid().toString()
 
