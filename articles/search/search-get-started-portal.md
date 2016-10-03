@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Get started with Azure Search | Microsoft Azure | Get started Azure Search | DocumentDB | Cloud search service" 
-	description="Create your first Azure Search solution using this tutorial walkthrough. Learn how to create an Azure Search index using DocumentDB data. This is a portal-based, code-free exercise using the Import Data wizard." 
+	pageTitle="Get started with Azure Search | Microsoft Azure | DocumentDB | Cloud search service" 
+	description="Learn how to create your first Azure Search index using this tutorial walkthrough and DocumentDB sample data. This portal-based, code-free exercise uses the Import Data wizard." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="08/29/2016" 
+	ms.date="10/03/2016" 
 	ms.author="heidist"/>
 
 # Get started with Azure Search in the portal
@@ -23,11 +23,11 @@ This code-free introduction gets you started with Microsoft Azure Search using c
 
 The tutorial assumes a [sample Azure DocumentDB database](#apdx-sampledata) that's simple to create using our data and instructions, but you can also adapt these steps to your existing data in either DocumentDB or SQL Database.
 
-> [AZURE.NOTE] This Get Started tutorial requires an [Azure subscription](../../includes/free-trial-note.md) and an [Azure Search service](search-create-service-portal.md). 
+> [AZURE.NOTE] This Get Started tutorial requires an [Azure subscription](/pricing/free-trial/?WT.mc_id=A261C142F) and an [Azure Search service](search-create-service-portal.md). 
  
 ## Find your service
 
-1. Sign in to the [Azure Portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Open the service dashboard of your Azure Search service. Here are a few ways to find the dashboard.
 	- In the Jumpbar, click **Search services**. The Jumpbar lists every service provisioned in your subscription. If a search service has been defined, you'll see **Search services** in the list.
