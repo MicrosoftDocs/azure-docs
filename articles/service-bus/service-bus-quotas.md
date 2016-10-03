@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Microsoft Azure Service Bus quotas and limits | Microsoft Azure"
-   description="Limits and quotas for Azure Service Bus"
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+    pageTitle="Microsoft Azure Service Bus quotas and limits | Microsoft Azure"
+    description="Limits and quotas for Azure Service Bus"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="05/04/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="10/03/2016"
+    ms.author="sethm" />
 
 # Service Bus quotas
 
