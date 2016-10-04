@@ -4,7 +4,7 @@
 	keywords="app service, azure app service, mobile app, mobile service, scale, scalable, app deployment, azure app deployment"
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="ggailey777"
+	authors="adrianhall"
 	manager="erikre"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/02/2016"
-	ms.author="glenga"/>
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>
 
 # Work with the .NET backend server SDK for Azure Mobile Apps
 
