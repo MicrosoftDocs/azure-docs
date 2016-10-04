@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="09/23/2016"
+	ms.date="10/01/2016"
 	ms.author="adrianha"/>
 
 # How to use the Azure Mobile Apps Node.js SDK
