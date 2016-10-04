@@ -70,10 +70,10 @@ In this section, you create a Node.js console app that responds to a method call
     var DeviceClient = require('azure-iot-device').Client;
     ```
 
-5. Add a **connectionString** variable and use it to create a device client. Replace **{youriothostname}** with the name of the IoT hub you created the *Create an IoT Hub* section. Replace **{yourdevicekey}** with the device key value you generated in the *Create a device identity* section:
+5. Add a **connectionString** variable and use it to create a device client. Replace **{device connection string}** with the connection string you generated in the *Create a device identity* section:
 
     ```
-    var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
+    var connectionString = '{device connection string}';
     var client = DeviceClient.fromConnectionString(connectionString, Mqtt);
     ```
 
@@ -181,7 +181,7 @@ You are now ready to run the applications.
     node SimulatedDevice.js
     ```
 
-    ![][8]
+    ![][7]
 	
 2. At a command-prompt in the **callmethodondevice** folder, run the following command to begin monitoring your IoT hub:
 
@@ -189,7 +189,7 @@ You are now ready to run the applications.
     node CallMethodOnDevice.js 
     ```
 
-	![][7]
+	![][8]
 	
 3. You will see the device react to the method by printing out the message and the application which called the method display the response from the device:
 
