@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/05/2016"
+	ms.date="10/04/2016"
 	ms.author="onewth"/>
 
 # Getting started with the Text Analytics APIs to detect sentiment, key phrases, topics and language

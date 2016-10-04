@@ -153,8 +153,8 @@ by clicking CONFIGURE and adding the key/value pairs under "app settings".
 
  Then, you may access them as follows: 
     
-    var username = System.Environment.GetEnvironmentVariable("SENDGRID_USER"); 
-    var pswd = System.Environment.GetEnvironmentVariable("SENDGRID_PASS");
+    var username = System.Environment.GetEnvironmentVariable("SENDGRID_USERNAME"); 
+    var pswd = System.Environment.GetEnvironmentVariable("SENDGRID_PASSWORD");
     var apiKey = System.Environment.GetEnvironmentVariable("SENDGRID_APIKEY");
 
 Using Credentials:
