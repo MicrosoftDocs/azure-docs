@@ -97,13 +97,11 @@ For more information, see [Resource Manager providers, regions, API versions, an
 
 ## Template deployment
 
-With Resource Manager, you can create a template (in JSON format) that defines deployment and configuration of your application. By using a template, you can repeatedly deploy your application throughout the app lifecycle and have confidence your resources are deployed in a consistent state. Azure Resource Manager analyzes dependencies to ensure resources are created in the correct order. For more information, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md).
+With Resource Manager, you can create a template (in JSON format) that defines deployment and configuration of your Azure solution. By using a template, you can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. Azure Resource Manager analyzes dependencies to ensure resources are created in the correct order. You do not have to define your entire infrastructure in a single template. Often, it makes sense to divide your deployment requirements into a set of targeted, purpose-specific templates. You can easily reuse these templates for different solutions. To deploy a particular solution, you create a master template that links all the required templates.
 
-When you create a solution from the portal, the solution automatically includes a deployment template. You do not have to create your template from scratch because you can start with the template for your solution and customize it to meet your specific needs. You can retrieve a template for an existing resource group by either exporting the current state of the resource group, or viewing the template used for a particular deployment. Viewing the exported template is a helpful way to learn about the template syntax. To learn more about working with exported templates, see [Export an Azure Resource Manager template from existing resources](resource-manager-export-template.md).
-
-You do not have to define your entire infrastructure in a single template. Often, it makes sense to divide your deployment requirements into a set of targeted, purpose-specific templates. You can easily reuse these templates for different solutions. To deploy a particular solution, you create a master template that links all the required templates. For more information, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
-
-You can also use the template for updates to the infrastructure. For example, you can add a resource to your solution and add configuration rules for the resources that are already deployed. If the template specifies creating a resource but that resource already exists, Azure Resource Manager performs an update instead of creating a new asset. Azure Resource Manager updates the existing asset to the same state as it would be as new. Or, you can specify that Resource Manager delete any resources that are not specified in the template. To understand the differences options when deploying, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md). 
+When you create a solution from the portal, the solution automatically includes a deployment template. You do not have to create your template from scratch because you can start with the template for your solution and customize it to meet your specific needs. You can retrieve a template for an existing resource group by either exporting the current state of the resource group, or viewing the template used for a particular deployment. Viewing the exported template is a helpful way to learn about the template syntax.
+ 
+You can also use the template for updates to the infrastructure. For example, you can add a resource to your solution and add configuration rules for the resources that are already deployed. If the template specifies creating a resource but that resource already exists, Azure Resource Manager performs an update instead of creating a new asset. Azure Resource Manager updates the existing asset to the same state as it would be as new.  
 
 You can specify parameters in your template to allow for customization and flexibility in deployment. For example, you can pass parameter values that tailor deployment for your test environment. By specifying the parameters, you can use the same template to deploy your solution to different environments.
 
@@ -111,11 +109,14 @@ Resource Manager provides extensions for scenarios when you need additional oper
 
 Finally, the template becomes part of the source code for your app. You can check it in to your source code repository and update it as your app evolves. You can edit the template through Visual Studio.
 
-For more information about defining the template, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
+To learn about creating and deploying templates, see the following topics:
 
-For step-by-step instructions on creating a template, see [Resource Manager Template Walkthrough](resource-manager-template-walkthrough.md).
-
-For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](solution-dev-test-environments.md). 
+1. [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md)
+2. [Resource Manager Template Walkthrough](resource-manager-template-walkthrough.md)
+3. [Best practices for creating Azure Resource Manager templates](resource-manager-template-best-practices.md)
+3. [Export an Azure Resource Manager template from existing resources](resource-manager-export-template.md)
+4. [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md)
+5. Deploy resources with Azure Resource Manager template through [PowerShell](resource-group-template-deploy.md), [Azure CLI](resource-group-template-deploy-cli.md), or [portal](resource-group-template-deploy-portal.md)
 
 ## Tags
 
