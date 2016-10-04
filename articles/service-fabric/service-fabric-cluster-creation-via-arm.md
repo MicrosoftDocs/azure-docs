@@ -117,7 +117,7 @@ If you have an existing Key Vault, you can enable it for deployment using Azure 
 > azure keyvault set-policy --vault-name "your vault name" --enabled-for-deployment true
 ```
 
-
+<a id="add-certificate-to-key-vault"></a>
 ## Add certificates to Key Vault
 
 Certificates are used in Service Fabric to provide authentication and encryption to secure various aspects of a cluster and its applications. For more information on how certificates are used in Service Fabric, see [Service Fabric cluster security scenarios][service-fabric-cluster-security].
