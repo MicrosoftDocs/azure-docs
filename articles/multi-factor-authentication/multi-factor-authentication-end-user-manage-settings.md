@@ -19,67 +19,29 @@
 
 # Manage your settings for two-step verification
 
-If your work or school uses Azure Multi-Factor Authentication, then you 
+If your work or school uses Azure Multi-Factor Authentication, then you
 
 >[AZURE.IMPORTANT]
 >Help us make this page better.  If you do not find an answer to your issue on this page, please provide detailed feedback so that we can get this added.
 
 
 
-## I want to change my phone number
-Depending on how you use multi-factor authentication, there are a few places where you can change your settings like your phone number.   Use the table below to help you choose the one that best describes you.
+## Where to find the settings page
+Depending on how your company set up Azure Multi-Factor Authentication, there are a few places where you can change your settings like your phone number.
 
-How you use multi-factor authentiation|Description
-:------------- | :------------- |
-[I use it with Office 365](#changing-your-settings-with-office-365)|  This means that you will want to change your settings through the Office 365 portal.
-[I don't know](#changing-your-settings-with-the-myapps-portal)|This means you will want to sign-in to [http://myapps.microsoft.com](http://myapps.microsoft.com) and change your setting here.
-[I use it with Microsoft Azure](#changing-your-settings-with-microsoft-azure)| This means that you will want to change your settings through the Azure portal.
+If your IT admin sent out a specific URL or steps to manage two-step verification, follow those instructions. Otherwise, the following instructions should work for everybody else. If you follow these steps but don't see the same options, that means that your work or school customized their own portal. Ask your admin for the link to your Azure Multi-Factor Authentication portal.
 
 
+1. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com)  
+2. At the top, select **profile**.  
+3. Select **Additional security verification**.  
 
-### Changing your settings with Office 365
+	![Myapps](./media/multi-factor-authentication-end-user-manage/myapps1.png)
 
+4. The Additional security verification page loads with your settings.
 
-If you use multi-factor authentication with Office 365 you will want to manage your additional security verification settings through the Office 365 portal.
+	![Proofup](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
 
-#### To change your settings in the Office 365 portal
-
-1. Log on to the [Office 365 portal](https://login.microsoftonline.com/).
-2. In the top right corner select the widget and choose Office 365 Settings.
-3. Click on Additional security verification.
-4. On the right, click the link that says **Update my phone numbers used for account security.**
-![O365](./media/multi-factor-authentication-end-user-manage/o365a.png)
-5. This will take you to the page that will allow you to change your settings.
-![O365](./media/multi-factor-authentication-end-user-manage/o365b.png)
-
-
-### Changing your settings with the Myapps portal
-
-If you are not sure how you use multi-factor authentication, then you can always change your settings through the myapps portal.
-
-#### To change your settings in the Myapps portal
-
-1. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com)
-2. At the top, select profile.
-3. Select Additional Security Verification.
-![Myapps](./media/multi-factor-authentication-end-user-manage/myapps1.png)
-4. This will take you to the page that will allow you to change your settings.
-
-![Proofup](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
-
-### Changing your settings with Microsoft Azure
-
-If you use multi-factor authentication with Azure you will want to change your settings through the Azure portal.
-
-#### To access additional security verification settings in the Azure portal
-
-
-1. Log on to the Azure portal.
-2. At the top of the Azure portal, click on your username. This will bring up a drop-down box.
-3. From the drop-down box, select Additional security verification.
-![Azure](./media/multi-factor-authentication-end-user-manage/azure1.png)
-4. This will take you to the page that will allow you to change your settings.
-![Proofup](./media/multi-factor-authentication-end-user-manage-azure/proofup.png)
 
 ## I have a new phone and need to change my phone number
 
