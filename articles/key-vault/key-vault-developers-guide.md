@@ -35,7 +35,7 @@ To learn more you can follow the [Key Vault Blog](http://aka.ms/kvblog) and part
 
 
 
-> [AZURE.VIDEO azure-key-vault-developer-quick-start]
+[AZURE.VIDEO azure-key-vault-developer-quick-start]
 
 
 
@@ -46,7 +46,7 @@ Before working with Azure Key Vault in your code, you can create and manage vaul
 - [Create and Manage Key Vaults with REST](https://msdn.microsoft.com/library/azure/mt620024.aspx)
 - [Create and Manage Key Vaults with PowerShell](key-vault-get-started.md)
 - [Create and Manage Key Vaults with CLI](key-vault-manage-with-cli.md)
-- [Create a key vault and add a secret via an ARM template](../resource-manager-template-keyvault.md)
+- [Create a key vault and add a secret via an Azure Resource Manager (ARM) template](../resource-manager-template-keyvault.md)
 
 >[AZURE.NOTE] Operations against key vaults are authenticated through AAD and authorized through Key Vault’s own Access Policy, defined per vault.
 
@@ -79,7 +79,7 @@ For complete examples of using Key Vault with your applications, see:
 
 The following articles and scenarios provide task specific guidance for working with Azure Key Vault:
 
-- [Change key vault tenant ID after subscription move](key-vault-subscription-move-fix.md) - When you move your Azure subscription from tenant A to tenant B, your existing key vaults are inaccessible by the principals (users and applications) in tenant B. To fix this issue, you need to ...
+- [Change key vault tenant ID after subscription move](key-vault-subscription-move-fix.md) - When you move your Azure subscription from tenant A to tenant B, your existing key vaults are inaccessible by the principals (users and applications) in tenant B. Fix this using this guide. 
 - [Accessing Key Vault behind firewall](key-vault-access-behind-firewall.md) - To access a key vault your key vault client application needs to be able to access multiple end-points for various functionalities.
 
 - [How to Generate and Transfer HSM-Protected Keys for Azure Key Vault](key-vault-hsm-protected-keys.md) - This will help you plan for, generate and then transfer your own HSM-protected keys to use with Azure Key Vault.
