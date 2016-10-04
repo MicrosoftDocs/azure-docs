@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="10/03/2016"
    ms.author="cherylmc" />
 
 # Connect virtual networks from different deployment models in the portal
@@ -27,11 +27,13 @@ Azure currently has two management models: classic and Resource Manager (RM). If
 
 You can create a connection between VNets that are in different subscriptions and in different regions. You can also connect VNets that already have connections to on-premises networks, as long as the gateway that they have been configured with is dynamic or route-based. For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article.
 
-### Deployment models and methods for connecting VNets in different deployment models
+### Deployment models and methods for VNet-to-VNet connections
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 We update the following table as new articles and additional tools become available for this configuration. When an article is available, we link directly to it from the table.<br><br>
+
+**VNet-to-VNet**
 
 [AZURE.INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)] 
 
