@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
+   ms.date="10/03/2016"
    ms.author="cherylmc"/>
 
 # Create a VNet with a Site-to-Site connection using the Azure portal
@@ -54,23 +54,22 @@ Verify that you have the following items before beginning your configuration:
 
 When using these steps as an exercise, you can use the sample configuration values:
 
-- VNet Name: TestVNet1
-- Address Space: 10.11.0.0/16 and 10.12.0.0/16
-- Subnets: 
+- **VNet Name:** TestVNet1
+- **Address Space:** 10.11.0.0/16 and 10.12.0.0/16
+- **Subnets:**
 	- FrontEnd: 10.11.0.0/24
 	- BackEnd: 10.12.0.0/24
 	- GatewaySubnet: 10.12.255.0/27
-- Resource Group: TestRG1
-- Location: East US
-- DNS Server: 8.8.8.8
-- Gateway Name: VNet1GW
-- Public IP: VNet1GWIP
-- VPN Type: Route-based
-- Connection Type: Site-to-site (IPsec)
-- Gateway Type: VPN
-- Local Network Gateway Name: Site2
-- Connection Name: VNet1toSite2
-
+- **Resource Group:** TestRG1
+- **Location:** East US
+- **DNS Server:** 8.8.8.8
+- **Gateway Name:** VNet1GW
+- **Public IP:** VNet1GWIP
+- **VPN Type:** Route-based
+- **Connection Type:** Site-to-site (IPsec)
+- **Gateway Type:** VPN
+- **Local Network Gateway Name:** Site2
+- **Connection Name:** VNet1toSite2
 
 
 ## 1. Create a virtual network 
@@ -89,29 +88,24 @@ You can add additional address space and subnets to your VNet once it has been c
 
 ## <a name="dns"></a>3. Specify a DNS server
 
-If you are creating this configuration as an exercise, refer to these [values](#values) when specifying your DNS server.
-
 ### To specify a DNS server
 
 [AZURE.INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## 4. Create a gateway subnet
 
-Before connecting your virtual network to a gateway, you first need to create the gateway subnet for the virtual network to which you want to connect. The gateway subnet you create must be named *GatewaySubnet* or it won't work properly. 
-
-The gateway subnet prefix for some configurations requires a subnet of /28 or larger to accommodate the number of IP addresses needed in the pool. This means the gateway subnet prefix needs to be /28, /27, /26 etc. You may want to create a larger subnet here to accommodate possible future configuration additions.
+Before connecting your virtual network to a gateway, you first need to create the gateway subnet for the virtual network to which you want to connect. If possible, it's best to create a gateway subnet using a CIDR block of /28 or /27 in order to provide enough IP addresses to accommodate additional future configuration requirements.
 
 If you are creating this configuration as an exercise, refer to these [values](#values) when creating your gateway subnet.
 
 ### To create a gateway subnet
 
-[AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)] 
 
 [AZURE.INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## 5. Create a virtual network gateway
 
-If you are creating this configuration as an exercise, refer to these [values](#values) when creating your gateway.
+If you are creating this configuration as an exercise, you can refer to the [sample configuration values](#values).
 
 ### To create a virtual network gateway
 
@@ -119,9 +113,9 @@ If you are creating this configuration as an exercise, refer to these [values](#
 
 ## 6. Create a local network gateway
 
-The *local network gateway* refers to your on-premises location. Give the local network gateway a name by which Azure can refer to it. 
+The 'local network gateway' refers to your on-premises location. Give the local network gateway a name by which Azure can refer to it. 
 
-If you are creating this configuration as an exercise, refer to these [values](#values) when adding your local site.
+If you are creating this configuration as an exercise, you can refer to the [sample configuration values](#values).
 
 ### To create a local network gateway
 
