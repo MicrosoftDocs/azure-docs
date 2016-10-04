@@ -232,6 +232,23 @@ await subtasks.ForEachAsync(async (subtask) =>
 });
 ```
 
+## Code sample
+
+1. Follow the steps in [How to compile and run a simple MS-MPI program][msmpi_howto] to build a simple MS-MPI program. For step 6 of the how-to, use the code in [MPIHelloWorld.cpp][helloworld_cpp].
+1. Download the [azure-batch-samples][github_samples_zip] from GitHub.
+1. Open the [MultiInstanceTasks][github_mpi] solution in Visual Studio 2015. You can download [Visual Studio Community][visual_studio] for free if you do not have Visual Studio.
+1. Enter your Batch and Storage account credentials in `AccountSettings.settings` in the **Microsoft.Azure.Batch.Samples.Common** project.
+1. Build the [MultiInstanceTasks][github_mpi] project.
+1. Create a zip file containing `MPIHelloWorld.exe` (which you built in step 1) and `MSMpiSetup.exe` (which you downloaded in step 1). You'll upload this zip file as an application package in the next step.
+1. Use the Azure portal to create a Batch [application](batch-application-packages.md) called *MPIHelloWorld*, and specify the zip file you created in the previous step as version "1.0" of the application package. See [Upload and manage applications](batch-application-packages.md#upload-and-manage-applications) for more information.
+1. Run `MultiInstanceTask.exe` to execute the MPI sample application on compute nodes in a Batch pool. You can use the Azure portal or the [Batch Explorer][batch_explorer] to examine the sample pool, job, and task ("MultiInstanceSamplePool", "MultiInstanceSampleJob", "MultiInstanceSampleTask").
+
+Output from `MultiInstanceTask.exe` should be similar to the following:
+
+```
+sample output here
+```
+
 ## Next steps
 
 - The Microsoft HPC & Azure Batch Team blog discusses [MPI support for Linux on Azure Batch][blog_mpi_linux], and includes information on using [OpenFOAM][openfoam] with Batch. You can find Python code samples for the [OpenFOAM example on GitHub][github_mpi].
@@ -240,19 +257,23 @@ await subtasks.ForEachAsync(async (subtask) =>
 
 - Check out the [Microsoft MPI][msmpi_msdn] page on MSDN for the latest information on MS-MPI.
 
+[helloworld_cpp]: http://microsoft.com
+
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [blog_mpi_linux]: https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/
 [cmd_start]: https://technet.microsoft.com/library/cc770297.aspx
 [coord_cmd_example]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/mpi/data/linux/openfoam/coordination-cmd
-[github_mpi]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch/article_samples/mpi
+[github_mpi]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks
 [github_samples]: https://github.com/Azure/azure-batch-samples
+[github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip
 [msdn_env_var]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [msmpi_msdn]: https://msdn.microsoft.com/library/bb524831.aspx
 [msmpi_sdk]: http://go.microsoft.com/FWLink/p/?LinkID=389556
 [msmpi_howto]: http://blogs.technet.com/b/windowshpc/archive/2015/02/02/how-to-compile-and-run-a-simple-ms-mpi-program.aspx
 [openfoam]: http://www.openfoam.com/
+[visual_studio]: https://www.visualstudio.com/vs/community/
 
 [net_jobprep]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobpreparationtask.aspx
 [net_multiinstance_class]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.multiinstancesettings.aspx
