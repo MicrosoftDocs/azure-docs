@@ -118,10 +118,10 @@ This will help you integrate your Azure AD tenant with your on-premises active d
 4.	Select the **Directory Integration** tab.
 5.	Under **deploy and manage** section, follow the steps 1 through 3 to integrate Azure Active Directory with your on-premises directory.
   1.	Add domains.
-  2.	Install and run Azure AD Connect: Install Azure AD Connect using the following instructions, [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
+  2.	Install and run Azure AD Connect: Install Azure AD Connect using the following instructions, [Custom installation of Azure AD Connect](./aad-connect/active-directory-aadconnect-get-started-custom.md).
   3. Verify and manage directory sync. Single sign-on instructions are available within this step.
-  
-  > [AZURE.NOTE] 
+
+  > [AZURE.NOTE]
   > Configure Federation with AD FS as outlined in the document linked above. You do not need to configure any of the preview features.
 
 
