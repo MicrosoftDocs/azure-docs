@@ -99,7 +99,7 @@ The following information about Azure Stack installation steps may be useful for
 | 0.16 | (DEP) Configure Physical Machine | Configure networking, join domain, and setup local admins. |
 | 0.18 | (STO) Configure Storage Cluster | Create storage cluster, create a storage pool and file server. |
 | 0.19 | (CPI) Setup fabric infrastructure | Setup the prerequisites for fabric deployment. |
-| 0.21 | (NET) Setup BGP and NAT | Installs BGP amd NAT - needed only for One Node. |
+| 0.21 | (NET) Setup BGP and NAT | Installs BGP and NAT - needed only for One Node. |
 | 0.22 | (NET) Configure NAT and Time Server | Syncs the time server and configures NAT entries. |
 | 40.41 | (CPI) Create guest VMs | Create the management VMs. |
 | 40.42 | (FBI) Setup PowerShell JEA | Setup PowerShell JEA for all roles. |
