@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/19/2016" 
+	ms.date="10/03/2016" 
 	ms.author="wesmc"/>
 
 #Azure Notification Hubs - Diagnosis guidelines
@@ -230,7 +230,7 @@ More details here -
  
 <!-- LINKS -->
 [Notification Hubs Overview]: notification-hubs-push-notification-overview.md
-[Getting Started Tutorials]: notification-hubs-windows-store-dotnet-get-started.md
+[Getting Started Tutorials]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Template guidance]: https://msdn.microsoft.com/library/dn530748.aspx 
 [APNS guidance]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
 [GCM guidance]: http://developer.android.com/google/gcm/adv.html

@@ -22,7 +22,7 @@
 
 ## The Azure IoT device management approach
 
-Azure IoT Hub device management provides the features and extensibility model for devices and back-ends to leverage IoT device management for the diversity of devices and protocols in IoT.  Devices in IoT range from very constrained sensors, single purposed microcontrollers, to more powerful gateways that enable other devices and protocols.  IoT solutions also vary significantly in vertical domains and applications with unique use cases for operators in each domain.  IoT solutions can leverage IoT Hub device management capabilities, patterns, code libraries, samples, and guidance to enable a device management for their diverse set of devices and users.  
+Azure IoT Hub device management provides the features and extensibility model for devices and back-ends to leverage IoT device management for the diversity of devices and protocols in IoT.  Devices in IoT range from very constrained sensors, single purposed microcontrollers, to more powerful gateways that enable other devices and protocols.  IoT solutions also vary significantly in vertical domains and applications with unique use cases for operators in each domain.  IoT solutions can leverage IoT Hub device management capabilities, patterns and code libraries to enable a device management for their diverse set of devices and users.  
 
 ## Introduction
 

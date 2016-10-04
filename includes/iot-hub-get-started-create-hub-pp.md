@@ -1,6 +1,6 @@
 ## Create a device management enabled IoT Hub
 
-You need to create a device management enabled IoT Hub for your simulated devices to connect to. The following steps show you how to complete this task using the Azure portal.
+Since IoT Hub device management is in preview, you need to create a device management enabled IoT hub. When IoT Hub device management reaches General Availability, you will ba able to usa any IoT hub for this tutorial. The following steps show you how to complete this task using the Azure portal.
 
 1.  Sign in to the [Azure portal].
 2.  In the Jumpbar, click **New**, then click **Internet of Things**, and then click **Azure IoT Hub**.
