@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Get started with private Templates | Microsoft Azure"
    description="Add, manage and share your private templates using the Azure portal, the Azure CLI, or PowerShell."
    services="marketplace-customer"
