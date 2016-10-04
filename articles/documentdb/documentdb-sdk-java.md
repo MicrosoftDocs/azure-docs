@@ -40,7 +40,7 @@
 
 ### <a name="1.9.0"/>[1.9.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.0)
 
-  - Implemented cross partition parallel and/or Top/OrderBy queries.
+  - Implemented cross partition TOP/ORDER BY queries.
   - Added support for strong consistency.
   - Added support for name based requests when using direct connectivity.
   - Fixed to make ActivityId stay consistent across all request retries.
