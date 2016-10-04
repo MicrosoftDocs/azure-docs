@@ -1,12 +1,12 @@
 <properties
    pageTitle="Get started with private Templates | Microsoft Azure"
    description="Add, manage and share your private templates using the Azure portal, the Azure CLI, or PowerShell."
-   services=""
+   services="marketplace-customer"
    documentationCenter=""
    authors="VybavaRamadoss"
    manager="asimm"
    editor=""
-   tags="marketplace-customer, marketplace, azure-resource-manager"
+   tags="marketplace, azure-resource-manager"
    keywords=""/>
 
 <tags
@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/04/2016"
+   ms.date="05/18/2016"
    ms.author="vybavar"/>
 
 # Get started with private Templates on the Azure Portal
