@@ -13,6 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
+	ms.date="10/03/2016"
 	ms.author="rnagpal"/>
 
 # DocumentDB APIs and SDKs
