@@ -285,8 +285,8 @@ When we wanted to synchronize the local store with the server, we used the `MSSy
 <!-- URLs. -->
 
 
-[Create an iOS App]: ../app-service-mobile-ios-get-started.md
-[Offline Data Sync in Azure Mobile Apps]: ../app-service-mobile-offline-data-sync.md
+[Create an iOS App]: app-service-mobile-ios-get-started.md
+[Offline Data Sync in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 
 [defining-core-data-tableoperationerrors-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableoperationerrors-entity.png
 [defining-core-data-tableoperations-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableoperations-entity.png
