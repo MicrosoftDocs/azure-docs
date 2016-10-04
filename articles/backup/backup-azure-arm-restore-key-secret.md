@@ -21,19 +21,19 @@ This article talks about using Azure VM Backup to perform restore of encrypted A
 
 ## Pre-requisites
 
-1. **Backup of encrypted VMs** - Encrypted Azure VMs have been backed up using Azure Backup. Please refer the article [Deploy and manage backups using Azure PowerShell](backup-azure-vms-automation.md) for details about how to backup encrypted Azure VMs.
+1. **Backup of encrypted VMs** - Encrypted Azure VMs have been backed up using Azure Backup. Refer the article [Deploy and manage backups using Azure PowerShell](backup-azure-vms-automation.md) for details about how to backup encrypted Azure VMs.
 
-2. **Configure Azure Key Vault** – Ensure that key vault to which keys and secrets need to be restored is already present. Please refer the article [Get Started with Azure Key Vault](../key-vault/key-vault-get-started.md) for details about key vault management.
+2. **Configure Azure Key Vault** – Ensure that key vault to which keys and secrets need to be restored is already present. Refer the article [Get Started with Azure Key Vault](../key-vault/key-vault-get-started.md) for details about key vault management.
 
-## Login to Azure PowerShell and set subscription context
+## Log in to Azure PowerShell and set subscription context
 
-Login to Azure account using the below cmdlet
+Log in to Azure account using the following cmdlet
 
 ```
 PS C:\> Login-AzureRmAccount
 ```
 
-Once logged in, use the below cmdlet to get the list of your available subscriptions
+Once logged in, use the following cmdlet to get the list of your available subscriptions
 
 ```
 PS C:\> Get-AzureRmSubscription
@@ -76,7 +76,7 @@ PS C:\> $rp = Get-AzureRmRecoveryServicesBackupRecoveryPoint -Item $backupitem -
 
 ## Restore key
 
-The array $rp above, is sorted in reverse order of time with the latest recovery point at index 0. For example: $rp[0] will select the latest recovery point.
+The array $rp above, is sorted in reverse order of time with the latest recovery point at index 0. For example: $rp[0] selects the latest recovery point.
 
 ```
 PS C:\> $rp1 = Get-AzureRmRecoveryServicesBackupRecoveryPoint -RecoveryPointId $rp[0].RecoveryPointId -Item $backupItem -KeyFileDownloadLocation "C:\Users\downloads"
@@ -100,7 +100,7 @@ PS C:\> $rp1.KeyAndSecretDetails.SecretUrl
 https://contosokeyvault.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/20aaae9eaa99996d89d99a29990d999a
 ```
 
-**Note:** The text before vault.azure.net represents key vault name; the text after secrets/ represents secret name. 
+**Note:** The text before vault.azure.net represents key vault name. The text after secrets/ represents secret name. 
 
 Get the secret name and value from the output of the cmdlet run above
 
@@ -125,4 +125,4 @@ PS C:\> Set-AzureKeyVaultSecret -VaultName "contosokeyvault" -Name $secretname -
 ```
 
 ## Restore encrypted Virtual machine
-The above PowerShell cmdlets will help you restore key and secret back to the key vault if you had backed up encrypted VMs using Azure VM Backup. After restoring them, please refer the article [Deploy and manage Azure VMs](backup-azure-vms-automation.md) to restore encrypted VMs.
+The above PowerShell cmdlets help you restore key and secret back to the key vault, if you have backed up encrypted VMs using Azure VM Backup. After restoring them, refer the article [Deploy and manage Azure VMs](backup-azure-vms-automation.md) to restore encrypted VMs.
