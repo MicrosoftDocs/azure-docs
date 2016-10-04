@@ -28,7 +28,8 @@ The Interactive Hive cluster is different from the Hadoop cluster. It only conta
 > [AZURE.NOTE] MapReduce, Pig, Sqoop, Oozie and other services will be removed from this cluster type in the near future.
 The Hive service in the Interactive Hive cluster is only accessible via the Ambari Hive view, Beeline and Hive ODBC. It can’t be accessed via Hive console, Templeton, Azure CLI, and Azure PowerShell. 
 
-To find the JDBC connection string
+**To find the JDBC connection string:**
+
 1.	Sign on to Ambari using the following URL: https://<ClusterName>.AzureHDInsight.net.
 2.	Click Hive from the left menu.
 3.	Click the highlighted icon to copy the URL.
