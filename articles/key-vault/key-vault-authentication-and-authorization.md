@@ -215,7 +215,7 @@ This example depicts a simple scenario. Real life scenarios may be more complex 
 
 	This document is the reference for the REST APIs to manage your key vault programmatically, including setting Key Vault access policy.
 
--   [Key Vault REST APIs](https://msdn.microsoft.com/en-us/library/azure/dn903609.aspx)
+-   [Key Vault REST APIs](https://msdn.microsoft.com/library/azure/dn903609.aspx)
 
 	Link to Key Vault REST API reference documentation.
 
