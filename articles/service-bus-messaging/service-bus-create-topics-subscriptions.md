@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="06/21/2016"
+    ms.date="10/04/2016"
     ms.author="sethm" />
 
 # Create applications that use Service Bus topics and subscriptions
@@ -23,7 +23,7 @@ Azure Service Bus supports a set of cloud-based, message-oriented middleware tec
 
 This article continues the retail scenario used in [Create applications that use Service Bus queues](service-bus-create-queues.md). Recall that sales data from individual Point of Sale (POS) terminals must be routed to an inventory management system which uses that data to determine when stock has to be replenished. Each POS terminal reports its sales data by sending messages to the **DataCollectionQueue** queue, where they remain until they are received by the inventory management system, as shown here:
 
-![Service-Bus1](./media/service-bus-create-topics-subscriptions/IC657161.gif)
+![Service Bus 1](./media/service-bus-create-topics-subscriptions/IC657161.gif)
 
 To evolve this scenario, a new requirement has been added to the system: the store owner wants to be able to monitor how the store is performing in real time.
 
@@ -35,19 +35,19 @@ Messages are sent to a topic in the same way as they are sent to a queue. Howeve
 
 Going back to the retail scenario, the queue is replaced by a topic, and a subscription is added, which the inventory management system component can use. The system now appears as follows:
 
-![Service-Bus2](./media/service-bus-create-topics-subscriptions/IC657165.gif)
+![Service Bus 2](./media/service-bus-create-topics-subscriptions/IC657165.gif)
 
 The configuration here performs identically to the previous queue-based design. That is, messages sent to the topic are routed to the **Inventory** subscription, from which the **Inventory Management System** consumes them.
 
 In order to support the management dashboard, we create a second subscription on the topic, as shown here:
 
-![Service-Bus3](./media/service-bus-create-topics-subscriptions/IC657166.gif)
+![Service Bus 3](./media/service-bus-create-topics-subscriptions/IC657166.gif)
 
 With this configuration, each message from the POS terminals is made available to both the **Dashboard** and **Inventory** subscriptions.
 
 ## Show me the code
 
-[Create applications that use Service Bus queues](service-bus-create-queues.md) describes how to sign up for an Azure account and create a service namespace. To use a Service Bus namespace, an application must reference the Service Bus assembly, specifically Microsoft.ServiceBus.dll. The easiest way to reference Service Bus dependencies is to install the Service Bus [Nuget package](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). You can also find the assembly as part of the Azure SDK. The download is available at the [Azure SDK download page](https://azure.microsoft.com/downloads/).
+The article [Create applications that use Service Bus queues](service-bus-create-queues.md) describes how to sign up for an Azure account and create a service namespace. To use a Service Bus namespace, an application must reference the Service Bus assembly, specifically Microsoft.ServiceBus.dll. The easiest way to reference Service Bus dependencies is to install the Service Bus [Nuget package](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). You can also find the assembly as part of the Azure SDK. The download is available at the [Azure SDK download page](https://azure.microsoft.com/downloads/).
 
 ### Create the topic and subscriptions
 
