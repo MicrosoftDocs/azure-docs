@@ -59,15 +59,15 @@ You can view a list of the external services that are on each subscription withi
 
 2. Select a subscription
    
-![use the external services command](./media/billing-understand-your-azure-marketplace-charges/external-service-command.png)
+	![use the external services command](./media/billing-understand-your-azure-marketplace-charges/external-service-command.png)
 
 3. Use the External Services command to view each of your external service orders, the publisher name, service tier you bought, name you gave the resource, and the current order status
 
-![Select a subscription](./media/billing-understand-your-azure-marketplace-charges/external-service-blade.png)
+	![Select a subscription](./media/billing-understand-your-azure-marketplace-charges/external-service-blade.png)
 
 4. From here, you can view past bill amounts including the tax breakdown.
 
-![view external services billing history](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png)
+	![view external services billing history](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png)
 
 ## How to manage your orders and payments
 The summary page in the [Azure Account Center](https://account.windowsazure.com/) has user actions, allowing you to update your payment instrument:
