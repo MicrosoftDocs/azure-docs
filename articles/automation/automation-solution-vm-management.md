@@ -135,14 +135,15 @@ To enable email notifications when the start and stop VM runbooks complete, you 
 - SendMailO365-IsSendEmail-MS-Mgmt
 - StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt
 - StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt
-<br>  
+
+
 To configure the **O365Credential** credential, perform the following steps:
 
 1. From your automation account, click **All Settings** at the top of the window. 
 2. On the **Settings** blade under the section **Automation Resources**, select **Assets**. 
 3. On the **Assets** blade, select the **Credential** tile and from the **Credential** blade, select the **O365Credential**.  
 4. Enter a valid Office 365 username and password and then click **Save** to save your changes.  
-<br> 
+
 To configure the variables highlighted earlier, perform the following steps:
 
 1. From your automation account, click **All Settings** at the top of the window. 
@@ -155,7 +156,7 @@ To configure the variables highlighted earlier, perform the following steps:
 
 Automation creates two types of records in the OMS repository.
 
-### Job Logs
+### Job logs
 
 Property | Description|
 ----------|----------|
@@ -177,7 +178,7 @@ SubscriptionId | Specifies the subscription ID of the job.
 Time | Date and time when the runbook job executed.|
 
 
-### Job Streams
+### Job streams
 
 Property | Description|
 ----------|----------|
