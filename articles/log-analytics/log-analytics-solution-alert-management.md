@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Alert Management solution in Log Analytics | Microsoft Azure"
    description="The Alert Management solution in Log Analytics helps you analyze all of the alerts in your environment.  In addition to consolidating alerts generated within OMS, it imports alerts from connected System Center Operations Manager (SCOM) management groups into Log Analytics."
    services="log-analytics"
@@ -6,7 +6,7 @@
    authors="bwren"
    manager="jwhit"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="log-analytics"
    ms.devlang="na"
    ms.topic="article"
@@ -45,7 +45,7 @@ The following table describes the connected sources that are supported by this s
 | Connected Source | Support | Description |
 |:--|:--|:--|
 | [Windows agents](log-analytics-windows-agents.md) | No | Direct Windows agents do not generate SCOM alerts. |
-| [Linux agents](log-analytics-limux-agents.md) | No | Direct Linux agents do not generate SCOM alerts. |
+| [Linux agents](log-analytics-linux-agents.md) | No | Direct Linux agents do not generate SCOM alerts. |
 | [SCOM management group](log-analytics-om-agents.md) | Yes | Alerts that are generated on SCOM agents are delivered to the management group and then forwarded to Log Analytics.<br><br>A direct connection from the SCOM agent to Log Analytics is not required. Alert data is forwarded from the management group to the OMS repository. |
 | [Azure storage account](log-analytics-azure-storage.md) | No | SCOM alerts are not stored in Azure storage accounts. |
 
@@ -68,7 +68,7 @@ Click on the **Alert Management** tile to open the **Alert Management** dashboar
 | Active SCOM Alerts | All SCOM alerts with any state other than *Closed* grouped by source that generated the alert. |
 | All Active Alerts | All alerts with any severity grouped by alert name. Only includes SCOM alerts with any state other than *Closed*.|
 
-If you scroll to the right, the dashboard will list several common queries that you can click on to perform a [log search](log-analytics-log-searches.md) for alert data. 
+If you scroll to the right, the dashboard will list several common queries that you can click on to perform a [log search](log-analytics-log-searches.md) for alert data.
 
 ![Alert Management dashboard](media/log-analytics-solution-alert-management/dashboard.png)
 
@@ -125,4 +125,4 @@ The following table provides sample log searches for alert records collected by 
 
 ## Next steps
 
-- Learn about [Alerts in Log Analytics](log-analytics-alerts.md) for details on generating alerts from Log Analytics. 
+- Learn about [Alerts in Log Analytics](log-analytics-alerts.md) for details on generating alerts from Log Analytics.

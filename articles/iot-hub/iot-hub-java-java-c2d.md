@@ -190,7 +190,7 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub Develope
 <!-- Links -->
 
 [Get started with IoT Hub]: iot-hub-java-java-getstarted.md
-[IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
+[IoT Hub Developer Guide - C2D]: iot-hub-devguide-messaging.md
 [IoT Hub Developer Guide]: iot-hub-devguide.md
 [Azure IoT Developer Center]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

@@ -3,7 +3,7 @@
   description="List of client SDKs and compatibility with server SDK versions for Mobile Services and Azure Mobile Apps"
   services="app-service\mobile"
   documentationCenter=""
-  authors="lindydonna"
+  authors="adrianhall"
   manager="erikre"
   editor=""/>
 
@@ -13,8 +13,8 @@
   ms.tgt_pltfrm="mobile-multiple"
   ms.devlang="dotnet"
   ms.topic="article"
-  ms.date="08/22/2016"
-  ms.author="donnam"/>
+  ms.date="10/01/2016"
+  ms.author="adrianha"/>
 
 # Client and server versioning in Mobile Apps and Mobile Services
 
