@@ -53,10 +53,10 @@ In this section, you create a Node.js console app that responds to a direct meth
     npm init
     ```
     
-2. At your command-prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
+2. At your command-prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device@dtpreview** Device SDK package and **azure-iot-device-mqtt@dtpreview** package:
 
     ```
-    npm install azure-iot-device azure-iot-device-mqtt --save
+    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
     ```
 
 3. Using a text editor, create a new **dmpatterns_fwupdate_device.js** file in the **manageddevice** folder.
@@ -89,7 +89,7 @@ In this section, you create a Node.js console app that responds to a direct meth
 
       twin.properties.reported.update(patch, function(err) {
         if (err) throw err;
-          console.log('twin state reported')
+        console.log('twin state reported')
       });
     };
     ```
@@ -213,20 +213,18 @@ In this section, you create a Node.js console app that responds to a direct meth
 
     ```
     var onFirmwareUpdate = function(request, response) {
-      
-      response.write(JSON.stringify('FirmwareUpdate started'));
-      
+            
       // Respond the cloud app for the direct method
-      response.end(200, function(err) {
-        if (!!err) {
+      response.send(200, 'FirmwareUpdate started', function(err) {
+        if (!err) {
           console.error('An error occured when sending a method response:\n' + err.toString());
         } else {
-          console.error('Response to method \'' + request.methodName + '\' sent successfully.');
+          console.log('Response to method \'' + request.methodName + '\' sent successfully.');
         }
       });
 
       // Get the parameter from the body of the method request
-      var fwPackageUri = JSON.parse(JSON.parse(request.body.toString())).fwPackageUri;
+      var fwPackageUri = JSON.parse(request.payload).fwPackageUri;
 
       // Obtain the device twin
       client.getTwin(function(err, twin) {
@@ -277,7 +275,7 @@ In this section, you create a Node.js console app that initiates a remote firmwa
 2. At your command-prompt in the **triggerfwupdateondevice** folder, run the following command to install the **azure-iothub** Device SDK package and **azure-iot-device-mqtt** package:
 
     ```
-    npm install azure-iot-hub --save
+    npm install azure-iot-hub@dtpreview --save
     ```
     
 3. Using a text editor, create a new **dmpatterns_getstarted_service.js** file in the **triggerfwupdateondevice** folder.
