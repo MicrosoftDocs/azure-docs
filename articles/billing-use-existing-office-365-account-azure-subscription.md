@@ -84,7 +84,7 @@ In this scenario, Kelley Wall is a user who has an Azure subscription under the 
 
 ![Azure portal subscription settings](./media/billing-use-existing-office-365-account-azure-subscription/10-azure-portal-settings-subscription.png)
 
-![azure-portal-ads-users](./media/billing-use-existing-office-365-account-azure-subscription/11-azure-portal-ads-users.png)
+![Azure portal Active Directory users](./media/billing-use-existing-office-365-account-azure-subscription/11-azure-portal-ads-users.png)
 
 To subscribe to Office 365, follow these steps:
 
@@ -93,7 +93,7 @@ To subscribe to Office 365, follow these steps:
 
 	![Office 365 trial page](./media/billing-use-existing-office-365-account-azure-subscription/12-office-365-trial-page.png)
 
-3. Sign in with your account credentials. In this case, it is Kelley’s account.
+3. Sign in with your account credentials. In this example, it is Kelley’s account.
 
 	![Office 365 sign-in](./media/billing-use-existing-office-365-account-azure-subscription/13-office-365-sign-in.png)
 
@@ -105,7 +105,7 @@ To subscribe to Office 365, follow these steps:
 
 	![Office 365 order receipt](./media/billing-use-existing-office-365-account-azure-subscription/15-office-365-order-receipt.png)
 
-Now you're all set. In the Office 365 admin center, you will see same users from the Contoso directory showing up as active users. To verify this, follow these steps:
+Now you're all set. In the Office 365 admin center, you will see users from the Contoso directory showing up as active users. To verify this, follow these steps:
 
 1. Open the Office 365 admin center.
 2. Expand **USERS**, and then click **Active Users**.
@@ -130,7 +130,7 @@ Now you're all set. In the Office 365 admin center, you will see same users from
 	![Azure portal user identity](./media/billing-use-existing-office-365-account-azure-subscription/18-azure-portal-user-identity.png)
 
 ## Background information about Azure and Office 365 subscriptions
-Office 365 and Azure use the Azure Active Directory service to manage users and subscriptions. Consider an Azure directory as a container in which you can group users and subscriptions. To use the same user account for your Microsoft Azure and Office 365 subscriptions, you need to make sure that the subscriptions are created in the same directory. Keep in mind the following points:
+Office 365 and Azure use the Azure Active Directory service to manage users and subscriptions. Consider an Azure directory as a container in which you can group users and subscriptions. To use the same user account for your Azure and Office 365 subscriptions, you need to make sure that the subscriptions are created in the same directory. Keep in mind the following points:
 
 - A subscription gets created under a directory, not the other way around.
 - Users belong to directories, not the other way around.
@@ -138,13 +138,13 @@ Office 365 and Azure use the Azure Active Directory service to manage users and 
 
 ![Background information](./media/billing-use-existing-office-365-account-azure-subscription/19-background-information.png)
 
-For more information, see [How Azure subscription are associated with Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory).
+For more information, see [How Azure subscriptions are associated with Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory).
 
 >[AZURE.NOTE] Azure subscriptions are owned by individual users in the directory.
 
 >[AZURE.NOTE] Office 365 subscriptions are owned by the directory itself. Users within the directory can operate on these subscriptions if they have the requisite permissions.
 
 ## Next steps
-If you acquired both of your Azure and Office 365 subscriptions separately in the past, and want to be able to access the Office 365 tenant from the Azure subscription, see [Associate an Office 365 tenant with an Azure subscription](billing-add-office-365-tenant-to-azure-subscription.md).
+If you acquired both your Azure and Office 365 subscriptions separately in the past, and want to be able to access the Office 365 tenant from the Azure subscription, see [Associate an Office 365 tenant with an Azure subscription](billing-add-office-365-tenant-to-azure-subscription.md).
 
-> [AZURE.NOTE] If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+> [AZURE.NOTE] If you still have questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
