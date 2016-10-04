@@ -29,7 +29,7 @@
 ## DocumentDB Java API and SDK
 
 <table>
-<tr><td>**SDK Download**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
+<tr><td>**SDK Download**</td><td>[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
 <tr><td>**API documentation**</td><td>[Java API reference documentation](http://azure.github.io/azure-documentdb-java/)</td></tr>
 <tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
 <tr><td>**Get started**</td><td>[Get started with the Java SDK](documentdb-java-application.md)</td></tr>
@@ -40,7 +40,8 @@
 
 ### <a name="1.9.0"/>[1.9.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.0)
 
-  - Implemented cross partition TOP/ORDER BY queries.
+  - Added support for cross partition parallel queries.
+  - Added support for TOP/ORDER BY queries for partitioned collections.
   - Added support for strong consistency.
   - Added support for name based requests when using direct connectivity.
   - Fixed to make ActivityId stay consistent across all request retries.

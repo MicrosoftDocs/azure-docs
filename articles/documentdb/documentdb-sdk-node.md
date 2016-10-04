@@ -43,6 +43,7 @@
 
 ###<a name="1.10.0"/>1.10.0</a>
 
+- Added support for cross partition parallel queries.
 - Added support for TOP/ORDER BY queries for partitioned collections.
 
 ###<a name="1.9.0"/>1.9.0</a>
