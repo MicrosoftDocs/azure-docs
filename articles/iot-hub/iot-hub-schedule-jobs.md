@@ -223,7 +223,7 @@ In this section, you create a Node.js console app that initiates a remote lockDo
 
     console.log('scheduling Twin Update job with id: ' + twinJobId);
     jobClient.scheduleTwinUpdate(twinJobId,
-                                'SELECT * FROM devices',
+                                deviceArray,
                                 twinPatch,
                                 startTime,
                                 maxExecutionTimeInSeconds,
