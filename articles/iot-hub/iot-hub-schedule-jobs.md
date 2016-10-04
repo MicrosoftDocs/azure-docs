@@ -151,6 +151,7 @@ In this section, you create a Node.js console app that initiates a remote lockDo
 
     ```
     var connectionString = '{iothubconnectionstring}';
+    var deviceArray = ['myDeviceId'];
     var startTime = new Date();
     var maxExecutionTimeInSeconds =  3600;
     var jobClient = JobClient.fromConnectionString(connectionString);
@@ -188,7 +189,7 @@ In this section, you create a Node.js console app that initiates a remote lockDo
     var methodJobId = uuid.v4();
     console.log('scheduling Device Method job with id: ' + methodJobId);
     jobClient.scheduleDeviceMethod(methodJobId,
-                                'SELECT * FROM devices',
+                                deviceArray,
                                 methodParams,
                                 startTime,
                                 maxExecutionTimeInSeconds,
