@@ -26,7 +26,7 @@ This topic discusses some of the **key scenarios** for using the DSVM, itemizes 
 
 ##Key usage scenarios
 
-- **Analytics Desktop on Cloud**: Immediate access to an  environment set up for analytics that can be accessed and shared from anywhere.
+- **Analytics Desktop on Cloud**: Immediate access to an environment set up for analytics that can be accessed and shared from anywhere.
 - **Training and Education**: Learn how to use data science tools and master techniques used by analytics and machine learning.
 - **Short-term ScaleUp**: When needed, for example, for Hackathons or Large-scale modeling.
 - **Trial and Evaluation**: Experiment with machine learning and other data science technologies to establish feasibility for production proposals.
@@ -89,7 +89,7 @@ TBD: Easily consumable by Architects and TDMs (?Test of Technology Development M
 • Create an instance of the VM on Windows by navigating to [this page](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) and selecting the green **Create Virtual Machine** button. 
 •Sign in to the VM from your remote desktop using the credentials you specified when you created the VM.
 • Click on the **Start** menu to discover and launch many of the tools. 
-• For more information on how to run specific tools available on the VM and on how to perform various tasks needed for your data science project, see [Provision the Microsoft Data Science Virtual Machine](machine-learning-data-science-provision-vm.md) and [Ten things you can do on the Data science Virtual Machine](machine-learning-data-science-vm-do-ten-things.md) . 
+• For more information on how to run specific tools available on the VM and on how to perform various tasks needed for your data science project, see [Provision the Microsoft Data Science Virtual Machine](machine-learning-data-science-provision-vm.md) and [Ten things you can do on the Data science Virtual Machine](machine-learning-data-science-vm-do-ten-things.md). 
 
 
 ### Get started with the Linux version of the DSVM
@@ -109,5 +109,5 @@ For more information on Linux virtual machines, see [Linux Virtual Machines docu
 
 For more information on using applications on virtual machines, see [Microsoft applications on Virtual Machines](https://azure.microsoft.com/services/virtual-machines/microsoft-apps/).
 
-For a directory of directory of integrated Azure services, features, and bundled suites, see [Azure Products](https://azure.microsoft.com/services/?filter=intelligence-analytics).
+For a directory of integrated Azure services, features, and bundled suites, see [Azure Products](https://azure.microsoft.com/services/?filter=intelligence-analytics).
 
