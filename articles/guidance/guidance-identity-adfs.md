@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/29/2016"
+   ms.date="10/04/2016"
    ms.author="telmos"/>
 
 # Implementing a secure hybrid network architecture with federated identities in Azure
@@ -40,6 +40,8 @@ For more information about how AD FS works, see [Active Directory Federation Ser
 ## Architecture diagram
 
 The following diagram highlights the important components in this architecture (*click to zoom in*). For more information about the grayed-out elements, read [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture], [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access], and [Implementing a secure hybrid network architecture with Active Directory identities in Azure][implementing-active-directory]:
+
+**NOTE: NEED TO UPDATE ADDRESS SPACES IN DIAGRAM TO MATCH SAMPLE, WHEN STABILIZED**
 
 [![0]][0]
 
@@ -224,102 +226,196 @@ The [Microsoft System Center Management Pack for Active Directory Federation Ser
 
 - The overall health of the AD FS system and web applications (relying parties), and provides alerts for critical issues and warnings.
 
-<!-- *This content to be enabled when the building blocks for AD FS are available*
 ## Solution components
 
-<!-- The following text is boilerplate, and should be used in all RA docs -->
-
-<!--A sample solution script, [Deploy-ReferenceArchitecture.ps1][solution-script], is available that you can use to implement the architecture that follows the recommendations described in this article. This script utilizes Azure Resource Manager templates. The templates are available as a set of fundamental building blocks, each of which performs a specific action such as creating a VNet or configuring an NSG. The purpose of the script is to orchestrate template deployment.
+A sample solution script, [Deploy-ReferenceArchitecture.ps1][solution-script], is available that you can use to implement the architecture that follows the recommendations described in this article. This script utilizes Azure Resource Manager templates. The templates are available as a set of fundamental building blocks, each of which performs a specific action such as creating a VNet or configuring an NSG. The purpose of the script is to orchestrate template deployment.
 
 The templates are parameterized, with the parameters held in separate JSON files. You can modify the parameters in these files to configure the deployment to meet your own requirements. You do not need to amend the templates themselves. Note that you must not change the schemas of the objects in the parameter files.
 
 When you edit the templates, create objects that follow the naming conventions described in [Recommended Naming Conventions for Azure Resources][naming-conventions].
 
-<!-- End of boilerplate -->
+The sample solution creates and configures the environment in the cloud comprising the AD DS subnet and servers, the AD FS subnet and servers,  AD FS proxy subnet and servers, DMZ, web tier, business tier, and data access tier components, VPN gateway, and management tier. The sample solution also includes an optional configuration for creating a simulated on-premises environment.
 
-<!--*Specifics for template to be added here when BBs are available* -->
+The following sections describe the elements of the on-premises and cloud configurations.
 
-## Deployment
+### On-premises components
 
-A sample solution script, [azuredeploy.sh][azuredeploy-script], is available that you can use to implement the architecture that follows the recommendations described in this document.
+>[AZURE.NOTE] These components are not the main focus of the architecture described in this document, and are provided simply to give you an opportunity to test the cloud environment safely, rather than using a real production environment. For this reason, this section only summarizes the key parameter files. You can modify settings such as the IP addresses or the sizes of the VMs, but it is advisable to leave many of the other parameters unchanged.
 
-The solution assumes the following prerequisites:
+This environment comprises an AD forest for a domain named contoso.com. The domain contains two AD DS servers with IP addresses 192.168.0.4 and 192.168.0.5. These two servers also run the DNS service. The local administrator account on both VMs is called `testuser` with password `AweS0me@PW`. Additionally, the configuration sets up a VPN gateway for connecting to the VNet in the cloud. You can modify the configuration by editing the following JSON files located in the [**parameters/onpremise**][on-premises-folder]  folder:
 
-- You have an existing on-premises infrastructure, including a VPN server that can support IPSec connections.
+- **[virtualNetwork.parameters.json][on-premises-vnet-parameters]**. This file specifies the network address space for the on-premises environment.
 
-- You have installed the latest version of the Azure CLI. [Follow these instructions for details][cli-install].
+- **[virtualMachines-adds.parameters.json][on-premises-virtualmachines-adds-parameters]**. This file contains the configuration for each of the on-premises VMs hosting AD DS services. By default, the VMs use *Standard-DS3-v2* VMs.
 
-- If you're deploying the solution from Windows, you must install a tool that provides a bash shell, such as [GitHub Desktop][github-desktop].
+- **[virtualNetworkGateway.parameters.json][on-premises-virtualnetworkgateway-parameters]** and **[connection.parameters.json][on-premises-connection-parameters]**. These files hold the settings for the VPN connection to the Azure VPN gateway in the cloud, including the shared key to be used to protect traffic traversing the gateway.
 
-To run the script that deploys the solution:
+### Cloud components
 
-1. Download the [azuredeploy.sh][azuredeploy-script] script to your local computer.
+These components form the core of this architecture. The [**parameters/azure**][azure-folder] folder contains the following parameter files for configuring these components:
 
-2. Open the azuredeploy.sh script using an editor of your choice, and locate the *## Configurations* section:
+- **[virtualNetwork.parameters.json][vnet-parameters]**. This file defines  structure of the VNet for the VMs and other components in the cloud. It includes settings, such as the name, address space, subnets, and the addresses of any DNS servers required. Note that the DNS addresses shown in this example reference the IP addresses of the on-premises DNS servers, and also the default Azure DNS server. You should modify these addresses to reference your own DNS setup if you are not using the sample on-premises environment:
 
-	``` bash
-	############################################################################
-	##  Configurations
-	############################################################################
+	**QUESTION FOR HANZ: What does virtualNetwork-with-onpremise-and-azure-dns.parameters.json do?**
 
-	############################################################################
-	## You must fill in the following configuration data
-	############################################################################
-	BASE_NAME=tstad
-	SUBSCRIPTION=
-	LOCATION=
-	OS_TYPE=
-	DOMAIN_NAME=
-	NET_BIOS_DOMAIN_NAME=
-	ADMIN_USER_NAME=
-	ADMIN_PASSWORD=
-	ON_PREMISES_PUBLIC_IP=
-	ON_PREMISES_ADDRESS_SPACE=
-	VPN_IPSEC_SHARED_KEY=
-	ON_PREMISES_DNS_SERVER_ADDRESS=
-	ON_PREMISES_DNS_SUBNET_PREFIX=
-	
-	############################################################################
-	``` 
-3. Specify appropriate values for the configuration data variables. The following table summarizes the purpose of these variables:
+	```json
+    {
+      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "virtualNetworkSettings": {
+          "value": {
+            "name": "ra-adfs-vnet",
+            "resourceGroup": "ra-adfs-network-rg",
+            "addressPrefixes": [
+              "10.0.0.0/16"
+            ],
+            "subnets": [
+              {
+                "name": "dmz-private-in",
+                "addressPrefix": "10.0.0.0/27"
+              },
+              {
+                "name": "dmz-private-out",
+                "addressPrefix": "10.0.0.32/27"
+              },
+              {
+                "name": "dmz-public-in",
+                "addressPrefix": "10.0.0.64/27"
+              },
+              {
+                "name": "dmz-public-out",
+                "addressPrefix": "10.0.0.96/27"
+              },
+              {
+                "name": "mgmt",
+                "addressPrefix": "10.0.0.128/25"
+              },
+              {
+                "name": "GatewaySubnet",
+                "addressPrefix": "10.0.255.224/27"
+              },
+              {
+                "name": "web",
+                "addressPrefix": "10.0.1.0/24"
+              },
+              {
+                "name": "biz",
+                "addressPrefix": "10.0.2.0/24"
+              },
+              {
+                "name": "data",
+                "addressPrefix": "10.0.3.0/24"
+              },
+              {
+                "name": "adds",
+                "addressPrefix": "10.0.4.0/27"
+              },
+              {
+                "name": "adfs",
+                "addressPrefix": "10.0.5.0/27"
+              },
+              {
+                "name": "proxy",
+                "addressPrefix": "10.0.6.0/27"
+              }
+            ],
+            "dnsServers": [
+              "192.168.0.4",
+              "192.168.0.5",
+              "168.63.129.16"
+            ]
+          }
+        }
+      }
+    }
+    ```
 
-	| Variable | Description | Example |
-	|----------|-------------|---------|
-	|BASE_NAME| The name of the 3-tier application infrastructure to be created. The script creates separate subnets for the Web tier, business tier, and data tier. Each tier consists of two VMs accessed through a load balancer.| myapp |
-	|SUBSCRIPTION|The subscription ID of the Azure account to use. By default, the script creates 11 VMs that consume 44 CPU cores although you can customize the installation to use smaller VMs. Make sure that you have sufficient quota available before continuing.||
-	|LOCATION| The region in which to create the resource groups hosting the resources created for the architecture.| westus|
-	|OS_TYPE|The operating system to use for the web tier, business tier, and data access tier VMS. Can be *Windows* or *Ubuntu*|Windows|
-	|DOMAIN_NAME| The name of the on-premises domain to which the AD and AD FS servers created in the cloud should be added. | contoso.com |
-	|NET_BIOS_DOMAIN_NAME| The NetBIOS version of the domain name. | CONTOSO |
-	|ADMIN_USER_NAME| The name of the administrator account to create for the VMs.|adminUser|
-	|ADMIN_PASSWORD| The password for the admin user account.||
-	|ON-PREMISES_PUBLIC_IP| The public IP address of the VPN device located in the on-premises network.|192.99.99.99|
-	|ON_PREMISES_ADDRESS_SPACE|The internal address space of the on-premises network. Use CIDR format.| 192.99.0.0/16|
-	|VPN_IPSEC_SHARED_KEY|The shared secret key to be used to connect from the VPN device to the Azure VPN gateway.||
-	|ON_PREMISES_DNS_SERVER_ADDRESS|The IP address of the on-premises DNS server.|192.99.99.99|
-	|ON_PREMISES_DNS_SUBNET_PREFIX|The address mask for the on-premises subnet.|255.255.0.0|
+- **[virtualMachines-adds.parameters.json ][virtualmachines-adds-parameters]**. This file configures the VMs running AD DS in the cloud. The configuration consists of two VMs. You should change the admin user name and password, and you can optionally modify the VM size to match the requirements of the domain:
 
-4. Save the script and close the editor.
+	For more information, see [Extending Active Directory to Azure][extending-ad-to-azure].
 
-5. Open a bash shell and move to the folder containing the azuredeploy.sh script.
-
-6. Log in to your Azure account. In the bash shell, run the following command:
-
-	```cli
-    azure login
+	```json
+    {
+      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "virtualMachinesSettings": {
+          "value": {
+            "namePrefix": "ra-adfs-ad",
+            "computerNamePrefix": "aad",
+            "size": "Standard_DS3_v2",
+            "osType": "Windows",
+            "adminUsername": "testuser",
+            "adminPassword": "AweS0me@PW",
+            "osAuthenticationType": "password",
+            "nics": [
+              {
+                "isPublic": "false",
+                "subnetName": "adds",
+                "privateIPAllocationMethod": "Static",
+                "startingIPAddress": "10.0.4.4",
+                "enableIPForwarding": false,
+                "dnsServers": [
+                ],
+                "isPrimary": "true"
+              }
+            ],
+            "imageReference": {
+              "publisher": "MicrosoftWindowsServer",
+              "offer": "WindowsServer",
+              "sku": "2012-R2-Datacenter",
+              "version": "latest"
+            },
+            "dataDisks": {
+              "count": 1,
+              "properties": {
+                "diskSizeGB": 127,
+                "caching": "None",
+                "createOption": "Empty"
+              }
+            },
+            "osDisk": {
+              "caching": "ReadWrite"
+            },
+            "extensions": [
+            ],
+            "availabilitySet": {
+              "useExistingAvailabilitySet": "No",
+              "name": "ra-adfs-as"
+            }
+          }
+        },
+        "virtualNetworkSettings": {
+          "value": {
+            "name": "ra-adfs-vnet",
+            "resourceGroup": "ra-adfs-network-rg"
+          }
+        },
+        "buildingBlockSettings": {
+          "value": {
+            "storageAccountsCount": 2,
+            "vmCount": 2,
+            "vmStartIndex": 1
+          }
+        }
+      }
+    }
 	```
 
-	Follow the instructions to connect to Azure.
+- **[virtualMachines-adfs.parameters.json ][virtualmachines-adfs-parameters]** **TBD - WAITING FOR HANZ TO COMPLETE**
 
-7. Execute the following command to run the bash script:
+- **TODO: ADFS PROXY**
 
-	```powershell
-	./azuredeploy.sh
-	```
+- **[virtualNetworkGateway.parameters.json][virtualnetworkgateway-parameters]**. This file contains the settings used to create the Azure VPN gateway in the cloud used to connect to the on-premises network. You should modify the `sharedKey` value in the `connectionsSettings` section to match that of the on-premises VPN device. For more information, see [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][hybrid-azure-on-prem-vpn].
 
-8. Follow the instructions, and verify that the script completes successfully. You can simply re-run the script if an error occurs.
+- **[dmz-private.parameters.json][dmz-private-parameters]** and **[dmz-public.parameters.json ][dmz-public-parameters]**. These files configure the inbound (public) and outbound (private) sides of the VMs that comprise the DMZ, protecting the servers in the cloud. For more information about these elements and their configuration, see [Implementing a DMZ between Azure and the Internet][implementing-a-secure-hybrid-network-architecture-with-internet-access].
 
-<!-- *THIS SECTION TO REPLACE THE ABOVE CONTENT AND BE UPDATED WHEN THE BBs ARE AVAILABLE*
+- **TODO: WEB TIER ETC + LBs, MANAGEMENT TIER**
+
+## Solution deployment
+
+**THIS SECTION TBD**
 
 The solution assumes the following prerequisites:
 
@@ -399,12 +495,21 @@ To run the script that deploys the solution:
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [aad]: https://azure.microsoft.com/documentation/services/active-directory/
 [aadb2c]: https://azure.microsoft.com/documentation/services/active-directory-b2c/
-[0]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure1.png "Secure hybrid network architecture with Active Directory"
 [adfs-intro]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect-azure-adfs/
+[solution-script]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/Deploy-ReferenceArchitecture.ps1
+[on-premises-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-identity-adfs/parameters/onpremise
+[on-premises-vnet-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/onpremise/virtualNetwork.parameters.json
+[on-premises-virtualmachines-adds-parameters]: https://github.com/mspnp/reference-architectures/blob/master/guidance-identity-adfs/parameters/onpremise/virtualMachines-adds.parameters.json
+[on-premises-virtualnetworkgateway-parameters]: https://github.com/mspnp/reference-architectures/blob/master/guidance-identity-adfs/parameters/onpremise/virtualNetworkGateway.parameters.json
+[on-premises-connection-parameters]: https://github.com/mspnp/reference-architectures/blob/master/guidance-identity-adfs/parameters/onpremise/connection.parameters.json
+[azure-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-identity-adfs/parameters/azure
+[vnet-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/virtualNetwork.parameters.json
+[dmz-private-parameters]: https://github.com/mspnp/reference-architectures/blob/master/guidance-identity-adfs/parameters/azure/dmz-private.parameters.json
+[dmz-public-parameters]: https://github.com/mspnp/reference-architectures/blob/master/guidance-identity-adfs/parameters/azure/dmz-public.parameters.json
+[virtualnetworkgateway-parameters]: https://github.com/mspnp/reference-architectures/blob/master/guidance-identity-adfs/parameters/azure/virtualNetworkGateway.parameters.json
+[hybrid-azure-on-prem-vpn]: ./guidance-hybrid-network-vpn.md
+[virtualmachines-adds-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/virtualMachines-adds.parameters.json
+[extending-ad-to-azure]: ./guidance-iaas-ra-secure-vnet-ad.md
+[virtualmachines-adfs-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/virtualMachines-adfs.parameters.json
 
-
-<!-- Remove the following links when the Solution Components and Deployment sections are updated to use the Building Blocks -->
-[azuredeploy-script]: https://raw.githubusercontent.com/mspnp/blueprints/master/ARMBuildingBlocks/guidance-iaas-ra-adfs/Templates/azuredeploy.sh
-[cli-install]: ../xplat-cli-install.md
-[github-desktop]: https://desktop.github.com/
-
+[0]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure1.png "Secure hybrid network architecture with Active Directory"
