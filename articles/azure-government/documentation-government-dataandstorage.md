@@ -32,9 +32,9 @@ Service Type|Azure Public|Azure Government
 ---|---|---
 Blob Storage|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net
 Queue Storage|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
-Table Storage|*.table.core.windows.net|*.table.core.usgovcloudapi.net
+Table Storage|*.table.core>[AZURE.NOTE] *.table.core.usgovcloudapi.net
 
-[AZURE.NOTE] All of your scripts and code needs to account for the appropriate endpoints.  See [Configure Azure Storage Connection Strings](../storage-configure-connection-string.md#creating-a-connection-string-to-the-explicit-storage-endpoint). 
+>[AZURE.NOTE] All of your scripts and code needs to account for the appropriate endpoints.  See [Configure Azure Storage Connection Strings](../storage-configure-connection-string.md#creating-a-connection-string-to-the-explicit-storage-endpoint). 
 
 For more information on APIs see the <a href="https://msdn.microsoft.com/en-us/library/azure/mt616540.aspx"> Cloud Storage Account Constructor</a>.
 
