@@ -37,6 +37,7 @@ The management plane and data plane access control work independently. For examp
 ## Key Vault authentication using Azure Active Directory
 
 When you create a key vault in an Azure subscription, it is automatically associated with the parent Azure Active Directory tenant. All callers (users and applications) must be registered in this tenant to access this key vault. An application to authenticate with Azure Active Directory to access key vault. This applies to both management plane and data plane access. In both cases, an application can access Key Vault in two ways:
+
 -  **user+app access** - usually this is for applications that access key vault on behalf of a signed-in user. Azure PowerShell, Azure Portal are examples of this type of access.
 -  **app-only** access - for applications that run daemon services, background jobs etc. The application's identity is granted access to the key vault.
 
@@ -46,7 +47,7 @@ The resource name for which the application requests a token will be different d
 
 Having one single mechanism for authentication to both management and data plane has its own benefits:
 
-- Orgnizations can centrally crontrol all key vaults in their organization
+- Orgnizations can centrally crontrol access to all key vaults in their organization
 - If a user leaves, they instantly lose access to all key vaults in the organization
 - Organizations can customize authentication via the options in Azure Active Directory (for example, enabling multi-factor authentication for added security)
 
