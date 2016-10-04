@@ -3,11 +3,6 @@
    description="High-availability SAP NetWeaver on Windows virtual machines"
    services="virtual-machines-windows,virtual-network,storage"
    documentationCenter="saponazure"
-=======
-   pageTitle="SAP NetWeaver on Windows virtual machines (VMs) – High Availability Guide | Microsoft Azure"
-   description="SAP NetWeaver on Windows virtual machines (VMs) – High Availability Guide"
-   services="virtual-machines-windows"
-   documentationCenter=""
    authors="goraco"
    manager="timlt"
    editor=""
