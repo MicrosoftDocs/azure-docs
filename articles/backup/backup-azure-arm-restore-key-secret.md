@@ -21,7 +21,7 @@ This article talks about using Azure VM Backup to perform restore of encrypted A
 
 ## Pre-requisites
 
-1. **Backup of encrypted VMs** - Encrypted Azure VMs have been backed up using Azure Backup. Refer the article [Deploy and manage backups using Azure PowerShell](backup-azure-vms-automation.md) for details about how to backup encrypted Azure VMs.
+1. **Backup encrypted VMs** - Encrypted Azure VMs have been backed up using Azure Backup. Refer the article [Deploy and manage backups using Azure PowerShell](backup-azure-vms-automation.md) for details about how to backup encrypted Azure VMs.
 
 2. **Configure Azure Key Vault** – Ensure that key vault to which keys and secrets need to be restored is already present. Refer the article [Get Started with Azure Key Vault](../key-vault/key-vault-get-started.md) for details about key vault management.
 
@@ -88,12 +88,12 @@ PS C:\> $rp1 = Get-AzureRmRecoveryServicesBackupRecoveryPoint -RecoveryPointId $
 Restore key back to the key vault using the following cmdlet
 
 ```
-PS C:\> Restore-AzureKeyVaultKey -VaultName "contosokeyvault" -InputFile "C:\Users\ downloads\key.blob"
+PS C:\> Restore-AzureKeyVaultKey -VaultName "contosokeyvault" -InputFile "C:\Users\downloads\key.blob"
 ```
 
 ## Restore secret
 
-Get secret data from recovery point obtained above
+Restore secret data from recovery point obtained above
 
 ```
 PS C:\> $rp1.KeyAndSecretDetails.SecretUrl
