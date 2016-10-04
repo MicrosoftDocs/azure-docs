@@ -34,7 +34,8 @@ A|GA|GA|None
 Dv1|GA|-|None
 DSv1|GA|-|None
 Dv2|GA|GA|15 is coming soon
-F1-F16|GA|GA|None
+F|GA|GA|None
+G|Planned|-|None
 
 ###  Data Considerations
 
