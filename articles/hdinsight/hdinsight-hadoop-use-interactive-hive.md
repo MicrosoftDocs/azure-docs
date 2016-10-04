@@ -24,7 +24,8 @@
 Interactive Hive (A.K.A. [Long Live and Process]( https://cwiki.apache.org/confluence/display/Hive/LLAP) is a new HDInsight [cluster type]( hdinsight-hadoop-provision-linux-clusters.md#cluster-types).  Interactive Hive allows in memory caching that makes Hive queries much more interactive and faster. This new feature makes HDInsight one of the world’s most performant, flexible and open Big Data solution on the cloud with in-memory caches (using Hive and Spark) and advanced analytics through deep integration with R Services. 
 
 The Interactive Hive cluster is different from the Hadoop cluster. It only contains the Hive service. 
->[AZURE.NOTE] MapReduce, Pig, Sqoop, Oozie and other services will be removed from this cluster type in the near future.
+
+> [AZURE.NOTE] MapReduce, Pig, Sqoop, Oozie and other services will be removed from this cluster type in the near future.
 The Hive service in the Interactive Hive cluster is only accessible via the Ambari Hive view, Beeline and Hive ODBC. It can’t be accessed via Hive console, Templeton, Azure CLI, and Azure PowerShell. 
 
 To find the JDBC connection string
