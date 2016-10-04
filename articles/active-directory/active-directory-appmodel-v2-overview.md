@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/26/2016"
+	ms.date="09/27/2016"
 	ms.author="dastrock"/>
 
 # Sign-in Microsoft Account & Azure AD users in a single app
@@ -27,7 +27,7 @@ Apps that use the v2.0 endpoint can also consume REST APIs from the [Microsoft G
 ## Getting Started
 [AZURE.VIDEO build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps]
 
-Choose your favorite platform below to build an app using our open source libraries & frameworks.  Alternatively, you can use our OAuth 2.0 & OpenID Connect protocol documentation to send & receive protocol messages directly without using an auth library.
+Choose your favorite platform from the following list to build an app using our open source libraries & frameworks.  Alternatively, you can use our OAuth 2.0 & OpenID Connect protocol documentation to send & receive protocol messages directly without using an auth library.
 
 <!-- TODO: Finalize this table  -->
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
@@ -36,7 +36,7 @@ Choose your favorite platform below to build an app using our open source librar
 The conceptual information here will be useful in understanding what is & what isn't possible with the v2.0 endpoint.
 
 - Learn about the [types of apps you can build with the v2.0 endpoint](active-directory-v2-flows.md).
-- Understand the [limitations, restrictions and constraints](active-directory-v2-limitations.md) with the v2.0 endpoint.
+- Understand the [limitations, restrictions, and constraints](active-directory-v2-limitations.md) with the v2.0 endpoint.
 - We've recently added support for [admin restricted scopes](active-directory-v2-scopes.md) and the [OAuth2 client credentials grant](active-directory-v2-protocols-oauth-client-creds.md).  Try them out!
 
 ## Reference
@@ -46,16 +46,8 @@ These links will be useful for exploring the platform in depth:
 - Get help on Stack Overflow using the [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) or [adal](http://stackoverflow.com/questions/tagged/adal) tags.
 - [v2.0 Protocol Reference](active-directory-v2-protocols.md)
 - [v2.0 Token Reference](active-directory-v2-tokens.md)
+- [v2.0 Library Reference](active-directory-v2-libraries.md)
 - [Scopes and Consent in the v2.0 endpoint](active-directory-v2-scopes.md)
 - [The Microsoft App Registration Portal](https://apps.dev.microsoft.com)
 - [Office 365 REST API Reference](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [The Microsoft Graph](https://graph.microsoft.io)
-- Below are the Open source client libraries and samples that have been tested with the v2.0 endpoint.
-
-  - [Java WSO2 Identity Server](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
-  - [Java Gluu Federation](https://github.com/GluuFederation/oxAuth)
-  - [Node.Js passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect)
-  - [PHP OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP)
-  - [iOS OAuth2 Client](https://github.com/nxtbgthng/OAuth2Client)
-  - [Android OAuth2 Client](https://github.com/wuman/android-oauth-client)
-  - [Android OpenID Connect Client](https://github.com/kalemontes/OIDCAndroidLib)

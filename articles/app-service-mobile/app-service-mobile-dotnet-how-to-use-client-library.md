@@ -3,7 +3,7 @@
 	description="Learn how to use a .NET client for Azure App Service Mobile Apps with Windows and Xamarin apps."
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="ggailey777"
+	authors="adrianhall"
 	manager="erikre"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/23/2016"
+	ms.date="10/01/2016"
 	ms.author="adrianha"/>
 
 # How to use the managed client for Azure Mobile Apps
@@ -531,9 +531,7 @@ to display in the UI.
 
 ###<a name="pagesize"></a>Change the Page size
 
-Azure Mobile Apps returns a maximum of 50 items per request by default.  You can change the paging size by 
-increasing the maximum page size on both the client and server.  To increase the requested page size, specify 
-`PullOptions` when using `PullAsync()`:
+Azure Mobile Apps returns a maximum of 50 items per request by default.  You can change the paging size by increasing the maximum page size on both the client and server.  To increase the requested page size, specify `PullOptions` when using `PullAsync()`:
 
     PullOptions pullOptions = new PullOptions
 		{

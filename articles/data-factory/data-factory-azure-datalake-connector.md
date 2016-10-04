@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/22/2016"
+	ms.date="09/27/2016"
 	ms.author="jingwang"/>
 
 # Move data to and from Azure Data Lake Store using Azure Data Factory
@@ -426,7 +426,7 @@ The authorization code you generate by using the **Authorize** button expires af
 
 If you change your password before this token expiration time, the token expires immediately and you see the error mentioned in this section. 
 
-To avoid/resolve this error, reauthorize using the **Authorize** button when the **token expires** and redeploy the linked service. You can also generate values for **sessionId** and **authorization** properties programmatically using code in the following section. 
+To avoid/resolve this error, reauthorize using the **Authorize** button when the **token expires** and redeploy the linked service. You can also generate values for **sessionId** and **authorization** properties programmatically using code in the following section:
 
 ### To programmatically generate sessionId and authorization values 
 
@@ -458,17 +458,17 @@ See [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/m
 
 ## Azure Data Lake Dataset type properties
 
-For a full list of JSON sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
+For a full list of JSON sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
-The **typeProperties** section is different for each type of dataset and provides information about the location, format etc., of the data in the data store. The typeProperties section for dataset of type **AzureDataLakeStore** dataset has the following properties.
+The **typeProperties** section is different for each type of dataset and provides information about the location, format etc., of the data in the data store. The typeProperties section for dataset of type **AzureDataLakeStore** dataset has the following properties:
 
 | Property | Description | Required |
 | :-------- | :----------- | :-------- |
 | folderPath | Path to the container and folder in the Azure Data Lake store. | Yes |
 | fileName | Name of the file in the Azure Data Lake store. fileName is optional and case-sensitive. <br/><br/>If you specify a filename, the activity (including Copy) works on the specific file.<br/><br/>When fileName is not specified, Copy includes all files in the folderPath for input dataset.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | No |
 | partitionedBy | partitionedBy is an optional property. You can use it to specify a dynamic folderPath and filename for time series data. For example, folderPath can be parameterized for every hour of data. See the [Using partitionedBy property](#using-partitionedby-property) section for details and examples. | No |
-| format | The following format types are supported: **TextFormat**, **AvroFormat**, **JsonFormat**, and **OrcFormat**. Set the **type** property under format to one of these values. See [Specifying TextFormat](#specifying-textformat), [Specifying AvroFormat](#specifying-avroformat), [Specifying JsonFormat](#specifying-jsonformat), [Specifying OrcFormat](#specifying-orcformat) sections for details. If you want to copy files as-is between file-based stores (binary copy), you can skip the format section in both input and output dataset definitions.| No
-| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, and **BZip2** and supported levels are: **Optimal** and **Fastest**. Currently, the compression settings are not supported for data in **AvroFormat** or **OrcFormat**. See [Compression support](#compression-support) section for more details.  | No |
+| format | The following format types are supported: **TextFormat**, **AvroFormat**, **JsonFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. See [Specifying TextFormat](#specifying-textformat), [Specifying AvroFormat](#specifying-avroformat), [Specifying JsonFormat](#specifying-jsonformat), [Specifying OrcFormat](#specifying-orcformat), and [Specifying ParquetFormat](#specifying-parquetformat) sections for details. If you want to copy files as-is between file-based stores (binary copy), you can skip the format section in both input and output dataset definitions.| No
+| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, and **BZip2** and supported levels are: **Optimal** and **Fastest**. Currently, the compression settings are not supported for data in **AvroFormat** or **OrcFormat**. For more information, see [Compression support](#compression-support) section.  | No |
 
 ### Using partitionedBy property
 You can specify a dynamic folderPath and filename for time series data with the **partitionedBy** section, Data Factory macros, and the system variables: SliceStart and SliceEnd, which indicate start and end times for a given data slice.
@@ -534,7 +534,7 @@ The **compression** section has two properties:
 	- **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed. 
 	- **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete. 
 	
-	See [Compression Level](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) topic for more information. 
+	For more information, see [Compression Level](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) topic. 
 
 Suppose the sample dataset is used as the output of a copy activity. The copy activity compresses the output data with GZIP codec using optimal ratio and then writes the compressed data into a file named pagecounts.csv.gz in the Azure Data Lake store.   
 
@@ -546,7 +546,7 @@ When you specify compression property in an input dataset JSON, the pipeline rea
 
 
 ## Azure Data Lake Copy Activity type properties  
-For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, various policies etc., are available for all types of activities.
+For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks
 

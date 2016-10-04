@@ -52,6 +52,7 @@ You can:
 - **Consume** the metrics via new Azure Monitor REST APIs.
 - **Query** metrics using the PowerShell Cmdlets or Cross-Platform REST API.
 
+ ![Routing of Metrics in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview0.png)
 
 ## Access metrics via portal
 Here is a quick walkthrough of creating a metric chart via Azure portal
@@ -62,7 +63,7 @@ Here is a quick walkthrough of creating a metric chart via Azure portal
 3. After you create a website, go to the Overview blade of the web site.
 4. You can view new metrics as a 'Monitoring' tile. You can Edit the tile and select more metrics
 
- ![Metrics on a resource](./media/monitoring-overview-metrics/MetricsOverview1.png)	
+ ![Metrics on a resource in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview1.png)	
 
 ### Access all metrics in a single place
 1. Open the Azure portal 
@@ -72,7 +73,7 @@ Here is a quick walkthrough of creating a metric chart via Azure portal
 5. Select the metric you are interested in and plot it. 
 6. You can pin it to the dashboard by clicking on the pin on the top-right corner.
 
- ![Access all metrics in a single place](./media/monitoring-overview-metrics/MetricsOverview2.png)	
+ ![Access all metrics in a single place in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview2.png)	
 
 
 >[AZURE.NOTE] You can access host-level metrics from VMs (Azure Resource Manager based) and VM Scale Sets without any additional diagnostic setup. These new host-level metrics are available for Windows and Linux instances. These metrics are not to be confused with the Guest-OS level metrics that you have access to when you turn on Azure Diagnostics on your VMs or VMSS. To learn more about configuring Azure Diagnostics, see [What is Microsoft Azure Diagnostics](../azure-diagnostics.md).
@@ -80,15 +81,17 @@ Here is a quick walkthrough of creating a metric chart via Azure portal
 ## Access metrics via REST API
 Azure Metrics can be accessed via Azure Monitor APIs. There are two APIs that help you discover and access metrics. Use the: 
 
-- [Metric definitions API](https://msdn.microsoft.com/library/mt743621.aspx) to access the list of metrics available for a service.
-- [Metrics API](https://msdn.microsoft.com/library/mt743622.aspx) to access the actual metrics data
+- [Azure Monitor Metric definitions REST API](https://msdn.microsoft.com/library/mt743621.aspx) to access the list of metrics available for a service.
+- [Azure Monitor Metrics REST API](https://msdn.microsoft.com/library/mt743622.aspx) to access the actual metrics data
 
 >[AZURE.NOTE] This article covers the metrics via the [new API for metrics](https://msdn.microsoft.com/library/dn931930.aspx) for Azure resources. The API version for the new metric definitions API is 2016-03-01 and the version for metrics API is 2016-09-01. The legacy metric definitions and metrics can be accessed with the api-version 2014-04-01.
+
+For a more detailed walkthrough using the Azure Monitor REST APIs, see [Azure Monitor REST API Walkthrough](monitoring-rest-api-walkthrough.md).
 
 ## Export options for metrics
 You can go to the Diagnostics logs blade under the Monitor tab and view the export options for metrics. You can select metrics (and diagnostic logs) to be routed to Blob Storage, Event Hubs or to OMS Log Analytics for use-cases mentioned previously in this article. 
 
- ![Export options for metrics](./media/monitoring-overview-metrics/MetricsOverview3.png)	
+ ![Export options for metrics in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview3.png)	
 
 You can configure this via Resource Manager templates, [PowerShell](insights-powershell-samples.md), [CLI](insights-cli-samples.md) or [REST APIs](https://msdn.microsoft.com/library/dn931943.aspx). 
 
@@ -98,12 +101,12 @@ You can receive notifications or take automated actions on metric data. You can 
 ### Alert Rules
 You can configure alert rules on metrics. These alert rules can check if a metric has crossed a certain threshold and notify you via email or fire a webhook that can then be used to execute any custom script. You can also use the webhook to configure 3rd product integrations.
 
- ![Metrics and alert rules](./media/monitoring-overview-metrics/MetricsOverview4.png)
+ ![Metrics and alert rules in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
 ### Autoscale
 Some Azure resources support multiple instances to scale out or in to handle your workloads. Autoscale applies to App Services (Web apps), Virtual Machine Scale Sets (VMSS) and classic Cloud Services. You can configure autoscale rules to scale out or in when a certain metric impacting your workload crosses a threshold you specify. For more information, see [Overview of autoscaling](monitoring-overview-autoscale.md).
 
- ![Metrics and autoscale](./media/monitoring-overview-metrics/MetricsOverview5.png)
+ ![Metrics and autoscale in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview5.png)
 
 ## Supported Services and Metrics
 Azure Monitor is a new metrics infrastructure. It provides support for the following Azure services in the Azure portal and the new version of the Azure Monitor API:

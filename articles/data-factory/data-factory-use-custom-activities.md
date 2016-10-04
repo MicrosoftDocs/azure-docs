@@ -17,6 +17,16 @@
 	ms.author="spelluru"/>
 
 # Use custom activities in an Azure Data Factory pipeline
+> [AZURE.SELECTOR]
+[Hive](data-factory-hive-activity.md)  
+[Pig](data-factory-pig-activity.md)  
+[MapReduce](data-factory-map-reduce.md)  
+[Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
+[Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
+[Stored Procedure](data-factory-stored-proc-activity.md)
+[Data Lake Analytics U-SQL](data-factory-usql-activity.md)
+[.NET custom](data-factory-use-custom-activities.md)
+
 There are two types of activities that you can use in an Azure Data Factory pipeline.
  
 - [Data Movement Activities](data-factory-data-movement-activities.md) to move data between [supported data stores](data-factory-data-movement-activities.md#supported-data-stores).

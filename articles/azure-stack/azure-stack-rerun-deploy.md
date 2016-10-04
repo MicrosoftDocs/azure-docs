@@ -54,7 +54,7 @@ Now that you have the step that the deployment failed on, you can attempt a -Rer
 
 2. Then execute the following command (example from above used here):
 
-    `Invoke-EceAction -RolePath Cloud -ActionType Deployment -Start 60.140.143 -Verbose`
+        Invoke-EceAction -RolePath Cloud -ActionType Deployment -Start 60.140.143 -Verbose
 
 3.	This will initiate the deployment from the step identified by the -Start parameter of the Invoke-EceAction command
 

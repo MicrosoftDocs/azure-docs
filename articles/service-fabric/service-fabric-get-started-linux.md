@@ -18,6 +18,12 @@
 
 # Prepare your development environment on Linux
 
+
+> [AZURE.SELECTOR]
+-[ Windows](service-fabric-get-started.md)
+- [Linux](service-fabric-get-started-linux.md)
+- [OSX](service-fabric-get-started-mac.md)
+
  To deploy and run [Azure Service Fabric applications](service-fabric-application-model.md) on your Linux development machine, install the runtime and common SDK. You can also install optional SDKs for Java and .NET Core.
 
 ## Prerequisites
@@ -85,7 +91,7 @@ The [Azure cross-platform CLI][azure-xplat-cli-github] includes commands for int
 3. Create a symlink from the bin/azure folder of the cloned repo to /usr/bin/azure so that it's added to your path and commands are available from any directory.
 
     ```bash
-    sudo ln -s $(pwd)/bin/azure /usr/bin/azure/
+    sudo ln -s $(pwd)/bin/azure /usr/bin/azure
     ```
 
 4. Finally, enable auto-completion Service Fabric commands.
@@ -112,7 +118,7 @@ If everything has installed successfully, you should be able to start a local cl
 
 At this point, you are able to deploy pre-built Service Fabric application packages or new ones based on guest containers or guest executables. To build new services using the Java or .NET Core SDKs, follow the optional setup steps below.
 
-## Install the Java SDK and Eclipse plugin (optional)
+## Install the Java SDK and Eclipse Neon plugin (optional)
 
 The Java SDK provides the libraries and templates required to build Service Fabric services using Java.
 
@@ -125,22 +131,24 @@ The Java SDK provides the libraries and templates required to build Service Fabr
 2. Run the SDK setup script.
 
     ```bash
-    sudo /opt/microsoft/sdk/servicefabric/java/servicefabricsdkjava.sh
+    sudo /opt/microsoft/sdk/servicefabric/java/sdkjavasetup.sh
     ```
 
-You can install the Eclipse plugin for Service Fabric from within the Eclipse IDE.
+You can install the Eclipse plugin for Service Fabric from within the Eclipse Neon IDE.
 
-1. In Eclipse, choose **Help > Install New Software...**
+1. In Eclipse, ensure that you have Buildship version 1.0.17 or later installed. You can check the versions of installed components by choosing **Help > Installation Details**. You can update Buildship using the instructions [here][buildship-update].
 
-2. In the "Work with" textbox, enter: http://dl.windowsazure.com/eclipse/servicefabric
+2. To install the Service Fabric plugin, choose **Help > Install New Software...**
 
-3. Click Add.
+3. In the "Work with" textbox, enter: http://dl.windowsazure.com/eclipse/servicefabric
+
+4. Click Add.
 
     ![Eclipse plugin][sf-eclipse-plugin]
 
-4. Choose the Service Fabric plugin and click next.
+5. Choose the Service Fabric plugin and click next.
 
-5. Proceed through the installation and accept the end-user license agreement.
+6. Proceed through the installation and accept the end-user license agreement.
 
 ## Install the .NET Core SDK (optional)
 
@@ -149,24 +157,27 @@ The .NET Core SDK provides the libraries and templates required to build Service
 1. Install the .NET Core SDK package.
 
     ```bash
-    $ sudo apt-get install servicefabricsdkcsharp
+    sudo apt-get install servicefabricsdkcsharp
     ```
 
 2. Run the SDK setup script.
 
     ```bash
-    sudo  /opt/microsoft/sdk/servicefabric/csharp/servicefabricsdkcsharp.sh
+    sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
     ```
 
 ## Next steps
 
 - [Create your first Java application on Linux](service-fabric-create-your-first-linux-application-with-java.md)
 
+- [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
+
 
 <!-- Links -->
 
 [azure-xplat-cli-github]: https://github.com/Azure/azure-xplat-cli
 [install-node]: https://nodejs.org/en/download/package-manager/#installing-node-js-via-package-manager
+[buildship-update]: https://projects.eclipse.org/projects/tools.buildship
 
 <!--Images -->
 
