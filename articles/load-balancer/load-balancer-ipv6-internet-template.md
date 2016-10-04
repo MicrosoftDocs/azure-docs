@@ -7,6 +7,7 @@
     manager="carmonm"
     editor=""
     tags="azure-resource-manager"
+    keywords="ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot"
 />
 <tags
     ms.service="load-balancer"

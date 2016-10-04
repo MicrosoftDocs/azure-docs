@@ -6,6 +6,7 @@
     authors="sdwheeler"
     manager="carmonm"
     editor=""
+    keywords="ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot"
 />
 <tags
     ms.service="load-balancer"
