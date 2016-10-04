@@ -20,7 +20,10 @@
 
 ## Overview
 
-*Device twins* are JSON documents that store device state information (meta-data, configurations, and conditions). IoT Hub persists a device twin for each device that you connect to IoT Hub.
+*Device twins* are JSON documents that store device state information (meta-data, configurations, and conditions). IoT Hub persists a device twin for each device that you connect to IoT Hub. This article will describe:
+
+* the structure of the device twin: *tags*, *desired* and *reported properties*, and
+* the operations that device apps and back ends can perform on device twins.
 
 > [AZURE.NOTE] Currently, device twins are accessible only from devices that connect to IoT Hub using the MQTT protocol.
 
@@ -28,7 +31,7 @@
 
 Use device twins to:
 
-* Store device meta-data from your back end, e.g. deployment location of a vending machine.
+* Store device specific meta-data in the cloud, e.g. deployment location of a vending machine.
 * Report current state information such as available capabilities and conditions from your device app, e.g. a device connecting through cellular or wifi.
 * Synchronize the state of long-running workflows between device app and back end, e.g. back end specifying the new firmware version to install, and the device app reporting the various stages of the update process.
 * Query your device meta-data, configuration, or state.
@@ -42,14 +45,17 @@ Device twins store device-related information that:
 - Device and back ends can use to synchronize device conditions and configuration.
 - The application back end can use to query and target long-running operations.
 
-The lifecycle of a device twins is linked to the corresponding [device identity][lnk-identity]. Twins are implicitly created and deleted when a new device identity is created or deleted in IoT Hub.
+The lifecycle of a device twin is linked to the corresponding [device identity][lnk-identity]. Twins are implicitly created and deleted when a new device identity is created or deleted in IoT Hub.
 
 A device twin is a JSON document that includes:
 
 * **Tags**. A JSON document read and written by the back end. Tags are not visible to device apps.
 * **Desired properties**. Used in conjunction with reported properties to synchronize device configuration or condition. Desired properties can only be set by the application back end and can be read by the device app. The device app can also be notified in real time of changes on the desired properties.
 * **Reported properties**. Used in conjunction with desired properties to synchronize device configuration or condition. Reported properties can only be set by the device app and can be read and queried by the application back end.
-* **System properties**. System properties contain read-only information provided by IoT Hub, such as last activity time and connection state. This is the same information reported in the [device identity registry][lnk-identity].
+
+Additionally, the root of the device twin contains the read-only properties from the corresponding identity, as contained in the [device identity registry][lnk-identity].
+
+![][img-twin]
 
 Here is an example of a device twin JSON document:
 
@@ -177,11 +183,11 @@ The [Azure IoT device SDKs][lnk-sdks] make it easy to use the above operations f
 Tags, desired and reported properties are JSON objects with the following restrictions:
 
 * All keys in JSON objects are case-sensitive 128-char UNICODE strings. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `'.'`, `' '`, and `'$'`.
-* All values in JSON object can be of the following JSON types: boolean, number, string, object.
+* All values in JSON object can be of the following JSON types: boolean, number, string, object. Arrays are not allowed.
 
 ### Twin size
 
-IoT Hub enforces an 8KB size limitation on the values of `tags`, `properties/desired`, and `properties/reported`, expcluding read-only elements.
+IoT Hub enforces an 8KB size limitation on the values of `tags`, `properties/desired`, and `properties/reported`, excluding read-only elements.
 The size is computed by counting all characters excluding UNICODE control characters (segments C0 and C1) and space `' '` when it appears outside of a string constant.
 IoT Hub will reject with error all operations that would increase the size of those documents above the limit.
 
@@ -240,7 +246,7 @@ This information is kept at every level (not just the leaves of the JSON structu
 Tags, desired and reported properties all support optimistic concurrency.
 Tags have an etag, as per [RFC7232], that represents the tag's JSON representation. You can use this in conditional update operations from the back end to ensure consistency.
 
-Desired and reported properties do not have etags, but have a `$version` value that is guaranteed to be incremental. Analogously to etags, the version can be used by the updating party (such as a device app for a reported property or the back end for a desired property) to enforce consistency of updates.
+Desired and reported properties do not have etags, but have a `$version` value that is guaranteed to be incremental. Analogously to an etag, the version can be used by the updating party (such as a device app for a reported property or the back end for a desired property) to enforce consistency of updates.
 
 Versions are also useful when an observing agent (such as, the device app observing the desired properties) has to reconcile races between the result of a retrieve operation and an update notification. The section [Device reconnection flow][lnk-reconnection] provides more information.
 
@@ -301,3 +307,5 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-twin-metadata]: iot-hub-devguide-device-twins.md#twin-metadata
 [lnk-concurrency]: iot-hub-devguide-device-twins.md#optimistic-concurrency
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow
+
+[img-twin]: media/iot-hub-devguide-device-twins/twin.png

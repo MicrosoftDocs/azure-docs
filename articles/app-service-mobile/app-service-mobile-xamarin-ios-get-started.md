@@ -3,7 +3,7 @@
 	description="Follow this tutorial to get started with using Mobile Apps for Xamarin.iOS development."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="wesmc7777"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/04/2016"
-	ms.author="normesta"/>
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>
 
 
 #Create a Xamarin.iOS app

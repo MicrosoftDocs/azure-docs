@@ -97,13 +97,46 @@ The following is the HTTP 1.1 request details for updating device twin propertie
 The following is the HTTP 1.1 request details for querying for jobs:
 
     ```
-    GET /jobs/v2/<jobId>?api-version=2016-09-30-preview
+    GET /jobs/v2/query?api-version=2016-09-30-preview[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
     
     Authorization: <config.sharedAccessSignature>
     Content-Type: application/json; charset=utf-8
     Request-Id: <guid>
     User-Agent: <sdk-name>/<sdk-version>
     ```
+    
+The continuationToken is provided from the response.  
+
+## Jobs Properties
+
+The following is a list of properties and corresponding descriptions, which can be used when querying for jobs or job results.
+
+| Property | Description |
+| -------------- | -----------------|
+| **jobId** | Application provided ID for the job. |
+| **startTime** | Application provided start time (ISO-8601) for the job. |
+| **endTime** | IoT Hub provided date (ISO-8601) for when the job completed. Valid only after the job reaches the 'completed' state. | 
+| **type** | Types of jobs: |
+| | **scheduledUpdateTwin**: A job used to update a set of twin desired properties or tags. |
+| | **scheduledDeviceMethod**: A job used to invoke a device method on a set of twin. |
+| **status** | Current state of the job. Possible values for status: |
+| | **pending** : Scheduled and waiting to be picked up by the job service. |
+| | **scheduled** : Scheduled for a time in the future. |
+| | **running** : Currently active job. |
+| | **cancelled** : Job has been cancelled. |
+| | **failed** : Job failed. |
+| | **completed** : Job has completed. |
+| **deviceJobStatistics** | Statistics about the job's execution. |
+
+During the preview, the deviceJobStatistics object is available only after the job is completed.
+
+| Property | Description |
+| -------------- | -----------------|
+| **deviceJobStatistics.deviceCount** | Number of devices in the job. |
+| **deviceJobStatistics.failedCount** | Number of devices where the job failed. |
+| **deviceJobStatistics.succeededCount** | Number of devices where the job succeeded. |
+| **deviceJobStatistics.runningCount** | Number of devices that are currently running the job. |
+| **deviceJobStatistics.pendingCount** | Number of devices that are pending to run the job. |
 
 
 ### Additional reference material
