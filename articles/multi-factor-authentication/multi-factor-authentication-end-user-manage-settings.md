@@ -27,7 +27,7 @@ If your work or school uses Azure Multi-Factor Authentication, then you
 
 
 ## Where to find the settings page
-Depending on how your company set up Azure Multi-Factor Authentication, there are a few places where you can change your settings like your phone number.
+Depending on how your company set up Azure Multi-Factor Authengit stication, there are a few places where you can change your settings like your phone number.
 
 If your IT admin sent out a specific URL or steps to manage two-step verification, follow those instructions. Otherwise, the following instructions should work for everybody else. If you follow these steps but don't see the same options, that means that your work or school customized their own portal. Ask your admin for the link to your Azure Multi-Factor Authentication portal.
 
@@ -61,9 +61,9 @@ Then select your other phone number.  In this case, you would select **Call me a
 
 ![Alternate phone](./media/multi-factor-authentication-end-user-manage/altphone2.png)
 
-The second is by contacting your administrator or the person who setup mfa for you.  You only need to do this if you have not configured a secondary authentication phone number.  Otherwise you will have to contact your administrator or the person who setup mfa and have them clear you settings so the next time you sign-in, you will be prompted to [setup multi-factor authentication](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again) again.
+The second is by contacting your administrator or the person who setup mfa for you.  You only need to do this if you have not configured a secondary authentication phone number.  Otherwise you will have to contact your administrator or the person who setup mfa and have them clear you settings so the next time you sign-in, you will be prompted to [set up multi-factor authentication](multi-factor-authentication-end-user-first-time.md) again.
 
 
 
 ## How do I clean up Microsoft Authenticator from my old device and move to a new one?
-When you uninstall the app from your device or reflash the device, it does not remove the activation on the back end. You should use the steps outlined in [moving to a new device.](multi-factor-authentication-microsoft-authenticator.md#how-to-move-to-the-new-microsoft-authenticator-app).
+When you uninstall the app from your device or reset the device, it does not remove the activation on the back end. You should use the steps outlined in [moving to a new device.](multi-factor-authentication-microsoft-authenticator.md#how-to-move-to-the-new-microsoft-authenticator-app).
