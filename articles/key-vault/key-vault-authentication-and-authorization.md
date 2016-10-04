@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/29/2016"
+	ms.date="10/07/2016"
 	ms.author="ambapat"/>
 
 
 # Secure your Key Vault
 
-Azure Key Vault is a cloud service that safeguards encryption keys and secrets (such as certificates, connection strings, passwords) for your cloud applications. Since this data is sensitive and business critical, you want to secure access to your key vaults so that only authorized applications and users can access to your key vault. This article provides an overview of Key Vault access model, explains authentication and authorization, and describes how to secure access to Key Vault for your cloud applications.
+Azure Key Vault is a cloud service that safeguards encryption keys and secrets (such as certificates, connection strings, passwords) for your cloud applications. Since this data is sensitive and business critical, you want to secure access to your key vaults so that only authorized applications and users can access key vault. This article provides an overview of Key Vault access model, explains authentication and authorization, and describes how to secure access to Key Vault for your cloud applications with an example.
 
 ## Management plane and data plane
 
@@ -36,14 +36,14 @@ The management plane and data plane access control work independently. For examp
 
 ## Key Vault authentication using Azure Active Directory
 
-When you create a key vault in an Azure subscription, it is automatically associated with the parent Azure Active Directory tenant. All callers (users and applications) must be registered in this tenant to access this key vault. An application to authenticate with Azure Active Directory to access key vault. This applies to both management plane and data plane access. In both cases, an application can access Key Vault in two ways:
+When you create a key vault in an Azure subscription, it is automatically associated with the parent Azure Active Directory tenant. All callers (users and applications) must be registered in this tenant to access this key vault. An application must  authenticate with Azure Active Directory to access key vault. This applies to both management plane and data plane access. In both cases, an application can access Key Vault in two ways:
 
--  **user+app access** - usually this is for applications that access key vault on behalf of a signed-in user. Azure PowerShell, Azure Portal are examples of this type of access.
--  **app-only** access - for applications that run daemon services, background jobs etc. The application's identity is granted access to the key vault.
+-  **user+app access** - usually this is for applications that access key vault on behalf of a signed-in user. Azure PowerShell, Azure Portal are examples of this type of access. There are two ways to grant access to users: one way it to grant access to users so they can access key vault from any application and the other way is to grant a user access to key vault only when they use a specific application. 
+-  **app-only access** - for applications that run daemon services, background jobs etc. The application's identity is granted access to the key vault.
 
-In both types of applications, the application authenticates with with Azure Active Directory using any of the [supported authentication methods](../active-directory/active-directory-authentication-scenarios.md) and acquires a token. Authentication methods depend on the application type. Then the application uses this token and sends REST API request to Key Vault. In case of management plane access the requests are essentially routed through Azure Resource Manager endpoint. When accessing data plane, the applications talks directly to a Key Vault endpoint. See more details on the [whole authentication flow](../active-directory/active-directory-protocols-oauth-code.md). 
+In both types of applications, the application authenticates with with Azure Active Directory using any of the [supported authentication methods](../active-directory/active-directory-authentication-scenarios.md) and acquires a token. Authentication method used depend on the application type. Then the application uses this token and sends REST API request to Key Vault. In case of management plane access the requests are routed through Azure Resource Manager endpoint. When accessing data plane, the applications talks directly to a Key Vault endpoint. See more details on the [whole authentication flow](../active-directory/active-directory-protocols-oauth-code.md). 
 
-The resource name for which the application requests a token will be different depending on whether the application is accessing management plane or data plane. In this case it is either management plane or data plane endpoint described in the table earlier, depending on the the Azure environment.
+The resource name for which the application requests a token will be different depending on whether the application is accessing management plane or data plane. Hence the resource name is either management plane or data plane endpoint described in the table earlier, depending on the the Azure environment.
 
 Having one single mechanism for authentication to both management and data plane has its own benefits:
 
@@ -58,7 +58,7 @@ Having one single mechanism for authentication to both management and data plane
 The management plane consists of operations that affect the key vault itself. For example, you can create or delete a key vault. Get a list of vaults in a subscription. Retrieve key vault properties (such as SKU, tags) and also set key vault access policies that control the users and applications that can access keys and secrets in the key vault. Management plane access control uses RBAC.
 
 ### Role-based Access Control (RBAC)
-Each Azure subscription has an Azure Active Directory. Users, groups, and applications from this directory can be granted access to manage resources in the Azure subscription that use the Azure Resource Manager deployment model. This is referred to as Role-Based Access Control (RBAC). To manage this access, you can use the [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md), or the [Key Vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx).
+Each Azure subscription has an Azure Active Directory. Users, groups, and applications from this directory can be granted access to manage resources in the Azure subscription that use the Azure Resource Manager deployment model. This type of access control is referred to as Role-Based Access Control (RBAC). To manage this access, you can use the [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md), or the [Key Vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx).
 
 With the Azure Resource Manager model, you create your key vault in a resource group and control access to the management plane of this key vault by using Azure Active Directory. For example, you can give specific users ability to set key vault access policy, while other users can only view and list key vaults in this resource group, but not change key vault access policy.
 
@@ -74,12 +74,13 @@ Data plane access is granted by setting access policies for a key vault. A user,
 
 ### Key Vault Access Policies
 
-Key Vault access policies grant permissions to keys, secrets and certificates separately. For example, you can give a user access to only keys, but no permissions for secrets. However permissions to access keys or secrets or certificates are at the vault level. In other words, Key Vault access policy does not support object level permissions. For example, if a user has permission to perform a backup operation for a key vault, she can perform backup operation for **any** key in that key vault.
+Key Vault access policies grant permissions to keys, secrets and certificates separately. For example, you can give a user access to only keys, but no permissions for secrets. However permissions to access keys or secrets or certificates are at the vault level. In other words, Key Vault access policy does not support object level permissions. You can use [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md), or the [Key Vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx) to set access policies for a key vault.
 
+>[AZURE.IMPORTANT] Note that Key Vault access policies apply at the vault level. For example, when a user is granted permission to create and delete keys, she can perform those operations on all keys in that key vault.
 
 ## Example
 
-Let's say you are developing a web application that uses a certificate for SSL, Azure storage for storing data, and also uses an RSA 2048-bit key for sign operations. Let's say this web application is running in a VM (or a VM Scale Set). You can use key vault to store all the application secrets, and also use key vault to store the bootstrap certificate that is used by the application to authenticate with Azure Active Directory.
+Let's say you are developing an application that uses a certificate for SSL, Azure storage for storing data, and also uses an RSA 2048-bit key for sign operations. Let's say this application is running in a VM (or a VM Scale Set). You can use key vault to store all the application secrets, and also use key vault to store the bootstrap certificate that is used by the application to authenticate with Azure Active Directory.
 
 So here's a summary of all the keys and secrets to be stored in a key vault.
 
@@ -91,32 +92,32 @@ So here's a summary of all the keys and secrets to be stored in a key vault.
 Now let's meet the people who are managing, deploying and auditing this application. We'll use three roles in this example.
 
 - **Security team** - These are typically IT staff from the 'office of the CSO (Chief Security Officer)' or equivalent, responsible for the proper safekeeping of secrets such as SSL certificates, RSA keys used for signing.
-- **Developers/operators** - These are the folks who develop this application and then deploy it in cloud. Typically they are not part of security team, and hence they should not have access to any sensitive data, such as SSL certs, RSA keys, but the application they deploy should have access to those.
+- **Developers/operators** - These are the folks who develop this application and then deploy it in Azure. Typically they are not part of the security team, and hence they should not have access to any sensitive data, such as SSL certificates, RSA keys, but the application they deploy should have access to those.
 - **Auditors** - This is usually a different set of people, isolated from the developers and general IT staff. Their responsibility is to review proper use and maintenance of certificates, keys, etc. and also ensure compliance with data security standards. 
 
-There is one more role that is outside the scope of this application, but relevant here to be mentioned, and that would be the subscription (or resource group) administrator. Subscription administrator sets up initial access permissions for the above three roles. Here we assume that the subscription administrator has granted access to the security team to a resource group in which all the resources needed for this application reside.
+There is one more role that is outside the scope of this application, but relevant here to be mentioned, and that would be the subscription (or resource group) administrator. Subscription administrator sets up initial access permissions for the security team. Here we assume that the subscription administrator has granted access to the security team to a resource group in which all the resources needed for this application reside.
 
 Now let's see what actions each role performs in the context of this application.
 
--   Security team
+- **Security team**
 	- Create Key Vaults
 	- Turns on Key Vault logging
 	- Add keys/secrets
 	- Create backup of keys for disaster recovery
 	- Set key vault access policy to grant permissions to users and applications to perform specific operations
 	- Periodically roll keys/secrets
-- Developers/operators
-  - Get references to bootstrap and SSL certs (thumbprints), storage key (secret URI) and signing key (Key URI) from security team
-  - Develop and deploy application that accesses keys and secrets programmatically
-- Auditors
-  - Review usage logs to confirm proper key/secret use and compliance with data security standards
+- **Developers/operators**
+    - Get references to bootstrap and SSL certs (thumbprints), storage key (secret URI) and signing key (Key URI) from security team
+    - Develop and deploy application that accesses keys and secrets programmatically
+- **Auditors**
+    - Review usage logs to confirm proper key/secret use and compliance with data security standards
 
 Now let's see what access permissions to key vault are needed by each role (and also the application) to perform their assigned tasks. 
 
 | User Role    | Management plane permissions | Data plane permissions |
 |--------------|------------------------------|------------------------|
 |Security Team|Key Vault Contributor|Keys: backup, create, delete, get, import, list, restore <br> Secrets: all|
-|Developers/Operator| Key Vault deploy permission so that the VMs they deploy can fetch secrets from the designated key vault | None |
+|Developers/Operator| Key Vault deploy permission so that the VMs they deploy can fetch secrets from the key vault | None |
 |Auditors| None | Keys: list<br>Secrets: list|
 |Application| None | Keys: sign<br>Secrets: get |
 
@@ -124,17 +125,17 @@ Now let's see what access permissions to key vault are needed by each role (and 
 
 Besides permission to key vault, all three roles also need access to other resources. For example, to be able to deploy VMs (or Web Apps etc.) Developers/Operators also need 'Contributor' access to those resource types. Auditors need read access to the storage account where the key vault logs are be stored.
 
-Since the focus of this article is on authentication and authorization for Key Vault, we only illustrate the relevant portions pertaining to this topic and skip details regarding deploying certificates, accessing keys and secrets programmatically etc. Those details are already covered elsewhere. Deploying certificates stored in key vault to VMs is covered in a [blog post](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/), and there is [sample code](https://www.microsoft.com/download/details.aspx?id=45343) available that illustrates how to use bootstrap certificate to authenticate to Azure AD to get access to key vault.
+Since the focus of this article is securing access to Key Vault, we only illustrate the relevant portions pertaining to this topic and skip details regarding deploying certificates, accessing keys and secrets programmatically etc. Those details are already covered elsewhere. Deploying certificates stored in key vault to VMs is covered in a [blog post](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/), and there is [sample code](https://www.microsoft.com/download/details.aspx?id=45343) available that illustrates how to use bootstrap certificate to authenticate to Azure AD to get access to key vault.
 
-Most of the access permissions can be granted using Azure portal, but to grant granular permissions you need to use Azure PowerShell (or Azure CLI) to achieve the desired result. 
+Most of the access permissions can be granted using Azure portal, but to grant granular permissions you may need to use Azure PowerShell (or Azure CLI) to achieve the desired result. 
 
 The following PowerShell snippets assume:
 
-- The Azure Active Directory administrator has created following security groups that represent the three roles: Contoso Security Team, Contoso App Devops, Contoso App Auditors. 
+- The Azure Active Directory administrator has created security groups that represent the three roles, namely Contoso Security Team, Contoso App Devops, Contoso App Auditors. The administrator has also added users to the groups they belong.
 
-- ContosoAppRG is the resource group where all the resources reside, contosologstorage is where the logs are stored. 
+- **ContosoAppRG** is the resource group where all the resources reside. **contosologstorage** is where the logs are stored. 
 
-- Key vault and storage account where the logs are stored must be in the same Azure location
+- Key vault **ContosoKeyVault** and storage account used for key vault logs **contosologstorage** must be in the same Azure location
 
 
 First the subscription administrator assigns 'Key Vault Contributor' role to the security team.
@@ -173,11 +174,11 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 
 ```
 
-The custom role assignment for the developers/operators for the "deploy/action" permission is scoped to the resource group. This way only the VMs created in the resource group 'ContosoAppRG' will get the secrets (SSL cert and bootstrap cert). Any VMs that a member of dev/ops creates in other resource group will not be able to get these secrets.
+The custom role assignment for the developers/operators for the "deploy/action" permission is scoped to the resource group. This way only the VMs created in the resource group 'ContosoAppRG' will get the secrets (SSL cert and bootstrap cert). Any VMs that a member of dev/ops team creates in other resource group will not be able to get these secrets even if they knew the secret URIs.
 
-This example depicts a simple scenario. Real life scenarios may be more complex and you may need to adjust permissions to Key Vault based on your needs. For example, in our example, we assume that security team will provide the key and secret references (URIs and thumbprints) that developers/operators team need to reference in their applications. Hence they don't need to grant developers/operators any data plane access. But if you want the developers/operators to be able to pick keys from Azure Portal while enabling encryption at rest for an Azure workload, they will need 'list' permission for keys and secrets. Also note that this example focuses on securing your key vault. Similar consideration should be given to [securing your VMs](https://azure.microsoft.com/services/virtual-machines/security/), [storage accounts](../storage/storage-security-guide.md) and other resources too.
+This example depicts a simple scenario. Real life scenarios may be more complex and you may need to adjust permissions to your key vault based on your needs. For example, in our example, we assume that security team will provide the key and secret references (URIs and thumbprints) that developers/operators team need to reference in their applications. Hence they don't need to grant developers/operators any data plane access. But if you want the developers/operators to be able to pick keys from Azure Portal while enabling encryption at rest for an Azure workload, they will need 'list' permission for keys and secrets. Also note that this example focuses on securing your key vault. Similar consideration should be given to [securing your VMs](https://azure.microsoft.com/services/virtual-machines/security/), [storage accounts](../storage/storage-security-guide.md) and other Azure resources too.
 
->[AZURE.NOTE] Note: This example shows how key vault access will be locked down in production. The developers will most likely have their own subscription or resourcegroup where they have full permissions to manage their vaults, VMs and storage account where they develop the application.
+>[AZURE.NOTE] Note: This example shows how key vault access will be locked down in production. The developers should have their own subscription or resourcegroup where they have full permissions to manage their vaults, VMs and storage account where they develop the application.
 
 
 ## Resources
@@ -213,6 +214,10 @@ This example depicts a simple scenario. Real life scenarios may be more complex 
 -   [Key Vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx)
 
 	This document is the reference for the REST APIs to manage your key vault programmatically, including setting Key Vault access policy.
+
+-   [Key Vault REST APIs](https://msdn.microsoft.com/en-us/library/azure/dn903609.aspx)
+
+	Link to Key Vault REST API reference documentation.
 
 -   [Key access control](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
 
