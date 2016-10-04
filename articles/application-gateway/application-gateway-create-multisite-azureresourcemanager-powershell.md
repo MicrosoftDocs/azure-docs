@@ -20,7 +20,7 @@
 
 Multiple site hosting allows you to deploy more than one web application on the same application gateway. It relies on presence of host header in the incoming HTTP request, to determine which listener would receive traffic. The listener then directs traffic to appropriate backend pool as configured in the rules definition of the gateway. In SSL enabled web applications, application gateway relies on the Server Name Indication (SNI) extension to choose the correct listener for the web traffic.
 
-A common use for multiple site hosting is to load balance requests for different web domains to different back-end server pools. Similarly multiple sub-domains of the same root domain could also be hosted on the same application gateway.
+A common use for multiple site hosting is to load balance requests for different web domains to different back-end server pools. Similarly multiple subdomains of the same root domain could also be hosted on the same application gateway.
 
 ## Scenario
 
@@ -90,9 +90,9 @@ In the example above, we created a resource group called "appgw-RG" with a locat
 
 >[AZURE.NOTE] If you need to configure a custom probe for your application gateway, see [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md). Visit [custom probes and health monitoring](application-gateway-probe-overview.md) for more information.
 
-## Create a virtual network and a subnets for the application gateway
+## Create a virtual network and subnets
 
-The following example shows how to create a virtual network by using Resource Manager. Two subnets are created in this step. The first subnet is for the application gateway itself. Application gateway requires it's own subnet to hold it's instances. Only other application gateways can be deployed in that subnet. The second subnet is used to hold the application backend servers.
+The following example shows how to create a virtual network by using Resource Manager. Two subnets are created in this step. The first subnet is for the application gateway itself. Application gateway requires its own subnet to hold its instances. Only other application gateways can be deployed in that subnet. The second subnet is used to hold the application backend servers.
 
 ### Step 1
 
@@ -176,7 +176,7 @@ Configure two SSL certificates for the two websites we are going to support in t
 
 ### Step 7
 
-Configure two listeners for the two web sites in this example. This step configures the listeners for public IP address, port, and host used to receive incoming traffic. HostName parameter is required for multiple site support and should be set to the appropriate website for which the traffic is received. RequireServerNameIndication parameter should be set to true for websites that need support for SSL in multiple host scenario. If SSL support is required, you also need to specify the SSL certificate that is used to secure traffic for that web application. The combination of FrontendIPConfiguration, FrontendPort, and HostName must be unique to a listener. Each listener can support one certificate.
+Configure two listeners for the two web sites in this example. This step configures the listeners for public IP address, port, and host used to receive incoming traffic. HostName parameter is required for multiple site support and should be set to the appropriate website for which the traffic is received. RequireServerNameIndication parameter should be set to true for websites that need support for SSL in a multiple host scenario. If SSL support is required, you also need to specify the SSL certificate that is used to secure traffic for that web application. The combination of FrontendIPConfiguration, FrontendPort, and HostName must be unique to a listener. Each listener can support one certificate.
 
 	$listener01 = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protocol Https -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -HostName "contoso11.com" -RequireServerNameIndication true  -SslCertificate $cert01
 	$listener02 = New-AzureRmApplicationGatewayHttpListener -Name "listener02" -Protocol Https -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -HostName "fabrikam11.com" -RequireServerNameIndication true -SslCertificate $cert02
