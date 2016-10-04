@@ -1,12 +1,12 @@
 ﻿<properties
    pageTitle="Get started with private Templates | Microsoft Azure"
    description="Add, manage and share your private templates using the Azure portal, the Azure CLI, or PowerShell."
-   services=""
+   services="marketplace-customer"
    documentationCenter=""
    authors="VybavaRamadoss"
    manager="asimm"
    editor=""
-   tags="marketplace-customer, marketplace, azure-resource-manager"
+   tags="marketplace, azure-resource-manager"
    keywords=""/>
 
 <tags
@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/04/2016"
+   ms.date="05/18/2016"
    ms.author="vybavar"/>
 
 # Get started with private Templates on the Azure Portal
@@ -112,9 +112,12 @@ Owner | Allows full control on the Template resource including Share
 Reader | Allows Read and Execute(Deploy) on the Template resource
 Contributor | Allows Edit and Delete permission on the Template resource. User cannot Share the Template with others
 
-Select **Share** on the browse item by right clicking or on the view blade of a specific item. This launches a Share experience. You can now choose a role and a user or group to provide access to a particular **Template**. The available roles are Owner, Reader and Contributor as per the above table.
+Select **Share** on the browse item by right clicking or on the view blade of a specific item. This launches a Share experience.
 
 ![Share Template](media/share-template-portal1a.png)  <br />
+
+ You can now choose a role and a user or group to provide access to a particular **Template**. The available roles are Owner, Reader and Contributor. More details in the [access control](#access-control-for-a-tenant-resource-provider) section above.
+
 ![Share Template](media/share-template-portal2b.png)  <br />
 ![Share Template](media/share-template-portal3b.png)  <br />
 
