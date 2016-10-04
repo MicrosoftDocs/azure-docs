@@ -81,8 +81,7 @@ In this section, you create a Node.js console app that responds to a method call
 
     ```
     function onWriteLine(request, response) {
-        var requestbody = request.payload;
-        console.log(requestbody);
+        console.log(request.payload);
 
         response.send(200, 'Input was written to log.', function(err) {
             if(err) {
