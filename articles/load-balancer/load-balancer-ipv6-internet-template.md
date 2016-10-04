@@ -21,9 +21,9 @@
 # Deploy an Internet-facing load-balancer solution with IPv6 using a template
 
 > [AZURE.SELECTOR]
-- [PowerShell](load-balancer-ipv6-internet-ps.md)
-- [Azure CLI](load-balancer-ipv6-internet-cli.md)
-- [Template](load-balancer-ipv6-internet-template.md)
+- [PowerShell](./load-balancer-ipv6-internet-ps.md)
+- [Azure CLI](./load-balancer-ipv6-internet-cli.md)
+- [Template](./load-balancer-ipv6-internet-template.md)
 
 An Azure load balancer is a Layer-4 (TCP, UDP) load balancer. The load balancer provides high availability by distributing incoming traffic among healthy service instances in cloud services or virtual machines in a load balancer set. Azure Load Balancer can also present those services on multiple ports, multiple IP addresses, or both.
 
@@ -43,7 +43,7 @@ In this scenario you will create the following Azure resources:
 
 ## Deploying the template using the Azure portal
 
-This article references a template that is published in the [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/) gallery. You can download the template from the gallery or launch the deployment in Azure directly from the gallery. This article assumes you have downloaded the template to your local computer.
+This article references a template that is published in the [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/201-load-balancer-ipv6-create/) gallery. You can download the template from the gallery or launch the deployment in Azure directly from the gallery. This article assumes you have downloaded the template to your local computer.
 
 1. Open the Azure portal and sign in with an account that has permissions to create VMs and networking resources within an Azure subscription. Also, unless you're using existing resources, the account needs permission to create a resource group and a storage account.
 
