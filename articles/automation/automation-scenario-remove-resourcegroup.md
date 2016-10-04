@@ -34,7 +34,7 @@ The following input parameters are defined for this runbook:
 
 Parameter | Description|
 ----------|------------|
-NameFilter (Required) | Specifies a name filter to limit the resource groups that you intend on deleting. You can pass multiple values using a comma separated list.<br>The filter is not case sensitive and will match any resource group that contains the string.|
+NameFilter (Required) | Specifies a name filter to limit the resource groups that you intend on deleting. You can pass multiple values using a comma-separated list.<br>The filter is not case-sensitive and will match any resource group that contains the string.|
 PreviewMode (Optional) | Executes the runbook to see which resource groups would be deleted, but takes no action.<br>The default is **true** to help avoid accidental deletion of one or more resource groups passed to the runbook.  
 
 ## Install and configure this scenario
@@ -52,11 +52,11 @@ After downloading the runbook, you can import it by using the procedure in [Impo
 
 The following steps will walk you through the execution of this runbook and help you become familiar with how it works. You will only be testing the runbook in this example, not actually deleting the resource group.  
 
-1. From the Azure portal, open your Automation account and click the  **Runbooks** tile.
+1. From the Azure portal, open your Automation account and click **Runbooks**.
 2. Select the **Remove-ResourceGroup** runbook and click **Start**.
 3. When you start the runbook, the **Start Runbook** blade opens and you can configure the parameters. Enter the names of resource groups in your subscription that you can use for testing and will cause no harm if accidentally deleted.<br> ![Remove-ResouceGroup Parameters](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-input-parameters.png)
 
-    >[AZURE.NOTE] Make sure **Previewmode** is set to **true** in order to avoid deleting the selected resource group(s).  **Please note** that this runbook will not remove the resource group that contains the Automation account that is running this runbook.  
+    >[AZURE.NOTE] Make sure **Previewmode** is set to **true** to avoid deleting the selected resource groups.  **Note** that this runbook will not remove the resource group that contains the Automation account that is running this runbook.  
 
 4. Once you have configured all the parameter values, click **OK**, and the runbook will be queued for execution.  
 
