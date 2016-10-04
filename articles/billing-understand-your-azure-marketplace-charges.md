@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Understand your Azure Marketplace charges | Microsoft Azure"
+	pageTitle="Understand your Azure External Service Charges | Microsoft Azure"
 	description="Describes how to understand charges related to your Marketplace orders."
 	services=""
 	documentationCenter=""
@@ -20,14 +20,14 @@
 
 # Understand your Azure External Service Charges
 
-This article explains the billing of External Services in Azure. They are sometimes called Marketplace Orders. External Services are provided by independent service vendors, but are integrated completely within the Azure ecosystem. Learn how to:
+This article explains the billing of external services in Azure. External services used to be called Marketplace orders. External Services are provided by independent service vendors, but are integrated completely within the Azure ecosystem. Learn how to:
 
 - Identify External Services
 - Understand how the billing differs from other Azure resources
 - View and track any costs you accrue from the use of external services
 - Manage external service orders and how you pay for them
 
-## Important traits of external services
+## What are Azure external services?
 
 ### Identifying external services
 
