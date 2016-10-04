@@ -168,7 +168,7 @@ $devopsrole.Actions.Add("Microsoft.KeyVault/vaults/deploy/action")
 New-AzureRmRoleDefinition -Role $role
 
 # Assign this newly defined role to Dev ops security group
-New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Devops')[0].Id -RoleDefinitionName "Contoso App Devops" -Scope -ResourceGroupName ContosoAppRG
+New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Devops')[0].Id -RoleDefinitionName "Contoso App Devops" -ResourceGroupName ContosoAppRG
 
 # Data plane permissions for Auditors
 Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Auditors')[0].Id -PermissionToKeys list -PermissionToSecrets list
