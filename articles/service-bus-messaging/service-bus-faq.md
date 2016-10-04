@@ -12,29 +12,29 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="06/09/2016"
+    ms.date="10/04/2016"
     ms.author="sethm;juconway" />
 
 # Service Bus FAQ
 
 This article answers some frequently-asked questions about Microsoft Azure Service Bus. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing and support information. The following topics are included:
 
-- [General questions about Azure Service Bus messaging](#general-questions-about-azure-service-bus-messaging)
+- [General questions about Azure Service Bus Messaging](#general-questions-about-azure-service-bus-messaging)
 - [Service Bus best practices](#service-bus-best-practices)
 - [Service Bus pricing](#service-bus-pricing)
 - [Service Bus quotas](#service-bus-quotas)
 - [Subscription and namespace management](#subscription-and-namespace-management)
 - [Troubleshooting](#service-bus-troubleshooting)
 
-## General questions about Azure Service Bus messaging
+## General questions about Azure Service Bus Messaging
 
-### What is Azure Service Bus messaging?
+### What is Azure Service Bus Messaging?
 
-[Azure Service Bus messaging](service-bus-messaging-overview.md) is an asynchronous messaging cloud platform that enables you to send data between decoupled systems. Microsoft offers this as a service, which means that you do not need to host any of your own hardware in order to use it.
+[Azure Service Bus Messaging](service-bus-messaging-overview.md) is an asynchronous messaging cloud platform that enables you to send data between decoupled systems. Microsoft offers this feature as a service, which means that you do not need to host any of your own hardware in order to use it.
 
 ### What is a Service Bus namespace?
 
-A namespace provides a scoping container for addressing Service Bus resources within your application. Creating one is necessary to use Service Bus and will be one of the first steps in getting started.
+A [namespace](../service-bus/service-bus-create-namespace-portal.md) provides a scoping container for addressing Service Bus resources within your application. Creating one is necessary to use Service Bus and will be one of the first steps in getting started.
 
 ### What is an Azure Service Bus queue?
 
@@ -44,7 +44,7 @@ A [Service Bus queue](service-bus-queues-topics-subscriptions.md) is an entity i
 
 A topic can be visualized as a queue and when using multiple subscriptions, it becomes a richer messaging model; essentially a one-to-many communication tool. This publish/subscribe model (or *pub/sub*) enables an application that sends a message to a topic with multiple subscriptions to have that message received by multiple applications.
 
-### What is the Azure Service Bus relay service?
+### What is the Azure Service Bus Relay service?
 
 The [relay service](../service-bus-relay/service-bus-relay-overview.md) provides the ability to transparently host and access WCF services from anywhere. In other words, this enables hybrid applications that run in both an Azure datacenter and an on-premises enterprise environment.
 
@@ -52,7 +52,7 @@ The [relay service](../service-bus-relay/service-bus-relay-overview.md) provides
 
 A conventional queue or topic is handled by a single message broker and stored in one messaging store. A [partitioned queue or topic](service-bus-partitioning.md) is handled by multiple message brokers and stored in multiple messaging stores. This means that the overall throughput of a partitioned queue or topic is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store does not render a partitioned queue or topic unavailable.
 
-Please keep in mind that ordering is not ensured when using partitioning entities. In the event that a partition is unavailable, you can still send and receive messages from the other partitions.
+Note that ordering is not ensured when using partitioning entities. In the event that a partition is unavailable, you can still send and receive messages from the other partitions.
 
 ## Service Bus best practices
 
@@ -62,7 +62,7 @@ Please keep in mind that ordering is not ensured when using partitioning entitie
 
 -   [Best practices for insulating applications against Service Bus outages and disasters][] – this article discusses how best to protect relay endpoints, queues and topics, and active and passive replication against datacenter outages.
 
-###What should I know before creating messaging entities?   
+### What should I know before creating messaging entities?   
 
 The following properties of a queue and topic are immutable. Please take this into account when you provision your entities as this cannot be modified, without creating a new replacement entity.
 
