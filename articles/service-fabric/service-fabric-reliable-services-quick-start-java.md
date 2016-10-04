@@ -53,22 +53,22 @@ Follow the instructions to create a **Reliable Stateless Service**. For this tut
 HelloWorldApplication/
 ├── build.gradle
 ├── HelloWorld
-│   ├── build.gradle
-│   └── src
-│       └── statelessservice
-│           ├── HelloWorld.java
-│           └── HelloWorldService.java
+│   ├── build.gradle
+│   └── src
+│       └── statelessservice
+│           ├── HelloWorldServiceHost.java
+│           └── HelloWorldService.java
 ├── HelloWorldApplication
-│   ├── ApplicationManifest.xml
-│   └── HelloWorldPkg
-│       ├── Code
-│       │   ├── entryPoint.sh
-│       │   └── _readme.txt
-│       ├── Config
-│       │   └── _readme.txt
-│       ├── Data
-│       │   └── _readme.txt
-│       └── ServiceManifest.xml
+│   ├── ApplicationManifest.xml
+│   └── HelloWorldPkg
+│       ├── Code
+│       │   ├── entryPoint.sh
+│       │   └── _readme.txt
+│       ├── Config
+│       │   └── _readme.txt
+│       ├── Data
+│       │   └── _readme.txt
+│       └── ServiceManifest.xml
 ├── install.sh
 ├── settings.gradle
 └── uninstall.sh
@@ -149,7 +149,7 @@ It is vital that your code in `runAsync()` can stop execution when notified by S
 
 ### Service registration
 
-Service types must be registered with the Service Fabric runtime. The service type is defined in the `ServiceManifest.xml` and your service class that implements `StatelessService`. Service registration is performed in the process main entry point. In this example, the process main entry point is `HelloWorld.java`:
+Service types must be registered with the Service Fabric runtime. The service type is defined in the `ServiceManifest.xml` and your service class that implements `StatelessService`. Service registration is performed in the process main entry point. In this example, the process main entry point is `HelloWorldServiceHost.java`:
 
 ```java
 public static void main(String[] args) throws Exception {

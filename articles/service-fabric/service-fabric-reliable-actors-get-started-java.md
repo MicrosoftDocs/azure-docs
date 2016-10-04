@@ -63,9 +63,9 @@ HelloWorldActorApplication/
 │   ├── build.gradle
 │   ├── settings.gradle
 │   └── src
-│       └── statefulactor
-│           ├── HelloWorldActorImpl.java
-│           └── HelloWorldActorService.java
+│       └── reliableactor
+│           ├── HelloWorldActorHost.java
+│           └── HelloWorldActorImpl.java
 ├── HelloWorldActorApplication
 │   ├── ApplicationManifest.xml
 │   └── HelloWorldActorPkg
@@ -81,13 +81,13 @@ HelloWorldActorApplication/
 ├── HelloWorldActorInterface
 │   ├── build.gradle
 │   └── src
-│       └── statefulactor
+│       └── reliableactor
 │           └── HelloWorldActor.java
 ├── HelloWorldActorTestClient
 │   ├── build.gradle
 │   ├── settings.gradle
 │   ├── src
-│   │   └── statefulactor
+│   │   └── reliableactor
 │   │       └── test
 │   │           └── HelloWorldActorTestClient.java
 │   └── testclient.sh
@@ -104,7 +104,7 @@ The basic concepts described earlier translate into the basic building blocks of
 
 This contains the interface definition for the actor. This interface defines the actor contract that is shared by the actor implementation and the clients calling the actor, so it typically makes sense to define it in a place that is separate from the actor implementation and can be shared by multiple other services or client applications.
 
-`HelloWorldActorInterface/src/statefulactor/HelloWorldActor.java`:
+`HelloWorldActorInterface/src/reliableactor/HelloWorldActor.java`:
 
 ```java
 public interface HelloWorldActor extends Actor {
@@ -118,12 +118,12 @@ public interface HelloWorldActor extends Actor {
 ### Actor service 
 This contains your actor implementation and actor registration code. The actor class implements the actor interface. This is where your actor does its work.
 
-`HelloWorldActor/src/statefulactor/HelloWorldActorImpl`:
+`HelloWorldActor/src/reliableactor/HelloWorldActorImpl`:
 
 ```java
 @ActorServiceAttribute(name = "HelloWorldActor.HelloWorldActorService")
 @StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-public class HelloWorldActorImpl extends ActorWithState implements HelloWorldActor {
+public class HelloWorldActorImpl extends ReliableActor implements HelloWorldActor {
     Logger logger = Logger.getLogger(this.getClass().getName());
 
     protected CompletableFuture<?> onActivateAsync() {
@@ -150,17 +150,15 @@ public class HelloWorldActorImpl extends ActorWithState implements HelloWorldAct
 
 The actor service must be registered with a service type in the Service Fabric runtime. In order for the Actor Service to run your actor instances, your actor type must also be registered with the Actor Service. The `ActorRuntime` registration method performs this work for actors.
 
-`HelloWorldActor/src/statefulactor/HelloWorldActorService`:
+`HelloWorldActor/src/reliableactor/HelloWorldActorHost`:
 
 ```java
-public class HelloWorldActorService {
+public class HelloWorldActorHost {
 	
     public static void main(String[] args) throws Exception {
 		
         try {
-            ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, 
-                (context, actorType) -> new ActorServiceImpl(context, actorType, ()-> new HelloWorldActorImpl()), 
-                Duration.ofMinutes
+            ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, (context, actorType) -> new ActorServiceImpl(context, actorType, ()-> new HelloWorldActorImpl()), Duration.ofSeconds(10));
 
             Thread.sleep(Long.MAX_VALUE);
 			
