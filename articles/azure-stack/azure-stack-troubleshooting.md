@@ -127,8 +127,8 @@ The following information about Azure Stack installation steps may be useful for
 | 60.61.98 | (FBI) Setup WSUS VMs | Installs WSUS server on the guest VMs. |
 | 60.61.99 | (FBI) Configure WSUS VMs | Configures WSUS server on the guest VMs. |
 | 60.61.100 | (FBI) Setup Azure SQL VMs | Installs Azure SQL server on the guest VMs |
-| 60.61.101 | (Katal) Setup prerequisites for WAS VMs. | Sets up the prerequisites for Windows Azure Stack on the guest VMs. |
-| 60.61.102 | (Katal) Setup WAS VMs | Installs Windows Azure Stack on the guest VMs. |
+| 60.61.101 | (Katal) Setup prerequisites for WAS VMs. | Sets up the prerequisites for Microsoft Azure Stack on the guest VMs. |
+| 60.61.102 | (Katal) Setup WAS VMs | Installs Microsoft Azure Stack on the guest VMs. |
 | 60.120.121 | (FBI) Deploy Resource providers and Controllers | Installs Resource providers and Controllers |
 | 60.120.121 | (FBI) Deploy Resource providers and Controllers | Installs Resource providers and Controllers |
 | 60.120.121 | (FBI) Deploy Resource providers and Controllers | Installs Resource providers and Controllers |
@@ -138,7 +138,7 @@ The following information about Azure Stack installation steps may be useful for
 | 60.120.121 | (FBI) Deploy Resource providers and Controllers | Installs Resource providers and Controllers |
 | 60.120.121 | (FBI) Deploy Resource providers and Controllers | Installs Resource providers and Controllers |
 | 60.120.122 | (FBI) Controller Configuration | Configures Controllers |
-| 60.120.123 | (Katal) Configure WAS VMs | Configures Windows Azure Stack on the guest VMs. |
+| 60.120.123 | (Katal) Configure WAS VMs | Configures Microsoft Azure Stack on the guest VMs. |
 | 60.120.124 | (Katal) Azure Stack AAD Configuration. | Configures Azure Stack with Azure AD. |
 | 60.120.125 | (Katal) Install ADFS | Installs Active Directory Federation Services (ADFS) |
 | 60.120.126 | (Katal) Install ADFS/Graph | Installs Azure Stack Graph |
