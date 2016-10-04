@@ -88,7 +88,7 @@ Azure Resource Manager requires that all resource groups specify a location. Thi
 
 In the example above, we created a resource group called "appgw-RG" with a location of "West US".
 
->[AZURE.NOTE] If you need to configure a custom probe for your application gateway, see [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md). Check out [custom probes and health monitoring](application-gateway-probe-overview.md) for more information.
+>[AZURE.NOTE] If you need to configure a custom probe for your application gateway, see [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md). Visit [custom probes and health monitoring](application-gateway-probe-overview.md) for more information.
 
 ## Create a virtual network and a subnets for the application gateway
 
