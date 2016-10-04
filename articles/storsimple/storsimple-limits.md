@@ -46,7 +46,7 @@ StorSimple provides scalable and flexible storage for your datacenter. However, 
 | Maximum client read/write throughput (when served from the SSD tier)* | 920/720 MB/s with a single 10 GbE network interface | Up to 2x with MPIO and two network interfaces. |
 | Maximum client read/write throughput (when served from the HDD tier)* | 120/250 MB/s |
 | Maximum client read/write throughput (when served from the cloud tier)* for pre-Update 3 versions | 11/41 MB/s | Read throughput depends on clients generating and maintaining sufficient I/O queue depth. |
-| Maximum client read/write throughput (when served from the cloud tier)* for Update 3 and later | 40/60 MB/s for 64 KB fingerprint size <br><br>60/80 MB/s for 512 KB fingerprint size | Read throughput depends on clients generating and maintaining sufficient I/O queue depth. <br><br>Speed achieved depends on the speed of the underlying storage account used. | 
+| Maximum client read/write throughput (when served from the cloud tier)* for Update 3 and later | 40/60 MB/s for tiered volumes<br><br>60/80 MB/s for tiered volumes for less frequently accessed archival data | Read throughput depends on clients generating and maintaining sufficient I/O queue depth. <br><br>Speed achieved depends on the speed of the underlying storage account used. | 
 
 &#42; Maximum throughput per I/O type was measured with 100 percent read and 100 percent write scenarios. Actual throughput may be lower and depends on I/O mix and network conditions.
 
