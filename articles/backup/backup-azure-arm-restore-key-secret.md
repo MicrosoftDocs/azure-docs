@@ -25,13 +25,15 @@ This article talks about using Azure VM Backup to perform restore of encrypted A
 
 2. **Configure Azure Key Vault** – Ensure that key vault to which keys and secrets need to be restored is already present. Refer the article [Get Started with Azure Key Vault](../key-vault/key-vault-get-started.md) for details about key vault management.
 
-## Log in to Azure PowerShell and set subscription context
+## Log in to Azure PowerShell 
 
 Log in to Azure account using the following cmdlet
 
 ```
 PS C:\> Login-AzureRmAccount
 ```
+
+## Set recovery services vault context
 
 Once logged in, use the following cmdlet to get the list of your available subscriptions
 
@@ -45,14 +47,13 @@ Select the subscription in which resources are available
 PS C:\> Set-AzureRmContext -SubscriptionId "subscription-id"
 ```
 
-## Set recovery services vault context
-Use Recovery Services vault where backup was enabled for encrypted VMs
+Set the vault context using Recovery Services vault where backup was enabled for encrypted VMs
 
 ```
 PS C:\> Get-AzureRmRecoveryServicesVault -ResourceGroupName "rg-name" -Name "rs-vault-name" | Set-AzureRmRecoveryServicesVaultContext
 ```
 
-## Get recovery point for backed up encrypted VM
+## Get recovery point 
 
 Select container in the vault that represents encrypted Azure virtual machine
 
@@ -110,10 +111,10 @@ PS C:\> $secretdata = $rp1.KeyAndSecretDetails.SecretData
 PS C:\> $Secret = ConvertTo-SecureString -String $secretdata -AsPlainText -Force
 ```
 
-Set Tags for the secret, in case VM needs to be restored as well
+Set tags for the secret, in case VM needs to be restored as well
 
 ```
-PS C:\> $Tags = @{ 'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP'; 'DiskEncryptionKeyFileName' = ‘B3284AAA-DAAA-4AAA-B393-60CAA848AAAA.BEK’ -DiskEncryptionKeyEncryptionKeyURL' = 'https:// contosokeyvault.vault.azure.net:443/keys/KeyName/84daaac999949999030bf99aaa5a9f9';'MachineName' = 'vm-name'}
+PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKeyFileName' = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA.BEK';'DiskEncryptionKeyEncryptionKeyURL' = 'https://contosokeyvault.vault.azure.net:443/keys/KeyName/84daaac999949999030bf99aaa5a9f9';'MachineName' = 'vm-name'}
 ```
 
 **Note:** Value for DiskEncryptionKeyFileName is same as secret name obtained above. Value for DiskEncryptionKeyEncryptionKeyURL can be obtained from key vault after restoring the keys back and using [Get-AzureKeyVaultKey](https://msdn.microsoft.com/library/dn868053.aspx) cmdlet	
@@ -124,5 +125,5 @@ Set the secret back to the key vault
 PS C:\> Set-AzureKeyVaultSecret -VaultName "contosokeyvault" -Name $secretname -SecretValue $secret -Tags $Tags -SecretValue $Secret -ContentType  "Wrapped BEK"
 ```
 
-## Restore encrypted Virtual machine
-The above PowerShell cmdlets help you restore key and secret back to the key vault, if you have backed up encrypted VMs using Azure VM Backup. After restoring them, refer the article [Deploy and manage Azure VMs](backup-azure-vms-automation.md) to restore encrypted VMs.
+## Restore virtual machine
+The above PowerShell cmdlets help you restore key and secret back to the key vault, if you have backed up encrypted VM using Azure VM Backup. After restoring them, refer the article [Deploy and manage Azure VMs](backup-azure-vms-automation.md) to restore encrypted VMs.
