@@ -119,6 +119,7 @@ Select **Share** on the browse item by right clicking or on the view blade of a 
  You can now choose a role and a user or group to provide access to a particular **Template**. The available roles are Owner, Reader and Contributor. More details in the [access control](#access-control-for-a-tenant-resource-provider) section above.
 
 ![Share Template](media/share-template-portal2b.png)  <br />
+
 ![Share Template](media/share-template-portal3b.png)  <br />
 
 Click **Select** and **Ok**. You can now see the users or groups you added to the resource.
