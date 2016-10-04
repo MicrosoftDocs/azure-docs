@@ -25,7 +25,7 @@ You must install Data Management Gateway on your on-premises machine to enable m
 
 The following walkthrough shows you how to create a data factory with a pipeline that moves data from an on-premises SQL Server database to an Azure blob. As part of the walkthrough, you install and configure the Data Management Gateway on your machine. 
 
-## Walkthrough: copy on-prem data to cloud
+## Walkthrough: copy on-premises data to cloud
   
 ## Create data factory
 In this step, you use the Azure portal to create an Azure Data Factory instance named **ADFTutorialOnPremDF**. You can also create a data factory by using Azure Data Factory cmdlets. 
@@ -50,7 +50,7 @@ In this step, you use the Azure portal to create an Azure Data Factory instance 
 
 11. After creation is complete, you see the **Data Factory** blade as shown in the following image:
 
-	![Data Factory Home Page](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDataFactoryHomepage.png)
+	![Data Factory Home Page](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDataFactoryHomePage.png)
 
 ## Create gateway
 5. In the **DATA FACTORY** blade, click **Author and deploy** tile to launch the **Editor** for the data factory.
