@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Common resources in OMS custom solutions | Microsoft Azure"
-   description="Many custom solutions in OMS will include runbooks in Azure Automation to automate processes such as collecting and processing monitoring data.  This article describes how to include runbooks and their related resources in a custom solution."
+   pageTitle="Automation resources in OMS custom solutions | Microsoft Azure"
+   description="Custom solutions in OMS will typically include runbooks in Azure Automation to automate processes such as collecting and processing monitoring data.  This article describes how to include runbooks and their related resources in a custom solution."
    services="operations-management-suite"
    documentationCenter=""
    authors="bwren"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/30/2016"
+   ms.date="10/03/2016"
    ms.author="bwren" />
 
 # Automation resources in OMS custom solutions (Preview)
@@ -25,10 +25,13 @@
 
 >[AZURE.NOTE]You can get sample Resource Manager templates for Automation resources from the [QuickStart templates in GitHub](https://github.com/azureautomation/automation-packs/tree/master/101-sample-automation-resource-templates).
 
-## Automation account
-All resources in Azure Automation are contained in an [Automation account](../automation/automation-security-overview.md#automation-account-overview).  As described in [OMS workspace and Automation account](operations-management-suite-custom-solutions.md#oms-workspace-and-automation-account) the Automation account isn't included in the solution and but exist before the solution is installed.  If it isn't available, then the solution install will fail.
+## Prerequisites
+This article assumes that you're already familiar with how to create a [custom solution in Operations Management Suite (OMS)](operations-management-suite-custom-solutions-creating.md) and the structure of a solution file.
 
-The name of their Automation account is in the name of each Automation resource.  This is done in the solution with the **accountName** parameter as in the following.
+## Automation account
+All resources in Azure Automation are contained in an [Automation account](../automation/automation-security-overview.md#automation-account-overview).  As described in [OMS workspace and Automation account](operations-management-suite-custom-solutions.md#oms-workspace-and-automation-account) the Automation account isn't included in the solution but must exist before the solution is installed.  If it isn't available, then the solution install will fail.
+
+The name of their Automation account is in the name of each Automation resource.  This is done in the solution with the **accountName** parameter as in the following example of a runbook resource.
 	
 	"name": "[concat(parameters('accountName'), '/MyRunbook'))]"
 
@@ -78,7 +81,7 @@ In order to start a runbook when the solution is installed, you create a **job**
 | parameters | Entity for each parameter required by the runbook. |
 
 
-The job includes the runbook name and any parameter values to be sent to the runbook.  The job must depend on the runbook that it's starting since the runbook must be created before the job.  You also create dependencies on other jobs for runbooks that should be completed before the current one.
+The job includes the runbook name and any parameter values to be sent to the runbook.  The job must [depend on](operations-management-suite-custom-solutions-creating.md#resources) the runbook that it's starting since the runbook must be created before the job.  You also create dependencies on other jobs for runbooks that should be completed before the current one.
 
 Following is an example of a job resource that starts a runbook when the solution is installed.  Two other runbooks must be completed before this one starts, so it has dependencies on the jobs for those runbooks.  The runbook also accepts parameters   
 
@@ -181,7 +184,6 @@ An example of a schedule resource is below.
 		"frequency": "1"
 	}
 
-A schedule resource is limit
 
 ## Variables
 [Azure Automation variables](../automation/automation-variables.md) have a type of **Microsoft.Automation/automationAccounts/variables** and have the properties in the following table.
@@ -211,9 +213,7 @@ An example of a variable resource is below.
 
 
 ## Modules
-Your solution does not need to define global modules used by your runbooks because they will always be available.  You do need to include a resource for any other module used by your runbooks, and the runbook should depend on the module resource to ensure that it's created before the runbook.
-
-
+Your solution does not need to define [global modules](../automation/automation-integration-modules.md) used by your runbooks because they will always be available.  You do need to include a resource for any other module used by your runbooks, and the runbook should depend on the module resource to ensure that it's created before the runbook.
 
 [Integration modules](../automation/automation-integration-modules.md) have a type of **Microsoft.Automation/automationAccounts/modules** and have the properties in the following table.
 
@@ -238,10 +238,77 @@ An example of a module resource is below.
 		}
 	}
 
-If you update a solution that includes a runbook that uses a schedule, and the new version of your solution has a new module used by that runbook, then the runbook may use the old version of the module.  The script [Update-ModulesinAutomationToLatestVersion](https://www.powershellgallery.com) will ensure that all of the modules used by runbooks in your solution are the latest version.  
+### Updating modules
+If you update a solution that includes a runbook that uses a schedule, and the new version of your solution has a new module used by that runbook, then the runbook may use the old version of the module.  The script [Update-ModulesinAutomationToLatestVersion](https://www.powershellgallery.com) will ensure that all of the modules used by runbooks in your solution are the latest version.  You should include this runbook in your solution and create a [job](#automation-jobs) to run it before any other runbooks.  This will ensure that any modules are updated as required before the runbooks are loaded.
+
+If you have one or more modules defined in you solution, you should add the following to your solution.
+
+- [Runbook resource](#runbooks) for Update-ModulesinAutomationToLatestVersion.
+- [Job resource](#automation-jobs) for each module in your solution.  This resource should depend on the runbook resource.
+
+
+Following is a sample of the required elements of a solution to support the module update.
+	
+	"parameters": {
+		"ModuleImportGuid": {
+			"type": "string",
+			"metadata": {
+				"description": "Provide a GUID for module import job",
+				"control": "guid"
+			}
+		}
+	},
+
+	"variables": {
+		"ModuleImportRunbookName": "Update-ModulesInAutomationToLatestVersion",
+		"ModuleImportRunbookUri": "https://solutionrpstorage.blob.core.windows.net/sqlsolution/Update-ModulesInAutomationToLatestVersion.ps1",
+		"ModuleImportRunbookDescription": "Imports module and also update all Azure dependent modules that is in the same Automation Account"
+	},
+
+	"resources": [
+		{
+			"name": "[concat(parameters('accountName'), '/', variables('ModuleImportRunbookName'))]",
+			"type": "Microsoft.Automation/automationAccounts/runbooks",
+			"apiVersion": "[variables('AutomationApiVersion')]",
+			"dependsOn": [
+				"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/jobs/', parameters('SolutionCleanupJobIDGuid'))]"
+			],
+			"location": "[parameters('regionId')]",
+			"tags": { },
+			"properties": {
+				"runbookType": "PowerShell",
+				"logProgress": "true",
+				"logVerbose": "true",
+				"description": "[variables('ModuleImportRunbookDescription')]",
+				"publishContentLink": {
+					"uri": "[variables('ModuleImportRunbookUri')]",
+					"version": "1.0.0.0"
+				}
+			}
+		},
+		{
+			"name": "[concat(parameters('accountName'), '/', parameters('ModuleImportGuid'))]",
+			"type": "Microsoft.Automation/automationAccounts/jobs",
+			"apiVersion": "[variables('AutomationApiVersion')]",
+			"location": "[parameters('regionId')]",
+			"dependsOn": [
+				"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('ModuleImportRunbookName'))]"
+			],
+			"tags": { },
+			"properties": {
+				"runbook": {
+					"name": "[variables('ModuleImportRunbookName')]"
+				},
+				"parameters": {
+					"ResourceGroupName": "[resourceGroup().name]",
+					"AutomationAccountName": "[parameters('accountName')]",
+					"NewModuleName": "AzureRM.Insights"
+				}
+			}
+		}
+	]
 
 
 ## Next steps
 
-- [Test your solution](operations-management-suite-custom-solutions.md#testing-a-custom-solution) to ensure that it is a valid Resource Manager template.
 - [Add a view to your custom solution](operations-management-suite-custom-solutions-resources-views.md) to visualize collected data.
