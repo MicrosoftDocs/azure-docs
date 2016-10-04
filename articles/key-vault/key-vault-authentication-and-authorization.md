@@ -138,10 +138,11 @@ The following PowerShell snippets assume:
 - Key vault **ContosoKeyVault** and storage account used for key vault logs **contosologstorage** must be in the same Azure location
 
 
-First the subscription administrator assigns 'Key Vault Contributor' role to the security team.
+First the subscription administrator assigns 'Key Vault Contributor' and 'User Access Administrator' roles to the security team. This allows the security team to manage access to other resources  and manage key vaults in the resource group ContosoAppRG.
 
 ```
 New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "Key Vault Contributor" -ResourceGroupName ContosoAppRG
+New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "User Access Administrator" -ResourceGroupName ContosoAppRG
 ```
 
 The following script illustrates how the security team can create a key vault, setup logging, and set access permissions for other roles and the application. 
@@ -172,7 +173,6 @@ New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso A
 
 # Data plane permissions for Auditors
 Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Auditors')[0].Id -PermissionToKeys list -PermissionToSecrets list
-
 ```
 
 The custom role defined, is only assinable to the subscription where the ContosoAppRG resource group is created. If the same custom roles will be used for other projects in other subscriptions, it's scope could have more subscriptions added.
