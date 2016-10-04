@@ -3,7 +3,7 @@
 	description="Follow this tutorial to get started with using Azure mobile app backends for iOS development in Objective-C or Swift"
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="adrianhall"
+	authors="yuaxu"
 	manager="yochayk"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="08/17/2016"
-	ms.author="adrianha"/>
+	ms.date="10/01/2016"
+	ms.author="yuaxu"/>
 
 #Create an iOS app
 

@@ -3,7 +3,7 @@
 	description="Learn how to use a .NET client for Azure App Service Mobile Apps with Windows and Xamarin apps."
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="ggailey777"
+	authors="adrianhall"
 	manager="erikre"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/25/2016"
+	ms.date="10/01/2016"
 	ms.author="adrianha"/>
 
 # How to use the managed client for Azure Mobile Apps

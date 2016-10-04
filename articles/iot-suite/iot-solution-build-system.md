@@ -428,7 +428,7 @@ We assume:
 | [HockeyApp](http://hockeyapp.net/pricing/) <br/> Distribution of beta apps, plus collection of feedback, usage, and crash data                                                                                                                                      | Two free apps for new users.<br/> $30/month thereafter.  | $0    |
 | [Xamarin](https://store.xamarin.com/)<br/> Code on a uniform platform for multiple devices | Free trial. <br/>$25/month thereafter.| $0    |
 | [SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) for Azure App Service| Basic tier; single database model. | $5             |
-| [Service Fabric](../service-fabric/services/service-fabric.md) (optional)  | Run a local cluster. | $0             |
+| [Service Fabric](https://azure.microsoft.com/pricing/details/service-fabric/) (optional)  | Run a local cluster. | $0             |
 | [Power BI](https://powerbi.microsoft.com/pricing/)<br/> Versatile displays and investigation of streamed and static data| Free tier: 1 GB, 10,000 rows/hour, daily refresh. <br/> $10/user/month for [higher limits](https://powerbi.microsoft.com/documentation/powerbi-power-bi-pro-content-what-is-it/), more connection options, collaboration.    | $0             |
 | [Storage](https://azure.microsoft.com/pricing/details/storage/)   | L (locally redundant) &lt; 100 G $0.024/GB.  | $3             |
 | [Data Factory](https://azure.microsoft.com/pricing/details/data-factory/)                                                                                                                       | $0.60 per activity \* (8 - 5 FOC).| $2             |
