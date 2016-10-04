@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2016"
+   ms.date="10/03/2016"
    ms.author="charwen"/>
 
 # Configure a virtual network gateway for ExpressRoute using the classic deployment model and PowerShell
