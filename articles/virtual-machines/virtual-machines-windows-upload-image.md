@@ -143,7 +143,7 @@ This command may take a while to complete, depending on your network connection 
 
 ## Next steps
 
-- Create a VM from a generalized VHD
-- [Create a VM from a specialized VHD](virtual-machines-windows-create-vm-specialized.md) by attaching it as an OS disk when you create a new VM.
+- [Create a VM in Azure from a generalized VHD](virtual-machines-windows-create-vm-generalized.md)
+- [Create a VM in Azure from a specialized VHD](virtual-machines-windows-create-vm-specialized.md) by attaching it as an OS disk when you create a new VM.
 
 

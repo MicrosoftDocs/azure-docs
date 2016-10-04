@@ -54,7 +54,7 @@ You can use the Azure portal or Azure Powershell to get the URL:
 
 - **Portal**: Click **More services** > **Storage accounts** > <storage account> **Blobs** and your source VHD file is probably in the **vhds** container. Click **Properties** for the container, and copy the text labeled **URL**. You'll need the URLs of both the source and destination containers. 
 
-- **Powershell**: `Get-AzureRmVM -ResourceGroupName "resource_group_name" -Name "vm_name"`. In the results, look in the **Storage profile** section for the **Vhd Uri**. The first part of the Uri is the URL to the container and the last part is the OS VHD name for the VM.
+- **Powershell**: `Get-AzureRmVM -ResourceGroupName "<resourceGroupName>" -Name "<vmName>"`. In the results, look in the **Storage profile** section for the **Vhd Uri**. The first part of the Uri is the URL to the container and the last part is the OS VHD name for the VM.
 
 ## Get the storage access keys
 
@@ -79,7 +79,7 @@ To copy all of the files within a container, you use the **/S** switch. This can
 If you only want to copy a specific VHD in a container with multiple files, you can also specify the file name using the /Pattern switch.
 
 ```
- 	AzCopy /Source:<URL_of_the_source_blob_container> /Dest:<URL_of_the_destination_blob_container> /SourceKey:<Access_key_for_the_source_storage> /DestKey:<Access_key_for_the_destination_storage> /Pattern:<File_name_of_the_VHD_you_are_copying.vhd>
+ 	AzCopy /Source:https://<sourceStorageAccountName>.blob.core.windows.net/<sourceContainerName> /Dest:https://<destinationStorageAccount>.blob.core.windows.net/<destinationContainerName> /SourceKey:<sourceAccessKey> /DestKey:<destinationAccessKey> /Pattern:<File_name_of_the_VHD_you_are_copying.vhd>
 ```
 
 	

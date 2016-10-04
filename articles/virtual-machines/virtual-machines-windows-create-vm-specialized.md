@@ -23,7 +23,7 @@ Create a new VM from a specialized VHD.
 
 
 
-## Create a VM from a specialized VHD 
+## Create a VM from a specialized VHD using a quick start template 
 
 The quickest way to create a VM from a specialized VHD is to use a [quick start template](https://azure.microsoft.com/documentation/templates/201-vm-from-specialized-vhd/). 
 
@@ -34,24 +34,44 @@ To use this quick start template, you need to provice the following information:
 - vmName - the name you want to use for the new VM 
 
 
-## Create variables
+
+## Create a virtual network
+
+Create the vNet and subNet of the [virtual network](../virtual-network/virtual-networks-overview.md).
+
+1. Replace the value of variables with your own information. Provide the address prefix for the subnet in CIDR format. Create the variables and the subnet.
 
 ```powershell
-$sourceRG = "<sourceResourceGroupName>"
-$destinationRG = "<destinationResourceGroupName>"
-
-$vm = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Compute/virtualMachines" -ResourceName "<vmName>"
-$storageAccount = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Storage/storageAccounts" -ResourceName "<storageAccountName>"
-
-$diagStorageAccount = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Storage/storageAccounts" -ResourceName "<diagnosticStorageAccountName>"
-
-
-$vNet = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/virtualNetworks" -ResourceName "<vNetName>"
-$nic = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/networkInterfaces" -ResourceName "<nicName>"
-$ip = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/publicIPAddresses" -ResourceName "<ipName>"
-$nsg = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/networkSecurityGroups" -ResourceName "<nsgName>"
+	$rgName = "<resourceGroup>"
+	$subnetName = "<subNetName>"
+	$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix <0.0.0.0/0>
 ```
+      
+2. Replace the value of **$vnetName** with a name for the virtual network. Provide the address prefix for the virtual network in CIDR format. Create the variable and the virtual network with the subnet.
 
+```powershell
+	$location = "<location>"
+	$vnetName = "<vnetName>"
+	$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix <0.0.0.0/0> -Subnet $singleSubnet
+```    
+            
+## Create a public IP address and network interface
+
+To enable communication with the virtual machine in the virtual network, you need a [public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
+
+1. Replace the value of **$ipName** with a name for the public IP address. Create the variable and the public IP address.
+
+```powershell
+	$ipName = "<ipName>"
+	$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
+```       
+
+2. Replace the value of **$nicName** with a name for the network interface. Create the variable and the network interface.
+
+```powershell
+$nicName = "<nicName>"
+$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+```
 
 
 ## Create a VM by using the copied VHD
