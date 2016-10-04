@@ -73,6 +73,7 @@ Limitations
 
 Learn how to deploy a load balancer with IPv6.
 
+* [Availability of IPv6 by region](https://go.microsoft.com/fwlink/?linkid=828357)
 * [Deploy a load balancer with IPv6 using a template](load-balancer-ipv6-internet-template.md)
 * [Deploy a load balancer with IPv6 using Azure PowerShell](load-balancer-ipv6-internet-ps.md)
 * [Deploy a load balancer with IPv6 using Azure CLI](load-balancer-ipv6-internet-cli.md)
