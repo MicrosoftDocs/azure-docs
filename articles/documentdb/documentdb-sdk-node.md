@@ -43,7 +43,7 @@
 
 ###<a name="1.10.0"/>1.10.0</a>
 
-- Added support for TOP/ORDERBY queries for partitioned collections.
+- Added support for TOP/ORDER BY queries for partitioned collections.
 
 ###<a name="1.9.0"/>1.9.0</a>
 
