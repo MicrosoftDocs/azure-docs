@@ -16,8 +16,7 @@
    ms.date="10/04/2016"
    ms.author="nitinme"/>
 
-Create an HDInsight cluster with Data Lake Store using Azure Resource Manager template
-======================================================================================
+# Create an HDInsight cluster with Data Lake Store using Azure Resource Manager template
 
 > [AZURE.SELECTOR] - [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md) - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md) - [Using Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 
@@ -36,8 +35,7 @@ Learn how to use an Azure Resource Manager template to configure an HDInsight cl
 
 In this article, we provision a Hadoop cluster with Data Lake Store as additional storage.
 
-Prerequisites
--------------
+## Prerequisites
 
 Before you begin this tutorial, you must have the following:
 
@@ -45,8 +43,7 @@ Before you begin this tutorial, you must have the following:
 
 -	**Azure PowerShell 1.0 or greater**. See [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
-Create an HDInsight cluster with Azure Data Lake Store
-------------------------------------------------------
+## Create an HDInsight cluster with Azure Data Lake Store
 
 The Resource Manager template, and the prerequisites for using the template, are available on GitHub at [Deploy a HDInsight Linux cluster with new Data Lake Store](https://github.com/Azure/azure-quickstart-templates/tree/master/201-hdinsight-datalake-store-azure-storage). Follow the instructions provided at this link to create an HDInsight cluster with Azure Data Lake Store as the additional storage.
 
@@ -63,13 +60,11 @@ Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <subscription ID>
 ```
 
-Upload sample data to the Azure Data Lake Store
------------------------------------------------
+## Upload sample data to the Azure Data Lake Store
 
 The Resource Manager template creates a new Data Lake Store account and associates it with the HDInsight cluster. You must now upload some sample data to the Data Lake Store. You'll need this data later in the tutorial to run jobs from an HDInsight cluster that access data in the Data Lake Store. For instructions on how to upload data, see [Upload a file to your Data Lake Store](data-lake-store-get-started-portal.md#uploaddata). If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
-Set relevant ACLs on the sample data
-------------------------------------
+## Set relevant ACLs on the sample data
 
 To make sure the sample data you upload is accessible from the HDInsight cluster, you must ensure that the Azure AD application that is used to establish identity between the HDInsight cluster and Data Lake Store has access to the file/folder you are trying to access. To do this, perform the following steps.
 
@@ -77,8 +72,7 @@ To make sure the sample data you upload is accessible from the HDInsight cluster
 
 2.	Now, provide access to this Azure AD application on the file/folder that you want to access from the HDInsight cluster. To set the right ACLs on the file/folder in Data Lake Store, see [Securing data in Data Lake Store](data-lake-store-secure-data.md#assign-users-or-security-group-as-acls-to-the-azure-data-lake-store-file-system).
 
-Run test jobs on the HDInsight cluster to use the Data Lake Store
------------------------------------------------------------------
+## Run test jobs on the HDInsight cluster to use the Data Lake Store
 
 After you have configured an HDInsight cluster, you can run test jobs on the cluster to test that the HDInsight cluster can access Data Lake Store. To do so, we will run a sample Hive job that creates a table using the sample data that you uploaded earlier to your Data Lake Store.
 
@@ -167,8 +161,7 @@ The job output resembles the following:
 1,10,2014-09-14 00:00:30,46.81006,-92.08174,31,N,1
 ```
 
-Access Data Lake Store using HDFS commands
-------------------------------------------
+## Access Data Lake Store using HDFS commands
 
 Once you have configured the HDInsight cluster to use Data Lake Store, you can use the HDFS shell commands to access the store.
 
@@ -222,7 +215,6 @@ You can also use the `hdfs dfs -put` command to upload some files to the Data La
 
 	You can also use the `hdfs dfs -put` command to upload some files to the Data Lake Store, and then use `hdfs dfs -ls` to verify whether the files were successfully uploaded.
 
-Next steps
-----------
+## Next steps
 
 -	[Copy data from Azure Storage Blobs to Data Lake Store](data-lake-store-copy-data-wasb-distcp.md)
