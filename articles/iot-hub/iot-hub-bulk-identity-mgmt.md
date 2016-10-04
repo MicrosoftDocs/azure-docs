@@ -20,7 +20,7 @@
 
 Each IoT hub has a device identity registry you can use to create per-device resources in the service, such as a queue that contains in-flight cloud-to-device messages. The device identity registry also enables you to control access to the device-facing endpoints. This article describes how to import and export device identities in bulk to and from a device identity registry.
 
-Import and export operations take place in the context of *Jobs* which enable you to execute bulk service operations against an IoT hub.
+Import and export operations take place in the context of *Jobs* that enable you to execute bulk service operations against an IoT hub.
 
 The **RegistryManager** class includes the **ExportDevicesAsync** and **ImportDevicesAsync** methods that use the **Job** framework. These methods enable you to export, import, and synchronize the entirety of an IoT hub device registry.
 
@@ -135,7 +135,7 @@ The **ImportDevicesAsync** method in the **RegistryManager** class enables you t
 
 Take care using the **ImportDevicesAsync** method because in addition to provisioning new devices in your device identity registry, it can also update and delete existing devices.
 
-> [AZURE.WARNING]  An import operation cannot be undone. You should always back up your existing data using the **ExportDevicesAsync** method to another blob container before you make bulk changes to your device identity registry.
+> [AZURE.WARNING]  An import operation cannot be undone. Always back up your existing data using the **ExportDevicesAsync** method to another blob container before you make bulk changes to your device identity registry.
 
 The **ImportDevicesAsync** method takes two parameters:
 
@@ -169,7 +169,7 @@ You can use the **ImportDevicesAsync** method to perform the following bulk oper
 -   Bulk assignment of new device authentication keys
 -   Bulk auto-regeneration of device authentication keys
 
-You can perform any combination of the preceeding operations within a single **ImportDevicesAsync** call. For example, you can register new devices and delete or update existing devices at the same time. When used along with the **ExportDevicesAsync** method, you can completely migrate all your devices from one IoT hub to another.
+You can perform any combination of the preceding operations within a single **ImportDevicesAsync** call. For example, you can register new devices and delete or update existing devices at the same time. When used along with the **ExportDevicesAsync** method, you can completely migrate all your devices from one IoT hub to another.
 
 Use the optional **importMode** property in the import serialization data for each device to control the import process per-device. The **importMode** property has the following options:
 

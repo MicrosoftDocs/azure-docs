@@ -14,7 +14,7 @@ The following diagram shows a typical IoT solution architecture. The diagram doe
 
 ![IoT solution architecture][img-solution-architecture]
 
-> [AZURE.NOTE] For an in-depth discussion of IoT architecture see the [Microsoft Azure IoT Reference Architecture][lnk-refarch].
+> [AZURE.NOTE] For an in-depth discussion of IoT architecture, see the [Microsoft Azure IoT Reference Architecture][lnk-refarch].
 
 ### Device connectivity
 
@@ -23,7 +23,7 @@ In this IoT solution architecture, devices send telemetry, such as sensor readin
 One of the biggest challenges facing IoT projects is how to reliably and securely connect devices to the solution back end. IoT devices have different characteristics as compared to other clients such as browsers and mobile apps. IoT devices:
 
 - Are often embedded systems with no human operator.
-- Can be deployed in remote locations, where physical access is very expensive.
+- Can be deployed in remote locations, where physical access is expensive.
 - May only be reachable through the solution back end. There is no other way to interact with the device.
 - May have limited power and processing resources.
 - May have intermittent, slow, or expensive network connectivity.

@@ -36,11 +36,11 @@ The following instructions describe the steps for connecting an [mbed-enabled Fr
 
 ### Create an mbed project and import the sample code
 
-1. In your web browser, go to the mbed.org [developer site](https://developer.mbed.org/). If you haven't signed up, you see an option to create a account (it's free). Otherwise, log in with your account credentials. Then click **Compiler** in the upper right-hand corner of the page. This action brings you to the *Workspace* interface.
+1. In your web browser, go to the mbed.org [developer site](https://developer.mbed.org/). If you haven't signed up, you see an option to create an account (it's free). Otherwise, log in with your account credentials. Then click **Compiler** in the upper right-hand corner of the page. This action brings you to the *Workspace* interface.
 
 2. Make sure the hardware platform you're using appears in the upper right-hand corner of the window, or click the icon in the right-hand corner to select your hardware platform.
 
-3. Click **Import** on the main menu. Then click the **Click here** to import from URL link next to the mbed globe logo.
+3. Click **Import** on the main menu. Then click **Click here** to import from URL link next to the mbed globe logo.
 
     ![][6]
 
@@ -78,7 +78,7 @@ If you are interested in how the program works, this section describes some key 
 
 #### Defining the model
 
-This sample uses the [serializer][lnk-serializer] library to define a model that specifies the messages the device can send to IoT Hub and receive from IoT Hub. In this sample, the **Contoso** namespace defines a **Thermostat** model that specifies the **Temperature**, **ExternalTemperature** and **Humidity** telemetry data along with metadata such as the device id, device properties, and the commands that the device responds to:
+This sample uses the [serializer][lnk-serializer] library to define a model that specifies the messages the device can send to IoT Hub and receive from IoT Hub. In this sample, the **Contoso** namespace defines a **Thermostat** model that specifies the **Temperature**, **ExternalTemperature**, and **Humidity** telemetry data along with metadata such as the device id, device properties, and the commands that the device responds to:
 
 ```
 BEGIN_NAMESPACE(Contoso);
