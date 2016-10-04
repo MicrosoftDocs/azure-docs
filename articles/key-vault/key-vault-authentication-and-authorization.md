@@ -17,7 +17,7 @@
 	ms.author="ambapat"/>
 
 
-# Key Vault Authentication and Authorization
+# Secure your Key Vault
 
 Azure Key Vault is a cloud service that safeguards encryption keys and secrets (such as certificates, connection strings, passwords) for your cloud applications. Since this data is sensitive and business critical, you want to secure access to your key vaults so that only authorized applications and users can access to your key vault. This article provides an overview of Key Vault access model, explains authentication and authorization, and describes how to secure access to Key Vault for your cloud applications.
 
@@ -174,7 +174,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 
 The custom role assignment for the developers/operators for the "deploy/action" permission is scoped to the resource group. This way only the VMs created in the resource group 'ContosoAppRG' will get the secrets (SSL cert and bootstrap cert). Any VMs that a member of dev/ops creates in other resource group will not be able to get these secrets.
 
-This example depicts a simple scenario. Real life scenarios may be more complex and you may need to adjust permissions to Key Vault based on your needs. For example, in our example, we assume that security team will provide the key and secret references (URIs and thumbprints) that developers/operators team need to reference in their applications. Hence they don't need to grant developers/operators any data plane access. But if you want the developers/operators to be able to pick keys from Azure Portal while enabling encryption at rest for an Azure workload, they will need 'list' permission for keys and secrets. Also note that this example focuses on securing your key vault. Similar consideration should be given to securing your VMs, storage accounts and other resources too.
+This example depicts a simple scenario. Real life scenarios may be more complex and you may need to adjust permissions to Key Vault based on your needs. For example, in our example, we assume that security team will provide the key and secret references (URIs and thumbprints) that developers/operators team need to reference in their applications. Hence they don't need to grant developers/operators any data plane access. But if you want the developers/operators to be able to pick keys from Azure Portal while enabling encryption at rest for an Azure workload, they will need 'list' permission for keys and secrets. Also note that this example focuses on securing your key vault. Similar consideration should be given to securing your VMs, [storage accounts](../storage/storage-security-guide.md) and other resources too.
 
 >[AZURE.NOTE] Note: This example shows how key vault access will be locked down in production. The developers will most likely have their own subscription or resourcegroup where they have full permissions to manage their vaults, VMs and storage account where they develop the application.
 
