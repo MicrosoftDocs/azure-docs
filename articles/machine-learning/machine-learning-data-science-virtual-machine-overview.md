@@ -44,7 +44,7 @@ Data science hackathons/competitions or large-scale data modeling and exploratio
 
 ### Short-term experimentation and evaluation 
 
-The DSVM can be used to evaluate or learn tools like Microsoft R Server, SQL Server, Visual Studio tools, Jupyter, deep learning / ML toolkits, new tools popular in the community with minimal set up effort. Since the DSVM can be set up quickly, it can be applied in other short-term usage scenarios like replicating published experiments, executing demos, following walkthroughs in online or conference tutorials sessions.
+The DSVM can be used to evaluate or learn tools like Microsoft R Server, SQL Server, Visual Studio tools, Jupyter, deep learning / ML toolkits, new tools popular in the community with minimal setup effort. Since the DSVM can be set up quickly, it can be applied in other short-term usage scenarios like replicating published experiments, executing demos, following walkthroughs in online or conference tutorials sessions.
 
 
 ## Key features in Windows and Linux versions
@@ -58,7 +58,7 @@ The DSVM can be used to evaluate or learn tools like Microsoft R Server, SQL Ser
 
 • Create an instance of the VM on Windows by navigating to [this page](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) and selecting the green **Create Virtual Machine** button. 
 •Sign in to the VM from your remote desktop using the credentials you specified when you created the VM.
-• To discover and launch the tools available, click on the **Start** menu . 
+• To discover and launch the tools available, click on the **Start** menu. 
 
 
 ### Get started with the Linux version of the DSVM
