@@ -144,6 +144,10 @@ The difference between the two forms is important for one key scenario: revocati
 
 >[AZURE.IMPORTANT] A shared access signature URI is associated with the account key used to create the signature, and the associated stored access policy (if any). If no stored access policy is specified, the only way to revoke a shared access signature is to change the account key.
 
+## Using a SAS in a connection string
+
+[AZURE.INCLUDE [storage-use-sas-in-connection-string-include](../../includes/storage-use-sas-in-connection-string-include.md)]
+
 ## Best practices for using SAS
 
 When you use shared access signatures in your applications, you need to be aware of two potential risks:
@@ -163,10 +167,6 @@ The following recommendations for using shared access signatures will help balan
 8.	**Validate data written using SAS.** When a client application writes data to your storage account, keep in mind that there can be problems with that data. If your application requires that that data be validated or authorized before it is ready to use, you should perform this validation after the data is written and before it is used by your application. This practice also protects against corrupt or malicious data being written to your account, either by a user who properly acquired the SAS, or by a user exploiting a leaked SAS.
 9. **Don't always use SAS.** Sometimes the risks associated with a particular operation against your storage account outweigh the benefits of SAS.  For such operations, create a middle-tier service that writes to your storage account after performing business rule validation, authentication, and auditing. Also, sometimes it's simpler to manage access in other ways. For example, if you want to make all blobs in a container publically readable, you can make the container Public, rather than providing a SAS to every client for access.
 10.	**Use Storage Analytics to monitor your application.** You can use logging and metrics to observe any spike in authentication failures due to an outage in your SAS provider service or to the inadvertent removal of a stored access policy. See the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) for additional information.
-
-## Using a SAS in a connection string
-
-[AZURE.INCLUDE [storage-use-sas-in-connection-string-include](../../includes/storage-use-sas-in-connection-string-include.md)]
 
 ## SAS examples
 
