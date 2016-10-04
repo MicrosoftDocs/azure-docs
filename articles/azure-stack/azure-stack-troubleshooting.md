@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/03/2016"
+	ms.date="10/04/2016"
 	ms.author="helaw"/>
 
 # Microsoft Azure Stack troubleshooting
@@ -47,7 +47,7 @@ The recommendations for troubleshooting issues that are described in this sectio
  - You will see the VM extensions in the marketplace.
  - You cannot deploy a VM from a saved VM image.
  - Tenants may see services which are not included in their subscription.  When tenants attempt to deploy these resources, they will receive an error.  Example:  Tenant subscription only includes storage resources.  Tenant will see option to create other resources like VMs.  In this scenario, when a tenant attempts to deploy a VM, they will receive an message indicating the VM can’t be created. 
-  - When installing TP2, you should not activate the host OS in the VHD provided where you run the Azure Stack setup script, or you may receive an error messaging stating Windows will expire soon.
+ - When installing TP2, you should not activate the host OS in the VHD provided where you run the Azure Stack setup script, or you may receive an error messaging stating Windows will expire soon.
 
 ## Deployment
 
