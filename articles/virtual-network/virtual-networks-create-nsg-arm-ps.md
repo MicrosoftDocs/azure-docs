@@ -55,7 +55,7 @@ To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow 
 		$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus
         -Name "NSG-FrontEnd" -SecurityRules $rule1,$rule2
 
-6. Check the rules created in the NSG.
+5. Check the rules created in the NSG.
 
 		$nsg
 
@@ -96,36 +96,37 @@ To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow 
 
 6. Associate the NSG created above to the *FrontEnd* subnet.
 
-		$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
-		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd
-			-AddressPrefix 192.168.1.0/24 -NetworkSecurityGroup $nsg
+            		$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+            		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd
+            			-AddressPrefix 192.168.1.0/24 -NetworkSecurityGroup $nsg
 
-	Output showing only the *FrontEnd* subnet settings, notice the value for the **NetworkSecurityGroup** property:
+            	Output showing only the *FrontEnd* subnet settings, notice the value for the **NetworkSecurityGroup** property:
 
-		Subnets           : [
-		                      {
-		                        "Name": "FrontEnd",
-		                        "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
-		                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
-		                        "AddressPrefix": "192.168.1.0/24",
-		                        "IpConfigurations": [
-		                          {
-		                            "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNICWeb2/ipConfigurations/ipconfig1"
-		                          },
-		                          {
-		                            "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1/ipConfigurations/ipconfig1"
-		                          }
-		                        ],
-		                        "NetworkSecurityGroup": {
-		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
-		                        },
-		                        "RouteTable": null,
-		                        "ProvisioningState": "Succeeded"
-		                      }
+            		Subnets           : [
+            		                      {
+            		                        "Name": "FrontEnd",
+            		                        "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+            		                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+            		                        "AddressPrefix": "192.168.1.0/24",
+            		                        "IpConfigurations": [
+            		                          {
+            		                            "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNICWeb2/ipConfigurations/ipconfig1"
+            		                          },
+            		                          {
+            		                            "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1/ipConfigurations/ipconfig1"
+            		                          }
+            		                        ],
+            		                        "NetworkSecurityGroup": {
+            		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
+            		                        },
+            		                        "RouteTable": null,
+            		                        "ProvisioningState": "Succeeded"
+            		                      }
 
->[AZURE.WARNING] The output for the command above shows the content for the virtual network configuration object, which only exists on the computer where you are running PowerShell. You need to run the `Set-AzureRmVirtualNetwork` cmdlet to save these settings to Azure.
+        >[AZURE.WARNING] The output for the command above shows the content for the virtual network configuration object, which only exists on the computer where you are running PowerShell. You need to run the `Set-AzureRmVirtualNetwork` cmdlet to save these settings to Azure.
 
 7. Save the new VNet settings to Azure.
+
 
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
