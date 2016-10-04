@@ -5,7 +5,7 @@
 	documentationCenter="android"
 	manager="erikre"
 	editor=""
-	authors="RickSaling"/>
+	authors="yuaxu"/>
 
 <tags
 	ms.service="app-service-mobile"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/27/2016"
-	ms.author="ricksal"/>
+	ms.date="10/01/2016"
+	ms.author="yuaxu"/>
 
 # Add Push Notifications to your Android App
 
