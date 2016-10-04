@@ -45,7 +45,7 @@ To register for the preview, send an email to [Multiple IPs](mailto:MultipleIPsP
 		Get-AzureRmLocation 	 | Format-Table Location
 		Get-AzureRmResourceGroup | Format-Table ResourceGroupName	
  
-3. <a name="subnet"></a>The NIC must be connected to a subnet within an existing Azure Virtual Network (VNet) in the same location and [subscription](../azure-glossary-cloud-terminology.md#subscription) as the NIC. If you're not familiar with VNets, read the [Virtual network overview](virtual-networks-overview.md) article to learn more about them or read the [Create a VNet](virtual-networks-create-vnet-arm-ps.md) article to learn how to create one. Change the following "values" of the $Variables to the name of the VNet and Subnet you want to connect the NIC to, and the name of the resource group the VNet is in.
+3. <a name="subnet"></a>The NIC must be connected to a subnet within an existing Azure Virtual Network (VNet). The three components: NIC, subnet, and VNet, must all exist in the same region and [subscription](../azure-glossary-cloud-terminology.md#subscription).  If you're not familiar with VNets, read the [Virtual network overview](virtual-networks-overview.md) article to learn more about them or read the [Create a VNet](virtual-networks-create-vnet-arm-ps.md) article to learn how to create one. Change the following "values" of the $Variables to the name of the VNet and Subnet you want to connect the NIC to, and the name of the resource group the VNet is in.
 
 		$VNetName   = "VNet1"
 		$SubnetName = "Subnet1"
