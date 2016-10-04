@@ -65,7 +65,7 @@ There are some important factors to consider when defining your resource group:
 4. You can move a resource from one resource group to another group. For more information, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
 4. A resource group can contain resources that reside in different regions.
 5. A resource group can be used to scope access control for administrative actions.
-6. A resource can interact with resources in other resource groups. This interaction is common when the two resources are related but  do not share the same lifecycle (for example, web apps connecting to a database).
+6. A resource can interact with resources in other resource groups. This interaction is common when the two resources are related but do not share the same lifecycle (for example, web apps connecting to a database).
 
 When creating a resource group, you need to provide a location for that resource group. You may be wondering, "Why does a resource group need a location? And, if the resources can have different locations than the resource group, why does the resource group location matter at all?" The resource group stores metadata about the resources. Therefore, when you specify a location for the resource group, you are specifying where that metadata is stored. For compliance reasons, you may need to ensure that your data is stored in a particular region.
 
@@ -73,23 +73,23 @@ When creating a resource group, you need to provide a location for that resource
 
 Each resource provider offers a set of resources and operations for working with technical area. For example, if you want to store keys and secrets, you work with the **Microsoft.KeyVault** resource provider. This resource provider offers a resource type called **vaults** for creating the key vault, and a resource type called **vaults/secrets** for creating a secret in the key vault. 
 
-Before getting started with deploying your resources, you should gain an understanding of the available resource providers. Knowing the names of resource providers and resources will help you define resources you want to deploy to Azure.
+Before getting started with deploying your resources, you should gain an understanding of the available resource providers. Knowing the names of resource providers and resources helps you define resources you want to deploy to Azure.
 
 You retrieve all resource providers with the following PowerShell cmdlet:
 
     Get-AzureRmResourceProvider -ListAvailable
 
-It returns the full list of resource providers. You can look through that list for the resource providers that you need to use.
-
-To retrieve the supported resource types for a resource provider (such as Microsoft.Compute), and the supported locations and API versions for each resource type, use:
-
-    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
-
 Or, with Azure CLI, you retrieve all resource providers with the following command:
 
     azure provider list
 
-You retrieve details about the supported resource types for Microsoft.Compute with the following Azure CLI command:
+You see a full list of resource providers, and can look through that list for the resource providers that you need to use.
+
+To retrieve the supported resource types for a resource provider (such as Microsoft.Compute), and the supported locations and API versions for each resource type, use the following PowerShell cmdlet:
+
+    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+
+Or, with Azure CLI, retrieve the supported resource types, locations, and API versions for Microsoft.Compute, with the following command:
 
     azure provider show Microsoft.Compute --json > c:\Azure\compute.json
 
@@ -132,27 +132,58 @@ The following example shows a tag applied to a virtual machine.
         "name": "SimpleWindowsVM",
         "location": "[resourceGroup().location]",
         "tags": {
-            "costCenter": "Finance"
+            "CostCenter": "Finance"
         },
         ...
       }
     ]
 
-The [usage report](billing-understand-your-bill.md) for your subscription includes tag names and values which enables you to break out costs by tags. For more information about tags, see [Using tags to organize your Azure resources](resource-group-using-tags.md). You can create a [customized policy](#manage-resources-with-customized-policies) that requires adding tags to resources during deployment.
+To retrieve all of the resources with a tag value, use the following PowerShell cmdlet:
+
+    Find-AzureRmResource -TagName CostCenter -TagValue Finance
+
+Or, the following Azure CLI command:
+
+    azure resource list -t CostCenter=Finance --json
+
+You can also view tagged resources through the Azure portal.
+
+The [usage report](billing-understand-your-bill.md) for your subscription includes tag names and values, which enables you to break out costs by tags. For more information about tags, see [Using tags to organize your Azure resources](resource-group-using-tags.md).
 
 ## Access control
 
-Resource Manager enables you to control who has access to specific actions for your organization. It natively integrates OAuth and Role-Based Access Control (RBAC) into the management platform and applies that access control to all services in your resource group. You can add users to pre-defined platform and resource-specific roles and apply those roles to a subscription, resource group, or resource to limit access. For example, you can take advantage of the pre-defined role called SQL DB Contributor that permits users to manage databases, but not database servers or security policies. You add users in your organization that need this type of access to the SQL DB Contributor role and apply the role to the subscription, resource group, or resource.
+Resource Manager enables you to control who has access to specific actions for your organization. It natively integrates role-based access control (RBAC) into the management platform and applies that access control to all services in your resource group. You can add users to pre-defined platform and resource-specific roles and apply those roles to a subscription, resource group, or resource to limit access. For example, you can take advantage of the pre-defined role called Reader that permits users to view resources but not change them. You add users in your organization that need this type of access to the Reader role and apply the role to the subscription, resource group or resource.
 
-Resource Manager automatically logs user actions for auditing. For information about working with the audit logs, see [Audit operations with Resource Manager](resource-group-audit.md).
+Azure provides the following four platform roles:
 
-For more information about role-based access control, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md). The [RBAC: Built in Roles](./active-directory/role-based-access-built-in-roles.md) topic contains a list of the built-in roles and the permitted actions. The built-in roles include general roles such as Owner, Reader, and Contributor; as well as, service-specific roles such as Virtual Machine Contributor, Virtual Network Contributor, and SQL Security Manager (to name just a few of the available roles).
+1.	Owner - can manage everything, including access
+2.	Contributor - can manage everything except access
+3.	Reader - can view everything, but can't make changes
+4.	User Access Administrator - can manage user access to Azure resources
+
+Azure also provides several resource-specific roles. Some common ones are:
+
+1.	Virtual Machine Contributor - can manage virtual machines but not grant access to them, and cannot manage the virtual network or storage account to which they are connected
+2.	Network Contributor - can manage all network resources, but not grant access to them
+3.	Storage Account Contributor - Can manage storage accounts, but not grant access to them
+4. SQL Server Contributor - Can manage SQL servers and databases, but not their security-related policies
+5. Website Contributor - Can manage websites, but not the web plans to which they are connected
+
+For the full list of roles and permitted actions, see [RBAC: Built in Roles](./active-directory/role-based-access-built-in-roles.md). For more information about role-based access control, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md). 
+
+In some cases, you want to run code or script that accesses resources, but you do not want to run it under a user’s credentials. Instead, you want to create an identity called a service principal for the application and assign the appropriate role for the service principal. Resource Manager enables you to create credentials for the application and programmatically authenticate the application. To learn about creating service principals, see one of following topics:
+
+- [Use Azure PowerShell to create a service principal to access resources](resource-group-authenticate-service-principal.md)
+- [Use Azure CLI to create a service principal to access resources](resource-group-authenticate-service-principal-cli.md)
+- [Use portal to create Active Directory application and service principal that can access resources](resource-group-create-service-principal-portal.md)
 
 You can also explicitly lock critical resources to prevent users from deleting or modifying them. For more information, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
 
-For best practices, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md)
+## Activity logs
 
-## Manage resources with customized policies
+Resource Manager logs all operations that create, modify, or delete a resource. You can use the activity logs to find an error when troubleshooting or to monitor how a user in your organization modified a resource. To see the logs, select **Activity logs** in the **Settings** blade for a resource group. You can filter the logs by many different values including which user initiated the operation. For information about working with the activity logs, see [Audit operations with Resource Manager](resource-group-audit.md).
+
+## Customized policies
 
 Resource Manager enables you to create customized policies for managing your resources. The types of policies you create can include diverse scenarios. You can enforce a naming convention on resources, limit which types and instances of resources can be deployed, or limit which regions can host a type of resource. You can require a tag value on resources to organize billing by departments. You create policies to help reduce costs and maintain consistency in your subscription. 
 
@@ -172,7 +203,7 @@ The following example shows a policy that ensures tag consistency by specifying 
       }
     }
 
-To prevent someone from deploying an unnecessarily expensive resources (such as in a test environment), you can restrict the permitted sizes. The following example shows how to restrict the virtual machines sku.
+To prevent someone from deploying an unnecessarily expensive resource (such as in a test environment), you can restrict the permitted sizes. The following example shows how to restrict the virtual machines sku.
 
     {
       "if": {
