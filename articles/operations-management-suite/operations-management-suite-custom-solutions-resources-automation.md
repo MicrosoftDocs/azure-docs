@@ -83,6 +83,8 @@ In order to start a runbook when the solution is installed, you create a **job**
 
 The job includes the runbook name and any parameter values to be sent to the runbook.  The job must [depend on](operations-management-suite-custom-solutions-creating.md#resources) the runbook that it's starting since the runbook must be created before the job.  You also create dependencies on other jobs for runbooks that should be completed before the current one.
 
+The name of a job resource must contain a GUID which is typically assigned by a parameter.  You can read more about GUID parameters in [Creating custom solutions in Operations Management Suite (OMS)](operations-management-suite-custom-solutions-creating.md#parameters).  
+
 Following is an example of a job resource that starts a runbook when the solution is installed.  Two other runbooks must be completed before this one starts, so it has dependencies on the jobs for those runbooks.  The runbook also accepts parameters   
 
 	{
