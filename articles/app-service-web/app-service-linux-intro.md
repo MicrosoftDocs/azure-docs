@@ -59,6 +59,8 @@ This public preview is currently only available in the following regions
 
 Web app on Linux is only supported in Dedicated App Service Plans and does not have a Free or Shared tier. Also, app service plans for regular and Linux web apps are mutually exclusive, so you cannot create a Linux web app in a non-Linux app service plan.
 
+Due to the lack of overlapped recycling of the web apps, customers should expect a small downtime in the event of a web app got restarted. 
+
 ## Next Steps ##
 
 Follow the following links to get started with App Service on Linux. Please post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
