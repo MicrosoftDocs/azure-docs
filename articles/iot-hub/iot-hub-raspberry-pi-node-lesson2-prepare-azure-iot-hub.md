@@ -62,7 +62,7 @@ az iot hub create --name {my hub name} --resource-group iot-sample
 >
 > You can only create one Iot hub with **F1** SKU under your subscription.
 
-## 2.2.5 Register your device in the IoT Hub
+## 2.2.5 Register your device with IoT Hub
 Each device that sends/receives messages to/from your Azure IoT Hub must be registered with a unique ID. Create a device in the Azure IoT Hub using following command:
 
 ```bash

@@ -33,7 +33,7 @@ In this section, you will learn:
 ## 1.3.3 What you need
 - You must have successfully completed the previous sections, [Configure your device](iot-hub-raspberry-pi-node-lesson1-configure-your-device.md) and [Get the tools](iot-hub-raspberry-pi-node-lesson1-get-the-tools-win32.md), in this lesson.
 
-## 1.3.4 Obtain IP address of your Raspberry Pi 3 device
+## 1.3.4 Obtain IP address of your Raspberry Pi
 Open a command prompt (Windows) or a terminal window (OS X / Ubuntu) and run the following command:
 
 ```bash
@@ -84,7 +84,7 @@ Replace `[device hostname or IP address]` with the device IP address or hostname
 
 Congratulations! You have successfully created your first Raspberry Pi 3 application.
 
-## 1.3.8 Deploy and run the blink sample application
+## 1.3.8 Deploy and run the blink sample app
 
 ### 1.3.8.1 Install Node on the Raspberry Pi 3
 Install Node.js and NPM on your Pi using gulp so you can run the sample application once it’s deployed:
@@ -92,14 +92,14 @@ Install Node.js and NPM on your Pi using gulp so you can run the sample applicat
 ```bash
 gulp install-tools
 ```
-### 1.3.8.2 Deploy and run the sample application
+### 1.3.8.2 Deploy and run the sample app
 Deploy the sample application to your Pi and run it:
 
 ```bash
 gulp deploy && gulp run
 ```
 
-### 1.3.8.3 Verify the application is working
+### 1.3.8.3 Verify the app works
 You should now see the LED on your Pi blinking every two seconds.  If you don’t see the LED flashing, take a look at the [Troubleshooting](iot-hub-raspberry-pi-node-troubleshooting.md) guide for solutions to common problems.
 ![LED blinking](media/iot-hub-raspberry-pi-lessons/lesson1/led_blinking.jpg)
 

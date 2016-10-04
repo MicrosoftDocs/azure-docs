@@ -46,7 +46,7 @@ Click the links below to download and install Git and Node.js LTS for Windows.
 
 [Get Node.js LTS for Windows](https://nodejs.org/en/)
 
-## 1.2.5 Install additional Node.js development tools
+## 1.2.5 Install Node.js development tools
 You will use [gulp.js](http://gulpjs.com) to automate the deployment of code to your Raspberry Pi 3. In addition, you will also use the [device-discovery-cli](https://github.com/Azure/device-discovery-cli) Node.js utility to retrieve network information about your connected Raspberry Pi 3 device. In this step, you install these required tools.
 
 Press `Windows + R`, type `cmd` and press Enter to open a command prompt window. Run the following command:
