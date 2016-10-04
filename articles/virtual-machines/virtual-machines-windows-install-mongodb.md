@@ -34,9 +34,9 @@ Before you install and configure MongoDB you create a VM and, ideally, add a dat
 
 ## Install and run MongoDB
 
-> [AZURE.IMPORTANT] MongoDB security features, such as authentication and IP address binding, are not enabled by default. Security features should be enabled before deploying MongoDB to a production environment.  See [Security and Authentication](http://www.mongodb.org/display/DOCS/Security+and+Authentication) for more information.
+> [AZURE.IMPORTANT] MongoDB security features, such as authentication and IP address binding, are not enabled by default. Security features should be enabled before deploying MongoDB to a production environment.  For more information, see [Security and Authentication](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
 
-1. After you've connected to youor VM using Remote Desktop, open Internet Explorer from the **Start** menu on the VM.
+1. After you've connected to your VM using Remote Desktop, open Internet Explorer from the **Start** menu on the VM.
 
 2. Select 'Use recommended security, privacy, and compatibility settings' when Internet Explorer first opens and click 'OK'.
 
@@ -44,7 +44,7 @@ Before you install and configure MongoDB you create a VM and, ideally, add a dat
 
 4. Browse to the [MongoDB - Downloads](http://www.mongodb.org/downloads) page (http://www.mongodb.org/downloads).
 
-5. By default, it should select the **Community Server** edition and the latest current stable release for Windows Server 2008 R2 64-bit and later. Click the **DOWNLOAD (msi)** button to download the installer:
+5. By default, it should select the **Community Server** edition and the latest current stable release for Windows Server 2008 R2 64-bit and later. To download the installer, click the **DOWNLOAD (msi)** button:
 
 	![Download MongoDB installer][./media/virtual-machines-windows-install-mongodb/download-mongodb.png]
 
@@ -56,7 +56,7 @@ Before you install and configure MongoDB you create a VM and, ideally, add a dat
 
 8. The PATH variables are not updated by the MongoDB installer. Right-click the Start menu and select **System**. Click **Advanced System Settings** and then **Environment Variables**. Under **System variables**, select **Path** and then click **Edit**.
 
-	Add the path to your MongoDB `bin` folder. MongoDB is typically installed on C:\Program Files\MongoDB. The following is an example of adding the location to the `PATH` variable:
+	Add the path to your MongoDB `bin` folder. MongoDB is typically installed on C:\Program Files\MongoDB. The following example adds the location to the `PATH` variable:
 
 	```
 	;C:\Program Files\MongoDB\Server\3.2\bin
@@ -75,9 +75,9 @@ Before you install and configure MongoDB you create a VM and, ideally, add a dat
 		F:\> C:
 		C:\> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
 
-	All log messages will be directed to the *F:\MongoLogs\mongolog.log* file as mongod.exe server starts and preallocates journal files. It may take several minutes for MongoDB to preallocate the journal files and start listening for connections. The command prompt will stay focused on this task while your MongoDB instance is running.
+	All log messages are directed to the *F:\MongoLogs\mongolog.log* file as mongod.exe server starts and preallocates journal files. It may take several minutes for MongoDB to preallocate the journal files and start listening for connections. The command prompt stays focused on this task while your MongoDB instance is running.
 
-11. To start the MongoDB administrative shell, open another command window from **Start** and type the following:
+11. To start the MongoDB administrative shell, open another command window from **Start** and type the following command:
 
 		C:\> cd \my_mongo_dir\bin  
 		C:\my_mongo_dir\bin> mongo  
@@ -98,13 +98,13 @@ Before you install and configure MongoDB you create a VM and, ideally, add a dat
 
 		C:\> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log --logappend  --install
 
-	This creates a service named MongoDB with a description of "Mongo DB". The **--logpath** option must be used to specify a log file, since the running service will not have a command window to display output.  The **--logappend** option specifies that a restart of the service will cause output to append to the existing log file.  The **--dbpath** option specifies the location of the data directory. For more service-related command line options, see [Service-related command line options] [MongoWindowsSvcOptions].
+	This command creates a service named MongoDB with a description of "Mongo DB". The **--logpath** option must be used to specify a log file, since the running service does not have a command window to display output.  The **--logappend** option specifies that a restart of the service causes output to append to the existing log file.  The **--dbpath** option specifies the location of the data directory. For more service-related command line options, see [Service-related command line options] [MongoWindowsSvcOptions].
 
 	To start the service, run this command:
 
 		C:\> net start MongoDB
 
-13. Now that MongoDB is installed and running, you'll need to open a port in Windows Firewall so you can remotely connect to MongoDB.  From the **Start** menu, select **Administrative Tools** and then **Windows Firewall with Advanced Security**.
+13. Now that MongoDB is installed and running, open a port in Windows Firewall so you can remotely connect to MongoDB.  From the **Start** menu, select **Administrative Tools** and then **Windows Firewall with Advanced Security**.
 
 
 
@@ -142,11 +142,11 @@ Before you install and configure MongoDB you create a VM and, ideally, add a dat
 
 	![Endpoints][Image8]
 
-14. Add an endpoint with name "Mongo", protocol **TCP**, and both **Public** and **Private** ports set to "27017". This will allow MongoDB to be accessed remotely.
+14. Add an endpoint with name "Mongo", protocol **TCP**, and both **Public** and **Private** ports set to "27017". This allows MongoDB to be accessed remotely.
 
 	![Endpoints][Image9]
 
-> [AZURE.NOTE] The port 27017 is the default port used by MongoDB. You can change this by the _--port_ parameter when starting the mongod.exe server. Make sure to give the same port number in the firewall as well as the "Mongo" endpoint in the above instructions.
+> [AZURE.NOTE] The port 27017 is the default port used by MongoDB. You can change this port by usingthe _--port_ parameter when starting the mongod.exe server. Make sure to give the same port number in the firewall and the "Mongo" endpoint in the preceding instructions.
 
 
 [MongoDownloads]: http://www.mongodb.org/downloads
