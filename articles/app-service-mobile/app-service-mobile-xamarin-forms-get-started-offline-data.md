@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="06/18/2016"
+	ms.date="10/03/2016"
     ms.author="glenga"/>
 
 # Enable offline sync for your Xamarin.Forms mobile app
