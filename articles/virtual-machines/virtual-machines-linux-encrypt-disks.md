@@ -48,7 +48,7 @@ azure keyvault set-policy --vault-name myKeyVault --resource-group myResourceGro
   --enabled-for-disk-encryption true
 ```
 
-Create an endpoint using Azure Active Directory for handling the authentication and exchanging of cryptographic keys from Key Vault. The `--home-page` and `--identifier-uris` do not need to be actual routable address. For the higest level of security, client secrets used be used instead of passwords. The Azure CLI cannot currently generate client secrets, they can only be generated in the Azure portal. The following example creates an Azure Active Directory endpoint named `myAADApp` and uses a password of `myPassword`. :
+Create an endpoint using Azure Active Directory for handling the authentication and exchanging of cryptographic keys from Key Vault. The `--home-page` and `--identifier-uris` do not need to be actual routable address. For the highest level of security, client secrets should be used instead of passwords. The Azure CLI cannot currently generate client secrets. Client secrets can only be generated in the Azure portal. The following example creates an Azure Active Directory endpoint named `myAADApp` and uses a password of `myPassword`. :
 
 ```bash
 azure ad app create --name myAADApp \
