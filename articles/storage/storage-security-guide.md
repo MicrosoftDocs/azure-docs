@@ -288,15 +288,11 @@ For more detailed information on using Shared Access Signatures and Stored Acces
 
 	-	[Constructing an account SAS](https://msdn.microsoft.com/library/mt584140.aspx)
 
--   These are tutorials for using the .NET client library to create Shared Access Signatures and Stored Access Policies.
+-   This tutorial shows how to use the .NET client library to create Shared Access Signatures and Stored Access Policies.
 
-    -	[Shared Access Signatures, Part 1: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md)
+    -	[Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 
         This article includes an explanation of the SAS model, examples of Shared Access Signatures, and recommendations for the best practice use of SAS. Also discussed is the revocation of the permission granted.
-
-    -	[Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service](storage-dotnet-shared-access-signature-part-2.md)
-
-        This article shows how to generate SAS URIs using the .NET storage client library.
 
 -   Limiting access by IP Address (IP ACLs)
 
