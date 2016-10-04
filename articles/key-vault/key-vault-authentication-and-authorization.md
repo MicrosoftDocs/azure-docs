@@ -161,6 +161,7 @@ $devopsrole = Get-AzureRmRoleDefinition -Name "Virtual Machine Contributor"
 $devopsrole.Id = $null
 $devopsrole.Name = "Contoso App Devops"
 $devopsrole.Description = "Can deploy VMs that need secrets from Key Vault"
+$devlopsrole.AssignableScopes = @("/subscriptions/<SUBSCRIPTION-GUID>")
 
 # Add permission for dev/ops so they can deploy VMs that have secrets deployed from key vaults
 $devopsrole.Actions.Add("Microsoft.KeyVault/vaults/deploy/action")
@@ -173,6 +174,8 @@ New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso A
 Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Auditors')[0].Id -PermissionToKeys list -PermissionToSecrets list
 
 ```
+
+The custom role defined, is only assinable to the subscription where the ContosoAppRG resource group is created. If the same custom roles will be used for other projects in other subscriptions, it's scope could have more subscriptions added.
 
 The custom role assignment for the developers/operators for the "deploy/action" permission is scoped to the resource group. This way only the VMs created in the resource group 'ContosoAppRG' will get the secrets (SSL cert and bootstrap cert). Any VMs that a member of dev/ops team creates in other resource group will not be able to get these secrets even if they knew the secret URIs.
 
