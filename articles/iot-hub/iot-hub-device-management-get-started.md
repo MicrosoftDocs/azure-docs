@@ -275,11 +275,6 @@ To continue getting started with IoT Hub, see [Getting started with the Gateway 
 
 
 <!-- images and links -->
-[img-new-hub]: media/iot-hub-get-started-with-dm/image1.png
-[img-configure-hub]: media/iot-hub-get-started-with-dm/image2.png
-[img-monitor]: media/iot-hub-get-started-with-dm/image3.png
-[img-keys]: media/iot-hub-get-started-with-dm/image4.png
-[img-connection]: media/iot-hub-get-started-with-dm/image5.png
 [img-output]: media/iot-hub-get-started-with-dm/image6.png
 [img-dm-ui]: media/iot-hub-get-started-with-dm/dmui.png
 

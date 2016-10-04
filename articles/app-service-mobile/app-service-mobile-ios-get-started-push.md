@@ -5,7 +5,7 @@
 	documentationCenter="ios"
 	manager="yochayk"
 	editor=""
-	authors="adrianhall"/>
+	authors="yuaxu"/>
 
 <tags
 	ms.service="app-service-mobile"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/28/2016"
-	ms.author="adrianha"/>
+	ms.date="10/01/2016"
+	ms.author="yuaxu"/>
 
 
 # Add Push Notifications to your iOS App
