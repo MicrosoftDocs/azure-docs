@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="06/27/2016"
+    ms.date="10/04/2016"
     ms.author="sethm" />
 
 # Paired namespace implementation details and cost implications
@@ -65,7 +65,7 @@ The [SendAvailabilityPairedNamespaceOptions][] object passed to the [PairNamespa
 
 For example, the first backlog queue created for namespace **contoso** is named `contoso/x-servicebus-transfer/0`.
 
-When creating the queues, the code first checks to see if such a queue exists. If the queue does not exist, then the queue is created. The code does not clean up "extra" backlog queues. Specifically, if the application with the primary namespace **contoso** requests five backlog queues but a backlog queue with the path `contoso/x-servicebus-transfer/7` exists, that extra backlog queue is still present but is not used. The system explicitly allows extra backlog queues to exist that would not be used. As the namespace owner, you are responsible for cleaning up any unused/unwanted backlog queues. The reason for this decision is that Service Bus cannot know what purposes exist for all the queues in your namespace. Furthermore, if a queue exists with the given name but does NOT meet the assumed [QueueDescription][], then your reasons are your own for changing the default behavior. No guarantees are made for modifications to the backlog queues by your code. Make sure to test your changes thoroughly.
+When creating the queues, the code first checks to see if such a queue exists. If the queue does not exist, then the queue is created. The code does not clean up "extra" backlog queues. Specifically, if the application with the primary namespace **contoso** requests five backlog queues but a backlog queue with the path `contoso/x-servicebus-transfer/7` exists, that extra backlog queue is still present but is not used. The system explicitly allows extra backlog queues to exist that would not be used. As the namespace owner, you are responsible for cleaning up any unused/unwanted backlog queues. The reason for this decision is that Service Bus cannot know what purposes exist for all the queues in your namespace. Furthermore, if a queue exists with the given name but does not meet the assumed [QueueDescription][], then your reasons are your own for changing the default behavior. No guarantees are made for modifications to the backlog queues by your code. Make sure to test your changes thoroughly.
 
 ## Custom MessageSender
 
