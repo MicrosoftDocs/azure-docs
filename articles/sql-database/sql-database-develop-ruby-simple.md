@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="09/16/2016"
+	ms.date="10/03/2016"
 	ms.author="andrela"/>
 
 

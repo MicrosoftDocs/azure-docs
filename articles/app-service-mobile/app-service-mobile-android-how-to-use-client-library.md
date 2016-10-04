@@ -3,7 +3,7 @@
 	description="How to use Android client SDK for Azure Mobile Apps."
 	services="app-service\mobile"
 	documentationCenter="android"
-	authors="RickSaling"
+	authors="yuaxu"
 	manager="erikre"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/23/2016"
-	ms.author="adrianha"/>
+	ms.date="10/01/2016"
+	ms.author="yuaxu"/>
 
 
 # How to use the Android client library for Mobile Apps

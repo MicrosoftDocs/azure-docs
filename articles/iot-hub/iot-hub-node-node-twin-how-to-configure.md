@@ -348,5 +348,3 @@ To learn how to extend your IoT solution to send telemetry from devices follow t
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
 [lnk-how-to-configure-createapp]: iot-hub-node-node-twin-how-to-configure.md#create-the-simulated-device-app
-
-[img-identity]: media/iot-hub-get-started-create-hub-pp/devidentity.png
