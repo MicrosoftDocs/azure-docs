@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/21/2016"
+   ms.date="10/03/2016"
    ms.author="cherylmc" />
 
 # About virtual network gateways for ExpressRoute
@@ -31,7 +31,7 @@ Each virtual network can have only one virtual network gateway per gateway type.
 
 [AZURE.INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-If you use the Azure portal to create a Resource Manager virtual network gateway, the virtual network gateway is configured using the Standard SKU by default. Currently, you cannot specify other SKUs for the Resource Manager deployment model in the Azure portal. However, after creating your gateway, you can upgrade to a more powerful gateway SKU using the 'Resize-AzureRmVirtualNetworkGateway' PowerShell cmdlet (this will work for upgrades to Standard/HighPerformance SKU, for UltraPerformance you will need to recreate the gateway).
+If you want to upgrade your gateway to a more powerful gateway SKU, in most cases you can use the 'Resize-AzureRmVirtualNetworkGateway' PowerShell cmdlet. This will work for upgrades to Standard and HighPerformance SKUs. However, to upgrade to the UltraPerformance SKU, you will need to recreate the gateway.
 
 ###  <a name="aggthroughput"></a>Estimated aggregate throughput by gateway SKU
 

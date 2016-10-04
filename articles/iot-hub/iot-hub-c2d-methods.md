@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="09/30/2016"
+ ms.date="10/05/2016"
  ms.author="nberdy"/>
 
 # Tutorial: Use direct methods
@@ -56,7 +56,7 @@ In this section, you create a Node.js console app that responds to a method call
 2. At your command-prompt in the **simulateddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
 
     ```
-    npm install azure-iot-device azure-iot-device-mqtt --save
+    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
     ```
 
 3. Using a text editor, create a new **SimulatedDevice.js** file in the **simulateddevice** folder.
@@ -81,18 +81,10 @@ In this section, you create a Node.js console app that responds to a method call
 
     ```
     function onWriteLine(request, response) {
-        var requestbody = JSON.parse(request.body);
-        console.log(requestbody);
+        console.log(request.payload);
 
-        // add some properties to the response
-        response.properties = {
-            'LineStatus': 'Written'
-        };
-
-        response.write('"Input was written to log."');
-
-        response.end(200, function(err) {
-            if(!!err) {
+        response.send(200, 'Input was written to log.', function(err) {
+            if(err) {
                 console.error('An error ocurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
@@ -131,7 +123,7 @@ In this section, you create a Node.js console app that calls a method on the sim
 2. At your command-prompt in the **callmethodondevice** folder, run the following command to install the **azure-iothub** package:
 
     ```
-    npm install azure-iothub --save
+    npm install azure-iothub@dtpreview --save
     ```
 
 3. Using a text editor, create a **CallMethodOnDevice.js** file in the **callmethodondevice** folder.

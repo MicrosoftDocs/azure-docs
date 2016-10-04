@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/01/2016"
+   ms.date="10/04/2016"
    ms.author="nitinme"/>
 
 # Create an HDInsight cluster with Data Lake Store using Azure PowerShell
@@ -21,7 +21,7 @@
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
-
+- [Using Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 
 Learn how to use Azure PowerShell to configure an HDInsight cluster (Hadoop, HBase, or Storm) with access to Azure Data Lake Store. Some important considerations for this release:
 
@@ -50,40 +50,10 @@ Configuring HDInsight to work with Data Lake Store using PowerShell involves the
 Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-- **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
+
+- **Azure PowerShell 1.0 or greater**. See [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+
 - **Windows SDK**. You can install it from [here](https://dev.windows.com/en-us/downloads). You use this to create a security certificate.
-
-
-##Install Azure PowerShell 1.0 and greater
-
-To begin with, you must uninstall the 0.9x versions of Azure PowerShell. To check the version of the installed PowerShell, run the following command from a PowerShell window:
-
-	Get-Module *azure*
-
-To uninstall the older version, run **Programs and Features** in the control panel and remove the installed version if it's earlier than PowerShell 1.0.
-
-There are two main options for installing Azure PowerShell.
-
-- [PowerShell Gallery](https://www.powershellgallery.com/). Run the following commands from elevated PowerShell ISE or elevated Windows PowerShell console:
-
-		# Install the Azure Resource Manager modules from PowerShell Gallery
-		Install-Module AzureRM
-		Install-AzureRM
-
-		# Install the Azure Service Management module from PowerShell Gallery
-		Install-Module Azure
-
-		# Import AzureRM modules for the given version manifest in the AzureRM module
-		Import-AzureRM
-
-		# Import Azure Service Management module
-		Import-Module Azure
-
-	For more information, see [PowerShell Gallery](https://www.powershellgallery.com/).
-
-- [Microsoft Web Platform Installer (WebPI)](http://aka.ms/webpi-azps). If you have Azure PowerShell 0.9.x installed, you will be prompted to uninstall 0.9.x. If you installed Azure PowerShell modules from PowerShell Gallery, the installer requires the modules be removed prior to installation to ensure a consistent Azure PowerShell Environment. For the instructions, see [Install Azure PowerShell 1.0 via WebPI](https://azure.microsoft.com/blog/azps-1-0/).
-
-WebPI will receive monthly updates. PowerShell Gallery will receive updates on a continuous basis. If you are comfortable with installing from PowerShell Gallery, that will be the first channel for the latest and greatest in Azure PowerShell.
 
 
 ## Create an Azure Data Lake Store
@@ -197,7 +167,7 @@ In this section, you perform the steps to create a service principal for an Azur
 
 		$objectId = $servicePrincipal.Id
 
-3. Grant the service principal access to the Data Lake Store you created earlier.
+3. Grant the service principal access to the Data Lake Store file/folder that you will access from the HDInsight cluster. The snippet below provides access to the root of the Data Lake Store account.
 
 		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path / -AceType User -Id $objectId -Permissions All
 
