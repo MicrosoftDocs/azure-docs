@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Common resources in OMS custom solutions | Microsoft Azure"
+   pageTitle="Views in Operations Management Suite (OMS) custom solutions | Microsoft Azure"
    description="Custom solutions in Operations Management Suite (OMS) will typically include one or more views to visualize data.  This article describes how to export a view created by the View Designer and include it in a custom solution. "
    services="operations-management-suite"
    documentationCenter=""
