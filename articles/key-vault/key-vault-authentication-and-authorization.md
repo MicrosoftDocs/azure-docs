@@ -172,7 +172,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 
 ```
 
-The custom role assignment for the developers/operators for the "deploy/action" permission is scoped to the resource group. This way only the VMs created in the 'ContosoAppRG' will get the secrets (SSL cert and bootstrap cert). Any VMs that a member of dev/ops creates in other resource group will not be able to get these secrets.
+The custom role assignment for the developers/operators for the "deploy/action" permission is scoped to the resource group. This way only the VMs created in the resource group 'ContosoAppRG' will get the secrets (SSL cert and bootstrap cert). Any VMs that a member of dev/ops creates in other resource group will not be able to get these secrets.
 
 This example depicts a simple scenario. Real life scenarios may be more complex and you may need to adjust permissions to Key Vault based on your needs. For example, in our example, we assume that security team will provide the key and secret references (URIs and thumbprints) that developers/operators team need to reference in their applications. Hence they don't need to grant developers/operators any data plane access. But if you want the developers/operators to be able to pick keys from Azure Portal while enabling encryption at rest for an Azure workload, they will need 'list' permission for keys and secrets. Also note that this example focuses on securing your key vault. Similar consideration should be given to securing your VMs, storage accounts and other resources too.
 
