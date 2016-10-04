@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/23/2016"
+	ms.date="10/01/2016"
 	ms.author="maheshu"/>
 
 # How to decide if Azure AD Domain Services is right for your use-case
@@ -31,22 +31,23 @@ To decide whether to use Azure AD Domain Services or spin up and manage your own
 ## Compare Azure AD Domain Services to DIY AD domain in Azure
 The following table helps you decide between using Azure AD Domain Services and managing your own AD infrastructure in Azure.
 
-|Feature|Azure AD Domain Services|'Do-it-yourself' AD in Azure VMs|
+|**Feature**|**Azure AD Domain Services**|**'Do-it-yourself' AD in Azure VMs**|
 |---|:---:|:---:|
-|[**Managed service**](active-directory-ds-comparison.md#managed-service)|Yes|No|
-|[**Secure deployments**](active-directory-ds-comparison.md#secure-deployments)|Yes|Administrator needs to secure the deployment.|
-|[**DNS server**](active-directory-ds-comparison.md#dns-server)|Yes (managed service)|Yes|
-|[**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges)|No|Yes|
-|[**Domain join**](active-directory-ds-comparison.md#domain-join)|Yes|Yes|
-|[**Domain authentication using NTLM and Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos)|Yes|Yes|
-|[**Custom OU structure**](active-directory-ds-comparison.md#custom-ou-structure)|Yes|Yes|
-|[**Schema extensions**](active-directory-ds-comparison.md#schema-extensions)|No|Yes|
-|[**AD domain/forest trusts**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts)|No|Yes|
-|[**LDAP read**](active-directory-ds-comparison.md#ldap-read)|Yes|Yes|
-|[**Secure LDAP (LDAPS)**](active-directory-ds-comparison.md#secure-ldap)|Yes|Yes|
-|[**LDAP write**](active-directory-ds-comparison.md#ldap-write)|No|Yes|
+|[**Managed service**](active-directory-ds-comparison.md#managed-service)|**&#x2713;**|**&#x2715;**|
+|[**Secure deployments**](active-directory-ds-comparison.md#secure-deployments)|**&#x2713;**|Administrator needs to secure the deployment.|
+|[**DNS server**](active-directory-ds-comparison.md#dns-server)|**&#x2713;** (managed service)|**&#x2713;**|
+|[**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges)|**&#x2715;**|**&#x2713;**|
+|[**Domain join**](active-directory-ds-comparison.md#domain-join)|**&#x2713;**|**&#x2713;**|
+|[**Domain authentication using NTLM and Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos)|**&#x2713;**|**&#x2713;**|
+|[**Custom OU structure**](active-directory-ds-comparison.md#custom-ou-structure)|**&#x2713;**|**&#x2713;**|
+|[**Schema extensions**](active-directory-ds-comparison.md#schema-extensions)|**&#x2715;**|**&#x2713;**|
+|[**AD domain/forest trusts**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts)|**&#x2715;**|**&#x2713;**|
+|[**LDAP read**](active-directory-ds-comparison.md#ldap-read)|**&#x2713;**|**&#x2713;**|
+|[**Secure LDAP (LDAPS)**](active-directory-ds-comparison.md#secure-ldap)|**&#x2713;**|**&#x2713;**|
+|[**LDAP write**](active-directory-ds-comparison.md#ldap-write)|**&#x2715;**|**&#x2713;**|
 |[**Group Policy**](active-directory-ds-comparison.md#group-policy)|Simple|Full|
-|[**Geo-dispersed deployments**](active-directory-ds-comparison.md#geo-dispersed-deployments)|No|Yes|
+|[**Geo-distributed deployments**](active-directory-ds-comparison.md#geo-dispersed-deployments)|**&#x2715;**|**&#x2713;**|
+
 
 #### Managed service
 Azure AD Domain Services domains are managed by Microsoft. You do not have to worry about patching, updates, monitoring, backups, and ensuring availability of your domain. These management tasks are offered as a service by Microsoft Azure for your managed domains.

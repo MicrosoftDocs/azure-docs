@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2016"
+	ms.date="10/03/2016"
 	ms.author="maheshu"/>
 
 # Get started with Azure AD Domain Services
@@ -39,15 +39,19 @@ In this configuration task, you create the administrative group and add one or m
 
 5. To add a group to your Azure AD tenant, click **Add Group** from the task pane at the bottom of the page.
 
-6. Create a group named **AAD DC Administrators**.
+    ![Add group button](./media/active-directory-domain-services-getting-started/add-group-button.png)
 
-    > [AZURE.WARNING] Create a group with this exact name to enable access within Azure AD Domain Services.
+6. Create a group named **AAD DC Administrators**. Set **GROUP TYPE** to **Security**.
+
+    > [AZURE.WARNING] To enable access within your Azure AD Domain Services managed domain, create a group with this exact name.
 
 	![Create administrator group](./media/active-directory-domain-services-getting-started/create-admin-group.png)
 
 7. Add a description for this group so others understand that this group is used to grant administrative privileges within Azure AD Domain Services.
 
 8. After the group has been created, click the name of the group to see the properties of this group. To add users as members of this group, click the **Add members** button on the bottom panel.
+
+    ![Add group members button](./media/active-directory-domain-services-getting-started/add-group-members-button.png)
 
 9. In the **Add members** dialog, select the users who should be members of this group and select the checkbox when you are done.
 

@@ -27,6 +27,8 @@
 When you have an application that needs to access or modify resources, you must set up an Active Directory (AD) application and assign the required permissions to it. This topic shows you how to perform those steps through the portal. Currently, you must use the classic portal to create a new Active Directory application, and then switch to the Azure portal to assign a role to the application. 
 
 > [AZURE.NOTE] You may find it easier to set up your AD application and service principal through [PowerShell](resource-group-authenticate-service-principal.md) or [Azure CLI](resource-group-authenticate-service-principal-cli.md), especially if you want to use a certificate for authentication. This topic does not show how to use a certificate.
+>
+> The steps in this topic only apply when using the classic portal to create the AD application. If you use the Azure portal for creating the AD application, these steps will not succeed.
 
 For an explanation of Active Directory concepts, see [Application Objects and Service Principal Objects](./active-directory/active-directory-application-objects.md). 
 For more information about Active Directory authentication, see [Authentication Scenarios for Azure AD](./active-directory/active-directory-authentication-scenarios.md).
@@ -35,7 +37,7 @@ For detailed steps on integrating an application into Azure for managing resourc
 
 ## Create an Active Directory application
 
-1. Log in to your Azure Account through the [classic portal](https://manage.windowsazure.com/).
+1. Log in to your Azure Account through the [classic portal](https://manage.windowsazure.com/). 
 
 2. Make sure you know the default Active Directory for your subscription. You can only grant access for applications in the same directory as your subscription. Select **Settings** and look for the directory name associated with your subscription.  For more information, see [How Azure subscriptions are associated with Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
    

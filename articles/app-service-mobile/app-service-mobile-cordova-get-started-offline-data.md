@@ -2,7 +2,7 @@
     pageTitle="Enable offline sync for your Azure Mobile App (Cordova) | Microsoft Azure"
     description="Learn how to use App Service Mobile App to cache and sync offline data in your Cordova application"
     documentationCenter="cordova"
-    authors="mikejo5000"
+    authors="adrianhall"
     manager="erikre"
     editor=""
     services="app-service\mobile"/>
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="mobile-cordova-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="08/14/2016"
-    ms.author="mikejo"/>
+	ms.date="10/01/2016"
+    ms.author="adrianha"/>
 
 # Enable offline sync for your Cordova mobile app
 
