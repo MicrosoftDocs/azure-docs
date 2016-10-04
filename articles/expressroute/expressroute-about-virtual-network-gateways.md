@@ -31,7 +31,7 @@ Each virtual network can have only one virtual network gateway per gateway type.
 
 [AZURE.INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-If you want to upgrade your gateway to a more powerful gateway SKU, in most cases you can use the 'Resize-AzureRmVirtualNetworkGateway' PowerShell cmdlet. This will work for upgrades to Standard and HighPerformance SKUs. To upgrade to the UltraPerformance SKU, you will need to recreate the gateway.
+If you want to upgrade your gateway to a more powerful gateway SKU, in most cases you can use the 'Resize-AzureRmVirtualNetworkGateway' PowerShell cmdlet. This will work for upgrades to Standard and HighPerformance SKUs. However, to upgrade to the UltraPerformance SKU, you will need to recreate the gateway.
 
 ###  <a name="aggthroughput"></a>Estimated aggregate throughput by gateway SKU
 
