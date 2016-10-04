@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="06/20/2016" 
+	ms.date="10/04/2016" 
 	ms.author="sethm"/>
 
 # How to use the Java Message Service (JMS) API with Service Bus and AMQP 1.0
@@ -26,7 +26,7 @@ This how-to guide explains how to use the Service Bus brokered messaging feature
 
 ## Get started with Service Bus
 
-This guide assumes that you already have a Service Bus namespace containing a queue named **queue1**. If you do not, then you can create the namespace and queue using the [Azure classic portal](http://manage.windowsazure.com). For more information about how to create Service Bus namespaces and queues, see [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md).
+This guide assumes that you already have a Service Bus namespace containing a queue named **queue1**. If you do not, then you can [create the namespace and queue](../service-bus/service-bus-create-namespace-portal.md) using the [Azure portal](https://portal.azure.com). For more information about how to create Service Bus namespaces and queues, see [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md).
 
 ### Downloading the AMQP 1.0 JMS client library
 
@@ -322,7 +322,7 @@ The following restrictions exist when using JMS over AMQP 1.0 with Service Bus, 
 
 ## Summary
 
-This how-to guide showed how to use Service Bus brokered messaging features (queues and publish/subscribe topics) from Java using the popular JMS API and AMQP 1.0.
+This article showed how to use Service Bus messaging features (queues and publish/subscribe topics) from Java using the popular JMS API and AMQP 1.0.
 
 You can also use Service Bus AMQP 1.0 from other languages, including .NET, C, Python, and PHP. Components built using these different languages can exchange messages reliably and at full fidelity using the AMQP 1.0 support in Service Bus. For more information, see the [Service Bus AMQP 1.0 Developer's Guide](service-bus-amqp-dotnet.md).
 
