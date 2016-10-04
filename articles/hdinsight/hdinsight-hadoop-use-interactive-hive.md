@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Use Interactive Hive in HDInsight? | Microsoft Azure"
-	description="Learn how to use Interactive Hive in HDInsight."
+	description="Learn how to use Interactive Hive (Hive on LLAP) in HDInsight."
 	keywords=""
 	services="hdinsight"
 	documentationCenter=""
@@ -19,8 +19,7 @@
 	ms.author="jgao"/>
 
 
-Use Interactive Hive (Hive on LLAP) in HDInsight
-
+# Use Interactive Hive in HDInsight (Preview)
 
 Interactive Hive (A.K.A. [Long Live and Process]( https://cwiki.apache.org/confluence/display/Hive/LLAP) is a new HDInsight [cluster type]( hdinsight-hadoop-provision-linux-clusters.md#cluster-types).  Interactive Hive allows in memory caching that makes Hive queries much more interactive and faster. This new feature makes HDInsight one of the world’s most performant, flexible and open Big Data solution on the cloud with in-memory caches (using Hive and Spark) and advanced analytics through deep integration with R Services. 
 
