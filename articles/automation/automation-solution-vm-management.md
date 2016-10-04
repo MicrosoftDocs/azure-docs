@@ -132,10 +132,9 @@ Selecting the solution will display the **Start-Stop-VM[Workspace]** solution bl
 
 To enable email notifications when the start and stop VM runbooks complete, you will need to modify the **O365Credential** credential and at a minimum, the following variables:
 
-- SendMailO365-IsSendEmail-MS-Mgmt
-- StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt
-- StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt
-
+ - SendMailO365-IsSendEmail-MS-Mgmt
+ - StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt
+ - StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt
 
 To configure the **O365Credential** credential, perform the following steps:
 
@@ -150,7 +149,6 @@ To configure the variables highlighted earlier, perform the following steps:
 2. On the **Settings** blade under the section **Automation Resources**, select **Assets**. 
 3. On the **Assets** blade, select the **Variables** tile and from the **Variables** blade, select the variable listed above and then modify its value following the description for it specified in the [variable](##variables) section earlier.  
 4. Click **Save** to save the changes to the variable.   
-<br> 
 
 ## Log Analytics records
 
