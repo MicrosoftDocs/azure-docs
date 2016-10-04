@@ -19,7 +19,7 @@
 # Azure AD Connect: Upgrade from DirSync
 Azure AD Connect is the successor to DirSync. You find the ways you can upgrade from DirSync in this topic. These steps do not work for upgrading from another release of Azure AD Connect or from Azure AD Sync.
 
-Before you start installing Azure AD Connect, make sure to [download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) and complete the pre-requisite steps in [Azure AD Connect: Hardware and prerequisites](active-directory-aadconnect-prerequisites.md). In particular, you want to read about the following, since these areas are different from DirSync:
+Before you start installing Azure AD Connect, make sure to [download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) and complete the pre-requisite steps in [Azure AD Connect: Hardware and prerequisites](../active-directory-aadconnect-prerequisites.md). In particular, you want to read about the following, since these areas are different from DirSync:
 
 - The required version of .Net and PowerShell. Newer versions are required to be on the server than what DirSync needed.
 - The proxy server configuration. If you use a proxy server to reach the internet, this setting must be configured before you upgrade. DirSync always used the proxy server configured for the user installing it, but Azure AD Connect uses machine settings instead.
@@ -60,7 +60,7 @@ The following change cannot be upgraded. If you have this configuration, the upg
 
 ![Upgrade blocked](./media/active-directory-aadconnect-dirsync-upgrade-get-started/analysisblocked.png)
 
-In those cases, the recommendation is to install a new Azure AD Connect server in [staging mode](active-directory-aadconnectsync-operations.md#staging-mode) and verify the old DirSync and new Azure AD Connect configuration. Reapply any changes using custom configuration, as described in [Azure AD Connect Sync custom configuration](active-directory-aadconnectsync-whatis.md).
+In those cases, the recommendation is to install a new Azure AD Connect server in [staging mode](../active-directory-aadconnectsync-operations.md#staging-mode) and verify the old DirSync and new Azure AD Connect configuration. Reapply any changes using custom configuration, as described in [Azure AD Connect Sync custom configuration](../active-directory-aadconnectsync-whatis.md).
 
 The passwords used by DirSync for the service accounts cannot be retrieved and are not migrated. These passwords are reset during the upgrade.
 
@@ -99,7 +99,7 @@ To proceed with an in-place upgrade, click the checkbox next to this message: **
 To do a [parallel deployment](#parallel-deployment) instead, you export the DirSync configuration settings and move the configuration to the new server.
 5. Provide the password for the account you currently use to connect to Azure AD. This must be the account currently used by DirSync.
 ![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToAzureAD.png)  
-If you receive an error and have problems with connectivity, see [Troubleshoot connectivity problems](active-directory-aadconnect-troubleshoot-connectivity.md).
+If you receive an error and have problems with connectivity, see [Troubleshoot connectivity problems](../active-directory-aadconnect-troubleshoot-connectivity.md).
 6. Provide an enterprise admin account for Active Directory.
 ![Enter your ADDS credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToADDS.png)
 7. You're now ready to configure. When you click **Upgrade**, DirSync is uninstalled and Azure AD Connect is configured and begins synchronizing.
@@ -157,11 +157,11 @@ When you install Azure AD Connect on a new server, the assumption is that you wa
 These options can be seen on this screen:
 ![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
 7. Click **Next**.
-8. On the **Ready to configure** page, leave the **Start the synchronization process as soon as the configuration completes** checked. The server is now in [staging mode](active-directory-aadconnectsync-operations.md#staging-mode) so changes are not exported to Azure AD.
+8. On the **Ready to configure** page, leave the **Start the synchronization process as soon as the configuration completes** checked. The server is now in [staging mode](../active-directory-aadconnectsync-operations.md#staging-mode) so changes are not exported to Azure AD.
 9. Click **Install**.
 10. After the installation has completed, sign out and sign in again to Windows before you use Synchronization Service Manager, Synchronization Rule Editor, or try to make any other configuration changes.
 
->[AZURE.NOTE] Synchronization between Windows Server Active Directory and Azure Active Directory begins, but no changes are exported to Azure AD. Only one synchronization tool can be actively exporting changes at a time. This state is called [staging mode](active-directory-aadconnectsync-operations.md#staging-mode).
+>[AZURE.NOTE] Synchronization between Windows Server Active Directory and Azure Active Directory begins, but no changes are exported to Azure AD. Only one synchronization tool can be actively exporting changes at a time. This state is called [staging mode](../active-directory-aadconnectsync-operations.md#staging-mode).
 
 ### Verify that Azure AD Connect is ready to begin synchronization
 
@@ -178,7 +178,7 @@ In the application, go to the **Operations** tab. On this tab, confirm that the 
 
 Review the result from these operations and ensure there are no errors.
 
-If you want to see and inspect the changes that are about to be exported to Azure AD, then read how to verify the configuration under [staging mode](active-directory-aadconnectsync-operations.md#staging-mode). Make required configuration changes until you do not see anything unexpected.
+If you want to see and inspect the changes that are about to be exported to Azure AD, then read how to verify the configuration under [staging mode](../active-directory-aadconnectsync-operations.md#staging-mode). Make required configuration changes until you do not see anything unexpected.
 
 You are ready to switch from DirSync to Azure AD when you have completed these steps and are happy with the result.
 
@@ -210,20 +210,20 @@ You should see the following:
 Azure AD Connect is now your active server.
 
 ## Next steps
-Now that you have Azure AD Connect installed you can [verify the installation and assign licenses](active-directory-aadconnect-whats-next.md).
+Now that you have Azure AD Connect installed you can [verify the installation and assign licenses](../active-directory-aadconnect-whats-next.md).
 
-Learn more about these new features, which were enabled with the installation: [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md), [Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md), and [Azure AD Connect Health](active-directory-aadconnect-health-sync.md).
+Learn more about these new features, which were enabled with the installation: [Automatic upgrade](../active-directory-aadconnect-feature-automatic-upgrade.md), [Prevent accidental deletes](../active-directory-aadconnectsync-feature-prevent-accidental-deletes.md), and [Azure AD Connect Health](../active-directory-aadconnect-health-sync.md).
 
-Learn more about these common topics: [scheduler and how to trigger sync](active-directory-aadconnectsync-feature-scheduler.md).
+Learn more about these common topics: [scheduler and how to trigger sync](../active-directory-aadconnectsync-feature-scheduler.md).
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](../active-directory-aadconnect.md).
 
 ## Related documentation
 
 Topic |  
 --------- | ---------
-Azure AD Connect overview | [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-Upgrade from a previous Connect version | [Upgrade from a previous version of Connect](active-directory-aadconnect-upgrade-previous-version.md)
+Azure AD Connect overview | [Integrating your on-premises identities with Azure Active Directory](../active-directory-aadconnect.md)
+Upgrade from a previous Connect version | [Upgrade from a previous version of Connect](../active-directory-aadconnect-upgrade-previous-version.md)
 Install using Express settings | [Express installation of Azure AD Connect](active-directory-aadconnect-get-started-express.md)
 Install using customized settings | [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
 Accounts used for installation | [More about Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md)
