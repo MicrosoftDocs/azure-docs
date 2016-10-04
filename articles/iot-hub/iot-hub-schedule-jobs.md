@@ -133,7 +133,7 @@ In this section, you create a Node.js console app that initiates a remote lockDo
 2. At your command-prompt in the **scheduleJobService** folder, run the following command to install the **azure-iothub** Device SDK package and **azure-iot-device-mqtt** package:
 
     ```
-    npm install azure-iot-hub@dtpreview uuid --save
+    npm install azure-iothub@dtpreview uuid --save
     ```
     
 3. Using a text editor, create a new **scheduleJobService.js** file in the **scheduleJobService** folder.
