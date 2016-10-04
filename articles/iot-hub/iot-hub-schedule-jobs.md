@@ -64,7 +64,7 @@ In this section, you create a Node.js console app that responds to a direct meth
 2. At your command-prompt in the **simDevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
 
     ```
-    npm install azure-iot-device azure-iot-device-mqtt --save
+    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
     ```
 
 3. Using a text editor, create a new **simDevice.js** file in the **simDevice** folder.
@@ -91,11 +91,11 @@ In this section, you create a Node.js console app that responds to a direct meth
     var onLockDoor = function(request, response) {
         
         // Respond the cloud app for the direct method
-        response.end(200, function(err) {
-            if (!!err) {
+        response.send(200, function(err) {
+            if (!err) {
                 console.error('An error occured when sending a method response:\n' + err.toString());
             } else {
-                console.error('Response to method \'' + request.methodName + '\' sent successfully.');
+                console.log('Response to method \'' + request.methodName + '\' sent successfully.');
             }
         });
         
@@ -133,7 +133,7 @@ In this section, you create a Node.js console app that initiates a remote lockDo
 2. At your command-prompt in the **scheduleJobService** folder, run the following command to install the **azure-iothub** Device SDK package and **azure-iot-device-mqtt** package:
 
     ```
-    npm install azure-iot-hub --save
+    npm install azure-iot-hub@dtpreview uuid --save
     ```
     
 3. Using a text editor, create a new **scheduleJobService.js** file in the **scheduleJobService** folder.
