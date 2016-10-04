@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/16/2016"
+   ms.date="10/04/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager overview
@@ -71,9 +71,29 @@ When creating a resource group, you need to provide a location for that resource
 
 ## Resource providers
 
-Each resource provider offers a set of resources and operations for working with technical area. For example, if you want to store keys and secrets, you work with the **Microsoft.KeyVault** resource provider. This resource provider offers a resource type called **vaults** for creating the key vault, and a resource type called **vaults/secrets** for creating a secret in the key vault. It also provides operations through [Key Vault REST API operations](https://msdn.microsoft.com/library/azure/dn903609.aspx). You can call the REST API directly or you can use [Key Vault PowerShell cmdlets](https://msdn.microsoft.com/library/dn868052.aspx) and [Key Vault Azure CLI](./key-vault/key-vault-manage-with-cli.md) to manage the key vault. You can also use several programming languages to work with most resources. For more information, see [SDKs and samples](#sdks-and-samples). 
+Each resource provider offers a set of resources and operations for working with technical area. For example, if you want to store keys and secrets, you work with the **Microsoft.KeyVault** resource provider. This resource provider offers a resource type called **vaults** for creating the key vault, and a resource type called **vaults/secrets** for creating a secret in the key vault. 
 
-To deploy and manage your infrastructure, you need to know details about the resource provider. You need to know its resource types, the version numbers for REST API operations, the supported operations, and the schema to use for creating resources. To learn about the supported resource providers, see [Resource Manager providers, regions, API versions, and schemas](resource-manager-supported-services.md).
+Before getting started with deploying your resources, you should gain an understanding of the available resource providers. Knowing the names of resource providers and resources will help you define resources you want to deploy to Azure.
+
+You retrieve all resource providers with the following PowerShell cmdlet:
+
+    Get-AzureRmResourceProvider -ListAvailable
+
+It returns the full list of resource providers. You can look through that list for the resource providers that you need to use.
+
+To retrieve the supported resource types for a resource provider (such as Microsoft.Compute), and the supported locations and API versions for each resource type, use:
+
+    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+
+Or, with Azure CLI, you retrieve all resource providers with the following command:
+
+    azure provider list
+
+You retrieve details about the supported resource types for Microsoft.Compute with the following Azure CLI command:
+
+    azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+
+For more information, see [Resource Manager providers, regions, API versions, and schemas](resource-manager-supported-services.md).
 
 ## Template deployment
 
@@ -103,7 +123,22 @@ Resource Manager provides a tagging feature that enables you to categorize resou
 
 Resources do not need to reside in the same resource group to share a tag. You can create your own tag taxonomy to ensure that all users in your organization use common tags rather than users inadvertently applying slightly different tags (such as "dept" instead of "department").
 
-For more information about tags, see [Using tags to organize your Azure resources](resource-group-using-tags.md). You can create a [customized policy](#manage-resources-with-customized-policies) that requires adding tags to resources during deployment.
+The following example shows a tag applied to a virtual machine.
+
+    "resources": [    
+      {
+        "type": "Microsoft.Compute/virtualMachines",
+        "apiVersion": "2015-06-15",
+        "name": "SimpleWindowsVM",
+        "location": "[resourceGroup().location]",
+        "tags": {
+            "costCenter": "Finance"
+        },
+        ...
+      }
+    ]
+
+The [usage report](billing-understand-your-bill.md) for your subscription includes tag names and values which enables you to break out costs by tags. For more information about tags, see [Using tags to organize your Azure resources](resource-group-using-tags.md). You can create a [customized policy](#manage-resources-with-customized-policies) that requires adding tags to resources during deployment.
 
 ## Access control
 
@@ -119,7 +154,51 @@ For best practices, see [Security considerations for Azure Resource Manager](bes
 
 ## Manage resources with customized policies
 
-Resource Manager enables you to create customized policies for managing your resources. The types of policies you create can include diverse scenarios. You can enforce a naming convention on resources, limit which types and instances of resources can be deployed, or limit which regions can host a type of resource. You can require a tag value on resources to organize billing by departments. You create policies to help reduce costs and maintain consistency in your subscription. For more information, see [Use Policy to manage resources and control access](resource-manager-policy.md).
+Resource Manager enables you to create customized policies for managing your resources. The types of policies you create can include diverse scenarios. You can enforce a naming convention on resources, limit which types and instances of resources can be deployed, or limit which regions can host a type of resource. You can require a tag value on resources to organize billing by departments. You create policies to help reduce costs and maintain consistency in your subscription. 
+
+You define policies with JSON and then apply those policies either across your subscription or within a resource group. Policies are different than role-based access control because they are applied to resource types.
+
+The following example shows a policy that ensures tag consistency by specifying that all resources include a costCenter tag.
+
+    {
+      "if": {
+        "not" : {
+          "field" : "tags",
+          "containsKey" : "costCenter"
+        }
+      },
+      "then" : {
+        "effect" : "deny"
+      }
+    }
+
+To prevent someone from deploying an unnecessarily expensive resources (such as in a test environment), you can restrict the permitted sizes. The following example shows how to restrict the virtual machines sku.
+
+    {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Compute/virtualMachines"
+          },
+          {
+            "not": {
+              "allof": [
+                {
+                  "field": "Microsoft.Compute/virtualMachines/sku.name",
+                  "in": ["Standard_DS1_V2", "Standard_DS2_V2"]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+
+The previous examples show actions that are denied if the request is not valid; however, you can instead choose to create an alert or append a value to the request. For more information, see [Use Policy to manage resources and control access](resource-manager-policy.md).
 
 ## Consistent management layer
 
