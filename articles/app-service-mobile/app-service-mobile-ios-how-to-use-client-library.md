@@ -3,8 +3,8 @@
 	description="How to Use iOS SDK for Azure Mobile Apps"
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="krisragh"
-	manager="dwrede"
+	authors="adrianhall"
+	manager="yochayk"
 	editor=""/>
 
 <tags
@@ -248,6 +248,44 @@ query.parameters = @{
 
 ```
 query.parameters = ["myKey1": "value1", "myKey2": "value2"]
+```
+
+## <a name="paging"></a>How to: Configure Page Size
+
+With Azure Mobile Apps, the page size controls the number of records that are pulled at a time from the backend tables. A call to `pull` data would then batch up data, based on this page size, until there are no more records to pull.
+
+It's possible to configure a page size using **MSPullSettings** as shown below. The default page size is 50, and the example below changes it to 3.
+
+You could configure a different page size for performance reasons. If you have a large number of small data records, a high page size reduces the number of server round-trips. 
+
+This setting controls only the page size on the client side. If the client asks for a larger page size than the Mobile Apps backend supports, the page size is capped at the maximum the backend is configured to support. 
+
+This setting is also the _number_ of data records, not the _byte size_.
+
+If you increase the client page size, [you should also increase the page size on the server](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#_how-to-adjust-the-table-paging-size).
+
+**Objective-C**:
+
+```
+  MSPullSettings *pullSettings = [[MSPullSettings alloc] initWithPageSize:3];
+  [table  pullWithQuery:query queryId:@nil settings:pullSettings
+                        completion:^(NSError * _Nullable error) {
+                               if(error) {
+					NSLog(@"ERROR %@", error);
+				} 
+                           }];
+```
+
+
+**Swift**:
+
+```
+let pullSettings = MSPullSettings(pageSize: 3)
+table.pullWithQuery(query, queryId:nil, settings: pullSettings) { (error) in
+    if let err = error {
+        print("ERROR ", err)
+    } 
+}
 ```
 
 ##<a name="inserting"></a>How to: Insert Data

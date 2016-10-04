@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/25/2016"
+   ms.date="10/03/2016"
    ms.author="kipandya"/>
    
 # Developing with multi-region DocumentDB accounts
@@ -90,7 +90,7 @@ Below is a code example for NodeJS/Javascript. Python and Java will follow the s
 ## REST 
 Once a database account has been made available in multiple regions, clients can query its availability by performing a GET request on the following URI.
 
-    https://{databaseaccount}.documents.azure.com/dbs
+    https://{databaseaccount}.documents.azure.com/
 
 The service will return a list of regions and their corresponding DocumentDB endpoint URIs for the replicas. The current write region will be indicated in the response. The client can then select the appropriate endpoint for all further REST API requests as follows.
 

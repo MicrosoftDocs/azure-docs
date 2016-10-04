@@ -188,7 +188,7 @@ $cert = Get-Item Cert:\LocalMachine\My\<Thumbprint>
 Write-Host $cert.ToString($true)
 ```
 
-Alternatively, if you have an Azure subscription, you can follow the section [Acquire the X.509 certificates](service-fabric-secure-azure-cluster-with-certs.md#acquirecerts) to create your certificates.
+Alternatively, if you have an Azure subscription, follow the section [Add certificates to Key Vault](service-fabric-cluster-creation-via-arm.md#add-certificate-to-key-vault).
 
 ## Install the certificates
 Once you have certificate(s), you can install them on the cluster nodes. Your nodes need to have the latest Windows PowerShell 3.x installed on them. You will need to repeat these steps on each node, for both Cluster and Server certificates and any secondary certificates.

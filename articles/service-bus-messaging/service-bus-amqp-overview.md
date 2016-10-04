@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Service Bus AMQP overview | Microsoft Azure" 
 	description="Learn about using the Advanced Message Queuing Protocol (AMQP) 1.0 in Azure." 
-	services="service-bus-messaging,service-bus" 
+	services="service-bus-messaging" 
 	documentationCenter=".net" 
 	authors="sethmanheim" 
 	manager="timlt" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="09/29/2016" 
 	ms.author="sethm"/>
 
 

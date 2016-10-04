@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/21/2016" 
+	ms.date="09/27/2016" 
 	ms.author="mimig"/>
 
 # Performance tips for DocumentDB
@@ -46,7 +46,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     - TCP
     - HTTPS
 
-    DocumentDB offers a simple and open RESTful programming model over HTTPS. Additionally, it offers an efficient TCP protocol, which is also RESTful in its communication model and is available through the .NET client SDK. For best performance, use the TCP protocol when possible.
+    DocumentDB offers a simple and open RESTful programming model over HTTPS. Additionally, it offers an efficient TCP protocol, which is also RESTful in its communication model and is available through the .NET client SDK. Both Direct TCP and HTTPS use SSL for initial authentication and encrypting traffic. For best performance, use the TCP protocol when possible. 
 
     The Connectivity Mode is configured during the construction of the DocumentClient instance with the ConnectionPolicy parameter. If Direct Mode is used, the Protocol can also be set within the ConnectionPolicy parameter.
 
@@ -113,7 +113,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 6. **Implement backoff at RetryAfter intervals**
  
-    During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff on throttle for the server-specified retry interval. Respecting the  backoff ensures that you spend minimal amount of time waiting between retries. Retry policy support is included in Version 1.8.0 and above of the DocumentDB [.NET](documentdb-sdk-dotnet.md) and [Java](documentdb-sdk-java.md), and version 1.9.0 and above of the [Node.js](documentdb-sdk-nodejs.md) and [Python](documentdb-sdk-python.md). For more information, see [Exceeding reserved throughput limits](documentdb-request-units.md#exceeding-reserved-throughput-limits) and [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff on throttle for the server-specified retry interval. Respecting the  backoff ensures that you spend minimal amount of time waiting between retries. Retry policy support is included in Version 1.8.0 and above of the DocumentDB [.NET](documentdb-sdk-dotnet.md) and [Java](documentdb-sdk-java.md), and version 1.9.0 and above of the [Node.js](documentdb-sdk-node.md) and [Python](documentdb-sdk-python.md). For more information, see [Exceeding reserved throughput limits](documentdb-request-units.md#exceeding-reserved-throughput-limits) and [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
 
 7. **Scale out your client-workload**
 
@@ -135,7 +135,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 10. **Increase number of threads/tasks**
 
-	See [Increase number of threads/tasks](increase-threads.md) in the Networking section.
+	See [Increase number of threads/tasks](#increase-threads) in the Networking section.
 
 ## Indexing Policy
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/01/2016" 
+	ms.date="09/27/2016" 
 	ms.author="rnagpal"/>
 
 # DocumentDB APIs and SDKs 
@@ -40,6 +40,13 @@
 ## Release Notes
 
 > [AZURE.IMPORTANT] You may receive System.NotSupportedException when querying partitioned collections. To avoid this error, uncheck the "Prefer 32-bit" option in your project properties window, on the Build tab.
+
+### <a name="1.10.0"/>[1.10.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.10.0)
+
+  - Added direct connectivity support for partitioned collections.
+  - Improved performance for the Bounded Staleness consistency level.
+  - Added LINQ support for StringEnumConverter, IsoDateTimeConverter and UnixDateTimeConverter while translating predicates.
+  - Various SDK bug fixes.
 
 ### <a name="1.9.5"/>[1.9.5](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.5)
 
@@ -175,6 +182,7 @@ All versions of the Azure DocumentDB SDK for .NET prior to version **1.0.0** wil
  
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.10.0](#1.10.0) | September 27, 2016 |---
 | [1.9.5](#1.9.5) | September 01, 2016 |---
 | [1.9.4](#1.9.4) | August 24, 2016 |---
 | [1.9.3](#1.9.3) | August 15, 2016 |---

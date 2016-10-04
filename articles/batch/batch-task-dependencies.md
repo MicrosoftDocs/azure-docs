@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="06/29/2016"
+	ms.date="09/28/2016"
 	ms.author="marsma" />
 
 # Task dependencies in Azure Batch
@@ -24,17 +24,17 @@ The task dependencies feature of Azure Batch is a good fit if you want to proces
 - Jobs whose data processing tasks can be expressed as a directed acyclic graph (DAG).
 - Any other job in which downstream tasks depend on the output of upstream tasks.
 
-With this feature, you can create tasks that are scheduled for execution on compute nodes only after the successful completion of one or more other tasks. For example, you can create a job that renders each frame of a 3D movie with separate, parallel tasks. The final task--the "merge task"--merges the rendered frames into the complete movie only after all of the frames have been successfully rendered.
+Batch task dependencies allow you to create tasks that are scheduled for execution on compute nodes only after the successful completion of one or more other tasks. For example, you can create a job that renders each frame of a 3D movie with separate, parallel tasks. The final task--the "merge task"--merges the rendered frames into the complete movie only after all frames have been successfully rendered.
 
 You can create tasks that depend on other tasks in a one-to-one or one-to-many relationship. You can even create a range dependency where a task depends on the successful completion of a group of tasks within a specific range of task IDs. You can combine these three basic scenarios to create many-to-many relationships.
 
 ## Task dependencies with Batch .NET
 
-In this article, we discuss how to configure task dependencies by using the [Batch .NET][net_msdn] library. We first show you how to [enable task dependency](#enable-task-dependencies) on your jobs, and we then briefly demonstrate how to [configure a task with dependencies](#create-dependent-tasks). Finally, we discuss the [dependency scenarios](#dependency-scenarios) that Batch supports.
+In this article, we discuss how to configure task dependencies by using the [Batch .NET][net_msdn] library. We first show you how to [enable task dependency](#enable-task-dependencies) on your jobs, and then demonstrate how to [configure a task with dependencies](#create-dependent-tasks). Finally, we discuss the [dependency scenarios](#dependency-scenarios) that Batch supports.
 
 ## Enable task dependencies
 
-To use task dependencies in your Batch application, you must first tell the Batch service that the job will use task dependencies. In Batch .NET, enable it on your [CloudJob][net_cloudjob] by setting its [UsesTaskDependencies][net_usestaskdependencies] property to `true`:
+To use task dependencies in your Batch application, you must first tell the Batch service that the job uses task dependencies. In Batch .NET, enable it on your [CloudJob][net_cloudjob] by setting its [UsesTaskDependencies][net_usestaskdependencies] property to `true`:
 
 ```csharp
 CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
@@ -44,7 +44,7 @@ CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
 unboundJob.UsesTaskDependencies = true;
 ```
 
-In the above code snippet, "batchClient" is an instance of the [BatchClient][net_batchclient] class.
+In the preceding code snippet, "batchClient" is an instance of the [BatchClient][net_batchclient] class.
 
 ## Create dependent tasks
 
@@ -133,7 +133,7 @@ new CloudTask("4", "cmd.exe /c echo 4")
 
 ## Code sample
 
-The [TaskDependencies][github_taskdependencies] sample project is one of the [Azure Batch code samples][github_samples] on GitHub. This Visual Studio 2015 solution demonstrates how to enable task dependency on a job, create tasks that are dependent on other tasks, and execute those tasks on a pool of compute nodes.
+The [TaskDependencies][github_taskdependencies] sample project is one of the [Azure Batch code samples][github_samples] on GitHub. This Visual Studio 2015 solution demonstrates how to enable task dependency on a job, create tasks that depend on other tasks, and execute those tasks on a pool of compute nodes.
 
 ## Next steps
 
@@ -143,7 +143,7 @@ The [application packages](batch-application-packages.md) feature of Batch provi
 
 ### Installing applications and staging data
 
-Check out the [Installing applications and staging data on Batch compute nodes][forum_post] post in the Azure Batch forum for an overview of the various methods to prepare your nodes to run tasks. Written by one of the Azure Batch team members, this post is a good primer on the different ways to get files (including both applications and task input data) onto your compute nodes. It provides some special considerations to take into account for each method.
+Check out the [Installing applications and staging data on Batch compute nodes][forum_post] post in the Azure Batch forum for an overview of the various methods to prepare your nodes to run tasks. Written by one of the Azure Batch team members, this post is a good primer on the different ways to get files (including both applications and task input data) onto your compute nodes.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_taskdependencies]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies

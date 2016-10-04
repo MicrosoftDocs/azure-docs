@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="10/03/2016"
 	ms.author="wesmc" />
 
 #Push Notifications with Azure Notification Hubs - Frequently Asked Questions
@@ -63,7 +63,7 @@ Go to the [Azure Classic Portal], click Service Bus, and click on your namespace
 We provide SDKs and [complete samples] for .NET, Java, PHP, Python, Node.js so that an app backend can be setup to communicate to Notification Hubs using any of these platforms. Notification Hubs APIs are based on REST interfaces so you can choose to directly talk to those instead if you don't want to add an extra dependency. More details can be found on the [NH - REST APIs] page.
 
 ###2.	Which client platforms do you support?
-We support sending push notifications to [Apple iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-gcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push notification-apns-get-started.md) & [Android](xamarin-notification-hubs-push-notifications-android-gcm.md)), [Chrome Apps](notification-hubs-chrome-push-notifications-get-started.md) and [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari) platforms. For a complete list of getting started tutorials tackling sending push notifications on these platforms, visit our [NH - Getting Started Tutorials] page.
+We support sending push notifications to [Apple iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-gcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) & [Android](xamarin-notification-hubs-push-notifications-android-gcm.md)), [Chrome Apps](notification-hubs-chrome-push-notifications-get-started.md) and [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari) platforms. For a complete list of getting started tutorials tackling sending push notifications on these platforms, visit our [NH - Getting Started Tutorials] page.
 
 ###3.	Do you support SMS/Email/web notifications?
 Notification Hubs is primarily designed to send notifications to mobile apps using the platforms listed above. We do not yet provide the capability to send email or SMS alerts; however third party platforms which provide these capabilities can be integrated along with Notification Hubs to send native push notifications by using [Azure Mobile Apps].

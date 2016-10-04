@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="09/16/2016"
 	ms.author="sethm"/>
 
