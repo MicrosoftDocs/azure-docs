@@ -70,10 +70,10 @@ In this section, you create a Node.js console app that responds to a method call
     var DeviceClient = require('azure-iot-device').Client;
     ```
 
-5. Add a **connectionString** variable and use it to create a device client. Replace **{youriothostname}** with the name of the IoT hub you created in step 6 of the *Create a device management enabled IoT Hub* section. Replace **{yourdevicekey}** with the device key value you generated in the *Create a device identity* section:
+5. Add a **connectionString** variable and use it to create a device client. Replace **{device connection string}** with the connection string you generated in the *Create a device identity* section:
 
     ```
-    var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
+    var connectionString = '{device connection string}';
     var client = DeviceClient.fromConnectionString(connectionString, Mqtt);
     ```
 
