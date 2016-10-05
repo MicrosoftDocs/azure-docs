@@ -18,7 +18,9 @@
 	ms.author="kydeeds"/>
 
 
-#  ITAR Overview
+#  ITAR
+
+## Overview
 
 The information on this site is intended for Azure Government customers with obligations under the International Traffic in Arms Regulations (ITAR) who intend to use Azure Government services to store, process, or transmit regulated information. The information provided describes the capabilities of Microsoft Azure Government services, and provides general guidance applicable to ITAR customers. Before including ITAR-controlled data in your Azure Government subscription, you should familiarize yourself with the Azure Government capabilities and consult your account team if you have any questions.
 
@@ -28,7 +30,7 @@ You should refer to the <a href="http://www.microsoft.com/en-us/TrustCenter/Comp
 
 Entities with questions about eligibility for Azure Government should consult their account team.
 
-Next Steps:
+## Next Steps:
 
 <a href="https://www.microsoft.com/en-us/TrustCenter/Compliance/itar"> Microsoft Trust Center - ITAR web page </a>
 
