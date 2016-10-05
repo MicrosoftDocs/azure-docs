@@ -211,4 +211,8 @@ Contoso IT service management needs to quickly identify and handle threats. They
 
 To fulfill these requirements, Dave enables Azure Security Center. He ensures that the Azure Security Center is monitoring the resources, and provides access to the DevOps and security teams. 
 
+## Next steps
+
+- To learn about creating Resource Manager templates, see [Best practices for creating Azure Resource Manager templates](resource-manager-template-best-practices.md).
+
 *[Karl Kuhnhausen](https://github.com/karlkuhnhausen) contributed to this topic.*

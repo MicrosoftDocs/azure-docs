@@ -110,7 +110,7 @@ Azure Resource Manager policies are a powerful tool in the Azure toolkit. They e
 
 -   Enforce Department and Owner tags on all resources
 -   Restrict resource creation to the North American Region
--   Restrict the ability to create G-Series VM�s and HDInsight Clusters
+-   Restrict the ability to create G-Series VMs and HDInsight Clusters
 
 "Agile" Environment for a business unit creating cloud applications
 
@@ -129,7 +129,7 @@ Azure Resource Manager policies are a powerful tool in the Azure toolkit. They e
 >
 > You can apply additional policies at lower levels of scope.
  
-### Audit � What happened?
+### Audit - What happened?
 
 To view how your environment is functioning, you need to audit user activity. Most resource types within Azure create diagnostic logs that you can analyze through a log tool or in Azure Operations Management Suite. You can gather activity logs across multiple subscriptions to provide a departmental or enterprise view. Audit records are both an important diagnostic tool and a crucial mechanism to trigger events in the Azure environment.
 
@@ -208,7 +208,7 @@ Of the built-in roles, only Owner and User Access Administrator are granted thos
 
 ## Core networking resources
 
-Access to resources can be either internal (within the corporation�s network) or external (through the internet). It is easy for users in your organization to inadvertently put resources in the wrong spot, and potentially open them to malicious access. As with on-premise devices, enterprises must add appropriate controls to ensure that Azure users make the right decisions. For subscription governance, we identify core resources that provide basic control of access. The core resources consist of:
+Access to resources can be either internal (within the corporation's network) or external (through the internet). It is easy for users in your organization to inadvertently put resources in the wrong spot, and potentially open them to malicious access. As with on-premise devices, enterprises must add appropriate controls to ensure that Azure users make the right decisions. For subscription governance, we identify core resources that provide basic control of access. The core resources consist of:
 
 1.  **Virtual networks** are container objects for subnets. Though not strictly necessary, it is often used when connecting applications to internal corporate resources.
 2.  **Network security groups** are similar to a firewall and provide rules for how a resource can "talk" over the network. They provide granular control over how/if a subnet (or virtual machine) can connect to the Internet or other subnets in the same virtual network.
