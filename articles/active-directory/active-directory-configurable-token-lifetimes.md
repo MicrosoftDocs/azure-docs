@@ -160,7 +160,7 @@ Parameters|Description|Example|
 -IsTenantDefault|If true sets the policy as tenant's default policy, if false does nothing|-IsTenantDefault $true
 -Type|The type of policy, for token lifetimes always use "TokenLifetimePolicy"|-Type TokenLifetimePolicy
 -AlternativeIdentifier [Optional]|Sets an alternative id to the policy.|-AlternativeIdentifier myAltId
-
+</br></br>
 
 #### Get-AzureADPolicy         
 Gets all AzureAD Policies or specified policy 
@@ -170,6 +170,7 @@ Gets all AzureAD Policies or specified policy
 Parameters|Description|Example|
 -----| ----- |-----|
 -ObjectId [Optional]|The object Id of the Policy you would like to get. |-ObjectId &lt;ObjectID of Policy&gt; 
+</br></br>
 
 #### Get-AzureADPolicyAppliedObject         
 Gets all apps and service principals linked to a policy
@@ -179,6 +180,7 @@ Gets all apps and service principals linked to a policy
 Parameters|Description|Example|
 -----| ----- |-----|
 -ObjectId|The object Id of the Policy you would like to get.|-ObjectId &lt;ObjectID of Policy&gt;
+</br></br>
 
 #### Set-AzureADPolicy
 Updates an existing policy
@@ -193,6 +195,7 @@ Parameters|Description|Example|
 -IsTenantDefault [Optional]|If true sets the policy as tenant's default policy, if false does nothing|-IsTenantDefault $true
 -Type [Optional]|The type of policy, for token lifetimes always use "TokenLifetimePolicy"|-Type TokenLifetimePolicy
 -AlternativeIdentifier [Optional]|Sets an alternative id to the policy.|-AlternativeIdentifier myAltId
+</br></br>
 
 #### Remove-AzureADPolicy         
 Deletes the specified policy
@@ -202,6 +205,7 @@ Deletes the specified policy
 Parameters|Description|Example|
 -----| ----- |-----|
 -ObjectId|The object Id of the Policy you would like to get.|-ObjectId &lt;ObjectID of Policy&gt;
+</br></br>
 
 ### Application Policies
 The following cmdlets can be used for application policies.</br></br>
@@ -215,6 +219,7 @@ Parameters|Description|Example|
 -----| ----- |-----|
 -ObjectId|The object Id of the Application.|-ObjectId &lt;ObjectID of Application&gt; 
 -RefObjectId|The object Id of the Policy. |-RefObjectId &lt;ObjectID of Policy&gt;
+</br></br>
 
 #### Get-AzureADApplicationPolicy        
 Gets the policy assigned to an application
@@ -224,6 +229,7 @@ Gets the policy assigned to an application
 Parameters|Description|Example|
 -----| ----- |-----|
 -ObjectId|The object Id of the Application.|-ObjectId &lt;ObjectID of Application&gt; 
+</br></br>
 
 #### Remove-AzureADApplicationPolicy        
 Removes a policy from an application
@@ -234,6 +240,7 @@ Parameters|Description|Example|
 -----| ----- |-----|
 -ObjectId|The object Id of the Application.|-ObjectId &lt;ObjectID of Application&gt; 
 -PolicyId| The ObjectId of Policy.|-PolicyId &lt;ObjectID of Policy&gt;
+</br></br>
 
 ### Service Principal Policies
 The following cmdlets can be used for service principal policies.</br></br>
@@ -247,6 +254,7 @@ Parameters|Description|Example|
 -----| ----- |-----|
 -ObjectId|The object Id of the Application.|-ObjectId &lt;ObjectID of Application&gt; 
 -RefObjectId|The object Id of the Policy. |-RefObjectId &lt;ObjectID of Policy&gt;
+</br></br>
 
 #### Get-AzureADServicePrincipalPolicy        
 Gets any policy linked to the specified service principal
@@ -256,6 +264,7 @@ Gets any policy linked to the specified service principal
 Parameters|Description|Example|
 -----| ----- |-----|
 -ObjectId|The object Id of the Application.|-ObjectId &lt;ObjectID of Application&gt; 
+</br></br>
 
 #### Remove-AzureADServicePrincipalPolicy         
 Removes the policy from specified service principal
