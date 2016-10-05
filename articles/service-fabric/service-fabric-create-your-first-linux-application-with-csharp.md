@@ -93,7 +93,7 @@ Actor projects do not do anything on their own. They require another service or 
 
     ![Finding the primary replica in Service Fabric Explorer][sfx-primary]
 
-3. Click the node you found in the previous step, then select **Deactivate (restart)** from the Actions menu. This action restarts one of the five nodes in your local cluster and forces a failover to one of the secondary replicas running on another node. As you perform this action, pay attention to the output from the test client and note that the counter continues to increment despite the failover.
+3. Click the node you found in the previous step, then select **Deactivate (restart)** from the Actions menu. This action restarts one of the five nodes in your local cluster forcing a failover to a secondary replica running on another node. As you perform this action, pay attention to the output from the test client and note that the counter continues to increment despite the failover.
 
 
 ## Next steps
