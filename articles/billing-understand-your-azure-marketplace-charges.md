@@ -92,6 +92,6 @@ To change your payment method, follow these steps:
     
 If you want to cancel your external service order, you need to delete the resource in the [Azure portal](https://portal.azure.com).
 
-     ![Delete Resource](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
+![Delete Resource](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
 
 > [AZURE.NOTE] If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
