@@ -30,7 +30,7 @@ In DevTest Labs, a policy is a resource type that enables the RBAC action **Micr
 
 For example, in order to grant users read/write permission to the **Allowed VM Sizes** policy, you would create a custom role that works with the **Microsoft.DevTestLab/labs/policySets/policies/*** action, and then assign the appropriate users to this custom role in the scope of **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
-To learn more about custom roles in RBAC, see the [Custom Roles in Azure RBAC](../active-directory/role-based-access-control-configure.md#custom-roles-in-azure-rbac) section of the [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md) article.
+To learn more about custom roles in RBAC, see the [Custom roles access control](../active-directory/role-based-access-control-custom-roles.md).
 
 ##Creating a lab custom role using PowerShell
 In order to get started, you’ll need to read the following article, which will explain how to install and configure the Azure PowerShell cmdlets: [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre).
