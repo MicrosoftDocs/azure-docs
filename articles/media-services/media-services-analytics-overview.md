@@ -16,7 +16,7 @@
 	ms.date="09/14/2016"   
 	ms.author="milanga;juliako;johndeu"/>
 
-# Azure Media Services Analytics Overview | Microsoft Azure
+# Azure Media Services Analytics Overview
 
 ##Overview
 
@@ -130,7 +130,7 @@ Response:
 
 [Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-##Next step
+##Next steps
 
 Review Media Services learning paths.
 
