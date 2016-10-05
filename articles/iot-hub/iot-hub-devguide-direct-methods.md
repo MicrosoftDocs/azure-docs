@@ -16,7 +16,7 @@
  ms.date="09/30/2016" 
  ms.author="nberdy"/>
 
-# Invoke a direct method on a device
+# Invoke a direct method on a device (preview)
 
 ## Overview
 

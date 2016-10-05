@@ -21,7 +21,7 @@
 # Service Fabric Solution in Log Analytics
 
 > [AZURE.SELECTOR]
-- [Resource Manager](log-analytics-service-fabric-arm.md)
+- [Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
 - [PowerShell](log-analytics-service-fabric.md)
 
 This article describes how to use the Service Fabric solution in Log Analytics to help identify and troubleshoot issues across your Service Fabric cluster.
@@ -42,10 +42,10 @@ This template does the following:
 
 
 1. Deploys an Azure Service Fabric cluster already connected to a Log Analytics workspace. You have the option to create a new workspace while deploying the template, or input the name of an already existing Log Analytics workspace.
-2. Adds the diagnostic storage account to the Log Analytics workspace. 
+2. Adds the diagnostic storage account to the Log Analytics workspace.
 3. Enables the Service Fabric solution in your Log Analytics workspace.
 
-[![Deploy to Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-oms%2F%2Fazuredeploy.json) 
+[![Deploy to Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-oms%2F%2Fazuredeploy.json)
 
 
 Once you select the deploy button above, you will arrive on the Azure portal with parameters for you to edit. Be sure to create a new resource group if you input a new Log Analytics workspace name:
@@ -66,7 +66,7 @@ This template does the following:
 4. Installs the MMA agent extension in each VM scale set in your Service Fabric cluster. With the MMA agent installed, you are able to view performance metrics about your nodes.
 
 
-[![Deploy to Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-vmss-oms%2F%2Fazuredeploy.json) 
+[![Deploy to Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-vmss-oms%2F%2Fazuredeploy.json)
 
 
 Following the same steps above, input the necessary parameters, and kick off a deployment. Once again you should see the new workspace, cluster and WAD tables all created:
@@ -88,29 +88,29 @@ To view Perf Data from your nodes:
 </br>
 
 	a. Compare the average CPU Utilization across all your nodes in the last one hour to see which nodes are having issues and at what time interval a node had a spike:
-	
+
 	``` Type=Perf ObjectName=Processor CounterName="% Processor Time"|measure avg(CounterValue) by Computer Interval 1HOUR. ```
-	
+
 	![Service Fabric](./media/log-analytics-service-fabric/10.png)
-	
+
 
 	b. View similar line charts for available memory on each node with this query:
-	
-	```Type=Perf ObjectName=Memory CounterName="Available MBytes Memory" | measure avg(CounterValue) by Computer Interval 1HOUR.```
-	
-	To view a listing of all your nodes, showing the exact average value for Available MBytes for each node, use this query: 
-	
-	```Type=Perf (ObjectName=Memory) (CounterName="Available MBytes") | measure avg(CounterValue) by Computer ```
-	
-	![Service Fabric](./media/log-analytics-service-fabric/11.png)
-	
 
-	c. In the case that you want to drill down into a specific node by examining the hourly average, minimum, maximum and 75-percentile CPU usage, you're able to do this by using this query (replace Computer field): 
-	
+	```Type=Perf ObjectName=Memory CounterName="Available MBytes Memory" | measure avg(CounterValue) by Computer Interval 1HOUR.```
+
+	To view a listing of all your nodes, showing the exact average value for Available MBytes for each node, use this query:
+
+	```Type=Perf (ObjectName=Memory) (CounterName="Available MBytes") | measure avg(CounterValue) by Computer ```
+
+	![Service Fabric](./media/log-analytics-service-fabric/11.png)
+
+
+	c. In the case that you want to drill down into a specific node by examining the hourly average, minimum, maximum and 75-percentile CPU usage, you're able to do this by using this query (replace Computer field):
+
 	```Type=Perf CounterName="% Processor Time" InstanceName=_Total Computer="BaconDC01.BaconLand.com"| measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR```
-	
+
 	![Service Fabric](./media/log-analytics-service-fabric/12.png)
-	
+
 	Read more information about performance metrics in Log Analytics [here.] (https://blogs.technet.microsoft.com/msoms/tag/metrics/)
 
 
@@ -119,7 +119,7 @@ To view Perf Data from your nodes:
 This template simply adds your existing storage accounts to a new or existing Log Analytics workspace.
 </br>
 
-[![Deploy to Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Foms-existing-storage-account%2Fazuredeploy.json) 
+[![Deploy to Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Foms-existing-storage-account%2Fazuredeploy.json)
 
 >[AZURE.NOTE] In selecting a Resource Group, if you're working with an already existing Log Analytics workspace, select "Use Existing" and search for the resource group containing the OMS workspace. Create a new one if otherwise.
 ![Service Fabric](./media/log-analytics-service-fabric/8.png)
@@ -156,4 +156,4 @@ The following table shows data collection methods and other details about how da
 
 ## Next steps
 
-- Use [Log Searches in Log Analytics](log-analytics-log-searches.md) to view detailed Service Fabric event data. 
+- Use [Log Searches in Log Analytics](log-analytics-log-searches.md) to view detailed Service Fabric event data.

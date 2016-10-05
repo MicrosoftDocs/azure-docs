@@ -21,9 +21,9 @@
 
 ##Overview
 
-Anomaly Detection API is an example built with Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time. 
+[Anomaly Detection API](https://datamarket.azure.com/dataset/aml_labs/anomalydetection) is an example built with Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time. 
 
-This APIs can detect the following types of anomalous patterns in time series data:
+This API can detect the following types of anomalous patterns in time series data:
 
 * **Positive and negative trends**: For example, when monitoring memory usage in computing an upward trend may be of interest as it may be indicative of a memory leak,
 
@@ -31,15 +31,17 @@ This APIs can detect the following types of anomalous patterns in time series da
 
 * **Spikes and Dips**: For example, when monitoring the number of login failures in a service or number of checkouts in an e-commerce site, spikes or dips could indicate abnormal behavior.
 
-These machine learning detectors track such changes in values over time and reports ongoing changes in their values as anomaly scores. They do not require adhoc threshold tuning and their scores can be used to control false positive rate. The anomaly detection API is useful in several scenarios like service monitoring by tracking KPIs over time, usage monitoring through metrics such as number of searches, numbers of clicks, performance monitoring through counters like memory, CPU, file reads, etc. over time.
+These machine learning detectors track such changes in values over time and report ongoing changes in their values as anomaly scores. They do not require adhoc threshold tuning and their scores can be used to control false positive rate. The anomaly detection API is useful in several scenarios like service monitoring by tracking KPIs over time, usage monitoring through metrics such as number of searches, numbers of clicks, performance monitoring through counters like memory, CPU, file reads, etc. over time.
 
 The Anomaly Detection offering comes with useful tools to get you started. 
 
-* The [web application](http://anomalydetection-aml.azurewebsites.net/) helps you evaluate and visualize the results of anomaly detection APIs on your  data. 
+* The [web application](http://anomalydetection-aml.azurewebsites.net/) helps you evaluate and visualize the results of anomaly detection APIs on your data. 
 
 * The [sample code](http://adresultparser.codeplex.com/) shows how to programmatically access the API and parse the results in C#.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)] 
+> [AZURE.NOTE(Try *IT Anomaly Insights Solution* powered by this API)] 
+>
+> Get an end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank"> **Start here >**</a>
 
 
 ##API Definition
@@ -166,7 +168,7 @@ The anomaly detection API supports detectors in 3 broad categories. Details on s
 
 ###Parameters
 
-More detailed information on these input parameters are listed in the table below:
+More detailed information on these input parameters is listed in the table below:
 
 |Input Parameters|Description|Default Setting|Type|Valid Range|Suggested Range|
 |---|---|---|---|---|---|
