@@ -19,7 +19,11 @@
 
 # Log in to Azure from the Azure CLI
 
-The Azure CLI is a set of open-source, cross-platform commands for working with the Azure platform. This article describes different ways to provide your Azure account credentials to connect the Azure CLI to your Azure subscription. In most cases, you run the `azure login` CLI command.
+The Azure CLI is a set of open-source, cross-platform commands for working with Azure resources. This article describes the different ways to provide your Azure account credentials to connect the Azure CLI to your Azure subscription:
+
+* In most cases, you run the `azure login` CLI command to authenticate through Azure Active Directory. This gives you access to CLI commands in both [command modes](#CLI-command-modes). When you run the command without additional options, `azure login` prompts you to continue logging in interactively through a web portal. For additonal `azure login` command options, see the scenarios in this article, or type `azure login --help`.
+
+* If you only need to use Azure Service Management mode CLI commands (not recommended for most new deployments), you can download and install a publish settings file on your computer. 
 
 If you haven't already installed the CLI, see [Install the Azure CLI](xplat-cli-install.md). If you don't have an Azure subscription, you can create a [free account](http://azure.microsoft.com/free/) in just a couple of minutes. 
 
@@ -28,23 +32,13 @@ For background about different account identities and Azure subscriptions, see [
 
 
 
-## azure login 
-
-
-Run the `azure login` command to authenticate through Azure Active Directory using your work or school account (also called an *organizational account*), or with your Microsoft account. 
-
-Also use the `azure login` command to authenticate a service principal for an Azure Active Directory application, which is useful for running automated services. 
-
-After logging in with a supported account identity, you can use either Azure Resource Manager mode or Azure Service Management mode CLI commands. For more about the different modes, see [CLI command modes](CLI-command-modes) in this article.
-
-The following sections show different scenarios to run `azure login`. For additional command options, type `azure login --help`.
 
 
 ## Scenario 1: azure login with interactive login 
 
-With certain accounts, the CLI requires you to run `azure login` and then continue the login process with a web brower through a web portal, a process called *interactive login*. A common reason is when you have an organizational account that is set up to require multifactor authentication. Also use interactive login with your Microsoft account, when you want to use Resource Manager mode commands.
+With certain accounts, the CLI requires you to run `azure login` and then continue the login process with a web brower through a web portal, a process called *interactive login*. A common reason is when you have a work or school account (also called an *organizational account*)  that is set up to require multifactor authentication. Also use interactive login with your Microsoft account, when you want to use Resource Manager mode commands.
 
-Interactive login is easy: type `azure login` -- without any arguments -- as shown in the following example:
+Interactive login is easy: type `azure login` -- without any options -- as shown in the following example:
 
 ```
 azure login
@@ -71,26 +65,36 @@ Copy the code offered to you in the command output, and open a browser to http:/
 
 Use the `azure login` command with the username (`-u`) parameter to authenticate when you want to use a work or school account that doesn't require multifactor authentication. You are prompted at the command line for the password (or you can optionally pass the password as an additional parameter of the `azure login` command). The following example passes the username of an organizational account:
 
-	azure login -u myusername@contoso.onmicrosoft.com
-	info:    Executing command login
+	azure login -u myUserName@contoso.onmicrosoft.com
+	
+You are then prompted to enter your password:
+
+    info:    Executing command login
 	Password: *********
-	|info:    Added subscription Visual Studio Ultimate with MSDN
+    
+The login process then completes.
+
+    info:    Added subscription Visual Studio Ultimate with MSDN
 	+
 	info:    login command OK
 
-If this is your first time logging in with these credentials, you are asked to verify that you wish to cache an authentication token. This prompt also occurs if you have previously used the `azure logout` command (described later in the article). To bypass this prompt for automation scenarios, run `azure login` with the `-q` parameter.
+If this is your first time logging in with these credentials, you are asked to verify that you wish to cache an authentication token. This prompt also occurs if you previously used the `azure logout` command (described later in the article). To bypass this prompt for automation scenarios, run `azure login` with the `-q` parameter.
 
    
 
 ## Scenario 3: azure login with a service principal
 
-If you've created a service principal for an Active Directory application, and the service principal has permissions on your subscription, you can use the `azure login` command to authenticate the service principal. Depending on your scenario, you could provide the credentials of the service principal as explicit parameters of the `azure login` command, or through a CLI script or application code. You can also use a certificate to authenticate the service principal non-interactively for automation scenarios. For details and examples, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal-cli.md).
+If you've created a service principal for an Active Directory application, and the service principal has permissions on your subscription, you can use the `azure login` command to authenticate the service principal. Depending on your scenario, you could provide the credentials of the service principal as explicit parameters of the `azure login` command. For example, the following command passes the service principal name and Active Directory tenant ID:
 
-## Alternative scenario: Use a publish settings file
+    azure login -u https://www.contoso.org/example --service-principal --tenant myTenantID
+
+You can also provide the credentials through a CLI script or application code. You can also use a certificate to authenticate the service principal non-interactively for automation scenarios. For details and examples, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal-cli.md).
+
+## Scenario 4: Use a publish settings file
 
 If you only need to use the Azure Service Management mode CLI commands (for example, to deploy Azure VMs in the classic deployment model), you can connect using a publish settings file. This method installs a certificate on your local computer that allows you to perform management tasks for as long as the subscription and the certificate are valid. 
 
-* **To download the publish settings file** for your account, ensure that the CLI is in Service Manage mode by typing `azure config mode asm`. Then run the following command:
+* **To download the publish settings file** for your account, ensure that the CLI is in Service Management mode by typing `azure config mode asm`. Then run the following command:
 
 		azure account download
 
