@@ -95,6 +95,7 @@ Actor projects do not do anything on their own. They require another service or 
 ## Next steps
 
 - [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md)
+- [Interacting with Service Fabric clusters using the Azure CLI](service-fabric-azure-cli.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-csharp/yeoman-csharp.png
