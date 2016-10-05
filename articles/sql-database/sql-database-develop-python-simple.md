@@ -66,7 +66,7 @@ Instructions to enable the use pip can be found [here](http://stackoverflow.com/
 
 ## Step 3: Run sample code
 
-Create a new file called **sql_sample.py** and paste the following code inside it. You can run this from the command line using:
+Create a file called **sql_sample.py** and paste the following code inside it. You can run this from the command line using:
 	
 	python sql_sample.py
 
@@ -80,7 +80,7 @@ The [pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html) function is
 
 ### Execute an SQL SELECT statement
 
-The [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.execute) function can be used to retrieve a result set from a query against SQL Database. This function essentially accepts any query and returns a result set which can be iterated over with the use of [cursor.fetchone()](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.fetchone).
+The [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.execute) function can be used to retrieve a result set from a query against SQL Database. This function essentially accepts any query and returns a result set that can be iterated over with the use of [cursor.fetchone()](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.fetchone).
 
 
 	import pymssql
