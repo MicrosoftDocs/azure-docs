@@ -33,7 +33,6 @@ You will:
 
 ## Prerequisites
 
->[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
 
 - [Install Git](http://www.git-scm.com/downloads). Verify that your installation is successful by running `git --version` from a new Windows command prompt, 
 PowerShell window, Linux shell, or OS X terminal.

@@ -30,6 +30,7 @@ The recommendations for troubleshooting issues that are described in this sectio
      - “The term 'C:\WinRM\Start-Logging.ps1' is not recognized”
      - “Invoke-EceAction: Cannot index into a null array” 
 	 - “InvokeEceAction: Cannot bind argument to parameter 'Message' because it is an empty string.”
+ - You may see deployment fail at step 60.61.93 with an error "Application with identifier 'URI' not found”. This is due to the way applications are registered in Azure Active Directory.  If you receive this error, continue to [rerun the installation script](azure-stack-rerun-deploy.md) from step 60.61.93 until deployment is complete.
  - You will see that the **Availability Set** resource in the Marketplace shows up under the **virtualMachine-ARM** category – this appearance is only a cosmetic issue.
  - When creating a new virtual machine in the portal, in the **Basics** step, the storage option defaults to SSD.  This setting must be changed to HDD or on the **Size** step of VM deployment, you will not see VM sizes available to select and continue deployment. 
  - You will see AzureRM PowerShell modules are no longer installed by default on the MAS-CON01 VM (in TP1 this was named ClientVM). This behavior is by design, because there is an alternate method to [install these modules and connect](azure-stack-connect-powershell.md).  
@@ -46,8 +47,9 @@ The recommendations for troubleshooting issues that are described in this sectio
  - When you delete a plan, offer, or subscription, VMs may not be deleted.
  - You will see the VM extensions in the marketplace.
  - You cannot deploy a VM from a saved VM image.
- - Tenants may see services which are not included in their subscription.  When tenants attempt to deploy these resources, they will receive an error.  Example:  Tenant subscription only includes storage resources.  Tenant will see option to create other resources like VMs.  In this scenario, when a tenant attempts to deploy a VM, they will receive an message indicating the VM can’t be created. 
+ - Tenants may see services which are not included in their subscription.  When tenants attempt to deploy these resources, they will receive an error.  Example:  Tenant subscription only includes storage resources.  Tenant will see option to create other resources like VMs.  In this scenario, when a tenant attempts to deploy a VM, they will receive a message indicating the VM can’t be created. 
  - When installing TP2, you should not activate the host OS in the VHD provided where you run the Azure Stack setup script, or you may receive an error messaging stating Windows will expire soon.
+
 
 ## Deployment
 
@@ -98,21 +100,21 @@ The following information about Azure Stack installation steps may be useful for
 | 0.15 | (DEP) Configure the Domain server | Configure domain server with security groups etc. |
 | 0.16 | (DEP) Configure Physical Machine | Configure networking, join domain, and setup local admins. |
 | 0.18 | (STO) Configure Storage Cluster | Create storage cluster, create a storage pool and file server. |
-| 0.19 | (CPI) Setup fabric infrastructure | Setup the prerequisites for fabric deployment. |
+| 0.19 | (CPI) Setup fabric infrastructure | Set up the prerequisites for fabric deployment. |
 | 0.21 | (NET) Setup BGP and NAT | Installs BGP and NAT - needed only for One Node. |
 | 0.22 | (NET) Configure NAT and Time Server | Syncs the time server and configures NAT entries. |
 | 40.41 | (CPI) Create guest VMs | Create the management VMs. |
-| 40.42 | (FBI) Setup PowerShell JEA | Setup PowerShell JEA for all roles. |
-| 40.43 | (FBI) Setup Azure Stack Certification Authority | Installs Azure Stack Certification Authority. |
+| 40.42 | (FBI) Set up PowerShell JEA | Setup PowerShell JEA for all roles. |
+| 40.43 | (FBI) Set up Azure Stack Certification Authority | Installs Azure Stack Certification Authority. |
 | 40.44 | (FBI) Configure Azure Stack Certification Authority | Configures Azure Stack Certification Authority. |
-| 40.45 | (NET) Setup NC on VMs | Installs NC on the guest VMs |
+| 40.45 | (NET) Set up NC on VMs | Installs NC on the guest VMs |
 | 40.46 | (NET) Configure NC on VMs | Configure NC on the guest VMs |
 | 40.47 | (NET) Configure guest VMs | Configure the management VMs with NC ACLs. |
 | 60.61.81 | (FBI) Deploy Azure Stack Fabric Ring Services - FabricRing PreRequisite | Creates VIPs for FabricRing |
 | 60.61.82 | (FBI) Deploy Azure Stack Fabric Ring Services - Deploy Fabric Ring Cluster | Installs and configures Azure Stack Fabric Ring Cluster. |
 | 60.61.83 | (FBI) Deploy Admin Extensions for Resource providers | Installing Admin Extensions for resource providers |
-| 60.61.84 | (ACS) Setup Azure-consistent Storage in node level. | Installs and configures Azure-consistent Storage in node level. |
-| 60.61.85 | (ACS) Setup Azure-consistent Storage in cluster level. | Installs and configures Azure-consistent Storage in cluster level. |
+| 60.61.84 | (ACS) Set up Azure-consistent Storage in node level. | Installs and configures Azure-consistent Storage in node level. |
+| 60.61.85 | (ACS) Set up Azure-consistent Storage in cluster level. | Installs and configures Azure-consistent Storage in cluster level. |
 | 60.61.86 | (FBI) Deploy Azure Stack Fabric Ring Controller Services - Prerequisite | Prerequisites for InfraServiceController |
 | 60.61.87 | (FBI) Deploy Azure Stack Fabric Ring Controller Services - Prerequisite | Prerequisites for CPI |
 | 60.61.88 | (FBI) Deploy Azure Stack Fabric Ring Controller Services - Prerequisite | Prerequisites for ASAppGateway |

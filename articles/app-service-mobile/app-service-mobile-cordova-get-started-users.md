@@ -19,7 +19,7 @@
 # Add authentication to your Apache Cordova app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-
+	
 ## Summary
 
 In this tutorial, you add authentication to the todolist quickstart project on Apache Cordova using a supported identity provider. This
@@ -112,6 +112,6 @@ Learn how to use the SDKs.
 [Content-Security-Policy documentation]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
 [Push Notifications]: app-service-mobile-cordova-get-started-push.md
 [About Authentication]: app-service-mobile-auth.md
-[Apache Cordova SDK]: app-service-mobile-codova-how-to-use-client-library.md
+[Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md 
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
