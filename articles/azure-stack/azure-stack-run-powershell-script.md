@@ -101,7 +101,7 @@ Before you start, make sure that you at least 85 GB of space.
 
 7. The deployment process will take a couple of hours, during which one automated system reboot will occur.
 
-    > [AZURE.IMPORTANT] If you want to monitor the deployment progress, sign in as azurestack\AzureStackAdmin. If you sign in as a local admin after the machine is joined to the domain, it will cause issues with the deployment.
+    > [AZURE.IMPORTANT] If you want to monitor the deployment progress, sign in as azurestack\AzureStackAdmin. If you sign in as a local admin after the machine is joined to the domain, you won't see the deployment progress. Do not rerun deployment, instead sign in as azurestack\AzureStackAdmin to validate that it's running.
 
     If the deployment fails, you can try to [rerun it](azure-stack-rerun-deploy.md). Or, you can [redeploy](azure-stack-redeploy.md) it from scratch.
 
