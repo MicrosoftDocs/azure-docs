@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Restore Key Vault key and secret using Azure Backup | Microsoft Azure"
+	pageTitle="Restore Key Vault key and secret for encrypted VMs using Azure Backup | Microsoft Azure"
 	description="Learn how to restore Key Vault key and secret in Azure Backup using PowerShell"
 	services="backup"
 	documentationCenter=""
