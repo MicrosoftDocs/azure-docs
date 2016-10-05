@@ -1,6 +1,6 @@
 ## Create a device management enabled IoT Hub
 
-Since IoT Hub device management is in preview, you need to create a device management enabled IoT hub. When IoT Hub device management reaches General Availability, you will ba able to usa any IoT hub for this tutorial. The following steps show you how to complete this task using the Azure portal.
+Since IoT Hub device management is in preview, you need to create a device management enabled IoT hub. When IoT Hub device management reaches General Availability, this tutorial will be updated. The following steps show you how to complete this task using the Azure portal.
 
 1.  Sign in to the [Azure portal].
 2.  In the Jumpbar, click **New**, then click **Internet of Things**, and then click **Azure IoT Hub**.
@@ -14,7 +14,7 @@ Since IoT Hub device management is in preview, you need to create a device manag
   -   In the **Name** box, enter a name for your IoT Hub. If the **Name** is valid and available, a green check mark appears in the **Name** box.
   -   Select a **Pricing and scale tier**. This tutorial does not require a specific tier.
   -   In **Resource group**, create a new resource group, or select an existing one. For more information, see [Using resource groups to manage your Azure resources].
-  -   Check the box to **Enable Device Management**.
+  -   Check the box to **Enable Device Management - PREVIEW**.
   -   In **Location**, select the location to host your IoT Hub. IoT Hub device management is only available in East US, North Europe, and East Asia during public preview.
 
     > [AZURE.NOTE]  If you don't check the box to **Enable Device Management**, the samples don't work.<br/>By checking **Enable Device Management**, you create a preview IoT Hub supported only in East US, North Europe, and East Asia and not intended for production scenarios. You cannot migrate devices into and out of device management enabled hubs.
@@ -23,7 +23,7 @@ Since IoT Hub device management is in preview, you need to create a device manag
 
 	![][img-monitor]
 
-5.  When the IoT Hub has been created successfully, open the blade of the new IoT Hub, make a note of the **Hostname**, and then click **Shared access policies**.
+5.  When the IoT Hub has been created successfully, the blade for your hub will automatically open. Make a note of the **Hostname**, and then click **Shared access policies**.
 
 	![][img-keys]
 
@@ -39,19 +39,19 @@ You have now created a device management enabled IoT Hub. You need the connectio
 
 In this section, you use a Node tool called [IoT Hub Explorer][iot-hub-explorer] to create a device identity for this tutorial.
 
-Run the following in your command-line environment:
+1. Run the following in your command-line environment:
 
-        npm install -g iothub-explorer@latest
+    npm install -g iothub-explorer@latest
 
-Then, run the following command to login to your hub, remembering to substitute `{service connection string}` with the IoT Hub connection string you previously copied:
+2. Then, run the following command to login to your hub, remembering to substitute `{service connection string}` with the IoT Hub connection string you previously copied:
 
-        iothub-explorer login "{service connection string}"
+    iothub-explorer login "{service connection string}"
 
-Finally, create a new device identity called `myDeviceId` with the command:
+3. Finally, create a new device identity called `myDeviceId` with the command:
 
-        iothub-explorer create myDeviceId --connection-string
+    iothub-explorer create myDeviceId --connection-string
 
-Make sure to copy the device connection string from the result. This connection string is used by the device app to connect to your IoT Hub as a device.
+Make a note of the device connection string from the result. This connection string is used by the device app to connect to your IoT Hub as a device.
 
 ![][img-identity]
 
