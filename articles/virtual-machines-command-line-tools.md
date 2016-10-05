@@ -1465,7 +1465,7 @@ This command removes all rows of data from the table.
 
 ### <a name="Mobile_Scripts"></a>Commands to manage scripts
 
-Commands in this section are used to manage the server scripts that belong to a mobile service. For more information, see [Work with server scripts in Mobile Services](mobile-services/mobile-services-how-to-use-server-scripts.md).
+Commands in this section are used to manage the server scripts that belong to a mobile service. For more information, see [Work with server scripts in Mobile Services](https://github.com/Azure/azure-mobile-services/blob/master/docs/mobile-services-how-to-use-server-scripts.md).
 
 **mobile script list [options] [servicename]**
 
