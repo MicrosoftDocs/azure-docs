@@ -153,13 +153,14 @@ Table Auditing logs are saved as a collection of Azure Storage Tables with a **S
 For further details about the Table audit log format, see the [Table Audit Log Format Reference (doc file download)](http://go.microsoft.com/fwlink/?LinkId=506733).
 
 There are several methods to view Table Auditing logs:
+
 <a id="activity-ui"></a>
-1. Through the [Azure Portal](https://portal.azure.com) - at the top of the **Auditing & Threat detection** blade, click on **More** -> **Explore**. An **Audit records** blade will open, where you'll be able to view the logs.
+
+1. Through the [Azure Portal](https://portal.azure.com) - at the top of the **Auditing & Threat detection** blade, click on **More** and then on **Explore**. An **Audit records** blade will open, where you'll be able to view the logs.
 	- You can choose to view specific dates by clicking on **Filter** at the top area of the Audit records blade
 	- You can download and view the audit logs in Excel format by clicking on **Open in Excel** at the top area of the Audit records blade
 
 	![Navigation Pane][7]
-
 
 2. Alternatively, a preconfigured report template is available as a [downloadable Excel spreadsheet](http://go.microsoft.com/fwlink/?LinkId=403540) to help you quickly analyze log data. To use the template on your audit logs, you need Excel 2013 or later and Power Query, which you can download [here](http://www.microsoft.com/download/details.aspx?id=39379).
 
