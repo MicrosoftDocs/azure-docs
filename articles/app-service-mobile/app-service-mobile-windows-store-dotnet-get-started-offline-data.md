@@ -178,7 +178,7 @@ For more information about these concepts, see [Offline Data Sync in Azure Mobil
 The following topics provide additional background information on the offline sync feature of Mobile Apps:
 
 * [Offline Data Sync in Azure Mobile Apps]
-* [Cloud Cover: Offline Sync in Azure Mobile Services]  \(Note that the video is for Mobile Services, but offline sync works in a similar way in Azure Mobile Apps.\)
+* [Cloud Cover: Offline Sync in Azure Mobile Services]  \(Note that the video is for Mobile Services, but offline sync works in a similar way in Azure Mobile Apps.)
 * [Azure Friday: Offline-enabled apps in Azure Mobile Services]
 
 <!-- Anchors. -->
