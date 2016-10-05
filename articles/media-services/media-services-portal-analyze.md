@@ -43,8 +43,6 @@ This topic discusses how to process your media with Media Analytics media proces
    
 4. Press **Create** to the start a job.
 
-	![Analyze videos](./media/media-services-portal-analyze/media-services-portal-analyze002.png)
-
 ## Azure Media Indexer
 
 The **Azure Media Indexer** media processor enables you to make media files and content searchable, as well as generate closed captioning tracks. This sections gives some details about options that you can specify for this MP.
