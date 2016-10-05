@@ -67,9 +67,9 @@ Dave assigns the following roles for the subscription:
 
 Dave has the following requirements for managing resources in the subscription:
 
-1. Because the development tools support developers across the world, he doesn't want to block users from creating resources in any region. However, he needs to know where resources are created. 
-2. He is concerned with costs. Therefore, he wants to prevent application owners from creating unnecessarily expensive virtual machines.  
-3. Because this application serves developers in many business units, he wants to tag each resource with the business unit and application owner. By using these tags, ETS can bill the appropriate teams.
+- Because the development tools support developers across the world, he doesn't want to block users from creating resources in any region. However, he needs to know where resources are created. 
+- He is concerned with costs. Therefore, he wants to prevent application owners from creating unnecessarily expensive virtual machines.  
+- Because this application serves developers in many business units, he wants to tag each resource with the business unit and application owner. By using these tags, ETS can bill the appropriate teams.
 
 He creates the following [Resource Manager policies](resource-manager-policy.md): 
 
@@ -106,7 +106,7 @@ He creates the following resources:
 | Virtual Network | vnExternal | Available for future applications that require public-facing endpoints. |
 | Network Security Group | nsgBitBucket | Ensures that the attack surface of this workload is minimized by allowing connections only on port 443 for the subnet where the application lives (sbBitBucket). |
 
-### Resource Locks 
+### Resource locks 
 
 Dave recognizes that the connectivity from Contoso's corporate network to the internal virtual network must be protected from any wayward script or accidental deletion. 
 
@@ -130,7 +130,7 @@ To fulfill these requirements, Dave enables the [Azure Security Center](./securi
 
 The business leadership in the supply chain business unit has identified various opportunities to increase engagement with Contoso's customers by using a loyalty card. Alice's team must create this application and decides that Azure increases their ability to meet the business need. Alice works with Dave from ETS to configure two subscriptions for developing and operating this application.
 
-### Azure Subscriptions 
+### Azure subscriptions 
 
 Dave logs in to the Azure Enterprise Portal and sees that the supply chain department already exists.  However, as this project is the first development project for the supply chain team in Azure, Dave recognizes the need for a new account for Alice’s development team.  He creates the "R&D" account for her team and assigns access to Alice. Alice logs in via the Account portal and creates two subscriptions: one to hold the development servers and one to hold the production servers.  She follows the previously established naming standards when creating the following subscriptions: 
 
@@ -162,7 +162,7 @@ For the **production subscription**, they create the following policies:
 
 They do not limit the type of sku a user can create in production.
 
-### Resource Tags 
+### Resource tags 
 
 Dave understands that he needs to have specific information to identify the correct business groups for billing and ownership. He defines resource tags for resource groups and resources. 
  
@@ -189,7 +189,7 @@ For the **production subscription**, they create:
 | Virtual Network | vnExternal | Hosts the Loyalty Card application and is not connected directly to Contoso's ExpressRoute. Code is pushed via their Source Code system directly to the PaaS services. |
 | Network Security Group | nsgBitBucket | Ensures that the attack surface of this workload is minimized by only allowing in-bound communication on TCP 443.  Contoso is also investigating using a Web Application Firewall for additional protection. |  
 
-### Resource Locks 
+### Resource locks 
 
 Dave and Alice confer and decide to add resource locks on some of the key resources in the environment to prevent accidental deletion during an errant code push. 
 
