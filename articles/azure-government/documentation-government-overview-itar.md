@@ -18,7 +18,7 @@
 	ms.author="kydeeds"/>
 
 
-#  ITAR
+#  ITAR Overview for Azure Government
 
 ## Overview
 
@@ -30,7 +30,7 @@ You should refer to the <a href="http://www.microsoft.com/en-us/TrustCenter/Comp
 
 Entities with questions about eligibility for Azure Government should consult their account team.
 
-## Next Steps:
+## Next steps
 
 <a href="https://www.microsoft.com/en-us/TrustCenter/Compliance/itar"> Microsoft Trust Center - ITAR web page </a>
 
