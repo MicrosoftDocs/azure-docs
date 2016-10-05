@@ -255,13 +255,13 @@ The previous examples show actions that are denied if the request is not valid; 
 
 Resource Manager provides compatible operations through Azure PowerShell, Azure CLI for Mac, Linux, and Windows, the Azure portal, or REST API. You can use the interface that works best for you, and move quickly between the interfaces without confusion.
 
-For information about PowerShell, see [Using Azure PowerShell with Resource Manager](powershell-azure-resource-manager.md) and [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/azure/dn757692(v=azure.200).aspx).
+For information about PowerShell, see [Using Azure PowerShell with Resource Manager](powershell-azure-resource-manager.md) and [Azure Resource Manager Cmdlets][powershellref].
 
 For information about Azure CLI, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](xplat-cli-azure-resource-manager.md).
 
-For information about the REST API, see [Azure Resource Manager REST API Reference](https://msdn.microsoft.com/library/azure/dn790568.aspx).
+For information about the REST API, see [Resource Manager REST APIs](resource-manager-rest-api.md).
 
-For information about using the portal, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
+For information about using the portal, see [Manage Azure resources through portal](./azure-portal/resource-group-portal.md).
 
 Azure Resource Manager supports cross-origin resource sharing (CORS). With CORS, you can call the Resource Manager REST API or an Azure service REST API from a web application that resides in a different domain. Without CORS support, the web browser would prevent an app in one domain from accessing resources in another domain. Resource Manager enables CORS for all requests with valid authentication credentials.
 
@@ -328,3 +328,5 @@ In addition to these samples, you can search through the gallery samples.
 Here's a video demonstration of this overview:
 
 [AZURE.VIDEO azure-resource-manager-overview]
+
+[powershellref]: https://msdn.microsoft.com/library/azure/dn757692(v=azure.200).aspx
