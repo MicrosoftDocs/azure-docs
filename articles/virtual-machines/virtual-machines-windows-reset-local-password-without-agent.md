@@ -38,26 +38,32 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](virt
 
 1. Delete the affected VM in Azure portal. Deleting the VM only deletes the metadata, the reference of the VM within Azure. The virtual disks are retained when the VM is deleted:
 
-  - Select the VM in the Azure portal, click *Delete*:
+    - Select the VM in the Azure portal, click *Delete*:
 
-  ![Delete existing VM](./media/virtual-machines-windows-reset-local-password-without-guest-agent/delete_vm.png)
+    ![Delete existing VM](./media/virtual-machines-windows-reset-local-password-without-guest-agent/delete_vm.png)
 
 2. Attach the source VM’s OS disk to the troubleshooting VM. The troubleshooting VM must be in the same region as the source VM's OS disk (such as `West US`):
 
-  - Select the troubleshooting VM in the Azure portal. Click *Disks* | *Attach existing*:
+    - Select the troubleshooting VM in the Azure portal:
 
-  ![Attach existing disk](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_attach_existing.png) <br />
+    ![Attach existing disk](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_attach_existing.png)
 
-  - Under *VHD File*, select the storage account that contains your source VM:
+    Click *Disks* | *Attach existing*.
 
-  ![Select storage account](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_select_storageaccount.PNG) <br />
+    - Select *VHD File*:
 
-   - Select the source container (typically *vhds*):
+    ![Select storage account](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_select_storageaccount.PNG)
 
-  ![Select storage container](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_select_container.png) <br />
+    Select the storage account that contains your source VM.
 
-  - Select the OS vhd to attach.
-  - Click *Select* to complete the process:
+    - Select the source container:
+
+    ![Select storage container](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_select_container.png)
+
+    The source container is typically *vhds*.
+
+    - Select the OS vhd to attach.
+    - Click *Select* to complete the process:
 
     ![Select source virtual disk](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_select_source_vhd.png)
 
@@ -116,9 +122,11 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](virt
 8. Before you create a VM, obtain the URI to your source OS disk:
 
     - Select the storage account in the Azure portal, click *Blobs*.
-    - Select the container, typically *vhds*:
+    - Select the container:
 
-    ![Select storage account blob](./media/virtual-machines-windows-reset-local-password-without-guest-agent/select_storage_details.png) <br />
+    ![Select storage account blob](./media/virtual-machines-windows-reset-local-password-without-guest-agent/select_storage_details.png)
+
+    The source container is typically *vhds*.
 
     - Select your source VM OS VHD and click the *Copy* button next to the *URL* name:
 
