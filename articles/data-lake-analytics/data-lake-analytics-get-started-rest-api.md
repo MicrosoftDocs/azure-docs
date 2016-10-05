@@ -36,13 +36,13 @@ See [Authenticate using Azure Active Directory](,./data-lake-store/data-lake-sto
 
 ## Create a Data Lake Analytics account
 
-You must create an Azure Resource group, and a Data Lake Store account before you can create a Data Lake Analyics account.  See [Create a Data Lake Store account](../data-lake-store/data-lake-store-get-started-rest-api.md#create-a-data-lake-store-account).
+You must create an Azure Resource group, and a Data Lake Store account before you can create a Data Lake Analytics account.  See [Create a Data Lake Store account](../data-lake-store/data-lake-store-get-started-rest-api.md#create-a-data-lake-store-account).
 
 The following is the Curl command:
 
 	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/<AzureSubscriptionID>/resourceGroups/<AzureResourceGroupName>/providers/Microsoft.DataLakeAnalytics/accounts/<NewAzureDataLakeAnalyticsAccountName>?api-version=2015-10-01-preview -d@"C:\tutorials\adla\CreateDataLakeAnalyticsAccountRequest.json"
 
-Replace \<`REDACTED`\> with the authorization token, <AzureSubscriptionID> with your subscription ID, <AzureResourceGroupName> with an existing Azure Resource Group name, and <NewAzureDataLakeAnalyticsAccountName> with a new Data Lake Analytics Account name. The request payload for this command is contained in the **CreateDatalakeAnalyicsAccountRequest.json** file that is provided for the `-d` parameter above. The contents of the input.json file resemble the following:
+Replace \<`REDACTED`\> with the authorization token, \<`AzureSubscriptionID`\> with your subscription ID, \<`AzureResourceGroupName`\> with an existing Azure Resource Group name, and \<`NewAzureDataLakeAnalyticsAccountName`\> with a new Data Lake Analytics Account name. The request payload for this command is contained in the **CreateDatalakeAnalyticsAccountRequest.json** file that is provided for the `-d` parameter above. The contents of the input.json file resemble the following:
 
 	{  
 		"location": "East US 2",  
@@ -65,7 +65,7 @@ The following is the Curl command:
 
 	curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/<AzureSubscriptionID>/providers/Microsoft.DataLakeAnalytics/Accounts?api-version=2015-10-01-preview
 
-Replace \<`REDACTED`\> with the authorization token, <AzureSubscriptionID> with your subscription ID. The output is similar to:
+Replace \<`REDACTED`\> with the authorization token, \<`AzureSubscriptionID`\> with your subscription ID. The output is similar to:
 
 	{
 		"value": [
@@ -108,7 +108,7 @@ The following is the Curl command:
 
 	curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/<AzureSubscriptionID>/resourceGroups/<AzureResourceGroupName>/providers/Microsoft.DataLakeAnalytics/accounts/<DataLakeAnalyticsAccountName>?api-version=2015-11-01
 
-Replace \<`REDACTED`\> with the authorization token, <AzureSubscriptionID> with your subscription ID, <AzureResourceGroupName> with an existing Azure Resource Group name, and <DataLakeAnalyticsAccountName> with the name of an existing Data Lake Analytics Account. The output is similar to:
+Replace \<`REDACTED`\> with the authorization token, \<`AzureSubscriptionID`\> with your subscription ID, \<`AzureResourceGroupName`\> with an existing Azure Resource Group name, and \<`DataLakeAnalyticsAccountName`\> with the name of an existing Data Lake Analytics Account. The output is similar to:
 
 	{
 		"properties": {
@@ -141,7 +141,7 @@ The following is the Curl command:
 
 	curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/<AzureSubscriptionID>/resourceGroups/<AzureResourceGroupName>/providers/Microsoft.DataLakeAnalytics/accounts/<DataLakeAnalyticsAccountName>/DataLakeStoreAccounts/?api-version=2015-10-01-preview
 
-Replace \<`REDACTED`\> with the authorization token, <AzureSubscriptionID> with your subscription ID, <AzureResourceGroupName> with an existing Azure Resource Group name, and <DataLakeAnalyticsAccountName> with the name of an existing Data Lake Analytics Account. The output is similar to:
+Replace \<`REDACTED`\> with the authorization token, \<`AzureSubscriptionID`\> with your subscription ID, \<`AzureResourceGroupName`\> with an existing Azure Resource Group name, and \<`DataLakeAnalyticsAccountName`\> with the name of an existing Data Lake Analytics Account. The output is similar to:
 
 	{
 		"value": [
@@ -162,7 +162,7 @@ The following is the Curl command:
 
 	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/Jobs/<NewGUID>?api-version=2016-03-20-preview -d@"C:\tutorials\adla\SubmitADLAJob.json"
 
-Replace \<`REDACTED`\> with the authorization token, <DataLakeAnalyticsAccountName> with the name of an existing Data Lake Analytics Account. The request payload for this command is contained in the **SubmitADLAJob.json** file that is provided for the `-d` parameter above. The contents of the input.json file resemble the following:
+Replace \<`REDACTED`\> with the authorization token, \<`DataLakeAnalyticsAccountName`\> with the name of an existing Data Lake Analytics Account. The request payload for this command is contained in the **SubmitADLAJob.json** file that is provided for the `-d` parameter above. The contents of the input.json file resemble the following:
 
 	{
 		"jobId": "8f8ebf8c-4b63-428a-ab46-a03d2cc5b65a",
@@ -249,7 +249,7 @@ The output is similar to:
 - To see a more complex query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 - To get started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).
-- For management tasks, see [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md).
+- For management tasks, see [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md).
 - To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 - To see the same tutorial using other tools, click the tab selectors on the top of the page.
 - To log diagnostics information, see [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
