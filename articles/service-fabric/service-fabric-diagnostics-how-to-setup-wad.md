@@ -25,7 +25,7 @@
 
 When you're running an Azure Service Fabric cluster, it's a good idea to collect the logs from all the nodes in a central location. Having the logs in a central location makes it easy to analyze and troubleshoot issues in your cluster or in the applications and services running in that cluster.
 
-One way to upload and collect logs is to use the Azure Diagnostics extension, which uploads logs to Azure Storage. The logs are really not that useful directly in storage, but you can use an external process to read the events from storage and place them in a product such as [Log Analytics](../log-analytics/log-analytics-service-fabric.md), [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md), or another log-parsing solution.
+One way to upload and collect logs is to use the Azure Diagnostics extension, which uploads logs to Azure Storage. The logs are not that useful directly in storage. But you can use an external process to read the events from storage and place them in a product such as [Log Analytics](../log-analytics/log-analytics-service-fabric.md), [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md), or another log-parsing solution.
 
 ## Prerequisites
 You'll use these tools to perform some of the operations in this document:
@@ -55,7 +55,7 @@ To deploy the Diagnostics extension to the VMs in the cluster as part of cluster
 
 The Azure support team *requires* support logs to help resolve any support requests that you create. These logs are collected in real time and are stored in one of the storage accounts created in the resource group. The Diagnostics settings configure application-level events. These events include [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) events, [Reliable Services](service-fabric-reliable-services-diagnostics.md) events, and some system-level Service Fabric events to be stored in Azure Storage.
 
-Products such as [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) or your own process can get the events from the storage account. There is currently no way to filter or groom the events that are sent to the table. If you don't implement a processes to remove events from the table, the table will continue to grow.
+Products such as [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) or your own process can get the events from the storage account. There is currently no way to filter or groom the events that are sent to the table. If you don't implement a process to remove events from the table, the table will continue to grow.
 
 When you're creating a cluster by using the portal, we highly recommend that you download the template *before you click **OK*** to create the cluster. For details, refer to [Set up a Service Fabric cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md). You'll need the template to make changes later, because you can't make some changes by using the portal.
 
@@ -83,7 +83,7 @@ To create a cluster by using Resource Manager, you need to add the Diagnostics c
 
 To see the Diagnostics setting in the Resource Manager template, open the azuredeploy.json file and search for **IaaSDiagnostics**. To create a cluster by using this template, select the **Deploy to Azure** button available at the previous link.
 
-Alternatively, you can download the Resource Manager sample, make changes to it, and create a cluster with the modified template by using the `New-AzureRmResourceGroupDeployment` command in an Azure PowerShell window. See the following code for the parameters that you'll pass in to the command. For detailed information on how to deploy a resource group by using PowerShell, see the article [Deploy a resource group with the Azure Resource Manager template](../resource-group-template-deploy.md).
+Alternatively, you can download the Resource Manager sample, make changes to it, and create a cluster with the modified template by using the `New-AzureRmResourceGroupDeployment` command in an Azure PowerShell window. See the following code for the parameters that you pass in to the command. For detailed information on how to deploy a resource group by using PowerShell, see the article [Deploy a resource group with the Azure Resource Manager template](../resource-group-template-deploy.md).
 
 ```powershell
 
@@ -133,7 +133,7 @@ Add a new storage resource to the template by adding to the resources section.
       }
     },
 ```
-Then, update the `VirtualMachineProfile` section of the template.json file by adding the following within the extensions array. Be sure to add a comma at the beginning or the end, depending on where it's inserted.
+Then, update the `VirtualMachineProfile` section of the template.json file by adding the following code within the extensions array. Be sure to add a comma at the beginning or the end, depending on where it's inserted.
 
 ```json
 {
@@ -190,7 +190,7 @@ Then, update the `VirtualMachineProfile` section of the template.json file by ad
 }
 ```
 
-After you modify the template.json file as described, republish the Resource Manager template. If the template was exported, running the deploy.ps1 file will republish the template. After you deploy, ensure that **ProvisioningState** is **Succeeded**.
+After you modify the template.json file as described, republish the Resource Manager template. If the template was exported, running the deploy.ps1 file republishes the template. After you deploy, ensure that **ProvisioningState** is **Succeeded**.
 
 
 ## Update Diagnostics to collect and upload logs from new EventSource channels
