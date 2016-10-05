@@ -203,16 +203,16 @@ If your runbooks are not completeing succesfully and the job summary shows a sta
 
 ## Relationship to Service Management Automation
 
-[Service Management Automation (SMA)](https://technet.microsoft.com/library/dn469260.aspx) allows you to run the same runbooks that are supported by Azure Automation in your local data center. SMA is generally deployed together with Windows Azure Pack as Windows Azure Pack contains a graphical interface for SMA management. Unlike Azure Automation, SMA requires a local installation that includes webservers to host the API, a database to hold runbooks and SMA configuration and Runbook Workers. Azure Automation provides these services in the cloud and only requires you to maintain the Hybrid Runbook Workers in your local environment.
+[Service Management Automation (SMA)](https://technet.microsoft.com/library/dn469260.aspx) allows you to run the same runbooks that are supported by Azure Automation in your local data center. SMA is generally deployed together with Windows Azure Pack, as Windows Azure Pack contains a graphical interface for SMA management. Unlike Azure Automation, SMA requires a local installation that includes web servers to host the API, a database to contain runbooks and SMA configuration, and Runbook Workers to execute runbook jobs. Azure Automation provides these services in the cloud and only requires you to maintain the Hybrid Runbook Workers in your local environment.
 
 If you are an existing SMA user, you can move your runbooks to Azure Automation to be used with Hybrid Runbook Worker with no changes, assuming that they perform their own authentication to resources as described in [Creating runbooks for Hybrid Runbook Worker](#creating-runbooks-for-hybrid-runbook-worker).  Runbooks in SMA run in the context of the service account on the worker server which may provide that authentication for the runbooks.
 
 You can use the following criteria to determine whether Azure Automation with Hybrid Runbook Worker or Service Management Automation is more appropriate for your requirements.
 
-- SMA requires a local installation of the SMA infrastructure as well as a Windows Azure Pack installation if a graphical management interface is required. More local resources will be needed with higher maintenance costs than Azure Automation which only needs an agent installed on local runbook workers. The agents are managed by Operations Management Suite furthering decreasing their maintenance costs.
-- Azure Automation stores its runbooks in the cloud and delivers them to on-premises Hybrid Runbooks Workers. If your security policy does not allow this behavior then you should use SMA.
-- SMA comes as part of System Center and therefore requires System Center Licensing where Azure Automation can incur subscription charges.
-- Azure Automation has advanced features such graphical runbooks that are not available in SMA.
+- SMA requires a local installation of its underlying components that are connected to Windows Azure Pack if a graphical management interface is required. More local resources will be needed with higher maintenance costs than Azure Automation, which only needs an agent installed on local runbook workers. The agents are managed by Operations Management Suite, further decreasing your maintenance costs.
+- Azure Automation stores its runbooks in the cloud and delivers them to on-premises Hybrid Runbook Workers. If your security policy does not allow this behavior, then you should use SMA.
+- SMA is included with System Center; and therefore, requires a System Center 2012 R2 license. Azure Automation is based on a tiered subscription model.
+- Azure Automation has advanced features such as graphical runbooks that are not available in SMA.
 
 
 ## Next steps
