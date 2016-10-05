@@ -37,7 +37,7 @@ Once the Azure CLI is installed, [connect it with your Azure subscription](xplat
 
 ## Option 1: Install an npm package
 
-To install the CLI from an npm package, make sure you have downloaded and installed the [latest Node.js and npm](https://nodejs.org/en/download/package-manager/). Then, run **npm install ** to install the azure-cli package: 
+To install the CLI from an npm package, make sure you have downloaded and installed the [latest Node.js and npm](https://nodejs.org/en/download/package-manager/). Then, run **npm install** to install the azure-cli package: 
 
     npm install -g azure-cli
 

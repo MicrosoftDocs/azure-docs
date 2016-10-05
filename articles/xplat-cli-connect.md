@@ -88,7 +88,7 @@ If you create a service principal for an Active Directory application, and the s
 
     azure login -u https://www.contoso.org/example --service-principal --tenant myTenantID
 
-You can also provide the credentials through a CLI script or application code. You can also use a certificate to authenticate the service principal non-interactively for automation scenarios. For details and examples, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal-cli.md).
+You are then prompted to provide the password. You can also provide the credentials through a CLI script or application code, or use a certificate to authenticate the service principal non-interactively for automation scenarios. For details and examples, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal-cli.md).
 
 ## Scenario 4: Use a publish settings file
 
