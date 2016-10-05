@@ -31,6 +31,18 @@ Explore the growing collection of [Azure Stack GitHub Templates](https://github.
 
 ## Developer tools
 
+
+### Use Visual Studio and Azure Stack TP2 on the MAS-CON01 virtual machine
+1. Use Remote Desktop Connection to log in to the MAS-CON01 virtual machine with the azurestack\azurestackadmin credentials.
+2. Install and open Web Platform Installer.
+3. Find and install **Visual Studio Community 2015 with Microsoft Azure SDK - 2.9.5**.
+4. Using **Add/Remove Programs**, uninstall the **Microsoft Azure PowerShell (Sept)** that gets installed as part of the SDK.
+5. Open the Web Platform Installer.
+6. Find and install **Microsoft Azure PowerShell - Azure Stack Technical Preview 2**. 
+7. Open Visual Studio and validate that you can connect to the Azure Stack environment, get templates, and so on. 
+
+
+
 ### Azure SDK and tools for Visual Studio
 Use the Azure SDK and tools for Visual Studio to quickly deploy applications and resources to Azure Stack.
 [Download SDK and Tools](http://go.microsoft.com/fwlink/?linkid=518003).
