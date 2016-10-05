@@ -58,15 +58,15 @@ Every enterprise is different and the hierarchy in the previous image allows for
 
 The three common patterns for Azure Enrollments are:
 
-1. The **functional** pattern
+- The **functional** pattern
 
     ![functional](./media/resource-manager-subscription-governance/functional.png)
 
-2. The **business unit** pattern 
+- The **business unit** pattern 
 
     ![business](./media/resource-manager-subscription-governance/business.png)
 
-3. The **geographic** pattern
+- The **geographic** pattern
 
     ![geographic](./media/resource-manager-subscription-governance/geographic.png)
 
@@ -78,9 +78,9 @@ The first pillar of the scaffold is naming standards. Well-designed naming stand
 
 > [AZURE.TIP]
 >
-> 1. Review and adopt where possible the [Patterns and Practices guidance](./guidance/guidance-naming-conventions.md). This guidance helps you decide on a meaningful naming standard.
-> 2. Use camelCasing for names of resources (such as myResourceGroup and vnetNetworkName). Note: There are certain resources, such as storage accounts, where the only option is to use lower case (and no other special characters).
-> 3. Consider using Azure Resource Manager policies (described in the next section) to enforce naming standards.
+> - Review and adopt where possible the [Patterns and Practices guidance](./guidance/guidance-naming-conventions.md). This guidance helps you decide on a meaningful naming standard.
+> - Use camelCasing for names of resources (such as myResourceGroup and vnetNetworkName). Note: There are certain resources, such as storage accounts, where the only option is to use lower case (and no other special characters).
+> - Consider using Azure Resource Manager policies (described in the next section) to enforce naming standards.
  
 ## Policies and auditing
 
@@ -96,7 +96,7 @@ Policies have multiple actions that allow for a fine-grained approach to your sc
 -   **Audit**: Allows the request but adds a line to the activity log (which can be used to provide alerts or to trigger runbooks)
 -   **Append**: Adds specified information to the resource. For example, if there is not a "CostCenter" tag on a resource, add that tag with a default value.
 
-### Common Uses of Azure Resource Manager policies
+### Common uses of Resource Manager policies
 
 Azure Resource Manager policies are a powerful tool in the Azure toolkit. They enable you to avoid unexpected costs, to identify a cost center for resources through tagging, and to ensure that compliancy requirements are met. When policies are combined with the built-in auditing features, you can fashion complex and flexible solutions. Policies allow companies to provide controls for "Traditional IT" workloads and "Agile" workloads; such as, developing customer applications. The most common patterns we see for policies are:
 
@@ -129,7 +129,7 @@ Azure Resource Manager policies are a powerful tool in the Azure toolkit. They e
 >
 > You can apply additional policies at lower levels of scope.
  
-### Audit - What happened?
+### Audit - what happened?
 
 To view how your environment is functioning, you need to audit user activity. Most resource types within Azure create diagnostic logs that you can analyze through a log tool or in Azure Operations Management Suite. You can gather activity logs across multiple subscriptions to provide a departmental or enterprise view. Audit records are both an important diagnostic tool and a crucial mechanism to trigger events in the Azure environment.
 
@@ -184,10 +184,10 @@ This proliferation of subscriptions is no longer needed. With role-based access 
 
 > [AZURE.TIP]
 >  
-> 1. Connect your corporate identity store (most commonly Active Directory) to Azure Active Directory using the AD Connect tool.
-> 2. Control the Admin/Co-Admin of a subscription using a managed identity. **Don't** assign Admin/Co-admin to a new subscription owner. Instead, use RBAC roles to provide **Owner** rights to a group or individual.
-> 3. Add Azure users to a group (for example, Application X Owners) in Active Directory. Use the synced group to provide group members the appropriate rights to manage the resource group containing the application.
-> 4. Follow the principle of granting the **least privilege** required to do the expected work. For example:
+> - Connect your corporate identity store (most commonly Active Directory) to Azure Active Directory using the AD Connect tool.
+> - Control the Admin/Co-Admin of a subscription using a managed identity. **Don't** assign Admin/Co-admin to a new subscription owner. Instead, use RBAC roles to provide **Owner** rights to a group or individual.
+> - Add Azure users to a group (for example, Application X Owners) in Active Directory. Use the synced group to provide group members the appropriate rights to manage the resource group containing the application.
+> - Follow the principle of granting the **least privilege** required to do the expected work. For example:
 >     - Deployment Group: A group that is only able to deploy resources.
 >     - Virtual Machine Management: A group that is able to restart VMs (for operations)
 
@@ -210,8 +210,8 @@ Of the built-in roles, only Owner and User Access Administrator are granted thos
 
 Access to resources can be either internal (within the corporation's network) or external (through the internet). It is easy for users in your organization to inadvertently put resources in the wrong spot, and potentially open them to malicious access. As with on-premise devices, enterprises must add appropriate controls to ensure that Azure users make the right decisions. For subscription governance, we identify core resources that provide basic control of access. The core resources consist of:
 
-1.  **Virtual networks** are container objects for subnets. Though not strictly necessary, it is often used when connecting applications to internal corporate resources.
-2.  **Network security groups** are similar to a firewall and provide rules for how a resource can "talk" over the network. They provide granular control over how/if a subnet (or virtual machine) can connect to the Internet or other subnets in the same virtual network.
+- **Virtual networks** are container objects for subnets. Though not strictly necessary, it is often used when connecting applications to internal corporate resources.
+- **Network security groups** are similar to a firewall and provide rules for how a resource can "talk" over the network. They provide granular control over how/if a subnet (or virtual machine) can connect to the Internet or other subnets in the same virtual network.
 
 ![core networking](./media/resource-manager-subscription-governance/core-network.png)
 
