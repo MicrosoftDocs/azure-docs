@@ -257,6 +257,5 @@ None.
 - [Secure a standalone cluster on Windows using Windows security](service-fabric-windows-cluster-windows-security.md).
 - [Secure a standalone cluster on Windows using X509 certificates](service-fabric-windows-cluster-x509-security.md).
  
-
 <!--Image references-->
 [TrustedZone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
