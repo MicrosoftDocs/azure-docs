@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/04/2016"
+   ms.date="10/05/2016"
    ms.author="telmos"/>
 
 # Implementing a secure hybrid network architecture with federated identities in Azure
@@ -242,11 +242,11 @@ The following sections describe the elements of the on-premises and cloud config
 
 >[AZURE.NOTE] These components are not the main focus of the architecture described in this document, and are provided simply to give you an opportunity to test the cloud environment safely, rather than using a real production environment. For this reason, this section only summarizes the key parameter files. You can modify settings such as the IP addresses or the sizes of the VMs, but it is advisable to leave many of the other parameters unchanged.
 
-This environment comprises an AD forest for a domain named contoso.com. The domain contains two AD DS servers with IP addresses 192.168.0.4 and 192.168.0.5. These two servers also run the DNS service. The local administrator account on both VMs is called `testuser` with password `AweS0me@PW`. Additionally, the configuration sets up a VPN gateway for connecting to the VNet in the cloud. You can modify the configuration by editing the following JSON files located in the [**parameters/onpremise**][on-premises-folder]  folder:
+This environment comprises an AD forest for a domain named contoso.com. The domain contains two AD DS servers with IP addresses 192.168.0.4 and 192.168.0.5. These two servers also run the DNS service. The local administrator account on both VMs is called `testuser` with password `AweS0me@PW`. Additionally, the configuration sets up a VPN gateway for connecting to the VNet in the cloud. You can modify the configuration by editing the following JSON files located in the [**parameters/onpremise**][on-premises-folder] folder:
 
-- **[virtualNetwork.parameters.json][on-premises-vnet-parameters]**. This file specifies the network address space for the on-premises environment.
+- **[virtualNetwork.parameters.json][on-premises-vnet-parameters]**. This file defines the network address space for the on-premises environment.
 
-- **[virtualMachines-adds.parameters.json][on-premises-virtualmachines-adds-parameters]**. This file contains the configuration for each of the on-premises VMs hosting AD DS services. By default, the VMs use *Standard-DS3-v2* VMs.
+- **[virtualMachines-adds.parameters.json][on-premises-virtualmachines-adds-parameters]**. This file contains the configuration for the on-premises VMs hosting AD DS services. By default, two *Standard-DS3-v2* VMs are created.
 
 - **[virtualNetworkGateway.parameters.json][on-premises-virtualnetworkgateway-parameters]** and **[connection.parameters.json][on-premises-connection-parameters]**. These files hold the settings for the VPN connection to the Azure VPN gateway in the cloud, including the shared key to be used to protect traffic traversing the gateway.
 
@@ -403,7 +403,127 @@ These components form the core of this architecture. The [**parameters/azure**][
     }
 	```
 
-- **[virtualMachines-adfs.parameters.json ][virtualmachines-adfs-parameters]** **TBD - WAITING FOR HANZ TO COMPLETE**
+- **[add-adds-domain-controller.parameters.json][add-adds-domain-controller-parameters]**. This file contains the settings for creating the CONTOSO domain spanning the AD DS servers. It makes use of custom extensions that establish the domain and add the AD DS servers to it. Unless you create additional AD DS servers (in which case you should add them to the `vms` array), change their names from the default, or wish to create a domain with a different name you don't need to modify this file.
+
+- **[loadBalancer-adfs.parameters.json ][loadbalancer-adfs-parameters]** The file contains two sets of configuration parameters. The `virtualMachihneSettings` section defines the VMs that host the AD FS service in the cloud. By default, the script creates two of these VMs in the same availability set:
+
+	```json
+    "virtualMachinesSettings": {
+      "value": {
+        "namePrefix": "ra-adfs-adfs",
+        "computerNamePrefix": "adfs",
+        "size": "Standard_DS1_v2",
+        "osType": "windows",
+        "adminUsername": "testuser",
+        "adminPassword": "AweS0me@PW",
+        "osAuthenticationType": "password",
+        "nics": [
+          {
+            "isPublic": "false",
+            "subnetName": "adfs",
+            "privateIPAllocationMethod": "Static",
+            "startingIPAddress": "10.0.5.4",
+            "isPrimary": "true",
+            "enableIPForwarding": false,
+            "dnsServers": [ ]
+          }
+        ],
+        "imageReference": {
+          "publisher": "MicrosoftWindowsServer",
+          "offer": "WindowsServer",
+          "sku": "2012-R2-Datacenter",
+          "version": "latest"
+        },
+        "dataDisks": {
+          "count": 1,
+          "properties": {
+            "diskSizeGB": 128,
+            "caching": "None",
+            "createOption": "Empty"
+          }
+        },
+        "osDisk": {
+          "caching": "ReadWrite"
+        },
+        "extensions": [ ],
+        "availabilitySet": {
+          "useExistingAvailabilitySet": "No",
+          "name": "ra-adfs-adfs-vm-as"
+        }
+      }
+    }
+    ...
+    "buildingBlockSettings": {
+      "value": {
+        "storageAccountsCount": 2,
+        "vmCount": 2,
+        "vmStartIndex": 1
+      }
+    }
+	```
+
+	The `loadBalancerSettings` section provides the description of the load balancer for these VMs. The load balancer passes traffic that appears on port 443 (HTTPS) to one or other of the VMs:
+
+	```json
+    "loadBalancerSettings": {
+      "value": {
+        "name": "ra-adfs-adfs-lb",
+        "frontendIPConfigurations": [
+          {
+            "name": "ra-adfs-adfs-lb-fe",
+            "loadBalancerType": "internal",
+            "internalLoadBalancerSettings": {
+              "privateIPAddress": "10.0.5.30",
+              "subnetName": "adfs"
+            }
+          }
+        ],
+        "backendPools": [
+          {
+            "name": "ra-adfs-adfs-lb-bep",
+            "nicIndex": 0
+          }
+        ],
+        "loadBalancingRules": [
+          {
+            "name": "https-rule",
+            "frontendPort": 443,
+            "backendPort": 443,
+            "protocol": "Tcp",
+            "backendPoolName": "ra-adfs-adfs-lb-bep",
+            "frontendIPConfigurationName": "ra-adfs-adfs-lb-fe",
+            "probeName": "https-probe",
+            "enableFloatingIP": false
+          }
+        ],
+        "probes": [
+          {
+            "name": "https-probe",
+            "port": 443,
+            "protocol": "Tcp",
+            "requestPath": null
+          }
+        ],
+        "inboundNatRules": [ ]
+      }
+    },
+    "virtualNetworkSettings": {
+      "value": {
+        "name": "ra-adfs-vnet",
+        "resourceGroup": "johns-adfs-network-rg"
+      }
+    }
+	```
+
+- **[adfs-farm-domain-join.parameters.json ][adfs-farm-domain-join-parameters]**. This file contains the settings used to add the AD FS servers to the CONTOSO domain. You only need to modify this file if you have created additional AD FS servers (update the `vms` array in this case), or you have changed the domain name.
+
+- **[gmsa.parameters.json][gmsa-parameters]**, **[adfs-farm-first.parameters.json][adfs-farm-first-parameters]**, and **[adfs-farm-rest.parameters.json][adfs-farm-rest-parameters]**. The script uses the settings in these files to create the AD FS server farm. 
+
+	The *gmsa.parameters.json* file contains the settings for the group managed service account used by the AD FS service. You can modify this file if you wish to change the name of the account or the domain.
+
+	The *adfs-farm-first.parameters.json* file holds the information needed to create the AD FS server farm and add the first server. If you have changed the domain or name of the group managed service account, you should update this file.
+
+	The *adfs-farm-rest.parameters.json* file is used to add the remaining AD FS servers to the farm. Again, if you have changed the domain or name of the group managed service account, you should update this file. You should also update the `vms` array if you have created additional AD FS servers.
 
 - **TODO: ADFS PROXY**
 
@@ -411,15 +531,13 @@ These components form the core of this architecture. The [**parameters/azure**][
 
 - **[dmz-private.parameters.json][dmz-private-parameters]** and **[dmz-public.parameters.json ][dmz-public-parameters]**. These files configure the inbound (public) and outbound (private) sides of the VMs that comprise the DMZ, protecting the servers in the cloud. For more information about these elements and their configuration, see [Implementing a DMZ between Azure and the Internet][implementing-a-secure-hybrid-network-architecture-with-internet-access].
 
-- **TODO: WEB TIER ETC + LBs, MANAGEMENT TIER**
+- **[loadBalancer-web.parameters-json][loadBalancer-web-parameters]**, **[loadBalancer-biz.parameters-json][loadBalancer-biz-parameters]**, and **[loadBalancer-data.parameters-json][loadBalancer-data-parameters]**. These parameters files contain the VM specifications for the web, business, and data access tiers, and configure load balancers for each tier. These are the VMs that host the web apps and databases, and perform the business workloads for the organization. You can modify the sizes and number of VMs in each tier according to your requirements.
+
+- **[virtualMachines-mgmt.parameters.json][virtualMachines-mgmt-parameters]**. This file contains the configuration for the jump box/management VMs. It is only possible to gain logon and administrative access to the VMs in the web, business, and data tiers from the jump box. By default, the script creates a single *Standard_DS1_v2* VM, but you can modify this file to create bigger or additional VMs if the management workload is likely to be significant.
 
 ## Solution deployment
 
-**THIS SECTION TBD**
-
 The solution assumes the following prerequisites:
-
-- You have an existing on-premises infrastructure already configured with a VPN appliance.
 
 - You have an existing Azure subscription in which you can create resource groups.
 
@@ -427,24 +545,50 @@ The solution assumes the following prerequisites:
 
 To run the script that deploys the solution:
 
-1. Move to a convenient folder on your local computer and create the following two subfolders:
+1. Move to a convenient folder on your local computer and create the following subfolders:
 
 	- Scripts
 
-	- Templates
+	- Scripts/Parameters
+
+	- Scripts/Parameters/Onpremise
+
+	- Scripts/Parameters/Azure
 
 2. Download the [Deploy-ReferenceArchitecture.ps1][solution-script] file to the Scripts folder
 
-3. Download the [vpn-gateway-vpn-connection-settings.parameters.json][gateway-parameters] file to Templates folder:
+3. Download the contents of the [parameters/onpremise][on-premises-folder] folder to the Scripts/Parameters/Onpremise folder:
 
-4. Edit the Deploy-ReferenceArchitecture.ps1 file in the Scripts folder, and change the following line to specify the resource group that should be created or used to hold the resources created by the script:
+4. Download the contents of the [parameters/azure][azure-folder] folder to the Scripts/Parameters/Azure folder.
+
+5. Edit the Deploy-ReferenceArchitecture.ps1 file in the Scripts folder, and change the following lines to specify the resource groups that should be created or used to hold the resources created by the script:
 
 	```powershell
-	$resourceGroupName = "hybrid-dev-rg"
+	# Azure Onpremise Deployments
+    $onpremiseNetworkResourceGroupName = "ra-adfs-onpremise-rg"
+    
+    # Azure ADDS Deployments
+    $azureNetworkResourceGroupName = "ra-adfs-network-rg"
+    $workloadResourceGroupName = "ra-adfs-workload-rg"
+    $securityResourceGroupName = "ra-adfs-security-rg"
+    $addsResourceGroupName = "ra-adfs-adds-rg"
+    $adfsResourceGroupName = "ra-adfs-adfs-rg"
 	```
-5. Edit the vpn-gateway-vpn-connection-settings.parameters.json file in the Templates folder to set the parameters for the VNet, virtual network gateway, and connection, as described in the Solution Components section above.
 
-6. Open an Azure PowerShell window, move to the Scripts folder, and run the following command:
+6. Edit the parameter files in the Scripts/Parameters/Onpremise and Scripts/Parameters/Azure folders. Update the resource group references in these files to match the names of the resource groups assigned to the variables in the Deploy-ReferenceArchitecture.ps1 file. The following table shows which parameter files reference which resource group. 
+
+	|Resource Group|Parameter File(s)|
+    |--------------|--------------|
+    |ra-adfs-onpremise-rg|parameters\onpremise\connection.parameters.json<br /> parameters\onpremise\virtualMachines-adds.parameters.json<br />parameters\onpremise\virtualNetwork-adds-dns.parameters.json<br />parameters\onpremise\virtualNetwork.parameters.json<br />parameters\onpremise\virtualNetworkGateway.parameters.json<br />parameters\azure\virtualNetworkGateway.parameters.json
+    |ra-adfs-network-rg|parameters\azure\dmz-private.parameters.json<br />parameters\azure\dmz-public.parameters.json<br />parameters\azure\loadBalancer-adfs.parameters.json<br />parameters\azure\loadBalancer-biz.parameters.json<br />parameters\azure\loadBalancer-data.parameters.json<br />parameters\azure\loadBalancer-web.parameters.json<br />parameters\azure\virtualMachines-adds.parameters.json<br />parameters\azure\virtualMachines-mgmt.parameters.json<br />parameters\azure\virtualNetwork-with-onpremise-and-azure-dns.parameters.json<br />parameters\azure\virtualNetwork.parameters.json<br />parameters\azure\virtualNetworkGateway.parameters.json (*two occurrences*)
+    |ra-adfs-workload-rg|*?? - TBD*
+    |ra-adfs-security-rg|*?? - TBD*
+    |ra-adfs-adds-rg|*?? - TBD*
+    |ra-adfs-adfs-rg|*?? - TBD*
+
+	Additionally, set the configuration for the on-premises and cloud components, as described in the Solution Components section above.
+
+7. Open an Azure PowerShell window, move to the Scripts folder, and run the following command:
 
 	```powershell
 	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location>
@@ -453,6 +597,8 @@ To run the script that deploys the solution:
 	Replace `<subscription id>` with your Azure subscription ID.
 
 	For `<location>`, specify an Azure region, such as `eastus` or `westus`.
+
+8. **TBC**
 
 <!-- TBD: Add Verification Steps -->
 
@@ -499,9 +645,9 @@ To run the script that deploys the solution:
 [solution-script]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/Deploy-ReferenceArchitecture.ps1
 [on-premises-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-identity-adfs/parameters/onpremise
 [on-premises-vnet-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/onpremise/virtualNetwork.parameters.json
-[on-premises-virtualmachines-adds-parameters]: https://github.com/mspnp/reference-architectures/blob/master/guidance-identity-adfs/parameters/onpremise/virtualMachines-adds.parameters.json
-[on-premises-virtualnetworkgateway-parameters]: https://github.com/mspnp/reference-architectures/blob/master/guidance-identity-adfs/parameters/onpremise/virtualNetworkGateway.parameters.json
-[on-premises-connection-parameters]: https://github.com/mspnp/reference-architectures/blob/master/guidance-identity-adfs/parameters/onpremise/connection.parameters.json
+[on-premises-virtualmachines-adds-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/onpremise/virtualMachines-adds.parameters.json
+[on-premises-virtualnetworkgateway-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/onpremise/virtualNetworkGateway.parameters.json
+[on-premises-connection-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/onpremise/connection.parameters.json
 [azure-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-identity-adfs/parameters/azure
 [vnet-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/virtualNetwork.parameters.json
 [dmz-private-parameters]: https://github.com/mspnp/reference-architectures/blob/master/guidance-identity-adfs/parameters/azure/dmz-private.parameters.json
@@ -510,6 +656,16 @@ To run the script that deploys the solution:
 [hybrid-azure-on-prem-vpn]: ./guidance-hybrid-network-vpn.md
 [virtualmachines-adds-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/virtualMachines-adds.parameters.json
 [extending-ad-to-azure]: ./guidance-iaas-ra-secure-vnet-ad.md
-[virtualmachines-adfs-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/virtualMachines-adfs.parameters.json
+[loadbalancer-adfs-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/loadBalancer-adfs.parameters.json
+[add-adds-domain-controller-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/add-adds-domain-controller.parameters.json
+[gmsa-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/gmsa.parameters.json
+[adfs-farm-first-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/adfs-farm-first.parameters.json
+[adfs-farm-rest-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/adfs-farm-rest.parameters.json
+[adfs-farm-domain-join-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/adfs-farm-domain-join.parameters.json
+[loadBalancer-web-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/loadBalancer-web.parameters.json
+[loadBalancer-biz-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/loadBalancer-biz.parameters.json
+[loadBalancer-data-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/loadBalancer-data.parameters.json
+[virtualMachines-mgmt-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/virtualMachines-mgmt.parameters.json
+
 
 [0]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure1.png "Secure hybrid network architecture with Active Directory"
