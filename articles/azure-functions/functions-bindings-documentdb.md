@@ -43,7 +43,7 @@ The DocumentDB input to a function uses the following JSON object in the `bindin
       "databaseName": "<Name of the DocumentDB database>",
       "collectionName": "<Name of the DocumentDB collection>",
       "id": "<Id of the DocumentDB document - see below>",
-      "connection": "<Value of AccountEndpoint in Application Setting - see below>",
+      "connection": "<Name of app setting with DocumentDB endpoint - see below>",
       "direction": "in"
     },
  

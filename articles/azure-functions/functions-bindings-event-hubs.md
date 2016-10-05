@@ -15,49 +15,61 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="08/22/2016"
+	ms.date="10/05/2016"
 	ms.author="wesmc"/>
 
 # Azure Functions Event Hub bindings
 
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-This article explains how to configure and code [Azure Event Hub](../event-hubs/event-hubs-overview.md) bindings for Azure Functions. Azure functions supports trigger and output bindings for Azure Event Hubs.
+This article explains how to configure and code [Azure Event Hub](../event-hubs/event-hubs-overview.md) bindings for Azure Functions. 
+Azure functions supports trigger and output bindings for Azure Event Hubs.
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
+<a name="trigger"></a>
+## Event Hub trigger binding
 
-## Azure Event Hub trigger binding
+Use the Event Hub trigger to respond to an event sent to an event hub event stream. You must have read access to the event hub to setup a trigger binding.
 
-An Azure Event Hub trigger can be used to respond to an event sent to an event hub event stream. You must have read access to the event hub to setup a trigger binding.
+The Event Hub trigger to a function uses the following JSON object in the `bindings` array of function.json:
 
-#### function.json for Event Hub trigger binding
+	{
+		"type": "eventHubTrigger",
+		"name": "<Name of trigger parameter in function signature>",
+		"direction": "in",
+		"path": "<Name of the Event Hub>",
+		"connection": "<Name of app setting with connection string - see below>"
+	}
 
-The *function.json* file for an Azure Event Hub trigger specifies the following properties:
+`connection` must be the name of an app setting that contains the connection string to the event hub's namespace. 
+Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub 
+itself. This connection string must have at least read permissions to activate the trigger.
 
-- `type` : Must be set to *eventHubTrigger*.
-- `name` : The variable name used in function code for the event hub message. 
-- `direction` : Must be set to *in*. 
-- `path` : The name of the event hub.
-- `connection` : The name of an app setting that contains the connection string to the namespace that the event hub resides in. Copy this connection string by clicking the **Connection Information** button for the namespace, not the event hub itself.  This connection string must have at least read permissions to activate the trigger.
+<a name="triggerusage"></a>
+## Trigger usage
 
-		{
-		  "bindings": [
-		    {
-		      "type": "eventHubTrigger",
-		      "name": "myEventHubMessage",
-		      "direction": "in",
-		      "path": "MyEventHub",
-		      "connection": "myEventHubReadConnectionString"
-		    }
-		  ],
-		  "disabled": false
-		}
+When an Event Hub trigger function is triggered, the message that triggers it is passed into the function as a string.
 
-#### Azure Event Hub trigger C# example
- 
-Using the example function.json above, the body of the event message will be logged using the C# function code below:
- 
+Suppose you have the following Event Hub trigger binding in the `bindings` array of function.json:
+
+    {
+      "type": "eventHubTrigger",
+      "name": "myEventHubMessage",
+      "direction": "in",
+      "path": "MyEventHub",
+      "connection": "myEventHubReadConnectionString"
+    }
+
+See the language-specific sample that logs the message body of the event hub trigger.
+
+- [C#](#triggercsharp)
+- [F#](#triggerfsharp)
+- [Node.js](#triggernodejs)
+
+<a name="triggercsharp"></a>
+### Trigger usage in C\# 
+
 	using System;
 	
 	public static void Run(string myEventHubMessage, TraceWriter log)
@@ -65,86 +77,84 @@ Using the example function.json above, the body of the event message will be log
 	    log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
 	}
 
-#### Azure Event Hub trigger F# example
-
-Using the example function.json above, the body of the event message will be logged using the F# function code below:
+<a name="triggerfsharp"></a>
+### Trigger usage in F\# 
 
 	let Run(myEventHubMessage: string, log: TraceWriter) =
 	    log.Info(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
 
-#### Azure Event Hub trigger Node.js example
- 
-Using the example function.json above, the body of the event message will be logged using the Node.js function code below:
- 
+<a name="triggernodejs"></a>
+### Trigger usage in Node.js
+
 	module.exports = function (context, myEventHubMessage) {
 	    context.log('Node.js eventhub trigger function processed work item', myEventHubMessage);	
 	    context.done();
 	};
 
+<a name="output"></a>
+## Event Hub output binding
 
-## Azure Event Hub output binding
+Use the Event Hub output binding to write events to an event hub event stream. You must have send permission to an 
+event hub to write events to it. 
 
-An Azure Event Hub output binding is used to write events to an event hub event stream. You must have send permission to an event hub to write events to it. 
+The output binding uses the following JSON object in the `bindings` array of function.json: 
 
-#### function.json for Event Hub output binding
+	{
+		"type": "eventHub",
+		"name": "<Name of output parameter in function signature>",
+		"path": "<Name of event hub>",
+		"connection": "<Name of app setting with connection string - see below>"
+		"direction": "out"
+	}
 
-The *function.json* file for an Azure Event Hub output binding specifies the following properties:
+`connection` must be the name of an app setting that contains the connection string to the event hub's namespace. 
+Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub 
+itself. This connection string must have send permissions to send the message to the event stream.
 
-- `type` : Must be set to *eventHub*.
-- `name` : The variable name used in function code for the event hub message. 
-- `path` : The name of the event hub.
-- `connection` : The name of an app setting that contains the connection string to the namespace that the event hub resides in. Copy this connection string by clicking the **Connection Information** button for the namespace, not the event hub itself.  This connection string must have send permissions to send the message to the Event Hub stream.
-- `direction` : Must be set to *out*. 
+<a name="outputusage"></a>
+## Output usage
 
-	    {
-	      "type": "eventHub",
-	      "name": "outputEventHubMessage",
-	      "path": "myeventhub",
-	      "connection": "MyEventHubSend",
-	      "direction": "out"
-	    }
+	{
+		"type": "eventHub",
+		"name": "outputEventHubMessage",
+		"path": "myeventhub",
+		"connection": "MyEventHubSend",
+		"direction": "out"
+	}
 
+See the language-specific sample that uses the Event Hub output binding above by writing an event to the even stream.
 
-#### Azure Event Hub C# code example for output binding
- 
-The following C# example function code demonstrates writing an event to an Event Hub event stream. This example represents the Event Hub output binding shown above applied to a C# timer trigger.  
- 
+- [C#](#outcsharp)
+- [F#](#outfsharp)
+- [Node.js](#outnodejs)
+
+<a name="outcsharp"></a>
+### Output usage in C\# 
+
 	using System;
 	
 	public static void Run(TimerInfo myTimer, out string outputEventHubMessage, TraceWriter log)
 	{
 	    String msg = $"TimerTriggerCSharp1 executed at: {DateTime.Now}";
-	
 	    log.Verbose(msg);   
-	    
 	    outputEventHubMessage = msg;
 	}
 
-#### Azure Event Hub F# code example for output binding
-
-The following F# example function code demonstrates writing an event to an Event Hub event stream. This example represents the Event Hub output binding shown above applied to a C# timer trigger.
+<a name="outfsharp"></a>
+### Output usage in F\# 
 
 	let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWriter) =
 	    let msg = sprintf "TimerTriggerFSharp1 executed at: %s" DateTime.Now.ToString()
 	    log.Verbose(msg);
 	    outputEventHubMessage <- msg;
 
-#### Azure Event Hub Node.js code example for output binding
- 
-The following Node.js example function code demonstrates writing a event to an Event Hub event stream. This example represents the Event Hub output binding shown above applied to a Node.js timer trigger.  
- 
+<a name="outnodejs"></a>
+### Output usage in Node.js
+
 	module.exports = function (context, myTimer) {
 	    var timeStamp = new Date().toISOString();
-	    
-	    if(myTimer.isPastDue)
-	    {
-	        context.log('TimerTriggerNodeJS1 is running late!');
-	    }
-
 	    context.log('TimerTriggerNodeJS1 function ran!', timeStamp);   
-	    
 	    context.bindings.outputEventHubMessage = "TimerTriggerNodeJS1 ran at : " + timeStamp;
-	
 	    context.done();
 	};
 
