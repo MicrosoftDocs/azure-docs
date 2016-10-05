@@ -30,7 +30,7 @@ Learn how to use WebHDFS REST APIs and Data Lake Analytics REST APIs to manage D
 
 - [cURL](http://curl.haxx.se/). This article uses cURL to demonstrate how to make REST API calls against a Data Lake Analytics account.
 
-## Authenticate with Azure Active Directory?
+## Authenticate with Azure Active Directory
 
 See [Authenticate using Azure Active Directory](,./data-lake-store/data-lake-store-get-started-rest-api.md#how-do-i-authenticate-using-azure-active-directory).
 
