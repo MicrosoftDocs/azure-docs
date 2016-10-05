@@ -49,11 +49,8 @@ You can add an endpoint to your Web service programmatically using the [AddEndpo
 2. At the bottom of the Web service dashboard, click **Manage endpoints**.
 3. Click **New**.
 
-	<!--![Endpoint list](./media/machine-learning-create-endpoint/figure-6.png)-->
 
 4. Type a name and description for the new endpoint. Endpoint names must be 24 character or less in length, and must be made up of lower-case alphabets or numbers. Select the logging level and whether sample data is enabled. For more information on logging, see [Enable logging for Machine Learning Web services](machine-learning-Web-services-logging.md).
-
-	<!--![Create endpoint](./media/machine-learning-create-endpoint/figure-7.png)-->
 
 ## Adding an endpoint using the Azure classic portal
 
