@@ -21,7 +21,7 @@
 
 ##Overview
 
-Anomaly Detection API is an example built with Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time. 
+[Anomaly Detection API](https://datamarket.azure.com/dataset/aml_labs/anomalydetection) is an example built with Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time. 
 
 This APIs can detect the following types of anomalous patterns in time series data:
 
@@ -39,7 +39,9 @@ The Anomaly Detection offering comes with useful tools to get you started.
 
 * The [sample code](http://adresultparser.codeplex.com/) shows how to programmatically access the API and parse the results in C#.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)] 
+> [AZURE.NOTE(Try IT Anomaly Insights Solution powered by this API)] 
+>
+> Get an end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank"> **Start here >**</a>
 
 
 ##API Definition
