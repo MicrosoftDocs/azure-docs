@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/13/2016"
+    ms.date="10/05/2016"
     ms.author="larryfr"/>
 
 # Script action development with HDInsight
@@ -51,6 +51,7 @@ When you develop a custom script for an HDInsight cluster, there are several bes
 - [Write information to STDOUT and STDERR](#bPS7)
 - [Save files as ASCII with LF line endings](#bps8)
 - [Use retry logic to recover from transient errors](#bps9)
+- [OS Version](#bps10)
 
 > [AZURE.IMPORTANT] Script actions must complete within 60 minutes, or they will timeout. During node provisioning, the script is ran concurrently with other setup and configuration processes. Competition for resources such as CPU time or network bandwidth may cause the script to take longer to finish than it does in your development environment.
 
@@ -151,6 +152,47 @@ The following are examples of using this function.
 
     retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
 
+###<a name="bps10"></a> OS Version
+
+Linux-based HDInsight is built using the Ubuntu Linux distribution. Different versions of HDInsight rely on different versions of Ubuntu, which may affect how your script behaves. For example, HDInsight 3.4 and earlier use a version of Ubuntu that uses Upstart. Version 3.5 uses Ubuntu 16.04, which uses Systemd. Systemd and Upstart rely on different commands, so your script should be written to work with both.
+
+Another important difference between HDInsight 3.4 and 3.5 is that `JAVA_HOME` now points to Java 8.
+
+You can check the OS version by using `lsb_release`. The following code snippets from the Hue install script demonstrates how to determine if the script is running on Ubuntu 14 or 16:
+
+    OS_VERSION=$(lsb_release -sr)
+    if [[ $OS_VERSION == 14* ]]; then
+        echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+        HUE_TARFILE=hue-binaries-14-04.tgz
+    elif [[ $OS_VERSION == 16* ]]; then
+        echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+        HUE_TARFILE=hue-binaries-16-04.tgz
+    fi
+    ...
+    if [[ $OS_VERSION == 16* ]]; then
+        echo "Using systemd configuration"	
+		systemctl daemon-reload
+		systemctl stop webwasb.service    
+		systemctl start webwasb.service
+	else
+        echo "Using upstart configuration"
+		initctl reload-configuration
+		stop webwasb
+		start webwasb
+    fi
+    ...
+    if [[ $OS_VERSION == 14* ]]; then
+        export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+    elif [[ $OS_VERSION == 16* ]]; then
+        export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+    fi
+
+You can find the full script that contains these snippets at https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh.
+
+For the version of Ubuntu that is used by HDInsight, see the [HDInsight component version](hdinsight-component-versioning.md) document.
+
+To understand the differences between Systemd and Upstart, see [Systemd for Upstart users](https://wiki.ubuntu.com/SystemdForUpstartUsers).
+
 ## <a name="helpermethods"></a>Helper methods for custom scripts
 
 script action helper methods are utilities that you can use while writing custom scripts. These are defined in [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh), and can be included in your scripts using the following:
@@ -206,6 +248,21 @@ Environment variables set within the script only exist within the scope of the s
 Scripts used to customize a cluster needs to either be in the default storage account for the cluster or, if on another storage account, in a public read-only container. If your script accesses resources located elsewhere these also need to be in a publicly accessible (at least public read-only). For instance you might want to download a file to the cluster using `download_file`.
 
 Storing the file in an Azure storage account accessible by the cluster (such as the default storage account,) will provide fast access, as this storage is within the Azure network.
+
+### Checking the operating system version
+
+Different versions of HDInsight rely on specific versions of Ubuntu. There may be differences between OS versions that you must check for in your script. For example, you may need to install a binary that is tied to the version of Ubuntu.
+
+To check the OS version, use `lsb_release`. For example, the following demonstrates how to reference a different tar file depending on the OS version:
+
+    OS_VERSION=$(lsb_release -sr)
+    if [[ $OS_VERSION == 14* ]]; then
+        echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+        HUE_TARFILE=hue-binaries-14-04.tgz
+    elif [[ $OS_VERSION == 16* ]]; then
+        echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+        HUE_TARFILE=hue-binaries-16-04.tgz
+    fi
 
 ## <a name="deployScript"></a>Checklist for deploying a script action
 
