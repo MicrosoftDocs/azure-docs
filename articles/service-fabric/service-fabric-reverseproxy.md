@@ -145,6 +145,7 @@ Once you have the template for the cluster that you want to deploy(either from t
 2. Specify the port for each of the nodetype objects in the **Cluster** [Resource type section](../resource-group-authoring-templates.md)
 
     For apiVersion's prior to '2016-09-01'  the port is identified by the parameter name ***httpApplicationGatewayEndpointPort***
+
     ```json
     {
         "apiVersion": "2016-03-01",
@@ -163,7 +164,9 @@ Once you have the template for the cluster that you want to deploy(either from t
         ...
     }
     ```
+
     For apiVersion's on or after '2016-09-01' the port is identified by the parameter name ***reverseProxyEndpointPort***
+    
     ```json
     {
         "apiVersion": "2016-09-01",
