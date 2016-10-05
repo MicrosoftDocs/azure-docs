@@ -26,19 +26,19 @@ Learn how to use WebHDFS REST APIs and Data Lake Analytics REST APIs to manage D
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- **Create an Azure Active Directory Application**. You use the Azure AD application to authenticate the Data Lake Analytics application with Azure AD. There are different approaches to authenticate with Azure AD, which are **end-user authentication** or **service-to-service authentication**. For instructions and more information on how to authenticate, see [Authenticate with Data Lake Analytics using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
+- **Create an Azure Active Directory Application**. You use the Azure AD application to authenticate the Data Lake Analytics application with Azure AD. There are different approaches to authenticate with Azure AD, which are **end-user authentication** or **service-to-service authentication**. For instructions and more information on how to authenticate, see [Authenticate with Data Lake Analytics using Azure Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
 
 - [cURL](http://curl.haxx.se/). This article uses cURL to demonstrate how to make REST API calls against a Data Lake Analytics account.
 
 ## Authenticate with Azure Active Directory?
 
-See [Authenticate using Azure Active Directory](data-lake-store-get-started-rest-api.md#how-do-i-authenticate-using-azure-active-directory).
+See [Authenticate using Azure Active Directory](,./data-lake-store/data-lake-store-get-started-rest-api.md#how-do-i-authenticate-using-azure-active-directory).
 
 ## Create a Data Lake Analytics account
 
-You must first create an Azure Resource group, and a Data Lake Store account.  See [Create a Data Lake Store account](data-lake-store-get-started-rest-api.md#create-a-data-lake-store-account).
+You must create an Azure Resource group, and a Data Lake Store account before you can create a Data Lake Analyics account.  See [Create a Data Lake Store account](../data-lake-store/data-lake-store-get-started-rest-api.md#create-a-data-lake-store-account).
 
-The following the the Curl command:
+The following is the Curl command:
 
 	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/<AzureSubscriptionID>/resourceGroups/<AzureResourceGroupName>/providers/Microsoft.DataLakeAnalytics/accounts/<NewAzureDataLakeAnalyticsAccountName>?api-version=2015-10-01-preview -d@"C:\tutorials\adla\CreateDataLakeAnalyticsAccountRequest.json"
 
@@ -61,11 +61,11 @@ Replace \<`REDACTED`\> with the authorization token, <AzureSubscriptionID> with 
 
 ## List Data Lake Analytics accounts in a subscription
 
-The following the the Curl command:
+The following is the Curl command:
 
 	curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/<AzureSubscriptionID>/providers/Microsoft.DataLakeAnalytics/Accounts?api-version=2015-10-01-preview
 
-Replace \<`REDACTED`\> with the authorization token, <AzureSubscriptionID> with your subscription ID. The output is simliar to:
+Replace \<`REDACTED`\> with the authorization token, <AzureSubscriptionID> with your subscription ID. The output is similar to:
 
 	{
 		"value": [
@@ -102,7 +102,7 @@ Replace \<`REDACTED`\> with the authorization token, <AzureSubscriptionID> with 
 		]
 	}
 
-## Get information about an Data Lake Analytic account
+## Get information about a Data Lake Analytic account
 
 The following is the Curl command:
 
@@ -246,5 +246,10 @@ The output is similar to:
 
 ## See also
 
-- [Open Source Big Data applications compatible with Azure Data Lake Analytics](data-lake-store-compatible-oss-other-applications.md)
- 
+- To see a more complex query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+- To get started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+- To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).
+- For management tasks, see [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md).
+- To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
+- To see the same tutorial using other tools, click the tab selectors on the top of the page.
+- To log diagnostics information, see [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
