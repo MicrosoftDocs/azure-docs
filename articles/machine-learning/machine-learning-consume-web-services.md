@@ -82,8 +82,7 @@ The information is located on these pages:
 
 * The **Primary key** is available on the **Consume** page
 * The **request URI** is available on the **Consume** page 
-* The expected API **request headers** and **body** are available on the **Swagger API** page
-* The expected API **response headers** and **body** are available on the **Swagger API** page
+* The expected API **request headers**, **response headers**, and **body** are available on the **Swagger API** page
 
 ### Information locations in Machine Learning Studio (Classic Web service only)
 
@@ -99,8 +98,8 @@ The information is located on these pages:
 
 * The **API key** is available on the service **Dashboard** 
 * The **request URI** is available on the API help page
-* The expected API is available on the API help page
-* The expected API is available on the API help page
+* The expected API **request headers**, **response headers**, and **body** are available on the API help page
+
 
 To access the API help page, click either the **REQUEST/RESPONSE** or **BATCH EXECUTION** link as appropriate to your task.
 
@@ -115,8 +114,7 @@ The information is located on these pages:
 
 * The **Primary key** is available on the **Consume** page
 * The **request URI** is available on the **Consume** page 
-* The expected API **request headers** and **body** are available on the **Swagger API** page
-* The expected API **response headers** and **body** are available on the **Swagger API** page
+* The expected API **request headers**, **response headers**, and **body** are available on the **Swagger API** page
 
 In the two examples below, the C# language is used to illustrate the code needed.
 
