@@ -22,7 +22,6 @@
 
 This tutorial shows how to create a simple [Node.js] application and deploy it to [Azure App Service] from a command-line environment, such as cmd.exe or bash. The instructions in this tutorial can be followed on any operating system that can run Node.js.
 
->[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
 
 <a name="prereq"></a>
 ## Prerequisites
