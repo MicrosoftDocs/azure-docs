@@ -30,7 +30,7 @@
 The sample PowerShell commands below expect a simple environment already created based on the scenario above. If you want to run the commands as they are displayed in this document, first build the test environment by deploying [this template](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.
 
 ## How to create the NSG for the front end subnet
-To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow the steps below:
+To create an NSG named *NSG-FrontEnd* based on the scenario above, follow the steps below:
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
@@ -123,10 +123,9 @@ To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow 
             		                        "ProvisioningState": "Succeeded"
             		                      }
 
-        >[AZURE.WARNING] The output for the command above shows the content for the virtual network configuration object, which only exists on the computer where you are running PowerShell. You need to run the `Set-AzureRmVirtualNetwork` cmdlet to save these settings to Azure.
+>[AZURE.WARNING] The output for the command above shows the content for the virtual network configuration object, which only exists on the computer where you are running PowerShell. You need to run the `Set-AzureRmVirtualNetwork` cmdlet to save these settings to Azure.
 
 7. Save the new VNet settings to Azure.
-
 
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
