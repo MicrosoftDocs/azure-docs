@@ -16,10 +16,10 @@
 	ms.date="10/05/2016"
 	ms.author="CarlRabeler; ronitr; giladm"/>
 
-# Get started with SQL database auditing
+# Get started with SQL database  auditing
 Azure SQL Database Auditing tracks database events and writes them to an audit log in your Azure Storage account.
 
-Auditing can help you maintain regulatory compliance, understand  database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
+Auditing can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
 
 Auditing enables and facilitates adherence to compliance standards but doesn't guarantee compliance. For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
 
