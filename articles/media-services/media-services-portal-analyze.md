@@ -67,7 +67,7 @@ Closed Caption (CC) files in these formats can be used to make audio and video f
 
 ### AIB file
 
-Select this option if you would like to generate the Audio Index Blob file for use with the custom SQL Server IFilter. For more information, see [this](https://azure.microsoft.com/en-us/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) blog.
+Select this option if you would like to generate the Audio Index Blob file for use with the custom SQL Server IFilter. For more information, see [this](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) blog.
 
 ### Keywords
 
