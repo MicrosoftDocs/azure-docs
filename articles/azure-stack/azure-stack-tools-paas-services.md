@@ -41,7 +41,9 @@ If you want to use Visual Studio on the console VM to work with Azure Stack temp
 4. Using **Add/Remove Programs**, uninstall the **Microsoft Azure PowerShell (Sept)** that gets installed as part of the SDK.
 5. Open the Web Platform Installer.
 6. Find and install **Microsoft Azure PowerShell - Azure Stack Technical Preview 2**. 
-7. Open Visual Studio and validate that you can connect to the Azure Stack environment, get templates, and so on. 
+7. Restart the MAS-CON01 virtual machine.
+8. Use Remote Desktop Connection to log in to the MAS-CON01 virtual machine with the azurestack\azurestackadmin credentials.
+9. Open Visual Studio and validate that you can connect to the Azure Stack environment, get templates, and so on. 
 
 ### Azure PowerShell SDK
 Azure PowerShell is a module that provides cmdlets to manage Azure and Azure Stack with Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure Stack platform.
