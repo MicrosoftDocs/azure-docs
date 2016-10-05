@@ -72,7 +72,7 @@ If you do not see your device listed as a known compatible VPN device and you wa
 
 ### Why does my policy-based VPN tunnel go down when traffic is idle?
 
-This is expected behavior for policy-based (also known as static routing) VPN gateways. When the traffic over the tunnel is idle for more than 5 minutes, the tunnel will be torn down. When traffic starts flowing in either direction, the tunnel will be reestablished immediately. If you have a route-based (also known as dynamic) VPN gateway, you will not experience this behavior.
+This is expected behavior for policy-based (also known as static routing) VPN gateways. When the traffic over the tunnel is idle for more than 5 minutes, the tunnel will be torn down. When traffic starts flowing in either direction, the tunnel will be reestablished immediately.
 
 ### Can I use software VPNs to connect to Azure?
 

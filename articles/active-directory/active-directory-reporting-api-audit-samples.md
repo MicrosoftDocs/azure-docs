@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="09/25/2016"
+    ms.date="09/28/2016"
     ms.author="dhanyahk;markvi"/>
 
 # Azure Active Directory reporting audit API samples
@@ -34,6 +34,11 @@ For questions, issues or feedback, please contact [AAD Reporting Help](mailto:aa
 ## Prerequisites
 Before you can use the samples in this topic, you need to complete the [prerequisites to access the Azure AD reporting API](active-directory-reporting-api-prerequisites.md).  
   
+
+## Known issue
+
+App Auth will not work if your tenant is in the EU region. Please use User Auth for accessing the Audit API as a workaround until we fix the issue. 
+
 
 ## PowerShell script
     # This script will require registration of a Web Application in Azure Active Directory (see https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)
@@ -86,7 +91,7 @@ Once you finish editing the script, run it and verify that the expected data fro
 The script returns output from the audit report in JSON format. It also creates an `audit.json` file with the same output. You can experiment by modifying the script to return data from other reports, and comment out the output formats that you do not need.
 
 
-## Bash Script
+## Bash script
 
     #!/bin/bash
 
@@ -115,7 +120,8 @@ The script returns output from the audit report in JSON format. It also creates 
 
     echo $REPORT | ./jq-win64.exe -r '.value' | ./jq-win64.exe -r ".[]"
 
-## Python
+## Python script
+
 	# Author: Michael McLaughlin (michmcla@microsoft.com)
 	# Date: January 20, 2016
 	# This requires the Python Requests module: http://docs.python-requests.org
@@ -160,7 +166,7 @@ The script returns output from the audit report in JSON format. It also creates 
 
 
 
-## Next Steps
+## Next steps
 
 - Would you like to customize the samples in this topic? Check out the [Azure Active Directory audit API reference](active-directory-reporting-api-audit-reference.md). 
 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Implementing Failover Streaming Scenario | Microsoft Azure" 
+	pageTitle="Implementing failover streaming scenario | Microsoft Azure" 
 	description="This topic shows how to implement failover streaming scenario." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
-#Implementing Failover Streaming Scenario
+#Implementing failover streaming scenario
 
 This walkthrough demonstrates how to copy content (blobs) from one asset into another in order to handle redundancy for On-Demand streaming. This scenario is useful to customers that want to set up their CDN to failover between two datacenters in the case of an outage in one of our data centers.
 This walkthrough uses Microsoft Azure Media Services SDK, Microsoft Azure Media Services REST API, and Azure Storage SDK to demonstrate the following tasks.

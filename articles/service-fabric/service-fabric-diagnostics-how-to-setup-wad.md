@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/24/2016"
+   ms.date="09/28/2016"
    ms.author="toddabel"/>
 
 
@@ -23,7 +23,7 @@
 - [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 - [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
 
-When you're running an Azure Service Fabric cluster, it's a good idea to collect the logs from all the nodes in a central location. Having the logs in a central location makes it easy to analyze and troubleshoot issues in your cluster or in the applications and services running in that cluster. One way to upload and collect logs is to use the Azure Diagnostics extension, which uploads logs to Azure Storage. The logs are really not that useful directly in storage, but an external process can be used to read the events from storage and place them into a product such as [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) or another log parsing solution.
+When you're running an Azure Service Fabric cluster, it's a good idea to collect the logs from all the nodes in a central location. Having the logs in a central location makes it easy to analyze and troubleshoot issues in your cluster or in the applications and services running in that cluster. One way to upload and collect logs is to use the Azure Diagnostics extension, which uploads logs to Azure Storage. The logs are really not that useful directly in storage, but an external process can be used to read the events from storage and place them into a product such as [Log Analytics](../log-analytics/log-analytics-service-fabric.md) or [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) or another log parsing solution.
 
 ## Prerequisites
 These tools will be used to perform some of the operations in this document:

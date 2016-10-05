@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2016"
+	ms.date="10/04/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Advanced Configuration for Windows Universal Apps Engagement SDK
@@ -22,7 +22,7 @@
 - [Universal Windows](mobile-engagement-windows-store-advanced-configuration.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
 - [iOS](mobile-engagement-ios-integrate-engagement.md)
-- [Android](mobile-engagement-android-advan.mdced-configuration.md)
+- [Android](mobile-engagement-android-advanced-configuration.md)
 
 This procedure describes how to configure various configuration options for Azure Mobile Engagement Android apps.
 

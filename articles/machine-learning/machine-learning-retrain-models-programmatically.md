@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/29/2016"
+	ms.date="09/28/2016"
 	ms.author="raymondl;garye;v-donglo"/>
 
 
@@ -47,7 +47,7 @@ The process for setting up retraining for a New Web service involves the followi
 
 ![Retraining process overview][7]
 
-Diagram 1: Retraining process for a New Web service overview  
+Diagram 2: Retraining process for a New Web service overview  
 
 ## Create a Training Experiment
  
@@ -79,7 +79,7 @@ Next you create a Predicative Experiment.
 
 To retrain the trained model, you must deploy the Training Experiment that you created as a Retraining Web service. This Web service needs a *Web Service Output* module connected to the *[Train Model][train-model]* module, to be able to produce new trained models.
 
-1. To return to the training experiment, click the Experiments icon in the left pane, then click the experiment named Census Model. 
+1. To return to the training experiment, click the Experiments icon in the left pane, then click the experiment named Census Model.  
 2. In the Search Experiment Items search box, type Web service. 
 3. Drag a *Web Service Input* module onto the experiment canvas and connect its output to the *Clean Missing Data* module. 
 4. Drag two *Web service Output* modules onto the experiment canvas. Connect the output of the *Train Model* module to one and the output of the *Evaluate Model* module to the other. The Web service output for **Train Model** gives us the new trained model. The output attached to **Evaluate Model** returns that module’s output.
@@ -118,29 +118,54 @@ To call the Retraining APIs:
 	2.	Click **Consume**.
 	3.	At the bottom of the Consume page, in the **Sample Code** section, click **Batch**.
 5.	Copy the sample C# code for batch execution and paste it into the Program.cs file, making sure the namespace remains intact.
-7. When specifying the output location in the Request Payload, the extension of the file specified in *RelativeLocation* must be changed from csv to ilearner. See the following example.
 
-		Outputs = new Dictionary<string, AzureBlobDataReference>()
-		{
-			{
-				"output1",
-				new AzureBlobDataReference()
-				{
-					ConnectionString = "DefaultEndpointsProtocol=https;AccountName=mystorageacct;AccountKey=Dx9WbMIThAvXRQWap/aLnxT9LV5txxw==",
-					RelativeLocation = "mycontainer/output1results.ilearner"
-				}
-			},
-		},
+Add the Nuget package Microsoft.AspNet.WebApi.Client as specified in the comments. To add the reference to Microsoft.WindowsAzure.Storage.dll, you might first need to install the client library for Microsoft Azure storage services. For more information, see [Windows Storage Services](https://www.nuget.org/packages/WindowsAzure.Storage).
 
->[AZURE.NOTE] The names of your output locations may be different from the ones in this walkthrough based on the order in which you added the Web service output modules. Since you set up this Training Experiment with two outputs, the results include storage location information for both of them. 
+### Update the apikey declaration
+
+Locate the **apikey** declaration.
+
+	const string apiKey = "abc123"; // Replace this with the API key for the web service
+
+In the **Basic consumption info** section of the **Consume** page, locate the primary key and copy it to the **apikey** declaration.
 
 ### Update the Azure Storage information
 
 The BES sample code uploads a file from a local drive (For example "C:\temp\CensusIpnput.csv") to Azure Storage, processes it, and writes the results back to Azure Storage.  
 
-To accomplish this task, you must retrieve the Storage account name, key, and container information from the Azure classic portal for your Storage account and the update corresponding values in the code. 
+To accomplish this task, you must retrieve the Storage account name, key, and container information for your Storage account from the classic Azure portal and the update corresponding values in the code. 
 
-You also must ensure the input file is available at the location you specify in the code.  
+1. Sign in to the classic Azure portal.
+1. In the left navigation column, click **Storage**.
+1. From the list of storage accounts, select one to store the retrained model.
+1. At the bottom of the page, click **Manage Access Keys**.
+1. Copy and save the **Primary Access Key** and close the dialog. 
+1. At the top of the page, click **Containers**.
+1. Select an existing container or create a new one and save the name.
+
+Locate the *StorageAccountName*, *StorageAccountKey*, and *StorageContainerName* declarations and update the values you saved from the Azure portal.
+
+    const string StorageAccountName = "mystorageacct"; // Replace this with your Azure Storage Account name
+    const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage Key
+    const string StorageContainerName = "mycontainer"; // Replace this with your Azure Storage Container name
+            
+You also must ensure the input file is available at the location you specify in the code. 
+
+### Specify the output location
+
+When specifying the output location in the Request Payload, the extension of the file specified in *RelativeLocation* must be specified as ilearner. See the following example.
+
+    Outputs = new Dictionary<string, AzureBlobDataReference>() {
+        {
+            "output1",
+            new AzureBlobDataReference()
+            {
+                ConnectionString = storageConnectionString,
+                RelativeLocation = string.Format("{0}/output1results.ilearner", StorageContainerName) /*Replace this with the location you would like to use for your output file, and valid file extension (usually .csv for scoring results, or .ilearner for trained models)*/
+            }
+        },
+
+>[AZURE.NOTE] The names of your output locations may be different from the ones in this walkthrough based on the order in which you added the Web service output modules. Since you set up this Training Experiment with two outputs, the results include storage location information for both of them.  
 
 ![Retraining output][6]
 
