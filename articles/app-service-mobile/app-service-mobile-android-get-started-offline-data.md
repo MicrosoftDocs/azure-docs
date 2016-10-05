@@ -109,9 +109,9 @@ When you press that button, a new background task starts, and first pushes all t
 
 <!-- URLs. -->
 
-[Offline Data Sync in Azure Mobile Apps]: ../app-service-mobile-offline-data-sync.md
+[Offline Data Sync in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 
-[Create an Android App]: ../app-service-mobile-android-get-started.md
+[Create an Android App]: app-service-mobile-android-get-started.md
 
 [Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
