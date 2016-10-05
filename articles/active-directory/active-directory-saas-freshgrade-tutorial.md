@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2016"
+	ms.date="10/05/2016"
 	ms.author="jeedes"/>
 
 
@@ -116,7 +116,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	![Configure Single Sign-On](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_04.png) 
 
-    a. In the Identifier textbox, type a URL using the following pattern: `https://<your-subdomain>.onboarding.freshgrade.com`
+    a. In the Identifier textbox, type a URL using the following pattern:https://\<your-subdomain\>.freshgrade.com or https://\<your-subdomain\>.onboarding.freshgrade.com.
 		
 	b. click **Next**
  
