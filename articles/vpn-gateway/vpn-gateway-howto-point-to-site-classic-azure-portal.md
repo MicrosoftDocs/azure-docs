@@ -35,7 +35,7 @@ Point-to-Site connections do not require a VPN device or a public-facing IP addr
 
 The following table shows the two deployment models and the available deployment tools for each deployment model. When an article is available, we link to it.
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-table-point-to-site-availability-include.md)] 
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-table-point-to-site-include.md)] 
 
 ## Basic workflow 
 
@@ -72,7 +72,7 @@ You can use the following example settings:
 
 ### Part 1: Create a virtual network
 
-To create a VNet by using the Azure portal, follow the steps below. Note that the screenshots are provided as examples. Be sure to replace the values with your own. For more information about working with virtual networks, see the [Virtual Network Overview](../articles/virtual-network/virtual-networks-overview.md).
+To create a VNet by using the Azure portal, use the following steps. Screenshots are provided as examples. Be sure to replace the values with your own. For more information about working with virtual networks, see the [Virtual Network Overview](../articles/virtual-network/virtual-networks-overview.md).
 
 1. From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
 
@@ -82,22 +82,22 @@ To create a VNet by using the Azure portal, follow the steps below. Note that th
 
 3. Near the bottom of the Virtual Network blade, from the **Select a deployment model** list, select **Classic**, and then click **Create**.
 
-4. On the **Create virtual network** blade, configure the VNet settings. In this blade, you'll add your first address space and a single subnet address range. After you finish creating the VNet, you can go back and add additional subnets and address spaces. This is a current limitation of the portal. You can always come back to update these values by editing the VNet properties in the portal, or by using PowerShell. The values that you use will depend on the configuration you want to create. Be sure to refer to your planned configuration values. 
+4. On the **Create virtual network** blade, configure the VNet settings. In this blade, you'll add your first address space and a single subnet address range. After you finish creating the VNet, you can go back and add additional subnets and address spaces.
 
 	![Create virtual network blade](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/vnet125.png "Create virtual network blade")
 
-5. Verify that the **Subscription** is the correct one. You can change subscriptions by using the dropdown.
+5. Verify that the **Subscription** is the correct one. You can change subscriptions by using the drop-down.
 
 6. Click **Resource group** and either select an existing resource group, or create a new one by typing a name for your new resource group. If you are creating a new group, name the resource group according to your planned configuration values. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md#resource-groups).
 
-7. Next, select the **Location** settings for your VNet. Note that the location will determine where the resources that you deploy to this VNet will reside. You can't change this later without redeploying your resources.
+7. Next, select the **Location** settings for your VNet. The location will determine where the resources that you deploy to this VNet will reside.
 
 8. Select **Pin to dashboard** if you want to be able to find your VNet easily on the dashboard, and then click **Create**.
 	
 	![Pin to dashboard](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/pintodashboard150.png "Pin to dashboard")
 
 
-9. After clicking Create, you will see a tile on your dashboard that will reflect the progress of your VNet. The tile will change as the VNet is being created.
+9. After clicking Create, you will see a tile on your dashboard that will reflect the progress of your VNet. The tile changes as the VNet is being created.
 
 	![Creating virtual network tile](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png "Creating virtual network tile")
 
@@ -109,7 +109,7 @@ Once your virtual network has been created, you will see **Created** listed unde
 
 In this step, you will create a gateway subnet and a Dynamic routing gateway. In the Azure portal for the classic deployment model, creating the gateway subnet and the gateway can be done through the same configuration blades.
 
-1. In the portal, navigate to the virtual network for which you wannt to create a gateway.
+1. In the portal, navigate to the virtual network for which you want to create a gateway.
 
 2. On the blade for your virtual network, on the **Overview** blade, in the VPN connections section, click **Gateway**.
 
