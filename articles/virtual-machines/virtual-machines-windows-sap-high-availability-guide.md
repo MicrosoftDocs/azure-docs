@@ -428,7 +428,7 @@
 [xplat-cli-azure-resource-manager]:../xplat-cli-azure-resource-manager.md
 
 
-Azure Virtual Machines is the perfect solution for organizations that need compute, storage, and network resources, in minimal time, and without lengthy procurement cycles. You can use Azure Virtual Machines to deploy classic applications like SAP NetWeaver-based ABAP, Java, and an ABAP+Java stack. Extend reliability and availability without additional on-premises resources. Because Azure Virtual Machines supports cross-premises connectivity, your organization can integrate Azure Virtual Machines into your on-premises domains, private clouds, and SAP system landscape.
+Azure Virtual Machines is the solution for organizations that need compute, storage, and network resources, in minimal time, and without lengthy procurement cycles. You can use Azure Virtual Machines to deploy classic applications like SAP NetWeaver-based ABAP, Java, and an ABAP+Java stack. Extend reliability and availability without additional on-premises resources. Because Azure Virtual Machines supports cross-premises connectivity, your organization can integrate Azure Virtual Machines into your on-premises domains, private clouds, and SAP system landscape.
 
 In this article, we cover the steps that you can take to deploy high-availability SAP systems in Azure, by using the new Azure Resource Manager deployment model. We walk you through these major tasks:
 
@@ -454,9 +454,7 @@ To simplify deployment and configuration, in this article, we're using the new S
 
 Before you start, make sure that you meet the prerequisites that are described in the following sections. Also, be sure to check all resources listed in the [Resources][sap-ha-guide-2] section.
 
-In this article, we use Azure Resource Manager templates for [three-tier SAP NetWeaver](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image/).
-
-Read this helpful overview of [SAP Azure Resource Manager templates](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/).
+In this article, we use Azure Resource Manager templates for [three-tier SAP NetWeaver](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image/). For a helpful overview of templates, see [SAP Azure Resource Manager templates](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/).
 
 
 ## <a name="42b8f600-7ba3-4606-b8a5-53c4f026da08"></a> Resources
