@@ -7,6 +7,7 @@
     manager="carmonm"
     editor=""
     tags="azure-resource-manager"
+    keywords="ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot"
 />
 <tags
     ms.service="load-balancer"
@@ -174,7 +175,7 @@ For more information about creating a VM, see [Create and preconfigure a Windows
 2. Create each VM and assign the previous created NICs
 
         $mySecureCredentials= Get-Credential -Message “Type the username and password of the local administrator account.”
-        
+
         $vm1 = New-AzureRmVMConfig -VMName 'myNrpIPv6VM0' -VMSize 'Standard_G1' -AvailabilitySetId $availabilitySet.Id
         $vm1 = Set-AzureRmVMOperatingSystem -VM $vm1 -Windows -ComputerName 'myNrpIPv6VM0' -Credential $mySecureCredentials -ProvisionVMAgent -EnableAutoUpdate
         $vm1 = Set-AzureRmVMSourceImage -VM $vm1 -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"

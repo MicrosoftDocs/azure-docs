@@ -43,7 +43,7 @@ The logistic questions concern the location of the **data source**, the **target
 3. **How are you going to move the data?** The procedures and resources available to ingest or load data into a variety of different storage and processing environments are outlined in the following topics.
 
 	-  [Load data into storage environments for analytics](machine-learning-data-science-ingest-data.md) 
-	-  [Import your training data into Azure Machine Learning Studio from various data sources](machine-learning-data-science-import-data,md).
+	-  [Import your training data into Azure Machine Learning Studio from various data sources](machine-learning-data-science-import-data.md).
 
 4. **Does the data need to be moved on a regular schedule or modified during migration?** Consider using Azure Data Factory (ADF) when data needs to be continually migrated, particularly if a hybrid scenario that accesses both on-premise and cloud resources is involved, or when the data is transacted or needs to be modified or have business logic added to it in the course of being migrated. For further information, see [Move data from an on-premise SQL server to SQL Azure with Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md)
 

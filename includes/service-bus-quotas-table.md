@@ -24,5 +24,6 @@ The following table lists quota information specific to Service Bus messaging. E
 |Number of SQL filters per topic|System-wide|Static|Subsequent requests for creation of additional filters on the topic will be rejected and an exception will be received by the calling code.|2,000|
 |Number of correlation filters per topic|System-wide|Static|Subsequent requests for creation of additional filters on the topic will be rejected and an exception will be received by the calling code.|100,000|
 |Size of SQL filters/actions|System-wide|Static|Subsequent requests for creation of additional filters will be rejected and an exception will be received by the calling code.|Maximum length of filter condition string: 1024 (1K).<br /><br />Maximum length of rule action string: 1024 (1K).<br /><br />Maximum number of expressions per rule action: 32.|
+|Number of [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) rules per namespace, queue, or topic|Entity, namespace|Static|Subsequent requests for creation of additional rules will be rejected and an exception will be received by the calling code.|Maximum number of rules: 12. <br /><br /> Rules that are configured on a Service Bus namespace apply to all queues and topics in that namespace.
 
 [Azure portal]: https://portal.azure.com
