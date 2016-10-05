@@ -33,7 +33,7 @@ To complete this tutorial, you need:
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter app in App Service. No credit cards required; no commitments.  
 
-## <a id="Step1"></a>Step 1: Create a local repository
+## <a name="Step1"></a>Step 1: Create a local repository
 
 Perform the following tasks to create a new Git repository.
 
@@ -45,7 +45,7 @@ Perform the following tasks to create a new Git repository.
 
 		git init
 
-## <a id="Step2"></a>Step 2: Commit your content
+## <a name="Step2"></a>Step 2: Commit your content
 
 App Service supports applications created in a variety of programming languages. 
 
@@ -62,7 +62,7 @@ App Service supports applications created in a variety of programming languages.
 
 		git commit -m "Hello Azure App Service"
 
-## <a id="Step3"></a>Step 3: Enable the App Service app repository
+## <a name="Step3"></a>Step 3: Enable the App Service app repository
 
 Perform the following steps to enable a Git repository for your App Service app.
 
@@ -76,7 +76,7 @@ Perform the following steps to enable a Git repository for your App Service app.
 
 	![](./media/app-service-deploy-local-git/deployment_credentials.png)
 
-## <a id="Step4"></a>Step 4: Deploy your project
+## <a name="Step4"></a>Step 4: Deploy your project
 
 Use the following steps to publish your app to App Service using Local Git.
 
@@ -105,7 +105,7 @@ Use the following steps to publish your app to App Service using Local Git.
 
 6. Click the **Browse** button at the top of the app's blade to verify the content has been deployed. 
     
-## <a id="Step5"></a>Troubleshooting
+## <a name="Step5"></a>Troubleshooting
 
 The following are errors or problems commonly encountered when using Git to publish to an App Service app in Azure:
 

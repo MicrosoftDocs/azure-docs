@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -21,7 +21,7 @@
 
 
 > [AZURE.SELECTOR]
-- [.NET](media-services-dotnet-encode-asset.md)
+- [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
 - [REST](media-services-rest-encode-asset.md)
 - [Portal](media-services-portal-encode.md)
 

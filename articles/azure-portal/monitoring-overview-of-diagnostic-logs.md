@@ -144,6 +144,9 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 |    Logic Apps                 |    No schema available.                                                                                         |
 |    Azure Batch                |    No schema available.                                                                                         |
 |    Azure Automation           |    No schema available.                                                                                         |
+|    Event Hub                  |    No schema available.                                                                                         |
+|    Service Bus                |    No schema available.                                                                                         |
+|    Stream Analytics           |    No schema available.                                                                                         |
 
 ## Supported log categories per resource type
 
@@ -156,6 +159,8 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 |Microsoft.DataLakeAnalytics/accounts|Requests|Request Logs|
 |Microsoft.DataLakeStore/accounts|Audit|Audit Logs|
 |Microsoft.DataLakeStore/accounts|Requests|Request Logs|
+|Microsoft.EventHub/namespaces|ArchiveLogs|Archive Logs|
+|Microsoft.EventHub/namespaces|OperationalLogs|Operational Logs|
 |Microsoft.KeyVault/vaults|AuditEvent|Audit Logs|
 |Microsoft.Logic/workflows|WorkflowRuntime|Workflow runtime diagnostic events|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Network Security Group Event|
@@ -168,6 +173,7 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Application Gateway Firewall Log|
 |Microsoft.Search/searchServices|OperationLogs|Operation Logs|
 |Microsoft.ServerManagement/nodes|RequestLogs|Request Logs|
+|Microsoft.ServiceBus/namespaces|OperationalLogs|Operational Logs|
 |Microsoft.StreamAnalytics/streamingjobs|Execution|Execution|
 |Microsoft.StreamAnalytics/streamingjobs|Authoring|Authoring|
 
