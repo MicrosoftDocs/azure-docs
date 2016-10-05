@@ -35,7 +35,7 @@ The Azure CLI is available across platforms via an npm package, distro-provided 
 	```
 
 - [Create a secured Linux VM using an Azure template](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-	- The following example creates a VM using a templated stored on GitHub:
+	- The following example creates a VM using a template stored on GitHub:
 
 	```bash
 	azure group create --name TestRG --location WestUS 
