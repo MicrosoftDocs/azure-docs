@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="06/24/2016"
+    ms.date="10/04/2016"
     ms.author="sethm"/>
 
 # Use PowerShell to manage Service Bus and Event Hubs resources
@@ -254,7 +254,7 @@ To create a queue or topic, perform a namespace check as in the previous section
 
 ## Next steps
 
-This article provided you with a basic outline for provisioning Service Bus entities using PowerShell. Although there are a limited number of PowerShell cmdlets available for managing Service Bus messaging entities, by referencing the Microsoft.ServiceBus.dll assembly, virtually any operation you can perform using the .NET client libraries you can also perform in a PowerShell script.
+This article provided you with a basic workflow for provisioning Service Bus entities using PowerShell. Although there are a limited number of PowerShell cmdlets available for managing Service Bus messaging entities, by referencing the Microsoft.ServiceBus.dll assembly, virtually any operation you can perform using the .NET client libraries you can also perform in a PowerShell script.
 
 There are more detailed examples available in these blog posts:
 

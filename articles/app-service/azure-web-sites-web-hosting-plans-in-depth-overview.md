@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/07/2016"
+	ms.date="10/04/2016"
 	ms.author="byvinyal"/>
 
 # Azure App Service plans in-depth overview#
@@ -94,6 +94,11 @@ There are three ways to scale a plan:
 You can change the pricing tier and instance size by clicking the **Scale Up** item under settings for either the app or the App Service plan. Changes will apply to the App Service plan and affect all apps that it hosts.
 
  ![Set values to scale up an app.][pricingtier]
+
+## App Service Plan cleanup
+**App Service plans** that have no apps associated to them still incur charges since they continue to reserve the compute capacity configured in the App Service plan scale properties.
+In order to avoid unexpected charges, when the last app hosted in an App Service plan is deleted, this will also delete the App Service plan.
+
 
 ## Summary
 

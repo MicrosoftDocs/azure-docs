@@ -237,38 +237,38 @@ You can also specify an output port of type *Visualization*, which displays the 
 
 ### Arguments
 Additional data can be passed to the R function via module parameters which are defined in the **Arguments** element. These parameters appear in the rightmost properties pane of the Machine Learning UI when the module is selected. Arguments can be any of the supported types or you can create a custom enumeration when needed. Similar to the **Ports** elements, **Arguments** elements can have an optional **Description** element that specifies the text that appears when you hover the mouse over the parameter name.
-Optional properties for a module, such as defaultValue, minValue, and maxValue can be added to any argument as attributes to a **Properties** element. Valid properties for the **Properties** element depend on the argument type and are described with the supported argument types in the next section. As with inputs and outputs, it is critical that each of the parameters have unique id values associated with them. In our quick start example the associated id/parameter was *swap*.
+Optional properties for a module, such as defaultValue, minValue, and maxValue can be added to any argument as attributes to a **Properties** element. Valid properties for the **Properties** element depend on the argument type and are described with the supported argument types in the next section. Arguments with the **isOptional** property set to **"true"** do not require the user to enter a value. If a value is not provided to the argument, then the argument is not passed to the entry point function. Arguments of the entry point function that are optional need to be explicitly handled by the function, e.g. assigned a default value of NULL in the entry point function definition. An optional argument will only enforce the other argument constraints, i.e. min or max, if a value is provided by the user.
+As with inputs and outputs, it is critical that each of the parameters have unique id values associated with them. In our quick start example the associated id/parameter was *swap*.
 
 ### Arg element
 A module parameter is defined using the **Arg** child element of the **Arguments** section of the XML definition file. As with the child elements in the **Ports** section, the ordering of parameters in the **Arguments** section defines the layout encountered in the UX. The parameters appear from top down in the UI in the same order in which they are defined in the XML file. The types supported by Machine Learning for parameters are listed here. 
 
 **int** – an Integer (32-bit) type parameter.
 
-		<Arg id="intValue1" name="Int Param" type="int">
-			<Properties min="uts, it is critical that each of the parameters have unique id values associated with them. In addition, the id values must correspond to the named parameters in your R funct0" max="100" default="0" />
-			<Description>Integer Parameter</Description>
-       </Arg>
+	<Arg id="intValue1" name="Int Param" type="int">
+		<Properties min="0" max="100" default="0" />
+		<Description>Integer Parameter</Description>
+	</Arg>
 
 
-
-* *Optional Properties*: **min**, **max** and **default**
+* *Optional Properties*: **min**, **max**, **default** and **isOptional**
 
 **double** – a double type parameter.
 
-       <Arg id="doubleValue1" name="Double Param" type="double">
-           <Properties min="0.000" max="0.999" default="0.3" />
-		   <Description>Double Parameter</Description>
-       </Arg>
+	<Arg id="doubleValue1" name="Double Param" type="double">
+		<Properties min="0.000" max="0.999" default="0.3" />
+		<Description>Double Parameter</Description>
+	</Arg>
 
 
-* *Optional Properties*: **min**, **max** and **default**
+* *Optional Properties*: **min**, **max**, **default** and **isOptional**
 
 **bool** – a Boolean parameter that is represented by a check-box in UX.
 
-		<Arg id="boolValue1" name="Boolean Param" type="bool">
-			<Properties default="true" />
-			<Description>Boolean Parameter</Description>
-		</Arg>
+	<Arg id="boolValue1" name="Boolean Param" type="bool">
+		<Properties default="true" />
+		<Description>Boolean Parameter</Description>
+	</Arg>
 
 
 
@@ -276,13 +276,12 @@ A module parameter is defined using the **Arg** child element of the **Arguments
 
 **string**: a standard string
 
-        <Arg id="stringValue1" name="My string Param" type="string">
-		   <Properties default="Default string value." isOptional="true" />
-           <Description>String Parameter 1</Description>
-        </Arg>
+	<Arg id="stringValue1" name="My string Param" type="string">
+		<Properties isOptional="true" />
+		<Description>String Parameter 1</Description>
+	</Arg>	
 
-
-* *Optional Properties*: **default** and **isOptional** - An optional string without a default value is passed as **NULL** to the R function if a value is not otherwise provided by a user.
+* *Optional Properties*: **default** and **isOptional**
 
 **ColumnPicker**: a column selection parameter. This type renders in the UX as a column chooser. The **Property** element is used here to specify the id of the port from which columns are selected, where the target port type must be *DataTable*. The result of the column selection is passed to the R function as a list of strings containing the selected column names. 
 

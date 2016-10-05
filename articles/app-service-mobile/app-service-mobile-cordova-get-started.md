@@ -15,8 +15,8 @@
     ms.tgt_pltfrm="mobile-html"
     ms.devlang="javascript"
     ms.topic="hero-article"
-    ms.date="08/11/2016"
-    ms.author="glenga"/>
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
 
 #Create an Apache Cordova app
 

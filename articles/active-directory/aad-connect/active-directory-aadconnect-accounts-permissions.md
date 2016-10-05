@@ -25,7 +25,7 @@ The Azure AD Connect installation wizard offers two different paths:
 - In Custom Settings, the wizard offers you more choices and options, but there are some situations in which you need to ensure you have the correct permissions yourself.
 
 ## Related documentation
-If you did not read the documentation on [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md), the following table provides links to related topics.
+If you did not read the documentation on [Integrating your on-premises identities with Azure Active Directory](../active-directory-aadconnect.md), the following table provides links to related topics.
 
 Topic |  
 --------- | ---------
@@ -83,9 +83,9 @@ Which permissions you require depends on the optional features you enable. If yo
 Feature | Permissions
 ------ | ------
 Password sync | <li>Replicate Directory Changes</li>  <li>Replicate Directory Changes All
-Exchange hybrid deployment | Write permissions to the attributes documented in [Exchange hybrid writeback](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) for users, groups, and contacts.
-Password writeback | Write permissions to the attributes documented in [Getting started with password management](active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions) for users.
-Device writeback | Permissions granted with a PowerShell script as described in [device writeback](active-directory-aadconnect-feature-device-writeback.md).
+Exchange hybrid deployment | Write permissions to the attributes documented in [Exchange hybrid writeback](../active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) for users, groups, and contacts.
+Password writeback | Write permissions to the attributes documented in [Getting started with password management](../active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions) for users.
+Device writeback | Permissions granted with a PowerShell script as described in [device writeback](../active-directory-aadconnect-feature-device-writeback.md).
 Group writeback | Read, Create, Update, and Delete group objects in the OU where the distributions groups should be located.
 
 ## Upgrade
@@ -130,4 +130,4 @@ The service account is created with a long complex password that does not expire
 
 ## Next steps
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](../active-directory-aadconnect.md).

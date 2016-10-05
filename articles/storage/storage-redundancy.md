@@ -96,8 +96,8 @@ When you create a storage account, you select the primary region for the account
 | US Gov Virginia     | US Gov Iowa         |
 | Canada Central      | Canada East     	|
 | Canada East         | Canada Central      |
-| UK North            | UK South 2          |
-| UK South 2          | UK North            |
+| UK West             | UK South            |
+| UK South            | UK West             |
 | Germany Central     | Germany Northeast   |
 | Germany Northeast   | Germany Central     |
 | West US 2           | Central West US     |

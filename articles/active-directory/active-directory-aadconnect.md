@@ -23,7 +23,7 @@ Azure AD Connect will integrate your on-premises directories with Azure Active D
 
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
 
-> [AZURE.IMPORTANT] [Azure AD Connect is the best way to connect your on-premises directory with Azure AD and Office 365. This is a great time to upgrade to Azure AD Connect from Windows Azure Active Directory Sync (DirSync) or Azure AD Sync as these tools are now deprecated and will reach end of support on April 13, 2017.](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM)
+> [AZURE.IMPORTANT] [Azure AD Connect is the best way to connect your on-premises directory with Azure AD and Office 365. This is a great time to upgrade to Azure AD Connect from Windows Azure Active Directory Sync (DirSync) or Azure AD Sync as these tools are now deprecated and will reach end of support on April 13, 2017.]active-directory-aadconnect-dirsync-deprecated.md)
 
 ![What is Azure AD Connect](./media/active-directory-aadconnect/arch.png)
 
@@ -55,9 +55,9 @@ You can find the download for Azure AD Connect on [Microsoft Download Center](ht
 Solution | Scenario
 ----- | ----- |
 Before you start - [Hardware and prerequisites](active-directory-aadconnect-prerequisites.md) | <li>Steps to complete before you start to install Azure AD Connect.</li>
-[Express settings](active-directory-aadconnect-get-started-express.md) | <li>If you have a single forest AD then this is the recommended option to use.</li> <li>User sign in with the same password using password synchronization.</li>
-[Customized settings](active-directory-aadconnect-get-started-custom.md) | <li>Used when you have multiple forests. Supports many on-premises [topologies](active-directory-aadconnect-topologies.md).</li> <li>Customize your sign-in option, such as ADFS for federation or use a 3rd party identity provider.</li> <li>Customize synchronization features, such as filtering and writeback.</li>
-[Upgrade from DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>Used when you have an existing DirSync server already running.</li>
+[Express settings](./aad-connect/active-directory-aadconnect-get-started-express.md) | <li>If you have a single forest AD then this is the recommended option to use.</li> <li>User sign in with the same password using password synchronization.</li>
+[Customized settings](./aad-connect/active-directory-aadconnect-get-started-custom.md) | <li>Used when you have multiple forests. Supports many on-premises [topologies](active-directory-aadconnect-topologies.md).</li> <li>Customize your sign-in option, such as ADFS for federation or use a 3rd party identity provider.</li> <li>Customize synchronization features, such as filtering and writeback.</li>
+[Upgrade from DirSync](./aad-connect/active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>Used when you have an existing DirSync server already running.</li>
 [Upgrade from Azure AD Sync or Azure AD Connect](active-directory-aadconnect-upgrade-previous-version.md)| <li>There are several different methods depending on your preference.</li>
 
 
@@ -68,9 +68,9 @@ Before you start - [Hardware and prerequisites](active-directory-aadconnect-prer
 Topic |  
 --------- | ---------
 Download Azure AD Connect | [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
-Install using Express settings | [Express installation of Azure AD Connect](active-directory-aadconnect-get-started-express.md)
-Install using Customized settings | [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
+Install using Express settings | [Express installation of Azure AD Connect](./aad-connect/active-directory-aadconnect-get-started-express.md)
+Install using Customized settings | [Custom installation of Azure AD Connect](./aad-connect/active-directory-aadconnect-get-started-custom.md)
+Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](./aad-connect/active-directory-aadconnect-dirsync-upgrade-get-started.md)
 After installation | [Verify the installation and assign licenses ](active-directory-aadconnect-whats-next.md)
 
 ### Learn more about Install Azure AD Connect
@@ -81,7 +81,7 @@ Topic |
 --------- | ---------
 Supported topologies | [Topologies for Azure AD Connect](active-directory-aadconnect-topologies.md)
 Design concepts | [Azure AD Connect design concepts](active-directory-aadconnect-design-concepts.md)
-Accounts used for installation | [More about Azure AD Connect credentials and permissions](active-directory-aadconnect-accounts-permissions.md)
+Accounts used for installation | [More about Azure AD Connect credentials and permissions](./aad-connect/active-directory-aadconnect-accounts-permissions.md)
 Operational planning | [Azure AD Connect sync: Operational tasks and considerations](active-directory-aadconnectsync-operations.md)
 User sign-in options | [Azure AD Connect User sign-in options](active-directory-aadconnect-user-signin.md)
 

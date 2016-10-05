@@ -61,10 +61,10 @@ In this section, you create a Node.js console app that responds to a direct meth
     npm init
     ```
     
-2. At your command-prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
+2. At your command-prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device@dtpreview** Device SDK package and **azure-iot-device-mqtt@dtpreview** package:
 
     ```
-    npm install azure-iot-device azure-iot-device-mqtt --save
+    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
     ```
 
 3. Using a text editor, create a new **dmpatterns_getstarted_device.js** file in the **manageddevice** folder.
@@ -78,7 +78,7 @@ In this section, you create a Node.js console app that responds to a direct meth
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
 
-5. Add a **connectionString** variable and use it to create a device client.  
+5. Add a **connectionString** variable and use it to create a device client.  Replace the connection string with your device connection string.  
 
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
@@ -90,14 +90,12 @@ In this section, you create a Node.js console app that responds to a direct meth
     ```
     var onReboot = function(request, response) {
         
-        response.write(JSON.stringify('Reboot started'));
-        
         // Respond the cloud app for the direct method
-        response.end(200, function(err) {
-            if (!!err) {
+        response.send(200, 'Reboot started', function(err) {
+            if (!err) {
                 console.error('An error occured when sending a method response:\n' + err.toString());
             } else {
-                console.error('Response to method \'' + request.methodName + '\' sent successfully.');
+                console.log('Response to method \'' + request.methodName + '\' sent successfully.');
             }
         });
         
@@ -106,7 +104,7 @@ In this section, you create a Node.js console app that responds to a direct meth
         var patch = {
             iothubDM : {
                 reboot : {
-                lastReboot : date.toISOString(),
+                    lastReboot : date.toISOString(),
                 }
             }
         };
@@ -119,7 +117,7 @@ In this section, you create a Node.js console app that responds to a direct meth
                 console.log('twin acquired');
                 twin.properties.reported.update(patch, function(err) {
                     if (err) throw err;
-                        console.log('Device reboot twin state reported')
+                    console.log('Device reboot twin state reported')
                 });  
             }
         });
@@ -136,7 +134,7 @@ In this section, you create a Node.js console app that responds to a direct meth
         if (err) {
             console.error('Could not open IotHub client');
         }  else {
-            console.log('Client opened');
+            console.log('Client opened.  Waiting for reboot method.');
             client.onDeviceMethod('reboot', onReboot);
         }
     });
@@ -156,10 +154,10 @@ In this section, you create a Node.js console app that initiates a remote reboot
     npm init
     ```
     
-2. At your command-prompt in the **triggerrebootondevice** folder, run the following command to install the **azure-iothub** Device SDK package and **azure-iot-device-mqtt** package:
+2. At your command-prompt in the **triggerrebootondevice** folder, run the following command to install the **azure-iothub@dtpreview** Device SDK package and **azure-iot-device-mqtt@dtpreview** package:
 
     ```
-    npm install azure-iothub --save
+    npm install azure-iothub@dtpreview --save
     ```
     
 3. Using a text editor, create a new **dmpatterns_getstarted_service.js** file in the **triggerrebootondevice** folder.
