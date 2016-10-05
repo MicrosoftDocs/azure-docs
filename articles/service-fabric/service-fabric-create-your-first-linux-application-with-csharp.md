@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Create your first Service Fabric application on Linux using Java | Microsoft Azure"
-   description="Create and deploy a Service Fabric application using Java"
+   pageTitle="Create your first Service Fabric application on Linux using C#| Microsoft Azure"
+   description="Create and deploy a Service Fabric application using C#"
    services="service-fabric"
-   documentationCenter="java"
-   authors="seanmck"
+   documentationCenter="csharp"
+   authors="mani-ramaswamy"
    manager="timlt"
    editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="java"
+   ms.devlang="csharp"
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="10/04/2016"
-   ms.author="seanmck"/>
+   ms.author="subramar"/>
 
 
 # Create your first Azure Service Fabric application
@@ -24,7 +24,7 @@
 - [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
 - [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 
-Service Fabric provides SDKs for building services on Linux in both .NET Core and Java. In this tutorial, we will look at how to create an application for Linux and build a service using Java.
+Service Fabric provides SDKs for building services on Linux in both .NET Core and Java. In this tutorial, we will look at how to create an application for Linux and build a service using C# (.NET Core).
 
 ## Prerequisites
 
@@ -34,23 +34,23 @@ Before you get started, make sure that you have [set up your Linux development e
 
 A Service Fabric application can contain one or more services, each with a specific role in delivering the application's functionality. The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your first service and to add more later. Let's use Yeoman to create a new application with a single service.
 
-1. In a terminal, type **yo azuresfjava**.
+1. In a terminal, type **yo azuresfcsharp**.
 
 2. Name your application.
 
 3. Choose the type of your first service and name it. For the purposes of this tutorial, we will choose a Reliable Actor Service.
 
-  ![Service Fabric Yeoman generator for Java][sf-yeoman]
+  ![Service Fabric Yeoman generator for C#][sf-yeoman]
 
 >[AZURE.NOTE] For more information about the options, see [Service Fabric programming model overview](service-fabric-choose-framework.md).
 
 ## Build the application
 
-The Service Fabric Yeoman templates include a build script for [Gradle](https://gradle.org/), which you can use to build the app from the terminal.
+The Service Fabric Yeoman templates include a build script that you can use to build the app from the terminal (after navigating to the application folder).
 
   ```bash
-  cd myapp
-  gradle
+ cd myapp 
+ ./build.sh 
   ```
 
 ## Deploy the application
@@ -66,7 +66,7 @@ Once the application is built, you can deploy it to the local cluster using the 
 2. Use the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
 
     ```bash
-    cd myapp
+    cd myapp 
     ./install.sh
     ```
 
@@ -91,39 +91,11 @@ Actor projects do not do anything on their own. They require another service or 
 
 3. Click the node you found in the previous step, then select **Deactivate (restart)** from the Actions menu. This will restart one of the five nodes in your local cluster and force a failover to one of the secondary replicas running on another node. As you do this, pay attention to the output from the test client and note that the counter continues to increment despite the failover.
 
-## Build and deploy an application with the Eclipse Neon plugin
-
-If you installed the Service Plugin for Eclipse Neon, you can use it to create, build, and deploy Service Fabric applications built with Java.
-
-### Create the application
-
-The Service Fabric plugin is available through Eclipse extensibility.
-
-1. In Eclipse, choose **File > Other > Service Fabric**. You see a set of options, including Actors and Containers.
-
-    ![Service Fabric templates in Eclipse][sf-eclipse-templates]
-
-2. In this case, choose Stateless Service.
-
-3. You are asked to confirm the use of the Service Fabric perspective, which optimizes Eclipse for use with Service Fabric projects. Choose 'Yes'.
-
-### Deploy the application
-
-The Service Fabric templates include a set of Gradle tasks for building and deploying applications, which you can trigger through Eclipse.
-
-1. Choose **Run > Run Configurations**.
-
-2. Expand **Gradle Project** and choose **ServiceFabricDeployer**.
-
-3. Click **Run**.
-
-Your app will build and deploy within a few moments. You can monitor its status from Service Fabric Explorer.
 
 ## Next steps
 
 - [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md)
 
 <!-- Images -->
-[sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png
-[sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-java/sfx-primary.png
-[sf-eclipse-templates]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-eclipse-templates.png
+[sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-csharp/yeoman-csharp.png
+[sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-csharp/sfx-primary.png
