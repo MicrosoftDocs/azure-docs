@@ -46,15 +46,15 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](virt
 
     - Select the troubleshooting VM in the Azure portal. Click *Disks* | *Attach existing*:
 
-    ![Attach existing disk](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_attach_existing.png)
+    ![Attach existing disk](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_attach_existing.png) <br />
 
     - Under *VHD File*, select the storage account that contains your source VM:
 
-    ![Select storage account](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_select_storageaccount.PNG)
+    ![Select storage account](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_select_storageaccount.PNG) <br />
 
-    -  Select the source container (typically *vhds*):
+    - Select the source container (typically *vhds*):
 
-    ![Select storage container](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_select_container.png)
+    ![Select storage container](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_select_container.png) <br />
 
     - Select the OS vhd to attach.
     - Click *Select* to complete the process:
@@ -73,7 +73,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](virt
 
     > [AZURE.WARNING] Make sure that you do not accidentally create the following files in C:\Windows, the OS drive for the troubleshooting VM. Create the following files in the OS drive for your source VM that is attached as a data disk.
 
-    - Add the following into the `gpt.ini` file you created:
+    - Add the following lines into the `gpt.ini` file you created:
 
     ```
     [General]
@@ -86,7 +86,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](virt
  
 5. Create `scripts.ini` in `\Windows\System32\GroupPolicy\Machine\Scripts`. Make sure hidden folders are shown. If needed, create the `Machine` or `Scripts` folders.
 
-    - Add the following into the `scripts.ini` file you created:
+    - Add the following lines the `scripts.ini` file you created:
 
     ```
     [Startup]
@@ -104,7 +104,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](virt
 
     ![Create FixAzureVM.cmd](./media/virtual-machines-windows-reset-local-password-without-guest-agent/create_fixazure_cmd.png)
 
-    You must still meet the configured password complexity requirements for your VM when defining the new password.
+    You must meet the configured password complexity requirements for your VM when defining the new password.
 
 7. In Azure portal, detach the disk from the troubleshooting VM:
 
@@ -118,7 +118,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](virt
     - Select the storage account in the Azure portal, click *Blobs*.
     - Select the container, typically *vhds*:
 
-    ![Select storage account blob](./media/virtual-machines-windows-reset-local-password-without-guest-agent/select_storage_details.png)
+    ![Select storage account blob](./media/virtual-machines-windows-reset-local-password-without-guest-agent/select_storage_details.png) <br />
 
     - Select your source VM OS VHD and click the *Copy* button next to the *URL* name:
 
