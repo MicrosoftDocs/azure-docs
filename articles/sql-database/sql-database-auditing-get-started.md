@@ -222,22 +222,25 @@ You can also configure Auditing in Azure SQL Database using the following automa
 	- [Set-AzureRMSqlServerAuditingPolicy][106]
 	- [Use-AzureRMSqlServerAuditingPolicy][107]
 
-2. **REST API**
-
-	Table auditing:
-
-	* [Create or Update Database Auditing Policy](https://msdn.microsoft.com/en-us/library/azure/mt604471.aspx)
-	* [Create or Update Server Auditing Policy](https://msdn.microsoft.com/en-us/library/azure/mt604383.aspx)
-	* [Get Database Auditing Policy](https://msdn.microsoft.com/en-us/library/azure/mt604381.aspx)
-	* [Get Server Auditing Policy](https://msdn.microsoft.com/en-us/library/azure/mt604382.aspx)
-
-	Blob auditing:
+2. **REST API - Blob auditing**
 
 	* [Create or Update Database Blob Auditing Policy](https://msdn.microsoft.com/en-us/library/azure/mt695939.aspx)
 	* [Create or Update Server Blob Auditing Policy](https://msdn.microsoft.com/en-us/library/azure/mt771861.aspx)
 	* [Get Database Blob Auditing Policy](https://msdn.microsoft.com/en-us/library/azure/mt695938.aspx)
 	* [Get Server Blob Auditing Policy](https://msdn.microsoft.com/en-us/library/azure/mt771860.aspx)
 	* [Get Server Blob Auditing Operation Result](https://msdn.microsoft.com/en-us/library/azure/mt771862.aspx)
+
+
+2. **REST API - Table auditing**
+
+	* [Create or Update Database Auditing Policy](https://msdn.microsoft.com/en-us/library/azure/mt604471.aspx)
+	* [Create or Update Server Auditing Policy](https://msdn.microsoft.com/en-us/library/azure/mt604383.aspx)
+	* [Get Database Auditing Policy](https://msdn.microsoft.com/en-us/library/azure/mt604381.aspx)
+	* [Get Server Auditing Policy](https://msdn.microsoft.com/en-us/library/azure/mt604382.aspx)
+
+
+
+
 
 
 <!--Anchors-->
