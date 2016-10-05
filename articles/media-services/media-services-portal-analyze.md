@@ -152,7 +152,7 @@ A friendly name that lets you identify the job. [This](media-services-portal-che
 A friendly name that lets you identify the output content. 
 
 
-##Next step
+##Next steps
 
 View Media Services learning paths.
 
