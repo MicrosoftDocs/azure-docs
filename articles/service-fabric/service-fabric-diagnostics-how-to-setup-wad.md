@@ -204,5 +204,5 @@ To understand in more detail what events you should look for while troubleshooti
 
 
 ## Related articles
-* [Learn how to collect performance counters or logs by using diagnostic extensions](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
+* [Learn how to collect performance counters or logs by using the Diagnostics extension](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 * [Service Fabric solution in Log Analytics](../log-analytics/log-analytics-service-fabric.md)
