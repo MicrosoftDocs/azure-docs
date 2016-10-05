@@ -119,8 +119,8 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
 	            "type": "AzureBlob",
 	            "linkedServiceName": "[variables('storageLinkedServiceName')]",
 	            "typeProperties": {
+		      	  "folderPath": "adftutorial/",
 	              "fileName": "emp.txt",
-	              "folderPath": "adfgetstarted/adfcopy",
 	              "format": {
 	                "type": "TextFormat",
 	                "columnDelimiter": ",",
@@ -157,7 +157,7 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
 	            "type": "AzureSqlTable",
 	            "linkedServiceName": "[variables('sqlLinkedServiceName')]",
 	            "typeProperties": {
-	              "tableName": "emp2"
+	              "tableName": "emp"
 	            },
 	            "availability": {
 	              "frequency": "Day",
@@ -250,3 +250,28 @@ Create a JSON file named **ADFCopyTutorialARM-Parameters.json** that contains pa
 		New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters.json
 
 ## Monitor pipeline
+
+1. Log in to the [Azure portal](https://portal.azure.com) using your Azure account.
+2. Click **Data factories** on the left menu (or) click **More services** and click **Data factories** under **INTELLIGENCE + ANALYTICS** category.
+
+	![Data factories menu](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png) 
+3. In the **Data factories** page, search for **ADFTutorialDataFactory** to find your data factory.
+
+	![Search for data factory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/search-for-data-factory.png)  
+4. Click your Azure data factory to see the home page for your Azure data factory. 
+
+	![Home page for data factory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
+5. Click **Diagram** tile to see the diagram view of your data factory.
+
+	![Diagram view of data factory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-diagram-view.png) 
+6. In the diagram view, double-click the dataset **sqlDataset**. You see that status of the slice. When the copy operation is done, you the status set to **Ready**.
+	
+	![Output slice in ready state](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/output-slice-ready.png)
+7. When the slice is in **Ready** state, verify that the data is copied to the **emp** table in the Azure SQL database. 
+ 
+See [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) for instructions on how to use the Azure portal blades to monitor the pipeline and datasets you have created in this tutorial.
+
+You can also use Monitor and Manage App to monitor your data pipelines. See [Monitor and manage Azure Data Factory pipelines using Monitoring App](data-factory-monitor-manage-app.md) for details about using the application.
+
+  
+
