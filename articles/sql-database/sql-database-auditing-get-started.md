@@ -86,7 +86,7 @@ The following section describes the configuration of auditing using the Azure Po
 
 ###<a id="subheading-2-2">ii. Table Auditing</a>
 
-> Before setting up **Table auditing**, check if you are using a ["Downlevel Client"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). Also, if you have strict firewall settings, please note that the [IP endpoint of your database will change](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) when enabling Table Auditing.
+> [AZURE.NOTE] Before setting up **Table auditing**, check if you are using a ["Downlevel Client"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). Also, if you have strict firewall settings, please note that the [IP endpoint of your database will change](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) when enabling Table Auditing.
 
 1. Launch the [Azure Portal](https://portal.azure.com) at https://portal.azure.com.
 
@@ -129,7 +129,7 @@ For further details about the Blob audit logs storage folder hierarchy, Blob nam
 
 There are several methods to view Blob Auditing logs:
 
-1. Through the Azure Portal - *see method (1) in the [Table Auditing section](#activity-ui) below* (Excel download not supported).
+1. Through the Azure Portal - **see method (1) in the [Table Auditing section](#activity-ui) below** (Excel download not supported).
 
 2. Download log files from your Azure Storage Blob container via the portal or by using a tool such as [Azure Storage Explorer](http://storageexplorer.com/).
 
@@ -158,7 +158,7 @@ There are several methods to view Table Auditing logs:
 	- You can choose to view specific dates by clicking on **Filter** at the top area of the Audit records blade
 	- You can download and view the audit logs in Excel format by clicking on **Open in Excel** at the top area of the Audit records blade
 
-	![Navigation pane][7]
+	![Navigation Pane][7]
 
 
 2. Alternatively, a preconfigured report template is available as a [downloadable Excel spreadsheet](http://go.microsoft.com/fwlink/?LinkId=403540) to help you quickly analyze log data. To use the template on your audit logs, you need Excel 2013 or later and Power Query, which you can download [here](http://www.microsoft.com/download/details.aspx?id=39379).
@@ -213,13 +213,13 @@ You can also configure Auditing in Azure SQL Database using the following automa
 
 - **PowerShell cmdlets**
 
-	- [Get-AzureRMSqlDatabaseAuditingPolicy](https://msdn.microsoft.com/en-us/library/azure/mt603731(v=azure.200).aspx)
-	- [Get-AzureRMSqlServerAuditingPolicy](https://msdn.microsoft.com/en-us/library/azure/mt619329(v=azure.200).aspx)
-	- [Remove-AzureRMSqlDatabaseAuditing](https://msdn.microsoft.com/en-us/library/azure/mt603796(v=azure.200).aspx)
-	- [Remove-AzureRMSqlServerAuditing](https://msdn.microsoft.com/en-us/library/azure/mt603574(v=azure.200).aspx)
-	- [Set-AzureRMSqlDatabaseAuditingPolicy](https://msdn.microsoft.com/en-us/library/azure/mt603531(v=azure.200).aspx)
-	- [Set-AzureRMSqlServerAuditingPolicy](https://msdn.microsoft.com/en-us/library/azure/mt603794(v=azure.200).aspx)
-	- [Use-AzureRMSqlServerAuditingPolicy](https://msdn.microsoft.com/en-us/library/azure/mt619353(v=azure.200).aspx)
+	- [Get-AzureRMSqlDatabaseAuditingPolicy][101]
+	- [Get-AzureRMSqlServerAuditingPolicy][102]
+	- [Remove-AzureRMSqlDatabaseAuditing][103]
+	- [Remove-AzureRMSqlServerAuditing][104]
+	- [Set-AzureRMSqlDatabaseAuditingPolicy][105]
+	- [Set-AzureRMSqlServerAuditingPolicy][106]
+	- [Use-AzureRMSqlServerAuditingPolicy][107]
 
 - **REST API**
 
@@ -258,5 +258,13 @@ You can also configure Auditing in Azure SQL Database using the following automa
 [6]: ./media/sql-database-auditing-get-started/6_auditing_get_started_storage_key_regeneration.png
 [7]: ./media/sql-database-auditing-get-started/7_auditing_get_started_activity_log.png
 [8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_regenerate_key.png
-
 [9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_report_template.png
+
+
+[101]: https://msdn.microsoft.com/en-us/library/azure/mt603731(v=azure.200).aspx
+[102]: https://msdn.microsoft.com/en-us/library/azure/mt619329(v=azure.200).aspx
+[103]: https://msdn.microsoft.com/en-us/library/azure/mt603796(v=azure.200).aspx
+[104]: https://msdn.microsoft.com/en-us/library/azure/mt603574(v=azure.200).aspx
+[105]: https://msdn.microsoft.com/en-us/library/azure/mt603531(v=azure.200).aspx
+[106]: https://msdn.microsoft.com/en-us/library/azure/mt603794(v=azure.200).aspx
+[107]: https://msdn.microsoft.com/en-us/library/azure/mt619353(v=azure.200).aspx
