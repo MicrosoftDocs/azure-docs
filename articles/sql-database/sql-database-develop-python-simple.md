@@ -24,12 +24,12 @@
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
 
 
-This topic shows how to connect and query a Azure SQL Database using Python. You can run this sample from Windows, Ubuntu Linux, or Mac platforms.
+This topic shows how to connect and query an Azure SQL Database using Python. You can run this sample from Windows, Ubuntu Linux, or Mac platforms.
 
 
 ## Step 1: Create a SQL database
 
-See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**. Once you create your databasem make sure you enable access to your IP address by enabling the firewall rules as desbribed in the [getting started page](sql-database-get-started.md)
+See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**. Once you create your database make sure you enable access to your IP address by enabling the firewall rules as described in the [getting started page](sql-database-get-started.md)
 
 ## Step 2: Configure Development Environment
 
@@ -56,7 +56,7 @@ Open your terminal and navigate to a directory where you plan on creating your p
 
 Install pymssql from [**here**](http://www.lfd.uci.edu/~gohlke/pythonlibs/#pymssql). 
 
-Make sure you choose the correct whl file. For example : If you are using Python 2.7 on a 64 bit machine choose : pymssql‑2.1.1‑cp27‑none‑win_amd64.whl. Once you download the .whl file place it in the the C:/Python27 folder.
+Make sure you choose the correct whl file. For example: If you are using Python 2.7 on a 64 bit machine choose : pymssql‑2.1.1‑cp27‑none‑win_amd64.whl. Once you download the .whl file place it in the C:/Python27 folder.
 
 Now install the pymssql driver using pip from command line. cd into C:/Python27 and run the following
 	
@@ -117,7 +117,7 @@ This code example demonstrates the use of transactions in which you:
 * Insert a row of data
 * Rollback your transaction to undo the insert 
 
-Ppaste the following code inside sql_sample.py.
+Paste the following code inside sql_sample.py.
 	
 	import pymssql
 	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
