@@ -3,7 +3,7 @@
 	description="Get started with SQL database auditing"
 	services="sql-database"
 	documentationCenter=""
-	authors="ronitr; giladm"
+	authors="ronitr"
 	manager="jhubbard"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/10/2016"
-	ms.author="CarlRabeler; ronitr"/>
+	ms.date="10/05/2016"
+	ms.author="CarlRabeler; ronitr; giladm"/>
 
 # Get started with SQL database auditing
 Azure SQL Database Auditing tracks database events and writes them to an audit log in your Azure Storage account.
@@ -48,7 +48,7 @@ You can configure auditing for different types of event categories, as explained
 
 <!--For each Event Category, auditing of **Success** and **Failure** operations are configured separately.-->
 
-An auditing policy can be defined for a specific database or as a default server policy. A default server auditing policy will apply to all existing and newly created databases on a server.
+An auditing policy can be defined for a specific database or as a default server policy. A default server auditing policy applies to all existing and newly created databases on a server.
 
 
 ##<a id="subheading-2"></a>Set up auditing for your database
@@ -59,7 +59,7 @@ The following section describes the configuration of auditing using the Azure Po
 
 1. Launch the [Azure Portal](https://portal.azure.com) at https://portal.azure.com.
 
-2. Navigate to the settings blade of the SQL Database / SQL Server you want to audit. In the Settings blade select **Auditing & Threat detection**.
+2. Navigate to the settings blade of the SQL Database / SQL Server you want to audit. In the Settings blade, select **Auditing & Threat detection**.
 
 	<a id="auditing-screenshot"></a>
 	![Navigation pane][1]
@@ -79,7 +79,7 @@ The following section describes the configuration of auditing using the Azure Po
 	<a id="storage-screenshot"></a>
 	![Navigation pane][4]
 
-6. If you want to customize the audited events, you can do this  via PowerShell or REST API - see the [Automation (PowerShell / REST API)](#subheading-7) section for more details.
+6. If you want to customize the audited events, you can do this via PowerShell or REST API - see the [Automation (PowerShell / REST API)](#subheading-7) section for more details.
 
 8. Click **Save**.
 
@@ -90,7 +90,7 @@ The following section describes the configuration of auditing using the Azure Po
 
 1. Launch the [Azure Portal](https://portal.azure.com) at https://portal.azure.com.
 
-2. Navigate to the settings blade of the SQL Database / SQL Server you want to audit. In the Settings blade select **Auditing & Threat detection** (*[see screenshot in Blob Auditing section](#auditing-screenshot)*).
+2. Navigate to the settings blade of the SQL Database / SQL Server you want to audit. In the Settings blade, select **Auditing & Threat detection** (*[see screenshot in Blob Auditing section](#auditing-screenshot)*).
 
 3. In the database auditing configuration blade, you can check the **Inherit settings from server** checkbox to designate that this database will be audited according to its server's settings. If this option is checked, you will see a **View server auditing settings** link that allows you to view or modify the server auditing settings from this context.
 
@@ -133,7 +133,7 @@ There are several methods to view Blob Auditing logs:
 
 2. Download log files from your Azure Storage Blob container via the portal or by using a tool such as [Azure Storage Explorer](http://storageexplorer.com/).
 
-	Once you have downloaded the log file locally, you can double click the file to open, view and analyze the logs in SSMS.
+	Once you have downloaded the log file locally, you can double-click the file to open, view and analyze the logs in SSMS.
 
 	Additional methods:
 	- You can **download multiple files simultaneously** via Azure Storage Explorer - right-click on a specific subfolder (e.g. a subfolder that includes all log files for a specific date) and choose "Save as" to save in a local folder.
