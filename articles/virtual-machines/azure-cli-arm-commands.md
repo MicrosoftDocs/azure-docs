@@ -31,11 +31,11 @@ In addition to command-specific optional parameters documented here, there are t
 
 ## Setting the Resource Manager mode
 
-Use the following command to enable Azure CLI Resource Manager commands.
+Use the following command to enable Azure CLI Resource Manager mode commands.
 
 	azure config mode arm
 
->[AZURE.NOTE] The Azure Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
+>[AZURE.NOTE] The CLI's Azure Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
 
 
 ## azure account: Manage your account information

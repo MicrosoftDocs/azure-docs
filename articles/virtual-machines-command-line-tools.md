@@ -33,11 +33,11 @@ In addition to command-specific optional parameters documented here, there are t
 
 ## Setting asm mode
 
-Currently the asm mode is enabled by default when you first install the CLI. If you need to, use the following command to set asm mode.
+Use the following command to enable Azure CLI Service Management mode commands.
 
 	azure config mode asm
 
->[AZURE.NOTE] The CLI's Azure Resource Manager mode and asm mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
+>[AZURE.NOTE] The CLI's Azure Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
 
 ## Manage your account information and publish settings
 One way the CLI can connect to your account is by using your Azure subscription information. (See [Connect to an Azure subscription from the Azure CLI](xplat-cli-connect.md) for other options.) This information can be obtained from the Azure classic portal in a publish settings file as described here. You can import the publish settings file as a persistent local configuration setting that the CLI uses for subsequent operations. You only need to import your publish settings once.
