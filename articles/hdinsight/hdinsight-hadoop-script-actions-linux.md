@@ -43,6 +43,7 @@ For more information on using these methods to apply script actions, see [Custom
 When you develop a custom script for an HDInsight cluster, there are several best practices to keep in mind:
 
 - [Target the Hadoop version](#bPS1)
+- [Target the OS Version](#bps10)
 - [Provide stable links to script resources](#bPS2)
 - [Use pre-compiled resources](#bPS4)
 - [Ensure that the cluster customization script is idempotent](#bPS3)
@@ -51,13 +52,53 @@ When you develop a custom script for an HDInsight cluster, there are several bes
 - [Write information to STDOUT and STDERR](#bPS7)
 - [Save files as ASCII with LF line endings](#bps8)
 - [Use retry logic to recover from transient errors](#bps9)
-- [OS Version](#bps10)
 
 > [AZURE.IMPORTANT] Script actions must complete within 60 minutes, or they will timeout. During node provisioning, the script is ran concurrently with other setup and configuration processes. Competition for resources such as CPU time or network bandwidth may cause the script to take longer to finish than it does in your development environment.
 
 ### <a name="bPS1"></a>Target the Hadoop version
 
 Different versions of HDInsight have different versions of Hadoop services and components installed. If your script expects a specific version of a service or component, you should only use the script with the version of HDInsight that includes the required components. You can find information on component versions included with HDInsight using the [HDInsight component versioning](hdinsight-component-versioning.md) document.
+
+###<a name="bps10"></a> Target the OS Version
+
+Linux-based HDInsight is based on the Ubuntu Linux distribution. Different versions of HDInsight rely on different versions of Ubuntu, which may effect how your script behaves. For example, HDInsight 3.4 and earlier are based on Ubuntu versions that use Upstart. Version 3.5 is based on Ubuntu 16.04, which uses Systemd. Systemd and Upstart rely on different commands, so your script should be written to work with both.
+
+Another important difference between HDInsight 3.4 and 3.5 is that `JAVA_HOME` now points to Java 8.
+
+You can check the OS version by using `lsb_release`. The following code snippets from the Hue install script demonstrates how to determine if the script is running on Ubuntu 14 or 16:
+
+    OS_VERSION=$(lsb_release -sr)
+    if [[ $OS_VERSION == 14* ]]; then
+        echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+        HUE_TARFILE=hue-binaries-14-04.tgz
+    elif [[ $OS_VERSION == 16* ]]; then
+        echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+        HUE_TARFILE=hue-binaries-16-04.tgz
+    fi
+    ...
+    if [[ $OS_VERSION == 16* ]]; then
+        echo "Using systemd configuration"	
+		systemctl daemon-reload
+		systemctl stop webwasb.service    
+		systemctl start webwasb.service
+	else
+        echo "Using upstart configuration"
+		initctl reload-configuration
+		stop webwasb
+		start webwasb
+    fi
+    ...
+    if [[ $OS_VERSION == 14* ]]; then
+        export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+    elif [[ $OS_VERSION == 16* ]]; then
+        export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+    fi
+
+You can find the full script that contains these snippets at https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh.
+
+For the version of Ubuntu that is used by HDInsight, see the [HDInsight component version](hdinsight-component-versioning.md) document.
+
+To understand the differences between Systemd and Upstart, see [Systemd for Upstart users](https://wiki.ubuntu.com/SystemdForUpstartUsers).
 
 ### <a name="bPS2"></a>Provide stable links to script resources
 
@@ -151,47 +192,6 @@ The following are examples of using this function.
     retry ls -ltr foo
 
     retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
-
-###<a name="bps10"></a> OS Version
-
-Linux-based HDInsight is built using the Ubuntu Linux distribution. Different versions of HDInsight rely on different versions of Ubuntu, which may affect how your script behaves. For example, HDInsight 3.4 and earlier use a version of Ubuntu that uses Upstart. Version 3.5 uses Ubuntu 16.04, which uses Systemd. Systemd and Upstart rely on different commands, so your script should be written to work with both.
-
-Another important difference between HDInsight 3.4 and 3.5 is that `JAVA_HOME` now points to Java 8.
-
-You can check the OS version by using `lsb_release`. The following code snippets from the Hue install script demonstrates how to determine if the script is running on Ubuntu 14 or 16:
-
-    OS_VERSION=$(lsb_release -sr)
-    if [[ $OS_VERSION == 14* ]]; then
-        echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
-        HUE_TARFILE=hue-binaries-14-04.tgz
-    elif [[ $OS_VERSION == 16* ]]; then
-        echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
-        HUE_TARFILE=hue-binaries-16-04.tgz
-    fi
-    ...
-    if [[ $OS_VERSION == 16* ]]; then
-        echo "Using systemd configuration"	
-		systemctl daemon-reload
-		systemctl stop webwasb.service    
-		systemctl start webwasb.service
-	else
-        echo "Using upstart configuration"
-		initctl reload-configuration
-		stop webwasb
-		start webwasb
-    fi
-    ...
-    if [[ $OS_VERSION == 14* ]]; then
-        export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
-    elif [[ $OS_VERSION == 16* ]]; then
-        export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-    fi
-
-You can find the full script that contains these snippets at https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh.
-
-For the version of Ubuntu that is used by HDInsight, see the [HDInsight component version](hdinsight-component-versioning.md) document.
-
-To understand the differences between Systemd and Upstart, see [Systemd for Upstart users](https://wiki.ubuntu.com/SystemdForUpstartUsers).
 
 ## <a name="helpermethods"></a>Helper methods for custom scripts
 
