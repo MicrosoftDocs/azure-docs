@@ -43,7 +43,7 @@ The DocumentDB input to a function uses the following JSON object in the `bindin
       "databaseName": "<Name of the DocumentDB database>",
       "collectionName": "<Name of the DocumentDB collection>",
       "id": "<Id of the DocumentDB document - see below>",
-      "connection": "<Name of app setting with DocumentDB endpoint - see below>",
+      "connection": "<Name of app setting with connection string - see below>",
       "direction": "in"
     },
  
@@ -126,8 +126,9 @@ To add a `project.json` file, see [F# package management](functions-reference-fs
 
 ## <a id="docdboutput"></a>DocumentDB output binding
 
-The DocumentDB output binding lets you write a new document to an Azure DocumentDB database. The output binding uses the 
-following JSON object in the `bindings` array of function.json: 
+The DocumentDB output binding lets you write a new document to an Azure DocumentDB database. 
+
+The output binding uses the following JSON object in the `bindings` array of function.json: 
 
     {
       "name": "<Name of output parameter in function signature>",
