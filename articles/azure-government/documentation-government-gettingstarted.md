@@ -20,7 +20,7 @@
 
 #  Getting Started with Azure Government
 
-##  General Guidance for Azure Government Customers
+##  General Guidance for Customers
 
 Most of the technical content that is available currently assumes that applications are being developed for the Global Service rather than for Microsoft Azure Government, it’s important for you to ensure that developers are aware of key differences for applications developed to be hosted in Azure Government.
 
@@ -30,7 +30,7 @@ Most of the technical content that is available currently assumes that applicati
 
 - Third, you should refer to the Azure Government Technical services documentation available from this site for information that identifies the Azure Government boundary and customer regulated/controlled data guidance and best practices.
 
-++ Next Steps
+## Next Steps
 
 For supplemental information and updates please subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
