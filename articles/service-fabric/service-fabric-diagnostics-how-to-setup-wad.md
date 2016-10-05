@@ -198,6 +198,19 @@ To update Diagnostics to collect logs from new EventSource channels that represe
 
 Update the `EtwEventSourceProviderConfiguration` section in the template.json file to add entries for the new EventSource channels before you apply the configuration update by using the `New-AzureRmResourceGroupDeployment` PowerShell command. The name of the event source is defined as part of your code in the Visual Studio-generated ServiceEventSource.cs file.
 
+For example, if your event source is named My-Eventsource, add the following code to place the events from My-Eventsource into a table named MyDestinationTableName.
+
+```json
+		{
+			"provider": "My-Eventsource",
+			"scheduledTransferPeriod": "PT5M",
+			"DefaultEvents": {
+			"eventDestination": "MyDestinationTableName"
+			}
+		}
+```
+
+To collect performance counters or event logs, modify the Resource Manager template by using the examples provided in [Create a Windows virtual machine with monitoring and diagnostics by using an Azure Resource Manager template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md). Then, republish the Resource Manager template.
 
 ## Next steps
 To understand in more detail what events you should look for while troubleshooting issues, see the diagnostic events emitted for [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) and [Reliable Services](service-fabric-reliable-services-diagnostics.md).
