@@ -25,7 +25,7 @@ This article provides syntax and options for Azure CLI commands you'd commonly u
 
 To get started, first [install the Azure CLI](xplat-cli-install.md) and [connect to your Azure subscription](xplat-cli-connect.md).
 
-For current command syntax and options at the command line, type `azure help` or, to display help for a specific command, `azure help [command]`. You'll also find CLI examples in the documentation for creating and managing specific Azure services.
+For current command syntax and options at the command line, type `azure help` or, to display help for a specific command, `azure help [command]`. Also find CLI examples in the documentation for creating and managing specific Azure services.
 
 Optional parameters are shown in square brackets (for example, `[parameter]`). All other parameters are required.
 
@@ -67,7 +67,7 @@ This command imports a publishsettings file or certificate so that it can be use
 	warn:   Remember to delete it now that it has been imported.
 	info:   Account publish settings imported successfully
 
-> [AZURE.NOTE] The publishsettings file can contain details (that is, subscription name and ID) about more than one subscription. When you import the publishsettings file, the first subscription is used as the default description. To use a different subscription, run the following command.
+> [AZURE.NOTE] The publishsettings file can contain details (that is, subscription name and ID) about more than one subscription. When you import the publishsettings file, the first subscription is used as the default description. To use a different subscription, run the following command:
 <code>~$ azure config set subscription &lt;other-subscription-id&gt;</code>
 
 **account clear [options]**
@@ -293,7 +293,7 @@ This command shows details about an Azure virtual machine. The --json option spe
 
 **vm delete [options] &lt;name>**
 
-This command deletes an Azure virtual machine. By default, this command does not delete the Azure blob from which the operating system disk and the data disk are created. To delete the blob as well as the virtual machine on which it is based, specify the -b option.
+This command deletes an Azure virtual machine. By default, this command does not delete the Azure blob from which the operating system disk and the data disk are created. To delete the blob and the virtual machine on which it is based, specify the -b option.
 
 	~$ azure vm delete my-vm
 	info:   Executing command vm delete
@@ -1051,7 +1051,7 @@ This command supports the following additional options:
 
 **site job stop [options] &lt;jobName> &lt;jobType> [name]**
 
-This command stops the specified web job. Only continuous jobs can  be stopped.
+This command stops the specified web job. Only continuous jobs can be stopped.
 
 This command supports the following additional options:
 
@@ -1551,14 +1551,14 @@ This command creates a job named `getUpdates` that is scheduled to run hourly.
 
 This command supports the following additional options:
 
-+ **-i `<number>`** or **--interval `<number>`**: The job interval, as an integer; the default value is `15`.
++ **-i `<number>`** or **--interval `<number>`**: The job interval, as an integer. The default value is `15`.
 + **-u `<unit>`** or **--intervalUnit `<unit>`**: The unit for the _interval_, which can be one of the following values:
 	+ **minute** (default)
 	+ **hour**
 	+ **day**
 	+ **month**
 	+ **none** (on-demand jobs)
-+ **-t `<time>`** **--startTime `<time>`** The start time of the first run for the script, in ISO format; the default value is `now`.
++ **-t `<time>`** **--startTime `<time>`** The start time of the first run for the script, in ISO format. The default value is `now`.
 
 > [AZURE.NOTE] New jobs are created in a disabled state because a script must still be uploaded. Use the **mobile script upload** command to upload a script and the **mobile job update** command to enable the job.
 
@@ -1572,14 +1572,14 @@ The following command enables the disabled `getUpdates` job.
 
 This command supports the following additional options:
 
-+ **-i `<number>`** or **--interval `<number>`**: The job interval, as an integer; the default value is `15`.
++ **-i `<number>`** or **--interval `<number>`**: The job interval, as an integer. The default value is `15`.
 + **-u `<unit>`** or **--intervalUnit `<unit>`**: The unit for the _interval_, which can be one of the following values:
 	+ **minute** (default)
 	+ **hour**
 	+ **day**
 	+ **month**
 	+ **none** (on-demand jobs)
-+ **-t `<time>`** **--startTime `<time>`** The start time of the first run for the script, in ISO format; the default value is `now`.
++ **-t `<time>`** **--startTime `<time>`** The start time of the first run for the script, in ISO format. The default value is `now`.
 + **-a `<status>`** or **--status `<status>`**: The job status, which can be either `enabled` or `disabled`.
 
 **mobile job delete [options] [servicename] [jobname]**

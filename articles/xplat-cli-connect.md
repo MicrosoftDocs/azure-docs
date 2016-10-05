@@ -21,7 +21,7 @@
 
 The Azure CLI is a set of open-source, cross-platform commands for working with Azure resources. This article describes the different ways to provide your Azure account credentials to connect the Azure CLI to your Azure subscription:
 
-* In most cases, you run the `azure login` CLI command to authenticate through Azure Active Directory. This gives you access to CLI commands in both [command modes](#CLI-command-modes). When you run the command without additional options, `azure login` prompts you to continue logging in interactively through a web portal. For additonal `azure login` command options, see the scenarios in this article, or type `azure login --help`.
+* Run the `azure login` CLI command to authenticate through Azure Active Directory. This method gives you access to CLI commands in both [command modes](#CLI-command-modes). When you run the command without additional options, `azure login` prompts you to continue logging in interactively through a web portal. For additional `azure login` command options, see the scenarios in this article, or type `azure login --help`.
 
 * If you only need to use Azure Service Management mode CLI commands (not recommended for most new deployments), you can download and install a publish settings file on your computer. 
 
@@ -36,7 +36,7 @@ For background about different account identities and Azure subscriptions, see [
 
 ## Scenario 1: azure login with interactive login 
 
-With certain accounts, the CLI requires you to run `azure login` and then continue the login process with a web brower through a web portal, a process called *interactive login*. A common reason is when you have a work or school account (also called an *organizational account*)  that is set up to require multifactor authentication. Also use interactive login with your Microsoft account, when you want to use Resource Manager mode commands.
+With certain accounts, the CLI requires you to run `azure login` and then continue the login process with a web browser through a web portal, a process called *interactive login*. A common reason is when you have a work or school account (also called an *organizational account*) that is set up to require multifactor authentication. Also use interactive login with your Microsoft account, when you want to use Resource Manager mode commands.
 
 Interactive login is easy: type `azure login` -- without any options -- as shown in the following example:
 
@@ -58,7 +58,7 @@ Copy the code offered to you in the command output, and open a browser to http:/
 	+
 	info:    login command OK
     
->[AZURE.NOTE]  With interactive login, authentication and authorization are performed using Azure Active Directory. If you use a Microsoft account identity, the login process accesses your Azure Active Directory default domain. (If you signed up for a free Azure account, you might not be aware that Azure Active Directory created a default domain for your account.)
+>[AZURE.NOTE]  With interactive login, authentication and authorization are performed using Azure Active Directory. If you use a Microsoft account identity, the login process accesses your Azure Active Directory default domain. (If you signed up for a free Azure account, Azure Active Directory automatically created a default domain for your account.)
 
 ## Scenario 2: azure login with a username and password
 
@@ -84,7 +84,7 @@ If this is your first time logging in with these credentials, you are asked to v
 
 ## Scenario 3: azure login with a service principal
 
-If you've created a service principal for an Active Directory application, and the service principal has permissions on your subscription, you can use the `azure login` command to authenticate the service principal. Depending on your scenario, you could provide the credentials of the service principal as explicit parameters of the `azure login` command. For example, the following command passes the service principal name and Active Directory tenant ID:
+If you create a service principal for an Active Directory application, and the service principal has permissions on your subscription, you can use the `azure login` command to authenticate the service principal. Depending on your scenario, you could provide the credentials of the service principal as explicit parameters of the `azure login` command. For example, the following command passes the service principal name and Active Directory tenant ID:
 
     azure login -u https://www.contoso.org/example --service-principal --tenant myTenantID
 
@@ -102,7 +102,7 @@ This opens your default browser and prompts you to sign in to the [Azure classic
 
 >[AZURE.NOTE] If your account is associated with multiple Azure Active Directory tenants, you may be prompted to select which Active Directory you wish to download a publish settings file for.
 
-Once selected using the download page, or by visiting the Azure classic portal, the selected Active Directory becomes the default used by the classic portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
+Once selected using the download page, or by visiting the Azure classic portal, the selected Active Directory becomes the default used by the classic portal and download page. Once a default has been established, you see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
 
 * **To import the publish settings file**, run the following command:
 
@@ -124,7 +124,7 @@ When first installed, the current release of the CLI is in Resource Manager mode
 
 ## Multiple subscriptions
 
-If you have multiple Azure subscriptions, connecting to Azure grants access to all subscriptions associated with your credentials. One subscription is selected as the default, and used by the Azure CLI when performing operations. You can view the subscriptions, as well as which one is the default, using the `azure account list` command. This command returns information similar to the following:
+If you have multiple Azure subscriptions, connecting to Azure grants access to all subscriptions associated with your credentials. One subscription is selected as the default, and used by the Azure CLI when performing operations. You can view the subscriptions, including the current default subscription, using the `azure account list` command. This command returns information similar to the following:
 
 	info:    Executing command account list
 	data:    Name              Id                                    Current
@@ -132,7 +132,7 @@ If you have multiple Azure subscriptions, connecting to Azure grants access to a
 	data:    Azure-sub-1       ####################################  true
 	data:    Azure-sub-2       ####################################  false
 
-In the above list, the **Current** column indicates the current default subscription as Azure-sub-1. To change the default subscription, use the `azure account set` command, and specify the subscription that you wish to be the default. For example:
+In the preceding list, the **Current** column indicates the current default subscription as Azure-sub-1. To change the default subscription, use the `azure account set` command, and specify the subscription that you wish to be the default. For example:
 
 	azure account set Azure-sub-2
 
@@ -148,7 +148,7 @@ Once you are connected to your Azure subscription, you can start using the Azure
 
 ## Storage of CLI settings
 
-Whether you log in with the `azure login` command or import publish settings, your CLI profile and logs are stored in a `.azure` directory located in your `user` directory. Your `user` directory is protected by your operating system; however, it is recommended that you take additional steps to encrypt your `user` directory. You can do so in the following ways:
+Whether you log in with the `azure login` command or import publish settings, your CLI profile and logs are stored in a `.azure` directory located in your `user` directory. Your `user` directory is protected by your operating system. However, we recommend that you take additional steps to encrypt your `user` directory. You can do so in the following ways:
 
 * On Windows, modify the directory properties or use BitLocker.
 * On Mac, turn on FileVault for the directory.
@@ -160,7 +160,7 @@ To log out, use the following command:
 
 	azure logout -u <username>
 
-If the subscriptions associated with the account were only authenticated with Active Directory, logging out deletes the subscription information from the local profile. However, if a publish settings file had also been imported for the subscriptions, logging out only deletes Active Directory related information from the local profile.
+If the subscriptions associated with the account are only authenticated with Active Directory, logging out deletes the subscription information from the local profile. However, if a publish settings file was also imported for the subscriptions, logging out only deletes Active Directory related information from the local profile.
 ## Next steps
 
 * To use Azure CLI commands, see [Azure CLI commands in Resource Manager mode](./virtual-machines/azure-cli-arm-commands.md) and [Azure CLI commands in Service Management mode](virtual-machines-command-line-tools.md).
