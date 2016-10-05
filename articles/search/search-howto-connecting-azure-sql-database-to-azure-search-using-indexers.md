@@ -43,7 +43,7 @@ An **indexer** is a resource that connects data sources with target search index
 Depending on several factors relating to your data, the use of Azure SQL indexer may or may not be appropriate. If your data fits the following requirements, you can use Azure SQL indexer: 
 
 - All the data comes from a single table or view
-	- If the data is scattered across multiple tables, you can create a view and use that view with the indexer. However, be aware that if you use a view, you won’t be able to use SQL Server integrated change detection. See this section for more details. 
+	- If the data is scattered across multiple tables, you can create a view and use that view with the indexer. However, be aware that if you use a view, you won’t be able to use SQL Server integrated change detection. See [this section](#CaptureChangedRows) for more details. 
 - The data types used in the data source are supported by the indexer. Most but not all of the SQL types are supported. For details, see [Mapping data types in Azure Search](http://go.microsoft.com/fwlink/p/?LinkID=528105). 
 - You don’t need near real-time updates to the index when a row changes. 
 	- The indexer can re-index your table at most every 5 minutes. If your data changes frequently and the changes need to be reflected in the index within seconds or single minutes, we recommend using [Azure Search Index API](https://msdn.microsoft.com/library/azure/dn798930.aspx) directly. 
@@ -166,6 +166,7 @@ Here’s what happens:
 
 You can add, change, or delete a schedule for an existing indexer by using a **PUT indexer** request. 
 
+<a name="CaptureChangedRows">,/a>
 ## Capturing new, changed and deleted rows
 
 If you’re using a schedule and your table contains a non-trivial number of rows, you should use a data change detection policy, so that the indexer can efficiently retrieve only the new or changed rows without having to re-index the entire table.
@@ -247,7 +248,7 @@ Note that the **softDeleteMarkerValue** must be a string – use the string repr
 | bigint | Edm.Int64, Edm.String | |
 | real, float |Edm.Double, Edm.String | |
 | smallmoney, money decimal numeric | Edm.String| Azure Search does not support converting decimal types into Edm.Double because this would lose precision |
-| char, nchar, varchar, nvarchar | Edm.String<br/>Collection(Edm.String)|Transforming a string column into Collection(Edm.String) requires using a preview API version 2015-02-28-Preview. See [this article](search-api-indexers-2015-02-28-Preview.md#create-indexer) for details| 
+| char, nchar, varchar, nvarchar | Edm.String<br/>Collection(Edm.String)|Transforming a string column into Collection(Edm.String) requires using a preview API version 2015-02-28-Preview. See [this article](search-api-indexers-2015-02-28-Preview.md#CreateIndexer) for details| 
 |smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String| |
 |uniqueidentifer | Edm.String | |
 |geography | Edm.GeographyPoint | Only geography instances of type POINT with SRID 4326 (which is the default) are supported | | 

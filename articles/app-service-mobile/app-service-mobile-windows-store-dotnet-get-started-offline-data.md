@@ -2,8 +2,8 @@
 	pageTitle="Enable offline sync for your Universal Windows Platform (UWP) app with Mobile Apps| Azure App Service"
 	description="Learn how to use an Azure Mobile App to cache and sync offline data in your Universal Windows Platform (UWP) app."
 	documentationCenter="windows"
-	authors="wesmc7777"
-	manager="dwrede"
+	authors="adrianhall"
+	manager="erikre"
 	editor=""
 	services="app-service\mobile"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/19/2016"
-	ms.author="wesmc"/>
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>
 
 # Enable offline sync for your Windows app
 
@@ -178,7 +178,7 @@ For more information about these concepts, see [Offline Data Sync in Azure Mobil
 The following topics provide additional background information on the offline sync feature of Mobile Apps:
 
 * [Offline Data Sync in Azure Mobile Apps]
-* [Cloud Cover: Offline Sync in Azure Mobile Services] (Note that the video is for Mobile Services, but offline sync works in a similar way in Azure Mobile Apps)
+* [Cloud Cover: Offline Sync in Azure Mobile Services]  \(Note that the video is for Mobile Services, but offline sync works in a similar way in Azure Mobile Apps.\)
 * [Azure Friday: Offline-enabled apps in Azure Mobile Services]
 
 <!-- Anchors. -->

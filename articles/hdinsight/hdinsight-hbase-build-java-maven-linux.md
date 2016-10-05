@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/14/2016"
+	ms.date="10/03/2016"
 	ms.author="larryfr"/>
 
 #Use Maven to build Java applications that use HBase with Linux-based HDInsight (Hadoop)
@@ -30,7 +30,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 * [Maven](http://maven.apache.org/)
 
-* [An Linux-based Azure HDInsight cluster with HBase](../hdinsight-hbase-get-started-linux.md#create-hbase-cluster)
+* [An Linux-based Azure HDInsight cluster with HBase](../hdinsight-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
 
     > [AZURE.NOTE] The steps in this document have been tested with HDInsight cluster versions 3.2, 3.3, and 3.4. The default values provided in examples are for a HDInsight 3.4 cluster.
 

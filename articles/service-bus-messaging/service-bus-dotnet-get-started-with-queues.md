@@ -16,7 +16,7 @@
     ms.date="08/23/2016"
     ms.author="jotaub;sethm"/>
 
-# Get started with Service Bus Queues
+# Get started with Service Bus queues
 
 [AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 

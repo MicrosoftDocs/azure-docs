@@ -24,6 +24,7 @@ The following 5-minute video introduces Azure App Service Web Apps.
 
 [AZURE.VIDEO azure-app-service-web-apps-with-yochay-kiriaty]
 
+
 ## What is a web app in App Service?
 
 In App Service, a *web app* is the compute resources that Azure provides for hosting a website or web application.  

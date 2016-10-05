@@ -184,7 +184,7 @@ Azure AD directories are by design isolated.
 It is supported to use FIM2010/MIM2016 on-premises to GALsync users between two Exchange organizations. The users in one organization shows up as foreign users/contacts in the other organization. These different on-premises ADs can then be synchronized to their own Azure AD directories.
 
 ## Next steps
-To learn how to install Azure AD Connect for these scenarios, see [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
+To learn how to install Azure AD Connect for these scenarios, see [Custom installation of Azure AD Connect](./aad-connect/active-directory-aadconnect-get-started-custom.md).
 
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 

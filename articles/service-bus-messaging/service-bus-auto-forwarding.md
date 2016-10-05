@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/06/2016"
+    ms.date="09/29/2016"
     ms.author="sethm" />
 
 # Chaining Service Bus entities with auto-forwarding
@@ -43,7 +43,7 @@ If Alice goes on vacation, her personal queue, rather than the ERP topic, fills 
 
 ## Auto-forwarding considerations
 
-If the destination entity has accumulated many messages and exceeds the quota, or the destination entity is disabled, the source entity adds the messages to its [dead-letter queue](./service-bus-dead-letter-queues.md) until there is space in the destination (or the entity is re-enabled). Those messages will continue to live in the dead-letter queue, so you must explicitly receive and process them from the dead-letter queue.
+If the destination entity has accumulated many messages and exceeds the quota, or the destination entity is disabled, the source entity adds the messages to its [dead-letter queue](service-bus-dead-letter-queues.md) until there is space in the destination (or the entity is re-enabled). Those messages will continue to live in the dead-letter queue, so you must explicitly receive and process them from the dead-letter queue.
 
 When chaining together individual topics to obtain a composite topic with many subscriptions, it is recommended that you have a moderate number of subscriptions on the first-level topic and many subscriptions on the second-level topics. For example, a first-level topic with 20 subscriptions, each of them chained to a second-level topic with 200 subscriptions, allows for higher throughput than a first-level topic with 200 subscriptions, each chained to a second-level topic with 20 subscriptions.
 

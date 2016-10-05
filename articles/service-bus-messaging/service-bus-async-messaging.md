@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Service Bus asynchronous messaging | Microsoft Azure"
-    description="Description of Service Bus asynchronous brokered messaging."
+    description="Description of Service Bus asynchronous messaging."
     services="service-bus-messaging"
     documentationCenter="na"
     authors="sethmanheim"
@@ -12,24 +12,24 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="06/27/2016"
+    ms.date="10/04/2016"
     ms.author="sethm" />
 
 # Asynchronous messaging patterns and high availability
 
-Asynchronous messaging can be implemented in a variety of different ways. With queues, topics and subscriptions, collectively called messaging entities, Azure Service Bus supports asynchrony via a store and forward mechanism. In normal (synchronous) operation, you send messages to queues and topics, and receive messages from queues and subscriptions. Applications you write depend on these entities always being available. When the entity health changes, due to a variety of circumstances, you need a way to provide a reduced capability entity that can satisfy most needs.
+Asynchronous messaging can be implemented in a variety of different ways. With queues, topics, and subscriptions, Azure Service Bus supports asynchrony via a store and forward mechanism. In normal (synchronous) operation, you send messages to queues and topics, and receive messages from queues and subscriptions. Applications you write depend on these entities always being available. When the entity health changes, due to a variety of circumstances, you need a way to provide a reduced capability entity that can satisfy most needs.
 
 Applications typically use asynchronous messaging patterns to enable a number of communication scenarios. You can build applications in which clients can send messages to services, even when the service is not running. For applications that experience bursts of communications, a queue can help level the load by providing a place to buffer communications. Finally, you can get a simple but effective load balancer to distribute messages across multiple machines.
 
 In order to maintain availability of any of these entities, consider a number of different ways in which these entities can appear unavailable for a durable messaging system. Generally speaking, we see the entity become unavailable to applications we write in the following different ways:
 
-1.  Unable to send messages.
+- Unable to send messages.
 
-2.  Unable to receive messages.
+- Unable to receive messages.
 
-3.  Unable to manage entities (create, retrieve, update, or delete entities).
+- Unable to manage entities (create, retrieve, update, or delete entities).
 
-4.  Unable to contact the service.
+- Unable to contact the service.
 
 For each of these failures, different failure modes exist that enable an application to continue to perform work at some level of reduced capability. For example, a system that can send messages but not receive them can still receive orders from customers but cannot process those orders. This topic discusses potential issues that can occur, and how those issues are mitigated. Service Bus has introduced a number of mitigations which you must opt into, and this topic also discusses the rules governing the use of those opt-in mitigations.
 
@@ -78,7 +78,7 @@ In both cases, a natural or man-made disaster caused the issue. To work around t
 
 The [paired namespaces][] feature supports scenarios in which a Service Bus entity or deployment within a data center becomes unavailable. While this event occurs infrequently, distributed systems still must be prepared to handle worst case scenarios. Typically, this event happens because some element on which Service Bus depends is experiencing a short-term issue. To maintain application availability during an outage, Service Bus users can use two separate namespaces, preferably in separate data centers, to host their messaging entities. The remainder of this section uses the following terminology:
 
--   Primary namespace: The namespace your application interacts with for send and receive operations.
+-   Primary namespace: The namespace with which your application interacts, for send and receive operations.
 
 -   Secondary namespace: The namespace that acts as a backup to the primary namespace. Application logic does not interact with this namespace.
 

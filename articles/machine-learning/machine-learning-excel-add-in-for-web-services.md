@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/06/2016"
+	ms.date="09/30/2016"
 	ms.author="tedway;garye" />
 
 # Excel Add-in for Azure Machine Learning web services

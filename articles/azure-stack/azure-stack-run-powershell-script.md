@@ -47,12 +47,22 @@ Before you start, make sure that you at least 85 GB of space.
 
     > [AZURE.NOTE] If you choose not to use the recommended script to prepare your POC host computer (steps 5 – step 7), do not enter any license key at the activation page. Included is a trial version of Windows Server 2016 image and entering license key will result in expiration warning messages
 
-5. Download these support files from [Github](https://aka.ms/azurestackdeploytools).
+5. On the POC machine, run the following PowerShell script to download the Azure Stack TP2 support files:
 
-    - PrepareBootFromVHD.ps1
-    - unattend.xml
-    - unattend_NoKVM.xml 
+    ```powershell
+    # Variables
+    $Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/'
+    $LocalPath = 'c:\AzureStack_TP2_SupportFiles'
 
+    # Create folder
+    New-Item $LocalPath -type directory
+
+    # Download files
+    ( 'BootMenuNoKVM.ps1', 'PrepareBootFromVHD.ps1', 'Unattend.xml', 'unattend_NoKVM.xml') | foreach { Invoke-WebRequest ($uri + $_) -OutFile ($LocalPath + '\' + $_) } 
+    ```
+
+    This downloads the Azure Stack TP2 support files to the folder specified by the $LocalPath parameter.
+    
 6. Open an elevated PowerShell console and change the directory to where you copied the files.
 
 7. Run the PrepareBootFromVHD.ps1 script. This and the unattend files are available with the other support scripts provided along with this build.
@@ -89,7 +99,7 @@ Before you start, make sure that you at least 85 GB of space.
 
 6. Enter the credentials for your Azure Active Directory account. This user must be the Global Admin in the directory tenant.
 
-7. The deployment process will take a couple of hours, during which one automated system reboot will occur. If you want to monitor the deployment progress, sign in as azurestack\AzureStackAdmin. If the deployment fails, you can try to [rerun it](azure-stack-rerun-deploy.md).
+7. The deployment process will take a couple of hours, during which one automated system reboot will occur. If you want to monitor the deployment progress, sign in as azurestack\AzureStackAdmin. If the deployment fails, you can try to [rerun it](azure-stack-rerun-deploy.md). Or, you can [redeploy](azure-stack-redeploy.md) it from scratch.
 
 ### Deployment script examples
 
@@ -124,11 +134,11 @@ If your environment DOES NOT have DHCP enabled, you will need to include the fol
 | AdminPassword | Required | Sets the local administrator account and all other user accounts on all the virtual machines that will be created as part of POC deployment. This must match the current local administrator password on the host. |
 | AzureEnvironment | Optional | Select the Azure Environment with which you want to register this Azure Stack deployment. Options include *Public Azure*, *Azure - China*, *Azure - US Government*. |
 | EnvironmentDNS | Optional | A DNS server is created as part of the Azure Stack deployment. To allow computers inside of the solution to resolve names outside of the stamp, provide your existing infrastructure DNS server. The in-stamp DNS server will forward unknown name resolution requests to this server. |
-| NatIPv4Address | Required for DHCP NAT support | Sets a static IP address for the NAT VM. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet. |
-| NatIPv4DefaultGateway | Required for DHCP NAT support | Sets the default gateway used with the static IP address for the NAT VM. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet.  |
+| NatIPv4Address | Required for DHCP NAT support | Sets a static IP address for MAS-BGPNAT01. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet. |
+| NatIPv4DefaultGateway | Required for DHCP NAT support | Sets the default gateway used with the static IP address for MAS-BGPNAT01. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet.  |
 | NatIPv4Subnet | Required for DHCP NAT support | IP Subnet prefix used for DHCP over NAT support. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet.  |
 | NatSubnetPrefix | Required for DHCP NAT support | IP Subnet prefix to be used for DHCP over NAT support. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet. |
-| PublicVLan | Optional | Sets the VLAN ID. Only use this parameter if the host and NATVM must configure VLAN ID to access the physical network (and Internet). For example, `.\InstallAzureStackPOC.ps1 –Verbose –PublicVLan 305` |
+| PublicVLan | Optional | Sets the VLAN ID. Only use this parameter if the host and MAS-BGPNAT01 must configure VLAN ID to access the physical network (and Internet). For example, `.\InstallAzureStackPOC.ps1 –Verbose –PublicVLan 305` |
 | Rerun | Optional | Use this flag to re-run deployment.  All previous input will be used. Re-entering data previously provided is not supported because several unique values are generated and used for deployment. |
 | TimeServer | Optional | Use this parameter if you need to specify a specific time server. |
 

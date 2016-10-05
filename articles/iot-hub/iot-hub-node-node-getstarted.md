@@ -262,7 +262,7 @@ You are now ready to run the applications.
     node ReadDeviceToCloudMessages.js 
     ```
 
-    ![][7]
+    ![Node.js IoT Hub service client application to monitor device-to-cloud messages][7]
 
 2. At a command-prompt in the **simulateddevice** folder, run the following command to begin sending telemetry data to your IoT hub:
 
@@ -270,11 +270,11 @@ You are now ready to run the applications.
     node SimulatedDevice.js
     ```
 
-    ![][8]
+    ![Node.js IoT Hub device client application to send device-to-cloud messages][8]
 
 3. The **Usage** tile in the [Azure portal][lnk-portal] shows the number of messages sent to the hub:
 
-    ![][43]
+    ![Azure portal Usage tile showing number of messages sent to IoT Hub][43]
 
 ## Next steps
 
@@ -289,7 +289,6 @@ To continue getting started with IoT Hub and to explore other IoT scenarios, see
 To learn how to extend your IoT solution and process device-to-cloud messages at scale, see the [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.
 
 <!-- Images. -->
-[6]: ./media/iot-hub-node-node-getstarted/create-iot-hub6.png
 [7]: ./media/iot-hub-node-node-getstarted/runapp1.png
 [8]: ./media/iot-hub-node-node-getstarted/runapp2.png
 [43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
@@ -298,13 +297,13 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
+[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-[lnk-hub-sdks]: iot-hub-sdks-summary.md
+[lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 

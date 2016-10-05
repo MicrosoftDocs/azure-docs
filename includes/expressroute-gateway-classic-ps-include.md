@@ -4,7 +4,7 @@ You must create a VNet and a gateway subnet first, before working on the followi
 
 Use the command below to create a gateway. Be sure to substitute any values for your own.
 
-	New-AzureVirtualNetworkGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType DynamicRouting -GatewaySKU  Standard
+	New-AzureVirtualNetworkGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType Dedicated -GatewaySKU  Standard
 
 ## Verify the gateway was created
 

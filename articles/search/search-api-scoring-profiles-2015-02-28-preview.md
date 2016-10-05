@@ -175,10 +175,10 @@ Functions are used when additional calculations are required for specific contex
 
   - Function type (freshness, magnitude, distance, tag) must be lower case.
   - Functions cannot include null or empty values. Specifically, if you include fieldname, you have to set it to something.
-  - Functions can only be applied to filterable fields. See [Create Index](search-api-2015-02-28.md#createindex) for more information about filterable fields.
+  - Functions can only be applied to filterable fields. See [Create Index](search-api-2015-02-28.md#CreateIndex) for more information about filterable fields.
   - Functions can only be applied to fields that are defined in the fields collection of an index.
 
-After the index is defined, build the index by uploading the index schema, followed by documents. See [Create Index](search-api-2015-02-28-preview.md#createindex) and [Add or Update Documents](search-api-2015-02-28-preview.md#AddOrUpdateDocuments) for instructions on these operations. Once the index is built, you should have a functional scoring profile that works with your search data.
+After the index is defined, build the index by uploading the index schema, followed by documents. See [Create Index](search-api-2015-02-28-preview.md#CreateIndex) and [Add or Update Documents](search-api-2015-02-28-preview.md#AddOrUpdateDocuments) for instructions on these operations. Once the index is built, you should have a functional scoring profile that works with your search data.
 
 <a name="bkmk_template"></a>
 ## Template
