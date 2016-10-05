@@ -41,7 +41,7 @@ If you use Azure AD Sync an in-place upgrade is recommended. If you want to, it 
 
 Solution | Scenario
 ----- | -----
-[Upgrade from DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>If you have an existing DirSync server already running.</li>
+[Upgrade from DirSync](./aad-connect/active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>If you have an existing DirSync server already running.</li>
 [Upgrade from Azure AD Sync](active-directory-aadconnect-upgrade-previous-version.md)| <li>If you are moving from Azure AD Sync.</li>
 
 If you want to see how to do an in-place upgrade from DirSync to Azure AD Connect, then please see this Channel 9 video:
