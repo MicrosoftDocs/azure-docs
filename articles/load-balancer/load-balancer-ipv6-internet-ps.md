@@ -7,6 +7,7 @@
     manager="carmonm"
     editor=""
     tags="azure-resource-manager"
+    keywords="ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot"
 />
 <tags
     ms.service="load-balancer"
@@ -21,9 +22,9 @@
 # Get started creating an Internet facing load balancer with IPv6 using PowerShell for Resource Manager
 
 > [AZURE.SELECTOR]
-- [PowerShell](load-balancer-IPv6-internet-ps.md)
-- [Azure CLI](load-balancer-IPv6-internet-cli.md)
-- [Template](load-balancer-IPv6-internet-template.md)
+- [PowerShell](./load-balancer-ipv6-internet-ps.md)
+- [Azure CLI](./load-balancer-ipv6-internet-cli.md)
+- [Template](./load-balancer-ipv6-internet-template.md)
 
 An Azure load balancer is a Layer-4 (TCP, UDP) load balancer. The load balancer provides high availability by distributing incoming traffic among healthy service instances in cloud services or virtual machines in a load balancer set. Azure Load Balancer can also present those services on multiple ports, multiple IP addresses, or both.
 
@@ -110,6 +111,7 @@ This example creates the following items:
 
 - a NAT rule to translate all incoming traffic on port 443 to port 4443
 - a load balancer rule to balance all incoming traffic on port 80 to port 80 on the addresses in the back-end pool.
+- a load balancer rule to allow RDP connection to the VMs on port 3389.
 - a probe rule to check the health status on a page named *HealthProbe.aspx* or a service on port 8080
 - a load balancer that uses all these objects
 
@@ -127,17 +129,20 @@ This example creates the following items:
     or TCP probe
 
         $healthProbe = New-AzureRmLoadBalancerProbeConfig -Name 'HealthProbe-v4v6' -Protocol Tcp -Port 8080 -IntervalInSeconds 15 -ProbeCount 2
+        $RDPprobe = New-AzureRmLoadBalancerProbeConfig -Name 'RDPprobe' -Protocol Tcp -Port 3389 -IntervalInSeconds 15 -ProbeCount 2
 
-    For this example, we are going to use the TCP probe.
+
+    For this example, we are going to use the TCP probes.
 
 3. Create a load balancer rule.
 
-        $lbrule1v4 = New-AzureRmLoadBalancerRuleConfig -Name "HTTPv4" -FrontendIpConfiguration $FEIPConfigv4 -BackendAddressPool backendpoolipv4 -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 8080
-        $lbrule1v6 = New-AzureRmLoadBalancerRuleConfig -Name "HTTPv6" -FrontendIpConfiguration $FEIPConfigv6 -BackendAddressPool backendpoolipv6 -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 8080
+        $lbrule1v4 = New-AzureRmLoadBalancerRuleConfig -Name "HTTPv4" -FrontendIpConfiguration $FEIPConfigv4 -BackendAddressPool $backendpoolipv4 -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 8080
+        $lbrule1v6 = New-AzureRmLoadBalancerRuleConfig -Name "HTTPv6" -FrontendIpConfiguration $FEIPConfigv6 -BackendAddressPool $backendpoolipv6 -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 8080
+        $RDPrule = New-AzureRmLoadBalancerRuleConfig -Name "RDPrule" -FrontendIpConfiguration $FEIPConfigv4 -BackendAddressPool $backendpoolipv4 -Probe $RDPprobe -Protocol Tcp -FrontendPort 3389 -BackendPort 3389
 
 4. Create the load balancer using the previously created objects.
 
-        $NRPLB = New-AzureRmLoadBalancer -ResourceGroupName NRP-RG -Name 'myNrpIPv6LB' -Location 'West US' -FrontendIpConfiguration $FEIPConfigv4,$FEIPConfigv6 -InboundNatRule $inboundNATRule1v6,$inboundNATRule1v4 -BackendAddressPool $backendpoolipv4,$backendpoolipv6 -Probe $healthProbe -LoadBalancingRule $lbrule1v4,$lbrule1v6
+        $NRPLB = New-AzureRmLoadBalancer -ResourceGroupName NRP-RG -Name 'myNrpIPv6LB' -Location 'West US' -FrontendIpConfiguration $FEIPConfigv4,$FEIPConfigv6 -InboundNatRule $inboundNATRule1v6,$inboundNATRule1v4 -BackendAddressPool $backendpoolipv4,$backendpoolipv6 -Probe $healthProbe,$RDPprobe -LoadBalancingRule $lbrule1v4,$lbrule1v6,$RDPrule
 
 ## Create NICs for the back-end VMs
 
@@ -156,10 +161,6 @@ This example creates the following items:
         $nic2IPv6 = New-AzureRmNetworkInterfaceIpConfig -Name "IPv6IPConfig" -PrivateIpAddressVersion "IPv6" -LoadBalancerBackendAddressPool $backendpoolipv6
         $nic2 = New-AzureRmNetworkInterface -Name 'myNrpIPv6Nic1' -IpConfiguration $nic2IPv4,$nic2IPv6 -ResourceGroupName NRP-RG -Location 'West US'
 
-3. Create NICs and associate them with the NAT rules and back-end address pool.
-
-        $backendnic1= New-AzureRmNetworkInterface -ResourceGroupName NRP-RG -Name lb-nic1-be -Location 'West US' -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
-
 ## Create virtual machines and assign the newly created NICs
 
 For more information about creating a VM, see [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](..\virtual-machines\virtual-machines-windows-ps-create.md)
@@ -173,16 +174,18 @@ For more information about creating a VM, see [Create and preconfigure a Windows
 
 2. Create each VM and assign the previous created NICs
 
-        $vm1 = New-AzureRmVMConfig -VMName 'myNrpIPv6VM0 -VMSize 'Standard_G1' -AvailabilitySetId $availabilitySet.Id
-        $vm1 = Set-AzureRmVMOperatingSystem -VM $vm1 -Windows -ComputerName 'myNrpIPv6VM0 -Credential $mySecureCredentials -ProvisionVMAgent -EnableAutoUpdate
+        $mySecureCredentials= Get-Credential -Message “Type the username and password of the local administrator account.”
+
+        $vm1 = New-AzureRmVMConfig -VMName 'myNrpIPv6VM0' -VMSize 'Standard_G1' -AvailabilitySetId $availabilitySet.Id
+        $vm1 = Set-AzureRmVMOperatingSystem -VM $vm1 -Windows -ComputerName 'myNrpIPv6VM0' -Credential $mySecureCredentials -ProvisionVMAgent -EnableAutoUpdate
         $vm1 = Set-AzureRmVMSourceImage -VM $vm1 -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
         $vm1 = Add-AzureRmVMNetworkInterface -VM $vm1 -Id $nic1.Id -Primary
         $osDisk1Uri = $CreatedStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/myNrpIPv6VM0osdisk.vhd"
         $vm1 = Set-AzureRmVMOSDisk -VM $vm1 -Name 'myNrpIPv6VM0osdisk' -VhdUri $osDisk1Uri -CreateOption FromImage
         New-AzureRmVM -ResourceGroupName NRP-RG -Location 'West US' -VM $vm1
 
-        $vm2 = New-AzureRmVMConfig -VMName 'myNrpIPv6VM1 -VMSize 'Standard_G1' -AvailabilitySetId $availabilitySet.Id
-        $vm2 = Set-AzureRmVMOperatingSystem -VM $vm2 -Windows -ComputerName 'myNrpIPv6VM1 -Credential $mySecureCredentials -ProvisionVMAgent -EnableAutoUpdate
+        $vm2 = New-AzureRmVMConfig -VMName 'myNrpIPv6VM1' -VMSize 'Standard_G1' -AvailabilitySetId $availabilitySet.Id
+        $vm2 = Set-AzureRmVMOperatingSystem -VM $vm2 -Windows -ComputerName 'myNrpIPv6VM1' -Credential $mySecureCredentials -ProvisionVMAgent -EnableAutoUpdate
         $vm2 = Set-AzureRmVMSourceImage -VM $vm2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
         $vm2 = Add-AzureRmVMNetworkInterface -VM $vm2 -Id $nic2.Id -Primary
         $osDisk2Uri = $CreatedStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/myNrpIPv6VM1osdisk.vhd"

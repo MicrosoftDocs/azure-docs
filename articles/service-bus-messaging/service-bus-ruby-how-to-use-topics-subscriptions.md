@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="10/04/2016"
 	ms.author="sethm"/>
 
 # How to Use Service Bus Topics/Subscriptions
 
 [AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-This guide describes how to use Service Bus topics and subscriptions from Ruby applications. The scenarios covered include **creating topics and subscriptions, creating subscription filters, sending messages** to a topic, **receiving messages from a subscription**, and **deleting topics and subscriptions**. For more information on topics and subscriptions, see the [Next Steps](#next-steps) section.
+This article describes how to use Service Bus topics and subscriptions from Ruby applications. The scenarios covered include **creating topics and subscriptions, creating subscription filters, sending messages** to a topic, **receiving messages from a subscription**, and **deleting topics and subscriptions**. For more information on topics and subscriptions, see the [Next Steps](#next-steps) section.
 
 ## Service Bus topics and subscriptions
 
-Service Bus topics and subscriptions support a **publish/subscribe
-messaging communication** model. When using topics and subscriptions,
+Service Bus topics and subscriptions support a *publish/subscribe*
+messaging communication model. When using topics and subscriptions,
 components of a distributed application do not communicate directly with
-each other, they instead exchange messages via a topic, which acts as an
+each other; they instead exchange messages via a topic, which acts as an
 intermediary.
 
 ![TopicConcepts](./media/service-bus-ruby-how-to-use-topics-subscriptions/sb-topics-01.png)
@@ -36,27 +36,27 @@ In contrast to Service Bus queues, where each message is processed by a
 single consumer, topics and subscriptions provide a **one-to-many** form
 of communication, using a publish/subscribe pattern. It is possible to
 register multiple subscriptions to a topic. When a message is sent to a
-topic, it is then made available to each subscription to handle/process
+topic, it is then made available to each subscription to process
 independently.
 
 A topic subscription resembles a virtual queue that receives copies of
 the messages that were sent to the topic. You can optionally register
-filter rules for a topic on a per-subscription basis, which allows you
+filter rules for a topic on a per-subscription basis, which enables you
 to filter/restrict which messages to a topic are received by which topic
 subscriptions.
 
 Service Bus topics and subscriptions enable you to scale to process a
-very large number of messages across a very large number of users and
+large number of messages across a large number of users and
 applications.
 
-## Create a service namespace
+## Create a namespace
 
-To begin using Service Bus queues in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Service Bus resources within
-your application. You must create the namespace through the command-line interface because the [Azure classic portal][] does not create the namespace with an ACS connection.
+To begin using Service Bus queues in Azure, you must first create a namespace. A namespace provides a scoping container for addressing Service Bus resources within
+your application. You must create the namespace through the command-line interface because the [Azure portal][] does not create the namespace with an ACS connection.
 
 To create a namespace:
 
-1. Open an Azure Powershell console.
+1. Open an Azure Powershell console window.
 
 2. Type the following command to create a namespace. Provide your own namespace value and specify the same region as your application.
 
@@ -79,7 +79,7 @@ will use this value in your code later in this tutorial.
 
 > [AZURE.NOTE]
 > You can also find this key if you log on to the
-> [Azure classic portal][] and navigate to the
+> [Azure portal][] and navigate to the
 > connection information for your namespace.
 
 ## Create a Ruby application
@@ -238,7 +238,7 @@ In the event that the application crashes after processing the message but befor
 
 ## Delete topics and subscriptions
 
-Topics and subscriptions are persistent, and must be explicitly deleted either through the [Azure classic portal](https://manage.windowsazure.com) or programmatically. The example below demonstrates how to delete the topic named "test-topic".
+Topics and subscriptions are persistent, and must be explicitly deleted either through the [Azure portal][] or programmatically. The example below demonstrates how to delete the topic named "test-topic".
 
 ```
 azure_service_bus_service.delete_topic("test-topic")
@@ -254,8 +254,8 @@ azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 
 Now that you've learned the basics of Service Bus topics, follow these links to learn more.
 
-- See [Queues, Topics, and Subscriptions](service-bus-queues-topics-subscriptions.md).
+- See [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md).
 - API reference for [SqlFilter](http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx).
 - Visit the [Azure SDK for Ruby](https://github.com/Azure/azure-sdk-for-ruby) repository on GitHub.
  
-[Azure classic portal]: http://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com

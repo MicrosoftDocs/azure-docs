@@ -1,7 +1,7 @@
 <properties
     pageTitle="Shared Access Signatures overview | Microsoft Azure"
     description="What are Shared Access Signatures, how do they work, and how to use them from Node, PHP, and C#."
-    services="service-bus,event-hubs"
+    services="service-bus"
     documentationCenter="na"
     authors="djrosanova"
     manager="timlt"
@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="06/22/2016"
+    ms.date="10/02/2016"
     ms.author="darosa;sethm"/>
 
 # Shared Access Signatures
@@ -28,7 +28,7 @@ You can find more detailed information about Shared Access Signatures with Servi
 
 ## Shared Access Policy
 
-An important thing to understand about SAS is that it all starts with a policy. For every policy, you decide on three pieces of information: **name**, **scope**, and **permissions**. The **name** is just that; a unique name within that scope. The scope is easy enough: it's the URI of the resource in question. For a Service Bus namespace, the scope is the fully qualified domain name (FQDN), such as **`https://<yournamespace>.servicebus.windows.net/`**.
+An important thing to understand about SAS is that it all starts with a policy. For every policy, you decide on three pieces of information: **name**, **scope**, and **permissions**. The **name** is just that; a unique name within that scope. The scope is easy enough: it's the URI of the resource in question. For a Service Bus namespace, the scope is the fully qualified domain name (FQDN), such as `https://<yournamespace>.servicebus.windows.net/`.
 
 The available permissions for a policy are largely self-explanatory:
 
@@ -36,7 +36,7 @@ The available permissions for a policy are largely self-explanatory:
   + Listen
   + Manage
 
-After you create the policy, it is assigned a *Primary Key* and a *Secondary Key*. These are cryptographically strong keys. Don't lose them or leak them - they'll always be available in the [Azure classic portal][]. You can use either of the generated keys, and you can regenerate them at any time. However, if you regenerate or change the primary key in the policy, any Shared Access Signatures created from it will be invalidated.
+After you create the policy, it is assigned a *Primary Key* and a *Secondary Key*. These are cryptographically strong keys. Don't lose them or leak them - they'll always be available in the [Azure portal][]. You can use either of the generated keys, and you can regenerate them at any time. However, if you regenerate or change the primary key in the policy, any Shared Access Signatures created from it will be invalidated.
 
 When you create a Service Bus namespace, a policy is automatically created for the entire namespace called **RootManageSharedAccessKey**, and this policy has all permissions. You don't log on as **root**, so don't use this policy unless there's a really good reason. You can create additional policies in the **Configure** tab for the namespace in the portal. It's important to note that a single tree level in Service Bus (namespace, queue, Event Hub, etc.) can only have up to 12 policies attached to it.
 
@@ -184,9 +184,9 @@ If you give a sender or client a SAS token, they don't have the key directly, an
 
 In the previous section, you saw how to use the SAS token with an HTTP POST request for sending data to the Service Bus. As you know, you can access Service Bus using the Advanced Message Queuing Protocol (AMQP) that is the preferred protocol to use for performance reasons, in many scenarios. The SAS token usage with AMQP is described in the document [AMQP Claim-Based Security Version 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) that is in working draft since 2013 but well-supported by Azure today.
 
-Before starting to send data to Service Bus, the publisher must send the SAS token inside an AMQP message to a well-defined AMQP node named **"$cbs"** (you can see it as a "special" queue used by the service to acquire and validate all the SAS tokens). The publisher must specify the **"ReplyTo"** field inside the AMQP message; this is the node in which the service replies to the publisher with the result of the token validation (a simple request/reply pattern between publisher and service). This reply node is created "on the fly," speaking about "dynamic creation of remote node" as described by the AMQP 1.0 specification. After checking that the SAS token is valid, the publisher can go forward and start to send data to the service.
+Before starting to send data to Service Bus, the publisher must send the SAS token inside an AMQP message to a well-defined AMQP node named **$cbs** (you can see it as a "special" queue used by the service to acquire and validate all the SAS tokens). The publisher must specify the **ReplyTo** field inside the AMQP message; this is the node in which the service replies to the publisher with the result of the token validation (a simple request/reply pattern between publisher and service). This reply node is created "on the fly," speaking about "dynamic creation of remote node" as described by the AMQP 1.0 specification. After checking that the SAS token is valid, the publisher can go forward and start to send data to the service.
 
-The following steps show how to send the SAS token with AMQP protocol using the [AMQP.Net Lite](https://github.com/Azure/amqpnetlite) library. This is useful if you can't use the official Service Bus SDK (for example on WinRT, .Net Compact Framework, .Net Micro Framework and Mono) developing in C&#35;. Of course, this library is useful to help understand how claims-based security works at the AMQP level, as you saw how it works at the HTTP level (with an HTTP POST request and the SAS token sent inside the "Authorization" header). If you don't need such deep knowledge about AMQP, you can use the official Service Bus SDK with .Net Framework applications, which will do it for you.
+The following steps show how to send the SAS token with AMQP protocol using the [AMQP.Net Lite](https://github.com/Azure/amqpnetlite) library. This is useful if you can't use the official Service Bus SDK (for example on WinRT, .Net Compact Framework, .Net Micro Framework and Mono) developing in C\#. Of course, this library is useful to help understand how claims-based security works at the AMQP level, as you saw how it works at the HTTP level (with an HTTP POST request and the SAS token sent inside the "Authorization" header). If you don't need such deep knowledge about AMQP, you can use the official Service Bus SDK with .Net Framework applications, which will do it for you.
 
 ### C&#35;
 
@@ -257,4 +257,4 @@ For more information about Service Bus authentication, see [Service Bus authenti
 
 More examples of SAS in C# and Java Script are in [this blog post](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx).
 
-[Azure classic portal]: http://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
