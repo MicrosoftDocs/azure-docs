@@ -70,7 +70,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 As an example, let's take service **fabric:/MyApp/MyService** that opens an HTTP listener on the following URL:
 
 ```
-http://10.0.05:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
+http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 ```
 
 With the following resources:
@@ -95,8 +95,8 @@ To reach the resources exposed by the service, simply place the resource path af
 
 The gateway will then forward these requests to the service's URL:
 
- - `http://10.0.05:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/index.html`
- - `http://10.0.05:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/api/users/6`
+ - `http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/index.html`
+ - `http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/api/users/6`
 
 ## Special handling for port-sharing services
 
