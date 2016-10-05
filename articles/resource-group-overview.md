@@ -71,7 +71,7 @@ When creating a resource group, you need to provide a location for that resource
 
 ## Resource providers
 
-Each resource provider offers a set of resources and operations for working with technical area. For example, if you want to store keys and secrets, you work with the **Microsoft.KeyVault** resource provider. This resource provider offers a resource type called **vaults** for creating the key vault, and a resource type called **vaults/secrets** for creating a secret in the key vault. 
+Each resource provider offers a set of resources and operations for working with an Azure service. For example, if you want to store keys and secrets, you work with the **Microsoft.KeyVault** resource provider. This resource provider offers a resource type called **vaults** for creating the key vault, and a resource type called **vaults/secrets** for creating a secret in the key vault. 
 
 Before getting started with deploying your resources, you should gain an understanding of the available resource providers. Knowing the names of resource providers and resources helps you define resources you want to deploy to Azure.
 
@@ -83,9 +83,9 @@ Or, with Azure CLI, you retrieve all resource providers with the following comma
 
     azure provider list
 
-You see a full list of resource providers, and can look through that list for the resource providers that you need to use.
+You can look through the returned list for the resource providers that you need to use.
 
-To retrieve the supported resource types for a resource provider (such as Microsoft.Compute), and the supported locations and API versions for each resource type, use the following PowerShell cmdlet:
+To get details about a resource provider, add the provider namespace to your command. The command returns the supported resource types for the resource provider, and the supported locations and API versions for each resource type. The following PowerShell cmdlet gets details about Microsoft.Compute:
 
     (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
 
@@ -97,26 +97,45 @@ For more information, see [Resource Manager providers, regions, API versions, an
 
 ## Template deployment
 
-With Resource Manager, you can create a template (in JSON format) that defines deployment and configuration of your Azure solution. By using a template, you can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. Azure Resource Manager analyzes dependencies to ensure resources are created in the correct order. You do not have to define your entire infrastructure in a single template. Often, it makes sense to divide your deployment requirements into a set of targeted, purpose-specific templates. You can easily reuse these templates for different solutions. To deploy a particular solution, you create a master template that links all the required templates.
+With Resource Manager, you can create a template (in JSON format) that defines the infrastructure and configuration of your Azure solution. By using a template, you can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. When you create a solution from the portal, the solution automatically includes a deployment template. You do not have to create your template from scratch because you can start with the template for your solution and customize it to meet your specific needs. You can retrieve a template for an existing resource group by either exporting the current state of the resource group, or viewing the template used for a particular deployment. Viewing the [exported template](resource-manager-export-template.md) is a helpful way to learn about the template syntax.
 
-When you create a solution from the portal, the solution automatically includes a deployment template. You do not have to create your template from scratch because you can start with the template for your solution and customize it to meet your specific needs. You can retrieve a template for an existing resource group by either exporting the current state of the resource group, or viewing the template used for a particular deployment. Viewing the exported template is a helpful way to learn about the template syntax.
- 
+In its simplest form, a template contains the following elements:
+
+    {
+      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "",
+      "parameters": {  },
+      "variables": {  },
+      "resources": [  ],
+      "outputs": {  }
+    }
+
+In the **parameters** element, you specify values that enable customization and flexibility in deployment. For example, you can pass parameter values that tailor deployment for your test environment. By specifying the parameters, you can use the same template to deploy your solution to different environments.
+
+In the **variables** element, you specify values that are reused throughout the template, or values that are constructed from other values (like parameters).
+
+In the **resources** element, you specify the components of your infrastructure. You define as many resources as your solution needs.
+
+In the **outputs** element, you specify any values that are returned from the deployment (such as URIs from deployed resources).
+
+To learn more about the format of the template and how you construct it, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md) and [Resource Manager Template Walkthrough](resource-manager-template-walkthrough.md).
+
+Azure Resource Manager analyzes dependencies to ensure resources are created in the correct order. If one resource relies on a value from another resource (such as a virtual machine needing a storage account for disks), you set a dependency. For more information, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md).
+
+You do not have to define your entire infrastructure in a single template. Often, it makes sense to divide your deployment requirements into a set of targeted, purpose-specific templates. You can easily reuse these templates for different solutions. To deploy a particular solution, you create a master template that links all the required templates.
+
 You can also use the template for updates to the infrastructure. For example, you can add a resource to your solution and add configuration rules for the resources that are already deployed. If the template specifies creating a resource but that resource already exists, Azure Resource Manager performs an update instead of creating a new asset. Azure Resource Manager updates the existing asset to the same state as it would be as new.  
 
-You can specify parameters in your template to allow for customization and flexibility in deployment. For example, you can pass parameter values that tailor deployment for your test environment. By specifying the parameters, you can use the same template to deploy your solution to different environments.
-
-Resource Manager provides extensions for scenarios when you need additional operations such as installing particular software that is not included in the setup. If you are already using a configuration management service, like DSC, Chef or Puppet, you can continue working with that service by using extensions.
+Resource Manager provides extensions for scenarios when you need additional operations such as installing particular software that is not included in the setup. If you are already using a configuration management service, like DSC, Chef or Puppet, you can continue working with that service by using extensions. For information about virtual machine extensions, see [About virtual machine extensions and features](./virtual-machines/virtual-machines-windows-extensions-features.md). 
 
 Finally, the template becomes part of the source code for your app. You can check it in to your source code repository and update it as your app evolves. You can edit the template through Visual Studio.
 
-To learn about creating and deploying templates, see the following topics:
+After defining your template, you are ready to deploy the resources to Azure. For the commands to deploy the resources, see:
 
-1. [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md)
-2. [Resource Manager Template Walkthrough](resource-manager-template-walkthrough.md)
-3. [Best practices for creating Azure Resource Manager templates](resource-manager-template-best-practices.md)
-3. [Export an Azure Resource Manager template from existing resources](resource-manager-export-template.md)
-4. [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md)
-5. Deploy resources with Azure Resource Manager template through [PowerShell](resource-group-template-deploy.md), [Azure CLI](resource-group-template-deploy-cli.md), or [portal](resource-group-template-deploy-portal.md)
+- [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md)
+- [Deploy resources with Resource Manager templates and Azure CLI](resource-group-template-deploy-cli.md)
+- [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md)
+- [Deploy resources with Resource Manager templates and Resource Manager REST API](resource-group-template-deploy-rest.md)
 
 ## Tags
 
@@ -133,7 +152,7 @@ The following example shows a tag applied to a virtual machine.
         "name": "SimpleWindowsVM",
         "location": "[resourceGroup().location]",
         "tags": {
-            "CostCenter": "Finance"
+            "costCenter": "Finance"
         },
         ...
       }
@@ -141,11 +160,11 @@ The following example shows a tag applied to a virtual machine.
 
 To retrieve all of the resources with a tag value, use the following PowerShell cmdlet:
 
-    Find-AzureRmResource -TagName CostCenter -TagValue Finance
+    Find-AzureRmResource -TagName costCenter -TagValue Finance
 
 Or, the following Azure CLI command:
 
-    azure resource list -t CostCenter=Finance --json
+    azure resource list -t costCenter=Finance --json
 
 You can also view tagged resources through the Azure portal.
 
@@ -236,11 +255,11 @@ The previous examples show actions that are denied if the request is not valid; 
 
 Resource Manager provides compatible operations through Azure PowerShell, Azure CLI for Mac, Linux, and Windows, the Azure portal, or REST API. You can use the interface that works best for you, and move quickly between the interfaces without confusion.
 
-For information about PowerShell, see [Using Azure PowerShell with Resource Manager](powershell-azure-resource-manager.md) and [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/azure/dn757692.aspx).
+For information about PowerShell, see [Using Azure PowerShell with Resource Manager](powershell-azure-resource-manager.md) and [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/azure/dn757692(v=azure.200).aspx).
 
 For information about Azure CLI, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](xplat-cli-azure-resource-manager.md).
 
-For information about the REST API, see [Azure Resource Manager REST API Reference](https://msdn.microsoft.com/library/azure/dn790568.aspx). To view REST operations for your deployed resources, see [Use Azure Resource Explorer to view and modify resources](resource-manager-resource-explorer.md).
+For information about the REST API, see [Azure Resource Manager REST API Reference](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
 For information about using the portal, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
 
