@@ -128,6 +128,8 @@ In the next section you create a device app that reports the connectivity inform
 
 In this section, you create a Node.js console app that connects to your hub as **myDeviceId**, and then updates its twin's reported properties to contain the information that it is connected using a cellular network.
 
+> [AZURE.NOTE] At this time, device twins are accessible only from devices that connect to IoT Hub using the MQTT protocol. Please refer to the [MQTT support][lnk-devguide-mqtt] article for instructions on how to convert existing device app to use MQTT.
+
 1. Create a new empty folder called **reportconnectivity**. In the **reportconnectivity** folder, create a new package.json file using the following command at your command-prompt. Accept all the defaults:
 
     ```
@@ -208,7 +210,6 @@ Use the following resources to learn how to:
 <!-- images -->
 [1]: media/iot-hub-node-node-twin-getstarted/service1.png
 [3]: media/iot-hub-node-node-twin-getstarted/service2.png
-[img-twin]: media/iot-hub-node-node-twin-getstarted/twin.png
 
 <!-- links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
@@ -229,3 +230,4 @@ Use the following resources to learn how to:
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 
 [lnk-methods-tutorial]: iot-hub-c2d-methods.md
+[lnk-devguide-mqtt]: iot-hub-mqtt-support.md

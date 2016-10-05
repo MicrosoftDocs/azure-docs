@@ -179,11 +179,9 @@ Use the following resources to learn how to:
 
 - send telemetry from devices with the [Get started with IoT Hub][lnk-iothub-getstarted] tutorial,
 - configure devices using twin's desired properties with the [Use desired properties to configure devices][lnk-twin-how-to-configure] tutorial,
-- control devices interactively (such as turning on a fan from a user-controlled app), with the [Use direct methods][lnk-methods-tutorial] tutorial.
+- control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods][lnk-methods-tutorial] tutorial.
 
 <!-- images -->
-[img-twin]: media/iot-hub-node-node-twin-getstarted/twin.png
-
 [img-servicenuget]: media/iot-hub-csharp-node-twin-getstarted/servicesdknuget.png
 [img-createapp]: media/iot-hub-csharp-node-twin-getstarted/createnetapp.png
 [img-addtagapp]: media/iot-hub-csharp-node-twin-getstarted/addtagapp.png
@@ -201,11 +199,8 @@ Use the following resources to learn how to:
 [lnk-identity]: iot-hub-devguide-identity-registry.md
 
 [lnk-iothub-getstarted]: iot-hub-node-node-getstarted.md
-[lnk-device-management]: iot-hub-device-management-get-started.md
-[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
-[lnk-connect-device]: https://azure.microsoft.com/develop/iot/
-
+[lnk-methods-tutorial]: iot-hub-c2d-methods.md
 [lnk-twin-how-to-configure]: iot-hub-node-node-twin-how-to-configure.md
+
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 
-[lnk-methods-tutorial]: iot-hub-c2d-methods.md

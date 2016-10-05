@@ -30,3 +30,13 @@ This tutorial shows you how to:
 
 - Create a back-end app that adds *tags* to a device twin, and a simulated device that reports its connectivity channel as a *reported property* on the device twin.
 - Query devices from your back end app using filters on the tags and properties previously created.
+
+
+<!-- images -->
+[img-twin]: media/iot-hub-node-node-twin-getstarted/twin.png
+
+<!-- links -->
+[lnk-query]: iot-hub-devguide-query-language.md
+[lnk-twins]: iot-hub-devguide-device-twins.md
+[lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-methods]: iot-hub-devguide-direct-methods.md
