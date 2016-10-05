@@ -45,7 +45,7 @@ If you want to use Visual Studio on the console VM to work with Azure Stack temp
 
 ### Azure PowerShell SDK
 Azure PowerShell is a module that provides cmdlets to manage Azure and Azure Stack with Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure Stack platform.
-[Download Azure PowerShell SDK](http://aka.ms/azStackPsh)
+[Download Azure PowerShell SDK](http://aka.ms/azStackPsh) and [install PowerShell](azure-stack-connect-powershell.md).
 
 ### Azure cross platform command line interfaces
 Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure Stack.
