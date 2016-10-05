@@ -119,7 +119,7 @@ To see your new policy and get it's ObjectID, run the following command.
  
     Get-AzureADPolicy
 
-&nbsp;&nbsp;2.	**Assign the Policy to a Service Principal**
+2.	**Assign the Policy to a Service Principal**
 
 Now we have a policy on the entire tenant.  Let's say we want to preserve this policy on a specific Service Principal, but update it for the entire tenant. 
 
@@ -140,7 +140,9 @@ You now have the original policy linked to your service principal and the new po
 ## Cmdlet Reference
 
 ### Manage Policies
-The following cmdlets can be used to manage policies.
+The following cmdlets can be used to manage policies.</br></br>
+
+
 
 #### New-AzureADPolicy
 Creates a new policy.
@@ -198,6 +200,7 @@ Parameters|Description|Example|
 -ObjectId|The object Id of the Policy you would like to get.|-ObjectId &lt;ObjectID of Policy&gt;
 
 ### Application Policies
+The following cmdlets can be used for application policies.</br></br>
 
 #### Assign-AzureADApplicationPolicy         
 Links the specified policy to an application
@@ -229,6 +232,7 @@ Parameters|Description|Example|
 -PolicyId1| The ObjectId of Policy.|-PolicyId &lt;ObjectID of Policy&gt;
 
 ### Service Principal Policies
+The following cmdlets can be used for service principal policies.</br></br>
 
 #### Assign-AzureADServicePrinipalPolicy         
 Links the specified policy to a service principal
