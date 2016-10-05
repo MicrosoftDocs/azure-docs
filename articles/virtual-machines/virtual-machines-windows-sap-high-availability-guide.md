@@ -1,6 +1,6 @@
 <properties
-   pageTitle="High-availability SAP NetWeaver on Windows virtual machines | Microsoft Azure"
-   description="High-availability SAP NetWeaver on Windows virtual machines"
+   pageTitle="SAP NetWeaver on Windows virtual machines (VMs) - High-Availability Guide | Microsoft Azure"
+   description="High-availability guide for SAP NetWeaver on Windows virtual machines"
    services="virtual-machines-windows,virtual-network,storage"
    documentationCenter="saponazure"
    authors="goraco"
@@ -17,7 +17,7 @@
    ms.date="08/18/2016"
    ms.author="goraco"/>
 
-# High-availability SAP NetWeaver on Windows virtual machines
+# SAP NetWeaver on Windows virtual machines (VMs) - High-Availability Guide
 
 [767598]:https://service.sap.com/sap/support/notes/767598
 [773830]:https://service.sap.com/sap/support/notes/773830
@@ -440,7 +440,7 @@ In this article, we cover the steps that you can take to deploy high-availabilit
 
 - Learn about Windows Server Failover Clustering shared storage in Azure services.
 
-- Learn how to protect single point of failure components like ABAP SAP Central Services (ASCS)/SAP Central Services (SCS) and database management systems (DBMS), and redundant components like SAP application servers, in Azure.
+- Learn how to protect single-point-of-failure components like ABAP SAP Central Services (ASCS)/SAP Central Services (SCS) and database management systems (DBMS), and redundant components like SAP application servers, in Azure.
 
 - Follow a step-by-step example of an installation and configuration of a high-availability SAP system in a Windows Server Failover Clustering cluster by using Azure as a platform, with Azure Resource Manager.
 
@@ -454,11 +454,9 @@ To simplify deployment and configuration, in this article, we're using the new S
 
 Before you start, make sure that you meet the prerequisites that are described in the following sections. Also, be sure to check all resources listed in the [Resources][sap-ha-guide-2] section.
 
-In this article, we use Azure Resource Manager templates for three-tier SAP NetWeaver:   
-[https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image/)
+In this article, we use Azure Resource Manager templates for [three-tier SAP NetWeaver](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image/).
 
-Here's a helpful overview of SAP Azure Resource Manager templates:   
-[https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/)
+Read this helpful overview of [SAP Azure Resource Manager templates](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/).
 
 
 ## <a name="42b8f600-7ba3-4606-b8a5-53c4f026da08"></a> Resources
@@ -468,7 +466,7 @@ These guides also cover SAP deployments in Azure:
 - [SAP NetWeaver on Windows virtual machines (VMs) – Planning and Implementation Guide][planning-guide]
 - [SAP NetWeaver on Windows virtual machines (VMs) – Deployment Guide][deployment-guide]
 - [SAP NetWeaver on Windows virtual machines (VMs) – DBMS Deployment Guide][dbms-guide]
-- [SAP NetWeaver on Windows virtual machines (VMs) – High Availability Guide [this guide] ][sap-ha-guide]
+- [SAP NetWeaver on Windows virtual machines (VMs) – High-Availability Guide [this guide] ][sap-ha-guide]
 
 
 > [AZURE.NOTE] Whenever possible, we give you a link to the referring SAP installation guide (see [SAP installation guides][sap-installation-guides]). For prerequisites and information about the installation process, it's a good idea to read the SAP NetWeaver installation guides carefully. This article covers only specific tasks for SAP NetWeaver-based systems that you can use with Azure Virtual Machines.
