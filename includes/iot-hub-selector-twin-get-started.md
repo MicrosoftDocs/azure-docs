@@ -33,7 +33,7 @@ This tutorial shows you how to:
 
 
 <!-- images -->
-[img-twin]: media/iot-hub-node-node-twin-getstarted/twin.png
+[img-twin]: media/iot-hub-selector-twin-get-started/twin.png
 
 <!-- links -->
 [lnk-query]: iot-hub-devguide-query-language.md

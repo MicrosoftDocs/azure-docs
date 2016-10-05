@@ -79,3 +79,10 @@ This tutorial shows you how to:
 
 - Create a simulated device that receives configuration updates from the back end and reports multiple updates as *reported properties* on the configuration update process.
 - Create a back-end app that updates the desired configuration of a device, and then queries the configuration update process.
+
+<!-- links -->
+
+[lnk-methods]: iot-hub-devguide-direct-methods.md
+[lnk-dm-overview]: iot-hub-device-management-overview.md
+[lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
+[lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
