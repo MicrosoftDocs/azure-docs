@@ -37,8 +37,6 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 ### Install the required modules
 Open your terminal and install
 
-**1) Homebrew**: Run the following command from your terminal. This will download the Homebrew package manager on your machine.
-
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew install FreeTDS
     sudo -H pip install pymssql=2.1.1
