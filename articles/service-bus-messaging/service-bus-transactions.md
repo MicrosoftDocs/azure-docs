@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na" 
-    ms.date="05/16/2016"
+    ms.date="10/04/2016"
     ms.author="clemensv;sethm"/>
 
 # Overview of Service Bus transaction processing

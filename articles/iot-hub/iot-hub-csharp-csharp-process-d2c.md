@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="07/19/2016"
+     ms.date="10/05/2016"
      ms.author="dobett"/>
 
 # Tutorial: How to process IoT Hub device-to-cloud messages using .Net
@@ -45,7 +45,7 @@ At the end of this tutorial, you run three Windows console apps:
 * **ProcessDeviceToCloudMessages** uses the [EventProcessorHost] class to retrieve messages from the Event Hubs-compatible endpoint. It then reliably stores data point messages in Azure Blob storage, and forwards interactive messages to a Service Bus queue.
 * **ProcessD2CInteractiveMessages** de-queues the interactive messages from the Service Bus queue.
 
-> [AZURE.NOTE] IoT Hub has SDK support for many device platforms and languages, including C, Java, and JavaScript. For instructions on how to replace the simulated device in this tutorial with a physical device, and how to connect devices to an IoT Hub, see the [Azure IoT Developer Center].
+> [AZURE.NOTE] IoT Hub has SDK support for many device platforms and languages, including C, Java, and JavaScript. To learn how to replace the simulated device in this tutorial with a physical device, and how to connect devices to an IoT Hub, see the [Azure IoT Developer Center].
 
 This tutorial is directly applicable to other ways to consume Event Hubs-compatible messages, such as [HDInsight (Hadoop)] projects. For more information, see [Azure IoT Hub developer guide - Device to cloud].
 
@@ -138,11 +138,11 @@ You also need a Service Bus queue to enable reliable processing of interactive m
 
     ![New project in Visual Studio][10]
 
-2. In Solution Explorer, right-click the **ProcessDeviceToCloudMessages** project, and then click **Manage Nuget Packages**. The **Nuget Package Manager** dialog box appears.
+2. In Solution Explorer, right-click the **ProcessDeviceToCloudMessages** project, and then click **Manage NuGet Packages**. The **NuGet Package Manager** dialog box appears.
 
-3. Search for **WindowsAzure.ServiceBus**, click **Install**, and accept the terms of use. This operation downloads, installs, and adds a reference to the [Azure Service Bus Nuget package](https://www.nuget.org/packages/WindowsAzure.ServiceBus), with all its dependencies.
+3. Search for **WindowsAzure.ServiceBus**, click **Install**, and accept the terms of use. This operation downloads, installs, and adds a reference to the [Azure Service Bus NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus), with all its dependencies.
 
-4. Search for **Microsoft Azure Service Bus Event Hub - EventProcessorHost**, click **Install**, and accept the terms of use. This operation downloads, installs, and adds a reference to the [Azure Service Bus Event Hub - EventProcessorHost Nuget package](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), with all its dependencies.
+4. Search for **Microsoft Azure Service Bus Event Hub - EventProcessorHost**, click **Install**, and accept the terms of use. This operation downloads, installs, and adds a reference to the [Azure Service Bus Event Hub - EventProcessorHost NuGet package](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), with all its dependencies.
 
 5. Right-click the **ProcessDeviceToCloudMessages** project, click **Add**, and then click **Class**. Name the new class **StoreEventProcessor**, and then click **OK** to create the class.
 
@@ -337,7 +337,7 @@ In this section, you write a Windows console app that receives the interactive m
 
 1. In the current Visual Studio solution, create a Visual C# Windows project by using the **Console Application** project template. Name the project **ProcessD2CInteractiveMessages**.
 
-2. In Solution Explorer, right-click the **ProcessD2CInteractiveMessages** project, and then click **Manage Nuget Packages**. This operation displays the **Nuget Package Manager** window.
+2. In Solution Explorer, right-click the **ProcessD2CInteractiveMessages** project, and then click **Manage NuGet Packages**. This operation displays the **NuGet Package Manager** window.
 
 3. Search for **WindowsAzure.ServiceBus**, click **Install**, and accept the terms of use. This operation downloads, installs, and adds a reference to the [Azure Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus), with all its dependencies.
 

@@ -13,12 +13,12 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="04/15/2016"
+    ms.date="10/04/2016"
     ms.author="sethm;shvija"/>
 
 # Create a Service Bus namespace using an Azure Resource Manager template
 
-This article shows how to use an Azure Resource Manager template that creates a Service Bus namespace of type **Messaging** with a Standard/Basic SKU. The article also defines the parameters that are specified for the execution of the deployment. You can use this template for your own deployments, or customize it to meet your requirements.
+This article describes how to use an Azure Resource Manager template that creates a Service Bus namespace of type **Messaging** with a Standard/Basic SKU. The article also defines the parameters that are specified for the execution of the deployment. You can use this template for your own deployments, or customize it to meet your requirements.
 
 For more information about creating templates, please see [Authoring Azure Resource Manager templates][].
 
@@ -45,7 +45,7 @@ To run the deployment automatically, click the following button:
 
 With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called `Parameters` that contains all of the parameter values. You should define a parameter for those values that will vary based on the project you are deploying or based on the environment you are deploying to. Do not define parameters for values that will always stay the same. Each parameter value is used in the template to define the resources that are deployed.
 
-The template defines the following parameters.
+This template defines the following parameters.
 
 ### serviceBusNamespaceName
 
@@ -81,7 +81,7 @@ The name of the Service Bus [SKU](https://azure.microsoft.com/pricing/details/se
 
 The template defines the values that are permitted for this parameter (Basic, Standard, or Premium) and assigns a default value (Standard) if no value is specified.
 
-For more information about Service Bus pricing, please see [Service Bus pricing and billing][].
+For more information about Service Bus pricing, see [Service Bus pricing and billing][].
 
 ### serviceBusApiVersion
 
@@ -140,7 +140,7 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 
 ## Next steps
 
-Now that you've created and deployed resources using Azure Resource Manager, learn how to manage these resources by viewing these articles:
+Now that you've created and deployed resources using Azure Resource Manager, learn how to manage these resources by reading these articles:
 
 - [Manage Azure Service Bus using Azure Automation](../service-bus/service-bus-automation-manage.md)
 - [Manage Service Bus with PowerShell](../service-bus/service-bus-powershell-how-to-provision.md)

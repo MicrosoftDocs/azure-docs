@@ -128,7 +128,7 @@ Whenever you need to make an update, just upload the new WAR file to the same re
 
 ## Next steps
 
-[Create a Java web app from a template in the Azure Marketplace](app-service-web-java-get-started.md#marketplace). You can get your own fully-customizable Tomcat 
+[Create a Java web app from a template in the Azure Marketplace](web-sites-java-get-started.md#marketplace). You can get your own fully-customizable Tomcat 
 container and get the familiar Manager UI. 
 
 Debug your Azure web app, directly in [IntelliJ](app-service-web-debug-java-web-app-in-intellij.md) or [Eclipse](app-service-web-debug-java-web-app-in-eclipse.md).
