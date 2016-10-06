@@ -53,8 +53,7 @@ If you are using an azure subscription that includes [free credit](https://azure
 
 You can view a list of the external services that are on each subscription within the [Azure portal](https://portal.azure.com/): 
 
-1. Navigate to the Billing blade
-   
+1. Navigate to the [Billing blade](https://portal.azure.com/?flight=1#blade/Microsoft_Azure_Billing/BillingBlade)
   
 
 2. Select a subscription
