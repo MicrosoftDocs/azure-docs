@@ -15,12 +15,12 @@
    ms.date="10/06/2016"
    ms.author="bruceper" />
 
-# Azure Key Vault .NET 2.x - Release Notes and Migration Guide
+# Azure Key Vault .NET 2.0 - Release Notes and Migration Guide
 
 The following notes and guidance are for developers working with the Azure Key Vault .NET / C# API. In the change from the 1.0 version to the 2.x version, a number of updates have been made that will require migration work in your code in order for you to benefit from the functional improvements and feature additions such as certificates support.
 
 - .NET support
-  - **Net 4.0** is not supported by the 2.x version of the Azure Key Vault .NET/C# library
+  - **Net 4.0** is not supported by the 2.0 version of the Azure Key Vault .NET/C# library
 
 - Namespaces
    - The namespace for **models** is changed from **Microsoft.Azure.KeyVault** to **Microsoft.Azure.KeyVault.Models**.
