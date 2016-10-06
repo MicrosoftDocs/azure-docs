@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016"
+	ms.date="10/04/2016"
 	ms.author="adegeo"/>
 
 
@@ -156,15 +156,11 @@ Connect to the portal and...
     
     ![Publish your cloud service](media/cloud-services-configure-ssl-certificate-portal/browse.png)
 
-3. Open the **settings** for the cloud service.
-
-    ![Open settings](media/cloud-services-configure-ssl-certificate-portal/all-settings.png)
-
-4. Click on **Certificates**.
+2. Click on **Certificates**.
 
     ![Click the certificates icon](media/cloud-services-configure-ssl-certificate-portal/certificate-item.png)
 
-4. Provide the **File**, **Password**, then click **Upload**.
+3. Provide the **File**, **Password**, then click **Upload**.
 
 ## Step 4: Connect to the role instance by using HTTPS
 
