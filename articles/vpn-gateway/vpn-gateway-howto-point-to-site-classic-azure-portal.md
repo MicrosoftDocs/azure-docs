@@ -134,7 +134,7 @@ In this step, you will create a gateway subnet and a Dynamic routing gateway. In
 
 	![Click optional gateway configuration](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/optsubnet125.png "Click optional gateway configuration")
 
-7. Click **Subnet Configure required settings** to add the gateway subnet. While it is possible to create a GatewaySubnet of /29, we recommend that you create a larger subnet that includes more addresses by selecting at least /28 or /27.
+7. Click **Subnet Configure required settings** to add the gateway subnet. While it is possible to create a gateway subnet as small as /29, we recommend that you create a larger subnet that includes more addresses by selecting at least /28 or /27. This will allow for enough addresses to accommodate possible additional configurations that you may want in the future.
 
 	![Add GatewaySubnet](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsubnet125.png "Add GatewaySubnet")
 

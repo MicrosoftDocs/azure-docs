@@ -97,6 +97,8 @@ Gateway IP addressing configuration = gwipconfig
 In the **VirtualNetworkSites** element, add a gateway subnet to your VNet if one has not already been created. When working with the network configuration file, the gateway subnet MUST be named "GatewaySubnet" or Azure cannot recognize and use it as a gateway subnet.
 
 [AZURE.INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
+
+**Example:**
 	
     <VirtualNetworkSites>
       <VirtualNetworkSite name="ClassicVNet" Location="West US">
