@@ -816,7 +816,7 @@ The final line of code creates a pairwise scatterplot. After running the R code,
 
 *Figure 17. Pairwise scatterplot of de-trended and standardized time series.*
 
-You can compare these results to those shown in Figure 17. With the trend removed and the variables standardized, we see a lot less structure in the relationships between these variables.
+You can compare these results to those shown in Figure 16. With the trend removed and the variables standardized, we see a lot less structure in the relationships between these variables.
 
 The code to compute the correlations as R ccf objects is as follows.
 
