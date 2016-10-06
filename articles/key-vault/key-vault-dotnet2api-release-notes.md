@@ -18,7 +18,10 @@
 
 # Azure Key Vault .NET 2.x - Release Notes and Migration Guide
 
-The following notes and guidance are for developers working with the Azure Key Vault .NET / C# API. In the change from the 1.0 version to the 2.x version, a number of updates have been made that will require migration work in your code in order to benefit from functional improvements and feature addtions.
+The following notes and guidance are for developers working with the Azure Key Vault .NET / C# API. In the change from the 1.0 version to the 2.x version, a number of updates have been made that will require migration work in your code in order for you to benefit from the functional improvements and feature additions such as certificates support.
+
+- .NET support
+  - **Net 4.0** is not supported by the 2.x version of the Azure Key Vault .NET/C# library
 
 - Namespaces
    - The namespace for **models** is changed from **Microsoft.Azure.KeyVault** to **Microsoft.Azure.KeyVault.Models**.
@@ -47,9 +50,11 @@ The following notes and guidance are for developers working with the Azure Key V
 - Constructors
     - Instead of accepting an *HttpClient* as a constructor argument, the constructor only accepts *HttpClientHandler* or *DelegatingHandler[]*.
 
+
+
 ## Downloaded packages  
 When a client was getting a dependency to Key Vault the following were downloaded
-  - Previous package list downloaded
+### Previous package list downloaded
     - package id="Hyak.Common" version="1.0.2" targetFramework="net45"
     - package id="Microsoft.Azure.Common" version="2.0.4" targetFramework="net45"
     - package id="Microsoft.Azure.Common.Dependencies" version="1.0.0" targetFramework="net45"
@@ -59,12 +64,12 @@ When a client was getting a dependency to Key Vault the following were downloade
     - package id="Microsoft.Bcl.Build" version="1.0.14" targetFramework="net45"
     - package id="Microsoft.Net.Http" version="2.2.22" targetFramework="net45"
 
-- Current package list downloaded
+### Current package list downloaded
     - package id="Microsoft.Azure.KeyVault" version="2.0.0-preview" targetFramework="net45"
     - package id="Microsoft.Rest.ClientRuntime" version="2.2.0" targetFramework="net45"
     - package id="Microsoft.Rest.ClientRuntime.Azure" version="3.2.0" targetFramework="net45"
 
-- **Net 4.0** is not be supported by the 2.x version
+
 
 
 ## Additional APIs and functionality introduced
