@@ -56,14 +56,14 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](virt
 
     Select the storage account that contains your source VM.
 
-    - Select the source container:
+    Select the source container:
 
     ![Select storage container](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_select_container.png)
 
     The source container is typically *vhds*.
 
     Select the OS vhd to attach.
-    
+
     Click *Select* to complete the process:
 
     ![Select source virtual disk](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_select_source_vhd.png)
