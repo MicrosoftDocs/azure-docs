@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="iainfoulds"
 	manager="timlt"
-	editor="">
+	editor=""/>
 
 <tags
 	ms.service="virtual-machines-windows"
