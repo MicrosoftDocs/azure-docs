@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Fix disabled Azure subscription | Microsoft Azure"
-	description="Describes when you might have an Azure subscription disabled and how to fix it."
+	pageTitle="Reactivate disabled Azure subscription | Microsoft Azure"
+	description="Describes when you might have an Azure subscription disabled and how to reactivate it."
 	keywords="azure subscription disabled"
 	services=""
 	documentationCenter=""
@@ -19,7 +19,7 @@
 	ms.date="10/04/2016"
 	ms.author="genli"/>
 
-# Fix disabled Azure subscription
+# Reactivate disabled Azure subscription
 
 You might have your Azure subscription disabled because you reached your spending limits, have an overdue bill, hit your credit card limit, or because the subscription was cancelled by the administator of your subscription. See what issue applies to you and follow the steps in this article to get your subscription reactivated. 
 
@@ -27,7 +27,7 @@ You might have your Azure subscription disabled because you reached your spendin
 
 When your usage exhausts the monthly amounts included with your subscription, we disable your service for the remainder of that billing month. This is to protect you from accidentally incurring charges for usage beyond the amount included with your subscription. You can remove the spending limit and [set up billing alerts for your Microsoft Azure subscriptions](billing-set-up-alerts.md) to help you monitor and manage billing activity for your Azure accounts.
 
-To remove your spending limit:
+To remove your spending limit,
 
 1. Log in to the [Azure Account Center](https://account.windowsazure.com/Home/Index).
 
@@ -37,7 +37,7 @@ To remove your spending limit:
 
 4. Click **Subscription reached the Spending Limit and has been disabled to prevent charges**.
 
-	If you don't see that option, click **Remove spending limit** in the **Subscription Status** area.
+	If you don't see that option, click **Remove spending limit** in the subscription **Status** area.
 
 5. Select one of the following options.
 
