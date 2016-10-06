@@ -42,9 +42,7 @@ Read on for more information, including examples of the different hosting option
 
 ## Fully managed (PaaS/SaaS) offerings
 - Citrix Cloud: [Citrix existing cloud solution](https://www.citrix.com/products/citrix-cloud/). 
-- Citrix XenApp Express (in tech preview): Architecturally identical to Citrix Cloud except it will include simplified management UI and other features and capabilities that are similar to Azure RemoteApp.
-
-   Register for their tech preview, watch their [Ignite session](https://myignite.microsoft.com/videos/2792), and read more [here](http://now.citrix.com/remoteapp).   
+- Citrix XenApp Express (in tech preview): Architecturally identical to Citrix Cloud except it will include simplified management UI and other features and capabilities that are similar to Azure RemoteApp. Register for their tech preview, watch their [Ignite session](https://myignite.microsoft.com/videos/2792), and read more [here](http://now.citrix.com/remoteapp).   
 
 - Citrix Service Provider Program: The Citrix Service Provider Program makes it easy for service providers to deliver the simplicity of virtual cloud computing to SMBs, offering them the services they want in an easy, pay-as-you-go model. Citrix Service Providers grow their Microsoft SPLA businesses and expand their RDS platform investments with any device, anywhere access, the broadest application support, a rich high-def experience, added security and increased scalability. In turn, Citrix Service Providers attract more subscribers, increase customer satisfaction and reduce their operational costs. [Learn more](http://www.citrix.com/products/service-providers.html) or [find a partner](https://www.citrix.com/buy/partnerlocator.html).
 
