@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2016"
+	ms.date="10/04/2016"
 	ms.author="danlep"/>
     
 # Install the Azure CLI
@@ -29,25 +29,29 @@ Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of ope
 * **Installer** - Download an installer for easy installation on Mac or Windows.
 * **Docker container** - Start using the latest CLI in a ready-to-run Docker container. Requires Docker host on your computer.
     
-For more options and background, see the project repository on [GitHub](https://github.com/azure/azure-xplat-cli).
+For more options and background, see the project repository on [GitHub](https://github.com/azure/azure-xplat-cli). 
 
 Once the Azure CLI is installed, [connect it with your Azure subscription](xplat-cli-connect.md) and run the **azure** commands from your command-line interface (Bash, Terminal, Command prompt, and so on) to work with your Azure resources.
 
 
 
-## Option 1. Install an npm package
+## Option 1: Install an npm package
 
-To install the CLI from an npm package, you need the latest Node.js and npm installed on your system. Then, run the following command to install the Azure CLI package published at [npmjs.com](https://www.npmjs.com). (On Linux distributions, you might need to use **sudo** to successfully run the __npm__ command.)
+To install the CLI from an npm package, make sure you have downloaded and installed the [latest Node.js and npm](https://nodejs.org/en/download/package-manager/). Then, run **npm install** to install the azure-cli package: 
 
-	npm install -g azure-cli
+    npm install -g azure-cli
 
-> [AZURE.NOTE]If you need to install or update Node.js and npm on your Linux distribution or OS, see the documentation at [Nodejs.org](https://nodejs.org/en/download/package-manager/). We recommend that you install the most recent Node.js LTS version (4.x). If you use an older version, you might get installation errors. 
+On Linux distributions, you might need to use **sudo** to successfully run the __npm__ command, as follows:
+
+	sudo npm install -g azure-cli
+
+> [AZURE.NOTE]If you need to install or update Node.js and npm on your Linux distribution or OS, we recommend that you install the most recent Node.js LTS version (4.x). If you use an older version, you might get installation errors. 
 
 If you prefer, download the latest Linux [tar file][linux-installer] for the npm package locally. Then, install the downloaded npm package as follows (on Linux distributions you might need to use **sudo**):
 
     npm install -g <path to downloaded tar file>
 
-## Option 2. Use an installer
+## Option 2: Use an installer
 
 If you use a Mac or Windows computer, the following CLI installers are available for download:
 
@@ -58,9 +62,9 @@ If you use a Mac or Windows computer, the following CLI installers are available
 >[AZURE.TIP]On Windows, you can also download the [Web Platform Installer](https://go.microsoft.com/?linkid=9828653) to install the CLI. This installer gives you the option to install additional Azure SDK and command-line tools after installing the CLI. 
 
 
-## Option 3. Use a Docker container
+## Option 3: Use a Docker container
 
-If you have set up your computer as a [Docker](https://docs.docker.com/engine/understanding-docker/) host, you can run the latest Azure CLI in a Docker container. Run:
+If you have set up your computer as a [Docker](https://docs.docker.com/engine/understanding-docker/) host, you can run the latest Azure CLI in a Docker container. Run the following command (on Linux distributions you might need to use **sudo**):
 
 ```
 docker run -it microsoft/azure-cli
@@ -124,7 +128,7 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 
 * If you have questions about using the Azure CLI, or Azure, visit the [Azure Forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
 
-* For Linux systems, you can also install the Azure CLI by building it from the [source](http://aka.ms/linux-azure-cli). For more information on building from source, see the INSTALL file included in the source archive.
+* If you want, you can also try the Python-based [Azure CLI 2.0 Preview](https://github.com/azure/azure-cli).
 
 [mac-installer]: http://aka.ms/mac-azure-cli
 [windows-installer]: http://aka.ms/webpi-azure-cli
