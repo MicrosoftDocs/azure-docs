@@ -30,9 +30,10 @@
 This tutorial shows you how to create and monitor an Azure data factory using the Azure Resource Manager template. The pipeline in the data factory uses a Copy Activity to copy data from Azure Blob Storage to Azure SQL Database.
 
 ## Prerequisites
-- See [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md) to learn about Azure Resource Manager templates.
 - Go through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) and complete the **prerequisite** steps.
 - Follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install latest version of Azure PowerShell on your computer.
+- See [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md) to learn about Azure Resource Manager templates.
+
 
 ## In this tutorial
 
@@ -84,8 +85,8 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
 	        "location": "westus",
 	        "resources": [
 	          {
-	            "type": "linkedservices",
-	            "name": "[variables('azureStorageLinkedServiceName')]",
+	            "type": "Microsoft.DataFactory/datafactories/linkedservices",
+	            "name": "[concat(parameters('dataFactoryName'), '/', variables('azureStorageLinkedServiceName'))]",
 	            "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]" ],
 	            "apiVersion": "[variables('apiVersion')]",
 	            "properties": {
@@ -97,8 +98,8 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
 	            }
 	          },
 	          {
-	            "type": "linkedservices",
-	            "name": "[variables('azureSqlLinkedServiceName')]",
+	            "type": "Microsoft.DataFactory/datafactories/linkedservices",
+	            "name": "[concat(parameters('dataFactoryName'), '/', variables('azureSqlLinkedServiceName'))]",
 	            "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]" ],
 	            "apiVersion": "[variables('apiVersion')]",
 	            "properties": {
@@ -110,8 +111,8 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
 	            }
 	          },
 	          {
-	            "type": "datasets",
-	            "name": "[variables('blobInputDatasetName')]",
+	            "type": "Microsoft.DataFactory/datafactories/datasets",
+	            "name": "[concat(parameters('dataFactoryName'), '/', variables('blobInputDatasetName'))]",
 	            "dependsOn": [
 	              "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]",
 	              "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedServices/', variables('azureStorageLinkedServiceName'))]"
@@ -146,8 +147,8 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
 	            }
 	          },
 	          {
-	            "type": "datasets",
-	            "name": "[variables('sqlOutputDatasetName')]",
+	            "type": "Microsoft.DataFactory/datafactories/datasets",
+	            "name": "[concat(parameters('dataFactoryName'), '/', variables('sqlOutputDatasetName'))]",
 	            "dependsOn": [
 	              "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]",
 	              "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedServices/', variables('azureSqlLinkedServiceName'))]"
@@ -176,8 +177,8 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
 	            }
 	          },
 	          {
-	            "type": "datapipelines",
-	            "name": "[variables('pipelineName')]",
+	            "type": "Microsoft.DataFactory/datafactories/datapipelines",
+	            "name": "[concat(parameters('dataFactoryName'), '/', variables('pipelineName'))]",
 	            "dependsOn": [
 	              "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]",
 	              "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedServices/', variables('azureStorageLinkedServiceName'))]",
@@ -378,7 +379,7 @@ You specify the name of the container and the folder that contains the input blo
           },
 
 #### Azure SQL dataset
-You specify the name of the table in the Azure SQL database that will hold the copied data from the Azure Blob storage.
+You specify the name of the table in the Azure SQL database that holds the copied data from the Azure Blob storage.
 
           {
             "type": "datasets",
@@ -463,11 +464,11 @@ You define a pipeline that copies data from the Azure blob dataset to the Azure 
 ## Deploy many entities with same data flow
 
 - Create another parameter JSON file and add another parameter named suffix.
-- Create another template that use a suffix in names of Data Factory entities.  
+- Create another template that uses the suffix parameter in names of Data Factory entities.  
 - Have separate parameter JSON file for each pipeline
 
 ### parameter JSON
-Create a copy of the ADFCopyTutorialARM-Parameters.json and name it ADFCopyTutorialARM-Parameters-2.json. Add a comma character (`,`) at the end of the targetSQLTable line and then add the line with **suffix** from the following sample JSON.  
+Create a copy of the ADFCopyTutorialARM-Parameters.json and name it ADFCopyTutorialARM-Parameters-2.json. Add a comma character (`,`) at the end of the targetSQLTable line and then add the line with **suffix** from the following sample JSON:  
 
 	{
 	  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
@@ -651,7 +652,7 @@ Create a copy of the ADFCopyTutorialARM-2.json with the following content:
 
 This JSON differs from the origin JSON in the following ways:  
 
-Update the **parameters** section to define the suffix parameter. Add a comma character (`,`) at the end of the targetSQLTable line and then add the following statement with **suffix** from the following sample JSON.  
+Update the **parameters** section to define the suffix parameter. Add a comma character (`,`) at the end of the targetSQLTable line and then add the following statement with **suffix** from the following sample JSON:  
 
     "parameters": {
       "dataFactoryName": { "type": "string" },
@@ -687,7 +688,7 @@ Remove the following lines because we are **not creating a data factory**. Inste
     	  "type": "Microsoft.DataFactory/datafactories",
     	  "location": "[resourceGroup().location]",
 
-At the end of the file, keep the closing brace, but remove the following two lines above it:
+At the end of the file, keep the closing brace (`}'), but remove the following two lines before it:
 
        }
     ]
