@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/19/2016"
+   ms.date="10/06/2016"
    ms.author="mbaldwin"/>
 
 # Azure AD token reference
@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) emits several types of security tokens in the 
 
 Azure AD supports the [OAuth 2.0 authorization protocol](active-directory-protocols-oauth-code.md), which makes use of both access_tokens and refresh_tokens.  It also supports authentication and sign-in via [OpenID Connect](active-directory-protocols-openid-connect-code.md), which introduces a third type of token, the id_token.  Each of these tokens is represented as a "bearer token".
 
-A bearer token is a lightweight security token that grants the “bearer” access to a protected resource. In this sense, the “bearer” is any party that can present the token. Though a party must first authenticate with Azure AD to receive the bearer token, if the required steps are not taken to secure the token in transmission and storage, it can be intercepted and used by an unintended party. While some security tokens have a built-in mechanism for preventing unauthorized parties from using them, bearer tokens do not have this mechanism and must be transported in a secure channel such as transport layer security (HTTPS). If a bearer token is transmitted in the clear, a man-in the middle attack can be used by a malicious party to acquire the token and use it for an unauthorized access to a protected resource. The same security principles apply when storing or caching bearer tokens for later use. Always ensure that your app transmits and stores bearer tokens in a secure manner. For more security considerations on bearer tokens, see [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
+A bearer token is a lightweight security token that grants the “bearer” access to a protected resource. In this sense, the “bearer” is any party that can present the token. Though authentication with Azure AD is required in order to receive a bearer token, steps must be taken to secure the token, to prevent interception by an unintended party. Because bearer tokens do not have a built-in mechanism to prevent unauthorized parties from using them, they must be transported in a secure channel such as transport layer security (HTTPS). If a bearer token is transmitted in the clear, a man-in the middle attack can be used to acquire the token and gain unauthorized access to a protected resource. The same security principles apply when storing or caching bearer tokens for later use. Always ensure that your app transmits and stores bearer tokens in a secure manner. For more security considerations on bearer tokens, see [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
 
 Many of the tokens issued by Azure AD are implemented as JSON Web Tokens, or JWTs.  A JWT is a compact, URL-safe means of transferring information between two parties.  The information contained in JWTs are known as "claims", or assertions of information about the bearer and subject of the token.  The claims in JWTs are JSON objects encoded and serialized for transmission.  Since the JWTs issued by Azure AD are signed, but not encrypted, you can easily inspect the contents of a JWT for debugging purposes.  There are several tools available for doing so, such as [jwt.calebb.net](http://jwt.calebb.net). For more information on JWTs, you can refer to the [JWT specification](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
@@ -34,7 +34,7 @@ Id_tokens are a form of sign-in security token that your app receives when perfo
 
 Id_tokens are signed, but not encrypted at this time.  When your app receives an id_token, it must [validate the signature](#validating-tokens) to prove the token's authenticity and validate a few claims in the token to prove its validity.  The claims validated by an app vary depending on scenario requirements, but there are some [common claim validations](#validating-tokens) that your app must perform in every scenario.
 
-Full details on the claims in id_tokens are provided below, as well as a sample id_token.  Note that the claims in id_tokens are not returned in any particular order.  In addition, new claims can be introduced into id_tokens at any point in time - your app should not break as new claims are introduced.  The list below includes the claims that your app can reliably interpret at the time of this writing.  If necessary, even more detail can be found in the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html).
+See the following section for information on id_tokens claims, as well as a sample id_token.  Note that the claims in id_tokens are not returned in any particular order.  In addition, new claims can be introduced into id_tokens at any point in time - your app should not break as new claims are introduced.  The following list includes the claims that your app can reliably interpret at the time of this writing.  If necessary, even more detail can be found in the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html).
 
 #### Sample id_token
 
@@ -66,7 +66,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | `scp` | Scope | Indicates the impersonation permissions granted to the client application. The default permission is `user_impersonation`. The owner of the secured resource can register additional values in Azure AD. <br><br> **Example JWT Value**: <br> `"scp": "user_impersonation"`|
 | `sub` |Subject| Identifies the principal about which the token asserts information, such as the user of an application. This value is immutable and cannot be reassigned or reused, so it can be used to perform authorization checks safely. Because the subject is always present in the tokens the Azure AD issues, we recommended using this value in a general purpose authorization system. <br> `SubjectConfirmation` is not a claim. It describes how the subject of the token is verified. `Bearer` indicates that the subject is confirmed by their possession of the token. <br><br> **Example SAML Value**: <br> `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>` <br><br> **Example JWT Value**: <br> `"sub":"92d0312b-26b9-4887-a338-7b00fb3c5eab"`|
 | `tid` | Tenant ID | An immutable, non-reusable identifier that identifies the directory tenant that issued the token. You can use this value to access tenant-specific directory resources in a multi-tenant application. For example, you can use this value to identify the tenant in a call to the Graph API. <br><br> **Example SAML Value**: <br> `<Attribute Name=”http://schemas.microsoft.com/identity/claims/tenantid”>`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>` <br><br> **Example JWT Value**: <br> `"tid":"cbb1a5ac-f33b-45fa-9bf5-f37db0fed422"`|
-| `nbf`, `exp`|Token Lifetime | Defines the time interval within which a token is valid. The service that validates the token should verify that the current date is within the token lifetime, else it should reject the token. The service might provide an allowance of up to five minutes beyond the token lifetime range to account for any differences in clock time ("time skew") between Azure AD and the service. <br><br> **Example SAML Value**: <br> `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br><br> **Example JWT Value**: <br> `"nbf":1363289634, "exp":1363293234` |
+| `nbf`, `exp`|Token Lifetime | Defines the time interval within which a token is valid. The service that validates the token should verify that the current date is within the token lifetime, else it should reject the token. The service might allow for up to five minutes beyond the token lifetime range to account for any differences in clock time ("time skew") between Azure AD and the service. <br><br> **Example SAML Value**: <br> `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br><br> **Example JWT Value**: <br> `"nbf":1363289634, "exp":1363293234` |
 | `upn`| User Principal Name | Stores the user name of the user principal.<br><br> **Example JWT Value**: <br> `"upn": frankm@contoso.com`|
 | `ver`| Version | Stores the version number of the token. <br><br> **Example JWT Value**: <br> `"ver": "1.0"`|
 
@@ -78,9 +78,9 @@ When you request an access token, Azure AD also returns some metadata about the 
 
 ## Refresh tokens
 
-Refresh tokens are security tokens which your app can use to acquire new access tokens in an OAuth 2.0 flow.  It allows your app to achieve long-term access to resources on behalf of a user without requiring interaction by the user.
+Refresh tokens are security tokens, which your app can use to acquire new access tokens in an OAuth 2.0 flow.  It allows your app to achieve long-term access to resources on behalf of a user without requiring interaction by the user.
 
-Refresh tokens are multi-resource.  That is to say that a refresh token received during a token request for one resource can be redeemed for access tokens to a completely different resource. To do this, set the `resource` parameter in the request to the targeted resource.
+Refresh tokens are multi-resource, which means they may be received during a token request for one resource, but redeemed for access tokens to a completely different resource. To specify multi-resource, set the `resource` parameter in the request to the targeted resource.
 
 Refresh tokens are completely opaque to your app. They are long-lived, but your app should not be written to expect that a refresh token will last for any period of time.  Refresh tokens can be invalidated at any moment in time for a variety of reasons.  The only way for your app to know if a refresh token is valid is to attempt to redeem it by making a token request to Azure AD token endpoint.
 
@@ -90,7 +90,7 @@ When you redeem a refresh token for a new access token, you will receive a new r
 
 At this point in time, the only token validation your client app should need to perform is validating id_tokens.  In order to validate an id_token, your app should validate both the id_token's signature and the claims in the id_token.
 
-We provide libraries and code samples that show how to easily handle token validation - the below information is simply provided for those who wish to understand the underlying process.  There are also several third party open source libraries available for JWT validation - there is at least one option for almost every platform and language out there. For more information about Azure AD authentication libraries and code samples, please see [Azure AD authentication libraries](active-directory-authentication-libraries.md).
+We provide libraries and code samples that show how to easily handle token validation, if you wish to understand the underlying process.  There are also several third-party open source libraries available for JWT validation, at least one option for almost every platform and language. For more information about Azure AD authentication libraries and code samples, please see [Azure AD authentication libraries](active-directory-authentication-libraries.md).
 
 #### Validating the signature
 
@@ -131,12 +131,12 @@ When your app receives an id_token upon user sign-in, it should also perform a f
   - The **Audience** claim - to verify that the id_token was intended to be given to your app.
   - The **Not Before** and **Expiration Time** claims - to verify that the id_token has not expired.
   - The **Issuer** claim - to verify that the token was indeed issued to your app by Azure AD.
-  - The **Nonce** -  as a token replay attack mitigation.
+  - The **Nonce** -  to mitigate a token replay attack.
   - and more...
 
-For an full list of claim validations your app should perform, refer to the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
+For a full list of claim validations your app should perform, refer to the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
 
-Details of the expected values for these claims are included above in the [id_token section](#id-tokens).
+Details of the expected values for these claims are included in the preceding [id_token section](#id-tokens) section.
 
 ## Sample Tokens
 
@@ -290,3 +290,7 @@ In addition to claims, the token includes a version number in **ver** and **appi
      scp: "user_impersonation",
      acr: "1"
     }.
+
+### Related content
+- See the Azure AD Graph [Policy operations](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) and the [Policy entity](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity), to learn more about managing token lifetime policy via the Azure AD Graph API.
+- For more information and samples on managing policies via PowerShell cmdlets, including samples, see [Configurable token lifetimes in Azure AD](active-directory-configurable-token-lifetimes.md). 

@@ -35,6 +35,8 @@ Before you start, make sure that you at least 85 GB of space.
 7. Review the Destination location screen and information of the Self-Extractor Wizard, and then **click** Extract.
 8. Extraction will take some time, because it is extracting: CloudBuilder.vhdx (~44.5GB) and ThirdPartyLicenses.rtf files.
 
+> [AZURE.NOTE] After you extract the files, you can delete the zip file to recover space on the machine. Or, you can move the zip file to another location so that if you need to redeploy you don’t need to download the zip files again.
+
 ## Prepare the deployment machine
 
 1. Make sure that you can physically connect to the deployment machine, or have physical console access (such as KVM). You will need such access after you reboot the deployment machine in step 9.
