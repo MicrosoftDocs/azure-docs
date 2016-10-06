@@ -118,15 +118,15 @@ In this step, you will create a gateway subnet and a Dynamic routing gateway. In
 
 3. On the **New VPN Connection** blade, select **Point-to-site**.
 
-	![P2S connection type](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/connectiontype125.png "P2S connection type")
+	![P2S connection type](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png "P2S connection type")
 
 4. For **Client Address Space**, add the IP address range. This is the range from which the VPN clients will receive an IP address when connecting. Delete the auto-filled range and add your own.
 
-	![Client address space](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress125.png "Client address space")
+	![Client address space](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress.png "Client address space")
 
 5. Select the **Create gateway immediately** checkbox.
 
-	![Create gateway immediately](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwcreate125.png "Create gateway immediately")
+	![Create gateway immediately](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/creategwimm.png "Create gateway immediately")
 
 6. Click **Optional gateway configuration** to open the **Gateway configuration** blade.
 
