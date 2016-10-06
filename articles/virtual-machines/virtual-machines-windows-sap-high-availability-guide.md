@@ -483,6 +483,7 @@ Learn more about the [limitations of Azure subscriptions][azure-subscription-ser
 ## <a name="42156640c6-01cf-45a9-b225-4baa678b24f1"></a>High-availability SAP with Azure Resource Manager vs. the classic deployment model
 
 The Azure Resource Manager and classic deployment models are different in two main ways:
+
 - Resource groups
 - Clustering requirements
 
