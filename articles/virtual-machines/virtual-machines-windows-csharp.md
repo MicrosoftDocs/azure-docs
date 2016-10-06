@@ -92,7 +92,7 @@ Now you format the application information that you previously created into cred
 
 4. Save the Program.cs file.
 
-## Step 3: Add the code to register the providers and create the resources
+## Step 3: Register the resource providers and create the resources
 
 ### Register the providers and create a resource group
 

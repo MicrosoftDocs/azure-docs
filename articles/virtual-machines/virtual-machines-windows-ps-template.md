@@ -220,7 +220,7 @@ All resources must be deployed in a [resource group](../resource-group-overview.
         Tags              :
         ResourceId        : /subscriptions/{subscription-id}/resourceGroups/myrg1
 
-### Step 5: Create the resources with the template and parameters
+## Step 5: Create the resources with the template and parameters
 
 Replace the value of **$templateFile** with the path and name of the template file. Replace the value of **$parameterFile** with the path and name of the parameters file. Create the variables and then deploy the template. 
 
