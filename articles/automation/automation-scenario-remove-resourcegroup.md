@@ -60,9 +60,9 @@ The following steps will walk you through the execution of this runbook and help
 
 4. After you have configured all the parameter values, click **OK**, and the runbook will be queued for execution.  
 
-To view the details of the **Remove-ResourceGroup** runbook job in the Azure portal, select **Jobs** in the runbook. The job summary displays the input parameters and the output stream in addition to general information about the job and any exceptions that occurred.<br> ![Remove-ResourceGroup Runbook Job Status](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png).
+To view the details of the **Remove-ResourceGroup** runbook job in the Azure portal, select **Jobs** in the runbook. The job summary displays the input parameters and the output stream in addition to general information about the job and any exceptions that occurred.<br> ![Remove-ResourceGroup runbook job status](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png).
 
-The **Job Summary** includes messages from the output, warning, and error streams. Select **Output** to view detailed results from the runbook execution.<br> ![Remove-ResourceGroup Runbook Output Results](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png)
+The **Job Summary** includes messages from the output, warning, and error streams. Select **Output** to view detailed results from the runbook execution.<br> ![Remove-ResourceGroup runbook output results](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png)
 
 ## Next steps
 
