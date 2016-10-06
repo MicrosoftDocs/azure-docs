@@ -154,13 +154,13 @@ In this section, you create a Node.js console app that connects to your hub as *
 
 In this section, you will create a Node.js console app that updates the *desired properties* on the twin associated with **myDeviceId** with a new telemetry configuration object. It then queries the device twins stored in the hub and shows the difference between the desired and reported configurations of the device.
 
-1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **AddTagsAndQuery**.
+1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **SetDesiredAndQuery**.
 
 	![New Visual C# Windows Classic Desktop project][img-createapp]
 
-2. In Solution Explorer, right-click the **AddTagsAndQuery** project, and then click **Manage Nuget Packages**.
+2. In Solution Explorer, right-click the **SetDesiredAndQuery** project, and then click **Manage Nuget Packages**.
 
-3. In the **Nuget Package Manager** window, select **Browse**, search for the *prerelease* package of **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] Nuget package and its dependencies.
+3. In the **Nuget Package Manager** window, make sure that **Include prerelease** is checked, search for **microsoft.azure.devices**, select **Install** to install the the *prerelease* version of the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] Nuget package and its dependencies.
 
 	![Nuget Package Manager window][img-servicenuget]
 
@@ -168,6 +168,7 @@ In this section, you will create a Node.js console app that updates the *desired
 
 		using Microsoft.Azure.Devices;
         using System.Threading;
+        using Newtonsoft.Json;
 
 5. Add the following fields to the **Program** class. Replace the placeholder value with the connection string for the IoT hub that you created in the previous section.
 

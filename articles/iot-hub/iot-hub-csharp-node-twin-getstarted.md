@@ -47,7 +47,7 @@ In this section, you create a Node.js console app that adds location meta-data t
 
 2. In Solution Explorer, right-click the **AddTagsAndQuery** project, and then click **Manage Nuget Packages**.
 
-3. In the **Nuget Package Manager** window, select **Browse**, search for the *prerelease* package of **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] Nuget package and its dependencies.
+3. In the **Nuget Package Manager** window, make sure that **Include prerelease** is checked, search for **microsoft.azure.devices**, select **Install** to install the the *prerelease* version of the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] Nuget package and its dependencies.
 
 	![Nuget Package Manager window][img-servicenuget]
 
