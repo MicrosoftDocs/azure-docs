@@ -59,7 +59,7 @@ Before you install and configure MongoDB you need to create a VM and, ideally, a
 
 ## Configure VM and MongoDB
 
-1. The PATH variables are not updated by the MongoDB installer. Without the MongoDB `bin` location in your PATH variable, you will need to specify the full path each time you use a MongoDB executable. To add the location to youor PATH variable, right-click the **Start** menu and select **System**. Click **Advanced System Settings** and then **Environment Variables**. Under **System variables**, select **Path** and then click **Edit**.
+1. The PATH variables are not updated by the MongoDB installer. Without the MongoDB `bin` location in your PATH variable, you need to specify the full path each time you use a MongoDB executable. To add the location to your PATH variable, right-click the **Start** menu and select **System**. Click **Advanced System Settings** and then **Environment Variables**. Under **System variables**, select **Path** and then click **Edit**.
 
 	![Configure PATH variables](./media/virtual-machines-windows-install-mongodb/configure-path-variables.png)
 
