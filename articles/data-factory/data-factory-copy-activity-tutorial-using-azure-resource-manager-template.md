@@ -44,7 +44,7 @@ Entity | Description
 ------ | ----------- 
 Azure Storage linked service | Links your Azure Storage account to the data factory. Azure Storage is the source data store and Azure SQL database is the sink data store for the copy activity in the tutorial. It specifies the storage account that contains the input data for the copy activity. 
 Azure SQL Database linked service| Links your Azure SQL database to the data factory. It specifies the Azure SQL database that holds the output data for the copy activity. 
-Azure Blob input dataset | Refers to the Azure Storage linked service. The linked service points to an Azure Storage account and the Azure Blob dataset specifies the container, folder, and file name in the storage that holds the input data. 
+Azure Blob input dataset | Refers to the Azure Storage linked service. The linked service refers to an Azure Storage account and the Azure Blob dataset specifies the container, folder, and file name in the storage that holds the input data. 
 Azure SQL output dataset | Refers to the Azure SQL linked service. The Azure SQL linked service refers to an Azure SQL server and the Azure SQL dataset specifies the name of the table that holds the output data. 
 Data pipeline | The pipeline has one activity of type Copy that takes the Azure blob dataset as an input and the Azure SQL dataset as an output. The copy activity copies data from an Azure blob to a table in the Azure SQL database.  
 
@@ -308,7 +308,7 @@ The following Data Factory entities are defined in the JSON template:
 5. [Data pipeline with a copy activity](#data-pipeline)
 
 #### Azure Storage linked service
-You specify the name and key of Azure storage account in this section. See [Azure Storage linked service](https://azure.microsoft.com/en-us/documentation/articles/data-factory-azure-blob-connector/#azure-storage-linked-service) for details about JSON properties used to define an Azure Storage linked service. 
+You specify the name and key of Azure storage account in this section. See [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service) for details about JSON properties used to define an Azure Storage linked service. 
 
           {
             "type": "linkedservices",
@@ -325,7 +325,7 @@ You specify the name and key of Azure storage account in this section. See [Azur
           },
 
 #### Azure SQL Database linked service
-You specify the Azure SQL server name, database name, user name, and user password in this section. See [Azure SQL linked service](https://azure.microsoft.com/en-us/documentation/articles/data-factory-azure-sql-connector/#azure-sql-linked-service-properties) for details about JSON properties used to define an Azure SQL linked service.  
+You specify the Azure SQL server name, database name, user name, and user password in this section. See [Azure SQL linked service](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) for details about JSON properties used to define an Azure SQL linked service.  
 
           {
             "type": "linkedservices",
@@ -342,7 +342,7 @@ You specify the Azure SQL server name, database name, user name, and user passwo
           },
 
 #### Azure blob dataset
-You specify the names of blob container, folder, and file that contains the input data. See [Azure Blob dataset properties](https://azure.microsoft.com/en-us/documentation/articles/data-factory-azure-blob-connector/#azure-blob-dataset-type-properties) for details about JSON properties used to define an Azure Blob dataset. 
+You specify the names of blob container, folder, and file that contains the input data. See [Azure Blob dataset properties](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) for details about JSON properties used to define an Azure Blob dataset. 
 
           {
             "type": "datasets",
@@ -382,7 +382,7 @@ You specify the names of blob container, folder, and file that contains the inpu
           },
 
 #### Azure SQL dataset
-You specify the name of the table in the Azure SQL database that holds the copied data from the Azure Blob storage. See [Azure SQL dataset properties](https://azure.microsoft.com/en-us/documentation/articles/data-factory-azure-sql-connector/#azure-sql-dataset-type-properties) for details about JSON properties used to define an Azure SQL dataset. 
+You specify the name of the table in the Azure SQL database that holds the copied data from the Azure Blob storage. See [Azure SQL dataset properties](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties) for details about JSON properties used to define an Azure SQL dataset. 
 
           {
             "type": "datasets",
@@ -417,7 +417,7 @@ You specify the name of the table in the Azure SQL database that holds the copie
 
 
 #### Data pipeline
-You define a pipeline that copies data from the Azure blob dataset to the Azure SQL dataset. See [Pipeline JSON](https://azure.microsoft.com/en-us/documentation/articles/data-factory-create-pipelines/#pipeline-json) for descriptions of JSON elements used to define a pipeline in this example. 
+You define a pipeline that copies data from the Azure blob dataset to the Azure SQL dataset. See [Pipeline JSON](data-factory-create-pipelines.md#pipeline-json) for descriptions of JSON elements used to define a pipeline in this example. 
 
           {
             "type": "datapipelines",
@@ -469,7 +469,7 @@ You can create a Data Factory template and multiple parameter templates to deplo
 
 To implement this scenario, do the following steps:
 
-- Make a copy of the parameter JSON file and add an additional parameter named suffix.
+- Make a copy of the parameter JSON file.  Add an additional parameter named suffix. 
 - Create another template that uses the suffix parameter in names of Data Factory entities.  
 - Use separate parameter JSON file for each pipeline
 
