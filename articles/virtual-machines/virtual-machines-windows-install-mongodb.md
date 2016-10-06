@@ -60,7 +60,7 @@ Before you install and configure MongoDB you need to create a VM and, ideally, a
 
 	![Configure PATH variables](./media/virtual-machines-windows-install-mongodb/configure-path-variables.png)
 
-	Add the path to your MongoDB `bin` folder. MongoDB is typically installed on C:\Program Files\MongoDB. Verify on your VM this is the correct installation path. The following example adds the default MongoDB install location to the `PATH` variable:
+	Add the path to your MongoDB `bin` folder. MongoDB is typically installed on C:\Program Files\MongoDB. Verify the installation path on your VM. The following example adds the default MongoDB install location to the `PATH` variable:
 
 	```
 	;C:\Program Files\MongoDB\Server\3.2\bin
