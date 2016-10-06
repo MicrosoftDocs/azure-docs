@@ -296,7 +296,7 @@ You have only resource in the template and that is the data factory. The data fa
 	  ]
 
 ### Resources inside data factory
-These are the resources defined inside the data factory resource.
+The following Data Factory entities are defined in the JSON template: 
 
 1. [Azure Storage linked service](#azure-storage-linked-service)
 2. [Azure SQL linked service](#azure-sql-linked-service)
@@ -339,7 +339,7 @@ You specify the Azure SQL server name, database name, user name, and user passwo
           },
 
 #### Azure blob dataset
-You specify the name of the container and the folder that contains the input blobs.
+You specify the names of blob container, folder, and file that contains the input data.
 
           {
             "type": "datasets",
@@ -707,7 +707,7 @@ Removed the dependency on data factory creation.
 
 		New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM-2.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters-2.json
 
-Now, repeat the above to steps to create more pipelines with the same data flow but to copy between different Azure storage accounts and Azure SQL databases. 
+Now, repeat the steps with different parameter JSON file to create more pipelines with the same data flow but to copy between different Azure storage accounts and Azure SQL databases. 
 
 You should see the pipelines in the diagram view in the portal.10-06-2016-1 and 10-06-2016-2 are the suffixes in two separate parameter files. 
 
