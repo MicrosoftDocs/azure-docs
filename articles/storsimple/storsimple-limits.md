@@ -49,7 +49,7 @@ StorSimple provides scalable and flexible storage for your datacenter. However, 
 
 &#42; Maximum throughput per I/O type was measured with 100 percent read and 100 percent write scenarios. Actual throughput may be lower and depends on I/O mix and network conditions.
 
-&#42;&#42; Performance numbers prior to Update 3 are lower.
+&#42;&#42; Performance numbers prior to Update 3 may be lower.
 
 ## Next steps
 
