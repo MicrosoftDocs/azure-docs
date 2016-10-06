@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Views in Operations Management Suite (OMS) custom solutions | Microsoft Azure"
-   description="Custom solutions in Operations Management Suite (OMS) will typically include one or more views to visualize data.  This article describes how to export a view created by the View Designer and include it in a custom solution. "
+   pageTitle="Views in Operations Management Suite (OMS) solutions | Microsoft Azure"
+   description="Solutions in Operations Management Suite (OMS) will typically include one or more views to visualize data.  This article describes how to export a view created by the View Designer and include it in a solution. "
    services="operations-management-suite"
    documentationCenter=""
    authors="bwren"
@@ -12,138 +12,83 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/03/2016"
+   ms.date="10/06/2016"
    ms.author="bwren" />
 
-# Views in Operations Management Suite (OMS) custom solutions (Preview)
+# Views in Operations Management Suite (OMS) solutions (Preview)
 
 >[AZURE.NOTE]This is preliminary documentation for custom solutions in OMS which are currently in preview. Any schema described below is subject to change.    
 
-[Custom solutions in Operations Management Suite (OMS)](operations-management-suite-custom-solutions.md) will typically include one or more views to visualize data.  This article describes how to export a view created by the [View Designer](../log-analytics/log-analytics-view-designer.md) and include it in a custom solution.  
+[Solutions in Operations Management Suite (OMS)](operations-management-suite-custom-solutions.md) will typically include one or more views to visualize data.  This article describes how to export a view created by the [View Designer](../log-analytics/log-analytics-view-designer.md) and include it in a solution.  
 
 >[AZURE.NOTE]The samples in this article use parameters and variables that are either required or common to solutions  and described in [Custom solutions in Operations Management Suite (OMS)](operations-management-suite-custom-solutions.md) 
 
 
 ## Prerequisites
-This article assumes that you're already familiar with how to create a [custom solution in Operations Management Suite (OMS)](operations-management-suite-custom-solutions-creating.md) and the structure of a solution file.
+This article assumes that you're already familiar with how to [create a solution in Operations Management Suite (OMS)](operations-management-suite-custom-solutions-creating.md) and the structure of a solution file.
 
 
 ## Overview
 
-To include a view in a solution, you create a **resource** for it in the [solution file](operations-management-suite-custom-solutions-creating.md).  The JSON that describes the view's detailed configuration is typically complex though and not something that a typical solution author would be able to create manually.  The most common method is to create the view using the [View Designer](../log-analytics/log-analytics-view-designer.md), export it, and then add it to the solution. 
+To include a view in a solution, you create a **resource** for it in the [solution file](operations-management-suite-custom-solutions-creating.md).  The JSON that describes the view's detailed configuration is typically complex though and not something that a typical solution author would be able to create manually.  The most common method is to create the view using the [View Designer](../log-analytics/log-analytics-view-designer.md), export it, and then add its detailed configuration to the solution. 
 
 The basic steps to add a view to a solution are as follows.  Each step is described in further detail in the sections below.
 
 1. Export the view to a file.
-2. Modify the parameters of the exported file according to the guidance below.
-3. Add the view resource to the solution file.
+2. Create the view resource in the solution.
+3. Add the view details.
 
-## Export the file
+## Export the view to a file
 Follow the instructions at [Log Analytics View Designer](../log-analytics/log-analytics-view-designer.md) to export a view to a file.  The exported file will be in JSON format with the same [elements as the solution file](operations-management-suite-custom-solutions.md#creating-a-new-custom-solution).  
 
-The **parameters** element of the view file will include parameters that are used by the view.  You won't need this section if you perform the modifications to change the parameter names described in the next section.
-
-The **resources** element of the view file will have a resource with a type of **Microsoft.OperationalInsights/workspaces** that represents the OMS workspace.  This element will have a subelement with a type of **views** that represents the view and contains its detailed configuration.  You will modify the **views** element and then copy it into your solution.
+The **resources** element of the view file will have a resource with a type of **Microsoft.OperationalInsights/workspaces** that represents the OMS workspace.  This element will have a subelement with a type of **views** that represents the view and contains its detailed configuration.  You will copy the details of this element and then copy it into your solution.
 
 
-## Modify the view file
-The exported view file will include a resource for the OMS workspace with the view defined as a subelement.  The workspace should not be included in the solution, so you will only want to copy the view resource, but you must first make some changes to it.
-
-### Resource type
-The **type** for the view resource will simply be **views** because it inherits from the parent element which is **Microsoft.OperationalInsights/workspaces**.  When the view resource is changed to a top level entity, you need to change its type to **Microsoft.OperationalInsights/workspaces/types**.
-
-
-### Parameters
-The exported view file requires similar parameters as the solution file but uses different names for them.  For example, solutions have a parameter called **workspaceName** that requires the name of the OMS workspace.  Views have an equivalent parameter called **workspace**.  
-
-You need to modify the view resource to use the parameter names in the solution.  You can do this by performing a search and replace for the text values in the following table. Replace the text in the **resources** element of the view file with the parameter or function from the solution file. 
-
-| View parameter | Solution |
-|:--|:--|
-| parameters('location')            | parameters('workspaceregionId')     |
-| parameters('resourcegroup')       | resourceGroup().name                |
-| parameters('subscriptionId')      | subscription().subscriptionId       |
-| parameters('workspace')           | parameters('workspaceName')         |
-| parameters('workspaceapiversion') | variables('LogAnalyticsApiVersion') |
-
-
-For example, following is a view exported from View Designer.  An ellipse is used in place of the details of the view for space reasons.  
-
-
+## Create the view resource in the solution
+Add the following view resource to the **resources** element of your solution file.  This uses variables that are described below that you must also add.  Note that the **Dashboard** and **OverviewTile** properties are placeholders that you will overwrite with the corresponding properties from the exported view file.
+ 
 	{
-		"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-		"contentVersion": "1.0.0.0",
-		"parameters": {
-			"location": {
-				"type": "string",
-				"defaultValue": ""
-			},
-			"resourcegroup": {
-				"type": "string",
-				"defaultValue": ""
-			},
-			"subscriptionId": {
-				"type": "string",
-				"defaultValue": ""
-			},
-			"workspace": {
-				"type": "string",
-				"defaultValue": ""
-			},
-			"workspaceapiversion": {
-				"type": "string",
-				"defaultValue": ""
-			}
-		},
-		"resources": [
-		{
-			"apiVersion": "2015-11-01-preview",
-			"name": "My Custom View",
-			"type": "Microsoft.OperationalInsights/workspaces/views",
-			"location": "[parameters('location')]",
-			"id": "[Concat('/subscriptions/', parameters('subscriptionId'), '/resourceGroups/', parameters('resourcegroup'), '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspace'),'/views/My Custom View')]",
-			"dependson": [
-				"[Concat('/subscriptions/', parameters('subscriptionId'), '/resourceGroups/', parameters('resourcegroup'), '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspace'))]"
+		"apiVersion": "[variables('LogAnalyticsApiVersion')]",
+		"name": "[concat(parameters('workspaceName'), '/', variables('ViewName'))]",
+		"type": "Microsoft.OperationalInsights/workspaces/views",
+		"location": "[parameters('workspaceregionId')]",
+		"id": "[Concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'),'/views/', variables('ViewName'))]",
+		dependson": [
 			],
-			"properties": {
-				"Id": "My Custom View",
-				"Name": "My Custom View",
-				"Description": "",
-				"Author": "user@contoso.com",
-				"Source": "Local",
-				...
-			}
+		"properties": {
+			"Id": "[variables('ViewName')]",
+			"Name": "[variables('ViewName')]",
+			"DisplayName": "[variables('ViewName')]",
+			"Description": "",
+			"Author": "[variables('ViewAuthor')]",
+			"Source": "Local",
+			"Dashboard": ,
+			"OverviewTile": 
 		}
 	}
 
-After performing the search and replace described above, the **resources** element of the view file would look like the following. 
+Add the following variables to the [variables](operations-management-suite-custom-solutions.md#variables) element of the solution file and replace the values to those for your solution.
 
-	"resources": [
-		{
-			"apiVersion": "2015-11-01-preview",
-			"name": "My Custom View"",
-			"type": "Microsoft.OperationalInsights/workspaces/views",
-			"location": "[parameters('workspaceregionId')]",
-			"id": "[Concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'),'/views/My Custom View"')]",
-			"dependson": [
-				"[Concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-			],
-			"properties": {
-				"Id": "My Custom View",
-				"Name": "My Custom View",
-				"Description": "",
-				"Author": "user@contoso.com",
-				"Source": "Local",
-				...
-			}
-		}
-	]
+	"LogAnalyticsApiVersion": "2015-11-01-preview",
+	"ViewAuthor": "Your name."
+	"ViewDescription": "Optional description of the view."
+	"ViewName": "Provide a name for the view here."
 
 
-## Add the view to the solution
-One you've modified the view file, you can copy the view resource element of your solution file.  It will use parameters and variables already defined in your solution.
+Note that you could copy the entire view resource from your exported view file, but you would need to make the following changes for it to work in your solution.  
 
-For example, the following sample shows the view above copied into a solution file.  This sample includes the required **solution** resource.
+- The **type** for the view resource needs to be changed from **views** to **Microsoft.OperationalInsights/workspaces**.
+- The **name** property for the view resource needs to be changed to include the workspace name.
+- The dependency on the workspace needs to be removed since the workspace resource isn't defined in the solution.
+- **DisplayName** property needs to be added to the view.  The **Id**, **Name**, and **DisplayName** must all match.
+- Parameter names must be changed to match the required set of parameters.
+- Variables should be defined in the solution and used in the appropriate properties.
+
+## Add the view details
+The view resource in the exported view file will contain two elements in the **properties** element named **Dashboard** and **OverviewTile** which contain the detailed configuration of the view.  Copy these two elements and their contents into the **properties** element of the view resource in your solution file. 
+
+## Example
+For example, the following sample shows a simple solution file with a view.  Ellipses (...) are shown for the **Dashboard** and **OverviewTile** contents for space reasons.
 
 
 	{
@@ -170,7 +115,9 @@ For example, the following sample shows the view above copied into a solution fi
 			"SolutionVersion": "1.1",
 			"SolutionPublisher": "Contoso",
 			"SolutionName": "Contoso Solution",
-			"LogAnalyticsApiVersion": "2016-01-29",
+			"LogAnalyticsApiVersion": "2015-11-01-preview",
+			"ViewAuthor":  "user@contoso.com",
+			"ViewDescription":  "This is a sample view.",
 			"ViewName":  "Contoso View"
 		},
 		"resources": [
@@ -201,20 +148,21 @@ For example, the following sample shows the view above copied into a solution fi
 			},
 			{
 				"apiVersion": "[variables('LogAnalyticsApiVersion')]",
-				"name": "My Custom View",
+				"name": "[concat(parameters('workspaceName'), '/', variables('ViewName'))]",
 				"type": "Microsoft.OperationalInsights/workspaces/views",
 				"location": "[parameters('workspaceregionId')]",
-				"id": "[Concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'),'/views/My Custom View')]",
+				"id": "[Concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'),'/views/', variables('ViewName'))]",
 				"dependson": [
-					"[Concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
 				],
 				"properties": {
-                    "Id": "My Custom View",
-                    "Name": "My Custom View",
-                    "Description": "",
-                    "Author": "user@contoso.com",
-                    "Source": "Local",
-					...
+					"Id": "[variables('ViewName')]",
+					"Name": "[variables('ViewName')]",
+					"DisplayName": "[variables('ViewName')]",
+					"Description": "[variables('ViewDescription')]",
+					"Author": "[variables('ViewAuthor')]",
+					"Source": "Local",
+					"Dashboard": ...,
+					"OverviewTile": ...
 				}
 			}
   		]
@@ -225,5 +173,5 @@ For example, the following sample shows the view above copied into a solution fi
 
 ## Next steps
 
-- Learn complete details of creating [custom solutions in Operations Management Suite (OMS)](operations-management-suite-custom-solutions-creating.md).
+- Learn complete details of creating [solutions in Operations Management Suite (OMS)](operations-management-suite-custom-solutions-creating.md).
 - Include [Automation runbooks in your solution](operations-management-suite-custom-solutions-resources-automation.md).
