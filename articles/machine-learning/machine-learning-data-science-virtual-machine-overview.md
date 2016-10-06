@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/04/2016" 
+	ms.date="10/06/2016" 
 	ms.author="bradsev" /> 
 
 
@@ -56,21 +56,28 @@ The DSVM can be used to evaluate or learn tools like Microsoft R Server, SQL Ser
 
 ### Get started with the Windows version of the DSVM
 
-• Create an instance of the VM on Windows by navigating to [this page](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) and selecting the green **Create Virtual Machine** button. 
-•Sign in to the VM from your remote desktop using the credentials you specified when you created the VM.
-• To discover and launch the tools available, click on the **Start** menu. 
+- Create an instance of the VM on Windows by navigating to [this page](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) and selecting the green **Create Virtual Machine** button.
+- Sign in to the VM from your remote desktop using the credentials you specified when you created the VM.
+- To discover and launch the tools available, click on the **Start** menu. 
 
 
 ### Get started with the Linux version of the DSVM
 
-• Create an instance of the VM on Linux (OpenLogic CentOS-based) by navigating to [this page](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/) and selecting the **Create Virtual Machine** button. 
-•Sign in to the VM from an SSH client, such as Putty or SSH Command, using the credentials you specified when you created the VM.
-• In the shell prompt, enter dsvm-more-info. 
-• For a graphical desktop, download the X2Go client for your client platform [here](http://wiki.x2go.org/doku.php/doc:installation:x2goclient) and follow the instructions in the Linux DSVM document [Provision the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-intro.md#installing-and-configuring-x2go-client). 
+- Create an instance of the VM on Linux (OpenLogic CentOS-based) by navigating to [this page](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/) and selecting the **Create Virtual Machine** button. 
+- Sign in to the VM from an SSH client, such as Putty or SSH Command, using the credentials you specified when you created the VM.
+- In the shell prompt, enter dsvm-more-info. 
+- For a graphical desktop, download the X2Go client for your client platform [here](http://wiki.x2go.org/doku.php/doc:installation:x2goclient) and follow the instructions in the Linux DSVM document [Provision the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-intro.md#installing-and-configuring-x2go-client). 
 
 
 ## Next steps
 
-- For more information on how to run specific tools available on the **Windows VM** and on how to perform various tasks needed for your data science project, see [Provision the Microsoft Data Science Virtual Machine](machine-learning-data-science-provision-vm.md) and [Ten things you can do on the Data science Virtual Machine](machine-learning-data-science-vm-do-ten-things.md).
+### For the Windows DSVM
 
-- For more information on how to run specific tools available on the **Linux VM**, see [Provision the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-intro.md). 
+- For more information on how to run specific tools available on the Windows version, see [Provision the Microsoft Data Science Virtual Machine](machine-learning-data-science-provision-vm.md) and 
+-  For more information on how to perform various tasks needed for your data science project, see [Ten things you can do on the Data science Virtual Machine](machine-learning-data-science-vm-do-ten-things.md).
+
+### For the Linux DSVM
+
+- For more information on how to run specific tools available on the Linux version, see [Provision the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-intro.md). 
+- For a walkthrough that shows you how to perform several common data science tasks with the Linux VM, see [Data science on the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-walkthrough.md).
+
