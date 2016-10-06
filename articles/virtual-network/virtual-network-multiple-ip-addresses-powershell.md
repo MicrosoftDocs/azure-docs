@@ -41,7 +41,9 @@ The following example configurations will be created and assigned to a NIC that 
 
     ![Alt image text](./media/virtual-network-multiple-ip-addresses-powershell/OneNIC-3IP.png)
 
-This scenario assumes you have a resource group called *RG1* within which there is a VNet called *VNet1* and a subnet called *Subnet1*. Further, it assumes you have a VM called *VM1*, a network interface called *VM1-NIC1* associated to it and a public IP address called *PIP1*
+This scenario assumes you have a resource group called *RG1* within which there is a VNet called *VNet1* and a subnet called *Subnet1*. Further, it assumes you have a VM called *VM1*, a network interface called *VM1-NIC1* associated to it and a public IP address called *PIP1*.
+
+[This article](./virtual-machines/virtual-machines-windows-ps-create.md ) walks through how to create the resources mentioned above in case you have not created them before.
 
 ## <a name = "create"></a>Create a VM with multiple IP addresses
 
