@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2016"
+	ms.date="10/06/2016"
 	ms.author="davidmu"/>
 
 # Deploy Azure Resources using C# 
@@ -31,7 +31,7 @@ It takes about 30 minutes to do these steps.
 
 ## Step 1: Create a Visual Studio project and install the libraries
 
-NuGet packages are the easiest way to install the libraries that you need to finish this tutorial. You must install the Azure Resource Management Library, the Azure Active Directory Authentication Library, and the Computer Resource Provider Library. To get these libraries in Visual Studio, do this:
+NuGet packages are the easiest way to install the libraries that you need to finish this tutorial. To get the libraries that you need in Visual Studio, do these steps:
 
 1. Click **File** > **New** > **Project**.
 
@@ -53,9 +53,9 @@ Now you're ready to start using the libraries to create your application.
 
 ## Step 2: Create the credentials that are used to authenticate requests
 
-The Azure Active Directory application is created and the authentication library is installed, now you format the application information into credentials that are used to authenticate requests to the Azure Resource Manager. Do this:
+The Azure Active Directory application is created and the authentication library is installed, now you format the application information into credentials that are used to authenticate requests to the Azure Resource Manager.
 
-1. Open the Program.cs file for the project that you created, and then add the these using statements to the top of the file:
+1. Open the Program.cs file for the project that you created, and then add these using statements to the top of the file:
 
         using Microsoft.Azure;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -75,7 +75,7 @@ The Azure Active Directory application is created and the authentication library
         {
           var cc = new ClientCredential("{client-id}", "{client-secret}");
           var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
-          var token = context.AcquireTokenAsync("https://management.azure.com/", cc);
+          var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
           if (token == null)
           {
             throw new InvalidOperationException("Could not get the token");
@@ -123,6 +123,10 @@ All resources must be contained in a resource group. Before you can add resource
           string subscriptionId,
           string location)
         {
+          var resourceManagementClient = new ResourceManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+            
+          Console.WriteLine("Registering the providers...");
           var rpResult = resourceManagementClient.Providers.Register("Microsoft.Storage");
           Console.WriteLine(rpResult.RegistrationState);
           rpResult = resourceManagementClient.Providers.Register("Microsoft.Network");
@@ -131,8 +135,6 @@ All resources must be contained in a resource group. Before you can add resource
           Console.WriteLine(rpResult.RegistrationState);
           
           Console.WriteLine("Creating the resource group...");
-          var resourceManagementClient = new ResourceManagementClient(credential)
-            { SubscriptionId = subscriptionId };
           var resourceGroup = new ResourceGroup { Location = location };
           return await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync(groupName, resourceGroup);
         }
@@ -161,7 +163,7 @@ A [storage account](../storage/storage-create-storage-account.md) is needed to s
           string storageName)
         {
           Console.WriteLine("Creating the storage account...");
-          var storageManagementClient = new StorageManagementClient(credential);
+          var storageManagementClient = new StorageManagementClient(credential)
             { SubscriptionId = subscriptionId };
           return await storageManagementClient.StorageAccounts.CreateAsync(
             groupName,
@@ -390,7 +392,7 @@ Now that you created all of the supporting resources, you can create a virtual m
           string adminPassword,
           string vmName)
         {
-          var networkManagementClient = new NetworkManagementClient(credential);
+          var networkManagementClient = new NetworkManagementClient(credential)
             { SubscriptionId = subscriptionId };
           var nic = networkManagementClient.NetworkInterfaces.Get(groupName, nicName);
 
@@ -451,7 +453,6 @@ Now that you created all of the supporting resources, you can create a virtual m
               }
             }
           );
-          Console.WriteLine(vm.ProvisioningState);
         }
 
 	>[AZURE.NOTE] This tutorial creates a virtual machine running a version of the Windows Server operating system. To learn more about selecting other images, see [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](virtual-machines-linux-cli-ps-findimage.md).
@@ -464,7 +465,7 @@ Now that you created all of the supporting resources, you can create a virtual m
           subscriptionId,
           location,
           nicName,
-          avsetName,
+          avSetName,
           storageName,
           adminName,
           adminPassword,
@@ -474,7 +475,7 @@ Now that you created all of the supporting resources, you can create a virtual m
 
 ##Step 4: Add the code to delete the resources
 
-Because you are charged for resources used in Azure, it is always a good practice to delete resources that are no longer needed. If you want to delete the virtual machines and all of the supporting resources, all you have to do is delete the resource group.
+Because you are charged for resources used in Azure, it is always a good practice to delete resources that are no longer needed. If you want to delete the virtual machines and all the supporting resources, all you have to do is delete the resource group.
 
 1.	Add this method to the Program class to delete the resource group:
 
@@ -486,7 +487,7 @@ Because you are charged for resources used in Azure, it is always a good practic
           Console.WriteLine("Deleting resource group...");
           var resourceManagementClient = new ResourceManagementClient(credential)
             { SubscriptionId = subscriptionId };
-          return await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
+          await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
         }
 
 2.	Add this code to the Main method to call the method that you just added:
@@ -512,4 +513,4 @@ Because you are charged for resources used in Azure, it is always a good practic
 ## Next Steps
 
 - Take advantage of using a template to create a virtual machine by using the information in [Deploy an Azure Virtual Machine using C# and a Resource Manager template](virtual-machines-windows-csharp-template.md).
-- Learn how to manage the virtual machine that you just created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-csharp-manage.md).
+- Learn how to manage the virtual machine that you created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-csharp-manage.md).
