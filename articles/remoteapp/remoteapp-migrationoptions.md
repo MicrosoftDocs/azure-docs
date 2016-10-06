@@ -38,7 +38,7 @@ Read on for more information, including examples of the different hosting option
 
 - Citrix on IaaS: A native Citrix deployment of session-based XenApp or XenDesktop can be deployed on-premises or within a hosted environment (such as on Azure VMs). 
 
-   Check out the step-by-step deployment guide, [Citrix XA 7.6 on Azure](http://www.citrixandmicrosoft.com/Documents/Citrix-Azure Deployment Guide-v.1.0.docx), for more information. Read more about [Citrix on Azure](http://www.citrixandmicrosoft.com/Solutions/AzureCloud.aspx), including a price calculator. You can also find a [Citrix contact](http://citrix.com/English/contact/index.asp) to discuss your options with.
+    Check out the step-by-step deployment guide, [Citrix XA 7.6 on Azure](http://www.citrixandmicrosoft.com/Documents/Citrix-Azure Deployment Guide-v.1.0.docx), for more information. Read more about [Citrix on Azure](http://www.citrixandmicrosoft.com/Solutions/AzureCloud.aspx), including a price calculator. You can also find a [Citrix contact](http://citrix.com/English/contact/index.asp) to discuss your options with.
 
 ## Fully managed (PaaS/SaaS) offerings
 - Citrix Cloud: [Citrix existing cloud solution](https://www.citrix.com/products/citrix-cloud/). 
