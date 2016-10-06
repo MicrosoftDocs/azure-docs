@@ -58,6 +58,7 @@ Device method calls are HTTP-only from the cloud side, and MQTT-only from the de
 #### Method invocation
 
 Direct method invocations on a device are HTTP calls which comprise:
+
 - The *URI* specific to the device (`{iot hub}/twins/{device id}/methods/`)
 - The POST *method*
 - *Headers* which contain the authorization, request ID, content type, and content encoding
@@ -79,6 +80,7 @@ Direct method invocations on a device are HTTP calls which comprise:
 #### Response
 
 The back-end receives a response which comprises:
+
 - *HTTP status code*, which is used for errors coming from the IoT Hub, including a 404 error for devices not currently connected
 - *Headers* which contain the etag, request ID, content type, and content encoding
 - A JSON *body* in the following format:
@@ -112,8 +114,10 @@ Method requests are QoS 0.
 #### Response
 
 The device sends responses to `$iothub/methods/res/{status}/?$rid={request id}`, where:
-  - The `status` property is the device-supplied status of method execution.
-  - The `$rid` property is the request ID from the method invocation received from IoT Hub.
+
+ - The `status` property is the device-supplied status of method execution.
+ - The `$rid` property is the request ID from the method invocation received from IoT Hub.
+
 The body is set by the device and can be any status.
 
 ### Additional reference material
