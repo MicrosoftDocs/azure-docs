@@ -66,7 +66,6 @@ Once the application is built, you can deploy it to the local cluster using the 
 2. Use the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
 
     ```bash
-    cd myapp
     ./install.sh
     ```
 
