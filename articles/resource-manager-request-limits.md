@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/05/2016"
+   ms.date="10/06/2016"
    ms.author="tomfitz"/>
 
 # Throttling Resource Manager requests
@@ -37,20 +37,24 @@ You can determine the number of remaining requests by examining response headers
 | x-ms-ratelimit-remaining-tenant-resource-requests | Tenant resource type requests remaining.<br /><br />This header is only added for requests at tenant level, and only if a service has overridden the default limit. Resource Manager adds this value instead of the tenant reads or writes. |
 | x-ms-ratelimit-remaining-tenant-resource-entities-read | Tenant resource type collection requests remaining.<br /><br />This header is only added for requests at tenant level, and only if a service has overridden the default limit.  |
 
-You can retrieve the header in your code or script. For example, in C#, you retrieve the header value from an **HttpWebResponse** object named **response** with the following code:
+## Retrieving the header values
+
+Retrieving these header values in your code or script is no different than retrieving any header value. 
+
+For example, in **C#**, you retrieve the header value from an **HttpWebResponse** object named **response** with the following code:
 
     response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)
 
-In PowerShell, you retrieve the header value from an Invoke-WebRequest operation.
+In **PowerShell**, you retrieve the header value from an Invoke-WebRequest operation.
 
     $r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
     $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
     
-Or, if just want to see the remaining requests for debugging, you can provide the **-Debug** parameter on your PowerShell operation.
+Or, if want to see the remaining requests for debugging, you can provide the **-Debug** parameter on your **PowerShell** cmdlet.
 
     Get-AzureRmResourceGroup -Debug
     
-Which returns a lot of information, including the following:
+Which returns a lot of information, including the following response value:
 
     ...
     DEBUG: ============================ HTTP RESPONSE ============================
@@ -63,11 +67,11 @@ Which returns a lot of information, including the following:
     x-ms-ratelimit-remaining-subscription-reads: 14999
     ...
 
-In Azure CLI, you retrieve the header value by using the more verbose option.
+In **Azure CLI**, you retrieve the header value by using the more verbose option.
 
     azure group list -vv --json
 
-Which returns a lot of information, including the following:
+Which returns a lot of information, including the following object:
 
     ...
     silly: returnObject
