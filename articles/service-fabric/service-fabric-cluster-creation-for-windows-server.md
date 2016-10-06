@@ -23,7 +23,7 @@ You can use Azure Service Fabric to create Service Fabric clusters on any virtua
 
 This article walks you through the steps for creating a cluster using the standalone package for Service Fabric on premises, though it can be easily adapted for any other environment such as other cloud providers.
 
->[AZURE.NOTE] This standalone Windows Server package may contain features that are currently in preview and are not supported for commercial use. To see the list of features that are in preview, scroll down to end of this document. You can also [download a copy of the EULA](http://go.microsoft.com/fwlink/?LinkID=733084) now.
+>[AZURE.NOTE] This standalone Windows Server package may contain features that are currently in preview and are not supported for commercial use. To see the list of features that are in preview, see Preview features included in this package. You can also [download a copy of the EULA](http://go.microsoft.com/fwlink/?LinkID=733084) now.
 
 
 <a id="getsupport"></a>
@@ -257,4 +257,4 @@ None.
 - [Secure a standalone cluster on Windows using X509 certificates](service-fabric-windows-cluster-x509-security.md).
 
 <!--Image references-->
-[TrustedZone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
+[Trusted Zone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
