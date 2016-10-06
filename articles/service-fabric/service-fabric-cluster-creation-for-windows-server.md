@@ -19,9 +19,9 @@
 
 # Create and manage a cluster running on Windows Server
 
-You can use Azure Service Fabric to create Service Fabric clusters on any virtual machines or computers running Windows Server. This means you can deploy and run Service Fabric applications in any environment that contains a set of interconnected Windows Server computers, be it on-premises or with any cloud provider. Service Fabric provides a setup package to create Service Fabric clusters called the standalone Windows Server package.
+You can use Azure Service Fabric to create Service Fabric clusters on any virtual machines or computers running Windows Server. This means you can deploy and run Service Fabric applications in any environment that contains a set of interconnected Windows Server computers, be it on premises or with any cloud provider. Service Fabric provides a setup package to create Service Fabric clusters called the standalone Windows Server package.
 
-This article walks you through the steps for creating a cluster using the standalone package for Service Fabric on-premises, though it can be easily adapted for any other environment such as other cloud providers.
+This article walks you through the steps for creating a cluster using the standalone package for Service Fabric on premises, though it can be easily adapted for any other environment such as other cloud providers.
 
 >[AZURE.NOTE] This standalone Windows Server package may contain features that are currently in preview and are not supported for commercial use. To see the list of features that are in preview, scroll down to end of this document. You can also [download a copy of the EULA](http://go.microsoft.com/fwlink/?LinkID=733084) now.
 
@@ -29,7 +29,7 @@ This article walks you through the steps for creating a cluster using the standa
 <a id="getsupport"></a>
 ## Get support for the Service Fabric standalone package
 
-- Ask the community about Service Fabric standalone package for Windows Server in the [Azure Service Fabric forum.](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?)
+- Ask the community about the Service Fabric standalone package for Windows Server in the [Azure Service Fabric forum.](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?)
 
 - Open a ticket for [Professional Support for Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146 ).  Learn more about [Professional Support from Microsoft](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 
@@ -45,21 +45,21 @@ In the download package, you will find the following files:
 |**File name**|**Short description**|
 |-----------------------|--------------------------|
 |MicrosoftAzureServiceFabric.cab|The .cab file that contains the binaries that are deployed to each machine in the cluster.|
-|ClusterConfig.Unsecure.DevCluster.json|Cluster configuration sample file that contains the settings for an unsecured, three-node, single-machine (or virtual machine) development cluster, including the information for each node in the cluster. |
-|ClusterConfig.Unsecure.MultiMachine.json|Cluster configuration sample file that contains the settings for an unsecured, multi-machine (or virtual machine) cluster, including the information for each machine in the cluster.|
-|ClusterConfig.Windows.DevCluster.json|Cluster configuration sample file that contains all the settings for a secure, three-node, single-machine (or virtual machine) development cluster, including the information for each node that is in the cluster. The cluster is secured by using [Windows identities](https://msdn.microsoft.com/library/ff649396.aspx).|
-|ClusterConfig.Windows.MultiMachine.json|Cluster configuration sample file that contains all the settings for a secure, multi-machine (or virtual machine) cluster using Windows security, including the information for each machine that is in the secure cluster. The cluster is secured by using [Windows identities](https://msdn.microsoft.com/library/ff649396.aspx).|
-|ClusterConfig.x509.DevCluster.json|Cluster configuration sample file that contains all the settings for a secure, three-node, single-machine (or virtual machine) development cluster, including the information for each node in the cluster. The cluster is secured using x509 certificates.|
-|ClusterConfig.x509.MultiMachine.json|Cluster configuration sample file that contains all the settings for the secure, multi-machine (or virtual machine) cluster, including the information for each node in the secure cluster. The cluster is secured using x509 certificates.|
+|ClusterConfig.Unsecure.DevCluster.json|A cluster configuration sample file that contains the settings for an unsecured, three-node, single-machine (or virtual machine) development cluster, including the information for each node in the cluster. |
+|ClusterConfig.Unsecure.MultiMachine.json|A cluster configuration sample file that contains the settings for an unsecured, multi-machine (or virtual machine) cluster, including the information for each machine in the cluster.|
+|ClusterConfig.Windows.DevCluster.json|A cluster configuration sample file that contains all the settings for a secure, three-node, single-machine (or virtual machine) development cluster, including the information for each node that is in the cluster. The cluster is secured by using [Windows identities](https://msdn.microsoft.com/library/ff649396.aspx).|
+|ClusterConfig.Windows.MultiMachine.json|A cluster configuration sample file that contains all the settings for a secure, multi-machine (or virtual machine) cluster using Windows security, including the information for each machine that is in the secure cluster. The cluster is secured by using [Windows identities](https://msdn.microsoft.com/library/ff649396.aspx).|
+|ClusterConfig.x509.DevCluster.json|A cluster configuration sample file that contains all the settings for a secure, three-node, single-machine (or virtual machine) development cluster, including the information for each node in the cluster. The cluster is secured using x509 certificates.|
+|ClusterConfig.x509.MultiMachine.json|A cluster configuration sample file that contains all the settings for the secure, multi-machine (or virtual machine) cluster, including the information for each node in the secure cluster. The cluster is secured using x509 certificates.|
 |EULA_ENU.txt|The license terms for the use of Microsoft Azure Service Fabric standalone Windows Server package. You can [download a copy of the EULA](http://go.microsoft.com/fwlink/?LinkID=733084) now.|
-|Readme.txt|Link to the release notes and basic installation instructions. It is a subset of the instructions in this document.|
-|CreateServiceFabricCluster.ps1|PowerShell script that creates the cluster using the settings in ClusterConfig.json.|
-|RemoveServiceFabricCluster.ps1|PowerShell script that removes a cluster using the settings in ClusterConfig.json.|
+|Readme.txt|A link to the release notes and basic installation instructions. It is a subset of the instructions in this document.|
+|CreateServiceFabricCluster.ps1|A PowerShell script that creates the cluster using the settings in ClusterConfig.json.|
+|RemoveServiceFabricCluster.ps1|A PowerShell script that removes a cluster using the settings in ClusterConfig.json.|
 |ThirdPartyNotice.rtf |Notice of third-party software that is in the package.|
-|AddNode.ps1|PowerShell script for adding a node to an existing deployed cluster.|
-|RemoveNode.ps1|PowerShell script for removing a node from an existing deployed cluster.|
-|CleanFabric.ps1|PowerShell script for cleaning a standalone Service Fabric installation off the current machine. Previous MSI installations should be removed using their own associated uninstallers.|
-|TestConfiguration.ps1|PowerShell script for analyzing the infrastructure as specified in the Cluster.json.|
+|AddNode.ps1|A PowerShell script for adding a node to an existing deployed cluster.|
+|RemoveNode.ps1|A PowerShell script for removing a node from an existing deployed cluster.|
+|CleanFabric.ps1|A PowerShell script for cleaning a standalone Service Fabric installation off the current machine. Previous MSI installations should be removed using their own associated uninstallers.|
+|TestConfiguration.ps1|A PowerShell script for analyzing the infrastructure as specified in the Cluster.json.|
 
 
 ## Plan and prepare your cluster deployment
@@ -101,7 +101,7 @@ An *upgrade domain* (UD) is a logical unit of nodes. During Service Fabric orche
 
 The simplest way to think about these concepts is to consider FDs as the unit of unplanned failure and UDs as the unit of planned maintenance.
 
-When you specify UDs in ClusterConfig.json, you can choose the name for each UD. For example, the following are valid:
+When you specify UDs in ClusterConfig.json, you can choose the name for each UD. For example, the following names are valid:
 
 - "upgradeDomain": "UD0"
 - "upgradeDomain": "UD1A"
@@ -129,7 +129,7 @@ Open one of the ClusterConfig.json files from the package you downloaded and mod
 
 ### Step 2: Run the TestConfiguration script
 
-This script tests your infrastructure as defined in cluster.json to make sure that the needed permissions are assigned, the machines are connected to each other, and other attributes are defined so that the deployment can succeed. It is basically a mini Best Practices Analyzer. We will continue to add more validations to this tool over time to make it more robust.
+The TestConfiguration script tests your infrastructure as defined in cluster.json to make sure that the needed permissions are assigned, the machines are connected to each other, and other attributes are defined so that the deployment can succeed. It is basically a mini Best Practices Analyzer. We will continue to add more validations to this tool over time to make it more robust.
 
 This script can be run on any machine that has administrator access to all the machines that are listed as nodes in the cluster configuration file. The machine that this script is run on does not have to be part of the cluster.
 
@@ -156,7 +156,7 @@ Passed                     : True
 ```
 
 ### Step 3: Run the create cluster script
-Once you have modified the cluster configuration in the JSON doc and added all the node information to it, run the cluster creation *CreateServiceFabricCluster.ps1* PowerShell script from the package folder and pass in the path to the JSON configuration file and accept the EULA.
+Once you have modified the cluster configuration in the JSON doc and added all the node information to it, run the cluster creation *CreateServiceFabricCluster.ps1* PowerShell script from the package folder and pass in the path to the JSON configuration file. When this is complete, accept the EULA.
 
 This script can be run on any machine that has administrator access to all the machines that are listed as nodes in the cluster configuration file. The machine that this script is run on does not have to be part of the cluster.
 
@@ -173,7 +173,7 @@ This script can be run on any machine that has administrator access to all the m
 
 >[AZURE.NOTE] The deployment logs are available locally on the VM/Machine that you ran the CreateServiceFabricCluster PowerShell on. They are in a subfolder called DeploymentTraces under the folder where you ran the PowerShell command. To see if Service Fabric was deployed correctly to a machine, you can find the installed files in the C:\ProgramData directory, and the FabricHost.exe and Fabric.exe processes can be seen running in Task Manager.
 
-### Step 4: Connect to the Cluster
+### Step 4: Connect to the cluster
 
 To connect to a secure cluster, see [Service fabric connect to secure cluster](service-fabric-connect-to-secure-cluster.md).
 
@@ -192,12 +192,12 @@ Now you can connect to the cluster with Service Fabric Explorer either directly 
 
 
 
-## Add and remove nodes to your cluster
+## Add and remove nodes
 
 You can add or remove nodes to your standalone Service Fabric cluster as your business needs change. See [Add or Remove nodes to a Service Fabric standalone cluster](service-fabric-cluster-windows-server-add-remove-nodes.md) for detailed steps.
 
 
-## Remove your cluster
+## Remove a cluster
 
 To remove a cluster, run the *RemoveServiceFabricCluster.ps1* PowerShell script from the package folder and pass in the path to the JSON configuration file. You can optionally specify a location for the log of the deletion.
 
@@ -213,10 +213,9 @@ This script can be run on any machine that has administrator access to all the m
 
 As a default, the product collects telemetry on the Service Fabric usage to improve the product. The Best Practice Analyzer that runs as a part of the setup checks for connectivity to [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1). If it is not reachable, the setup fails unless you opt out of telemetry.
 
-  1. The telemetry pipeline tries to upload the following data to [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) once every day. It is a best effort upload, and had no impact on the cluster functionality. The telemetry is only sent from the node that runs the failover manager primary. No other nodes send out telemetry.
+  1. The telemetry pipeline tries to upload the following data to [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) once every day. It is a best-effort upload, and had no impact on the cluster functionality. The telemetry is only sent from the node that runs the failover manager primary. No other nodes send out telemetry.
 
-  2. The Telemetry consists of the following.
-
+  2. The telemetry consists of the following:
 
 -            Number of services
 -            Number of ServiceTypes
@@ -240,14 +239,14 @@ As a default, the product collects telemetry on the Service Fabric usage to impr
 -             IP address of the virtual machine or machine from which the telemetry is uploaded
 
 
-To disable telemetry, add the following to *properties* in your cluster config: enableTelemetry: false
+To disable telemetry, add the following to *properties* in your cluster config: *enableTelemetry: false*.
 
 <a id="previewfeatures"></a>
 ## Preview features included in this package
 
 None.
 
->[AZURE.NOTE] With the new [GA version of the standalone cluster for Windows Server (version 5.3.204.x)](https://azure.microsoft.com/blog/azure-service-fabric-for-windows-server-now-ga/), you can upgrade your cluster to future releases, manually or automatically. However, since this feature is not available on the preview versions, you will need to create a new cluster using the GA version and migrate your data and applications from the preview cluster. Stay tuned for more details on this feature.
+>[AZURE.NOTE] With the new [GA version of the standalone cluster for Windows Server (version 5.3.204.x)](https://azure.microsoft.com/blog/azure-service-fabric-for-windows-server-now-ga/), you can upgrade your cluster to future releases, manually or automatically. Since this feature is not available on the preview versions, you will need to create a cluster using the GA version and migrate your data and applications from the preview cluster. Stay tuned for more details on this feature.
 
 
 ## Next steps
