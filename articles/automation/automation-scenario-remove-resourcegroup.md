@@ -16,7 +16,7 @@
     ms.date="09/26/2016"
     ms.author="magoedte"/>
 
-# Azure Automation scenario--automate removal of resource groups
+# Azure Automation scenario - automate removal of resource groups
 
 Many customers create more than one resource group. Some might be used for managing production applications, and others might be used as development, testing, and staging environments. Automating the deployment of these resources is one thing, but being able to decommission a resource group with a click of the button is another. You can streamline this common management task by using Azure Automation. This is helpful if you are working with an Azure subscription that has a spending limit through a member offer like MSDN or the Microsoft Partner Network Cloud Essentials program.
 
