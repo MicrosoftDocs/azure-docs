@@ -14,11 +14,10 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/04/2016"
-	ms.author="iainfou"/>
+    ms.author="iainfou"/>
 
-# Install MongoDB on a Windows VM in Azure using Resource Manager
-
-[MongoDB](http://www.mongodb.org/) is a popular open-source, high-performance NoSQL database. This article guides you installing and configuring MongoDB on a Windows Server 2012 RV virtual machine (VM) in Azure created using the Resource Manager deployment model.
+# Install and Configure MongoDB on a Windows VM in Azure
+[MongoDB](http://www.mongodb.org) is a popular open-source, high-performance NoSQL database. This article guides you installing and configuring MongoDB on a Windows Server 2012 RV virtual machine (VM) in Azure created using the Resource Manager deployment model.
 
 
 ## Prerequisites
