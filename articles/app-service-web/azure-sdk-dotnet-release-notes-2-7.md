@@ -66,14 +66,14 @@ In this release the following updates were made to Web Tools Extensions. For mor
 
 - Support for DreamSpark accounts added
 - Full change to Azure Tools made to support the new Azure Resource Management APIs
-- Support for Azure App Service added to [Cloud Explorer](azure-sdk-dot-net-release-notes-2_7.md#cloud_explorer)
+- Support for Azure App Service added to [Cloud Explorer](#cloud_explorer)
 
 ####Known issues
 
 Web App deployment slot nodes don’t appear under the Slots node in Server Explorer, and Web App deployment slot child nodes don’t load under Cloud Explorer. This issue has been resolved and prepared for the next SDK release. 
 
 
-###<a id="cloud_explorer"></a>Cloud Explorer for Visual Studio 2015
+###<a name="cloud_explorer"></a>Cloud Explorer for Visual Studio 2015
 
 Azure SDK 2.7 includes Cloud Explorer for Visual Studio 2015 which enables you to view your Azure resources, inspect their properties, and perform key developer actions from within Visual Studio. 
 

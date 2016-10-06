@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="10/03/2016"
+	ms.date="10/05/2016"
 	ms.author="meetb"/>
 
 
@@ -24,24 +24,105 @@
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
 
 
-This topic shows how to connect and query a Azure SQL Database using Python. You can run this sample from Windows, Ubuntu Linux, or Mac platforms.
+This topic shows how to connect and query an Azure SQL Database using Python. You can run this sample from Windows, Ubuntu Linux, or Mac platforms.
 
 
-## Step 1: Configure Development Environment
+## Step 1: Create a SQL database
 
-[Prerequisites for using the pymssql Python Driver for SQL Server](https://msdn.microsoft.com/library/mt694094.aspx)
+See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**. Once you create your database make sure you enable access to your IP address by enabling the firewall rules as described in the [getting started page](sql-database-get-started.md)
 
-## Step 2: Create a SQL database
+## Step 2: Configure Development Environment
 
-See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**.
+### **Mac OS**   
+### Install the required modules
+Open your terminal and install
 
-## Step 3: Get Connection Details
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    brew install FreeTDS
+    sudo -H pip install pymssql=2.1.1
 
-[AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
+### **Linux (Ubuntu)**
 
-## Step 4: Run sample code
+Open your terminal and navigate to a directory where you plan on creating your python script. Enter the following commands to install **FreeTDS** and **pymssql**. pymssql uses FreeTDS to connect to SQL Databases.
 
-[Proof of Concept connecting to SQL using Python](http://msdn.microsoft.com/library/mt715796.aspx)
+	sudo apt-get --assume-yes update
+	sudo apt-get --assume-yes install freetds-dev freetds-bin
+	sudo apt-get --assume-yes install python-dev python-pip
+	sudo pip install pymssql=2.1.1
+	
+### **Windows**
+
+Install pymssql from [**here**](http://www.lfd.uci.edu/~gohlke/pythonlibs/#pymssql). 
+
+Make sure you choose the correct whl file. For example: If you are using Python 2.7 on a 64 bit machine choose : pymssql‑2.1.1‑cp27‑none‑win_amd64.whl. Once you download the .whl file place it in the C:/Python27 folder.
+
+Now install the pymssql driver using pip from command line. cd into C:/Python27 and run the following
+	
+	pip install pymssql‑2.1.1‑cp27‑none‑win_amd64.whl
+
+Instructions to enable the use pip can be found [here](http://stackoverflow.com/questions/4750806/how-to-install-pip-on-windows)
+
+## Step 3: Run sample code
+
+Create a file called **sql_sample.py** and paste the following code inside it. You can run this from the command line using:
+	
+	python sql_sample.py
+
+### Connect to your SQL Database
+
+The [pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html) function is used to connect to SQL Database.
+
+	import pymssql
+	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
+
+
+### Execute an SQL SELECT statement
+
+The [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.execute) function can be used to retrieve a result set from a query against SQL Database. This function essentially accepts any query and returns a result set that can be iterated over with the use of [cursor.fetchone()](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.fetchone).
+
+
+	import pymssql
+	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
+	cursor = conn.cursor()
+	cursor.execute('SELECT c.CustomerID, c.CompanyName,COUNT(soh.SalesOrderID) AS OrderCount FROM SalesLT.Customer AS c LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID GROUP BY c.CustomerID, c.CompanyName ORDER BY OrderCount DESC;')
+	row = cursor.fetchone()
+	while row:
+	    print str(row[0]) + " " + str(row[1]) + " " + str(row[2]) 	
+	    row = cursor.fetchone()
+
+
+### Insert a row, pass parameters, and retrieve the generated primary key
+
+In SQL Database the [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) property and the [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) object can be used to auto-generate [primary key](https://msdn.microsoft.com/library/ms179610.aspx) values. 
+
+
+	import pymssql
+	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
+	cursor = conn.cursor()
+	cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express', 'SQLEXPRESS', 0, 0, CURRENT_TIMESTAMP)")
+	row = cursor.fetchone()
+	while row:
+	    print "Inserted Product ID : " +str(row[0])
+	    row = cursor.fetchone()
+
+
+### Transactions
+
+
+This code example demonstrates the use of transactions in which you:
+
+* Begin a transaction
+* Insert a row of data
+* Rollback your transaction to undo the insert 
+
+Paste the following code inside sql_sample.py.
+	
+	import pymssql
+	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
+	cursor = conn.cursor()
+	cursor.execute("BEGIN TRANSACTION")
+	cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
+	cnxn.rollback()
 
 ## Next steps
 
