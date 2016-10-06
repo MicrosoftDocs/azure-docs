@@ -29,8 +29,6 @@ The goal of the DSVM is to provide data professionals at all skill levels and ro
 
 The Microsoft Data Science Virtual Machine (DSVM) is available on Windows 2012 Server or OpenLogic 7.2 CentOS-based Linux operating systems. It contains popular tools for data science modeling and development activities and machine learning tools. All the tools are preinstalled and preconfigured to help you get started immediately after you create your instance of the virtual machine on Azure.
 
-A downloadable data-sheet on the Data Science Virtual Machine is available here. 
-
 This topic discusses some of the **key scenarios** for using the DSVM, itemizes the **key features** available on the Windows and Linux versions, and outlines **how to get started** using them.
 
 
