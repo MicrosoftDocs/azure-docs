@@ -39,13 +39,13 @@ This tutorial shows you how to create and monitor an Azure data factory using th
 
 In this tutorial, you create a data factory with the following Data Factory entities:
 
-| Entity | Description | 
-| ------ | ----------- |
-| Azure Storage linked service | Links your Azure Storage account to the data factory. Azure Storage is the source data store and Azure SQL database is the sink for the copy activity in the tutorial. The Azure Storage linked service specifies the storage account that contains the input data for the copy activity. |
-| Azure SQL Database linked service| Links your Azure SQL Database to the data factory. The Azure SQL linked service specifies the Azure SQL database that holds the output data for the copy activity. |
-| Azure Blob input dataset | Refers to the Azure Storage linked service. The Azure Storage linked service points to an Azure Storage account and the Azure Blob dataset specifies the container, folder, and file name in the storage that holds input data. |
-| Azure SQL output dataset | Refers to the Azure SQL linked service. The Azure SQL linked service refers to an Azure SQL server and the Azure SQL dataset specifies the name of the table that holds the output data. |
-| Data pipeline | The pipeline has one activity of type Copy that takes the Azure blob dataset as an input and the Azure SQL dataset as an output. The copy activity copies data from an Azure blob to a table in the Azure SQL database. | 
+Entity | Description  
+------ | ----------- 
+ Azure Storage linked service | Links your Azure Storage account to the data factory. Azure Storage is the source data store and Azure SQL database is the sink for the copy activity in the tutorial. The Azure Storage linked service specifies the storage account that contains the input data for the copy activity. 
+ Azure SQL Database linked service| Links your Azure SQL Database to the data factory. The Azure SQL linked service specifies the Azure SQL database that holds the output data for the copy activity. 
+ Azure Blob input dataset | Refers to the Azure Storage linked service. The Azure Storage linked service points to an Azure Storage account and the Azure Blob dataset specifies the container, folder, and file name in the storage that holds input data. 
+ Azure SQL output dataset | Refers to the Azure SQL linked service. The Azure SQL linked service refers to an Azure SQL server and the Azure SQL dataset specifies the name of the table that holds the output data. 
+ Data pipeline | The pipeline has one activity of type Copy that takes the Azure blob dataset as an input and the Azure SQL dataset as an output. The copy activity copies data from an Azure blob to a table in the Azure SQL database.  
 
 A data factory can have one or more pipelines. A pipeline can have one or more activities in it. There are two types of activities: [data movement activities](data-factory-data-movement-activities.md) and [data transformation activities](data-factory-data-transformation-activities.md). In the tutorial, you create only one pipeline with one activity (copy activity). 
 
@@ -709,7 +709,7 @@ Removed the dependency on data factory creation.
 
 Now, repeat the steps with different parameter JSON file to create more pipelines with the same data flow but to copy between different Azure storage accounts and Azure SQL databases. 
 
-You should see the pipelines in the diagram view in the portal.10-06-2016-1 and 10-06-2016-2 are the suffixes in two separate parameter files. 
+You should see the pipelines in the diagram view in the portal.10-06-2016-1 and 10-06-2016-2 are the suffixes in two separate parameter files. Unlock the diagram and auto-layout the pipelines to see the diagram as shown in the following image: 
 
 ![Three pipelines in a data factory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/multiple-pipelines.png)
 
