@@ -68,12 +68,12 @@ You can view a list of the external services that are on each subscription withi
 
 	![view external services billing history](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png)
 
-## Manage your External service order payment methods
+## Manage your external service order payment methods
 The summary page in the [Azure Account Center](https://account.windowsazure.com/) has user actions, allowing you to update your payment instrument:
 
 > [AZURE.NOTE] If you purchased your subscription with a work or school account you should [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to make changes to your payment instrument
 
-1. To update your payment method click **Change payment method** on the right side of the page.
+1. To update your payment method click **Change payment method** on the right side of the [page](https://account.windowsazure.com/).
     
     ![Order summary](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
 
