@@ -13,15 +13,16 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/28/2016"
+   ms.date="10/04/2016"
    ms.author="seanmck"/>
 
 
 # Create your first Azure Service Fabric application
 
 > [AZURE.SELECTOR]
-- [C Sharp](service-fabric-create-your-first-application-in-visual-studio.md)
-- [Java](service-fabric-create-your-first-linux-application-with-java.md)
+- [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
+- [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
+- [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 
 Service Fabric provides SDKs for building services on Linux in both .NET Core and Java. In this tutorial, we will look at how to create an application for Linux and build a service using Java.
 
@@ -48,6 +49,7 @@ A Service Fabric application can contain one or more services, each with a speci
 The Service Fabric Yeoman templates include a build script for [Gradle](https://gradle.org/), which you can use to build the app from the terminal.
 
   ```bash
+  cd myapp
   gradle
   ```
 
@@ -58,13 +60,12 @@ Once the application is built, you can deploy it to the local cluster using the 
 1. Connect to the local Service Fabric cluster.
 
     ```bash
-    azuresfcli servicefabric cluster connect
+    azure servicefabric cluster connect
     ```
 
 2. Use the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
 
     ```bash
-    cd myapp
     ./install.sh
     ```
 
@@ -120,6 +121,7 @@ Your app will build and deploy within a few moments. You can monitor its status 
 ## Next steps
 
 - [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md)
+- [Interacting with Service Fabric clusters using the Azure CLI](service-fabric-azure-cli.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png
