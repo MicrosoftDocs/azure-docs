@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2016"
+   ms.date="10/06/2016"
    ms.author="cherylmc"/>
 
 # Configure a Point-to-Site connection to a VNet using the Azure portal
@@ -72,7 +72,7 @@ You can use the following example settings:
 
 ### Part 1: Create a virtual network
 
-To create a VNet by using the Azure portal, use the following steps. Screenshots are provided as examples. Be sure to replace the values with your own. For more information about working with virtual networks, see the [Virtual Network Overview](../articles/virtual-network/virtual-networks-overview.md).
+To create a VNet by using the Azure portal, use the following steps. Screenshots are provided as examples. Be sure to replace the values with your own.
 
 1. From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
 
