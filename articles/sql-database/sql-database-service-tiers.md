@@ -19,7 +19,7 @@
 
 # SQL Database options and performance: Understand what's available in each service tier
 
-[Azure SQL Database](sql-database-technical-overview.md) offers three service tiers with multiple performance levels to handle different workloads. Each performance level provides an increasing set of resources designed to deliver increasingly higher throughput. You can manage each database in its own [service tier](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) with its own performance level. You can also manage multiple databases in an [elastic pool](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) with a shared set of resources. The resources available for standalone databases are expressed in terms of Database Transaction Units (DTUs) and for elastic pools in terms of elastic DTUs or eDTUs. For more on DTUs and eDTUs, see [What is a DTU](sql-database-what-is-a-DTU.md). 
+[Azure SQL Database](sql-database-technical-overview.md) offers three service tiers with multiple performance levels to handle different workloads. Each performance level provides an increasing set of resources designed to deliver increasingly higher throughput. You can manage each database in its own [service tier](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) with its own performance level. You can also manage multiple databases in an [elastic pool](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) with a shared set of resources. The resources available for standalone databases are expressed in terms of Database Transaction Units (DTUs) and for elastic pools in terms of elastic DTUs or eDTUs. For more on DTUs and eDTUs, see [What is a DTU](sql-database-what-is-a-dtu.md). 
 
 In both cases, the service tiers include **Basic**, **Standard**, and **Premium**. Database options in these tiers are similar for standalone databases and elastic pools, but there are additional considerations for elastic pools. This article provides detail of service tiers for standalone databases and elastic pools.
 
@@ -62,7 +62,7 @@ To decide on a service tier, start by determining whether the database should be
 
 To decide on a service tier for a standalone database, start by determining the database features that you need to choose your SQL Database edition:
 
-- Database size (5 GB maximum for Basic, 250 GB maximum for Standard, and 500 GB to 1 TB maximum for Premium - depending on the performance level)
+- Database size (2 GB maximum for Basic, 250 GB maximum for Standard, and 500 GB to 1 TB maximum for Premium - depending on the performance level)
 - Database backup retention period (7 days for Basic, 35 days for Standard, and 35 days for Premium)
 
 Once you have determined the SQL Database edition, you are ready to determine the performance level for the database (the number of DTUs). You can guess and then [scale up or down dynamically](sql-database-scale-up.md) based on actual experience. You can also use the [DTU Calculator](http://dtucalculator.azurewebsites.net/) to approximate the number of DTUs needed. 

@@ -20,9 +20,9 @@
 # Create a VNet with a Site-to-Site connection using PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
-- [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Classic - Classic Portal](vpn-gateway-site-to-site-create.md)
 
 This article walks you through creating a virtual network and a Site-to-Site VPN connection to your on-premises network using the **Azure Resource Manager deployment model**. Site-to-Site connections can be used for cross-premises and hybrid configurations.
 
@@ -148,7 +148,7 @@ Next, request a public IP address to be allocated to your Azure VNet VPN gateway
 
 The Azure VPN gateway for the Resource Manager deployment model currently only supports public IP addresses by using the Dynamic Allocation method. However, this does not mean the IP address will change. The only time the Azure VPN gateway IP address changes is when the gateway is deleted and re-created. The gateway public IP address won't change across resizing, resetting, or other internal maintenance/upgrades of your Azure VPN gateway.
 
-Use the following PowerShell sample.
+Use the following PowerShell sample:
 
 	$gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
 
@@ -177,7 +177,7 @@ Use the following values:
 
 ## 7. Configure your VPN device
 
-At this point, you need the public IP address of the virtual network gateway for configuring your on-premises VPN device. Work with your device manufacturer for specific configuration information. Additionally, refer to the [VPN Devices](vpn-gateway-about-vpn-devices.md) for more information.
+At this point, you need the public IP address of the virtual network gateway for configuring your on-premises VPN device. Work with your device manufacturer for specific configuration information. Refer to the [VPN Devices](vpn-gateway-about-vpn-devices.md) for more information.
 
 To find the public IP address of your virtual network gateway, use the following sample:
 

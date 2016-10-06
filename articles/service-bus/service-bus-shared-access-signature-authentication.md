@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="06/22/2016"
+    ms.date="10/02/2016"
     ms.author="sethm" />
 
 # Shared Access Signature Authentication with Service Bus

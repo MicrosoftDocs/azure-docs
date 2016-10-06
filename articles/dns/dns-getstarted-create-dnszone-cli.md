@@ -3,7 +3,7 @@
    description="Learn how to create DNS zones for Azure DNS step-by-step to start hosting your DNS domain using CLI"
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
 
 # Create an Azure DNS zone using CLI
 
@@ -25,9 +25,9 @@
 - [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 
 
-This article will walk you through the steps to create a DNS zone by using CLI. You can also create a DNS zone using PowerShell or the Azure portal. 
+This article will walk you through the steps to create a DNS zone by using CLI. You can also create a DNS zone using PowerShell or the Azure portal.
 
-[AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)] 
+[AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
 
 ## Before you begin
@@ -42,56 +42,56 @@ You can install Azure CLI for Windows, Linux, or MAC. The following steps need t
 
 All the network provider commands on CLI can be found using the following command:
 
-	Azure network
+	azure network
 
 ### 2. Switch CLI mode
 
 Azure DNS uses Azure Resource Manager. Make sure you switch CLI mode to use ARM commands.
 
-	Azure config mode arm
+	azure config mode arm
 
 ### 3. Sign in to your Azure account
 
 You will be prompted to authenticate with your credentials. Keep in mind that you can only use ORGID accounts.
 
-    Azure login -u "username"
+    azure login -u "username"
 
 ### 4. Select the subscription
 
 Choose which of your Azure subscriptions to use.
 
-    Azure account set "subscription name"
+    azure account set "subscription name"
 
 ### 5. Create a resource group
 
 Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. However, because all DNS resources are global, not regional, the choice of resource group location has no impact on Azure DNS.
 
-You can skip this step if you are using an existing resource group. 
+You can skip this step if you are using an existing resource group.
 
-    Azure group create -n myresourcegroup --location "West US"
+    azure group create -n myresourcegroup --location "West US"
 
 
 ### 6. Register
 
 The Azure DNS service is managed by the Microsoft.Network resource provider. Your Azure subscription needs to be registered to use this resource provider before you can use Azure DNS. This is a one-time operation for each subscription.
 
-	Azure provider register --namespace Microsoft.Network
+	azure provider register --namespace Microsoft.Network
 
 
 ## Step 2 - Create a DNS zone
 
-A DNS zone is created using the `azure network dns zone create` command. You can optionally create a DNS zone along with tags. Tags are a list of name-value pairs and are used by Azure Resource Manager to label resources for billing or grouping purposes. For more information about tags, see [Using tags to organize your Azure resources](../resource-group-using-tags.md). 
+A DNS zone is created using the `azure network dns zone create` command. You can optionally create a DNS zone along with tags. Tags are a list of name-value pairs and are used by Azure Resource Manager to label resources for billing or grouping purposes. For more information about tags, see [Using tags to organize your Azure resources](../resource-group-using-tags.md).
 
 In Azure DNS, zone names should be specified without a terminating **‘.’**. For example, as '**contoso.com**' rather than '**contoso.com.**'.
 
 
 ### To create a DNS zone
 
-The example below creates a DNS zone called *contoso.com* in the resource group called *MyResourceGroup*. 
+The example below creates a DNS zone called *contoso.com* in the resource group called *MyResourceGroup*.
 
 Use the example to create your DNS zone, substituting the values for your own.
 
-    Azure network dns zone create myresourcegroup contoso.com
+    azure network dns zone create myresourcegroup contoso.com
 
 ### To create a DNS zone and tags.
 
@@ -99,7 +99,7 @@ Azure DNS CLI supports tags of DNS zones specified by using the optional *-Tag* 
 
 Use the example below to create a DNS zone and tags, substituting the values for your own.
 
-	Azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
+	azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
 
 ## View records
 

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Secure cloud and on-premises resources using Azure Multi-Factor Authentication Server with AD FS 2.0" 
-	description="This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA and AD FS 2.0." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Secure cloud and on-premises resources using Azure Multi-Factor Authentication Server with AD FS 2.0"
+	description="This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA and AD FS 2.0."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 # Secure cloud and on-premises resources using Azure Multi-Factor Authentication Server with AD FS 2.0
 
 If your organization is federated with Azure Active Directory and you have resources that are on-premises or in the cloud that you wish to secure you can do this by using the Azure Multi-Factor Authentication Sever and configuring it to work with AD FS so that multi-factor authentication is triggered for high value end points.
@@ -23,7 +23,7 @@ This documentation covers using the Azure Multi-Factor Authentication Server wit
 
 
 ## AD FS 2.0 proxy
-To secure AD FS 2.0 with a proxy, install the Azure Multi-Factor Authentication Server on the ADFS proxy server and configure the Server per the following steps. 
+To secure AD FS 2.0 with a proxy, install the Azure Multi-Factor Authentication Server on the ADFS proxy server and configure the Server per the following steps.
 
 ### To secure AD FS 2.0 with a proxy
 
@@ -63,7 +63,7 @@ To secure AD FS 2.0 with a proxy, install the Azure Multi-Factor Authentication 
 
 ## AD FS 2.0 Direct without a proxy
 
-To secure AD FS when the AD FS proxy is not used, install the Azure Multi-Factor Authentication Server on the AD FS server and configure the Server per the following steps. 
+To secure AD FS when the AD FS proxy is not used, install the Azure Multi-Factor Authentication Server on the AD FS server and configure the Server per the following steps.
 
 ### To secure AD FS 2.0 without a proxy
 1. Within the Azure Multi-Factor Authentication Server click the IIS Authentication icon in the left menu.
@@ -80,7 +80,7 @@ To secure AD FS when the AD FS proxy is not used, install the Azure Multi-Factor
 
 
 ## Trusted IPs
-The Trusted IPs allows users to bypass Azure Multi-Factor Authentication for website requests originating from specific IP addresses or subnets. For example, you may want to exempt users from Azure Multi-Factor Authentication while logging in from the office. For this, you would specify the office subnet as an Trusted IPs entry. 
+The Trusted IPs allows users to bypass Azure Multi-Factor Authentication for website requests originating from specific IP addresses or subnets. For example, you may want to exempt users from Azure Multi-Factor Authentication while logging in from the office. For this, you would specify the office subnet as an Trusted IPs entry.
 
 ### To configure trusted IPs
 
@@ -92,5 +92,3 @@ The Trusted IPs allows users to bypass Azure Multi-Factor Authentication for web
 
 
 <center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
-
- 

@@ -3,7 +3,7 @@
    description="Troubleshoot Resource Manager deployment issues when you create a new Linux virtual machine in Azure"
    services="virtual-machines-linux, azure-resource-manager"
    documentationCenter=""
-   authors="jiangchen79"
+   authors="JiangChen79"
    manager="felixwu"
    editor=""
    tags="top-support-issue, azure-resource-manager"/>

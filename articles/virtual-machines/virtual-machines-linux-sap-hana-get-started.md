@@ -1,20 +1,20 @@
 <properties
    pageTitle="Quickstart guide for manual installation of SAP HANA on Azure VMs | Microsoft Azure"
    description="Quickstart guide for manual installation of SAP HANA on Azure VMs"
-   services="virtual-machines,virtual-network,storage"
-   documentationCenter="saponazure"
+   services="virtual-machines-linux"
+   documentationCenter=""
    authors="hermanndms"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
 <tags
-   ms.service="virtual-machines"
-   ms.devlang="NA"
-   ms.topic="campaign-page"
+   ms.service="virtual-machines-linux"
+   ms.devlang="na"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
-   ms.workload="na"
-   ms.date="09/07/2016"
+   ms.workload="infrastructure-services"
+   ms.date="09/15/2016"
    ms.author="hermannd"/>
 
 # Quickstart Guide for manual installation of single-instance SAP HANA on Azure VMs
@@ -210,7 +210,7 @@ SAP HANA requires specific Linux kernel settings which are not part of the stand
 and have to be set manually. There is a specific SAP note which describes the settings. 
 
 
-SAP Note SAP HANA DB : Recommended OS settings for SLES 12 / SLE for SAP Applications 12 :
+SAP Note SAP HANA DB : Recommended OS settings for SLES 12 / SLES for SAP Applications 12:
 [ SAP Note 2205917](https://launchpad.support.sap.com/#/notes/2205917)
 
 One additional topic reagrding page-cache related to running SAP HANA on SLES can be found
@@ -395,8 +395,7 @@ as the database system in an another Azure VM.
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image016.jpg)
 
-Once the ASCS instance is installed on the app server VM and is set to "green" in the SAP MC the sapmnt
-directory which includes e.g. the SAP profile directory has to shared with the SAP HANA DB server VM.
+Once the ASCS instance is installed on the app server VM and is set to "green" in the SAP MC the sapmnt directory which includes e.g. the SAP profile directory has to be shared with the SAP HANA DB server VM.
 The DB installation step needs access to this information. The best way is to use NFS which can be
 configured using Yast.
 

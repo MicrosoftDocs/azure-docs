@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/14/2016"
+	ms.date="09/30/2016"
 	ms.author="jgao"/>
 
 
@@ -55,22 +55,21 @@ Azure HDInsight supports multiple Hadoop cluster versions that can be deployed a
 
 > [AZURE.NOTE] The default version from the service may change without notice. We recommend that you specify the version when you create clusters using .NET SDK/Azure PowerShell and Azure CLI, if you have a version dependency. 
 
-Component|HDInsight version 3.4 (Default) | HDInsight Version 3.3 | HDInsight Version 3.2 |HDInsight Version 3.1 |HDInsight Version 3.0|
----|---|---|---|---|---
-Hortonworks Data Platform|2.4|2.3|2.2|2.1.7|2.0|
-Apache Hadoop & YARN|2.7.1|2.7.1|2.6.0|2.4.0|2.2.0|
-Apache Tez|0.7.0|0.7.0 | 0.5.2|0.4.0||
-Apache Pig|0.15.0|0.15.0|0.14.0|0.12.1|0.12.0|
-Apache Hive & HCatalog|1.2.1|1.2.1|0.14.0|0.13.1|0.12.0|
-Apache HBase |1.1.2|1.1.1|0.98.4|0.98.0||
-Apache Sqoop|1.4.6|1.4.6|1.4.5|1.4.4|1.4.4|1.4.3
-Apache Oozie|4.2.0|4.2.0|4.1.0|4.0.0|4.0.0|
-Apache Zookeeper|3.4.6|3.4.6|3.4.6|3.4.5|3.4.5|
-Apache Storm|0.10.0|0.10.0|0.9.3|0.9.1||
-Apache Mahout|0.9.0+|0.9.0+|0.9.0|0.9.0||
-Apache Phoenix|4.4.0|4.4.0|4.2.0|4.0.0.2.1.7.0-2162||
-Apache Spark|1.6.0 (Linux only)|1.5.2 (Linux only/Experimental build)|1.3.1 (Windows-only)|||
-
+Component|HDInsight version 3.5 | HDInsight version 3.4 (Default) | HDInsight Version 3.3 | HDInsight Version 3.2 |HDInsight Version 3.1 |HDInsight Version 3.0|
+---|---|---|---|---|---|---
+Hortonworks Data Platform|2.5|2.4|2.3|2.2|2.1.7|2.0|
+Apache Hadoop & YARN|2.7.3|2.7.1|2.7.1|2.6.0|2.4.0|2.2.0|
+Apache Tez|0.7.0|0.7.0|0.7.0 | 0.5.2|0.4.0||
+Apache Pig|0.16.0|0.15.0|0.15.0|0.14.0|0.12.1|0.12.0|
+Apache Hive & HCatalog|1.2.1.2.5|1.2.1|1.2.1|0.14.0|0.13.1|0.12.0|
+Apache HBase |1.1.2|1.1.2|1.1.1|0.98.4|0.98.0||
+Apache Sqoop|1.4.6|1.4.6|1.4.6|1.4.5|1.4.4|1.4.4|1.4.3
+Apache Oozie|4.2.0|4.2.0|4.2.0|4.1.0|4.0.0|4.0.0|
+Apache Zookeeper|3.4.6|3.4.6|3.4.6|3.4.6|3.4.5|3.4.5|
+Apache Storm|1.0.1|0.10.0|0.10.0|0.9.3|0.9.1||
+Apache Mahout|0.9.0+|0.9.0+|0.9.0+|0.9.0|0.9.0||
+Apache Phoenix|4.7.0|4.4.0|4.4.0|4.2.0|4.0.0.2.1.7.0-2162||
+Apache Spark|1.6.2 + 2.0 (Linux only)|1.6.0 (Linux only)|1.5.2 (Linux only/Experimental build)|1.3.1 (Windows-only)|||
 
 **Get current component version information**
 
@@ -90,13 +89,14 @@ The following table lists the versions of HDInsight currently available, the cor
 
 HDInsight Version|HDP Version|VM OS|High Availability|Release Date|Available on Azure portal|Support Expiration Date|Deprecation Date
 ---|---|---|---|---|---|---|---
-HDI 3.4|HDP 2.4|Ubuntu 14.0.4 LTS|Yes|03/29/2016|Yes||
-HDI 3.3|HDP 2.3|Ubuntu 14.0.4 LTS or Windows Server 2012R2|Yes|12/02/2015|Yes||
-HDI 3.2|HDP 2.2|Ubuntu 12.04 LTS or Windows Server 2012R2|Yes|2/18/2015|Yes||
-HDI 3.1|HDP 2.1|Windows Server 2012R2|Yes|6/24/2014|Yes||
-HDI 3.0|HDP 2.0|Windows Server 2012R2|Yes|02/11/2014|Yes|09/17/2014|06/30/2015
-HDI 2.1|HDP 1.3|Windows Server 2012R2|Yes|10/28/2013|Yes|05/12/2014|05/31/2015
-HDI 1.6|HDP 1.1||No|10/28/2013|Yes|04/26/2014|05/31/2015
+HDI 3.5 | HDP 2.5| Ubuntu 16 | Yes | 9/30/2016 | Yes | 
+HDI 3.4|HDP 2.4|Ubuntu 14.0.4 LTS|Yes|03/29/2016|Yes|12/29/2016|1/9/2018|
+HDI 3.3|HDP 2.3|Ubuntu 14.0.4 LTS or Windows Server 2012R2|Yes|12/02/2015|Yes|06/27/2016|07/31/2017
+HDI 3.2|HDP 2.2|Ubuntu 12.04 LTS or Windows Server 2012R2|Yes|2/18/2015|Yes|3/1/2016|04/01/2017
+HDI 3.1|HDP 2.1|Windows Server 2012R2|Yes|6/24/2014|No|05/18/2015|06/30/2016
+HDI 3.0|HDP 2.0|Windows Server 2012R2|Yes|02/11/2014|No|09/17/2014|06/30/2015
+HDI 2.1|HDP 1.3|Windows Server 2012R2|Yes|10/28/2013|No|05/12/2014|05/31/2015
+HDI 1.6|HDP 1.1||No|10/28/2013|No|04/26/2014|05/31/2015
 
 **Deployment of non-default clusters**
 
@@ -109,7 +109,7 @@ The SLA is defined in terms of a "Support Window". A Support Window refers to th
 
 The **Deprecation Date** is the date after which the cluster version cannot be created on HDInsight.
 
-> [AZURE.NOTE] Both HDInsight 2.1 and 3.0 clusters run on Azure Guest OS [Family 4](../cloud-services/cloud-services-guestos-update-matrix.md), which uses the 64-bit version of Windows Server 2012 R2 and supports .NET Framework 4.0, 4.5. and 4.5.1.
+> [AZURE.NOTE] Windows-based HDInsight cluster (including version 2.1, 3.0, 3.1, 3.2 and 3.3) run on Azure Guest OS Family 4, which uses the 64-bit version of Windows Server 2012 R2 and supports .NET Framework 4.0, 4.5, 4.5.1, and 4.5.2.
 
 ## Hortonworks release notes associated with HDInsight versions##
 

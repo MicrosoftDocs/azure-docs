@@ -3,7 +3,7 @@
 	description="Use HDInsight Spark to do data exploration and train binary classification and regression models using cross-validation and hyperparameter optimization."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,deguhath,gokuma"
+	authors="bradsev"
 	manager="jhubbard"
 	editor="cgronlun"  />
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/14/2016"
-	ms.author="deguhath;bradsev" />
+	ms.author="deguhath;bradsev;gokuma" />
 
 # Advanced data exploration and modeling with Spark 
 

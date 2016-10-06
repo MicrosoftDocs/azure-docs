@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
-	ms.author="fashah;bradsev" /> 
+	ms.date="09/14/2016" 
+	ms.author="bradsev" /> 
 
 # Move data to SQL Server on an Azure virtual machine
 
@@ -31,8 +31,8 @@ The following table summarizes the options for moving data to SQL Server on an A
 
 <b>SOURCE</b> |<b>DESTINATION: SQL Server on Azure VM</b> |
 ------------------ |-------------------- |
-<b>Flat File</b> |1. <a href="#insert-tables-bcp">Command line bulk copy utility (BCP) </a><br> 2. <a href="#insert-tables-bulkquery">Bulk Insert SQL Query </a><br> 3. <a href="#sql-builtin-utilities">Graphical Built-in Utilities in SQL Server</a>
-<b>On-Premises SQL Server</b> | 1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Deploy a SQL Server Database to a Microsoft Azure VM wizard</a><br> 2. <a href="#export-flat-file">Export to a flat File </a><br> 3. <a href="#sql-migration">SQL Database Migration Wizard </a> <br> 4. <a href="#sql-backup">Database backup and restore </a><br>
+<b>Flat File</b> |1. <a href="#insert-tables-bcp">Command-line bulk copy utility (BCP) </a><br> 2. <a href="#insert-tables-bulkquery">Bulk Insert SQL Query </a><br> 3. <a href="#sql-builtin-utilities">Graphical Built-in Utilities in SQL Server</a>
+<b>On-Premises SQL Server</b> | 1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Deploy a SQL Server Database to a Microsoft Azure VM wizard</a><br> 2. <a href="#export-flat-file">Export to a flat File </a><br> 3. <a href="#sql-migration">SQL Database Migration Wizard </a> <br> 4. <a href="#sql-backup">Database back up and restore </a><br>
 
 Note that this document assumes that SQL commands are executed from SQL Server Management Studio or Visual Studio Database Explorer.
 
@@ -52,14 +52,14 @@ This tutorial assumes you have:
 
 If your data is in a flat file (arranged in a row/column format), it can be moved to SQL Server VM on Azure via the following methods:
 
-1. [Command line bulk copy utility (BCP)](#insert-tables-bcp) 
+1. [Command-line bulk copy utility (BCP)](#insert-tables-bcp) 
 2. [Bulk Insert SQL Query ](#insert-tables-bulkquery)
 3. [Graphical Built-in Utilities in SQL Server (Import/Export, SSIS)](#sql-builtin-utilities)
 
 
-### <a name="insert-tables-bcp"></a>Command line bulk copy utility (BCP)
+### <a name="insert-tables-bcp"></a>Command-line bulk copy utility (BCP)
 
-BCP is a command line utility installed with SQL Server and is one of the quickest ways to move data. It works across all three SQL Server variants (On-premises SQL Server, SQL Azure and SQL Server VM on Azure). 
+BCP is a command-line utility installed with SQL Server and is one of the quickest ways to move data. It works across all three SQL Server variants (On-premises SQL Server, SQL Azure and SQL Server VM on Azure). 
 
 > [AZURE.NOTE] **Where should my data be for BCP?**  
 > While it is not required, having files containing source data located on the same machine as the target SQL server allows for faster transfers (network speed vs local disk IO speed). You can move the flat files containing data to the machine where SQL Server is installed using various file copying tools such as [AZCopy](../storage/storage-use-azcopy.md), [Azure Storage Explorer](http://storageexplorer.com/) or windows copy/paste via Remote Desktop Protocol (RDP).
@@ -75,11 +75,11 @@ BCP is a command line utility installed with SQL Server and is one of the quicke
 			<columnname3> <datatype> <constraint>
 		) 
 	
-2. Generate the format file that describes the schema for the table by issuing the following command from the command line of the machine where bcp is installed.
+2. Generate the format file that describes the schema for the table by issuing the following command from the command-line of the machine where bcp is installed.
 
 	`bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n` 
 
-3. Insert the data into the database using the bcp command as follows. This should work from the command line assuming that the SQL Server is installed on same machine:
+3. Insert the data into the database using the bcp command as follows. This should work from the command-line assuming that the SQL Server is installed on same machine:
 
 	`bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attemp -t \t -r \n`
 
@@ -91,10 +91,10 @@ BCP is a command line utility installed with SQL Server and is one of the quicke
 If the data you are moving is large, you can speed things up by simultaneously executing multiple BCP commands in parallel in a PowerShell Script.
 
 > [AZURE.NOTE] **Big data Ingestion** 
-> To optimize data loading for large and very large datasets, partition your logical and physical database tables using multiple filegroups and partition tables. For more information about creating and loading data to partition tables, see  [Parallel Load SQL Partition Tables](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+> To optimize data loading for large and very large datasets, partition your logical and physical database tables using multiple filegroups and partition tables. For more information about creating and loading data to partition tables, see [Parallel Load SQL Partition Tables](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 
-The sample PowerShell script below demonstrate parallel inserts using bcp :
+The sample PowerShell script below demonstrate parallel inserts using bcp:
 	
 	$NO_OF_PARALLEL_JOBS=2
 
@@ -170,7 +170,7 @@ You can also use the following migration strategies:
 1. [Deploy a SQL Server Database to a Microsoft Azure VM wizard](#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard)
 2. [Export to Flat File](#export-flat-file) 
 3. [SQL Database Migration Wizard](#sql-migration)
-4. [Database backup and restore](#sql-backup)
+4. [Database back up and restore](#sql-backup)
 
 We describe each of these below:
 
@@ -203,18 +203,18 @@ Various methods can be used to bulk export data from an On-Premises SQL Server a
 
 ### <a name="sql-migration"></a>SQL Database Migration Wizard
 
-[SQL Server Database Migration Wizard](http://sqlazuremw.codeplex.com/) provides a  user-friendly way to move data between two SQL server instances. It allows the user to map the data schema between sources and destination tables, choose column types and various other functionality. It uses bulk copy (BCP) under the covers. A screenshot of the welcome screen for the SQL Database Migration wizard is shown below.  
+[SQL Server Database Migration Wizard](http://sqlazuremw.codeplex.com/) provides a user-friendly way to move data between two SQL server instances. It allows the user to map the data schema between sources and destination tables, choose column types and various other functionalities. It uses bulk copy (BCP) under the covers. A screenshot of the welcome screen for the SQL Database Migration wizard is shown below.  
 
 ![SQL Server Migration Wizard][2]
 
-### <a name="sql-backup"></a>Database backup and restore
+### <a name="sql-backup"></a>Database back up and restore
 
 SQL Server supports: 
 
-1. [Database backup and restore functionality](https://msdn.microsoft.com/library/ms187048.aspx) (both to a local file or bacpac export to blob) and [Data Tier Applications](https://msdn.microsoft.com/library/ee210546.aspx) (using bacpac). 
+1. [Database back up and restore functionality](https://msdn.microsoft.com/library/ms187048.aspx) (both to a local file or bacpac export to blob) and [Data Tier Applications](https://msdn.microsoft.com/library/ee210546.aspx) (using bacpac). 
 2. Ability to directly create SQL Server VMs on Azure with a copied database or copy to an existing SQL Azure database. For more details, see [Use the Copy Database Wizard](https://msdn.microsoft.com/library/ms188664.aspx). 
 
-A screenshot of the Database backup/restore options from SQL Server Management Studio are shown below.
+A screenshot of the Database back up/restore options from SQL Server Management Studio is shown below.
 
 ![SQL Server Import Tool][1]
 

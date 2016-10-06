@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/12/2016"
+   ms.date="09/13/2016"
    ms.author="larryfr"/>
 
 #Use Hive with Hadoop in HDInsight with Beeline
@@ -59,7 +59,7 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
 
         beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
 
-    This will start the Beeline client, and connect to the JDBC url. Here, `localhost` is used since HiveServer2 runs on both head nodes in the cluster, and we're running Beeline directly on head node 0.
+    This will start the Beeline client, and connect to the JDBC url. Here, `localhost` is used since HiveServer2 runs on both head nodes in the cluster, and we're running Beeline directly on the primary headnode.
     
     Once the command completes, you will arrive at a `jdbc:hive2://localhost:10001/>` prompt.
 

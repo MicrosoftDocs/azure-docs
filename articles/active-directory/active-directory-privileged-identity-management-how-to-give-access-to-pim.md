@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/30/2016"
+   ms.date="09/22/2016"
    ms.author="kgremban"/>
 
 # How to give access to manage Azure AD Privileged Identity Management
 
-The global administrator who enables Azure AD Privileged Identity Management (PIM) for an organization automatically get role assignments and access to PIM. No one else gets access by default, though, including other global administrators. To give access to PIM, the first user can assign others to the **Privileged role administrator** role. This assignment must be done from within PIM itself, and cannot be changed via PowerShell or other portals.
+The global administrator who enables Azure AD Privileged Identity Management (PIM) for an organization automatically get role assignments and access to PIM. No one else gets write access by default, though, including other global administrators. Other global adminstrators, security administrators, and security readers have read-only access to Azure AD PIM. To give access to PIM, the first user can assign others to the **Privileged role administrator** role. This assignment must be done from within PIM itself, and cannot be changed via PowerShell or other portals.
 
 > [AZURE.NOTE] Managing Azure AD PIM requires Azure MFA. Since Microsoft accounts cannot register for Azure MFA, a user who signs in with a Microsoft account cannot access Azure AD PIM.
 

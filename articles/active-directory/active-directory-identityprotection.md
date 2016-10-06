@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2016"
+	ms.date="09/20/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -172,6 +172,9 @@ During the course of investigation, you can choose to take any of these actions 
 
 - **Reactivate** - Risk events that were manually closed (by choosing **Resolve**, **False positive**, or **Ignore**) can be reactivated, setting the event status back to **Active**. Reactivated risk events contribute to the user risk level calculation. Risk events closed through remediation (such as a secure password reset) cannot be reactivated. 
 
+
+
+
 **To open the related configuration dialog**:
 
 1. On the **Azure AD Identity Protection** blade, under **Investigate**, click **Risk events**.
@@ -185,6 +188,18 @@ During the course of investigation, you can choose to take any of these actions 
 2. On the risk blade, right-click a user.
 
 	![Manual password reset](./media/active-directory-identityprotection/1004.png "Manual password reset")
+
+
+
+### Closing all risk events for a user manually
+
+Instead of manually closing risk events for a user individually, Azure Active Directory Identity Protection also provides you with a method to close all events for a user with one click.
+
+
+![Actions](./media/active-directory-identityprotection/2222.png "Actions")
+
+When you click **Dismiss all events**, all events are closed and the affected user is no longer at risk.
+
 
 
 ## Remediating user risk events
@@ -467,16 +482,19 @@ For an overview of the related user experience, see:
 
 
 
-## See also
+## Next steps
 
  - [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
- - [Enabling Azure Active Directory Identity Protection](active-directory-identityprotection-enable.md)
  - [Types of risk events detected by Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md)
  - [Vulnerabilities detected by Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md)
  - [Azure Active Directory Identity Protection notifications](active-directory-identityprotection-notifications.md)
  - [Azure Active Directory Identity Protection flows](active-directory-identityprotection-flows.md)
  - [Azure Active Directory Identity Protection playbook](active-directory-identityprotection-playbook.md)
  - [Azure Active Directory Identity Protection glossary](active-directory-identityprotection-glossary.md)
+
+ - [Enabling Azure Active Directory Identity Protection](active-directory-identityprotection-enable.md)
+ - [Azure Active Directory Identity Protection - How to unblock users](active-directory-identityprotection-unblock-howto.md)
+
  - [Get started with Azure Active Directory Identity Protection and Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 
 

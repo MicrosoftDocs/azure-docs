@@ -4,7 +4,7 @@
 	services="storage"
 	documentationCenter="xamarin"
 	authors="micurd"
-	manager=""
+	manager="jahogg"
 	editor="tysonn"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/31/2016"
-	ms.author="micurd"/>
+	ms.author="micurd;tamram"/>
 
 # How to use Blob Storage from Xamarin
 

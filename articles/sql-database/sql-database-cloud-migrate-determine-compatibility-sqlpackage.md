@@ -29,7 +29,7 @@ In this article, you learn to determine if a SQL Server database is compatible t
 
 ## Using SqlPackage.exe
 
-1. Open a command prompt and change a directory containing the newest version of sqlpackage.exe. This utility ships with both Visual Studio and SQL Server. Download the [newest version of SQL Server Data Tools for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx) to get the latest version of the SqlPackage utility.
+1. Open a command prompt and change a directory containing the newest version of sqlpackage.exe. This utility ships with the latest versions of [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) and [SQL Server Data Tools for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx), or you can download the latest version of [SqlPackage](https://www.microsoft.com/en-us/download/details.aspx?id=53876) directly from the Microsoft download center.
 2. Execute the following SqlPackage command with the following arguments for your environment:
 
 	'sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file > /p:TableData=< schema_name.table_name > > < output_file > 2>&1'
@@ -42,7 +42,7 @@ In this article, you learn to determine if a SQL Server database is compatible t
 	| < schema_name.table_name >  | the tables for which data are output to the target file  |
 	| < output_file >  | the file name and location for the output file with errors, if any  |
 
-	The reason for the /p:TableName argument is that we only want to test for database compatibility for export to Azure SQL DB V12 rather than export the data from all tables. Unfortunately, the export argument for sqlpackage.exe does not support extracting zero tables. You need to specify at least one table, such as a single small table. The < output_file > will contain the report of any errors. The "> 2>&1" string pipes both the standard output and the standard error resulting from the command execution to specified output file.
+	The reason for the /p:TableName argument is that we only want to test for database compatibility for export to Azure SQL DB V12 rather than export the data from all tables. Unfortunately, the export argument for sqlpackage.exe does not support extracting zero tables. You need to specify at least one table, such as a single small table. The < output_file > contains the report of any errors. The "> 2>&1" string pipes both the standard output and the standard error resulting from the command execution to specified output file.
 
 	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01.png)
 

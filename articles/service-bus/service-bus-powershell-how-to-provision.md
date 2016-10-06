@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="10/03/2016"
 	ms.author="sethm"/>
 
 # Manage Service Bus with PowerShell
@@ -24,7 +24,7 @@ Microsoft Azure PowerShell is a scripting environment that you can use to contro
 
 ## Prerequisites
 
-Before you begin this article, you must have the following:
+Before you begin this article, you must have the following prerequisites:
 
 - An Azure subscription. Azure is a subscription-based platform. For more
 information about obtaining a subscription, see [Purchase Options][],
@@ -38,7 +38,7 @@ information about obtaining a subscription, see [Purchase Options][],
 
 There are a limited number of PowerShell cmdlets available for managing Service Bus. To provision
 entities that are not exposed through the existing cmdlets, you can use the .NET client for
-Service Bus in the [Service Bus NuGet package].
+Service Bus in the [Service Bus NuGet package][].
 
 First, make sure that the script can locate the **Microsoft.ServiceBus.dll** assembly, which is installed with the NuGet package. In order to be flexible, the script performs these steps:
 
@@ -74,13 +74,13 @@ Two PowerShell cmdlets support Service Bus namespace operations. Instead of the 
 
 This example creates a few local variables in the script; `$Namespace` and `$Location`.
 
-- `$Namespace` is the name the of the Service Bus namespace with which we want to work.
+- `$Namespace` is the name of the Service Bus namespace with which we want to work.
 - `$Location` identifies the data center in which the script provisions the namespace.
 - `$CurrentNamespace` stores the reference namespace that the script retrieves (or creates).
 
 In an actual script, `$Namespace` and `$Location` can be passed as parameters.
 
-This part of the script does the following:
+This part of the script performs the following tasks:
 
 1. Attempts to retrieve a Service Bus namespace with the provided name.
 2. If the namespace is found, it reports what was found.
@@ -123,7 +123,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 
 In order to provision other entities, such as queues, topics, and Event Hubs, use the [.NET API for Service Bus][]. This article focuses only on Event Hubs, but the steps for other entities are similar. In addition, more detailed examples, including other entities, are referenced at the end of this article.
 
-This part of the script creates four more local variables. These variables are used to instantiate an `EventHubDescription` object. The script does the following:
+This part of the script creates four more local variables. These variables are used to instantiate an `EventHubDescription` object. The script performs the following tasks:
 
 1. Using the `NamespaceManager` object, check to see if the Event Hub identified by `$Path` exists.
 2. If it does not exist, create an `EventHubDescription` and pass that to the `NamespaceManager` class `CreateEventHubIfNotExists` method.

@@ -3,7 +3,7 @@
 	description="Describes how to understand charges related to your Marketplace orders."
 	services=""
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="felixwu"
 	editor=""
 	tags="billing"

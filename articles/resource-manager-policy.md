@@ -531,7 +531,7 @@ The scope here is the name of the resource group you specify. If the value of th
 
 If you want to remove the above policy assignment, you can do it as follows:
 
-    azure policy assignment remove --name regionPolicyAssignment --ccope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+    azure policy assignment delete --name regionPolicyAssignment --scope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
 
 You can get, change or remove policy definitions through policy definition show, set and delete commands respectively.
 

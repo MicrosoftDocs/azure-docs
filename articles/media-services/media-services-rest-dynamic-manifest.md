@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creating Filters with Azure Media Services REST API" 
+	pageTitle="Creating Filters with Azure Media Services REST API | Microsoft Azure" 
 	description="This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services creates dynamic manifests to achieve this selective streaming."
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako;cenkdin"/>
 
 #Creating Filters with Azure Media Services REST API

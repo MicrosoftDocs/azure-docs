@@ -34,7 +34,7 @@ You can try out this workflow using sample data in DocumentDB. Visit [Get starte
 
 ## Data sources supported by the Import Data Wizard
 
-Indexing automation and tooling is available for the following data sources: 
+The Import Data wizard supports the following data sources: 
 
 - Azure SQL Database
 - SQL Server relational data on an Azure VM

@@ -31,7 +31,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Frequently asked question about Azure Virtual Machines created with the classic deployment model](virtual-machines-windows-classic-faq.md)
 
-[Compare VMs, websites and cloud services](../app-service-web/choose-web-site-cloud-service-vm.md)
+[Compare VMs, websites, and cloud services](../app-service-web/choose-web-site-cloud-service-vm.md)
 
 [Virtual Machines and Containers in Azure](virtual-machines-windows-containers.md)
 
@@ -62,7 +62,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Sizes for virtual machines](virtual-machines-windows-sizes.md)
 
-[About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md)
+[About H-series and compute-intensive A-series VMs](virtual-machines-windows-a8-a9-a10-a11-specs.md)
 
 [Planned maintenance for Azure virtual machines](virtual-machines-windows-planned-maintenance.md)
 

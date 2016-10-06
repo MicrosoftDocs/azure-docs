@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Using Analytics - the powerful search tool of Application Insights | Microsoft Azure" 
-	description="Using the Analytics, 
-	             the powerful diagnostic search tool of Application Insights. " 
+	description="Using the Analytics, the powerful diagnostic search tool of Application Insights. " 
 	services="application-insights" 
     documentationCenter=""
 	authors="danhadari" 
