@@ -3,8 +3,8 @@
    description="The latest release news and SDK compatibility for Azure Cloud Services Guest OS." 
    services="cloud-services" 
    documentationCenter="na" 
-   authors="yuemlu" 
-   manager="timlt" 
+   authors="raiye" 
+   manager="markkie" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="10/03/2016"
+   ms.date="10/05/2016"
    ms.author="raiye"/>
 
 # Azure Guest OS releases and SDK compatibility matrix
