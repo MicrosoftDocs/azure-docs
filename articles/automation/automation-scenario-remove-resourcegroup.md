@@ -45,7 +45,7 @@ This runbook authenticates using the [Azure Run As account](automation-sec-confi
 
 ### Install and publish the runbooks
 
-After downloading the runbook, you can import it by using the procedure in [Importing runbook procedures](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-Azure-Automation). Publish the runbook after it has been successfully imported into your Automation account.
+After you download the runbook, you can import it by using the procedure in [Importing runbook procedures](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-Azure-Automation). Publish the runbook after it has been successfully imported into your Automation account.
 
 
 ## Using the runbook
@@ -58,7 +58,7 @@ The following steps will walk you through the execution of this runbook and help
 
     >[AZURE.NOTE] Make sure **Previewmode** is set to **true** to avoid deleting the selected resource groups.  **Note** that this runbook will not remove the resource group that contains the Automation account that is running this runbook.  
 
-4. Once you have configured all the parameter values, click **OK**, and the runbook will be queued for execution.  
+4. After you have configured all the parameter values, click **OK**, and the runbook will be queued for execution.  
 
 To view the details of the **Remove-ResourceGroup** runbook job in the Azure portal, select **Jobs** in the runbook. The job summary displays the input parameters and the output stream in addition to general information about the job and any exceptions that occurred.<br> ![Remove-ResourceGroup Runbook Job Status](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png).
 
@@ -66,5 +66,5 @@ The **Job Summary** includes messages from the output, warning, and error stream
 
 ## Next steps
 
-- To get started creating your own runbook, see [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md)
-- To get started with PowerShell Workflow runbooks, see [My first PowerShell Workflow runbook](automation-first-runbook-textual.md)
+- To get started creating your own runbook, see [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md).
+- To get started with PowerShell Workflow runbooks, see [My first PowerShell Workflow runbook](automation-first-runbook-textual.md).
