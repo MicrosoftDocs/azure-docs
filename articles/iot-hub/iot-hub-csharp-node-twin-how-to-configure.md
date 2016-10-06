@@ -23,7 +23,7 @@
 At the end of this tutorial, you will have two Node.js console applications:
 
 * **SimulateDeviceConfiguration.js**, a simulated device app that waits for a desired configuration update and reports the status of a simulated configuration update process.
-* **SetDesiredConfigurationAndQuery.js**, a Node.js app meant to be run from the back end, which sets the desired configuration on a device and queries the configuration update process.
+* **SetDesiredConfigurationAndQuery**, a .NET console app meant to be run from the back end, which sets the desired configuration on a device and queries the configuration update process.
 
 > [AZURE.NOTE] The article [IoT Hub SDKs][lnk-hub-sdks] provides information about the various SDKs that you can use to build both device and back-end applications.
 
@@ -154,11 +154,11 @@ In this section, you create a Node.js console app that connects to your hub as *
 
 In this section, you will create a Node.js console app that updates the *desired properties* on the twin associated with **myDeviceId** with a new telemetry configuration object. It then queries the device twins stored in the hub and shows the difference between the desired and reported configurations of the device.
 
-1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **SetDesiredAndQuery**.
+1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **SetDesiredConfigurationAndQuery**.
 
 	![New Visual C# Windows Classic Desktop project][img-createapp]
 
-2. In Solution Explorer, right-click the **SetDesiredAndQuery** project, and then click **Manage Nuget Packages**.
+2. In Solution Explorer, right-click the **SetDesiredConfigurationAndQuery** project, and then click **Manage Nuget Packages**.
 
 3. In the **Nuget Package Manager** window, make sure that **Include prerelease** is checked, search for **microsoft.azure.devices**, select **Install** to install the the *prerelease* version of the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] Nuget package and its dependencies.
 
