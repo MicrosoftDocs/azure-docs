@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/19/2016"
+   ms.date="10/6/2016"
    ms.author="mbaldwin"/>
 
 # Azure AD token reference
@@ -290,3 +290,7 @@ In addition to claims, the token includes a version number in **ver** and **appi
      scp: "user_impersonation",
      acr: "1"
     }.
+
+### Related content
+- See the Azure AD Graph [Policy operations](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) and the [Policy entity](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity), to learn more about managing token lifetime policy via the Azure AD Graph API.
+- For more information and samples on managing policies via PowerShell cmdlets, including samples, see [Configurable token lifetimes in Azure AD](active-directory-configurable-token-lifetimes.md). 
