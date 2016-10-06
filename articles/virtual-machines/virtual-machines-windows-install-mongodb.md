@@ -20,6 +20,7 @@
 
 [MongoDB](http://www.mongodb.org/) is a popular open-source, high-performance NoSQL database. This article guides you installing and configuring MongoDB on a Windows Server 2012 RV virtual machine (VM) in Azure created using the Resource Manager deployment model.
 
+
 ## Prerequisites
 
 Before you install and configure MongoDB you create a VM and, ideally, add a data disk to it. See the following articles to create a VM and add a data disk:
@@ -124,21 +125,18 @@ Before you install and configure MongoDB you create a VM and, ideally, add a dat
 	exit
 	```
 
-
 13. Now that MongoDB is installed and running, open a port in Windows Firewall so you can remotely connect to MongoDB. Open an administrative PowerShell prompt and enter following example to create a new inbound rule to allow TCP port 27017, the default port that MongoDB listens on:
 
 ```powerShell
 New-NetFirewallRule -DisplayName "Allow MongoDB" -Direction Inbound `
 	-Protocol TCP -LocalPort 27017 -Action Allow
 ```
-
 You can also create the rule using **Windows Firewall with Advanced Security** graphical management tool. Create a new inbound rule to allow TCP port 27017.
-
 
 14. Create a Network Security Group rule to allow you to access MongoDB from outside of the existing Azure virtual network subnet. You can create the Network Security Group rules using the [Azure portal](virtual-machines-windows-nsg-quickstart-portal.md) or [Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md). As with the Windows Firewall rules, you need to allow TCP port 27017 to the virtual network interface of your MongoDB VM.
 
 > [AZURE.NOTE] The port 27017 is the default port used by MongoDB. You can change this port by using the _--port_ parameter when starting the mongod.exe server. Make sure to then update the Windows Firewall rule and Network Security Group rules in the preceding steps.
 
 
-## Summary
+## Next steps
 In this tutorial, you learned how to install and configure MongoDB on your Windows VM. You can now access MongoDB on your Windows VM, by following the advanced topics in the [MongoDB documentation](https://docs.mongodb.com/manual/).
