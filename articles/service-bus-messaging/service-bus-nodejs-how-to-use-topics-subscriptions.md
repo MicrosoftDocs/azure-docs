@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="10/04/2016" 
 	ms.author="sethm"/>
 
 
@@ -352,24 +352,26 @@ then receives a message from the 'HighMessages' subscription using
 **isPeekLock** set to true. It then deletes the message using
 **deleteMessage**:
 
-    serviceBusService.receiveSubscriptionMessage('MyTopic', 'LowMessages', function(error, receivedMessage){
-        if(!error){
-            // Message received and deleted
-            console.log(receivedMessage);
-        }
-    });
-    serviceBusService.receiveSubscriptionMessage('MyTopic', 'HighMessages', { isPeekLock: true }, function(error, lockedMessage){
-        if(!error){
-            // Message received and locked
-            console.log(lockedMessage);
-            serviceBusService.deleteMessage(lockedMessage, function (deleteError){
-                if(!deleteError){
-                    // Message deleted
-                    console.log('message has been deleted.');
-                }
+```
+serviceBusService.receiveSubscriptionMessage('MyTopic', 'LowMessages', function(error, receivedMessage){
+    if(!error){
+        // Message received and deleted
+        console.log(receivedMessage);
+    }
+});
+serviceBusService.receiveSubscriptionMessage('MyTopic', 'HighMessages', { isPeekLock: true }, function(error, lockedMessage){
+    if(!error){
+        // Message received and locked
+        console.log(lockedMessage);
+        serviceBusService.deleteMessage(lockedMessage, function (deleteError){
+            if(!deleteError){
+                // Message deleted
+                console.log('message has been deleted.');
             }
         }
-    });
+    }
+});
+```
 
 ## How to handle application crashes and unreadable messages
 
@@ -384,8 +386,8 @@ application.
 
 There is also a timeout associated with a message locked within the
 subscription, and if the application fails to process the message before
-the lock timeout expires (e.g., if the application crashes), then
-Service Bus will unlock the message automatically and make it available
+the lock timeout expires (for example, if the application crashes), then
+Service Bus unlocks the message automatically and makes it available
 to be received again.
 
 In the event that the application crashes after processing the message
