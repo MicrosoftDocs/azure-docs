@@ -52,27 +52,27 @@ The following notes and guidance are for developers working with the Azure Key V
 
 
 ## Downloaded packages  
-When a client was getting a dependency to Key Vault the following were downloaded
-### Previous package list downloaded
-    - package id="Hyak.Common" version="1.0.2" targetFramework="net45"
-    - package id="Microsoft.Azure.Common" version="2.0.4" targetFramework="net45"
-    - package id="Microsoft.Azure.Common.Dependencies" version="1.0.0" targetFramework="net45"
-    - package id="Microsoft.Azure.KeyVault" version="1.0.0" targetFramework="net45"
-    - package id="Microsoft.Bcl" version="1.1.9" targetFramework="net45"
-    - package id="Microsoft.Bcl.Async" version="1.0.168" targetFramework="net45"
-    - package id="Microsoft.Bcl.Build" version="1.0.14" targetFramework="net45"
-    - package id="Microsoft.Net.Http" version="2.2.22" targetFramework="net45"
+When a client is processing a  dependency on Key Vault the following were downloaded
+### Previous package list
+- package id="Hyak.Common" version="1.0.2" targetFramework="net45"
+- package id="Microsoft.Azure.Common" version="2.0.4" targetFramework="net45"
+- package id="Microsoft.Azure.Common.Dependencies" version="1.0.0" targetFramework="net45"
+- package id="Microsoft.Azure.KeyVault" version="1.0.0" targetFramework="net45"
+- package id="Microsoft.Bcl" version="1.1.9" targetFramework="net45"
+- package id="Microsoft.Bcl.Async" version="1.0.168" targetFramework="net45"
+- package id="Microsoft.Bcl.Build" version="1.0.14" targetFramework="net45"
+- package id="Microsoft.Net.Http" version="2.2.22" targetFramework="net45"
 
-### Current package list downloaded
-    - package id="Microsoft.Azure.KeyVault" version="2.0.0-preview" targetFramework="net45"
-    - package id="Microsoft.Rest.ClientRuntime" version="2.2.0" targetFramework="net45"
-    - package id="Microsoft.Rest.ClientRuntime.Azure" version="3.2.0" targetFramework="net45"
-
-
+### Current package list
+- package id="Microsoft.Azure.KeyVault" version="2.0.0-preview" targetFramework="net45"
+- package id="Microsoft.Rest.ClientRuntime" version="2.2.0" targetFramework="net45"
+- package id="Microsoft.Rest.ClientRuntime.Azure" version="3.2.0" targetFramework="net45"
 
 
-## Additional APIs and functionality introduced
-  - Sync versions of the async methods have been added
+
+
+## Additional APIs and functionality
+  - Synchronous versions of the asynchronous methods have been added
   - Retry logic has been added
   - Since *KeyAttributes* and *SecretAttributes* were sharing the same properties, these are now changed to use derived properties from a class Attribute that has the common properties.
 
