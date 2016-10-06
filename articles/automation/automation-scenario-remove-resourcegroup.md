@@ -54,7 +54,7 @@ The following steps will walk you through the execution of this runbook and help
 
 1. From the Azure portal, open your Automation account and click **Runbooks**.
 2. Select the **Remove-ResourceGroup** runbook and click **Start**.
-3. When you start the runbook, the **Start Runbook** blade opens and you can configure the parameters. Enter the names of resource groups in your subscription that you can use for testing and will cause no harm if accidentally deleted.<br> ![Remove-ResouceGroup Parameters](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-input-parameters.png)
+3. When you start the runbook, the **Start Runbook** blade opens and you can configure the parameters. Enter the names of resource groups in your subscription that you can use for testing and will cause no harm if accidentally deleted.<br> ![Remove-ResouceGroup parameters](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-input-parameters.png)
 
     >[AZURE.NOTE] Make sure **Previewmode** is set to **true** to avoid deleting the selected resource groups.  **Note** that this runbook will not remove the resource group that contains the Automation account that is running this runbook.  
 
