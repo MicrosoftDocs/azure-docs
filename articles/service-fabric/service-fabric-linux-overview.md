@@ -36,4 +36,11 @@ The preview supports interaction with the cluster through Azure CLI. For Java de
 
 ## Next steps
 
-Get familiar with the [Reliable Actors](service-fabric-reliable-actors-introduction.md) and [Reliable Services](service-fabric-reliable-services-introduction.md) programming frameworks.
+
+1. Get familiar with the [Reliable Actors](service-fabric-reliable-actors-introduction.md) and [Reliable Services](service-fabric-reliable-services-introduction.md) programming frameworks.
+
+2. [Prepare your development environment on Linux](service-fabric-get-started-linux.md)
+
+3. [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
+
+4. [Create your first Service Fabric Java application on Linux](service-fabric-create-your-first-linux-application-with-java.md)

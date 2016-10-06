@@ -83,7 +83,6 @@ This section lists articles which were updated recently, where the update was bi
 
 | &nbsp; | Title | Description |
 | --: | :-- | :-- |
-| 25 | [Get the client id and key for connecting to SQL Database from code](sql-database-client-id-keys.md) | Get the client id and key for accessing SQL Database from code. |
 | 26 | [Connect to SQL Database by using Java with JDBC on Windows](sql-database-develop-java-simple.md) | Presents a Java code sample you can use to connect to Azure SQL Database. The sample uses JDBC, and it runs on a Windows client computer. |
 | 27 | [Connect to SQL Database by using Node.js](sql-database-develop-nodejs-simple.md) | Presents a Node.js code sample you can use to connect to Azure SQL Database. |
 | 28 | [SQL Database Development Overview](sql-database-develop-overview.md) | Learn about available connectivity libraries and best practices for applications connecting to SQL Database. |
@@ -163,7 +162,7 @@ This section lists articles which were updated recently, where the update was bi
 | 74 | [What is an Azure elastic database pool?](sql-database-elastic-pool.md) | Manage hundreds or thousands of databases using a pool. One price for a set of performance units can be distributed over the pool. Move databases in or out at will. |
 | 75 | [Create a new elastic database pool with C#](sql-database-elastic-pool-create-csharp.md) | Use C# database development techniques to create a scalable elastic database pool in Azure SQL Database so you can share resources across many databases. |
 | 76 | [Create a new elastic database pool with PowerShell](sql-database-elastic-pool-create-powershell.md) | Learn how to use PowerShell to scale-out Azure SQL Database resources by creating a scalable elastic database pool to manage multiple databases. |
-| 77 | [C# database development: Create and configure an elastic database pool for SQL database](sql-database-elastic-pool-csharp.md) | Use C# database development techniques to create an Azure SQL Database elastic database pool so you can share resources across many databases. |
+| 77 | [C# database development: Create and configure an elastic database pool for SQL database](sql-database-elastic-pool-create-csharp.md) | Use C# database development techniques to create an Azure SQL Database elastic database pool so you can share resources across many databases. |
 | 78 | [PowerShell script for identifying databases suitable for an elastic database pool](sql-database-elastic-pool-database-assessment-powershell.md) | An elastic database pool is a collection of available resources that are shared by a group of elastic databases. This document provides a Powershell script to help assess the suitability of using an elastic database pool for a group of databases. |
 | 79 | [Monitor and manage an elastic database pool with C#](sql-database-elastic-pool-manage-csharp.md) | Use C# database development techniques to manage an Azure SQL Database elastic database pool. |
 | 80 | [Monitor and manage an elastic database pool with the Azure portal](sql-database-elastic-pool-manage-portal.md) | Learn how to use the Azure portal and SQL Database's built-in intelligence to manage, monitor, and right-size a scalable elastic database pool to optimize database performance and manage cost. |
@@ -329,7 +328,7 @@ This section lists articles which were updated recently, where the update was bi
 
 | &nbsp; | Title | Description |
 | --: | :-- | :-- |
-| 166 | [Manage Azure SQL Database with PowerShell](sql-database-command-line-tools.md) | Azure SQL Database management with PowerShell. |
+| 166 | [Manage Azure SQL Database with PowerShell](sql-database-manage-powershell.md) | Azure SQL Database management with PowerShell. |
 | 167 | [SQL Database tutorial: Connect Excel to an Azure SQL database and create a report](sql-database-connect-excel.md) | Learn how to connect Microsoft Excel to Azure SQL database in the cloud. Import data into Excel for reporting and data exploration. |
 | 168 | [Create a SQL database and perform common database setup tasks with PowerShell cmdlets](sql-database-get-started-powershell.md) | Learn now to create a SQL database with PowerShell. Common database setup tasks can be managed through PowerShell cmdlets. |
 | 169 | [Getting Started with Azure SQL Data Sync (Preview)](sql-database-get-started-sql-data-sync.md) | This tutorial helps you get started with the Azure SQL Data Sync (Preview). |

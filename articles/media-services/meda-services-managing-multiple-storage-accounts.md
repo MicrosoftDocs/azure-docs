@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Managing Media Services Assets across Multiple Storage Accounts" 
+	pageTitle="Managing Media Services Assets across Multiple Storage Accounts | Microsoft Azure" 
 	description="This articles give you guidance on how to manage media services assets across multiple storage accounts." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"    
+	ms.date="09/26/2016"    
 	ms.author="juliako"/>
 
 

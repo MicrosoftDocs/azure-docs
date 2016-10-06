@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Reference in Analytics in Application Insights | Microsoft Azure" 
-	description="Reference for statements in Analytics, 
-	             the powerful search tool of Application Insights. " 
+	description="Reference for statements in Analytics, the powerful search tool of Application Insights. " 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -13,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
+	ms.date="08/10/2016" 
 	ms.author="awills"/>
 
 # Reference for Analytics

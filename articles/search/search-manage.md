@@ -23,7 +23,7 @@
 - [PowerShell](search-manage-powershell.md)
 - [REST API](search-get-started-management-api.md)
 
-Azure Search is a fully-managed, cloud-based search service used for building a rich search experience into custom apps. This article covers the *service administration* tasks that you can perform in in the [Azure Portal](https://portal.azure.com) for a search service that you've already provisioned. *Service administration* is light-weight by design, limited to the following tasks:
+Azure Search is a fully managed, cloud-based search service used for building a rich search experience into custom apps. This article covers the *service administration* tasks that you can perform in the [Azure portal](https://portal.azure.com) for a search service that you've already provisioned. *Service administration* is lightweight by design, limited to the following tasks:
 
 - Manage and secure access to the *api-keys* used for read or write access to your service.
 - Adjust service capacity by changing the allocation of partitions and replicas.
@@ -31,11 +31,11 @@ Azure Search is a fully-managed, cloud-based search service used for building a 
 
 **Not in scope** 
 
-*Content management* (or index management) refers to operations such as analyzing search traffic to understand query volume, discover which terms people search for, and how successful search results are in guiding customers to specific documents in your index. Content management is beyond the scope of this article. See [Search Traffic Analytics for Azure Search](search-traffic-analytics.md) for instructions on how to gain insights into internal operations at the index level.
+*Content management* (or index management) refers to operations such as analyzing search traffic to understand query volume, discover which terms people search for, and how successful search results are in guiding customers to specific documents in your index. Content management is beyond the scope of this article. For instructions on how to gain insights into internal operations at the index level, see [Search Traffic Analytics for Azure Search](search-traffic-analytics.md).
 
-*Query performance* is also beyond the scope of this article. See [Performance and optimization in Azure Search](search-performance-optimization.md) for more information.
+*Query performance* is also beyond the scope of this article. For more information, see [Performance and optimization in Azure Search](search-performance-optimization.md).
 
-Azure Search does not provide built-in solutions for disaster recovery or backup-and-restore. For customers who push objects and data to their service, the source code for creating and populating an index is the de facto restore option. For disaster recovery, customers can opt-in for redundancy via an additional service in a different regional data center. See [Performance and optimization in Azure Search](search-performance-optimization.md) for guidance on geo-distribution of workloads.
+Azure Search does not provide built-in solutions for disaster recovery or backup-and-restore. For customers who push objects and data to their service, the source code for creating and populating an index is the de facto restore option if you delete an index by mistake. For disaster recovery, customers opt in for redundancy via an additional service in a different regional data center. For more information, see [Performance and optimization in Azure Search](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 ## Administrator rights in Azure Search
@@ -44,25 +44,25 @@ Provisioning or decommissioning the service itself can be done by an Azure subsc
 
 Within a service, anyone with access to the service URL and an admin api-key has read-write access to the service, with commensurate ability to add, delete, or modify server objects such as api-keys, indexes, indexers, data sources, schedules, and role assignments as implemented through [RBAC-defined roles](#rbac).
 
-All user interaction with Azure Search falls within one one of thse modes: read-write access to the service (administrator rights), or read-only access to the service (query rights).
+All user interaction with Azure Search falls within one of these modes: read-write access to the service (administrator rights), or read-only access to the service (query rights). For more information, see [Manage the api-keys](#manage-keys).
 
 <a id="sys-info"></a>
 ## Logging in Azure Search and system information
 
-Azure Search does not expose log files for an individual service either through the portal or programmatic interfaces. At the Basic tier and above, Microsoft monitors all Azure Search services for 99.9% availability per service level agreements (SLA). If the service is slow or request throughput falls below SLA thresholds, support teams will review log files available to them and address the issue.
+Azure Search does not expose log files for an individual service either through the portal or programmatic interfaces. At the Basic tier and above, Microsoft monitors all Azure Search services for 99.9% availability per service level agreements (SLA). If the service is slow or request throughput falls below SLA thresholds, support teams review the log files available to them and address the issue.
 
 In terms of general information about your service, you can obtain information in the following ways:
 
 - In the portal, on the service dashboard, through notifications, properties, and status messages.
 - Using [PowerShell](search-manage-powershell.md) or the [Management REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx) to [get service properties](https://msdn.microsoft.com/library/azure/dn832694.aspx), or status on index resource usage.
-- Using [search traffic analytics](search-traffic-analytics.md), as noted previously.
+- Via [search traffic analytics](search-traffic-analytics.md), as noted previously.
 
 <a id="manage-keys"></a>
 ## Manage the api-keys
 
-All requests to a search service will need an api-key that was generated specifically for your service. This api-key is the sole mechanism for authenticating access to your search service endpoint. 
+All requests to a search service need an api-key that was generated specifically for your service. This api-key is the sole mechanism for authenticating access to your search service endpoint. 
 
-An api-key is a string composed of randomly generated numbers and letters. It is generated exclusively by your service. Through RBAC permissions, you can delete or read the keys, but you can't specify a user-defined string (specifically, if you have passwords that you routinely use, you can't override the generated value with a user-defined password). 
+An api-key is a string composed of randomly generated numbers and letters. It is generated exclusively by your service. Through [RBAC permissions](#rbac), you can delete or read the keys, but you can't override a generated key with a user-defined string (specifically, if you have passwords that you routinely use, you can't substitute an api-key with a user-defined password). 
 
 Two types of keys are used to access your search service:
 
@@ -80,23 +80,23 @@ To get or regenerate api-keys, open the service dashboard. Click **KEYS** to sli
 <a id="rbac"></a>
 ## Set RBAC roles on administrative access for Azure Search
 
-Azure provides a [global role-based authorization model](../active-directory/role-based-access-control-configure.md) for all services managed through the Portal or Resource Manager APIs. Owner, Contributor, and Reader roles determine the level of service administration for Active Directory users, groups, and security principals assigned to each role. 
+Azure provides a [global role-based authorization model](../active-directory/role-based-access-control-configure.md) for all services managed through the portal or Resource Manager APIs. Owner, Contributor, and Reader roles determine the level of service administration for Active Directory users, groups, and security principals assigned to each role. 
 
-In terms of Azure Search, role-based access controls determine the following administrative tasks:
+For Azure Search, RBAC permissions determine the following administrative tasks:
 
 Role|Task
 ---|---
 Owner|Create or delete the service or any object on the service, including api-keys, indexes, indexers, indexer data sources, and indexer schedules.<p>View service status, including counts and storage size.<p>Add or delete role membership (only an Owner can manage role membership).<p>Subscription administrators and service owners have automatic membership in the Owners role.
-Contributor|Has the same level of access as Owner, except for RBAC role management. For example, a Contributor can view and regenerate `api-key`, but he or she cannot modify role memberships.
+Contributor|Same level of access as Owner, minus RBAC role management. For example, a Contributor can view and regenerate `api-key`, but cannot modify role memberships.
 Reader|View service status and query keys. Members of this role cannot change service configuration, nor can they view admin keys.
 
-Note that roles do not grant access rights to the service endpoint. Search service operations, such as index management, index population, and queries on search data, are controlled through api-keys, not roles. See "Authorization for management versus data operations" in [What is Role-based access control](../active-directory/role-based-access-control-what-is.md) for more information.
+Note that roles do not grant access rights to the service endpoint. Search service operations, such as index management, index population, and queries on search data, are controlled through api-keys, not roles. For more information, see "Authorization for management versus data operations" in [What is Role-based access control](../active-directory/role-based-access-control-what-is.md).
 
 
 <a id="secure-keys"></a>
 ## Secure the api-keys
 
-Key security is ensured by restricting access via the portal or Resource Manager interfaces (PowerShell or command line interface). As noted, subscription administrators can view and regenerate all api-keys. As a precaution, review role assignments to understand who has access to the admin keys.
+Key security is ensured by restricting access via the portal or Resource Manager interfaces (PowerShell or command-line interface). As noted, subscription administrators can view and regenerate all api-keys. As a precaution, review role assignments to understand who has access to the admin keys.
 
 1. In the service dashboard, click the Access icon to slide open the Users blade.
    ![][7]
@@ -110,7 +110,7 @@ Another way to view access permissions is to click **Roles** on the Users blade.
 
 In the dashboard, resource monitoring is limited to the information shown in the service dashboard and a few metrics that you can obtain by querying the service. On the service dashboard, in the Usage section, you can quickly determine whether partition resource levels are adequate for your application.
 
-Using the Search Service API, you can get a count on documents and indexes. There are hard limits associated with these counts based on the pricing tier. See [Search service limits](search-limits-quotas-capacity.md) for details. 
+Using the Search Service API, you can get a count on documents and indexes. There are hard limits associated with these counts based on the pricing tier. For more information, see [Search service limits](search-limits-quotas-capacity.md). 
 
 +	[Get Index Statistics](http://msdn.microsoft.com/library/dn798942.aspx)
 +	[Count Documents](http://msdn.microsoft.com/library/dn798924.aspx)
@@ -129,7 +129,7 @@ When you add capacity through either resource, the service uses them automatical
 
 ### Add replicas
 
-Increasing queries per second (QPS) or achieving high availability is done by adding replicas. Each replica has one copy of an index, so adding one more replica translates to one more index available for handling service query requests. Currently, the rule of thumb is that you need at least 3 replicas for high availability (see [Capacity Planning](search-capacity-planning.md) for details).
+Increasing queries per second (QPS) or achieving high availability is done by adding replicas. Each replica has one copy of an index, so adding one more replica translates to one more index available for handling service query requests. A minimum of 3 replicas are required for high availability (see [Capacity Planning](search-capacity-planning.md) for details).
 
 A search service having more replicas can load balance query requests over a larger number of indexes. Given a level of query volume, query throughput is going to be faster when there are more copies of the index available to service the request. If you are experiencing query latency, you can expect a positive impact on performance once the additional replicas are online.
 
@@ -139,13 +139,13 @@ Although query throughput goes up as you add replicas, it does not precisely dou
 
 Most service applications have a built-in need for more replicas rather than partitions. For those cases where an increased document count is required, you can add partitions if you signed up for Standard service. Basic tier does not provide for additional partitions.
 
-At the Standard tier, partitions are added in multiples of 12 (specifically, 1, 2, 3, 4, 6, or 12). This is an artifact of sharding; an index is created in 12 shards, which can all be stored on 1 partition or equally divided into 2, 3, 4, 6, or 12 partitions (one shard per partition).
+At the Standard tier, partitions are added in multiples of 12 (specifically, 1, 2, 3, 4, 6, or 12). This is an artifact of sharding. An index is created in 12 shards, which can all be stored on 1 partition or equally divided into 2, 3, 4, 6, or 12 partitions (one shard per partition).
 
 ### Remove replicas
 
 After periods of high query volumes, you will most likely reduce replicas after search query loads have normalized (for example, after holiday sales are over).
 
-To do this, you just move the replica slider back to a lower number. There are no further steps required on your part. Lowering the replica count relinquishes virtual machines in the data center. Your query and data ingestion operations will now run on fewer VMs than before. The minimum limit is one replica.
+To do this, move the replica slider back to a lower number. There are no further steps required on your part. Lowering the replica count relinquishes virtual machines in the data center. Your query and data ingestion operations will now run on fewer VMs than before. The minimum limit is one replica.
 
 ### Remove partitions
 
@@ -170,7 +170,7 @@ Once you understand the kinds of operations pertaining to service administration
 - [PowerShell](search-manage-powershell.md)
 - [Management REST API](search-get-started-management-api.md)
 
-Also, if you haven't done so already, look at the [performance and optimization article](search-performance-optimization.md), and optionally watch the video noted in the in the previous section for more depth and demonstrations of recommended techniques.
+Also, if you haven't done so already, look at the [performance and optimization article](search-performance-optimization.md), and optionally watch the video noted in the previous section for more depth and demonstrations of recommended techniques.
 
 
 <!--Image references-->

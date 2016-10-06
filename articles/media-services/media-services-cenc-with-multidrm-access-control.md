@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="CENC with Multi-DRM and Access Control: A Reference Design and Implementation on Azure and Azure Media Services" 
+	pageTitle="CENC with Multi-DRM and Access Control: A Reference Design and Implementation on Azure and Azure Media Services | Microsoft Azure" 
 	description="Learn about how to licensing the Microsoft® Smooth Streaming Client Porting Kit." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
 #CENC with Multi-DRM and Access Control: A Reference Design and Implementation on Azure and Azure Media Services

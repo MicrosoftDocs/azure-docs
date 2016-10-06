@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="06/16/2016"
+	ms.date="10/03/2016"
 	ms.author="meetb"/>
 
 # Connect to SQL Database by using Node.js

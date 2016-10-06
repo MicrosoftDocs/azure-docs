@@ -111,7 +111,7 @@ When you specify UDs in the *ClusterConfig.json*, you can choose the name for ea
 For more detailed information on upgrade domains and fault domain read the [Describing a Service Fabric cluster](service-fabric-cluster-resource-manager-cluster-description.md) article.
 
 ### Step 5: Download the Service Fabric standalone package  for Windows Server
-[Download the Service Fabric standalone package for Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) and unzip the package, either to a deployment machine that is not part of the cluster, or to one of the machines that will be a part of your cluster.
+[Download the Service Fabric standalone package for Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) and unzip the package, either to a deployment machine that is not part of the cluster, or to one of the machines that will be a part of your cluster. You may rename the unzipped folder to `Microsoft.Azure.ServiceFabric.WindowsServer`.
 
 <a id="createcluster"></a>
 ## Create your cluster
@@ -127,16 +127,16 @@ Open one of the *ClusterConfig.json* files from the package you downloaded and m
 |**NodeTypes**|Node types allow you to separate your cluster nodes into various groups. A cluster must have at least one NodeType. All nodes in a group have the following common characteristics: <br> **Name** - This is the node type name. <br>**Endpoint Ports** - These are various named end points (ports) that are associated with this node type. You can use any port number that you wish, as long as they do not conflict with anything else in this manifest and are not already in use by any other application running on the machine/VM. <br> **Placement Properties** - These describe properties for this node type that you are used as placement constraints for the system services or your services. These properties are user-defined key/value pairs that provide extra meta data for a given node. Examples of node properties would be whether the node has a hard drive or graphics card, the number of spindles in its hard drive, cores, and other physical properties. <br> **Capacities** - Node capacities define the name and amount of a particular resource that a particular node has available for consumption. For example, a node may define that it has capacity for a metric called “MemoryInMb” and that it has 2048 MB available by default. These capacities are used at runtime to ensure that services that require particular amounts of resources are placed on the nodes that have those resources available in the required amounts.<br>**IsPrimary** - If you have more than one NodeType defined ensure that only one is set to primary with the value *true*, which is where the system services run. All other node types should be set to the value *false*|
 |**Nodes**|These are the details for each of the nodes that are part of the cluster (node type, node name, IP address, fault domain, and upgrade domain of the node). The machines you want the cluster to be created on need to be listed here with their IP addresses. <br> If you use the same IP address for all the nodes, then a one-box cluster is created, which you can use for testing purposes. Do not use One-box clusters for deploying production workloads.|
 
-### Step 5: Run the TestConfiguration Script
+### Step 2: Run the TestConfiguration Script
 
-This script tests your infrastructure as defined in the cluster.JSON, to make sure that the needed permissions, the machines are connected to each other etc., so that the deployment can succeed. It is basically a mini Best Practice Analyzer. We will continue to add more validations to this tool over time to make it more robust.
+This script tests your infrastructure as defined in the cluster.JSON, to make sure that the needed permissions, the machines are connected to each other etc., so that the deployment can succeed. It is basically a mini Best Practices Analyzer. We will continue to add more validations to this tool over time to make it more robust.
 
 This script can be run on any machine that has administrator access to all the machines that are listed as nodes in the cluster configuration file. The machine that this script is run on may or may not be part of the cluster.
 
 ```powershell
 
-PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer.5.3.202.9494> .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json
-Trace folder already exists. Traces will be written to existing trace folder: C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer.5.3.202.9494\DeploymentTraces
+PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer> .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json
+Trace folder already exists. Traces will be written to existing trace folder: C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer\DeploymentTraces
 Running Best Practices Analyzer...
 Best Practices Analyzer completed successfully.
 
@@ -207,6 +207,7 @@ This script can be run on any machine that has administrator access to all the m
 .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json   
 ```
 
+
 <a id="telemetry"></a>
 ## Telemetry data collected and how to opt out of it
 
@@ -244,6 +245,9 @@ In order to disable telemetry, add under the following to “properties” eleme
 ## Preview features included in this package
 
 None. 
+
+>[AZURE.NOTE] The new [GA version of the standalone cluster for Windows Server (version 5.3.204.x)](https://azure.microsoft.com/blog/azure-service-fabric-for-windows-server-now-ga/) will allow you to upgrade your cluster to future releases, manually or automatically. However, since this feature is not available on the preview versions, you will need to create a new cluster using the GA version and migrate your data and applications from the preview cluster. Stay tuned for more details on this feature. 
+
 
 ## Next steps
 - [Configuration settings for standalone Windows cluster](service-fabric-cluster-manifest.md)
