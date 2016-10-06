@@ -23,11 +23,13 @@
 At the end of this tutorial, you will have two Node.js console applications:
 
 * **SimulateDeviceConfiguration.js**, a simulated device app that waits for a desired configuration update and reports the status of a simulated configuration update process.
-* **SetDesiredConfigurationAndQuery.js**, a Node.js app meant to be run from the back end, which sets the desired configuration on a device and queries the configuration update process.
+* **SetDesiredConfigurationAndQuery**, a .NET console app meant to be run from the back end, which sets the desired configuration on a device and queries the configuration update process.
 
 > [AZURE.NOTE] The article [IoT Hub SDKs][lnk-hub-sdks] provides information about the various SDKs that you can use to build both device and back-end applications.
 
 To complete this tutorial you need the following:
+
++ Microsoft Visual Studio 2015.
 
 + Node.js version 0.10.x or later.
 
@@ -152,96 +154,80 @@ In this section, you create a Node.js console app that connects to your hub as *
 
 In this section, you will create a Node.js console app that updates the *desired properties* on the twin associated with **myDeviceId** with a new telemetry configuration object. It then queries the device twins stored in the hub and shows the difference between the desired and reported configurations of the device.
 
-1. Create a new empty folder called **setdesiredandqueryapp**. In the **setdesiredandqueryapp** folder, create a new package.json file using the following command at your command-prompt. Accept all the defaults:
+1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **SetDesiredConfigurationAndQuery**.
 
-    ```
-    npm init
-    ```
+	![New Visual C# Windows Classic Desktop project][img-createapp]
 
-2. At your command-prompt in the **setdesiredandqueryapp** folder, run the following command to install the **azure-iothub** package:
+2. In Solution Explorer, right-click the **SetDesiredConfigurationAndQuery** project, and then click **Manage Nuget Packages**.
 
-    ```
-    npm install azure-iothub@dtpreview node-uuid --save
-    ```
+3. In the **Nuget Package Manager** window, make sure that **Include prerelease** is checked, search for **microsoft.azure.devices**, select **Install** to install the the *prerelease* version of the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] Nuget package and its dependencies.
 
-3. Using a text editor, create a new **SetDesiredAndQuery.js** file in the **addtagsandqueryapp** folder.
+	![Nuget Package Manager window][img-servicenuget]
 
-4. Add the following code to the **SetDesiredAndQuery.js** file, and substitute the **{service connection string}** placeholder with the connection string you copied when you created your hub:
+4. Add the following `using` statements at the top of the **Program.cs** file:
 
-        'use strict';
-        var iothub = require('azure-iothub');
-        var uuid = require('node-uuid');
-        var connectionString = '{service connection string}';
-        var registry = iothub.Registry.fromConnectionString(connectionString);
-         
-        registry.getTwin('myDeviceId', function(err, twin){
-            if (err) {
-                console.error(err.constructor.name + ': ' + err.message);
-            } else {
-                var newConfigId = uuid.v4();
-                var newFrequency = process.argv[2] || "5m";
-                var patch = {
-                    properties: {
-                        desired: {
-                            telemetryConfig: {
-                                configId: newConfigId,
-                                sendFrequency: newFrequency
+		using Microsoft.Azure.Devices;
+        using System.Threading;
+        using Newtonsoft.Json;
+
+5. Add the following fields to the **Program** class. Replace the placeholder value with the connection string for the IoT hub that you created in the previous section.
+
+		static RegistryManager registryManager;
+        static string connectionString = "{iot hub connection string}";
+
+6. Add the following method to the **Program** class:
+
+        static private async Task SetDesiredConfigurationAndQuery()
+        {
+            var twin = await registryManager.GetTwinAsync("myDeviceId");
+            var patch = new {
+                    properties = new {
+                        desired = new {
+                            telemetryConfig = new {
+                                configId = Guid.NewGuid().ToString(),
+                                sendFrequency = "5m"
                             }
                         }
-                    }
-                }
-                twin.update(patch, function(err) {
-                    if (err) {
-                        console.error('Could not update twin: ' + err.constructor.name + ': ' + err.message);
-                    } else {
-                        console.log(twin.deviceId + ' twin updated successfully');
                     }
-                });
-                setInterval(queryTwins, 10000);
-            }
-        });
-            
+                };
+            
+            await registryManager.UpdateTwinAsync(twin.DeviceId, JsonConvert.SerializeObject(patch), twin.ETag);
+            Console.WriteLine("Updated desired state");
 
-    The **Registry** object exposes all the methods required to interact with device twins from the service. The previous code, after it initializes the **Registry** object, retrieves the twin for **myDeviceId**, and updates its desired properties with a new telemetry configuration object. After that, it calls the **queryTwins** function event 10 seconds.
+            while (true)
+            {
+                var query = registryManager.CreateQuery("SELECT * FROM devices WHERE deviceId = 'myDeviceId'");
+                var results = await query.GetNextAsTwinAsync();
+                foreach (var result in results)
+                {
+                    Console.WriteLine("Config report for: {0}", result.DeviceId);
+                    Console.WriteLine("Desired telemetryConfig: {0}", JsonConvert.SerializeObject(result.Properties.Desired["telemetryConfig"], Formatting.Indented));
+                    Console.WriteLine("Reported telemetryConfig: {0}", JsonConvert.SerializeObject(result.Properties.Reported["telemetryConfig"], Formatting.Indented));
+                    Console.WriteLine();
+                }
+                Thread.Sleep(10000);
+            }
+        }
+
+	The **Registry** object exposes all the methods required to interact with device twins from the service. The previous code, after it initializes the **Registry** object, retrieves the twin for **myDeviceId**, and updates its desired properties with a new telemetry configuration object.
+    After that, every 10 seconds, it queries the twins stored in the hub and prints the desired and reported telemetry configurations. Refer to the [IoT Hub query language][lnk-query] to learn how to generate rich reports across all your devices.
 
     > [AZURE.IMPORTANT] This application queries IoT Hub every 10 seconds for illustrative purposes. Use queries to generate user-facing reports across many devices, and not to detect changes. If your solution requires real-time notifications of device events use [device-to-cloud messages][lnk-d2c].
 
-5. Add the following code right before the `registry.getDeviceTwin()` invocation to implement the **queryTwins** function:
+7. Finally, add the following lines to the **Main** method:
 
-        var queryTwins = function() {
-            var query = registry.createQuery("SELECT * FROM devices WHERE deviceId = 'myDeviceId'", 100);
-            query.nextAsTwin(function(err, results) {
-                if (err) {
-                    console.error('Failed to fetch the results: ' + err.message);
-                } else {
-                    console.log();
-                    results.forEach(function(twin) {
-                        var desiredConfig = twin.properties.desired.telemetryConfig;
-                        var reportedConfig = twin.properties.reported.telemetryConfig;
-                        console.log("Config report for: " + twin.deviceId);
-                        console.log("Desired: ");
-                        console.log(JSON.stringify(desiredConfig, null, 2));
-                        console.log("Reported: ");
-                        console.log(JSON.stringify(reportedConfig, null, 2));
-                    });
-                }
-            });
-        };
+        registryManager = RegistryManager.CreateFromConnectionString(connectionString);
+        SetDesiredConfigurationAndQuery();
+        Console.WriteLine("Press any key to quit.");
+        Console.ReadLine();
 
-    The previous code queries the twins stored in the hub and prints the desired and reported telemetry configurations. Refer to the [IoT Hub query language][lnk-query] to learn how to generate rich reports across all your devices.
-
-
-8. With **SimulateDeviceConfiguration.js** running, run the application with:
-
-        node SetDesiredAndQuery.js 5m
-
-    You should see the reported configuration change from **Success** to **Pending** to **Success** again with the new active send frequency of five minutes instead of 24 hours.
+8. With **SimulateDeviceConfiguration.js** running, run the .NET application from Visual Studio using **F5** and you should see the reported configuration change from **Success** to **Pending** to **Success** again with the new active send frequency of five minutes instead of 24 hours.
 
     > [AZURE.IMPORTANT] There is a delay of up to a minute between the device report operation and the query result. This is to enable the query infrastructure to work at very high scale. To retrieve consistent views of a single twin use the **getDeviceTwin** method in the **Registry** class.
 
 ## Next steps
 
-In this tutorial, you set a desired configuration as *desired properties* from a back-end application, and wrote a simulated device app to detect that change and simulate a multi-step update process reporting its status as *reported properties* to the twin.
+In this tutorial, you set a desired configuration as *desired properties* from the back end, and wrote a device app to detect that change and simulate a multi-step update process reporting its status as *reported properties* to the twin.
 
 Use the following resources to learn how to:
 
@@ -249,10 +235,14 @@ Use the following resources to learn how to:
 - schedule or perform operations on large sets of devices see the [Use jobs to schedule and broadcast device operations][lnk-schedule-jobs] tutorial.
 - control devices interactively (such as turning on a fan from a user-controlled app), with the [Use direct methods][lnk-methods-tutorial] tutorial.
 
+<!-- images -->
+[img-servicenuget]: media/iot-hub-csharp-node-twin-getstarted/servicesdknuget.png
+[img-createapp]: media/iot-hub-csharp-node-twin-getstarted/createnetapp.png
 
 <!-- links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/1.1.0-preview-004
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-query]: iot-hub-devguide-query-language.md
