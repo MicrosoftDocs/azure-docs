@@ -97,7 +97,7 @@ The Basic tier includes, and is strictly limited to, 100 brokered connections pe
 
 >[AZURE.NOTE] 1,000 brokered connections are included with the Standard messaging tier (via the base charge) and can be shared across all queues, topics, and subscriptions within the associated Azure subscription.
 
-
+<br />
 
 >[AZURE.NOTE] Billing is based on the peak number of concurrent connections and is prorated hourly based on 744 hours per month.
 
