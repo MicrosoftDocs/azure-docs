@@ -47,15 +47,15 @@ In this section, you will create a Linux-based HBase cluster in HDInsight using 
     - **Cluster login name and password**: The default login name is **admin**.
     - **SSH username and password**: The default username is **sshuser**.  You can rename it. 
 	
-	Some properties have been hard-coded into the template. For example:<br/>
+	Some properties have been hard-coded into the template. For example:
 
-    - Location: East US
-	- Cluster worker node count: 4
-    - Default storage account: &lt;Cluster Name>store
-    - Virtual network name: &lt;Cluster Name>-vnet
-    - Virtual network address space: 10.0.0.0/16
-    - Subnet name: default
-    - Subnet address range: 10.0.0.0/24
+    - __Location__: East US
+    - __Cluster worker node count__: 4
+    - __Default storage account__: &lt;Cluster Name>store
+    - __Virtual network name__: &lt;Cluster Name>-vnet
+    - __Virtual network address space__: 10.0.0.0/16
+    - __Subnet name__: default
+    - __Subnet address range__: 10.0.0.0/24
 
 3. Click **OK** to save the parameters.
 4. From the **Custom deployment** blade, click **Resource group** dropdown box, and then click **New** to create a new resource group.  The resource group is a container that groups the cluster, the dependent storage account and other linked resource.
@@ -66,9 +66,16 @@ After you complete the tutorial, you might want to delete the cluster. With HDIn
 
 To begin working with your new HBase cluster, you can use the procedures found in [Get started using HBase with Hadoop in HDInsight](hdinsight-hbase-tutorial-get-started.md).
 
-##Connect to the HBase cluster using HBase Java RPC APIs
+## Connect to the HBase cluster using HBase Java RPC APIs
 
-1.	Create an infrastructure as a service (IaaS) virtual machine into the same Azure virtual network and the same subnet. So both the virtual machine and the HBase cluster use the same internal DNS server to resolve host names. To do so, you must choose the **From Gallery** option, and select the virtual network instead of a data center. For instructions, see [Create a Virtual Machine Running Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md). A standard Windows Server 2012 image with a small VM size is sufficient.
+1.	Create an infrastructure as a service (IaaS) virtual machine into the same Azure virtual network and the same subnet. For instructions on creating a new IaaS virutal machine, see [Create a Virtual Machine Running Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md). When following the steps in this document, you must use the following for the Network configuration:
+
+    - __Virtual network__: &lt;Cluster name>-vnet
+    - __Subnet__: default
+
+    > [AZURE.IMPORTANT] Replace &lt;Cluster name> with the name you used when creating the HDInsight cluster in previous steps.
+
+    Using these values will configure the virtual machine to use the same virtual network and subnet as the HDInsight cluster. This will allow them to directly communicate with each other.
 
 2.	When using a Java application to connect to HBase remotely, you must use the fully qualified domain name (FQDN). To determine this, you must get the connection-specific DNS suffix of the HBase cluster. To do that, you can use one of the following methods:
 
