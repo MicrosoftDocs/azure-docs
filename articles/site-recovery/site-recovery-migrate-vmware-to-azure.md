@@ -48,9 +48,9 @@ This section describes the deployment steps in the new Azure portal.
 5. [Install the Mobility service](site-recovery-vmware-to-azure.md#step-6-replication-application). Each VM you want to protect needs the Mobility service installed. This service sends data to the process server. The Mobility service can be installed manually or pushed and installed automatically by the process server when protection for the VM is enabled. Firewall rules on the VMs that you want to migrate should be configured to allow push installation of this service.
 6. [Enable replication](site-recovery-vmware-to-azure.md#enable-replication). Enable replication for the VMs you want to migrate. You can discover the virtual machines that you want to migrate to Azure from the VMware environment, using the registered vCenter server/vSphere host.
 7. [ Run an unplanned failover](site-recovery-failover.md#run-an-unplanned-failover). After initial replication is complete, you can run an unplanned failover from the VMware source to Azure. Optionally, you can create a recovery plan and run an unplanned failover, to migrate multiple virtual machines to Azure. [Learn more](site-recovery-create-recovery-plans.md) about recovery plans.
-8. Navigate to the VM, click on More->Complete Migration. This will remove the machine from the vault, and it will no longer be protected by Azure Site Recovery. Protection configuration and settings for this machine will be cleaned up automatically. Azure Site Recovery billing for the machine will also be stopped. 
+8. Navigate to the VM, click on More->Complete Migration. This removes the machine from the vault, and it will no longer be protected by Azure Site Recovery. Protection configuration and settings for this machine will be cleaned up automatically. Azure Site Recovery billing for the machine will also be stopped. 
 
-![Completemigration](./media/site-recovery-migrate-vmware-to-azure/completemigration.png)
+![Completemigration](./media/site-recovery-migrate-vmware-to-azure/completemigration.PNG)
 
 ## Next steps
 
