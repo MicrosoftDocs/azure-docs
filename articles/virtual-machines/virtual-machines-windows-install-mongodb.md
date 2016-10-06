@@ -17,7 +17,7 @@
     ms.author="iainfou"/>
 
 # Install and Configure MongoDB on a Windows VM in Azure
-[MongoDB](http://www.mongodb.org) is a popular open-source, high-performance NoSQL database. This article guides you installing and configuring MongoDB on a Windows Server 2012 R2 virtual machine (VM) in Azure created using the Resource Manager deployment model. You can also [install MongoDB on a Linux VM in Azure](virtual-machines-linux-install-mongodb.md).
+[MongoDB](http://www.mongodb.org) is a popular open-source, high-performance NoSQL database. This article guides you through installing and configuring MongoDB on a Windows Server 2012 R2 virtual machine (VM) in Azure created using the Resource Manager deployment model. You can also [install MongoDB on a Linux VM in Azure](virtual-machines-linux-install-mongodb.md).
 
 
 ## Prerequisites
@@ -38,7 +38,7 @@ Before you install and configure MongoDB you need to create a VM and, ideally, a
 
 1. After you've connected to your VM using Remote Desktop, open Internet Explorer from the **Start** menu on the VM.
 
-2. Select 'Use recommended security, privacy, and compatibility settings' when Internet Explorer first opens and click 'OK'.
+2. Select **Use recommended security, privacy, and compatibility settings** when Internet Explorer first opens and click **OK**.
 
 3. Internet Explorer enhanced security configuration is enabled by default. Add the MongoDB website to the list of allowed sites:
 
