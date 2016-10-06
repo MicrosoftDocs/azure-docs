@@ -53,7 +53,7 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
 	      "sourceBlobContainer": { "type": "string" },
 	      "sourceBlobName": { "type": "string" },
 	      "sqlServerName": { "type": "string" },
-	      "databaseName": { "type": "string" },
+	      "databaseName": { "type": "string" },    
 	      "sqlServerUserName": { "type": "string" },
 	      "sqlServerPassword": { "type": "securestring" },
 	      "targetSQLTable": { "type": "string" }
@@ -64,7 +64,7 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
 	      "azureStorageLinkedServiceName": "AzureStorageLinkedService",
 	      "blobInputDatasetName": "BlobInputDataset",
 	      "sqlOutputDatasetName": "SQLOutputDataset",
-	      "pipelineName": "Blob2SQLPipeline"
+	      "pipelineName": "Blob2SQLPipeline"    
 	    },
 	    "resources": [
 	      {
@@ -76,39 +76,26 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
 	          {
 	            "type": "linkedservices",
 	            "name": "[variables('azureStorageLinkedServiceName')]",
-	            "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/',
-											parameters('dataFactoryName'))]" ],
+	            "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]" ],
 	            "apiVersion": "[variables('apiVersion')]",
 	            "properties": {
 	              "type": "AzureStorage",
 	              "description": "Azure Storage linked service",
 	              "typeProperties": {
-	                "connectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',
-											parameters('storageAccountName'),
-											';AccountKey=',
-											parameters('storageAccountKey'))]"
+	                "connectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]"
 	              }
 	            }
 	          },
 	          {
 	            "type": "linkedservices",
 	            "name": "[variables('azureSqlLinkedServiceName')]",
-	            "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/',
-											parameters('dataFactoryName'))]" ],
+	            "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]" ],
 	            "apiVersion": "[variables('apiVersion')]",
 	            "properties": {
 	              "type": "AzureSqlDatabase",
 	              "description": "Azure SQL linked service",
 	              "typeProperties": {
-	                "connectionString": "[concat('Server=tcp:',
-											parameters('sqlServerName'),
-											'.database.windows.net,1433;Database=',
-											parameters('databaseName'),
-											';User ID=',
-											parameters('sqlServerUserName'),
-											';Password=',
-											parameters('sqlServerPassword'),
-											';Trusted_Connection=False;Encrypt=True;Connection Timeout=30')]"
+	                "connectionString": "[concat('Server=tcp:',parameters('sqlServerName'),'.database.windows.net,1433;Database=', parameters('databaseName'), ';User ID=',parameters('sqlServerUserName'),';Password=',parameters('sqlServerPassword'),';Trusted_Connection=False;Encrypt=True;Connection Timeout=30')]"
 	              }
 	            }
 	          },
@@ -116,12 +103,8 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
 	            "type": "datasets",
 	            "name": "[variables('blobInputDatasetName')]",
 	            "dependsOn": [
-	              "[concat('Microsoft.DataFactory/dataFactories/',
-							parameters('dataFactoryName'))]",
-	              "[concat('Microsoft.DataFactory/dataFactories/',
-							parameters('dataFactoryName'),
-							'/linkedServices/',
-							variables('azureStorageLinkedServiceName'))]"
+	              "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]",
+	              "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedServices/', variables('azureStorageLinkedServiceName'))]"
 	            ],
 	            "apiVersion": "[variables('apiVersion')]",
 	            "properties": {
@@ -156,12 +139,8 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
 	            "type": "datasets",
 	            "name": "[variables('sqlOutputDatasetName')]",
 	            "dependsOn": [
-	              "[concat('Microsoft.DataFactory/dataFactories/',
-							parameters('dataFactoryName'))]",
-	              "[concat('Microsoft.DataFactory/dataFactories/',
-							parameters('dataFactoryName'),
-							'/linkedServices/',
-							variables('azureSqlLinkedServiceName'))]"
+	              "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]",
+	              "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedServices/', variables('azureSqlLinkedServiceName'))]"
 	            ],
 	            "apiVersion": "[variables('apiVersion')]",
 	            "properties": {
@@ -190,24 +169,11 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
 	            "type": "datapipelines",
 	            "name": "[variables('pipelineName')]",
 	            "dependsOn": [
-	              "[concat('Microsoft.DataFactory/dataFactories/',
-							parameters('dataFactoryName'))]",
-	              "[concat('Microsoft.DataFactory/dataFactories/',
-							parameters('dataFactoryName'),
-							'/linkedServices/',
-							variables('azureStorageLinkedServiceName'))]",
-	              "[concat('Microsoft.DataFactory/dataFactories/',
-							parameters('dataFactoryName'),
-							'/linkedServices/',
-							variables('azureSqlLinkedServiceName'))]",
-	              "[concat('Microsoft.DataFactory/dataFactories/',
-							parameters('dataFactoryName'),
-							'/datasets/',
-							variables('sqlOutputDatasetName'))]",
-	              "[concat('Microsoft.DataFactory/dataFactories/',
-							parameters('dataFactoryName'),
-							'/datasets/',
-							variables('blobInputDatasetName'))]"
+	              "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]",
+	              "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedServices/', variables('azureStorageLinkedServiceName'))]",
+	              "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedServices/', variables('azureSqlLinkedServiceName'))]",
+	              "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/datasets/', variables('sqlOutputDatasetName'))]",
+	              "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/datasets/', variables('blobInputDatasetName'))]"
 		          ],
 	            "apiVersion": "[variables('apiVersion')]",
 	            "properties": {
@@ -247,7 +213,6 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
 	      }
 	    ]
 	  }
-
 
 
 Create a JSON file named **ADFCopyTutorialARM-Parameters.json** that contains parameters for the Azure Resource Manager template. Specify values for these parameters and save the JSON file.  
