@@ -44,198 +44,171 @@ In this section, you create the following Data Factory entities:
 Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** folder with the following content:
 
 	{
-	    "contentVersion": "1.0.0.0",
-	    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	    "parameters": {
-	      "storageAccountName": { "type": "string" },
-	      "storageAccountKey": { "type": "securestring" },
-	      "sqlServerName": { "type": "string" },
-	      "sqlDatabaseName": { "type": "string" },
-	      "sqlUserID": { "type": "string" },
-	      "sqlPassword": { "type": "securestring" },
-	      "suffix": { "type": "string" }
-	    },
-	    "variables": {
-	      "apiVersion": "2015-10-01",
-		  "dataFactoryName":  "[concat('ADFTutorialDataFactory', parameters('suffix'))]",
-	      "storageLinkedServiceName": "[concat('StorageLinkedService', parameters('suffix'))]",
-	      "sqlLinkedServiceName": "[concat('SqlLinkedService', parameters('suffix'))]",
-	      "storageDataset": "[concat('storageDataset', parameters('suffix'))]",
-	      "sqlDataset": "[concat('sqlDataset', parameters('suffix'))]",
-	      "pipelineName": "[concat('BlobtoSqlDbCopyPipeline', parameters('suffix'))]"
-	    },
+	  "contentVersion": "1.0.0.0",
+	  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	  "parameters": {
+	    "dataFactoryName": { "type": "string" },
+	    "storageAccountName": { "type": "string" },
+	    "storageAccountKey": { "type": "securestring" },
+	    "sourceBlobContainer": { "type": "string" },
+	    "sourceBlobName": { "type": "string" },
+	    "sqlServerName": { "type": "string" },
+	    "databaseName": { "type": "string" },    
+	    "sqlServerUserName": { "type": "string" },
+	    "sqlServerPassword": { "type": "securestring" },
+	    "targetSQLTable": { "type": "string" }
+	  },
+	  "variables": {
+	    "apiVersion": "2015-10-01",
+	    "azureSqlLinkedServiceName": "AzureSqlLinkedService",
+	    "azureStorageLinkedServiceName": "AzureStorageLinkedService",
+	    "blobInputDatasetName": "BlobInputDataset",
+	    "sqlOutputDatasetName": "SQLOutputDataset",
+	    "pipelineName": "Blob2SQLPipeline"    
+	  },
 	  "resources": [
 	    {
-	      "name": "[variables('dataFactoryName')]",
+	      "name": "[parameters('dataFactoryName')]",
 	      "apiVersion": "[variables('apiVersion')]",
 	      "type": "Microsoft.DataFactory/datafactories",
 	      "location": "westus",
 	      "resources": [
 	        {
-				"dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'))]" ],
-				"type": "Microsoft.DataFactory/datafactories/linkedservices",
-				"name": "[concat(variables('dataFactoryName'), '/', variables('storageLinkedServiceName'))]",
-				"apiVersion": "[variables('apiVersion')]",
-				"properties": {
-					"type": "AzureStorage",
-					"description": "Azure Blobs Storage Linked Service",
-					"typeProperties": {
-						"connectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]"
-					}
+	          "type": "linkedservices",
+	          "name": "[variables('azureStorageLinkedServiceName')]",
+	          "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]" ],
+	          "apiVersion": "[variables('apiVersion')]",
+	          "properties": {
+				"type": "AzureStorage",
+				"description": "Azure Storage linked service",
+				"typeProperties": {
+		            "connectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]"
 				}
-			},
-	        {
-				"dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'))]" ],
-				"type": "Microsoft.DataFactory/datafactories/linkedservices",
-				"name": "[concat(variables('dataFactoryName'), '/', variables('sqlLinkedServiceName'))]",
-				"apiVersion": "[variables('apiVersion')]",
-				"properties": {
-					"type": "AzureSqlDatabase",
-					"description": "Azure SQL linked service for output table",
-					"typeProperties": {
-						"connectionString": "[concat('Data Source=tcp:', parameters('sqlServerName'), '.database.windows.net,1433;Initial Catalog=', parameters('sqlDatabaseName'), ';Integrated Security=False;User ID=', parameters('sqlUserId'), ';Password=', parameters('sqlPassword'), ';Connect Timeout=30;Encrypt=True')]"
-					}
-				}
+	          }
 	        },
 	        {
-	          "type": "Microsoft.DataFactory/datafactories/datasets",
-	          "name": "[concat(variables('dataFactoryName'), '/', variables('StorageDataset'))]",
+	          "type": "linkedservices",
+	          "name": "[variables('azureSqlLinkedServiceName')]",
+	          "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]" ],
+	          "apiVersion": "[variables('apiVersion')]",
+	          "properties": {
+				"type": "AzureSqlDatabase",
+				"description": "Azure SQL linked service",
+				"typeProperties": {
+		            "connectionString": "[concat('Server=tcp:',parameters('sqlServerName'),'.database.windows.net,1433;Database=', parameters('databaseName'), ';User ID=',parameters('sqlServerUserName'),';Password=',parameters('sqlServerPassword'),';Trusted_Connection=False;Encrypt=True;Connection Timeout=30')]"
+				}
+	          }
+	        },
+	        {
+	          "type": "datasets",
+	          "name": "[variables('blobInputDatasetName')]",
 	          "dependsOn": [
-				"[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'))]",
-	            "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'), '/linkedServices/', variables('storageLinkedServiceName'))]"
+	            "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]",
+	            "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedServices/', variables('azureStorageLinkedServiceName'))]"
 	          ],
 	          "apiVersion": "[variables('apiVersion')]",
 	          "properties": {
-	            "structure": [
-	              {
-	                "name": "Column0",
-	                "type": "String"
-	              },
-	              {
-	                "name": "Column1",
-	                "type": "String"
-	              }
-	            ],
-	            "type": "AzureBlob",
-	            "linkedServiceName": "[variables('storageLinkedServiceName')]",
-	            "typeProperties": {
-		      	  "folderPath": "adftutorial/",
-	              "fileName": "emp.txt",
+				"type": "AzureBlob",
+				"linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
+				"typeProperties": {
+	              "folderPath": "[concat(parameters('sourceBlobContainer'), '/')]",
+	              "fileName":  "[parameters('sourceBlobName')]",
 	              "format": {
 	                "type": "TextFormat",
-	                "columnDelimiter": ",",
-	                "nullValue": ""
+	                "columnDelimiter": ","
 	              }
-	            },
+            	},
 	            "availability": {
 	              "frequency": "Day",
 	              "interval": 1
 	            },
-	            "external": true,
-	            "policy": { }
+            	"external": true,
 	          }
 	        },
 	        {
-	          "type": "Microsoft.DataFactory/datafactories/datasets",
-	          "name": "[concat(variables('dataFactoryName'), '/', variables('sqlDataset'))]",
-	          "dependsOn": [            
-				  "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'))]",
-				  "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'), '/linkedServices/', variables('sqlLinkedServiceName'))]"
-	          ],
-	          "apiVersion": "[variables('apiVersion')]",
-	          "properties": {
-	            "structure": [
-	              {
-	                "name": "FirstName",
-	                "type": "String"
-	              },
-	              {
-	                "name": "LastName",
-	                "type": "String"
-	              }
-	            ],
-	            "type": "AzureSqlTable",
-	            "linkedServiceName": "[variables('sqlLinkedServiceName')]",
-	            "typeProperties": {
-	              "tableName": "emp"
-	            },
-	            "availability": {
-	              "frequency": "Day",
-	              "interval": 1
-	            },
-	            "external": false,
-	            "policy": { }
-	          }
-	        },
-	        {
-	          "type": "Microsoft.DataFactory/datafactories/datapipelines",
-	          "name": "[concat(variables('dataFactoryName'), '/', variables('PipelineName'))]",
+	          "type": "datasets",
+	          "name": "[variables('sqlOutputDatasetName')]",
 	          "dependsOn": [
-				"[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'))]",            
-	            "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'), '/linkedServices/', variables('storageLinkedServiceName'))]",
-	            "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'), '/linkedServices/', variables('sqlLinkedServiceName'))]",
-	            "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'), '/datasets/', variables('storageDataset'))]",
-	            "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'), '/datasets/', variables('sqlDataset'))]"
+	            "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]",
+	            "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedServices/', variables('azureSqlLinkedServiceName'))]"
 	          ],
 	          "apiVersion": "[variables('apiVersion')]",
 	          "properties": {
-	            "description": "Copies data from Azure Blob to Sql DB",
+				"type": "AzureSqlTable",
+            	"linkedServiceName": "[variables('azureSqlLinkedServiceName')]",
+            	"typeProperties": {
+	              "tableName": "[parameters('targetSQLTable')]"
+            	},
+	            "availability": {
+	              "frequency": "Day",
+	              "interval": 1
+	            }
+	          }
+	        },
+	        {
+	          "type": "datapipelines",
+	          "name": "[variables('pipelineName')]",
+	          "dependsOn": [
+	            "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]",
+	            "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedServices/', variables('azureStorageLinkedServiceName'))]",
+	            "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedServices/', variables('azureSqlLinkedServiceName'))]",
+	            "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/datasets/', variables('sqlOutputDatasetName'))]",
+	            "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/datasets/', variables('blobInputDatasetName'))]"
+	          ],
+	          "apiVersion": "[variables('apiVersion')]",
+	          "properties": {
 	            "activities": [
 	              {
-	                "name": "BlobtoSqlDbCopyActivity",
-	                "description": "Copies data from Azure Blob to Sql DB",
-	                "type": "Copy",
-	                "inputs": [ { "name": "[variables('storageDataset')]" } ],
-	                "outputs": [ { "name": "[variables('sqlDataset')]" } ],
-	                "typeProperties": {
-	                  "source": {
-	                    "type": "BlobSource",
-	                    "recursive": false
-	                  },
-	                  "sink": {
-	                    "type": "SqlSink",
-	                    "writeBatchSize": 0,
-	                    "writeBatchTimeout": "00:00:00"
-	                  },
-	                  "translator": {
-	                    "type": "TabularTranslator",
-	                    "columnMappings": "Column0:FirstName,Column1:LastName"
-	                  }
-	                },
-	                "policy": {
-	                  "timeout": "02:00:00",
+	                "name": "CopyFromAzureBlobToAzureSQL",
+	                "description": "Copy data frm Azure blob to Azure SQL",
+
+                	"type": "Copy",
+	                "inputs": [ { "name": "[variables('blobInputDatasetName')]" } ],
+	                "outputs": [ { "name": "[variables('sqlOutputDatasetName')]" } ],
+                	"typeProperties": {
+                  		"source": {
+                    		"type": "BlobSource"
+                  		},
+                  		"sink": {
+                    		"type": "SqlSink"
+                  		}
+                	},
+	                "Policy": {
 	                  "concurrency": 1,
 	                  "executionPriorityOrder": "NewestFirst",
-	                  "retry": 3
-	                },
-	                "scheduler": {
-	                  "frequency": "Day",
-	                  "interval": 1
+	                  "style": "StartOfInterval",
+	                  "retry": 0,
+	                  "timeout": "01:00:00"
 	                }
 	              }
 	            ],
 	            "start": "2016-10-01T00:00:00Z",
-	            "end": "2016-10-02T00:00:00Z"
+	            "end": "2016-10-03T00:00:00Z"
 	          }
 	        }
 	      ]
 	    }
 	  ]
-	}	 
+	}
+ 
+	 
 
 Create a JSON file named **ADFCopyTutorialARM-Parameters.json** that contains parameters for the Azure Resource Manager template. Specify values for these parameters and save the JSON file.  
 
 	{
-		"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-	    "contentVersion": "1.0.0.0",
-	  	"parameters": {
-	    	"storageAccountName": { "value": "<azure storage account name>" },
-		    "storageAccountKey": { "value": "<azure storage key>" },
-	    	"sqlServerName": { "value": "<Azure SQL server name>" },
-	    	"sqlDatabaseName": { "value": "<Azure SQL database name>" },
-	    	"sqlUserID": { "value": "<Azure SQL user name>" },
-	    	"sqlPassword": { "value": "<Azure SQL user password>" },
-	    	"suffix": { "value": "<sufix. example: datetimestamp>" }
+	  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+	  "contentVersion": "1.0.0.0",
+	  "parameters": {
+	    "dataFactoryName": { "value": "<Name of the data factory>" },
+	    "storageAccountName": { "value": "<Azure Storage account name>" },
+	    "storageAccountKey": { "value": "<Azure Storage account key>" },    
+	    "sourceBlobContainer": { "value": "adftutorial" },
+	    "sourceBlobName": { "value": "emp.txt" },
+	    "sqlServerName": { "value": "<Azure SQL server name>" },
+	    "databaseName": { "value": "<Azure SQL database name>" },
+	    "sqlServerUserName": { "value": "<Azure SQL server - user name>" },
+	    "sqlServerPassword" :  {"value":  "<Azure SQL server - user password>"},
+	    "targetSQLTable": { "value": "emp" }
 	  }
 	}
 
@@ -274,4 +247,182 @@ See [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) fo
 You can also use Monitor and Manage App to monitor your data pipelines. See [Monitor and manage Azure Data Factory pipelines using Monitoring App](data-factory-monitor-manage-app.md) for details about using the application.
 
   
+## Template details
 
+### Parameters 
+You pass values for these parameters in the parameter file. You could create separate parameter file for each environment (for example: dev, test, and production). 
+
+	  "parameters": {
+	    "dataFactoryName": { "type": "string" },
+	    "storageAccountName": { "type": "string" },
+	    "storageAccountKey": { "type": "securestring" },
+	    "sourceBlobContainer": { "type": "string" },
+	    "sourceBlobName": { "type": "string" },
+	    "sqlServerName": { "type": "string" },
+	    "databaseName": { "type": "string" },    
+	    "sqlServerUserName": { "type": "string" },
+	    "sqlServerPassword": { "type": "securestring" },
+	    "targetSQLTable": { "type": "string" }
+	  },
+
+### Variables
+You use these variables in defining Data Factory entities (linked services, datasets, and pipeline). 
+
+	  "variables": {
+	    "apiVersion": "2015-10-01",
+	    "azureSqlLinkedServiceName": "AzureSqlLinkedService",
+	    "azureStorageLinkedServiceName": "AzureStorageLinkedService",
+	    "blobInputDatasetName": "BlobInputDataset",
+	    "sqlOutputDatasetName": "SQLOutputDataset",
+	    "pipelineName": "Blob2SQLPipeline"    
+	  },
+
+### Resources in template
+You have only resource in the template and that is the data factory. The data factory itself has embedded resources that define linked services, datasets, and pipeline.  
+
+	  "resources": [
+	    {
+	      "name": "[parameters('dataFactoryName')]",
+	      "apiVersion": "[variables('apiVersion')]",
+	      "type": "Microsoft.DataFactory/datafactories",
+	      "location": "westus",
+	    }
+	  ]
+
+### Resources inside data factory
+These are the resources defined inside the data factory resource. 
+
+#### Azure Storage linked service
+You specify the name and key of Azure storage account in this section. 
+
+	        {
+	          "type": "linkedservices",
+	          "name": "[variables('azureStorageLinkedServiceName')]",
+	          "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]" ],
+	          "apiVersion": "[variables('apiVersion')]",
+	          "properties": {
+				"type": "AzureStorage",
+				"description": "Azure Storage linked service",
+				"typeProperties": {
+		            "connectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]"
+				}
+	          }
+	        },
+
+#### Azure SQL linked service
+You specify the Azure SQL server name, database name, user name, and user password in this section.
+
+	        {
+	          "type": "linkedservices",
+	          "name": "[variables('azureSqlLinkedServiceName')]",
+	          "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]" ],
+	          "apiVersion": "[variables('apiVersion')]",
+	          "properties": {
+				"type": "AzureSqlDatabase",
+				"description": "Azure SQL linked service",
+				"typeProperties": {
+		            "connectionString": "[concat('Server=tcp:',parameters('sqlServerName'),'.database.windows.net,1433;Database=', parameters('databaseName'), ';User ID=',parameters('sqlServerUserName'),';Password=',parameters('sqlServerPassword'),';Trusted_Connection=False;Encrypt=True;Connection Timeout=30')]"
+				}
+	          }
+	        },
+
+#### Azure blob dataset
+You specify the name of the container and the folder that contains the input blobs. 
+
+	        {
+	          "type": "datasets",
+	          "name": "[variables('blobInputDatasetName')]",
+	          "dependsOn": [
+	            "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]",
+	            "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedServices/', variables('azureStorageLinkedServiceName'))]"
+	          ],
+	          "apiVersion": "[variables('apiVersion')]",
+	          "properties": {
+				"type": "AzureBlob",
+				"linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
+				"typeProperties": {
+	              "folderPath": "[concat(parameters('sourceBlobContainer'), '/')]",
+	              "fileName":  "[parameters('sourceBlobName')]",
+	              "format": {
+	                "type": "TextFormat",
+	                "columnDelimiter": ","
+	              }
+            	},
+	            "availability": {
+	              "frequency": "Day",
+	              "interval": 1
+	            },
+            	"external": true,
+	          }
+	        },
+
+#### Azure SQL dataset
+You specify the name of the table in the Azure SQL database that will hold the copied data from the Azure Blob storage. 
+
+	        {
+	          "type": "datasets",
+	          "name": "[variables('sqlOutputDatasetName')]",
+	          "dependsOn": [
+	            "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]",
+	            "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedServices/', variables('azureSqlLinkedServiceName'))]"
+	          ],
+	          "apiVersion": "[variables('apiVersion')]",
+	          "properties": {
+				"type": "AzureSqlTable",
+            	"linkedServiceName": "[variables('azureSqlLinkedServiceName')]",
+            	"typeProperties": {
+	              "tableName": "[parameters('targetSQLTable')]"
+            	},
+	            "availability": {
+	              "frequency": "Day",
+	              "interval": 1
+	            }
+	          }
+	        },
+
+
+#### Pipeline
+You define a pipeline that copies data from the Azure blob dataset to the Azure SQL dataset. 
+
+	        {
+	          "type": "datapipelines",
+	          "name": "[variables('pipelineName')]",
+	          "dependsOn": [
+	            "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]",
+	            "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedServices/', variables('azureStorageLinkedServiceName'))]",
+	            "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedServices/', variables('azureSqlLinkedServiceName'))]",
+	            "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/datasets/', variables('sqlOutputDatasetName'))]",
+	            "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/datasets/', variables('blobInputDatasetName'))]"
+	          ],
+	          "apiVersion": "[variables('apiVersion')]",
+	          "properties": {
+	            "activities": [
+	              {
+	                "name": "CopyFromAzureBlobToAzureSQL",
+	                "description": "Copy data frm Azure blob to Azure SQL",
+
+                	"type": "Copy",
+	                "inputs": [ { "name": "[variables('blobInputDatasetName')]" } ],
+	                "outputs": [ { "name": "[variables('sqlOutputDatasetName')]" } ],
+                	"typeProperties": {
+                  		"source": {
+                    		"type": "BlobSource"
+                  		},
+                  		"sink": {
+                    		"type": "SqlSink"
+                  		}
+                	},
+	                "Policy": {
+	                  "concurrency": 1,
+	                  "executionPriorityOrder": "NewestFirst",
+	                  "style": "StartOfInterval",
+	                  "retry": 0,
+	                  "timeout": "01:00:00"
+	                }
+	              }
+	            ],
+	            "start": "2016-10-09T00:00:00Z",
+	            "end": "2016-10-12T00:00:00Z"
+	          }
+	        }
+	      ]
