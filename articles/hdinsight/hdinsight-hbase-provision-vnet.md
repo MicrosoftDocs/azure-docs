@@ -43,23 +43,27 @@ In this section, you will create a Linux-based HBase cluster in HDInsight using 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. From the **Parameters** blade, enter the following:
+
     - **ClusterName**: Enter a name for the Hadoop cluster that you will create.
     - **Cluster login name and password**: The default login name is **admin**.
     - **SSH username and password**: The default username is **sshuser**.  You can rename it. 
-	
-	Some properties have been hard-coded into the template. For example:
 
-    - __Location__: East US
-    - __Cluster worker node count__: 4
-    - __Default storage account__: &lt;Cluster Name>store
-    - __Virtual network name__: &lt;Cluster Name>-vnet
-    - __Virtual network address space__: 10.0.0.0/16
-    - __Subnet name__: default
-    - __Subnet address range__: 10.0.0.0/24
+    Some properties have been hard-coded into the template. For example:
+
+    * __Location__: East US
+    * __Cluster worker node count__: 4
+    * __Default storage account__: &lt;Cluster Name>store
+    * __Virtual network name__: &lt;Cluster Name>-vnet
+    * __Virtual network address space__: 10.0.0.0/16
+    * __Subnet name__: default
+    * __Subnet address range__: 10.0.0.0/24
 
 3. Click **OK** to save the parameters.
+
 4. From the **Custom deployment** blade, click **Resource group** dropdown box, and then click **New** to create a new resource group.  The resource group is a container that groups the cluster, the dependent storage account and other linked resource.
+
 5. Click **Legal terms**, and then click **Create**.
+
 6. Click **Create**. You will see a new tile titled **Submitting deployment for Template deployment**. It takes about around 20 minutes to create a cluster. Once the cluster is created, you can click the cluster blade in the portal to open it.
 
 After you complete the tutorial, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Hadoop clusters in HDInsight by using the Azure Portal](hdinsight-administer-use-management-portal.md#delete-clusters).
