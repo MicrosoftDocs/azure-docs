@@ -21,15 +21,15 @@
 
 You can use Azure Service Fabric to create Service Fabric clusters on any virtual machines or computers running Windows Server. This means you can deploy and run Service Fabric applications in any environment that contains a set of interconnected Windows Server computers, be it on premises or with any cloud provider. Service Fabric provides a setup package to create Service Fabric clusters called the standalone Windows Server package.
 
-This article walks you through the steps for creating a cluster using the standalone package for Service Fabric on premises, though it can be easily adapted for any other environment such as other cloud providers.
+This article walks you through the steps for creating a cluster by using the standalone package for Service Fabric on premises, though it can be easily adapted for any other environment such as other cloud providers.
 
->[AZURE.NOTE] This standalone Windows Server package may contain features that are currently in preview and are not supported for commercial use. To see the list of features that are in preview, see Preview features included in this package. You can also [download a copy of the EULA](http://go.microsoft.com/fwlink/?LinkID=733084) now.
+>[AZURE.NOTE] This standalone Windows Server package may contain features that are currently in preview and are not supported for commercial use. To see the list of features that are in preview, see "Preview features included in this package." You can also [download a copy of the EULA](http://go.microsoft.com/fwlink/?LinkID=733084) now.
 
 
 <a id="getsupport"></a>
 ## Get support for the Service Fabric standalone package
 
-- Ask the community about the Service Fabric standalone package for Windows Server in the [Azure Service Fabric forum.](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?)
+- Ask the community about the Service Fabric standalone package for Windows Server in the [Azure Service Fabric forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
 
 - Open a ticket for [Professional Support for Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146 ).  Learn more about [Professional Support from Microsoft](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 
@@ -66,13 +66,13 @@ In the download package, you will find the following files:
 Perform the following steps before you create your cluster.
 
 ### Step 1: Plan your cluster infrastructure
-You are about to create a Service Fabric cluster on machines you own, so you can decide what kinds of failures you want the cluster to survive. For example, do you need separate power lines or Internet connections supplied to these machines? In addition, consider the physical security of these machines. Where are the machines located and who needs access to them? Once you make these decisions, you can logically map the machines to the various fault domains (see Step 4). The infrastructure planning for production clusters is more involved than for test clusters.
+You are about to create a Service Fabric cluster on machines you own, so you can decide what kinds of failures you want the cluster to survive. For example, do you need separate power lines or Internet connections supplied to these machines? In addition, consider the physical security of these machines. Where are the machines located and who needs access to them? After you make these decisions, you can logically map the machines to the various fault domains (see Step 4). The infrastructure planning for production clusters is more involved than for test clusters.
 
 <a id="preparemachines"></a>
 ### Step 2: Prepare the machines to meet the prerequisites
 Prerequisites for each machine that you want to add to the cluster:
 
-- A minimum of 16 GB of RAM is recommended
+- A minimum of 16 GB of RAM is recommended.
 - A minimum of 40 of GB available disk space is recommended.
 - A 4 core or greater CPU is recommended.
 - Connectivity to a secure network or networks for all machines.
@@ -81,10 +81,10 @@ Prerequisites for each machine that you want to add to the cluster:
 - [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell).
 - The [RemoteRegistry service](https://technet.microsoft.com/library/cc754820) should be running on all the machines.
 
-The cluster administrator deploying and configuring the cluster must have [administrator privileges](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) on each of the machines. You cannot install Service Fabric on a Domain Controller
+The cluster administrator deploying and configuring the cluster must have [administrator privileges](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) on each of the machines. You cannot install Service Fabric on a domain controller.
 
 ### Step 3: Determine the initial cluster size
-Each node in a standalone Service Fabric cluster has the Service Fabric runtime deployed and is a member of the cluster. In a typical production deployment, there is one node per OS instance (physical or virtual). The cluster size is determined by your business needs; however, you must have a minimum cluster size of three nodes (machines or virtual machines).
+Each node in a standalone Service Fabric cluster has the Service Fabric runtime deployed and is a member of the cluster. In a typical production deployment, there is one node per OS instance (physical or virtual). The cluster size is determined by your business needs. However, you must have a minimum cluster size of three nodes (machines or virtual machines).
 For development purposes, you can have more than one node on a given machine. In a production environment, Service Fabric supports only one node per physical or virtual machine.
 
 ### Step 4: Determine the number of fault domains and upgrade domains
@@ -124,7 +124,7 @@ Open one of the ClusterConfig.json files from the package you downloaded and mod
 
 |**Configuration Setting**|**Description**|
 |-----------------------|--------------------------|
-|**NodeTypes**|Node types allow you to separate your cluster nodes into various groups. A cluster must have at least one NodeType. All nodes in a group have the following common characteristics: <br> **Name**--This is the node type name. <br>**Endpoint ports**--These are various named end points (ports) that are associated with this node type. You can use any port number that does not conflict with anything else in this manifest and is not already in use by any other application running on the machine or virtual machine. <br> **Placement properties**--These describe properties for this node type that you used as placement constraints for the system services or your services. These properties are user-defined key/value pairs that provide extra metadata for a given node. Examples of node properties would be the existence of a hard drive or graphics card on the node, the number of spindles in its hard drive, cores, and other physical properties. <br> **Capacities**--Node capacities define the name and amount of a resource that a particular node has available for consumption. For example, a node may define that it has capacity for a metric called “MemoryInMb” and that it has 2048 MB of memory available by default. These capacities are used at runtime to ensure that services that require particular amounts of resources are placed on the nodes that have those resources available in the required amounts.<br>**IsPrimary**--If you have more than one NodeType defined, ensure that only one is set to primary (with the value *true*), which is where the system services run. All other node types should be set to the value *false*.
+|**NodeTypes**|Node types allow you to separate your cluster nodes into various groups. A cluster must have at least one NodeType. All nodes in a group have the following common characteristics: <br> **Name**: This is the node type name. <br>**Endpoint ports**: These are various named end points (ports) that are associated with this node type. You can use any port number that does not conflict with anything else in this manifest and is not already in use by any other application running on the machine or virtual machine. <br> **Placement properties**: These describe properties for this node type that you used as placement constraints for the system services or your services. These properties are user-defined key/value pairs that provide extra metadata for a given node. Examples of node properties would be the existence of a hard drive or graphics card on the node, the number of spindles in its hard drive, cores, and other physical properties. <br> **Capacities**: Node capacities define the name and amount of a resource that a particular node has available for consumption. For example, a node may define that it has capacity for a metric called “MemoryInMb” and that it has 2048 MB of memory available by default. These capacities are used at runtime to ensure that services that require particular amounts of resources are placed on the nodes that have those resources available in the required amounts.<br>**IsPrimary**: If you have more than one NodeType defined, ensure that only one is set to primary (with the value *true*), which is where the system services run. All other node types should be set to the value *false*.
 |**Nodes**|These are the details for each of the nodes that is part of the cluster (node type, node name, IP address, fault domain, and upgrade domain of the node). The machines you want the cluster to be created on need to be listed here with their IP addresses. <br> If you use the same IP address for all the nodes, then a one-box cluster is created, which you can use for testing purposes. Do not use one-box clusters for deploying production workloads.|
 
 ### Step 2: Run the TestConfiguration script
@@ -156,7 +156,7 @@ Passed                     : True
 ```
 
 ### Step 3: Run the create cluster script
-Once you have modified the cluster configuration in the JSON doc and added all the node information to it, run the cluster creation *CreateServiceFabricCluster.ps1* PowerShell script from the package folder and pass in the path to the JSON configuration file. When this is complete, accept the EULA.
+After you have modified the cluster configuration in the JSON doc and added all the node information to it, run the cluster creation *CreateServiceFabricCluster.ps1* PowerShell script from the package folder and pass in the path to the JSON configuration file. When this is complete, accept the EULA.
 
 This script can be run on any machine that has administrator access to all the machines that are listed as nodes in the cluster configuration file. The machine that this script is run on does not have to be part of the cluster.
 
@@ -171,13 +171,13 @@ This script can be run on any machine that has administrator access to all the m
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json -AcceptEULA
 ```
 
->[AZURE.NOTE] The deployment logs are available locally on the VM/Machine that you ran the CreateServiceFabricCluster PowerShell on. They are in a subfolder called DeploymentTraces under the folder where you ran the PowerShell command. To see if Service Fabric was deployed correctly to a machine, you can find the installed files in the C:\ProgramData directory, and the FabricHost.exe and Fabric.exe processes can be seen running in Task Manager.
+>[AZURE.NOTE] The deployment logs are available locally on the VM/machine that you ran the CreateServiceFabricCluster PowerShell on. They are in a subfolder called DeploymentTraces under the folder where you ran the PowerShell command. To see if Service Fabric was deployed correctly to a machine, you can find the installed files in the C:\ProgramData directory, and the FabricHost.exe and Fabric.exe processes can be seen running in Task Manager.
 
 ### Step 4: Connect to the cluster
 
 To connect to a secure cluster, see [Service fabric connect to secure cluster](service-fabric-connect-to-secure-cluster.md).
 
-To connect to an unsecure cluster, run the following PowerShell command
+To connect to an unsecure cluster, run the following PowerShell command:
 
 ```powershell
 
@@ -188,7 +188,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ```
 ### Step 5: Bring up Service Fabric Explorer
 
-Now you can connect to the cluster with Service Fabric Explorer either directly from one of the machines with http://localhost:19080/Explorer/index.html or remotely with http://<*IPAddressofaMachine*>:19080/Explorer/index.html
+Now you can connect to the cluster with Service Fabric Explorer either directly from one of the machines with http://localhost:19080/Explorer/index.html or remotely with http://<*IPAddressofaMachine*>:19080/Explorer/index.html.
 
 
 
@@ -201,7 +201,7 @@ You can add or remove nodes to your standalone Service Fabric cluster as your bu
 
 To remove a cluster, run the *RemoveServiceFabricCluster.ps1* PowerShell script from the package folder and pass in the path to the JSON configuration file. You can optionally specify a location for the log of the deletion.
 
-This script can be run on any machine that has administrator access to all the machines that are listed as nodes in the cluster configuration file. The machine that this script is run on does not have to be part of the cluster
+This script can be run on any machine that has administrator access to all the machines that are listed as nodes in the cluster configuration file. The machine that this script is run on does not have to be part of the cluster.
 
 ```
 .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json   
@@ -246,15 +246,15 @@ To disable telemetry, add the following to *properties* in your cluster config: 
 
 None.
 
->[AZURE.NOTE] With the new [GA version of the standalone cluster for Windows Server (version 5.3.204.x)](https://azure.microsoft.com/blog/azure-service-fabric-for-windows-server-now-ga/), you can upgrade your cluster to future releases, manually or automatically. Since this feature is not available on the preview versions, you will need to create a cluster using the GA version and migrate your data and applications from the preview cluster. Stay tuned for more details on this feature.
+>[AZURE.NOTE] With the new [GA version of the standalone cluster for Windows Server (version 5.3.204.x)](https://azure.microsoft.com/blog/azure-service-fabric-for-windows-server-now-ga/), you can upgrade your cluster to future releases, manually or automatically. Because this feature is not available on the preview versions, you will need to create a cluster by using the GA version and migrate your data and applications from the preview cluster. Stay tuned for more details on this feature.
 
 
 ## Next steps
-- [Configuration settings for standalone Windows cluster](service-fabric-cluster-manifest.md).
-- [Add or remove nodes to a standalone Service Fabric cluster](service-fabric-cluster-windows-server-add-remove-nodes.md).
-- [Create a standalone Service Fabric cluster with Azure VMs running Windows](service-fabric-cluster-creation-with-windows-azure-vms.md).
-- [Secure a standalone cluster on Windows using Windows security](service-fabric-windows-cluster-windows-security.md).
-- [Secure a standalone cluster on Windows using X509 certificates](service-fabric-windows-cluster-x509-security.md).
+- [Configuration settings for standalone Windows cluster](service-fabric-cluster-manifest.md)
+- [Add or remove nodes to a standalone Service Fabric cluster](service-fabric-cluster-windows-server-add-remove-nodes.md)
+- [Create a standalone Service Fabric cluster with Azure VMs running Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
+- [Secure a standalone cluster on Windows using Windows security](service-fabric-windows-cluster-windows-security.md)
+- [Secure a standalone cluster on Windows using X509 certificates](service-fabric-windows-cluster-x509-security.md)
 
 <!--Image references-->
 [Trusted Zone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
