@@ -28,9 +28,9 @@ The following information identifies the Azure Government boundary for Azure Key
 |--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | All data encrypted with an Azure Key Vault key may contain Regulated/controlled data. | Azure Key Vault metadata is not permitted to contain export controlled data. This metadata includes all configuration data entered when creating and maintaining your Key Vault.  Do not enter Regulated/controlled data into the following fields: Resource group names, Key Vault names, Subscription name |
 
-Key Vault is generally available in Azure Government. Just as in public, there is no extension, so Key Vault is available through PowerShell and CLI only.
+Key Vault is generally available in Azure Government. As in public, there is no extension, so Key Vault is available through PowerShell and CLI only.
 
-For additional information, please see the [Azure Key Vault public documentation](/key-vault-get-started).
+For additional information, see the [Azure Key Vault public documentation](/key-vault-get-started).
 
 ## Log Analytics
 
@@ -52,6 +52,7 @@ The following Log Analytics features and solutions are not currently available i
   - Selecting Azure storage accounts to monitor must be done through PowerShell or Resource Manager templates
   - Selecting virtual machines to enable the Log Analytics agent must be done through PowerShell or Resource Manager templates
 + Linux monitoring
++ Integration with System Center Operations Manager 2016
 + OMS Mobile applications
 + Microsoft Monitoring Agent VM Extension
 + OMS Linux Agent VM Extension
