@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Overview of Data Science Virtual Machine | Azure" 
-	description="The Data Science Virtual Machine is an Azure VM image available in both Windows and Linux editions, purpose built for doing data science productively." 
+	pageTitle="Data Science Virtual Machine overview | Azure" 
+	description="The Data Science Virtual Machine is an Azure VM image purpose built for doing data science productively, available in both Windows and Linux editions." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -17,7 +17,7 @@
 	ms.author="bradsev" /> 
 
 
-# Overview of Data Science Virtual Machine
+# Data Science Virtual Machine overview
 
 DSVM is a custom virtual machine image on Microsoft’s cloud specifically built for data science. It has many popular data science and other tools pre-installed and pre-configured to jump-start building intelligent applications using advanced analytics. These tools can be deployed on the cloud, on-premises or in a hybrid environment. It also includes tools that make it easy to work with various Azure Data and analytics products. You can explore and build predictive models on large-scale data sets using the Microsoft R Server (Developer Edition) on the VM. A host of other tools from the Open source community and from Microsoft are also included. The DSVM is available on both Windows Server 2012 and Linux (OpenLogic CentOS 7 based). 
 
