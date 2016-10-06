@@ -21,7 +21,7 @@
 > [AZURE.IMPORTANT]
 > Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-If you have stopped using Azure RemoteApp because of the [retirement announcement](https://go.microsoft.com/fwlink/?linkid=821148) or because you've finished your evaluation, you will need to migrate Azure RemoteApp to another app service. There are two different approaches for migrating: a self-managed (often called Infrastructure as a Service [IaaS]) deployment or a fully managed (often called Platform as a Service or Software as a Service [PaaS/SaaS]) offering. 
+If you have stopped using Azure RemoteApp because of the [retirement announcement](https://go.microsoft.com/fwlink/?linkid=821148) or because you've finished your evaluation, you will need to migrateoff of Azure RemoteApp to another app service. There are two different approaches for migrating: a self-managed (often called Infrastructure as a Service [IaaS]) deployment or a fully managed (often called Platform as a Service or Software as a Service [PaaS/SaaS]) offering. 
 
 Self-service IaaS is a do-it-yourself deployment that is completely managed, operated, and owned by you, directly deployed on virtual machines (VMs) or physical systems. At the other end, a fully managed PaaS/SaaS offering is more like Azure RemoteApp - a partner provides a service layer on top of a remoting solution that handles operational and servicing, while you, as the customer, do some image and app management.
 
@@ -44,8 +44,10 @@ Read on for more information, including examples of the different hosting option
 - Citrix Cloud: [Citrix existing cloud solution](https://www.citrix.com/products/citrix-cloud/). 
 - Citrix XenApp Express (in tech preview): Architecturally identical to Citrix Cloud except it will include simplified management UI and other features and capabilities that are similar to Azure RemoteApp.
 
-   Register for their tech preview, watch their [Ignite session](https://myignite.microsoft.com/videos/2792), and read more [here](http://now.citrix.com/remoteapp).    
+   Register for their tech preview, watch their [Ignite session](https://myignite.microsoft.com/videos/2792), and read more [here](http://now.citrix.com/remoteapp).   
+
 - Citrix Service Provider Program: The Citrix Service Provider Program makes it easy for service providers to deliver the simplicity of virtual cloud computing to SMBs, offering them the services they want in an easy, pay-as-you-go model. Citrix Service Providers grow their Microsoft SPLA businesses and expand their RDS platform investments with any device, anywhere access, the broadest application support, a rich high-def experience, added security and increased scalability. In turn, Citrix Service Providers attract more subscribers, increase customer satisfaction and reduce their operational costs. [Learn more](http://www.citrix.com/products/service-providers.html) or [find a partner](https://www.citrix.com/buy/partnerlocator.html).
+
 - Microsoft Hosted Service Provider: Hosting partners typically offer a fully managed hosted Windows desktop and application service, which may include managing the Azure resources, operating systems, applications, and helpdesk using the partner’s licensing agreements with Microsoft and other software providers along with being a Service Provider License Agreement to allow reselling of Subscriber Access License (SAL). Check out [this list of Hosted Service Providers](http://aka.ms/rdsonazurecertified) from our reference list that have specialty of assisting customers with their Azure RemoteApp migration.  
 
 ## Need more help?
