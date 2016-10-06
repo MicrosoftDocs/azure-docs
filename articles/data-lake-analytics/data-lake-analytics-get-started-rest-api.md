@@ -102,7 +102,7 @@ Replace \<`REDACTED`\> with the authorization token, \<`AzureSubscriptionID`\> w
 		]
 	}
 
-## Get information about a Data Lake Analytic account
+## Get information about a Data Lake Analytics account
 
 The following is the Curl command:
 
