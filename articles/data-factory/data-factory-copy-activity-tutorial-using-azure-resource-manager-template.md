@@ -707,3 +707,8 @@ Removed the dependency on data factory creation.
 		New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM-2.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters-2.json
 
 Now, repeat the above to steps to create more pipelines with the same data flow but to copy between different Azure storage accounts and Azure SQL databases. 
+
+You should see the pipelines in the diagram view in the portal.10-06-2016-1 and 10-06-2016-2 are the suffixes in two separate parameter files. 
+
+![Three pipelines in a data factory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/multiple-pipelines.png)
+
