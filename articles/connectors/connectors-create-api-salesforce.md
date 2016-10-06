@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="07/22/2016"
+ms.date="10/05/2016"
 ms.author="deonhe"/>
 
 # Get started with the Salesforce connector
@@ -56,8 +56,8 @@ Salesforce Connector has the following trigger(s):
 
 |Trigger | Description|
 |--- | ---|
-|[When an object is created](connectors-create-api-salesforceconnector.md#when-an-object-is-created)|This operation triggers a flow when an object is created.|
-|[When an object is modified](connectors-create-api-salesforceconnector.md#when-an-object-is-modified)|This operation triggers a flow when an object is modified.|
+|[When an object is created](connectors-create-api-salesforce.md#when-an-object-is-created)|This operation triggers a flow when an object is created.|
+|[When an object is modified](connectors-create-api-salesforce.md#when-an-object-is-modified)|This operation triggers a flow when an object is modified.|
 
 
 ## Salesforce connector actions
@@ -67,12 +67,12 @@ Salesforce Connector has the following actions:
 
 |Action|Description|
 |--- | ---|
-|[Get objects](connectors-create-api-salesforceconnector.md#get-objects)|Thie operation gets objects of a certain object type like 'Lead'.|
-|[Create object](connectors-create-api-salesforceconnector.md#create-object)|This operation creates an object.|
-|[Get object](connectors-create-api-salesforceconnector.md#get-object)|This operation gets an object.|
-|[Delete object](connectors-create-api-salesforceconnector.md#delete-object)|This operation deletes an object.|
-|[Update object](connectors-create-api-salesforceconnector.md#update-object)|This operation updates an object.|
-|[Get object types](connectors-create-api-salesforceconnector.md#get-object-types)|This operation lists the available object types.|
+|[Get objects](connectors-create-api-salesforce.md#get-objects)|Thie operation gets objects of a certain object type like 'Lead'.|
+|[Create object](connectors-create-api-salesforce.md#create-object)|This operation creates an object.|
+|[Get object](connectors-create-api-salesforce.md#get-object)|This operation gets an object.|
+|[Delete object](connectors-create-api-salesforce.md#delete-object)|This operation deletes an object.|
+|[Update object](connectors-create-api-salesforce.md#update-object)|This operation updates an object.|
+|[Get object types](connectors-create-api-salesforce.md#get-object-types)|This operation lists the available object types.|
 ### Action details
 
 Here are the details for the actions and triggers for this connector, along with their responses:
@@ -252,7 +252,7 @@ There are no parameters for this call
 TablesList
 
 
-| Property Name | Data Type | 
+| Property Name | Data Type |
 |---|---|
 |value|array|
 

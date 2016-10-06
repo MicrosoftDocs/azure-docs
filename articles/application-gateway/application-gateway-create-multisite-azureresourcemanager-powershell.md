@@ -106,14 +106,14 @@ Assign the address range 10.0.1.0/24 to the subnet2 variable to be used for the 
 
 	$subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name backendsubnet -AddressPrefix 10.0.1.0/24
 
-### Step 2
+### Step 3
 
 Create a virtual network named "appgwvnet" in resource group "appgw-rg" for the West US region using the prefix 10.0.0.0/16 with subnet 10.0.0.0/24, and 10.0.1.0/24.
 
 	$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet,$subnet2
 
 
-### Step 3
+### Step 4
 
 Assign a subnet variable for the next steps, which creates an application gateway.
 

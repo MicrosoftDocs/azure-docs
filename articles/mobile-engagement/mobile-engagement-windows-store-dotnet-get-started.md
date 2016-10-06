@@ -30,7 +30,7 @@ This tutorial demonstrates the simple broadcast scenario using Mobile Engagement
 
 ## Set up Mobile Engagement for your Windows Universal app
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##<a id="connecting-app"></a>Connect your app to the Mobile Engagement backend
 

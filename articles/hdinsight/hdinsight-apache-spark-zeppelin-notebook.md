@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2016" 
+	ms.date="10/05/2016" 
 	ms.author="nitinme"/>
 
 
@@ -30,9 +30,11 @@ HDInsight Spark clusters include Zeppelin notebooks that you can use to run Spar
 
 ## Launch a Zeppelin notebook
 
-1. In a web browser, open the following URL by replacing `<spark-cluster-name>` with your HDInsight Spark cluster name:
+1. From the Spark cluster blade, click **Cluster Dashboard**, and then click **Zeppelin Notebook**. If prompted, enter the admin credentials for the cluster.
 
-		http://<spark-cluster-name>.azurehdinsight.net/zeppelin
+	> [AZURE.NOTE] You may also reach the Zeppelin Notebook for your cluster by opening the following URL in your browser. Replace __CLUSTERNAME__ with the name of your cluster:
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
 
 2. Create a new notebook. From the header pane, click **Notebook**, and then click **Create New Note**.
 

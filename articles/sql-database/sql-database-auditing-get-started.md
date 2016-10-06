@@ -35,9 +35,6 @@ SQL Database Auditing allows you to:
 - **Report** on database activity. You can use preconfigured reports and a dashboard to get started quickly with activity and event reporting.
 - **Analyze** reports. You can find suspicious events, unusual activity, and trends.
 
-<!--
-> [AZURE.NOTE] You can now receive proactive alerts on anomalous database activities that may indicate potential security threats using the new **Threat Detection** feature, now in preview. Threat Detection can be turned on and configured from within the auditing configuration blade. See [Getting Started with Threat Detection](sql-database-threat-detection-get-started.md) for more details. **Currently, Threat Detection can only be used with Table Auditing**.
--->
 
 There are two **Auditing methods**:
 
