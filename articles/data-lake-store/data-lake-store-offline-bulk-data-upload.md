@@ -18,7 +18,7 @@
 
 # Use Azure Import-Export Service for offline copy of data to Data Lake Store
 
-In this article, you will learn about how to copy huge datasets (>200GB) into an Azure Data Lake Store using offline copy methods, like [Azure Import/Export Service](../storage/storage-import-export-service.md). Specifically, The file used as an example in this article is 339,420,860,416 bytes i.e. about 319GB on disk. Let's call this file 316GB.tsv.
+In this article, you will learn about how to copy huge datasets (>200GB) into an Azure Data Lake Store using offline copy methods, like [Azure Import/Export Service](../storage/storage-import-export-service.md). Specifically, The file used as an example in this article is 339,420,860,416 bytes i.e. about 319GB on disk. Let's call this file 319GB.tsv.
 
 Azure Import/Export Service allows you to securely transfer large amounts of data to Azure blob storage by shipping hard disk drives to an Azure data center.
 
