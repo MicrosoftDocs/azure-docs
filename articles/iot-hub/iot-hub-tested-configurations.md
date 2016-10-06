@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="09/27/2016"
+     ms.date="10/04/2016"
      ms.author="hegate"/>
 
 # OS Platforms and hardware compatibility with device SDKs
@@ -142,7 +142,7 @@ Can’t find the device you are looking for in the list? Not a problem, our Azur
 
 #### Devices list
 
-Each device has been certified to work with our SDK in the OS and language chosen by the device manufacturer. For example, BeagleBone Black works on Debian using our C, Javascript and Java language. This means that developers can build applications in any of those languages and OS combinations on the specific devices.
+Each device has been certified to work with our SDK in the OS and language chosen by the device manufacturer. For example, BeagleBone Black works on Debian using our C, Javascript and Java language. This means that developers can build applications in any of those languages and OS combinations on the specific devices. For a more convenient visualization of this table, you can check out the blog post http://bit.ly/azureiotdevices, that explains how to visualize it using Power BI.
 
 |Device| Tested OS |Language|Instructions|
 |:---------|:----------|:----------|:----------|
@@ -208,6 +208,7 @@ Each device has been certified to work with our SDK in the OS and language chose
 |[Atmark Armadillo-IoT Gateway G3](http://armadillo.atmark-techno.com/armadillo-iot-g3) |Debian | Java|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-armadillo-iot-gw-g3-java.md)|
 |[Atmark Armadillo-IoT Gateway G3L](http://armadillo.atmark-techno.com/armadillo-iot-g3l) |Debian | Java|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-armadillo-iot-gw-g3l-java.md)|
 |[Atmark Armadillo-IoT Gateway G3L](http://armadillo.atmark-techno.com/armadillo-iot-g3l) |Debian | C|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-armadillo-iot-gateway-g3l-c.md)|
+|[Autobase ATB-1A15C](http://www.autobase.biz/Korean/autobasetouch/ATB-1A15C.htm) |Windows 10 IoT Enterprise LTSB | C|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-iot-enterprise-ltsb-atb-1a15c-c.md)|
 |[Avalue EPC-BTCR](http://www.avalue.com.tw/Product/Embedded-Computing/Fanless-Industrial-System/Embedded-Computing-System/EPC-BTCR_2323) |Windows 10 | C#|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/Windows10-epc-btcr-csharp.md)|
 |[Avalue RIPAC-10P1]( http://www.avalue.com.tw/product/Intelligent-Systems/POS-Terminal/POS-hardware-systems/RiPac-10P1_2399) |Windows 10 | C#|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-ripac-10p1-csharp.md)|
 |[Avalue RITAB-10T1](http://www.avalue.com.tw/product/Intelligent-Systems/Mobile-Solution/Mobile-Solution/RiTab-10T1_2384) |Windows 10 | C#|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-ritab-10t1-csharp.md)|
@@ -280,6 +281,7 @@ Each device has been certified to work with our SDK in the OS and language chose
 |[Motion Control Henry Board](http://www.runele.com/ca1/38/p-r-s/) |Yocto | Javascript|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-henry-board-javascript.md)|
 |[Moxa ioPAC5542-C](http://www.moxa.com.tw/Product/ioPAC_5500.htm) |Linux | C|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-iopac5542-c-c.md)|
 |[MSC Technologies Baytrail Family](https://www.msc-technologies.eu/de/support/boards/qseven/msc-q7-bt.html) |Linux (MSC-LDK) | C|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-msc-ldk-baytrail-c.md)|
+|[MSC Technologies Baytrail Family](https://www.msc-technologies.eu/de/support/boards/qseven/msc-q7-bt.html) |Windows 10 | C#|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-msc-baytrail-csharp.md)|
 |[Nexcom NDiS B535]( http://www.nexcom.com.tw/Products/multi-media-solutions/digital-signage-player/high-performance-player/digital-signage-player-ndis-b535 ) |Windows 10 IoT Core | C#|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-10-iot-core-ndis-b535-csharp.md)|
 |[Nexcom NIFE100](http://www.nexcom.com.tw/Products/industrial-computing-solutions/pc-based-factory-automation/industr) |Windows 10 IoT Core | C#|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-10-iot-core-NIFE100-csharp.md)|
 |[Nexcom NIFE200](http://www.nexcom.com.tw/Products/industrial-computing-solutions/pc-based-factory-automation/industr) |Windows 10 IoT Core | C#|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-10-iot-core-NIFE200-csharp.md)|
@@ -319,6 +321,9 @@ Each device has been certified to work with our SDK in the OS and language chose
 |[SOTEC CloudPlug](http://cloudplug.info/) |YOCTO | C|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-sotec-cloudplug-c.md)|
 |[Sparkfun ThingDev](https://www.sparkfun.com/products/13711) |Arduino IDE(RTOS)| Arduino, C|[Get started](https://azure.microsoft.com/en-us/documentation/samples/iot-hub-c-thingdev-getstartedkit/)|
 |[Spreadtrum SC98xx](http://www.spreadtrum.com/en/SC9830A.html) |Android Marshmallow (v6.0.1)| Java|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/android-sc98xx-board-java.md)|
+|[Supermicro SYS-5018D-FN4T](https://www.supermicro.com/products/system/1u/5018/sys-5018d-fn4t.cfm) |Windows 10 | C|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-supermicro-5018d-fn4t-c.md)|
+|[Supermicro SYS-5018D-FN8T](https://www.supermicro.com/products/system/1u/5018/SYS-5018D-FN8T.cfm) |Windows 10 | C|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-supermicro-5018d-fn8t-c.md)|
+|[Supermicro SYS-5018D-LN4T](https://www.supermicro.com/products/system/1u/5018/SYS-5018D-LN4T.cfm) |Windows 10 | C|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-supermicro-5018d-ln4t-c.md)|
 |[Supermicro SYS-E200-8B](https://www.supermicro.com.tw/products/system/Mini-ITX/SYS-E200-8B.cfm) |Windows 10 | C|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-supermicro-sys-e200-8b-c.md)|
 |[Supermicro SYS-E200-9B](https://www.supermicro.com.tw/products/system/Mini-ITX/SYS-E200-9B.cfm) |Windows 10 | C|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-supermicro-sys-e200-9b-c.md)|
 |[Techman Robot Inc. TM5](http://tm-robot.com/robot/) |Windows Embedded Standard 7 | C|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-embedded-standard-7-tm5-c.md)|
