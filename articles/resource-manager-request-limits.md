@@ -39,4 +39,4 @@ You can determine the number of remaining requests by examining response headers
 
 ## Waiting before sending next request
 
-When you reach the limit, Resource Manager returns a **Retry-After** value in the header. This value specifies the number of seconds your application should wait before sending the next request. If you send a request before the retry value has elapsed, your request is not proccessed and a new retry value is returned.
+When you reach the limit, Resource Manager returns a **Retry-After** value in the header. This value specifies the number of seconds your application should wait before sending the next request. If you send a request before the retry value has elapsed, your request is not processed and a new retry value is returned.
