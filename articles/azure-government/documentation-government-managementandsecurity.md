@@ -78,3 +78,4 @@ For more information, see [Log Analytics public documentation](../log-analytics/
 
 For supplemental information and updates, subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
+ 
