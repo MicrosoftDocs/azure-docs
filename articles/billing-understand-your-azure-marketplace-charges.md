@@ -68,29 +68,32 @@ You can view a list of the external services that are on each subscription withi
 
 	![view external services billing history](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png)
 
-## How to manage your orders and payments
+## Manage your External service order payment methods
 The summary page in the [Azure Account Center](https://account.windowsazure.com/) has user actions, allowing you to update your payment instrument:
 
-> [AZURE.NOTE] If you are using your organization ID to change personal information, you should log a ticket with support.
+> [AZURE.NOTE] If you purchased your subscription with a work or school account you should [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to make changes to your payment instrument
 
-To update your payment method click on the **Change payment method** link on the right side of the page.
+1. To update your payment method click **Change payment method** on the right side of the page.
+    
+    ![Order summary](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
 
-![Order summary](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
+2. This link brings you to a different portal where you are able to make changes to your preferred payment method.
 
-This link brings you to a different portal where you are able to make changes to your preferred payment method.
-
-To change your payment method, follow these steps:
-
-1. Click **Change how you pay**.
+3. Click **Change how you pay**.
 
     ![Subscriptions](./media/billing-understand-your-azure-marketplace-charges/subscriptions.jpg)
 
-2. Select the payment method you want to change to. The **Pay with** option allows you to select your credit card. The **Add a new way to pay** option allows you to add a new credit card.
+4. Select the payment method you want to change to. The **Pay with** option allows you to select your credit card. The **Add a new way to pay** option allows you to add a new credit card.
 
     ![Change payment method](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
     
+## Cancel your external service order
+
 If you want to cancel your external service order, you need to delete the resource in the [Azure portal](https://portal.azure.com).
 
 ![Delete Resource](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
 
-> [AZURE.NOTE] If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+
+## Need help? Contact support.
+
+If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
