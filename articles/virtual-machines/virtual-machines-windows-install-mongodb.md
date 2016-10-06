@@ -34,13 +34,17 @@ Before you install and configure MongoDB you need to create a VM and, ideally, a
 
 ## Install MongoDB
 
-> [AZURE.IMPORTANT] MongoDB security features, such as authentication and IP address binding, are not enabled by default. Security features should be enabled before deploying MongoDB to a production environment.  For more information, see [MongoDB Security and Authentication](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
+> [AZURE.IMPORTANT] MongoDB security features, such as authentication and IP address binding, are not enabled by default. Security features should be enabled before deploying MongoDB to a production environment. For more information, see [MongoDB Security and Authentication](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
 
 1. After you've connected to your VM using Remote Desktop, open Internet Explorer from the **Start** menu on the VM.
 
 2. Select 'Use recommended security, privacy, and compatibility settings' when Internet Explorer first opens and click 'OK'.
 
-3. Select the **Tools** button in the upper right corner.  In **Internet Options**, select the **Security** tab, and then select the **Trusted Sites** icon. Click the **Sites** button. Add _https://\*.mongodb.org_ to the list of trusted sites, then close the dialog box.
+3. Internet Explorer enhanced security configuration is enabled by default. Add the MongoDB website to the list of allowed sites:
+
+	- Select the **Tools** button in the upper right corner.
+	- In **Internet Options**, select the **Security** tab, and then select the **Trusted Sites** icon.
+	- Click the **Sites** button. Add _https://\*.mongodb.org_ to the list of trusted sites, then close the dialog box.
 
 	![Configure Internet Explorer security settings](./media/virtual-machines-windows-install-mongodb/configure-internet-explorer-security.png)
 
@@ -54,12 +58,16 @@ Before you install and configure MongoDB you need to create a VM and, ideally, a
 
 6. Read and accept the license agreement. When prompted, select **Complete** install.
 
-7. On the final screen, click **Install**
+7. On the final screen, click **Install**.
 
 
 ## Configure VM and MongoDB
 
-1. The PATH variables are not updated by the MongoDB installer. Without the MongoDB `bin` location in your PATH variable, you need to specify the full path each time you use a MongoDB executable. To add the location to your PATH variable, right-click the **Start** menu and select **System**. Click **Advanced System Settings** and then **Environment Variables**. Under **System variables**, select **Path** and then click **Edit**.
+1. The PATH variables are not updated by the MongoDB installer. Without the MongoDB `bin` location in your PATH variable, you need to specify the full path each time you use a MongoDB executable. To add the location to your PATH variable:
+
+	- Right-click the **Start** menu and select **System**.
+	- Click **Advanced System Settings** and then **Environment Variables**.
+	- Under **System variables**, select **Path** and then click **Edit**.
 
 	![Configure PATH variables](./media/virtual-machines-windows-install-mongodb/configure-path-variables.png)
 
@@ -86,7 +94,7 @@ Before you install and configure MongoDB you need to create a VM and, ideally, a
 
 	It may take several minutes for MongoDB to preallocate the journal files and start listening for connections. All log messages are directed to the *F:\MongoLogs\mongolog.log* file as `mongod.exe` server starts and preallocates journal files.
 	
-	The command prompt stays focused on this task while your MongoDB instance is running. You must leave the command prompt window open to continue running MongoDB. Or, install MongoDB as service, as detailed in the next step.
+	The command prompt stays focused on this task while your MongoDB instance is running. Leave the command prompt window open to continue running MongoDB. Or, install MongoDB as service, as detailed in the next step.
 
 4. For a more robust MongoDB experience and usage, install `mongod.exe` as a service. Creating a service means you don't need to leave a command prompt running each time you wish to use MongoDB. Create the service as follows, adjusting the path to your data and log directories accordingly:
 
@@ -142,7 +150,7 @@ exit
 ```
 
 ## Configure firewall and Network Security Group rules
-Now that MongoDB is installed and running, open a port in Windows Firewall so you can remotely connect to MongoDB. Open an administrative PowerShell prompt and enter the following command to create a new inbound rule to allow TCP port 27017:
+Now that MongoDB is installed and running, open a port in Windows Firewall so you can remotely connect to MongoDB. To create a new inbound rule to allow TCP port 27017, open an administrative PowerShell prompt and enter the following command:
 
 ```powerShell
 New-NetFirewallRule -DisplayName "Allow MongoDB" -Direction Inbound `
