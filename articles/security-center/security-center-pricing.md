@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/01/2016"
+   ms.date="10/06/2016"
    ms.author="terrylan"/>
 
 # Azure Security Center pricing
@@ -22,84 +22,66 @@ Azure Security Center helps you prevent, detect, and respond to threats with inc
 
 ## Pricing tiers
 
-Azure Security Center is offered in two tiers: free and standard. The free tier is automatically enabled on all Azure subscriptions. A 90 day free trial is available for the standard tier. At the end of 90 days, should you choose to continue using the service, you will automatically be charged for usage at the standard tier rate.
+Security Center is offered in two tiers:
+
+- The **Free tier** is automatically enabled on all Azure subscriptions and provides visibility into the security state of your Azure resources, basic security policy, security recommendations, and integration with security products and services from partners.
+- The **Standard tier** adds advanced threat detection capabilities, including threat intelligence, behavioral analysis, anomaly detection, security incidents, and threat assessment reports. A **90 day free trial** is available for the Standard tier.
+
+See the Security Center [pricing page](https://azure.microsoft.com/pricing/details/security-center/) for additional information.
 
 > [AZURE.NOTE] Security Center uses Azure storage to save security data generated from your protected nodes. Costs associated with this storage are not included in the price of the service and will be charged separately at regular [Azure storage rates](https://azure.microsoft.com/pricing/details/storage/blobs/). Storage charges apply even during the trial.
 
-The following table summarizes the features available in each tier.  Click the link in the table for more information about the feature and to see screen shots of what you gain with that feature.
+## Try Security Center Standard free for 90 days
 
-| **Features:** | Free | Standard |
-|-----|-----|-----|
-| [Security policy, assessment, and recommendations](#security-policy-assessment-and-recommendations) | X | X |
-| [Connected partner solutions](#connected-partner-solutions) | X | X |
-| [Basic security alerting](#security-alerting) | X | X |
-| **Advanced threat detection:** | -- | X |
-|     [Threat intelligence](#threat-intelligence) | -- | X |
-|     [Behavioral analysis](#behavioral-analysis) | -- | X |
-|     [Crash analysis](#crash-analysis) | -- | X |
-|     [Anomaly detection](#anomaly-detection) | -- | X |
-| **Data and Price:** | | |
-| Daily data allocation | Not applicable | 500 MB per day |
-| Price | Free | $15/node/month |
+A 90 day free trial is available for the Standard tier. To get the free trial of the Standard tier, select the **Policy** tile on the **Security Center** blade.  Select the subscription that you want to upgrade to Standard. On the **Security policy** blade, select **Pricing tier**. On the **Choose your pricing tier** blade, select **Standard – Free Trial**.
 
-### Details on how nodes are counted
+![Free trial][1]
 
-A node is any Azure resource that is monitored by the service. Currently, only virtual machines are counted (each Azure VM counts as one node), but as additional security monitoring capabilities are enabled for other types of services, like Azure Cloud Services or SQL databases, we may begin counting these resources as well.
+At the end of 90 days, should you choose to continue using the service, we will automatically start charging for usage.
 
-Nodes are counted and prorated daily.
+## Upgrade to Standard to add advanced threat detection
 
-## Free tier
+To get the Standard tier, select the **Policy** tile on the **Security Center** blade.  Select the subscription that you want to upgrade to Standard. On the **Security policy** blade, select **Pricing tier**. On the **Choose your pricing tier** blade, select **Standard**.
 
-Security Center is available at the free tier on all Azure subscriptions. You do not need to take steps to enable the free tier.
+![Standard tier][2]
 
-### Security policy, assessment, and recommendations
-
-Security Center lets you define policies for your Azure subscriptions and resource groups based on your company’s security requirements, the types of applications that you use, and the sensitivity of your data.
-
-You can monitor the security health of your Azure resources.
-
-You can collect and analyze security data from your Azure resources, the network, and partner solutions integrated with Azure.
-
-Security center provides you with policy-driven security recommendations to guide you through the process of implementing needed controls.
-
-### Connected partner solutions
-
-Security Center enables you to deploy security services and appliances from Microsoft and partners.
-
-### Security alerting
-
-Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions, like firewall and endpoint protection solutions, to detect real threats and reduce false positives. Select the Security alerts tile to see prioritized security incidents and alerts with insights into the source of the attack and impacted resources.
-
-## Standard tier
+## Why upgrade to Standard?
 
 The Standard tier of Security Center provides all features of the Free tier plus advanced threat detection. Advanced threat detection helps identify active threats targeting your Azure resources and provides you with the insights needed to respond quickly.
 
 Security Center employs advanced security analytics, which go far beyond signature-based approaches. Breakthroughs in big data and machine learning technologies are leveraged to evaluate events across the entire cloud fabric – detecting threats that would be impossible to identify using manual approaches and predicting the evolution of attacks.
 
-Let’s look at the security analytics that come with the Stier.
+Let’s look at the security analytics that come with the Standard tier:
 
-### Threat intelligence
+- **Threat intelligence** - Looks for known bad actors by leveraging global threat intelligence from Microsoft products and services, the Microsoft Digital Crimes Unit (DCU), the Microsoft Security Response Center (MSRC), and external feeds
+- **Behavioral analysis** - Applies known patterns to discover malicious behavior
+- **Anomaly detection** - Uses statistical profiling to build a historical baseline. It alerts on deviations from established baselines that conform to a potential attack vector
 
-Threat intelligence looks for known bad actors by leveraging global threat intelligence from Microsoft products and services, the Microsoft Digital Crimes Unit (DCU), the Microsoft Security Response Center (MSRC), and external feeds.
+Below is an incident that includes multiple alerts.
 
-### Behavioral analysis
+![Security incident][3]
 
-Behavioral analysis applies known patterns to discover malicious behavior.
+## Don’t forget to enable data collection
 
-### Crash analysis
+To enable virtual machine behavioral analytics, data collection must be turned on. You may have to enable data collection when you first access Security Center or subsequently when you are creating a security policy.
 
-### Anomaly detection
-
-Anomaly detection uses statistical profiling to build a historical baseline. It alerts on deviations from established baselines that conform to a potential attack vector.
+To validate that data collection is enabled, select the **Policy** tile.  The **Security policy** blade will open listing your Azure subscription(s). Select a subscription. If **Data collection** is off, change it to on and save the change. See [Enable data collection in Azure Security Center](security-center-enable-data-collection.md).
 
 ## See also
 
-To learn more about Security Center, see the following:
+In this document, you were introduced to pricing for Security Center. To learn more, see the following:
 
-- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies.
-- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
-- [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
-- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Find blog posts about Azure security and compliance.
+- [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/) – Get details on pricing for Security Center.
+- [Azure Security Center detection capabilities](security-center-detection-capabilities.md) – Learn how Security Center’s advanced detection capabilities provides you with the insights needed to respond quickly.
+- [Setting security policies in Azure Security Center](security-center-policies.md) - Learn how to configure security policies.
+- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) - Learn how recommendations help you protect your Azure resources.
+- [Security health monitoring in Azure Security Center](security-center-monitoring.md) - Learn how to monitor the health of your Azure resources.
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) - Learn how to manage and respond to security alerts.
+- [Handling Security Incident in Azure Security Center](security-center-incident.md) – Learn how to use security alert capability to assist you handling security incidents.
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) - Learn how to monitor the health status of your partner solutions.
+- [Azure Security Center FAQ](security-center-faq.md) - Find frequently asked questions about using the service.
+
+<!--Image references-->
+[1]: ./media/security-center-pricing/free-trial.png
+[2]: ./media/security-center-pricing/standard.png
+[3]: ./media/security-center-pricing/incident.png
