@@ -252,7 +252,7 @@ There are no parameters for this call
 TablesList
 
 
-| Property Name | Data Type | 
+| Property Name | Data Type |
 |---|---|
 |value|array|
 
