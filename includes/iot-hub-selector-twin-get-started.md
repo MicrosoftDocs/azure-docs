@@ -42,3 +42,4 @@ This tutorial shows you how to:
 [lnk-twins]: iot-hub-devguide-device-twins.md
 [lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
 [lnk-methods]: iot-hub-devguide-direct-methods.md
+[lnk-devguide-mqtt]: iot-hub-mqtt-support.md

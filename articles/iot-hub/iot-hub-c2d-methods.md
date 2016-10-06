@@ -225,6 +225,7 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-tutorial-jobs]: iot-hub-schedule-jobs.md
 [lnk-devguide-methods]: iot-hub-devguide-direct-methods.md
+[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
