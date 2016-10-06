@@ -246,26 +246,17 @@ await subtasks.ForEachAsync(async (subtask) =>
 Output from `MultiInstanceTask.exe` should be similar to the following:
 
 ```
-Sample start: 10/6/2016 12:16:46
-
-Creating pool [MultiInstanceSamplePool2]...
-Creating job [MultiInstanceSampleJob2]...
-Adding task [MultiInstanceSampleTask2] to job [MultiInstanceSampleJob2]...
+Creating pool [MultiInstanceSamplePool]...
+Creating job [MultiInstanceSampleJob]...
+Adding task [MultiInstanceSampleTask] to job [MultiInstanceSampleJob]...
 Awaiting task completion, timeout in 00:30:00...
 
-Main task [MultiInstanceSampleTask2] is in state [Completed] and ran on compute node [tvm-257509324_1-20161006t191807z]:
+Main task [MultiInstanceSampleTask] is in state [Completed] and ran on compute node [tvm-769611554_1-20161006t202813z]:
 ---- stdout.txt ----
-Rank 1 received string "Hello world" from Rank 0
-Rank 3 received string "Hello world" from Rank 0
+Executing coordination command
+Executing application command
 Rank 2 received string "Hello world" from Rank 0
-Rank 11 received string "Hello world" from Rank 0
-Rank 4 received string "Hello world" from Rank 0
-Rank 8 received string "Hello world" from Rank 0
-Rank 10 received string "Hello world" from Rank 0
-Rank 9 received string "Hello world" from Rank 0
-Rank 6 received string "Hello world" from Rank 0
-Rank 5 received string "Hello world" from Rank 0
-Rank 7 received string "Hello world" from Rank 0
+Rank 1 received string "Hello world" from Rank 0
 
 ---- stderr.txt ----
 
@@ -274,17 +265,24 @@ Main task completed, waiting 00:00:10 for subtasks to complete...
 ---- Subtask information ----
 subtask: 1
         exit code: 0
-        Encountered error retrieving file from node tvm-257509324_3-20161006t191807z:
-        Operation returned an invalid status code 'NotFound'
-        HttpStatusMessage: The specified task does not exist.
+        node: tvm-769611554_3-20161006t202813z:
+        stdout.txt: Executing coordination command
+
+        stderr.txt:
 subtask: 2
         exit code: 0
-        Encountered error retrieving file from node tvm-257509324_2-20161006t191807z:
-        Operation returned an invalid status code 'NotFound'
-        HttpStatusMessage: The specified task does not exist.
+        node: tvm-769611554_2-20161006t202813z:
+        stdout.txt: Executing coordination command
 
-Sample end: 10/6/2016 12:37:56
-Elapsed time: 00:21:10.0953313
+        stderr.txt:
+
+Sample end: 10/6/2016 13:48:33
+Elapsed time: 00:22:15.5710324
+
+Delete job? [yes] no:
+Delete pool? [yes] no:
+
+Sample complete, hit ENTER to exit...
 ```
 
 ## Next steps
