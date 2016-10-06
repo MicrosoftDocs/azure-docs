@@ -15,7 +15,6 @@
    ms.date="10/06/2016"
    ms.author="bruceper" />
 
-
 # Azure Key Vault .NET 2.x - Release Notes and Migration Guide
 
 The following notes and guidance are for developers working with the Azure Key Vault .NET / C# API. In the change from the 1.0 version to the 2.x version, a number of updates have been made that will require migration work in your code in order for you to benefit from the functional improvements and feature additions such as certificates support.
