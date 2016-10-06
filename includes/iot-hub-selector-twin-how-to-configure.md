@@ -82,7 +82,7 @@ This tutorial shows you how to:
 
 <!-- links -->
 
-[lnk-methods]: iot-hub-devguide-direct-methods.md
-[lnk-dm-overview]: iot-hub-device-management-overview.md
-[lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
+[lnk-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md
+[lnk-dm-overview]: ../articles/iot-hub/iot-hub-device-management-overview.md
+[lnk-twin-tutorial]: ../articles/iot-hub/iot-hub-node-node-twin-getstarted.md
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
