@@ -1,6 +1,6 @@
 <properties
    pageTitle="Setting up a Service Fabric cluster using Visual Studio | Microsoft Azure"
-   description="Describes how to set up a Service Fabric cluster by using Azure Resource Manager (ARM) template created by an Azure Resource Group project in Visual Studio"
+   description="Describes how to set up a Service Fabric cluster by using Azure Resource Manager template created by an Azure Resource Group project in Visual Studio"
    services="service-fabric"
    documentationCenter=".net"
    authors="karolz-ms"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/19/2016"
+   ms.date="10/06/2016"
    ms.author="karolz@microsoft.com"/>
 
 # Set up a Service Fabric cluster by using Visual Studio
-This article describes how to set up an Azure Service Fabric cluster by using Visual Studio and an Azure Resource Manager (ARM) template. We will use a Visual Studio Azure resource group project to create the template. After the template has been created, it can be deployed directly to Azure from Visual Studio. It can also be used from a script, or as part of continuous integration (CI) facility.
+This article describes how to set up an Azure Service Fabric cluster by using Visual Studio and an Azure Resource Manager template. We will use a Visual Studio Azure resource group project to create the template. After the template has been created, it can be deployed directly to Azure from Visual Studio. It can also be used from a script, or as part of continuous integration (CI) facility.
 
 ## Create a Service Fabric cluster template by using an Azure resource group project
 To get started, open Visual Studio and create an Azure resource group project (it is available in the **Cloud** folder):
