@@ -48,7 +48,7 @@ In this section, you will create a Linux-based HBase cluster in HDInsight using 
 > * __Subnet name__: default
 > * __Subnet address range__: 10.0.0.0/24
 >
-> $lt;Cluster Name> will be replaced with the cluster name you provide when using the template.
+> &lt;Cluster Name> will be replaced with the cluster name you provide when using the template.
 
 1. Click the following image to open the template in the Azure Portal. The template is located in a public blob container. 
 
