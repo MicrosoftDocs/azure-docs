@@ -267,7 +267,7 @@ A virtual machine that's created with the Resource Manager deployment model must
           );
         }
         
-2. To call the method that you prevously added, add this code to the Main method of the Program class:
+2. To call the method that you previously added, add this code to the Main method of the Program class:
 
         var vnResult = CreateVirtualNetworkAsync(
           credential,
@@ -473,7 +473,7 @@ Now that you created all the supporting resources, you can create a virtual mach
         Console.WriteLine(vmResult.Result.ProvisioningState);
         Console.ReadLine();
 
-##Step 4: Add the code to delete the resources
+##Step 4: Delete the resources
 
 Because you are charged for resources used in Azure, it is always a good practice to delete resources that are no longer needed. If you want to delete the virtual machines and all the supporting resources, all you have to do is delete the resource group.
 
