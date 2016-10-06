@@ -19,7 +19,7 @@
 
 # Create a Windows virtual machine with a Resource Manager template
 
-This article introduces you to a Azure Resource Manager template and shows you how to use PowerShell to deploy it. The template deploys a single virtual machine running Windows Server in a new virtual network with a single subnet.
+This article introduces you to an Azure Resource Manager template and shows you how to use PowerShell to deploy it. The template deploys a single virtual machine running Windows Server in a new virtual network with a single subnet.
 
 It should take about 20 minutes to do the steps in this article.
 
@@ -197,7 +197,7 @@ See [How to install and configure Azure PowerShell](../powershell-install-config
 
 ## Step 4: Create a resource group
 
-All resources must be deployed in a resource group. See [Azure Resource Manager overview](../resource-group-overview.md) for more information.
+All resources must be deployed in a [resource group](../resource-group-overview.md).
 
 1. Get a list of available locations where resources can be created.
 
