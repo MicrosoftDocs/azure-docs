@@ -39,7 +39,7 @@ To complete this tutorial you need the following:
 
 ## Create the service app
 
-In this section, you create a Node.js console app that adds location meta-data to the twin associated with **myDeviceId**. It then queries the twin collection stored in the hub selecting the devices located in the US, and then the devices that report they are connected using cellular network.
+In this section, you create a Node.js console app that adds location meta-data to the twin associated with **myDeviceId**. It then queries the twins stored in the hub selecting the devices located in the US, and then the ones that reporting a cellular connection.
 
 1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **AddTagsAndQuery**.
 
@@ -200,7 +200,7 @@ Use the following resources to learn how to:
 
 [lnk-iothub-getstarted]: iot-hub-node-node-getstarted.md
 [lnk-methods-tutorial]: iot-hub-c2d-methods.md
-[lnk-twin-how-to-configure]: iot-hub-node-node-twin-how-to-configure.md
+[lnk-twin-how-to-configure]: iot-hub-csharp-node-twin-how-to-configure.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 

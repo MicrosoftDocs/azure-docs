@@ -37,7 +37,7 @@ To complete this tutorial you need the following:
 
 ## Create the service app
 
-In this section, you create a Node.js console app that adds location meta-data to the twin associated with **myDeviceId**. It then queries the twin collection stored in the hub selecting the devices located in the US, and then the devices that report they are connected using cellular network.
+In this section, you create a Node.js console app that adds location meta-data to the twin associated with **myDeviceId**. It then queries the twins stored in the hub selecting the devices located in the US, and then the ones that reporting a cellular connection.
 
 1. Create a new empty folder called **addtagsandqueryapp**. In the **addtagsandqueryapp** folder, create a new package.json file using the following command at your command-prompt. Accept all the defaults:
 
