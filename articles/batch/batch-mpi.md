@@ -246,7 +246,45 @@ await subtasks.ForEachAsync(async (subtask) =>
 Output from `MultiInstanceTask.exe` should be similar to the following:
 
 ```
-sample output here
+Sample start: 10/6/2016 12:16:46
+
+Creating pool [MultiInstanceSamplePool2]...
+Creating job [MultiInstanceSampleJob2]...
+Adding task [MultiInstanceSampleTask2] to job [MultiInstanceSampleJob2]...
+Awaiting task completion, timeout in 00:30:00...
+
+Main task [MultiInstanceSampleTask2] is in state [Completed] and ran on compute node [tvm-257509324_1-20161006t191807z]:
+---- stdout.txt ----
+Rank 1 received string "Hello world" from Rank 0
+Rank 3 received string "Hello world" from Rank 0
+Rank 2 received string "Hello world" from Rank 0
+Rank 11 received string "Hello world" from Rank 0
+Rank 4 received string "Hello world" from Rank 0
+Rank 8 received string "Hello world" from Rank 0
+Rank 10 received string "Hello world" from Rank 0
+Rank 9 received string "Hello world" from Rank 0
+Rank 6 received string "Hello world" from Rank 0
+Rank 5 received string "Hello world" from Rank 0
+Rank 7 received string "Hello world" from Rank 0
+
+---- stderr.txt ----
+
+Main task completed, waiting 00:00:10 for subtasks to complete...
+
+---- Subtask information ----
+subtask: 1
+        exit code: 0
+        Encountered error retrieving file from node tvm-257509324_3-20161006t191807z:
+        Operation returned an invalid status code 'NotFound'
+        HttpStatusMessage: The specified task does not exist.
+subtask: 2
+        exit code: 0
+        Encountered error retrieving file from node tvm-257509324_2-20161006t191807z:
+        Operation returned an invalid status code 'NotFound'
+        HttpStatusMessage: The specified task does not exist.
+
+Sample end: 10/6/2016 12:37:56
+Elapsed time: 00:21:10.0953313
 ```
 
 ## Next steps
