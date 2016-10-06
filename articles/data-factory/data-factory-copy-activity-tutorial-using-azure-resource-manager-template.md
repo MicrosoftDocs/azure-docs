@@ -44,7 +44,7 @@ Entity | Description
 ------ | ----------- 
 Azure Storage linked service | Links your Azure Storage account to the data factory. Azure Storage is the source data store and Azure SQL database is the sink data store for the copy activity in the tutorial. It specifies the storage account that contains the input data for the copy activity. 
 Azure SQL Database linked service| Links your Azure SQL database to the data factory. It specifies the Azure SQL database that holds the output data for the copy activity. 
-Azure Blob input dataset | Refers to the Azure Storage linked service. The Azure Storage linked service points to an Azure Storage account and the Azure Blob dataset specifies the container, folder, and file name in the storage that holds the input data. 
+Azure Blob input dataset | Refers to the Azure Storage linked service. The linked service points to an Azure Storage account and the Azure Blob dataset specifies the container, folder, and file name in the storage that holds the input data. 
 Azure SQL output dataset | Refers to the Azure SQL linked service. The Azure SQL linked service refers to an Azure SQL server and the Azure SQL dataset specifies the name of the table that holds the output data. 
 Data pipeline | The pipeline has one activity of type Copy that takes the Azure blob dataset as an input and the Azure SQL dataset as an output. The copy activity copies data from an Azure blob to a table in the Azure SQL database.  
 
@@ -469,7 +469,7 @@ You can create a Data Factory template and multiple parameter templates to deplo
 
 To implement this scenario, do the following steps:
 
-- Create another parameter JSON file and add an additional parameter named suffix.
+- Make a copy of the parameter JSON file and add an additional parameter named suffix.
 - Create another template that uses the suffix parameter in names of Data Factory entities.  
 - Use separate parameter JSON file for each pipeline
 
@@ -497,7 +497,7 @@ Create a copy of the ADFCopyTutorialARM-Parameters.json and name it ADFCopyTutor
 ### Data Factory template
 Create ADFCopyTutorialARM-2.json with the following content: 
 
-> [AZURE.NOTE] Note that the names of linked services, datasets, and pipeline are determined based on the suffix from the parameter file.   
+> [AZURE.NOTE] The names of linked services, datasets, and pipeline are determined based on the suffix from the parameter file.   
 
 	  {
 	    "contentVersion": "1.0.0.0",
