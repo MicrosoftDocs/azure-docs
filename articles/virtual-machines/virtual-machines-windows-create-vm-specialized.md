@@ -73,25 +73,28 @@ $nicName = "<nicName>"
 $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 ```
 
+## Create the network security group and an RDP rule
+
+In order to be able to log into your VM using RDP, you need to have an security rule that allows RDP access on port 3389. 
+
+Replace the value of $nsgName with a name for your NSG. Create the variable, the rule and the network security group.
+
+```powershell
+$nsgName = "<nsgName>"
+
+$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP" `
+    -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
+    -SourceAddressPrefix Internet -SourcePortRange * `
+    -DestinationAddressPrefix * -DestinationPortRange 3389
+
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
+    -Name $nsgName -SecurityRules $rdpRule
+```
+
 
 ## Create a VM by using the copied VHD
 
-By using the VHD copied in the preceding steps, you can now use Azure PowerShell to create a Resource Manager-based Windows VM in a new virtual network. The VHD should be present in the same storage account as the new virtual machine that will be created.
-
-
-Set up a virtual network and NIC for your new VM, similar to following script. Use values for the variables (represented by the **$** sign) as appropriate to your application.
-
-```powershell
-	$pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
-
-	$subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name $subnet1Name -AddressPrefix $vnetSubnetAddressPrefix
-
-	$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix $vnetAddressPrefix -Subnet $subnetconfig
-
-	$nic = New-AzureRmNetworkInterface -Name $nicname -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-```
-
-Now set up the VM configurations, create a new VM and attach the copied VHD as the OS VHD.
+Set up the VM configurations, create the new VM and attach the copied VHD as the OS VHD.
 
 
 ```powershell
