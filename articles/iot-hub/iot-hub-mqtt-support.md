@@ -40,13 +40,13 @@ The following table contains links to code samples for each supported language a
 | [C#][lnk-sample-csharp]    | TransportType.Mqtt        |
 | [Python][lnk-sample-python] | IoTHubTransportProvider.MQTT |
 
-### Migrate a device app using AMQP to MQTT
+### Migrate a device app from AMQP to MQTT
 If you are using the [device client SDKs][lnk-device-sdks], switching from using AMQP to MQTT requires changing the protocol parameter in the client initialization as stated above.
 
 When doing so, make sure to check the following items:
 
-* AMQP returns errors for many conditions, while MQTT terminates the connection. As a result your exception handling logic could be different.
-* MQTT does not support the reject operations when receiving [C2D messages][lnk-messaging]. If your back end needs to receive a response from the device app, consider using [direct methods][lnk-methods].
+* AMQP returns errors for many conditions, while MQTT terminates the connection. As a result your exception handling logic might require some changes.
+* MQTT does not support the *reject* operations when receiving [C2D messages][lnk-messaging]. If your back end needs to receive a response from the device app, consider using [direct methods][lnk-methods].
 * At this time, MQTT is not available over WebSockets.
 
 ## Using the MQTT protocol directly
