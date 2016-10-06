@@ -80,7 +80,7 @@ The DSVM can be used to evaluate or learn tools such as Microsoft R Server, SQL 
 ### For the Windows DSVM
 
 - For more information on how to run specific tools available on the Windows version, see [Provision the Microsoft Data Science Virtual Machine](machine-learning-data-science-provision-vm.md) and 
--  For more information on how to perform various tasks needed for your data science project, see [Ten things you can do on the Data science Virtual Machine](machine-learning-data-science-vm-do-ten-things.md).
+-  For more information on how to perform various tasks needed for your data science project on the Windows VM, see [Ten things you can do on the Data science Virtual Machine](machine-learning-data-science-vm-do-ten-things.md).
 
 ### For the Linux DSVM
 
