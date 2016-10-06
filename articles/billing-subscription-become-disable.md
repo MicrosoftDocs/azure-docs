@@ -21,7 +21,7 @@
 
 # Reactivate disabled Azure subscription
 
-You might have your Azure subscription disabled because you reached your spending limits, have an overdue bill, hit your credit card limit, or because the subscription was cancelled by the administator of your subscription. See what issue applies to you and follow the steps in this article to get your subscription reactivated. 
+You might have your Azure subscription disabled because you reached your spending limits, have an overdue bill, hit your credit card limit, or because the subscription was canceled by the administrator of your subscription. See what issue applies to you and follow the steps in this article to get your subscription reactivated. 
 
 ## You reached your spending limit
 
@@ -56,12 +56,12 @@ Pay your outstanding balance in full. To do this, see the article [Why have you 
 
 To resolve this, [switch to a different credit card](billing-how-to-change-credit-card.md). Or if you're representing a business, you can [switch to pay by invoice](https://azure.microsoft.com/pricing/invoicing/).
 
-## The subscription was cancelled by the Account Administrator
+## The subscription was canceled by the Account Administrator
 
 If you're the account administrator, reactivate your Pay As You Go subscription by using the following steps. 
 
 1. Log in to the [Azure Account Center](https://account.windowsazure.com/Home/Index).
-2. Select the cancelled subscription.
+2. Select the canceled subscription.
 3. Click **Reactivate**.
 
 ![Screenshot that shows reactivate links on the right pane.](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
