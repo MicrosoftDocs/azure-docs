@@ -32,22 +32,22 @@ Assigning multiple IP addresses to a NIC enables the VM to:
 To register for the preview, send an email to [Multiple IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your subscription ID and intended use.
 ## Scenario
 
-In this article you will associate three IP configurations to a network interface.
+In this article, you will associate three IP configurations to a network interface.
 The following example configurations will be created and assigned to a NIC that will have three private IP addresses and one public IP address assigned to it:
 
 - IPConfig-1: A dynamic private IP address (default) and a public IP address from the public IP address resource named PIP1.
 - IPConfig-2: A static private IP address and no public IP address.
 - IPConfig-3: A dynamic private IP address and no public IP address.
 
-    ![Alt image text](./media/virtual-network-multiple-ip-addresses-powershell/OneNIC-3IPs.png)
+    ![Alt image text](./media/virtual-network-multiple-ip-addresses-powershell/OneNIC-3IP.png)
 
-This scenario assumes you have a resource group called *RG1* within which there is a VNet called *VNet1* and a subnet called *Subnet1*. Further, it assumes you have a VM called *VM1* and a network interface called *VM1-NIC1* associated to it.
+This scenario assumes you have a resource group called *RG1* within which there is a VNet called *VNet1* and a subnet called *Subnet1*. Further, it assumes you have a VM called *VM1*, a network interface called *VM1-NIC1* associated to it and a public IP address called *PIP1*
 
 ## <a name = "create"></a>Create a VM with multiple IP addresses
 
 1. Open a PowerShell command prompt and complete the remaining steps in this section within a single PowerShell session. If you don't already have PowerShell installed and configured, complete the steps in the [How to install and configure Azure PowerShell](../powershell-install-configure.md) article.
 
-2. Change the "values" of the following $Variables to the Azure [location](https://azure.microsoft.com/regions) your virtual network is in, the name of your [resource group](../resource-group-overview.md#resource-groups), the VNet within the resource group, the subnet you want to connect the NIC to and what you want to name the NIC.
+2. Change the "values" of the following $Variables to the Azure [location](https://azure.microsoft.com/regions) your virtual network is in, the name of your [resource group](../resource-group-overview.md#resource-groups), the VNet within the resource group, the subnet you want to connect the NIC to and the name of the NIC.
 
         $Location = "westcentralus"
         $RgName   = "RG1"
@@ -71,7 +71,7 @@ This scenario assumes you have a resource group called *RG1* within which there 
 
 	Type the following commands to get the name of the existing subnets within the VNet and replace *Subnet1* above with the name of a subnet:
 
-		$VNet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $VNetRgName
+		$VNet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RgName
 		$VNet.Subnets | Format-Table Name, AddressPrefix
 
 4. Enter the following command to retrieve the subnet and assign it to a variable.
@@ -80,19 +80,13 @@ This scenario assumes you have a resource group called *RG1* within which there 
 
 5. <a name="ipconfigs"></a>Define the IP configurations you want to assign to the NIC. Each configuration can have one static or dynamic private IP address and one associated public IP address resource with a static or dynamic address.
 
-	The following example configurations will be created and assigned to a NIC that will have three private IP addresses and one public IP address assigned to it.
-
-	- **IPConfig-1**: A dynamic private IP address (default) and a public IP address from the public IP address resource named *PIP1*.
-	- **IPConfig-2**: A static private IP address and no public IP address.
-	- **IPConfig-3**: A dynamic private IP address and no public IP address.
-
 	Add or remove any number of the configurations that follow depending on how many IP addresses you want to associate to the NIC and the settings you want to configure.
 
 	**IPConfig-1**
 
 	Change the value *PIP1* to the name of an existing public IP address resource that exists in the location you're creating the NIC in and that isn't currently associated with another NIC. Change *RG1* to the name of the resource group the public IP address resource exists in. Change *IPConfig-1* to the name you want to give to the first IP configuration. Enter the following commands:
 
-		$PIP1 = Get-AzureRmPublicIPAddress -Name "PIP1" -ResourceGroupName "RG1"
+		$PIP1 = Get-AzureRmPublicIPAddress -Name "PIP1" -ResourceGroupName $RgName
 
 		$IpConfigName1 = "IPConfig-1"
 		$IPConfig1     = New-AzureRmNetworkInterfaceIpConfig -Name $IPConfigName1 -Subnet $Subnet -PublicIpAddress $PIP1 -Primary
@@ -129,7 +123,7 @@ This scenario assumes you have a resource group called *RG1* within which there 
 
 6. Create the NIC using the IP configurations defined in the previous step.
 
-		$nic = New-AzureRmNetworkInterface -Name $NicName -ResourceGroupName $NicRgName -Location $NicLocation -IpConfiguration $IpConfig1,$IpConfig2,$IpConfig3
+		$nic = New-AzureRmNetworkInterface -Name $NicName -ResourceGroupName $RgName -Location $Location -IpConfiguration $IpConfig1,$IpConfig2,$IpConfig3
 
 7. Attach the NIC when creating a VM by following the steps in the [Create a VM](../virtual-machines/virtual-machines-windows-ps-create.md) article. Though the article creates a VM running Windows Server, the steps are the same for a Linux VM, other than selecting a different operating system. Complete steps 1-3 of the article. Skip steps 4 and 5 and then complete step 6 in the Create a VM article.
 
