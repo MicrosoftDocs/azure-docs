@@ -7,12 +7,12 @@
    manager="jwhit"
    editor="tysonn" />
 <tags
-   ms.service="log-analytics"
+   ms.service="operations-management-suite"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/06/2016"
+   ms.date="10/06/2016"
    ms.author="bwren" />
 
 # Alert Management solution in Log Analytics
