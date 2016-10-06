@@ -244,7 +244,7 @@ Replace the value of **$templateFile** with the path and name of the template fi
 
         Outputs           :
 
->[AZURE.NOTE] You can also deploy templates and parameters from an Azure storage account. To learn more, see [Using Azure PowerShell with Azure Storage](../storage-powershell-guide-full.md).
+>[AZURE.NOTE] You can also deploy templates and parameters from an Azure storage account. To learn more, see [Using Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md).
 
 ## Next Steps
 
