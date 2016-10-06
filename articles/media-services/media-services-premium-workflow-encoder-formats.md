@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Media Encoder Premium Workflow Formats and Codecs" 
+	pageTitle="Media Encoder Premium Workflow formats and codecs | Microsoft Azure" 
 	description="This topic gives an overview of Media Encoder Premium Workflow Formats formats and codecs" 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erik43" 
 	editor=""/>
 
 <tags 
@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
-	ms.author="juliako"/>
+	ms.date="09/26/2016"    
+	ms.author="juliako;anilmur"/>
 
-#Media Encoder Premium Workflow Formats and Codecs
+#Media Encoder Premium Workflow formats and codecs
 
 
-**Note** Media Encoder Premium Workflow media processor discussed in this topic is not available in China. 
+>[AZURE.NOTE]For premium encoder questions, email mepd at Microsoft.com.
+>
+>Media Encoder Premium Workflow media processor discussed in this topic is not available in China. 
 
 This document contains a list of input and output file formats and codecs that are supported by the public preview version of the **Media Encoder Premium Workflow** encoder.
 
@@ -130,8 +132,8 @@ If your input video does not contain closed captioning, the output Asset will st
 
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
 
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

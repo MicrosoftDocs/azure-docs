@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Azure SQL Database Transact-SQL Information | Microsoft Azure"
-   description="Transact-SQL statements in Azure SQL Database"
+   pageTitle="Unsupported in Azure SQL Database T-SQL | Microsoft Azure"
+   description="Transact-SQL statements that are less than fully supported in Azure SQL Database"
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""
    tags=""/>
 
@@ -14,24 +14,32 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/07/2015"
+   ms.date="08/30/2016"
    ms.author="rick.byham@microsoft.com"/>
 
-# Azure SQL Database Transact-SQL information
+# Azure SQL Database Transact-SQL differences
 
-Most SQL Server 2016 Transact-SQL statements are fully supported in Microsoft Azure SQL Database. This includes the SQL Server data types, operators, and the string, arithmetic, logical, cursor functions, and the other Transact-SQL elements that most applications depend upon. Partially or unsupported functions are usually related to differences in how SQL Database manages the database (such as file, high availability, and security features) or for special purpose features such as service broker. Because SQL Database isolates many features from dependency on the master database, many server-level activities are inappropriate and unsupported. Features deprecated in SQL Server are generally not supported in SQL Database.
 
-## Upgrading to SQL Database V12
+Most of the Transact-SQL features that applications depend on are supported in both Microsoft SQL Server and Azure SQL Database. A partial list of supported features for applications follows:
 
-This topic discusses the features that are available with SQL Database when upgraded to the free SQL Database V12. For more information about V12, see [SQL Database V12 What's New](sql-database-v12-whats-new.md). SQL Database V12 adds performance and manageability improvements, as well as support for additional features. The added features are listed below, separated into the features that are fully supported, and the features that are partially supported. 
+- Data types.
+- Operators.
+- String, arithmetic, logical, and cursor functions.
 
-## Features that are partially supported in SQL Database V12
+However, Azure SQL Database is designed to isolate features from any dependency on the **master** database. As a consequence many server-level activities are inappropriate for SQL Database and are unsupported. Features that are deprecated in SQL Server are generally not supported in SQL Database.
 
-SQL Database V12 supports some but not all of the arguments that exist in the corresponding SQL Server 2016 Transact-SQL statements. For example, the CREATE PROCEDURE statement is available however the WITH ENCRYPTION option of CREATE PROCEDURE is not available. Refer to the linked syntax topics for details about the supported areas of each statement.
+> [AZURE.NOTE]
+> This topic discusses the features that are available with SQL Database when upgraded to the current version; SQL Database V12. For more information about V12, see [SQL Database V12 What's New](sql-database-v12-whats-new.md).
 
-- CLR assemblies: [CREATE ASSEMBLY](https://msdn.microsoft.com/library/ms189524.aspx)
+The following sections list features that are partially supported, and the features that are completely unsupported.
+
+
+## Features partially supported in SQL Database V12
+
+SQL Database V12 supports some but not all the arguments that exist in the corresponding SQL Server 2016 Transact-SQL statements. For example, the CREATE PROCEDURE statement is available however all the options of CREATE PROCEDURE are not available. Refer to the linked syntax topics for details about the supported areas of each statement.
+
 - Databases: [CREATE](https://msdn.microsoft.com/library/dn268335.aspx )/[ALTER](https://msdn.microsoft.com/library/ms174269.aspx)
-- DMV's are generally available for features that are available
+- DMVs are generally available for features that are available.
 - Functions: [CREATE](https://msdn.microsoft.com/library/ms186755.aspx)/[ALTER FUNCTION](https://msdn.microsoft.com/library/ms186967.aspx)
 - [KILL](https://msdn.microsoft.com/library/ms173730.aspx) 
 - Logins: [CREATE](https://msdn.microsoft.com/library/ms189751.aspx)/[ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx)
@@ -41,48 +49,52 @@ SQL Database V12 supports some but not all of the arguments that exist in the co
 - Users: [CREATE](https://msdn.microsoft.com/library/ms173463.aspx)/[ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx)
 - Views: [CREATE](https://msdn.microsoft.com/library/ms187956.aspx)/[ALTER VIEW](https://msdn.microsoft.com/library/ms173846.aspx)
 
-## Features that are not supported in SQL Database
+## Features not supported in SQL Database
 
 - Collation of system objects
-- Connection related: Endpoint statements, ORIGINAL_DB_NAME. Windows authentication is not available for logins or contained database users.
-- Cross database queries, cross database ownership chaining, TRUSTWORTHY setting
+- Connection related: Endpoint statements, ORIGINAL_DB_NAME. SQL Database does not support Windows authentication, but does support the similar Azure Active Directory authentication. Some authentication types require the latest version of SSMS. For more information, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md).
+- Cross database queries using three or four part names. (Read-only cross-database queries are supported by using [elastic database query](sql-database-elastic-query-overview.md).)
+- Cross database ownership chaining, TRUSTWORTHY setting
 - Data Collector
 - Database Diagrams
 - Database Mail
 - DATABASEPROPERTY (use DATABASEPROPERTYEX instead)
-- Distributed transactions
 - EXECUTE AS logins
 - Encryption: extensible key management
 - Eventing: events, event notifications, query notifications
-- Features related to database file placement, size, and database files which are automatically managed by Microsoft Azure.
-- Features that relate to high availability which is managed through your Microsoft Azure account: backup, restore, AlwaysOn, database mirroring, log shipping, recovery modes. For more information, see Azure SQL Database Backup and Restore.
-- Features that rely upon the log reader: Replication, Change Data Capture.
+- Features related to database file placement, size, and database files that are automatically managed by Microsoft Azure.
+- Features that relate to high availability, which is managed through your Microsoft Azure account: backup, restore, AlwaysOn, database mirroring, log shipping, recovery modes. For more information, see Azure SQL Database Backup and Restore.
+- Features that rely upon the log reader running on SQL Database: Push Replication, Change Data Capture.
 - Features that rely upon the SQL Server Agent or the MSDB database: jobs, alerts, operators, Policy-Based Management, database mail, central management servers.
 - FILESTREAM
 - Functions: fn_get_sql, fn_virtualfilestats, fn_virtualservernodes
 - Global temporary tables
-- Hardware related server settings: memory, worker threads, CPU affinity, trace flags, etc. Use service levels instead.
+- Hardware-related server settings: memory, worker threads, CPU affinity, trace flags, etc. Use service levels instead.
 - HAS_DBACCESS
 - KILL STATS JOB
-- Linked servers, OPENQUERY, OPENROWSET, OPENDATASOURCE, BULK INSERT, 3 and 4 part names
+- Linked servers, OPENQUERY, OPENROWSET, OPENDATASOURCE, BULK INSERT, and four-part names
 - Master/target servers
+- .NET Framework [CLR integration with SQL Server](http://msdn.microsoft.com/library/ms254963.aspx)
 - Resource governor
 - Semantic search
-- Server credentials
-- Sever-level items: Server roles, IS_SRVROLEMEMBER, sys.login_token. Server level permissions are not available though some are replaced by database-level permissions. Some server-level DMV's are not available though some are replaced by database-level DMV's.
+- Server credentials. Use database scoped credentials instead.
+- Sever-level items: Server roles, IS_SRVROLEMEMBER, sys.login_token. Server level permissions are not available though some are replaced by database-level permissions. Some server-level DMVs are not available though some are replaced by database-level DMVs.
 - Serverless express: localdb, user instances
 - Service broker
 - SET REMOTE_PROC_TRANSACTIONS
 - SHUTDOWN
 - sp_addmessage
-- sp_configure options and RECONFIGURE
-- SQL Server audit (use SQL Database auditing instead)
+- sp_configure options and RECONFIGURE. Some options are available using [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx).
+- sp_helpuser
+- sp_migrate_user_to_contained
+- SQL Server audit. Use SQL Database auditing instead.
 - SQL Server Profiler
 - SQL Server trace
-- Trace flags
+- Trace flags. Some trace flag items have been moved to compatibility modes.
 - Transact-SQL debugging
 - Triggers: Server-scoped or logon triggers
-- USE statement
+- USE statement: To change the database context to a different database, you must make a new connection to the new database.
+
 
 ## Full Transact-SQL reference
 
@@ -90,6 +102,7 @@ For more information about Transact-SQL grammar, usage, and examples, see [Trans
 
 ### About the "Applies to" tags
 
-The Transact-SQL reference includes topics related to SQL Server 2008, SQL Server 2008 R2, SQL Server 2012, SQL Server 2014, and Microsoft Azure SQL Database. Near the top of each topic is a section indicating which products support the subject of the topic. If a product is omitted, then the feature described by the topic is not available in that product. For example, availability groups were introduced in SQL Server 2012. The **CREATE AVAILABILTY GROUP** topic indicates it applies to **SQL Server (SQL Server 2012 through current version)** because it does not apply to SQL Server 2008, SQL Server 2008 R2, or Microsoft Azure SQL Database.
+The Transact-SQL reference includes topics related to SQL Server versions 2008 to the present. Below the topic title there is an icon bar, listing the four SQL Server platforms, and indicating applicability. For example, availability groups were introduced in SQL Server 2012. The [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) topic indicates that the statement applies to **SQL Server (starting with 2012). The statement does not apply to SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse, or Parallel Data Warehouse.
 
-In some cases, the general subject of topic can be used in a product, but all of the arguments are not supported. For example, contained database users were introduced in SQL Server 2012. The **CREATE USER** statement can be used in any SQL Server product, however the **WITH PASSWORD** syntax cannot be used with older versions. In this case, additional **Applies to** sections are inserted into the appropriate argument descriptions in the body of the topic.
+In some cases, the general subject of a topic can be used in a product, but there are minor differences between products. The differences are indicated at midpoints in the topic as appropriate.
+

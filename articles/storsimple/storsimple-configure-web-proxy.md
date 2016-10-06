@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Configure web proxy for your StorSimple device
@@ -33,7 +33,7 @@ After reading this tutorial, you will be able to:
 
 - Configure web proxy by using setup wizard and cmdlets
 - Enable web proxy by using cmdlets
-- View web proxy settings in the Management Portal
+- View web proxy settings in the Azure classic portal
 - Troubleshoot errors during web proxy configuration
 
 
@@ -45,7 +45,7 @@ You use either of the following to configure web proxy settings:
 
 - Cmdlets in Windows PowerShell for StorSimple.
 
-Each of these methods are discussed in the following sections.
+Each of these methods is discussed in the following sections.
 
 ## Configure web proxy via the setup wizard
 
@@ -57,7 +57,7 @@ You can use the setup wizard to guide you through the steps for web proxy config
 
     `Invoke-HcsSetupWizard`
 
-2. If this is the first time that you have used the setup wizard for device registration, you will need to configure all the required network settings until you reach the web proxy configuration. If your device is already registered, you can accept all the configured network settings until you reach the web proxy configuration.In the setup wizard, when prompted to configure web proxy settings, type **Yes**.
+2. If this is the first time that you have used the setup wizard for device registration, you will need to configure all the required network settings until you reach the web proxy configuration. If your device is already registered, you can accept all the configured network settings until you reach the web proxy configuration. In the setup wizard, when prompted to configure web proxy settings, type **Yes**.
 
 3. For the **Web Proxy URL**, specify the IP address or the fully qualified domain name (FQDN) of your web proxy server and the TCP port number that you would like your device to use when communicating with the cloud. Use the following format:
 
@@ -75,7 +75,7 @@ You can use the setup wizard to guide you through the steps for web proxy config
 
 If you are registering your device for the first time, continue with the registration. If your device was already registered, the wizard will exit. The configured settings will be saved.
 
-Web proxy will now also be enabled. You can skip the [Enable web proxy](#enable-web-proxy) step and go directly to [View the web proxy settings in the Management Portal](#view-web-proxy-settings-in-the-management-portal).
+Web proxy will now also be enabled. You can skip the [Enable web proxy](#enable-web-proxy) step and go directly to [View web proxy settings in the Azure classic portal](#view-web-proxy-settings-in-the-azure-classic-portal).
 
 
 ## Configure web proxy via Windows PowerShell for StorSimple cmdlets
@@ -84,7 +84,7 @@ An alternate way to configure web proxy settings is via the Windows PowerShell f
 
 #### To configure web proxy via cmdlets
 
-1. In the serial console menu, choose option 1, **Log in with full access**. When prompted, provide the **device administrator password**. The default password is  `Password1`.
+1. In the serial console menu, choose option 1, **Log in with full access**. When prompted, provide the **device administrator password**. The default password is `Password1`.
 
 2. At the command prompt, type:
 
@@ -106,7 +106,7 @@ Perform the following steps in Windows PowerShell for StorSimple to enable web p
 
 #### To enable web proxy
 
-1. In the serial console menu, choose option 1, **Log in with full access**. When prompted, provide the **device administrator password**. The default password is  `Password1`.
+1. In the serial console menu, choose option 1, **Log in with full access**. When prompted, provide the **device administrator password**. The default password is `Password1`.
 
 2. At the command prompt, type:
 
@@ -116,9 +116,9 @@ Perform the following steps in Windows PowerShell for StorSimple to enable web p
 
 	![Configure Web Proxy On StorSimple Device4](./media/storsimple-configure-web-proxy/IC751832.png)
 
-## View web proxy settings in the Management Portal
+## View web proxy settings in the Azure classic portal
 
-The web proxy settings are configured through the Windows PowerShell interface and cannot be changed from within the Management Portal. You can, however, view these configured settings in the Management Portal. Perform the following steps to view web proxy.
+The web proxy settings are configured through the Windows PowerShell interface and cannot be changed from within the classic portal. You can, however, view these configured settings in the classic portal. Perform the following steps to view web proxy.
 
 #### To view web proxy settings
 1. Navigate to **StorSimple Manager service > Devices**. Select and click a device and then go to **Configure**.
@@ -137,13 +137,13 @@ If the web proxy settings have been configured incorrectly, error messages will 
 |3.|0x80070057 - Invalid parameter|One of the parameters provided for the proxy settings is not valid.|The URI is not provided in correct format. Use the following format: `http://<IP address or FQDN of the web proxy server>:<TCP port number>`|
 |4.|0x800706ba - RPC server not available|The root cause is one of the following:</br></br>Cluster is not up.</br></br>Datapath service is not running.</br></br>The command is run from passive controller and it is not able to communicate with the active controller.|Please engage Microsoft Support to ensure that the cluster is up and datapath service is running.</br></br>Run the command from the active controller. If you want to run the command from the passive controller, you will need to ensure the passive controller can communicate with the active controller. You will need to engage Microsoft Support if this connectivity is broken.|
 |5.|0x800706be - RPC call failed|Cluster is down.|Please engage Microsoft Support to ensure that the cluster is up.|
-|6.|0x8007138f - Cluster resource not found|Platform service cluster resource is not found. This can happen when the installation was not proper.|You may need to perform a factory reset on your device.You may need to create a platform resource. Please contact Microsoft Support for next steps.|
+|6.|0x8007138f - Cluster resource not found|Platform service cluster resource is not found. This can happen when the installation was not proper.|You may need to perform a factory reset on your device. You may need to create a platform resource. Please contact Microsoft Support for next steps.|
 |7.|0x8007138c - Cluster resource not online|Platform or datapath cluster resources are not online.|Please contact Microsoft Support to help ensure that the datapath and platform service resource are online.|
 
 > [AZURE.NOTE] 
 > 
 > -  The above list of error messages is not exhaustive. 
-> - Errors related to web proxy settings will not be displayed in the Management Portal in your StorSimple Manager service. If there is an issue with web proxy after the configuration is completed, the device status will change to **Offline** in the Management Portal.|
+> - Errors related to web proxy settings will not be displayed in the Azure classic portal in your StorSimple Manager service. If there is an issue with web proxy after the configuration is completed, the device status will change to **Offline** in the classic portal.|
 
 ## Next Steps
 

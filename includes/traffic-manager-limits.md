@@ -1,6 +1,6 @@
 Resource| Default limit
 ---|---
-Profiles per subscription | 100
+Profiles per subscription | 100 <sup>1</sup>
 Endpoints per profile| 200
 
-You can contact support to increase the default limit
+<sup>1</sup>Contact support in case you need to increase these limits.

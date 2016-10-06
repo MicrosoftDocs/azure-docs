@@ -1,8 +1,10 @@
-Managing identity is just as important in the public cloud is it is on premises. To help with this, Azure supports several different cloud identity technologies. They include these:
+Managing identity is just as important in the public cloud as it is on premises. To help with this, Azure supports several different cloud identity technologies. They include these:
 
 - You can run Windows Server Active Directory (commonly called just AD) in the cloud using virtual machines created with Azure Virtual machines. This approach makes sense when you're using Azure to extend your on-premises datacenter into the cloud.
 
-- You can use Azure Active Directory to give your users single sign-on to Software as a Service (SaaS) applications. Microsoft's Office 365 uses this technology, for example, and applications running on Azure or other cloud platforms can also use it.
+
+- You can use Azure Active Directory to give your users single sign-on to [Software as a Service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/) applications. Microsoft's Office 365 uses this technology, for example, and applications running on Azure or other cloud platforms can also use it.
+
 
 - Applications running in the cloud or on-premises can use Azure Active Directory Access Control to let users log in using identities from Facebook, Google, Microsoft, and other identity providers.
 
@@ -104,7 +106,7 @@ But why do this? Why not instead create an intermediary that can generate a sing
 
 The process begins when a user attempts to access the application from a browser. The application redirects her to an IdP of her choice (and that the application also trusts). She authenticates herself to this IdP, such as by entering a username and password (step 1), and the IdP returns a token containing information about her (step 2).
 
-As the figure shows, Access Control supports a range of different cloud-based IdPs, including accounts created by Google, Yahoo, Facebook, Microsoft (formerly known as Windows Live ID), and any OpenID provider. It also supports identifies created using Azure Active Directory and, through federation with AD FS, Windows Server Active Directory. The goal is to cover the most commonly used identities today, whether they're issued by IdPs in the cloud or on-premises.
+As the figure shows, Access Control supports a range of different cloud-based IdPs, including accounts created by Google, Yahoo, Facebook, Microsoft (formerly known as Windows Live ID), and any OpenID provider. It also supports identities created using Azure Active Directory and, through federation with AD FS, Windows Server Active Directory. The goal is to cover the most commonly used identities today, whether they're issued by IdPs in the cloud or on-premises.
 
 Once the user's browser has an IdP token from her chosen IdP, it sends this token to Access Control (step 3). Access Control validates the token, making sure that it really was issued by this IdP, then creates a new token according to the rules that have been defined for this application. Like Azure Active Directory, Access Control is a multi-tenant service, but the tenants are applications rather than customer organizations. Each application can get its own namespace, as the figure shows, and can define various rules about authorization and more.
 

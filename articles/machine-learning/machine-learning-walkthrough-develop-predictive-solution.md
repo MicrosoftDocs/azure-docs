@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/08/2015"
+	ms.date="09/16/2016"
 	ms.author="garye"/>
 
 
@@ -28,7 +28,9 @@ In this detailed walkthrough, we'll follow the process of developing a predictiv
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Open Machine Learning Studio: [https://studio.azureml.net/Home](https://studio.azureml.net/Home). For more information about getting started with Machine Learning Studio, see [Microsoft Azure Machine Learning Studio Home](https://studio.azureml.net/).
+<!-- -->
+
+>[AZURE.TIP] To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](machine-learning-studio-overview-diagram.md).
 
 To create a credit risk assessment solution, we'll follow these steps:  
 
@@ -40,4 +42,4 @@ To create a credit risk assessment solution, we'll follow these steps:
 6.	[Access the web service](machine-learning-walkthrough-6-access-web-service.md)
 
 This walkthrough is based on a simplified version of the
-[Credit risk prediction sample experiment](../machine-learning-sample-credit-risk-prediction.md) included with Machine Learning Studio.
+[Binary Classfication: Credit risk prediction](http://go.microsoft.com/fwlink/?LinkID=525270) sample experiment in the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/).

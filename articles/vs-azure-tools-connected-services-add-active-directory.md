@@ -3,17 +3,17 @@
    description="Add an Azure Active Directory by using the Visual Studio Add Connected Services dialog box"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="patshea123"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags 
-   ms.service="visual-studio-online""
+   ms.service="active-directory"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="visual-studio-online"
-   ms.date="08/12/2015"
-   ms.author="patshea" />
+   ms.workload="na"
+   ms.date="08/15/2016"
+   ms.author="tarcher" />
 
 # Adding an Azure Active Directory by using Connected Services in Visual Studio 
 
@@ -53,7 +53,7 @@ You can use the Connected Services dialog to connect to Azure AD in the followin
 
     ![Configure Azure AD in the wizard](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-3.png)
 
-1. Choose the **Finish** button. The dialog adds the necessary configuration code and references to enable your project for Azure AD authentication. You can see the AD domain on the Azure portal.
+1. Choose the **Finish** button. The dialog adds the necessary configuration code and references to enable your project for Azure AD authentication. You can see the AD domain on the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Review the Getting Started page that appears in your browser for ideas on next steps, and the What Happened page to see how your project was modified. If you want to check that everything worked, open one of the modified configuration files and verify that the settings mentioned in What Happened are there. For example, the main web.config in an ASP.NET MVC project will have these settings added:
 
@@ -75,7 +75,7 @@ Ask questions and get help.
 
  - [MSDN Forum: Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)
 
- - [Azure AD Documentation](http://azure.microsoft.com/documentation/services/active-directory/)
+ - [Azure AD Documentation](https://azure.microsoft.com/documentation/services/active-directory/)
 
  - [Blog Post: Intro to Azure AD](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 

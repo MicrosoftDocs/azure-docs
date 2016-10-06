@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Getting Started with Delivering Video on Demand (VoD) using REST APIs" 
-	description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using REST APIs" 
+	pageTitle="Get started with delivering content on demand using REST | Microsoft Azure" 
+	description="This tutorial walks you through the steps of implementing an on demand content delivery application with Azure Media Services using REST API." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,16 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="08/17/2016" 
 	ms.author="juliako"/>
 
-#Getting Started with Delivering Video on Demand (VoD) using REST APIs 
+#Get started with delivering content on demand using REST 
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
 >[AZURE.NOTE]
-> To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure Free Trial</a>.
+> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](/pricing/free-trial/?WT.mc_id=A261C142F). 
+
 
 This quickstart walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application using Azure Media Services (AMS) REST APIs. 
 
@@ -47,13 +48,13 @@ The following tasks are shown in this quickstart.
 
 ## <a id="create_ams"></a>Create a Media Services account using Portal
 
-1. In the [Management Portal][], click **New**, click **Media Service**, and then click **Quick Create**.
+1. In the [Azure Classic Portal][], click **New**, click **Media Service**, and then click **Quick Create**.
    
 	![Media Services Quick Create](./media/media-services-rest-get-started/wams-QuickCreate.png)
 
 2. In **NAME**, enter the name of the new account. A Media Services account name is all lower-case numbers or letters with no spaces, and is 3 - 24 characters in length. 
 
-3. In **REGION**, select the geographic region that will be used to store the metadata records for your Media Services account. Only the available Media Services regions appear in the dropdown. 
+3. In **REGION**, select the geographic region that is used to store the metadata records for your Media Services account. Only the available Media Services regions appear in the dropdown. 
 
 4. In **STORAGE ACCOUNT**, select a storage account to provide blob storage of the media content from your Media Services account. You can select an existing storage account in the same geographic region as your Media Services account, or you can create a new storage account. A new storage account is created in the same region. 
 
@@ -65,12 +66,12 @@ The following tasks are shown in this quickstart.
 
 	Once account is successfully created, the status changes to Active. 
 	
-	At the bottom of the page, the **MANAGE KEYS** button appears. When you click on this button, a dialog with the Media Services account name and the primary and secondary keys is displayed. You will need the account name and the primary key information to programmatically access the Media Services account. 
+	At the bottom of the page, the **MANAGE KEYS** button appears. When you click this button, a dialog with the Media Services account name and the primary and secondary keys is displayed. You need the account name and the primary key information to programmatically access the Media Services account. 
 
 	
 	![Media Services Page](./media/media-services-rest-get-started/wams-mediaservices-page.png)
 
-	When you double-click on the account name, the Quick Start page is displayed by default. This page enables you to do some management tasks that are also available on other pages of the portal. For example, you can upload a video file from this page, or do it from the CONTENT page.
+	When you double-click the account name, the Quick Start page is displayed by default. This page enables you to do some management tasks that are also available on other pages of the portal. For example, you can upload a video file from this page, or do it from the CONTENT page.
 
 
 ## <a id="connect"></a>Connect to the Media Services account with REST API
@@ -80,12 +81,9 @@ Two things are required when accessing Azure Media Services: an access token pro
 The following steps describe the most common workflow when using the Media Services REST API to connect to Media Services:
 
 1. Getting an access token. 
-2. Connecting to the Media Services URI. 
-	
-	>[AZURE.NOTE]
-	After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI.
-	> 
-	> You may also receive a HTTP/1.1 200 response that contains the ODATA API metadata description.
+2. Connecting to the Media Services URI.  
+
+	Remember that after successfully connecting to https://media.windows.net, you receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI. You may also receive a HTTP/1.1 200 response that contains the ODATA API metadata description.
 3. Posting your subsequent API calls to the new URL. 
 	
 	For example, if after trying to connect, you got the following:
@@ -214,7 +212,7 @@ The following example demonstrates HTTP request to the Media Services root URI (
 	 
 
 
->[AZURE.NOTE] From now on the new URI will be used in this tutorial.
+>[AZURE.NOTE] From now on the new URI is used in this tutorial.
 
 ## <a id="upload"></a>Create a new asset and upload a video file with REST API
 
@@ -225,7 +223,7 @@ One of the values that you have to provide when creating an asset is asset creat
  
 - **None** = **0** - No encryption is used. Note that when using this option your content is not protected in transit or at rest in storage.
 	If you plan to deliver an MP4 using progressive download, use this option. 
-- **StorageEncrypted** = **1** - Encrypts your clear content locally using AES-256 bit encryption and then uploads it to Azure Storage where it is stored encrypted at rest. Assets protected with Storage Encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. The primary use case for Storage Encryption is when you want to secure your high quality input media files with strong encryption at rest on disk.
+- **StorageEncrypted** = **1** - Encrypts your clear content locally using AES-256 bit encryption and then uploads it to Azure Storage where it is stored encrypted at rest. Assets protected with Storage Encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. The primary use case for Storage Encryption is when you want to secure your high-quality input media files with strong encryption at rest on disk.
 - **CommonEncryptionProtected** = **2** - Use this option if you are uploading content that has already been encrypted and protected with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).
 - **EnvelopeEncryptionProtected** = **4** – Use this option if you are uploading HLS encrypted with AES. Note that the files must have been encoded and encrypted by Transform Manager.
 
@@ -288,7 +286,7 @@ If successful, the following is returned:
 
 The [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) entity represents a video or audio file that is stored in a blob container. An asset file is always associated with an asset, and an asset may contain one or many AssetFiles. The Media Services Encoder task fails if an asset file object is not associated with a digital file in a blob container.
 
-After you upload your digital media file into a blob container, you will use the **MERGE** HTTP request to update the AssetFile with information about your media file (as shown later in the topic). 
+After you upload your digital media file into a blob container, you use the **MERGE** HTTP request to update the AssetFile with information about your media file (as shown later in the topic). 
 
 **HTTP Request**
 
@@ -349,7 +347,7 @@ After you upload your digital media file into a blob container, you will use the
 
 ### Creating the AccessPolicy with write permission. 
 
-Before uploading any files into blob storage, set the access policy rights for writing to an asset. To do that, POST an HTTP request to the AccessPolicies entity set. Define a DurationInMinutes value upon creation or you will receive a 500 Internal Server error message back in response. For more information on AccessPolicies, see [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
+Before uploading any files into blob storage, set the access policy rights for writing to an asset. To do that, POST an HTTP request to the AccessPolicies entity set. Define a DurationInMinutes value upon creation or you receive a 500 Internal Server error message back in response. For more information on AccessPolicies, see [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
 
 The following example shows how to create an AccessPolicy:
 		
@@ -368,7 +366,7 @@ The following example shows how to create an AccessPolicy:
 	
 	{"Name":"NewUploadPolicy", "DurationInMinutes":"440", "Permissions":"2"} 
 
-**HTTP Request**
+**HTTP Response**
 
 	If successful, the following response is returned:
 	
@@ -548,14 +546,14 @@ If successful, the following is returned:
 
 When working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients. With adaptive bitrate streaming, the client can switch to a higher or lower bitrate stream as the video is displayed based on the current network bandwidth, CPU utilization, and other factors. Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only). 
 
-Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) without you having to re-package into these streaming formats. 
+Media Services provides dynamic packaging, which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) without you having to re-package into these streaming formats. 
 
 To take advantage of dynamic packaging, you need to do the following:
 
 - get at least one streaming unit for the **streaming endpoint **from which you plan to deliver your content (described in this section).
 - encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial),  
 
-With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client. 
+With dynamic packaging, you only need to store and pay for the files in single storage format and Media Services builds and serves the appropriate response based on requests from a client. 
 
 
 >[AZURE.NOTE] For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
@@ -665,7 +663,7 @@ The allocation of any new units takes around 20 minutes to complete. To check th
 
 ## <a id="encode"></a>Encode the source file into a set of adaptive bitrate MP4 files
 
-After ingesting Assets into Media Services, media can be encoded, transmuxed, watermarked, and so on, before it is delivered to clients. These activities are scheduled and run against multiple background role instances to ensure high performance and availability. These activities are called Jobs and each [Job](http://msdn.microsoft.com/library/azure/hh974289.aspx) is comprised of atomic Tasks that do the actual work on the Asset file. 
+After ingesting Assets into Media Services, media can be encoded, transmuxed, watermarked, and so on, before it is delivered to clients. These activities are scheduled and run against multiple background role instances to ensure high performance and availability. These activities are called Jobs and each [Job](http://msdn.microsoft.com/library/azure/hh974289.aspx) is composed of atomic Tasks that do the actual work on the Asset file. 
 
 As was mentioned earlier, when working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients. Media Services can dynamically package a set of adaptive bitrate MP4 files into one of the following formats: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only). 
 
@@ -674,17 +672,17 @@ To take advantage of dynamic packaging, you need to do the following:
 - encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files,  
 - get at least one streaming unit for the streaming endpoint from which you plan to deliver your content. 
 
-The following section shows how to create a job that contains one encoding task. The task specifies to transcode the mezzanine file into a set of adaptive bitrate MP4s using **Azure Media Encoder**. The section also shows how to monitor the job processing progress. When the job is complete you you would be able to create locators that are needed to get access to your assets. 
+The following section shows how to create a job that contains one encoding task. The task specifies to transcode the mezzanine file into a set of adaptive bitrate MP4s using **Media Encoder Standard**. The section also shows how to monitor the job processing progress. When the job is complete you would be able to create locators that are needed to get access to your assets. 
 
 ### Get a media processor
 
-In Media Services, a media processor is a component that handles a specific processing task, such as encoding, format conversion, encrypting, or decrypting media content. For the encoding task shown in this tutorial we are going to use the Azure Media Encoder.
+In Media Services, a media processor is a component that handles a specific processing task, such as encoding, format conversion, encrypting, or decrypting media content. For the encoding task shown in this tutorial, we are going to use the Media Encoder Standard.
 
 The following code requests the encoder's id. 
 
 **HTTP Request**
 
-	GET https://wamsbayclus001rest-hs.cloudapp.net/api/MediaProcessors()?$filter=Name%20eq%20'Azure%20Media%20Encoder' HTTP/1.1
+	GET https://wamsbayclus001rest-hs.cloudapp.net/api/MediaProcessors()?$filter=Name%20eq%20'Media%20Encoder%20Standard' HTTP/1.1
 	DataServiceVersion: 1.0;NetFx
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
@@ -713,12 +711,12 @@ The following code requests the encoder's id.
 	   "odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#MediaProcessors",
 	   "value":[  
 	      {  
-	         "Id":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",
-	         "Description":"Azure Media Encoder",
-	         "Name":"Azure Media Encoder",
+	         "Id":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
+	         "Description":"Media Encoder Standard",
+	         "Name":"Media Encoder Standard",
 	         "Sku":"",
 	         "Vendor":"Microsoft",
-	         "Version":"4.4"
+	         "Version":"1.1"
 	      }
 	   ]
 	}
@@ -727,7 +725,7 @@ The following code requests the encoder's id.
 
 Each Job can have one or more Tasks depending on the type of processing that you want to accomplish. Through the REST API, you can create Jobs and their related Tasks in one of two ways: Tasks can be defined inline through the Tasks navigation property on Job entities, or through OData batch processing. The Media Services SDK uses batch processing; however, for the readability of the code examples in this topic, tasks are defined inline. For information on batch processing, see [Open Data Protocol (OData) Batch Processing](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-The following example shows you how to create and post a Job with one Task set to encode a video at a specific resolution and quality. The following documentation section contains the list of all the [task presets](http://msdn.microsoft.com/library/azure/dn619392.aspx) supported by the Azure Media Processor.  
+The following example shows you how to create and post a Job with one Task set to encode a video at a specific resolution and quality. The following documentation section contains the list of all the [task presets](http://msdn.microsoft.com/library/mt269960) supported by the Media Encoder Standard processor.  
 
 **HTTP Request**
 	
@@ -754,7 +752,7 @@ The following example shows you how to create and post a Job with one Task set t
 	   "Tasks":[  
 	      {  
 	         "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
-	         "MediaProcessorId":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",
+	         "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
 	         "TaskBody":"<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset>
 				<outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"
 	      }
@@ -825,7 +823,7 @@ If successful, the following response is returned:
 
 There are a few important things to note in any Job request:
 
-- TaskBody properties MUST use literal XML to define the number of input, or output assets that will be used by the Task. The Task topic contains the XML Schema Definition for the XML.
+- TaskBody properties MUST use literal XML to define the number of input, or output assets that are used by the Task. The Task topic contains the XML Schema Definition for the XML.
 - In the TaskBody definition, each inner value for <inputAsset> and <outputAsset> must be set as JobInputAsset(value) or JobOutputAsset(value).
 - A task can have multiple output assets. One JobOutputAsset(x) can only be used once as an output of a task in a job.
 - You can specify JobInputAsset or JobOutputAsset as an input asset of a task.
@@ -835,7 +833,7 @@ There are a few important things to note in any Job request:
 >[AZURE.NOTE] Because Media Services is built on OData v3, the individual assets in InputMediaAssets and OutputMediaAssets navigation property collections are referenced through a "__metadata : uri" name-value pair. 
 
 - InputMediaAssets maps to one or more Assets you have created in Media Services. OutputMediaAssets are created by the system. They do not reference an existing asset.
-- OutputMediaAssets can be named using the assetName attribute. If this attribute is not present, then the name of the OutputMediaAsset will be whatever the inner text value of the <outputAsset> element is with a suffix of either the Job Name value, or the Job Id value (in the case where the Name property isn't defined). For example, if you set a value for assetName to "Sample", then the OutputMediaAsset Name property would be set to "Sample". However, if you did not set a value for assetName, but did set the job name to "NewJob", then the OutputMediaAsset Name would be "JobOutputAsset(value)_NewJob". 
+- OutputMediaAssets can be named using the assetName attribute. If this attribute is not present, then the name of the OutputMediaAsset is whatever the inner text value of the <outputAsset> element is with a suffix of either the Job Name value, or the Job Id value (in the case where the Name property isn't defined). For example, if you set a value for assetName to "Sample", then the OutputMediaAsset Name property would be set to "Sample". However, if you did not set a value for assetName, but did set the job name to "NewJob", then the OutputMediaAsset Name would be "JobOutputAsset(value)_NewJob". 
 
 	The following example shows how to set the assetName attribute:
 	
@@ -844,7 +842,7 @@ There are a few important things to note in any Job request:
 
 - To enable task chaining:
 
-	- A job must have at least 2 tasks
+	- A job must have at least two tasks
 	- There must be at least one task whose input is output of another task in the job.
 
 For more information see, [Creating an Encoding Job with the Media Services REST API](http://msdn.microsoft.com/library/azure/jj129574.aspx).
@@ -887,7 +885,7 @@ If successful, the following response is returned:
 
 ### Cancel a job
 
-Media Services allows you to cancel running jobs through the CancelJob function. This call will return a 400 error code if you try to cancel a Job when its state is canceled, canceling, error, or finished.
+Media Services allows you to cancel running jobs through the CancelJob function. This call returns a 400 error code if you try to cancel a Job when its state is canceled, canceling, error, or finished.
 
 The following example shows how to call CancelJob.
 
@@ -964,7 +962,7 @@ The following code shows how to request the output asset Id.
 
 ## <a id="publish_get_urls"></a>Publish the asset and get streaming and progressive download URLs with REST API
 
-To stream or download an asset you first need to "publish" it by creating a locator. Locators provide access to files contained in the asset. Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) and Access Signature (SAS) locators, used to download media files.
+To stream or download an asset, you first need to "publish" it by creating a locator. Locators provide access to files contained in the asset. Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) and Access Signature (SAS) locators, used to download media files.
 
 Once you create the locators, you can build the URLs that are used to stream or download your files. 
 
@@ -986,7 +984,7 @@ A SAS URL used to download files has the following format:
 
 	{blob container name}/{asset name}/{file name}/{SAS signature}
 
-This sections shows how to perform the following tasks necessary to "publish" your assets.  
+This section shows how to perform the following tasks necessary to "publish" your assets.  
 
 - Creating the AccessPolicy with read permission 
 - Creating a SAS URL for downloading content 
@@ -1011,7 +1009,7 @@ The following example shows how to specify the AccessPolicy for read permissions
 	
 	{"Name": "DownloadPolicy", "DurationInMinutes" : "300", "Permissions" : 1}
 
-If successful, a 201 success code is returned describing the AccessPolicy entity that you created. You will then use the AccessPolicy Id along with the Asset Id of the asset that contains the file you want to deliver(such as an output asset) to create the Locator entity.
+If successful, a 201 success code is returned describing the AccessPolicy entity that you created. You then use the AccessPolicy Id along with the Asset Id of the asset that contains the file you want to deliver(such as an output asset) to create the Locator entity.
 
 >[AZURE.NOTE]
 This basic workflow is the same as uploading a file when ingesting an Asset (as was discussed earlier in this topic). Also, like uploading files, if you (or your clients) need to access your files immediately, set your StartTime value to five minutes before the current time. This action is necessary because there may be clock skew between the client and Media Services. The StartTime value must be in the following DateTime format: YYYY-MM-DDTHH:mm:ssZ (for example, "2014-05-23T17:53:50Z").
@@ -1110,7 +1108,7 @@ As a result of the encoding job that you performed earlier (encoding into Adapti
 	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-###Creating an streaming URL for streaming content
+### Creating a streaming URL for streaming content
 
 
 The following code shows how to create a streaming URL Locator:
@@ -1190,24 +1188,22 @@ To stream you video, use [Azure Media Services Player](http://amsplayer.azureweb
 To test progressive download, paste a URL into a browser (for example, IE, Chrome, Safari).
 
 
+##Next Steps: Media Services learning paths
 
-##Media Services learning paths
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-You can view AMS learning paths here:
+##Provide feedback
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
+## Looking for something else?
 
-
-##Additional Resources
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Get your video online now!</a>
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - Dynamic Packaging and Mobile Devices</a>
+If this topic didn't contain what you were expecting, is missing something, or in some other way didn't meet your needs, please provide us with your feedback using the Disqus thread below.
 
 
 
 <!-- URLs. -->
-  [Management Portal]: http://manage.windowsazure.com/
+  [Azure Classic Portal]: http://manage.windowsazure.com/
 
 
- 
+

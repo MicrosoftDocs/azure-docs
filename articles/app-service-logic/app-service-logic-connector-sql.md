@@ -1,23 +1,25 @@
 <properties
    pageTitle="Using the SQL Connector in Logic Apps | Microsoft Azure App Service"
    description="How to create and configure the SQL Connector or API app and use it in a logic app in Azure App Service"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
+   ms.date="09/01/2016"
    ms.author="sameerch"/>
 
 
 # Get started with the Microsoft SQL Connector and add it to your Logic App
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the Azure SQL 2015-08-01-preview schema version, click [SQL Azure API](../connectors/connectors-create-api-sqlazure.md).
+
 Connect to an on-premises SQL Server or an Azure SQL Database to create and change your information or data. Connectors can be used in Logic Apps to retrieve, process, or push data as a part of a "workflow". When you use the SQL Connector in your workflow, you can achieve a variety of scenarios. For example, you can:
 
 - Expose a section of the data residing in your SQL database using a web or mobile application.
@@ -54,7 +56,7 @@ User Name | Yes | Enter a user name that can log into the SQL Server. If connect
 Password | Yes | Enter the user name password.
 Database Name | Yes | Enter the database you are connecting. For example, you can enter *Customers* or *dbo/orders*.
 On-Premises | Yes | Default is False. Enter False if connecting to an Azure SQL database. Enter True if connecting to an on-premises SQL Server.
-Service Bus Connection String | No | If you're connecting to on-premises, enter the Service Bus relay connection string.<br/><br/>[Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-manager.md)<br/>[Service Bus Pricing](http://azure.microsoft.com/pricing/details/service-bus/)
+Service Bus Connection String | No | If you're connecting to on-premises, enter the Service Bus relay connection string.<br/><br/>[Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-manager.md)<br/>[Service Bus Pricing](https://azure.microsoft.com/pricing/details/service-bus/)
 Partner Server Name | No | If the primary server is unavailable, you can enter a partner server as an alternate or backup server.
 Tables | No | List the database tables that can be updated by the connector. For example, enter *OrdersTable* or *EmployeeTable*. If no tables are entered, all tables can be used. Valid tables and/or Stored Procedures are required to use this connector as an action.
 Stored Procedures | No | Enter an existing stored procedure that can be called by the connector. For example, enter *sp_IsEmployeeEligible* or *sp_CalculateOrderDiscount*. Valid tables and/or Stored Procedures are required to use this connector as an action.
@@ -136,6 +138,8 @@ Fields (in Select query) | <ul><li>Valid column names separated by commas. No ta
 > [AZURE.NOTE] This step is required only if you are using SQL Server on-premises behind your firewall.
 
 App Service uses the Hybrid Configuration Manager to connect securely to your on-premises system. If you're connector uses an on-premises SQL Server, the Hybrid Connection Manager is required.
+
+> [AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
 See [Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-manager.md).
 

@@ -1,49 +1,64 @@
-<properties 
-	pageTitle="Azure Mobile Engagement Android SDK Integration" 
-	description="Latest updates and procedures for Android SDK for Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+<properties
+	pageTitle="Android SDK Integration for Azure Mobile Engagement"
+	description="Describes how to integrate Azure Mobile Engagement SDK in Android apps"
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="erikre"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/12/2016"
+	ms.author="piyushjo;ricksal" />
 
+# Android SDK Integration for Azure Mobile Engagement
 
-#Android SDK for Azure Mobile Engagement
+> [AZURE.SELECTOR]
+- [Universal Windows](mobile-engagement-windows-store-sdk-overview.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-sdk-overview.md)
+- [iOS](mobile-engagement-ios-sdk-overview.md)
+- [Android](mobile-engagement-android-sdk-overview.md)
 
-Start here to get all the details on how to integrate Azure Mobile Engagement in an Android App. If you'd like to give it a try first, make sure you do our [15 minutes tutorial](mobile-engagement-android-get-started.md).
+This document describes all the integration and configuration options available for Azure Mobile Engagement Android SDK.
 
-Click to see the [SDK Content](mobile-engagement-android-sdk-content.md).
+## Prerequisites
 
-##Integration procedures
-1. Start here: [How to integrate Mobile Engagement in your Android app](mobile-engagement-android-integrate-engagement.md)
+[AZURE.INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
-2. For Notifications: [How to integrate Reach (Notifications) in your Android app](mobile-engagement-android-integrate-engagement-reach.md)
-	1. Google Cloud Messaging (GCM): [How to Integrate GCM with Mobile Engagement](mobile-engagement-android-gcm-integrate.md)
-	2. Amazon Device Messaging (ADM): [How to Integrate ADM with Mobile Engagement](mobile-engagement-android-adm-integrate.md)
+## Advanced Features
 
-3. Tag plan implementation: [How to use the advanced Mobile Engagement tagging API in your Android app](mobile-engagement-android-use-engagement-api.md)
+### Reporting Features
 
+You can add these features:
 
-##Release notes
+1. [Advanced reporting options](mobile-engagement-android-advanced-reporting.md)
+2. [Location Reporting options](mobile-engagement-android-location-reporting.md)
+3. [Advanced Configuration options](mobile-engagement-android-advanced-configuration.md)
 
-##4.1.0 (08/25/2015)
+### Notifications:
+[How to integrate Reach (Notifications) in your Android app](mobile-engagement-android-integrate-engagement-reach.md)
 
-- Handle new permission model for Android M.
-- Can now configure location features at runtime instead of using  `AndroidManifest.xml`.
-- Fix a permission bug: if you use `ACCESS_FINE_LOCATION`, then `ACCESS_COARSE_LOCATION` is not needed anymore.
-- Stability improvements.
+1. Google Cloud Messaging (GCM): [How to Integrate GCM with Mobile Engagement](mobile-engagement-android-gcm-integrate.md)
 
-For earlier versions, please see the [complete release notes](mobile-engagement-android-release-notes.md).
+2. Amazon Device Messaging (ADM): [How to Integrate ADM with Mobile Engagement](mobile-engagement-android-adm-integrate.md)
 
-##Upgrade procedures
+### Tag plan implementation:
+[How to use the advanced Mobile Engagement tagging API in your Android app](mobile-engagement-android-use-engagement-api.md)
 
-If you already have integrated an older version of our SDK into your application please consult [Upgrade Procedures](mobile-engagement-android-upgrade-procedure.md).
+## Release notes
+
+### 4.2.3 (08/10/2016)
+
+ - No more WIFI lock.
+ - Fix a deadlock when calling getDeviceId before init (bug introduced in 4.2.0).
+
+For all versions, see the [complete release notes](mobile-engagement-android-release-notes.md).
+
+## Upgrade procedures
+
+If you already have integrated an older version of our SDK into your application, consult [Upgrade Procedures](mobile-engagement-android-upgrade-procedure.md).

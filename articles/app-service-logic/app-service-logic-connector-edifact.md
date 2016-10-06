@@ -1,22 +1,25 @@
 <properties 
    pageTitle="Using the BizTalk Edifact Connector in Logic Apps | Microsoft Azure App Service" 
    description="How to create and configure the BizTalk Edifact Connector or API app and use it in a logic app in Azure App Service" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
-   manager="dwrede" 
+   manager="erikre" 
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/23/2015"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # Get started with the BizTalk Edifact Connector and add it to your Logic App  
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+
 Use the Edifact service to receive and send messages over the Edifact protocol in business to business communications. Edifact is also commonly referred to as ASC Edifact or Accredited Standards Committee Edifact and is widely used across industries.
 
 You can add the BizTalk Edifact connector to your business workflow and process data as part of this workflow within a Logic App. 
@@ -32,7 +35,7 @@ To use the Edifact Connector, you need to first create an instance of the AS2 Co
 ## Configuring Edifact Connector
 Trading partners are the entities involved in B2B (Business-to-Business) communications. When two partners establish a relationship, this is referred to as an Agreement. The agreement defined is based on the communication the two partners wish to achieve and is protocol or transport specific.
 
-Steps involved in creating a trading partner agreement is documented [here][2].
+See the steps to [create a trading partner agreement][2].
 
 ## Using Edifact Connector in Logic Apps designer surface
 Edifact Connector can be used either as a trigger or as an action.
@@ -78,9 +81,11 @@ The action returns an object containing the EDIFACT payload on successful comple
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business flow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
 
+>[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
+
 View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-You can also review performance statistics and control security to the connector. See [Manage  and Monitor API apps and connector](../app-service-api/app-service-api-manage-in-portal.md).
+ 
 
 
 <!--References -->

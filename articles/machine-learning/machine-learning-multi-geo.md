@@ -4,7 +4,7 @@
    services="machine-learning"
    documentationCenter=""
    authors="tedway"
-   manager="paulettm"
+   manager="jhubbard"
    editor="rmca14"
    tags=""/>
 
@@ -14,16 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/17/2015"
+   ms.date="08/16/2016"
    ms.author="tedway; neerajkh"/>
 
 # Multi-Geo Help documentation
 
-Currently, all Azure Machine Learning assets are hosted in the South Central United States (SCUS) Azure region. This article describes how you can create a workspace and publish a web service in other Azure regions.
+This article describes how you can create a workspace and publish a web service in other Azure regions.
 
 ## Create a workspace
 
-1. Sign in to the Azure Management Portal.
+1. Sign in to the Azure Classic Portal.
 
 2.  Click **+NEW** > **DATA SERVICES** > **MACHINE LEARNING** > **QUICK CREATE**.  Under **LOCATION** select another region, such as **Southeast Asia**.
 ![Multi-Geo Help image 1][1]
@@ -41,11 +41,13 @@ If you open an experiment from Gallery, you can also select which region you wan
 
 ## Web service management
 
-To programmatically manage web services, such as for retraining, use the region-specific address: **https://asiasoutheast.management.azureml.net**
+To programmatically manage web services, such as for retraining, use the region-specific address:
+- https://asiasoutheast.management.azureml.net
+- https://europewest.management.azureml.net
 
 ### Things to note
 
-1.	You can only copy experiments between workspaces that belong to the same region. In the future, we will enable copying experiments between workspaces across multiple regions.
+1.	You can only copy experiments between workspaces that belong to the same region this way. If you need to copy experiment across workspaces in different regions, you can use the [PowerShell](http://aka.ms/amlps) commandlet [*Copy-AmlExperiment*](https://github.com/hning86/azuremlps/blob/master/README.md#copy-amlexperiment) to accomplish that. Another workaround is to publish the experiment into Gallery in unlisted mode, then open it in the workspace from the other region.
 2.	The region selector will only show workspaces for one region at a time. In the future, you will be able to see a full list of workspaces you have access to across all regions at the same time.  
 3.	A free workspace or Guest Access (anonymous) workspace will be created and hosted in South Central U.S. In the future, you will be able to create Free/Guest Access workspaces in the region that you choose.  
 4.	Web services deployed from a workspace in Southeast Asia will also be hosted in Southeast Asia. In the future, you will be able to have the flexibility of creating experiments in one region, and deploying generated web service endpoints into different regions.  

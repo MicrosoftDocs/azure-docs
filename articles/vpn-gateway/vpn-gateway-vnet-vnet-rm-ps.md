@@ -1,250 +1,485 @@
 <properties
-   pageTitle="Create a VNet-to-VNet connection using Azure Resource Manager and PowerShell | Microsoft Azure"
-   description="This article walks you through connecting virtual networks together by using Azure Resource Manager and PowerShell"
+   pageTitle="Connect Azure VNets with VPN Gateway and PowerShell | Microsoft Azure"
+   description="This article walks you through connecting virtual networks together by using Azure Resource Manager and PowerShell."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
-   editor=""/>
+   manager="carmonm"
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="vpn-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/20/2015"
+   ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
-# Configure a VNet-to-VNet connection using Azure Resource Manager and PowerShell
+# Configure a VNet-to-VNet connection for Resource Manager using PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
-- [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
+- [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+- [Classic - Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
+
+This article walks you through the steps to create a connection between VNets in the Resource Manager deployment model by using VPN Gateway. The virtual networks can be in the same or different regions, and from the same or different subscriptions.
 
 
-Connecting a virtual network to another virtual network (VNet-to-VNet) is very similar to connecting a VNet to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. The VNets you connect can be in different regions. You can even combine VNet-to-VNet communication with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the diagram below. 
+![v2v diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 
-![VNet to VNet Connectivity Diagram](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727360.png)
+### Deployment models and methods for VNet-to-VNet
 
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+
+A VNet-to-VNet connection can be configured in both deployment models and by using several different tools. We update the following table as new articles and additional tools become available for this configuration. When an article is available, we link directly to it from the table.<br><br>
+
+[AZURE.INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)] 
+
+#### VNet peering
+
+[AZURE.INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
+
+
+## About VNet-to-VNet connections
+
+Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a VNet to an on-premises site location. Both connectivity types use an Azure VPN gateway to provide a secure tunnel using IPsec/IKE. The VNets you connect can be in different regions. Or in different subscriptions. You can even combine VNet-to-VNet communication with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram:
+
+
+![About connections](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
  
-
->[AZURE.NOTE] Azure currently has two deployment modes: the classic deployment mode, and the Azure Resource Manager deployment mode. The configuration cmdlets and steps differ between deployment modes. This topic will walk you through connecting virtual networks that are created using the Azure Resource Manager mode. If you want to create a VNet-to-VNet connection using the classic deployment mode, see [Configure a VNet-to-VNet connection using the Azure Portal](virtual-networks-configure-vnet-to-vnet-connection.md). If you want to connect a virtual network that was created in the classic mode to a virtual network created in Azure Resource Manager, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md).
-
-## Why connect virtual networks?
+### Why connect virtual networks?
 
 You may want to connect virtual networks for the following reasons:
 
 - **Cross region geo-redundancy and geo-presence**
-	- You can set up your own geo-replication or synchronization with secure connectivity without going over internet-facing endpoints.
-	- With Azure Load Balancer and Microsoft or third-party clustering technology, you can setup highly available workload with geo-redundancy across multiple Azure regions. One important example is to setup SQL Always On with Availability Groups spreading across multiple Azure regions.
+	- You can set up your own geo-replication or synchronization with secure connectivity without going over Internet-facing endpoints.
+	- With Azure Traffic Manager and Load Balancer, you can set up highly available workload with geo-redundancy across multiple Azure regions. One important example is to set up SQL Always On with Availability Groups spreading across multiple Azure regions.
 
-- **Regional multi-tier applications with strong isolation boundary**
-	- Within the same region, you can setup multi-tier applications with multiple virtual networks connected together with strong isolation and secure inter-tier communication.
-
-
-
-### Items to note
-
-This article will walk you through connecting two virtual networks, VNet1 and VNet2. You’ll need to be comfortable with networking in order to substitute the IP address ranges that are compatible with your network design requirements. 
+- **Regional multi-tier applications with isolation or administrative boundary**
+	- Within the same region, you can set up multi-tier applications with multiple virtual networks connected together due to isolation or administrative requirements.
 
 
-![Connecting VNet to VNet](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727361.png)
+### VNet-to-VNet FAQ
+
+[AZURE.INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)] 
 
 
+## Which set of steps should I use?
 
-- The virtual networks can be in the same or different Azure regions (locations).
+In this article, you see two different sets of steps. One set of steps for [VNets that reside in the same subscription](#samesub), and another for [VNets that reside in different subscriptions](#difsub). The key difference between the sets is whether you can create and configure all virtual network and gateway resources within the same PowerShell session.
 
-- A cloud service or a load balancing endpoint CANNOT span across virtual networks, even if they are connected together.
+The steps in this article use variables that are declared at the beginning of each section. If you already are working with existing VNets, modify the variables to reflect the settings in your own environment. 
 
-- Connecting multiple Azure virtual networks together doesn't require any on-premises VPN gateways, unless cross-premises connectivity is required.
-
-- VNet-to-VNet supports connecting virtual networks. It does not support connecting virtual machines or cloud services NOT in a virtual network.
-
-- VNet-to-VNet requires Azure VPN gateways with RouteBased (previously called Dynamic) VPN types. 
-
-- Virtual network connectivity can be used simultaneously with multi-site VPNs, with a maximum of 10 VPN tunnels for a virtual network VPN gateway connecting to ether other virtual networks or on-premises sites.
-
-- The address spaces of the virtual networks and on-premises local network sites must not overlap. Overlapping address spaces will cause the creation of virtual networks to fail.
-
-- Redundant tunnels between a pair of virtual networks are not supported.
-
-- All VPN tunnels of the virtual network share the available bandwidth on the Azure VPN gateway and the same VPN gateway uptime SLA in Azure.
-
-- VNet-to-VNet traffic travels across the Azure backbone.
+![Both connections](./media/vpn-gateway-vnet-vnet-rm-ps/differentsubscription.png)
 
 
-## Before beginning
+## <a name="samesub"></a>How to connect VNets that are in the same subscription
 
+![v2v diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-Before you begin, verify that you have the following:
-
-
-- The latest version of Azure PowerShell cmdlets. You can download and install the latest version from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/). 
-- An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
-- If you already have created your virtual networks, see [Connecting existing VNets](#connecting-existing-vnets).
+### Before you begin
 	
+Before beginning, you need to install the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
 
+### <a name="Step1"></a>Step 1 - Plan your IP address ranges
 
-There are multiple steps to creating and configuring a VNet-to-VNet connection. Configure each section in the order listed below. 
 
+In the following steps, we create two virtual networks along with their respective gateway subnets and configurations. We then create a VPN connection between the two VNets. It’s important to plan the IP address ranges for your network configuration. Keep in mind that you must make sure that none of your VNet ranges or local network ranges overlap in any way.
 
-1. [Plan your IP address ranges](#plan-your-ip-address-ranges)
-2. [Connect to your subscription](#connect-to-your-subscription)
-3. [Create a virtual network](#create-a-virtual-network)
-4. [Request a public IP address for your gateway](#request-a-public-ip-address)
-5. [Create the gateway configuration](#create-the-gateway-configuration)
-6. [Create the gateway](#create-the-gateway)
-7. [Repeat to configure VNet2](#create-vnet2)
-8. [Connect the VPN gateways](#connect-the-gateways)
+We use the following values in the examples:
 
+**Values for TestVNet1:**
 
-## Plan your IP address ranges
+- VNet Name: TestVNet1
+- Resource Group: TestRG1
+- Location: East US
+- TestVNet1: 10.11.0.0/16 & 10.12.0.0/16
+- FrontEnd: 10.11.0.0/24
+- BackEnd: 10.12.0.0/24
+- GatewaySubnet: 10.12.255.0/27
+- DNS Server: 8.8.8.8
+- GatewayName: VNet1GW
+- Public IP: VNet1GWIP
+- VPNType: RouteBased
+- Connection(1to4): VNet1toVNet4
+- Connection(1to5): VNet1toVNet5
+- ConnectionType: VNet2VNet
 
-### Step 1
 
-It’s important to decide the ranges that you’ll use to configure your network configuration. From the perspective of VNet1, VNet2 is just another VPN connection that’s defined in the Azure platform. And from VNet2, VNet1 is just another VPN connection. Keep in mind that you must make sure that none of your VNet ranges or local network ranges overlap in any way.
+**Values for TestVNet4:**
 
+- VNet Name: TestVNet4
+- TestVNet2: 10.41.0.0/16 & 10.42.0.0/16
+- FrontEnd: 10.41.0.0/24
+- BackEnd: 10.42.0.0/24
+- GatewaySubnet: 10.42.255.0/27
+- Resource Group: TestRG4
+- Location: West US
+- DNS Server: 8.8.8.8
+- GatewayName: VNet4GW
+- Public IP: VNet4GWIP
+- VPNType: RouteBased
+- Connection: VNet4toVNet1
+- ConnectionType: VNet2VNet
 
-In the steps below, we’ll create two virtual networks along with their respective gateway subnets and configurations. We'll then create a VPN gateway connection between the two VNets.
 
-For this exercise, use the following values for the VNets:
 
-Values for VNet1: 
+### <a name="Step2"></a>Step 2 - Create and configure TestVNet1
 
-- Virtual Network Name = VNet1
-- Resource Group = testrg1
-- Address Space = 10.1.0.0/16 
-- Region = US West
-- GatewaySubnet = 10.1.0.0/28
-- Subnet1 = 10.1.1.0/28
+1. Declare your variables
 
-Values for VNet2: 
+	Start by declaring variables. This example declares the variables using the values for this exercise. In most cases, you should replace the values with your own. However, you can use these variables if you are running through the steps to become familiar with this type of configuration. Modify the variables if needed, then copy and paste them into your PowerShell console.
 
-- Virtual Network Name = VNet2
-- Resource Group = testrg2
-- Address Space = 10.2.0.0/16
-- Region = Japan East
-- GatewaySubnet = 10.2.0.0/28
-- Subnet1 = 10.2.1.0/28
+		$Sub1 = "Replace_With_Your_Subcription_Name"
+		$RG1 = "TestRG1"
+		$Location1 = "East US"
+		$VNetName1 = "TestVNet1"
+		$FESubName1 = "FrontEnd"
+		$BESubName1 = "Backend"
+		$GWSubName1 = "GatewaySubnet"
+		$VNetPrefix11 = "10.11.0.0/16"
+		$VNetPrefix12 = "10.12.0.0/16"
+		$FESubPrefix1 = "10.11.0.0/24"
+		$BESubPrefix1 = "10.12.0.0/24"
+		$GWSubPrefix1 = "10.12.255.0/27"
+		$DNS1 = "8.8.8.8"
+		$GWName1 = "VNet1GW"
+		$GWIPName1 = "VNet1GWIP"
+		$GWIPconfName1 = "gwipconf1"
+		$Connection14 = "VNet1toVNet4"
+		$Connection15 = "VNet1toVNet5"
 
-## Connect to your subscription 
+2. Connect to your subscription
 
-### Step 2
+	Switch to PowerShell mode to use the Resource Manager cmdlets. Open your PowerShell console and connect to your account. Use the following example to help you connect:
 
+		Login-AzureRmAccount
 
-Open your PowerShell console and switch to the Azure Resource Manager mode. Use the following sample to help you connect:
+	Check the subscriptions for the account.
 
-		Add-AzureAccount
+		Get-AzureRmSubscription 
 
-Use the Select-AzureSubscription to connect to the subscription that you want to use.
+	Specify the subscription that you want to use.
 
-		Select-AzureSubscription "yoursubscription"
+		Select-AzureRmSubscription -SubscriptionName $Sub1
 
-Next, switch to the ARM mode. This will switch the mode to allow you to use the ARM cmdlets.
+3. Create a new resource group
 
-		Switch-AzureMode -Name AzureResourceManager
+		New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 
-## Create a virtual network
+4. Create the subnet configurations for TestVNet1
 
-### Step 3
+	This example creates a virtual network named TestVNet1 and three subnets, one called GatewaySubnet, one called FrontEnd, and one called Backend. When substituting values, it's important that you always name your gateway subnet specifically GatewaySubnet. If you name it something else, your gateway creation will fail. 
 
+	The following example uses the variables that you set earlier. In this example, the gateway subnet is using a /27. Although you can create a gateway subnet using a subnet as small as a /29, we don't recommend doing this. We recommend using something larger, such as a /27 or /26. Doing so will let you take advantage of existing or future configurations that may require a larger gateway subnet. 
 
-Use the sample below to create a virtual network and a gateway subnet. Substitute the values for your own. In this example, we'll create VNet1. You'll repeat the steps to create VNet2 later.
+		$fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
+		$besub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
+		$gwsub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
 
-First, create a Resource Group. 
 
-			New-AzureResourceGroup -Name testrg1 -Location 'West US'
+5. Create TestVNet1
 
-Next, create your virtual network. The sample below creates a virtual network named *VNet1* and two subnets, one called *GatewaySubnet* and the other called *Subnet1*. It's important to create one subnet named specifically *GatewaySubnet*. If you name it something else, your connection configuration will fail. In the example below, our gateway subnet is using a /28. You may choose to use a gateway subnet as small as /29. Note that some features (such as an ExpressRoute/site-to-site coexist connection) require a larger gateway subnet of /27, so you may want to create your gateway subnet to accommodate additional features you may use in the future.
+		New-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 `
+		-Location $Location1 -AddressPrefix $VNetPrefix11,$VNetPrefix12 -Subnet $fesub1,$besub1,$gwsub1
 
- 		$subnet = New-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.0.0/28
-		$subnet1 = New-AzureVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.1.1.0/28'
-		New-AzurevirtualNetwork -Name VNet1 -ResourceGroupName testrg1 -Location 'West US' -AddressPrefix 10.1.0.0/16 -Subnet $subnet, $subnet1
+6. Request a public IP address
 
-## Request a public IP address
+	Request a public IP address to be allocated to the gateway you will create for your VNet. Notice that the AllocationMethod is Dynamic. You cannot specify the IP address that you want to use. It's dynamically allocated to your gateway. 
 
-### Step 4
+		$gwpip1 = New-AzureRmPublicIpAddress -Name $GWIPName1 -ResourceGroupName $RG1 `
+		-Location $Location1 -AllocationMethod Dynamic
 
-Next, you'll request a public IP address to be allocated to the gateway you will create for your VNet. You cannot specify the IP address that you want to use; it’s dynamically allocated to your gateway. You'll use this IP address in the next configuration section.
+7. Create the gateway configuration
 
-Use the sample below. The Allocation Method for this address must be Dynamic. 
+	The gateway configuration defines the subnet and the public IP address to use. Use the example to create your gateway configuration. 
 
+		$vnet1 = Get-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
+		$subnet1 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
+		$gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 `
+		-Subnet $subnet1 -PublicIpAddress $gwpip1
 
-		$gwpip= New-AzurePublicIpAddress -Name gwpip1 -ResourceGroupName testrg1 -Location 'West US' -AllocationMethod Dynamic
+8. Create the gateway for TestVNet1
 
+	In this step, you create the virtual network gateway for your TestVNet1. VNet-to-VNet configurations require a RouteBased VpnType. Creating a gateway can take a while (45 minutes or more to complete).
 
-## Create the gateway configuration
+		New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
+		-Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn `
+		-VpnType RouteBased -GatewaySku Standard
 
-### Step 5
+### Step 3 - Create and configure TestVNet4
 
-The gateway configuration defines the subnet and the public IP address to use. Use the sample below to create your gateway configuration. 
+Once you've configured TestVNet1, create TestVNet4. Follow the steps below, replacing the values with your own when needed. This step can be done within the same PowerShell session because it is in the same subscription.
 
+1. Declare your variables
 
-		$vnet = Get-AzureVirtualNetwork -Name VNet1 -ResourceGroupName testrg1
-		$subnet = Get-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
-		$gwipconfig = New-AzureVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id 
+	Be sure to replace the values with the ones that you want to use for your configuration.
 
+		$RG4 = "TestRG4"
+		$Location4 = "West US"
+		$VnetName4 = "TestVNet4"
+		$FESubName4 = "FrontEnd"
+		$BESubName4 = "Backend"
+		$GWSubName4 = "GatewaySubnet"
+		$VnetPrefix41 = "10.41.0.0/16"
+		$VnetPrefix42 = "10.42.0.0/16"
+		$FESubPrefix4 = "10.41.0.0/24"
+		$BESubPrefix4 = "10.42.0.0/24"
+		$GWSubPrefix4 = "10.42.255.0/27"
+		$DNS4 = "8.8.8.8"
+		$GWName4 = "VNet4GW"
+		$GWIPName4 = "VNet4GWIP"
+		$GWIPconfName4 = "gwipconf4"
+		$Connection41 = "VNet4toVNet1"
 
-## Create the gateway
+	Before you continue, make sure you are still connected to Subscription 1.
 
-### Step 6
+2. Create a new resource group
 
-In this step, you'll create the virtual network gateway for your VNet. VNet-to-VNet configurations require a RouteBased VpnType. Creating a gateway can take a while, so be patient.
+		New-AzureRmResourceGroup -Name $RG4 -Location $Location4
 
-		New-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
+3. Create the subnet configurations for TestVNet4
 
-## Create VNet2
+		$fesub4 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName4 -AddressPrefix $FESubPrefix4
+		$besub4 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName4 -AddressPrefix $BESubPrefix4
+		$gwsub4 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName4 -AddressPrefix $GWSubPrefix4
 
-### Step 7
+4. Create TestVNet4
 
-Once you've configured VNet1, repeat the previous steps to configure VNet2 along with its gateway configuration. After you've completed the configuration for both of the VNets and their respective gateways, proceed to [Connect the gateways](#connect-the-gateways).
+		New-AzureRmVirtualNetwork -Name $VnetName4 -ResourceGroupName $RG4 `
+		-Location $Location4 -AddressPrefix $VnetPrefix41,$VnetPrefix42 -Subnet $fesub4,$besub4,$gwsub4
 
+5. Request a public IP address
 
-## Connect the gateways
+		$gwpip4 = New-AzureRmPublicIpAddress -Name $GWIPName4 -ResourceGroupName $RG4 `
+		-Location $Location4 -AllocationMethod Dynamic
 
-### Step 8
+6. Create the gateway configuration
 
-In this step, you'll create the VPN gateway connections between the two virtual network gateways. You'll see a shared key referenced in the examples. You can use your own values for the shared key. The important thing is that the shared key must match for both configurations.
+		$vnet4 = Get-AzureRmVirtualNetwork -Name $VnetName4 -ResourceGroupName $RG4
+		$subnet4 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet4
+		$gwipconf4 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName4 -Subnet $subnet4 -PublicIpAddress $gwpip4
 
-When creating connections, note that they do take some time to complete.
+7. Create the TestVNet4 gateway
 
-**For VNet1 to VNet2**
-    
-    $vnetgw1 = Get-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1
-    $vnetgw2 = Get-AzureVirtualNetworkGateway -Name vnetgw2 -ResourceGroupName testrg2
-    
-    New-AzureVirtualNetworkGatewayConnection -Name conn1 -ResourceGroupName testrg1 -VirtualNetworkGateway1 $vnetgw1 -VirtualNetworkGateway2 $vnetgw2 -Location 'West US' -ConnectionType Vnet2Vnet -SharedKey 'abc123'
+		New-AzureRmVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4 `
+		-Location $Location4 -IpConfigurations $gwipconf4 -GatewayType Vpn `
+		-VpnType RouteBased -GatewaySku Standard
 
+### Step 4 - Connect the gateways
 
-**For VNet2 to VNet1**
-    
-    $vnetgw1 = Get-AzureVirtualNetworkGateway -Name vnetgw2 -ResourceGroupName testrg2
-    $vnetgw2 = Get-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1
-    
-    New-AzureVirtualNetworkGatewayConnection -Name conn2 -ResourceGroupName testrg2 -VirtualNetworkGateway1 $vnetgw1 -VirtualNetworkGateway2 $vnetgw2 -Location 'Japan East' -ConnectionType Vnet2Vnet -SharedKey 'abc123'
-    
+1. Get both virtual network gateways
 
+	In this example, because both gateways are in the same subscription, this step can be completed in the same PowerShell session.
 
-After a few minutes, the connection should be established. Note that at this time, gateways and connections created with Azure Resource Manager are not visible in the Preview Portal. 
+		$vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
+		$vnet4gw = Get-AzureRmVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4
 
-## Connecting existing VNets
 
-If you already have created virtual networks in Azure Resource Manager mode and you want to connect them, verify the following:
+2. Create the TestVNet1 to TestVNet4 connection
 
-- You have a gateway subnet of at least /29 or larger for each VNet.
-- The address ranges for your virtual networks do not overlap.
+	In this step, you create the connection from TestVNet1 to TestVNet4. You'll see a shared key referenced in the examples. You can use your own values for the shared key. The important thing is that the shared key must match for both connections. Creating a connection can take a short while to complete.
 
-If you need to add gateway subnets to your VNets, use the sample below, replacing the values with your own. Be sure to name the gateway subnet 'GatewaySubnet'. If you name it something else, your VPN configuration will not work as expected. 
+		New-AzureRmVirtualNetworkGatewayConnection -Name $Connection14 -ResourceGroupName $RG1 `
+		-VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet4gw -Location $Location1 `
+		-ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
 
+3. Create the TestVNet4 to TestVNet1 connection
+
+	This step is similar to the one above, except you are creating the connection from TestVNet4 to TestVNet1. Make sure the shared keys match.
+
+		New-AzureRmVirtualNetworkGatewayConnection -Name $Connection41 -ResourceGroupName $RG4 `
+		-VirtualNetworkGateway1 $vnet4gw -VirtualNetworkGateway2 $vnet1gw -Location $Location4 `
+		-ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
+
+	The connection should be established after a few minutes.
+
+4. Verify your connection. See the section [How to verify your connection](#verify).
+
+
+## <a name="difsub"></a>How to connect VNets that are in different subscriptions
+
+
+![v2v diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
+
+In this scenario, we connect TestVNet1 and TestVNet5. TestVNet1 and TestVNet5 reside in a different subscription. The steps for this configuration add an additional VNet-to-VNet connection in order to connect TestVNet1 to TestVNet5. 
+
+The difference here is that some of the configuration steps need to be performed in a separate PowerShell session in the context of the second subscription. Especially when the two subscriptions belong to different organizations. 
+
+The instructions continue from the previous steps listed above. You must complete [Step 1](#Step1) and [Step 2](#Step2) to create and configure TestVNet1, and the VPN Gateway for TestVNet1. Once you complete Step 1 and Step 2, continue with Step 5 to create TestVNet5.
+
+### Step 5 - Verify the additional IP address ranges
+
+It is important to make sure that the IP address space of the new virtual network, TestVNet5, does not overlap with any of your VNet ranges or local network gateway ranges. 
+
+In this example, the virtual networks may belong to different organizations. For this exercise, you can use the following values for the TestVNet5:
+
+**Values for TestVNet5:**
+
+- VNet Name: TestVNet5
+- Resource Group: TestRG5
+- Location: Japan East
+- TestVNet5: 10.51.0.0/16 & 10.52.0.0/16
+- FrontEnd: 10.51.0.0/24
+- BackEnd: 10.52.0.0/24
+- GatewaySubnet: 10.52.255.0.0/27
+- DNS Server: 8.8.8.8
+- GatewayName: VNet5GW
+- Public IP: VNet5GWIP
+- VPNType: RouteBased
+- Connection: VNet5toVNet1
+- ConnectionType: VNet2VNet
+
+**Additional Values for TestVNet1:**
+
+- Connection: VNet1toVNet5
+
+
+### Step 6 - Create and configure TestVNet5
+
+This step must be done in the context of the new subscription. This part may be performed by the administrator in a different organization that owns the subscription.
+
+1. Declare your variables
+
+	Be sure to replace the values with the ones that you want to use for your configuration.
+
+		$Sub5 = "Replace_With_the_New_Subcription_Name"
+		$RG5 = "TestRG5"
+		$Location5 = "Japan East"
+		$VnetName5 = "TestVNet5"
+		$FESubName5 = "FrontEnd"
+		$BESubName5 = "Backend"
+		$GWSubName5 = "GatewaySubnet"
+		$VnetPrefix51 = "10.51.0.0/16"
+		$VnetPrefix52 = "10.52.0.0/16"
+		$FESubPrefix5 = "10.51.0.0/24"
+		$BESubPrefix5 = "10.52.0.0/24"
+		$GWSubPrefix5 = "10.52.255.0/27"
+		$DNS5 = "8.8.8.8"
+		$GWName5 = "VNet5GW"
+		$GWIPName5 = "VNet5GWIP"
+		$GWIPconfName5 = "gwipconf5"
+		$Connection51 = "VNet5toVNet1"
+
+2. Connect to subscription 5
+
+	Open your PowerShell console and connect to your account. Use the following sample to help you connect:
+
+		Login-AzureRmAccount
+
+	Check the subscriptions for the account.
+
+		Get-AzureRmSubscription 
+
+	Specify the subscription that you want to use.
+
+		Select-AzureRmSubscription -SubscriptionName $Sub5
+
+3. Create a new resource group
+
+		New-AzureRmResourceGroup -Name $RG5 -Location $Location5
+
+4. Create the subnet configurations for TestVNet4
 	
-		$vnet = Get-AzureVirtualNetwork -ResourceGroupName testrg -Name testvnet
-		Add-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
-		Set-AzureVirtualNetwork -VirtualNetwork $vnet
+		$fesub5 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName5 -AddressPrefix $FESubPrefix5
+		$besub5 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName5 -AddressPrefix $BESubPrefix5
+		$gwsub5 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName5 -AddressPrefix $GWSubPrefix5
 
-After verifying that your gateway subnets are configured correctly, continue with [Request a public IP address](#request-a-public-ip-address) and follow the steps.
+5. Create TestVNet5
 
-## Next Steps
+		New-AzureRmVirtualNetwork -Name $VnetName5 -ResourceGroupName $RG5 -Location $Location5 `
+		-AddressPrefix $VnetPrefix51,$VnetPrefix52 -Subnet $fesub5,$besub5,$gwsub5
 
-You can add virtual machines to your virtual networks. [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial.md).
+6. Request a public IP address
+
+		$gwpip5 = New-AzureRmPublicIpAddress -Name $GWIPName5 -ResourceGroupName $RG5 `
+		-Location $Location5 -AllocationMethod Dynamic
+
+
+7. Create the gateway configuration
+
+		$vnet5 = Get-AzureRmVirtualNetwork -Name $VnetName5 -ResourceGroupName $RG5
+		$subnet5  = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet5
+		$gwipconf5 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName5 -Subnet $subnet5 -PublicIpAddress $gwpip5
+
+8. Create the TestVNet5 gateway
+
+		New-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5 -Location $Location5 `
+		-IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard
+
+### Step 7 - Connecting the gateways
+
+In this example, because the gateways are in the different subscriptions, we've split this step into two PowerShell sessions marked as [Subscription 1] and [Subscription 5].
+
+1. **[Subscription 1]** Get the virtual network gateway for Subscription 1
+
+	Make sure you log in and connect to Subscription 1.
+
+		$vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
+
+	Copy the output of the following elements and send these to the administrator of Subscription 5 via email or another method.
+
+		$vnet1gw.Name
+		$vnet1gw.Id
+
+	These two elements will have values similar to the following example output:
+
+		PS D:\> $vnet1gw.Name
+		VNet1GW
+		PS D:\> $vnet1gw.Id
+		/subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroupsTestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
+
+2. **[Subscription 5]** Get the virtual network gateway for Subscription 5
+
+	Make sure you log in and connect to Subscription 5.
+
+		$vnet5gw = Get-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5
+
+	Copy the output of the following elements and send these to the administrator of Subscription 1 via email or another method.
+
+		$vnet5gw.Name
+		$vnet5gw.Id
+
+	These two elements will have values similar to the following example output:
+
+		PS C:\> $vnet5gw.Name
+		VNet5GW
+		PS C:\> $vnet5gw.Id
+		/subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
+
+3. **[Subscription 1]** Create the TestVNet1 to TestVNet5 connection
+
+	In this step, you create the connection from TestVNet1 to TestVNet5. The difference here is that $vnet5gw cannot be obtained directly because it is in a different subscription. You will need to create a new PowerShell object with the values communicated from Subscription 1 in the steps above. Use the example below. Replace the Name, Id, and shared key with your own values. The important thing is that the shared key must match for both connections. Creating a connection can take a short while to complete.
+
+	Make sure you connect to Subscription 1. 
+	
+		$vnet5gw = New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
+		$vnet5gw.Name = "VNet5GW"
+		$vnet5gw.Id   = "/subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW"
+		$Connection15 = "VNet1toVNet5"
+		New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet5gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
+
+4. **[Subscription 5]** Create the TestVNet5 to TestVNet1 connection
+
+	This step is similar to the one above, except you are creating the connection from TestVNet5 to TestVNet1. The same process of creating a PowerShell object based on the values obtained from Subscription 1 applies here as well. In this step, be sure that the shared keys match.
+
+	Make sure you connect to Subscription 5.
+
+		$vnet1gw = New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
+		$vnet1gw.Name = "VNet1GW"
+		$vnet1gw.Id = "/subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW "
+		New-AzureRmVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
+
+## <a name="verify"></a>How to verify a connection
+
+[AZURE.INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
+
+
+## Next steps
+
+- Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md) for steps.
+- For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md). 
+

@@ -3,10 +3,9 @@
 	description="A comparison of linear regression models in Excel and in Azure Machine Learning Studio" 
 	metaKeywords="" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="garyericson" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"  />
 
 <tags 
@@ -15,15 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="09/09/2016" 
 	ms.author="kbaroni;garye" />
 
 # Using linear regression in Azure Machine Learning
 
-> *Kate Baroni* and *Ben Boatman* are enterprise solution architects in Microsoft’s Data Insights Center of Excellence. In this article, they describe their experience migrating an existing regression analysis suite to a cloud-based solution using Azure Machine Learning.
-
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
+> *Kate Baroni* and *Ben Boatman* are enterprise solution architects in Microsoft’s Data Insights Center of Excellence. In this article, they describe their experience migrating an existing regression analysis suite to a cloud-based solution using Azure Machine Learning.  
+ 
+&nbsp; 
+  
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]  
+ 
 ## Goal
 
 Our project started with two goals in mind:  
@@ -50,8 +51,8 @@ We calculated *Mean Absolute % Error* and used it as the performance measure for
 We followed these steps to create our experiment in Azure ML:  
 
 1.	Uploaded the dataset as a csv file to Azure ML (very small file)
-2.	Created a new experiment and used the [Project Columns][project-columns] module to select the same data features used in Excel   
-3.	Used the [Split][split] module (with *Relative Expression* mode) to divide the data into exact same train sets as had been done in Excel  
+2.	Created a new experiment and used the [Select Columns in Dataset][select-columns] module to select the same data features used in Excel   
+3.	Used the [Split Data][split] module (with *Relative Expression* mode) to divide the data into exact same train sets as had been done in Excel  
 4.	Experimented with the [Linear Regression][linear-regression] module (default options only), documented, and compared the results to our Excel regression model
 
 ### Review initial results
@@ -155,6 +156,6 @@ Some resources are listed for helping you work with regression:
 [boosted-decision-tree-regression]: https://msdn.microsoft.com/library/azure/0207d252-6c41-4c77-84c3-73bdf1ac5960/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  

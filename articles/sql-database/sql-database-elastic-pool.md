@@ -1,73 +1,103 @@
-<properties 
-	pageTitle="Tame explosive growth with elastic databases" 
-	description="An Azure SQL Database elastic database pool is a collection of available resources that are shared by a group of elastic databases." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
-	editor=""/>
+<properties
+	pageTitle="What is an Azure elastic pool? | Microsoft Azure"
+	description="Manage hundreds or thousands of databases using a pool. One price for a set of performance units can be distributed over the pool. Move databases in or out at will."
+	keywords="elastic database,sql databases"
+	services="sql-database"
+	documentationCenter=""
+	authors="CarlRabeler"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
-<tags 
+<tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="08/14/2015" 
-	ms.author="sstein" 
-	ms.workload="data-management" 
-	ms.topic="article" 
+	ms.date="07/12/2016"
+	ms.author="CarlRabeler"
+	ms.workload="data-management"
+	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Tame explosive growth with elastic databases
+# What is an Azure elastic pool?
 
-If you’re a SaaS developer with tens, hundreds, or even thousands of databases, an elastic database pool simplifies the process of creating, maintaining, and managing performance across these databases within a budget that you control. 
+SQL DB elastic pools provide a simple cost effective solution to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns.
 
-A common SaaS application pattern is for each database to have a different customer, each with varying and unpredictable resource consumption (CPU/IO/Memory summarized with DTU). With these peaks and valleys of demand for each database, it can be difficult to predict and therefore provision resources. You're faced with two options; either over-provision database resources based on peak usage--and overpay. Or under-provision to save cost--at the expense of performance and customer satisfaction during peaks. 
+> [AZURE.NOTE] Elastic pools are generally available (GA) in all Azure regions except West India where it is currently in preview.  GA of elastic pools in this region will occur as soon as possible.
 
-Microsoft created elastic database pools specifically to help you solve this problem.
+## How it works
+
+A common SaaS application pattern is the single-tenant database model: each customer is given their own database. Each customer (database) has unpredictable resource requirements for memory, IO, and CPU. With these peaks and valleys of demand, how do you allocate resources efficiently and cost-effectively? Traditionally, you had two options: (1) over-provision resources based on peak usage and over pay, or (2) under-provision to save cost, at the expense of performance and customer satisfaction during peaks. Elastic pools solve this problem by ensuring that databases get the performance resources they need and when they need it. They provide a simple resource allocation mechanism within a predictable budget. To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 > [AZURE.VIDEO elastic-databases-helps-saas-developers-tame-explosive-growth]
 
+In SQL Database, the relative measure of a database's ability to handle resource demands is expressed in Database Transaction Units (DTUs) for single databases and elastic DTUs (eDTUs) for elastic databases in an elastic pool. See the [Introduction to SQL Database](sql-database-technical-overview.md#understand-dtus) to learn more about DTUs and eDTUs.
 
-Elastic database pools provide a solution for customers who need to ensure that their databases get the performance resources they need, when they need it, while also providing a simple resource allocation mechanism and a predictable budget. The on-demand performance scaling of individual databases within an elastic database pool is possible because each database within a pool uses eDTUs from a shared set associated with the pool. This allows databases under heavy load to consume more to meet demand, while databases under light load consume less, and databases under no load don’t consume any eDTUs. By provisioning resources for the pool rather than for single databases you not only simplify the management of multiple databases, you also have a predictable budget for an otherwise unpredictable workload. 
+A pool is given a set number of eDTUs, for a set price. Within the pool, individual databases are given the flexibility to auto-scale within set parameters. Under heavy load, a database can consume more eDTUs to meet demand. Databases under light loads consume less, and databases under no load consume no eDTUs. Provisioning resources for the entire pool rather than for single databases simplifies your management tasks. Plus you have a predictable budget for the pool.
 
-If more eDTUs are needed to accommodate the needs of a pool (additional databases are added to a pool or the existing databases start using more eDTUs), additional eDTUs can be added to an existing pool with no database downtime or negative impact on the databases. Similarly, if extra eDTUs are no longer needed they can be removed from an existing pool at any point in time.  
+Additional eDTUs can be added to an existing pool with no database downtime or no impact on the databases in the elastic pool. Similarly, if extra eDTUs are no longer needed they can be removed from an existing pool at any point in time.
 
-![databases sharing eDTUs][1]
+And you can add or subtract databases to the pool. If a database is predictably under-utilizing resources, move it out.
 
-Databases that are great candidates for elastic database pools typically have periods of activity and other periods of inactivity. Consider the example above where you can see the activity of a single database, 4 databases and finally an elastic database pool with 20 databases. These databases with varying activity over time are great candidates for elastic database pools because they are not all active at the same time and can share eDTUs. Not all databases fit this pattern. There are databases that have a more constant resource demand and these databases are better suited to the Basic, Standard, and Premium service tiers where resources are individually assigned. For assistance in determining if your databases would benefit in an elastic database pool, see [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md).
+## Which databases go in a pool?
 
-You can create an elastic database pool in minutes using the Microsoft Azure portal, PowerShell, or C#. For details, see [Create and manage an elastic database pool](sql-database-elastic-pool-portal.md). For detailed information about elastic database pools, including API and error details, see [Elastic database pool reference](sql-database-elastic-pool-reference.md).
+![SQL databases sharing eDTUs in an elastic database pool.][1]
+
+Databases that are great candidates for elastic pools typically have periods of activity and other periods of inactivity. In the example above you see the activity of a single database, 4 databases, and finally an elastic pool with 20 databases. Databases with varying activity over time are great candidates for elastic pools because they are not all active at the same time and can share eDTUs. Not all databases fit this pattern. Databases that have a more constant resource demand are better suited to the Basic, Standard, and Premium service tiers where resources are individually assigned.
+
+[Price and performance considerations for an elastic pool](sql-database-elastic-pool-guidance.md).
+
+## eDTU and storage limits for elastic pools and elastic databases.
+
+[AZURE.INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
+
+If all DTUs of an elastic pool are used, then each database in the pool receives an equal amount of resources to process queries.  The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the DTU min per database is set to a non-zero value.
+
+## Elastic pool and elastic database properties
+
+### Limits for elastic pools
+
+| Property | Description |
+| :-- | :-- |
+| Service tier | Basic, Standard, or Premium. The service tier determines the range in performance and storage limits that can be configured as well as business continuity choices. Every database within a pool has the same service tier as the pool. “Service tier” is also referred to as “edition.” |
+| eDTUs per pool | The maximum number of eDTUs that can be shared by databases in the pool. The total eDTUs used by databases in the pool cannot exceed this limit at the same point in time. |
+| Max storage per pool (GB) | The maximum amount of storage in GBs that can be shared by databases in the pool. The total storage used by databases in the pool cannot exceed this limit. This limit is determined by the eDTUs per pool. If this limit is exceeded, all databases become read-only. |
+| Max number of databases per pool | The maximum number of databases allowed per pool. |
+| Max concurrent workers per pool | The maximum number of concurrent workers (requests) available for all databases in the pool. |
+| Max concurrent logins per pool | The maximum number of concurrent logins for all databases in the pool. |
+| Max concurrent sessions per pool | The maximum number of sessions available for all databases in the pool. |
 
 
-> [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers.
+### Limits for elastic databases
 
-## Easily manage large numbers of databases with elastic database tools
+| Property | Description |
+| :-- | :-- |
+| Max eDTUs per database | The maximum number of eDTUs that any database in the pool may use, if available based on utilization by other databases in the pool.  Max eDTU per database is not a resource guarantee for a database.  This setting is a global setting that applies to all databases in the pool. Set max eDTUs per database high enough to handle peaks in database utilization. Some degree of overcommitting is expected since the pool generally assumes hot and cold usage patterns for databases where all databases are not simultaneously peaking. For example, suppose the peak utilization per database is 20 eDTUs and only 20% of the 100 databases in the pool are peak at the same time.  If the eDTU max per database is set to 20 eDTUs, then it is reasonable to overcommit the pool by 5 times, and set the eDTUs per pool to 400. |
+| Min eDTUs per database | The minimum number of eDTUs that any database in the pool is guaranteed.  This setting is a global setting that applies to all databases in the pool. The min eDTU per database may be set to 0, and is also the default value. This property is set to anywhere between 0 and the average eDTU utilization per database. The product of the number of databases in the pool and the min eDTUs per database cannot exceed the eDTUs per pool.  For example, if a pool has 20 databases and the eDTU min per database set to 10 eDTUs, then the eDTUs per pool must be at least as large as 200 eDTUs. |
+| Max storage per database (GB) | The maximum storage for a database in a pool. Elastic databases share pool storage, so database storage is limited to the smaller of remaining pool storage and max storage per database.|
 
-In addition to providing more efficient resource utilization and predictable performance, elastic database pools make SaaS application development easier with tools that simplify building and managing your data-tier. Performing maintenance tasks and implementing changes across a large set of databases, a historically time-consuming and complex process, has been reduced to running scripts in elastic jobs. The ability to create and run an elastic database job eliminates most all of the heavy lifting associated with administering hundreds or even thousands of databases. For information about the elastic database jobs service that enables running Transact-SQL scripts across all elastic databases in a pool, see [Elastic database jobs overview](sql-database-elastic-jobs-overview.md).
 
-A rich and powerful set of developer tools for implementing elastic database application patterns is also available. For sharded databases, other tools such as the split-merge tool gives you the ability to split data from one shard and merge it into another. This greatly reduces the work of managing large-scale sharded databases. For more information, see the [Elastic database tools topics map](sql-database-elastic-scale-documentation-map.md).
+## Elastic database jobs
+
+With a pool, management tasks are simplified by running scripts in **[elastic jobs](sql-database-elastic-jobs-overview.md)**. An elastic database job eliminates most of tedium associated with large numbers of databases. To begin, see [Getting started with Elastic Database jobs](sql-database-elastic-jobs-getting-started.md).
+
+For more information about other tools, see the [Elastic database tools learning map](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/).
 
 ## Business continuity features for databases in a pool
 
-Currently in the preview, elastic databases support most [business continuity features](https://msdn.microsoft.com/library/azure/hh852669.aspx) that are available to single databases on V12 servers.
-
-### Backing up and restoring databases ([Point in Time Restore](https://msdn.microsoft.com/library/azure/hh852669.aspx#BKMK_PITR))
-
-Databases in an elastic database pool are backed up automatically by the system and the backup retention policy is the same as the corresponding service tier for single databases. More specifically, an elastic database in a Basic pool can be restored to any restore point within the last 7 days, an elastic database in a Standard pool can be restored to any restore point within the last 14 days, and an elastic database in a Premium pool can be restored to any restore point within the last 35 days. During preview, databases in a pool will be restored to a new database in the same pool. Dropped databases will always be restored as a standalone database outside the pool into the lowest performance level for that service tier. For example, an elastic database in a Standard pool that is dropped will be restored as an S0 database. You can perform database restore operations through the Azure Portal or programmatically using REST API. PowerShell cmdlet support is coming soon.
-
-### [Geo-Restore](https://msdn.microsoft.com/library/azure/hh852669.aspx#BKMK_GEO)
-
-Geo-Restore allows you to recover a database in a pool to a server in a different region. During the preview, to restore a database in a pool on a different server, the target server needs to have a pool with the same name as the source pool. If needed, create a new pool on the target server and give it the same name prior to restoring the database. If a pool with the same name on the target server doesn’t exist the Geo-Restore operation will fail.
-You can perform Geo-Restore operations using the Azure Portal or REST API. PowerShell cmdlet support is coming soon.
+Elastic databases generally support the same [business continuity features](sql-database-business-continuity.md) that are available to single databases in V12 servers.
 
 
-### [Geo-Replication](https://msdn.microsoft.com/library/azure/dn783447.aspx)
+### Point in time restore
 
-Databases that already have Geo-Replication enabled can be moved in and out of an elastic database pool and replication will continue to work as always. You can enable Geo-Replication on a database that is already in a pool if the target server you specify has a pool with the same name as the source pool. 
+Point-in-time-restore uses automatic database backups to recover a database in a pool to a specific point in time. See [Point-In-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-### Import and Export
+### Geo-Restore
 
-Export of a database from within a pool is supported. Currently, import of a database directly into a pool is not supported, but you can import into a single database and then move the database into a pool. 
+Geo-Restore provides the default recovery option when a database is unavailable because of an incident in the region where the database is hosted. See [Restore an Azure SQL Database or failover to a secondary](sql-database-disaster-recovery.md) 
+
+### Active Geo-Replication
+
+For applications that have more aggressive recovery requirements than Geo-Restore can offer, configure Active Geo-Replication using the [Azure portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md), or [Transact-SQL](sql-database-geo-replication-transact-sql.md).
 
 
 <!--Image references-->

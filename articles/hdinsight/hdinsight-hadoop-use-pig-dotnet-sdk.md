@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=".net"
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
    tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/24/2015"
+   ms.date="09/06/2016"
    ms.author="larryfr"/>
 
 #Run Pig jobs using the .NET SDK for Hadoop in HDInsight
@@ -29,45 +29,25 @@ The HDInsight .NET SDK provides .NET client libraries that makes it easier to wo
 
 * [Run Pig jobs using the .NET SDK for Hadoop in HDInsight](hdinsight-hadoop-use-pig-dotnet-sdk-v1.md)
 
-##<a id="prereq"></a>Prerequisites
+## Prerequisites
 
 To complete the steps in this article, you will need the following.
 
-* An Azure HDInsight (Hadoop on HDInsight) cluster (either Windows or Linux-based)
+* An Azure HDInsight (Hadoop on HDInsight) cluster (either Windows or Linux-based).
+* Visual Studio 2012 or 2013 or 2015.
 
-* Visual Studio 2012 or 2013
+## Create the application
 
-##<a id="certificate"></a>Create a management certificate
+The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET. 
 
-To authenticate the application to Azure HDInsight, you must create a self-signed certificate, install it on your development workstation, and also upload it to your Azure subscription.
-
-For instructions on how to do this, see [Create a self-signed certificate](http://go.microsoft.com/fwlink/?LinkId=511138).
-
-> [AZURE.NOTE] When creating the certificate, be sure to note the friendly name you use, as it will be used later.
-
-##<a id="subscriptionid"></a>Find your subscription ID
-
-Each Azure subscription is identified by a GUID value, known as the subscription ID. Use the following steps to find this value.
-
-1. Visit the [Azure preview portal][preview-portal].
-
-2. From the bar on the left of the portal, select __BROWSE ALL__, then select __Subscriptions__ from the __Browse__ blade.
-
-3. In the information presented on the __Subscriptions__ blade, find the subscription you wish to use and note the value in the **Subscription ID** column.
-
-Save the subscription ID, as it will be used later.
-
-##<a id="create"></a>Create the application
 
 1. Open Visual Studio 2012 or 2013
-
 2. From the **File** menu, select **New** and then select **Project**.
-
 3. For the new project, type or select the following values.
 
 	<table>
 	<tr>
-	<th>Propety</th>
+	<th>Property</th>
 	<th>Value</th>
 	</tr>
 	<tr>
@@ -83,146 +63,74 @@ Save the subscription ID, as it will be used later.
 	<th>SubmitPigJob</th>
 	</tr>
 	</table>
-
 4. Click **OK** to create the project.
-
 5. From the **Tools** menu, select **Library Package Manager** or **Nuget Package Manager**, and then select **Package Manager Console**.
-
 6. Run the following command in the console to install the .NET SDK packages.
 
-		Install-Package Microsoft.Windowsazure.Management.HDInsight
+        Install-Package Microsoft.Azure.Management.HDInsight.Job
 
 7. From Solution Explorer, double-click **Program.cs** to open it. Replace the existing code with the following.
 
-		using System;
-		using System.Collections.Generic;
-		using System.Linq;
-		using System.Text;
-		using System.Threading.Tasks;
+        using Microsoft.Azure.Management.HDInsight.Job;
+        using Microsoft.Azure.Management.HDInsight.Job.Models;
+        using Hyak.Common;
 
-		using System.IO;
-		using System.Threading;
-		using System.Security.Cryptography.X509Certificates;
+        namespace SubmitHDInsightJobDotNet
+        {
+            class Program
+            {
+                private static HDInsightJobManagementClient _hdiJobManagementClient;
 
-		using Microsoft.WindowsAzure.Management.HDInsight;
-		using Microsoft.Hadoop.Client;
+                private const string ExistingClusterName = "<Your HDInsight Cluster Name>";
+                private const string ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
+                private const string ExistingClusterUsername = "<Cluster Username>";
+                private const string ExistingClusterPassword = "<Cluster User Password>";
 
-		namespace SubmitPigJob
-		{
-		    class Program
-		    {
-		        static void Main(string[] args)
-		        {
-		            // Get the subscription ID
-		            string subscriptionID = PromptForInput("Enter your Azure Subscription ID:");
+                static void Main(string[] args)
+                {
+                    System.Console.WriteLine("The application is running ...");
 
-		            // Get the certificate name
-		            string certFriendlyName = PromptForInput("Enter the management certificate name:");
+                    var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
+                    _hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
 
-		            // Get the cluster name
-		            string clusterName = PromptForInput("Enter the HDInsight cluster name:");
+                    SubmitPigJob();
 
-		            // Set the folder that job status is written to
-		            string statusFolderName = @"/tutorials/usepig/status";
+                    System.Console.WriteLine("Press ENTER to continue ...");
+                    System.Console.ReadLine();
+                }
 
-		            // The Pig Latin statements to run
-		            string queryString = "LOGS = LOAD 'wasb:///example/data/sample.log';" +
-		                "LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;" +
-		                "FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;" +
-		                "GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;" +
-		                "FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;" +
-		                "RESULT = order FREQUENCIES by COUNT desc;" +
-		                "DUMP RESULT;";
+                private static void SubmitPigJob()
+                {
+                    var parameters = new PigJobSubmissionParameters
+                    {
+                        Query = @"LOGS = LOAD 'wasbs:///example/data/sample.log';
+                                    LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+                                    FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+                                    GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+                                    FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+                                    RESULT = order FREQUENCIES by COUNT desc;
+                                    DUMP RESULT;"
+                    };
 
-		            // Define the Pig job
-		            PigJobCreateParameters myJobDefinition = new PigJobCreateParameters()
-		            {
-		                Query = queryString,
-		                StatusFolder = statusFolderName
-		            };
-
-		            // Get the certificate object from certificate store using the friendly name to identify it
-		            X509Store store = new X509Store();
-		            store.Open(OpenFlags.ReadOnly);
-		            X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
-
-		            JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
-
-		            // Create a hadoop client to connect to HDInsight
-		            var jobClient = JobSubmissionClientFactory.Connect(creds);
-
-		            // Run the MapReduce job
-		            Console.WriteLine("----- Submit the Pig job ...");
-		            JobCreationResults mrJobResults = jobClient.CreatePigJob		(myJobDefinition);
-
-		            // Wait for the job to complete
-		            Console.WriteLine("----- Wait for the Pig job to complete ...");
-		            WaitForJobCompletion(mrJobResults, jobClient);
-
-		            // Display the error log
-		            Console.WriteLine("----- The Pig job error log.");
-		            using (Stream stream = jobClient.GetJobErrorLogs(mrJobResults.JobId))
-		            {
-		                var reader = new StreamReader(stream);
-		                Console.WriteLine(reader.ReadToEnd());
-		            }
-
-		            // Display the output log
-		            Console.WriteLine("----- The Pig job output log.");
-		            using (Stream stream = jobClient.GetJobOutput(mrJobResults.JobId))
-		            {
-		                var reader = new StreamReader(stream);
-		                Console.WriteLine(reader.ReadToEnd());
-		            }
-
-		            Console.WriteLine("----- Press ENTER to continue.");
-		            Console.ReadLine();
-		        }
-
-		        private static void WaitForJobCompletion(JobCreationResults jobResults, IJobSubmissionClient client)
-		        {
-		            JobDetails jobInProgress = client.GetJob(jobResults.JobId);
-		            while (jobInProgress.StatusCode != JobStatusCode.Completed && jobInProgress.StatusCode != JobStatusCode.Failed)
-		            {
-		                jobInProgress = client.GetJob(jobInProgress.JobId);
-		                Thread.Sleep(TimeSpan.FromSeconds(10));
-		            }
-		        }
-
-		        private static string PromptForInput(string message)
-		        {
-		            Console.WriteLine(message);
-		            return Console.ReadLine();
-		        }
-		    }
-		}
+                    System.Console.WriteLine("Submitting the Pig job to the cluster...");
+                    var response = _hdiJobManagementClient.JobManagement.SubmitPigJob(parameters);
+                    System.Console.WriteLine("Validating that the response is as expected...");
+                    System.Console.WriteLine("Response status code is " + response.StatusCode);
+                    System.Console.WriteLine("Validating the response object...");
+                    System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
+                }
+            }
+        }
 
 
-7. Save the file.
+7. Press **F5** to start the application.
+8. Press **ENTER** to exit the application.
 
-##<a id="run"></a>Run the application
+## Summary
 
-Use **F5** to start the application. When prompted, enter the **Subscription ID**, the **Certificate friendly name**, and the **HDInsight cluster name**. The application will produce several lines of information as it runs, ending with something similar to the following.
+As you can see, the .NET SDK for Hadoop allows you to create .NET applications that submit Pig jobs to an HDInsight cluster, and monitor the job status.
 
-```
------ The Pig job output log.
-(TRACE,816)
-(DEBUG,434)
-(INFO,96)
-(WARN,11)
-(ERROR,6)
-(FATAL,2)
-
------ Press ENTER to continue.
-```
-
-Press **ENTER** to exit the application.
-
-##<a id="summary"></a>Summary
-
-As you can see, the .NET SDK for Hadoop allows you to create .NET applications that submit Pig jobs to an HDInsight cluster, monitor the job status, and retrieve the output.
-
-##<a id="nextsteps"></a>Next steps
+## Next steps
 
 For general information on Pig in HDInsight.
 

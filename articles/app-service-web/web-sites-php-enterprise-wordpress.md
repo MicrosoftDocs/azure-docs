@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Enterprise-class WordPress on Azure App Service"
+	pageTitle="Enterprise-class WordPress on Azure App Service | Microsoft Azure"
 	description="Learn how to host an enterprise-class WordPress site on Azure App Service"
 	services="app-service\web"
 	documentationCenter=""
-	authors="tfitzmac"
-	manager="wpickett"
+	authors="sunbuild"
+	manager="yochayk"
 	editor=""/>
 
 <tags
@@ -16,7 +16,7 @@
 	ms.date="10/26/2016"
 	ms.author="tomfitz"/>
 
-#Enterprise-class WordPress on Azure App Service
+# Enterprise-class WordPress on Azure App Service
 
 Azure App Service provides a scalable, secure, and easy to use environment for mission critical, large scale [WordPress][wordpress] sites. Microsoft itself runs enterprise-class sites such as the [Office][officeblog] and [Bing][bingblog] blogs. This document shows you how you can use Azure App Service Web Apps to establish and maintain an enterprise-class, cloud-based WordPress site that can handle a large volume of visitors.
 
@@ -26,13 +26,13 @@ A basic WordPress installation has only two requirements.
 
 * **MySQL Database** - available through [ClearDB in the Azure Marketplace][cdbnstore], or you can manage your own MySQL installation on Azure Virtual Machines using either [Windows][mysqlwindows] or [Linux][mysqllinux].
 
-    > [AZURE.NOTE] ClearDB provides several MySQL configurations, with different performance characteristics for each configuration. See the [Azure Store][cdbnstore] for information on offerings provided through the Azure store or [ClearDB pricing](http://www.cleardb.com/pricing.view) for offerings directly from ClearDB.
+  > [AZURE.NOTE] ClearDB provides several MySQL configurations, with different performance characteristics for each configuration. See the [Azure Store][cdbnstore] for information on offerings provided through the Azure store or [ClearDB pricing](http://www.cleardb.com/pricing.view) for offerings directly from ClearDB.
 
-* **PHP 5.2.4 or greater** - Azure App Service currently provide [PHP versions 5.3, 5.4, and 5.5][phpwebsite].
+* **PHP 5.2.4 or greater** - Azure App Service currently provide [PHP versions 5.4, 5.5, and 5.6][phpwebsite].
 
 	> [AZURE.NOTE] We recommend always running on the latest version of PHP to ensure you have the latest security fixes.
 
-###Basic deployment
+### Basic deployment
 
 Using just the basic requirements, you could create a basic solution within an Azure region.
 
@@ -41,7 +41,7 @@ Using just the basic requirements, you could create a basic solution within an A
 While this would allow you to scale-out your application by creating multiple Web Apps instances of the site, everything is hosted within the data centers in a specific geographic region. Visitors from outside this region may see slow response times when using the site, and if the data centers in this region go down, so does your application.
 
 
-###Multi-region deployment
+### Multi-region deployment
 
 Using Azure [Traffic Manager][trafficmanager], it's possible to scale your WordPress site across multiple geographic regions while providing only one URL for visitors. All visitors come in through Traffic Manager and are then routed to a region based on the load balancing configuration.
 
@@ -51,17 +51,16 @@ Within each region, the WordPress site would still be scaled across multiple Web
 
 Replication and routing to multiple MySQL Databases can be done using ClearDB's [CDBR High Availability Router][cleardbscale] (shown left) or [MySQL Cluster CGE][cge].
 
-###Multi-region deployment with media storage and caching
-
+### Multi-region deployment with media storage and caching
 If the site accepts uploads, or host media files, use Azure Blob storage. If you need caching, consider [Redis cache][rediscache], [Memcache Cloud](http://azure.microsoft.com/gallery/store/garantiadata/memcached/), [MemCachier](http://azure.microsoft.com/gallery/store/memcachier/memcachier/), or one of the other caching offerings in the [Azure Store](http://azure.microsoft.com/gallery/store/).
 
 ![an Azure web app, hosted in multiple regions, using CDBR High Availability router for MySQL, with Managed Cache, Blob storage, and CDN][performance-diagram]
 
 Blob storage is geo-distributed across regions by default, so you don't have to worry about replicating files across all sites. You can also enable the Azure [Content Distribution Network (CDN)][cdn] for Blob storage, which distributes files to end nodes closer to your visitors.
 
-###Planning
+### Planning
 
-####Additional requirements
+#### Additional requirements
 
 To do this... | Use this...
 ------------------------|-----------
@@ -73,24 +72,24 @@ To do this... | Use this...
 **Monitoring and troubleshooting** | [Enable diagnostics logging for web apps in Azure App Service][log] and [Monitor Web Apps in Azure App Service][monitor]
 **Deploy your site** | [Deploy a web app in Azure App Service][deploy]
 
-####Availability and disaster recovery
+#### Availability and disaster recovery
 
 To do this... | Use this...
 ------------------------|-----------
 **Load balance sites** or **geo-distribute sites** | [Route traffic with Azure Traffic Manager][trafficmanager]
 **Back up and restore** | [Back up a web app in Azure App Service][backup] and [Restore a web app in Azure App Service][restore]
 
-####Performance
+#### Performance
 
 Performance in the cloud is achieved primarily through caching and scale-out; however the memory, bandwidth, and other attributes of Web Apps hosting should be considered.
 
 To do this... | Use this...
 ------------------------|-----------
-**Understand App Service instance capabilities** |  [Pricing details, including capabilities of App Service tiers][websitepricing]
+**Understand App Service instance capabilities** | [Pricing details, including capabilities of App Service tiers][websitepricing]
 **Cache resources** | [Redis cache][rediscache], [Memcache Cloud](/gallery/store/garantiadata/memcached/), [MemCachier](/gallery/store/memcachier/memcachier/), or one of the other caching offerings in the [Azure Store](/gallery/store/)
 **Scale your application** | [Scale a web app in Azure App Service][websitescale] and [ClearDB High Availability Routing][cleardbscale]. If you choose to host and manage your own MySQL installation, you should consider [MySQL Cluster CGE][cge] for scale-out
 
-####Migration
+#### Migration
 
 There are two methods of migrating an existing WordPress site to Azure App Service.
 
@@ -120,7 +119,7 @@ As mentioned in the [Architecture and planning](#planning) section, there are tw
 
 Use one of the following sections to migrate your site.
 
-####The export and import method
+#### The export and import method
 
 1. Use [WordPress export][export] to export your existing site.
 
@@ -134,7 +133,7 @@ Use one of the following sections to migrate your site.
 
 6. Click **Submit**. You will be prompted that the import was successful.
 
-8. Once you have completed all these steps, restart your site from its web app blade in the [Azure preview portal][mgmtportal].
+8. Once you have completed all these steps, restart your site from its web app blade in the [Azure Portal][mgmtportal].
 
 After importing the site, you may need to perform the following steps to enable settings not contained in the import file.
 
@@ -145,7 +144,7 @@ If you were using this... | Do this...
 **Themes** | Go to **Appearance** -> **Theme** and update the site theme as needed
 **Menus** | If your theme supports menus, links to your home page may still have the old sub-directory embedded in them. Go to **Appearance** -> **Menus** and update them
 
-####The backup and restore method
+#### The backup and restore method
 
 1. Back up your existing WordPress site using the information at [WordPress backups][wordpressbackup].
 
@@ -161,7 +160,7 @@ If you were using this... | Do this...
 
 4. Create a new web app in the Azure Portal and publish the WordPress backup.
 
-	1. Create a new web app in the [Azure preview portal][mgmtportal] with a database using **New** -> **Web + Mobile** -> **Azure Marketplace** -> **Web Apps** -> **Web app + SQL** (or **Web app + MySQL**) -> **Create**. Configure all the required settings to create an empty web app.
+	1. Create a new web app in the [Azure Portal][mgmtportal] with a database using **New** -> **Web + Mobile** -> **Azure Marketplace** -> **Web Apps** -> **Web app + SQL** (or **Web app + MySQL**) -> **Create**. Configure all the required settings to create an empty web app.
 
 	2. In your WordPress backup, locate the **wp-config.php** file and open it in an editor. Replace the following entries with the information for your new MySQL database.
 
@@ -177,7 +176,7 @@ If you were using this... | Do this...
 
 5. Once the WordPress site has been deployed, you should be able to access the new site (as an App Service web app) using the *.azurewebsite.net URL for the site.
 
-###Configure your site
+### Configure your site
 
 After the WordPress site has been created or migrated, use the following information to improve performance or enable additional functionality.
 
@@ -236,7 +235,8 @@ To do this... | Use this...
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the portal to the preview portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+
+<!-- URL List -->
 
 [performance-diagram]: ./media/web-sites-php-enterprise-wordpress/performance-diagram.png
 [basic-diagram]: ./media/web-sites-php-enterprise-wordpress/basic-diagram.png
@@ -249,10 +249,10 @@ To do this... | Use this...
 [sendgridplugin]: http://wordpress.org/plugins/sendgrid-email-delivery-simplified/
 [phpwebsite]: web-sites-php-configure.md
 [customdomain]: web-sites-custom-domain-name.md
-[trafficmanager]: /blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/
+[trafficmanager]: ../traffic-manager/traffic-manager-overview.md
 [backup]: web-sites-backup.md
 [restore]: web-sites-restore.md
-[rediscache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
+[rediscache]: https://azure.microsoft.com/documentation/services/redis-cache/
 [managedcache]: http://msdn.microsoft.com/library/azure/dn386122.aspx
 [websitescale]: web-sites-scale.md
 [managedcachescale]: http://msdn.microsoft.com/library/azure/dn386113.aspx
@@ -261,8 +261,8 @@ To do this... | Use this...
 [monitor]: web-sites-monitor.md
 [log]: web-sites-enable-diagnostic-log.md
 [httpscustomdomain]: web-sites-configure-ssl-certificate.md
-[mysqlwindows]: ../virtual-machines-mysql-windows-server-2008r2.md
-[mysqllinux]: ../virtual-machines-linux-mysql-use-opensuse.md
+[mysqlwindows]: ../virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md
+[mysqllinux]: ../virtual-machines/virtual-machines-linux-classic-mysql-on-opensuse.md
 [cge]: http://www.mysql.com/products/cluster/
 [websitepricing]: /pricing/details/app-service/
 [export]: http://en.support.wordpress.com/export/
@@ -277,8 +277,7 @@ To do this... | Use this...
 [workbench]: http://www.mysql.com/products/workbench/
 [searchandreplace]: http://interconnectit.com/124/search-and-replace-for-wordpress-databases/
 [deploy]: web-sites-deploy.md
-[posh]: ../install-configure-powershell.md
-[Azure CLI]: ../xplat-cli.md
-[storesendgrid]: /gallery/store/sendgrid/sendgrid-azure/
-[cdn]: ../cdn-how-to-use.md
- 
+[posh]: ../powershell-install-configure.md
+[Azure CLI]: ../xplat-cli-install.md
+[storesendgrid]: https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/
+[cdn]: ../cdn/cdn-overview.md

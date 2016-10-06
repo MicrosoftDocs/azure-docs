@@ -1,14 +1,13 @@
 <properties
-	urlDisplayName="How to connect to an Azure SQL database using SSMS"
-	pageTitle="How to connect to an Azure SQL database using SSMS | Microsoft Azure"
-	metaKeywords=""
-	description="Learn how to connect to an Azure SQL database using SSMS."
+	pageTitle="Connect to SQL Database - SQL Server Management Studio | Microsoft Azure"
+	description="Learn how to connect to SQL Database on Azure by using SQL Server Management Studio (SSMS). Then, run a sample query using Transact-SQL (T-SQL)."
 	metaCanonical=""
+	keywords="connect to sql database,sql server management studio"
 	services="sql-database"
 	documentationCenter=""
-	title="How to connect to an Azure SQL database using SSMS"
-	authors="stevestein" solutions=""
-	manager="jeffreyg" editor="" />
+	authors="stevestein"
+	manager="jhubbard"
+	editor="" />
 
 <tags
 	ms.service="sql-database"
@@ -16,39 +15,33 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/31/2015"
-	ms.author="sstein" />
+	ms.date="08/17/2016"
+	ms.author="sstein;carlrab" />
 
-# Connect with SQL Server Management Studio
-This article shows you how to install SQL Server Management Studio (SSMS), connect to a database server in Azure, and then perform a simple query using Transact-SQL statements.
+# Connect to SQL Database with SQL Server Management Studio and execute a sample T-SQL query
 
-You'll need a SQL database in Azure first. You can create one quickly with the instructions in [Getting Started with Microsoft Azure SQL Database](sql-database-get-started.md). The examples here are based on the AdventureWorks sample database you create in that article, but the same steps, up until you perform the query, apply to any SQL database.
+> [AZURE.SELECTOR]
+- [Visual Studio](sql-database-connect-query.md)
+- [SSMS](sql-database-connect-query-ssms.md)
+- [Excel](sql-database-connect-excel.md)
 
-## Install and start SQL Server Management Studio (SSMS)
-When working with SQL Database, you should use the most recent version of SSMS. See [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) to get it. With the most recent version, SSMS automatically notifies you when the most recent update is available.
+This article shows how to connect to an Azure SQL database using SQL Server Management Studio (SSMS). After successfully connecting, we run a simple Transact-SQL (T-SQL) query to verify communication with the database.
 
-## Start SSMS and connect to your SQL database server
-1. Type "Microsoft SQL Server Management Studio" in the Windows search box, and then click the desktop app to start SSMS.
-2. In the **Connect to Server** dialog box, in the **Server name** box, type the name of the server that hosts your SQL database in the format *&lt;servername>*.**database.windows.net**.
-3. Choose **SQL Server Authentication** from the **Authentication** list.
-4. Type the **Login** and **Password** you set up when you created the server, and then click **Connect**.
+[AZURE.INCLUDE [SSMS Install](../../includes/sql-server-management-studio-install.md)]
 
-	![SSMS Connect to Azure SQL Database server](./media/sql-database-connect-query-ssms/1-connect.png)
+[AZURE.INCLUDE [SSMS Connect](../../includes/sql-database-sql-server-management-studio-connect-server-principal.md)]
 
-### If the connection fails
-The most common reason for connection failures are mistakes in the server name, user name, or password, as well as the server not allowing connections for security reasons. Make sure that the firewall settings of the server allow connections from your local computer's IP address and the IP address that the SSMS client uses. Sometimes they're different. 
-
-If the connection fails because of a firewall rule, the IP address is reported in the error message. Add this IP address to the server firewall rule. For more information, see [How to: Configure Firewall Settings (Azure SQL Database)](sql-database-configure-firewall-settings.md).
 
 ## Run sample queries
-After you connect, you can run a sample query. If you didn't create the database using the AdventureWorks sample in [Getting Started with Microsoft Azure SQL Database](sql-database-get-started.md), this query won't work. Skip straight to Next Steps to learn more.
 
-1. In **Object Explorer**, navigate to the **AdventureWorks** database.
-2. Right-click the database and then select **New Query**.
+After you connect to your server, you can connect to a database and run a sample query. If you are new to writing queries, see [Writing Transact-SQL Statements](https://msdn.microsoft.com/library/ms365303.aspx).
 
-	![New query](./media/sql-database-connect-query-ssms/4-run-query.png)
+1. In **Object Explorer**, navigate to a database on the server, such as the **AdventureWorks** sample database.
+2. Right-click the database and then select **New Query**:
 
-3. In the query window, copy and paste the following code.
+	![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
+
+3. In the query window, copy and paste the following:
 
 		SELECT
 		CustomerId
@@ -58,11 +51,16 @@ After you connect, you can run a sample query. If you didn't create the database
 		,CompanyName
 		FROM SalesLT.Customer;
 
-4. Click the **Execute** button.  The following screen shot shows a successful query.
+4. Click the **Execute** button:
 
-	![Sucess](./media/sql-database-connect-query-ssms/5-success.png)
+	![Success. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query-ssms/5-success.png)
 
 ## Next steps
-You can use Transact-SQL statements to create and manage databases in Azure in much the same way you can with SQL Server. If you're familiar with using Transact-SQL with SQL Server, see [Azure SQL Database Transact-SQL information)](sql-database-transact-sql-information.md) for a summary of differences.
 
-If you're new to Transact-SQL, see [Tutorial: Writing Transact-SQL Statements](https://msdn.microsoft.com/library/ms365303.aspx) and the [Transact-SQL Reference (Database Engine)](https://msdn.microsoft.com/library/bb510741.aspx).
+You can use T-SQL statements to create and manage databases in Azure in much the same way you can with SQL Server. If you're familiar with using T-SQL with SQL Server, see [Azure SQL Database Transact-SQL information)](sql-database-transact-sql-information.md) for a summary of differences.
+
+If you're new to T-SQL, see [Tutorial: Writing Transact-SQL Statements](https://msdn.microsoft.com/library/ms365303.aspx) and the [Transact-SQL Reference (Database Engine)](https://msdn.microsoft.com/library/bb510741.aspx).
+
+To get started with creating database users and database user administrators, see [Get Started with Azure SQL Database security](sql-database-get-started-security.md)
+
+For more information about SSMS, see [Use SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).

@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Use Azure preview portal to manage Azure resources | Microsoft Azure" 
-	description="Group multiple resources as a logical group that becomes the lifecycle boundary for resources contained within it." 
+	pageTitle="Use Azure portal to manage Azure resources | Microsoft Azure" 
+	description="Use Azure portal and Azure Resource Manage to manage your resources. Shows how to work with dashboards to monitor resources." 
 	services="azure-resource-manager,azure-portal" 
 	documentationCenter="" 
 	authors="tfitzmac" 
-	manager="wpickett" 
-	editor=""/>
+	manager="timlt" 
+	editor="tysonn"/>
 
 <tags 
 	ms.service="azure-resource-manager" 
@@ -13,143 +13,146 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="09/12/2016" 
 	ms.author="tomfitz"/>
 
+# Manage Azure resources through portal
 
-# Using the Azure Preview Portal to manage your Azure resources
+> [AZURE.SELECTOR]
+- [Azure PowerShell](../powershell-azure-resource-manager.md)
+- [Azure CLI](../xplat-cli-azure-resource-manager.md)
+- [Portal](resource-group-portal.md) 
+- [REST API](../resource-manager-rest-api.md)
 
-## Introduction
+This topic shows how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](../resource-group-overview.md) to manage your Azure resources. To learn about deploying resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md).
 
-Historically, managing a resource (such as a database server, database, or web app) in Microsoft Azure required you to perform operations against one resource at a time. If you had a complex application made up of multiple resources, you had to manually coordinate changes to the application infrastructure. In the Azure preview portal, you can utilize Azure Resource Manager to create resource groups to deploy and manage all the resources in an application together.
+Currently, not every service supports the portal or Resource Manager. For those services, you need to use the [classic portal](https://manage.windowsazure.com). For the status of each service, see [Azure portal availability chart](https://azure.microsoft.com/features/azure-portal/availability/).
 
-Typically, a resource group contains resources related to a specific application. For example, a group may contain a web app that hosts your public website, a SQL Database that stores relational data used by the site, and a Storage account that stores non-relational assets. Every resource in a resource group should share the same lifecycle. For more information about Resource Manager, see [Resource Manager overview](../resource-group-overview.md).
+## Manage resource groups
 
-This topic provides an overview of how to use resource groups within the Azure preview portal. 
+1. To see all the resource groups in your subscription, select **Resource groups**.
 
-## Create resource group and resources
+    ![browse resource groups](./media/resource-group-portal/browse-groups.png)
 
-If you need to create an empty resource group, you can select **New**, **Management**, and **Resource Group**.
+1. To create an empty resource group, select **Add**.
 
-![create empty resource group](./media/resource-group-portal/create-empty-group.png)
+    ![add resource group](./media/resource-group-portal/add-resource-group.png)
 
-You give it a name and location, and, if necessary, select a subscription.
+1. Provide a name and location for the new resource group. Select **Create**.
 
-![set group values](./media/resource-group-portal/set-group-properties.png)
+    ![create resource group](./media/resource-group-portal/create-empty-group.png)
 
-However, you do not need to explicitly create an empty resource group. When creating a new resource, you can choose to either create a new resource group or use an existing resource group. The following image shows how to create a new web app with the option of selecting an existing resource group or creating a new one. 
+1. You may need to select **Refresh** to see the recently created resource group.
 
-![create resource group](./media/resource-group-portal/select-existing-group.png)
+    ![refresh resource group](./media/resource-group-portal/refresh-resource-groups.png)
 
-## Browse resource groups
+1. To customize the information displayed for your resource groups, select **Columns**.
 
-You can browse all resource groups by clicking the **Browse All** and **Resource groups**. 
+    ![customize columns](./media/resource-group-portal/select-columns.png)
 
-![browse resource groups](./media/resource-group-portal/browse-groups.png)
+1. Select the columns to add, and then select **Update**.
 
-When you select a particular resource group, you see a resource group blade that gives you information about that resource group, including a list of all of the resources in the group.
+    ![add columns](./media/resource-group-portal/add-columns.png)
 
-![resource group summary](./media/resource-group-portal/group-summary.png)
+1. To learn about deploying resources to your new resource group, see [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md).
 
-The resource group blade also gives you a unified view of your billing and monitoring information for all the resources in the resource group.
+1. For quick access to a resource group, you can pin the blade to your dashboard.
 
-![monitoring and billing](./media/resource-group-portal/monitoring-billing.png)
+    ![pin resource group](./media/resource-group-portal/pin-group.png)
 
-## Customizing the interface
+1. The dashboard displays the resource group and its resources. You can select either the resource groups or any of its resources to navigate to the item.
 
-For quick access to the resource group summary, you can pin the blade to your Startboard.
+    ![pin resource group](./media/resource-group-portal/show-resource-group-dashboard.png)
 
-![pin resource group](./media/resource-group-portal/pin-group.png)
+## Tag resources
 
-Or, you can pin a section of the blade to your Startboard by selecting the ellipsis (...) above the section. You can also customize the size the section in the blade or remove it completely. The following image shows how to pin, customize, or remove the Events section.
+You can apply tags to resource groups and resources to logically organize your assets. For information about working with tags, see [Using tags to organize your Azure resources](../resource-group-using-tags.md).
 
-![pin section](./media/resource-group-portal/pin-section.png)
+[AZURE.INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
 
-After pinning the Events section to the Startboard, you will see a summary of events on the Startboard.
+## Monitor resources
 
-![events startboard](./media/resource-group-portal/events-startboard.png)
+When you select a resource, the resource blade presents default graphs and tables for monitoring that resource type.
 
-And, selecting it immediately takes you to more details about the events.
+1. Select a resource and notice the **Monitoring** section. It includes graphs that are relevant to the resource type. The following image shows the default monitoring data for a storage account.
 
-## Viewing past deployments
+    ![show monitoring](./media/resource-group-portal/show-monitoring.png)
 
-From within the resource group blade, you can see the date and status of the last deployment for this resource group. Selecting the link, displays a history of deployments for the group.
+1. You can pin a section of the blade to your dashboard by selecting the ellipsis (...) above the section. You can also customize the size the section in the blade or remove it completely. The following image shows how to pin, customize, or remove the CPU and Memory section.
 
-![last deployment](./media/resource-group-portal/last-deployment.png)
+    ![pin section](./media/resource-group-portal/pin-cpu-section.png)
 
-Selecting any deployment from the history shows details about that deployment.
+1. After pinning the section to the dashboard, you will see the summary on the dashboard. And, selecting it immediately takes you to more details about the data.
 
-![deployment summary](./media/resource-group-portal/deployment-summary.png)
+    ![view dashboard](./media/resource-group-portal/view-startboard.png)
 
-You can see the individual operations that were executed during the deployment. The following image shows one operation that succeeded and one that failed.
+1. To completely customize the data you monitor through the portal, navigate to your default dashboard, and select **New dashboard**.
 
-![operation details](./media/resource-group-portal/operation-details.png) 
+    ![dashboard](./media/resource-group-portal/dashboard.png)
 
-Selecting any of the operations shows more details about the operation. This can be especially helpful when an operation has failed, as shown below. It can help you troubleshoot why a deployment failed. In the following image, you can see that the web site was not deployed because the name was not unique.
+1. Give your new dashboard a name and drag tiles onto the dashboard. The tiles are filtered by different options.
 
-![operation message](./media/resource-group-portal/operation-message.png)
+    ![dashboard](./media/resource-group-portal/create-dashboard.png)
 
-## Viewing audit logs
+     To learn about working with dashboards, see [Creating and sharing dashboards in the Azure portal](azure-portal-dashboards.md).
 
-The audit log contains not just deployment operations, but all management operations taken on resources in your subscription. For example, you can see in the audit logs when someone in your organization stopped an app. To see the audit logs, select **Browse All** and **Audit Logs**.
+## Manage resources
 
-![browse audit logs](./media/resource-group-portal/browse-audit-logs.png)
+In the blade for a resource, you see the options for managing the resource. The portal presents management options for that particular resource type. You see the management commands across the top of the resource blade and on the left side.
 
-In the operations section, you can see the individual operations that have been performed across your subscription.
+![manage resources](./media/resource-group-portal/manage-resources.png)
 
-![view audit log](./media/resource-group-portal/view-audit-log.png)
+From these options, you can perform operations such as starting and stopping a virtual machine, or reconfiguring the properties of the virtual machine.
 
-By selecting any of the operations, you can see greater details, including which user executed the operation.
+## Move resources
 
-You can filter what is shown in the audit log, by selecting **Filter**.
+If you need to move resources to another resource group or another subscription, see [Move resources to new resource group or subscription](../resource-group-move-resources.md).
 
-![filter log](./media/resource-group-portal/filter-logs.png)
+## Lock resources
 
-You can select what type of operations to show, such belonging to a resource group or resource, within a specified time span, initiated by a particular caller, or the levels of operation.
+You can lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. For more information, see [Lock resources with Azure Resource Manager](../resource-group-lock-resources.md).
 
-![filter options](./media/resource-group-portal/filter-options.png)  
+[AZURE.INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
-## Adding resources to resource groups
+## View your subscription and costs
 
-You can add resources to a resource group using the **Add** command on the resource group blade.
+You can view information about your subscription and the rolled-up costs for all your resources. Select **Subscriptions** and the subscription you want to see. You might only have one subscription to select.
 
-![add resource](./media/resource-group-portal/add-resource.png)
+![subscription](./media/resource-group-portal/select-subscription.png)
 
-You can select the resource you want from the available list.
+Within the subscription blade, you see a burn rate.
 
-## Deleting resource groups
+![burn rate](./media/resource-group-portal/burn-rate.png)
 
-Since resource groups allow you to manage the lifecycle of all the contained resources, deleting a resource group will delete all the resources contained within it. You can also delete individual resources within a resource group. You want to exercise caution when you are deleting a resource group since there might be other resources linked to it. You can see the linked resources in the resource map and take the necessary steps to avoid any unintentional consequences when you delete resource groups. The linked resources will not be deleted but they may not operate as expected.
+And, a breakdown of costs by resource type.
+
+![resource cost](./media/resource-group-portal/cost-by-resource.png)
+
+## Export template
+
+After setting up your resource group, you may want to view the Resource Manager template for the resource group. Exporting the template offers two benefits:
+
+1. You can easily automate future deployments of the solution because the template contains all the complete infrastructure.
+
+2. You can become familiar with template syntax by looking at the JavaScript Object Notation (JSON) that represents your solution.
+
+For step-by-step guidance, see [Export Azure Resource Manager template from existing resources](../resource-manager-export-template.md).
+
+## Delete resource group or resources
+
+Deleting a resource group deletes all the resources contained within it. You can also delete individual resources within a resource group. You want to exercise caution when you delete a resource group because there might be resources in other resource groups that are linked to it. Resource Manager does not delete linked resources, but they may not operate correctly without the expected resources.
 
 ![delete group](./media/resource-group-portal/delete-group.png)
 
-## Tagging resources
-
-You can apply tags to resource groups and resources to logically organize your assets. For information about working with tags through the preview portal, see [Using tags to organize your Azure resources](../resource-group-using-tags.md).
-
-## Deploying a custom template
-
-If you want to execute a deployment but not use any of the templates in the Marketplace, you can create customized template that defines the infrastructure for your solution. For more information about templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
-
-To deploy a customized template through the preview portal, select **New**, **Marketplace**, and **Everything**.
-
-![find template deployment](./media/resource-group-portal/launch-template.png)
-
-Search for **Template Deployment**, and select it from the returned list.
-
-![search template deployment](./media/resource-group-portal/search-template.png)
-
-After launching the template deployment, you can create the custom template and set values for the deployment.
-
-![create template](./media/resource-group-portal/show-custom-template.png)
-
 ## Next Steps
-Getting Started  
 
-- For an introduction to the concepts in Resource Manager, see [Azure Resource Manager Overview](../resource-group-overview.md).  
-- For an introduction to using Azure PowerShell when deploying resources, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
-- For an introduction to using Azure CLI when deploying resources, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../xplat-cli-azure-resource-manager.md). 
-  
+- To view audit logs, see [Audit operations with Resource Manager](../resource-group-audit.md).
+- To troubleshoot deployment errors, see [Troubleshooting resource group deployments with Azure portal](../resource-manager-troubleshoot-deployments-portal.md).
+- To deploy resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md).
+- To manage access to resources, see [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
 
 
- 
+
+
+
+

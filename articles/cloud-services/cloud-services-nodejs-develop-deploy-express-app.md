@@ -3,7 +3,7 @@
 	description="A tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
-	authors="MikeWasson" 
+	authors="rmcmurray" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="mwasson"/>
+	ms.date="08/11/2016" 
+	ms.author="robmcm"/>
 
 
 
@@ -36,7 +36,7 @@ A screenshot of the completed application is below:
 
 Perform the following steps to create a new cloud service project named 'expressapp':
 
-1. From the **Start Menu** or **Start Screen**, search for **Azure PowerShell**. Finally, right-click **Azure PowerShell** and select **Run As Administrator**.
+1. From the **Start Menu** or **Start Screen**, search for **Windows PowerShell**. Finally, right-click **Windows PowerShell** and select **Run As Administrator**.
 
 	![Azure PowerShell icon](./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png)
 
@@ -134,6 +134,9 @@ Once the deployment operation completes, your browser will open and display the 
 
 ![A web browser displaying the Express page. The URL indicates it is now hosted on Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
+## Next steps
+
+For more information, see the [Node.js Developer Center](/develop/nodejs/).
 
   [Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
   [Express]: http://expressjs.com/

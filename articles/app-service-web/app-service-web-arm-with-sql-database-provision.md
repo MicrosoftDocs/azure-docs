@@ -1,20 +1,20 @@
 <properties 
 	pageTitle="Provision a web app that uses a SQL Database" 
 	description="Use an Azure Resource Manager template to deploy a web app that includes a SQL Database." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
-	authors="tfitzmac" 
+	authors="cephalin" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
-	ms.author="tomfitz"/>
+	ms.date="04/27/2016" 
+	ms.author="cephalin"/>
 
 # Provision a web app with a SQL Database
 
@@ -42,27 +42,11 @@ In this template, you will deploy:
 
 To run the deployment automatically, click the following button:
 
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
+[![Deploy to Azure](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
 ## Parameters to specify
 
 [AZURE.INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
-
-### serverName
-
-The name of the new database server to create.
-
-    "serverName": {
-      "type": "string"
-    }
-
-### serverLocation
-
-The location of the database server. For best performance, this location should be the same as the location of the web app.
-
-    "serverLocation": {
-      "type": "string"
-    }
 
 ### administratorLogin
 
@@ -85,7 +69,8 @@ The password to use for the database server administrator.
 The name of the new database to create.
 
     "databaseName": {
-      "type": "string"
+      "type": "string",
+      "defaultValue": "sampledb"
     }
 
 ### collation
@@ -103,9 +88,14 @@ The type of database to create.
 
     "edition": {
       "type": "string",
-      "defaultValue": "Standard",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "Standard",
+        "Premium"
+      ],
       "metadata": {
-        "description": "The type of database to create. The available options are: Web, Business, Basic, Standard, and Premium."
+        "description": "The type of database to create."
       }
     }
 
@@ -124,11 +114,31 @@ The name corresponding to the performance level for edition.
 
     "requestedServiceObjectiveName": {
       "type": "string",
-      "defaultValue": "S0",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "S0",
+        "S1",
+        "S2",
+        "P1",
+        "P2",
+        "P3"
+      ],
       "metadata": {
-        "description": "The name corresponding to the performance level for edition. The available options are: Shared, Basic, S0, S1, S2, S3, P1, P2, and P3."
+        "description": "Describes the performance level for Edition"
       }
     }
+
+## Variables for names
+
+This template includes variables that construct names used in the template. The variable values use the **uniqueString** function to generate a name 
+from the resource group id.
+
+    "variables": {
+        "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
+        "webSiteName": "[concat('webSite', uniqueString(resourceGroup().id))]",
+        "sqlserverName": "[concat('sqlserver', uniqueString(resourceGroup().id))]"
+    },
 
 
 ## Resources to deploy
@@ -139,23 +149,28 @@ Creates a new SQL Server and database. The name of the server is specified in th
 you must provide a login name and password for the database server administrator. 
 
     {
-      "name": "[parameters('serverName')]",
+      "name": "[variables('sqlserverName')]",
       "type": "Microsoft.Sql/servers",
-      "location": "[parameters('serverLocation')]",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "displayName": "SqlServer"
+      },
       "apiVersion": "2014-04-01-preview",
       "properties": {
         "administratorLogin": "[parameters('administratorLogin')]",
-        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-        "version": "12.0"
+        "administratorLoginPassword": "[parameters('administratorLoginPassword')]"
       },
       "resources": [
         {
           "name": "[parameters('databaseName')]",
           "type": "databases",
-          "location": "[parameters('serverLocation')]",
-          "apiVersion": "2014-08-01",
+          "location": "[resourceGroup().location]",
+          "tags": {
+            "displayName": "Database"
+          },
+          "apiVersion": "2014-04-01-preview",
           "dependsOn": [
-            "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+            "[variables('sqlserverName')]"
           ],
           "properties": {
             "edition": "[parameters('edition')]",
@@ -165,21 +180,20 @@ you must provide a login name and password for the database server administrator
           }
         },
         {
-          "apiVersion": "2.0",
+          "type": "firewallrules",
+          "apiVersion": "2014-04-01-preview",
           "dependsOn": [
-            "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+            "[variables('sqlserverName')]"
           ],
-          "location": "[parameters('serverLocation')]",
-          "name": "AllowAllWindowsAzureIps",
+          "location": "[resourceGroup().location]",
+          "name": "AllowAllAzureIps",
           "properties": {
             "endIpAddress": "0.0.0.0",
             "startIpAddress": "0.0.0.0"
-          },
-          "type": "firewallrules"
+          }
         }
       ]
     },
-
 
 [AZURE.INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
@@ -187,256 +201,266 @@ you must provide a login name and password for the database server administrator
 ### Web app
 
     {
-      "apiVersion": "2015-06-01",
-      "name": "[parameters('siteName')]",
-      "type": "Microsoft.Web/Sites",
-      "location": "[parameters('siteLocation')]",
-      "dependsOn": ["[concat('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]"],
+      "apiVersion": "2015-08-01",
+      "name": "[variables('webSiteName')]",
+      "type": "Microsoft.Web/sites",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[variables('hostingPlanName')]"
+      ],
       "tags": {
-        "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]": "empty"
+        "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName')))]": "empty",
+        "displayName": "Website"
       },
       "properties": {
-        "name": "[parameters('siteName')]",
-        "serverFarmId": "[parameters('hostingPlanName')]"
+        "name": "[variables('webSiteName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
       },
       "resources": [
         {
-          "apiVersion": "2014-11-01",
+          "apiVersion": "2015-08-01",
           "type": "config",
           "name": "connectionstrings",
-          "dependsOn": [ "[concat('Microsoft.Web/Sites/', parameters('siteName'))]" ],
+          "dependsOn": [
+            "[variables('webSiteName')]"
+          ],
           "properties": {
-              "DefaultConnection":{
-              "value":"[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('serverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', parameters('serverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
-              "type": 2 
-            },
+            "DefaultConnection": {
+              "value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', variables('sqlserverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', variables('sqlserverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
+              "type": "SQLServer"
+            }
           }
         }
       ]
-    }
+    },
+
 
 ### AutoScale
 
     {
       "apiVersion": "2014-04-01",
-      "name": "[concat(parameters('hostingPlanName'), '-', resourceGroup().name)]",
-      "type": "microsoft.insights/autoscalesettings",
-      "location": "East US",
-      "tags": {"[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]": "Resource"},
-      "dependsOn": ["[concat('Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]"],
+      "name": "[concat(variables('hostingPlanName'), '-', resourceGroup().name)]",
+      "type": "Microsoft.Insights/autoscalesettings",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "[concat('hidden-link:', resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName')))]": "Resource",
+        "displayName": "AutoScaleSettings"
+      },
+      "dependsOn": [
+        "[variables('hostingPlanName')]"
+      ],
       "properties": {
         "profiles": [
-        {
-          "name": "Default",
-          "capacity": {
-            "minimum": "1",
-            "maximum": "2",
-            "default": "1"
+          {
+            "name": "Default",
+            "capacity": {
+              "minimum": 1,
+              "maximum": 2,
+              "default": 1
             },
             "rules": [
-            {
-              "metricTrigger": 
               {
-                "metricName": "CpuPercentage",
-                "metricResourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
-                "timeGrain": "PT1M",
-                "statistic": "Average",
-                "timeWindow": "PT10M",
-                "timeAggregation": "Average",
-                "operator": "GreaterThan",
-                "threshold": 80.0
-              },
-              "scaleAction": 
-              {
+                "metricTrigger": {
+                  "metricName": "CpuPercentage",
+                  "metricResourceUri": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+                  "timeGrain": "PT1M",
+                  "statistic": "Average",
+                  "timeWindow": "PT10M",
+                  "timeAggregation": "Average",
+                  "operator": "GreaterThan",
+                  "threshold": 80.0
+                },
+                "scaleAction": {
                   "direction": "Increase",
                   "type": "ChangeCount",
-                  "value": "1",
+                  "value": 1,
                   "cooldown": "PT10M"
-              }
-            },
-            {
-              "metricTrigger": 
-              {
-                "metricName": "CpuPercentage",
-                "metricResourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
-                "timeGrain": "PT1M",
-                "statistic": "Average",
-                "timeWindow": "PT1H",
-                "timeAggregation": "Average",
-                "operator": "LessThan",
-                "threshold": 60.0
+                }
               },
-              "scaleAction": 
               {
-                "direction": "Decrease",
-                "type": "ChangeCount",
-                "value": "1",
-                "cooldown": "PT1H"
+                "metricTrigger": {
+                  "metricName": "CpuPercentage",
+                  "metricResourceUri": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+                  "timeGrain": "PT1M",
+                  "statistic": "Average",
+                  "timeWindow": "PT1H",
+                  "timeAggregation": "Average",
+                  "operator": "LessThan",
+                  "threshold": 60.0
+                },
+                "scaleAction": {
+                  "direction": "Decrease",
+                  "type": "ChangeCount",
+                  "value": 1,
+                  "cooldown": "PT1H"
+                }
               }
-            }
             ]
           }
-          ],
-          "enabled": false,
-          "name": "[concat(parameters('hostingPlanName'), '-', resourceGroup().name)]",
-          "targetResourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]"
-        }
-    }
+        ],
+        "enabled": false,
+        "name": "[concat(variables('hostingPlanName'), '-', resourceGroup().name)]",
+        "targetResourceUri": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+      }
+    },
+
 
 ### Alert rules for status codes 403 and 500's, High CPU, and HTTP Queue Length 
 
     {
       "apiVersion": "2014-04-01",
-      "name": "[concat('ServerErrors ', parameters('siteName'))]",
-      "type": "microsoft.insights/alertrules",
-      "location": "East US",
-      "dependsOn": ["[concat('Microsoft.Web/sites/', parameters('siteName'))]"],
-      "tags": {"[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', parameters('siteName'))]": "Resource"},
-      "properties": 
-      {
-        "name": "[concat('ServerErrors ', parameters('siteName'))]",
-        "description": "[concat(parameters('siteName'), ' has some server errors, status code 5xx.')]",
+      "name": "[concat('ServerErrors ', variables('webSiteName'))]",
+      "type": "Microsoft.Insights/alertrules",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[variables('webSiteName')]"
+      ],
+      "tags": {
+        "[concat('hidden-link:', resourceId('Microsoft.Web/sites', variables('webSiteName')))]": "Resource",
+        "displayName": "ServerErrorsAlertRule"
+      },
+      "properties": {
+        "name": "[concat('ServerErrors ', variables('webSiteName'))]",
+        "description": "[concat(variables('webSiteName'), ' has some server errors, status code 5xx.')]",
         "isEnabled": false,
-        "condition": 
-        {
-          "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.ThresholdRuleCondition",
-          "dataSource": 
-          {
-            "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleMetricDataSource",
-            "resourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/sites/', parameters('siteName'))]",
+        "condition": {
+          "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
+          "dataSource": {
+            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+            "resourceUri": "[resourceId('Microsoft.Web/sites', variables('webSiteName'))]",
             "metricName": "Http5xx"
           },
           "operator": "GreaterThan",
           "threshold": 0.0,
           "windowSize": "PT5M"
         },
-        "action": 
-        {
-          "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction",
+        "action": {
+          "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
           "sendToServiceOwners": true,
-          "customEmails": []
+          "customEmails": [ ]
         }
       }
     },
-    //Alert-Rules --> 403
     {
-        "apiVersion": "2014-04-01",
-        "name": "[concat('ForbiddenRequests ', parameters('siteName'))]",
-        "type": "microsoft.insights/alertrules",
-        "location": "East US",
-        "dependsOn": [
-            "[concat('Microsoft.Web/sites/', parameters('siteName'))]"
-        ],
-        "tags": {
-            "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', parameters('siteName'))]": "Resource"
+      "apiVersion": "2014-04-01",
+      "name": "[concat('ForbiddenRequests ', variables('webSiteName'))]",
+      "type": "Microsoft.Insights/alertrules",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[variables('webSiteName')]"
+      ],
+      "tags": {
+        "[concat('hidden-link:', resourceId('Microsoft.Web/sites', variables('webSiteName')))]": "Resource",
+        "displayName": "ForbiddenRequestsAlertRule"
+      },
+      "properties": {
+        "name": "[concat('ForbiddenRequests ', variables('webSiteName'))]",
+        "description": "[concat(variables('webSiteName'), ' has some requests that are forbidden, status code 403.')]",
+        "isEnabled": false,
+        "condition": {
+          "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
+          "dataSource": {
+            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+            "resourceUri": "[resourceId('Microsoft.Web/sites', variables('webSiteName'))]",
+            "metricName": "Http403"
+          },
+          "operator": "GreaterThan",
+          "threshold": 0,
+          "windowSize": "PT5M"
         },
-        "properties": {
-            "name": "[concat('ForbiddenRequests ', parameters('siteName'))]",
-            "description": "[concat(parameters('siteName'), ' has some requests that are forbidden, status code 403.')]",
-            "isEnabled": false,
-            "condition": {
-                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.ThresholdRuleCondition",
-                "dataSource": {
-                    "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleMetricDataSource",
-                    "resourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/sites/', parameters('siteName'))]",
-                    "metricName": "Http403"
-                },
-                "operator": "GreaterThan",
-                "threshold": 0,
-                "windowSize": "PT5M"
-            },
-            "action": {
-                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction",
-                "sendToServiceOwners": true,
-                "customEmails": []
-            }
+        "action": {
+          "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
+          "sendToServiceOwners": true,
+          "customEmails": [ ]
         }
+      }
     },
-    //Alert-Rules --> High CPU
     {
-        "apiVersion": "2014-04-01",
-        "name": "[concat('CPUHigh ', parameters('hostingPlanName'))]",
-        "type": "microsoft.insights/alertrules",
-        "location": "East US",
-        "dependsOn": [
-            "[concat('Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]"
-        ],
-        "tags": {
-            "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]": "Resource"
+      "apiVersion": "2014-04-01",
+      "name": "[concat('CPUHigh ', variables('hostingPlanName'))]",
+      "type": "Microsoft.Insights/alertrules",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[variables('hostingPlanName')]"
+      ],
+      "tags": {
+        "[concat('hidden-link:', resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName')))]": "Resource",
+        "displayName": "CPUHighAlertRule"
+      },
+      "properties": {
+        "name": "[concat('CPUHigh ', variables('hostingPlanName'))]",
+        "description": "[concat('The average CPU is high across all the instances of ', variables('hostingPlanName'))]",
+        "isEnabled": false,
+        "condition": {
+          "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
+          "dataSource": {
+            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+            "resourceUri": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+            "metricName": "CpuPercentage"
+          },
+          "operator": "GreaterThan",
+          "threshold": 90,
+          "windowSize": "PT15M"
         },
-        "properties": {
-            "name": "[concat('CPUHigh ', parameters('hostingPlanName'))]",
-            "description": "[concat('The average CPU is high across all the instances of ', parameters('hostingPlanName'))]",
-            "isEnabled": false,
-            "condition": {
-                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.ThresholdRuleCondition",
-                "dataSource": {
-                    "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleMetricDataSource",
-                    "resourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
-                    "metricName": "CpuPercentage"
-                },
-                "operator": "GreaterThan",
-                "threshold": 90,
-                "windowSize": "PT15M"
-            },
-            "action": {
-                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction",
-                "sendToServiceOwners": true,
-                "customEmails": []
-            }
+        "action": {
+          "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
+          "sendToServiceOwners": true,
+          "customEmails": [ ]
         }
+      }
     },
-    //Alert-Rules --> HTTP Queue Length
     {
-        "apiVersion": "2014-04-01",
-        "name": "[concat('LongHttpQueue ', parameters('hostingPlanName'))]",
-        "type": "microsoft.insights/alertrules",
-        "location": "East US",
-        "dependsOn": [
-            "[concat('Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]"
-        ],
-        "tags": {
-            "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]": "Resource"
+      "apiVersion": "2014-04-01",
+      "name": "[concat('LongHttpQueue ', variables('hostingPlanName'))]",
+      "type": "Microsoft.Insights/alertrules",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[variables('hostingPlanName')]"
+      ],
+      "tags": {
+        "[concat('hidden-link:', resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName')))]": "Resource",
+        "displayName": "AutoScaleSettings"
+      },
+      "properties": {
+        "name": "[concat('LongHttpQueue ', variables('hostingPlanName'))]",
+        "description": "[concat('The HTTP queue for the instances of ', variables('hostingPlanName'), ' has a large number of pending requests.')]",
+        "isEnabled": false,
+        "condition": {
+          "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
+          "dataSource": {
+            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+            "resourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', variables('hostingPlanName'))]",
+            "metricName": "HttpQueueLength"
+          },
+          "operator": "GreaterThan",
+          "threshold": 100.0,
+          "windowSize": "PT5M"
         },
-        "properties": {
-            "name": "[concat('LongHttpQueue ', parameters('hostingPlanName'))]",
-            "description": "[concat('The HTTP queue for the instances of ', parameters('hostingPlanName'), ' has a large number of pending requests.')]",
-            "isEnabled": false,
-            "condition": {
-                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.ThresholdRuleCondition",
-                "dataSource": {
-                    "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleMetricDataSource",
-                    "resourceUri": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
-                    "metricName": "HttpQueueLength"
-                },
-                "operator": "GreaterThan",
-                "threshold": 100.0,
-                "windowSize": "PT5M"
-            },
-            "action": {
-                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction",
-                "sendToServiceOwners": true,
-                "customEmails": []
-            }
+        "action": {
+          "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
+          "sendToServiceOwners": true,
+          "customEmails": [ ]
         }
-    }
-
+      }
+    },
+    
 ### App Insights
 
     {
-        "apiVersion": "2014-04-01",
-        "name": "[parameters('siteName')]",
-        "type": "microsoft.insights/components",
-        "location": "Central US",
-        "dependsOn": [
-            "[concat('Microsoft.Web/sites/', parameters('siteName'))]"
-        ],
-        "tags": {
-            "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', parameters('siteName'))]": "Resource"
-        },
-        "properties": {
-            "ApplicationId": "[parameters('siteName')]"
-        }
+      "apiVersion": "2014-04-01",
+      "name": "[concat('AppInsights', variables('webSiteName'))]",
+      "type": "Microsoft.Insights/components",
+      "location": "Central US",
+      "dependsOn": [
+        "[variables('webSiteName')]"
+      ],
+      "tags": {
+        "[concat('hidden-link:', resourceId('Microsoft.Web/sites', variables('webSiteName')))]": "Resource",
+        "displayName": "AppInsightsComponent"
+      },
+      "properties": {
+        "ApplicationId": "[variables('webSiteName')]"
+      }
     }
 
 ## Commands to run deployment
@@ -445,7 +469,7 @@ you must provide a login name and password for the database server administrator
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
+    New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 ### Azure CLI
 

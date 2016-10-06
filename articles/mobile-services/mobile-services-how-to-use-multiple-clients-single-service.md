@@ -7,15 +7,20 @@
 	manager="dwrede"
 	editor="mollybos"/>
 <tags
-	ms.service="mobile-services" 
+	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Supporting multiple device platforms from a single mobile service
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 One of the major benefits of using Azure Mobile Services in your mobile app development is the ability to use a single backend service that supports your app on multiple client platforms. Mobile Services provides native client libraries for all major device platforms, which makes it easier to develop apps using a single backend service and by using cross-platform developer tools. This topic discusses considerations for getting your app running on multiple client platforms while using a single mobile service backend.
 
@@ -36,13 +41,13 @@ Client registrations are created by using the register function in the platform-
 
 + **Template registration**<br/>Notification Hubs also supports platform-specific template registrations. By using template registrations, you can use a single API call to send a notification to your app running on any registered platform. For more information, see [Send cross-platform notifications to users].
 
-Tables in the following sections link to the client-specific tutorials that show you how to implement push notifications from both .NET and JavaScript backend mobile services.  
+Tables in the following sections link to the client-specific tutorials that show you how to implement push notifications from both .NET and JavaScript backend mobile services.
 
 ###.NET backend
 
 In a .NET backend mobile service, you send notifications by calling the [SendAsync] method on the [PushClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.pushclient.aspx) object obtained from the [ApiServices.Push](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.apiservices.push.aspx) property. The push notification sent (native or template) depends on the specific [IPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.ipushmessage.aspx)-derived object that is passed to the [SendAsync] method, as shown in the following table:
 
-|Platform |[APNS](mobile-services-dotnet-backend-ios-get-started-push.md)|[GCM](mobile-services-dotnet-backend-android-get-started-push.md) |[WNS](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) |[MPNS](mobile-services-dotnet-backend-windows-phone-get-started-push.md)|
+|Platform |[APNS](mobile-services-dotnet-backend-ios-get-started-push.md)|[GCM](mobile-services-dotnet-backend-android-get-started-push.md) |[WNS](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) | MPNS
 |-----|-----|----|----|-----|
 |Native|[ApplePushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.applepushmessage.aspx)   |[GooglePushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.googlepushmessage.aspx)     |[WindowsPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.windowspushmessage.aspx) | [MpnsPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.mpnspushmessage.aspx) |
 
@@ -129,11 +134,9 @@ When you use template client registrations rather than native client registratio
                 });
 
 ##<a id="xplat-app-dev"></a>Cross-platform app development
-Developing native mobile device apps for all of the major mobile device platforms requires you (or your organization) to have expertise in at least Objective-C, Java, and C# or JavaScript programming languages. Because of the expense of developing across these disparate platforms, some developers choose a fully web browser-based experience for their apps. However, such web-based experiences cannot access most of the native resources that provide the rich experience that users have come to expect on their mobile devices.  
+Developing native mobile device apps for all of the major mobile device platforms requires you (or your organization) to have expertise in at least Objective-C, Java, and C# or JavaScript programming languages. Because of the expense of developing across these disparate platforms, some developers choose a fully web browser-based experience for their apps. However, such web-based experiences cannot access most of the native resources that provide the rich experience that users have come to expect on their mobile devices.
 
 Cross-platform tools are available that provide a richer native experience on a mobile device, while still sharing a single code base, usually JavaScript. Mobile Services makes it easy to create and manage a backend service for cross-platform app development platforms by providing quickstart tutorials for the following development platforms:
-
-+ [**Appcelerator**](http://go.microsoft.com/fwlink/p/?LinkId=509987)<br/>Appcelerator lets you use JavaScript to develop a single app that is compiled to run  as native on all mobile device platforms. This provides a rich user experience in UI, access to all native device resources, and native app performance. For more information, see the [Appcelerator tutorial][Appcelerator].
 
 + [**PhoneGap**](https://go.microsoft.com/fwLink/p/?LinkID=390707)**/**[**Cordova**](http://cordova.apache.org/)<br/>PhoneGap (a distribution of the Apache Cordova project) is a free and open source framework that lets you use standardized web APIs, HTML and JavaScript to develop a single app that runs on Android, iOS and Windows devices. PhoneGap provides a web view based UI, but with a user experience enhanced by accessing native resources on the device, such as such as push notifications, the accelerometer, camera, storage, geolocation, and the in-app browser. For more information, see the [PhoneGap quickstart tutorial][PhoneGap].
 
@@ -145,7 +148,6 @@ Cross-platform tools are available that provide a richer native experience on a 
 
 
 <!-- URLs -->
-[Azure Management portal]: https://manage.windowsazure.com
 [Azure Notification Hubs]: /develop/net/how-to-guides/service-bus-notification-hubs/
 [SSO Windows Store]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
 [SSO Windows Phone]: /develop/mobile/tutorials/single-sign-on-wp8/
@@ -163,7 +165,7 @@ Cross-platform tools are available that provide a richer native experience on a 
 [TemplatePushMessage]:http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.templatepushmessage.aspx
 [PhoneGap]: mobile-services-javascript-backend-phonegap-get-started.md
 [Sencha]: partner-sencha-mobile-services-get-started.md
-[Appcelerator]: ../partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
+[Appcelerator]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
 [SendAsync]: http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.notifications.pushclient.sendasync.aspx
 [What's next for Windows Phone 8 developers]: http://msdn.microsoft.com/library/windows/apps/dn655121(v=vs.105).aspx
 [Building universal Windows apps for all Windows devices]: http://go.microsoft.com/fwlink/p/?LinkId=509905

@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,35 +13,34 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
-	ms.author="juliako"/>
+ 	ms.date="09/01/2016"
+	ms.author="juliako;milangada;gtrifonov"/>
 
 
-#How to Scale Encoding with .NET SDK
-
+#How to scale encoding with .NET SDK
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-portal-encoding-units.md)
+- [Portal](media-services-portal-scale-media-processing.md )
 - [.NET](media-services-dotnet-encoding-units.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+- [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
 ##Overview
 
-A Media Services account is associated with a Reserved Unit Type which determines the speed with which your encoding jobs are processed. You can pick between the following reserved unit types: Basic, Standard, or Premium. For example, the same encoding job runs faster when you use the Standard reserved unit type compare to the Basic type. For more information, see the "Encoding Reserved Unit Types" blog written by [Milan Gada](http://azure.microsoft.com/blog/author/milanga/).
-
-In addition to specifying the reserved unit type, you can specify to provision your account with encoding reserved units. The number of provisioned encoding reserved units determines the number of media tasks that can be processed concurrently in a given account. For example, if your account has 5 reserved units, then 5 media tasks will be running concurrently as long as there are tasks to be processed. The remaining tasks will wait in the queue and will get picked up for processing sequentially as soon as a running task finishes. If an account does not have any reserved units provisioned, then tasks will be picked up sequentially. In this case, the wait time between one task finishing and the next one starting will depend on the availability of resources in the system.
-
+>[AZURE.IMPORTANT] Make sure to review the [overview](media-services-scale-media-processing-overview.md) topic to get more information about scaling media processing topic.
+ 
 To change the reserved unit type and the number of encoding reserved units using .NET SDK, do the following:
 
-	IEncodingReservedUnit encodingBasicReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
-	encodingBasicReservedUnit.ReservedUnitType = ReservedUnitType.Basic;
-	encodingBasicReservedUnit.Update();
-	Console.WriteLine("Reserved Unit Type: {0}", encodingBasicReservedUnit.ReservedUnitType);
+	IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
+	encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1
+	encodingS1ReservedUnit.Update();
+	Console.WriteLine("Reserved Unit Type: {0}", encodingS1ReservedUnit.ReservedUnitType);
 	
-	encodingBasicReservedUnit.CurrentReservedUnits = 2;
-	encodingBasicReservedUnit.Update();
+	encodingS1ReservedUnit.CurrentReservedUnits = 2;
+	encodingS1ReservedUnit.Update();
 	
-	Console.WriteLine("Number of reserved units: {0}", encodingBasicReservedUnit.CurrentReservedUnits);
+	Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
 
 ##Opening a Support Ticket
 
@@ -54,28 +53,27 @@ To open a support ticket do the following:
 1. Click [Get Support](https://manage.windowsazure.com/?getsupport=true). If you are not logged in, you will be prompted to enter your credentials.
 
 1. Select your subscription.
- 
+
 1. Under support type, select "Technical".
- 
-1. Click on "Create Ticket". 
- 
+
+1. Click on "Create Ticket".
+
 1. Select "Azure Media Services" in the product list presented on the next page.
- 
+
 1. Select a "Problem type" that is appropriate for your issue.
- 
+
 1. Click Continue.
- 
-1. Follow instructions on next page and then enter details about your issue.   
- 
+
+1. Follow instructions on next page and then enter details about your issue.
+
 1. Click submit to open the ticket.
- 
 
 
 
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
- 
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

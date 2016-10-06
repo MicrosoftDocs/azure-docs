@@ -3,9 +3,9 @@
    description="Learn how to create a virtual network using an ARM template | Resource Manager."
    services="virtual-network"
    documentationCenter=""
-   authors="telmosampaio"
-   manager="carolz"
-   editor=""
+   authors="jimdial"
+   manager="carmonm"
+   editor="tysonn"
    tags="azure-resource-manager"/>
 
 <tags
@@ -14,8 +14,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/21/2015"
-   ms.author="telmos"/>
+   ms.date="03/15/2016"
+   ms.author="jdial"/>
 
 # Create a virtual network by using an ARM template
 

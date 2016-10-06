@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Command-line build for Azure"
+   pageTitle="Command-line build for Azure | Microsoft Azure"
    description="Command-line build for Azure"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.date="08/15/2016"
+   ms.author="tarcher" />
 
 # Command-Line Build for Azure
 
@@ -60,4 +60,4 @@ If you want to use an alternate directory for the stored package and configurati
 
 ## Deployment
 
-After the package is built, you can deploy it to Azure. For a tutorial that demonstrates that process, see the Azure website. For information about how to automate that process, see [Continuous Delivery for Cloud Services in Azure](../cloud-services/cloud-services-dotnet-continuous-delivery).
+After the package is built, you can deploy it to Azure. For a tutorial that demonstrates that process, see the Azure website. For information about how to automate that process, see [Continuous Delivery for Cloud Services in Azure](./cloud-services/cloud-services-dotnet-continuous-delivery.md).

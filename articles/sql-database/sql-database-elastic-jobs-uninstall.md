@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="How to uninstall elastic database job tool" 
-	description="How to uninstall elastic database job tool" 
+	pageTitle="How to uninstall elastic database jobs tool" 
+	description="How to uninstall the elastic database jobs tool" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
-	authors="sidneyh" 
+	manager="jhubbard" 
+	authors="ddove" 
 	editor=""/>
 
 <tags 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2015" 
-	ms.author="ddove; sidneyh"/>
+	ms.date="05/27/2016" 
+	ms.author="ddove"/>
 
 #Uninstall Elastic Database jobs components
 **Elastic Database jobs** components can be uninstalled using either the Portal or PowerShell.
 
 ##Uninstall Elastic Database jobs components using the Azure portal
 
-1. Open the [Azure portal](https://ms.portal.azure.com/).
+1. Open the [Azure portal](https://portal.azure.com/).
 2. Navigate to the subscription that contains **Elastic Database jobs** components, namely the subscription in which Elastic Database jobs components were installed.
 3. Click **Browse** and click **Resource groups**.
 4. Select the resource group named "__ElasticDatabaseJob".
@@ -29,7 +29,7 @@
 
 ##Uninstall  Elastic Database jobs components using PowerShell
 
-1.	Launch a Microsoft Azure PowerShell command window and navigate to the tools sub-directory under the Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x folder: Type cd tools
+1.	Launch a Microsoft Azure PowerShell command window and navigate to the tools sub-directory under the Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x folder: Type **cd tools**.
 
 		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
 
@@ -61,5 +61,5 @@ To re-install Elastic Database jobs, see [Installing the Elastic Database job se
 For an overview of Elastic Database jobs, see [Elastic Database jobs overview](sql-database-elastic-jobs-overview.md).
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-job-uninstall/
+
  

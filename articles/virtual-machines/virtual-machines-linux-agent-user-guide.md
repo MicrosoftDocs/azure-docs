@@ -1,28 +1,35 @@
 <properties 
-	pageTitle="Linux Agent User Guide for Azure" 
+	pageTitle="Linux Agent User Guide | Microsoft Azure" 
 	description="Learn how to install and configure Linux Agent (waagent) to manage your virtual machine's interaction with Azure Fabric Controller." 
-	services="virtual-machines" 
+	services="virtual-machines-linux" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-linux" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.date="07/13/2016" 
 	ms.author="szark"/>
 
 
 
 #Azure Linux Agent User Guide
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 ##Introduction
 
-The Azure Linux Agent (/usr/sbin/waagent) manages interaction between a virtual machine and the Azure Fabric Controller. It does the following:
+The Azure Linux Agent (/usr/sbin/waagent) manages interaction between a virtual machine and the Azure Fabric Controller. Please also see [How to update the Azure Linux Agent](virtual-machines-linux-update-agent.md) for information about installing and updating the agent on a running VM.
+
+The Azure Linux Agent is responsible for the following:
+
+> [AZURE.NOTE] Please see the Azure Linux agent [README](https://github.com/Azure/WALinuxAgent/blob/master/README.md) for the latest version of this guide.
 
 * **Image Provisioning**
   - Create a user account
@@ -78,6 +85,7 @@ The following systems have been tested and are known to work with the Azure Linu
 * openSUSE 12.3+
 * SLES 11 SP2+
 * Oracle Linux 6.4+
+* Red Hat 6.7+
 
 Other Supported Systems:
 
@@ -204,14 +212,14 @@ If a path to an executable program is specified, it is invoked when waagent has 
 Type: String  
 Default: None
 
-If a path to an executable program is specified, the program is invoked when the Fabric indicates that a configuration file is available for the virtual machine. The path to the XML configuration file is provided as an argument to the executable. This may be invoked multiple times whenever the configuration file changes. A sample file is provided in the Appendix. The current path of this file is /var/lib/waagent/HostingEnvironmentConfig.xml.
+If a path to an executable program is specified, the program is invoked when the Fabric indicates that a configuration file is available for the virtual machine. The path to the XML configuration file is provided as an argument to the executable. This may be invoked multiple times whenever the configuration file changes. The current path of this file is /var/lib/waagent/HostingEnvironmentConfig.xml.
 
 **Role.TopologyConsumer:**
 
 Type: String  
 Default: None
 
-If a path to an executable program is specified, the program is invoked when the Fabric indicates that a new network topology layout is available for the virtual machine.The path to the XML configuration file is provided as an argument to the executable. This may be invoked multiple times whenever the network topology changes (due to service healing for example). A sample file is provided in the Appendix. The current location of this file is /var/lib/waagent/SharedConfig.xml.
+If a path to an executable program is specified, the program is invoked when the Fabric indicates that a new network topology layout is available for the virtual machine.The path to the XML configuration file is provided as an argument to the executable. This may be invoked multiple times whenever the network topology changes (due to service healing for example). The current location of this file is /var/lib/waagent/SharedConfig.xml.
 
 **Provisioning.Enabled:**
 
@@ -335,6 +343,6 @@ Note that Ubuntu Cloud Images utilize [cloud-init](https://launchpad.net/ubuntu/
 - Please see the following resources to configure the resource disk mount point and swap space on Ubuntu Cloud Images during provisioning:
 
  - [Ubuntu Wiki: Configure Swap Partitions](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
- - [Injecting Custom Data into an Azure Virtual Machine](virtual-machines-how-to-inject-custom-data.md)
+ - [Injecting Custom Data into an Azure Virtual Machine](virtual-machines-windows-classic-inject-custom-data.md)
 
  

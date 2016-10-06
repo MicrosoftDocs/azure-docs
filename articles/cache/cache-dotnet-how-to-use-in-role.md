@@ -4,7 +4,7 @@
 	services="cache" 
 	documentationCenter=".net" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
 
@@ -30,7 +30,7 @@ objects from the cache, storing ASP.NET session state in the cache**,
 and **enabling ASP.NET page output caching using the cache**. For more
 information on using In-Role Cache, refer to the [Next Steps][] section.
 
->[AZURE.NOTE] For guidance on choosing the right Azure Cache offering for your application, see [Which Azure Cache offering is right for me?][].
+>[AZURE.IMPORTANT]As per last year's [announcement](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/), Azure Managed Cache Service and Azure In-Role Cache service will be retired on November 30, 2016. Our recommendation is to use [Azure Redis Cache](https://azure.microsoft.com/services/cache/). For information on migrating, please see [Migrate from Managed Cache Service to Azure Redis Cache](../redis-cache/cache-migrate-to-redis.md).
 
 <a name="what-is"></a>
 ## What is In-Role Cache?
@@ -50,7 +50,7 @@ features:
 
 In-Role Cache provides a way to perform caching by using a portion of the memory of the virtual machines that host the role instances in your Azure cloud services (also known as hosted services). You have greater flexibility in terms of deployment options, the caches can be very large in size and have no cache specific quota restrictions.
 
->[AZURE.NOTE] Starting with Azure SDK 2.6, In-Role Cache is using Microsoft Azure Storage SDK version 4.3. In previous versions of the Azure SDK, In-Role Cache used Azure Storage SDK 1.7. Applications using In-Role Cache with versions of the Azure SDK before 2.6 should migrate to Azure SDK 2.6 before Azure Storage version 2011-08-18 is decommissioned on December 9th, 2015. For more information, see [Azure SDK 2.6 Release Notes - In-Role Cache](../azure-sdk-dotnet-release-notes-2_6.md#in-role-cache-updates) and [Microsoft Azure Storage Service Version Removal](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/).
+>[AZURE.IMPORTANT] Starting with Azure SDK 2.6, In-Role Cache is using Microsoft Azure Storage SDK version 4.3. In previous versions of the Azure SDK, In-Role Cache used Azure Storage SDK 1.7. Applications using In-Role Cache with versions of the Azure SDK before 2.6 should migrate to Azure SDK 2.6 before Azure Storage version 2011-08-18 is decommissioned on August 1, 2016. For more information, see [Azure SDK 2.6 Release Notes - In-Role Cache](../azure-sdk-dotnet-release-notes-2-6.md#in-role-cache-updates) and [Microsoft Azure Storage Service Version Removal Update: Extension to 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
 
 Caching on role instances has the following advantages:
 
@@ -442,8 +442,7 @@ follow these links to learn how to do more complex caching tasks.
 [Team Blog]: http://blogs.msdn.com/b/windowsazure/
 [Troubleshooting and Diagnostics for In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx
 [Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
-[Azure Management Portal]: http://windows.azure.com/
 [Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 
-[Which Azure Cache offering is right for me?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
+[Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  

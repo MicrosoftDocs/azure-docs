@@ -4,9 +4,9 @@
  services="hdinsight"
  documentationCenter=""
  authors="Blackmist"
- manager="paulettm"
+ manager="jhubbard"
  editor="cgronlun"
-	tags="azure-portal"/>
+ tags="azure-portal"/>
 
 <tags
  ms.service="hdinsight"
@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="09/02/2015"
+ ms.date="09/27/2016"
  ms.author="larryfr"/>
 
 # Correlate events over time with Storm and HBase on HDInsight
@@ -23,13 +23,15 @@ By using a persistent data store with Apache Storm, you can correlate data entri
 
 In this document, you will learn how to create a basic C# Storm topology that tracks login and logout events for user sessions, and calculates the duration of the session. The topology uses HBase as a persistent data store. HBase also allows you to perform batch queries on the historical data to produce additional insights, such as how many user sessions were started or ended during a specific time period.
 
+[AZURE.INCLUDE [windows-only](../../includes/hdinsight-windows-only.md)]
+
 ## Prerequisites
 
--	HDInsight tools for Visual Studio: See [Get started using the HDInsight tools for Visual Studio](../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md) for installation information.
+-	Visual Studio and the HDInsight tools for Visual Studio: See [Get started using the HDInsight tools for Visual Studio](../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md) for installation information.
 
--	Apache Storm on HDInsight cluster
+-	Apache Storm on HDInsight cluster (Windows-based). This runs the Storm topology, which processes incoming data and stores it to HBase.
 
--	Apache HBase on HDInsight cluster
+-	Apache HBase on HDInsight cluster (Windows or Linux-based). This is the data store for this example.
 
 ## Architecture
 
@@ -95,7 +97,7 @@ In HBase, the data is stored in a table with the following schema/settings:
 
 ## Download the project
 
-The sample project can be downloaded from [hdinsight-storm-eventcorrelation](https://github.com/Blackmist/hdinsight-storm-eventcorrelation).
+The sample project can be downloaded from [https://github.com/Azure-Samples/hdinsight-storm-dotnet-event-correlation](https://github.com/Azure-Samples/hdinsight-storm-dotnet-event-correlation).
 
 This download contains the following C# projects:
 
@@ -192,6 +194,10 @@ Searching for END events works the same as START events. However, END events are
 ##Stop the topology
 
 When you are ready to stop the topology, return to the **CorrelationTopology** project in Visual Studio. In the **Storm Topology View**, select the topology and then use the **Kill** button at the top of the topology view.
+
+##Delete your cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ##Next steps
 

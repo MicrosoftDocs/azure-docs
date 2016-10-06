@@ -1,22 +1,23 @@
 <properties
-   pageTitle="Transferring an Azure subscription | Microsoft Azure"
-   description="How to transfer an Azure subscription to another user, and some Frequently Asked Questions (FAQ) about the process"
-   services="billing"
+   pageTitle="Transferring ownership of an Azure subscription| Microsoft Azure"
+   description="How to transfer an Azure subscription to another user, and some frequently asked questions (FAQ) about the process"
+   services=""
    documentationCenter=""
-   authors="curtand"
-   manager="msmStevenPo"
-   editor=""/>
+   authors="genlin"
+   manager="stevenpo"
+   editor=""
+   tags="billing,top-support-issue"/>
 
 <tags
    ms.service="billing"
+   ms.workload="na"
+   ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="billing"
-   ms.date="08/19/2015"
-   ms.author="curtand;ruchic"/>
+   ms.date="08/17/2016"
+   ms.author="genli"/>
 
-# Transferring an Azure subscription
+# Transferring ownership of an Azure subscription
 
 Do you:
 
@@ -25,9 +26,17 @@ Do you:
 - Want to move your Azure subscription from one directory to another?
 - Have Azure and Office 365 in different tenants and want to consolidate?
 
-If your account is in the US, you can now do this easily in the Microsoft Azure Account Center- for Pay-As-You-Go subscriptions.  We’ve added the ability to transfer your subscription to another user. In other words, you can now change the account admin on any Pay-As-You-Go subscription that you own.
+You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You-Go, MSDN, Action Pack, or BizSpark subscriptions.  We’ve added the ability to transfer your subscription to another user. In other words, you can now change the account admin on any Pay-As-You-Go, MSDN, Action Pack, or BizSpark subscription that you own, no matter which country you operate in. We now support the transfer of Azure Marketplace Purchases for these subscription types as well.
 
-## How to transfer an Azure subscription
+> [AZURE.NOTE]  To change your subscription to a different offer, see [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md) for more information.
+
+> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+
+> You have to be the account administrator to perform an ownership transfer. For more information about how to find out who is the account administrator of the subscription, see the [Frequently asked questions](#faq).
+
+## How to transfer ownership of an Azure subscription
+
+> [AZURE.VIDEO transfer-an-azure-subscription]
 
 1.  Sign in at <https://account.windowsazure.com/Subscriptions>
 
@@ -54,7 +63,17 @@ If your account is in the US, you can now do this easily in the Microsoft Azure 
 
 7. Success! The subscription is now transferred.
 
+<a id="faq"></a>
 ## Frequently asked questions (FAQ)
+
+-   **How can I know who is the account administrator of the subscription?**
+
+    You can confirm who is the account administrator of the subscription as follows:
+
+    1. Sign in to the [Azure portal](https://portal.azure.com).
+    2. On the Hub menu, select **Subscription**.
+    3. Select the subscription you want to check, and then select **Settings**.
+    4. Select **Properties**. The account administrator of the subscription will be displayed in the **Account Admin** box.  
 
 -   **Does a subscription transfer result in any service downtime?**
 
@@ -63,6 +82,9 @@ If your account is in the US, you can now do this easily in the Microsoft Azure 
     new one under the recipient’s account, but associates the underlying
     Azure services with the new subscription. The subscription ID
     remains the same.
+
+-   **How do I use this mechanism to change the directory for subscription?**-   
+    An Azure subscription is created in the directory that the Account Admin belongs to. So, in order to change the directory, just transfer the subscription to a user account in the target directory. When that user completes the steps to accept transfer, the subscription will automatically move to the target directory.
 
 -   **If I take over billing ownership of a subscription from another
     organization, will they continue to have access to my resources?**
@@ -104,16 +126,21 @@ If your account is in the US, you can now do this easily in the Microsoft Azure 
 
 -   **Can the recipient use a different payment mechanism?**
 
-    Yes, and in fact you can use this mechanism to change the payment method on your subscription from invoice to credit card. Just transfer to another account you own, and enter your credit card while receiving the subscription. There are limitations here: now the subscription billing history is split across two accounts. But the advantage is that you can do this without having to [contact Support](http://go.microsoft.com/fwlink/?LinkID=619338).
+    Yes. There are limitations here: now the subscription billing history is split across two accounts. But the advantage is that you can do this without having to [contact Support](http://go.microsoft.com/fwlink/?LinkID=619338).
+
+-   **Will the payment method be impacted after I transferred an Azure subscription?**
+
+    In order to accept a subscription transfer, a credit card or similar payment method must be provided to pay for the subscription. For example, if Bob transfers a subscription to Jane and Jane accepts the transfer, Jane must also provide a payment method that she will use to pay for the subscription. After the transfer is complete, Bob will no longer be charged for the subscription he transferred to Jane.
 
 ## Next steps after accepting ownership of a subscription
 
-1. You are now the Account Administrator. Review and update the Service Administrator and Co-Administrators. Manage admins in the [Azure management portal](https://manage.windowsazure.com) by going to Settings. [Learn more](http://go.microsoft.com/fwlink/?LinkID=533293). 
-2. You can also use role-based access control (RBAC) for your subscription and services. Visit the [Azure preview portal](https://portal.azure.com) [Learn more about RBAC](http://go.microsoft.com/fwlink/?LinkID=544802)
-3. Update credentials associated with this subscription's services. These include: 
-    -   Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and Upload a Management Certificate for Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx)
+1. You are now the Account Administrator. Review and update the Service Administrator and Co-Administrators. Manage admins in the [Azure classic portal](https://manage.windowsazure.com) by going to Settings. [Learn more](http://go.microsoft.com/fwlink/?LinkID=533293).
+2. You can also use role-based access control (RBAC) for your subscription and services. Visit the [Azure portal](https://portal.azure.com) [Learn more about RBAC](http://go.microsoft.com/fwlink/?LinkID=544802)
+3. Update credentials associated with this subscription's services. These include:
+    - Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and upload a management certificate for Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx)
     -	Access keys for services like Storage. For more information, see [View, copy, and regenerate storage access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)
     -	Remote Access credentials for services like Azure Virtual Machines
 4. Update billing alerts for this subscription, at the [Azure Account Center](https://account.windowsazure.com/Subscriptions)  [Learn more](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	If you’re working with a partner, consider updating the partner ID on this subscription. You can do this in the [Azure Account Center](https://account.windowsazure.com/Subscriptions).
 
+> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="Upgrade the StorSimple Adapter for SharePoint | Microsoft Azure"
-   description="Describes how to upgrade SharePoint and then install a new version of the StorSimple Adapter for SharePoint."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/03/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 ### Upgrade SharePoint 2010 to SharePoint 2013 and then install the StorSomple Adapter for SharePoint
 

@@ -3,10 +3,10 @@
    description="Learn how to create a virtual network using a network configuration file in the Azure portal."
    services="virtual-network"
    documentationCenter=""
-   authors="telmosampaio"
-   manager="carolz"
+   authors="jimdial"
+   manager="carmonm"
    editor=""
-   tags="classic"/>
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-network"
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/21/2015"
-   ms.author="telmos"/>
+   ms.date="03/15/2016"
+   ms.author="jdial"/>
 
 # Create a virtual network (classic) by using PowerShell
 

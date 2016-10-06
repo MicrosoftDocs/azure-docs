@@ -31,7 +31,7 @@ The code in this topic was written using the pre-built TwilioJava-3.3.8-with-dep
 4. If you are using Eclipse to create this Java application, include the Twilio JAR in your application deployment file (WAR) using Eclipse's deployment assembly feature. If you are not using Eclipse to create this Java application, ensure the Twilio JAR is included within the same Azure role as your Java application, and added to the class path of your application.
 5. Ensure your cacerts keystore contains the Equifax Secure Certificate Authority certificate with MD5 fingerprint 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (the serial number is 35:DE:F4:CF and the SHA1 fingerprint is D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A). This is the certificate authority (CA) certificate for the [https://api.twilio.com][twilio_api_service] service, which is called when you use Twilio APIs. For information about adding this CA certificate to your JDK's cacert store, see [Adding a Certificate to the Java CA Certificate Store][add_ca_cert].
 
-Additionally, familiarity with the information at [Creating a Hello World Application Using the Azure Plugin for Eclipse with Java (by Microsoft Open Technologies)][azure_java_eclipse_hello_world], or with other techniques for hosting Java applications in Azure if you are not using Eclipse, is highly recommended.
+Additionally, familiarity with the information at [Creating a Hello World Application Using the Azure Toolkit for Eclipse][azure_java_eclipse_hello_world], or with other techniques for hosting Java applications in Azure if you are not using Eclipse, is highly recommended.
 
 ## Create a web form for making a call
 
@@ -164,7 +164,7 @@ In addition to making the call, makecall.jsp displays the Twilio endpoint, API v
 ![Azure Call Response Using Twilio and Java][twilio_java_response]
 
 ## Run the application
-Following are the high-level steps to run your application; details for these steps can be found at [Creating a Hello World Application Using the Azure Plugin for Eclipse with Java (by Microsoft Open Technologies)][azure_java_eclipse_hello_world].
+Following are the high-level steps to run your application; details for these steps can be found at [Creating a Hello World Application Using the Azure Toolkit for Eclipse][azure_java_eclipse_hello_world].
 
 1. Export your TwilioCloud WAR to the Azure **approot** folder. 
 2. Modify **startup.cmd** to unzip your TwilioCloud WAR.

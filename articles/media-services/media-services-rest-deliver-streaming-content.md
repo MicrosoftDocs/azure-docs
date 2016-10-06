@@ -1,8 +1,8 @@
 <properties 
-	pageTitle="How to Deliver Streaming Content from Media Services" 
+	pageTitle="Publish Azure Media Services content using REST" 
 	description="Learn how to create a locator that is used to build a streaming URL. The code uses REST API." 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"  
+	ms.date="08/30/2016"
 	ms.author="juliako"/>
 
 
-#How to: Deliver streaming content
+# Publish Azure Media Services content using REST
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-deliver-streaming-content.md)
 - [REST](media-services-rest-deliver-streaming-content.md)
-- [Portal](media-services-manage-content.md#publish)
+- [Portal](media-services-portal-publish.md)
 
 ##Overview
 
@@ -46,6 +46,7 @@ To create the OnDemand streaming locator and get URLs you need to do the followi
    		
 	If you plan to progressively download, get the names of MP4 files in the asset. 
    4. Build URLs to the manifest file or MP4 files. 
+   5. Note that you cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.
 
 
 ###Create an access policy
@@ -180,9 +181,12 @@ example:
 
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
 
- 
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+##See also
+
+[Configure asset delivery policy](media-services-rest-configure-asset-delivery-policy.md)

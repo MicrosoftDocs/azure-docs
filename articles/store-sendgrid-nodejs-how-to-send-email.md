@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="01/05/2016" 
 	ms.author="erikre"/>
 # How to Send Email Using SendGrid from Node.js
 

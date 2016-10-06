@@ -3,8 +3,8 @@
 	description="Azure ML Recommendation Sample Application" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="jaymathe" 
-	manager="paulettm" 
+	authors="LuisCabrer" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,15 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="09/08/2016" 
 	ms.author="luisca"/> 
 
 
-# Common operations in the Machine Learning Recommendations API
+# Recommendations API Sample Application Walkthrough
+
+>[AZURE.NOTE] You should start using the Recommendations API Cognitive Service instead of this
+> version. The Recommendations Cognitive Service will be replacing this service, and all the new 
+> features will be developed there. It has new capabilities like batching support, a better API Explorer,
+> a cleaner API surface, more consistent signup/billing experience, etc.
+> Learn more about [Migrating to the new Cognitive Service](http://aka.ms/recomigrate)
 
 ##Purpose
 
-This document shows the usage of the Azure Machine Learning Recommendations API via a [sample application](http://1drv.ms/1xeO2F3).
+This document shows the usage of the Azure Machine Learning Recommendations API via a [sample application](https://code.msdn.microsoft.com/Recommendations-144df403).
 
 This application is not intended to include full functionality, nor does it use all the APIs. It demonstrates some common operations to perform when you first want to play with the Machine Learning recommendation service. 
 
@@ -58,6 +64,7 @@ You will usually invoke Get Recommendation for a certain period of time. During 
 
 * Visual Studio 2013
 * Internet access 
+* Subscription to the Recommendations API (https://datamarket.azure.com/dataset/amla/recommendations).
 
 ##Azure Machine Learning sample app solution
 

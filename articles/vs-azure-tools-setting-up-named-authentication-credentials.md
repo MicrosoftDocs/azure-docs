@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Setting Up Named Authentication Credentials"
+   pageTitle="Setting Up Named Authentication Credentials | Microsoft Azure"
    description="Learn how to to provide credentials that Visual Studio can use to authenticate requests to Azure to publish an application to Azure from Visual Studio or to monitor an existing cloud service.. "
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/02/2015"
-   ms.author="kempb" />
+   ms.date="08/15/2016"
+   ms.author="tarcher" />
 
 # Setting Up Named Authentication Credentials
 
@@ -33,7 +33,7 @@ Visual Studio uses your subscription ID together with the certificate data as cr
 
 You can edit the subscription information from the **New/Edit Subscription** dialog box, as explained later in this topic.
 
-If you want to create a certificate yourself, you can refer to the instructions in [Create and Upload a Management Certificate for Azure](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx) and then manually upload the certificate to the management portal.
+If you want to create a certificate yourself, you can refer to the instructions in [Create and Upload a Management Certificate for Azure](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx) and then manually upload the certificate to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 >[AZURE.NOTE] These credentials that Visual Studio requires to manage your cloud services aren’t the same credentials that are required to authenticate a request against the Azure storage services.
 
@@ -53,15 +53,15 @@ The following procedure assumes that the **New Subscription** dialog box is open
 
 1. Choose the **Copy the full path** button.The path for the certificate (.cer file) is copied to the Clipboard.
 
-    >[AZURE.IMPORTANT] To publish your Azure application from Visual Studio, you must upload this certificate to the Management Portal.
+    >[AZURE.IMPORTANT] To publish your Azure application from Visual Studio, you must upload this certificate to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-1. To upload the certificate to the Azure Management Portal:
+1. To upload the certificate to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885):
 
     1. Choose the Azure Portal link.
 
-         The [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=213885) opens.
+         The [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885) opens.
 
-    1. Sign in to the Azure Management Portal by using your Microsoft account, and then choose the **Cloud Services** button.
+    1. Sign in to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), and then choose the **Cloud Services** button.
 
     1. Choose the cloud service that interests you.
 

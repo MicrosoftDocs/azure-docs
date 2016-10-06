@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management | Microsoft Azure"
-	description="Learn about using the Azure CLI for Mac, Linux, and Windows to manage Azure resources using the Azure CLI arm mode."
-	services="virtual-machines"
+	pageTitle="Azure CLI commands in Resource Manager mode | Microsoft Azure"
+	description="Azure command line interface (CLI) commands to manage resources in the Resource Manager deployment model"
+	services="virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor="tysonn"/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="multiple"
@@ -13,42 +14,32 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2015"
+	ms.date="08/05/2016"
 	ms.author="danlep"/>
 
-# Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management
+# Azure CLI commands in Resource Manager mode
 
-This topic describes how to use the Azure Command-Line Interface (Azure CLI) in the **arm** mode to create, manage, and delete services on the command line of Mac, Linux, and Windows computers. You can perform the same tasks using the various libraries of the Azure SDKs, with PowerShell, and using the Azure Portal.
+This article provides syntax and options for Azure command-line interface (CLI) commands you'd commonly use to create and manage Azure resources in the Azure Resource Manager deployment model. You access these commands by running the CLI in Resource Manager (arm) mode. This is not a complete reference, and your CLI version may show slightly different commands or parameters. For a general overview of Azure resources and resource groups, see [Azure Resource Manager Overview](../resource-group-overview.md).  
 
-Azure resource management enables you to create a group of resources -- virtual machines, websites, databases, and so on -- as a single deployable unit. You can then deploy, update, or delete all of the resources for your application in a single, coordinated operation. You describe your group resources in a JSON template for deployment and then can use that template for different environments such as testing, staging and production.
+To get started, first [install the Azure CLI](../xplat-cli-install.md) and [connect to your Azure subscription](../xplat-cli-connect.md) by using a work or school account or a Microsoft account identity.
 
-## Imperative and declarative approaches
+For current command syntax and options at the command line in Resource Manager mode, type `azure help` or, to display help for a specific command, `azure help [command]`. Also find CLI examples in the documentation for creating and managing specific Azure services.
 
-As with the [service management mode (**asm**)](../virtual-machines-command-line-tools.md), the **arm** mode of the Azure CLI gives you commands that create resources imperatively on the command line. For example, if you type `azure group create <groupname> <location>` you are asking Azure to create a resource group, and with `azure group deployment create <resourcegroup> <deploymentname>` you are instructing Azure to create a deployment of any number of items and place them in a group. Because each type of resource has imperative commands, you can chain them together to create fairly complex deployments.
+Optional parameters are shown in square brackets (for example, `[parameter]`). All other parameters are required.
 
-However, using resource group _templates_ that describe a resource group is a declarative approach that is far more powerful, allowing you to automate complex deployments of (almost) any number of resources for (almost) any purpose. When using templates, the only imperative command is to deploy one. For a general overview of templates, resources, and resource groups, see [Azure Resource Group Overview](resource-groups-overview).  
+In addition to command-specific optional parameters documented here, there are three optional parameters that can be used to display detailed output such as request options and status codes. The `-v` parameter provides verbose output, and the `-vv` parameter provides even more detailed verbose output. The `--json` option outputs the result in raw json format.
 
-> [AZURE.NOTE] In addition to command-specific options documented below and on the command line, there are three options that can be used to view detailed output such as request options and status codes. The -v parameter provides verbose output, and the -vv parameter provides even more detailed verbose output. The --json option will output the result in raw json format, and is very useful for scripting scenarios.
->
-> Usage with the --json switch is very common, and is an important part of both obtaining and understanding results from Azure CLI operations that return resource information, status, and logs and also using templates. You may want to install JSON parser tools such as **jq** or **jsawk** or use your favorite language library.
+## Setting the Resource Manager mode
 
-##Usage requirements
+Use the following command to enable Azure CLI Resource Manager mode commands.
 
-The set-up requirements to use the **arm** mode with the Azure CLI are:
+	azure config mode arm
 
-- an Azure account ([get a free trial here](http://azure.microsoft.com/pricing/free-trial/))
-- [installing the Azure CLI](../xplat-cli-install.md)
-- [configuring the Azure CLI](../xplat-cli-connect.md) to use an Azure Active Directory identity or a Service Principal
+>[AZURE.NOTE] The CLI's Azure Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
 
-Once you have an account and have installed the Azure CLI, you must
 
-- switch to the **arm** mode by typing `azure config mode arm`.
-- Log in to your Azure account by typing `azure login` and using your work or school identity at the prompts
-
-Now type `azure` to see a list of the top level commands described in the sections below.
-
-## azure account: Manage your account information and publish settings
-Your Azure subscription information is used by the tool to connect to your account. This information can be obtained from the Azure portal in a publish settings file as described here. You can import the publish settings file as a persistent local configuration setting that the tool will use for subsequent operations. You only need to import your publish settings once.
+## azure account: Manage your account information
+Your Azure subscription information is used by the tool to connect to your account.
 
 **List the imported subscriptions**
 
@@ -155,7 +146,7 @@ Your Azure subscription information is used by the tool to connect to your accou
 
 ## azure group: Commands to manage your resource groups
 
-**Creates a new resource group**
+**Creates a resource group**
 
 	group create [options] <name> <location>
 
@@ -193,6 +184,125 @@ Your Azure subscription information is used by the tool to connect to your accou
 	group template download [options] [name] [file]
 	group template validate [options] <resource-group>
 
+## azure hdinsight: Commands to manage your HDInsight clusters
+
+**Commands to create or add to a cluster configuration file**
+
+	hdinsight config create [options] <configFilePath> <overwrite>
+	hdinsight config add-config-values [options] <configFilePath>
+	hdinsight config add-script-action [options] <configFilePath>
+
+Example: Create a configuration file that contains a script action to run when creating a cluster.
+
+	hdinsight config create "C:\myFiles\configFile.config"
+	hdinsight config add-script-action --configFilePath "C:\myFiles\configFile.config" --nodeType HeadNode --uri <scriptActionURI> --name myScriptAction --parameters "-param value"
+
+**Command to create a cluster in a resource group**
+
+	hdinsight cluster create [options] <clusterName>
+
+Example: Create a Storm on Linux cluster
+
+	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
+
+	info:    Executing command hdinsight cluster create
+	+ Submitting the request to create cluster...
+	info:    hdinsight cluster create command OK
+
+Example: Create a cluster with a script action
+
+	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
+
+	info:    Executing command hdinsight cluster create
+	+ Submitting the request to create cluster...
+	info:    hdinsight cluster create command OK
+
+Parameter options:
+
+	-h, --help                                                 output usage information
+	-v, --verbose                                              use verbose output
+	-vv                                                        more verbose with debug output
+	--json                                                     use json output
+	-g --resource-group <resource-group>                       The name of the resource group
+	-c, --clusterName <clusterName>                            HDInsight cluster name
+	-l, --location <location>                                  Data center location for the cluster
+	-y, --osType <osType>                                      HDInsight cluster operating system
+	'Windows' or 'Linux'
+	--version <version>                                        HDInsight cluster version
+	--clusterType <clusterType>                                HDInsight cluster type.
+	Hadoop | HBase | Spark | Storm
+	--defaultStorageAccountName <storageAccountName>           Storage account url to use for default HDInsight storage
+	--defaultStorageAccountKey <storageAccountKey>             Key to the storage account to use for default HDInsight storage
+	--defaultStorageContainer <storageContainer>               Container in the storage account to use for HDInsight default storage
+	--headNodeSize <headNodeSize>                              (Optional) Head node size for the cluster
+	--workerNodeCount <workerNodeCount>                        Number of worker nodes to use for the cluster
+	--workerNodeSize <workerNodeSize>                          (Optional) Worker node size for the cluster)
+	--zookeeperNodeSize <zookeeperNodeSize>                    (Optional) Zookeeper node size for the cluster
+	--userName <userName>                                      Cluster username
+	--password <password>                                      Cluster password
+	--sshUserName <sshUserName>                                SSH username (only for Linux clusters)
+	--sshPassword <sshPassword>                                SSH password (only for Linux clusters)
+	--sshPublicKey <sshPublicKey>                              SSH public key (only for Linux clusters)
+	--rdpUserName <rdpUserName>                                RDP username (only for Windows clusters)
+	--rdpPassword <rdpPassword>                                RDP password (only for Windows clusters)
+	--rdpAccessExpiry <rdpAccessExpiry>                        RDP access expiry.
+	For example 12/12/2015 (only for Windows clusters)
+	--virtualNetworkId <virtualNetworkId>                      (Optional) Virtual network ID for the cluster.
+	Value is a GUID for Windows cluster and ARM resource ID for Linux cluster)
+	--subnetName <subnetName>                                  (Optional) Subnet for the cluster
+	--additionalStorageAccounts <additionalStorageAccounts>    (Optional) Additional storage accounts.
+	Can be multiple.
+	In the format of 'accountName#accountKey'.
+	For example, --additionalStorageAccounts "acc1#key1;acc2#key2"
+	--hiveMetastoreServerName <hiveMetastoreServerName>        (Optional) SQL Server name for the external metastore for Hive
+	--hiveMetastoreDatabaseName <hiveMetastoreDatabaseName>    (Optional) Database name for the external metastore for Hive
+	--hiveMetastoreUserName <hiveMetastoreUserName>            (Optional) Database username for the external metastore for Hive
+	--hiveMetastorePassword <hiveMetastorePassword>            (Optional) Database password for the external metastore for Hive
+	--oozieMetastoreServerName <oozieMetastoreServerName>      (Optional) SQL Server name for the external metastore for Oozie
+	--oozieMetastoreDatabaseName <oozieMetastoreDatabaseName>  (Optional) Database name for the external metastore for Oozie
+	--oozieMetastoreUserName <oozieMetastoreUserName>          (Optional) Database username for the external metastore for Oozie
+	--oozieMetastorePassword <oozieMetastorePassword>          (Optional) Database password for the external metastore for Oozie
+	--configurationPath <configurationPath>                    (Optional) HDInsight cluster configuration file path
+	-s, --subscription <id>                                    The subscription id
+	--tags <tags>                                              Tags to set to the cluster.
+	Can be multiple.
+	In the format of 'name=value'.
+	Name is required and value is optional.
+	For example, --tags tag1=value1;tag2
+
+
+**Command to delete a cluster**
+
+	hdinsight cluster delete [options] <clusterName>
+
+**Command to show cluster details**
+
+	hdinsight cluster show [options] <clusterName>
+
+**Command to list all clusters (in a specific resource group, if provided)**
+
+	hdinsight cluster list [options]
+
+**Command to resize a cluster**
+
+	hdinsight cluster resize [options] <clusterName> <targetInstanceCount>
+
+**Command to enable HTTP access for a cluster**
+
+	hdinsight cluster enable-http-access [options] <clusterName> <userName> <password>
+
+**Command to disable HTTP access for a cluster**
+
+	hdinsight cluster disable-http-access [options] <clusterName>
+
+**Command to enable RDP access for a cluster**
+
+	hdinsight cluster enable-rdp-access [options] <clusterName> <rdpUserName> <rdpPassword> <rdpExpiryDate>
+
+**Command to disable HTTP access for a cluster**
+
+	hdinsight cluster disable-rdp-access [options] <clusterName>
+
 ## azure insights: Commands related to monitoring Insights (events, alert rules, autoscale settings, metrics)
 
 **Retrieve operation logs for a subscription, a correlationId, a resource group, resource, or resource provider**
@@ -210,7 +320,7 @@ Your Azure subscription information is used by the tool to connect to your accou
 **Commands to manage virtual networks**
 
 	network vnet create [options] <resource-group> <name> <location>
-Allows to create a new virtual network. In the following example we create a virtual network named newvnet for resource group myresourcegroup in the West US region.
+Creates a virtual network. In the following example we create a virtual network named newvnet for resource group myresourcegroup in the West US region.
 
 
 	azure network vnet create myresourcegroup newvnet "west us"
@@ -302,7 +412,7 @@ Parameter options:
 
 	network vnet list [options] <resource-group>
 
-The command allows to list all virtual networks in a resource group.
+The command lists all virtual networks in a resource group.
 
 
 	C:\>azure network vnet list myresourcegroup
@@ -374,7 +484,8 @@ Parameter options:
 **Commands to manage virtual network subnets**
 
 	network vnet subnet create [options] <resource-group> <vnet-name> <name>
-command allows to add another subnet to an existing virtual network.
+
+Adds another subnet to an existing virtual network.
 
 	azure network vnet subnet create -g myresourcegroup --vnet-name newvnet -n subnet --address-prefix 10.0.1.0/24
 
@@ -623,7 +734,7 @@ Parameter options:
 
 	network lb probe set [options] <resource-group> <lb-name> <name>
 
-Updates the an existing load balancer probe with new values for it.
+Updates an existing load balancer probe with new values for it.
 
 	azure network lb probe set -g myresourcegroup -l mylb -n mylbprobe -p mylbprobe1 -p TCP -o 443 -i 300
 
@@ -714,7 +825,7 @@ Creates a frontend IP configuration to an existing load balancer set.
 
 	network lb frontend-ip set [options] <resource-group> <lb-name> <name>
 
-Allows to update an existing configuration of a frontend IP.The command below adds a public IP called mypubip5 to an existing load balancer frontend IP named myfrontendip.
+Updates an existing configuration of a frontend IP.The command below adds a public IP called mypubip5 to an existing load balancer frontend IP named myfrontendip.
 
 	azure network lb frontend-ip set -g myresourcegroup --lb-name mylb -n myfrontendip -i mypubip5
 
@@ -840,11 +951,11 @@ Parameter options:
 
 	network lb address-pool add [options] <resource-group> <lb-name> <name>
 
-A backend address pool range is how a load balancer will know what resources to route incoming network traffic from its endpoint using Azure Resource Manager. After you create and name the backend address pool range (See command "azure network lb address-pool create"), you need to add the endpoints which are now defined by a resource called "network interfaces".
+A backend address pool range is how a load balancer knows what resources to route incoming network traffic from its endpoint using Azure Resource Manager. After you create and name the backend address pool range (See command "azure network lb address-pool create"), you need to add the endpoints, which are now defined by a resource called "network interfaces".
 
-To configure the backend address range, you will need at least one "network interface"(See "azure network lb nic" command line for more details).
+To configure the backend address range, you need at least one "network interface" (See "azure network lb nic" command line for more details).
 
-In the following example it was used a previously created "nic1" network interface to create the backend address pool range.
+In the following example, a previously created "nic1" network interface was used to create the backend address pool range.
 
 	azure network lb address-pool add -g myresourcegroup -l mylb -n mybackendpool -a nic1
 
@@ -969,7 +1080,7 @@ Parameter options:
 	network lb rule create [options] <resource-group> <lb-name> <name>
 Create load balancer rules.
 
-You can create a load balancer rule configuring the frontend endpoint for the load balancer and the backend address pool range which will receive the incoming network traffic. Settings also include the ports for frontend IP endpoint and ports for the backend address pool range.
+You can create a load balancer rule configuring the frontend endpoint for the load balancer and the backend address pool range to receive the incoming network traffic. Settings also include the ports for frontend IP endpoint and ports for the backend address pool range.
 
 The following example shows how to create a load balancer rule,  the frontend endpoint listening to port 80 TCP and load balancing network traffic sending to port 8080 for the backend address pool range.
 
@@ -999,7 +1110,7 @@ The following example shows how to create a load balancer rule,  the frontend en
 
 	network lb rule set [options] <resource-group> <lb-name> <name>
 
-Updates an existing load balancer rule set in a specific resource group. In the following example we changed the rule name from mylbrule to mynewlbrule.
+Updates an existing load balancer rule set in a specific resource group. In the following example, we changed the rule name from mylbrule to mynewlbrule.
 
 	azure network lb rule set -g myresourcegroup -l mylb -n mylbrule -r mynewlbrule -p tcp -f 80 -b 8080 -i 10 -t myfrontendip -o mybackendpool
 
@@ -1090,9 +1201,9 @@ Parameter options:
 **Commands to manage load balancer inbound NAT rules**
 
 	network lb inbound-nat-rule create [options] <resource-group> <lb-name> <name>
-Creates a inbound NAT rule for load balancer.
+Creates an inbound NAT rule for load balancer.
 
-In the example below we created a NAT rule from frontend IP (which was previously defined. See "azure network frontend-ip" command for more details) with a inbound listening port and outbound port which the load balancer will send the network traffic.
+In the following example  we created a NAT rule from frontend IP (which was previously defined using the "azure network frontend-ip" command) with an inbound listening port and outbound port that the load balancer uses to send the network traffic.
 
 
 	azure network lb inbound-nat-rule create -g myresourcegroup -l mylb -n myinboundnat -p tcp -f 80 -b 8080 -i myfrontendip
@@ -1135,7 +1246,7 @@ Parameter options:
 <BR>
 
 	network lb inbound-nat-rule set [options] <resource-group> <lb-name> <name>
-Updates an existing inbound nat rule.In the following example we changed the inbound listening port from 80 to 81.
+Updates an existing inbound nat rule. In the following example, we changed the inbound listening port from 80 to 81.
 
 	azure network lb inbound-nat-rule set -g group-1 -l mylb -n myinboundnat -p tcp -f 81 -b 8080 -i myfrontendip
 
@@ -1247,6 +1358,7 @@ Creates a public ip resource. You will create the public ip resource and associa
 
 
 Parameter options:
+
 	-h, --help                                   output usage information
 	-v, --verbose                                use verbose output
 	--json                                       use json output
@@ -1328,6 +1440,7 @@ Parameter options:
 	-s, --subscription <subscription>      the subscription identifier
 <BR>
 	network public-ip show [options] <resource-group> <name>
+
 Displays public ip properties for a public ip resource within a resource group.
 
 	azure network public-ip show -g myresourcegroup -n mytestpublicip
@@ -1478,7 +1591,7 @@ Parameter options:
 
 ## azure provider: Commands to manage resource provider registrations
 
-**List currently registered providers in ARM**
+**List currently registered providers in Resource Manager**
 
 	provider list [options]
 
@@ -1682,17 +1795,19 @@ Parameter options:
 
 **Create a VM with default resources**
 
-	vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>
+    vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password
+    
+>[AZURE.TIP]Starting with CLI version 0.10, you can provide a short alias such as "UbuntuLTS" or "Win2012R2Datacenter" as the `image-urn` for some popular Marketplace images. Run `azure help vm quick-create` for options. Additionally, starting with version 0.10, `azure vm quick-create` uses premium storage by default if it's available in the selected region.
 
-**Lists the virtual machines within a resource group**
+**List the virtual machines within an account**
 
-	vm list [options] <resource-group>
+	vm list [options]
 
-**Gets one virtual machine within a resource group**
+**Get one virtual machine within a resource group**
 
 	vm show [options] <resource-group> <name>
 
-**Deletes one virtual machine within a resource group**
+**Delete one virtual machine within a resource group**
 
 	vm delete [options] <resource-group> <name>
 
@@ -1700,11 +1815,11 @@ Parameter options:
 
 	vm stop [options] <resource-group> <name>
 
-**Restarts one virtual machine within a resource group**
+**Restart one virtual machine within a resource group**
 
 	vm restart [options] <resource-group> <name>
 
-**Starts one virtual machine within a resource group**
+**Start one virtual machine within a resource group**
 
 	vm start [options] <resource-group> <name>
 
@@ -1712,7 +1827,7 @@ Parameter options:
 
 	vm deallocate [options] <resource-group> <name>
 
-**Lists available virtual machine sizes**
+**List available virtual machine sizes**
 
 	vm sizes [options]
 
@@ -1720,19 +1835,19 @@ Parameter options:
 
 	vm capture [options] <resource-group> <name> <vhd-name-prefix>
 
-**Sets the state of the VM to Generalized**
+**Set the state of the VM to Generalized**
 
 	vm generalize [options] <resource-group> <name>
 
-**Gets instance view of the VM**
+**Get instance view of the VM**
 
 	vm get-instance-view [options] <resource-group> <name>
 
-**Enables you to reset Remote Desktop Access or SSH settings on a Virtual Machine and to reset the password for the account that has administrator or sudo authority**
+**Enable you to reset Remote Desktop Access or SSH settings on a Virtual Machine and to reset the password for the account that has administrator or sudo authority**
 
 	vm reset-access [options] <resource-group> <name>
 
-**Updates VM with new data**
+**Update VM with new data**
 
 	vm set [options] <resource-group> <name>
 
@@ -1757,4 +1872,3 @@ Parameter options:
 	vm image list-offers [options] <location> <publisher>
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
- 

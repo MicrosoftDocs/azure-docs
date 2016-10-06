@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Azure Media Services Concepts" 
+	pageTitle="Azure Media Services concepts | Microsoft Azure" 
 	description="This topic gives an overview of Azure Media Services Concepts" 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="09/19/2016"
 	ms.author="juliako"/>
 
-#Azure Media Services Concepts 
+#Azure Media Services concepts 
 
 This topic gives an overview of the most important Media Services concepts.
 
@@ -85,28 +85,35 @@ A [job](https://msdn.microsoft.com/library/azure/hh974289.aspx) is typically use
 
 A job contains metadata about the processing to be performed. Each job contains one or more [task](https://msdn.microsoft.com/library/azure/hh974286.aspx)s that specify an atomic processing task, its input Assets, output Assets, a media processor and its associated settings. Tasks within a job can be chained together, where the output asset of one task is given as the input asset to the next task. In this way one job can contain all of the processing necessary for a media presentation.
 
-##<a id="encoding"></a>Encoding \ packaging
+##<a id="encoding"></a>Encoding
 
-###Encoding
+Azure Media Services provides multiple options for the encoding of media in the cloud.
 
-In order to deliver digital video over the internet you must compress the media. Digital video files are quite large and may be too big to deliver over the internet or for your customers’ devices to display properly. People watch videos on a variety of devices from TVs with set-top boxes, desktop PCs to tablets and smartphones. Each of these devices have different bandwidth and compression requirements. Encoding is the process of compressing video and audio using Compressor/Decompressors or codecs. 
+When starting out with Media Services, it is important to understand the difference between codecs and file formats.
+Codecs are the software that implements the compression/decompression algorithms whereas file formats are containers that hold the compressed video.
 
-Transcoding is the process of taking a video that has been encoded and re-encode it into a different encoding format. Since most cameras encode video to some degree, most encoding work done on Azure Media Services is technically transcoding.
+Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) without you having to re-package into these streaming formats.
 
-###Codecs and File formats 
+To take advantage of [dynamic packaging](media-services-dynamic-packaging-overview.md), you need to do the following:
 
-Codecs have two components: one to compress digital media files for transmission and the other to decompress digital media files for playback. There are audio codecs that compress and decompress audio and video codecs that compress and decompress video. Codecs can use lossless or lossy compression. Lossless codecs preserve all of the information when compression occurs. When the file is decompressed, the result is a file that is identical to the input media, making lossless codecs well suited to archiving and storage. Lossy codecs lose some of the information when encoding and produce smaller files (than the original) at the cost of video quality and are well suited to streaming over the internet. The two main codecs used by the Azure Media Encoder to encode are H.264 and VC-1. Other codecs may be available in our partner ecosystem of encoders. 
+- Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial).
+- Get at least one On-Demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale On-Demand Streaming Reserved Units](media-services-portal-manage-streaming-endpoints.md).
 
-###Media Services Encoders
+Media Services supports the following on demand encoders that are described in this article:
+
+- [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
+- [Media Encoder Premium Workflow](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 For information about supported encoders, see [Encoders](media-services-encode-asset.md).
 
 
 ##Live Streaming
 
-###On-premises (3rd Party) Live transcoder
+In Azure Media Services, a Channel represents a pipeline for processing live streaming content. A Channel receives live input streams in one of two ways:
 
-An on-premises live encoder (or transcoder) converts the audio and/or video that is streamed from your camera into a multi-bitrate RTMP or Smooth Streaming format. The transcoder then pushes the adaptive bitrate RTMP or Smooth streams into a Media Services channel. Media Services then broadcasts the event live.
+- An on-premises live encoder sends multi-bitrate RTMP or Smooth Streaming (Fragmented MP4) to the Channel. You can use the following live encoders that output multi-bitrate Smooth Streaming: Elemental, Envivio, Cisco. The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders. The ingested streams pass through Channels without any further processing. When requested, Media Services delivers the stream to customers.
+
+- A single bitrate stream (in one of the following formats: RTP (MPEG-TS)), RTMP, or Smooth Streaming (Fragmented MP4)) is sent to the Channel that is enabled to perform live encoding with Media Services. The Channel then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.
 
 ###Channel
 
@@ -116,14 +123,11 @@ You can get the ingest URL and the preview URL when you create the channel. To g
 
 Each Media Services account can contain multiple Channels, multiple Programs, and multiple StreamingEndpoints. Depending on the bandwidth and security needs, StreamingEndpoint services can be dedicated to one or more channels. Any StreamingEndpoint can pull from any Channel.
 
-By default you can add 5 channels to your Media Services account. To request a higher limit, see [Quotas and limitations](media-services-quotas-and-limitations.md).  
 
-You are only billed when your channel is in running state.
-
-###Program 
+###Program
 
 A [Program](https://msdn.microsoft.com/library/azure/dn783463.aspx) enables you to control the publishing and storage of segments in a live stream. Channels manage Programs. The Channel and Program relationship is very similar to traditional media where a channel has a constant stream of content and a program is scoped to some timed event on that channel.
-You can specify the number of hours you want to retain the recorded content for the program by setting the **ArchiveWindowLength** property. This value can be set from a minimum of 5 minutes to a maximum of 25 hours. 
+You can specify the number of hours you want to retain the recorded content for the program by setting the **ArchiveWindowLength** property. This value can be set from a minimum of 5 minutes to a maximum of 25 hours.
 
 ArchiveWindowLength also dictates the maximum amount of time clients can seek back in time from the current live position. Programs can run over the specified amount of time, but content that falls behind the window length is continuously discarded. This value of this property also determines how long the client manifests can grow.
 
@@ -131,31 +135,27 @@ Each program is associated with an Asset. To publish the program you must create
 
 A channel supports up to three concurrently running programs so you can create multiple archives of the same incoming stream. This allows you to publish and archive different parts of an event as needed. For example, your business requirement is to archive 6 hours of a program, but to broadcast only last 10 minutes. To accomplish this, you need to create two concurrently running programs. One program is set to archive 6 hours of the event but the program is not published. The other program is set to archive for 10 minutes and this program is published.
 
+
+For more information, see:
+
+- [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md)
+- [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-live-streaming-with-onprem-encoders.md)
+- [Quotas and limitations](media-services-quotas-and-limitations.md).
+
 ##Protecting content
 
 ###Dynamic encryption
 
-Microsoft Azure Media Services enables you to deliver your content encrypted  dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and PlayReady DRM. 
+Azure Media Services enables you to secure your media from the time it leaves your computer through storage, processing, and delivery. Media Services allows you to deliver your content encrypted dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and common encryption (CENC) using PlayReady and/or Widevine DRM. Media Services also provides a service for delivering AES keys and PlayReady licenses to authorized clients.
 
 Currently, you can encrypt the following streaming formats: HLS, MPEG DASH, and Smooth Streaming. You cannot encrypt HDS streaming format, or progressive downloads.
 
 If you want for Media Services to encrypt an asset, you need to associate an encryption key (CommonEncryption or EnvelopeEncryption) with your asset and also configure authorization policies for the key.
 
-You also need to configure the asset's delivery policy. If you want to stream a storage encrypted asset, make sure to specify how you want to deliver it by configuring asset delivery policy.  
+If you want to stream a storage encrypted asset, you must configure the asset's delivery policy in order to specify how you want to deliver your asset.
 
-When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using AES or PlayReady encryption. To decrypt the stream, the player will request the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
+When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using an envelope encryption (with AES) or common encryption (with PlayReady  or Widevine). To decrypt the stream, the player will request the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
 
-###PlayReady DRM licenses and AES clear keys delivery services
-
-Media Services provides a service for delivering PlayReady licenses and AES clear keys to authorized clients. You can use the Azure Management Portal, REST API, or Media Services SDK for .NET to configure authorization and authentication policies for your licenses and keys.
-
-Note if you are using the Portal, you can configure one AES policy (which will be applied to all the AES encrypted content) and one PlayReady policy (which will be applied to all the PlayReady encrypted content). Use Media Services SDK for .NET if you want more control over the configurations.
-
-###PlayReady license template
-
-Media Services provides a service for delivering PlayReady licenses. When the end user player (for example, Silverlight) tries to play your PlayReady protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, it issues the license which is sent to the client and can be used to decrypt and play the specified content.
-
-Licenses contain the rights and restrictions that you want for the PlayReady DRM runtime to enforce when a user is trying to playback protected content. Media Services provides APIs that let you configure your PlayReady licenses. For more information, see [Media Services PlayReady License Template Overview](https://msdn.microsoft.com/library/azure/dn783459.aspx)
 
 ###Token restriction
 
@@ -163,20 +163,26 @@ The content key authorization policy could have one or more authorization restri
 
 When configuring the token restricted policy, you must specify the primary verification key, issuer and audience parameters. The primary verification key contains the key that the token was signed with, issuer is the secure token service that issues the token. The audience (sometimes called scope) describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
 
+For more information, see the following articles:
+
+[Protect content overview](media-services-content-protection-overview.md)
+[Protect with AES-128](media-services-protect-with-aes128.md)
+[Protect with DRM](media-services-protect-with-drm.md)
+
 ##Delivering
 
 ###<a id="dynamic_packaging"></a>Dynamic packaging
 
-When working with Media Services it is recommended to encode your mezzanine files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](media-services-dynamic-packaging-overview.md). 
+When working with Media Services it is recommended to encode your mezzanine files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](media-services-dynamic-packaging-overview.md).
 
 
 ###Streaming endpoint
 
-A StreamingEndpoint represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution (Azure Media Services now provides the Azure CDN integration.) The outbound stream from a StreamingEndpoint service can be a live stream, or a video on demand Asset in your Media Services account. In addition, you can control the capacity of the StreamingEndpoint service to handle growing bandwidth needs by adjusting scale units (also known as streaming units). It is recommended to allocate one or more scale units for applications in production environment. Scale units provide you with both dedicated egress capacity that can be purchased in increments of 200 Mbps and additional functionality which currently includes use dynamic packaging. 
+A StreamingEndpoint represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution (Azure Media Services now provides the Azure CDN integration.) The outbound stream from a StreamingEndpoint service can be a live stream, or a video on demand Asset in your Media Services account. In addition, you can control the capacity of the StreamingEndpoint service to handle growing bandwidth needs by adjusting scale units (also known as streaming units). It is recommended to allocate one or more scale units for applications in production environment. Scale units provide you with both dedicated egress capacity that can be purchased in increments of 200 Mbps and additional functionality which currently includes use dynamic packaging.
 
-It is recommended to use dynamic packaging and\or dynamic encryption. To use these features, you must have at least one streaming unit for the endpoint from which you plan to stream. For more information, see  [Scaling streaming units](media-services-manage-origins.md#scale_streaming_endpoints).
+It is recommended to use dynamic packaging and\or dynamic encryption. To use these features, you must have at least one streaming unit for the endpoint from which you plan to stream. For more information, see  [Scaling streaming units](media-services-portal-manage-streaming-endpoints.md).
 
-By default you can have up to 2 streaming endpoints in your Media Services account. To request a higher limit, see [Quotas and limitations](media-services-quotas-and-limitations.md). 
+By default you can have up to 2 streaming endpoints in your Media Services account. To request a higher limit, see [Quotas and limitations](media-services-quotas-and-limitations.md).
 
 You are only billed when your StreamingEndpoint is in running state.
 
@@ -184,68 +190,68 @@ You are only billed when your StreamingEndpoint is in running state.
 
 One of the steps in the Media Services content delivery workflow is configuring [delivery policies for assets ](https://msdn.microsoft.com/library/azure/dn799055.aspx)that you want to be streamed. The asset delivery policy tells Media Services how you want for your asset to be delivered: into which streaming protocol should your asset be dynamically packaged (for example, MPEG DASH, HLS, Smooth Streaming, or all), whether or not you want to dynamically encrypt your asset and how (envelope or common encryption).
 
-If you have a storage encrypted asset, before your asset can be streamed, the streaming server removes the storage encryption and streams your content using the specified delivery policy. For example, to deliver your asset encrypted with Advanced Encryption Standard (AES) encryption key, set the policy type to DynamicEnvelopeEncryption. To remove storage encryption and stream the asset in the clear, set the policy type to NoDynamicEncryption. 
+If you have a storage encrypted asset, before your asset can be streamed, the streaming server removes the storage encryption and streams your content using the specified delivery policy. For example, to deliver your asset encrypted with Advanced Encryption Standard (AES) encryption key, set the policy type to DynamicEnvelopeEncryption. To remove storage encryption and stream the asset in the clear, set the policy type to NoDynamicEncryption.
 
-###Progressive download 
+###Progressive download
 
-Progressive download allows you to start playing media before the entire file has been downloaded. You can only progressively download an MP4 file. 
+Progressive download allows you to start playing media before the entire file has been downloaded. You can only progressively download an MP4 file.
 
-Note that you must decrypt encrypted assets if you wish for them to be available for progressive download. 
+Note that you must decrypt encrypted assets if you wish for them to be available for progressive download.
 
 To provide users with progressive download URLs, you first must create an OnDemandOrigin locator. Creating the locator, gives you the base Path to the asset. You then need to append the name of MP4 file. For example:
 
-	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
+http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
 ###Streaming URLs
 
-Streaming your content to clients. To provide users with streaming URLs, you first must create an OnDemandOrigin locator. Creating the locator, gives you the base Path to the asset that contains the content you want to stream. However, to be able to stream this content you need to modify this path further. To construct a full URL to the streaming manifest file, you must concatenate the locator’s Path value and the manifest (filename.ism) file name. Then, append /Manifest and an appropriate format (if needed) to the locator path. 
+Streaming your content to clients. To provide users with streaming URLs, you first must create an OnDemandOrigin locator. Creating the locator, gives you the base Path to the asset that contains the content you want to stream. However, to be able to stream this content you need to modify this path further. To construct a full URL to the streaming manifest file, you must concatenate the locator’s Path value and the manifest (filename.ism) file name. Then, append /Manifest and an appropriate format (if needed) to the locator path.
 
 You can also stream your content over an SSL connection. To do this, make sure your streaming URLs start with HTTPS.
 
-Note that you can only stream over SSL if the streaming endpoint from which you deliver your content was created after September 10th, 2014. If your streaming URLs are based on the streaming endpoints created after September 10th, the URL contains “streaming.mediaservices.windows.net” (the new format). Streaming URLs that contain “origin.mediaservices.windows.net” (the old format) do not support SSL. If your URL is in the old format and you want to be able to stream over SSL, create a new streaming endpoint. Use URLs created based on the new streaming endpoint to stream your content over SSL. 
+Note that you can only stream over SSL if the streaming endpoint from which you deliver your content was created after September 10th, 2014. If your streaming URLs are based on the streaming endpoints created after September 10th, the URL contains “streaming.mediaservices.windows.net” (the new format). Streaming URLs that contain “origin.mediaservices.windows.net” (the old format) do not support SSL. If your URL is in the old format and you want to be able to stream over SSL, create a new streaming endpoint. Use URLs created based on the new streaming endpoint to stream your content over SSL.
 
 The following list describes different streaming formats and gives examples:
 
 - Smooth Streaming
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
-		
-		http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 
 
 - MPEG DASH
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
- 
-		http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
 
 
 
 - Apple HTTP Live Streaming (HLS) V4
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-		http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
 
 
 
 - Apple HTTP Live Streaming (HLS) V3
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl-v3)
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl-v3)
 
-		http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
 - HDS (for Adobe PrimeTime/Access licensees only)
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
 
-		http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f) 
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f)
 
- 
+
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
 
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

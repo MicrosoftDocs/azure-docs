@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Automatic Indexing in DocumentDB | Microsoft Azure" 
+	pageTitle="Automatic indexing in DocumentDB | Microsoft Azure" 
 	description="Learn about how automatic indexing works in Azure DocumentDB." 
 	services="documentdb" 
 	authors="arramac" 
@@ -13,28 +13,28 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="08/08/2016" 
 	ms.author="arramac"/>
 	
-# Automatic Indexing in Azure DocumentDB
+# Automatic indexing in Azure DocumentDB
 
 This article is excerpted from the ["Schema-Agnostic Indexing with Azure DocumentDB"](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) paper, which will be presented at the [41st Internal Conference on Very Large Databases](http://www.vldb.org/2015/) between August 31 - September 4, 2015, and is an introduction into how indexing works in Azure DocumentDB. 
 
 After reading this, you will be answer the following questions:
 
 - How does DocumentDB infer the schema from a JSON document?
-- How does DocumentDB build an index across disparate docuemnts?
+- How does DocumentDB build an index across disparate documents?
 - How does DocumentDB perform automatic indexing at scale?
 
 ##<a id="HowDocumentDBIndexingWorks"></a> How DocumentDB indexing works
 
-[Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) is a true schema-free database purpose built for JSON. It does not expect or require any schema or secondary index definitions to index data at scale. This allows you to quickly define and iterate on application data models using DocumentDB. As you add documents to a collection, DocumentDB automatically indexes all document properties so they are available for you to query. Automatic indexing allows you to store documents belonging to completely arbitrary schemas without worrying about schemas or secondary indexes.
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) is a true schema-free database purpose built for JSON. It does not expect or require any schema or secondary index definitions to index data at scale. This allows you to quickly define and iterate on application data models using DocumentDB. As you add documents to a collection, DocumentDB automatically indexes all document properties so they are available for you to query. Automatic indexing allows you to store documents belonging to completely arbitrary schemas without worrying about schemas or secondary indexes.
 
 With a goal to eliminate the impedance mismatch between the database and the application programming models, DocumentDB exploits the simplicity of JSON and its lack of a schema specification. It makes no assumptions about the documents and allows documents within a DocumentDB collection to vary in schema, in addition to the instance specific values. In contrast to other document databases, DocumentDB’s database engine operates directly at the level of JSON grammar, remaining agnostic to the concept of a document schema and blurring the boundary between the structure and instance values of documents. This, in-turn, enables it to automatically index documents without requiring schema or secondary indexes.
 
 The indexing in DocumentDB takes advantage of the fact that JSON grammar allows documents to be **represented as trees**. For a JSON document to be represented as a tree, a dummy root node needs to be created which parents the rest of the actual nodes in the document underneath. Each label including the array indices in a JSON document becomes a node of the tree. The figure below illustrates an example JSON document and its corresponding tree representation.
 
->[AZURE.NOTE] Since JSON is self-describing i.e. each document includes both schema (metadata) and data, e.g. `{"locationId", 5, "city": "Moscow"}` reveals that there are two properties `locationId` and `city`, and that they have a numeric and string property values. DocumentDB is able to infer the schema of documents and index them when they are inserted or replaced, without you ever having to define schemas or secondary indexes.
+>[AZURE.NOTE] Since JSON is self-describing i.e. each document includes both schema (metadata) and data, e.g. `{"locationId": 5, "city": "Moscow"}` reveals that there are two properties `locationId` and `city`, and that they have a numeric and string property values. DocumentDB is able to infer the schema of documents and index them when they are inserted or replaced, without you ever having to define schemas or secondary indexes.
 
 
 **JSON Documents as Trees:**
@@ -55,7 +55,7 @@ An important implication of treating both the schema and instance values uniform
 
 ![Index as a Tree](media/documentdb-indexing/IndexAsTree.png)
 
-Despite being schema-free, DocumentDB’s SQL and JavaScript query languages provide relational projections and filters, hierarchical navigation across documents, and invocation of UDFs written entirely in JavaScript. The DocumentDB’s query runtime is able to support these queries since it can operate directly against this index tree representation of the data.
+Despite being schema-free, DocumentDB’s SQL and JavaScript query languages provide relational projections and filters, hierarchical navigation across documents, spatial operations, and invocation of UDFs written entirely in JavaScript. The DocumentDB’s query runtime is able to support these queries since it can operate directly against this index tree representation of the data.
 
 The default indexing policy automatically indexes all properties of all documents and provides consistent queries (meaning the index is updated synchronously with the document write). How does DocumentDB support consistent updates to the index tree at scale? DocumentDB uses write optimized, lock free, and log structured index maintenance techniques. This means that DocumentDB can support a sustained volume of fast writes while still serving consistent queries. 
 

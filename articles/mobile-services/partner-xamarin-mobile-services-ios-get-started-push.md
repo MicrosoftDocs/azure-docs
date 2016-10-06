@@ -13,12 +13,17 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="07/21/2016"
 	ms.author="yuaxu"/>
 
 # Add push notifications to your Mobile Services app
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> For the equivalent Mobile Apps version of this topic, see [Add push notifications to your Xamarin.iOS app](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-push.md).
 
 ##Overview
 
@@ -28,7 +33,7 @@ This tutorial requires the following:
 
 + An iOS 8 device (you cannot test push notifications in the iOS Simulator)
 + iOS Developer Program membership
-+ [Xamarin.iOS Studio]
++ [Xamarin Studio]
 + [Azure Mobile Services Component]
 
 >[AZURE.IMPORTANT] Because of APNS requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.
@@ -99,7 +104,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
 6. After the certificate is created by the portal, click the **Download** button, and click **Done**.
 
-    ![][111]  
+    ![][111]
 
     This downloads the signing certificate and saves it to your computer in your Downloads folder.
 
@@ -155,7 +160,7 @@ After you have registered your app with APNS and configured your project, you mu
 
     Make a note of the file name and location of the exported certificate.
 
-2. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app.
+2. Log on to the [Azure classic portal], click **Mobile Services**, and then click your app.
 
     ![][18]
 
@@ -262,7 +267,7 @@ Your mobile service is now configured to work with APNS.
             }
         }
 
-8. In **TodoListViewController**, modify the **OnAdd** action to get the device token stored in **AppDelegeate**, and store it into the **TodoItem** being added.
+8. In **QSTodoListViewController**, modify the **OnAdd** action to get the device token stored in **AppDelegeate**, and store it into the **TodoItem** being added.
 
         string deviceToken = ((AppDelegate)UIApplication.SharedApplication.Delegate).DeviceToken;
 
@@ -275,9 +280,9 @@ Your mobile service is now configured to work with APNS.
 
 Your app is now updated to support push notifications.
 
-## <a name="update-scripts"></a>Update the registered insert script in the Management Portal
+## <a name="update-scripts"></a>Update the registered insert script in the Azure classic portal
 
-1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table.
+1. In the [Azure classic portal], click the **Data** tab and then click the **TodoItem** table.
 
     ![][21]
 
@@ -382,7 +387,6 @@ You have successfully completed this tutorial.
 [121]:./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-21.png
 [122]:./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-22.png
 
-[Xamarin.iOS Studio]: http://xamarin.com/platform
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
@@ -392,8 +396,8 @@ You have successfully completed this tutorial.
 [Xamarin Device Provisioning]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
-[Xamarin.iOS]: http://xamarin.com/download
+[Xamarin Studio]: http://xamarin.com/download

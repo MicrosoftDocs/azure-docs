@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Troubleshoot your local cluster setup"
+   pageTitle="Troubleshoot your local Service Fabric cluster setup | Microsoft Azure"
    description="This article covers a set of suggestions for troubleshooting your local development cluster"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="07/08/2016"
    ms.author="seanmck"/>
 
 # Troubleshoot your local development cluster setup
 
-If you run into an issue while interacting with your local development cluster, review the following suggestions for potential solutions.
+If you run into an issue while interacting with your local Azure Service Fabric development cluster, review the following suggestions for potential solutions.
 
 ## Cluster setup failures
 
@@ -37,19 +37,31 @@ While running the DevClusterSetup script, you see an error like this:
 
 #### Solution
 
-Close the current Powershell window and launch a new Powershell window as an Administrator. You should now be able to successfully run the script.
+Close the current PowerShell window and open a new PowerShell window as an administrator. You should now be able to successfully run the script.
 
 ## Cluster connection failures
 
-### Type Initialization Exception
+### Service Fabric PowerShell cmdlets are not recognized in Azure PowerShell
 
 #### Problem
 
-When connecting to the cluster in PowerShell or Service Fabric Explorer, you see a TypeInitializationException for System.Fabric.Common.AppTrace.
+If you try to run any of the Service Fabric PowerShell cmdlets, such as `Connect-ServiceFabricCluster` in an Azure PowerShell window, it fails, saying that the cmdlet is not recognized. The reason for this is that Azure PowerShell uses the 32-bit version of Windows PowerShell (even on 64-bit OS versions), whereas the Service Fabric cmdlets only work in 64-bit environments.
 
 #### Solution
 
-Your path variable was not correctly set during installation. Please log out of Windows and log back in. This will fully refresh your path.
+Always run Service Fabric cmdlets directly from Windows PowerShell.
+
+>[AZURE.NOTE] The latest version of Azure PowerShell does not create a special shortcut, so this should no longer occur.
+
+### Type Initialization exception
+
+#### Problem
+
+When you are connecting to the cluster in PowerShell, you see the error TypeInitializationException for System.Fabric.Common.AppTrace.
+
+#### Solution
+
+Your path variable was not correctly set during installation. Please sign out of Windows and sign back in. This will fully refresh your path.
 
 ### Cluster connection fails with "Object is closed"
 
@@ -66,13 +78,13 @@ A call to Connect-ServiceFabricCluster fails with an error like this:
 
 #### Solution
 
-Close the current Powershell window and launch a new Powershell window as an Administrator. You should now be able to successfully connect.
+Close the current PowerShell window and open a new PowerShell window as an administrator. You should now be able to successfully connect.
 
-### FabricConnectionDeniedException
+### Fabric Connection Denied exception
 
 #### Problem
 
-When debugging from Visual Studio, you get a FabricConnectionDeniedException.
+When debugging from Visual Studio, you get a FabricConnectionDeniedException error.
 
 #### Solution
 
@@ -80,8 +92,9 @@ This error usually occurs when you try to try to start a service host process ma
 
 Ensure that you do not have any service projects set as startup projects in your solution. Only Service Fabric application projects should be set as startup projects.
 
+>[AZURE.TIP] If, following setup, your local cluster begins to behave abnormally, you can reset it using the local cluster manager system tray application. This will remove the existing cluster and set up a new one. Please note that all deployed applications and associated data will be removed.
 
 ## Next steps
 
 - [Understand and troubleshoot your cluster with system health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-- [Visualizing your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+- [Visualize your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)

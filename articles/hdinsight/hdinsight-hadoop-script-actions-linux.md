@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Script Action Development with HDInsight | Microsoft Azure"
-    description="Learn how to customize Hadoop clusters with Script Action."
+    pageTitle="Script action development with Linux-based HDInsight | Microsoft Azure"
+    description="Learn how to customize Linux-based HDInsight clusters with Script Action."
     services="hdinsight"
     documentationCenter=""
     authors="Blackmist"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -13,42 +13,96 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/18/2015"
+    ms.date="10/05/2016"
     ms.author="larryfr"/>
 
-# Script Action development with HDInsight
+# Script action development with HDInsight
 
-Script Actions are a way to customize Azure HDInsight clusters by specifying cluster configuration settings during installation, or installing additional services, tools, or other software on the cluster.
+Script actions are a way to customize Azure HDInsight clusters by specifying cluster configuration settings or installing additional services, tools, or other software on the cluster. You can use script actions during cluster creation or on a running cluster.
 
-> [AZURE.NOTE] The information in this document is specific to Linux-based HDInsight clusters. For information on using Script Actions with Windows-based clusters, see [Script action development with HDInsight (Windows)](hdinsight-hadoop-script-actions.md).
+> [AZURE.NOTE] The information in this document is specific to Linux-based HDInsight clusters. For information on using script actions with Windows-based clusters, see [Script action development with HDInsight (Windows)](hdinsight-hadoop-script-actions.md).
 
-## What are Script Actions?
+## What are script actions?
 
-Script actions are Bash scripts that run on the cluster nodes during provisioning. A script action is executed as root, and provides full access rights to the cluster nodes.
+Script actions are Bash scripts that Azure runs on the cluster nodes to make configuration changes or install software. A script action is executed as root, and provides full access rights to the cluster nodes.
 
-Script Action can be used when provisioning a cluster using the __Azure preview portal__, __Azure PowerShell__, or the __HDInsight .NET SDK__.
+Script actions can be applied through the following methods:
 
-For an walkthrough of customizing a cluster using Script Actions, see [Customize HDInsight clusters using script actions](hdinsight-hadoop-customize-cluster-linux.md).
+| Use this to apply a script... | During cluster creation... | On a running cluster... |
+| ----- |:-----:|:-----:|
+| Azure Portal | ✓ | ✓ |
+| Azure PowerShell | ✓ | ✓ |
+| Azure CLI | &nbsp; | ✓ |
+| HDInsight .NET SDK | ✓ | ✓ |
+| Azure Resource Manager Template | ✓ | &nbsp; |
+
+For more information on using these methods to apply script actions, see [Customize HDInsight clusters using script actions](hdinsight-hadoop-customize-cluster-linux.md).
 
 ## <a name="bestPracticeScripting"></a>Best practices for script development
 
 When you develop a custom script for an HDInsight cluster, there are several best practices to keep in mind:
 
 - [Target the Hadoop version](#bPS1)
+- [Target the OS Version](#bps10)
 - [Provide stable links to script resources](#bPS2)
+- [Use pre-compiled resources](#bPS4)
 - [Ensure that the cluster customization script is idempotent](#bPS3)
 - [Ensure high availability of the cluster architecture](#bPS5)
 - [Configure the custom components to use Azure Blob storage](#bPS6)
 - [Write information to STDOUT and STDERR](#bPS7)
 - [Save files as ASCII with LF line endings](#bps8)
+- [Use retry logic to recover from transient errors](#bps9)
+
+> [AZURE.IMPORTANT] Script actions must complete within 60 minutes, or they will timeout. During node provisioning, the script is ran concurrently with other setup and configuration processes. Competition for resources such as CPU time or network bandwidth may cause the script to take longer to finish than it does in your development environment.
 
 ### <a name="bPS1"></a>Target the Hadoop version
 
 Different versions of HDInsight have different versions of Hadoop services and components installed. If your script expects a specific version of a service or component, you should only use the script with the version of HDInsight that includes the required components. You can find information on component versions included with HDInsight using the [HDInsight component versioning](hdinsight-component-versioning.md) document.
 
+###<a name="bps10"></a> Target the OS version
+
+Linux-based HDInsight is based on the Ubuntu Linux distribution. Different versions of HDInsight rely on different versions of Ubuntu, which may effect how your script behaves. For example, HDInsight 3.4 and earlier are based on Ubuntu versions that use Upstart. Version 3.5 is based on Ubuntu 16.04, which uses Systemd. Systemd and Upstart rely on different commands, so your script should be written to work with both.
+
+Another important difference between HDInsight 3.4 and 3.5 is that `JAVA_HOME` now points to Java 8.
+
+You can check the OS version by using `lsb_release`. The following code snippets from the Hue install script demonstrates how to determine if the script is running on Ubuntu 14 or 16:
+
+    OS_VERSION=$(lsb_release -sr)
+    if [[ $OS_VERSION == 14* ]]; then
+        echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+        HUE_TARFILE=hue-binaries-14-04.tgz
+    elif [[ $OS_VERSION == 16* ]]; then
+        echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+        HUE_TARFILE=hue-binaries-16-04.tgz
+    fi
+    ...
+    if [[ $OS_VERSION == 16* ]]; then
+        echo "Using systemd configuration"	
+		systemctl daemon-reload
+		systemctl stop webwasb.service    
+		systemctl start webwasb.service
+	else
+        echo "Using upstart configuration"
+		initctl reload-configuration
+		stop webwasb
+		start webwasb
+    fi
+    ...
+    if [[ $OS_VERSION == 14* ]]; then
+        export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+    elif [[ $OS_VERSION == 16* ]]; then
+        export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+    fi
+
+You can find the full script that contains these snippets at https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh.
+
+For the version of Ubuntu that is used by HDInsight, see the [HDInsight component version](hdinsight-component-versioning.md) document.
+
+To understand the differences between Systemd and Upstart, see [Systemd for Upstart users](https://wiki.ubuntu.com/SystemdForUpstartUsers).
+
 ### <a name="bPS2"></a>Provide stable links to script resources
 
-Users should make sure that all of the scripts and resources used by the script remain available throughout the lifetime of the cluster and that the versions of these files do not change for the duration. These resources are required if the nodes in the cluster are re-imaged.
+You should make sure that the scripts and resources used by the script remain available throughout the lifetime of the cluster, and that the versions of these files do not change for the duration. These resources are required if new nodes are added to the cluster during scaling operations.
 
 The best practice is to download and archive everything in an Azure Storage account on your subscription.
 
@@ -56,21 +110,25 @@ The best practice is to download and archive everything in an Azure Storage acco
 
 For example, the samples provided by Microsoft are stored in the [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) storage account, which is a public, read-only container maintained by the HDInsight team.
 
+### <a name="bPS4"></a>Use pre-compiled resources
+
+To reduce the time it takes to run the script, avoid operations that compile resources from source code. Instead, pre-compile the resources and store the binary version in Azure Blob storage so that it can quickly be downloaded to the cluster from your script.
+
 ### <a name="bPS3"></a>Ensure that the cluster customization script is idempotent
 
-You must expect that the nodes of an HDInsight cluster will be re-imaged during the cluster lifetime, and that the cluster customization script will be used when this happens. The script must be designed to be idempotent in the sense that upon re-imaging, the script should ensure that the cluster is returned to the same state every time it is ran.
+Scripts must be designed to be idempotent in the sense that if the script is ran multiple times, it should ensure that the cluster is returned to the same state every time it is ran.
 
 For example, if a custom script installs an application at /usr/local/bin on its first run, then on each subsequent run the script should check whether the application already exists at the /usr/local/bin location before proceeding with other steps in the script.
 
 ### <a name="bPS5"></a>Ensure high availability of the cluster architecture
 
-Linux-based HDInsight clusters provides two head nodes that are active within the cluster, and Script Actions are ran for both nodes. If the components you install expect only one head node, you must design a script that will only install the component on one of the two head nodes in the cluster. The head nodes are named **headnode0** and **headnode1**.
+Linux-based HDInsight clusters provides two head nodes that are active within the cluster, and script actions are ran for both nodes. If the components you install expect only one head node, you must design a script that will only install the component on one of the two head nodes in the cluster.
 
-> [AZURE.IMPORTANT] Default services installed as part of HDInsight are designed to fail over between the two head nodes as needed, however this functionality is not extended to custom components installed through Script Actions. If you need the components installed through a Script Action to be highly available, you must implement your own failover mechanism that uses the two available head nodes.
+> [AZURE.IMPORTANT] Default services installed as part of HDInsight are designed to fail over between the two head nodes as needed, however this functionality is not extended to custom components installed through script ctions. If you need the components installed through a script action to be highly available, you must implement your own failover mechanism that uses the two available head nodes.
 
 ### <a name="bPS6"></a>Configure the custom components to use Azure Blob storage
 
-Components that you install on the cluster might have a default configuration that uses Hadoop Distributed File System (HDFS) storage. On a cluster re-image, the HDFS file system gets formatted and you will lose any data that is stored there. You should change the configuration to use Azure Blob storage (WASB) instead, as this is the default storage for the cluster, and is kept even when the cluster is deleted.
+Components that you install on the cluster might have a default configuration that uses Hadoop Distributed File System (HDFS) storage. HDInsight uses Azure Blob Storage (WASB) as the default storage. This provides an HDFS compatible file system that persists data even if the cluster is deleted. You should configure components you install to use WASB instead of HDFS.
 
 For example, the following copies the giraph-examples.jar file from the local file system to WASB:
 
@@ -78,7 +136,9 @@ For example, the following copies the giraph-examples.jar file from the local fi
 
 ### <a name="bPS7"></a>Write information to STDOUT and STDERR
 
-Information written to STDOUT and STDERR is logged, and can be viewed after the cluster has been provisioned by using the Ambari web UI.
+Information written to STDOUT and STDERR during script execution is logged, and can be viewed using the Ambari web UI.
+
+> [AZURE.NOTE] Ambari will only be available if the cluster is successfully created. If you use a script action during cluster creation, and creation fails, see the troubleshooting section [Customize HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) for other ways of accessing logged information.
 
 Most utilities and installation packages will already write information to STDOUT and STDERR, however you may want to add additional logging. To send text to STDOUT use `echo`. For example:
 
@@ -86,11 +146,11 @@ Most utilities and installation packages will already write information to STDOU
 
 By default, `echo` will send the string to STDOUT. To direct it to STDERR, add `>&2` before `echo`. For example:
 
-        >&2 echo "An error occured installing Foo"
+        >&2 echo "An error occurred installing Foo"
 
 This redirects information sent to STDOUT (1, which is default so not listed here,) to STDERR (2). For more information on IO redirection, see [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
 
-For more information on viewing information logged by Script Actions, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
+For more information on viewing information logged by script actions, see [Customize HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 
 ###<a name="bps8"></a> Save files as ASCII with LF line endings
 
@@ -99,9 +159,43 @@ Bash scripts should be stored as ASCII format, with lines terminated by LF. If f
     $'\r': command not found
     line 1: #!/usr/bin/env: No such file or directory
 
+###<a name="bps9"></a> Use retry logic to recover from transient errors
+
+When downloading files, installing packages using apt-get, or other actions that transmit data over the internet, the action may fail due to transient networking errors. For example, the remote resource you are communicating with may be in the process of failing over to a backup node.
+
+To make your script resilient to transient errors, you can implement retry logic. The following is an example of a function that will run any command passed to it and (if the command fails,) retry up to three times. It will wait two seconds between each retry.
+
+    #retry
+    MAXATTEMPTS=3
+
+    retry() {
+        local -r CMD="$@"
+        local -i ATTMEPTNUM=1
+        local -i RETRYINTERVAL=2
+
+        until $CMD
+        do
+            if (( ATTMEPTNUM == MAXATTEMPTS ))
+            then
+                    echo "Attempt $ATTMEPTNUM failed. no more attempts left."
+                    return 1
+            else
+                    echo "Attempt $ATTMEPTNUM failed! Retrying in $RETRYINTERVAL seconds..."
+                    sleep $(( RETRYINTERVAL ))
+                    ATTMEPTNUM=$ATTMEPTNUM+1
+            fi
+        done
+    }
+
+The following are examples of using this function.
+
+    retry ls -ltr foo
+
+    retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+
 ## <a name="helpermethods"></a>Helper methods for custom scripts
 
-Script Action helper methods are utilities that you can use while writing custom scripts. These are defined in [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh), and can be included in your scripts using the following:
+script action helper methods are utilities that you can use while writing custom scripts. These are defined in [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh), and can be included in your scripts using the following:
 
     # Import the helper method module.
     wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh && source /tmp/HDInsightUtilities-v01.sh && rm -f /tmp/HDInsightUtilities-v01.sh
@@ -115,6 +209,11 @@ This makes the following helpers available for use in your script:
 | `test_is_headnode` | If ran on a cluster head node, returns 1; otherwise, 0. |
 | `test_is_datanode` | If the current node is a data (worker) node, returns a 1; otherwise, 0. |
 | `test_is_first_datanode` | If the current node is the first data (worker) node (named workernode0,) returns a 1; otherwise, 0. |
+| `get_headnodes` | Returns the fully qualified domain name of the headnodes in the cluster. Names are comma delimited. An empty string is returned on error. |
+| `get_primary_headnode` | Gets the fully qualified domain name of the primary headnode. An empty string is returned on error. |
+| `get_secondary_headnode` | Gets the fully qualified domain name of the secondary headnode. An empty string is returned on error. |
+| `get_primary_headnode_number` | Gets the numeric suffix of the primary headnode. An empty string is returned on error. |
+| `get_secondary_headnode_number` | Gets the numeric suffix of the secondary headnode. An empty string is returned on error. |
 
 ## <a name="commonusage"></a>Common usage patterns
 
@@ -150,6 +249,21 @@ Scripts used to customize a cluster needs to either be in the default storage ac
 
 Storing the file in an Azure storage account accessible by the cluster (such as the default storage account,) will provide fast access, as this storage is within the Azure network.
 
+### Checking the operating system version
+
+Different versions of HDInsight rely on specific versions of Ubuntu. There may be differences between OS versions that you must check for in your script. For example, you may need to install a binary that is tied to the version of Ubuntu.
+
+To check the OS version, use `lsb_release`. For example, the following demonstrates how to reference a different tar file depending on the OS version:
+
+    OS_VERSION=$(lsb_release -sr)
+    if [[ $OS_VERSION == 14* ]]; then
+        echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+        HUE_TARFILE=hue-binaries-14-04.tgz
+    elif [[ $OS_VERSION == 16* ]]; then
+        echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+        HUE_TARFILE=hue-binaries-16-04.tgz
+    fi
+
 ## <a name="deployScript"></a>Checklist for deploying a script action
 
 Here are the steps we took when preparing to deploy these scripts:
@@ -164,14 +278,13 @@ Here are the steps we took when preparing to deploy these scripts:
 
 ## <a name="runScriptAction"></a>How to run a script action
 
-You can use Script Actions to customize HDInsight clusters by using the Azure portal, Azure PowerShell, or the HDInsight .NET SDK. For instructions, see [How to use Script Action](hdinsight-hadoop-customize-cluster-linux.md#howto).
+You can use script actions to customize HDInsight clusters by using the Azure portal, Azure PowerShell, Azure Resource Manager (ARM) templates or the HDInsight .NET SDK. For instructions, see [How to use script action](hdinsight-hadoop-customize-cluster-linux.md).
 
 ## <a name="sampleScripts"></a>Custom script samples
 
 Microsoft provides sample scripts to install components on an HDInsight cluster. The sample scripts and instructions on how to use them are available at the links below:
 
 - [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md)
-- [Install and use Spark on HDInsight clusters](hdinsight-hadoop-spark-install-linux.md)
 - [Install and use R on HDInsight Hadoop clusters](hdinsight-hadoop-r-scripts-linux.md)
 - [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md)
 - [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md)  
@@ -209,6 +322,10 @@ _Resolution_: Save the file either as ASCII, or as UTF-8 without a BOM. You may 
 
 For the above command, replace __INFILE__ with the file containing the BOM. __OUTFILE__ should be a new file name, which will contain the script without the BOM.
 
-## <a name="seeAlso"></a>See also
+## <a name="seeAlso"></a>Next steps
 
-[Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md)
+* Learn how to [Customize HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md)
+
+* Use the [HDInsight .NET SDK reference](https://msdn.microsoft.com/library/mt271028.aspx) to learn more about creating .NET applications that manage HDInsight
+
+* Use the [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) to learn how to use REST to perform management actions on HDInsight clusters.

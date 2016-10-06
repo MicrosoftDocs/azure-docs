@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Data Catalog common scenarios"
+   pageTitle="Azure Data Catalog common scenarios | Microsoft Azure"
    description="An overview of common scenarios for Azure Data Catalog, including the registration and discovery of high-value data sources, enabling self-service business intelligence, and capturing existing tribal knowledge about data sources and processes."
    services="data-catalog"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/31/2015"
+   ms.date="07/12/2016"
    ms.author="maroche"/>
 
 

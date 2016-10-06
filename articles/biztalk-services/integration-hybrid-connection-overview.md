@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Hybrid Connections overview | Microsoft Azure"
-	description="Learn about Hybrid Connections, including security, TCP ports, and supported configurations. MABS, WABS."
+	description="Learn about Hybrid Connections, security, TCP ports, and supported configurations. MABS, WABS."
 	services="biztalk-services"
 	documentationCenter=""
 	authors="MandiOhlinger"
-	manager="dwrede"
-	editor="cgronlun"/>
+	manager="erikre"
+	editor=""/>
 
 <tags
 	ms.service="biztalk-services"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/08/2015"
+	ms.date="07/26/2016"
 	ms.author="mandia"/>
 
 
 # Hybrid Connections overview
-This article introduces Hybrid Connections, lists the supported configurations, and lists the required TCP ports.
+Introduction to Hybrid Connections, lists the supported configurations, and lists the required TCP ports.
 
 
 ## What is a hybrid connection
@@ -35,7 +35,7 @@ Hybrid Connections benefits include:
 - Applications using Hybrid Connections access only the specific on-premises resource that is published through the Hybrid Connection.
 - Can connect to any on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, and most custom Web Services.
 
-	> [AZURE.NOTE] TCP-based services that use dynamic ports (such as FTP Passive Mode or Extended Passive Mode) are currently not supported.
+	> [AZURE.NOTE] TCP-based services that use dynamic ports (such as FTP Passive Mode or Extended Passive Mode) are currently not supported. LDAP is also not supported. LDAP uses a static TCP port but it could also use UDP. As a result, it is not supported.
 
 - Can be used with all frameworks supported by Web Apps (.NET, PHP, Java, Python, Node.js) and Mobile Apps (Node.js, .NET).
 - Web Apps and Mobile Apps can access on-premises resources in exactly the same way as if the Web or Mobile App is located on your local network. For example, the same connection string used on-premises can also be used on Azure.
@@ -47,7 +47,7 @@ Hybrid Connections also provide enterprise administrators with control and visib
 - Event and audit logs on the corporate network provide visibility into the resources accessed by Hybrid Connections.
 
 
-## Supported configurations
+## Example scenarios
 
 Hybrid Connections support the following framework and application combinations:
 
@@ -85,16 +85,16 @@ Port | Why you need it
 --- | ---
 9350 - 9354 | These ports are used for data transmission. The Service Bus relay manager probes port 9350 to determine if TCP connectivity is available. If it is available, then it assumes that port 9352 is also available. Data traffic goes over port 9352. <br/><br/>Allow outbound connections to these ports.
 5671 | When port 9352 is used for data traffic, port 5671 is used as the control channel. <br/><br/>Allow outbound connections to this port.
-80, 443 | If ports 9352 and 5671 are not usable, *then* ports 80 and 443 are the fallback ports used for data transmission and the control channel.<br/><br/>Allow outbound connections to these ports. <br/><br/>**Note** It is not recommended to use these fallback ports in place of the other TCP ports. The HTTP/WebSocket is used as the protocol instead of native TCP for data channels. It could result in lower performance.
+80, 443 | These ports are used for some data requests to Azure. Also, if ports 9352 and 5671 are not usable, *then* ports 80 and 443 are the fallback ports used for data transmission and the control channel.<br/><br/>Allow outbound connections to these ports. <br/><br/>**Note** It is not recommended to use these as the fallback ports in place of the other TCP ports. The HTTP/WebSocket is used as the protocol instead of native TCP for data channels. It could result in lower performance.
 
 
 
 ## Next steps
 
 [Create and manage Hybrid Connections](integration-hybrid-connection-create-manage.md)<br/>
-[Connect an Azure website to an on-premises resource](../web-sites-hybrid-connection-get-started.md)<br/>
-[Connect to on-premises SQL Server from an Azure web app](../web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/>
-[Azure Mobile Services and Hybrid Connections](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)
+[Connect an Azure website to an on-premises resource](../app-service-web/web-sites-hybrid-connection-get-started.md)<br/>
+[Connect to on-premises SQL Server from an Azure web app](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/>
+[Azure Mobile Services and Hybrid Connections](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md)
 
 
 ## See Also

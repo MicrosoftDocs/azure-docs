@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/05/2015"
+	ms.date="08/24/2016"
 	ms.author="sdanie"/>
 
 # Add caching to improve performance in Azure API Management
@@ -21,6 +21,8 @@
 Operations in API Management can be configured for response caching. Response caching can significantly reduce API latency, bandwidth consumption, and web service load for data that does not change frequently.
 
 This guide shows you how to add response caching for your API and configure policies for the sample Echo API operations. You can then call the operation from the developer portal to verify caching in action.
+
+>[AZURE.NOTE] For information on caching items by key using policy expressions, see [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
 
 ## Prerequisites
 
@@ -32,7 +34,7 @@ In this step, you will review the caching settings of the **GET Resource (cached
 
 >[AZURE.NOTE] Each API Management service instance comes preconfigured with an Echo API that can be used to experiment with and learn about API Management. For more information, see [Get started with Azure API Management][].
 
-To get started, click **Manage** in the Azure portal for your API Management service. This takes you to the API Management publisher portal.
+To get started, click **Manage** in the Azure Classic Portal for your API Management service. This takes you to the API Management publisher portal.
 
 ![Publisher portal][api-management-management-console]
 
@@ -127,8 +129,8 @@ Note that the value of **sampleheader** in the response is now **value2**. Becau
 
 ## <a name="next-steps"> </a>Next steps
 
--	Check out the other topics in the [Get started with advanced API configuration][] tutorial.
 -	For more information about caching policies, see [Caching policies][] in the [API Management policy reference][].
+-	For information on caching items by key using policy expressions, see [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png
@@ -148,7 +150,6 @@ Note that the value of **sampleheader** in the response is now **value2**. Becau
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: api-management-get-started.md
-[Get started with advanced API configuration]: api-management-get-started-advanced.md
 
 [API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 [Caching policies]: https://msdn.microsoft.com/library/azure/dn894086.aspx

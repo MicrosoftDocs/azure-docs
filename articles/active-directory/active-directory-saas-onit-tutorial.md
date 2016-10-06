@@ -1,7 +1,20 @@
-<properties pageTitle="Tutorial: Azure Active Directory integration with Onit | Microsoft Azure" description="Learn how to use Onit with Azure Active Directory to enable single sign-on, automated provisioning, and more!." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Azure Active Directory integration with Onit | Microsoft Azure" 
+    description="Learn how to use Onit with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    services="active-directory" 
+    authors="jeevansd"  
+    documentationCenter="na" 
+    manager="femila"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="09/29/2016" 
+    ms.author="jeedes" />
+
 #Tutorial: Azure Active Directory integration with Onit
->[AZURE.TIP]For feedback, click [here](http://go.microsoft.com/fwlink/?LinkId=530341).
   
 The objective of this tutorial is to show the integration of Azure and Onit.  
 The scenario outlined in this tutorial assumes that you already have the following items:
@@ -9,7 +22,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 -   A valid Azure subscription
 -   An Onit single sign-on enabled subscription
   
-After completing this tutorial, the Azure AD users you have assigned to Onit will be able to single sign into the application at your Onit company site (service provider initiated sign on), or using the [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586)
+After completing this tutorial, the Azure AD users you have assigned to Onit will be able to single sign into the application at your Onit company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
 The scenario outlined in this tutorial consists of the following building blocks:
 
@@ -25,7 +38,7 @@ The objective of this section is to outline how to enable the application integr
 
 ###To enable the application integration for Onit, perform the following steps:
 
-1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-onit-tutorial/IC700993.png "Active Directory")
 
@@ -63,7 +76,7 @@ The following screenshot shows an example for this.
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Onit** application integration page, in the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
+1.  In the Azure classic portal, on the **Onit** application integration page, in the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
 
     ![Attributes](./media/active-directory-saas-onit-tutorial/IC791169.png "Attributes")
 
@@ -119,8 +132,8 @@ The following screenshot shows an example for this.
     ![Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791177.png "Single Sign-On")
 
     1.  As **Authentication Strategy**, select **Single Sign On and Password**.
-    2.  In the Azure portal, on the **Configure single sign-on at Onit** dialog page, copy the **Remote Login URL** value, and then paste it into the **Idp Target URL** textbox.
-    3.  In the Azure portal, on the **Configure single sign-on at Onit** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Idp logout URL** textbox.
+    2.  In the Azure classic portal, on the **Configure single sign-on at Onit** dialog page, copy the **Remote Login URL** value, and then paste it into the **Idp Target URL** textbox.
+    3.  In the Azure classic portal, on the **Configure single sign-on at Onit** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Idp logout URL** textbox.
     4.  Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Idp Cert Fingerprint (SHA1)** textbox.  
 
         >[AZURE.TIP] For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
@@ -130,7 +143,7 @@ The following screenshot shows an example for this.
     7.  Select **Login with SSO: Required for the following domains/users**, type the email address of a test user into the related textbox, and then click **Update**.
         ![Edit Corporation](./media/active-directory-saas-onit-tutorial/IC791178.png "Edit Corporation")
 
-14. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+14. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791179.png "Configure Single Sign-On")
 ##Configuring user provisioning
@@ -163,7 +176,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 ###To assign users to Onit, perform the following steps:
 
-1.  In the Azure AD portal, create a test account.
+1.  In the Azure classic portal, create a test account.
 
 2.  On the **Onit **application integration page, click **Assign users**.
 
@@ -173,4 +186,4 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
     ![Yes](./media/active-directory-saas-onit-tutorial/IC767830.png "Yes")
   
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).

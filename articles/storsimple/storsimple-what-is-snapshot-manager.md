@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="05/24/2016"
    ms.author="v-sharos" />
 
 # What is StorSimple Snapshot Manager?
@@ -21,10 +21,16 @@
 
 StorSimple Snapshot Manager is a Microsoft Management Console (MMC) snap-in that simplifies data protection and backup management in a Microsoft Azure StorSimple environment. With StorSimple Snapshot Manager, you can manage Microsoft Azure StorSimple data in the data center and in the cloud as a single integrated storage solution, thus simplifying backup processes and reducing costs.
 
-This overview introduces the StorSimple Snapshot Manager, describe its features, and explains its role in Microsoft Azure StorSimple. 
+This overview introduces the StorSimple Snapshot Manager, describes its features, and explains its role in Microsoft Azure StorSimple. 
 
-For an overview of the entire Microsoft Azure StorSimple system, including the StorSimple device, StorSimple Manager service, StorSimple Snapshot Manager, and StorSimple Adapter for SharePoint, see [What Is StorSimple?](storsimple-overview.md) and [What are the StorSimple components?](storsimple-components.md). 
+For an overview of the entire Microsoft Azure StorSimple system, including the StorSimple device, StorSimple Manager service, StorSimple Snapshot Manager, and StorSimple Adapter for SharePoint, see [StorSimple 8000 series: a hybrid cloud storage solution](storsimple-overview.md). 
  
+>[AZURE.NOTE] 
+>
+>- You cannot use StorSimple Snapshot Manager to manage Microsoft Azure StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices).
+>
+>- If you plan to install StorSimple Update 2 on your StorSimple device, be sure to download the latest version of StorSimple Snapshot Manager and install it **before you install StorSimple Update 2**. The latest version of StorSimple Snapshot Manager is backward compatible and works with all released versions of Microsoft Azure StorSimple. If you are using the previous version of StorSimple Snapshot Manager, you will need to update it (you do not need to uninstall the previous version before you install the new version).
+
 ## StorSimple Snapshot Manager purpose and architecture
 
 StorSimple Snapshot Manager provides a central management console that you can use to create consistent, point-in-time backup copies of local and cloud data. For example, you can use the console to:
@@ -32,15 +38,15 @@ StorSimple Snapshot Manager provides a central management console that you can u
 - Configure, back up, and delete volumes.
 - Configure volume groups to ensure that backed up data is application-consistent.
 - Manage backup policies so that data is backed up on a predetermined schedule.
-- Create independent copies of data, which can be stored in the cloud and used for disaster recovery.
+- Create local and cloud snapshots, which can be stored in the cloud and used for disaster recovery.
 
-With StorSimple Snapshot Manager, you mount volumes and then configure them into volume groups, typically by application. StorSimple Snapshot Manager uses these volume groups to generate backup copies that are application-consistent. (Application consistency exists when all related files and databases are synchronized and represent the true state of the application at a specific point in time.) 
+The StorSimple Snapshot Manager fetches the list of applications registered with the VSS provider on the host. Then, to create application-consistent backups, it checks the volumes used by an application and suggests volume groups to configure. StorSimple Snapshot Manager uses these volume groups to generate backup copies that are application-consistent. (Application consistency exists when all related files and databases are synchronized and represent the true state of the application at a specific point in time.) 
 
 StorSimple Snapshot Manager backups take the form of incremental snapshots, which capture only the changes since the last backup. As a result, backups require less storage and can be created and restored quickly. StorSimple Snapshot Manager uses the Windows Volume Shadow Copy Service (VSS) to ensure that snapshots capture application-consistent data. (For more information, go to the Integration with Windows Volume Shadow Copy Service section.) With StorSimple Snapshot Manager, you can create backup schedules or take immediate backups as needed. If you need to restore data from a backup, StorSimple Snapshot Manager lets you select from a catalog of local or cloud snapshots. Azure StorSimple restores only the data that is needed as it is needed, which prevents delays in data availability during restore operations.)
 
 ![StorSimple Snapshot Manager architecture](./media/storsimple-what-is-snapshot-manager/HCS_SSM_Overview.png)
 
-**Figure 1: StorSimple Snapshot Manager architecture** 
+**StorSimple Snapshot Manager architecture** 
 
 ## Support for multiple volume types
 
@@ -71,7 +77,9 @@ With StorSimple Snapshot Manager, you create volumes and then configure them int
 
 StorSimple Snapshot Manager uses volume groups to create backup copies that are application-consistent. Application consistency exists when all related files and databases are synchronized and represent the true state of an application at a specific point in time. Volume groups (which are also known as *consistency groups*) form the basis of a backup or restore job.
 
->[AZURE.NOTE] Volume groups are not the same as volume containers. A volume container contains one or more volumes that share a cloud storage account and other attributes, such as encryption and bandwidth consumption. A single volume container can contain up to 256 thinly provisioned StorSimple volumes. For more information about volume containers, go to [Manage your volume containers](storsimple-manage-volume-containers.md). Volume groups are collections of volumes that you configure to facilitate backup operations. If you select two volumes that belong to different volume containers, place them in a single volume group, and then create a backup policy for that volume group, each volume will be backed up in the appropriate volume container, using the appropriate storage account.
+Volume groups are not the same as volume containers. A volume container contains one or more volumes that share a cloud storage account and other attributes, such as encryption and bandwidth consumption. A single volume container can contain up to 256 thinly provisioned StorSimple volumes. For more information about volume containers, go to [Manage your volume containers](storsimple-manage-volume-containers.md). Volume groups are collections of volumes that you configure to facilitate backup operations. If you select two volumes that belong to different volume containers, place them in a single volume group, and then create a backup policy for that volume group, each volume will be backed up in the appropriate volume container, using the appropriate storage account.
+
+>[AZURE.NOTE] All volumes in a volume group must come from a single cloud service provider.
 
 ## Integration with Windows Volume Shadow Copy Service
 
@@ -99,7 +107,7 @@ See the following illustration.
 
 ![VSS process](./media/storsimple-what-is-snapshot-manager/HCS_SSM_VSS_process.png)
 
-**Figure 2: Windows Volume Shadow Copy Service process** 
+**Windows Volume Shadow Copy Service process** 
 
 ## Backup types and backup policies
 

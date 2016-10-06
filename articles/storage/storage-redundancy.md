@@ -1,25 +1,24 @@
+<properties
+	pageTitle="Azure Storage replication | Microsoft Azure"
+	description="Data in your Microsoft Azure storage account is replicated for durability and high availability. Replication options include locally redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), and read-access geo-redundant storage (RA-GRS)."
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
-<properties 
-  pageTitle="Azure Storage replication | Microsoft Azure" 
-  description="Data in your Microsoft Azure storage account is replicated for durability and high availability. Replication options include locally redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), and read-access geo-redundant storage (RA-GRS)." 
-  services="storage" 
-  documentationCenter="" 
-  authors="tamram" 
-  manager="adinah" 
-  editor=""/>
-
-<tags 
-  ms.service="storage" 
-  ms.workload="storage" 
-  ms.tgt_pltfrm="na" 
-  ms.devlang="na" 
-  ms.topic="article" 
-  ms.date="09/01/2015" 
-  ms.author="tamram"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/21/2016"
+	ms.author="jutang;tamram"/>
 
 # Azure Storage replication
 
-The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability, meeting the [Azure Storage SLA](http://azure.microsoft.com/support/legal/sla/) even in the face of transient hardware failures.
+The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability, meeting the [Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage) even in the face of transient hardware failures.
 
 When you create a storage account, you must select one of the following replication options:  
 
@@ -31,12 +30,15 @@ When you create a storage account, you must select one of the following replicat
 The following table provides a quick overview of the differences between LRS, ZRS, GRS, and RA-GRS, while subsequent sections address each type of replication in more detail.
 
 
-|Replication strategy|LRS|ZRS|GRS|RA-GRS
-|--------------------|---|---|---|------
-|Data is replicated across multiple facilities.|No|Yes|Yes|Yes|
-|Data can be read from the secondary location as well as from the primary location.|No|No|No|Yes
-|Number of copies of data maintained on separate nodes.|3|3|6|6
+| Replication strategy                                                               | LRS | ZRS | GRS | RA-GRS |
+|:----------------------------------------------------------------------------------|:---|:---|:---|:------|
+| Data is replicated across multiple facilities.                                     | No  | Yes | Yes | Yes    |
+| Data can be read from the secondary location as well as from the primary location. | No  | No  | No  | Yes    |
+| Number of copies of data maintained on separate nodes.                             | 3   | 3   | 6   | 6      |
 
+See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for pricing information for the different redundancy options.
+
+>[AZURE.NOTE] Premium Storage supports only locally redundant storage (LRS). For information about Premium Storage, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md).
 
 ## Locally redundant storage
 
@@ -56,7 +58,7 @@ While geo-redundant storage (GRS) is recommended for most applications, locally 
 Zone-redundant storage (ZRS) replicates your data across two to three facilities, either within a single region or across two regions, providing higher durability than LRS. If your storage account has ZRS enabled, then your data is durable even in the case of failure at one of the facilities.
 
 
->[AZURE.NOTE]  ZRS is currently available only for block blobs. Note that once you have created your storage account and selected zone-redundant replication, you cannot convert it to use any other type of replication, or vice versa.
+>[AZURE.NOTE]  ZRS is currently available only for block blobs, and is supported only in versions 2014-02-14 and later. Note that once you have created your storage account and selected zone-redundant replication, you cannot convert it to use any other type of replication, or vice versa.
 
 
 ## Geo-redundant storage
@@ -65,32 +67,44 @@ Geo-redundant storage (GRS) replicates your data to a secondary region that is h
 
 For a storage account with GRS enabled, an update is first committed to the primary region, where it is replicated three times. Then the update is replicated to the secondary region, where it is also replicated three times, across separate fault domains and upgrade domains.
 
-
-> [AZURE.NOTE] With GRS, requests to write data are replicated asynchronously to the secondary region. It is important to note that opting for GRS does not impact latency of requests made against the primary region. However, since asychronous replication involves a delay, in the event of a regional disaster it is possible that changes that have not yet been replicated to the secondary region may be lost if the data cannot be recovered from the primary region.
-
+> [AZURE.NOTE] With GRS, requests to write data are replicated asynchronously to the secondary region. It is important to note that opting for GRS does not impact latency of requests made against the primary region. However, since asynchronous replication involves a delay, in the event of a regional disaster it is possible that changes that have not yet been replicated to the secondary region may be lost if the data cannot be recovered from the primary region.
+ 
 When you create a storage account, you select the primary region for the account. The secondary region is determined based on the primary region, and cannot be changed. The following table shows the primary and secondary region pairings.
 
-|Primary            |Secondary
-| ---------------   |----------------
-|North Central US   |South Central US
-|South Central US   |North Central US
-|East US            |West US
-|West US            |East US
-|US East 2          |Central US
-|Central US         |US East 2
-|North Europe       |West Europe
-|West Europe        |North Europe
-|South East Asia    |East Asia
-|East Asia          |South East Asia
-|East China         |North China
-|North China        |East China
-|Japan East         |Japan West
-|Japan West         |Japan East
-|Brazil South       |South Central US
-|Australia East     |Australia Southeast
-|Australia Southeast|Australia East  
+| Primary             | Secondary           |
+|---------------------|---------------------|
+| North Central US    | South Central US    |
+| South Central US    | North Central US    |
+| East US             | West US             |
+| West US             | East US             |
+| US East 2           | Central US          |
+| Central US          | US East 2           |
+| North Europe        | West Europe         |
+| West Europe         | North Europe        |
+| South East Asia     | East Asia           |
+| East Asia           | South East Asia     |
+| East China          | North China         |
+| North China         | East China          |
+| Japan East          | Japan West          |
+| Japan West          | Japan East          |
+| Brazil South        | South Central US    |
+| Australia East      | Australia Southeast |
+| Australia Southeast | Australia East      |
+| India South         | India Central       |
+| India Central       | India South         |
+| US Gov Iowa         | US Gov Virginia     |
+| US Gov Virginia     | US Gov Iowa         |
+| Canada Central      | Canada East     	|
+| Canada East         | Canada Central      |
+| UK West             | UK South            |
+| UK South            | UK West             |
+| Germany Central     | Germany Northeast   |
+| Germany Northeast   | Germany Central     |
+| West US 2           | Central West US     |
+| Central West US     | West US 2           |
 
-
+For up-to-date information about regions supported by Azure, see [Azure Regions](https://azure.microsoft.com/regions/).
+ 
 ## Read-access geo-redundant storage
 
 Read-access geo-redundant storage (RA-GRS) maximizes availability for your storage account, by providing read-only access to the data in the secondary location, in addition to the replication across two regions provided by GRS. In the event that data becomes unavailable in the primary region, your application can read data from the secondary region.
@@ -99,7 +113,8 @@ When you enable read-only access to your data in the secondary region, your data
 
 ## Next steps
 
-- [Azure Storage scalability and performance targets](storage-scalability-targets.md)
-- [Microsoft Azure Storage redundancy options and read access geo redundant storage ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)  
-- [Microsoft Azure Storage Emulator 3.1 with RA-GRS ](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
-- [Azure Storage SOSP Paper](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
+- [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/)
+- [About Azure storage accounts](storage-create-storage-account.md)
+- [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md)
+- [Microsoft Azure Storage Redundancy Options and Read Access Geo Redundant Storage ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)  
+- [SOSP Paper - Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  

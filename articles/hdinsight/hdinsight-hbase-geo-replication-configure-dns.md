@@ -4,7 +4,7 @@
    services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
 
 <tags
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/28/2015"
+   ms.date="06/28/2016"
    ms.author="jgao"/>
 
 # Configure DNS between two Azure virtual networks
 
 > [AZURE.SELECTOR]
-- [Configure VPN connectivity](../hdinsight-hbase-geo-replication-configure-VNETs.md)
-- [Configure DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
+- [Configure VPN connectivity](../hdinsight-hbase-geo-replication-configure-vnets.md)
+- [Configure DNS](hdinsight-hbase-geo-replication-configure-dns.md)
 - [Configure HBase replication](hdinsight-hbase-geo-replication.md) 
 
 
@@ -40,9 +40,9 @@ The following diagram illustrates the two virtual networks you created in [Confi
 ##Prerequisites
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **A workstation with Azure PowerShell**.
 
 	Before running PowerShell scripts, make sure you are connected to your Azure subscription using the following cmdlet:
 
@@ -51,6 +51,8 @@ Before you begin this tutorial, you must have the following:
 	If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:
 
 		Select-AzureSubscription <AzureSubscriptionName>
+		
+	[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 - **Two Azure virtual network with VPN connectivity**.  For instructions, see [Configure a VPN connection between two Azure virtual networks][hdinsight-hbase-geo-replication-vnet].
 
@@ -98,7 +100,7 @@ After the virtual machine is created, find out the internal IP and external IP.
 
 ##Set static IP addresses for the two virtual machines
 
-DNS servers requires static IP addresses.  This step can't be done from the Azure portal. You will use Azure PowerShell.
+DNS servers requires static IP addresses.  This step can't be done from the Azure Classic Portal. You will use Azure PowerShell.
 
 **To configure static IP address for the two virtual machines**
 
@@ -120,7 +122,7 @@ DNS servers requires static IP addresses.  This step can't be done from the Azur
 
 **To add the DNS Server role for Contoso-DNS-EU**
 
-1.	From the Azure portal, click **Virtual Machines** on the left. 
+1.	From the Azure Classic Portal, click **Virtual Machines** on the left. 
 2.	Click **Contoso-DNS-EU**.
 3.	Click **DASHBOARD** from the top.
 4.	Click **CONNECT** from the bottom and follow the instructions to connect to the virtual machine via RDP.
@@ -142,7 +144,7 @@ DNS servers requires static IP addresses.  This step can't be done from the Azur
 
 **To register the two DNS servers**
 
-1.	From the Azure portal, click **NEW**, **NETWORK SERVICES**, **VIRTUAL NETWORK**, **REGISTER DNS SERVER**.
+1.	From the Azure Classic Portal, click **NEW**, **NETWORK SERVICES**, **VIRTUAL NETWORK**, **REGISTER DNS SERVER**.
 2.	Enter:
 	- **NAME**: Contoso-DNS-EU
 	- **DNS SERVER IP ADDRESS**: 10.1.0.4 – the IP address must matching the DNS server virtual machine IP address.
@@ -153,7 +155,7 @@ DNS servers requires static IP addresses.  This step can't be done from the Azur
 
 **To assign the two DNS servers to the two virtual networks**
 
-1.	Click **Networks** from the left pane in the Management portal.
+1.	Click **Networks** from the left pane in the Classic Portal.
 2.	Click **Contoso-VNet-EU**.
 3.	Click **CONFIGURE**.
 4.	Select **Contoso-DNS-EU** in the **dns servers** section.
@@ -164,7 +166,7 @@ All the virtual machines that have been deployed to the virtual networks must be
 
 **To reboot the virtual machines**
 
-1. From the Azure portal, click **Virtual Machines** on the left.
+1. From the Azure Classic Portal, click **Virtual Machines** on the left.
 2. Click **Contoso-DNS-EU**.
 3. Click **Dashboard** from the top.
 4. Click **RESTART** on the bottom.
@@ -215,7 +217,7 @@ In this tutorial, you have learned how to configure name resolution across virtu
 
 
 [hdinsight-hbase-geo-replication]: hdinsight-hbase-geo-replication.md
-[hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-VNets.md
-[powershell-install]: ../install-configure-powershell.md
+[hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-vnets.md
+[powershell-install]: powershell-install-configure.md
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png 

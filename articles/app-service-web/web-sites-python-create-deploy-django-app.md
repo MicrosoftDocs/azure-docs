@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="hero-article" 
-	ms.date="08/30/2015"
-	ms.author="huguesv"/>
+	ms.date="02/19/2016"
+	ms.author="huvalo"/>
 
 
 # Creating web apps with Django in Azure
@@ -57,11 +57,10 @@ You should have Python and Git already installed, but make sure you have either 
 The first step in creating your app is to create the web app via the [Azure Portal](https://portal.azure.com).
 
 1. Log into the Azure Portal and click the **NEW** button in the bottom left corner.
-2. Click **Web + Mobile** > **Azure Marketplace** > **Web Apps**.
 3. In the search box, type "python".
-4. In the search results, select **Django**, then click **Create**.
+4. In the search results, select **Django** (published by PTVS), then click **Create**.
 5. Configure the new Django app, such as creating a new App Service plan and a new resource group for it. Then, click **Create**.
-6. Configure Git publishing for your newly created web app by following the instructions at [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md).
+6. Configure Git publishing for your newly created web app by following the instructions at [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md).
 
 ## Application Overview
 
@@ -118,7 +117,7 @@ IIS configuration files. The deployment script will use the appropriate web.x.y.
 
 ### Optional files - Customizing deployment
 
-[AZURE.INCLUDE [web-sites-python-customizing-deployment](../../includes/web-sites-python-customizing-deployment.md)]
+[AZURE.INCLUDE [web-sites-python-django-customizing-deployment](../../includes/web-sites-python-django-customizing-deployment.md)]
 
 ### Optional files - Python runtime
 
@@ -147,7 +146,7 @@ The next 3 sections describe how to proceed with the web app development under 3
 
 ### Clone the repository
 
-First, clone the repository using the URL provided on the Azure Portal. For more information, see [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md).
+First, clone the repository using the URL provided on the Azure Portal. For more information, see [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md).
 
 Open the solution file (.sln) that is included in the root of the repository.
 
@@ -224,7 +223,7 @@ Browse to the Azure URL to view your changes.
 
 ### Clone the repository
 
-First, clone the repository using the URL provided on the Azure Portal, and add the Azure repository as a remote. For more information, see [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md).
+First, clone the repository using the URL provided on the Azure Portal, and add the Azure repository as a remote. For more information, see [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -313,7 +312,7 @@ Browse to the Azure URL to view your changes.
 
 ### Clone the repository
 
-First, clone the repository using the URL provided on the Azure Portal, and add the Azure repository as a remote. For more information, see [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md).
+First, clone the repository using the URL provided on the Azure Portal, and add the Azure repository as a remote. For more information, see [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -332,6 +331,10 @@ For Python 2.7:
 For Python 3.4:
 
     python -m venv env
+
+or
+
+	pyvenv env
 
 Install any external packages required by your application. You can use the requirements.txt file at the root of the repository to install the packages in your virtual environment:
 
@@ -488,9 +491,11 @@ For information on using SQL Database and MySQL:
 - [Django and MySQL on Azure with Python Tools for Visual Studio]
 - [Django and SQL Database on Azure with Python Tools for Visual Studio]
 
+For more information, see the [Python Developer Center](/develop/python/).
+
+
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->

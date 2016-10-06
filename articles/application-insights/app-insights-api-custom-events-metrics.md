@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Application Insights API for custom events and metrics" 
+	pageTitle="Application Insights API for custom events and metrics | Microsoft Azure" 
 	description="Insert a few lines of code in your device or desktop app, web page or service, to track usage and diagnose issues." 
 	services="application-insights"
     documentationCenter="" 
@@ -12,16 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/28/2015" 
+	ms.date="09/11/2016" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
 
 *Application Insights is in preview.*
 
-Insert a few lines of code in your application to find out what users are doing with it, or to help diagnose issues. You can send telemetry from device and desktop apps, web clients, and web servers. 
-
-The Application Insights data collectors use this API to send standard telemetry such as page views and exception reports, but you can also use it to send your own custom telemetry.
+Insert a few lines of code in your application to find out what users are doing with it, or to help diagnose issues. You can send telemetry from device and desktop apps, web clients, and web servers. The [Visual Studio Application Insights](app-insights-overview.md) core telemetry API lets you send custom events and metrics, and your own versions of standard telemetry. This API is the same API that is used by the standard Application Insights data collectors.
 
 ## API summary
 
@@ -46,7 +44,6 @@ If you haven't done these yet:
 
 * Add the Application Insights SDK to your project:
  * [ASP.NET project][greenbrown]
- * [Windows project][windows]
  * [Java project][java] 
  * [JavaScript in each web page][client]   
 
@@ -104,20 +101,331 @@ For example, in a game app, send an event whenever a user wins the game:
 
     telemetry.trackEvent("WinGame");
 
-Here, "WinGame" is the name that appears in the Application Insights portal. Click the Custom Events tile on the overview blade:
 
-![Browse to your application resource in portal.azure.com](./media/app-insights-api-custom-events-metrics/01-custom.png)
+### View your events in the Azure portal
+
+To see a count of your events, open a [Metric Explorer](app-insights-metrics-explorer.md) blade, add a new chart, and select Events.  
+
+![](./media/app-insights-api-custom-events-metrics/01-custom.png)
+
+To compare the counts of different events, set the chart type to Grid, and group by event name:
+
+![](./media/app-insights-api-custom-events-metrics/07-grid.png)
 
 
-The chart is grouped by Event name so that you can see the relative contributions of the most significant events. To control this, select the chart and use the Grouping control.
-
-![Select the chart and set Grouping](./media/app-insights-api-custom-events-metrics/02-segment.png)
-
-From the list below the chart, select an event name. Click through to see individual occurrences of the event.
+On the grid, click through an event name to see individual occurrences of that event.
 
 ![Drill through the events](./media/app-insights-api-custom-events-metrics/03-instances.png)
 
 Click any occurrence to see more detail.
+
+To focus on specific events in either Search or Metric Explorer, set the blade's filter to the event names that you're interested in:
+
+![Open Filters, expand Event name, and select one or more values](./media/app-insights-api-custom-events-metrics/06-filter.png)
+
+## Track Metric
+
+Use TrackMetric to send metrics that are not attached to particular events. For example, you could monitor a queue length at regular intervals. 
+
+Metrics are displayed as statistical charts in metric explorer, but unlike events, you can't search for individual occurrences in diagnostic search.
+
+Metric values should be >= 0 to be correctly displayed.
+
+
+*JavaScript*
+
+    appInsights.trackMetric("Queue", queue.Length);
+
+*C#*
+
+    telemetry.TrackMetric("Queue", queue.Length);
+
+*VB*
+
+    telemetry.TrackMetric("Queue", queue.Length)
+
+*Java*
+
+    telemetry.trackMetric("Queue", queue.Length);
+
+In fact, you might do this in a background thread:
+
+*C#*
+
+    private void Run() {
+     var appInsights = new TelemetryClient();
+     while (true) {
+      Thread.Sleep(60000);
+      appInsights.TrackMetric("Queue", queue.Length);
+     }
+    }
+
+
+To see the results, open Metrics Explorer and add a new chart. Set it to display your metric.
+
+![Add a new chart or select a chart, and under Custom select your metric](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
+
+There are some [limits on the number of metrics](#limits) you can use.
+
+## Page views
+
+In a device or web page app, page view telemetry is sent by default when each screen or page is loaded. But you can change that to track page views at additional or different times. For example, in an app that displays tabs or blades, you might want to track a "page" whenever the user opens a new blade. 
+
+![Usage lens on Overview blade](./media/app-insights-api-custom-events-metrics/appinsights-47usage-2.png)
+
+User and session data is sent as properties along with page views, so the user and session charts come alive when there is page view telemetry.
+
+#### Custom page views
+
+*JavaScript*
+
+    appInsights.trackPageView("tab1");
+
+*C#*
+
+    telemetry.TrackPageView("GameReviewPage");
+
+*VB*
+
+    telemetry.TrackPageView("GameReviewPage")
+
+
+If you have several tabs within different HTML pages, you can specify the URL too:
+
+    appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
+
+#### Timing page views
+
+By default, the times reported as "Page view load time" are measured from when the browser sends the request, until the browser's page load event is called.
+
+Instead, you can either:
+
+* Set an explicit duration in the [trackPageView](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackpageview) call.
+ * `appInsights.trackPageView("tab1", null, null, null, durationInMilliseconds);`
+* Use the page view timing calls `startTrackPage` and `stopTrackPage`.
+
+*JavaScript*
+
+    // To start timing a page:
+    appInsights.startTrackPage("Page1");
+
+... 
+
+    // To stop timing and log the page:
+    appInsights.stopTrackPage("Page1", url, properties, measurements);
+
+The name you use as the first parameter associates the start and stop calls. It defaults to the current page name. 
+
+The resulting page load durations displayed in Metric Explorer are derived from the interval between the start and stop calls. It's up to you what interval you actually time.
+
+## Track Request
+
+Used by the server SDK to log HTTP requests. 
+
+You can also call it yourself if you want to simulate requests in a context where you don't have the web service module running.
+
+*C#*
+
+    // At start of processing this request:
+
+    // Operation Id and Name are attached to all telemetry and help you identify
+    // telemetry associated with one request:
+    telemetry.Context.Operation.Id = Guid.NewGuid().ToString();
+    telemetry.Context.Operation.Name = requestName;
+    
+    var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+
+    // ... process the request ...
+
+    stopwatch.Stop();
+    telemetry.TrackRequest(requestName, DateTime.Now,
+       stopwatch.Elapsed, 
+       "200", true);  // Response code, success
+
+
+
+## Operation context
+
+Telemetry items can be associated together by attaching to them a common Operation ID. The standard request tracking module does this for exceptions and other events sent while processing an HTTP request. In [Search](app-insights-diagnostic-search.md) and [Analytics](app-insights-analytics.md), you can use the ID to easily find any events associated with the request. 
+
+The easiest way to set the ID is to set an operation context by using this pattern:
+
+    // Establish an operation context and associated telemetry item:
+    using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
+    {
+        // Telemetry sent in here will use the same operation ID.
+        ...
+        telemetry.TrackEvent(...); // or other Track* calls
+        ...
+        // Set properties of containing telemetry item - for example:
+        operation.Telemetry.ResponseCode = "200";
+        
+        // Optional: explicitly send telemetry item:
+        telemetry.StopOperation(operation);
+
+    } // When operation is disposed, telemetry item is sent.
+
+As well as setting an operation context, `StartOperation` creates a telemetry item of the type you specify, and sends it when you dispose the operation, or if you explicitly call `StopOperation`. If you use `RequestTelemetry` as the telemetry type, then its Duration is set to the timed interval between start and stop.
+
+Operation contexts can't be nested. If there is already an operation context, then its ID is associated with all the contained items, including the item created with StartOperation.
+
+In Search, the operation context is used to create the Related Items list:
+
+![Related items](./media/app-insights-api-custom-events-metrics/21.png)
+
+
+## Track Exception
+
+Send exceptions to Application Insights: to [count them][metrics], as an indication of the frequency of a problem; and to [examine individual occurrences][diagnostic]. The reports include the stack traces.
+
+*C#*
+
+    try
+    {
+        ...
+    }
+    catch (Exception ex)
+    {
+       telemetry.TrackException(ex);
+    }
+
+*JavaScript*
+
+    try
+    {
+       ...
+    }
+    catch (ex)
+    {
+       appInsights.trackException(ex);
+    }
+
+The SDKs catch many exceptions automatically, so you don't always have to call TrackException explicitly.
+
+* ASP.NET: [Write code to catch exceptions](app-insights-asp-net-exceptions.md)
+* J2EE: [Exceptions are caught automatically](app-insights-java-get-started.md#exceptions-and-request-failures)
+* JavaScript: Caught automatically. If you want to disable automatic collection, add a line into the code snippet that you insert in your web pages:
+
+    ```
+    ({
+      instrumentationKey: "your key"
+      , disableExceptionTracking: true
+    })
+    ```
+
+
+## Track Trace 
+
+Use this to help diagnose problems by sending a 'breadcrumb trail' to Application Insights. You can send chunks of diagnostic data, and inspect them in [Diagnostic search][diagnostic]. 
+
+ 
+
+[Log adapters][trace] use this API to send third-party logs to the portal.
+
+
+*C#*
+
+    telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
+
+
+You can search on message content, but (unlike property values) you can't filter on it.
+
+The size limit on `message` is much higher than limit on properties.
+An advantage of TrackTrace is that you can put relatively long data in the message. For example, you could encode POST data there.  
+
+
+In addition, you can add a severity level to your message. And, like other telemetry, you can add property values that you can use to help filter or search for different sets of traces. For example:
+
+
+    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+    telemetry.TrackTrace("Slow database response",
+                   SeverityLevel.Warning,
+                   new Dictionary<string,string> { {"database", db.ID} });
+
+This would enable you, in [Search][diagnostic], to easily filter out all the messages of a particular severity level relating to a particular database.
+
+## Track Dependency
+
+Use this call to track the response times and success rates of calls to an external piece of code. The results appear in the dependency charts in the portal. 
+
+```C#
+
+            var success = false;
+            var startTime = DateTime.UtcNow;
+            var timer = System.Diagnostics.Stopwatch.StartNew();
+            try
+            {
+                success = dependency.Call();
+            }
+            finally
+            {
+                timer.Stop();
+                telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+            }
+```
+
+Remember that the server SDKs include a [dependency module](app-insights-dependencies.md) that discovers and tracks certain dependency calls automatically - for example to databases and REST APIs. You have to install an agent on your server to make the module work. You'd use this call if you want to track calls that aren't caught by the automated tracking, or if you don't want to install the agent.
+
+To turn off the standard dependency tracking module, edit [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) and delete the reference to `DependencyCollector.DependencyTrackingTelemetryModule`.
+
+
+
+## Flushing data
+
+Normally the SDK sends data at times chosen to minimize impact on the user. However, in some cases you might want to flush the buffer - for example, if you are using the SDK in an application that shuts down.
+
+*C#*
+
+    telemetry.Flush();
+
+    // Allow some time for flushing before shutdown.
+    System.Threading.Thread.Sleep(1000);
+
+Note that the function is asynchronous for in-memory channels, but synchronous if you choose to use the [persistent channel](app-insights-api-filtering-sampling.md#persistence-channel).
+
+
+## Authenticated users
+
+In a web app, users are by default identified by cookie. A user might be counted more than once if they access your app from a different machine or browser, or delete cookies. 
+
+But if users sign in to your app, you can get a more accurate count by setting the authenticated user id in the browser code:
+
+*JavaScript*
+
+```JS
+    // Called when my app has identified the user.
+    function Authenticated(signInId) {
+      var validatedId = signInId.replace(/[,;=| ]+/g, "_");
+      appInsights.setAuthenticatedUserContext(validatedId);
+      ...
+    }
+```
+
+In an ASP.NET web MVC application, for example:
+
+*Razor*
+
+        @if (Request.IsAuthenticated)
+        {
+            <script>
+                appInsights.setAuthenticatedUserContext("@User.Identity.Name
+                   .Replace("\\", "\\\\")"
+                   .replace(/[,;=| ]+/g, "_"));
+            </script>
+        }
+
+It isn't necessary to use the user's actual sign-in name. It only has to be an id that is unique to that user. It must not include spaces, or any of the characters `,;=|`. 
+
+The user id is also set in a session cookie and sent to the server. If the server SDK is installed, the authenticated user id will be sent as part of the context properties of both client and server telemetry, so that you can filter and search on it.
+
+If your app groups users into accounts, you can also pass an identifier for the account (with the same character restrictions).
+
+
+      appInsights.setAuthenticatedUserContext(validatedId, accountId);
+
+In [metrics explorer](app-insights-metrics-explorer.md), you can create a chart that counts **Users, Authenticated** and **User accounts**. 
+
+You can also [search][diagnostic] for client data points with specific user names and accounts.
 
 ## <a name="properties"></a>Filter, search and segment your data with properties
 
@@ -237,9 +545,11 @@ If it's more convenient, you can collect the parameters of an event in a separat
 
     telemetry.TrackEvent(event);
 
+> [AZURE.WARNING] Don't reuse the same telemetry item instance (`event` in this example) to call Track*() multiple times. This may cause telemetry to be sent with incorrect configuration.
 
 
-#### <a name="timed"></a> Timing events
+
+## <a name="timed"></a> Timing events
 
 Sometimes you'd like to chart how long it takes to perform some action. For example, you might like to know how long users take to consider choices in a game. This is a useful example of uses of the measurement parameter.
 
@@ -264,218 +574,9 @@ Sometimes you'd like to chart how long it takes to perform some action. For exam
 
 
 
-## Track Metric
+## <a name="defaults"></a>Default properties for custom telemetry
 
-Use TrackMetric to send metrics that are not attached to particular events. For example, you could monitor a queue length at regular intervals. 
-
-Metrics are displayed as statistical charts in metric explorer, but unlike events, you can't search for individual occurrences in diagnostic search.
-
-Metric values should be >= 0 to be correctly displayed.
-
-
-*JavaScript*
-
-    appInsights.trackMetric("Queue", queue.Length);
-
-*C#*
-
-    telemetry.TrackMetric("Queue", queue.Length);
-
-*VB*
-
-    telemetry.TrackMetric("Queue", queue.Length)
-
-*Java*
-
-    telemetry.trackMetric("Queue", queue.Length);
-
-In fact, you might do this in a background thread:
-
-*C#*
-
-    private void Run() {
-     var appInsights = new TelemetryClient();
-     while (true) {
-      Thread.Sleep(60000);
-      appInsights.TrackMetric("Queue", queue.Length);
-     }
-    }
-
-
-To see the results, open Metrics Explorer and add a new chart. Set it to display your metric.
-
-![Add a new chart or select a chart, and under Custom select your metric](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
-
-There are some [limits on the number of metrics](#limits) you can use.
-
-## Page views
-
-In a device or web page app, page view telemetry is sent by default when each screen or page is loaded. But you can change that to track page views at additional or different times. For example, in an app that displays tabs or blades, you might want to track a "page" whenever the user opens a new blade. 
-
-![Usage lens on Overview blade](./media/app-insights-api-custom-events-metrics/appinsights-47usage-2.png)
-
-User and session data is sent as properties along with page views, so the user and session charts come alive when there is page view telemetry.
-
-#### Custom page views
-
-*JavaScript*
-
-    appInsights.trackPageView("tab1");
-
-*C#*
-
-    telemetry.TrackPageView("GameReviewPage");
-
-*VB*
-
-    telemetry.TrackPageView("GameReviewPage")
-
-
-If you have several tabs within different HTML pages, you can specify the URL too:
-
-    appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
-
-
-
-## Track Request
-
-Used by the server SDK to log HTTP requests. 
-
-You can also call it yourself if you want to simulate requests in a context where you don't have the web service module running.
-
-*C#*
-
-    // At start of processing this request:
-
-    // Operation Id and Name are attached to all telemetry and help you identify
-    // telemetry associated with one request:
-    telemetry.Context.Operation.Id = Guid.NewGuid().ToString();
-    telemetry.Context.Operation.Name = requestName;
-    
-    var stopwatch = System.Diagnostics.Stopwatch.StartNew();
-
-    // ... process the request ...
-
-    stopwatch.Stop();
-    telemetryClient.TrackRequest(requestName, DateTime.Now,
-       stopwatch.Elapsed, 
-       "200", true);  // Response code, success
-
-
-
-## Track Exception
-
-Send exceptions to Application Insights: to [count them][metrics], as an indication of the frequency of a problem; and to [examine individual occurrences][diagnostic]. The reports include the stack traces.
-
-*C#*
-
-    try
-    {
-        ...
-    }
-    catch (Exception ex)
-    {
-       telemetry.TrackException(ex);
-    }
-
-*JavaScript*
-
-    try
-    {
-       ...
-    }
-    catch (ex)
-    {
-       appInsights.trackException(ex);
-    }
-
-The SDKs catch many exceptions automatically, so you don't always have to call TrackException explicitly.
-
-* ASP.NET: [Write code to catch exceptions](app-insights-asp-net-exceptions.md)
-* J2EE: [Exceptions are caught automatically](app-insights-java-get-started.md#exceptions-and-request-failures)
-* Windows apps: [Crashes are caught automatically](app-insights-windows-crashes.md)
-* JavaScript: Caught automatically. If you want to disable automatic collection, add a line into the code snippet that you insert in your web pages:
-
-    ```
-    ({
-      instrumentationKey: "your key"
-      , disableExceptionTracking: true
-    })
-    ```
-
-
-## Track Trace 
-
-Use this to help diagnose problems by sending a 'breadcrumb trail' to Application Insights. You can send chunks of diagnostic data, and inspect them in [Diagnostic search][diagnostic]. 
-
- 
-
-[Log adapters][trace] use this API to send third-party logs to the portal.
-
-
-*C#*
-
-    telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
-
-The size limit on `message` is much higher than limit on  properties. You can search on message content, but (unlike property values) you can't filter on it.
-
-## Track Dependency
-
-Use this call to track the response times and success rates of calls to an external piece of code. The results appear in the dependency charts in the portal. 
-
-```C#
-
-            var success = false;
-            var startTime = DateTime.UtcNow;
-            var timer = System.Diagnostics.Stopwatch.StartNew();
-            try
-            {
-                success = dependency.Call();
-            }
-            finally
-            {
-                timer.Stop();
-                telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
-            }
-```
-
-Remember that the server SDKs include a [dependency module](app-insights-dependencies.md) that discovers and tracks certain dependency calls automatically - for example to databases and REST APIs. You have to install an agent on your server to make the module work. You'd use this call if you want to track calls that aren't caught by the automated tracking, or if you don't want to install the agent.
-
-To turn off the standard dependency tracking module, edit [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) and delete the reference to `DependencyCollector.DependencyTrackingTelemetryModule`.
-
-
-## Authenticated users
-
-In a web app, users are by default identified by cookie. A user might be counted more than once if they access your app from a different machine or browser, or delete cookies. 
-
-But if users sign in to your app, you can get a more accurate count by setting the authenticated user id in the browser code:
-
-*JavaScript*
-
-```JS
-    // Called when my app has identified the user.
-    function Authenticated(signInId) {
-      var validatedId = signInId.replace(/[,;=| ]+/g, "_");
-      appInsights.setAuthenticatedUserContext(validatedId);
-      ...
-    }
-```
-
-It isn't necessary to use the user's actual sign-in name. It only has to be an id that is unique to that user. It must not include spaces, or any of the characters `,;=|`. 
-
-The user id is also set in a session cookie and sent to the server. If the server SDK is installed, the authenticated user id will be sent as part of the context properties of both client and server telemetry, so that you can filter and search on it.
-
-If your app groups users into accounts, you can also pass an identifier for the account (with the same character restrictions).
-
-
-      appInsights.setAuthenticatedUserContext(validatedId, accountId);
-
-In [metrics explorer](app-insights-metrics-explorer.md), you can create a chart of **Authenticated Users** and **Accounts**. 
-
-
-## <a name="defaults"></a>Set defaults for selected custom telemetry
-
-If you just want to set default property values for some of the custom events that you write, you can set them in a TelemetryClient. They are attached to every telemetry item sent from that client. 
+If you want to set default property values for some of the custom events that you write, you can set them in a TelemetryClient. They are attached to every telemetry item sent from that client. 
 
 *C#*
 
@@ -512,143 +613,57 @@ Individual telemetry calls can override the default values in their property dic
 
 **For JavaScript web clients**, [use JavaScript telemetry initializers](#js-initializer).
 
+**To add properties to all telemetry** including the data from standard collection modules, [implement `ITelemetryInitializer`](app-insights-api-filtering-sampling.md#add-properties).
+
+
+## Sampling, filtering and processing telemetry 
+
+You can write code to process your telemetry before it is sent from the SDK. The processing includes data sent from the standard telemetry modules such as HTTP request collection and dependency collection.
+
+* [Add properties](app-insights-api-filtering-sampling.md#add-properties) to telemetry by implementing `ITelemetryInitializer` - for example, to add version numbers, or values calculated from other properties. 
+* [Filtering](app-insights-api-filtering-sampling.md#filtering) can modify or discard telemetry before it is sent from the SDK by implementing `ITelemetryProcesor`. You control what is sent or discarded, but you have to take account of the effect on your metrics. Depending on how you discard items, you might lose the ability to navigate between related items.
+* [Sampling](app-insights-api-filtering-sampling.md#sampling) is a packaged solution to reduce the volume of data sent from your app to the portal. It does so without affecting the displayed metrics, and without affecting your ability to diagnose problems by navigating between related items such as exceptions, requests and page views.
+
+[Learn more](app-insights-api-filtering-sampling.md)
+
+
+## Disabling telemetry
+
+To **dynamically stop and start** the collection and transmission of telemetry:
+
+*C#*
+
+```C#
+
+    using  Microsoft.ApplicationInsights.Extensibility;
+
+    TelemetryConfiguration.Active.DisableTelemetry = true;
+```
+
+To **disable selected standard collectors** - for example, performance counters, HTTP requests, or dependencies - delete or comment out the relevant lines in [ApplicationInsights.config][config]. You could do this, for example, if you want to send your own TrackRequest data.
+
+## <a name="debug"></a>Developer mode
+
+During debugging, it's useful to have your telemetry expedited through the pipeline so that you can see results immediately. You also get additional messages that help you trace any problems with the telemetry. Switch it off in production, as it may slow down your app.
+
+
+*C#*
+    
+    TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
+
+*VB*
+
+    TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
+
 
 ## <a name="ikey"></a> Set the instrumentation key for selected custom telemetry
 
 *C#*
     
     var telemetry = new TelemetryClient();
-    telemetry.Context.InstrumentationKey = "---my key---";
+    telemetry.InstrumentationKey = "---my key---";
     // ...
 
-
-
-## Telemetry Initializers
-
-Use telemetry initializers to define global properties that are sent with all telemetry; and to override selected behavior of the standard telemetry modules. 
-
-For example, the Application Insights for Web package collects telemetry about HTTP requests. By default, it flags as failed any request with a response code >= 400. But if you want to treat 400 as a success, you can provide a telemetry initilizer that sets the Success property.
-
-If you provide a telemetry initializer, it is called whenever any of the Track*() methods is called. This includes methods called by the standard telemetry modules. By convention, these modules do not set any property that has already been set by an initializer. 
-
-**Define your initializer**
-
-*C#*
-
-```C#
-
-    using System;
-    using Microsoft.ApplicationInsights.Channel;
-    using Microsoft.ApplicationInsights.DataContracts;
-    using Microsoft.ApplicationInsights.Extensibility;
-
-    namespace MvcWebRole.Telemetry
-    {
-      /*
-       * Custom TelemetryInitializer that overrides the default SDK 
-       * behavior of treating response codes >= 400 as failed requests
-       * 
-       */
-      public class MyTelemetryInitializer : ITelemetryInitializer
-      {
-        public void Initialize(ITelemetry telemetry)
-        {
-            var requestTelemetry = telemetry as RequestTelemetry;
-            // Is this a TrackRequest() ?
-            if (requestTelemetry == null) return;
-            int code;
-            bool parsed = Int32.TryParse(requestTelemetry.ResponseCode, out code);
-            if (!parsed) return;
-            if (code >= 400 && code < 500)
-            {
-                // If we set the Success property, the SDK won't change it:
-                requestTelemetry.Success = true;
-                // Allow us to filter these requests in the portal:
-                requestTelemetry.Context.Properties["Overridden400s"] = "true";
-            }
-            // else leave the SDK to set the Success property      
-        }
-      }
-    }
-```
-
-**Load your initializer**
-
-In ApplicationInsights.config:
-
-    <ApplicationInsights>
-      <TelemetryInitializers>
-        <!-- Fully qualified type name, assembly name: -->
-        <Add Type="MvcWebRole.Telemetry.MyTelemetryInitializer, MvcWebRole"/> 
-        ...
-      </TelemetryInitializers>
-    </ApplicationInsights>
-
-*Alternatively,* you can instantiate the initializer in code, for example in Global.aspx.cs:
-
-
-```C#
-    protected void Application_Start()
-    {
-        // ...
-        TelemetryConfiguration.Active.TelemetryInitializers
-        .Add(new MyTelemetryInitializer());
-    }
-```
-
-
-[See more of this sample.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
-
-<a name="js-initializer"></a>
-### JavaScript telemetry initializers
-
-*JavaScript*
-
-Insert a telemetry initializer immediately after the initialization code that you got from the portal: 
-
-```JS
-
-    <script type="text/javascript">
-        // ... initialization code
-        ...({
-            instrumentationKey: "your instrumentation key"
-        });
-        window.appInsights = appInsights;
-
-
-        // Adding telemetry initializer.
-        // This is called whenever a new telemetry item
-        // is created.
-
-        appInsights.queue.push(function () {
-            appInsights.context.addTelemetryInitializer(function (envelope) {
-                var telemetryItem = envelope.data.baseData;
-
-                // To check the telemetry item’s type - for example PageView:
-                if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
-                    // this statement removes url from all page view documents
-                    telemetryItem.url = "URL CENSORED";
-                }
-
-                // To set custom properties:
-                telemetryItem.properties = telemetryItem.properties || {};
-                telemetryItem.properties["globalProperty"] = "boo";
-
-                // To set custom metrics:
-                telemetryItem.measurements = telemetryItem.measurements || {};
-                telemetryItem.measurements["globalMetric"] = 100;
-            });
-        });
-
-        // End of inserted code.
-
-        appInsights.trackPageView();
-    </script>
-```
-
-For a summary of the non-custom properties available on the telemetryItem, see the [data model](app-insights-export-data-model.md/#lttelemetrytypegt).
-
-You can add as many initializers as you like. 
 
 ## <a name="dynamic-ikey"></a> Dynamic instrumentation key
 
@@ -687,44 +702,11 @@ In web pages, you might want to set it from the web server's state, rather than 
     }) // ...
 
 
-
-## Flushing data
-
-Normally the SDK sends data at times chosen to minimize impact on the user. However, in some cases you might want to flush the buffer - for example, if you are using the SDK in an application that shuts down.
-
-*C#*
-
-    telemetry.Flush();
-
-Note that the function is synchronous.
-
-
-
-## Disable standard telemetry
-
-You can [disable selected parts of the standard telemetry][config] by editing `ApplicationInsights.config`. You could do this, for example, if you want to send your own TrackRequest data. 
-
-[Learn more][config].
-
-
-## <a name="debug"></a>Developer mode
-
-During debugging, it's useful to have your telemetry expedited through the pipeline so that you can see results immediately. You also get additional messages that help you trace any problems with the telemetry. Switch it off in production, as it may slow down your app.
-
-
-*C#*
-    
-    TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
-
-*VB*
-
-    TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
-
 ## TelemetryContext
 
 TelemetryClient has a Context property, which contains a number of values that are sent along with all telemetry data. They are normally set by the standard telemetry modules, but you can also set them yourself. For example:
 
-    telemetryClient.Context.Operation.Name = “MyOperationName”;
+    telemetry.Context.Operation.Name = "MyOperationName";
 
 If you set any of these values yourself, consider removing the relevant line from [ApplicationInsights.config][config], so that your values and the standard values don't get confused.
 
@@ -740,106 +722,18 @@ If you set any of these values yourself, consider removing the relevant line fro
 * **Session** Identifies the user's session. The Id is set to a generated value, which is changed when the user has not been active for a while.
 * **User** User information. 
 
-
-## <a name="default-properties"></a>Context initializers - Set default properties for all telemetry
-
-You can set up a universal initializer so that all new TelemetryClients automatically use your context. This includes standard telemetry sent by the platform-specific telemetry modules, such as web server request tracking.
-
-A typical use is to identify telemetry coming from different versions or components of your app. In the portal, you can filter or group results by the "Application Version" property.
-
-In general, [we recommend that you use telemetry initializers rather than context initializers](http://apmtips.com/blog/2015/06/09/do-not-use-context-initializers/).
-
-#### Define a context initializer
-
-
-*C#*
-
-```C#
-
-    using System;
-    using Microsoft.ApplicationInsights.Channel;
-    using Microsoft.ApplicationInsights.DataContracts;
-    using Microsoft.ApplicationInsights.Extensibility;
-
-    namespace MyNamespace
-    {
-      // Context initializer class
-      public class MyContextInitializer : IContextInitializer
-      {
-        public void Initialize (TelemetryContext context)
-        {
-            if (context == null) return;
-
-            context.Component.Version = "v2.1";
-        }
-      }
-    }
-```
-
-*Java*
-
-```Java
-
-    import com.microsoft.applicationinsights.extensibility.ContextInitializer;
-    import com.microsoft.applicationinsights.telemetry.TelemetryContext;
-
-    public class MyContextInitializer implements ContextInitializer {
-      @Override
-      public void initialize(TelemetryContext context) {
-        context.Component.Version = "2.1";
-      }
-    }
-```
-
-#### Load your context initializer
-
-In ApplicationInsights.config:
-
-    <ApplicationInsights>
-      <ContextInitializers>
-        <!-- Fully qualified type name, assembly name: -->
-        <Add Type="MyNamespace.MyContextInitializer, MyAssemblyName"/> 
-        ...
-      </ContextInitializers>
-    </ApplicationInsights>
-
-*Alternatively,* you can instantiate the initializer in code:
-
-*C#*
-
-```C#
-
-    protected void Application_Start()
-    {
-        // ...
-        TelemetryConfiguration.Active.ContextInitializers
-        .Add(new MyContextInitializer());
-    }
-```
-
-*Java*
-
-```Java
-
-    // load the context initializer
-    TelemetryConfiguration.getActive().getContextInitializers().add(new MyContextInitializer());
-```
-
-
-
-
 ## Limits
 
-There are some limits on the number of metrics and events per application.
 
-1. Up to 500 telemetry data points per second per instrumentation key (that is, per application). This includes both the standard telemetry sent by the SDK modules, and custom events, metrics and other telemetry sent by your code.
-1.	Maximum of 200 unique metric names and 200 unique property names for your application. Metrics include data send via TrackMetric as well as measurements on other  data types such as Events.  Metrics and property names are global per instrumentation key, not scoped to data type.
-2.	Properties can be used for filtering and group-by only while they have less than 100 unique values for each property. After the unique values exceed 100, the property can still be used for search and filtering but no longer for filters.
-3.	Standard properties such as Request Name and Page URL are limited to 1000 unique values per week. After 1000 unique values, additional values are marked as "Other values". The original value can still be used for full text search and filtering.
+[AZURE.INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
-* *Q: How long is data kept?*
+*How can I avoid hitting the data rate limit?*
 
-    See [Data retention and privacy][data].
+* Use [sampling](app-insights-sampling.md).
+
+*How long is data kept?*
+
+* See [Data retention and privacy][data].
 
 
 ## Reference docs
@@ -855,10 +749,9 @@ There are some limits on the number of metrics and events per application.
 
 * [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
-* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
+* [Windows Server packages](https://github.com/Microsoft/applicationInsights-dotnet-server)
 * [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
-* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
 * [All platforms](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
 ## Questions
@@ -869,9 +762,9 @@ There are some limits on the number of metrics and events per application.
 
 
 
-* *Is there a REST API?*
+* *Is there a REST API to get data from the portal?*
 
-    Yes, but we aren't publishing it yet.
+    Yes, coming soon. In the meantime, use [continuous export](app-insights-export-telemetry.md).
 
 ## <a name="next"></a>Next steps
 
@@ -891,11 +784,10 @@ There are some limits on the number of metrics and events per application.
 [data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
 [trace]: app-insights-search-diagnostic-logs.md
-[windows]: app-insights-windows-get-started.md
 
  

@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/06/2015"
+	ms.date="09/27/2016"
 	ms.author="larryfr"/>
 
 
@@ -26,7 +26,7 @@ In this document, learn how to use C# with Hive and Pig.
 
 ##Prerequisites
 
-* Windows 7, Windows 8, or Windows 8.1.
+* Windows 7 or newer.
 
 * Visual Studio with the following versions:
 
@@ -34,7 +34,7 @@ In this document, learn how to use C# with Hive and Pig.
 
 	* Visual Studio 2013 Community/Professional/Premium/Ultimate with [Update 4](https://www.microsoft.com/download/details.aspx?id=44921)
 
-	* Visual Studio 2015 Preview
+	* Visual Studio 2015
 
 * Hadoop on HDInsight cluster - see [Provision an HDInsight cluster](hdinsight-provision-clusters.md) for steps to create a cluster
 
@@ -60,52 +60,52 @@ Since Hive and Pig need to invoke the application at run time, the **Console App
 
 2. Replace the contents of **Program.cs** with the following:
 
-		using System;
-		using System.Security.Cryptography;
-		using System.Text;
-		using System.Threading.Tasks;
+        using System;
+        using System.Security.Cryptography;
+        using System.Text;
+        using System.Threading.Tasks;
 
-		namespace HiveCSharp
-		{
-		    class Program
-		    {
-		        static void Main(string[] args)
-		        {
-		            string line;
-		            // Read stdin in a loop
-		            while ((line = Console.ReadLine()) != null)
-		            {
-		                // Parse the string, trimming line feeds
-		                // and splitting fields at tabs
-		                line = line.TrimEnd('\n');
-		                string[] field = line.Split('\t');
-		                string phoneLabel = field[1] + ' ' + field[2];
-		                // Emit new data to stdout, delimited by tabs
-		                Console.WriteLine("{0}\t{1}\t{2}", field[0], phoneLabel, GetMD5Hash(phoneLabel));
-		            }
-		        }
-		        /// <summary>
-		        /// Returns an MD5 hash for the given string
-		        /// </summary>
-		        /// <param name="input">string value</param>
-		        /// <returns>an MD5 hash</returns>
-		        static string GetMD5Hash(string input)
-		        {
-		            // Step 1, calculate MD5 hash from input
-		            MD5 md5 = System.Security.Cryptography.MD5.Create();
-		            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
-		            byte[] hash = md5.ComputeHash(inputBytes);
+        namespace HiveCSharp
+        {
+            class Program
+            {
+                static void Main(string[] args)
+                {
+                    string line;
+                    // Read stdin in a loop
+                    while ((line = Console.ReadLine()) != null)
+                    {
+                        // Parse the string, trimming line feeds
+                        // and splitting fields at tabs
+                        line = line.TrimEnd('\n');
+                        string[] field = line.Split('\t');
+                        string phoneLabel = field[1] + ' ' + field[2];
+                        // Emit new data to stdout, delimited by tabs
+                        Console.WriteLine("{0}\t{1}\t{2}", field[0], phoneLabel, GetMD5Hash(phoneLabel));
+                    }
+                }
+                /// <summary>
+                /// Returns an MD5 hash for the given string
+                /// </summary>
+                /// <param name="input">string value</param>
+                /// <returns>an MD5 hash</returns>
+                static string GetMD5Hash(string input)
+                {
+                    // Step 1, calculate MD5 hash from input
+                    MD5 md5 = System.Security.Cryptography.MD5.Create();
+                    byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+                    byte[] hash = md5.ComputeHash(inputBytes);
 
-		            // Step 2, convert byte array to hex string
-		            StringBuilder sb = new StringBuilder();
-		            for (int i = 0; i < hash.Length; i++)
-		            {
-		                sb.Append(hash[i].ToString("x2"));
-		            }
-		            return sb.ToString();
-		        }
-		    }
-		}
+                    // Step 2, convert byte array to hex string
+                    StringBuilder sb = new StringBuilder();
+                    for (int i = 0; i < hash.Length; i++)
+                    {
+                        sb.Append(hash[i].ToString("x2"));
+                    }
+                    return sb.ToString();
+                }
+            }
+        }
 
 3. Build the project.
 
@@ -139,7 +139,7 @@ Since Hive and Pig need to invoke the application at run time, the **Console App
 
 6. Use the following for the Hive query:
 
-		add file wasb:///HiveCSharp.exe;
+		add file wasbs:///HiveCSharp.exe;
 
 		SELECT TRANSFORM (clientid, devicemake, devicemodel)
 		USING 'HiveCSharp.exe' AS
@@ -147,7 +147,7 @@ Since Hive and Pig need to invoke the application at run time, the **Console App
 		FROM hivesampletable
 		ORDER BY clientid LIMIT 50;
 
-    This selects the `clientid`, `devicemake`, and `devicemodel` fields from `hivesampletable`, and passes the fields to the HiveCSharp.exe application. The query expects the application to return three fields, which are stored as `clientid`, `phoneLabel`, and `phoneHash`. The query also expects to find HiveCSharp.exe in the root of the default storage container (`add file wasb:///HiveCSharp.exe`).
+    This selects the `clientid`, `devicemake`, and `devicemodel` fields from `hivesampletable`, and passes the fields to the HiveCSharp.exe application. The query expects the application to return three fields, which are stored as `clientid`, `phoneLabel`, and `phoneHash`. The query also expects to find HiveCSharp.exe in the root of the default storage container (`add file wasbs:///HiveCSharp.exe`).
 
 5. Click **Submit** to submit the job to the HDInsight cluster. The **Hive Job Summary** window will open.
 
@@ -212,7 +212,7 @@ Since Hive and Pig need to invoke the application at run time, the **Console App
 3. Enter the following to run a simple Pig job by using the .NET Framework application:
 
 		DEFINE streamer `pigudf.exe` SHIP('pigudf.exe');
-		LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
+		LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
 		LOG = FILTER LOGS by LINE is not null;
 		DETAILS = STREAM LOG through streamer as (col1, col2, col3, col4, col5);
 		DUMP DETAILS;

@@ -1,10 +1,10 @@
 <properties 
    pageTitle="StorSimple Snapshot Manager and volumes | Microsoft Azure"
-   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to view and manage volumes."
+   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to view and manage volumes and to configure backups."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,20 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="04/18/2016"
    ms.author="v-sharos" />
 
 # Use StorSimple Snapshot Manager to view and manage volumes
 
 ## Overview
 
-You can use the StorSimple Snapshot Manager **Volumes** node (on the **Scope** pane) to select volumes and view information about them. The volumes are presented as drives that correspond to the volumes mounted by the host. The **Volumes** node shows local volumes and volume types that are supported by Azure StorSimple, including volumes discovered through the use of iSCSI and a device. 
+You can use the StorSimple Snapshot Manager **Volumes** node (on the **Scope** pane) to select volumes and view information about them. The volumes are presented as drives that correspond to the volumes mounted by the host. The **Volumes** node shows local volumes and volume types that are supported by StorSimple, including volumes discovered through the use of iSCSI and a device. 
 
 For more information about supported volumes, go to [Support for multiple volume types](storsimple-what-is-snapshot-manager.md#support-for-multiple-volume-types).
 
 ![Volume list in Results pane](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Volume_node.png)
-
-**Figure 1: StorSimple Snapshot Manager Volumes node** 
 
 The **Volumes** node also lets you rescan or delete volumes after StorSimple Snapshot Manager discovers them. 
 
@@ -41,7 +39,7 @@ This tutorial explains how you can mount, initialize, and format volumes and the
  
 ## Mount volumes
 
-Use the following procedure to mount, initialize, and format Azure StorSimple volumes.
+Use the following procedure to mount, initialize, and format StorSimple volumes. This procedure uses Disk Management, a system utility for managing hard disks and the corresponding volumes or partitions. For more information about Disk Management, go to [Disk Management](https://technet.microsoft.com/library/cc770943.aspx) on the Microsoft TechNet website.
 
 #### To mount volumes
 
@@ -49,7 +47,7 @@ Use the following procedure to mount, initialize, and format Azure StorSimple vo
 
 2. Supply one of the interface IP addresses as the target portal or discovery IP address, and connect to the device. After the device is connected, the volumes will be accessible to your Windows system. For more information about using the Microsoft iSCSI initiator, go to the section “Connecting to an iSCSI target device” in [Installing and Configuring Microsoft iSCSI Initiator][1].
 
-3. Use any of the following options to start the Disk Management snap-in:
+3. Use any of the following options to start Disk Management:
 
     - Type Diskmgmt.msc in the **Run** box.
 
@@ -105,7 +103,7 @@ Use the following procedure to view information about local and Azure StorSimple
     :--------------|:-------------
     Name           | The **Name** column contains the drive letter assigned to each discovered volume.
     Device         | The **Device** column contains the IP address of the device connected to the host computer.
-    Device Volume Name | The **Device Volume Name** column contains the name of the device volume to which the selected volume belongs. This is the volume name defined in the Azure Management Portal for that specific volume.
+    Device Volume Name | The **Device Volume Name** column contains the name of the device volume to which the selected volume belongs. This is the volume name defined in the Azure classic portal for that specific volume.
     Access Paths   | The **Access Paths** column displays the access path to the volume. This is the drive letter or mount point at which the volume is accessible on the host computer.
  
 ## Delete a volume
@@ -113,7 +111,8 @@ Use the following procedure to view information about local and Azure StorSimple
 Use the following procedure to delete a volume from StorSimple Snapshot Manager.
 
 >[AZURE.NOTE] You cannot delete a volume if it is part of any volume group. (The delete option is not available for volumes that are members of a volume group.) You must delete the entire volume group to delete the volume.
-<br>
+
+
 #### To delete a volume
 
 1. Click the desktop icon to start StorSimple Snapshot Manager.
@@ -154,7 +153,7 @@ Use the following procedure to configure a backup of a basic volume, and then ei
 
 Before you begin:
 
-- Make sure that the StorSimple device and host computer are configured correctly. For more information, go to [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
+- Make sure that the StorSimple device and host computer are configured correctly. For more information, go to [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough-u2.md).
 
 - Install and configure StorSimple Snapshot Manager. For more information, go to [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
@@ -186,17 +185,17 @@ Before you begin:
 
 ## Configure and back up a dynamic mirrored volume
 
-Complete the following steps to configure backup for a dynamic mirrored volume:
+Complete the following steps to configure backup of a dynamic mirrored volume:
 
-- Step 1: Use Disk Management to create a dynamic mirrored volume 
+- Step 1: Use Disk Management to create a dynamic mirrored volume. 
 
-- Step 2: Use StorSimple Snapshot Manager to configure backup 
+- Step 2: Use StorSimple Snapshot Manager to configure backup.
 
 ### Prerequisites
 
 Before you begin:
 
-- Make sure that the StorSimple device and host computer are configured correctly. For more information, go to [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
+- Make sure that the StorSimple device and host computer are configured correctly. For more information, go to [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough-u2.md).
 
 - Install and configure StorSimple Snapshot Manager. For more information, go to [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 

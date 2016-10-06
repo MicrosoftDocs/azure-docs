@@ -4,7 +4,7 @@
    services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
 
 <tags
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/08/2015"
+   ms.date="07/25/2016"
    ms.author="jgao"/>
 
 # Configure HBase geo-replication in HDInsight
 
 > [AZURE.SELECTOR]
-- [Configure VPN connectivity](../hdinsight-hbase-geo-replication-configure-VNETs.md)
-- [Configure DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
+- [Configure VPN connectivity](../hdinsight-hbase-geo-replication-configure-vnets.md)
+- [Configure DNS](hdinsight-hbase-geo-replication-configure-dns.md)
 - [Configure HBase replication](hdinsight-hbase-geo-replication.md) 
  
 Learn how to configure HBase replication across two data centers. Some use cases for cluster replication include:
@@ -47,9 +47,13 @@ The following diagram illustrates the two virtual networks and the network conne
 
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). To execute PowerShell scripts, you must run Azure PowerShell as administrator and set the execution policy to *RemoteSigned*. See Using the Set-ExecutionPolicy cmdlet.
+- **A workstation with Azure PowerShell**.
+
+    To execute PowerShell scripts, you must run Azure PowerShell as administrator and set the execution policy to *RemoteSigned*. See Using the Set-ExecutionPolicy cmdlet.
+	
+	[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 - **Two Azure virtual network with VPN connectivity and with DNS configured**.  For instructions, see [Configure a VPN connection between two Azure virtual networks][hdinsight-hbase-replication-vnet], and [Configure DNS between two Azure virtual networks][hdinsight-hbase-replication-dns].
 
@@ -68,7 +72,7 @@ Before you begin this tutorial, you must have the following:
 
 In [Configure a VPN connection between two Azure virtual networks][hdinsight-hbase-replication-vnet], you have created a virtual network in an Europe data center, and a virtual network in a U.S. data center. The two virtual network are connected via VPN. In this session, you will provision an HBase cluster in each of the virtual networks. Later in this tutorial, you will make one of the HBase clusters to replicate the other HBase cluster.
 
-The Azure portal doesn't support provisioning HDInsight clusters with custom configuration options. For example, set *hbase.replication* to *true*. If you set the value in the configuration file after a cluster is provisioned, you will lose the setting after the cluster is being reimaged. For more information see [Provision Hadoop clusters in HDInsight][hdinsight-provision]. One of the options to provision HDInsight cluster with custom options is using Azure PowerShell.
+The Azure Classic Portal doesn't support provisioning HDInsight clusters with custom configuration options. For example, set *hbase.replication* to *true*. If you set the value in the configuration file after a cluster is provisioned, you will lose the setting after the cluster is being reimaged. For more information see [Provision Hadoop clusters in HDInsight][hdinsight-provision]. One of the options to provision HDInsight cluster with custom options is using Azure PowerShell.
 
 
 **To provision an HBase Cluster in Contoso-VNet-EU** 
@@ -157,7 +161,7 @@ To configure conditional forwarder, you need to know the domain suffixes of the 
 
 **To find the domain suffixes of the two HBase clusters**
 
-1. RDP into **Contoso-HBase-EU**.  For instructions, see [Manage Hadoop clusters in HDInsight by using the Azure portal][hdinsight-manage-portal]. It is actually headnode0 of the cluster.
+1. RDP into **Contoso-HBase-EU**.  For instructions, see [Manage Hadoop clusters in HDInsight by using the Azure Classic Portal][hdinsight-manage-portal]. It is actually headnode0 of the cluster.
 2. Open a Windows PowerShell console, or a command prompt.
 3. Run **ipconfig**, and write down **Connection-specific DNS suffix**.
 4. Please don't close the RDP session.  You will need it later to test domain name resolution.
@@ -245,7 +249,7 @@ Create HBase tables with the same names and column families on both the source a
 
 A sample data file has been uploaded to a public Azure Blob container with the following URL:
 
-		wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+		wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 
 The content of the file:
 
@@ -270,7 +274,7 @@ You can upload the same data file into your HBase cluster and import the data fr
 
 4. upload the data:
 
-		hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:HomePhone, Office:Address" -Dimporttsv.bulk.output=/tmpOutput Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+		hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:HomePhone, Office:Address" -Dimporttsv.bulk.output=/tmpOutput Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 
 		hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /tmpOutput Contacts
 
@@ -286,28 +290,27 @@ You can verify that replication is taking place by scanning the tables from both
 
 In this tutorial, you have learned how to configure HBase replication across two datacenters. To learn more about HDInsight and HBase, see:
 
-- [HDInsight service page](http://azure.microsoft.com/services/hdinsight/)
-- [HDInsight documentation](http://azure.microsoft.com/documentation/services/hdinsight/)
+- [HDInsight service page](https://azure.microsoft.com/services/hdinsight/)
+- [HDInsight documentation](https://azure.microsoft.com/documentation/services/hdinsight/)
 - [Get started with Apache HBase in HDInsight][hdinsight-hbase-get-started]
 - [HDInsight HBase overview][hdinsight-hbase-overview]
 - [Provision HBase clusters on Azure Virtual Network][hdinsight-hbase-provision-vnet]
 - [Analyze real-time Twitter sentiment with HBase][hdinsight-hbase-twitter-sentiment]
 - [Analyzing sensor data with Storm and HBase in HDInsight (Hadoop)][hdinsight-sensor-data]
 
-[hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-VNets.md
+[hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-vnets.md
 [hdinsight-hbase-geo-replication-dns]: ../hdinsight-hbase-geo-replication-configure-VNet.md
 
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication/HDInsight.HBase.Replication.Network.diagram.png
 
-[powershell-install]: ../install-configure-powershell.md
-[hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
+[powershell-install]: powershell-install-configure.md
+[hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-hbase-replication-vnet]: hdinsight-hbase-geo-replication-configure-VNets.md
-[hdinsight-hbase-replication-dns]: hdinsight-hbase-geo-replication-configure-DNS.md
+[hdinsight-hbase-replication-vnet]: hdinsight-hbase-geo-replication-configure-vnets.md
+[hdinsight-hbase-replication-dns]: hdinsight-hbase-geo-replication-configure-dns.md
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 [hdinsight-sensor-data]: hdinsight-storm-sensor-data-analysis.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
-[hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Using Diagnostic Search" 
+	pageTitle="Using Diagnostic Search | Microsoft Azure" 
 	description="Search and filter individual events, requests, and log traces." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,14 +12,17 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="06/09/2016" 
 	ms.author="awills"/>
  
 # Using Diagnostic Search in Application Insights
 
-Diagnostic Search is the blade in [Application Insights][start] that you use to find and explore individual telemetry items, such as page views, exceptions, or web requests. And you can view log traces and events that you have coded.
+Diagnostic Search is a feature of [Application Insights][start] that you use to find and explore individual telemetry items, such as page views, exceptions, or web requests. And you can view log traces and events that you have coded.
 
-## When do you see Diagnostic Search?
+## Where do you see Diagnostic Search?
+
+
+### In the Azure portal
 
 You can open diagnostic search explicitly:
 
@@ -38,13 +41,44 @@ The main body of Diagnostic Search is a list of telemetry items - server request
 Events typically show up in diagnostic search before they appear in metric explorer. Although the blade refreshes itself at intervals, you can click Refresh if you're waiting for a particular event.
 
 
+### In Visual Studio
+
+Open the Search window in Visual Studio:
+
+![](./media/app-insights-diagnostic-search/32.png)
+
+The Search window has the same features as the web portal:
+
+![](./media/app-insights-diagnostic-search/34.png)
+
+
+## Sampling
+
+If your app generates a lot of telemetry (and you are using the ASP.NET SDK version 2.0.0-beta3 or later), the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. However, events that are related to the same request will be selected or deselected as a group, so that you can navigate between related events. 
+
+[Learn about sampling](app-insights-sampling.md).
+
+
 ## Inspect individual items
 
 Select any telemetry item to see key fields and related items. If you want to see the full set of fields, click "...". 
 
-![Open diagnostic search](./media/app-insights-diagnostic-search/10-detail.png)
+
+![Click New Work Item, edit the fields, and then click OK.](./media/app-insights-diagnostic-search/10-detail.png)
 
 To find the full set of fields, use plain strings (without wildcards). The available fields depend on the type of telemetry.
+
+## Create work item
+
+You can create a bug in Visual Studio Team Services with  the details from any telemetry item. 
+
+![Click New Work Item, edit the fields, and then click OK.](./media/app-insights-diagnostic-search/42.png)
+
+The first time you do this, you are asked to configure a link to your Team Services account and project.
+
+![Fill the URL of your Team Services server and the Project name, and click Authorize](./media/app-insights-diagnostic-search/41.png)
+
+(You can also get to the configuration blade from Settings > Work Items.)
 
 ## Filter event types
 
@@ -138,7 +172,7 @@ Sample query | Effect
 ---|---
 slow|Find all events in the date range whose fields include the term "slow"
 database??|Matches database01, databaseAB, ...<br/>? is not allowed at the start of a search term.
-database*|Matches database, database01, databaseNNNN<br/>* is not allowed at the start of a search term
+database* |Matches database, database01, databaseNNNN<br/> * is not allowed at the start of a search term
 apple AND banana|Find events that contain both terms. Use capital "AND", not "and".
 apple OR banana<br/>apple banana|Find events that contain either term. Use "OR", not "or".</br/>Short form.
 apple NOT banana<br/>apple -banana|Find events that contain one term but not the other.<br/>Short form.
@@ -194,8 +228,8 @@ We don't log the POST data automatically, but you can use [TrackTrace or log cal
 [javalogs]: app-insights-java-trace-logs.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [qna]: app-insights-troubleshoot-faq.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [trace]: app-insights-search-diagnostic-logs.md
-[track]: app-insights-spi-custom-events-metrics.md
+[track]: app-insights-api-custom-events-metrics.md
 
  

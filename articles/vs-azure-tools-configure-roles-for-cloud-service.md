@@ -1,19 +1,19 @@
 <properties
-   pageTitle="How to Configure the Roles for an Azure Cloud Service with Visual Studio | Microsoft Azure"
+   pageTitle="Configure the Roles for an Azure Cloud Service with Visual Studio | Microsoft Azure"
    description="Learn how to set up and configure roles for Azure cloud services by using Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/08/2015"
-   ms.author="kempb" />
+   ms.date="08/15/2016"
+   ms.author="tarcher" />
 
 # Configure the Roles for an Azure Cloud Service with Visual Studio
 
@@ -39,7 +39,7 @@ When you create a new Azure cloud service in Visual Studio, two service configur
 
 You can configure an Azure cloud service from Solution Explorer in Visual Studio, as shown in the following illustration.
 
-    ![](./media/vs-azure-tools-configure-roles-for-cloud-service/IC713462.png)
+![Configure Cloud Service](./media/vs-azure-tools-configure-roles-for-cloud-service/IC713462.png)
 
 ### To configure an Azure cloud service
 
@@ -57,7 +57,7 @@ You can configure an Azure cloud service from Solution Explorer in Visual Studio
 
 ## Change the number of role instances
 
-To improve the performance of your cloud service, you can change the number of instances of a role that are running, based on the number of users or the load expected for a particular role. A separate virtual machine is created for each instance of a role when the cloud service runs in Azure. This will affect the billing for the deployment of this cloud service. For more information about billing, see [Understand Your Azure Bill](billing-understand-your-bill.md).
+To improve the performance of your cloud service, you can change the number of instances of a role that are running, based on the number of users or the load expected for a particular role. A separate virtual machine is created for each instance of a role when the cloud service runs in Azure. This will affect the billing for the deployment of this cloud service. For more information about billing, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
 
 ### To change the number of instances for a role
 
@@ -77,7 +77,7 @@ To improve the performance of your cloud service, you can change the number of i
 
 You can add, remove or modify connection strings for your service configurations. You might want different connection strings for different service configurations. For example, you might want a local connection string for a local service configuration that has a value of `UseDevelopmentStorage=true`. You might also want to configure a cloud service configuration that uses a storage account in Azure.
 
->[AZURE.CAUTION] When you enter the Azure storage account key information for a storage account connection string, this information is stored locally in the service configuration file. However, this information is currently not stored as encrypted text.
+>[AZURE.WARNING] When you enter the Azure storage account key information for a storage account connection string, this information is stored locally in the service configuration file. However, this information is currently not stored as encrypted text.
 
 By using a different value for each service configuration, you do not have to use different connection strings in your cloud service or modify your code when you publish your cloud service to Azure. You can use the same name for the connection string in your code and the value will be different, based on the service configuration that you select when you build your cloud service or when you publish it.
 
@@ -101,7 +101,7 @@ By using a different value for each service configuration, you do not have to us
 
 1. To use a storage account in Azure, choose the **Your subscription** option button and select the desired storage account.
 
-1. To use custom credentials, choose the **Manually entered credentials** options button. Enter the storage account name, and either the primary or second key. For information about how to create a storage account and how to enter the details for the storage account in the **Create Storage Connection String** dialog box, see [Setting Up Services Required to Publish a Cloud Service from Visual Studio](vs-azure-tools-setting-up-services-required-to-publish-a-cloud-service-from-visual-studio.md).
+1. To use custom credentials, choose the **Manually entered credentials** options button. Enter the storage account name, and either the primary or second key. For information about how to create a storage account and how to enter the details for the storage account in the **Create Storage Connection String** dialog box, see [Prepare to publish or deploy an Azure application from Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
 
 1. To delete a connection string, select the connection string and then choose the **Remove Setting** button.
 
@@ -183,7 +183,7 @@ By using a different value for each service configuration, you do not have to us
 
 ## Manage local storage for each role instance
 
-You can add local file system storage for each instance of a role. You can store local data here that does not need to be accessed by other roles. Any data that you do not need to save into table, blob, or SQL Database storage can be stored in here. For example, you could use this local storage to cache data that might need to be used again. This stored data can’t be accessed by other instances of a role. For more information about local storage resources, see [Configure Local Storage Resources](https://msdn.microsoft.com/library/azure/ee758708).
+You can add local file system storage for each instance of a role. You can store local data here that does not need to be accessed by other roles. Any data that you do not need to save into table, blob, or SQL Database storage can be stored in here. For example, you could use this local storage to cache data that might need to be used again. This stored data can’t be accessed by other instances of a role. 
 
 Local storage settings apply to all service configurations. You can only add, remove, or modify local storage for all service configurations.
 
@@ -235,7 +235,7 @@ Local storage settings apply to all service configurations. You can only add, re
 
 1. (Optional) To view this file that you created when you run your cloud service locally, use the following steps:
 
-  1. Run the web role and click on **Button1** to make sure that the code inside `Button1_Click` gets called.
+  1. Run the web role and select **Button1** to make sure that the code inside `Button1_Click` gets called.
 
   1. In the notification area, open the shortcut menu for the Azure icon and choose **Show Compute Emulator UI**. The **Azure Compute Emulator** dialog box appears.
 
@@ -275,12 +275,12 @@ You can collect diagnostics data for your Azure cloud service. This data is adde
 
 1. To use a storage account for the local connection string, choose the **Manually entered credentials** option.
 
-    For more information about how to create a storage account and how to enter the details for the storage account in the Create Storage Connection String dialog box, see [Setting Up Services Required to Publish a Cloud Service from Visual Studio](vs-azure-tools-setting-up-services-required-to-publish-a-cloud-service-from-visual-studio.md).
+    For more information about how to create a storage account and how to enter the details for the storage account in the **Create Storage Connection String** dialog box, see [Prepare to publish or deploy an Azure application from Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
 
 1. Choose the storage account you want to use in **Account name**.
 
-    If you are manually entering your storage account credentials, copy or type your primary key in **Account key**. This key can be copied from the Azure Management Portal. To copy this key, following these steps from the **Storage Accounts** view in the Azure Management Portal:
-
+    If you are manually entering your storage account credentials, copy or type your primary key in **Account key**. This key can be copied from the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). To copy this key, following these steps from the **Storage Accounts** view in the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885):
+    
   1. Select the storage account that you want to use for your cloud service.
 
   1. Choose the **Manage Access Keys** button located at the bottom of the screen. The **Manage Access Keys** dialog box appears.
@@ -293,9 +293,9 @@ You can collect diagnostics data for your Azure cloud service. This data is adde
 
 ## Change the size of the virtual machine used for each role
 
-You can set the virtual machine size for each role. You can only set this size for all service configurations. If you select a smaller machine size, then less CPU cores, memory and local disk storage is allocated. The allocated bandwidth is also smaller. For more information about these sizes and the resources allocated, see [Configure Sizes for Cloud Services](https://msdn.microsoft.com/library/azure/ee814754).
+You can set the virtual machine size for each role. You can only set this size for all service configurations. If you select a smaller machine size, then less CPU cores, memory and local disk storage is allocated. The allocated bandwidth is also smaller. For more information about these sizes and the resources allocated, see [Sizes for Cloud Services](cloud-services/cloud-services-sizes-specs.md).
 
-The resources required for each virtual machine in Azure affects the cost of running your cloud service in Azure. For more information about Azure Billing, see [Understand Your Azure Bill](billing-understand-your-bill.md).
+The resources required for each virtual machine in Azure affects the cost of running your cloud service in Azure. For more information about Azure Billing, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
 
 ### To change the size of the virtual machine
 
@@ -319,7 +319,7 @@ You can also add endpoints that can be used internally or externally. External e
 
 If you add HTTPS endpoints, you need to use an SSL certificate. To do this you can associate certificates with your role for all service configurations and use these for your endpoints.
 
->[AZURE.IMPORTANT] These certificates are not packaged with your service. You must upload your certificates separately to Azure through the Azure Platform Management portal
+>[AZURE.IMPORTANT] These certificates are not packaged with your service. You must upload your certificates separately to Azure through the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 Any management certificates that you associate with your service configurations apply only when your cloud service runs in Azure. When your cloud service runs in the local development environment, a standard certificate that is managed by the Azure compute emulator is used.
 

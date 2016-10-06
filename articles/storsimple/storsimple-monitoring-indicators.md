@@ -3,8 +3,8 @@
     description="Describes the light-emitting diodes (LEDs) and audible alarms used to monitor the status of the StorSimple device."
     services="storsimple"
     documentationCenter="NA"
-    authors="SharS"
-    manager="carolz"
+    authors="alkohli"
+    manager="carmonm"
     editor="" />
  <tags 
     ms.service="storsimple"
@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="08/31/2015"
-    ms.author="v-sharos" />
+    ms.date="08/18/2016"
+    ms.author="alkohli" />
 
 # Use StorSimple monitoring indicators to manage your device   
 
@@ -31,19 +31,19 @@ The remainder of this article describes the various monitoring indicator LEDs, t
 
 ## Front panel indicator LEDs
 
-The front panel, also known as the *operations panel* or *ops panel*, displays the aggregate status of all the modules in the system. The front panel is identical on the StorSimple device and the EBOD enclosure, and is illustrated below.  
+The front panel, also known as the *operations panel* or *ops panel*, displays the aggregate status of all the modules in the system. The front panel is identical on the StorSimple primary and the EBOD enclosure, and is illustrated below.  
 
    ![Device front panel][1]
  
 The front panel contains the following indicators:  
 
-1. Power button
+1. Mute button
 2. Power indicator LED (green/red-amber)
 3. Module fault indicator LED (ON red-amber/OFF)
 4. Logical fault indicator LED (ON red-amber/OFF
 5. Unit ID display  
 
-The major difference between the front panel LEDs for the device and those for the EBOD enclosure is the **System Unit Identification Number** shown on the LED display. The default unit ID displayed on the device is **00**, whereas the default unit ID displayed on the EBOD enclosure is **01**. This allows you to quickly differentiate between the device and the EBOD enclosure when the device is turned on. If your device is turned off, use the information provided in  [Turn on a new device](storsimple-turn-device-on-or-off.md#turn-on-a-new-device) to differentiate the device from the EBOD enclosure.  
+The major difference between the front panel LEDs for the device and those for the EBOD enclosure is the **System Unit Identification Number** shown on the LED display. The default unit ID displayed on the device is **00**, whereas the default unit ID displayed on the EBOD enclosure is **01**. This allows you to quickly differentiate between the device and the EBOD enclosure when the device is turned on. If your device is turned off, use the information provided in [Turn on a new device](storsimple-turn-device-on-or-off.md#turn-on-a-new-device) to differentiate the device from the EBOD enclosure.  
 
 ## Front panel LED status  
 
@@ -81,7 +81,7 @@ LED legend:
 5. DC failure
 6. Battery good  
 
-The status of the PCM is indicated on the LED panel. The device PCM LED panel has six LEDs. Four of these LEDs display the status of the power supply and the fan. The remaining two LEDs indicate the status of the backup battery module in the PCM.You can use the following tables to determine the status of the PCM.  
+The status of the PCM is indicated on the LED panel. The device PCM LED panel has six LEDs. Four of these LEDs display the status of the power supply and the fan. The remaining two LEDs indicate the status of the backup battery module in the PCM. You can use the following tables to determine the status of the PCM.  
 
 ### PCM indicator LEDs for power supply and fan
 | Status | PCM OK (green) | AC fail (amber) | Fan fail (amber) | DC fail (amber) |

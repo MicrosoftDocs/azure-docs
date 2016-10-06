@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="mumian"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -12,8 +12,8 @@
    ms.workload="big-data"
    ms.tgt_pltfrm="na"
    ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.date="08/11/2015"
+   ms.topic="article"
+   ms.date="09/02/2016"
    ms.author="jgao"/>
 
 # Learn Hadoop by using the HDInsight Getting Started Gallery
@@ -64,6 +64,6 @@ Other ways to learn about HDInsight include:
 [hdinsight.twitter.sample]: ./media/hdinsight-learn-hadoop-use-sample-gallery/HDInsight-Twitter-Trend-Analysis-sample.png
 
 <!--Link references-->
-[hdinsight.learn.map]: hdinsight-learn-map.md
+[hdinsight.learn.map]: https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]:https://manage.windowsazure.com

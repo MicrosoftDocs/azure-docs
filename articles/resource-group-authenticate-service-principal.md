@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Authenticating a Service Principal with Azure Resource Manager"
-   description="Describes how to grant access to a Service Principal through role-based access control and authenticate it. Shows how to perform these tasks with PowerShell and Azure CLI."
+   pageTitle="Create Azure service principal with PowerShell | Microsoft Azure"
+   description="Describes how to use Azure PowerShell to create an Active Directory application and service principal, and grant it access to resources through role-based access control. It shows how to authenticate application with a password or certificate."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,283 +13,280 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="08/25/2015"
+   ms.date="09/12/2016"
    ms.author="tomfitz"/>
 
-# Authenticating a service principal with Azure Resource Manager
+# Use Azure PowerShell to create a service principal to access resources
 
-This topic shows you how to permit a service principal (such as an automated process, application, or service) to access other resources in your subscription. With Azure Resource Manager, you can use role-based access control to grant permitted actions to a service principal, and authenticate that service principal. This topic shows you how to use PowerShell and Azure CLI to assign a role to service prinicpal and authenticate the serivce principal.
+> [AZURE.SELECTOR]
+- [PowerShell](resource-group-authenticate-service-principal.md)
+- [Azure CLI](resource-group-authenticate-service-principal-cli.md)
+- [Portal](resource-group-create-service-principal-portal.md)
 
-It shows how to authenticate with either a user name and password or a certificate.
+When you have an application or script that needs to access resources, you most likely do not want to run this process under your own credentials. You may have different permissions that you want for the application, and you do not want the application to continue using your credentials if your responsibilities change. Instead, you create an identity for the application that includes authentication credentials and role assignments. Every time the app runs, it authenticates itself with these credentials. This topic shows you how to use [Azure PowerShell](powershell-install-configure.md) to set up everything you need for an application to run under its own credentials and identity.
 
-You can use either Azure PowerShell or Azure CLI for Mac, Linux and Windows. If you do not have Azure PowerShell installed, see [How to install and configure Azure PowerShell](./powershell-install-configure.md). If you do not have Azure CLI installed, see [Install and Configure the Azure CLI](xplat-cli-install.md).
+With PowerShell, you have two options for authenticating your AD application:
 
-## Concepts
-1. Azure Active Directory (AAD) - an identity and access management service for the cloud. For more information, see [What is Azure active Directory](active-directory/active-directory-whatis.md)
-2. Service Principal - An instance of an application in a directory that needs to access other resources.
-3. AD Application - Directory record that identifies an application to AAD. For more information, see [Basics of Authentication in Azure AD](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth).
+ - password
+ - certificate
 
-## Authenticate service principal with password - PowerShell
+This topic shows how to use both options in PowerShell. If you intend to log in to Azure from a programming framework (such Python, Ruby, or Node.js), password authentication might be your best option. Before deciding whether to use a password or certificate, see the [Sample applications](#sample-applications) section for examples of authenticating in the different frameworks.
 
-In this section, you will perform the steps to create a service principal for an Azure Active Directory application, assign a role to the service principal, and authenticate as the service principal by providing the application identifier and password.
+## Active Directory concepts
 
-1. Switch to Azure Resource Manager mode and sign in to your account.
+In this article, you create two objects - the Active Directory (AD) application and the service principal. The AD application is the global representation of your application. It contains the credentials (an application id and either a password or certificate). The service principal is the local representation of your application in an Active Directory. It contains the role assignment. This topic focuses on a single-tenant application where the application is intended to run within only one organization. You typically use single-tenant applications for line-of-business applications that run within your organization. In a single-tenant application, you have one AD app and one service principal.
 
-        PS C:\> Switch-AzureMode AzureResourceManager
-        PS C:\> Add-AzureAccount
+You may be wondering - why do I need both objects? This approach makes more sense when you consider multi-tenant applications. You typically use multi-tenant applications for software-as-a-service (SaaS) applications, where your application runs in many different subscriptions. For multi-tenant applications, you have one AD app and multiple service principals (one in each Active Directory that grants access to the app). To set up a multi-tenant application, see [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md).
 
-1. Create a new AAD Application by running the **New-AzureADApplication** command. Provide a display name for your application, the URI to a page that describes your application (the link is not verified), the URIs that identify your application, and the password for your application identity.
+## Required permissions
 
-        PS C:\> $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password "<Your_Password>"
+To complete this topic, you must have sufficient permissions in both your Azure Active Directory and your Azure subscription. Specifically, you must be able to create an app in the Active Directory, and assign the service principal to a role. 
 
-     Examine the new application object. The **ApplicationId** property is needed for creating service principals, role assignments and acquiring JWT tokens.
+In your Active Directory, your account must be an administrator (such as **Global Admin** or **User Admin**). If your account is assigned to the **User** role, you need to have an administrator elevate your permissions.
 
-        PS C:\> $azureAdApplication
+In your subscription, your account must have `Microsoft.Authorization/*/Write` access, which is granted through the [Owner](./active-directory/role-based-access-built-in-roles.md#owner) role or [User Access Administrator](./active-directory/role-based-access-built-in-roles.md#user-access-administrator) role. If your account is assigned to the **Contributor** role, you receive an error when attempting to assign the service principal to a role. Again, your subscription administrator must grant you sufficient access.
 
+Now, proceed to a section for either [password](#create-service-principal-with-password) or [certificate](#create-service-principal-with-certificate) authentication.
+
+## Create service principal with password
+
+In this section, you perform the steps to:
+
+- create the AD application with a password
+- create the service principal
+- assign the Reader role to the service principal
+
+To quickly perform these steps, see the following three cmdlets. 
+
+     $app = New-AzureRmADApplication -DisplayName "{app-name}" -HomePage "https://{your-domain}/{app-name}" -IdentifierUris "https://{your-domain}/{app-name}" -Password "{your-password}"
+     New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
+     New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId.Guid
+
+Let's go through these steps more carefully to make sure you understand the process.
+
+1. Sign in to your account.
+
+        Add-AzureRmAccount
+
+1. Create a new Active Directory application by providing a display name, the URI that describes your application, the URIs that identify your application, and the password for your application identity.
+
+        $app = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org/exampleapp" -IdentifierUris "https://www.contoso.org/exampleapp" -Password "<Your_Password>"
+
+     For single-tenant applications, the URIs are not validated.
+     
+     If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context".
+
+1. Examine the new application object. 
+
+        $app
+        
+     Note in particular the **ApplicationId** property, which is needed for creating service principals, role assignments, and acquiring the access token.
+
+        DisplayName             : exampleapp
+        ObjectId                : c95e67a3-403c-40ac-9377-115fa48f8f39
+        IdentifierUris          : {https://www.contoso.org/example}
+        HomePage                : https://www.contoso.org
         Type                    : Application
-        ApplicationId           : a41acfda-d588-47c9-8166-d659a335a865
-        ApplicationObjectId     : a26aaa48-bd52-4a7f-b29f-1bebf74c91e3
+        ApplicationId           : 8bc80782-a916-47c8-a47e-4d76ed755275
         AvailableToOtherTenants : False
-        AppPermissions          : {{
-                            "claimValue": "user_impersonation",
-                            "description": "Allow the application to access <Your Application Display Name> on behalf of the signed-in user.",
-                            "directAccessGrantTypes": [],
-                            "displayName": "Access <Your Application Display Name>",
-                            "impersonationAccessGrantTypes": [
-                              {
-                                "impersonated": "User",
-                                "impersonator": "Application"
-                              }
-                            ],
-                            "isDisabled": false,
-                            "origin": "Application",
-                            "permissionId": "b866ef28-9abb-4698-8c8f-eb4328533831",
-                            "resourceScopeType": "Personal",
-                            "userConsentDescription": "Allow the application to access <Your Application Display Name> on your behalf.",
-                            "userConsentDisplayName": "Access <Your Application Display Name>",
-                            "lang": null
-                          }}
+        AppPermissions          : 
+        ReplyUrls               : {}
 
+2. Create a service principal for your application by passing in the application id of the Active Directory application.
 
-2. Create a service principal for your application.
+        New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
 
-        PS C:\> New-AzureADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+3. Grant the service principal permissions on your subscription. In this example, you add the service principal to the **Reader** role, which grants permission to read all resources in the subscription. For other roles, see [RBAC: Built-in roles](./active-directory/role-based-access-built-in-roles.md). For the **ServicePrincipalName** parameter, provide the **ApplicationId** that you used when creating the application. 
 
-     You have now created a service principal in the directory, but the service does not have any permissions or scope assigned. You will need to explicitly grant the service principal permissions to perform operations at some scope.
+        New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId.Guid
 
-3. Grant the service principal permissions on your subscription. In this sample you will grant the service principal the permission to Read all resources in the subscription. For the **ServicePrincipalName** parameter, provie either the **ApplicationId** or the **IdentifierUris** that you used when creating the application. For more information on role-based access control, see [Managing and Auditing Access to Resources](azure-portal/resource-group-rbac.md)
+    If your account does not have sufficient permissions to assign a role, you see an error message. The message states your account **does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'**. 
 
-        PS C:\> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
+That's it! Your AD application and service principal are set up. The next section shows you how to log in with the credential through PowerShell. If you want to use the credential in your code application, you can jump to the [Sample applications](#sample-applications). 
 
-4. Retrieve the subscription in which the role assignment was created. This subscription will be used later to get the **TenantId** of the tenant that the service principal's role assignment resides in.
+### Provide credentials through PowerShell
 
-        PS C:\> $subscription = Get-AzureSubscription | where { $_.IsCurrent }
+Now, you need to log in as the application to perform operations.
 
-     If you created the role assignment in a subscription other than the currently selected subscription, you can specify the **SubscriptoinId** or **SubscriptionName** parameters to retrive a different subscription.
+1. Create a **PSCredential** object that contains your credentials by running the **Get-Credential** command. You need the **ApplicationId** before running this command so make sure you have that available to paste.
 
-5. Create a new **PSCredential** object which contains your credentials by running the **Get-Credential** command.
+        $creds = Get-Credential
 
-        PS C:\> $creds = Get-Credential
+2. You are prompted you to enter your credentials. For the user name, use the **ApplicationId** that you used when creating the application. For the password, use the one you specified when creating the account.
 
-     You will be prompted you to enter your credentials.
+     ![enter credentials](./media/resource-group-authenticate-service-principal/arm-get-credential.png)
 
-     ![][1]
+2. Whenever you sign in as a service principal, you need to provide the tenant id of the directory for your AD app. A tenant is an instance of Active Directory. If you only have one subscription, you can use:
 
-     For the user name, use the **ApplicationId** or **IdentifierUris** that you used when creating the application. For the password, use the one you specified when creating the account.
+        $tenant = (Get-AzureRmSubscription).TenantId
+    
+     If you have more than one subscription, specify the subscription where your Active Directory resides. For more information, see [How Azure subscriptions are associated with Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
 
-6. Use the credentials that you entered as an input to the **Add-AzureAccount** cmdlet, which will sign the service principal in:
+        $tenant = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
 
-        PS C:\> Add-AzureAccount -Credential $creds -ServicePrincipal -Tenant $subscription.TenantId
+4. Log in as the service principal by specifying that this account is a service principal and by providing the credentials object. 
 
-     You should now be authenticated as the service principal for the AAD application that you created.
+        Add-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId $tenant
+        
+     You are now authenticated as the service principal for the Active Directory application that you created.
 
-7. To authenticate from an application, include the following .NET code. After retrieving the token, you can access resources in the subscription.
+### Save access token to simplify log in
 
-        public static string GetAToken()
-        {
-          var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
-          var credential = new ClientCredential(clientId: "{application id}", clientSecret: "{application password}");
-          var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", clientCredential:credential);
+To avoid providing the service principal credentials every time it needs to log in, you can save the access token.
 
-          if (result == null) {
-            throw new InvalidOperationException("Failed to obtain the JWT token");
-          }
+1. To use the current access token in a later session, save the profile.
 
-          string token = result.AccessToken;
+        Save-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
+        
+     Open the profile and examine its contents. Notice that it contains an access token. 
+        
+2. Instead of manually logging in again, simply load the profile.
 
-          return token;
-        }
+        Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
+        
+> [AZURE.NOTE] The access token expires, so using a saved profile only works for as long as the token is valid.
+        
+## Create service principal with certificate
 
+In this section, you perform the steps to:
 
+- create a self-signed certificate
+- create the AD application with the certificate
+- create the service principal
+- assign the Reader role to the service principal
 
-## Authenticate service principal with certificate - PowerShell
+To quickly perform these steps with Azure PowerShell 2.0 on Windows 10 or Windows Server 2016 Technical Preview, see the following cmdlets. 
 
-In this section, you will perform the steps to create a service principal for an Azure Active Directory application, assign a role to the service principal, and authenticate as the service principal by 
-providing a certificate. This topic assumes you have been issued a certificate.
+    $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
+    $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
+    $app = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
+    New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
+    New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId.Guid
 
-It shows two ways to work with certificates - key credentials and key values. You can use either approach.
+Let's go through these steps more carefully to make sure you understand the process. This article also shows how to accomplish the tasks when using earlier versions of Azure PowerShell or operating systems.
 
-First, you must set up some values in PowerShell that you will use later when creating the application.
+### Create the self-signed certificate
 
-1. Switch to Azure Resource Manager mode and sign in to your account.
+The version of PowerShell available with Windows 10 and Windows Server 2016 Technical Preview has an updated **New-SelfSignedCertificate** cmdlet for generating a self-signed certificate. Earlier operating systems have the New-SelfSignedCertificate cmdlet but it does not offer the parameters needed for this topic. Instead, you need to import a module to generate the certificate. This topic shows both approaches for generating the certificate based on the operating system you have. 
 
-        PS C:\> Switch-AzureMode AzureResourceManager
-        PS C:\> Add-AzureAccount
+- If you have **Windows 10 or Windows Server 2016 Technical Preview**, run the following command to create a self-signed certificate: 
 
-1. For both approaches, create an X509Certificate object from your certificate and retrieve the key value. Use the path to your certificate and the password for that certificate.
+        $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
+       
+- If you **do not have Windows 10 or Windows Server 2016 Technical Preview**, you need to download the [Self-signed certificate generator](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) from Microsoft Script Center. Extract its contents and import the cmdlet you need.
+     
+        # Only run if you could not use New-SelfSignedCertificate
+        Import-Module -Name c:\ExtractedModule\New-SelfSignedCertificateEx.ps1
+    
+     Then, generate the certificate.
+    
+        $cert = New-SelfSignedCertificateEx -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
 
-        $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate("C:\certificates\examplecert.pfx", "yourpassword")
+You have your certificate and can proceed with creating your AD app.
+
+### Create the Active Directory app and service principal
+
+1. Retrieve the key value from the certificate.
+
         $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
-2. If you are using key credentials, create the key credentials object and sets its value to the `$keyValue` from the previous step.
+2. Sign in to your Azure account.
 
-        $currentDate = Get-Date
-        $endDate = $currentDate.AddYears(1)
-        $keyId = [guid]::NewGuid()
-        $keyCredential = New-Object  Microsoft.Azure.Commands.Resources.Models.ActiveDirectory.PSADKeyCredential
-        $keyCredential.StartDate = $currentDate
-        $keyCredential.EndDate= $endDate
-        $keyCredential.KeyId = $keyId
-        $keyCredential.Type = "AsymmetricX509Cert"
-        $keyCredential.Usage = "Verify"
-        $keyCredential.Value = $keyValue
+        Add-AzureRmAccount
 
-3. Create an application in the directory. The first command shows how to use key values.
+3. Create a new Active Directory application by providing a display name, the URI that describes your application, the URIs that identify your application, and the password for your application identity.
 
-        $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -KeyValue $keyValue -KeyType AsymmetricX509Cert       
-        
-    Or, use the second example to assign key credentials.
+     If you have Azure PowerShell 2.0 (August 2016 or later), use the following cmdlet:
 
-         $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -KeyCredentials $keyCredential
-
-    Examine the new application object. The **ApplicationId** property is needed for creating service principals, role assignments and acquiring JWT tokens.
-
-        PS C:\> $azureAdApplication
-
-        Type                    : Application
-        ApplicationId           : 76fa8d97-f07e-4b9a-b871-a57a7acd777a
-        ApplicationObjectId     : c36b7b57-a949-4401-b381-18a5210aff10
-        AvailableToOtherTenants : False
-        AppPermissions          : {{
-                            "claimValue": "user_impersonation",
-                            "description": "Allow the application to access <Your Application Display Name> on behalf of the signed-in
-                          user.",
-                            "directAccessGrantTypes": [],
-                            "displayName": "Access <Your Application Display Name>",
-                            "impersonationAccessGrantTypes": [
-                              {
-                                "impersonated": "User",
-                                "impersonator": "Application"
-                              }
-                            ],
-                            "isDisabled": false,
-                            "origin": "Application",
-                            "permissionId": "9f13c6c6-35ba-43d6-b8b3-6a87aa641388",
-                            "resourceScopeType": "Personal",
-                            "userConsentDescription": "Allow the application to access <Your Application Display Name> on your behalf.",
-                            "userConsentDisplayName": "Access <Your Application Display Name>",
-                            "lang": null
-                          }}
-
-4. Create a service principal for your application.
-
-        PS C:\> New-AzureADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
-
-    You have now created a service principal in the directory, but the service does not have any permissions or scope assigned. You will need to explicitly grant the service principal permissions to perform operations at some scope.
-
-5. Grant the service principal permissions on your subscription. In this sample you will grant the service principal the permission to Read all resources in the subscription. For the **ServicePrincipalName** parameter, provie either the **ApplicationId** or the **IdentifierUris** that you used when creating the application. For more information on role-based access control, see [Managing and Auditing Access to Resources](azure-portal/resource-group-rbac.md)
-
-        PS C:\> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
-
-6. To authenticate from an application, include the following .NET code. After retrieving the client, you can access resources in the subscription.
-
-        string clientId = "<Application ID for your AAD app>"; 
-        var subscriptionId = "<Your Azure SubscriptionId>"; 
-        string tenant = "<Tenant id or tenant name>"; 
-
-        var authContext = new AuthenticationContext(string.Format("https://login.windows.net/{0}", tenant)); 
-
-        X509Certificate2 cert = null; 
-        X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser); 
-        string certName = "examplecert"; 
-        try 
-        { 
-            store.Open(OpenFlags.ReadOnly); 
-            var certCollection = store.Certificates; 
-            var certs = certCollection.Find(X509FindType.FindBySubjectName, certName, false); 
-            cert = certs[0]; 
-        } 
-        finally 
-        { 
-            store.Close(); 
-        }        
-
-        var certCred = new ClientAssertionCertificate(clientId, cert); 
-        var token = authContext.AcquireToken("https://management.core.windows.net/", certCred); 
-        var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken); 
-        var client = new ResourceManagementClient(creds); 
-        
-
-## Authenticate service principal with password - Azure CLI
-
-You will start by creating a service principal. To do this we must use create an application in the directory. This section will walk through creating a new application in the directory.
-
-1. Switch to Azure Resource Manager mode and sign in to your account.
-
-        azure config mode arm
-        azure login
-
-2. Create a new AAD Application by running the **azure ad app create** command. Provide a display name for your application, the URI to a page that describes your application (the link is not verified), the URIs that identify your application, and the password for your application identity.
-
-        azure ad app create --name "<Your Application Display Name>" --home-page "<https://YourApplicationHomePage>" --identifier-uris "<https://YouApplicationUri>" --password <Your_Password>
-        
-    The Azure AD application is returned. The ApplicationId property is needed for creating service principals, role assignments and acquiring JWT tokens. 
-
-        info:    Executing command ad app create
-        + Creating application exampleapp                                                
-        data:    Application Id:          b57dd71d-036c-4840-865e-23b71d8098ec
-        data:    Application Object Id:   d5c519e2-6149-447e-b323-88d2c4ea27de
-        data:    Application Permissions:  
-        data:                             claimValue:  user_impersonation
-        data:                             description:  Allow the application to access exampleapp on behalf of the signed-in user.
-        ...
-        info:    ad app create command OK
-
-3. Create a service principal for your application. Provide the application id that was returned in the previous step.
-
-        azure ad sp create b57dd71d-036c-4840-865e-23b71d8098ec
-        
-    The new service principal is returned. The Object Id is needed when granting permissions.
+        $app = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore      
     
-        info:    Executing command ad sp create
-        + Creating service principal for application b57dd71d-036c-4840-865e-23b71d8098ec
-        data:    Object Id:               47193a0a-63e4-46bd-9bee-6a9f6f9c03cb
-        data:    Display Name:            exampleapp
-        ...
-        info:    ad sp create command OK
+    If you have Azure PowerShell 1.0, use the following cmdlet:
+    
+        $app = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -KeyValue $keyValue -KeyType AsymmetricX509Cert  -EndDate $cert.NotAfter -StartDate $cert.NotBefore      
+    
+    For single-tenant applications, the URIs are not validated.
+    
+    If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context".
+        
+    Examine the new application object. 
 
-    You have now created a service principal in the directory, but the service does not have any permissions or scope assigned. You will need to explicitly grant the service principal permissions to perform operations at some scope.
+        $app
 
-4. Grant the service principal permissions on your subscription. In this sample you will grant the service principal the permission to Read all resources in the subscription. For the **ServicePrincipalName** parameter, provie either the **ApplicationId** or the **IdentifierUris** that you used when creating the application. For more information on role-based access control, see [Managing and Auditing Access to Resources](azure-portal/resource-group-rbac.md)
+    Notice the **ApplicationId** property, which is needed for creating service principals, role assignments, and acquiring access tokens.
 
-        azure role assignment create --objectId 47193a0a-63e4-46bd-9bee-6a9f6f9c03cb -o Reader -c /subscriptions/{subscriptionId}/
+        DisplayName             : exampleapp
+        ObjectId                : c95e67a3-403c-40ac-9377-115fa48f8f39
+        IdentifierUris          : {https://www.contoso.org/example}
+        HomePage                : https://www.contoso.org
+        Type                    : Application
+        ApplicationId           : 8bc80782-a916-47c8-a47e-4d76ed755275
+        AvailableToOtherTenants : False
+        AppPermissions          : 
+        ReplyUrls               : {}
 
-5. Determine the **TenantId** of the tenant that the service principal's role assignment resides by listing the accounts and looking for the **TenantId** property in the output.
 
-        azure account list
+5. Create a service principal for your application by passing in the application id of the Active Directory application.
 
-6. Sign-in using the service principal as your identity. For the user name, use the **ApplicationId** that you used when creating the application. For the password, use the one you specified when creating the account.
+        New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
 
-        azure login -u "<ApplicationId>" -p "<password>" --service-principal --tenant "<TenantId>"
+6. Grant the service principal permissions on your subscription. In this example, you add the service principal to the **Reader** role, which grants permission to read all resources in the subscription. For other roles, see [RBAC: Built-in roles](./active-directory/role-based-access-built-in-roles.md). For the **ServicePrincipalName** parameter, provide the **ApplicationId** that you used when creating the application.
 
-    You should now be authenticated as the service principal for the AAD application that you created.
+        New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId.Guid
+
+    If your account does not have sufficient permissions to assign a role, you see an error message. The message states your account **does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'**.
+
+That's it! Your AD application and service principal are set up. The next section shows you how to log in with certificate through PowerShell.
+
+### Provide certificate through automated PowerShell script
+
+Whenever you sign in as a service principal, you need to provide the tenant id of the directory for your AD app. A tenant is an instance of Active Directory. If you only have one subscription, you can use:
+
+    $tenant = (Get-AzureRmSubscription).TenantId
+    
+If you have more than one subscription, specify the subscription where your Active Directory resides. For more information, see [Administer your Azure AD directory](./active-directory/active-directory-administer.md).
+
+    $tenant = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
+
+To authenticate in your script, specify the account is a service principal and provide the certificate thumbprint, the application id, and tenant id. To automate your script, you can store these values as environment variables and retrieve them during execution, or you can include them in your script.
+
+    Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint $cert.Thumbprint -ApplicationId $app.ApplicationId -TenantId $tenant
+
+You are now authenticated as the service principal for the Active Directory application that you created.
+
+## Sample applications
+
+The following sample applications show how to log in as the service principal.
+
+**.NET**
+
+- [Deploy an SSH Enabled VM with a Template with .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
+- [Manage Azure resources and resource groups with .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
+
+**Java**
+
+- [Getting Started with Resources - Deploy Using Azure Resource Manager Template - in Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+- [Getting Started with Resources - Manage Resource Group - in Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group//)
+
+**Python**
+
+- [Deploy an SSH Enabled VM with a Template in Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+- [Managing Azure Resource and Resource Groups with Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+
+**Node.js**
+
+- [Deploy an SSH Enabled VM with a Template in Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+- [Manage Azure resources and resource groups with Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+
+**Ruby**
+
+- [Deploy an SSH Enabled VM with a Template in Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
+- [Managing Azure Resource and Resource Groups with Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 ## Next Steps
   
-- For an overivew of role-based access control, see [Managing and Auditing Access to Resources](azure-portal/resource-group-rbac.md)  
-- To learn about using the portal with service principals, see [Create a new Azure Service Principal using the Azure portal](./resource-group-create-service-principal-portal.md)  
-- For guidance on implementing security with Azure Resource Manager, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md)
+- For detailed steps on integrating an application into Azure for managing resources, see [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md).
+- For a more detailed explanation of applications and service principals, see [Application Objects and Service Principal Objects](./active-directory/active-directory-application-objects.md). 
+- For more information about Active Directory authentication, see [Authentication Scenarios for Azure AD](./active-directory/active-directory-authentication-scenarios.md).
 
 
-<!-- Images. -->
-[1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
+

@@ -1,4 +1,4 @@
-<!--author=SharS last changed: 9/17/15-->
+<!--author=SharS last changed: 02/22/16-->
 
 ### To configure and register the device
 
@@ -36,7 +36,7 @@
 
       4. Optionally, configure your web proxy server.
 
-      > [AZURE.IMPORTANT] Although web proxy configuration is optional, be aware that if you use a web proxy, you can only configure it here. For more information, go to [Configure web proxy for your device](storsimple-configure-web-proxy.md). 
+      > [AZURE.IMPORTANT] Although web proxy configuration is optional, be aware that if you use a web proxy, you can only configure it here. For more information, go to [Configure web proxy for your device](../articles/storsimple/storsimple-configure-web-proxy.md). 
 
 6. Press Ctrl + C to exit the setup wizard.
  
@@ -90,7 +90,7 @@
 
      The firmware status should be **UpToDate**.
 
-10. Run the following cmdlet to point the device to the Microsoft Azure Government portal (because it points to the public Azure Management Portal by default). This will restart both controllers. We recommend that you use two PuTTY sessions to simultaneously connect to both controllers so that you can see when each controller is restarted.
+10. Run the following cmdlet to point the device to the Microsoft Azure Government portal (because it points to the public Azure classic portal by default). This will restart both controllers. We recommend that you use two PuTTY sessions to simultaneously connect to both controllers so that you can see when each controller is restarted.
 
      `Set-CloudPlatform -AzureGovt_US`
 
@@ -110,7 +110,7 @@
 
 	<br/>![StorSimple register device 5](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice5_gov-include.png)
 
-14. The final step in the setup wizard registers your device with the StorSimple Manager service. For this, you will need the service registration key that you obtained in [Step 2: Get the service registration key](storsimple-get-service-registration-key-gov.md). After you supply the registration key, you may need to wait for 2-3 minutes before the device is registered.
+14. The final step in the setup wizard registers your device with the StorSimple Manager service. For this, you will need the service registration key that you obtained in [Step 2: Get the service registration key](#step-2-get-the-service-registration-key). After you supply the registration key, you may need to wait for 2-3 minutes before the device is registered.
 
       > [AZURE.NOTE] You can press Ctrl + C at any time to exit the setup wizard. If you have entered all the network settings (IP address for Data 0, Subnet mask, and Gateway), your entries will be retained.
 
@@ -126,7 +126,7 @@
 
 16. Exit the serial console.
 
-17. Return to the Government Portal, and complete the following steps:
+17. Return to the Azure Government Portal, and complete the following steps:
   1. Double-click your StorSimple Manager service to access the **Quick Start** page.
   2. Click **View connected devices**.
   3. On the **Devices** page, verify that the device has successfully connected to the service by looking up the status. The device status should be **Online**.
@@ -134,7 +134,9 @@
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png) 
   
         If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
-      
-        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](https://msdn.microsoft.com/library/dn772371.aspx). If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
+
+        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in [networking requirements for your StorSimple device](../articles/storsimple/storsimple-system-requirements.md). 
+
+        Verify that port 9354 is open for outbound communication as this is used by the service bus for StorSimple Manager service-to-device communication.
      
         

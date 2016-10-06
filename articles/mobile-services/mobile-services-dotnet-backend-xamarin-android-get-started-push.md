@@ -13,29 +13,28 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Add push notifications to your Mobile Services app
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> For the equivalent Mobile Apps version of this topic, see [Add push notifications to your Xamarin.Android app](../app-service-mobile/app-service-mobile-xamarin-android-get-started-push.md).
+
+##Overview
+
 This topic shows you how to use Azure Mobile Services to send push notifications to a Xamarin.Android app. In this tutorial you add push notifications using the Google Cloud Messaging (GCM) service to the [Get started with Mobile Services] project. When complete, your mobile service will send a push notification each time a record is inserted.
-
-This tutorial walks you through these basic steps to enable push notifications:
-
-1. [Enable Google Cloud Messaging](#register)
-2. [Configure Mobile Services](#configure)
-3. [Configure the project for push notifications](#configure-app)
-4. [Add push notifications code to your app](#add-push)
-5. [Insert data to receive notifications](#test)
 
 This tutorial requires the following:
 
 + An active Google account.
 + [Google Cloud Messaging Client Component]. You will add this component during the tutorial.
 
-You should already have the [Xamarin.Android] and [Azure Mobile Services][Azure Mobile Services Component] components installed in your project from when you completed [Get started with Mobile Services].
+You should already have the Xamarin.Android and [Azure Mobile Services][Azure Mobile Services Component] components installed in your project from when you completed [Get started with Mobile Services].
 
 ##<a id="register"></a>Enable Google Cloud Messaging
 
@@ -69,8 +68,5 @@ You can test the app by directly attaching an Android phone with a USB cable, or
 
 <!-- URLs. -->
 [Get started with Mobile Services]: mobile-services-dotnet-backend-xamarin-android-get-started.md
-
-
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
-[Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/

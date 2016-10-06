@@ -38,4 +38,4 @@
 
 ![Video available](./media/storsimple-complete-minimum-device-setup/Video_icon.png) **Video available**
 
-To watch a video that demonstrates how to complete the minimum device setup, click [here](http://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
+To watch a video that demonstrates how to complete the minimum device setup, click [here](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).

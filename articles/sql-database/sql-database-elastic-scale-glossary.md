@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="Elastic database tools glossary" 
+    pageTitle="Elastic Database tools glossary | Microsoft Azure" 
     description="Explanation of terms used for elastic database tools" 
     services="sql-database" 
     documentationCenter="" 
-    manager="jeffreyg" 
-    authors="sidneyh" 
+    manager="jhubbard" 
+    authors="ddove" 
     editor=""/>
 
 <tags 
@@ -13,17 +13,19 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/24/2015" 
-    ms.author="sidneyh"/>
+    ms.date="05/27/2016" 
+    ms.author="ddove"/>
 
 # Elastic Database tools glossary
-The following terms are defined for the Elastic Database tools, a feature of Azure SQL Database. The tools include the client library, the split-merge tool, elastic pools, and queries.
+The following terms are defined for the [Elastic Database tools](sql-database-elastic-scale-introduction.md), a feature of Azure SQL Database. The tools are used to manage [shard maps](sql-database-elastic-scale-shard-map-management.md), and include the [client library](sql-database-elastic-database-client-library.md), the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md), [elastic pools](sql-database-elastic-pool.md), and [queries](sql-database-elastic-query-overview.md). 
+
+These terms are used in [Adding a shard using Elastic Database tools](sql-database-elastic-scale-add-a-shard.md) and [Using the RecoveryManager class to fix shard map problems](sql-database-elastic-database-recovery-manager.md).
 
 ![Elastic Scale terms][1]
 
 **Database**: An Azure SQL database. 
 
-**Data dependent routing**: The functionality that enables an application to connect to a shard given a specific sharding key. Compare to **Multi-Shard Query**.
+**Data dependent routing**: The functionality that enables an application to connect to a shard given a specific sharding key. See [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md). Compare to **[Multi-Shard Query](sql-database-elastic-scale-multishard-querying.md)**.
 
 **Global shard map**: The map between sharding keys and their respective shards within a **shard set**. The global shard map is stored in the **shard map manager**. Compare to **local shard map**.
 
@@ -32,6 +34,14 @@ The following terms are defined for the Elastic Database tools, a feature of Azu
 **Local shard map**: Stored on a shard, the local shard map contains mappings for the shardlets that reside on the shard.
 
 **Multi-shard query**: The ability to issue a query against multiple shards; results sets are returned using UNION ALL semantics (also known as “fan-out query”). Compare to **data dependent routing**.
+
+**Multi-tenant** and **Single-tenant**: This shows a single-tenant database and a multi-tenant database:
+
+![Single and multi-tenant databases](./media/sql-database-elastic-scale-glossary/multi-single-simple.png)
+
+Here is a representation of **sharded** single and multi-tenant databases. 
+
+![Single and multi-tenant databases](./media/sql-database-elastic-scale-glossary/shards-single-multi.png)
 
 **Range shard map**: A shard map in which the shard distribution strategy is based on multiple ranges of contiguous values. 
 

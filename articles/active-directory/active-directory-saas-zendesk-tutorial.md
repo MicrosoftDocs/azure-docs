@@ -1,7 +1,20 @@
-<properties pageTitle="Tutorial: Azure Active Directory integration with Zendesk | Microsoft Azure" description="Learn how to use Zendesk with Azure Active Directory to enable single sign-on, automated provisioning, and more!." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Azure Active Directory integration with Zendesk | Microsoft Azure" 
+    description="Learn how to use Zendesk with Azure Active Directory to enable single sign-on, automated provisioning, and more!." 
+    services="active-directory" 
+    authors="jeevansd"  
+    documentationCenter="na" 
+    manager="femila"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="09/09/2016" 
+    ms.author="jeedes" />
+
 #Tutorial: Azure Active Directory integration with Zendesk
->[AZURE.TIP]For feedback, click [here](http://go.microsoft.com/fwlink/?LinkId=522569).
   
 The objective of this tutorial is to show the integration of Azure and Zendesk.  
 The scenario outlined in this tutorial assumes that you already have the following items:
@@ -9,7 +22,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 -   A valid Azure subscription
 -   A Zendesk tenant
   
-After completing this tutorial, the Azure AD users you have assigned to Zendesk will be able to single sign into the application at your Zendesk company site (service provider initiated sign on), or using the [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586)
+After completing this tutorial, the Azure AD users you have assigned to Zendesk will be able to single sign into the application at your Zendesk company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
 The scenario outlined in this tutorial consists of the following building blocks:
 
@@ -68,11 +81,17 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
     ![Configure single sign-on](./media/active-directory-saas-zendesk-tutorial/IC773087.png "Configure single sign-on")
 
-3.  On the **Configure App URL** page, in the **Zendesk Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.zendesk.com*", and then click **Next**.
+3.  On the **Configure App URL** page, perform the following steps:
 
     ![Configure app URL](./media/active-directory-saas-zendesk-tutorial/IC773088.png "Configure app URL")
+  
+	a. In the **Zendesk Sign In URL** textbox, type your URL using the following pattern: `https://<tenant-name>.zendesk.com`
 
-4.  On the **Configure single sign-on at Zendesk** page, to download your certificate, click **Download certificate**, and then save the certificate file locally as **c:\\zendesk.cer**.
+	b. Click **Next**.
+
+
+
+4.  On the **Configure single sign-on at Zendesk** page, click **Download certificate**, and then save the certificate file locally on your compiter.
 
     ![Configure single sign-on](./media/active-directory-saas-zendesk-tutorial/IC777534.png "Configure single sign-on")
 
@@ -84,7 +103,7 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
     ![Security](./media/active-directory-saas-zendesk-tutorial/IC773089.png "Security")
 
-8.  On the **Security** page, select the **Admin & Agents** tab.
+8.  On the **Security** page, click the **Admin & Agents** tab.
 
 9.  Select **Single sign-on (SSO) and SAML**, and then select **SAML**.
 
@@ -141,4 +160,4 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
     ![Yes](./media/active-directory-saas-zendesk-tutorial/IC767830.png "Yes")
   
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).

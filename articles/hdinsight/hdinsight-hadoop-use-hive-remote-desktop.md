@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/28/2015"
+   ms.date="09/06/2016"
    ms.author="larryfr"/>
 
 # Use Hive with Hadoop on HDInsight with Remote Desktop
@@ -51,10 +51,11 @@ When you have connected to the desktop for the HDInsight cluster, use the follow
 
 3. Using the CLI, enter the following statements to create a new table named **log4jLogs** using sample data:
 
+        set hive.execution.engine=tez;
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
         ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-        STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
+        STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
     These statements perform the following actions:
@@ -113,6 +114,11 @@ For information about other ways you can work with Hadoop on HDInsight:
 
 * [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
+If you are using Tez with Hive, see the following documents for debugging information:
+
+* [Use the Tez UI on Windows-based HDInsight](hdinsight-debug-tez-ui.md)
+
+* [Use the Ambari Tez view on Linux-based HDInsight](hdinsight-debug-ambari-tez-view.md)
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 
@@ -134,16 +140,13 @@ For information about other ways you can work with Hadoop on HDInsight:
 
 
 
-[hdinsight-storage]: hdinsight-use-blob-storage.md
+
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: hdinsight-get-started.md
+
 
 [Powershell-install-configure]: ../powershell-install-configure.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-[image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
-[img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
-[image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png

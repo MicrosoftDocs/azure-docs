@@ -1,26 +1,26 @@
 <properties 
 	pageTitle="Deploy WebJobs using Visual Studio" 
 	description="Learn how to deploy Azure WebJobs to Azure App Service Web Apps using Visual Studio." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.workload="web" 
-	ms.date="06/29/2015" 
+	ms.workload="na" 
+	ms.date="04/27/2016" 
 	ms.author="tdykstra"/>
 
 # Deploy WebJobs using Visual Studio
 
 ## Overview
 
-This topic explains how to use Visual Studio to deploy a Console Application project to a web app in [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) as an [Azure WebJob](http://go.microsoft.com/fwlink/?LinkId=390226). For information about how to deploy WebJobs by using the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), see [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
+This topic explains how to use Visual Studio to deploy a Console Application project to a web app in [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) as an [Azure WebJob](http://go.microsoft.com/fwlink/?LinkId=390226). For information about how to deploy WebJobs by using the [Azure Portal](https://portal.azure.com), see [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
 
 When Visual Studio deploys a WebJobs-enabled Console Application project, it performs two tasks:
 
@@ -39,16 +39,12 @@ You can add these items to an existing Console Application project or use a temp
 You can deploy a project as a WebJob by itself, or link it to a web project so that it automatically deploys whenever you deploy the web project. To link projects, Visual Studio includes the name of the WebJobs-enabled project in a [webjobs-list.json](#webjobslist) file in the web project.
 
 ![Diagram showing WebJob project linking to web project](./media/websites-dotnet-deploy-webjobs/link.png)
- 
-
 
 ## Prerequisites
 
-WebJobs deployment features are available in Visual Studio 2013 when you install Azure SDK version 2.4 or later versions:
+WebJobs deployment features are available in Visual Studio 2015 when you install the Azure SDK for .NET:
 
-* [Azure SDK for Visual Studio 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409).
-
-The WebJobs deployment features are also included in [Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) and later updates.
+* [Azure SDK for .NET (Visual Studio 2015)](http://go.microsoft.com/fwlink/?linkid=518003).
 
 ## <a id="convert"></a>Enable WebJobs deployment for an existing Console Application project
 
@@ -100,8 +96,7 @@ To create a new WebJobs-enabled project, you can use the Console Application pro
 
 	Create a project that is configured to deploy automatically as a WebJob when a web project in the same solution is deployed. Use this option when you want to run your WebJob in the same web app in which you run the related web application.
 
-In the SDK 2.4 release, the WebJobs new-project template isn't much easier than creating a Console Application project and enabling WebJobs deployment. In the future, the WebJobs new-project template will be more convenient for [WebJobs SDK](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs) development, because it will automatically install the appropriate WebJobs SDK NuGet packages. Until then, you can configure a project to use the WebJobs SDK by installing the packages manually as shown in the [WebJobs SDK tutorial](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). 
-
+> [AZURE.NOTE] The WebJobs new-project template automatically installs NuGet packages and includes code in *Program.cs* for the [WebJobs SDK](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). If you don't want to use the WebJobs SDK, or want to use a scheduled rather than continuous WebJob, remove or change the `host.RunAndBlock` statement in *Program.cs*.
 
 ### <a id="createnolink"></a> Use the WebJobs new-project template for an independent WebJob
   
@@ -127,7 +122,7 @@ The **Add Azure WebJob** dialog enables you to enter WebJob name and scheduling 
 
 ![Add Azure WebJob dialog](./media/websites-dotnet-deploy-webjobs/aaw2.png)
 
-The fields in this dialog correspond to fields on the **New Job** dialog of the Azure Management Portal. For more information, see [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
+The fields in this dialog correspond to fields on the **New Job** dialog of the Azure Portal. For more information, see [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
 
 For a scheduled WebJob (not for continuous WebJobs), Visual Studio creates an [Azure Scheduler](/services/scheduler/) job collection if one doesn't exist yet, and it creates a job in the collection:
 
@@ -190,13 +185,6 @@ To deploy a WebJobs project by itself, right-click the project in **Solution Exp
 	
 For an independent WebJob, the same **Publish Web** wizard that is used for web projects appears, but with fewer settings available to change.
 
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
-
 ## <a id="nextsteps"></a>Next Steps
 
-This article has explained how to deploy WebJobs by using Visual Studio. For information about how to deploy Azure WebJobs from Visual Studio and by using a continuous delivery process, see [Azure WebJobs - Recommended Resources - Deployment](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).
-
-## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the Azure portal to the Azure preview portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
- 
+This article has explained how to deploy WebJobs by using Visual Studio. For more information about how to deploy Azure WebJobs, see [Azure WebJobs - Recommended Resources - Deployment](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).

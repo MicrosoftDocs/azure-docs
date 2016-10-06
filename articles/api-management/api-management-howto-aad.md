@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="API Management" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="08/24/2016" 
 	ms.author="sdanie"/>
 
 # How to authorize developer accounts using Azure Active Directory in Azure API Management
@@ -26,7 +26,7 @@ This guide shows you how to enable access to the developer portal for all users 
 
 ## How to authorize developer accounts using Azure Active Directory
 
-To get started, click **Manage** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal.
+To get started, click **Manage** in the Azure Classic Portal for your API Management service. This takes you to the API Management publisher portal.
 
 ![Publisher portal][api-management-management-console]
 
@@ -36,7 +36,7 @@ Click **Security** from the **API Management** menu on the left and click **Exte
 
 ![External Identities][api-management-security-external-identities]
 
-Click **Azure Active Directory**. Make a note of the **Redirect URL** and switch over to your Azure Active Directory in the Azure Portal.
+Click **Azure Active Directory**. Make a note of the **Redirect URL** and switch over to your Azure Active Directory in the Azure Classic Portal.
 
 ![External Identities][api-management-security-aad-new]
 
@@ -48,7 +48,7 @@ Enter a name for the application, select **Web application and/or Web API**, and
 
 ![New Azure Active Directory application][api-management-new-aad-application-1]
 
-For **Sign-on URL**, copy the **Redirect URL** from the **Azure Active Directory** section of the **External Identities** tab in the publisher portal and remove the **-aad** suffix from the end of the URL. In this example, the **Sign-on URL** is `https://aad03.portal.current.int-azure-api.net/signin`. 
+For **Sign-on URL**, enter the sign-on URL of your developer portal. In this example, the **Sign-on URL** is `https://aad03.portal.current.int-azure-api.net/signin`. 
 
 For the **App ID URL**, enter either the default domain or a custom domain for the Azure Active Directory, and append a unique string to it. In this example the default domain of **https://contoso5api.onmicrosoft.com** is used with the suffix of **/api** specified.
 
@@ -211,7 +211,6 @@ Your user is now logged into the developer portal for your API Management servic
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: api-management-get-started.md
-[Get started with advanced API configuration]: api-management-get-started-advanced.md
 [API Management policy reference]: api-management-policy-reference.md
 [Caching policies]: api-management-policy-reference.md#caching-policies
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance

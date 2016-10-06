@@ -4,17 +4,17 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/15/2015"
+   ms.date="08/30/2016"
    ms.author="larryfr"/>
 
 #Use SSH with Linux-based Hadoop on HDInsight from Windows
@@ -23,9 +23,11 @@
 - [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 - [Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-[Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) allows you to remotely perform operations on your Liux-based HDInsight clusters using a command-line interface. This document provides information on connecting to HDInsight from Windows-based clients by using the PuTTY SSH client.
+[Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) allows you to remotely perform operations on your Linux-based HDInsight clusters using a command-line interface. This document provides information on connecting to HDInsight from Windows-based clients by using the PuTTY SSH client.
 
 > [AZURE.NOTE] The steps in this article assume you are using a Windows-based client. If you are using a Linux, Unix, or OS X client, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+>
+> If you have Windows 10 and are using [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about), then you can use the steps in the [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md) document.
 
 ##Prerequisites
 
@@ -35,7 +37,9 @@
 
 OR
 
-* [Azure CLI for Mac, Linux and Windows](../xplat-cli.md).
+* [Azure CLI](../xplat-cli-install.md).
+
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
 ##What is SSH?
 
@@ -44,10 +48,6 @@ SSH is a utility for logging in to, and remotely executing, commands on a remote
 ###SSH user name
 
 An SSH user name is the name you use to authenticate to the HDInsight cluster. When you specify an SSH user name during cluster creation, this user is created on all nodes in the cluster. Once the cluster is created, you can use this user name to connect to the HDInsight cluster head nodes. From the head nodes, you can then connect to the individual worker nodes.
-
-> [AZURE.NOTE] An SSH user name must be unique. Since an SSH user name creates a user account on the HDInsight cluster, it cannot conflict with existing users that are created by HDInsight. The following are names that are reserved for use by services running on the HDInsight cluster, and cannot be used as the SSH user name:
->
-> root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
 
 ###SSH password or Public key
 
@@ -85,21 +85,21 @@ Use the following information if you plan on using SSH keys with your cluster. I
 
 6. Click **Save public key** to save the key as a **.txt** file. This allows you to reuse the public key in the future when you create additional Linux-based HDInsight clusters.
 
-	> [AZURE.NOTE] The public key is also displayed at the top of PuTTYGen. You can right-click this field, copy the value, and then paste it into a form when creating a cluster using the Azure preview portal.
+	> [AZURE.NOTE] The public key is also displayed at the top of PuTTYGen. You can right-click this field, copy the value, and then paste it into a form when creating a cluster using the Azure Portal.
 
 ##Create a Linux-based HDInsight cluster
 
 When creating a Linux-based HDInsight cluster, you must provide the public key created previously. From Windows-based clients, there are two ways to create a Linux-based HDInsight cluster:
 
-* **Azure preview portal** - Uses a web-based portal to create the cluster.
+* **Azure Portal** - Uses a web-based portal to create the cluster.
 
 * **Azure CLI for Mac, Linux and Windows** - Uses command-line commands to create the cluster.
 
 Each of these methods will require the public key. For complete information on creating a Linux-based HDInsight cluster, see [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
-###Azure preview portal
+###Azure Portal
 
-When using the [Azure preview portal][preview-portal] to create a Linux-based HDInsight cluster, you must enter an **SSH Username**, and select to enter a **PASSWORD** or **SSH PUBLIC KEY**.
+When using the [Azure Portal][preview-portal] to create a Linux-based HDInsight cluster, you must enter an **SSH Username**, and select to enter a **PASSWORD** or **SSH PUBLIC KEY**.
 
 If you select **SSH PUBLIC KEY**, you can either paste the public key (displayed in the __Public key for pasting into OpenSSH authorized\_keys file__ field in PuttyGen,) into the __SSH PublicKey__ field, or select __Select a file__ to browse and select the file that contains the public key.
 
@@ -109,7 +109,7 @@ This creates a login for the specified user, and enables either password authent
 
 ###Azure Command-Line Interface for Mac, Linux, and Windows
 
-You can use the [Azure CLI for Mac, Linux and Windows](../xplat-cli.md) to create a new cluster by using the `azure hdinsight cluster create` command.
+You can use the [Azure CLI for Mac, Linux and Windows](../xplat-cli-install.md) to create a new cluster by using the `azure hdinsight cluster create` command.
 
 For more information on using this command, see [Provision Hadoop Linux clusters in HDInsight using custom options](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -125,7 +125,11 @@ For more information on using this command, see [Provision Hadoop Linux clusters
 
 	![putty interface, select private key](./media/hdinsight-hadoop-linux-use-ssh-windows/puttykey.png)
 
-3. In **Category**, select **Session**. From the **Basic options for your PuTTY session** screen, enter the SSH address of your HDInsight server in the **Host name (or IP address)** field. The SSH address is your cluster name, then **-ssh.azurehdinsight.net**. For example, **mycluster-ssh.azurehdinsight.net**.
+3. In **Category**, select **Session**. From the **Basic options for your PuTTY session** screen, enter the SSH address of your HDInsight server in the **Host name (or IP address)** field. There are two possible SSH addresses you may use when connecting to a cluster:
+
+    * __Head node address__: To connect to the head node of the cluster, use your cluster name, then **-ssh.azurehdinsight.net**. For example, **mycluster-ssh.azurehdinsight.net**.
+    
+    * __Edge node address__: If you are connecting to an R Server on HDInsight cluster, you can connect to the R Server edge node using the address __RServer.CLUSTERNAME.ssh.azurehdinsight.net__, where CLUSTERNAME is the name of your cluster. For example, __RServer.mycluster.ssh.azurehdinsight.net__.
 
 	![putty interface with ssh address entered](./media/hdinsight-hadoop-linux-use-ssh-windows/puttyaddress.png)
 
@@ -137,7 +141,7 @@ For more information on using this command, see [Provision Hadoop Linux clusters
 
 6. When prompted, enter the user that you entered when you created the cluster. If you provided a password for the user, you will be prompted to enter it also.
 
-> [AZURE.NOTE] The above steps assume you are using port 22, which will connect to headnode0 on the HDInsight cluster. If you use port 23, you will connect to headnode1. For more information on the head nodes, see [Availability and reliability of Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md).
+> [AZURE.NOTE] The above steps assume you are using port 22, which will connect to the primary headnode on the HDInsight cluster. If you use port 23, you will connect to the secondary. For more information on the head nodes, see [Availability and reliability of Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md).
 
 ###Connect to worker nodes
 
@@ -181,9 +185,9 @@ If you provided an SSH key when you created your user account, you must perform 
 
     > [AZURE.NOTE] If you use a password to authentication your SSH session, you will be prompted to enter the password again. If you use an SSH key, the connection should finish without any prompts.
 
-9. Once the session has been established, the prompt for your PuTTY session will change from `username@headnode` to `username@workernode` to indicate that you are connected to the worker node. Any commands you run at this point will run on the worker node.
+9. Once the session has been established, the prompt for your PuTTY session will change from `username@hn#-clustername` to `username@wn#-clustername` to indicate that you are connected to the worker node. Any commands you run at this point will run on the worker node.
 
-10. Once you have finished performing actions on the worker node, use the `exit` command to close the session to the worker node. This will return you to the `username@headnode` prompt.
+10. Once you have finished performing actions on the worker node, use the `exit` command to close the session to the worker node. This will return you to the `username@hn#-clustername` prompt.
 
 ##Add more accounts
 

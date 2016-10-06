@@ -1,22 +1,26 @@
 <properties
    pageTitle="Using the BizTalk JSON Encoder connector in Logic Apps | Microsoft Azure App Service "
    description="How to create and configure the BizTalk JSON Encoder Connector or API app and use it in a logic app in Azure App Service"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # Get started with the BizTalk JSON Encoder and add it to your Logic App 
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+
+
 BizTalk JSON Encode Decode connector helps your app interop between JSON and XML data. It can convert a given JSON instance to XML and vice versa.
 
 You can add the BizTalk JSON Encoder to your business workflow and process data as part of this workflow within a Logic App. 
@@ -51,9 +55,11 @@ The action returns a json representation of the input content.
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business flow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
 
+>[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
+
 View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-You can also review performance statistics and control security to the connector. See [Manage  and Monitor API apps and connector](../app-service-api/app-service-api-manage-in-portal.md).
+ 
 
 <!--References -->
 [1]: app-service-logic-connector-tpm

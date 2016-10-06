@@ -4,7 +4,7 @@
    services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
 
 <tags
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/08/2015"
+   ms.date="06/28/2016"
    ms.author="jgao"/>
 
 # Configure a VPN connection between two Azure virtual networks  
 
 > [AZURE.SELECTOR]
-- [Configure VPN connectivity](../hdinsight-hbase-geo-replication-configure-VNETs.md)
-- [Configure DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
+- [Configure VPN connectivity](hdinsight-hbase-geo-replication-configure-vnets.md)
+- [Configure DNS](hdinsight-hbase-geo-replication-configure-dns.md)
 - [Configure HBase replication](hdinsight-hbase-geo-replication.md) 
 
 Azure virtual network site-to-site connectivity uses a VPN gateway to provide a secure tunnel using Ipsec/IKE. The VNets can be in different subscriptions and different regions. You can even combine VNet to VNet communication with multi-site configurations. There are several reasons for VNet to VNet connectivity:
@@ -29,7 +29,7 @@ Azure virtual network site-to-site connectivity uses a VPN gateway to provide a 
 - Regional multi-tier applications with strong isolation boundary 
 - Cross subscription, inter-organization communication in Azure
 
-For more information, see [Configure a VNet to VNet connection](../virtual-network/virtual-networks-configure-vnet-to-vnet-connection.md). 
+For more information, see [Configure a VNet to VNet connection](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). 
 
 To see it on video:
 
@@ -38,7 +38,7 @@ To see it on video:
 This tutorial is a part of the [series][hdinsight-hbase-replication] on creating HBase geo-replication. 
 
 - Configure a VPN connectivity between two virtual networks (this tutorial)
-- [Configure DNS for the virtual networks] [hdinsight-hbase-geo-replication-DNS]
+- [Configure DNS for the virtual networks][hdinsight-hbase-geo-replication-dns]
 - [Configure HBase geo replication][hdinsight-hbase-geo-replication]
 
 The following diagram illustrates the two virtual networks you will create in this tutorial:
@@ -49,9 +49,9 @@ The following diagram illustrates the two virtual networks you will create in th
 ##Prerequisites
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **A workstation with Azure PowerShell**.
 
 	Before running PowerShell scripts, make sure you are connected to your Azure subscription using the following cmdlet:
 
@@ -60,6 +60,8 @@ Before you begin this tutorial, you must have the following:
 	If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:
 
 		Select-AzureSubscription <AzureSubscriptionName>
+		
+	[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
 >[AZURE.NOTE] Azure service names and virtual machine names must be unique. The name used in this tutorial is Contoso-[Azure Service/VM name]-[EU/US]. For example, Contoso-VNet-EU is the Azure virtual network in the North Europe data center; Contoso-DNS-US is the DNS server VM in the East U.S. datacenter. You must come up with your own names.
@@ -71,7 +73,7 @@ Before you begin this tutorial, you must have the following:
 
 **To create a virtual network called Contoso-VNet-EU in North-Europe**
 
-1.	Sign in to the [Azure portal][azure-portal].
+1.	Sign in to the [Azure Classic Portal][azure-portal].
 2.	Click **NEW**, **NETWORK SERVICES**, **VIRTUAL NETWORK**, **CUSTOM CREATE**.
 3.	Enter:
 
@@ -144,7 +146,7 @@ When you create a VNet to VNet configuration, you need to configure each VNet to
 
 **To create a local network called Contoso-LNet-EU matching the Contoso-VNet-EU network address space**
 
-1. From the Azure portal, click **NEW**, **NETWORK SERVICES**, **VIRTUAL NETWORK**, **ADD LOCAL NETWORK**.
+1. From the Azure Classic Portal, click **NEW**, **NETWORK SERVICES**, **VIRTUAL NETWORK**, **ADD LOCAL NETWORK**.
 3. Enter:
 
 	- **NAME**: Contoso-LNet-EU
@@ -175,7 +177,7 @@ There are two parts in this configuration. First you configure a VNet site-to-si
 
 **To configure the Contoso-VNet-EU site-to-site connection to Contoso-LNet-US**
 
-1.	From the Azure portal, click **NETWORKS** on the left pane,
+1.	From the Azure Classic Portal, click **NETWORKS** on the left pane,
 2.	Click **Contoso-VNet-EU**.
 3.	Click the **CONFIGUE** tab.
 4.	Check **Connect to local network**.
@@ -187,7 +189,7 @@ There are two parts in this configuration. First you configure a VNet site-to-si
 
 **To create a VPN gateway for Contoso-VNet-EU**
 
-1.	From the Azure portal, click the **DASHBOARD** tab.
+1.	From the Azure Classic Portal, click the **DASHBOARD** tab.
 4.	Click **CREATE GATEWAY** on the bottom of the page, and then click **Dynamic Routing**.
 5.	Click **Yes** to confirm. Notice the gateway graphic on the page changes to yellow and says Creating Gateway. It typically takes about 15 minutes for the gateway to create.
 
@@ -205,7 +207,7 @@ In the last section, you create a VPN gateway for each of the VNets. You have go
 
 **To configure the VPN device IP address for Contoso-LNet-EU** 
 
-1.	From the Azure portal, click **NETWORKS** on the left pane.
+1.	From the Azure Classic Portal, click **NETWORKS** on the left pane.
 2.	Click **LOCAL NETWORKS** from the top.
 3.	Click **Contoso-LNet-EU**, and then click **EDIT** on the bottom.
 4.	Update **VPN DEVICE IP ADDRESS**.  This is the address you get from the DASHBOARD tab of Contoso-VNET-EU.
@@ -218,7 +220,7 @@ In the last section, you create a VPN gateway for each of the VNets. You have go
 
 ###Set VNet gateway keys
 
-The Vnet gateways use a shared key to authenticate connections between the virtual networks. The key can't be configured from the Azure portal. You must use PowerShell or .NET SDK.
+The Vnet gateways use a shared key to authenticate connections between the virtual networks. The key can't be configured from the Azure Classic Portal. You must use PowerShell or .NET SDK.
 
 **To set the keys**
 
@@ -233,7 +235,7 @@ The Vnet gateways use a shared key to authenticate connections between the virtu
 
 ##Check the VPN connection 
 
-Without any VMs deployed to the VNets, you can use the virtual network visual diagram the VNet Dashboard page on the Azure portal to check the connection status:
+Without any VMs deployed to the VNets, you can use the virtual network visual diagram the VNet Dashboard page on the Azure Classic Portal to check the connection status:
 
 ![HDInsight HBase replication virtual network VPN connection status][img-vpn-status]
   
@@ -249,7 +251,7 @@ In this tutorial you have learned how to configure a VPN connection between two 
 
 
 
-[hdinsight-hbase-geo-replication-dns]: hdinsight-hbase-geo-replication-configure-DNS.md
+[hdinsight-hbase-geo-replication-dns]: hdinsight-hbase-geo-replication-configure-dns.md
 [hdinsight-hbase-geo-replication]: hdinsight-hbase-geo-replication.md
 
 
@@ -258,14 +260,14 @@ In this tutorial you have learned how to configure a VPN connection between two 
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-portal]: https://portal.azure.com
 
-[powershell-install]: ../install-configure-powershell
+[powershell-install]: ../install-configure-powershell.md
 
 
 
-[hdinsight-hbase-replication]: ../hdinsight-hbase-geo-replication/
-[hdinsight-hbase-dns]: ../hdinsight-hbase-geo-replication-configure-DNS/
+[hdinsight-hbase-replication]: hdinsight-hbase-geo-replication.md
+[hdinsight-hbase-dns]: hdinsight-hbase-geo-replication-configure-dns.md
 
 
-[img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.diagram.png
-[img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
-[img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png 
+[img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-vnets/hdinsight-hbase-vpn-diagram.png
+[img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-vnets/hdinsight-hbase-vpn-lnet-diagram.png
+[img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-vnets/hdinsight-hbase-vpn-status.png 

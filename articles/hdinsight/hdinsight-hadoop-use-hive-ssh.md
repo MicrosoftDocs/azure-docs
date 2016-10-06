@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Use Hadoop Hive and SSH in HDInsight | Microsoft Azure"
-   description="Learn how to use SSH to connect to a Hadoop cluster in HDInsight, and then interactively submit Hive queries by using the Hive command-line interface."
+   pageTitle="Use the Hive shell in HDInsight (Hadoop) | Microsoft Azure"
+   description="Learn how to use the Hive shell with a Linux-based HDInsight cluster. You will learn how to connect to the HDInsight cluster using SSh, then use the Hive Shell to interactively run queries."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,16 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/28/2015"
+   ms.date="10/04/2016"
    ms.author="larryfr"/>
 
-#Use Hive with Hadoop in HDInsight with SSH
+# Use Hive with Hadoop in HDInsight with SSH
 
 [AZURE.INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
 In this article, you will learn how to use Secure Shell (SSH) to connect to a Hadoop on Azure HDInsight cluster and then interactively submit Hive queries by using the Hive command-line interface (CLI).
 
-> [AZURE.NOTE] If you are already familiar with using Linux-based Hadoop servers, but are new to HDInsight, see [What you need to know about Hadoop on Linux-based HDInsight](hdinsight-hadoop-linux-information.md).
+> [AZURE.IMPORTANT] While the Hive command is available on Linux-based HDInsight clusters, you should consider using Beeline. Beeline is a newer client for working with Hive, and is included with your HDInsight cluster. For more information on using this, see [Use Hive with Hadoop in HDInsight with Beeline](hdinsight-hadoop-use-hive-beeline.md).
 
 ##<a id="prereq"></a>Prerequisites
 
@@ -41,7 +41,7 @@ Connect to the fully qualified domain name (FQDN) of your HDInsight cluster by u
 
 **If you provided a certificate key for SSH authentication** when you created the HDInsight cluster, you may need to specify the location of the private key on your client system:
 
-	ssh admin@myhdinsight-ssh.azurehdinsight.net -i ~/mykey.key
+	ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
 
 **If you provided a password for SSH authentication** when you created the HDInsight cluster, you will need to provide the password when prompted.
 
@@ -64,7 +64,7 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
         ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-        STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
+        STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
     These statements perform the following actions:
@@ -115,6 +115,12 @@ For information on other ways you can work with Hadoop on HDInsight:
 
 * [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
+If you are using Tez with Hive, see the following documents for debugging information:
+
+* [Use the Tez UI on Windows-based HDInsight](hdinsight-debug-tez-ui.md)
+
+* [Use the Ambari Tez view on Linux-based HDInsight](hdinsight-debug-ambari-tez-view.md)
+
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -133,16 +139,14 @@ For information on other ways you can work with Hadoop on HDInsight:
 
 [putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 
-[hdinsight-storage]: hdinsight-use-blob-storage.md
-
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: hdinsight-get-started.md
+
 
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-[image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
+
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
-[image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
+

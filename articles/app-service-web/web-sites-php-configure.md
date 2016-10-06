@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Configure PHP in Azure App Service Web Apps"
+	pageTitle="Configure PHP in Azure App Service Web Apps | Microsoft Azure"
 	description="Learn how to configure the default PHP installation or add a custom PHP installation for Web Apps in Azure App Service."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter="php"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="09/16/2015"
-	ms.author="tomfitz"/>
+	ms.date="08/11/2016"
+	ms.author="robmcm"/>
 
 #Configure PHP in Azure App Service Web Apps
 
@@ -31,7 +31,7 @@ PHP 5.5 and PHP 5.6 versions are also available, but not enabled by default. To 
 
 ### Azure Portal
 
-1. Browse to your web app in the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) and click on the **Settings** button.
+1. Browse to your web app in the [Azure Portal](https://portal.azure.com) and click on the **Settings** button.
 
 	![Web App Settings][settings-button]
 
@@ -45,27 +45,34 @@ PHP 5.5 and PHP 5.6 versions are also available, but not enabled by default. To 
 
 ### Azure PowerShell (Windows)
 
-1. Open Windows PowerShell
-2. Type `Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name <site-name>` then press enter.
-3. The PHP version is now set.
+1. Open Azure PowerShell, and login to your account:
 
-	![Setting the PHP version with Azure PowerShell][SETPHPVERPS]
-4. You can confirm these settings by typing `Get-AzureWebiste -Name <site-name>` then press enter.
+        PS C:\> Login-AzureRmAccount
 
-	![Verifying the PHP version with Azure PowerShell][GETPHPVERPS]
+2. Set the PHP version for the web app.
+
+        PS C:\> Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name {site-name}
+
+3. The PHP version is now set. You can confirm these settings:
+
+        PS C:\> Get-AzureWebsite -Name {site-name} | findstr PhpVersion
 
 ### Azure Command-Line Interface (Linux, Mac, Windows)
 
 To use the Azure Command-Line Interface, you must have **Node.js** installed on your computer.
 
-1. Open Terminal.
-2. Type `azure site set --php-version [5.4 | 5.5] [site-name]` then press enter.
-3. The PHP version is now set.
+1. Open Terminal, and login to your account.
 
-	![Setting the PHP version with Azure Command-Line Interface][SETPHPVERCLI]
-4. You can confirm these settings by typing `azure site show [site-name]` then press enter.
+        azure login
 
-	![Verifying the PHP version with Azure Command-Line Interface][GETPHPVERCLI]
+2. Set the PHP version for the web app.
+
+        azure site set --php-version [5.4 | 5.5] {site-name}
+
+3. The PHP version is now set. You can confirm these settings:
+
+        azure site show {site-name}
+
 
 ## How to: Change the built-in PHP configurations
 
@@ -79,6 +86,9 @@ For any built-in PHP runtime, you can change any of the configuration options by
 		; Example Settings
 		display_errors=On
 		upload_max_filesize=10M
+		
+		; OPTIONAL: Turn this on to write errors to d:\home\LogFiles\php_errors.log
+		; log_errors=On
 
 3. Deploy your web app.
 4. Restart the web app. (Restarting is necessary because the frequency with which PHP reads `.user.ini` files is governed by the `user_ini.cache_ttl` setting, which is a system level setting and is 300 seconds (5 minutes) by default. Restarting the web app forces PHP to read the new settings in the `.user.ini` file.)
@@ -153,11 +163,38 @@ Instead of the default PHP runtime, App Service Web Apps can use a PHP runtime t
 
 	![Save configuration settings][save-button]
 
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+<a name="composer" />
+## How to: Enable Composer automation in Azure
 
-## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+By default, App Service doesn't do anything with composer.json, if you have one in your PHP
+project. If you use [Git deployment](app-service-web-php-get-started.md), you can enable composer.json 
+processing during `git push` by enabling the Composer extension.
+
+>[AZURE.NOTE] You can [vote for first-class Composer support in App Service here](https://feedback.azure.com/forums/169385-web-apps-formerly-websites/suggestions/6477437-first-class-support-for-composer-and-pip)!
+
+1. In your PHP web app's blade in the [Azure portal](https://portal.azure.com), click **Tools** > **Extensions**.
+
+    ![Azure Portal settings blade to enable Composer automation in Azure](./media/web-sites-php-configure/composer-extension-settings.png)
+
+2. Click **Add**, then click **Composer**.
+
+    ![Add Composer extension to enable Composer automation in Azure](./media/web-sites-php-configure/composer-extension-add.png)
+    
+3. Click **OK** to accept legal terms. Click **OK** again to add the extension.
+
+    The **Installed extensions** blade will now show the Composer extension.  
+    ![Accept legal terms to enable Composer automation in Azure](./media/web-sites-php-configure/composer-extension-view.png)
+    
+4. Now, perform `git add`, `git commit`, and `git push` like in the previous section. You'll now see that Composer
+is installing dependencies defined in composer.json.
+
+    ![Git deployment with Composer automation in Azure](./media/web-sites-php-configure/composer-extension-success.png)
+
+## Next steps
+
+For more information, see the [PHP Developer Center](/develop/php/).
+
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
 [free trial]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php

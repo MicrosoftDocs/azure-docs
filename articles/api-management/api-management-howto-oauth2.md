@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.date="08/24/2016" 
 	ms.author="sdanie"/>
 
 # How to authorize developer accounts using OAuth 2.0 in Azure API Management
@@ -28,7 +28,7 @@ This guide shows you how to configure your API Management service instance to us
 
 ## <a name="step1"> </a>Configure an OAuth 2.0 authorization server in API Management
 
-To get started, click **Manage** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal.
+To get started, click **Manage** in the Azure Classic Portal for your API Management service. This takes you to the API Management publisher portal.
 
 ![Publisher portal][api-management-management-console]
 
@@ -146,7 +146,6 @@ For more information about using OAuth 2.0 and API Management, see the following
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: api-management-get-started.md
-[Get started with advanced API configuration]: api-management-get-started-advanced.md
 [API Management policy reference]: api-management-policy-reference.md
 [Caching policies]: api-management-policy-reference.md#caching-policies
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance

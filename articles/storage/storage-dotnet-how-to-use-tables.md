@@ -1,11 +1,11 @@
 <properties
-	pageTitle="How to use Table storage from .NET | Microsoft Azure"
-	description="Learn how to use Microsoft Azure Table storage to create and delete tables and insert and query entities in a table."
+	pageTitle="Get started with Azure Table storage using .NET | Microsoft Azure"
+	description="Store structured data in the cloud using Azure Table storage, a NoSQL data store."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
-	manager="adinah"
-	editor=""/>
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,62 +13,84 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/04/2015"
-	ms.author="tamram"/>
+	ms.date="09/20/2016"
+	ms.author="gusapost;tamram"/>
 
 
-# How to use Table storage from .NET
+# Get started with Azure Table storage using .NET
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Overview
 
-This article will show you how to perform common scenarios by using the
-Azure Table storage service. The samples are written in C\# code
-and use the Azure Storage Client Library for .NET. The scenarios covered include creating and
-deleting a table, as well as working with table entities.
+Azure Table storage is a service that stores structured NoSQL data in the cloud. Table storage is a key/attribute store with a schemaless design. Because Table storage is schemaless, it's easy to adapt your data as the needs of your application evolve. Access to data is fast and cost-effective for all kinds of applications. Table storage is typically significantly lower in cost than traditional SQL for similar volumes of data.
+
+You can use Table storage to store flexible datasets, such as user data for web applications, address books, device information, and any other type of metadata that your service requires. You can store any number of entities in a table, and a storage account may contain any number of tables, up to the capacity limit of the storage account.
+
+### About this tutorial
+
+This tutorial shows how to write .NET code for some common scenarios using Azure Table storage, including creating and deleting a table and inserting, updating, deleting, and querying table data.
+
+**Estimated time to complete:** 45 minutes
+
+**Prerequisities:**
+
+- [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
+- [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
+- [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
+- An [Azure storage account](storage-create-storage-account.md#create-a-storage-account)
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
+
+### More samples
+
+For additional examples using Table storage, see [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/). You can download the sample application and run it, or browse the code on GitHub.
+
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-[AZURE.INCLUDE [storage-configure-connection-string-include](../../includes/storage-configure-connection-string-include.md)]
+[AZURE.INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-## Programmatically access Table storage
+### Add namespace declarations
 
-[AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
+Add the following `using` statements to the top of the `program.cs` file:
 
-### Namespace declarations
-Add the following code namespace declarations to the top of any C\# file
-in which you wish to programmatically access Azure Storage.
+	using Microsoft.Azure; // Namespace for CloudConfigurationManager
+	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
+    using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 
-    using Microsoft.WindowsAzure.Storage;
-	using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage.Table;
+### Parse the connection string
 
-Make sure you reference the `Microsoft.WindowsAzure.Storage.dll` assembly.
+[AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
-[AZURE.INCLUDE [storage-dotnet-retrieve-conn-string](../../includes/storage-dotnet-retrieve-conn-string.md)]
+### Create the Table service client
+
+The **CloudTableClient** class enables you to retrieve tables and entities stored in Table storage. Here's one way to create the service client:
+
+	// Create the table client.
+	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+Now you are ready to write code that reads data from and writes data to Table storage.
 
 ## Create a table
 
-A **CloudTableClient** object lets you get reference objects for tables
-and entities. The following code creates a **CloudTableClient** object
-and uses it to create a new table. All code in this article assumes that
-the application being built is an Azure Cloud Services project and
-uses a storage connection string stored in the Azure application's service configuration.
+This example shows how to create a table if it does not already exist:
 
-    // Retrieve the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+	// Retrieve the storage account from the connection string.
+	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+	    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+	// Create the table client.
+	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+	// Retrieve a reference to the table.
+    CloudTable table = tableClient.GetTableReference("people");
 
     // Create the table if it doesn't exist.
-    CloudTable table = tableClient.GetTableReference("people");
     table.CreateIfNotExists();
 
 ## Add an entity to a table
@@ -299,7 +321,7 @@ show you how to override this behavior.
 	   // Change the phone number.
 	   updateEntity.PhoneNumber = "425-555-0105";
 
-	   // Create the InsertOrReplace TableOperation.
+	   // Create the Replace TableOperation.
 	   TableOperation updateOperation = TableOperation.Replace(updateEntity);
 
 	   // Execute the operation.
@@ -478,24 +500,14 @@ If you are reading a large number of entities, and you want to process/display e
 Now that you've learned the basics of Table storage, follow these links
 to learn about more complex storage tasks:
 
-<ul>
-<li>View the Table service reference documentation for complete details about available APIs:
-  <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Storage Client Library for .NET reference</a>
-    </li>
-    <li><a href="http://msdn.microsoft.com/library/azure/dd179355">REST API reference</a></li>
-  </ul>
-</li>
-<li>Learn about more advanced tasks you can perform with Azure Storage by reviewing <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">Azure Storage documentation</a>.</li>
-<li>Learn how to simplify the code you write to work with Azure Storage by using the <a href="../websites-dotnet-webjobs-sdk/">Azure WebJobs SDK</a>.</li>
-<li>View more feature guides to learn about additional options for storing data in Azure:
-  <ul>
-    <li>Use <a href="/documentation/articles/storage-dotnet-how-to-use-blobs/">Blob storage</a> to store unstructured data.</li>
-    <li>Use <a href="/documentation/articles/storage-dotnet-how-to-use-queues/">Queue storage</a> to store structured data.</li>
-    <li>Use <a href="/documentation/articles/sql-database-dotnet-how-to-use/">SQL Database</a> to store relational data.</li>
-  </ul>
-</li>
-</ul>
+- See more Table storage samples in [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
+- View the Table service reference documentation for complete details about available APIs:
+    - [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    - [REST API reference](http://msdn.microsoft.com/library/azure/dd179355)
+- Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
+- View more feature guides to learn about additional options for storing data in Azure.
+    - [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md) to store unstructured data.
+    - [How to use Azure SQL Database in .NET applications](sql-database-dotnet-how-to-use.md) to store relational data.
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
@@ -508,7 +520,6 @@ to learn about more complex storage tasks:
 
   [Introducing Upsert and Query Projection blog post]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
   [.NET Client Library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Storing and accessing data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configure Azure Storage connection strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2

@@ -1,8 +1,8 @@
 <properties 
-	pageTitle="Media Services PlayReady License Template Overview" 
+	pageTitle="Media Services PlayReady license template overview" 
 	description="This topic gives an overview of a PlayReady license template that used to configure PlayReady licenses." 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+ 	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
-#Media Services PlayReady License Template Overview
+#Media Services PlayReady license template overview
 
 Azure Media Services now provides a service for delivering Microsoft PlayReady licenses. When the end user player (for example, Silverlight) tries to play your PlayReady protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, it issues the license which is sent to the client and can be used to decrypt and play the specified content.
 
@@ -49,7 +49,7 @@ The following example shows the simplest (and most common) template that configu
 
 The XML conforms to the PlayReady license template XML schema defined in the PlayReady license template XML schema section.
 
-Media Services also defines a set of .NET classes that could be used to serialized and deserialized to and from the XML. For description of main classes, see [Media Services .NET classes]((media-services-playready-license-template-overview.md#classes). that are used to configure license templates.
+Media Services also defines a set of .NET classes that could be used to serialized and deserialized to and from the XML. For description of main classes, see [Media Services .NET classes](media-services-playready-license-template-overview.md#classes). that are used to configure license templates.
 
 For an end-to-end example that uses .NET classes to configure the PlayReady license template, see [Using PlayReady Dynamic Encryption and License Delivery Service](https://msdn.microsoft.com/library/azure/dn783467.aspx).
 
@@ -75,7 +75,7 @@ This is the “top level” class in the template hierarchy. Meaning that the re
 
 [PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx) - This class represents the PlayRight of a PlayReady license. It grants the user the ability to playback the content subject to the zero or more restrictions configured in the license and on the PlayRight itself (for playback specific policy). Much of the policy on the PlayRight has to do with output restrictions which control the types of outputs that the content can be played over and any restrictions that must be put in place when using a given output. For example, if the DigitalVideoOnlyContentRestriction is enabled, then the DRM runtime will only allow the video to be displayed over digital outputs (analog video outputs won’t be allowed to pass the content).
 
->[AZURE.IMPORTANT]These types of restrictions can be very powerful but can also affect the consumer experience. If the output protections are configured too restrictive, the content might be unplayable on some clients. For more information, see the PlayReady Compliance Rules document.
+>[AZURE.IMPORTANT]These types of restrictions can be very powerful but can also affect the consumer experience. If the output protections are configured too restrictive, the content might be unplayable on some clients. For more information, see the [PlayReady Compliance Rules](https://www.microsoft.com/playready/licensing/compliance/) document.
 
 For an example of what protection levels Silverlight supports, see: [Silverlight support for output protections](http://go.microsoft.com/fwlink/?LinkId=617318).
 
@@ -303,9 +303,11 @@ For an example of what protection levels Silverlight supports, see: [Silverlight
 	</xs:schema>
 
 
+
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

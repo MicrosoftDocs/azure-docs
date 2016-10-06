@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Inserting Ads on the Client Side" 
+	pageTitle="Inserting ads on the client side | Microsoft Azure" 
 	description="This topic shows how to insert ads on the client side." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,17 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 
-#Inserting Ads on the Client Side
+#Inserting ads on the client side
 
 This topic contains information on how to insert various types of ads on the client side.
 
-For information about closed captioning and ad support in Live streaming videos, see [Supported Closed Captioning and Ad Insertion Standards](https://msdn.microsoft.com/library/azure/dn783466.aspx#caption_ad).
+For information about closed captioning and ad support in Live streaming videos, see [Supported Closed Captioning and Ad Insertion Standards](media-services-live-streaming-with-onprem-encoders.md#cc_and_ads).
 
- 
+>[AZURE.NOTE] Azure Media Player does not currently support Ads.
+
 ##<a id="insert_ads_into_media"></a>Inserting Ads into your Media
 
 Azure Media Services provides support for ad insertion through the Windows Media Platform: Player Frameworks. Player frameworks with ad support are available for Windows 8, Silverlight, Windows Phone 8, and iOS devices. Each player framework contains sample code that shows you how to implement a player application.There are three different kinds of ads you can insert into your media:list.
@@ -808,12 +809,14 @@ The following sample shows how to schedule a mid-roll overlay ad.
 	}
 
 
+
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
  
 ##See Also

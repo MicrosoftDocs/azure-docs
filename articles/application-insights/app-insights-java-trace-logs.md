@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="java"
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2015" 
+	ms.date="07/12/2016" 
 	ms.author="awills"/>
 
 # Explore Java trace logs in Application Insights
@@ -38,7 +38,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
        <dependency>
           <groupId>com.microsoft.azure</groupId>
           <artifactId>applicationinsights-logging-logback</artifactId>
-          <version>[0.9,)</version>
+          <version>[1.0,)</version>
        </dependency>
     </dependencies>
 
@@ -48,7 +48,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
        <dependency>
           <groupId>com.microsoft.azure</groupId>
           <artifactId>applicationinsights-logging-log4j2</artifactId>
-          <version>[0.9,)</version>
+          <version>[1.0,)</version>
        </dependency>
     </dependencies>
 
@@ -58,7 +58,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
        <dependency>
           <groupId>com.microsoft.azure</groupId>
           <artifactId>applicationinsights-logging-log4j1_2</artifactId>
-          <version>[0.9,)</version>
+          <version>[1.0,)</version>
        </dependency>
     </dependencies>
 
@@ -70,15 +70,15 @@ Then refresh the project dependencies, to get the binaries downloaded.
 
 **Logback**
 
-    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: '0.9.+'
+    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: '1.0.+'
 
 **Log4J v2.0**
 
-    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j2', version: '0.9.+'
+    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j2', version: '1.0.+'
 
 **Log4J v1.2**
 
-    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j1_2', version: '0.9.+'
+    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j1_2', version: '1.0.+'
 
 #### Otherwise ...
 
@@ -87,9 +87,9 @@ Download and extract the appropriate appender, then add the appropriate library 
 
 Logger | Download | Library
 ----|----|----
-Logback|[SDK with Logback appender](http://dl.windowsazure.com/applicationinsights/javabin/logbackAppender.zip)|applicationinsights-logging-logback
-Log4J v2.0|[SDK with Log4J v2 appender](http://dl.windowsazure.com/applicationinsights/javabin/log4j2Appender.zip)|applicationinsights-logging-log4j2 
-Log4j v1.2|[SDK with Log4J v1.2 appender](http://dl.windowsazure.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1_2 
+Logback|[SDK with Logback appender](https://aka.ms/xt62a4)|applicationinsights-logging-logback
+Log4J v2.0|[SDK with Log4J v2 appender](https://aka.ms/qypznq)|applicationinsights-logging-log4j2 
+Log4j v1.2|[SDK with Log4J v1.2 appender](https://aka.ms/ky9cbo)|applicationinsights-logging-log4j1_2 
 
 
 
@@ -109,15 +109,17 @@ To start getting traces, merge the relevant snippet of code to the Log4J or Logb
 
 *Log4J v2.0*
 
-    
-    <Appenders>
-      <ApplicationInsightsAppender name="aiAppender" />
-    </Appenders>
-    <Loggers>
-      <Root level="trace">
-        <AppenderRef ref="aiAppender"/>
-      </Root>
-    </Loggers>
+
+    <Configuration packages="com.microsoft.applicationinsights.Log4j">
+      <Appenders>
+        <ApplicationInsightsAppender name="aiAppender" />
+      </Appenders>
+      <Loggers>
+        <Root level="trace">
+          <AppenderRef ref="aiAppender"/>
+        </Root>
+      </Loggers>
+    </Configuration>
 
 
 *Log4J v1.2*
@@ -134,9 +136,9 @@ The Application Insights appenders can be referenced by any configured logger, a
 
 ## Explore your traces in the Application Insights portal
 
-Now that you've configured your project to send traces to Application Insights, you can view and search these traces in the Application Insights portal, in the [Diagnostic Search][diagnostic] blade.
+Now that you've configured your project to send traces to Application Insights, you can view and search these traces in the Application Insights portal, in the [Search][diagnostic] blade.
 
-![In the Application Insights portal, open Diagnostic Search](./media/app-insights-java-trace-logs/10-diagnostics.png)
+![In the Application Insights portal, open Search](./media/app-insights-java-trace-logs/10-diagnostics.png)
 
 ## Next steps
 

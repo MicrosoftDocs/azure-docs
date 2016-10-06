@@ -3,8 +3,8 @@
 	description="Learn how to customize the expiration date for your federation certificates, and how to renew certificates that will soon expire."
 	services="active-directory"
 	documentationCenter=""
-	authors="liviodlc"
-	manager="terrylan"
+	authors="asmalser-msft"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
-	ms.author="liviodlc"/>
+	ms.date="02/09/2016"
+	ms.author="asmalser-msft"/>
 
 #Managing Certificates for Federated Single Sign-On in Azure Active Directory
 
@@ -26,7 +26,7 @@ This article is only relevant to apps that are configured to use **Azure AD Sing
 
 ##How to Customize the Expiration Date for your Federation Certificate
 
-By default, certificates are set to expire after two years. You can choose a different expiration date for your certificate by following the steps below. The included screenshots use ServiceNow for the sake of example, but these steps can apply to any federated SaaS app.
+By default, certificates are set to expire after two years. You can choose a different expiration date for your certificate by following the steps below. The included screenshots use Salesforce for the sake of example, but these steps can apply to any federated SaaS app.
 
 1. In Azure Active Directory, on the Quick Start page for your application, click on **Configure single sign-on**.
 
@@ -76,6 +76,8 @@ The renewal steps shown below should ideally result in no significant downtime f
 
 	![Download then upload the certificate](./media/active-directory-sso-certs/renew-config-app.PNG)
 
-##See Also
+## Related Articles
 
-[Application Access and Single Sign-On in Azure AD](active-directory-appssoaccess-whatis.md)
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+- [Application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md)
+- [Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md)

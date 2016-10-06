@@ -4,16 +4,16 @@
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
-	manager="adinah" 
-	editor=""/>
+	manager="carmonm" 
+	editor="tysonn"/>
 <tags 
 	ms.service="storage" 
 	ms.workload="storage" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
-	ms.author="tamram"/>
+	ms.date="09/07/2016" 
+	ms.author="micurd;tamram"/>
 
 # Use the Azure Storage Emulator for Development and Testing
 
@@ -21,7 +21,9 @@
 
 The Microsoft Azure storage emulator provides a local environment that emulates the Azure Blob, Queue, and Table services for development purposes. Using the storage emulator, you can test your application against the storage services locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the emulator, you can switch to using an Azure storage account in the cloud.
 
-> [AZURE.NOTE] The storage emulator is available as part of the [Microsoft Azure SDK](https://azure.microsoft.com/downloads/). You can also install the storage emulator as a standalone package. To configure the storage emulator, you must have administrative privileges on the computer.
+> [AZURE.NOTE] The storage emulator is available as part of the [Microsoft Azure SDK](https://azure.microsoft.com/downloads/). You can also install the storage emulator using the [standalone installer](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409). To configure the storage emulator, you must have administrative privileges on the computer.
+> 
+> The storage emulator currently runs only on Windows.
 >  
 > Note that data created in one version of the storage emulator is not guaranteed to be accessible when using a different version. If you need to persist your data for the long term, it's recommended that you store that data in an Azure storage account, rather than in the storage emulator.
 
@@ -41,13 +43,13 @@ Just as with Azure Storage in the cloud, every request that you make against the
 
 [AZURE.INCLUDE [storage-emulator-connection-string-include](../../includes/storage-emulator-connection-string-include.md)]
 
-For more details on connection strings, see [Configure a Connection String to Azure Storage](storage-configure-connection-string.md). 
+For more details on connection strings, see [Configure Azure Storage Connection Strings](storage-configure-connection-string.md). 
 
 ### Authentication with a shared access signature 
 
 Some Azure storage client libraries, such as the Xamarin library, only support authentication with a shared access signature (SAS) token. You will need to create this SAS token using a tool or application that supports Shared Key authentication. An easy way to generate the SAS token is via Azure PowerShell:
 
-1. Install Azure PowerShell if you haven't already. Using the latest version of the Azure PowerShell cmdlets is recommended. See [How to install and configure Azure PowerShell](../articles/powershell-install-configure.md#Install) for installation instructions.
+1. Install Azure PowerShell if you haven't already. Using the latest version of the Azure PowerShell cmdlets is recommended. See [How to install and configure Azure PowerShell](../powershell-install-configure.md#Install) for installation instructions.
 
 2. Open Azure PowerShell and run the following commands. Remember to replace *ACCOUNT_NAME* and *ACCOUNT_KEY==* with your own credentials. Replace *CONTAINER_NAME* with a name of your choosing.
 
@@ -65,7 +67,7 @@ The resulting shared access signature URI for the new container should be simila
 
 The shared access signature created with this example is valid for one day. The signature grants full access (i.e. read, write, delete, list) to blobs within the container.
 
-For more information on shared access signatures, see [Shared Access Signatures: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md).
+For more information on shared access signatures, see [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 
 ## Start and initialize the storage emulator
@@ -133,7 +135,7 @@ Beginning with version 3.1, the storage emulator account supports read-access ge
 
     http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt 
 
-> [AZURE.NOTE] For programmatic access to the secondary with the storage emulator, use the Storage Client Library for .NET version 3.2 or later. See the [Storage Client Library Reference](https://msdn.microsoft.com/library/azure/dn261237.aspx) for details.
+> [AZURE.NOTE] For programmatic access to the secondary with the storage emulator, use the Storage Client Library for .NET version 3.2 or later. See the [Microsoft Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx) for details.
 
 ## Storage emulator command-line tool reference
 
@@ -169,7 +171,7 @@ Because the storage emulator is an emulated enviroment running in a local SQL in
 
 - Beginning with version 3.1, the storage emulator account supports read-access geo-redundant replication (RA-GRS). In the emulator, all accounts have RA-GRS enabled, and there is never any lag between the primary and secondary replicas. The Get Blob Service Stats, Get Queue Service Stats, and Get Table Service Stats operations are supported on the account secondary and will always return the value of the `LastSyncTime` response element as the current time according to the underlying SQL database.
 
-	For programmatic access to the secondary with the storage emulator, use the Storage Client Library for .NET version 3.2 or later. See the [Storage Client Library Reference](https://msdn.microsoft.com/library/azure/dn261237.aspx) for details.
+	For programmatic access to the secondary with the storage emulator, use the Storage Client Library for .NET version 3.2 or later. See the [Microsoft Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx) for details.
 
 - The File service and SMB protocol service endpoints are not currently supported in the storage emulator.
 
@@ -203,6 +205,28 @@ There are no differences specific to Queue storage in the emulator.
 
 ## Storage emulator release notes
 
+### Version 4.5
+
+- Fixed a bug that caused initialization and installation of the storage emulator to fail when the backing database was renamed.
+
+### Version 4.4
+
+- The storage emulator now supports version 2015-12-11 of the storage services on Blob, Queue, and Table service endpoints.
+
+- The storage emulator's garbage collection of blob data is now more efficient when dealing with large numbers of blobs.
+
+- Fixed a bug that caused container ACL XML to be validated slightly differently from how the storage service does it.
+
+- Fixed a bug that sometimes caused max and min DateTime values to be reported in the incorrect time zone.
+
+### Version 4.3
+
+- The storage emulator now supports version 2015-07-08 of the storage services on Blob, Queue, and Table service endpoints.
+
+### Version 4.2
+
+- The storage emulator now supports version 2015-04-05 of the storage services on Blob, Queue, and Table service endpoints.
+
 ### Version 4.1
 
 - The storage emulator now supports version 2015-02-21 of the storage services on Blob, Queue, and Table service endpoints, with the exception of the new Append Blob features. 
@@ -216,12 +240,15 @@ There are no differences specific to Queue storage in the emulator.
 - The storage emulator executable has been renamed to *AzureStorageEmulator.exe*.
 
 ### Version 3.2
+
 - The storage emulator now supports version 2014-02-14 of the storage services on Blob, Queue, and Table service endpoints. Note that File service endpoints are not currently supported in the storage emulator. See [Versioning for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd894041.aspx) for details about version 2014-02-14.
 
 ### Version 3.1
-- Read-access geo-redundant storage (RA-GRS) is now supported in the storage emulator. The Get Blob Service Stats, Get Queue Service Stats, and Get Table Service Stats APIs are supported for the account secondary and will always return the value of the LastSyncTime response element as the current time according to the underlying SQL database. For programmatic access to the secondary with the storage emulator, use the Storage Client Library for .NET version 3.2 or later. See the Storage Client Library Reference for details.
+
+- Read-access geo-redundant storage (RA-GRS) is now supported in the storage emulator. The Get Blob Service Stats, Get Queue Service Stats, and Get Table Service Stats APIs are supported for the account secondary and will always return the value of the LastSyncTime response element as the current time according to the underlying SQL database. For programmatic access to the secondary with the storage emulator, use the Storage Client Library for .NET version 3.2 or later. See the Microsoft Azure Storage Client Library for .NET Reference for details.
 
 ### Version 3.0
+
 - The Azure storage emulator is no longer shipped in the same package as the compute emulator.
 
 - The storage emulator graphical user interface is deprecated in favor of a scriptable command line interface. For details on the command line interface, see Storage Emulator Command-Line Tool Reference. The graphical interface will continue to be present in version 3.0, but it can only be accessed when the Compute Emulator is installed by right-clicking on the system tray icon and selecting Show Storage Emulator UI.

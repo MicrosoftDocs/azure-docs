@@ -3,7 +3,7 @@
 You can reuse pre-defined ARM templates upload to a github repository maintained by Microsoft and open to the community. THese templates can be deployed straight out of github, or downloaded and modified to fit your needs. To deploy a template that creates a VNet with two subnets, follow the steps below.
 
 1. From a browser, navigate to [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
-2. Scroll down the list of templates, and click **101-two-subnets**. Check the **README.md** file, as shown below.
+2. Scroll down the list of templates, and click **101-vnet-two-subnets**. Check the **README.md** file, as shown below.
 
 	![READEME.md file in github](./media/virtual-networks-create-vnet-arm-template-click-include/figure1.png)
 
@@ -12,7 +12,7 @@ You can reuse pre-defined ARM templates upload to a github repository maintained
 
 	![ARM template parameters](./media/virtual-networks-create-vnet-arm-template-click-include/figure2.png)
 
-4. Click **Resource group** and select a resource group to add the VNet to, or click **Create new** to add the VNet to a new resource group. To learn more about resource groups, see [](). The figure below shows the resource group settings for a new resource group called **TestRG**.
+4. Click **Resource group** and select a resource group to add the VNet to, or click **Create new** to add the VNet to a new resource group. The figure below shows the resource group settings for a new resource group called **TestRG**.
 
 	![Resource group](./media/virtual-networks-create-vnet-arm-template-click-include/figure3.png)
 

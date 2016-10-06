@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configure SSL for a cloud service | Microsoft Azure" 
-	description="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application." 
+	pageTitle="Configure SSL for a cloud service  | Microsoft Azure" 
+	description="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application. These examples use the Azure portal." 
 	services="cloud-services" 
 	documentationCenter=".net" 
 	authors="Thraka" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/28/2015"
+	ms.date="07/05/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,12 +22,12 @@
 # Configuring SSL for an application in Azure
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-configure-ssl-certificate.md)
-- [Azure Preview Portal](cloud-services-configure-ssl-certificate-portal.md)
+- [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
+- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
 
 Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet. This common task discusses how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application.
 
-> [AZURE.NOTE] The procedures in this task apply to Azure Cloud Services; for Websites, see [Configuring an SSL certificate for an Azure website](../web-sites-configure-ssl-certificate.md).
+> [AZURE.NOTE] The procedures in this task apply to Azure Cloud Services; for App Services, see [this](../app-service-web/web-sites-configure-ssl-certificate.md).
 
 This task will use a production deployment; information on using a staging deployment is provided at the end of this topic.
 
@@ -58,19 +58,38 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
 1.  In your development environment, open the service definition file
     (CSDEF), add a **Certificates** section within the **WebRole**
     section, and include the following information about the
-    certificate:
+    certificate (and intermediate certificates):
 
         <WebRole name="CertificateTesting" vmsize="Small">
         ...
             <Certificates>
                 <Certificate name="SampleCertificate" 
 							 storeLocation="LocalMachine" 
-                    		 storeName="CA" />
+                    		 storeName="My"
+                             permissionLevel="limitedOrElevated" />
+                <!-- IMPORTANT! Unless your certificate is either
+                self-signed or signed directly by the CA root, you
+                must include all the intermediate certificates
+                here. You must list them here, even if they are
+                not bound to any endpoints. Failing to list any of
+                the intermediate certificates may cause hard-to-reproduce
+                interoperability problems on some clients.-->
+                <Certificate name="CAForSampleCertificate"
+                             storeLocation="LocalMachine"
+                             storeName="CA"
+                             permissionLevel="limitedOrElevated" />
             </Certificates>
         ...
         </WebRole>
 
-    The **Certificates** section defines the name of our certificate, its location, and the name of the store where it is located. We have chosen to store the certificate in the CA (Certificate Authority)tore, but you can choose other options as well. See [How to associate a certificate with a service][] for more information.
+    The **Certificates** section defines the name of our certificate, its location, and the name of the store where it is located.
+    
+    Permissions (`permisionLevel` attribute) can be set to one of the following:
+
+    | Permission Value  | Description |
+    | ----------------  | ----------- |
+    | limitedOrElevated | **(Default)** All role processes can access the private key. |
+    | elevated          | Only elevated processes can access the private key.|
 
 2.  In your service definition file, add an **InputEndpoint** element
     within the **Endpoints** section to enable HTTPS:
@@ -114,6 +133,9 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
                 <Certificate name="SampleCertificate" 
                     thumbprint="9427befa18ec6865a9ebdc79d4c38de50e6316ff" 
                     thumbprintAlgorithm="sha1" />
+                <Certificate name="CAForSampleCertificate"
+                    thumbprint="79d4c38de50e6316ff9427befa18ec6865a9ebdc" 
+                    thumbprintAlgorithm="sha1" />
             </Certificates>
         ...
         </Role>
@@ -130,14 +152,9 @@ certificate information you just inserted.
 
 Connect to the portal and...
 
-1. Select your cloud service by either:
-    - In the Portal, select your **Cloud Service**. (Which will be in the **Browse All/Recent area**.)
+1. Select your cloud service in the Portal, select your **Cloud Service**. (Which will be in the **All resources** section.) 
     
-        ![Publish your cloud service](media/cloud-services-configure-ssl-certificate-portal/browse.png)
-    
-        **OR**
-        
-    - Under **Browse All** select **Cloud Services** under **Filter By** and select the cloud service instance you want. 
+    ![Publish your cloud service](media/cloud-services-configure-ssl-certificate-portal/browse.png)
 
 3. Open the **settings** for the cloud service.
 
@@ -168,4 +185,9 @@ connect to it using HTTPS.
       
     >Create a certificate with the common name (CN) equal to the GUID-based URL (for example, **328187776e774ceda8fc57609d404462.cloudapp.net**), use the portal to add the certificate to your staged cloud service, add the certificate information to your CSDEF and CSCFG files, repackage your application, and update your staged deployment to use the new package and CSCFG file.
 
-[Azure Portal]: http://portal.azure.com/
+## Next steps
+
+* [General configuration of your cloud service](cloud-services-how-to-configure-portal.md).
+* Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy-portal.md).
+* Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
+* [Manage your cloud service](cloud-services-how-to-manage-portal.md).

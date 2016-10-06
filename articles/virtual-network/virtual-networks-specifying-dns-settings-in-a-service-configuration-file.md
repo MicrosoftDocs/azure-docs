@@ -3,8 +3,8 @@
    description="specifying custom DNS settings using service configuration file for virtual network"
    services="virtual-network"
    documentationCenter="na"
-   authors="joaoma"
-   manager="jdial"
+   authors="jimdial"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2015"
-   ms.author="joaoma" />
+   ms.date="02/24/2016"
+   ms.author="jdial" />
 
 # Specifying DNS Settings in a Service Configuration File
 

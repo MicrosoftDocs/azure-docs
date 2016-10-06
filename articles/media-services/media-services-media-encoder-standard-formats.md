@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="Media Encoder Standard formats and codecs" 
-	description="This topic gives an overview of Azure Media Encoder Standard formats and codecs." 
+	description="This topic gives an overview of Media Encoder Standard formats and codecs." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015"
-	ms.author="juliako"/>
+	ms.date="07/17/2016"
+	ms.author="juliako;anilmur"/>
 
 #Media Encoder Standard Formats and Codecs
 
@@ -37,7 +37,9 @@ MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv)|Yes
 Matroska/WebM (.mkv)		|Yes 
 WAVE/WAV (.wav)	|Yes 
 QuickTime (.mov) |Yes
- 
+
+>[AZURE.NOTE] Above is a list of the more commonly encountered file extensions. Media Encoder Standard does support many others (for example: .m2ts, .mpeg2video, .qt). If you try to encode a file and you get an error message about the format not being supported, please provide a feedback [here](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
+
 ###Audio formats in input containers 
 
 Media Encoder Standard supports carrying the following audio formats in input containers:
@@ -58,6 +60,7 @@ Input Video Codecs|Supported
 AVC 8-bit/10-bit, up to 4:2:2, including AVCIntra	|8 bit 4:2:0 and 4:2:2 
 Avid DNxHD (in MXF)									|Yes 
 DVCPro/DVCProHD (in MXF)							|Yes 
+Digital video (DV) (in AVI files)                   |Yes
 JPEG 2000											|Yes 
 MPEG-2 (up to 422 Profile and High Level; including variants such as XDCAM, XDCAM HD, XDCAM IMX, CableLabs® and D10)|Up to 422 Profile 
 MPEG-1												|Yes 
@@ -85,7 +88,7 @@ MP3 (MPEG-1 Audio Layer 3)|Yes
 Windows Media Audio|Yes 
 WAV/PCM|Yes 
 [FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|Yes 
-[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |Yes 
+[Opus](http://go.microsoft.com/fwlink/?LinkId=822667) |Yes 
 [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|Yes 
 AMR (adaptive multi-rate)|Yes
 AES (SMPTE 331M and 302M, AES3-2003)		|No 
@@ -105,12 +108,14 @@ MP4 <br/><br/>(including multi-bitrate MP4 containers) |H.264 (High, Main, and B
 MPEG2-TS |H.264 (High, Main, and Baseline Profiles)|AAC-LC, HE-AAC v1, HE-AAC v2 
 
 
+
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ##See also
 

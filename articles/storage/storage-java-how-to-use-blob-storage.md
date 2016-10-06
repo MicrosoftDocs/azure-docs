@@ -1,28 +1,32 @@
 <properties
-	pageTitle="How to use Azure Blob storage from Java | Microsoft Azure"
-	description="Learn how to use Azure Blob storage to upload, download, list, and delete blob content. Samples written in Java."
+	pageTitle="How to use Azure Blob storage (object storage) from Java | Microsoft Azure"
+	description="Store unstructured data in the cloud with Azure Blob storage (object storage)."
 	services="storage"
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
+	ms.devlang="java"
 	ms.topic="article"
-	ms.date="08/31/2015" 
-	ms.author="robmcm"/>
+	ms.date="08/11/2016"
+	ms.author="jwillis;robmcm"/>
 
 # How to use Blob storage from Java
 
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Overview
 
-This article will show you how to perform common scenarios using the Microsoft Azure Blob storage. The samples are written in Java and use the [Azure Storage SDK for Java][]. The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs. For more information on blobs, see the [Next Steps](#NextSteps) section.
+Azure Blob storage is a service that stores unstructured data in the cloud as objects/blobs. Blob storage can store any type of text or binary data, such as a document, media file, or application installer. Blob storage is also referred to as object storage.
+
+This article will show you how to perform common scenarios using the Microsoft Azure Blob storage. The samples are written in Java and use the [Azure Storage SDK for Java][]. The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs. For more information on blobs, see the [Next Steps](#Next-Steps) section.
 
 > [AZURE.NOTE] An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Azure Storage SDK for Android][].
 
@@ -47,7 +51,7 @@ Add the following import statements to the top of the Java file where you want t
 ## Set up an Azure Storage connection string
 
 An Azure Storage client uses a storage connection string to store
-endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the Azure portal for the *AccountName* and *AccountKey* values. The following example shows how you can declare a static field to hold the connection string.
+endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the [Azure Portal](https://portal.azure.com) for the *AccountName* and *AccountKey* values. The following example shows how you can declare a static field to hold the connection string.
 
     // Define the connection-string with your values
     public static final String storageConnectionString =
@@ -263,9 +267,11 @@ Now that you've learned the basics of Blob storage, follow these links to learn 
 - [Azure Storage REST API][]
 - [Azure Storage Team Blog][]
 
+For more information, see also the [Java Developer Center](/develop/java/).
+
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Azure Storage Client SDK Reference]: http://dl.windowsazure.com/storage/javadoc/
-[Azure Storage REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/

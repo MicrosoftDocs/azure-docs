@@ -20,4 +20,4 @@
 
 ![Video available](./media/storsimple-get-service-registration-key/Video_icon.png) **Video available**
 
-To watch a video that demonstrates how to get the service registration key, click [here](http://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).
+To watch a video that demonstrates how to get the service registration key, click [here](https://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).

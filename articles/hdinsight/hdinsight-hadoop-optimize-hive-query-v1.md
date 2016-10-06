@@ -21,9 +21,11 @@
 
 By default, Hadoop clusters are not optimized for performance. This article covers a few of the most common Hive performance optimization methods that you can apply to our queries.
 
-[AZURE.INCLUDE [portal](../../includes/hdinsight-azure-portal.md)] 
-
-* [Optimize Hive queries for Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md).
+> [AZURE.IMPORTANT] The steps in this document use the Azure Classic Portal. Microsoft does not recommend using the classic portal when creating new services. For an explanation of the advantages of the Azure Portal, see [Microsoft Azure Portal](https://azure.microsoft.com/features/azure-portal/).
+>
+> This document also includes information on using Azure PowerShell. The snippets provided are based on commands that use Azure Service Management (ASM) to work with HDInsight and are __deprecated__. These commands will be removed by January 1, 2017.
+>
+>For a version of this document that uses the Azure portal, along with PowerShell snippets that use Azure Resource Manager (ARM), see [Optimize Hive queries for Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md).
 
 ##Scale out worker nodes
 
@@ -35,7 +37,7 @@ Increasing the number of worker nodes in a cluster can leverage more mappers and
 - At the run time, you can also scale out a cluster without recreating one. This is shown below.
 ![scaleout_1][image-hdi-optimize-hive-scaleout_2]
 
-For more details on the different virtual machines supported by HDInsight, see [HDInsight pricing](http://azure.microsoft.com/pricing/details/hdinsight/).
+For more details on the different virtual machines supported by HDInsight, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ##Enable Tez
 
@@ -121,7 +123,7 @@ Once the partitioned table is created, you can either create static partitioning
 	    WHERE lineitem.L_SHIPDATE = ‘5/23/1996 12:00:00 AM’
 
 	    ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’))
-	    LOCATION ‘wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
+	    LOCATION ‘wasbs://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
 
 - **Dynamic partitioning** means that you want Hive to create partitions automatically for you. Since we have already created the partitioning table from the staging table, all we need to do is insert data to the partitioned table as shown below:
 
@@ -207,11 +209,11 @@ There are more optimization methods that you can consider, for example:
 ##<a id="nextsteps"></a> Next steps
 In this article, you have learned several common Hive query optimization methods. To learn more, see the following articles:
 
-- [Use Apache Hive in HDInsight](../hdinsight-using-hive.md)
+- [Use Apache Hive in HDInsight](hdinsight-use-hive.md)
 - [Analyze flight delay data by using Hive in HDInsight](hdinsight-analyze-flight-delay-data.md)
 - [Analyze Twitter data using Hive in HDInsight](hdinsight-analyze-twitter-data.md)
 - [Analyze sensor data using the Hive Query Console on Hadoop in HDInsight](hdinsight-hive-analyze-sensor-data.md)
-- [Use Hive with HDInsight to analyze logs from websites](../hdinsight-hive-analyze-web-site-log.md)
+- [Use Hive with HDInsight to analyze logs from websites](hdinsight-hive-analyze-website-log.md)
 
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/scaleout_1.png

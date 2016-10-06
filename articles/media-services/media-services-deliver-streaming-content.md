@@ -1,8 +1,8 @@
 <properties 
-	pageTitle="How to Deliver Streaming Content from Media Services" 
+	pageTitle="Publish Azure Media Services content using .NET" 
 	description="Learn how to create a locator that is used to build a streaming URL. Code samples are written in C# and use the Media Services SDK for .NET." 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="08/30/2016"
 	ms.author="juliako"/>
 
 
-#How to: Deliver streaming content
+# Publish Azure Media Services content using .NET
  
 > [AZURE.SELECTOR]
 - [REST](media-services-rest-deliver-streaming-content.md)
 - [.NET](media-services-deliver-streaming-content.md)
-- [Portal](media-services-manage-content.md#publish)
+- [Portal](media-services-portal-publish.md)
 
 ##Overview
 
@@ -54,6 +54,7 @@ Build Streaming URLs
 	{
 	
 	    // Create a 30-day readonly access policy. 
+      	// You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.
 	    IAccessPolicy policy = _context.AccessPolicies.Create("Streaming policy",
 	        TimeSpan.FromDays(30),
 	        AccessPermissions.Read);
@@ -160,12 +161,13 @@ The following code calls .NET SDK extensions methods that create a locator and g
 
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
 
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ##See Also
 
 [Download assets](media-services-deliver-asset-download.md)
+[Configure asset delivery policy](media-services-dotnet-configure-asset-delivery-policy.md)

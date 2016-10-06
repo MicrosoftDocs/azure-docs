@@ -3,8 +3,8 @@
    description="Explains how to use the StorSimple Manager service Backup Catalog page to restore a StorSimple volume from a backup set."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
+   authors="alkohli"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
-   ms.author="v-sharos" />
+   ms.date="08/17/2016"
+   ms.author="alkohli" />
 
 # Restore a StorSimple volume from a backup set
+
+[AZURE.INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
 
 ## Overview
 
@@ -23,7 +25,7 @@ The **Backup Catalog** page displays all the backup sets that are created when m
 
  ![Backup Catalog page](./media/storsimple-restore-from-backup-set/HCS_BackupCatalog.png)
 
-This tutorial explains how to use the **Backup Catalog** page to restore your device from a backup set.
+This tutorial explains how to use the **Backup Catalog** page to restore a volume on your device from a backup set.
 
 ## How to use the backup catalog 
 
@@ -43,10 +45,11 @@ The filtered backup sets are then tabulated based on the following attributes:
 
 ## How to restore your StorSimple volume from a backup
 
-You can use the **Backup Catalog** page to restore your StorSimple volume from a specific backup. Keep in mind, however, that restoring a volume will revert the volume to the state it was in when the backup was taken. Any data that was added after the backup operation will be lost.
+You can use the **Backup Catalog** page to restore your StorSimple volume from a specific backup. 
 
 > [AZURE.WARNING] Restoring from a backup will replace the existing volumes from the backup. This may cause the loss of any data that was written after the backup was taken.
 
+Before you initiate a restore on a volume, ensure that the volume is offline. You will need to take the volume offline on the host first and then the device. Follow the steps in [Take a volume offline](storsimple-manage-volumes.md#take-a-volume-offline). Perform the following steps to restore a volume from a backup set.
 
 ### To restore from a backup set
 
@@ -62,13 +65,11 @@ You can use the **Backup Catalog** page to restore your StorSimple volume from a
  
     The backups associated with the selected volume or backup policy should appear in the list of backup sets.
 
-3. Expand the backup set to view the associated volumes. These volumes must be taken offline on the host and device before you can restore them. Access the volumes on the **Volume Containers** page, and then follow the steps in [Take a volume offline](storsimple-manage-volumes.md#take-a-volume-offline) to take them offline.
+3. Expand the backup set to view the associated volumes. These volumes must be taken offline on the host and device before you can restore them. Follow the steps in [Take a volume offline](storsimple-manage-volumes.md#take-a-volume-offline).
 
     >  [AZURE.IMPORTANT] Make sure that you have taken the volumes offline on the host first, before you take the volumes offline on the device. If you do not take the volumes offline on the host, it could potentially lead to data corruption.
 
-4. Navigate back to the **Backup Catalog** tab and select a backup set.
-
-5. Click **Restore** at the bottom of the page.
+4. Select a backup set. Click **Restore** at the bottom of the page.
 
 6. You will be prompted for confirmation. 
 
@@ -80,7 +81,7 @@ You can use the **Backup Catalog** page to restore your StorSimple volume from a
 
 ![Video available](./media/storsimple-restore-from-backup-set/Video_icon.png) **Video available**
 
-To watch a video that demonstrates how you can use the clone and restore features in StorSimple to recover deleted files, click [here](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+To watch a video that demonstrates how you can use the clone and restore features in StorSimple to recover deleted files, click [here](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
 
 ## Next steps
 

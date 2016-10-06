@@ -1,20 +1,20 @@
 <properties 
 	pageTitle="Deploy a web app that is linked to a GitHub repository" 
 	description="Use an Azure Resource Manager template to deploy a web app that contains a project from a GitHub repository." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
-	authors="tfitzmac" 
+	authors="cephalin" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
-	ms.author="tomfitz"/>
+	ms.date="04/27/2016" 
+	ms.author="cephalin"/>
 
 # Deploy a web app linked to a GitHub repository
 
@@ -33,7 +33,7 @@ With this template, you will deploy a web app that contains the code from a proj
 
 To run the deployment automatically, click the following button:
 
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
+[![Deploy to Azure](./media/app-service-web-arm-from-github-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
 
 ## Parameters
 
@@ -72,35 +72,35 @@ plan.
 
 The web app also has a child resource which is defined in **resources** section below. This child resource defines source control for the project deployed with the web app. In this template, the source control 
 is linked to a particular GitHub repository. The GitHub repository is defined with the code **"RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git"** You might hard-code the repository URL when you want to create a template that repeatedly deploys a single project while requiring the minimum number of parameters.
-Instead of hard-coding the repository URL, you can add a parameter for the repository URL and use that value for the **RepoUrl** property. You can see an example of repository URL parameter in the 
-[Web App with Web Jobs template](../app-service-web-deploy-web-app-with-webjobs.md).
+Instead of hard-coding the repository URL, you can add a parameter for the repository URL and use that value for the **RepoUrl** property.
 
     {
-      "apiVersion":"2015-04-01",
-      "name":"[parameters('siteName')]",
-      "type":"Microsoft.Web/sites",
-      "location":"[parameters('siteLocation')]",
-      "dependsOn":[
-         "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+      "apiVersion": "2015-08-01",
+      "name": "[parameters('siteName')]",
+      "type": "Microsoft.Web/sites",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
       ],
-      "properties":{
-        "serverFarmId":"[parameters('hostingPlanName')]"
+      "properties": {
+        "serverFarmId": "[parameters('hostingPlanName')]"
       },
-       "resources":[
-         {
-           "apiVersion":"2015-04-01",
-           "name":"web",
-           "type":"sourcecontrols",
-           "dependsOn":[
-             "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]"
-           ],
-           "properties":{
-             "RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git",
-             "branch":"master"
-           }
-         }
-       ]
-     }
+      "resources": [
+        {
+          "apiVersion": "2015-08-01",
+          "name": "web",
+          "type": "sourcecontrols",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]"
+          ],
+          "properties": {
+            "RepoUrl": "[parameters('repoURL')]",
+            "branch": "[parameters('branch')]",
+            "IsManualIntegration": true
+          }
+        }
+      ]
+    }
 
 ## Commands to run deployment
 
@@ -108,7 +108,7 @@ Instead of hard-coding the repository URL, you can add a parameter for the repos
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json -siteName ExampleSite -hostingPlanName ExamplePlan -siteLocation "West US" -ResourceGroupName ExampleDeployGroup
+    New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json -siteName ExampleSite -hostingPlanName ExamplePlan -siteLocation "West US" -ResourceGroupName ExampleDeployGroup
 
 ### Azure CLI
 

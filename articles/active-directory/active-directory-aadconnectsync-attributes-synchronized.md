@@ -3,8 +3,8 @@
 	description="Lists the attributes that are synchronized to Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
+	authors="andkjell"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,15 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
-	ms.author="markusvi;andkjell"/>
+	ms.date="09/13/2016"
+	ms.author="markvi;andkjell"/>
 
 
 # Azure AD Connect sync: Attributes synchronized to Azure Active Directory
-
-This topic lists the attributes that are synchronized by Azure AD Connect sync.<br>
+This topic lists the attributes that are synchronized by Azure AD Connect sync.  
 The attributes are grouped by the related Azure AD app.
 
+## Attributes to synchronize
+A common question is *what is the list of minimum attributes to synchronize*. The default and recommended approach is to keep the default attributes so a full GAL (Global Address List) can be constructed in the cloud and to get all features in Office 365 workloads. In some cases, there are some attributes that your organization does not want synchronized to the cloud since these attributes contain sensitive or PII (Personally identifiable information) data, like in this example:  
+![bad attributes](./media/active-directory-aadconnectsync-attributes-synchronized/badextensionattribute.png)
+
+In this case, start with the list of attributes in this topic and identify those attributes that would contain sensitive or PII data and cannot be synchronized. Then deselect those attributes during installation using [Azure AD app and attribute filtering](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
+
+>[AZURE.WARNING] When deselecting attributes, you should be cautious and only deselect those attributes absolutely not possible to synchronize. Unselecting other attributes might have a negative impact on features.
 
 ## Office 365 ProPlus
 
@@ -35,7 +41,6 @@ The attributes are grouped by the related Azure AD app.
 | sourceAnchor| X| mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD.|
 | usageLocation| X| mechanical property. The user’s country. Used for license assignment.|
 | userPrincipalName| X| UPN is the login ID for the user. Most often the same as [mail] value.|
-
 
 ## Exchange Online
 
@@ -72,7 +77,7 @@ The attributes are grouped by the related Azure AD app.
 | facsimiletelephonenumber| X| X|  |  |
 | givenName| X| X|  |  |
 | homePhone| X| X|  |  |
-| info| X| X| X|  |
+| info| X| X| X| This attribute is currently not consumed for groups.|
 | Initials| X| X|  |  |
 | l| X| X|  |  |
 | legacyExchangeDN| X| X| X|  |
@@ -98,11 +103,11 @@ The attributes are grouped by the related Azure AD app.
 | msExchELCExpirySuspensionStart| X|  |  |  |
 | msExchELCMailboxFlags| X|  |  |  |
 | msExchEnableModeration| X|  | X|  |
-| msExchExtensionCustomAttribute1| X| X| X|  |
-| msExchExtensionCustomAttribute2| X| X| X|  |
-| msExchExtensionCustomAttribute3| X| X| X|  |
-| msExchExtensionCustomAttribute4| X| X| X|  |
-| msExchExtensionCustomAttribute5| X| X| X|  |
+| msExchExtensionCustomAttribute1| X| X| X| This attribute is currently not consumed by Exchange Online. |
+| msExchExtensionCustomAttribute2| X| X| X| This attribute is currently not consumed by Exchange Online. |
+| msExchExtensionCustomAttribute3| X| X| X| This attribute is currently not consumed by Exchange Online. |
+| msExchExtensionCustomAttribute4| X| X| X| This attribute is currently not consumed by Exchange Online. |
+| msExchExtensionCustomAttribute5| X| X| X| This attribute is currently not consumed by Exchange Online. |
 | msExchHideFromAddressLists| X| X| X|  |
 | msExchImmutableID| X|  |  |  |
 | msExchLitigationHoldDate| X| X| X|  |
@@ -159,8 +164,6 @@ The attributes are grouped by the related Azure AD app.
 | userPrincipalName| X|  |  | UPN is the login ID for the user. Most often the same as [mail] value.|
 | userSMIMECertificates| X| X|  |  |
 | wWWHomePage| X| X|  |  |
-
-
 
 ## SharePoint Online
 
@@ -295,7 +298,6 @@ The attributes are grouped by the related Azure AD app.
 | userPrincipalName| X|  |  | UPN is the login ID for the user. Most often the same as [mail] value.|
 | wWWHomePage| X| X|  |  |
 
-
 ## Azure RMS
 
 | Attribute Name| User| Contact| Group| Comment |
@@ -312,7 +314,6 @@ The attributes are grouped by the related Azure AD app.
 | sourceAnchor| X| X| X| mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD.|
 | usageLocation| X|  |  | mechanical property. The user’s country. Used for license assignment.|
 | userPrincipalName| X|  |  | This UPN is the login ID for the user. Most often the same as [mail] value.|
-
 
 ## Intune
 
@@ -333,8 +334,6 @@ The attributes are grouped by the related Azure AD app.
 | sourceAnchor| X| X| X| mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD.|
 | usageLocation| X|  |  | mechanical property. The user’s country. Used for license assignment.|
 | userPrincipalName| X|  |  | UPN is the login ID for the user. Most often the same as [mail] value.|
-
-
 
 ## Dynamics CRM
 
@@ -371,7 +370,12 @@ The attributes are grouped by the related Azure AD app.
 | userPrincipalName| X|  |  | UPN is the login ID for the user. Most often the same as [mail] value.|
 
 ## 3rd party applications
-This is a set of attributes which can be used if the Azure AD directory is not used to support Office 365, Dynamics, or Intune. It has a small set of core attributes.
+This group is a set of attributes used as the minimal attributes needed for a generic workload or application. It can be used for a workload not listed in another section or for a non-Microsoft app. It is explicitly used for the following:
+
+- Yammer (only User is consumed)
+- [Hybrid Business-to-Business (B2B) cross-org collaboration scenarios offered by resources like SharePoint](http://go.microsoft.com/fwlink/?LinkId=747036)
+
+This group is a set of attributes that can be used if the Azure AD directory is not used to support Office 365, Dynamics, or Intune. It has a small set of core attributes.
 
 | Attribute Name| User| Contact| Group| Comment |
 | --- | :-: | :-: | :-: | --- |
@@ -384,20 +388,41 @@ This is a set of attributes which can be used if the Azure AD directory is not u
 | mailNickName| X| X| X|  |
 | member|  |  | X|  |
 | objectSID| X|  |  | mechanical property. AD user identifier used to maintain sync between Azure AD and AD.|
-| proxyAddresses| X| X| x|  |
+| proxyAddresses| X| X| X|  |
 | pwdLastSet| X|  |  | mechanical property. Used to know when to invalidate already issued tokens. Used by both password sync and federation.|
 | sn| X| X|  |  |
 | sourceAnchor| X| X| X| mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD.|
 | usageLocation| X|  |  | mechanical property. The user’s country. Used for license assignment.|
 | userPrincipalName| X|  |  | UPN is the login ID for the user. Most often the same as [mail] value.|
 
+## Windows 10
+A Windows 10 domain-joined computer(device) synchronizes some attributes to Azure AD. For more information on the scenarios, see [Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md). These attributes always synchronize and Windows 10 does not appear as an app you can unselect. A Windows 10 domain-joined computer is identified by having the attribute userCertificate populated.
+
+| Attribute Name| Device| Comment |
+| --- | :-: | --- |
+| accountEnabled| X| |
+| deviceTrustType| X| Hardcoded value for domain-joined computers. |
+| displayName | X| |
+| ms-DS-CreatorSID | X| Also called registeredOwnerReference.|
+| objectGUID | X| Also called deviceID.|
+| objectSID | X| Also called onPremisesSecurityIdentifier.|
+| operatingSystem | X| Also called deviceOSType.|
+| operatingSystemVersion | X| Also called deviceOSVersion.|
+| userCertificate | X| |
+
+These attributes for **user** are in addition to the other apps you have selected.  
+
+| Attribute Name| User| Comment |
+| --- | :-: | --- |
+| domainFQDN| X| Also called dnsDomainName. For example, contoso.com.|
+| domainNetBios| X| Also called netBiosName. For example, CONTOSO.|
 
 ## Exchange hybrid writeback
-These attributes are written back from Azure AD to on-premises Active Directory when you select to enable Exchange hybrid. Depending on your Exchange version, fewer attributes might be synchronized.
+These attributes are written back from Azure AD to on-premises Active Directory when you select to enable **Exchange hybrid**. Depending on your Exchange version, fewer attributes might be synchronized.
 
 | Attribute Name| User| Contact| Group| Comment |
 | --- | :-: | :-: | :-: | --- |
-| msDS-ExternalDirectoryObject| X|  |  | Derived from cloudAnchor in Azure AD.|
+| msDS-ExternalDirectoryObjectID| X|  |  | Derived from cloudAnchor in Azure AD. This attribute is new in Exchange 2016.|
 | msExchArchiveStatus| X|  |  | Online Archive: Enables customers to archive mail.|
 | msExchBlockedSendersHash| X|  |  | Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients.|
 | msExchSafeRecipientsHash| X|  |  | Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients.|
@@ -406,13 +431,33 @@ These attributes are written back from Azure AD to on-premises Active Directory 
 | msExchUserHoldPolicies| X|  |  | Litigation Hold: Enables cloud services to determine which users are under Litigation Hold.|
 | proxyAddresses| X| X| X| Only the x500 address from Exchange Online is inserted.|
 
-## Notes about attributes
-- When using an Alternate ID, the on-premises attribute userPrincipalName will be synchronized with the Azure AD attribute onPremisesUserPrincipalName. The Alternate ID attribute, e.g. mail, will be synchronized with the Azure AD attribute userPrincipalName.
+## Device writeback
+Device objects are created in Active Directory. These objects can be devices joined to Azure AD or domain-joined Windows 10 computers.
+
+| Attribute Name| Device| Comment |
+| --- | :-: | --- |
+| altSecurityIdentities | X| |
+| displayName | X| |
+| dn | X| |
+| msDS-CloudAnchor | X| |
+| msDS-DeviceID | X| |
+| msDS-DeviceObjectVersion | X| |
+| msDS-DeviceOSType | X| |
+| msDS-DeviceOSVersion | X| |
+| msDS-DevicePhysicalIDs | X| |
+| msDS-KeyCredentialLink | X| Only with Windows Server 2016 AD schema |
+| msDS-IsCompliant | X| |
+| msDS-IsEnabled | X| |
+| msDS-IsManaged | X| |
+| msDS-RegisteredOwner | X| |
 
 
-## Additional Resources
+## Notes
 
-* [Azure AD Connect sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+- When using an Alternate ID, the on-premises attribute userPrincipalName is synchronized with the Azure AD attribute onPremisesUserPrincipalName. The Alternate ID attribute, for example mail, is synchronized with the Azure AD attribute userPrincipalName.
+- In the lists above, the object type **User** also applies to the object type **iNetOrgPerson**.
 
-<!--Image references-->
+## Next steps
+Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
+
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

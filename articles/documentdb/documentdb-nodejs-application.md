@@ -4,7 +4,7 @@
 	keywords="Application development, database tutorial, learn node.js, node.js tutorial, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="nodejs" 
-	authors="ryancrawcour" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -14,10 +14,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="07/24/2015" 
-	ms.author="ryancraw"/>
+	ms.date="08/25/2016" 
+	ms.author="anhoh"/>
 
 # <a name="_Toc395783175"></a>Build a Node.js web application using DocumentDB
+
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md)
 
 This Node.js tutorial shows you how to use the Azure DocumentDB service to store and access data from a Node.js Express application hosted on Azure Websites.
 
@@ -37,7 +43,7 @@ DocumentDB.
 
 ![Screen shot of the My Todo List application created in this Node.js tutorial](./media/documentdb-nodejs-application/image1.png)
 
-Don't have time to complete the tutorial and just want to get the complete solution from GitHub? Not a problem, get it [here](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
+Don't have time to complete the tutorial and just want to get the complete solution? Not a problem, you can get the complete sample solution from [GitHub][].
 
 ## <a name="_Toc395783176"></a>Prerequisites
 
@@ -46,7 +52,7 @@ Don't have time to complete the tutorial and just want to get the complete solut
 Before following the instructions in this article, you should ensure
 that you have the following:
 
-- An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](../../pricing/free-trial/).
+- An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 - [Node.js][] version v0.10.29 or higher.
 - [Express generator](http://www.expressjs.com/starter/generator.html) (you can install this via `npm install express-generator -g`)
 - [Git][].
@@ -102,7 +108,7 @@ which modules need to be installed on Azure to support your application. We stil
 
 	![Screenshot of the package.json tab](./media/documentdb-nodejs-application/image17.png)
 
-       This tells Node (and Azure later) that your application depends on these additional modules.
+	This tells Node (and Azure later) that your application depends on these additional modules.
 
 ## <a name="_Toc395783180"></a>Step 4: Using the DocumentDB service in a node application
 
@@ -120,7 +126,7 @@ That takes care of all the initial setup and configuration, now let’s get down
 		var DocDBUtils = {
 		    getOrCreateDatabase: function (client, databaseId, callback) {
 		        var querySpec = {
-		            query: 'SELECT * FROM root r WHERE r.id=@id',
+		            query: 'SELECT * FROM root r WHERE r.id= @id',
 		            parameters: [{
 		                name: '@id',
 		                value: databaseId
@@ -167,11 +173,7 @@ That takes care of all the initial setup and configuration, now let’s get down
 		                        id: collectionId
 		                    };
 							
-				 			var requestOptions = {
-								offerType: 'S1'
-							};
-							
-		                    client.createCollection(databaseLink, collectionSpec, requestOptions, function (err, created) {
+		                    client.createCollection(databaseLink, collectionSpec, function (err, created) {
 		                        callback(null, created);
 		                    });
 		
@@ -185,8 +187,9 @@ That takes care of all the initial setup and configuration, now let’s get down
 				
 		module.exports = DocDBUtils;
 
-> [AZURE.TIP] createCollection takes an optional requestOptions parameter that can be used to specify the Offer Type for the Collection. If no requestOptions.offerType value is supplied then the Collection will be created using the default Offer Type.
-> For more information on DocumentDB Offer Types please refer to [Performance levels in DocumentDB](documentdb-performance-levels.md) 
+    > [AZURE.TIP] createCollection takes an optional requestOptions parameter that can be used to specify the Offer Type for the Collection. If no requestOptions.offerType value is supplied then the Collection will be created using the default Offer Type.
+    >
+    > For more information on DocumentDB Offer Types please refer to [Performance levels in DocumentDB](documentdb-performance-levels.md) 
 		
 3. Save and close the **docdbUtils.js** file.
 
@@ -217,7 +220,6 @@ That takes care of all the initial setup and configuration, now let’s get down
 		        docdbUtils.getOrCreateDatabase(self.client, self.databaseId, function (err, db) {
 		            if (err) {
 		                callback(err);
-
 		            } else {
 		                self.database = db;
 		                docdbUtils.getOrCreateCollection(self.client, self.database._self, self.collectionId, function (err, coll) {
@@ -287,7 +289,7 @@ That takes care of all the initial setup and configuration, now let’s get down
 		        var self = this;
 		
 		        var querySpec = {
-		            query: 'SELECT * FROM root r WHERE r.id=@id',
+		            query: 'SELECT * FROM root r WHERE r.id = @id',
 		            parameters: [{
 		                name: '@id',
 		                value: itemId
@@ -399,7 +401,7 @@ That takes care of all the initial setup and configuration, now let’s get down
 		
 		module.exports = config;
 
-3. In the **config.js** file, update the values of HOST and AUTH_KEY using the values found in the Keys blade of your DocumentDB account on the [Microsoft Azure Preview portal](http://portal.azure.com):
+3. In the **config.js** file, update the values of HOST and AUTH_KEY using the values found in the Keys blade of your DocumentDB account on the [Microsoft Azure Portal](https://portal.azure.com):
 
 4. Save and close the **config.js** file.
  
@@ -431,6 +433,8 @@ That takes care of all the initial setup and configuration, now let’s get down
 		app.get('/', taskList.showTasks.bind(taskList));
 		app.post('/addtask', taskList.addTask.bind(taskList));
 		app.post('/completetask', taskList.completeTask.bind(taskList));
+		app.set('view engine', 'jade');
+
 
 
 6. These lines define a new instance of our **TaskDao** object, with a new connection to DocumentDB (using the values read from the **config.js**), initialize the task object and then bind form actions to methods on our **TaskList** controller. 
@@ -553,7 +557,7 @@ and then click **Update tasks**.
 
 ## <a name="_Toc395783182"></a>Step 7: Deploy your application development project to Azure Websites
 
-1. If you haven't already, enable a git repository for your Azure Website. You can find instructions on how to do this [here](../web-sites-publish-source-control-git.md#step4).
+1. If you haven't already, enable a git repository for your Azure Website. You can find instructions on how to do this in the [Local Git Deployment to Azure App Service](../app-service-web/app-service-deploy-local-git.md) topic.
 
 2. Add your Azure Website as a git remote.
 
@@ -572,8 +576,11 @@ running in Azure!
 Congratulations! You have just built your first Node.js Express Web
 Application using Azure DocumentDB and published it to Azure Websites.
 
-The source code for the complete reference application can be downloaded [here](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
+The source code for the complete reference application can be downloaded from [GitHub][].
 
-  [Node.js]: http://nodejs.org/
-  [Git]: http://git-scm.com/
+For more information, see the [Node.js Developer Center](https://azure.microsoft.com/develop/nodejs/).
+
+[Node.js]: http://nodejs.org/
+[Git]: http://git-scm.com/
+[Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  

@@ -1,34 +1,56 @@
-<properties 
-	pageTitle="Dedicated groups in Azure Active Directory | Microsoft Azure" 
-	description="A topic that explains how to manage groups in Azure AD." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="femila" 
-	manager="swadhwa" 
+<properties
+	pageTitle="Dedicated groups in Azure Active Directory | Microsoft Azure"
+	description="Overview of how dedicated groups work in Azure Active Directory and how they are created."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="femila"
 	editor=""
-	tags="azure-classic-portal"/>
+	/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/13/2015" 
-	ms.author="femila"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/10/2016"
+	ms.author="curtand"/>
 
 # Dedicated groups in Azure Active Directory
 
-In Azure Active Directory, dedicated groups are created automatically and group membership for the dedicated groups is also automatic. You cannot add or remove members to and from dedicated groups through the Azure Management portal, Windows PowerShell cmdlets, or programmatically. To enable dedicated groups, In the Azure Management Portal, on the Configure tab, set the Enable Dedicated Groups switch to Yes.
+In Azure Active Directory (Azure AD), the dedicated groups feature automatically creates and populates membership for Azure AD predefined groups. Members of dedicated groups cannot be added or removed using the Azure classic portal, Windows PowerShell cmdlets, or programmatically.
 
-In the current public preview release, once the Enable Dedicated Groups switch is set to Yes, you can further enable the directory to automatically create the All Users dedicated group by setting the Enable “All Users” Group switch to Yes. You can then also edit the name of this dedicated group by typing it in the Display Name for “All Users” Group field.
+>[AZURE.NOTE] Dedicated groups require that an Azure AD Premium license is assigned to
+>- the administrator who manages the rule on a group
+>- all users who are selected by the rule to be a member of the group
 
-The All Users dedicated group can be useful if you want to assign the same permissions to all the users in your directory. For example, you can grant all users in your directory access to a SaaS application by assigning access for the All Users dedicated group to this application.
+**To enable dedicated groups**
 
-Here are some topics that will provide some additional information on Azure Active Directory 
+1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory**, and then open your organization’s directory.
+
+2. Select the **Groups** tab, and then open the group you want to edit.
+
+3. Select the **Configure** tab, and then set **Enable Dedicated Groups** to **Yes**.
+
+Once the Enable Dedicated Groups switch is set to **Yes**, you can further enable the directory to automatically create the All Users dedicated group by setting the **Enable “All Users” Group** switch to **Yes**. You can then also edit the name of this dedicated group by typing it in the **Display Name for “All Users” Group** field.
+
+The All Users group can be used to assign the same permissions to all the users in your directory. For example, you can grant all users in your directory access to a SaaS application by assigning access for the All Users dedicated group to this application.
+
+The dedicated All Users group includes all users in the directory, including guests and external users. If you need a group that excludes external users, then you can accomplish this by creating a group with an attribute-based dynamic rule such as the following:
+
+				(user.userPrincipalName -notContains "#EXT#@")
+
+For a group that excludes all Guests, use a rule such as the following:
+
+				(user.userType -ne "Guest")
+
+To learn about how to create *advanced* rules (rules that can contain multiple comparisons) for dynamic group membership, see [Using attributes to create advanced rules](active-directory-accessmanagement-groups-with-advanced-rules.md).
+
+
+These articles provide additional information on Azure Active Directory.
 
 * [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
-
+* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 * [What is Azure Active Directory?](active-directory-whatis.md)
-
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)

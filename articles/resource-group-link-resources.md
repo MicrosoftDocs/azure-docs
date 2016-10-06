@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Linking resources in Azure Resource Manager" 
-	description="Create a link between resources in different resource groups in Azure Resource Manager." 
+	pageTitle="Linking resources in Azure Resource Manager | Microsoft Azure" 
+	description="Create a link between related resources in different resource groups in Azure Resource Manager." 
 	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac" 
-	manager="wpickett" 
-	editor=""/>
+	manager="timlt" 
+	editor="tysonn"/>
 
 <tags 
 	ms.service="azure-resource-manager" 
@@ -13,119 +13,34 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="08/01/2016" 
 	ms.author="tomfitz"/>
 
 # Linking resources in Azure Resource Manager
 
-Post-deployment, you may wish to query the relationships or links between resources. Dependencies inform deployment, but that 
-lifecycle ends at deployment. Once deployment is complete, there is no identified relationship between dependent resources.
+During deployment, you can mark a resource as dependent on another resource, but that lifecycle ends at deployment. After deployment, there is no identified relationship between dependent resources. Resource Manager provides a feature called resource linking to establish persistent relationships between resources.
 
-Instead, Azure Resource Manager provides a new feature called resource linking to establish and query relationships 
-between resources. You can determine which resources are linked to a resource or which resources are linked from a resource. 
+With resource linking, you can document relationships that span resource groups. For example, it is common to have a database with its own lifecycle reside in one resource group, and an app with a different lifecycle reside in a different resource group. The app connects to the database so you want to mark a link between the app and the database. 
 
-The scope for a resource link can be a subscription, resource group or a specific resource. This means that resource links can document 
-relationships that span across resource groups. As you begin to decompose your solution into multiple templates and multiple resource groups, 
-having a mechanism to identify these resource links proves to be useful. For example, it is common to have a database with its own lifecycle 
-reside in one resource group, and an app with a different lifecycle reside in a different resource group. The app connects to the database so 
-there is a link between the resources in different resource groups. 
-
-All linked resources must belong to the same subscription. Each resource can be linked to 50 other resources. If any of the linked resources are 
-deleted or moved, the link owner must clean up the remaining link.
+All linked resources must belong to the same subscription. Each resource can be linked to 50 other resources. The only way to query related resources is through the REST API. If any of the linked resources are deleted or moved, the link owner must clean up the remaining link. You are **not** warned when deleting a resource that is linked to other resources.
 
 ## Linking in templates
 
-The example below shows a template that creates a resource of type "Microsoft.AppService/apiapps" 
-with a set of unidirection relationships to a website, a notification hub, and SQL databases. 
+To define a link in a template, you include a resource type that combines the resource provider namespace and type of the source resource with **/providers/links**. The name must include the name of the source resource. You provide the resource id of the target resource. The following example establishes a link between a web site and a storage account.
 
     {
-        "$schema": "http://schemas.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "$system": {
-                "type": "Object"
-            }
-        },
-        "resources": [
-            {
-                "apiVersion": "2014-11-01",
-                "type": "Microsoft.Web/sites",
-                "name": "[parameters('$system').siteName]",
-                "location": "[parameters('$system').location]",
-                "resources": [
-                    {
-                        "apiVersion": "2014-11-01",
-                        "name": "appsettings",
-                        "type": "config",
-                        "dependsOn": [
-                            "[resourceId('Microsoft.NotificationHubs/namespaces/NotificationHubs', variables('notificationHubNamespace'), variables('notificationHubName'))]"
-                        ],
-                        "properties": {
-                            "MS_MobileServiceName": "[parameters('$system').apiAppName]",
-                            "MS_NotificationHubName": "[variables('notificationHubName')]",
-                            "MS_NotificationHubConnectionString": "[listkeys(resourceId('Microsoft.NotificationHubs/namespaces/notificationHubs/authorizationRules', variables('notificationHubNamespace'), variables('notificationHubName'), 'DefaultFullSharedAccessSignature'), '2014-09-01').primaryConnectionString]"
-                        }
-                    }
-                ]
-            },
-            {
-                "apiVersion": "[parameters('$system').apiVersion]",
-                "type": "Microsoft.AppService/apiapps",
-                "name": "[parameters('$system').apiAppName]",
-                "properties": {
-                    "accessLevel": "PublicAnonymous"
-                },
-                "resources": [
-                    {
-                        "apiVersion": "2015-01-01",
-                        "type": "providers/links",
-                        "name": "Microsoft.Resources/mobile-codesite",
-                        "dependsOn": [
-                            "[resourceId('Microsoft.AppService/apiapps', parameters('$system').apiAppName)]",
-                            "[resourceId('Microsoft.Web/Sites', variables('userSiteName'))]"
-                        ],
-                        "properties": {
-                            "targetId": "[resourceId('Microsoft.Web/sites', variables('userSiteName'))]"
-                        }
-                    },
-                    {
-                        "apiVersion": "2015-01-01",
-                        "type": "providers/links",
-                        "name": "Microsoft.Resources/mobile-notificationhub",
-                        "dependsOn": [
-                            "[resourceId('Microsoft.AppService/apiapps', parameters('$system').apiAppName)]",
-                            "[resourceId('Microsoft.NotificationHubs/namespaces/NotificationHubs', variables('notificationHubNamespace'), variables('notificationHubName'))]"
-                        ],
-                        "properties": {
-                            "targetId": "[resourceId('Microsoft.NotificationHubs/namespaces/NotificationHubs', variables('notificationHubNamespace'), variables('notificationHubName'))]"
-                        }
-                    },
-                    {
-                        "apiVersion": "2015-01-01",
-                        "type": "providers/links",
-                        "name": "Microsoft.Resources/mobile-sqlserver",
-                        "dependsOn": [
-                            "[resourceId('Microsoft.AppService/apiapps', parameters('$system').apiAppName)]"
-                        ],
-                        "properties": {
-                            "targetId": "[concat('/subscriptions/', parameters('userDatabase').subscriptionId, '/resourcegroups/', parameters('userDatabase').resourceGroupName, '/providers/Microsoft.Sql/servers/', parameters('userDatabase').serverName)]"
-                        }
-                    },
-                    {
-                        "apiVersion": "2015-01-01",
-                        "type": "providers/links",
-                        "name": "Microsoft.Resources/mobile-sqldb",
-                        "dependsOn": [
-                            "[resourceId('Microsoft.AppService/apiapps', parameters('$system').apiAppName)]"
-                        ],
-                        "properties": {
-                            "targetId": "[concat('/subscriptions/', parameters('userDatabase').subscriptionId, '/resourcegroups/', parameters('userDatabase').resourceGroupName, '/providers/Microsoft.Sql/servers/', parameters('userDatabase').serverName, '/databases/', parameters('userDatabase').databaseName)]"
-                        }
-                    }
-                ]
-            }
-        ]
+      "type": "Microsoft.Web/sites/providers/links",
+      "apiVersion": "2015-01-01",
+      "name": "[concat(variables('siteName'),'/Microsoft.Resources/SiteToStorage')]",
+      "dependsOn": [ "[variables('siteName')]" ],
+      "properties": {
+        "targetId": "[resourceId('Microsoft.Storage/storageAccounts','storagecontoso')]",
+        "notes": "This web site uses the storage account to store user information."
+      }
     }
+
+
+For a full description of the template format, see [Resource links - template schema](resource-manager-template-links.md).
 
 ## Linking with REST API
 
@@ -147,6 +62,10 @@ In the request, include an object that defines the second resource in the link:
     }
 
 The properties element contains the identifier for the second resource.
+
+You can query links in your subscription with:
+
+    https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Resources/links?api-version={api-version}
 
 For more examples, including how to retrieve information about links, see [Linked Resources](https://msdn.microsoft.com/library/azure/mt238499.aspx).
 

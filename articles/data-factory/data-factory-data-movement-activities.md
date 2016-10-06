@@ -1,99 +1,184 @@
-<properties 
-	pageTitle="Data movement activities" 
-	description="Learn about Data Factory entities that you can use in a Data Factory pipelines to move data." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+<properties
+	pageTitle="Move data by using Copy Activity | Microsoft Azure"
+	description="Learn about data movement in Data Factory pipelines: data migration between cloud stores, and between an on-premises store and a cloud store. Use Copy Activity."
+	keywords="copy data, data movement, data migration, transfer data"
+	services="data-factory"
+	documentationCenter=""
+	authors="linda33wj"
+	manager="jhubbard"
 	editor="monicar"/>
 
-<tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
-	ms.author="spelluru"/>
+<tags
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/22/2016"
+	ms.author="jingwang"/>
 
-# Data movement activities
-Data factory has a [globally available service](#global) to support data movement with [Copy activity](#copyactivity) across a variety of data stores listed below. Data factory also has built-in support for [securely moving data between on-premises locations and cloud](#moveonpremtocloud) using the data management gateway.
+# Move data by using Copy Activity
 
-## Supported data stores for copy activity
-Copy activity copies data from a **source** data store to a **sink** data store. Data factory supports the following data stores and source, sink combinations. Click on a data store to learn how to copy data from/to that store.
+## Overview
+In Azure Data Factory, you can use Copy Activity to copy data of different shapes from various on-premises and cloud data sources to Azure. After data is copied, it can be further transformed and analyzed. You can also use Copy Activity to publish transformation and analysis results for business intelligence (BI) and application consumption.
 
-| **Source** | **Sink** |
-| ------ | ---- |
-| [Azure Blob](data-factory-azure-blob-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS, Azure DocumentDB, On-premises File System |
-| [Azure Table](data-factory-azure-table-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS, Azure DocumentDB |
-| [Azure SQL Database](data-factory-azure-sql-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS, Azure DocumentDB |
-| [Azure DocumentDB](data-factory-azure-documentdb-connector.md) | Azure Blob, Azure Table, Azure SQL Database |
-| [SQL Server on IaaS](data-factory-sqlserver-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
-| [On-premises File System](data-factory-onprem-file-system-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS, On-premises File System |
-| [On-premises SQL Server](data-factory-sqlserver-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
-| [On-premises Oracle Database](data-factory-onprem-oracle-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
-| [On-premises MySQL Database](data-factory-onprem-mysql-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
-| [On-premises DB2 Database](data-factory-onprem-db2-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
-| [On-premises Teradata Database](data-factory-onprem-teradata-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
-| [On-premises Sybase Database](data-factory-onprem-sybase-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
-| [On-premises PostgreSQL Database](data-factory-onprem-postgresql-connector.md) | Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS |
+![Role of Copy Activity](media/data-factory-data-movement-activities/copy-activity.png)
 
-## <a name="copyactivity"></a>Copy activity
-Copy activity takes one input dataset (**source**) and copies data per activity configuration to one output dataset (**sink**). Data copy is done in a batch fashion according to the schedule specified on the activity.
+Copy Activity is powered by a secure, reliable, scalable, and [globally available service](#global). This article provides details on data movement in Data Factory and Copy Activity.
 
-> [AZURE.NOTE] To learn about defining activities in general at a high level such as various JSON sections and properties available for all activities, see [Understanding Pipelines & Activities](data-factory-create-pipelines.md) article.
+First, let's see how data migration occurs between two cloud data stores, and between an on-premises data store and a cloud data store.
 
-Copy activity provides the following capabilities:
+> [AZURE.NOTE] To learn about activities in general, see [Understanding pipelines and activities](data-factory-create-pipelines.md).
 
-### <a name="global"></a>Globally available data movement
-The data movement service powering copy activity is available globally in the following regions and geographies. The globally available topology ensures efficient data movement avoiding cross-region hops in most cases.
+### Copy data between two cloud data stores
+When both source and sink data stores are in the cloud, Copy Activity goes through the following stages to copy data from the source to the sink. The service that powers Copy Activity:
 
-| Region | Geography |
-| ------ | --------- | 
-| Central US | US |
-| East US | US |
-| East US2 | US |
-| North Central US | US |
-| South Central US | US |
-| West US | US |
-| Brazil South | LATAM |
-| North Europe | EMEA |
-| West Europe | EMEA |
-| Southeast Asia | APAC |
-| Japan East | APAC |
+1. Reads data from the source data store.
+2. Performs serialization/deserialization, compression/decompression, column mapping, and type conversion. It does these operations based on the configurations of the input dataset, output dataset, and Copy Activity.
+3.	Writes data to the destination data store.
 
-### <a name="moveonpremtocloud"></a>Securely move data between on-premises location and cloud
-One of the challenges for modern data integration is to seamlessly move data to and from on-premises to cloud. Data management gateway is an agent you can install on-premises to enable hybrid data pipelines. 
+The service automatically chooses the optimal region to perform the data movement. This region is usually the one closest to the sink data store.
 
-The data gateway provides the following capabilities: 
-
-1.	Manage access to on-premises data stores securely.
-2.	Model on-premises data stores and cloud data stores within the same data factory and move data.
-3.	Have a single pane of glass for monitoring and management with visibility into gateway status with data factory cloud based dashboard.
+![Cloud-to-cloud copy](./media/data-factory-data-movement-activities/cloud-to-cloud.png)
 
 
-See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) for more details.
+### Copy data between an on-premises data store and a cloud data store
+To securely move data between an on-premises data store and a cloud data store, install Data Management Gateway on your on-premises machine. Data Management Gateway is an agent that enables hybrid data movement and processing. You can install it on the same machine as the data store itself, or on a separate machine that has access to the data store.
 
-### Reliable and cost effective data movement
-Copy activity is designed to move large volumes of data in a reliable way, resistant to transient errors across a large variety of data sources. Data can be copied in a cost effective way with the option to enable compression over the wire.
+In this scenario, Data Management Gateway performs the serialization/deserialization, compression/decompression, column mapping, and type conversion. Data does not flow through the Azure Data Factory service. Instead, Data Management Gateway directly writes the data to the destination store.
 
-### Type conversions across different type systems
-Different data stores have different native type systems. Copy activity performs automatic type conversions from source types to sink types with the following 2 step approach:
+![On-premises-to-cloud copy](./media/data-factory-data-movement-activities/onprem-to-cloud.png)
 
-1. Convert from native source types to .NET type
-2. Convert from .NET type to native sink type
+See [Move data between on-premises and cloud data stores](data-factory-move-data-between-onprem-and-cloud.md) for an introduction and walkthrough. See [Data Management Gateway](data-factory-data-management-gateway.md) for detailed information about this agent.
 
-You can find the mapping for a given native type system to .NET for the data store in the respective data store connector articles. You can use these mappings to determine appropriate types while creating your tables so that right conversions are performed during Copy activity.
+You can also move data from/to supported data stores that are hosted on Azure IaaS virtual machines (VMs) by using Data Management Gateway. In this case, you can install Data Management Gateway on the same VM as the data store itself, or on a separate VM that has access to the data store.
 
-### Working with different file formats
-For file based sources Copy activity supports variety of file format including binary, text and Avro formats. 
-You can use the copy activity to convert from one format to another. Example: text (CSV) to Avro.  
+## Supported data stores and formats
+[AZURE.INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
-### Copy activity properties
-Properties like name, description, input and output tables, various policies etc are available for all types of activities. Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type. 
+If you need to move data to/from a data store that Copy Activity doesn't support, use a **custom activity** in Data Factory with your own logic for copying/moving data. For details on creating and using a custom activity, see [Use custom activities in an Azure Data Factory pipeline](data-factory-use-custom-activities.md).
 
-In case of Copy activity the **typeProperties** section varies depending on the types of sources and sinks. Each of the data store specific page listed above documents these properties specific to the data store type.
+### Supported file formats
+You can use Copy Activity to copy files as-is between two file-based data stores, such as Azure Blob, File System, and HDFS. To do so, you can skip the [format section](data-factory-create-datasets.md) in both the input and output dataset definitions. The data is copied efficiently without any serialization/deserialization.
+
+Copy Activity also reads from and writes to files in specified formats: text, Avro, ORC, Parquet, and JSON. You can do the following copy activities, for example:
+
+-	Copy data in text (CSV) format from Azure Blob and write to Azure SQL Database.
+-	Copy files in text (CSV) format from File System on-premises and write to Azure Blob in Avro format.
+-	Copy data in Azure SQL Database and write to HDFS on-premises in ORC format.
 
 
-## Send Feedback
-We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md). 
+
+## <a name="global"></a>Globally available data movement
+Azure Data Factory is available only in the West US, East US, and North Europe regions. However, the service that powers Copy Activity is available globally in the following regions and geographies. The globally available topology ensures efficient data movement that usually avoids cross-region hops. See [Services by region](https://azure.microsoft.com/regions/#services) for availability of Data Factory and Data Movement in a region.
+
+### Copy data between cloud data stores
+When both source and sink data stores are in the cloud, Data Factory uses a service deployment in the region that is closest to the sink in the same geography to move the data. Refer to the following table for mapping:
+
+Region of the destination data store | Region used for data movement
+:----------------------------------- | :----------------------------
+East US | East US
+East US 2 | East US 2
+West US | West US
+West US 2 | West US
+Central US | Central US
+West Central US | Central US
+North Central US | North Central US
+South Central US | South Central US
+North Europe | North Europe
+West Europe | West Europe
+Southeast Asia | Southeast Asia
+East Asia | Southeast Asia
+Japan East | Japan East
+Japan West | Japan East
+Brazil South | Brazil South
+Australia East | Australia East
+Australia Southeast | Australia Southeast
+Central India | Central India
+South India | Central India
+West India | Central India
+
+
+> [AZURE.NOTE] If the region of the destination data store is not in the preceding list, Copy Activity fails instead of going through an alternative region.
+
+### Copy data between an on-premises data store and a cloud data store
+When data is being copied between on-premises (or Azure virtual machines/IaaS) and cloud stores, [Data Management Gateway](data-factory-data-management-gateway.md) performs data movement on an on-premises machine or virtual machine. The data does not flow through the service in the cloud, unless you use the [staged copy](data-factory-copy-activity-performance.md#staged-copy) capability. In this case, data flows through the staging Azure Blob storage before it is written into the sink data store.
+
+## Create a pipeline with Copy Activity
+You can create a pipeline with Copy Activity in a couple of ways:
+
+### By using the Copy Wizard
+The Data Factory Copy Wizard helps you to create a pipeline with Copy Activity. This pipeline allows you to copy data from supported sources to destinations *without writing JSON* definitions for linked services, datasets, and pipelines. See [Data Factory Copy Wizard](data-factory-copy-wizard.md) for details about the wizard.  
+
+### By using JSON scripts
+You can use Data Factory Editor in the Azure portal, Visual Studio, or Azure PowerShell to create a JSON definition for a pipeline (by using Copy Activity). Then, you can deploy it to create the pipeline in Data Factory. See [Tutorial: Use Copy Activity in an Azure Data Factory pipeline](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for a tutorial with step-by-step instructions.    
+
+JSON properties (such as name, description, input and output tables, and policies) are available for all types of activities. Properties that are available in the `typeProperties` section of the activity vary with each activity type.
+
+For Copy Activity, the `typeProperties` section varies depending on the types of sources and sinks. Click a source/sink in the [Supported sources and sinks](#supported-data-stores) section to learn about type properties that Copy Activity supports for that data store.   
+
+Here's a sample JSON definition:
+
+	{
+	  "name": "ADFTutorialPipeline",
+	  "properties": {
+	    "description": "Copy data from Azure blob to Azure SQL table",
+	    "activities": [
+	      {
+	        "name": "CopyFromBlobToSQL",
+	        "type": "Copy",
+	        "inputs": [
+	          {
+	            "name": "InputBlobTable"
+	          }
+	        ],
+	        "outputs": [
+	          {
+	            "name": "OutputSQLTable"
+	          }
+	        ],
+	        "typeProperties": {
+	          "source": {
+	            "type": "BlobSource"
+	          },
+	          "sink": {
+	            "type": "SqlSink",
+	            "writeBatchSize": 10000,
+	            "writeBatchTimeout": "60:00:00"
+	          }
+	        },
+	        "Policy": {
+	          "concurrency": 1,
+	          "executionPriorityOrder": "NewestFirst",
+	          "retry": 0,
+	          "timeout": "01:00:00"
+	        }
+	      }
+	    ],
+	    "start": "2016-07-12T00:00:00Z",
+	    "end": "2016-07-13T00:00:00Z"
+	  }
+	}
+
+The schedule that is defined in the output dataset determines when the activity runs (for example: **daily**, frequency as **day**, and interval as **1**). The activity copies data from an input dataset (**source**) to an output dataset (**sink**).
+
+You can specify more than one input dataset to Copy Activity. They are used to verify the dependencies before the activity is run. However, only the data from the first dataset is copied to the destination dataset. For more information, see [Scheduling and execution](data-factory-scheduling-and-execution.md).  
+
+## Performance and tuning
+See the [Copy Activity performance and tuning guide](data-factory-copy-activity-performance.md), which describes key factors that affect the performance of data movement (Copy Activity) in Azure Data Factory. It also lists the observed performance during internal testing and discusses various ways to optimize the performance of Copy Activity.
+
+## Scheduling and sequential copy
+See [Scheduling and execution](data-factory-scheduling-and-execution.md) for detailed information about how scheduling and execution works in Data Factory. It is possible to run multiple copy operations one after another in a sequential/ordered manner. See the [Ordered copy](data-factory-scheduling-and-execution.md#ordered-copy) section.
+
+## Type conversions
+Different data stores have different native type systems. Copy Activity performs automatic type conversions from source types to sink types with the following two-step approach:
+
+1. Convert from native source types to a .NET type.
+2. Convert from a .NET type to a native sink type.
+
+The mapping from a native type system to a .NET type for a data store is in the respective data store article. (Click the specific link in the [Supported data stores](#supported-data-stores) table). You can use these mappings to determine appropriate types while creating your tables, so that Copy Activity performs the right conversions.
+
+
+## Next steps
+- To learn about the Copy Activity more, see [Copy data from Azure Blob storage to Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+- To learn about moving data from an on-premises data store to a cloud data store, see [Move data from on-premises to cloud data stores](data-factory-move-data-between-onprem-and-cloud.md).

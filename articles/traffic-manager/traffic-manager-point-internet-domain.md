@@ -3,8 +3,8 @@
    description="This article will help you point your company domain name to a Traffic Manager domain name."
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
-   manager="adinah"
+   authors="sdwheeler"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="traffic-manager"
@@ -12,8 +12,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
-   ms.author="joaoma" />
+   ms.date="03/17/2016"
+   ms.author="sewhee" />
 
 # Point a company Internet domain to a Azure Traffic Manager domain
 
@@ -29,10 +29,8 @@ All traffic requests to *www.contoso.com* will now be directed to *contoso.traff
 
 ## Next steps
 
-[About Traffic Manager traffic routing methods](traffic-manager-load-balancing-methods.md)
+[Traffic Manager routing methods](traffic-manager-routing-methods.md)
 
 [Traffic Manager - Disable, enable or delete a profile](disable-enable-or-delete-a-profile.md)
 
 [Traffic Manager - Disable or enable an endpoint](disable-or-enable-an-endpoint.md)
-
-[What is Traffic Manager?](traffic-manager-overview.md)

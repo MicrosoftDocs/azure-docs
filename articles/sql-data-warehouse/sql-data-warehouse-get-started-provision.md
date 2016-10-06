@@ -1,181 +1,103 @@
 <properties
-   pageTitle="Get started: Provision a SQL Data Warehouse | Microsoft Azure"
-   description="Provision a SQL Data Warehouse by following these steps and guidelines."
+   pageTitle="Create a SQL Data Warehouse in the Azure portal | Microsoft Azure"
+   description="Learn how to create an Azure SQL Data Warehouse in the Azure portal"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
-   editor=""/>
+   authors="barbkess"
+   manager="jhubbard"
+   editor=""
+   tags="azure-sql-data-warehouse"/>
 
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="hero-article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="08/25/2016"
+   ms.author="barbkess;lodipalm;sonyama"/>
 
-# Get started: Provision a SQL Data Warehouse #
+# Create an Azure SQL Data Warehouse
 
-This article is a guide to help you provision a SQL Data Warehouse in Azure. By following this guide, you will perform these tasks:
+> [AZURE.SELECTOR]
+- [Azure portal](sql-data-warehouse-get-started-provision.md)
+- [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
+- [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-1. Create a new SQL Data Warehouse database.
-2. Configure a new logical server.
-3. Set an Azure firewall rule to enable external client access.
+This tutorial uses the Azure portal to create a SQL Data Warehouse that contains an AdventureWorksDW sample database.
 
-## Azure free trial ##
-You will need to have an Azure subscription and approval to the SQL Data Warehouse Preview to complete the following tasks. If you do not already have access to an Azure subscription then resolving this is actually your first step!
 
-You can get a [free trial][] that allows you to try any of the Azure services, including SQL Data Warehouse.
+## Prerequisites
 
+To get started, you need:
 
-## Log in to the Azure portal ##
+- **Azure account**: Visit [Azure Free Trial][] or [MSDN Azure Credits][] to create an account.
+- **Azure SQL server**:  See [Create an Azure SQL Database logical server with the Azure portal][] for more details.
 
-Once you have a subscription you can log in to the [Azure portal][]. Go ahead and sign in now.
+> [AZURE.NOTE] Creating a SQL Data Warehouse might result in a new billable service.  See [SQL Data Warehouse pricing][] for more details.
 
-In this next series of steps we will quickly spin up a brand new logical server and create a new SQL Data Warehouse database.
+## Create a SQL Data Warehouse
 
-## Locate the SQL Data Warehouse service
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-The first thing we have to do is locate the SQL Data Warehouse service in the Azure portal.
+2. Click **+ New** > **Data + Storage** > **SQL Data Warehouse**.
 
-In the upper left corner of the Azure Portal is the New button. The New button is the starting point for creating any new service within Azure.
+    ![Create](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 
-- Click the new button now.
+3. In the **SQL Data Warehouse** blade, fill in the information needed, then press 'Create' to create.
 
-### Data + Storage
+    ![Create database](./media/sql-data-warehouse-get-started-provision/create-database.png)
 
-Clicking the New button opens up all the Azure service categories. SQL Data Warehouse lives in the "Data + Storage" category.
+	- **Server**: We recommend you select your server first.  
 
-- Click **Data + Storage** to drill in and see the services offered by Azure for this category.
+	- **Database name**: The name that is used to reference the SQL Data Warehouse.  It must be unique to the server.
+	
+    - **Performance**: We recommend starting with 400 [DWUs][DWU]. You can move the slider to the left or right to adjust the performance of your data warehouse, or scale up or down after creation.  To learn more about DWUs, see our documentation on [scaling](./sql-data-warehouse-manage-compute-overview.md) or our [pricing page][SQL Data Warehouse pricing]. 
 
-### SQL Data Warehouse
+    - **Subscription**: Select the [subscription] that this SQL Data Warehouse will bill to.
 
-As you can see Azure offers lots of data and storage engines. However, this getting started guide is for SQL Data Warehouse.
+    - **Resource group**: [Resource groups][Resource group] are containers designed to help you manage a collection of Azure resources. Learn more about [resource groups](../resource-group-overview.md).
 
-- Go ahead and select **SQL Data Warehouse**. 
+    - **Select source**: Click **Select source** > **Sample**. Azure automatically populates the **Select sample** option with AdventureWorksDW.
 
-##Admission to the Preview
-Before you can start the setup process you must be admitted to the Preview program. Click the sign up for the Preview and submit. You will be notified by email when your submission has been approved.
+> [AZURE.NOTE] The default collation for a SQL Data Warehouse is SQL_Latin1_General_CP1_CI_AS. If a different collation is needed, [T-SQL][] can be used to create the database with a different collation.
 
-Once you receieve approval, you can proceed to the next steps. Note: Approval may take several days to process.
+4. Click **Create** to create your SQL Data Warehouse.
 
-## Configure SQL Data Warehouse
+5. Wait for a few minutes. When your data warehouse is ready, you should be returned to the [Azure portal](https://portal.azure.com). You can find your SQL Data Warehouse on your dashboard, listed under your SQL Databases, or in the resource group that you used to create it. 
 
-To complete the provisioning process simply configure SQL Data Warehouse.
+    ![portal view](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
 
-
-### Database name
-
-The first configuration is to name the database.
-
-
-
-- For this quick start, name the database "MySQLDW".
-
-
-> [AZURE.NOTE] When you create your own database you can of course name it as you wish. However, it does need to conform to the basic naming requirements of Azure.
-
-### Performance
-
-The performance option is an *important* one. SQL Data Warehouse provides scalable power via this slider. You can increase or decrease your performance at any time - not just when you configure the data warehouse. The further you slide to the right the greater the resources at your disposal. If those resources are no longer needed then you can immediately move the slider back; saving on cost. SQL Data Warehouse lets you change your performance profile on demand without having to re-create the data warehouse or move data.
-
-- Use the slider now to see how the data warehouse units (DWU) increase as you slide to the right and decrease as you move back to the left.
-
-- Before leaving this step make sure you have returned the slider back to the left. Your new data warehouse is small,  so we don't need too much; save your resources for the rest of your trial!
-
-### Select source
-
-This option gives the choice of starting with an empty database. Choose your new database as the starting point.
-
-> [AZURE.NOTE] A second option is also available. It is also permissible to create the database from a pre-existing restore point; a restore option.
-
-### Logical server
-
-Your new SQL Data Warehouse database resides on a logical server. The logical server brings consistency of configuration for a number of databases and locates the service to an Azure data center.
-
-The options that need to be set are:
-1. Server Name
-2. Server Admin Name
-3. Password
-4. Data Center Location
-5. Permission for Azure services to access the server
-
-Feel free to set these values as you see fit. The Server name has to be unique. It's a good idea to pick a data center that is close to you to reduce network latency. SQL Data Warehouse also contains powerful features that leverage Azure's other services. It is therefore a good idea to leave the check box enabled for Azure services access.
-
-> [AZURE.NOTE] SQL Data Warehouse must use a V12 Server. Ensure that this option is set to YES. The logical server can also be shared by Azure SQL Databases and SQL Data Warehouse databases. However, it must be a V12 Server.
-
-> [AZURE.NOTE] Record the server name, server admin name and password somewhere and keep them safe. You will need this information to connect to the SQL Data Warehouse database.
-
-### Resource group
-Resource groups are containers designed to help you manage a collection of Azure resources.
-
-For this quick start it is ok to leave resource group configured on its default values.
-
-Learn more about [resource groups](../azure-portal/resource-group-portal.md).
-
-### Subscription
-A single user could have one or more Azure subscriptions. If you have more than one subscription associated with your login then you can choose which subscription to use.
-
-However, for the purposes of this guide, the default should be fine.
-
-Let's go and create the SQL Data Warehouse!
-
-## Create your data warehouse ##
-All that is left for creating your data warehouse is to click the create button.
-
-Congratulations! You have created your first SQL Data Warehouse database.
-
-You should now be returned to the [Azure portal][]. Notice that your SQL Data Warehouse database has been added to the page.
-
-
-At this point no-one can access the SQL Data Warehouse database. To keep everything secure by default the database has not yet been configured for clients to access it.
-
-Therefore the last step in the provisioning process is to configure the service for external access.
-
-## Configure the Azure firewall ##
-
-To configure the Azure firewall for the first time:
-
-1. Click **Browse** in the left navigation blade.
-
-2. Choose **SQL Servers**.
-
-3. Select your logical SQL Server.
-
-4. Choose settings.
-
-5. Click **Firewall**.
-
-6. Set your firewall rule.
-
-    There are a couple of things for you to do here. They are:
-    - Name your firewall rule.
-    - Provide an IP range if you do not have a static IP address.
-
-    > [AZURE.NOTE] The client IP address range you need to include is your external or publicly facing IP address.To find your external IP address you can use a number of websites such as <a href="http://www.whatismyip.com" target="\_blank">www.whatismyip.com</a>
-
-7. Save your firewall rule.
-
-
-Now that you have configured the firewall you will be able to make connections from your desktop to the Azure SQL Data Warehouse you just created.
+[AZURE.INCLUDE [SQL Database create server](../../includes/sql-database-create-new-server-firewall-portal.md)] 
 
 ## Next steps
 
-Now the SQL Data Warehouse service has been successfully provisioned we can move on to learn how to use it.
-Next steps:
+Now that you have created a SQL Data Warehouse, you are ready to [Connect](./sql-data-warehouse-connect-overview.md) and begin querying.
 
-1. [Connect and query][] the data warehouse.
-2. Load [sample data].
+To load data into SQL Data Warehouse, see the [loading overview](./sql-data-warehouse-overview-load.md).
 
-<!--Image references-->
+If you are trying to migrate an existing database to SQL Data Warehouse, see the [Migration overview](./sql-data-warehouse-overview-migrate.md) or use [Migration Utility](./sql-data-warehouse-migrate-migration-utility.md).
 
+Firewall rules can also be configured using Transact-SQL. For more information, see [sp_set_firewall_rule][] and [sp_set_database_firewall_rule][].
 
-<!-- Articles -->
-[Connect and query]: sql-data-warehouse-get-started-connect-query.md
-[sample data]: ./sql-data-warehouse-get-started-load-samples.md  
+It's also a great idea to look at the [Best practices][].
 
-<!--External links-->
-[free trial]: https://azure.microsoft.com/en-us/pricing/free-trial/
-[Azure portal]: https://portal.azure.com/
+<!--Article references-->
+[Create an Azure SQL Database logical server with the Azure portal]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
+[Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[resource groups]: ../resource-group-template-deploy-portal.md
+[Best practices]: sql-data-warehouse-best-practices.md
+[DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[subscription]: ../azure-glossary-cloud-terminology.md#subscription
+[resource group]: ../azure-glossary-cloud-terminology.md#resource-group
+[T-SQL]: ./sql-data-warehouse-get-started-create-database-tsql.md
+ 
+<!--MSDN references-->
+[sp_set_firewall_rule]: https://msdn.microsoft.com/library/dn270017.aspx
+[sp_set_database_firewall_rule]: https://msdn.microsoft.com/library/dn270010.aspx
+
+<!--Other Web references-->
+[SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+[Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
+[MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+

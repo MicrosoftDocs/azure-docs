@@ -1,7 +1,7 @@
 
 <properties
-	pageTitle="Set up protection with a single VMM server"
-	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines located in on-premises VMM clouds to Azure or to a secondary VMM cloud."
+	pageTitle="Azure Site Recovery: Replicate Hyper-V virtual machines on a single VMM server | Microsoft Azure"
+	description="This article describes how to replicate Hyper-V virtual machines when you only have a single VMM server."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -14,88 +14,82 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="08/05/2015"
+	ms.date="08/24/2016"
 	ms.author="raynew"/>
 
-#  Set up protection with a single VMM server
+#  Replicate Hyper-V virtual machines on a single VMM server
+
+Read this article to learn how to replicate Hyper-V virtual machines located on a Hyper-V host server in a VMM cloud when you only have a single VMM server in your deployment.
+
+Azure has two different [deployment models](../resource-manager-deployment-model.md) for creating and working with resources: Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal that supports the classic deployment model, and the Azure portal with support for both deployment models. This article contains instructions for setting up replication in the Azure portal.
+
+
+If you have any questions after reading this article, post them in the Disqus comments at the bottom of this article or on the [Azure Recovery Services forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Overview
 
-Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployment scenarios. For a full list of deployment scenarios see  [Azure Site Recovery overview](site-recovery-overview.md).
+If you want to replicate Hyper-V VMs located on Hyper-V hosts in VMM and you only have a single VMM server, you can [replicate to Azure](site-recovery-vmm-to-azure.md), or between clouds on the single VMM server.
 
-If you only have a single VMM server in your infrastructure you can deploy Site Recovery to replicate virtual machines in VMM clouds to Azure, or you can replicate between clouds on a single VMM server. We recommend that you only do this if you're unable to deploy two VMM servers (one in each site) since failover and recovery isn't seamless in this deployment. For recovery you'll need to manually fail over the VMM server from outside the Azure Site Recovery console (using Hyper-V Replica in the Hyper-V Manager console).
+We recommend that you replicate to Azure because failover and recovery aren't seamless when replicating between clouds, and a number of manual steps are needed. If you do want to replicate using the VMM server only, you can do the following:
 
-You can set up replication using a single VMM server in a couple of ways:
-
-### Standalone deployment
-
-Deploy a standalone VMM server as a virtual machine in a primary site, and replicate this virtual machine to a secondary site with Site Recovery and Hyper-V Replica. To reduce downtime the SQL Server can be installed on the VMM virtual machine. If VMM is using a remote SQL Server you'll need to recover that first before recovering the VMM server.
-
-![Standalone virtual VMM server](./media/site-recovery-single-vmm/SingleVMMStandalone.png)
-
-### Cluster deployment
-
-To make VMM highly available it can be deployed as a virtual machine in a Windows failover cluster. This is useful if critical workloads are being managed by VMM because it ensures workload availability and protects against hardware failover of the host on which VMM is running. To deploy a single VMM server with Site Recovery the VMM virtual machine should be deployed over a stretch cluster across geographically separate sites. The SQL Server database used by VMM should be protected with SQL Server AlwaysOn availability groups with a replica on the secondary site. If disaster occurs the VMM server and it's corresponding SQL Server database are failed over and accessed from the secondary site.
-
-![Clustered virtual VMM server](./media/site-recovery-single-vmm/SingleVMMCluster.png)
+- Replicate with a single standalone VMM server
+- Replicate with a single VMM server deployed in a stretched Windows cluster
 
 
-## Before you start
+## Replicate across sites with a single standalone VMM server
 
-- The walkthrough steps explain how to deploy Site Recovery with a single standalone VMM server.
-- Make sure you have the [prerequisites](site-recovery-vmm-to-vmm.md/#before-you-start) in place before you start deployment.
-- The single VMM server must have at least two clouds configured. One cloud will act as the protected cloud and the other is performing protection.
-- The clouds that you want to protect must contain the following:
-	- One or more VMM host groups
-	- One or more Hyper-V host servers in each host group
-	- One or more Hyper-V virtual machines on each host server
+![Standalone virtual VMM server](./media/site-recovery-single-vmm/single-vmm-standalone.png)
 
-If you run into problems setting up this scenario post your questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+In this scenario you deploy the single VMM server as a virtual machine in the primary site, and replicate this VM to a secondary site using Site Recovery and Hyper-V Replica.
 
+1. Set up VMM on a Hyper-V VM. We suggest you install the SQL Server instance used by VMM on the same VM to save time. If you want to use a remote instance of SQL Server and an outage occurs, you need to recover that instance before you can recover VMM.
+2. Make sure that the VMM server has at least two clouds configured. One cloud contains the VMs you want to replicate, and the other cloud serves as the secondary location. The cloud that contains the VMs you want to protect should have:
 
+	- One or more VMM host groups containing one or more Hyper-V host servers in each host group.
+	- At least one Hyper-V virtual machine on each Hyper-V host server.
 
-## Configure a single server deployment
+3. Create a Recovery Services vault, generate and download a vault registration key, and register the VMM server in the vault. During registration you install the Azure Site Recovery Provider on the VMM server.
+4. Set up one or more clouds on the VMM VM, and add the Hyper-V hosts to these clouds.
+3. Configure protection settings for the clouds. You specify the name of the single VMM server as the source and target locations. To configure network mapping, you map the VM network for the cloud with the VMs you want to protect, to the VM network for the replication cloud.
+4. Enable initial replication for VMs you want to protect over the network because both clouds are located on the same server.
+4. In the Hyper-V Manager console, enable Hyper-V Replica on the Hyper-V host that contains the VMM VM, and enable replication on the VM. Make sure you don't add the VMM VM to any clouds that are protected by Site Recovery. This ensures that Hyper-V Replica settings aren't overridden by Site Recovery.
+5. If you want to create recovery plans, you specify the same VMM server for source and target.
 
-1. If VMM isn't deployed, set up VMM on a virtual machine with a SQL Server database installed. Read [system requirements](https://technet.microsoft.com/library/dn771747.aspx) 
-2. Set up at least two clouds on the VMM server. Learn more at:
+Follow the instructions in [this article](site-recovery-vmm-to-vmm.md) to create a vault, register the server, and set up protection.
 
-	- [What’s New in Private Cloud with System Center 2012 R2 VMM](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/MDC-B357#fbid=) and in [VMM 2012 and the clouds](http://www.server-log.com/blog/2011/8/26/vmm-2012-and-the-clouds.html). 
-	- [Configuring the VMM cloud fabric](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
-	- [Creating a private cloud in VMM](https://technet.microsoft.com/library/jj860425.aspx) and [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).
-3. Add the source Hyper-V host server on which the virtual machine you want to protect is located to the cloud you're going to protect (the source cloud). Add the target Hyper-V host server to the cloud on the VMM server that will be providing the protection.
-4. [Create](site-recovery-vmm-to-vmm.md/#step-1-create-a-site-recovery-vault) an Azure Site Recovery vault and generate a vault registration key.
-4. [Install](site-recovery-vmm-to-vmm.md/#step-3-install-the-azure-site-recovery-provider) the Azure Site Recovery Provider on the VMM server and register the server in the vault. 
-5. Make sure that the clouds appear in the Site Recovery portal, and [configure cloud protection settings](site-recovery-vmm-to-vmm.md/#step-4-configure-cloud-protection-settings).
-	- In **Source Location** and **Target Location**, specify the name of the single VMM server.
-	- In **Replication Method**, select **Over the network** for the initial replication because the clouds are located on the same server.
+### What to do in an outage
 
-6. Optionally [configure network mapping](site-recovery-vmm-to-vmm.md/#step-5-configure-network-mapping):
+If a complete outage occurs and you need to operate from the secondary site, do the following:
 
-	- In **Source** and **Target** specify the name of the single VMM server.
-	- In **Network on Source** select the VM network that’s configured for the cloud you’re protecting.
-	- In **Network on Target** select the VM network that’s configured for the cloud you want to use for protection.
-	- Network mapping can be configured between two virtual machine (VM) networks on the same VMM server. If the same VMM network exists in two different sites, you can map between the same networks.
-7. [Enable protection](site-recovery-vmm-to-vmm.md/#step-7-enable-virtual-machine-protection) for virtual machines in the VMM cloud you want to protect. 
-7. In the Hyper-V Manager console, set up replication for the VMM virtual machine with Hyper-V Replica. The VMM virtual machine shouldn't be added to any VMM clouds.
+1.	In the Hyper-V Manager console in the secondary site, run an unplanned failover to fail over the VMM VM from the primary to secondary site.
+2.	Verify that the VMM VM is up and running in the secondary site.
+3.	In the Recovery Services vault, run an unplanned failover to fail over the workload VMs from the primary to secondary clouds. To complete the unplanned failover of the VMs, commit the failover or select a different recovery point as required.
+4.	After the unplanned failover is complete, users can access workload resources in the secondary site.
 
+When the primary site is operating normally again, do the following:
 
-## Failover and recover
-
-### Create recovery plans
-
-Recovery plans group together virtual machines that should be failed over and recovered together. 
-
-1. When you create a recovery plan in **Source** and **Target** specify the name of the single VMM server. In **Select Virtual Machines**, virtual machines that are associated with the primary cloud will be displayed.
-2. Then [create and customize recovery plans](https://msdn.microsoft.com/library/azure/dn337331.aspx).
+1.	In the Hyper-V Manager console, enable reverse replication for the VMM VM, to start replicating it from secondary to primary.
+2.	In the Hyper-V Manager console, run a planned failover to fail back the VMM VM to the primary site. Commit the failover to complete it. Then enable reverse replication to start replicating the VMM from primary to secondary.
+3.	In the Recovery Services vault, enable reverse replication for the workload VMs, to start replicating them from secondary to primary.
+4.	In the Recovery Services vault, run a planned failover to fail back the workload VMs to the primary site. Commit the failover to complete it. Then enable reverse replication to start replicating the workload VMs from primary to secondary.
 
 
-### Recovery
 
-In the event of a disaster workloads can be recovered using the following steps:
+## Replicate across sites with a single VMM server in a stretched cluster
 
-1. Manually fail over the replica VMM virtual machine to the recovery site from the Hyper-V Manager console.
-2. After the VMM virtual machine has been recovered, you can log into the Hyper-V Recovery Manager console from the portal and do an unplanned failover of the virtual machines from the primary to the recovery site.
-3.  After the unplanned failover finishes users can access all the resources at the primary site.
+![Clustered virtual VMM server](./media/site-recovery-single-vmm/single-vmm-cluster.png)
+
+Instead of deploying a standalone VMM server as a VM that replicates to a secondary site, you can make VMM highly available by deploying it as a VM in a Windows failover cluster. This provides workload resilience and protection against hardware failure. To deploy with Site Recovery the VMM VM should be deployed in a stretch cluster across geographically separate sites. To do this:
+
+1. Install VMM on a virtual machine in a Windows failover cluster, and select the option to run the server as highly available during setup.
+2. The SQL Server instance that's used by VMM should be replicated with SQL Server AlwaysOn availability groups so that there's a replica of the database in the secondary site.
+3. Follow the instructions in [this article](site-recovery-vmm-to-vmm.md) to create a vault, register the server, and set up protection. You need to register each VMM server in the cluster in the Recovery Services vault. To do this, you install the Provider on an active node, and register the VMM server. Then you install the Provider on other nodes.
+
+### What to do in an outage
+
+When an outage occurs, the VMM server and its corresponding SQL Server database are failed over and accessed from the secondary site.
 
 
- 
+## Next steps
+
+[Learn more](site-recovery-vmm-to-vmm.md) about detailed Site Recovery deployment for VMM to VMM replication.

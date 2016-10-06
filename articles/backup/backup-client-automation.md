@@ -3,8 +3,8 @@
 	description="Learn how to deploy and manage Azure Backup using PowerShell"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
-	manager="shreeshd"
+	authors="saurabhsensharma"
+	manager="shivamg"
 	editor=""/>
 
 <tags
@@ -13,37 +13,83 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/18/2015"
-	ms.author="aashishr"; "jimpark"/>
+	ms.date="09/01/2016"
+	ms.author="saurabhsensharma;markgal;jimpark;nkolli;trinadhk"/>
 
 
 # Deploy and manage backup to Azure for Windows Server/Windows Client using PowerShell
-This article shows you how to use PowerShell to set up Azure Backup on Windows Server or Windows Client, and to manage backup and recovery.
+
+> [AZURE.SELECTOR]
+- [ARM](backup-client-automation.md)
+- [Classic](backup-client-automation-classic.md)
+
+This article shows you how to use PowerShell for setting up Azure Backup on Windows Server or a Windows client, and managing backup and recovery.
+
+## Install Azure PowerShell
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
+This article focuses on the Azure Resource Manager (ARM) PowerShell cmdlets that enable you to use a Recovery Services vault in a resource group.
+
+In October 2015, Azure PowerShell 1.0 was released. This release succeeded the 0.9.8 release and brought about some significant changes, especially in the naming pattern of the cmdlets. 1.0 cmdlets follow the naming pattern {verb}-AzureRm{noun}; whereas, the 0.9.8 names do not include **Rm** (for example, New-AzureRmResourceGroup instead of New-AzureResourceGroup). When using Azure PowerShell 0.9.8, you must first enable the Resource Manager mode by running the **Switch-AzureMode AzureResourceManager** command. This command is not necessary in 1.0 or later.
+
+If you want to use your scripts written for the 0.9.8 environment, in the 1.0 or later environment, you should carefully test the scripts in a pre-production environment before using them in production to avoid unexpected impact.
+
+[Download the latest PowerShell release](https://github.com/Azure/azure-powershell/releases) (minimum version required is : 1.0.0)
+
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
-## Setup and Registration
-The following setup and registration tasks can be automated with PowerShell:
+## Create a recovery services vault
 
-- Create a backup vault
-- Installing the Azure Backup agent
-- Registering with the Azure Backup service
-- Networking settings
-- Encryption settings
+The following steps lead you through creating a Recovery Services vault. A Recovery Services vault is different than a Backup vault.
 
-### Create a backup vault
-You can create a new backup vault using the **New-AzureBackupVault** commandlet. The backup vault is an ARM resource, so you need to place it within a Resource Group. In an elevated Azure PowerShell console, run the following commands:
+1. If you are using Azure Backup for the first time, you must use the **Register-AzureRMResourceProvider** cmdlet to register the Azure Recovery Service provider with your subscription.
+
+    ```
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    ```
+
+2. The Recovery Services vault is an ARM resource, so you need to place it within a Resource Group. You can use an existing resource group, or create a new one. When creating a new resource group, specify the name and location for the resource group.  
+
+    ```
+    PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
+    ```
+
+3. Use the **New-AzureRmRecoveryServicesVault** cmdlet to create the new vault. Be sure to specify the same location for the vault as was used for the resource group.
+
+    ```
+    PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
+    ```
+
+4. Specify the type of storage redundancy to use; you can use [Locally Redundant Storage (LRS)](../storage/storage-redundancy.md#locally-redundant-storage) or [Geo Redundant Storage (GRS)](../storage/storage-redundancy.md#geo-redundant-storage). The following example shows the -BackupStorageRedundancy option for testVault is set to GeoRedundant.
+
+    > [AZURE.TIP] Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it is convenient to store the Backup Recovery Services vault object in a variable.
+
+    ```
+    PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
+    PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
+    ```
+
+## View the vaults in a subscription
+Use **Get-AzureRmRecoveryServicesVault** to view the list of all vaults in the current subscription. You can use this command to check that a new  vault was created, or to see what vaults are available in the subscription.
+
+Run the command, Get-AzureRmRecoveryServicesVault, and all vaults in the subscription are listed.
 
 ```
-PS C:\> New-AzureResourceGroup –Name “test-rg” –Region “West US”
-PS C:\> $backupvault = New-AzureBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+PS C:\> Get-AzureRmRecoveryServicesVault
+Name              : Contoso-vault
+ID                : /subscriptions/1234
+Type              : Microsoft.RecoveryServices/vaults
+Location          : WestUS
+ResourceGroupName : Contoso-docs-rg
+SubscriptionId    : 1234-567f-8910-abc
+Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
-You can get a list of all the backup vaults in a given subscription using the **Get-AzureBackupVault** commandlet.
 
-
-### Installing the Azure Backup agent
-Before you install the Azure Backup agent, you need to have the installer downloaded and present on the Windows Server. You can get the latest version of the installer from the [Microsoft Download Center](http://aka.ms/azurebackup_agent) or from the backup vault's Dashboard page. Save the installer to an easily accessible location like *C:\Downloads\*.
+## Installing the Azure Backup agent
+Before you install the Azure Backup agent, you need to have the installer downloaded and present on the Windows Server. You can get the latest version of the installer from the [Microsoft Download Center](http://aka.ms/azurebackup_agent) or from the Recovery Services vault's Dashboard page. Save the installer to an easily accessible location like *C:\Downloads\*.
 
 To install the agent, run the following command in an elevated PowerShell console:
 
@@ -57,7 +103,7 @@ To see the list of installed programs, go to **Control Panel** > **Programs** > 
 
 ![Agent installed](./media/backup-client-automation/installed-agent-listing.png)
 
-#### Installation options
+### Installation options
 
 To see all the options available via the command-line, use the following command:
 
@@ -81,38 +127,31 @@ The available options include:
 | /pw | Proxy Password | - |
 
 
-### Registering with the Azure Backup service
-Before you can register with the Azure Backup service, you need to ensure that the [prerequisites](backup-configure-vault.md) are met. You must:
+## Registering Windows Server or Windows client machine to a Recovery Services Vault
 
-- Have a valid Azure subscription
-- Have a backup vault
-
-To download the vault credentials, run the **Get-AzureBackupVaultCredentials** commandlet in an Azure PowerShell console and store it in a convenient location like *C:\Downloads\*.
+After you created the Recovery Services vault, download the latest agent and the vault credentials and store it in a convenient location like C:\Downloads.
 
 ```
-PS C:\> $credspath = "C:\"
-PS C:\> $credsfilename = Get-AzureBackupVaultCredentials -Vault $backupvault -TargetLocation $credspath
-PS C:\> $credsfilename
-f5303a0b-fae4-4cdb-b44d-0e4c032dde26_backuprg_backuprn_2015-08-11--06-22-35.VaultCredentials
+PS C:\> $credspath = "C:\downloads"
+PS C:\> $credsfilename = Get-AzureRmRecoveryServicesVaultSettingsFile -Backup -Vault $vault1 -Path  $credspath
+PS C:\> $credsfilename C:\downloads\testvault\_Sun Apr 10 2016.VaultCredentials
 ```
 
-Registering the machine with the vault is done using the [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) cmdlet:
+On the Windows Server or Windows client machine, run the [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) cmdlet to register the machine with the vault.
 
 ```
 PS C:\> $cred = $credspath + $credsfilename
-PS C:\> Start-OBRegistration -VaultCredentials $cred -Confirm:$false
-
-CertThumbprint      : 7a2ef2caa2e74b6ed1222a5e89288ddad438df2
+PS C:\> Start-OBRegistration-VaultCredentials $cred -Confirm:$false
+CertThumbprint      :7a2ef2caa2e74b6ed1222a5e89288ddad438df2
 SubscriptionID      : ef4ab577-c2c0-43e4-af80-af49f485f3d1
-ServiceResourceName : test-vault
-Region              : West US
-
+ServiceResourceName: testvault
+Region              :West US
 Machine registration succeeded.
 ```
 
 > [AZURE.IMPORTANT] Do not use relative paths to specify the vault credentials file. You must provide an absolute path as an input to the cmdlet.
 
-### Networking settings
+## Networking settings
 When the connectivity of the Windows machine to the internet is through a proxy server, the proxy settings can also be provided to the agent. In this example, there is no proxy server, so we are explicitly clearing any proxy-related information.
 
 Bandwidth usage can also be controlled with the options of ```work hour bandwidth``` and ```non-work hour bandwidth``` for a given set of days of the week.
@@ -127,7 +166,7 @@ PS C:\> Set-OBMachineSetting -NoThrottle
 Server properties updated successfully.
 ```
 
-### Encryption settings
+## Encryption settings
 The backup data sent to Azure Backup is encrypted to protect the confidentiality of the data. The encryption passphrase is the "password" to decrypt the data at the time of restore.
 
 ```
@@ -138,13 +177,13 @@ Server properties updated successfully
 > [AZURE.IMPORTANT] Keep the passphrase information safe and secure once it is set. You will not be able to restore data from Azure without this passphrase.
 
 ## Back up files and folders
-All your backups from Windows Servers and clients to Azure Backup are governed by a policy. The policy comprises three parts:
+All backups from Windows Servers and clients to Azure Backup are governed by a policy. The policy comprises three parts:
 
 1. A **backup schedule** that specifies when backups need to be taken and synchronized with the service.
 2. A **retention schedule** that specifies how long to retain the recovery points in Azure.
 3. A **file inclusion/exclusion specification** that dictates what should be backed up.
 
-In this document, since we're automating backup, we'll assume nothing has been configured. We begin by creating a new backup policy using the [New-OBPolicy](https://technet.microsoft.com/library/hh770416.aspx) cmdlet and using it.
+In this document, since we're automating backup, we'll assume nothing has been configured. We begin by creating a new backup policy using the [New-OBPolicy](https://technet.microsoft.com/library/hh770416.aspx) cmdlet.
 
 ```
 PS C:\> $newpolicy = New-OBPolicy
@@ -176,8 +215,6 @@ The retention policy defines how long recovery points created from backup jobs a
 ```
 PS C:\> $retentionpolicy = New-OBRetentionPolicy -RetentionDays 7
 ```
-
-> [AZURE.NOTE] PowerShell cmdlets currently do not support the setting of long term retention policies. Use the Azure Backup UI console to set long term retention policies.
 
 The retention policy must be associated with the main policy using the cmdlet [Set-OBRetentionPolicy](https://technet.microsoft.com/library/hh770405):
 
@@ -588,4 +625,4 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 For more information about Azure Backup for Windows Server/Client see
 
 - [Introduction to Azure Backup](backup-introduction-to-azure-backup.md)
-- [Back up Windows Servers](backup-azure-backup-windows-server.md)
+- [Back up Windows Servers](backup-configure-vault.md)

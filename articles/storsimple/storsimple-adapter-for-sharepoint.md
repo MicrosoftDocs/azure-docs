@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/03/2015"
+   ms.date="07/11/2016"
    ms.author="v-sharos" />
 
 # Install and configure the StorSimple Adapter for SharePoint
@@ -85,7 +85,7 @@ Review the following before you configure RBS:
 
     Use traditional SQL Server migration best practices to move the content database to the StorSimple device. Move the database only after all BLOB content from the database has been moved to the file share via RBS. If you choose to move the content database to the StorSimple device, we recommend that you configure the content database storage on the device as a primary volume.
 
-- In Microsoft Azure StorSimple, there is no way to guarantee that content stored locally on the StorSimple device will not be tiered to Microsoft Azure cloud storage. To ensure that the content database remains on the StorSimple device and is not moved to Microsoft Azure (which would adversely affect SharePoint transaction response times), it is important to understand and manage the other workloads on the StorSimple device. We recommend that you do not configure a StorSimple device to host workloads that have a high rate of data writes if the device is already hosting SharePoint content database workloads and SharePoint file share workloads.
+- In Microsoft Azure StorSimple, if using tiered volumes, there is no way to guarantee that content stored locally on the StorSimple device will not be tiered to Microsoft Azure cloud storage. Hence, we recommend using StorSimple locally pinned volumes in conjunction with SharePoint RBS. This will ensure that all BLOB content remains locally on the StorSimple device, and is not moved to Microsoft Azure.
 
 - If you do not store the content databases on the StorSimple device, use traditional SQL Server high availability best practices that support RBS. SQL Server clustering supports RBS, while SQL Server mirroring does not. 
 
@@ -197,7 +197,7 @@ After you install the StorSimple Adapter for SharePoint, configure RBS as descri
 
 When objects are deleted from a SharePoint site, they are not automatically deleted from the RBS store volume. Instead, an asynchronous, background maintenance program deletes orphaned BLOBs from the file store. System administrators can schedule this process to run periodically or they can start it whenever necessary.
 
-This maintenance program (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) is automatically installed on all SharePoint WFE servers and application servers when you enable RBS. The program is installed in the following location: <boot drive>:\Program Files\Microsoft SQL Remote Blob Storage 10.50\Maintainer\
+This maintenance program (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) is automatically installed on all SharePoint WFE servers and application servers when you enable RBS. The program is installed in the following location: *boot drive*:\Program Files\Microsoft SQL Remote Blob Storage 10.50\Maintainer\
 
 For information about configuring and using the maintenance program, see [Maintain RBS in SharePoint Server 2013][8].
 
