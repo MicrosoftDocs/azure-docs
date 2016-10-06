@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="10/06/2016"
+    ms.date="10/07/2016"
     ms.author="magoedte"/>
 
 # Start/Stop VMs during off-hours [Preview] solution in Automation
