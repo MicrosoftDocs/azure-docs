@@ -71,7 +71,7 @@ sections.
 Set up roles
 ------------
 
-To see a delegated provider at work, you will need additional Azure
+To see a delegated provider at work, you need additional Azure
 Active Directory accounts in addition to your service administrator
 account. If you do not have them, create the two accounts. The accounts
 can belong to any AAD tenant. We will refer to them as the delegated
@@ -94,11 +94,11 @@ Establish the delegated providers
     a.  [Create a
         plan](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-create-plan/).
         This plan should include only the subscriptions service. In this
-        article, we will use a plan called PlanForDelegation.
+        article, we use a plan called PlanForDelegation.
 
     b.  [Create an
         offer](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-create-offer/)
-        based on this plan. In this article, we will use an offer
+        based on this plan. In this article, we use an offer
         called OfferToDP.
 
     c.  Once the creation of the offer is complete, add the user ID of
@@ -128,7 +128,7 @@ change the plans and quotas it includes.
     plan](ttps://azure.microsoft.com/en-us/documentation/articles/azure-stack-create-plan/)
     and [an
     offer](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-create-offer/)
-    based on it. For this article, we will use an offer
+    based on it. For this article, we use an offer
     called DelegatedOffer.
 
 > Note: this offer does not need to be made public. It can be made
