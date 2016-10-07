@@ -92,7 +92,7 @@ Actor projects do not do anything on their own. They require another service or 
 
 ## Build and deploy an application with the Eclipse Neon plugin
 
-If you installed the Service Plugin for Eclipse Neon, you can use it to create, build, and deploy Service Fabric applications built with Java.
+If you installed the Service Plugin for Eclipse Neon, you can use it to create, build, and deploy Service Fabric applications built with Java.  When installing Eclipse, choose the **Eclipse IDE for Java developers**.
 
 ### Create the application
 
