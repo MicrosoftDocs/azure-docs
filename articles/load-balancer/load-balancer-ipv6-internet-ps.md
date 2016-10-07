@@ -7,6 +7,7 @@
     manager="carmonm"
     editor=""
     tags="azure-resource-manager"
+    keywords="ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot"
 />
 <tags
     ms.service="load-balancer"
@@ -21,9 +22,9 @@
 # Get started creating an Internet facing load balancer with IPv6 using PowerShell for Resource Manager
 
 > [AZURE.SELECTOR]
-- [PowerShell](load-balancer-IPv6-internet-ps.md)
-- [Azure CLI](load-balancer-IPv6-internet-cli.md)
-- [Template](load-balancer-IPv6-internet-template.md)
+- [PowerShell](./load-balancer-ipv6-internet-ps.md)
+- [Azure CLI](./load-balancer-ipv6-internet-cli.md)
+- [Template](./load-balancer-ipv6-internet-template.md)
 
 An Azure load balancer is a Layer-4 (TCP, UDP) load balancer. The load balancer provides high availability by distributing incoming traffic among healthy service instances in cloud services or virtual machines in a load balancer set. Azure Load Balancer can also present those services on multiple ports, multiple IP addresses, or both.
 
@@ -174,7 +175,7 @@ For more information about creating a VM, see [Create and preconfigure a Windows
 2. Create each VM and assign the previous created NICs
 
         $mySecureCredentials= Get-Credential -Message “Type the username and password of the local administrator account.”
-        
+
         $vm1 = New-AzureRmVMConfig -VMName 'myNrpIPv6VM0' -VMSize 'Standard_G1' -AvailabilitySetId $availabilitySet.Id
         $vm1 = Set-AzureRmVMOperatingSystem -VM $vm1 -Windows -ComputerName 'myNrpIPv6VM0' -Credential $mySecureCredentials -ProvisionVMAgent -EnableAutoUpdate
         $vm1 = Set-AzureRmVMSourceImage -VM $vm1 -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"

@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/06/2016"
+    ms.date="10/03/2016"
     ms.author="sethm" />
 
 # Service Bus samples
@@ -31,15 +31,17 @@ Note that the brokered messaging samples require a connection string to access y
 
 ### To obtain a connection string for Azure Service Bus
 
-1. Log on to the [Azure classic portal](http://manage.windowsazure.com).
+1. Log on to the [Azure portal](http://portal.azure.com).
 
 1. In the left-hand column, click **Service Bus**.
 
-1. Click the name of your service namespace in the list.
+1. Click the name of your namespace in the list.
 
-1. Click **Connection Information**. In the **Access connection information** dialog, copy the connection string to your clipboard.
+1. In the list of namespaces, click the newly created namespace name.
+ 
+3. In the namespace blade, click **Shared access policies**.
 
-1. Paste the connection string into the App.config file for the sample.
+4. In the **Shared access policies** blade, click **RootManageSharedAccessKey**.
 
 ### To obtain a connection string for Service Bus for Windows Server
 

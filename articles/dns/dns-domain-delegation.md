@@ -3,7 +3,7 @@
    description="Understand how to change domain delegation and use Azure DNS name servers to provide domain hosting."
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/30/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
 
 
 # Delegate a domain to Azure DNS
@@ -53,7 +53,7 @@ There are two types of DNS servers:
 
 DNS clients in PCs or mobile devices typically call a recursive DNS server to perform any DNS queries the client applications need.
 
-When a recursive DNS server receives a query for a DNS record such as ‘www.contoso.com’, it first needs to find the name server hosting the zone for the ‘contoso.com’ domain. To do this, it starts at the root name servers, and from there finds the name servers hosting the ‘com’ zone. It then queries the ‘com’ name servers to find the name servers hosting the ‘contoso.com’ zone.  Finally, it is able to query these name servers for ‘www.contoso.com’.  
+When a recursive DNS server receives a query for a DNS record such as ‘www.contoso.com’, it first needs to find the name server hosting the zone for the ‘contoso.com’ domain. To do this, it starts at the root name servers, and from there finds the name servers hosting the ‘com’ zone. It then queries the ‘com’ name servers to find the name servers hosting the ‘contoso.com’ zone.  Finally, it is able to query these name servers for ‘www.contoso.com’.
 
 This is called resolving the DNS name. Strictly speaking, DNS resolution includes additional steps such as following CNAMEs, but that’s not important to understanding how DNS delegation works.
 
@@ -83,7 +83,7 @@ The easiest way to see the name servers assigned to your zone is via the Azure p
 
 Azure DNS automatically creates authoritative NS records in your zone containing the assigned name servers.  To see the name server names via Azure PowerShell or Azure CLI, you simply need to retrieve these records.
 
-Using Azure PowerShell, the authoritative NS records can be retrieved as follows. Note that the record name “@” is used to refer to records at the apex of the zone. 
+Using Azure PowerShell, the authoritative NS records can be retrieved as follows. Note that the record name “@” is used to refer to records at the apex of the zone.
 
 	PS> $zone = Get-AzureRmDnsZone –Name contoso.net –ResourceGroupName MyResourceGroup
 	PS> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
@@ -146,7 +146,7 @@ Note that you do not have to specify the Azure DNS name servers, since the norma
 
 ## Delegating sub-domains in Azure DNS
 
-If you want to set up a separate child zone, you can delegate a sub-domain in Azure DNS. For example, having set up and delegated ‘contoso.com’ in Azure DNS, suppose you would like to set up a separate child zone, ‘partners.contoso.com’. 
+If you want to set up a separate child zone, you can delegate a sub-domain in Azure DNS. For example, having set up and delegated ‘contoso.com’ in Azure DNS, suppose you would like to set up a separate child zone, ‘partners.contoso.com’.
 
 Setting up a sub-domain follows a similar process as a normal delegation. The only difference is that in step 3 the NS records must be created in the parent zone ‘contoso.com’ in Azure DNS, rather than being set up via a domain registrar.
 
@@ -169,7 +169,7 @@ First, we create the parent and child zones. These can be in same resource group
 
 #### Step 2. Retrieve NS records
 
-Next, we retrieve the authoritative NS records from child zone as shown in the next example.  This contains the name servers assigned to the child zone. 
+Next, we retrieve the authoritative NS records from child zone as shown in the next example.  This contains the name servers assigned to the child zone.
 
 	$child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
 

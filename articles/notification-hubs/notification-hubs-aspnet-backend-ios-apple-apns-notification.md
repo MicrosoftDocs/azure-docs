@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="10/03/2016"
 	ms.author="wesmc"/>
 
 #Azure Notification Hubs Notify Users for iOS with .NET backend
@@ -22,7 +22,7 @@
 
 ##Overview
 
-Push notification support in Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms. This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET WebAPI backend is used to authenticate clients and to generate notifications, as shown in the guidance topic [Registering from your app backend](notification-hubs-registration-management.md#registration-management-from-a-backend).
+Push notification support in Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms. This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET WebAPI backend is used to authenticate clients and to generate notifications, as shown in the guidance topic [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).
 
 > [AZURE.NOTE] This tutorial assumes that you have created and configured your notification hub as described in [Getting Started with Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md). This tutorial is also the prerequisite to the [Secure Push (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) tutorial.
 > If you want to use Mobile Apps as your backend service, see the [Mobile Apps Get Started with Push](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
@@ -44,7 +44,7 @@ Push notification support in Azure enables you to access an easy-to-use, multipl
 	+ **Username**: A UITextField with placeholder text, *Enter Username*, immediately beneath the send results label and constrained to the left and right margins and beneath the send results label.
 	+ **Password**: A UITextField with placeholder text, *Enter Password*, immediately beneath the username text field and constrained to the left and right margins and beneath the username text field. Check the **Secure Text Entry** option in the Attribute Inspector, under *Return Key*.
 	+ **Log in**: A UIButton labeled immediately beneath the password text field and uncheck the **Enabled** option in the Attributes Inspector, under *Control-Content*
-	+ **WNS**: Label and switch to enable sending the notification Windows Notification Service if it has been setup on the hub. See the [Windows Getting Started](notification-hubs-windows-store-dotnet-get-started.md) tutorial.
+	+ **WNS**: Label and switch to enable sending the notification Windows Notification Service if it has been setup on the hub. See the [Windows Getting Started](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) tutorial.
 	+ **GCM**: Label and switch to enable sending the notification to Google Cloud Messaging if it has been setup on the hub. See [Android Getting Started](notification-hubs-android-push-notification-google-gcm-get-started.md) tutorial.
 	+ **APNS**: Label and switch to enable sending the notification to the Apple Platform Notification Service.
 	+ **Recipent Username**:A UITextField with placeholder text, *Recipient username tag*, immediately beneath the GCM label and constrained to the left and right margins and beneath the GCM label.

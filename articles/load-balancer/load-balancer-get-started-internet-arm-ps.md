@@ -191,13 +191,13 @@ Create network interfaces (or modify existing ones) and then associate them to N
                         }
         EnableIPForwarding   : False
         NetworkSecurityGroup : null
-        Primary              : 
+        Primary              :
 
 5. Use the `Add-AzureRmVMNetworkInterface` cmdlet to assign the NICs to different VMs.
 
 ## Create a virtual machine
 
-For guidance on creating a virtual machine and assigning a NIC, see option 5 in [Create and preconfigure a Windows virtual machine with Resource Manager and Azure PowerShell](../virtual-machines/virtual-machines-windows-create-powershell.md#Example).
+For guidance on creating a virtual machine and assigning a NIC, see [Create an Azure VM using PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md).
 
 ## Add the network interface to the load balancer
 

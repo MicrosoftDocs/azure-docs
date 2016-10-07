@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="10/04/2016"
 	ms.author="sethm"/>
 
 # How to use Service Bus queues
@@ -57,46 +57,7 @@ container for addressing Service Bus resources within your application.
 
 To create a namespace:
 
-1.  Log on to the [Azure classic portal][].
-
-2.  In the left navigation pane of the portal, click
-    **Service Bus**.
-
-3.  In the lower pane of the portal, click **Create**.
-	![](./media/service-bus-java-how-to-use-queues/sb-queues-03.png)
-
-4.  In the **Add a new namespace** dialog, enter a namespace name.
-    The system immediately checks to see if the name is available.
-	![](./media/service-bus-java-how-to-use-queues/sb-queues-04.png)
-
-5.  After making sure the namespace name is available, choose the
-    country or region in which your namespace should be hosted (make
-    sure you use the same country/region in which you are deploying your
-    compute resources).
-
-	IMPORTANT: Pick the **same region** that you intend to choose for
-    deploying your application. This will give you the best performance.
-
-6. 	Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the check mark. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
-
-The namespace you created takes a moment to activate, and will then appear in the Azure portal. Wait until the namespace status is **Active** before continuing.
-
-## Obtain the default management credentials for the namespace
-
-In order to perform management operations, such as creating a queue on
-the new namespace, you must obtain the management credentials for the
-namespace. You can obtain these credentials from the portal.
-
-1.  In the left navigation pane, click the **Service Bus** node, to
-    display the list of available namespaces:
-	![](./media/service-bus-java-how-to-use-queues/sb-queues-13.png)
-
-2.  Click on the namespace you just created from the list shown.
-
-3.  Click **Configure** to view the shared access policies for your namespace.
-	![](./media/service-bus-java-how-to-use-queues/sb-queues-14.png)
-
-4.  Make a note of the primary key, or copy it to the clipboard.
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Configure your application to use Service Bus
 
@@ -126,36 +87,40 @@ The **ServiceBusService** class provides methods to create, enumerate,
 and delete queues. The example below shows how a **ServiceBusService** object
 can be used to create a queue named "TestQueue", with a namespace named "HowToSample":
 
-		Configuration config =
-			ServiceBusConfiguration.configureWithSASAuthentication(
-					"HowToSample",
-					"RootManageSharedAccessKey",
-					"SAS_key_value",
-					".servicebus.windows.net"
-					);
+```
+Configuration config =
+	ServiceBusConfiguration.configureWithSASAuthentication(
+			"HowToSample",
+			"RootManageSharedAccessKey",
+			"SAS_key_value",
+			".servicebus.windows.net"
+			);
 
-    ServiceBusContract service = ServiceBusService.create(config);
-    QueueInfo queueInfo = new QueueInfo("TestQueue");
-    try
-    {
-		CreateQueueResult result = service.createQueue(queueInfo);
-    }
-	catch (ServiceException e)
-	{
-	    System.out.print("ServiceException encountered: ");
-        System.out.println(e.getMessage());
-        System.exit(-1);
-    }
+ServiceBusContract service = ServiceBusService.create(config);
+QueueInfo queueInfo = new QueueInfo("TestQueue");
+try
+{
+	CreateQueueResult result = service.createQueue(queueInfo);
+}
+catch (ServiceException e)
+{
+    System.out.print("ServiceException encountered: ");
+    System.out.println(e.getMessage());
+    System.exit(-1);
+}
+```
 
 There are methods on **QueueInfo** that allow properties of the queue to be
 tuned (for example: to set the default time-to-live (TTL) value to be
 applied to messages sent to the queue). The following example shows how
 to create a queue named `TestQueue` with a maximum size of 5GB:
 
-    long maxSizeInMegabytes = 5120;
-    QueueInfo queueInfo = new QueueInfo("TestQueue");
-    queueInfo.setMaxSizeInMegabytes(maxSizeInMegabytes);
-    CreateQueueResult result = service.createQueue(queueInfo);
+````
+long maxSizeInMegabytes = 5120;
+QueueInfo queueInfo = new QueueInfo("TestQueue");
+queueInfo.setMaxSizeInMegabytes(maxSizeInMegabytes);
+CreateQueueResult result = service.createQueue(queueInfo);
+````
 
 Note that you can use the **listQueues** method on **ServiceBusContract**
 objects to check if a queue with a specified name already exists within
@@ -167,17 +132,19 @@ To send a message to a Service Bus queue, your application obtains a
 **ServiceBusContract** object. The following code shows how to send a
 message for the `TestQueue` queue previously created in the `HowToSample` namespace:
 
-    try
-    {
-        BrokeredMessage message = new BrokeredMessage("MyMessage");
-        service.sendQueueMessage("TestQueue", message);
-    }
-    catch (ServiceException e)
-    {
-        System.out.print("ServiceException encountered: ");
-        System.out.println(e.getMessage());
-        System.exit(-1);
-    }
+```
+try
+{
+    BrokeredMessage message = new BrokeredMessage("MyMessage");
+    service.sendQueueMessage("TestQueue", message);
+}
+catch (ServiceException e)
+{
+    System.out.print("ServiceException encountered: ");
+    System.out.println(e.getMessage());
+    System.exit(-1);
+}
+```
 
 Messages sent to, and received from Service Bus queues are instances of the [BrokeredMessage][] class. [BrokeredMessage][] objects have a set of standard properties (such as [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) and [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), a dictionary
 that is used to hold custom application specific properties, and a body of arbitrary application data. An application can set the body of the message by passing any serializable object into the constructor of the [BrokeredMessage][], and the appropriate serializer will then be used to serialize the object. Alternatively, you can provide a **java.IO.InputStream** object.
@@ -185,15 +152,17 @@ that is used to hold custom application specific properties, and a body of arbit
 The following example demonstrates how to send five test messages to the
 `TestQueue` **MessageSender** we obtained in the previous code snippet:
 
-    for (int i=0; i<5; i++)
-    {
-         // Create message, passing a string message for the body.
-         BrokeredMessage message = new BrokeredMessage("Test message " + i);
-         // Set an additional app-specific property.
-         message.setProperty("MyProperty", i);
-         // Send message to the queue
-         service.sendQueueMessage("TestQueue", message);
-    }
+```
+for (int i=0; i<5; i++)
+{
+     // Create message, passing a string message for the body.
+     BrokeredMessage message = new BrokeredMessage("Test message " + i);
+     // Set an additional app-specific property.
+     message.setProperty("MyProperty", i);
+     // Send message to the queue
+     service.sendQueueMessage("TestQueue", message);
+}
+```
 
 Service Bus queues support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
 a maximum size of 64 KB. There is no limit on the number of messages
@@ -234,56 +203,58 @@ processed using **PeekLock** mode (not the default mode). The example
 below does an infinite loop and processes messages as they arrive into
 our "TestQueue":
 
-    	try
-	{
-		ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;
-		opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
+```
+try
+{
+	ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;
+	opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
 
-		while(true)  {
-	         ReceiveQueueMessageResult resultQM =
-	     			service.receiveQueueMessage("TestQueue", opts);
-		    BrokeredMessage message = resultQM.getValue();
-		    if (message != null && message.getMessageId() != null)
-		    {
-			    System.out.println("MessageID: " + message.getMessageId());
-			    // Display the queue message.
-			    System.out.print("From queue: ");
-			    byte[] b = new byte[200];
-			    String s = null;
-			    int numRead = message.getBody().read(b);
-			    while (-1 != numRead)
-	            {
-	                s = new String(b);
-	                s = s.trim();
-	                System.out.print(s);
-	                numRead = message.getBody().read(b);
-			    }
-	            System.out.println();
-			    System.out.println("Custom Property: " +
-			        message.getProperty("MyProperty"));
-			    // Remove message from queue.
-			    System.out.println("Deleting this message.");
-			    //service.deleteMessage(message);
-		    }  
-		    else  
-		    {
-		        System.out.println("Finishing up - no more messages.");
-		        break;
-		        // Added to handle no more messages.
-		        // Could instead wait for more messages to be added.
+	while(true)  {
+         ReceiveQueueMessageResult resultQM =
+     			service.receiveQueueMessage("TestQueue", opts);
+	    BrokeredMessage message = resultQM.getValue();
+	    if (message != null && message.getMessageId() != null)
+	    {
+		    System.out.println("MessageID: " + message.getMessageId());
+		    // Display the queue message.
+		    System.out.print("From queue: ");
+		    byte[] b = new byte[200];
+		    String s = null;
+		    int numRead = message.getBody().read(b);
+		    while (-1 != numRead)
+            {
+                s = new String(b);
+                s = s.trim();
+                System.out.print(s);
+                numRead = message.getBody().read(b);
 		    }
+            System.out.println();
+		    System.out.println("Custom Property: " +
+		        message.getProperty("MyProperty"));
+		    // Remove message from queue.
+		    System.out.println("Deleting this message.");
+		    //service.deleteMessage(message);
+	    }  
+	    else  
+	    {
+	        System.out.println("Finishing up - no more messages.");
+	        break;
+	        // Added to handle no more messages.
+	        // Could instead wait for more messages to be added.
 	    }
-	}
-	catch (ServiceException e) {
-	    System.out.print("ServiceException encountered: ");
-	    System.out.println(e.getMessage());
-	    System.exit(-1);
-	}
-	catch (Exception e) {
-	    System.out.print("Generic exception encountered: ");
-	    System.out.println(e.getMessage());
-	    System.exit(-1);
-	}
+    }
+}
+catch (ServiceException e) {
+    System.out.print("ServiceException encountered: ");
+    System.out.println(e.getMessage());
+    System.exit(-1);
+}
+catch (Exception e) {
+    System.out.print("Generic exception encountered: ");
+    System.out.println(e.getMessage());
+    System.exit(-1);
+}
+```
 
 ## How to handle application crashes and unreadable messages
 
@@ -324,4 +295,4 @@ For more information, see the [Java Developer Center](/develop/java/).
   [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
   [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
-  [Azure classic portal]: http://manage.windowsazure.com
+

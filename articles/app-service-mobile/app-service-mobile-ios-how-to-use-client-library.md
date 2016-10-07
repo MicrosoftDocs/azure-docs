@@ -3,7 +3,7 @@
 	description="How to Use iOS SDK for Azure Mobile Apps"
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="adrianhall"
+	authors="yuaxu"
 	manager="yochayk"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="09/23/2016"
-	ms.author="adrianha"/>
+	ms.date="10/01/2016"
+	ms.author="yuaxu"/>
 
 # How to Use iOS Client Library for Azure Mobile Apps
 

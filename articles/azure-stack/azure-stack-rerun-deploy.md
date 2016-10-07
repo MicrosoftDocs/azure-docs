@@ -43,7 +43,9 @@ Putting this all together (now from the top down), you get 60.140.143, just like
 
 ## Rerun the deployment at a specific step
 
-Now that you have the step that the deployment failed on, you can attempt a -Rerun of the deployment from that step. 
+Now that you have the step that the deployment failed on, you can attempt a -Rerun of the deployment from that step.
+
+> [AZURE.IMPORTANT] The following commands must be run by the correct user, in context with the failure that occurred. If the failure occurred before the HOST was joined to the domain, run these steps as the local administrator account. If the failure occurred after the HOST was joined to the domain, run these steps as the domain administrator (azurestack\azurestackadmin).
 
 ### Execute the Invoke-EceAction command
 

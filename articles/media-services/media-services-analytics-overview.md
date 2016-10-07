@@ -16,7 +16,7 @@
 	ms.date="09/14/2016"   
 	ms.author="milanga;juliako;johndeu"/>
 
-# Azure Media Services Analytics Overview | Microsoft Azure
+# Azure Media Services Analytics Overview
 
 ##Overview
 
@@ -24,12 +24,13 @@ More organizations and enterprises are embracing video as the preferred medium t
 
 To address this growing need in the marketplace, Azure Media Services offers Media Analytics, a collection of speech and vision components (at enterprise scale, compliance, security and global reach) that make it easier for organizations and enterprises to derive actionable insights from their video files. Azure Media Analytics services are built using the core Azure Media Services platform components and hence are ready to handle media processing at scale on day one.
 
-Azure Media Analytics enable developers to quickly get started with vision capabilities for video at limited scale and bring this advanced functionality into Bots and applications. Azure Media Analytics is built to be used by enterprise environments with the full scale, compliance, security and global reach required by large organizations.
+Azure Media Analytics enable developers to quickly get started with vision capabilities for video at limited scale and bring this advanced functionality into applications. Azure Media Analytics is built to be used by enterprise environments with the full scale, compliance, security and global reach required by large organizations.
 
-The following diagram shows **Media Analytics** and other major parts of the Media Services platform. Note that, Media Analytics media processors produce MP4 files or JSON files. If a media processor produced an MP4 file, you can progressively download the file. If a media processor produced a JSON file, you can download the file from the Azure blob storage. 
+The following diagram shows **Media Analytics** and other major parts of the Media Services platform. 
 
 ![VoD workflow](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
+Media Analytics media processors produce MP4 files or JSON files. If a media processor produced an MP4 file, you can progressively download the file. If a media processor produced a JSON file, you can download the file from the Azure blob storage. 
 
 ## Azure Media Analytics services
 
@@ -129,7 +130,7 @@ Response:
 
 [Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-##Next step
+##Next steps
 
 Review Media Services learning paths.
 
