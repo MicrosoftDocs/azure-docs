@@ -57,11 +57,11 @@ Security analytics that come with the Standard tier are:
 - **Behavioral analysis** - Applies known patterns to discover malicious behavior
 - **Anomaly detection** - Uses statistical profiling to build a historical baseline. It alerts on deviations from established baselines that conform to a potential attack vector
 
-In the **Security alerts** blade below, Security Center has detected a security **incident**. A security incident is an aggregation of all alerts for a resource that align with kill chain patterns. Selecting the security incident reveals more details about the incident and lists the related alerts. Selecting an alert provides more information about each occurrence.
+In the **Security alerts** blade below, Security Center has detected a security **incident**. A security incident is an aggregation of all alerts for a resource that align with kill chain patterns. Selecting the security incident reveals more details about the incident and lists the related alerts. Selecting an alert provides more information about that occurrence.
 
 ![Security incident][3]
 
-The **Network communication** alert below provides details about the alert, which includes its full description, its severity, its current state (which in this case is dismissed, meaning the user has taken an action to dismiss it), the attacked resource, and remediation steps. There is also a list of links to reports from Microsoft Threat Intelligence. These reports can be used for security remediation and defensive purposes.
+The **Network communication** alert below provides details about the alert, which includes its full description, its severity, its current state (which in this case is dismissed, meaning the user has taken an action to dismiss it), the attacked resource, and remediation steps. There is also a list of links to Microsoft Threat Intelligence reports. These reports can be used for security remediation and defensive purposes.
 
 ![Security alert details][4]
 
@@ -73,7 +73,7 @@ To validate that data collection is enabled, select the **Policy** tile. The **S
 
 ## See also
 
-In this document, you were introduced to pricing for Security Center. For additional pricing information see the Security Center [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+In this document, you were introduced to pricing for Security Center. For additional pricing information, see the Security Center [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 To learn more about Security Center, see the following:
 
