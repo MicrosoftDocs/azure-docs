@@ -35,9 +35,9 @@ Before you begin this tutorial, you must have the following:
 
 ##Prepare source data
 
-In this tutorial, you process some search logs.  The search log can be stored in either Data Lake store or Azure Blob storage. 
+In this tutorial, you process some search logs.  The search log can be stored in either dData Lake store or Azure Blob storage. 
 
-The Azure portal provides a user interface for copying some sample data files to the default Data Lake account, which include a search log file.
+The Azure portal provides a user interface for copying some sample data files to the default Data Lake Store account, which include a search log file.
 
 **To copy sample data files**
 
@@ -47,8 +47,7 @@ Scripts**.
 
 	![Azure Data Lake Analytics portal sample script](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-sample-scripts.png)
 
-4. Click **Copy Sample Data**, and then click **OK** to confirm.
-5. Click **Notification** which is a bell shaped icon. You shall see a log saying **Updating sample data completed**. Click anywhere outside the notification pane to close it.
+4. Click **Sample Data Missing** to copy the sample data files. When it is done, the portal shows **Sample data updated successsfully**.
 7. From the Data Lake analytics account blade, click **Data Explorer** on the top. 
 
 	![Azure Data Lake Analytics data explorer button](./media/data-lake-analytics-get-started-portal/data-lake-analytics-data-explorer-button.png)
@@ -71,16 +70,14 @@ In practice, you will either program your applications to write data into a link
 
 After you have prepared the source data, you can start developing a U-SQL script.  
 
-**To submit the job**
+**To submit a job**
 
 1. From the Data Lake analytics account blade on the portal, click **New Job**. 
 
 	![Azure Data Lake Analytics new job button](./media/data-lake-analytics-get-started-portal/data-lake-analytics-new-job-button.png)
 
     If you don't see the blade, see [Open a Data Lake Analytics account from portal](data-lake-analytics-manage-use-portal.md#access-adla-account).
-4. Enter **Job Name**, and the following U-SQL script:
-
-	![create Azure Data Lake Analytics U-SQL jobs](./media/data-lake-analytics-get-started-portal/data-lake-analytics-new-job.png)
+2. Enter **Job Name**, and the following U-SQL script:
 
         @searchlog =
             EXTRACT UserId          int,
@@ -97,6 +94,8 @@ After you have prepared the source data, you can start developing a U-SQL script
             TO "/Output/SearchLog-from-Data-Lake.csv"
         USING Outputters.Csv();
 
+	![create Azure Data Lake Analytics U-SQL jobs](./media/data-lake-analytics-get-started-portal/data-lake-analytics-new-job.png)
+
 	This U-SQL script reads the source data file using **Extractors.Tsv()**, and then creates a csv file using **Outputters.Csv()**. 
     
     Don't modify the two paths unless you copy the source file into a different location.  Data Lake Analytics creates the output folder if it doesn't exist.  In this case, we are using simple, relative paths.  
@@ -108,21 +107,15 @@ After you have prepared the source data, you can start developing a U-SQL script
 
     For more about U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
      
-5. Click **Submit Job** from the top. A new Job Details pane opens. On the title bar, it shows the job status.   
-6. Wait until the job status is changed to **Succeeded**. When the job is completed, the portal opens the job details in a new blade:
-
-    ![Azure Data Lake Analytics job details](./media/data-lake-analytics-get-started-portal/data-lake-analytics-job-completed.png)
-
-    From the previous screenshot, you can see the job took roughly 1.5 minutes to complete from Submitted to Ended.
+3. Click **Submit Job** from the top.   
+4. Wait until the job status is changed to **Succeeded**. You can see the job took roughly 1 minute to complete.
     
     In case the job failed, see [Monitor and troubleshoot Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorials.md).
 
-7. At the bottom of the **Job Detail** blade, click the job name in **SearchLog-from-Data-Lake.csv**. You can preview, download, rename, and delete the output file.
+5. At the bottom of the blade, click the **Output** tab, and then click **SearchLog-from-Data-Lake.csv**. You can preview, download, rename, and delete the output file.
 
     ![Azure Data Lake Analytics job output file properties](./media/data-lake-analytics-get-started-portal/data-lake-analytics-output-file-properties.png)
-8. Click **Preview** to see the output file.
 
-    ![Azure Data Lake Analytics job output file preview](./media/data-lake-analytics-get-started-portal/data-lake-analytics-job-output-preview.png)
 
 ##See also
 
