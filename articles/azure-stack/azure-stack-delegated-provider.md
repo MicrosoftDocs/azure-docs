@@ -3,7 +3,7 @@
 	description="Learn how to put other people in charge of creating offers and signing up users for you."
 	services="azure-stack"
 	documentationCenter=""
-	authors="ErikjeMS"
+	authors="AlfredoPizzirani"
 	manager="byronr"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/07/2016"
-	ms.author="erikje"/>
+	ms.author="alfredop"/>
 
 
 
