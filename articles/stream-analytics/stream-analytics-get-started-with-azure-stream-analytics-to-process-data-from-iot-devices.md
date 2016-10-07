@@ -36,7 +36,7 @@ Here data is being generated from a Texas Instruments sensor tag device.
 
 ![Texas Instruments sensor tag](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-01.jpg)
 
-The Payload of the data is in JSON format and looks like the following:
+The payload of the data is in JSON format and looks like the following:
 
 
 	{
