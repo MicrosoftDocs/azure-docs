@@ -32,7 +32,7 @@ Read on for more information, including examples of the different hosting option
 ### **RDS on IaaS** 
 You can deploy a native session-based Remote Desktop Services (in Windows Server) deployment using either RemoteApp or desktops on-premises or in a hosted environment (like on Azure VMs). RDS on IaaS deployments are best for customers already familiar with and that have existing technical expertise with RDS deployments. 
 
->[NOTE]
+> [AZURE.NOTE]
 > You need Volume Licensing with Software Assurance (SA) for RDS client access licenses to use this deployment option.
 
 Deploying RDS on Azure VMs is easier than ever when you use [deployment and patching templates](https://blogs.technet.microsoft.com/enterprisemobility/2015/07/13/azure-resource-manager-template-for-rds-deployment/). You can get the same elastic scaling capabilities with Azure classic deployment model resources (not Azure Resource Model resources) within Azure RemoteApp by using the [auto scaling script](https://gallery.technet.microsoft.com/scriptcenter/Automatic-Scaling-of-9b4f5e76), although there are more customizations and configurations. When you deploy RDS on Azure VMs, support is provided through [Azure Support](https://azure.microsoft.com/support/plans/), the same support professionals that supported you with Azure RemoteApp. You can get cost estimates based on your existing usage by contacting [Azure Support](https://azure.microsoft.com/support/plans/), or you can perform calculations yourself using a soon to be released Cost Calculator.  Also, with N-series VMs (currently in private preview) you can add vGPU - hear more about adding vGPU and about how to [harness RDS improvements in Windows Server 2016](https://myignite.microsoft.com/videos/2794) in our Ignite session.   
