@@ -552,7 +552,7 @@ Same as above.
 
 #### Problem
 
-After login on AAD sign in page in Service Fabric Explorer, page returns sign in failure - AADSTS50011: The reply address <url> does not match the reply addresses configured for the application: <guid>. 
+After login on AAD sign in page in Service Fabric Explorer, page returns sign in failure - AADSTS50011: The reply address &lt;url&gt; does not match the reply addresses configured for the application: &lt;guid&gt;. 
 
 ![SFX reply address not match][sfx-reply-address-not-match]
 
