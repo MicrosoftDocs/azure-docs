@@ -69,6 +69,7 @@ The following SDKs are available for working with Key Vault:
 
 For more information on the 2.x version of the .NET SDK, see the [Release notes](key-vault-dotnet2api-release-notes.md).
 
+## Example code
 For complete examples using Key Vault with your applications, see:
 
 - .NET sample application *HelloKeyVault* and an Azure web service example. [Azure Key Vault code samples](http://www.microsoft.com/download/details.aspx?id=45343)
