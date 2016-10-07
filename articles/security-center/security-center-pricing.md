@@ -51,15 +51,19 @@ The Standard tier of Security Center provides all features of the Free tier plus
 
 Security Center employs advanced security analytics, which go far beyond signature-based approaches. Breakthroughs in big data and machine learning technologies are leveraged to evaluate events across the entire cloud fabric – detecting threats that would be impossible to identify using manual approaches and predicting the evolution of attacks.
 
-Let’s look at the security analytics that come with the Standard tier:
+Security analytics that come with the Standard tier are:
 
 - **Threat intelligence** - Looks for known bad actors by using global threat intelligence from Microsoft products and services, the Microsoft Digital Crimes Unit (DCU), the Microsoft Security Response Center (MSRC), and external feeds
 - **Behavioral analysis** - Applies known patterns to discover malicious behavior
 - **Anomaly detection** - Uses statistical profiling to build a historical baseline. It alerts on deviations from established baselines that conform to a potential attack vector
 
-Below is an incident that includes multiple alerts.
+In the **Security alerts** blade below, Security Center has detected a security **incident**. A security incident is an aggregation of all alerts for a resource that align with kill chain patterns. Selecting the security incident reveals more details about the incident and lists the related alerts. Selecting an alert provides more information about each occurrence.
 
 ![Security incident][3]
+
+The **Network communication** alert below provides details about the alert, which includes its full description, its severity, its current state (which in this case is dismissed, meaning the user has taken an action to dismiss it), the attacked resource, and remediation steps. There is also a list of links to reports from Microsoft Threat Intelligence. These reports can be used for security remediation and defensive purposes.
+
+![Security alert details][4]
 
 ## Enable data collection
 
@@ -86,3 +90,4 @@ To learn more about Security Center, see the following:
 [1]: ./media/security-center-pricing/free-trial.png
 [2]: ./media/security-center-pricing/standard.png
 [3]: ./media/security-center-pricing/incident.png
+[4]: ./media/security-center-pricing/network-alert.png
