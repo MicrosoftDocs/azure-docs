@@ -234,16 +234,25 @@ await subtasks.ForEachAsync(async (subtask) =>
 
 ## Code sample
 
-1. Follow the steps in [How to compile and run a simple MS-MPI program][msmpi_howto] to build a simple MS-MPI program. For step 6 of the how-to, use the code in [MPIHelloWorld.cpp][helloworld_cpp].
+The [MultiInstanceTasks][github_mpi] code sample on GitHub demonstrates how to use a multi-instance task to run an [MS-MPI][msmpi_msdn] application on Batch compute nodes. To run the code sample, perform the following:
+
+### Preparation
+
+1. Follow the steps in [How to compile and run a simple MS-MPI program][msmpi_howto] to build a simple MS-MPI program. For step 6 in that how-to blog post, use the code in [MPIHelloWorld.cpp][helloworld_cpp].
+1. Create a zip file containing `MPIHelloWorld.exe` (which you built in step 1) and `MSMpiSetup.exe` (which you downloaded in step 1). You'll upload this zip file as an application package in the next step.
+1. Use the [Azure portal][portal] to create a Batch [application](batch-application-packages.md) called *MPIHelloWorld*, and specify the zip file you created in the previous step as version "1.0" of the application package. See [Upload and manage applications](batch-application-packages.md#upload-and-manage-applications) for more information.
+
+>[AZURE.TIP] Build a *Release* version of `MPIHelloWorld.exe` so that you don't have to include any additional dependencies (for example, `msvcp140d.dll` or `vcruntime140d`) in your application package.
+
+### Execution
+
 1. Download the [azure-batch-samples][github_samples_zip] from GitHub.
 1. Open the [MultiInstanceTasks][github_mpi] solution in Visual Studio 2015. You can download [Visual Studio Community][visual_studio] for free if you do not have Visual Studio.
 1. Enter your Batch and Storage account credentials in `AccountSettings.settings` in the **Microsoft.Azure.Batch.Samples.Common** project.
-1. Build the [MultiInstanceTasks][github_mpi] project.
-1. Create a zip file containing `MPIHelloWorld.exe` (which you built in step 1) and `MSMpiSetup.exe` (which you downloaded in step 1). You'll upload this zip file as an application package in the next step.
-1. Use the Azure portal to create a Batch [application](batch-application-packages.md) called *MPIHelloWorld*, and specify the zip file you created in the previous step as version "1.0" of the application package. See [Upload and manage applications](batch-application-packages.md#upload-and-manage-applications) for more information.
-1. Run `MultiInstanceTask.exe` to execute the MPI sample application on compute nodes in a Batch pool. You can use the Azure portal or the [Batch Explorer][batch_explorer] to examine the sample pool, job, and task ("MultiInstanceSamplePool", "MultiInstanceSampleJob", "MultiInstanceSampleTask").
+1. Build and run the [MultiInstanceTasks][github_mpi] project to execute the MPI sample application on compute nodes in a Batch pool.
+1. *Optional*: Use the [Azure portal][portal] or the [Batch Explorer][batch_explorer] to examine the sample pool, job, and task ("MultiInstanceSamplePool", "MultiInstanceSampleJob", "MultiInstanceSampleTask").
 
-Output from `MultiInstanceTask.exe` should be similar to the following:
+Output from `MultiInstanceTask.exe` is similar to the following:
 
 ```
 Creating pool [MultiInstanceSamplePool]...
@@ -332,6 +341,7 @@ Sample complete, hit ENTER to exit...
 [net_task_listnodefiles]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.listnodefiles.aspx
 [poolops_getnodefile]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getnodefile.aspx
 
+[portal]: https://portal.azure.com
 [rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 
 [1]: ./media/batch-mpi/batch_mpi_01.png "Multi-instance overview"
