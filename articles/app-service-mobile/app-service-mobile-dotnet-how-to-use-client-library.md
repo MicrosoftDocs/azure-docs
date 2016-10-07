@@ -553,8 +553,8 @@ the local SQLite store instead of the remote server store.  To create an offline
     * **Windows Phone 8.1:** Install [SQLite for Windows Phone 8.1][4].
     * **Universal Windows Platform** Install [SQLite for the Universal Windows Universal][5].  
 
-3. (Optional) In each Windows app project, right click **References** > **Add Reference...**, expand the **Windows** folder > **Extensions**, 
-    then enable the appropriate **SQLite for Windows** SDK along with the  **Visual C++ 2013 Runtime for Windows** SDK.   
+3. (Optional). For Windows devices, click **References** > **Add Reference...**, expand the **Windows** folder > **Extensions**, 
+    then enable the appropriate **SQLite for Windows** SDK along with the **Visual C++ 2013 Runtime for Windows** SDK.   
 	The SQLite SDK names vary slightly with each Windows platform.  
 
 Before a table reference can be created, the local store must be prepared:
@@ -565,10 +565,13 @@ Before a table reference can be created, the local store must be prepared:
 	//Initializes the SyncContext using the default IMobileServiceSyncHandler.
 	await this.client.SyncContext.InitializeAsync(store);
 
-This is normally done immediately after the client is created.  The **OfflineDbPath** should be a filename
-suitable for use on all platforms that you support.  If the path is a fully-qualified path (i.e. it starts with
-a slash), then that path is used.  If the path is not fully-qualified, the file is placed in a platform-specific
-location.  On iOS and Android devices, this is the "Personal Files" area.  On Windows, this is the AppData area.
+Store initialization is normally done immediately after the client is created.  The **OfflineDbPath** should be a filename
+suitable for use on all platforms that you support.  If the path is a fully qualified path (that is, it starts with
+a slash), then that path is used.  If the path is not fully qualified, the file is placed in a platform-specific
+location.  
+
+* For iOS and Android devices, the default path is the "Personal Files" folder.
+* For Windows devices, the default path is the application-specific "AppData" folder.
 
 A table reference can be obtained using the `GetSyncTable<>` method:
 
@@ -632,8 +635,8 @@ to pull down all records.
 The SDK performs an implicit `PushAsync()` before pulling records.
 
 Conflict handling happens on a `PullAsync()` method.  You can deal with conflicts in the same way as online tables.  The conflict
-will be produced when `PullAsync()` is called instead of during the insert, update or delete.  In addition, multiple conflicts will
-be produced.  Each conflict should be handled individually.
+is produced when `PullAsync()` is called instead of during the insert, update, or delete. If multiple conflicts happen, they are 
+bundled into a single MobileServicePushFailedException.  Handle each failure separately.
 
 ##<a name="#customapi"></a>Work with a custom API
 
@@ -646,7 +649,7 @@ line of code sends a POST request to the **completeAll** API on the backend:
 
     var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Net.Http.HttpMethod.Post, null);
 
-This form is a typed method call and requires that the **MarkAllResult** return type be defined. Both 
+This form is a typed method call and requires that the **MarkAllResult** return type is defined. Both 
 typed and untyped methods are supported.
 
 ##<a name="authentication"></a>Authenticate users
@@ -657,8 +660,8 @@ access for specific operations to only authenticated users. You can also use the
 to implement authorization rules in server scripts. For more information, see the tutorial
 [Add authentication to your app].
 
-Two authentication flows are supported: _client managed_ and _server managed_ flow. The server flow provides 
-the simplest authentication experience, as it relies on the provider's web authentication interface. The client 
+Two authentication flows are supported: _client-managed_ and _server-managed_ flow. The server-managed flow provides 
+the simplest authentication experience, as it relies on the provider's web authentication interface. The client-managed 
 flow allows for deeper integration with device-specific capabilities as it relies on provider-specific 
 device-specific SDKs.
 
@@ -678,7 +681,7 @@ The following topics are covered in this section:
 ###<a name="clientflow"></a>Client-managed authentication
 
 Your app can independently contact the identity provider and then provide the returned token during login with 
-your backend. This client flow enables you to provide a single sign-in experience for users or to retrieve 
+your backend. This client flow enables you to provide a single sign on experience for users or to retrieve 
 additional user data from the identity provider. Client flow authentication is preferred to using a server flow 
 as the identity provider SDK provides a more native UX feel and allows for additional customization.
 
@@ -926,7 +929,7 @@ server flow sign-in by using Facebook.
 	}
 
 If you are using an identity provider other than Facebook, change the value of [MobileServiceAuthenticationProvider] 
-above to the value for your provider.
+to the value for your provider.
 
 In a server flow, Azure App Service manages the OAuth authentication flow by displaying the sign-in page of 
 the selected provider.  Once the identity provider returns, Azure App Service generates an App Service 
@@ -1007,7 +1010,7 @@ Windows app for push notifications with the Windows Notification Service (WNS):
         await MobileService.GetPush().RegisterNativeAsync(channel.Uri, null);
     }
 
-If you are pushing to WNS, then you MUST obtain a Windows Store package SID (see below).  For more information 
+If you are pushing to WNS, then you MUST [obtain a Windows Store package SID](#package-sid).  For more information 
 on Windows apps, including how to register for template registrations, see [Add push notifications to your app].
 
 Requesting tags from the client is not supported.  Tag Requests are silently dropped from registration.  
@@ -1016,8 +1019,8 @@ the registration on your behalf.  [Call the Custom API](#customapi) instead of t
 
 ###<a name="package-sid"></a>How to: Obtain a Windows Store package SID
 
-A package SID is needed for enabling push notifications in Windows Store apps. Register your 
-application with the Windows Store to receive a package SID.
+A package SID is needed for enabling push notifications in Windows Store apps.  To receive a package SID, register your 
+application with the Windows Store.
 
 To obtain this value:
 

@@ -23,11 +23,11 @@
 ## Overview
 
 This tutorial shows you how to add offline support to a Universal Windows Platform (UWP) app using an Azure Mobile App 
-backend. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data - even when 
-there is no network connection. Changes are stored in a local database; once the device is back online, these changes 
+backend. Offline sync allows end users to interact with a mobile app--viewing, adding, or modifying data - even when 
+there is no network connection. Changes are stored in a local database. Once the device is back online, these changes 
 are synced with the remote backend.
 
-In this tutorial, you will update the UWP app project from the tutorial [Create a Windows app] to support the offline 
+In this tutorial, you update the UWP app project from the tutorial [Create a Windows app] to support the offline 
 features of Azure Mobile Apps. If you do not use the downloaded quick start server project, you must add the data access 
 extension packages to your project. For more information about server extension packages, see 
 [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
@@ -36,7 +36,7 @@ To learn more about the offline sync feature, see the topic [Offline Data Sync i
 
 ## Requirements
 
-This tutorial requires the following:
+This tutorial requires the following pre-requisites:
 
 * Visual Studio 2013 running on Windows 8.1 or later.
 * Completion of [Create a Windows app][create a windows app].
@@ -51,19 +51,18 @@ the [IMobileServiceSyncTable][IMobileServiceSyncTable] interface. SQLite is used
 
 1. Install the [SQLite runtime for the Universal Windows Platform](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
 
-2. In Visual Studio, open the NuGet package manager for the UWP app project that you completed in the [Create a Windows app] tutorial, 
-    then search for and install the **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet package.
+2. In Visual Studio, open the NuGet package manager for the UWP app project that you completed in the [Create a Windows app] tutorial. 
+    Search for and install the **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet package.
 
-4. In Solution Explorer, right click **References** > **Add Reference...** > **Universal Windows** > **Extensions**, then enable 
+4. In Solution Explorer, right-click **References** > **Add Reference...** > **Universal Windows** > **Extensions**, then enable 
     both **SQLite for Universal Windows Platform** and **Visual C++ 2015 Runtime for Universal Windows Platform apps**.
 
     ![Add SQLite UWP reference][1]
 
-5. Open the MainPage.xaml.cs file and uncomment the `#define OFFLINE_SYNC_ENABLED` definition to enable offline sync.       
+5. Open the MainPage.xaml.cs file and uncomment the `#define OFFLINE_SYNC_ENABLED` definition.       
 
 6. In Visual Studio, press the **F5** key to rebuild and run the client app. The app works the same as it did before you enabled
-    offline sync. However, the local database is now populated with data that can be used in an offline scenario.  Next, you will 
-    create an offline scenario and use locally stored data to start the app.
+    offline sync. However, the local database is now populated with data that can be used in an offline scenario.  
 
 ## <a name="update-sync"></a>Update the app to disconnect from the backend
 
@@ -76,8 +75,7 @@ the mobile app backend when push is next run in a connected state.
 
          public static MobileServiceClient MobileService = new MobileServiceClient("https://your-service.azurewebsites.fail");
 
-	Note that when your app is also using authentication, this will cause sign in to fail. You can also demonstrate offline behavior by 
-    disabling wifi and cellular networks on the device or use airplane mode.
+	You can also demonstrate offline behavior by disabling wifi and cellular networks on the device or use airplane mode.
 
 2. Press **F5** to build and run the app. Notice your sync failed on refresh when the app launched.
  
@@ -96,14 +94,16 @@ the mobile app backend when push is next run in a connected state.
 
 ## <a name="update-online-app"></a>Update the app to reconnect your Mobile App backend
 
-In this section you reconnect the app to the mobile app backend. This simulates the app moving from an offline state to an online state 
-with the mobile app backend. When you first run the application, the `OnNavigatedTo` event handler will call `InitLocalStoreAsync`. This 
-will in turn call `SyncAsync` to sync your local store with the backend database. So the app will attempt to sync on start up.
+In this section, you reconnect the app to the mobile app backend. These changes simulates the app moving from an offline state to an online state 
+with the mobile app backend. If you turned your network off instead, you will not have to do any code changes. 
+
+When you first run the application, the `OnNavigatedTo` event handler calls `InitLocalStoreAsync`. This in turn calls `SyncAsync` to sync your 
+local store with the backend database. The app attempts to sync on startup.
 
 1. Open App.xaml.cs in the shared project, and uncomment your previous initialization of `MobileServiceClient` to use the correct the mobile app URL.
 
 2. Press the **F5** key to rebuild and run the app. The app syncs your local changes with the Azure Mobile App backend using push and pull 
-   operations as soon as the `OnNavigatedTo` event handler executes.
+   operations when the `OnNavigatedTo` event handler executes.
 
 3. (Optional) View the updated data using either SQL Server Object Explorer or a REST tool like Fiddler. Notice the data has been synchronized 
    between the Azure Mobile App backend database and the local store.
@@ -111,10 +111,9 @@ will in turn call `SyncAsync` to sync your local store with the backend database
 4. In the app, click the check box beside a few items to complete them in the local store.
 
   `UpdateCheckedTodoItem` calls `SyncAsync` to sync each completed item with the Mobile App backend. `SyncAsync` calls both push and pull. However, 
-  you should note that **whenever you execute a pull against a table that the client has made changes to, a push on the client sync context will 
-  always be executed first automatically**. This is to ensure all tables in the local store, along with relationships remain consistent. In 
-  this case we could have removed the call to `PushAsync` because it is executed automatically when executing a pull. This behavior may result 
-  in an unexpected push if you are not aware of it. For more information on this behavior, see [Offline Data Sync in Azure Mobile Apps].
+  **whenever you execute a pull against a table that the client has made changes to, a push will always be executed first automatically**. This ensures
+  all tables in the local store, along with relationships remain consistent. This behavior may result in an unexpected push.  For more information on 
+  this behavior, see [Offline Data Sync in Azure Mobile Apps].
 
 
 ##API Summary
@@ -131,7 +130,7 @@ the local store with the server:
 * **[PullAsync]**   
    A pull is started from a [IMobileServiceSyncTable]. When there are tracked changes in the table, an implicit push is run to make sure 
    that all tables in the local store along with relationships remain consistent. The *pushOtherTables* parameter controls whether other 
-   tables in the context are pushed in an  implicit push. The *query* parameter takes an [IMobileServiceTableQuery<T>][IMobileServiceTableQuery] 
+   tables in the context are pushed in an implicit push. The *query* parameter takes an [IMobileServiceTableQuery<T>][IMobileServiceTableQuery] 
    or OData query string to filter the returned data. The *queryId* parameter is used to define incremental sync. For more information, see 
    [Offline Data Sync in Azure Mobile Apps](app-service-mobile-offline-data-sync.md#how-sync-works).
 
