@@ -13,14 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/06/2016"
+   ms.date="10/07/2016"
    ms.author="tomfitz"/>
 
 # Throttling Resource Manager requests
 
-For each subscription, Resource Manager limits read requests to 15,000 per hour and write requests to 1,200 per hour. If your application or script reaches these limits, you need to throttle your requests. This topic shows you how to determine the remaining requests you have before reaching the limit, and how to respond when you have reached the limit.
+For each subscription and tenant, Resource Manager limits read requests to 15,000 per hour and write requests to 1,200 per hour. If your application or script reaches these limits, you need to throttle your requests. This topic shows you how to determine the remaining requests you have before reaching the limit, and how to respond when you have reached the limit.
 
 When you reach the limit, you receive the HTTP status code **429 Too many requests**.
+
+The number of requests is scoped to either your subscription or your tenant. If you have multiple, concurrent applications making requests in your subscription, the requests from those applications are added together to determine the number of remaining requests.
+
+Subscription scoped requests are ones the involve passing your subscription id, such as retrieving the resource groups in your subscription. Tenant scoped requests do not include your subscription id, such as retrieving valid Azure locations.
 
 ## Remaining requests
 
@@ -28,14 +32,14 @@ You can determine the number of remaining requests by examining response headers
 
 | Response header | Description |
 | --------------- | ----------- |
-| x-ms-ratelimit-remaining-subscription-reads | Subscription reads remaining |
-| x-ms-ratelimit-remaining-subscription-writes | Subscription writes remaining |
-| x-ms-ratelimit-remaining-tenant-reads | Tenant reads remaining |
-| x-ms-ratelimit-remaining-tenant-writes | Tenant writes remaining |
-| x-ms-ratelimit-remaining-subscription-resource-requests | Resource type requests remaining.<br /><br />This header value is only returned if a service has overridden the default limit. Resource Manager adds this value instead of the subscription reads or writes. |
-| x-ms-ratelimit-remaining-subscription-resource-entities-read | Resource type collection requests remaining.<br /><br />This header value is only returned if a service has overridden the default limit. This value provides the number of remaining collection requests (list resources). |
-| x-ms-ratelimit-remaining-tenant-resource-requests | Tenant resource type requests remaining.<br /><br />This header is only added for requests at tenant level, and only if a service has overridden the default limit. Resource Manager adds this value instead of the tenant reads or writes. |
-| x-ms-ratelimit-remaining-tenant-resource-entities-read | Tenant resource type collection requests remaining.<br /><br />This header is only added for requests at tenant level, and only if a service has overridden the default limit.  |
+| x-ms-ratelimit-remaining-subscription-reads | Subscription scoped reads remaining |
+| x-ms-ratelimit-remaining-subscription-writes | Subscription scoped writes remaining |
+| x-ms-ratelimit-remaining-tenant-reads | Tenant scoped reads remaining |
+| x-ms-ratelimit-remaining-tenant-writes | Tenant scoped writes remaining |
+| x-ms-ratelimit-remaining-subscription-resource-requests | Subcription scoped resource type requests remaining.<br /><br />This header value is only returned if a service has overridden the default limit. Resource Manager adds this value instead of the subscription reads or writes. |
+| x-ms-ratelimit-remaining-subscription-resource-entities-read | Subscription scoped resource type collection requests remaining.<br /><br />This header value is only returned if a service has overridden the default limit. This value provides the number of remaining collection requests (list resources). |
+| x-ms-ratelimit-remaining-tenant-resource-requests | Tenant scoped resource type requests remaining.<br /><br />This header is only added for requests at tenant level, and only if a service has overridden the default limit. Resource Manager adds this value instead of the tenant reads or writes. |
+| x-ms-ratelimit-remaining-tenant-resource-entities-read | Tenant scoped resource type collection requests remaining.<br /><br />This header is only added for requests at tenant level, and only if a service has overridden the default limit. |
 
 ## Retrieving the header values
 
