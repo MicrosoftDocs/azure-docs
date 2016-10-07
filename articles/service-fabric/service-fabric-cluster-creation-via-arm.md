@@ -527,6 +527,7 @@ If you run into an issue while setting up Azure Active Directory for client auth
 #### Problem
 
 After login successfully on AAD login page in Service Fabric Explorer, the browser returns to home page but prompts a dialog for selecting a certificate.
+
 ![SFX select certificate dialog][sfx-select-certificate-dialog]
 
 #### Reason
@@ -551,7 +552,8 @@ Same as above.
 
 #### Problem
 
-After login on AAD sign in page in Service Fabric Explorer, page returns sign in failure - AADSTS50011: The reply address '<url>' does not match the reply addresses configured for the application: '<GUID>'. 
+After login on AAD sign in page in Service Fabric Explorer, page returns sign in failure - AADSTS50011: The reply address <url> does not match the reply addresses configured for the application: <guid>. 
+
 ![SFX reply address not match][sfx-reply-address-not-match]
 
 #### Reason
@@ -561,6 +563,7 @@ The cluster(web) application representing Service Fabric Explorer attempts to au
 #### Solution
 
 Add url of Service Fabric Explorer to ‘REPLY URL’ in the configure tab of cluster(web) application or replace one of the items in the list. Then save.
+
 ![Web application reply url][web-application-reply-url]
 
 ### Can I reuse the same AAD tenant for multiple clusters?
