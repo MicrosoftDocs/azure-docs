@@ -234,7 +234,7 @@ await subtasks.ForEachAsync(async (subtask) =>
 
 ## Code sample
 
-The [MultiInstanceTasks][github_mpi] code sample on GitHub demonstrates how to use a multi-instance task to run an [MS-MPI][msmpi_msdn] application on Batch compute nodes. To run the code sample, perform the following:
+The [MultiInstanceTasks][github_mpi] code sample on GitHub demonstrates how to use a multi-instance task to run an [MS-MPI][msmpi_msdn] application on Batch compute nodes. Follow the steps in [Preparation](#preparation) and [Execution](#execution) to run the sample.
 
 ### Preparation
 
