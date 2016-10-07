@@ -26,9 +26,10 @@ Learn how to create an end-to-end solution for real-time fraud detection with Az
 Stream Analytics is a fully managed service that provides low-latency, highly available, scalable, complex event processing over streaming data in the cloud. For more information, see [Introduction to Azure Stream Analytics](stream-analytics-introduction.md).
 
 
-## Scenario: Telecommunications and SIM fraud detection in real-time
+## Scenario: Telecommunications and SIM fraud detection in real time
 
 A telecommunications company has a large volume of data for incoming calls. The company needs the following from its data:
+
 * Reduce data to a manageable amount and obtain insights about customer usage over time and across geographical regions.
 * Detect SIM fraud (multiple calls from the same identity around the same time but in geographically different locations) in real time so that the company can easily respond by notifying customers or shutting down service.
 
@@ -61,7 +62,7 @@ We have provided a client application that will generate sample incoming call me
 
 1.	Download the [TelcoGenerator.zip file](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip), and unzip it to a directory.
 
-    > [AZURE.NOTE] Windows may block the downloaded zip file. Right-click the file, and select **Properties**. If you see the "This file came from another computer and might be blocked to help protect this computer." message, check the **Unblock** box, and then click apply on the zip file.
+    > [AZURE.NOTE] Windows may block the downloaded zip file. Right-click the file, and select **Properties**. If you see the "This file came from another computer and might be blocked to help protect this computer" message, select the **Unblock** box, and then click apply on the zip file.
 
 2.	Replace the Microsoft.ServiceBus.ConnectionString and EventHubName values in telcodatagen.exe.config with your event hub connection string and name.
 
