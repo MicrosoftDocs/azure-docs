@@ -20,7 +20,8 @@
 The following notes and guidance are for developers working with the Azure Key Vault .NET / C# library. In the change from the 1.0 version to the 2.0 version, a number of updates have been made that will require migration work in your code in order for you to benefit from the functional improvements and feature additions such as Key Vault certificates support.
 
 ## .NET support
-- **Net 4.0** is not supported by the 2.0 version of the Azure Key Vault .NET/C# library
+- **.NET 4.0** is not supported by the 2.0 version of the Azure Key Vault .NET/C# library
+- **.NET Core** is supported by the 2.0 version of the Azure Key Vault .NET/C# library
 
 ## Namespaces
 - The namespace for **models** is changed from **Microsoft.Azure.KeyVault** to **Microsoft.Azure.KeyVault.Models**.
@@ -33,7 +34,7 @@ The following notes and guidance are for developers working with the Azure Key V
 - *Dictionary* changed to *IDictionary*
 - *List<T>, string []* changed to *IList<T>*
 - *NextList* changed to  *NextPageLink*
-- *KeyAttributes* and *SecretAttributes* were sharing the same properties. These are now changed to use derived properties from a class attribute that has the common properties.
+
 
 ## Return types
 - **KeyList** and **SecretList** will return *IPage<T>* instead of *ListKeysResponseMessage*
@@ -74,8 +75,8 @@ When a client is processing a  dependency on Key Vault the following were downlo
 
 ## Other changes
 
-- Retry logic has been added
-- Some outdated dependencies have been removed
+- Support for the configuration of KV operation retry policy on transient failures has been added to this version of the API.
+
 
 
 ## Microsoft.Azure.Management.KeyVault NuGet
