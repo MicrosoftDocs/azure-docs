@@ -29,7 +29,7 @@ separated values (CSV) file. To go through the same tutorial using other support
 
 ##Prerequisites
 
-Before you begin this tutorial, you must have the following:
+Before you begin this tutorial, you must have the following items:
 
 - **A Data Lake Analytics account**. To create one, see [Manage Data Lake Analytics accounts](data-lake-analytics-get-started-portal.md#manage-accounts).
 
@@ -47,7 +47,7 @@ Scripts**.
 
 	![Azure Data Lake Analytics portal sample script](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-sample-scripts.png)
 
-4. Click **Sample Data Missing** to copy the sample data files. When it is done, the portal shows **Sample data updated successsfully**.
+4. Click **Sample Data Missing** to copy the sample data files. When it is done, the portal shows **Sample data updated successfully**.
 7. From the Data Lake analytics account blade, click **Data Explorer** on the top. 
 
 	![Azure Data Lake Analytics data explorer button](./media/data-lake-analytics-get-started-portal/data-lake-analytics-data-explorer-button.png)
@@ -63,7 +63,7 @@ Scripts**.
     
     In this tutorial, you use SearchLog.tsv.
 
-In practice, you will either program your applications to write data into a linked storage accounts or upload data. For uploading files, see 
+In practice, you either program your applications to write data into a linked storage accounts or upload data. For uploading files, see 
 [Upload data to Data Lake Store](data-lake-analytics-manage-use-portal.md#upload-data-to-adls) or [Upload data to Blob storage](data-lake-analytics-manage-use-portal.md#upload-data-to-wasb).
 
 ##Create and submit Data Lake Analytics jobs
@@ -108,7 +108,7 @@ After you have prepared the source data, you can start developing a U-SQL script
     For more about U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
      
 3. Click **Submit Job** from the top.   
-4. Wait until the job status is changed to **Succeeded**. You can see the job took roughly 1 minute to complete.
+4. Wait until the job status is changed to **Succeeded**. You can see the job took about one minute to complete.
     
     In case the job failed, see [Monitor and troubleshoot Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorials.md).
 
