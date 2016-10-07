@@ -3,7 +3,7 @@
     description="Answers some frequently-asked questions about Azure Service Bus."
     services="service-bus-messaging"
     documentationCenter="na"
-    authors="justinconway"
+    authors="sethmanheim"
     manager=""
     editor="" />
 <tags 
@@ -126,6 +126,10 @@ As with other services on Azure, Service Bus enforces a set of specific quotas t
 #### Queue/topic size
 
 You specify the maximum queue or topic size upon creation of the queue or topic. This quota can have a value of 1, 2, 3, 4, or 5 GB. If the maximum size is reached, additional incoming messages will be rejected and an exception will be received by the calling code.
+
+#### Naming restrictions
+
+A Service Bus namespace name can only be between 6-50 characters in length. The character count limit for each queue, topic, or subscription is between 1-50 characters.
 
 #### Number of concurrent connections
 
