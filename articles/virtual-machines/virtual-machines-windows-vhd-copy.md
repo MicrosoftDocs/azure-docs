@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2016"
+	ms.date="10/07/2016"
 	ms.author="cynthn"/>
 	
 	
 	
 # Create a copy Windows VM running in Azure 
 
-This article shows you how to use the AZCopy tool to create a copy of the VHD from a Windows VM that is running in Azure. 
+This article shows you how to use the AZCopy tool to create a copy of the VHD from a Windows VM that is running in Azure. You can a VHD from either a generalized VM or a specialized VM.
 
-If you want to upload VHD from a local VM, like one created using Hyper-V, the see [Upload a Windows VHD from an on-premises VM to Azure ](virtual-machines-windows-upload-image.md).
+If you want to upload a VHD from an on-premises VM, like one created using Hyper-V, the see [Upload a Windows VHD from an on-premises VM to Azure ](virtual-machines-windows-upload-image.md).
 
 
 ## Before you begin
@@ -35,6 +35,9 @@ Make sure that you:
 - Have Azure [PowerShell 1.0](../powershell-install-configure.md) (or later) installed.
 
 - Have downloaded and installed the [AzCopy tool](../storage/storage-use-azcopy.md). 
+
+- In some cases, you might want to [generalize the VM before creating a copy](virtual-machines-windows-generalize-vhd.md). Generalized a VM removes of your personal account information using a Windows tool called Sysprep. 
+
 
 ## Deallocate the VM
 
@@ -92,7 +95,9 @@ If you only want to copy a specific VHD in a container with multiple files, you 
 
 ## Next steps
 
-Create a new VM by [attaching the copy of the VHD to a VM as an OS disk](virtual-machines-windows-specialized-image.md).
+If you copied a **specialized** VM, you can create a new VM by [attaching the copy of the VHD to a VM as an OS disk](virtual-machines-windows-specialized-image.md).
+
+If you copied a **generalized** VM, you can [create a new VM from the generalized VHD image](virtual-machines-windows-create-vm-generalized.md).
 
 
 
