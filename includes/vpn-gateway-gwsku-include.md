@@ -10,3 +10,4 @@ When selecting a SKU, consider the following limitations:
 
 - If you want to use a PolicyBased VPN type, you must use the Basic gateway SKU. PolicyBased VPNs (previously called Static Routing) are not supported on any other SKU.
 - BGP is not supported on the Basic SKU.
+- ExpressRoute-VPN Gateway coexist configurations are not supported on the Basic SKU.

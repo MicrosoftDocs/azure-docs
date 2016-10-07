@@ -69,7 +69,7 @@ Specify the subscription that you want to use.
 
 ## 2. Create a virtual network and a gateway subnet
 
-The examples use a gateway subnet of /28. While it's possible to create a gateway subnet as small as /29, we don't recommend this. We recommend creating a gateway subnet /27 or larger (/26, /25, etc.) in order to accommodate additional feature requirements. 
+The examples use a gateway subnet of /28. While it is possible to create a gateway subnet as small as /29, we recommend that you create a larger subnet that includes more addresses by selecting at least /28 or /27. This will allow for enough addresses to accommodate possible additional configurations that you may want in the future.
 
 If you already have a virtual network with a gateway subnet that is /29 or larger, you can jump ahead to [Add your local network gateway](#localnet).
 
