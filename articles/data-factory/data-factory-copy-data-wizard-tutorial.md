@@ -23,6 +23,7 @@
 - [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 - [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
@@ -120,7 +121,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
 	![Copy Tool - performance settings](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
 ## Launch Monitor and Manage application 
-12. On the **Deployment** page, click the link: **Click here to monitor copy pipeline**.
+12. On the **Deployment** page, click the link: `Click here to monitor copy pipeline`.
 
 	![Copy Tool - Deployment succeeded](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
 13. Use instructions from [Monitor and manage pipeline using Monitoring App](data-factory-monitor-manage-app.md) to learn about how to monitor the pipeline you created. Click **Refresh** icon in the **ACTIVITY WINDOWS** list to see the slice. 

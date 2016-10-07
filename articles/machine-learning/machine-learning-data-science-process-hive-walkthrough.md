@@ -206,7 +206,7 @@ This Hive script creates two tables:
 * the "trip" table contains trip details of each ride (driver details, pickup time, trip distance and times)
 * the "fare" table contains fare details (fare amount, tip amount, tolls and surcharges).
 
-If you need any additional assistance with these procedures or want to investigate alternative ones, see the section [Submit Hive queries directly from the Hadoop Command Line ](machine-learning-data-science-process-hive-tables.md#submit).
+If you need any additional assistance with these procedures or want to investigate alternative ones, see the section [Submit Hive queries directly from the Hadoop Command Line ](machine-learning-data-science-move-hive-tables.md#submit).
 
 ## <a name="#load-data"></a>Load Data to Hive tables by partitions
 

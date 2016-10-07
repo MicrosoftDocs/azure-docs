@@ -28,6 +28,8 @@ This tutorial shows you how to:
 - Create a simulated device that has a direct method which can be called by the cloud.
 - Create a console application that calls a direct method on the simulated device via your IoT hub.
 
+> [AZURE.NOTE] At this time, direct methods are accessible only from devices that connect to IoT Hub using the MQTT protocol. Please refer to the [MQTT support][lnk-devguide-mqtt] article for instructions on how to convert existing device app to use MQTT.
+
 At the end of this tutorial, you have two Node.js console applications:
 
 * **CallMethodOnDevice.js**, which calls a method on the simulated device and displays the response.
@@ -223,6 +225,7 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-tutorial-jobs]: iot-hub-schedule-jobs.md
 [lnk-devguide-methods]: iot-hub-devguide-direct-methods.md
+[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md

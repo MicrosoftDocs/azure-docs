@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/03/2016"
+   ms.date="10/06/2016"
    ms.author="cherylmc" />
 
 # About VPN Gateway settings
@@ -127,7 +127,7 @@ The following Resource Manager PowerShell example shows a gateway subnet named G
 
 	Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 
->[AZURE.IMPORTANT] Verify that the gateway subnet does not have a Network Security Group (NSG) applied to it, as this may cause connections to fail.
+[AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)] 
 
 
 ## <a name="lng"></a>Local network gateways

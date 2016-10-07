@@ -108,7 +108,7 @@ which modules need to be installed on Azure to support your application. We stil
 
 	![Screenshot of the package.json tab](./media/documentdb-nodejs-application/image17.png)
 
-       This tells Node (and Azure later) that your application depends on these additional modules.
+	This tells Node (and Azure later) that your application depends on these additional modules.
 
 ## <a name="_Toc395783180"></a>Step 4: Using the DocumentDB service in a node application
 
