@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/06/2016"
+   ms.date="10/07/2016"
    ms.author="bruceper" />
 
 # Azure Key Vault .NET 2.0 - Release Notes and Migration Guide
@@ -26,16 +26,14 @@ The following notes and guidance are for developers working with the Azure Key V
 - The namespace for **models** is changed from **Microsoft.Azure.KeyVault** to **Microsoft.Azure.KeyVault.Models**.
 - The **Microsoft.Azure.KeyVault.Internal** namespace is dropped.
 - The Azure SDK dependencies namespace are changed from **Hyak.Common** and **Hyak.Common.Internals** to **Microsoft.Rest** and **Microsoft.Rest.Serialization**
-- Some old dependencies have been dropped
 
-- **UnixEpoch** class has been removed
-- **Base64UrlConverter** class is renamed to **Base64UrlJsonConverter**
 
 ## Type changes
 - *Secret* changed to *SecretBundle*
 - *Dictionary* changed to *IDictionary*
 - *List<T>, string []* changed to *IList<T>*
 - *NextList* changed to  *NextPageLink*
+- *KeyAttributes* and *SecretAttributes* were sharing the same properties. These are now changed to use derived properties from a class attribute that has the common properties.
 
 ## Return types
 - **KeyList** and **SecretList** will return *IPage<T>* instead of *ListKeysResponseMessage*
@@ -69,12 +67,15 @@ When a client is processing a  dependency on Key Vault the following were downlo
 - package id="Microsoft.Rest.ClientRuntime.Azure" version="3.2.0" targetFramework="net45"
 
 
+## Class changes
 
+- **UnixEpoch** class has been removed
+- **Base64UrlConverter** class is renamed to **Base64UrlJsonConverter**
 
-## Additional APIs and functionality
-- Synchronous versions of the asynchronous methods have been added
+## Other changes
+
 - Retry logic has been added
-- Since *KeyAttributes* and *SecretAttributes* were sharing the same properties, these are now changed to use derived properties from a class Attribute that has the common properties.
+- Some outdated dependencies have been removed
 
 
 ## Microsoft.Azure.Management.KeyVault NuGet
