@@ -124,8 +124,8 @@ provider (DP) and the user.
         the delegated provider as a tenant for this offer by clicking
         **Subscriptions** &gt; **Add** &gt; **New Tenant Subscription**.
 
-> ![](media/azure-stack-delegated-provider/image3.png)
->
+  ![](media/azure-stack-delegated-provider/image3.png)
+
 > Note: as with all Azure Stack offers, you have the option of making
 > the offer public and letting users sign up for it, or keeping it
 > private and having service administrator manage the sign-up. Delegated
