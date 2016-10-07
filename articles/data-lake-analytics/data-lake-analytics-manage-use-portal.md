@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/16/2016"
+   ms.date="10/06/2016"
    ms.author="edmaca"/>
 
 # Manage Azure Data Lake Analytics using Azure Portal
@@ -38,26 +38,36 @@ running a job.  You only pay for the time when it is running a job.  For more in
 
 **To create a Data Lake Analytics accounts**
 
-1. Sign on to the new [Azure portal](https://portal.azure.com).
-2. Click **New**, click **Data + Analytics**, and then click **Data Lake Analytics**.
-6. Type or select the following:
+1. Sign on to the [Azure portal](https://portal.azure.com).
+2. Click **New**, click **Intelligence + analytics**, and then click **Data Lake Analytics**.
+3. Type or select the following:
 
-	![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
+    ![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
 
-	- **Name**: Name the Analytics account.
-	- **Data Lake Store**: Each Data Lake Analytics account has a dependent Azure Data Lake Store account. The Data Lake Analytics account and the dependent Data Lake Store account must be located in the same Azure data center. Follow the instruction to create a new Data Lake Store account, or select an existing one.
+	- **Name**: Name the Data Lake Analytics account.
 	- **Subscription**: Choose the Azure subscription used for the Analytics account.
-	- **Resource Group**. Select an existing Azure Resource Group or create a new one. Azure Resource Manager (ARM) enables you to work with the resources in your application as a group. For more information, see [Azure Resource Manager Overview](resource-group-overview.md). 
+	- **Resource Group**. Select an existing Azure Resource Group or create a new one. Azure Resource Manager enables you to work with the resources in your application as a group. For more information, see [Azure Resource Manager Overview](resource-group-overview.md). 
 	- **Location**. Select an Azure data center for the Data Lake Analytics account. 
+	- **Data Lake Store**: Each Data Lake Analytics account has a dependent Data Lake Store account. The Data Lake Analytics account and the dependent Data Lake Store account must be located in the same Azure data center. Follow the instruction to create a new Data Lake Store account, or select an existing one.
 
 8. Click **Create**. It takes you to the portal home screen. A new tile is added to the StartBoard with the label showing "Deploying Azure Data Lake Analytics". It takes a few moments to create a Data Lake Analytics account. When the account is created, the portal opens the account on a new blade.
 
-	![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-blade.png)
+After a Data Lake Analytics account is created, you can add additional Data Lake Store accounts and Azure Storage 
+accounts. For instructions, see [Manage Data lake Analytics account data sources](data-lake-analytics-manage-use-portal.md#manage-account-data-sources).
+
+
+
+
+
+
+
+
+
 
 <a name="access-adla-account"></a> **To access/open a Data Lake Analytics account**
 
-1. Sign on to the new [Azure portal](https://portal.azure.com/).
-2. Click **Browse** on the left menu, and then click **Data Lake Analytics**.
+1. Sign on to the [Azure portal](https://portal.azure.com/).
+2. Click **Data Lake Analytics** on the left menu.  If you don't see it, click **More services**, and then click **Data Lake Analytics** under **Intelligence + Analytics**.
 3. Click the Data Lake Analytics account that you want to access. It will open the account in a new blade.
 
 **To delete a Data Lake Analytics account**

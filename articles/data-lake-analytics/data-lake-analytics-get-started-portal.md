@@ -31,39 +31,7 @@ separated values (CSV) file. To go through the same tutorial using other support
 
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-
-##Create Data Lake Analytics account
-
-You must have a Data Lake Analytics account before you can run any jobs.
-
-Each Data Lake Analytics account has an [Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal/) account dependency.  This account is referred
-as the default Data Lake Store account.  You can create the Data Lake Store account beforehand or when you create 
-your Data Lake Analytics account. In this tutorial, you create the Data Lake Store account with the Data Lake Analytics 
-account.
-
-**To create a Data Lake Analytics account**
-
-1. Sign on to the new [Azure portal](https://portal.azure.com).
-2. Click **New**, click **Intelligence + analytics**, and then click **Data Lake Analytics**.
-3. Type or select the following:
-
-    ![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
-
-	- **Name**: Name the Data Lake Analytics account.
-	- **Subscription**: Choose the Azure subscription used for the Analytics account.
-	- **Resource Group**. Select an existing Azure Resource Group or create a new one. Azure Resource Manager enables you to work with the resources in your application as a group. For more information, see [Azure Resource Manager Overview](resource-group-overview.md). 
-	- **Location**. Select an Azure data center for the Data Lake Analytics account. 
-	- **Data Lake Store**: Each Data Lake Analytics account has a dependent Data Lake Store account. The Data Lake Analytics account and the dependent Data Lake Store account must be located in the same Azure data center. Follow the instruction to create a new Data Lake Store account, or select an existing one.
-
-4. Select **Pin to StartBoard**. This is required for following this tutorial.
-5. Click **Create**. It takes you to the portal StartBoard. A new tile is added to the StartBoard with the label showing "Deploying Azure Data Lake Analytics". It takes a few moments to create a Data Lake Analytics account. When the account is created, the portal opens the account on a new blade on the portal.
-
-	![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-blade.png)
-
-
-After a Data Lake Analytics account is created, you can add additional Data Lake Store accounts and Azure Storage 
-accounts. For instructions, see [Manage Data lake Analytics account data sources](data-lake-analytics-manage-use-portal.md#manage-account-data-sources).
+- **A Data Lake Analytics account**. To create one, see [Manage Data Lake Analytics accounts](data-lake-analytics-get-started-portal.md#manage-accounts).
 
 ##Prepare source data
 
@@ -73,13 +41,12 @@ The Azure portal provides a user interface for copying some sample data files to
 
 **To copy sample data files**
 
-1. From the Azure portal, click **Microsoft Azure** in the upper left corner.
-2. Click the tile with your Data Lake Analytics account name.  It was pinned here when the account was created.
-If the account is not pinned there, see 
-[Open a Data Lake  Analytics account from portal](data-lake-analytics-manage-use-portal.md#access-adla-account) to open the
-account.
-3. Expand the **Essentials** pane, and then click **Explore sample jobs**. It opens another blade called **Sample
-Jobs**.
+1. From the [Azure portal](https://portal.azure.com), open your Data Lake Analytics account.  See [Manage Data Lake Analytics accounts](data-lake-analytics-get-started-portal.md#manage-accounts) to create one and open the account in the portal.
+3. Expand the **Essentials** pane, and then click **Explore sample scripts**. It opens another blade called **Sample
+Scripts**.
+
+	![Azure Data Lake Analytics portal sample script](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-sample-scripts.png)
+
 4. Click **Copy Sample Data**, and then click **OK** to confirm.
 5. Click **Notification** which is a bell shaped icon. You shall see a log saying **Updating sample data completed**. Click anywhere outside the notification pane to close it.
 7. From the Data Lake analytics account blade, click **Data Explorer** on the top. 
