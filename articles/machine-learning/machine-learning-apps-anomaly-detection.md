@@ -12,7 +12,7 @@
 	ms.devlang="na" 
 	ms.topic="reference" 
 	ms.tgt_pltfrm="na" 
-A	ms.workload="multiple" 
+	ms.workload="multiple" 
 	ms.date="07/22/2016" 
 	ms.author="alokkirpal"/>
 
