@@ -31,7 +31,7 @@ version of Microsoft Azure Stack.
 
 This Technical Preview version of Azure-consistent storage
 does not have 100% feature parity with Azure Storage for the API
-versions that are supported. Known feature shortcomings include the following:
+versions that are supported. Known feature differences include the following:
 
 -   Certain storage account types are not yet available, for example,
     Standard\_RAGRS and Standard\_GRS.
