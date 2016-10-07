@@ -124,6 +124,8 @@ The screenshots are provided as examples. Be sure to replace the values with you
 
 Before connecting your virtual network to a gateway, you first need to create the gateway subnet for the virtual network to which you want to connect. Create a gateway subnet with CIDR count of /28 or larger (/27, /26, etc.)
 
+[AZURE.INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
+
 From a browser, navigate to the [Azure portal](http://portal.azure.com) and sign in with your Azure account.
 
 [AZURE.INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
