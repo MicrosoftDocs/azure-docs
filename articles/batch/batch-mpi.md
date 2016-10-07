@@ -240,7 +240,7 @@ The [MultiInstanceTasks][github_mpi] code sample on GitHub demonstrates how to u
 
 1. Follow the steps in [How to compile and run a simple MS-MPI program][msmpi_howto] to build a simple MS-MPI program. For step 6 of the *How to...* blog post, use the code in [MPIHelloWorld.cpp][helloworld_cpp].
 1. Create a zip file containing `MPIHelloWorld.exe` (which you built in step 1) and `MSMpiSetup.exe` (which you downloaded in step 1). You'll upload this zip file as an application package in the next step.
-1. Use the [Azure portal][portal] to create a Batch [application](batch-application-packages.md) called *MPIHelloWorld*, and specify the zip file you created in the previous step as version "1.0" of the application package. See [Upload and manage applications](batch-application-packages.md#upload-and-manage-applications) for more information.
+1. Use the [Azure portal][portal] to create a Batch [application](batch-application-packages.md) called "MPIHelloWorld", and specify the zip file you created in the previous step as version "1.0" of the application package. See [Upload and manage applications](batch-application-packages.md#upload-and-manage-applications) for more information.
 
 >[AZURE.TIP] Build a *Release* version of `MPIHelloWorld.exe` so that you don't have to include any additional dependencies (for example, `msvcp140d.dll` or `vcruntime140d.dll`) in your application package.
 
