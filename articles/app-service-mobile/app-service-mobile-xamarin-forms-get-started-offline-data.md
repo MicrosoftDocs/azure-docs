@@ -85,9 +85,8 @@ of the feature, see [Offline Data Sync in Azure Mobile Apps][2].
 
 	This code creates a new local SQLite database using the **MobileServiceSQLiteStore** class.
 
-    The **DefineTable** method creates a table in the local store that matches the fields in the provided type, `ToDoItem` in this
-    case. The type doesn't have to include all the columns that are in the remote database. It is possible to store just a
-    subset of columns.
+    The **DefineTable** method creates a table in the local store that matches the fields in the provided type.  The type doesn't have to
+    include all the columns that are in the remote database. It is possible to store a subset of columns.
 
 * The **todoTable** field in **TodoItemManager** is an **IMobileServiceSyncTable** type instead of **IMobileServiceTable**. This
   class uses the local database for all create, read, update, and delete (CRUD) table operations. You decide when those changes
@@ -148,7 +147,7 @@ sync in an Android or iOS app, pull down on the items list; for Windows, use the
 you could also make the sync trigger when the network state changes.
 
 When a pull is executed against a table that has pending local updates tracked by the context, that pull operation automatically
-triggers a preceding context push. When refreshing, adding and completing items in this sample, you can omit the explicit **PushAsync**
+triggers a preceding context push. When refreshing, adding, and completing items in this sample, you can omit the explicit **PushAsync**
 call.
 
 In the provided code, all records in the remote TodoItem table are queried, but it is also possible to filter records by passing a
@@ -162,23 +161,23 @@ database. Later, simulate an offline scenario and modify the data in the local s
 ## Update the sync behavior of the client app
 
 In this section, modify the client project to simulate an offline scenario by using an invalid application URL for your
-backend. Alternatively, you can turn network connections off by moving your device to "Airplane mode."  When you add or change data
-items, these changes will be held in the local store, but not synced to the backend data store until the connection is re-established.
+backend. Alternatively, you can turn off network connections by moving your device to "Airplane mode."  When you add or change data
+items, these changes are held in the local store, but not synced to the backend data store until the connection is re-established.
 
 1. In the Solution Explorer, open the Constants.cs project file from the **Portable** project and change the value
-   of `ApplicationURL` to point to an invalid URL, like the following:
+   of `ApplicationURL` to point to an invalid URL:
 
         public static string ApplicationURL = @"https://your-service.azurewebsites.net/";
 
-2. Open the TodoItemManager.cs file from the **Portable** project, then add an additional **catch** for the base **Exception** class
-   to the **try...catch** block  in **SyncAsync**. This **catch** block writes the exception message to the console, as follows:
+2. Open the TodoItemManager.cs file from the **Portable** project, then add a **catch** for the base **Exception** class
+   to the **try...catch** block in **SyncAsync**. This **catch** block writes the exception message to the console, as follows:
 
             catch (Exception ex)
             {
                 Console.Error.WriteLine(@"Exception: {0}", ex.Message);
             }
 
-3. Build and run the client app, add some new items and notice that an exception is logged in the console for each attempt to sync
+3. Build and run the client app.  Add some new items. Notice that an exception is logged in the console for each attempt to sync
    with the backend. These new items exist only in the local store until they can be pushed to the mobile backend. The client app
    behaves as if it is connected to the backend, supporting all create, read, update, delete (CRUD) operations.
 

@@ -35,8 +35,8 @@ To learn more about the offline sync feature, see the topic [Offline Data Sync i
 ## Update the client app to support offline features
 
 Azure Mobile App offline features allow you to interact with a local database when you are in an offline scenario. To use
-these features in your app, you initialize a [SyncContext] to a local store. Then reference your table through
-the [IMobileServiceSyncTable][IMobileServiceSyncTable] interface. SQLite is used as the local store on the device.
+these features in your app, initialize a [SyncContext] to a local store. Reference your table through
+the [IMobileServiceSyncTable] interface. SQLite is used as the local store on the device.
 
 1. Open the NuGet package manager in the project that you completed in the [Create a Xamarin iOS app] tutorial,
     then search for and install the **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet package.
@@ -126,8 +126,8 @@ of the feature, see [Offline Data Sync in Azure Mobile Apps].
 	You decide when those changes are pushed to the Azure Mobile App backend by calling `IMobileServiceSyncContext.PushAsync()`. The sync context
     helps preserve table relationships by tracking and pushing changes in all tables a client app has modified when `PushAsync` is called.
 
-	The provided code calls `QSTodoService.SyncAsync()` to sync whenever the todoitem list is refreshed or a todoitem is added or completed. So
-    it syncs after every local change executing a push on the sync context and a pull on the sync table. If a pull is executed against a table that
+	The provided code calls `QSTodoService.SyncAsync()` to sync whenever the todoitem list is refreshed or a todoitem is added or completed. The
+    app syncs after every local change. If a pull is executed against a table that
     has pending local updates tracked by the context, that pull operation will automatically trigger a context push first.
 
     In the provided code, all records in the remote `TodoItem` table are queried, but it is also possible to filter records by passing a query id

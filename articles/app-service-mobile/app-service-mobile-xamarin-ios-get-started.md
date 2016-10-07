@@ -68,7 +68,7 @@ Follow the following steps to configure the server project to use either the Nod
 2. On the settings blade for your Mobile App, click **Get Started** > **Xamarin.iOS**. Under step 3, click **Create a new app** if it's not
    already selected.  Next click the **Download** button.
 
-  	A client application that connects to your mobile backend will be downloaded. Save the compressed project file to
+  	A client application that connects to your mobile backend is downloaded. Save the compressed project file to
 	your local computer, and make a note of where you save it.
 
 3. Extract the project that you downloaded, and then open it in Xamarin Studio (or Visual Studio).

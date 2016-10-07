@@ -43,14 +43,13 @@ the [IMobileServiceSyncTable][IMobileServiceSyncTable] interface. SQLite is used
 2. Open the ToDoActivity.cs file and uncomment the `#define OFFLINE_SYNC_ENABLED` definition.
 
 3. In Visual Studio, press the **F5** key to rebuild and run the client app. The app works the same as it did before you enabled
-    offline sync. However, the local database is now populated with data that can be used in an offline scenario.  Next, you will
-    create an offline scenario and use locally stored data to start the app.
+    offline sync. However, the local database is now populated with data that can be used in an offline scenario.
 
 ## <a name="update-sync"></a>Update the app to disconnect from the backend
 
 In this section, you break the connection to your Mobile App backend to simulate an offline situation. When you add data items, your
-exception handler tells you that the app is in offline mode. In this state, new items added in the local store and will be synced to
-the mobile app backend when push is next run in a connected state.
+exception handler tells you that the app is in offline mode. In this state, new items added in the local store and are synced to
+the mobile app backend when a push is executed in a connected state.
 
 1. Edit ToDoActivity.cs in the shared project. Change the **applicationURL** to point to an invalid URL:
 
@@ -75,8 +74,8 @@ the mobile app backend when push is next run in a connected state.
 
 ## <a name="update-online-app"></a>Update the app to reconnect your Mobile App backend
 
-In this section, reconnect the app to the mobile app backend.   When you first run the application, the `OnCreate` event handler calls
-`OnRefreshItemsSelected`. This in turn calls `SyncAsync` to sync your local store with the backend database.
+In this section, reconnect the app to the mobile app backend. When you first run the application, the `OnCreate` event handler calls
+`OnRefreshItemsSelected`. This method calls `SyncAsync` to sync your local store with the backend database.
 
 1. Open ToDoActivity.cs in the shared project, and revert your change of the **applicationURL** property.
 
@@ -89,9 +88,9 @@ In this section, reconnect the app to the mobile app backend.   When you first r
 4. In the app, click the check box beside a few items to complete them in the local store.
 
   `CheckItem` calls `SyncAsync` to sync each completed item with the Mobile App backend. `SyncAsync` calls both push and pull. **Whenever you
-  execute a pull against a table that the client has made changes to, a push on the client sync context will always be executed first
-  automatically**. This ensures all tables in the local store, along with relationships remain consistent. This behavior may result
-  in an unexpected push. For more information on this behavior, see [Offline Data Sync in Azure Mobile Apps].
+  execute a pull against a table that the client has made changes to, a push is always executed automatically**. This ensures all tables in the
+  local store along with relationships remain consistent. This behavior may result in an unexpected push. For more information on this behavior,
+  see [Offline Data Sync in Azure Mobile Apps].
 
 ## Review the client sync code
 
@@ -134,8 +133,8 @@ ode. For a conceptual overview of the feature, see [Offline Data Sync in Azure M
 	You decide when changes are pushed to the Azure Mobile App backend by calling `IMobileServiceSyncContext.PushAsync()`. The sync context helps
     preserve table relationships by tracking and pushing changes in all tables a client app has modified when `PushAsync` is called.
 
-	The provided code calls `ToDoActivity.SyncAsync()` to sync whenever the todoitem list is refreshed or a todoitem is added or completed. It
-    syncs after every local change executing a push on the sync context and a pull on the sync table.
+	The provided code calls `ToDoActivity.SyncAsync()` to sync whenever the todoitem list is refreshed or a todoitem is added or completed. The code
+    syncs after every local change.
 
     In the provided code, all records in the remote `TodoItem` table are queried, but it is also possible to filter records by passing a query
     id and query to `PushAsync`. For more information, see the section *Incremental Sync* in [Offline Data Sync in Azure Mobile Apps].
