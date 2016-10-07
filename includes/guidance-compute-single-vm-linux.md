@@ -148,7 +148,7 @@ The sample deployment provided in this guidance uses three different [template b
 	- a network security group (NSG)
 	- a virtual machine (VM)
 
-The sample reference architecture uses a single resource group that you can deploy by clicking the button below and accepting the default values for all parameters.
+This reference architecture uses a single resource group that you can deploy by clicking the button below and accepting the default values for all parameters.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-single-vm%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
@@ -156,7 +156,7 @@ The sample reference architecture uses a single resource group that you can depl
 
 ### Customize the deployment
 
-If you need to change the parameter files as described in the [Solution components][components] sections, follow the instructions in the [guidance-single-vm][readme] page. 
+If you need to change the deployment to match your needs, follow the instructions in the [guidance-single-vm][readme] page. 
 
 ## Next steps
 
@@ -164,11 +164,6 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 
 <!-- links -->
 
-[bb]: https://github.com/mspnp/template-building-blocks
-[bb-vnet]: https://github.com/mspnp/template-building-blocks/tree/master/templates/buildingBlocks/vnet-n-subnet
-[bb-nsg]: https://github.com/mspnp/template-building-blocks/tree/master/templates/buildingBlocks/networkSecurityGroups
-[bb-vm]: https://github.com/mspnp/template-building-blocks/tree/master/templates/buildingBlocks/multi-vm-n-nic-m-storage
-[deployment]: #Solution-deployment
 [audit-logs]: https://azure.microsoft.com/en-us/blog/analyze-azure-audit-logs-in-powerbi-more/
 [availability-set]: ../articles/virtual-machines/virtual-machines-windows-create-availability-set.md
 [azure-cli]: ../articles/virtual-machines-command-line-tools.md
@@ -211,12 +206,6 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
 [arm-templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm
-[solution-shscript]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/deploy-reference-architecture.sh
-[solution-psscript]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/Deploy-ReferenceArchitecture.ps1
-[solution-template]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/azuredeploy.json
-[vnet-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/linux/virtualNetwork.parameters.json 
-[nsg-parameters]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/linux/networkSecurityGroups.parameters.json
-[vm-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/linux/virtualMachine.parameters.json
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/[components]: #Solution-components
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Single Linux VM architecture in Azure"
 
