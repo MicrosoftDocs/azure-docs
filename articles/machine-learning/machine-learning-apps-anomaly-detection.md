@@ -12,7 +12,7 @@
 	ms.devlang="na" 
 	ms.topic="reference" 
 	ms.tgt_pltfrm="na" 
-	ms.workload="multiple" 
+A	ms.workload="multiple" 
 	ms.date="07/22/2016" 
 	ms.author="alokkirpal"/>
 
@@ -39,10 +39,10 @@ The Anomaly Detection offering comes with useful tools to get you started.
 
 * The [sample code](http://adresultparser.codeplex.com/) shows how to programmatically access the API and parse the results in C#.
 
-> 
-> Try **IT Anomaly Insights solution** powered by this API
-> 
-> To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank"> **Start here >**</a>
+>[AZURE.NOTE]
+>Try **IT Anomaly Insights solution** powered by this API
+>
+>To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank"> **Start here >**</a>
 
 
 ##API Definition
