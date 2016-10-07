@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2016"
+	ms.date="09/30/2016"
 	ms.author="dastrock"/>
 
 # v2.0 Protocols - OpenID Connect

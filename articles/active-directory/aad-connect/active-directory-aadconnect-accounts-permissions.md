@@ -3,7 +3,7 @@
    description="This topic describes the accounts used and created and permissions required."
    services="active-directory"
    documentationCenter=""
-   authors="AndKjell"
+   authors="billmath"
    manager="femila"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="09/13/2016"
-   ms.author="andkjell;billmath"/>
+   ms.date="10/04/2016"
+   ms.author="billmath"/>
 
 
 # Azure AD Connect: Accounts and permissions
