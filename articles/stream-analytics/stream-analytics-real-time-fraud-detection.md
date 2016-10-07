@@ -65,11 +65,11 @@ We have provided a client application that will generate sample incoming call me
 
 2.	Replace the Microsoft.ServiceBus.ConnectionString and EventHubName values in telcodatagen.exe.config with your event hub connection string and name.
 
-    > [AZURE.NOTE] The connection string that you copied from the Azure portal places the name of the connection at the end. Be sure to remove ";EntityPath=<value>" from the "add key=" field.
+    The connection string that you copied from the Azure portal places the name of the connection at the end. Be sure to remove ";EntityPath=<value>" from the "add key=" field.
 
 3.	Start the application. The usage is as follows:
 
-   telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]
+	telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]
 
 The following example will generate 1,000 events with a 20 percent probability of fraud over the course of two hours.
 
@@ -117,7 +117,7 @@ Now that we have a stream of telecommunications events, we can set up a Stream A
 
 	* **EVENT HUB**: If the event hub that you created is in the same subscription as the Stream Analytics job, select the namespace that the event hub is in.
 
-	If your event hub is in a different subscription, select **Use Event Hub from Another Subscription**, and then manually enter information for **SERVICE BUS NAMESPACE**, **EVENT HUB NAME**, **EVENT HUB POLICY NAME**, **EVENT HUB POLICY KEY**, and **EVENT HUB PARTITION COUNT**.
+		If your event hub is in a different subscription, select **Use Event Hub from Another Subscription**, and then manually enter information for **SERVICE BUS NAMESPACE**, **EVENT HUB NAME**, **EVENT HUB POLICY NAME**, **EVENT HUB POLICY KEY**, and **EVENT HUB PARTITION COUNT**.
 
 	* **EVENT HUB NAME**: Select the name of the event hub.
 
