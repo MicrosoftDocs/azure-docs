@@ -19,6 +19,20 @@
 
 The following notes and guidance are for developers working with the Azure Key Vault .NET / C# library. In the change from the 1.0 version to the 2.0 version, a number of updates have been made that will require migration work in your code in order for you to benefit from the functional improvements and feature additions such as Key Vault certificates support.
 
+Key Vault certificates support provides for management of your x509 certificates and the following behaviors:  
+
+-   Allows a certificate owner to create a certificate through a Key Vault creation process or through the import of an existing certificate. This includes both self-signed and Certificate Authority generated certificates.
+
+- Allows a Key Vault certificate owner to implement secure storage and management of X509 certificates without interaction with private key material.  
+
+-   Allows a certificate owner to create a policy that directs Key Vault to manage the life-cycle of a certificate.  
+
+-   Allows certificate owners to provide contact information for notification about life-cycle events of expiration and renewal of certificate.  
+
+-   Supports automatic renewal with selected issuers - Key Vault partner X509 certificate providers / certificate authorities.
+    - NOTE - Non-partnered providers/authorities are also allowed but, will not support the auto renewal feature.
+
+
 ## .NET support
 - **.NET 4.0** is not supported by the 2.0 version of the Azure Key Vault .NET/C# library
 - **.NET Core** is supported by the 2.0 version of the Azure Key Vault .NET/C# library
