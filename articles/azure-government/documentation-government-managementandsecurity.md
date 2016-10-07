@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="10/06/2016"
+	ms.date="10/07/2016"
 	ms.author="ryansoc"/>
 
 
@@ -53,6 +53,7 @@ The following Log Analytics features and solutions are not currently available i
   - Selecting virtual machines to enable the Log Analytics agent must be done through PowerShell or Resource Manager templates
 + Linux monitoring
 + Integration with System Center Operations Manager 2016
++ Computers Groups from System Center Configuration Manager
 + OMS Mobile applications
 + Microsoft Monitoring Agent VM Extension
 + OMS Linux Agent VM Extension
