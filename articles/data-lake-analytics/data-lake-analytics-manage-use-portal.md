@@ -24,7 +24,7 @@ Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and
 
 **Prerequisites**
 
-Before you begin this tutorial, you must have the following:
+Before you begin this tutorial, you must have the following items:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -180,7 +180,7 @@ the following roles:
 |----|-----------|
 |Owner|Let you manage everything, including access to resources.|
 |Contributor|Access the portal; submit and monitor jobs. To be able to submit jobs, a contributor needs the read or write permission to the Data Lake Store accounts.|
-|DataLakeAnalyticsDeveloper | You can submit jobs, monitor all jobs, but can only cancel their own jobs. They cannot manage their own account, for instance, add users, change permissions, or delete the account. To be able to run jobs, they need read or write access to the Data Lake Store accounts     | 
+|DataLakeAnalyticsDeveloper | Submit, monitor and cancel jobs.  These users can only cancel their own jobs. They cannot manage their own account, for instance, add users, change permissions, or delete the account. To be able to run jobs, they need read or write access to the Data Lake Store accounts     | 
 |Reader|Lets you view everything, but not make any changes.|  
 |DevTest Labs User|Lets you view everything, and connect, start, restart, and shutdown virtual machines.|  
 |User Access Administrator|Lets you manage user access to Azure resources.|  
@@ -225,7 +225,7 @@ You must have a Data Lake Analytics account before you can run any jobs.  For mo
 	|Name|Description|
 	|----|-----------|
 	|Job Name|Enter the name of the job.|
-	|Priority|Lower number is higher priority. If two jobs are both queued, the one with lower priority will be run first|
+	|Priority|Lower number has higher priority. If two jobs are both queued, the one with lower priority runs first|
 	|Parallelism |Max number of compute processes that can happen at the same time. Increasing this number can improve performance but can also increase cost.|
 	|Script|Enter the U-SQL script for the job.|
 
@@ -289,7 +289,7 @@ The [U-SQL catalog](data-lake-analytics-use-u-sql-catalog.md) is used to structu
 ## Use Azure Resource Manager groups
 
 Applications are typically made up of many components, for example a web app, database, database server, storage,
-and third party services. Azure Resource Manager (ARM) enables you to work with the resources in your application 
+and third-party services. Azure Resource Manager (ARM) enables you to work with the resources in your application 
 as a group, referred to as an Azure Resource Group. You can deploy, update, monitor, or delete all the 
 resources for your application in a single, coordinated operation. You use a template for deployment and that 
 template can work for different environments such as testing, staging, and production. You can clarify billing 
