@@ -30,11 +30,12 @@ The following VM SKUs are generally available (GA) in Azure Government:
 
 VM SKU|US Gov VA|US Gov IA|Notes
 ---|---|---|---
-A0-A7|GA|GA|None
-D1-D14 v1|GA|-|None
-DS1-DS14 v1|GA|-|None
-D1-D14 v2|Planned|GA|15 is coming soon
-F1-F16|Planned|GA|None
+A|GA|GA|None
+Dv1|GA|-|None
+DSv1|GA|-|None
+Dv2|GA|GA|15 is coming soon
+F|GA|GA|None
+G|Planned|-|None
 
 ###  Data Considerations
 

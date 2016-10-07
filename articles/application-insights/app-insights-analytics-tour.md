@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2016" 
+	ms.date="10/03/2016" 
 	ms.author="awills"/>
 
 
@@ -137,51 +137,6 @@ If you just want to add columns to the existing ones, use [`extend`](app-insight
 ```
 
 Using [`extend`](app-insights-analytics-reference.md#extend-operator) is less verbose than [`project`](app-insights-analytics-reference.md#project-operator) if you want to keep all the existing columns.
-
-
-## Accessing nested objects
-
-Nested objects can be accessed easily. For example, in the exceptions stream you'll see structured objects like this:
-
-![result](./media/app-insights-analytics-tour/520.png)
-
-You can flatten it by choosing the properties you're interested in:
-
-```AIQL
-
-    exceptions | take 10
-    | extend method1 = tostring(details[0].parsedStack[1].method)
-```
-
-Note that you need to use a [cast](app-insights-analytics-reference.md#casts) to the appropriate type.
-
-## Custom properties and measurements
-
-If your application attaches [custom dimensions (properties) and custom measurements](app-insights-api-custom-events-metrics.md#properties) to events, then you will see them in the `customDimensions` and `customMeasurements` objects.
-
-
-For example, if your app includes:
-
-```C#
-
-    var dimensions = new Dictionary<string, string> 
-                     {{"p1", "v1"},{"p2", "v2"}};
-    var measurements = new Dictionary<string, double>
-                     {{"m1", 42.0}, {"m2", 43.2}};
-	telemetryClient.TrackEvent("myEvent", dimensions, measurements);
-```
-
-To extract these values in Analytics:
-
-```AIQL
-
-    customEvents
-    | extend p1 = customDimensions.p1, 
-      m1 = todouble(customMeasurements.m1) // cast to expected type
-
-``` 
-
-> [AZURE.NOTE] In [Metrics Explorer](app-insights-metrics-explorer.md), all custom measurements attached to any type of telemetry appear together in the metrics blade along with metrics sent using `TrackMetric()`. But in Analytics, custom measurements are still attached to whichever type of telemetry they were carried on, and metrics appear in their own `metrics` stream.
 
 
 ## [Summarize](app-insights-analytics-reference.md#summarize-operator): aggregate groups of rows
@@ -478,6 +433,150 @@ Use [let](./app-insights-analytics-reference.md#let-statements) to separate out 
 
 > Tip: In the Analytics client, don't put blank lines between the parts of this. Make sure to execute all of it.
 
+
+## Accessing nested objects
+
+Nested objects can be accessed easily. For example, in the exceptions stream you'll see structured objects like this:
+
+![result](./media/app-insights-analytics-tour/520.png)
+
+You can flatten it by choosing the properties you're interested in:
+
+```AIQL
+
+    exceptions | take 10
+    | extend method1 = tostring(details[0].parsedStack[1].method)
+```
+
+Note that you need to use a [cast](app-insights-analytics-reference.md#casts) to the appropriate type.
+
+## Custom properties and measurements
+
+If your application attaches [custom dimensions (properties) and custom measurements](app-insights-api-custom-events-metrics.md#properties) to events, then you will see them in the `customDimensions` and `customMeasurements` objects.
+
+
+For example, if your app includes:
+
+```C#
+
+    var dimensions = new Dictionary<string, string> 
+                     {{"p1", "v1"},{"p2", "v2"}};
+    var measurements = new Dictionary<string, double>
+                     {{"m1", 42.0}, {"m2", 43.2}};
+	telemetryClient.TrackEvent("myEvent", dimensions, measurements);
+```
+
+To extract these values in Analytics:
+
+```AIQL
+
+    customEvents
+    | extend p1 = customDimensions.p1, 
+      m1 = todouble(customMeasurements.m1) // cast to expected type
+
+``` 
+
+## Tables
+
+The stream of telemetry received from your app is accessible through several tables. The schema of properties available for each table is visible at the left of the window.
+
+### Requests table
+
+Count HTTP requests to your web app and segment by page name:
+
+![Count requests segmented by name](./media/app-insights-analytics-tour/analytics-count-requests.png)
+
+Find the requests that fail most:
+
+![Count requests segmented by name](./media/app-insights-analytics-tour/analytics-failed-requests.png)
+
+### Custom events table
+
+If you use [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) to send your own events, you can read them from this table. 
+
+Let's take an example where your app code contains these lines:
+
+```C#
+
+    telemetry.TrackEvent("Query", 
+       new Dictionary<string,string> {{"query", sqlCmd}},
+       new Dictionary<string,double> {
+           {"retry", retryCount},
+           {"querytime", totalTime}})
+```
+
+Display the frequency of these events:
+ 
+![Display rate of custom events](./media/app-insights-analytics-tour/analytics-custom-events-rate.png)
+
+Extract measurements and dimensions from the events:
+
+![Display rate of custom events](./media/app-insights-analytics-tour/analytics-custom-events-dimensions.png)
+
+### Custom metrics table
+
+If you are using [TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric) to send your own metric values, you’ll find its results in the **customMetrics** stream. For example:  
+
+![Custom metrics in Application Insights analytics](./media/app-insights-analytics-tour/analytics-custom-metrics.png)
+
+
+> [AZURE.NOTE] In [Metrics Explorer](app-insights-metrics-explorer.md), all custom measurements attached to any type of telemetry appear together in the metrics blade along with metrics sent using `TrackMetric()`. But in Analytics, custom measurements are still attached to whichever type of telemetry they were carried on - events or requests, and so on - while metrics sent by TrackMetric appear in their own stream.
+
+### Performance counters table
+
+[Performance counters](app-insights-web-monitor-performance.md#system-performance-counters) show you basic system metrics for your app, such as CPU, memory, and network utilization. You can configure the SDK to send additional counters, including your own custom counters.
+
+The **performanceCounters** schema exposes the `category`, `counter` name, and `instance` name of each performance counter. Counter instance names are only applicable to some performance counters, and typically indicate the name of the process to which the count relates. In the telemetry for each application, you’ll see only the counters for that application. For example, to see what counters are available: 
+
+![Performance counters in Application Insights analytics](./media/app-insights-analytics-tour/analytics-performance-counters.png)
+
+To get a chart of available memory over the recent period: 
+
+![Memory timechart in Application Insights analytics](./media/app-insights-analytics-tour/analytics-available-memory.png)
+
+
+Like other telemetry, **performanceCounters** also has a column `cloud_RoleInstance` that indicates the identity of the host machine on which your app is running. For example, to compare the performance of your app on the different machines: 
+
+
+![Performance segmented by role instance in Application Insights analytics](./media/app-insights-analytics-tour/analytics-metrics-role-instance.png)
+
+### Exceptions table
+
+[Exceptions reported by your app](app-insights-asp-net-exceptions.md) are available in this table. 
+
+To find the HTTP request that your app was handling when the exception was raised, join on operation_Id:
+
+![Join exceptions with requests on operation_Id](./media/app-insights-analytics-tour/analytics-exception-request.png)
+
+
+### Browser timings table
+
+`browserTimings` shows page load data collected in your users' browsers.
+
+[Set up your app for client-side telemetry](app-insights-javascript.md) in order to see these metrics. 
+
+The schema includes [metrics indicating the lengths of different stages of the page loading process](app-insights-javascript.md#page-load-performance). (They don’t indicate the length of time your users read a page.)  
+
+Show the popularities of different pages, and load times for each page:
+
+![Page load times in Analytics](./media/app-insights-analytics-tour/analytics-page-load.png)
+
+### Availbility results table
+
+`availabilityResults` shows the results of your [web tests](app-insights-monitor-web-app-availability.md). Each run of your tests from each test location is reported separately. 
+
+
+![Page load times in Analytics](./media/app-insights-analytics-tour/analytics-availability.png)
+
+### Dependencies table
+
+Contains results of calls that your app makes to databases and REST APIs, and other calls to TrackDependency().
+
+### Traces table
+
+Contains the telemetry sent by your app using TrackTrace(), or [other logging frameworks](app-insights-asp-net-trace-logs.md).
+
+## Try it!
 
 * **[Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo)** if your app isn't sending data to Application Insights yet.
 

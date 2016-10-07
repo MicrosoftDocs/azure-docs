@@ -21,9 +21,10 @@ Internet Information Services (IIS) stores user activity in log files that can b
 ![IIS logs](media/log-analytics-data-sources-iis-logs/overview.png)
 
 ## Configuring IIS logs
-Log Analytics collects entries from log files created by IIS, so you must [configure IIS for logging](https://technet.microsoft.com/library/hh831775.aspx) and select the fields that you want Log Analytics to collect.  IIS does not log all fields by default, so you may want to manually select additional fields beyond the default.
+Log Analytics collects entries from log files created by IIS, so you must [configure IIS for logging](https://technet.microsoft.com/library/hh831775.aspx).
 
-Log Analytics only supports IIS log files stored in W3C format.  It will not collect logs in NCSA or IIS native format.
+Log Analytics only supports IIS log files stored in W3C format and does not support custom fields or IIS Advanced Logging.  
+Log Analytics does not collect logs in NCSA or IIS native format.
 
 Configure IIS logs in Log Analytics from the [Data menu in Log Analytics Settings](log-analytics-data-sources.md#configuring-data-sources).  There is no configuration required other than selecting **Collect W3C format IIS log files**.
 
@@ -32,12 +33,12 @@ We recommend that when you enable IIS log collection, you should configure the I
 
 ## Data collection
 
-Log Analytics will collect IIS log entries from each connected source approximately every 15 minutes.  The agent will record its place in each event log that it collects from.  If the agent goes offline for a period of time, then Log Analytics will collect events from where it last left off, even if those events were created while the agent was offline.
+Log Analytics collects IIS log entries from each connected source approximately every 15 minutes.  The agent records its place in each event log that it collects from.  If the agent goes offline, then Log Analytics collects events from where it last left off, even if those events were created while the agent was offline.
 
 
 ## IIS log record properties
 
-IIS log records have a type of **W3CIISLog** and have the properties in the following table.
+IIS log records have a type of **W3CIISLog** and have the properties in the following table:
 
 | Property | Description |
 |:--|:--|
@@ -49,12 +50,12 @@ IIS log records have a type of **W3CIISLog** and have the properties in the foll
 | csUserName | Name of the authenticated user that accessed the server. Anonymous users are indicated by a hyphen. |
 | csUriStem | Target of the request such as a web page. |
 | csUriQuery | Query, if any, that the client was trying to perform. |
-| ManagementGroupName | Name of the management group for SCOM agents.  For other agents, this is AOI-\<workspace ID\> |
+| ManagementGroupName | Name of the management group for Operations Manager agents.  For other agents, this is AOI-\<workspace ID\> |
 | RemoteIPCountry | Country of the IP address of the client. |
 | RemoteIPLatitude | Latitude of the client IP address. |
 | RemoteIPLongitude | Longitude of the client IP address. |
 | scStatus | HTTP status code. |
-| scSubStatus | Substatus  error code. |
+| scSubStatus | Substatus error code. |
 | scWin32Status | Windows status code. |
 | sIP | IP address of the web server. |
 | SourceSystem  | OpsMgr |

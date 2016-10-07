@@ -22,7 +22,7 @@ When you retrain a New Web service, you update the predictive Web service defini
 
 ## Prerequisites
 
-You must have set up a Training Experiment and a Predictive Experiment as shown in Retrain Machine Learning models programmatically. For information on creating the Training and Predictive Experiments, see [Retrain Machine Learning models programmatically](Retrain Machine Learning models programmatically.md).
+You must have set up a Training Experiment and a Predictive Experiment as shown in Retrain Machine Learning models programmatically. For information on creating the Training and Predictive Experiments, see [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically.md).
 
 This process requires that you have installed the Azure Machine Learning Cmdlets. For information installing the Machine Learning cmdlets, see the [Azure Machine Learning Cmdlets](https://msdn.microsoft.com/library/azure/mt767952.aspx) reference on MSDN.
  
