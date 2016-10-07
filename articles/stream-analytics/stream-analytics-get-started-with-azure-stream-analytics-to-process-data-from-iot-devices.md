@@ -25,16 +25,16 @@ In this tutorial, you will learn how to create stream-processing logic to gather
 
 ## Prerequisites
 
--   [Azure Subscription](https://azure.microsoft.com/pricing/free-trial/)
+-   [Azure subscription](https://azure.microsoft.com/pricing/free-trial/)
 -   Sample query and data files downloadable from [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)
 
 ## Scenario
 
 Contoso, which is a company in the industrial automation space, has completely automated its manufacturing process. The machinery in this plant has sensors that are capable of emitting streams of data in real time. In this scenario, a production floor manager wants to have real-time insights from the sensor data to look for patterns and take actions on them. We will use the Stream Analytics Query Language (SAQL) over the sensor data to find interesting patterns from the incoming stream of data.
 
-Here data is being generated from a Texas Instrument sensor tag device.
+Here data is being generated from a Texas Instruments sensor tag device.
 
-![Texas Instruments Sensor Tag](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-01.jpg)
+![Texas Instruments sensor tag](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-01.jpg)
 
 The Payload of the data is in JSON format and looks like the following:
 
@@ -52,15 +52,15 @@ For ease of use, this getting started guide provides a sample data file, which w
 
 ## Create a Stream Analytics job
 
-1. In the [Azure portal](http://manage.windowsazure.com), click **STREAM ANALYTICS**, and then click **NEW** in the bottom, left corner of the page to create a new analytics job.
+1. In the [Azure portal](http://manage.windowsazure.com), click **STREAM ANALYTICS**, and then click **NEW** in the lower-left corner of the page to create a new analytics job.
 
 	![Create a new Stream Analytics job](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
 
 2. Click **QUICK CREATE**.
 
-3. For the **“Regional Monitoring Storage Account”** setting, click **CREATE NEW STORAGE ACCOUNT**, and give it a unique name. Azure Stream Analytics will use this account to store monitoring information for all your future jobs.
+3. For the **REGIONAL MONITORING STORAGE ACCOUNT** setting, click **CREATE NEW STORAGE ACCOUNT**, and give it a unique name. Azure Stream Analytics will use this account to store monitoring information for all your future jobs.
 
-	> [AZURE.NOTE] You should create this storage account only once per region, and this storage will be shared across all Stream Analytics jobs that are created in that region.
+	> [AZURE.NOTE] You should create this storage account only once per region. This storage will be shared across all Stream Analytics jobs that are created in that region.
 
 4. Click **CREATE STREAM ANALYTICS JOB** at the bottom of the page.
 
@@ -68,7 +68,7 @@ For ease of use, this getting started guide provides a sample data file, which w
 
 ## Azure Stream Analytics query
 
-Click the Query tab to go to the Query Editor. The **QUERY** tab contains a T-SQL query that performs the transformation over the incoming event data.
+Click the **QUERY** tab to go to the Query Editor. The **QUERY** tab contains a T-SQL query that performs the transformation over the incoming event data.
 
 ## Archive your raw data
 
@@ -100,7 +100,7 @@ Note that the case-sensitive query compares a string value. Click the **Rerun** 
 
 Let's make our query more detailed. For every type of sensor, we want to monitor average temperature per 30-second window and display results only if the average temperature is above 100 degrees. We will write the following query and then click **Rerun** to see the results. The query is in the ThresholdAlerting.txt file.
 
-![30 second filter query](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
+![30-second filter query](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
 You should now see results that contain only 245 rows and names of sensors where the average temperate is greater than 100. This query groups the stream of events by **dspl**, which is the sensor name, over a **Tumbling Window** of 30 seconds. Temporal queries must state how we want time to progress. By using the **TIMESTAMP BY** clause, we have specified the **OUTPUTTIME** column to associate times with all temporal calculations. For detailed information, read the MSDN articles about [Time Management](https://msdn.microsoft.com/library/azure/mt582045.aspx) and [Windowing functions](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
