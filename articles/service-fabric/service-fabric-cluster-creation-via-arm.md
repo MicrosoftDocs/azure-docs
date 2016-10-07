@@ -518,6 +518,66 @@ The parameters provided by the helper script can be filled in the portal as desc
 
 At this point, you have a secure cluster with Azure Active Directory providing management authentication. Next, [connect to your cluster](service-fabric-connect-to-secure-cluster.md) and learn how to [manage application secrets](service-fabric-application-secret-management.md).
 
+## Troubleshoot setting up Azure Active Directory for client authentication
+
+If you run into an issue while setting up Azure Active Directory for client authentication, review the following suggestings for potential solutions.
+
+### Service Fabric Explorer prompts for selecting certificate
+
+#### Problem
+
+After login successfully on AAD login page in Service Fabric Explorer, the browser returns to home page but prompts a dialog for selecting a certificate.
+
+![SFX select certificate dialog][sfx-select-certificate-dialog]
+
+#### Reason
+
+The user wasn’t assigned a role in AAD cluster application. Thus AAD authentication fails on Service Fabric cluster. Service Fabric Explorer falls back to certificate authentication.
+
+#### Solution
+
+Follow the instructions of setting up AAD and assign user roles. Also, “USER ASSIGNMENT REQUIRED TO ACCESS APP” is recommended to be turned on as `SetupApplications.ps1` does.
+
+### Connect with PowerShell fails with error: The specified credentials are invalid
+
+#### Problem
+
+When use PowerShell to connect to cluster using “AzureActiveDirectory” security mode, after login successfully on AAD login page, connection fails with error: the specified credentials are invalid shown.
+
+#### Solution
+
+Same as above.
+
+### Service Fabric Explorer signing in return failure: AADSTS50011
+
+#### Problem
+
+After login on AAD sign in page in Service Fabric Explorer, page returns sign in failure - AADSTS50011: The reply address &lt;url&gt; does not match the reply addresses configured for the application: &lt;guid&gt;. 
+
+![SFX reply address not match][sfx-reply-address-not-match]
+
+#### Reason
+
+The cluster(web) application representing Service Fabric Explorer attempts to authenticate against AAD, as part of the request it provides the redirect return URL. But it is not listed in the AAD application ‘REPLY URL’ list.
+
+#### Solution
+
+Add url of Service Fabric Explorer to ‘REPLY URL’ in the configure tab of cluster(web) application or replace one of the items in the list. Then save.
+
+![Web application reply url][web-application-reply-url]
+
+### Can I reuse the same AAD tenant for multiple clusters?
+
+#### Answer
+
+Yes. But remember to add the URL of Service Fabric Explorer to your cluster(web) application otherwise Service Fabric Explorer won’t work.
+
+### Why do I still need server certificate while AAD enabled?
+
+#### Answer
+
+FabricClient and FabricGateway perform mutual authentication. In case of AAD authentication, AAD integration provides client identity to server and server certificate is used to verify server identity. For more information about how certificate works on Service Fabric, check [X.509 certificates and Service Fabric][x509-certificates-and-service-fabric]
+
 <!-- Links -->
 [azure-powershell]:https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
@@ -532,9 +592,13 @@ At this point, you have a secure cluster with Azure Active Directory providing m
 [azure-quickstart-templates]: https://github.com/Azure/azure-quickstart-templates
 [service-fabric-secure-cluster-5-node-1-nodetype-wad]: https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype-wad/
 [resource-group-template-deploy]: https://azure.microsoft.com/documentation/articles/resource-group-template-deploy/
+[x509-certificates-and-service-fabric]: service-fabric-cluster-security.md#x509-certificates-and-service-fabric
 
 <!-- Images -->
 [cluster-security-arm-dependency-map]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-arm-dependency-map.png
 [cluster-security-cert-installation]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-cert-installation.png
 [assign-users-to-roles-button]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-button.png
 [assign-users-to-roles-dialog]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles.png
+[sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-via-arm/sfx-select-certificate-dialog.png
+[sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-via-arm/sfx-reply-address-not-match.png
+[web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png

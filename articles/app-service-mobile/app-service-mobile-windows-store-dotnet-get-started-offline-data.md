@@ -3,7 +3,7 @@
 	description="Learn how to use an Azure Mobile App to cache and sync offline data in your Universal Windows Platform (UWP) app."
 	documentationCenter="windows"
 	authors="adrianhall"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="app-service\mobile"/>
 
@@ -146,6 +146,7 @@ For more information about these concepts, see [Offline Data Sync in Azure Mobil
 The following topics provide additional background information on the offline sync feature of Mobile Apps:
 
 * [Offline Data Sync in Azure Mobile Apps]
+* [Azure Mobile Apps .NET SDK HOWTO][8]
 
 <!-- Anchors. -->
 [Update the app to support offline features]: #enable-offline-app
@@ -176,3 +177,4 @@ The following topics provide additional background information on the offline sy
 [PullAsync]: https://msdn.microsoft.com/library/azure/mt667558(v=azure.10).aspx
 [PushAsync]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileservicesynccontextextensions.pushasync(v=azure.10).aspx
 [PurgeAsync]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.sync.imobileservicesynctable.purgeasync(v=azure.10).aspx
+[8]: app-service-mobile-dotnet-how-to-use-client-library.md

@@ -168,6 +168,12 @@ ode. For a conceptual overview of the feature, see [Offline Data Sync in Azure M
 <!-- URLs. -->
 [Create a Xamarin Android app]: ../app-service-mobile-xamarin-android-get-started.md
 [Offline Data Sync in Azure Mobile Apps]: ../app-service-mobile-offline-data-sync.md
+
+<!-- Images -->
+
+<!-- URLs. -->
+[Create a Xamarin Android app]: app-service-mobile-xamarin-android-get-started.md
+[Offline Data Sync in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 [Xamarin Studio]: http://xamarin.com/download
 [Xamarin extension]: http://xamarin.com/visual-studio
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md

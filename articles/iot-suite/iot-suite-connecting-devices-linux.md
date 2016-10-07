@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/14/2016"
+   ms.date="10/05/2016"
    ms.author="dobett"/>
 
 
@@ -24,7 +24,7 @@
 
 ## Build and run a sample C client Linux
 
-The following procedures show you how to create a simple client application, written in C and built and run on Ubuntu Linux, that communicates with the remote monitoring preconfigured solution. To complete these steps, you need a device running Ubuntu version 15.04 or 15.10. Before proceeding, install the prerequisite packages on your Ubuntu device using the following command:
+The following procedures show you how to create a client application, written in C and built and run on Ubuntu Linux, that communicates with the remote monitoring preconfigured solution. To complete these steps, you need a device running Ubuntu version 15.04 or 15.10. Before proceeding, install the prerequisite packages on your Ubuntu device using the following command:
 
 ```
 sudo apt-get install cmake gcc g++
@@ -51,7 +51,7 @@ The Azure IoT Hub client libraries are available as a package you can install on
 
 On your Ubuntu machine, create a folder called **remote\_monitoring**. In the **remote\_monitoring** folder create the four files **main.c**, **remote\_monitoring.c**, **remote\_monitoring.h**, and **CMakeLists.txt**.
 
-The IoT Hub serializer client libraries use a model to specify the format of messages the device sends to IoT Hub and the commands from IoT Hub that the device responds to.
+The IoT Hub serializer client libraries use a model to specify the format of messages the device sends to IoT Hub and the commands it receives from IoT Hub.
 
 1. In a text editor, open the **remote\_monitoring.c** file. Add the following `#include` statements:
 
@@ -200,7 +200,7 @@ Add the functions to execute when the device receives a command from the hub, an
     }
     ```
 
-4. Add the following function to connect to IoT Hub, send and receive messages, and disconnect from the hub. Notice how the device sends metadata about itself, including the commands it supports, to IoT Hub as soon as it connects - this enables the solution to update the status of the device to **Running** on the dashboard:
+4. Add the following function to connect to IoT Hub, send and receive messages, and disconnect from the hub. Notice how the device sends metadata about itself, including the commands it supports, to IoT Hub when it connects. This metadata enables the solution to update the status of the device to **Running** on the dashboard:
 
     ```
     void remote_monitoring_run(void)
@@ -326,7 +326,7 @@ Add the functions to execute when the device receives a command from the hub, an
     }
     ```
     
-    For reference, here is a sample **DeviceInfo** message sent to IoT Hub at start up:
+    For reference, here is a sample **DeviceInfo** message sent to IoT Hub at startup:
 
     ```
     {

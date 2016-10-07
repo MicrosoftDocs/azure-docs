@@ -25,7 +25,7 @@
 * the structure of the device twin: *tags*, *desired* and *reported properties*, and
 * the operations that device apps and back ends can perform on device twins.
 
-> [AZURE.NOTE] Currently, device twins are accessible only from devices that connect to IoT Hub using the MQTT protocol.
+> [AZURE.NOTE] At this time, device twins are accessible only from devices that connect to IoT Hub using the MQTT protocol. Please refer to the [MQTT support][lnk-devguide-mqtt] article for instructions on how to convert existing device app to use MQTT.
 
 ### When to use
 

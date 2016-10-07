@@ -30,7 +30,7 @@ At the end of this tutorial, you have three Node.js console applications:
 
 To complete this tutorial, you need the following:
 
-+ Node.js version 0.12.x or later. <br/> [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
++ Node.js version 0.10.x or later.
 
 + An active Azure account. (If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].)
 
