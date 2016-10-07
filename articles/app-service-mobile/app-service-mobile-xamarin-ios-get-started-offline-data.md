@@ -127,8 +127,8 @@ of the feature, see [Offline Data Sync in Azure Mobile Apps].
     helps preserve table relationships by tracking and pushing changes in all tables a client app has modified when `PushAsync` is called.
 
 	The provided code calls `QSTodoService.SyncAsync()` to sync whenever the todoitem list is refreshed or a todoitem is added or completed. The
-    app syncs after every local change. If a pull is executed against a table that
-    has pending local updates tracked by the context, that pull operation will automatically trigger a context push first.
+    app syncs after every local change. If a pull is executed against a table that has pending local updates tracked by the context, that pull
+    operation will automatically trigger a context push first.
 
     In the provided code, all records in the remote `TodoItem` table are queried, but it is also possible to filter records by passing a query id
     and query to `PushAsync`. For more information, see the section *Incremental Sync* in [Offline Data Sync in Azure Mobile Apps].
