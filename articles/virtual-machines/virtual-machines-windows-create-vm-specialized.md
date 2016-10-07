@@ -21,10 +21,6 @@
 
 Create a new VM from a specialized VHD.
 
-
-
-## Create a VM from a specialized VHD using a quick start template 
-
 The quickest way to create a VM from a specialized VHD is to use a [quick start template](https://azure.microsoft.com/documentation/templates/201-vm-from-specialized-vhd/). 
 
 To use this quick start template, you need to provice the following information:
@@ -33,7 +29,7 @@ To use this quick start template, you need to provice the following information:
 - vmSize - [Size of the VM](virtual-machines-windows-sizes.md) 
 - vmName - the name you want to use for the new VM 
 
-
+You can also use Azure PowerShell to create a VM from a specialized image. To use PowerShell, follow the steps in the rest of this document.
 
 ## Create a virtual network
 
