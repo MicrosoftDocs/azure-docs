@@ -25,9 +25,13 @@ The quickest way to create a VM from a specialized VHD is to use a [quick start 
 (https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image). 
 
 To use this quick start template, you need to provide the following information:
+
 - osDiskVhdUriUri - Uri of the VHD. This is in the format: `https://<storageAccountName>.blob.core.windows.net/<containerName>/<vhdName>.vhd`.
+
 - osType - the operating system type, either Windows or Linux 
+
 - vmSize - [Size of the VM](virtual-machines-windows-sizes.md) 
+
 - vmName - the name you want to use for the new VM 
 
 
