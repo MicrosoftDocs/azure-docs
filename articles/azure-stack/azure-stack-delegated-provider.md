@@ -96,12 +96,12 @@ account. If you do not have them, create the two accounts. The accounts
 can belong to any AAD tenant. We will refer to them as the delegated
 provider (DP) and the user.
 
-  Role                 Organizational rights
-  -------------------- -----------------------
-  Delegated Provider   User
-  User                 User
+| **Role** | **Organizational rights** |
+| -------------------- | ----------------------- |
+|  Delegated Provider | User |
+| User | User |
 
-##Establish the delegated providers
+##Identify the delegated providers
 
 
 1.  Sign in as service administrator.
@@ -234,3 +234,6 @@ turn delegates the offer to the next provider. The process is the same
 for the delegated provider as it was for the service administrator (see
 [Service admin creates the delegated
 offer](#service-admin-creates-the-delegated-offer)).
+
+##Next steps
+[Provision a VM](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-provision-vm/)
