@@ -22,8 +22,7 @@
 
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-This article explains how to configure and code timer triggers in Azure Functions. Timer triggers call functions based on 
-a schedule, one time or recurring. 
+This article explains how to configure and code timer triggers in Azure Functions. Timer triggers call functions based on a schedule, one time or recurring. 
 
 The timer trigger supports multi-instance scale-out. One single instance of a particular timer function is run across all instances.
 
@@ -32,9 +31,7 @@ The timer trigger supports multi-instance scale-out. One single instance of a pa
 <a id="trigger"></a>
 ## Timer trigger binding
 
-## function.json for timer trigger
-
-The *function.json* file provides a schedule expression. For example, the following schedule runs the function every minute:
+The timer trigger to a function uses the following JSON object in the `bindings` array of function.json:
 
 ```json
 {
