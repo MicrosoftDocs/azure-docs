@@ -236,17 +236,17 @@ Complete the following steps to add additional IP addresses to an existing NIC:
 
 2. Change the "values" of the following $Variables to the name of the NIC you want to add IP addresses to and the resource group and location the NIC exists in:
 
-		$NicName     = "RG1-VM1-NI1"
-		$NicRgName   = "RG1"
-		$NicLocation = "westus"
+		$NicName     = "RG1-VM1-NIC1"
+		$RgName   = "RG1"
+		$NicLocation = "westcentralus"
 
-	If you don't know the name of the NIC you want to change, enter the following commands, then change the values of the previous varaiables:
+	If you don't know the name of the NIC you want to change, enter the following commands, then change the values of the previous variables:
 
 		Get-AzureRmNetworkInterface | Format-Table Name, ResourceGroupName, Location
 
-3. Create a variable and set it to the NIC by typing the following command:
+3. Create a variable and set it to the existing NIC by typing the following command:
 
-		$nic = Get-AzureRmNetworkInterface -Name $NicName -ResourceGroupName $NicRgName
+		$nic = Get-AzureRmNetworkInterface -Name $NicName -ResourceGroupName $RgName
 
 4. Retrieve the subnet ID the NIC is connected to by completing [step 3](#subnet) of the Create a VM with multiple IP addresses section of this article.
 
