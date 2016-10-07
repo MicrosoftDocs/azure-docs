@@ -28,7 +28,7 @@ This guide shows you how to configure your API Management service instance to us
 
 ## <a name="step1"> </a>Upload a client certificate
 
-To get started, click **Manage** in the Azure Classic Portal for your API Management service. This takes you to the API Management publisher portal.
+To get started, click **Publisher portal** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal.
 
 ![API Publisher portal][api-management-management-console]
 

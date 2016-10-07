@@ -23,7 +23,7 @@ Azure API Management provides several customization features to allow administra
 
 ## Developer portal templates overview
 
-Developer portal templates are managed in the developer portal by administrators of the API Management service instance. To manage developer templates, navigate to your API Management service instance in the Azure Classic Portal and click **Browse**.
+Developer portal templates are managed in the developer portal by administrators of the API Management service instance. To manage developer templates, navigate to your API Management service instance in the Azure Portal and click **Developer portal** from the toolbar.
 
 ![Developer portal][api-management-browse]
 

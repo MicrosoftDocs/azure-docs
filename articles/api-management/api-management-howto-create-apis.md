@@ -24,7 +24,7 @@ This guide shows the first step in the process: how to create and configure a ne
 
 ## <a name="create-new-api"> </a>Create a new API
 
-APIs are created and configured in the publisher portal. To access the publisher portal, click **Manage** in the Azure Classic Portal for your API Management service.
+APIs are created and configured in the publisher portal. To access the publisher portal, click **Publisher portal** in the Azure Portal for your API Management service.
 
 ![Publisher portal][api-management-management-console]
 

@@ -20,50 +20,48 @@
 
 API Management supports multi-region deployment which enables API publishers to distribute a single API management service across any number of desired Azure regions. This helps reduce request latency perceived by geographically distributed API consumers and also improves service availability if one region goes offline. 
 
-When an API Management service is created initially, it contains only one [unit][] and resides in a single Azure region, which is designated as the Primary Region. Additional regions can be easily added through Azure Classic Portal. API Management gateway server is deployed to each region and call traffic will be routed to the closest gateway. If a region goes offline, the traffic is automatically re-directed to the next closest gateway. 
+When an API Management service is created initially, it contains only one [unit][] and resides in a single Azure region, which is designated as the Primary Region. Additional regions can be easily added through the Azure Portal. An API Management gateway server is deployed to each region and call traffic will be routed to the closest gateway. If a region goes offline, the traffic is automatically re-directed to the next closest gateway. 
 
 > [AZURE.IMPORTANT] Multi-region deployment is only available in the **[Premium][]** tier.
 
 ## <a name="add-region"> </a>Deploy an API Management service instance to a new region
 
-To get started, click **Manage** in the Azure Classic Portal for your API Management service. This takes you to the API Management publisher portal.
-
-![Publisher portal][api-management-management-console]
-
 >If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
 
-Navigate to the **Scale** tab in Azure Classic Portal for your API Management service instance. 
+In the Azure Portal navigate to the **Scale and pricing** page for your API Management service instance. 
 
 ![Scale tab][api-management-scale-service]
 
-To deploy to a new region, click on the drop-down list below the primary region and pick a region from the list.
+To deploy to a new region, click on **+ Add region** from the toolbar.
 
 ![Add region][api-management-add-region]
 
-Once the region is selected, pick the number of units for the new region from the unit drop-down list.
+Select the location from the drop-down list and set the number of units for with the slider.
 
-![Specify units][api-management-select-units]
+![Specify units][api-management-select-location-units]
 
-Once the desired regions and units are configured, click **Save**.
+Click **Add** to place your selection in the Locations table. 
 
-## <a name="remove-region"> </a>Delete an API Management service instance from a region
+Repeat this process until you have all locations configured and click **Save** from the toolbar to start the deployment process.
 
-To remove an API Management service instance from a region, navigate to the **Scale** tab in Azure Classic Portal for your API Management service instance. 
+## <a name="remove-region"> </a>Delete an API Management service instance from a location
+
+In the Azure Portal navigate to the **Scale and pricing** page for your API Management service instance. 
 
 ![Scale tab][api-management-scale-service]
 
-Click the **X** to the right of the desired region to remove.  
+For the location you would like to remove open the context menu using the **...** button at the right end of the table. Select the **Delete** option.
 
 ![Remove region][api-management-remove-region]
 
-Once the desired regions are removed, click **Save**.
+Confirm the deletion and click **Save** to apply the changes.
 
 
 [api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
 
 [api-management-scale-service]: ./media/api-management-howto-deploy-multi-region/api-management-scale-service.png
 [api-management-add-region]: ./media/api-management-howto-deploy-multi-region/api-management-add-region.png
-[api-management-select-units]: ./media/api-management-howto-deploy-multi-region/api-management-select-units.png
+[api-management-select-location-units]: ./media/api-management-howto-deploy-multi-region/api-management-select-location-units.png
 [api-management-remove-region]: ./media/api-management-howto-deploy-multi-region/api-management-remove-region.png
 
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance

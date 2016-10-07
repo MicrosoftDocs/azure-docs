@@ -34,7 +34,7 @@ In this step, you will review the caching settings of the **GET Resource (cached
 
 >[AZURE.NOTE] Each API Management service instance comes preconfigured with an Echo API that can be used to experiment with and learn about API Management. For more information, see [Get started with Azure API Management][].
 
-To get started, click **Manage** in the Azure Classic Portal for your API Management service. This takes you to the API Management publisher portal.
+To get started, click **Publisher portal** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal.
 
 ![Publisher portal][api-management-management-console]
 
