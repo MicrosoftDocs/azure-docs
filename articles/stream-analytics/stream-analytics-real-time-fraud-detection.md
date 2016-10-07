@@ -114,6 +114,7 @@ Now that we have a stream of telecommunications events, we can set up a Stream A
 4.	Type or select the following values on the third page:
 
 	* **INPUT ALIAS**: Enter a friendly name, such as *CallStream*, for this job. Note that you will be using this name in the query later.
+
 	* **EVENT HUB**: If the event hub that you created is in the same subscription as the Stream Analytics job, select the namespace that the event hub is in.
 
 	If your event hub is in a different subscription, select **Use Event Hub from Another Subscription**, and then manually enter information for **SERVICE BUS NAMESPACE**, **EVENT HUB NAME**, **EVENT HUB POLICY NAME**, **EVENT HUB POLICY KEY**, and **EVENT HUB PARTITION COUNT**.
@@ -123,6 +124,7 @@ Now that we have a stream of telecommunications events, we can set up a Stream A
 	* **EVENT HUB POLICY NAME**: Select the event hub policy that you created earlier in this tutorial.
 
 	* **EVENT HUB CONSUMER GROUP**: Type the name of the consumer group that you created earlier in this tutorial.
+
 5.	Click the right button.
 6.	Specify the following values:
 
