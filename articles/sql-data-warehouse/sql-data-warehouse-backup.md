@@ -1,7 +1,7 @@
 <properties
    pageTitle="SQL Data Warehouse backups | Microsoft Azure"
    description="Learn about SQL Data Warehouse built-in database backups that enable you to restore an Azure SQL Data Warehouse to a restore point or a different geographical region."
-   services="sql-database"
+   services="sql-data-warehouse"
    documentationCenter=""
    authors="lakshmi1812"
    manager="barbkess"
