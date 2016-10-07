@@ -76,8 +76,7 @@ These articles describe how to perform specific tasks by using Azure Active Dire
 - [Understand the branding guidelines for the sign-in and app acquisition buttons in your client application](active-directory-branding-guidelines.md)
 - [Preview: How to build apps that sign users in with both personal & work or school accounts](active-directory-appmodel-v2-overview.md)
 - [Preview: How to build apps that sign up & sign in consumers](../active-directory-b2c/active-directory-b2c-overview.md)
-- Preview: How to configure token lifetime policies using Azure AD Graph [Policy operations](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) and the [Policy entity](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity). See [Configurable token lifetimes in Azure AD](active-directory-configurable-token-lifetimes.md) for details on related PowerShell cmdlets.
-
+- [Preview: Configuring token lifetimes in Azure AD](active-directory-configurable-token-lifetimes.md) using PowerShell. See [Policy operations](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) and the [Policy entity](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity) for details on configuring via the Azure AD Graph API.
 
 ## Reference
 
