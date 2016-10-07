@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Active Directory Domain Services preview: Overview | Microsoft Azure"
-	description="Overview of Azure AD Domain Services"
+	pageTitle="Overview of Azure Active Directory Domain Services | Microsoft Azure"
+	description="Overview of Azure Active Directory Domain Services"
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2016"
+	ms.date="10/07/2016"
 	ms.author="maheshu"/>
 
-# Azure AD Domain Services *(Preview)*
+# Azure AD Domain Services
 
 ## Overview
 Azure Infrastructure Services enable you to deploy a wide range of computing solutions in an agile manner. With Azure Virtual Machines, you can deploy nearly instantaneously and you pay only by the minute. Using support for Windows, Linux, SQL Server, Oracle, IBM, SAP, and BizTalk, you can deploy any workload, any language, on nearly any operating system. These benefits enable you to migrate legacy applications deployed on-premises to Azure, to save on operational expenses.
