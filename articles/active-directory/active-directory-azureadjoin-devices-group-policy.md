@@ -59,7 +59,7 @@ To enable conditional access, you can create Group Policy settings that allow ac
 
 Azure AD Connect will enable you to provision computers on-premises as device objects in the cloud. To deploy Azure AD Connect, refer to "Install Azure AD Connect" in the article [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md#install-azure-ad-connect).
 
- - If you followed a [custom installation for Azure AD Connect](active-directory-aadconnect-get-started-custom.md) (not the Express installation), then follow the procedure **Create a service connection point in on-premises Active Directory**, later in this step.
+ - If you followed a [custom installation for Azure AD Connect](./aad-connect/active-directory-aadconnect-get-started-custom.md) (not the Express installation), then follow the procedure **Create a service connection point in on-premises Active Directory**, later in this step.
  - If you have a federated configuration with Azure AD before installing Azure AD Connect (for example, if you have deployed Active Directory Federation Services (AD FS) before), then follow the **Configure AD FS claim rules** procedure, later in this step.
 
 #### Create a service connection point in on-premises Active Directory
@@ -123,7 +123,7 @@ Windows 10 computers will authenticate by using Windows Integrated authenticatio
 
 ### Step 2: Configure automatic device registration via Group Policy in Active Directory
 
-You can use Group Policy in Active Directory to configure your Windows 10 domain-joined devices to automatically register with Azure AD. 
+You can use Group Policy in Active Directory to configure your Windows 10 domain-joined devices to automatically register with Azure AD.
 
 > [AZURE.NOTE]
 > For latest instructions on how to set up automatic device registration see, [How to set up automatic registration of Windows domain joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="06/01/2016" 
+	ms.date="10/04/2016" 
 	ms.author="sethm"/>
 
 # How to use Service Bus queues
@@ -217,7 +217,7 @@ Now that you've learned the basics of Service Bus queues, see [Queues, topics, a
 
 For more information, also see the [PHP Developer Center](/develop/php/).
 
-[Queues, Topics, and Subscriptions]: service-bus-queues-topics-subscriptions.md
+[Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [require_once]: http://php.net/require_once
 
  

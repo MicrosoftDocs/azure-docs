@@ -35,7 +35,7 @@ Database restore is an essential part of any business continuity and disaster re
 
 For more information, see:
 
--  [SQL Data Warehouse backups](sql-data-warehouse-backups.md)
+-  [SQL Data Warehouse backups](sql-data-warehouse-backup.md)
 -  [Business continuity overview](../sql-database/sql-database-business-continuity.md)
 
 ## Data warehouse restore points

@@ -346,5 +346,5 @@ The tests performed indicated that:
 
 - The results of the last test also show that if you are performing planned maintenance of the nodes in a cluster, performance will benefit if you allow several minutes between cycling one node and the next. In an unplanned situation (such as the datacenter recycling nodes after performing an operating system update), you have less control over how and when nodes are taken down and restarted. The contention that arises when Elasticsearch attempts to recover the state of the cluster after sequential node outages can result in timeouts and errors. 
 
-[Manage the Availability of Virtual Machines]: ../articles/virtual-machines/virtual-machines-manage-availability.md
+[Manage the Availability of Virtual Machines]: ../articles/virtual-machines/virtual-machines-linux-manage-availability.md
 [Running the Automated Elasticsearch Resiliency Tests]: guidance-elasticsearch-running-automated-resilience-tests.md
