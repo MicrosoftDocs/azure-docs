@@ -19,17 +19,6 @@
 
 # Import data to DocumentDB with the Database Migration tool
 
-Import from:
-> [AZURE.SELECTOR]
-- [JSON files](documentdb-dotnet-application.md)
-- [CSV files](documentdb-nodejs-application.md)
-- [SQL](documentdb-java-application.md)
-- [MongoDB](documentdb-python-application.md)
-- [Azure Table Storage](documentdb-python-application.md)
-- [Amazon DynamoDB](documentdb-python-application.md)
-- [HBase](documentdb-python-application.md)
-- [DocumentDB](documentdb-python-application.md)
-
 This article shows you how to use the official open source DocumentDB data migration tool to import data to [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB and DocumentDB collections.
 
 After reading this article, you'll be able to answer the following questions:  
