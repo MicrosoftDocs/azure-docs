@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2016"
+	ms.date="10/07/2016"
 	ms.author="maheshu"/>
 
 # Azure AD Domain Services
@@ -23,17 +23,17 @@ The following features are available in Azure AD Domain Services managed domains
 
 - **Simple deployment experience:** You can enable Azure AD Domain Services for your Azure AD tenant using just a few clicks. Regardless of whether your Azure AD tenant is a cloud-tenant or synchronized with your on-premises directory, your managed domain can be provisioned quickly.
 
-- **Support for domain-join:** You can easily domain join computers in the Azure virtual network that Azure AD Domain Services is available in. The domain join experience on Windows client and Server operating systems works seamlessly against domains serviced by Azure AD Domain Services. You can also use automated domain join tooling against such domains.
+- **Support for domain-join:** You can easily domain-join computers in the Azure virtual network your managed domain is available in. The domain-join experience on Windows client and Server operating systems works seamlessly against domains serviced by Azure AD Domain Services. You can also use automated domain join tooling against such domains.
 
 - **One domain instance per Azure AD directory:** You can create a single Active Directory domain for each Azure AD directory.
 
-- **Create domains with custom names:** You can create domains with custom names (for example, 'contoso100.com') using Azure AD Domain Services. You can use either verified or unverified domain names. Optionally, you can also create a domain with the built-in domain suffix (that is, *.onmicrosoft.com) that is offered by your Azure AD directory.
+- **Create domains with custom names:** You can create domains with custom names (for example, 'contoso100.com') using Azure AD Domain Services. You can use either verified or unverified domain names. Optionally, you can also create a domain with the built-in domain suffix (that is, '*.onmicrosoft.com') offered by your Azure AD directory.
 
 - **Integrated with Azure AD:** You do not need to configure or manage replication to Azure AD Domain Services. User accounts, group memberships, and user credentials (passwords) from your Azure AD directory are automatically available in Azure AD Domain Services. New users, groups, or changes to attributes from your Azure AD tenant or your on-premises directory are automatically synchronized to Azure AD Domain Services.
 
 - **NTLM and Kerberos authentication:** With support for NTLM and Kerberos authentication, you can deploy applications that rely on Windows Integrated Authentication.
 
-- **Use your corporate credentials/passwords:** Passwords for users in your Azure AD tenant work with Azure AD Domain Services. As a result, users in your organization can use their corporate credentials on the domain – for domain-joining machines, logging in interactively or over remote desktop, authenticating against the managed domain etc.
+- **Use your corporate credentials/passwords:** Passwords for users in your Azure AD tenant work with Azure AD Domain Services. Users can use their corporate credentials to domain-join machines, log in interactively or over remote desktop, and authenticate against the managed domain.
 
 - **LDAP bind & LDAP read support:** You can use applications that rely on LDAP binds to authenticate users in domains serviced by Azure AD Domain Services. Additionally, applications that use LDAP read operations to query user/computer attributes from the directory can also work against Azure AD Domain Services.
 
