@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="09/29/2016"
+	ms.date="10/10/2016"
 	ms.author="marsma" />
 
 # Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch
@@ -298,9 +298,7 @@ Sample complete, hit ENTER to exit...
 
 - The Microsoft HPC & Azure Batch Team blog discusses [MPI support for Linux on Azure Batch][blog_mpi_linux], and includes information on using [OpenFOAM][openfoam] with Batch. You can find Python code samples for the [OpenFOAM example on GitHub][github_mpi].
 
-- You may want to build a simple MS-MPI application to use while testing multi-instance tasks in Batch. Another blog article, [How to compile and run a simple MS-MPI program][msmpi_howto], contains a walk-through for creating a simple MPI application using MS-MPI.
-
-- Check out the [Microsoft MPI][msmpi_msdn] page on MSDN for the latest information on MS-MPI.
+- Learn how to [create pools of Linux compute nodes](batch-linux-nodes.md) for use in your Azure Batch MPI solutions.
 
 [helloworld_cpp]: http://microsoft.com
 
