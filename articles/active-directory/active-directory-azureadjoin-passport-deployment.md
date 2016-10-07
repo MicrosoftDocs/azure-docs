@@ -81,7 +81,7 @@ This scenario:
  - A specific security group that contains Windows 10 domain-joined computers that will be automatically registered with Azure AD
 
 
-## Configure Windows Hello for Business using System Center Configuration Manager
+### Configure Windows Hello for Business using System Center Configuration Manager
 
 
 **Steps**:
