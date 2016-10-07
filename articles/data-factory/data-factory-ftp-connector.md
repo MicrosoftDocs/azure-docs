@@ -79,7 +79,7 @@ See [FTP linked service](#ftp-linked-service-properties) section for different t
 	}
 
 **FTP input dataset**
-This dataset refers to the FTP folder mysharedfolder and file test.csv. The pipeline copies the file to the destination. 
+This dataset refers to the FTP folder `mysharedfolder` and file `test.csv`. The pipeline copies the file to the destination. 
 
 Setting "external": "true" informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
 	
