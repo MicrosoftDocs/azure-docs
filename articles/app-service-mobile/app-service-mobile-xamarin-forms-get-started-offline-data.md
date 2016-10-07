@@ -30,9 +30,9 @@ tutorial [Create a Xamarin iOS app]. The quickstart solution for Xamarin.Forms c
 just needs to be enabled. In this tutorial, you will update the quickstart solution to turn on the offline features of Azure 
 Mobile Apps. We will also highlight the offline-specific code in the app. If you do not use the downloaded quickstart solution, 
 you must add the data access extension packages to your project. For more information about server extension packages, see 
-[Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+[Work with the .NET backend server SDK for Azure Mobile Apps][1].
 
-To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps].
+To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps][2].
 
 ## Enable offline sync functionality in the quickstart solution
 
@@ -56,21 +56,21 @@ is defined, these code paths are included in the build. For Windows apps, you mu
 
 5. (Optional) To support Windows devices, install one of the following SQLite runtime packages:
 
-	* **Windows 8.1 Runtime:** Install [SQLite for Windows 8.1](http://go.microsoft.com/fwlink/p/?LinkID=716919).
-    * **Windows Phone 8.1:** Install [SQLite for Windows Phone 8.1]( http://go.microsoft.com/fwlink/p/?LinkID=716920).
-    * **Universal Windows Platform** Install [SQLite for the Universal Windows Universal](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).  
+    * **Windows 8.1 Runtime:** Install [SQLite for Windows 8.1][3].
+    * **Windows Phone 8.1:** Install [SQLite for Windows Phone 8.1][4].
+    * **Universal Windows Platform** Install [SQLite for the Universal Windows Universal][5].  
     
     Although the quickstart does not contain a Universal Windows project, the Universal Windows platform is supported with Xamarin Forms.
 
 6. (Optional) In each Windows app project, right click **References** > **Add Reference...**, expand the **Windows** folder > **Extensions**, 
-    then enable the appropriate **SQLite for Windows Runtime** SDK along with the  **Visual C++ 2013 Runtime for Windows** SDK.   
+    then enable the appropriate **SQLite for Windows** SDK along with the  **Visual C++ 2013 Runtime for Windows** SDK.   
 	The SQLite SDK names vary slightly with each Windows platform.  
 
 ## Review the client sync code
 
 Here is a brief overview of what is already included in the tutorial code inside the `#if OFFLINE_SYNC_ENABLED` directives. The 
 offline sync functionality is in the TodoItemManager.cs project file in the Portable Class Library project. For a conceptual overview 
-of the feature, see [Offline Data Sync in Azure Mobile Apps].
+of the feature, see [Offline Data Sync in Azure Mobile Apps][2].
 
 * Before any table operations can be performed, the local store must be initialized. The local store database is initialized in 
   the **TodoItemManager** class constructor by using the following code: 
@@ -201,17 +201,22 @@ perform the refresh gesture, data will be synced to your mobile backend.
 2. Rebuild and run the client app. The app attempts to sync with the mobile app backend after launching. Verify that no exceptions 
    are logged in the debug console.
 
-3. (Optional) View the updated data using either SQL Server Object Explorer or a REST tool like Fiddler. Notice the data has been 
+3. (Optional) View the updated data using either SQL Server Object Explorer or a REST tool like Fiddler or [Postman][6]. Notice the data has been 
    synchronized between the backend database and the local store.
 
     Notice the data has been synchronized between the database and the local store and contains the items you added while your app was disconnected.
 
 ## Additional Resources
 
-* [Offline Data Sync in Azure Mobile Apps]
-
-<!-- Images -->
+* [Offline Data Sync in Azure Mobile Apps][2]
+* [Azure Mobile Apps .NET SDK HOWTO][8]
 
 <!-- URLs. -->
-[Create a Xamarin iOS app]: app-service-mobile-xamarin-ios-get-started.md
-[Offline Data Sync in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
+[1]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[2]: app-service-mobile-offline-data-sync.md
+[3]: http://go.microsoft.com/fwlink/p/?LinkID=716919
+[4]: http://go.microsoft.com/fwlink/p/?LinkID=716920
+[5]: http://sqlite.org/2016/sqlite-uwp-3120200.vsix
+[6]: https://www.getpostman.com/
+[7]: http://www.telerik.com/fiddler
+[8]: app-service-mobile-dotnet-how-to-use-client-library.md

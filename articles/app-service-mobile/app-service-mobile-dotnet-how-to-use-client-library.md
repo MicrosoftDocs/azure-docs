@@ -24,14 +24,14 @@
 
 This guide shows you how to perform common scenarios using the managed client library for Azure App Service 
 Mobile Apps for Windows and Xamarin apps. If you are new to Mobile Apps, you should consider first completing 
-the [Azure Mobile Apps quickstart] tutorial. In this guide, we focus on the client-side managed SDK. To learn 
-more about the server-side SDKs for Mobile Apps, see the documentation for the [.NET Server SDK] or the 
-[Node.js Server SDK].
+the [Azure Mobile Apps quickstart][1] tutorial. In this guide, we focus on the client-side managed SDK. To learn 
+more about the server-side SDKs for Mobile Apps, see the documentation for the [.NET Server SDK][2] or the 
+[Node.js Server SDK][3].
 
 ## Reference documentation
 
-The reference documentation for the client SDK is located here: [Azure Mobile Apps .NET client reference].
-You can also find several client samples in the [Azure-Samples GitHub repository].
+The reference documentation for the client SDK is located here: [Azure Mobile Apps .NET client reference][4].
+You can also find several client samples in the [Azure-Samples GitHub repository][5].
 
 ## Supported Platforms
 
@@ -67,17 +67,15 @@ The corresponding typed client-side type in C# is the following class:
 		public bool Complete { get; set; }
 	}
 
-The [JsonPropertyAttribute] is used to define the *PropertyName* mapping between the client type and the table.
+The [JsonPropertyAttribute][6] is used to define the *PropertyName* mapping between the client type and the table.
 
-To learn how to create tables in your Mobile Apps backend, see the information in the 
-[.NET Server SDK topic](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller)
-or the [Node.js Server SDK topic](app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-dynamicschema). If 
-you created your Mobile App backend in the Azure portal using the QuickStart, you can also use the **Easy tables** 
-setting in the [Azure portal].
+To learn how to create tables in your Mobile Apps backend, see the information in the [.NET Server SDK topic][7]
+or the [Node.js Server SDK topic][8]. If you created your Mobile App backend in the Azure portal using the QuickStart, 
+you can also use the **Easy tables** setting in the [Azure portal].
 
 ###How to: Install the managed client SDK package
 
-Use one of the following methods to install the managed client SDK package for Mobile Apps from [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/):
+Use one of the following methods to install the managed client SDK package for Mobile Apps from [NuGet][9]:
 
 + **Visual Studio**  
 Right-click your project, click **Manage NuGet Packages**, search for the `Microsoft.Azure.Mobile.Client` package, then click **Install**.
@@ -91,14 +89,14 @@ In your main activity file, remember to add the following **using** statement:
 
 ###<a name="symbolsource"></a>How to: Work with debug symbols in Visual Studio
 
-The symbols for the Microsoft.Azure.Mobile namespace are available on [SymbolSource].  Refer to the [SymbolSource instructions]
-to integrate SymbolSource with Visual Studio.
+The symbols for the Microsoft.Azure.Mobile namespace are available on [SymbolSource][10].  Refer to the 
+[SymbolSource instructions][11] to integrate SymbolSource with Visual Studio.
 
 ##<a name="create-client"></a>Create the Mobile Apps client
 
-The following code creates the [MobileServiceClient] object that is used to access your Mobile App backend.
+The following code creates the [MobileServiceClient][12] object that is used to access your Mobile App backend.
 
-	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
+	var client = new MobileServiceClient("MOBILE_APP_URL");
 
 In the preceding code, replace `MOBILE_APP_URL` with the URL of the Mobile App backend, which is found in the 
 blade for your Mobile App backend in the [Azure portal]. The MobileServiceClient object should be a singleton.
@@ -142,11 +140,11 @@ In untyped queries, you must specify the underlying OData query string.
 
 This section describes how to issue queries to the Mobile App backend, which includes the following functionality:
 
-- [Filter returned data]
-- [Sort returned data]
-- [Return data in pages]
-- [Select specific columns]
-- [Look up data by ID]
+- [Filter returned data](#filtering)
+- [Sort returned data](#sorting)
+- [Return data in pages](#paging)
+- [Select specific columns](#selecting)
+- [Look up data by ID](#lookingup)
 
 >[AZURE.NOTE] A server-driven page size is enforced to prevent all rows from being returned.  Paging keeps 
 > default requests for large data sets from negatively impacting the service.  To return more than 50 rows, 
@@ -540,6 +538,102 @@ Azure Mobile Apps returns a maximum of 50 items per request by default.  You can
 
 Assuming you have made the `PageSize` equal to or greater than 100 within the server, a request returns up to 
 100 items.
+
+##<a name="#offlinesync"></a>Work with Offline Tables
+
+Offline tables use a local SQLite store to store data for use when offline.  All table operations are done against
+the local SQLite store instead of the remote server store.  To create an offline table, first prepare your project:
+
+1. In Visual Studio, right-click the solution > **Manage NuGet Packages for Solution...**, then search for and install the 
+   **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet package for all projects in the solution.
+
+2. (Optional) To support Windows devices, install one of the following SQLite runtime packages:
+
+    * **Windows 8.1 Runtime:** Install [SQLite for Windows 8.1][3].
+    * **Windows Phone 8.1:** Install [SQLite for Windows Phone 8.1][4].
+    * **Universal Windows Platform** Install [SQLite for the Universal Windows Universal][5].  
+
+3. (Optional) In each Windows app project, right click **References** > **Add Reference...**, expand the **Windows** folder > **Extensions**, 
+    then enable the appropriate **SQLite for Windows** SDK along with the  **Visual C++ 2013 Runtime for Windows** SDK.   
+	The SQLite SDK names vary slightly with each Windows platform.  
+
+Before a table reference can be created, the local store must be prepared:
+
+	var store = new MobileServiceSQLiteStore(Constants.OfflineDbPath);
+	store.DefineTable<TodoItem>();
+
+	//Initializes the SyncContext using the default IMobileServiceSyncHandler.
+	await this.client.SyncContext.InitializeAsync(store);
+
+This is normally done immediately after the client is created.  The **OfflineDbPath** should be a filename
+suitable for use on all platforms that you support.  If the path is a fully-qualified path (i.e. it starts with
+a slash), then that path is used.  If the path is not fully-qualified, the file is placed in a platform-specific
+location.  On iOS and Android devices, this is the "Personal Files" area.  On Windows, this is the AppData area.
+
+A table reference can be obtained using the `GetSyncTable<>` method:
+
+	var table = client.GetSyncTable<TodoItem>();
+
+You do not need to authenticate to use an offline table.  You only need to authenticate when you are communicating
+with the backend service.
+
+###<a name="syncoffline"></a>Syncing an Offline Table
+
+Offline tables are not synchronized with the backend by default.  Synchronization is split into two pieces.  You
+can push changes separately from downloading new items.  Here is a typical sync method:
+
+	public async Task SyncAsync()
+	{
+		ReadOnlyCollection<MobileServiceTableOperationError> syncErrors = null;
+
+		try
+		{
+			await this.client.SyncContext.PushAsync();
+
+			await this.todoTable.PullAsync(
+				//The first parameter is a query name that is used internally by the client SDK to implement incremental sync.
+				//Use a different query name for each unique query in your program
+				"allTodoItems",
+				this.todoTable.CreateQuery());
+		}
+		catch (MobileServicePushFailedException exc)
+		{
+			if (exc.PushResult != null)
+			{
+				syncErrors = exc.PushResult.Errors;
+			}
+		}
+
+		// Simple error/conflict handling. A real application would handle the various errors like network conditions,
+		// server conflicts and others via the IMobileServiceSyncHandler.
+		if (syncErrors != null)
+		{
+			foreach (var error in syncErrors)
+			{
+				if (error.OperationKind == MobileServiceTableOperationKind.Update && error.Result != null)
+				{
+					//Update failed, reverting to server's copy.
+					await error.CancelAndUpdateItemAsync(error.Result);
+				}
+				else
+				{
+					// Discard local change.
+					await error.CancelAndDiscardItemAsync();
+				}
+
+				Debug.WriteLine(@"Error executing sync operation. Item: {0} ({1}). Operation discarded.", error.TableName, error.Item["id"]);
+			}
+		}
+	}
+
+If the first argument to `PullAsync` is null, then incremental sync is not used.  This causes each sync operation
+to pull down all records.  
+
+The SDK performs an implicit `PushAsync()` before pulling records.
+
+Conflict handling happens on a `PullAsync()` method.  You can deal with conflicts in the same way as online tables.  The conflict
+will be produced when `PullAsync()` is called instead of during the insert, update or delete.  In addition, multiple conflicts will
+be produced.  Each conflict should be handled individually.
 
 ##<a name="#customapi"></a>Work with a custom API
 
@@ -1044,30 +1138,31 @@ can use a custom [DelegatingHandler], as in the following example:
 
 
 <!-- Anchors. -->
-[Filter returned data]: #filtering
-[Sort returned data]: #sorting
-[Return data in pages]: #paging
-[Select specific columns]: #selecting
-[Look up data by ID]: #lookingup
+
 
 <!-- Images. -->
 
-<!-- Internal URLs. -->
-[Azure Mobile Apps quickstart]: app-service-mobile-windows-store-dotnet-get-started.md
+<!-- URLs. -->
+[1]: app-service-mobile-windows-store-dotnet-get-started.md
+[2]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[3]: app-service-mobile-node-backend-how-to-use-server-sdk.md
+[4]: https://msdn.microsoft.com/en-us/library/azure/mt419521(v=azure.10).aspx
+[5]: https://github.com/Azure-Samples
+[6]: http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm
+[7]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller
+[8]: app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations
+[9]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/
+[10]: http://www.symbolsource.org/
+[11]: http://www.symbolsource.org/Public/Wiki/Using
+[12]: https://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
+
 [Add authentication to your app]: app-service-mobile-windows-store-dotnet-get-started-users.md
-[Work with .NET backend SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Work with the .NET backend server SDK for Azure Mobile Apps]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[How to use the Node.js backend SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
-[How to: Define a table controller]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller
-[Define Tables using a Dynamic Schema]: app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations
 [Offline Data Sync in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 [Add push notifications to your app]: app-service-mobile-windows-store-dotnet-get-started-push.md
 [Register your app to use a Microsoft account login]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [How to configure App Service for Active Directory login]: app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
-[Azure Mobile Apps .NET client reference]: https://msdn.microsoft.com/en-us/library/azure/mt419521(v=azure.10).aspx
-[MobileServiceClient]: https://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 [MobileServiceCollection]: https://msdn.microsoft.com/en-us/library/azure/dn250636(v=azure.10).aspx
 [MobileServiceIncrementalLoadingCollection]: https://msdn.microsoft.com/en-us/library/azure/dn268408(v=azure.10).aspx
 [MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider(v=azure.10).aspx
@@ -1103,17 +1198,11 @@ can use a custom [DelegatingHandler], as in the following example:
 [Notification Hubs APIs]: https://msdn.microsoft.com/library/azure/dn495101.aspx
 [Mobile Apps Files Sample]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
 [LoggingHandler]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files/blob/master/src/client/MobileAppsFilesSample/Helpers/LoggingHandler.cs#L63
-[Azure-Samples GitHub repository]: https://github.com/Azure-Samples
-[.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
 <!-- External URLs -->
-[JsonPropertyAttribute]: http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm
 [OData v3 Documentation]: http://www.odata.org/documentation/odata-version-3-0/
 [Fiddler]: http://www.telerik.com/fiddler
 [Json.NET]: http://www.newtonsoft.com/json
-[SymbolSource]: http://www.symbolsource.org/
-[SymbolSource instructions]: http://www.symbolsource.org/Public/Wiki/Using
 [Xamarin.Auth]: https://components.xamarin.com/view/xamarin.auth/
 [AuthStore.cs]: (https://github.com/azure-appservice-samples/ContosoMoments/blob/dev/src/Mobile/ContosoMoments/Helpers/AuthStore.cs)
 [ContosoMoments photo sharing sample]: https://github.com/azure-appservice-samples/ContosoMoments
