@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/26/2016"
+	ms.date="09/30/2016"
 	ms.author="dastrock"/>
 
 # Scopes, permissions, & consent in the v2.0 endpoint
@@ -143,7 +143,7 @@ When you're ready to request permissions from the company's admin, you can redir
 GET https://login.microsoftonline.com/{tenant}/adminconsent?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &state=12345
-&redirect_uri=http://localhost/myapp/permissons
+&redirect_uri=http://localhost/myapp/permissions
 ```
 
 ```
