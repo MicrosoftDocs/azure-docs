@@ -40,7 +40,7 @@ The Anomaly Detection offering comes with useful tools to get you started.
 * The [sample code](http://adresultparser.codeplex.com/) shows how to programmatically access the API and parse the results in C#.
 
 >[AZURE.NOTE]
->Try **IT Anomaly Insights solution** powered by this API
+>Try **IT Anomaly Insights solution** powered by [this API](https://datamarket.azure.com/dataset/aml_labs/anomalydetection)
 >
 >To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank"> **Start here >**</a>
 
