@@ -100,7 +100,7 @@ Now that we have a stream of telecommunications events, we can set up a Stream A
 
 	* **REGION**: Select the region where you want to run the job. Consider placing the job and the event hub in the same region to ensure better performance and to ensure that you will not be paying to transfer data between regions.
 
-	* **STORAGE ACCOUNT**: Choose the Azure Storage account that you would like to use to store monitoring data for all Stream Analytics jobs that run within this region. You have the option to choose an existing storage account or create a new one.
+	* **STORAGE ACCOUNT**: Choose the Azure storage account that you would like to use to store monitoring data for all Stream Analytics jobs that run within this region. You have the option to choose an existing storage account or create a new one.
 
 3.	Click **STREAM ANALYTICS** in the left pane to list the Stream Analytics jobs.
 
