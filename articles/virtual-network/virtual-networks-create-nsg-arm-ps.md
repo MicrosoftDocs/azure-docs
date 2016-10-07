@@ -183,7 +183,7 @@ To create an NSG named *NSG-BackEnd* based on the scenario above, follow the ste
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 
-# How to remove an NSG
+## How to remove an NSG
 
 To delete an existing NSG, called *NSG-Frontend* in this case, follow the step below:
 
