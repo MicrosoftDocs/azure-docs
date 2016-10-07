@@ -34,12 +34,12 @@ illustration shows one level of delegation, but Azure Stack supports
 multiple levels. Delegated providers can in turn delegate to other
 providers, up to five levels.
 
-![](media/image1.png){width="4.825in" height="3.466666666666667in"}
+![](media/azure-stack-delegated-provider/image1.png){width="4.825in" height="3.466666666666667in"}
 
 Administrators can delegate the creation of offers and tenants
 to other users by using the delegation functionality.
 
-Roles and steps in delegation
+##Roles and steps in delegation
 -----------------------------
 
 To understand delegation, keep in mind that there are three roles
@@ -70,7 +70,7 @@ delegation.
     provider is now able to take the offer, choose a name for it (but
     not change its services and quotas), and offer it to customers.
 
-![](media/image2.png){width="6.5in" height="3.65625in"}
+![](media/azure-stack-delegated-provider/image2.png){width="6.5in" height="3.65625in"}
 
 To act as delegated providers, users need to establish a relationship
 with the main provider; in other words, they need to create a
@@ -87,7 +87,7 @@ To establish a delegated provider, delegate an offer, and verify that
 users can sign up for it, carry out the instructions in the following
 sections.
 
-Set up roles
+##Set up roles
 ------------
 
 To see a delegated provider at work, you need additional Azure
@@ -101,7 +101,7 @@ provider (DP) and the user.
   Delegated Provider   User
   User                 User
 
-Establish the delegated providers
+##Establish the delegated providers
 ---------------------------------
 
 1.  Sign in as service administrator.
@@ -124,8 +124,7 @@ Establish the delegated providers
         the delegated provider as a tenant for this offer by clicking
         **Subscriptions** &gt; **Add** &gt; **New Tenant Subscription**.
 
-> ![](media/image3.png){width="5.339793307086614in"
-> height="2.1346161417322835in"}
+> ![](media/azure-stack-delegated-provider/image3.png){width="5.339793307086614in" height="2.1346161417322835in"}
 >
 > Note: as with all Azure Stack offers, you have the option of making
 > the offer public and letting users sign up for it, or keeping it
@@ -134,7 +133,7 @@ Establish the delegated providers
 > admitted to it, so keeping this offer private will make sense in most
 > cases.
 
-Service admin creates the delegated offer
+##Service admin creates the delegated offer
 -----------------------------------------
 
 You have now established your delegated provider. The next step is to
@@ -144,7 +143,7 @@ customers to see it, because the delegated provider will not be able to
 change the plans and quotas it includes.
 
 1.  As service administrator[, create a
-    plan](ttps://azure.microsoft.com/en-us/documentation/articles/azure-stack-create-plan/)
+    plan](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-create-plan/)
     and [an
     offer](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-create-offer/)
     based on it. For this article, we use an offer
@@ -162,10 +161,9 @@ change the plans and quotas it includes.
 2.  Select the delegated provider’s subscription from the drop-down list
     box and click **Delegate**.
 
-> ![](media/image4.png){width="5.673077427821522in"
-> height="2.245833333333333in"}
+> ![](media/azure-stack-delegated-provider/image4.png){width="5.673077427821522in" height="2.245833333333333in"}
 
-Customize the offer
+##Customize the offer
 -------------------
 
 Sign in as the delegated provider and create a new offer using the
@@ -173,13 +171,11 @@ delegated offer as a template.
 
 1.  Click **New** &gt; **Tenant Offers + Plans** &gt; **Offer**.
 
-> ![](media/image5.png){width="5.615383858267717in"
-> height="3.1808508311461066in"}
+> ![](media/azure-stack-delegated-provider/image5.png){width="5.615383858267717in" height="3.1808508311461066in"}
 
 1.  Assign a name to the offer. Here we choose ResellerOffer. Select the
     delegated offer to base it on and then click
-    **Create**.![](media/image6.png){width="5.3141021434820646in"
-    height="4.422740594925634in"}
+    **Create**.![](media/azure-stack-delegated-provider/image6.png){width="5.3141021434820646in" height="4.422740594925634in"}
 
 > Note the difference compared to offer creation as experienced by the
 > service administrator. The delegated provider does not construct the
@@ -200,15 +196,14 @@ delegated offer as a template.
 
     c.  Copy the portal URL to a separate location, such as Notepad.
 
-        ![](media/image7.jpeg){width="6.115384951881015in"
-        height="2.01875in"}
+        ![](media/azure-stack-delegated-provider/image7.png){width="6.115384951881015in" height="2.01875in"}
 
 <!-- -->
 
 5.  Sign out as the delegated provider. Close the browser tab you have
     been using.
 
-Sign up for the offer
+##Sign up for the offer
 ---------------------
 
 1.  In a new browser window, go to the delegated portal URL you saved in
@@ -220,13 +215,12 @@ Sign up for the offer
     only the delegated offers created by the delegated provider are
     presented to the user:
 
-> ![](media/image8.jpg){width="5.5641021434820646in"
-> height="2.843279746281715in"}
+> ![](media/azure-stack-delegated-provider/image8.png){width="5.5641021434820646in" height="2.843279746281715in"}
 
 This concludes the process of offer delegation. The user can now sign up
 for this offer by getting a subscription for it.
 
-Multiple-tier delegation
+##Multiple-tier delegation
 ------------------------
 
 Multiple-tier delegation allows the delegated provider to delegate the
