@@ -518,7 +518,7 @@ The parameters provided by the helper script can be filled in the portal as desc
 
 At this point, you have a secure cluster with Azure Active Directory providing management authentication. Next, [connect to your cluster](service-fabric-connect-to-secure-cluster.md) and learn how to [manage application secrets](service-fabric-application-secret-management.md).
 
-## Toubleshoot setting up Azure Active Directory for client authentication
+## Troubleshoot setting up Azure Active Directory for client authentication
 
 If you run into an issue while setting up Azure Active Directory for client authentication, review the following suggestings for potential solutions.
 
