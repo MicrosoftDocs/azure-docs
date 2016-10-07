@@ -1,5 +1,24 @@
+<properties
+	pageTitle="Delegating offers in Azure Stack | Microsoft Azure"
+	description="Learn how to put other people in charge of creating offers and signing up users for you."
+	services="azure-stack"
+	documentationCenter=""
+	authors="heathl17"
+	manager="byronr"
+	editor=""/>
+
+<tags
+	ms.service="azure-stack"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/07/2016"
+	ms.author="helaw"/>
+
+
 ---
-title: Delegating offers in Azure Stack
+#Delegating offers in Azure Stack
 ---
 
 As a service administrator, you often want to put other people in charge
@@ -17,7 +36,7 @@ providers, up to five levels.
 
 ![](media/image1.png){width="4.825in" height="3.466666666666667in"}
 
-Figure . Administrators can delegate the creation of offers and tenants
+Administrators can delegate the creation of offers and tenants
 to other users by using the delegation functionality.
 
 Roles and steps in delegation
