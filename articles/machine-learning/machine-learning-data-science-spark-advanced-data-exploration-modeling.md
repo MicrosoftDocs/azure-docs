@@ -25,13 +25,13 @@ This walkthrough uses HDInsight Spark to do data exploration and train binary cl
 - The **binary classification** task is to predict whether or not a tip is paid for the trip. 
 - The **regression** task is to predict the amount of the tip based on other tip features. 
 
-The modeling steps also contain code showing how to train, evaluate, and save each type of model. The topic covers some of the same ground as the [Data exploration and modeling with Spark](machine-learning-data-science-spark-data-exploration-modeling.md) topic, but is said to be "advanced" in that it also uses cross-validation in conjunction with hyperparameter sweeping to train optimally accurate classification and regression models. 
+The modeling steps also contain code showing how to train, evaluate, and save each type of model. The topic covers some of the same ground as the [Data exploration and modeling with Spark](machine-learning-data-science-spark-data-exploration-modeling.md) topic. But it is more "advanced" in that it also uses cross-validation in conjunction with hyperparameter sweeping to train optimally accurate classification and regression models. 
 
 **Cross-validation (CV)** is a technique that assesses how well a model trained on a known set of data generalizes to predicting the features of datasets on which it has not been trained. The general idea behind this technique is that a model is trained on a dataset of known data on and then the accuracy of its predictions is tested against an independent dataset. A common implementation used here is to divide a dataset into K folds and then train the model in a round-robin fashion on all but one of the folds. 
 
 **Hyperparameter optimization** is the problem of choosing a set of hyperparameters for a learning algorithm, usually with the goal of optimizing a measure of the algorithm's performance on an independent data set. **Hyperparameters** are values that must be specified outside of the model training procedure. Assumptions about these values can impact the flexibility and accuracy of the models. Decision trees have hyperparameters, for example, such as the desired depth and number of leaves in the tree. Support Vector Machines (SVMs) require setting a misclassification penalty term. 
 
-A common way to perform hyperparameter optimization used here is a grid search, or a **parameter sweep**. This consist of performing an exhaustive search through the values a specified subset of the hyperparameter space for a learning algorithm. Cross validation can supply a performance metric to sort out the optimal results produced by the grid search algorithm. CV used with hyperparameter sweeping helps limit problems like overfitting a model to training data so that  the model retains the capacity to apply to the general set of data from which the training data was extracted.
+A common way to perform hyperparameter optimization used here is a grid search, or a **parameter sweep**. This consists of performing an exhaustive search through the values a specified subset of the hyperparameter space for a learning algorithm. Cross validation can supply a performance metric to sort out the optimal results produced by the grid search algorithm. CV used with hyperparameter sweeping helps limit problems like overfitting a model to training data so that the model retains the capacity to apply to the general set of data from which the training data was extracted.
 
 The models we use include logistic and linear regression, random forests, and gradient boosted trees:
 
@@ -588,7 +588,7 @@ Each model building code section is split into steps:
 
 We show how to do cross-validation (CV) with parameter sweeping in two ways:
 
-1. Using  **generic** custom code which can be applied to any algorithm in MLlib and to any parameter sets in an algorithm. 
+1. Using **generic** custom code which can be applied to any algorithm in MLlib and to any parameter sets in an algorithm. 
 1. Using the **pySpark CrossValidator pipeline function**. Note that although convenient, based on our experience, CrossValidator has a few limitations for Spark 1.5.0: 
 
 	- Pipeline models cannot be saved/persisted for future consumption.
@@ -1310,7 +1310,7 @@ Time taken to execute above cell: 161.21  seconds
 
 **Evaluate with R-SQR metric**
 
-*tmp_results* is registered as a Hive table in the previous cell. Results from the table is output into the *sqlResults* data-frame for plotting. Here is the code
+*tmp_results* is registered as a Hive table in the previous cell. Results from the table are output into the *sqlResults* data-frame for plotting. Here is the code
 
 	# SELECT RESULTS
 	%%sql -q -o sqlResults
@@ -1459,10 +1459,10 @@ Use `unpersist()` to delete objects cached in memory.
 
 **OUTPUT**
 
-PythonRDD[122] at RDD at PythonRDD.scala:43
+PythonRDD[122] at RDD at PythonRDD.scala: 43
 
 
-**Print out path to model files to be used in the consumption notebook. **
+**Printout path to model files to be used in the consumption notebook. **
 To consume and score an independent data-set, you need to copy and paste these file names in the "Consumption notebook".
 
 
