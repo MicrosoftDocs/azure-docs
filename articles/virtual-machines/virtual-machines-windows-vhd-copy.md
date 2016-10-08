@@ -86,6 +86,17 @@ If you only want to copy a specific VHD in a container with multiple files, you 
 ```
 
 
+When it is finished, you will get a message that looks something like:
+
+	Finished 2 of total 2 file(s).
+	[2016/10/07 17:37:41] Transfer summary:
+	-----------------
+	Total files transferred: 2
+	Transfer successfully:   2
+	Transfer skipped:        0
+	Transfer failed:         0
+	Elapsed time:            00.00:13:07
+
 ## Troubleshooting
 
 - When you use AZCopy, if you see the error "Server failed to authenticate the request. Make sure the value of Authorization header is formed correctly including the signature." and you are using Key 2 or the secondary storage key, try using the primary or 1st storage key.
