@@ -174,9 +174,8 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 If the query is actively waiting on resources from another query, then the state will be **AcquireResources**.  If the query has all the required resources, then the state will be **Granted**.
 
 ## Next steps
-For more information on Dynamic Management Views (DMVs), see [System views][].  
-For tips on managing your SQL Data Warehouse, see [Manage overview][].  
-For best practices, see [SQL Data Warehouse best practices][].
+See [System views][] for more information on DMVs.
+See [SQL Data Warehouse best practices][] for more information about best practices
 
 <!--Image references-->
 
