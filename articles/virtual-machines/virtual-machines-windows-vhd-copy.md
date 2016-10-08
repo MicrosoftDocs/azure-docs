@@ -41,10 +41,10 @@ Make sure that you:
 
 ## Deallocate the VM
 
-Deallocate the VM, which frees up the VHD to be copied.
+Deallocate the VM, which frees up the VHD to be copied. 
 
-- **Portal**: Click **Virtual machines** > <vmName> > Stop
-- **Powershell**: `Stop-AzureRmVM -ResourceGroupName <resourceGroup> -Name <vmName>`
+- **Portal**: Click **Virtual machines** > **myVM** > Stop
+- **Powershell**: `Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM` deallocates the VM named **myVM** in resource group **myResourceGroup**.
 
 The **Status** for the VM in the Azure portal changes from **Stopped** to **Stopped (deallocated)**.
 
@@ -57,14 +57,14 @@ You can use the Azure portal or Azure Powershell to get the URL:
 
 - **Portal**: Click **More services** > **Storage accounts** > <storage account> **Blobs** and your source VHD file is probably in the **vhds** container. Click **Properties** for the container, and copy the text labeled **URL**. You'll need the URLs of both the source and destination containers. 
 
-- **Powershell**: `Get-AzureRmVM -ResourceGroupName "<resourceGroupName>" -Name "<vmName>"`. In the results, look in the **Storage profile** section for the **Vhd Uri**. The first part of the Uri is the URL to the container and the last part is the OS VHD name for the VM.
+- **Powershell**: `Get-AzureRmVM -ResourceGroupName "<resourceGroupName>" -Name "<vmName>"` gets the information for VM named **myVM** in the resource group **myResourceGroup**. In the results, look in the **Storage profile** section for the **Vhd Uri**. The first part of the Uri is the URL to the container and the last part is the OS VHD name for the VM.
 
 ## Get the storage access keys
 
 Find the access keys for the source and destination storage accounts. For more information about access keys, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
 - **Portal**: Click **More services** > **Storage accounts** > <storage account> **All Settings** > **Access keys**. Copy the key labeled as **key1**.
-- **Powershell**: `Get-AzureRmStorageAccountKey -Name <storageAccount> -ResourceGroupName <resourceGroupName>`. Copy the key labeled as **key1**.
+- **Powershell**: `Get-AzureRmStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup` gets the storage key for the storage account **mystorageaccount** in the resource group **myResourceGroup**. Copy the key labeled as **key1**.
 
 
 ## Copy the VHD 
@@ -73,20 +73,18 @@ You can copy files between storage accounts using AzCopy. For the destination co
 
 To use AzCopy, open a command prompt on your local machine and navigate to the folder where AzCopy is installed. It will be similar to *C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy*. 
 
-To copy all of the files within a container, you use the **/S** switch. This can be used to copy the VMs OS VHD and all of the data disks if they are in the same container.
+To copy all of the files within a container, you use the **/S** switch. This can be used to copy the VMs OS VHD and all of the data disks if they are in the same container. This example shows how to copy all of the files in the container **mysourcecontainer** in storage account **mysourcestorageaccount** to the container **mydestinationcontainer** in **mydestinationstorageaccount**. Replace the names of the storage accounts and containers with your own. Replace <sourceStorageAccountKey1> and <destinationStorageAccountKey1> with your own keys.
 
 ```
-	AzCopy /Source:https://<sourceStorageAccountName>.blob.core.windows.net/<sourceContainerName> /Dest:https://<destinationStorageAccount>.blob.core.windows.net/<destinationContainerName> /SourceKey:<sourceStorageAccountKey1> /DestKey:<destinationStorageAccountKey1> /S
+	AzCopy /Source:https://mysourcestorageaccount.blob.core.windows.net/mysourcecontainer /Dest:https://mydestinationatorageaccount.blob.core.windows.net/mydestinationcontainer /SourceKey:<sourceStorageAccountKey1> /DestKey:<destinationStorageAccountKey1> /S
 ```
 
-If you only want to copy a specific VHD in a container with multiple files, you can also specify the file name using the /Pattern switch.
+If you only want to copy a specific VHD in a container with multiple files, you can also specify the file name using the /Pattern switch. In this example, only the file named **myFileName.vhd** will be copied.
 
 ```
- 	AzCopy /Source:https://<sourceStorageAccountName>.blob.core.windows.net/<sourceContainerName> /Dest:https://<destinationStorageAccount>.blob.core.windows.net/<destinationContainerName> /SourceKey:<sourceAccessKey> /DestKey:<destinationAccessKey> /Pattern:<File_name_of_the_VHD_you_are_copying.vhd>
+ 	AzCopy /Source:https://mysourcestorageaccount.blob.core.windows.net/mysourcecontainer /Dest:https://mydestinationatorageaccount.blob.core.windows.net/mydestinationcontainer /SourceKey:<sourceStorageAccountKey1> /DestKey:<destinationStorageAccountKey1> /Pattern:myFileName.vhd
 ```
 
-	
-## Get the URI of the copied VHD file
 
 ## Troubleshooting
 
@@ -95,9 +93,9 @@ If you only want to copy a specific VHD in a container with multiple files, you 
 
 ## Next steps
 
-If you copied a **specialized** VM, you can create a new VM by [attaching the copy of the VHD to a VM as an OS disk](virtual-machines-windows-specialized-image.md).
+- If you copied a **specialized** VM, you can create a new VM by [attaching the copy of the VHD to a VM as an OS disk](virtual-machines-windows-specialized-image.md).
 
-If you copied a **generalized** VM, you can [create a new VM from the generalized VHD image](virtual-machines-windows-create-vm-generalized.md).
+- If you copied a **generalized** VM, you can [create a new VM from the generalized VHD image](virtual-machines-windows-create-vm-generalized.md).
 
 
 
