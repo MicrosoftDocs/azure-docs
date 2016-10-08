@@ -51,7 +51,7 @@ code iot-hub-node-raspberrypi-azure-blink
 - `config.json` is the configuration file that contains information required to connect to the board and your IoT hub.
 - `ReceiveDeviceMessages` sub-folder contains Node.js code for the Azure function.
 
-## 3.1.5 Configure the ARM templates and create resources
+## 3.1.5 Configure ARM templates and create resources
 Use VS Code to update your ARM template configuration file:
 
 ![ARM template parameters](media/iot-hub-raspberry-pi-lessons/lesson3/arm_para.png)

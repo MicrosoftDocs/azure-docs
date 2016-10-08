@@ -64,14 +64,14 @@ You can now insert the SD card into your Raspberry Pi 3 board.
 
 ![Insert the SD card](media/iot-hub-raspberry-pi-lessons/lesson1/insert_sdcard.jpg)
 
-## 1.1.5 Power on your Raspberry Pi 3 device
+## 1.1.5 Power on your Raspberry Pi
 Power on your Raspberry Pi 3 device by using the provided Micro USB cable and power supply.
 
 ![Power on](media/iot-hub-raspberry-pi-lessons/lesson1/micro_usb_power_on.jpg)
 
 > [AZURE.NOTE] It is important to use a power supply that is at least 2A rated to make sure that your Raspberry Pi 3 works correctly.
 
-## 1.1.6 Connect your Raspberry Pi 3 device to the network
+## 1.1.6 Connect your Raspberry Pi 3 to the network
 The simplest way to connect your Raspberry Pi 3 device to the network is to use the provided Ethernet cable, but you can also connect using WiFi, if you prefer.
 
 ### 1.1.6.1 Connect using Ethernet cable
@@ -83,7 +83,7 @@ Use the provided Ethernet cable to connect your Raspberry Pi 3 to your LAN. Make
 
 Follow the [instructions](https://www.raspberrypi.org/learning/software-guide/wifi/) available from the Raspberry Pi Foundation to connect your Raspberry Pi 3 to your WiFi network. This requires you to first connect a monitor and keyboard to your Pi.
 
-## 1.1.7 Connect the LED to your Raspberry Pi 3 device
+## 1.1.7 Connect the LED to your Raspberry Pi
 To complete this section, use the provided breadboard, connector wires, LED, and resistor. You will connect them to the [General-purpose input/output](https://www.raspberrypi.org/documentation/usage/gpio/) (GPIO) ports of your Raspberry Pi 3. 
 
 ![Breadboard, LED and Resistor](media/iot-hub-raspberry-pi-lessons/lesson1/breadboard_led_resistor.jpg)
