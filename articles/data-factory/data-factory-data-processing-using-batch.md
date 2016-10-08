@@ -48,7 +48,7 @@ See the following articles if you are not familiar with Azure Data Factory as it
 ## Data Factory and Batch together
 Data Factory includes built-in activities such as Copy Activity to copy/move data from a source data store to a destination data store and Hive Activity to process data using Hadoop clusters (HDInsight) on Azure. See [Data Transformation Activities](data-factory-data-transformation-activities.md) for a list of supported transformation activities. 
 
-It also allows you to create custom .NET activities to move or process data with your own logic and run these activities on an Azure HDInsight cluster or on an Azure Bach pool of VMs. When you use Azure Batch, you can configure the pool to auto-scale (add or remove VMs based on the workload) based on a formula you provide.     
+It also allows you to create custom .NET activities to move or process data with your own logic and run these activities on an Azure HDInsight cluster or on an Azure Batch pool of VMs. When you use Azure Batch, you can configure the pool to auto-scale (add or remove VMs based on the workload) based on a formula you provide.     
 
 ## Architecture of sample solution
 Even though the architecture described in this article is for a simple solution, it is relevant to complex scenarios such as risk modeling by financial services, image processing and rendering, and genomic analysis. 
@@ -57,7 +57,7 @@ The diagram illustrates 1) how Data Factory orchestrates data movement and proce
 
 [![Large-scale data processing diagram](./media/data-factory-data-processing-using-batch/image1.png)](http://go.microsoft.com/fwlink/?LinkId=717686)
 
-These are the basic steps of the process. The solution includes code and explanations to build the end-to-end solution.
+The following list provides the basic steps of the process. The solution includes code and explanations to build the end-to-end solution.
 
 1.  **Configure Azure Batch with a pool of compute nodes (VMs)**. You can specify the number of nodes and size of each node.
 
@@ -76,7 +76,7 @@ These are the basic steps of the process. The solution includes code and explana
 ## Implementation of sample solution
 The sample solution is intentionally simple and is to show you how to use Data Factory and Batch together to process datasets. The solution simply counts the number of occurrences of a search term (“Microsoft”) in input files organized in a time series. It outputs the count to output files.
 
-**Time**: If you are familiar with basics of Azure, Data Factory, and Batch, and have completed the prerequisites listed below, we estimate this solution  takes 1-2 hours to complete.
+**Time**: If you are familiar with basics of Azure, Data Factory, and Batch, and have completed the prerequisites listed below, we estimate this solution takes 1-2 hours to complete.
 
 ### Prerequisites
 
@@ -106,7 +106,7 @@ Create an **Azure Batch pool** with at least 2 compute nodes.
 	6. Click **OK** to create the pool. 
  	
 #### Azure Storage Explorer   
-[Azure Storage Explorer 6 (tool)](https://azurestorageexplorer.codeplex.com/) or [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (from ClumsyLeaf Software). These are GUI tools for inspecting and altering the data in your Azure Storage projects including the logs of your cloud-hosted applications.
+[Azure Storage Explorer 6 (tool)](https://azurestorageexplorer.codeplex.com/) or [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (from ClumsyLeaf Software). You use these tools for inspecting and altering the data in your Azure Storage projects including the logs of your cloud-hosted applications.
 
 1.  Create a container named **mycontainer** with private access (no anonymous access)
 
@@ -116,7 +116,7 @@ Create an **Azure Batch pool** with at least 2 compute nodes.
 
 	**Inputfolder** and **outputfolder** are top-level folders in **mycontainer,** and the **inputfolder** has subfolders with date-time stamps (YYYY-MM-DD-HH).
 
-	If you are using **Azure Storage Explorer**, in the next step, you need to upload files with names: inputfolder/2015-11-16-00/file.txt, inputfolder/2015-11-16-01/file.txt and so on. This automatically creates the folders.
+	If you are using **Azure Storage Explorer**, in the next step, you need to upload files with names: inputfolder/2015-11-16-00/file.txt, inputfolder/2015-11-16-01/file.txt and so on. This step automatically creates the folders.
 
 3.  Create a text file **file.txt** on your machine with content that has the keyword **Microsoft**. For example: “test custom activity Microsoft test custom activity Microsoft”.
 
@@ -136,8 +136,6 @@ Install Microsoft Visual Studio 2012 or later to create the custom Batch activit
 1.  Create a custom activity that contains the data processing logic.
 2.  Create an Azure data factory that uses the custom activity:
 
-Detailed steps are in the following sections. 
-
 ### Create the custom activity
 
 The Data Factory custom activity is the heart of this sample solution. The sample solution uses Azure Batch to run the custom activity. See [Use custom activities in an Azure Data Factory pipeline](data-factory-use-custom-activities.md) for the basic information to develop custom activities and use them in Azure Data Factory pipelines.
@@ -154,7 +152,7 @@ The method has a few key components that you need to understand.
 
 -   The method takes four parameters:
 
-    1.  **linkedServices**. This is an enumerable list of linked services that link input/output data sources (for example: Azure Blob Storage) to the data factory. In this sample, there is only one linked service of type Azure Storage used for both input and output.
+    1.  **linkedServices**. An enumerable list of linked services that link input/output data sources (for example: Azure Blob Storage) to the data factory. In this sample, there is only one linked service of type Azure Storage used for both input and output.
 
     2.  **datasets**. This is an enumerable list of datasets. You can use this parameter to get the locations and schemas defined by input and output datasets.
 
@@ -162,7 +160,7 @@ The method has a few key components that you need to understand.
 
     4.  **logger**. The logger lets you write debug comments that surface as the “User” log for the pipeline.
 
--   The method returns a dictionary that can be used to chain custom activities together in the future. This feature is not implemented yet, so just return an empty dictionary from the method. 
+-   The method returns a dictionary that can be used to chain custom activities together in the future. This feature is not implemented yet, so return an empty dictionary from the method. 
 
 #### Procedure: Create the custom activity
 
@@ -284,7 +282,7 @@ The method has a few key components that you need to understand.
             Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
 
             logger.Write("output blob URI: {0}", outputBlobUri.ToString());
-            // create a new blob and upload the output text.
+            // create a blob and upload the output text.
             CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
             logger.Write("Writing {0} to the output blob", output);
             outputBlob.UploadText(output);
@@ -381,7 +379,7 @@ The method has a few key components that you need to understand.
 
 11.  Launch **Windows Explorer**, and navigate to **bin\\debug** or **bin\\release** folder depending on the type of build.
 
-12.  Create a zip file **MyDotNetActivity.zip** that contains all the binaries in the **\\bin\\Debug** folder. You may want to include the MyDotNetActivity.**pdb** file so that you get additional details such as line number in the source code that caused the issue, in case of a failure.
+12.  Create a zip file **MyDotNetActivity.zip** that contains all the binaries in the **\\bin\\Debug** folder. You may want to include the MyDotNetActivity.**pdb** file so that you get additional details such as line number in the source code that caused the issue when a failure occurs.
 
 	![](./media/data-factory-data-processing-using-batch/image5.png)
 
@@ -439,14 +437,14 @@ This section provides more details and notes about the code in the Execute metho
 
 		return blobDataset.FileName;
 
-6.	The name of the file is written by creating a new URI object. The URI constructor uses the **BlobEndpoint** property to return the container name. The folder path and file name are added to construct the output blob URI.  
+6.	The name of the file is written by creating a URI object. The URI constructor uses the **BlobEndpoint** property to return the container name. The folder path and file name are added to construct the output blob URI.  
 
 		// Write the name of the file.
 		Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
 
 7.	The name of the file has been written and now you can write the output string from the **Calculate** method to a new blob:
 
-		// Create a new blob and upload the output text.
+		// Create a blob and upload the output text.
 		CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
 		logger.Write("Writing {0} to the output blob", output);
 		outputBlob.UploadText(output);
@@ -484,7 +482,7 @@ If you drop multiple files (file.txt, file2.txt, file3.txt) with the same conten
 	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file3.txt.
 
 
-Note that the output file has three lines now, one for each input file (blob) in the folder associated with the slice (2015-11-16-00).
+The output file has three lines now, one for each input file (blob) in the folder associated with the slice (2015-11-16-00).
 
 A task is created for each activity run. In this sample, there is only one activity in the pipeline. When a slice is processed by the pipeline, the custom activity runs on Azure Batch to process the slice. Since there are five slices (each slice can have multiple blobs or file), there are five tasks created in Azure Batch. When a task runs on Batch, it is actually the custom activity that is running.
 
@@ -502,7 +500,7 @@ The following walkthrough provides additional details.
 
 2.  In the **New data factory** blade, enter **CustomActivityFactory** for the Name. The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “CustomActivityFactory” is not available**, change the name of the data factory (for example, **yournameCustomActivityFactory**) and try creating again.
 
-3.  Click **RESOURCE GROUP NAME**, and select an existing resource group or create a new resource group.
+3.  Click **RESOURCE GROUP NAME**, and select an existing resource group or create a resource group.
 
 4.  Verify that you are using the correct subscription and region where you want the data factory to be created.
 
@@ -520,7 +518,7 @@ Linked services link data stores or compute services to an Azure data factory. I
 
 #### Create Azure Storage linked service
 
-1.  Click the **Author and deploy** tile on the **DATA FACTORY** blade for **CustomActivityFactory**. This launches the Data Factory Editor.
+1.  Click the **Author and deploy** tile on the **DATA FACTORY** blade for **CustomActivityFactory**. You see the Data Factory Editor.
 
 2.  Click **New data store** on the command bar and choose **Azure storage.** You should see the JSON script for creating an Azure Storage linked service in the editor.
 
@@ -548,7 +546,7 @@ In this step, you create a linked service for your **Azure Batch** account that 
 
     4.  Enter the batch URI for the **batchUri** JSON property. 
     
-		> [AZURE.IMPORTANT] The **URL** from the **Azure Batch account blade** is in the following format: \<accountname\>.\<region\>.batch.azure.com. For the **batchUri** property in the JSON, you need to **remove "accountname."** from the URL. Example: "batchUri": "https://eastus.batch.azure.com".
+		> [AZURE.IMPORTANT] The **URL** from the **Azure Batch account blade** is in the following format: \<accountname\>.\<region\>.batch.azure.com. For the **batchUri** property in the JSON, you need to **remove "accountname."** from the URL. Example: `"batchUri": "https://eastus.batch.azure.com"`.
 
         ![](./media/data-factory-data-processing-using-batch/image9.png)
 
@@ -639,7 +637,7 @@ In this step, you create datasets to represent input and output data.
 	| 4         | 2015-11-16T**03**:00:00 |
 	| 5         | 2015-11-16T**04**:00:00 |
 
-	 The **folderPath** is calculated by using the year, month, day and hour part of the slice start time (**SliceStart**). Therefore, here is how an input folder is mapped to a slice.
+	 The **folderPath** is calculated by using the year, month, day, and hour part of the slice start time (**SliceStart**). Therefore, here is how an input folder is mapped to a slice.
 
 	| **Slice** | **Start time**          | **Input folder**  |
 	|-----------|-------------------------|-------------------|
@@ -705,11 +703,11 @@ In this step, you create another dataset of type AzureBlob to represent the outp
 
 In this step, you create a pipeline with one activity, the custom activity you created earlier.
 
-> [AZURE.IMPORTANT] If you haven't uploaded the **file.txt** to input folders in the blob container, please do so before creating the pipeline. The **isPaused** property is set to false in the pipeline JSON, so the pipeline runs immediately as the **start** date is in the past.
+> [AZURE.IMPORTANT] If you haven't uploaded the **file.txt** to input folders in the blob container, do so before creating the pipeline. The **isPaused** property is set to false in the pipeline JSON, so the pipeline runs immediately as the **start** date is in the past.
 
 1.  In the Data Factory Editor, click **New pipeline** on the command bar. If you do not see the command, click **... (Ellipsis)** to see it.
 
-2.  Replace the JSON in the right pane with the following JSON script.
+2.  Replace the JSON in the right pane with the following JSON script:
 
 		{
 			"name": "PipelineCustom",
@@ -769,14 +767,14 @@ In this step, you create a pipeline with one activity, the custom activity you c
 
 	-   The **linkedServiceName** property of the custom activity points to the **AzureBatchLinkedService**, which tells Azure Data Factory that the custom activity needs to run on Azure Batch.
 
-	-   The **concurrency** setting is important. If you use the default value, which is 1, even if you have 2 or more compute nodes in the Azure Batch pool, the slices are processed one after another. Therefore, you are not taking advantage of the parallel processing capability of Azure Batch. If you set **concurrency** to a higher value, say 2, it means that 2 slices (corresponds to 2 tasks in Azure Batch) can be processed at the same time, in which case, both the VMs in the Azure Batch pool are utilized. Therefore, set the concurrency property appropriately.
+	-   The **concurrency** setting is important. If you use the default value, which is 1, even if you have 2 or more compute nodes in the Azure Batch pool, the slices are processed one after another. Therefore, you are not taking advantage of the parallel processing capability of Azure Batch. If you set **concurrency** to a higher value, say 2, it means that two slices (corresponds to two tasks in Azure Batch) can be processed at the same time, in which case, both the VMs in the Azure Batch pool are utilized. Therefore, set the concurrency property appropriately.
 
-	-   Only one task (slice) is executed on a VM at any point by default. This is because, by default, the **Maximum tasks per VM** is set to 1 for an Azure Batch pool. As part of prerequisites, you created a pool with this property set to 2, so two Data Factory slices can be running on a VM at the same time.
+	-   Only one task (slice) is executed on a VM at any point by default. The reason is that, by default, the **Maximum tasks per VM** is set to 1 for an Azure Batch pool. As part of prerequisites, you created a pool with this property set to 2, so two Data Factory slices can be running on a VM at the same time.
 
 
 	-   **isPaused** property is set to false by default. The pipeline runs immediately in this example because the slices start in the past. You can set this property to true to pause the pipeline and set it back to false to restart.
 
-	-   The **start** time and **end** times are 5 hours apart and slices are produced hourly, so five slices are produced by the pipeline.
+	-   The **start** time and **end** times are five hours apart and slices are produced hourly, so five slices are produced by the pipeline.
 
 3.  Click **Deploy** on the command bar to deploy the pipeline.
 
@@ -798,7 +796,7 @@ In this step, you test the pipeline by dropping files into the input folders. Le
 
 4.  In the **Diagram View**, now click **OutputDataset**.
 
-5.  You should see that the 5 output slices are in the Ready state if they have already been produced.
+5.  You should see that the five output slices are in the Ready state if they have already been produced.
 
     ![](./media/data-factory-data-processing-using-batch/image13.png)
 
@@ -833,14 +831,14 @@ In this step, you test the pipeline by dropping files into the input folders. Le
 		2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file5.txt.
 
 
-> [AZURE.NOTE] If you did not delete the output file 2015-11-16-01.txt before trying with 5 input files, you see one line from the previous slice run and five lines from the current slice run. By default, the content is appended to output file if it already exists.
+> [AZURE.NOTE] If you did not delete the output file 2015-11-16-01.txt before trying with five input files, you see one line from the previous slice run and five lines from the current slice run. By default, the content is appended to output file if it already exists.
 
 #### Data Factory and Batch integration
 The Data Factory service creates a job in Azure Batch with the name: **adf-poolname:job-xxx**. 
 
 ![Azure Data Factory - Batch jobs](media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png)
 
-A task in the job is created for each activity run of a slice. If there are 10 slices ready to be processed, 10 tasks are created in the job. You can have more than one slice running in parallel if you have multiple compute nodes in the pool. If the maximum tasks per compute node is set to > 1, there can be more than one slice running on the same compute .
+A task in the job is created for each activity run of a slice. If there are 10 slices ready to be processed, 10 tasks are created in the job. You can have more than one slice running in parallel if you have multiple compute nodes in the pool. If the maximum tasks per compute node is set to > 1, there can be more than one slice running on the same compute.
 
 In this example, there are five slices, so five tasks in Azure Batch. With the **concurrency** set to **5** in the pipeline JSON in Azure Data Factory and **Maximum tasks per VM** set to **2** in Azure Batch pool with **2** VMs, the tasks runs fast (check start and end times for tasks).
 
@@ -890,7 +888,7 @@ Debugging consists of a few basic techniques:
 
     ![](./media/data-factory-data-processing-using-batch/image21.png)
 
-    **Note:** you see a **container** in your Azure Blob storage named: **adfjobs**. This container is not automatically deleted, but you can safely delete it after you are done testing the solution. Similarly, the Data Factory solution creates an Azure Batch **job** named: **adf-\<pool ID/name\>:job-0000000001**. You can delete this job after you done testing the solution if you like.
+    **Note:** you see a **container** in your Azure Blob storage named: **adfjobs**. This container is not automatically deleted, but you can safely delete it after you are done testing the solution. Similarly, the Data Factory solution creates an Azure Batch **job** named: **adf-\<pool ID/name\>:job-0000000001**. You can delete this job after you test the solution if you like.
 7. The custom activity does not use the **app.config** file from your package. Therefore, if your code reads any connection strings from the configuration file, it does not work at runtime. The best practice when using Azure Batch is to hold any secrets in an **Azure KeyVault**, use a certificate-based service principal to protect the keyvault, and distribute the certificate to Azure Batch pool. The .NET custom activity then can access secrets from the KeyVault at runtime. This solution is a generic one and can scale to any type of secret, not just connection string.
 
 	There is an easier workaround (but not a best practice): you can create an **Azure SQL linked service** with connection string settings, create a dataset that uses the linked service, and chain the dataset as a dummy input dataset to the custom .NET activity. You can then access the linked service's connection string in the custom activity code and it should work fine at runtime.  
