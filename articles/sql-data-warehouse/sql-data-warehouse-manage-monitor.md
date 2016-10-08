@@ -13,12 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/28/2016"
+   ms.date="10/08/2016"
    ms.author="sonyama;barbkess"/>
 
 # Monitor your workload using DMVs
 
 This article describes how to use Dynamic Management Views (DMVs) to monitor your workload and investigate query execution in Azure SQL Data Warehouse.
+
+## Permissions
+
+To query the DMVs in this article, you need either VIEW DATABASE STATE or CONTROL permission. Usually granting VIEW DATABASE STATE is the preferred permission as it is much more restrictive.
+
+```sql
+GRANT VIEW DATABASE STATE TO myuser;
+```
 
 ## Monitor connections
 
