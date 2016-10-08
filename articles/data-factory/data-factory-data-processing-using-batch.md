@@ -486,13 +486,13 @@ If you drop multiple files (file.txt, file2.txt, file3.txt) with the same conten
 
 Note that the output file has three lines now, one for each input file (blob) in the folder associated with the slice (2015-11-16-00).
 
-A task is created for each activity run. In this sample, there is only one activity in the pipeline. When a slice is processed by the pipeline, the custom activity runs on Azure Batch to process the slice. Since there are 5 slices (each slice can have multiple blobs or file), there are 5 tasks created in Azure Batch. When a task runs on Batch, it is actually the custom activity that is running.
+A task is created for each activity run. In this sample, there is only one activity in the pipeline. When a slice is processed by the pipeline, the custom activity runs on Azure Batch to process the slice. Since there are five slices (each slice can have multiple blobs or file), there are five tasks created in Azure Batch. When a task runs on Batch, it is actually the custom activity that is running.
 
 The following walkthrough provides additional details.
 
 #### Step 1: Create the data factory
 
-1.  After logging in to the [Azure portal](https://portal.azure.com/), do the following:
+1.  After logging in to the [Azure portal](https://portal.azure.com/), do the following steps:
 
     1.  Click **NEW** on the left menu.
 
@@ -753,7 +753,7 @@ In this step, you create a pipeline with one activity, the custom activity you c
 		   }
 		}
 
-	Note the following:
+	Note the following points:
 
 	-   There is only one activity in the pipeline and that is of type: **DotNetActivity**.
 
@@ -776,7 +776,7 @@ In this step, you create a pipeline with one activity, the custom activity you c
 
 	-   **isPaused** property is set to false by default. The pipeline runs immediately in this example because the slices start in the past. You can set this property to true to pause the pipeline and set it back to false to restart.
 
-	-   The **start** time and **end** times are 5 hours apart and slices are produced hourly, so 5 slices are produced by the pipeline.
+	-   The **start** time and **end** times are 5 hours apart and slices are produced hourly, so five slices are produced by the pipeline.
 
 3.  Click **Deploy** on the command bar to deploy the pipeline.
 
@@ -788,15 +788,15 @@ In this step, you test the pipeline by dropping files into the input folders. Le
 
     ![](./media/data-factory-data-processing-using-batch/image10.png)
 
-2.  In the diagram view, double-click on input dataset: **InputDataset**.
+2.  In the diagram view, double-click input dataset: **InputDataset**.
 
     ![](./media/data-factory-data-processing-using-batch/image11.png)
 
-3.  You should see the **InputDataset** blade with all 5 slices ready. Notice the **SLICE START TIME** and **SLICE END TIME** for each slice.
+3.  You should see the **InputDataset** blade with all five slices ready. Notice the **SLICE START TIME** and **SLICE END TIME** for each slice.
 
     ![](./media/data-factory-data-processing-using-batch/image12.png)
 
-4.  In the **Diagram View**, now click on the **OutputDataset**.
+4.  In the **Diagram View**, now click **OutputDataset**.
 
 5.  You should see that the 5 output slices are in the Ready state if they have already been produced.
 
@@ -808,7 +808,7 @@ In this step, you test the pipeline by dropping files into the input folders. Le
 
     ![](./media/data-factory-data-processing-using-batch/image15.png)
 
-    You should see five output files, one for each input slice. Each of the output file should have content similar to the following:
+    You should see five output files, one for each input slice. Each of the output file should have content similar to the following output:
 
     	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
 
@@ -820,7 +820,7 @@ In this step, you test the pipeline by dropping files into the input folders. Le
 
 9.  In the output folder, **delete** the output file: **2015-11-16-01.txt**.
 
-10. Now, in the **OutputDataset** blade, right-click the slice with **SLICE START TIME** set to **11/16/2015 01:00:00 AM**, and click **Run** to rerun/re-process the slice. Now, the slice has 5 files instead of 1 file.
+10. Now, in the **OutputDataset** blade, right-click the slice with **SLICE START TIME** set to **11/16/2015 01:00:00 AM**, and click **Run** to rerun/re-process the slice. Now, the slice has five files instead of one file.
 
     ![](./media/data-factory-data-processing-using-batch/image17.png)
 
@@ -833,16 +833,16 @@ In this step, you test the pipeline by dropping files into the input folders. Le
 		2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file5.txt.
 
 
-> [AZURE.NOTE] If you hadn’t deleted the output file 2015-11-16-01.txt before trying with 5 input files, you see one line from the previous slice run and five lines from the current slice run. By default, the content is appended to output file if it already exists.
+> [AZURE.NOTE] If you did not delete the output file 2015-11-16-01.txt before trying with 5 input files, you see one line from the previous slice run and five lines from the current slice run. By default, the content is appended to output file if it already exists.
 
 #### Data Factory and Batch integration
 The Data Factory service creates a job in Azure Batch with the name: **adf-poolname:job-xxx**. 
 
 ![Azure Data Factory - Batch jobs](media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png)
 
-A task in the job is created for each activity run of a slice. If there are 10 slices ready to be processed, 10 tasks are created in the job. You can have more than one slice running in parallel if you have multiple compute nodes in the pool. You can also have more than one slice running on the same compute if the maximum tasks per compute node is set to > 1.
+A task in the job is created for each activity run of a slice. If there are 10 slices ready to be processed, 10 tasks are created in the job. You can have more than one slice running in parallel if you have multiple compute nodes in the pool. If the maximum tasks per compute node is set to > 1, there can be more than one slice running on the same compute .
 
-In this example, there are 5 slices, so 5 tasks in Azure Batch. With the **concurrency** set to **5** in the pipeline JSON in Azure Data Factory and **Maximum tasks per VM** set to **2** in Azure Batch pool with **2** VMs, the tasks runs very fast (check start and end times for tasks).
+In this example, there are five slices, so five tasks in Azure Batch. With the **concurrency** set to **5** in the pipeline JSON in Azure Data Factory and **Maximum tasks per VM** set to **2** in Azure Batch pool with **2** VMs, the tasks runs fast (check start and end times for tasks).
 
 Use the portal to view the Batch job and its tasks that are associated with the **slices** and see what VM each slice ran on. 
 
@@ -858,7 +858,7 @@ Debugging consists of a few basic techniques:
 
 2.  In the **Execute** method of your custom activity, use the **IActivityLogger** object to log information that helps you troubleshoot issues. The logged messages show up in the user\_0.log file.
 
-    In the **OutputDataset** blade, click on the slice to see the **DATA SLICE** blade for that slice. You see **activity runs** for that slice. You should see one activity run for the slice. If you click **Run** in the command bar, you can start another activity run for the same slice.
+    In the **OutputDataset** blade, click the slice to see the **DATA SLICE** blade for that slice. You see **activity runs** for that slice. You should see one activity run for the slice. If you click **Run** in the command bar, you can start another activity run for the same slice.
 
     When you click the activity run, you see the **ACTIVITY RUN DETAILS** blade with a list of log files. You see logged messages in the **user\_0.log** file. When an error occurs, you see three activity runs because the retry count is set to 3 in the pipeline/activity JSON. When you click the activity run, you see the log files that you can review to troubleshoot the error.
 
@@ -868,7 +868,7 @@ Debugging consists of a few basic techniques:
 
     ![](./media/data-factory-data-processing-using-batch/image19.png)
 
-    You should also check system-0.log for any system error messages and exceptions.
+    Check system-0.log for any system error messages and exceptions.
 
 		Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Loading assembly file MyDotNetActivity...
 
@@ -891,23 +891,23 @@ Debugging consists of a few basic techniques:
     ![](./media/data-factory-data-processing-using-batch/image21.png)
 
     **Note:** you see a **container** in your Azure Blob storage named: **adfjobs**. This container is not automatically deleted, but you can safely delete it after you are done testing the solution. Similarly, the Data Factory solution creates an Azure Batch **job** named: **adf-\<pool ID/name\>:job-0000000001**. You can delete this job after you done testing the solution if you like.
-7. The custom activity does not use the **app.config** file from your package, so if your code reads any connection strings from the configuration file, it won't work at runtime. The best practice when using Azure Batch is to hold any secrets in an **Azure KeyVault**, use a certificate-based service principal to protect the keyvault, and distribute the certificate to Azure Batch pool. The .NET custom activity then can access secrets from the KeyVault at runtime. This is a generic solution and can scale to any type of secret, not just connection string.
+7. The custom activity does not use the **app.config** file from your package. Therefore, if your code reads any connection strings from the configuration file, it does not work at runtime. The best practice when using Azure Batch is to hold any secrets in an **Azure KeyVault**, use a certificate-based service principal to protect the keyvault, and distribute the certificate to Azure Batch pool. The .NET custom activity then can access secrets from the KeyVault at runtime. This solution is a generic one and can scale to any type of secret, not just connection string.
 
-	There is an easier workaround (but not a best practice): you can create a new **Azure SQL linked service** with connection string settings, create a dataset that uses the linked service, and chain the dataset as a dummy input dataset to the custom .NET activity. You can then access the linked service's connection string in the custom activity code and it should work fine at runtime.  
+	There is an easier workaround (but not a best practice): you can create an **Azure SQL linked service** with connection string settings, create a dataset that uses the linked service, and chain the dataset as a dummy input dataset to the custom .NET activity. You can then access the linked service's connection string in the custom activity code and it should work fine at runtime.  
 
 #### Extend the sample
 
-You can extend this sample to learn more about Azure Data Factory and Azure Batch features. For example, to process slices in a different time range, do the following:
+You can extend this sample to learn more about Azure Data Factory and Azure Batch features. For example, to process slices in a different time range, do the following steps:
 
-1.  Add the following subfolders in the **inputfolder**: 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08, 2015-11-16-09 and place input files in those folders. Change the end time for the pipeline from 2015-11-16T05:00:00Z to 2015-11-16T10:00:00Z. In the **Diagram View**, double-click the **InputDataset**, and confirm that the input slices are ready. Double-click **OuptutDataset** to see the state of output slices. If they are in Ready state, check the outputfolder for the output files.
+1.  Add the following subfolders in the **inputfolder**: 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08, 2015-11-16-09 and place input files in those folders. Change the end time for the pipeline from `2015-11-16T05:00:00Z` to `2015-11-16T10:00:00Z`. In the **Diagram View**, double-click the **InputDataset**, and confirm that the input slices are ready. Double-click **OuptutDataset** to see the state of output slices. If they are in Ready state, check the outputfolder for the output files.
 
 2.  Increase or decrease the **concurrency** setting to understand how it affects the performance of your solution, especially the processing that occurs on Azure Batch. (See Step 4: Create and run the pipeline for more on the **concurrency** setting.)
 
-3.  Create a pool with higher/lower **Maximum tasks per VM**. Update the Azure Batch linked service in the Data Factory solution to use the new pool you created. (See Step 4: Create and run the pipeline for more on the **Maximum tasks per VM** setting.)
+3.  Create a pool with higher/lower **Maximum tasks per VM**. To use the new pool you created, update the Azure Batch linked service in the Data Factory solution. (See Step 4: Create and run the pipeline for more on the **Maximum tasks per VM** setting.)
 
 4.  Create an Azure Batch pool with **autoscale** feature. Automatically scaling compute nodes in an Azure Batch pool is the dynamic adjustment of processing power used by your application. For example, you could create an azure batch pool with 0 dedicated VMs and an autoscale formula based on the number of pending tasks:
  
-	One VM per pending task at a time (for example: 5 pending tasks -> 5 VMs):
+	One VM per pending task at a time (for example: give pending tasks -> five VMs):
 
 		pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
 		$TargetDedicated = max(pendingTaskSampleVector);
@@ -928,7 +928,7 @@ You can extend this sample to learn more about Azure Data Factory and Azure Batc
 
 ### Next steps: Consume the data
 
-After you process data you can consume it with online tools like **Microsoft Power BI**. Here are links to help you understand Power BI and how to use it in Azure:
+After you process data, you can consume it with online tools like **Microsoft Power BI**. Here are links to help you understand Power BI and how to use it in Azure:
 
 -   [Explore a dataset in Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-data/)
 
