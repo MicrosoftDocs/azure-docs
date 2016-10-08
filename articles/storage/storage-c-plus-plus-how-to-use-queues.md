@@ -4,7 +4,7 @@
     services="storage"
     documentationCenter=".net"
     authors="dineshmurthy"
-    manager=jahogg""
+    manager="jahogg"
     editor="tysonn"/>
 
 <tags
