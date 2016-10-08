@@ -20,9 +20,9 @@
 # 2.1 Get Azure tools (Ubuntu 16.04)
 
 > [AZURE.SELECTOR]
-- [Windows 7 +](iot-hub-raspberry-pi-node-lesson2-get-azure-tools-win32.md)
-- [Ubuntu 16.04](iot-hub-raspberry-pi-node-lesson2-get-azure-tools-ubuntu.md)
-- [OS X 10.10](iot-hub-raspberry-pi-node-lesson2-get-azure-tools-mac.md)
+- [Windows 7 +](iot-hub-raspberrypikit-node-lesson2-get-azure-tools-win32.md)
+- [Ubuntu 16.04](iot-hub-raspberrypikit-node-lesson2-get-azure-tools-ubuntu.md)
+- [OS X 10.10](iot-hub-raspberrypikit-node-lesson2-get-azure-tools-mac.md)
 
 ## 2.1.1 What you will do
 Install Azure Command-Line Interface (Azure CLI). You might need 10 minutes to complete this section.
@@ -65,4 +65,4 @@ You should see the following output if installation is successful.
 You have now installed Azure CLI. Continue to the next section to create your Azure IoT Hub and device identity using the Azure CLI. 
 
 ## Next Steps
-[2.2 Create your Azure IoT Hub and the register your Raspberry Pi 3 device](iot-hub-raspberry-pi-node-lesson2-prepare-azure-iot-hub.md)
+[2.2 Create your Azure IoT Hub and the register your Raspberry Pi 3 device](iot-hub-raspberrypikit-node-lesson2-prepare-azure-iot-hub.md)

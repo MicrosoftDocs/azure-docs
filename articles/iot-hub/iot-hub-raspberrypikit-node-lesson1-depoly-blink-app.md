@@ -31,7 +31,7 @@ In this section, you will learn:
 
 
 ## 1.3.3 What you need
-- You must have successfully completed the previous sections, [Configure your device](iot-hub-raspberry-pi-node-lesson1-configure-your-device.md) and [Get the tools](iot-hub-raspberry-pi-node-lesson1-get-the-tools-win32.md), in this lesson.
+- You must have successfully completed the previous sections, [Configure your device](iot-hub-raspberrypikit-node-lesson1-configure-your-device.md) and [Get the tools](iot-hub-raspberrypikit-node-lesson1-get-the-tools-win32.md), in this lesson.
 
 ## 1.3.4 Obtain IP address of your Raspberry Pi
 Open a command prompt (Windows) or a terminal window (OS X / Ubuntu) and run the following command:
@@ -100,7 +100,7 @@ gulp deploy && gulp run
 ```
 
 ### 1.3.8.3 Verify the app works
-You should now see the LED on your Pi blinking every two seconds.  If you don’t see the LED flashing, take a look at the [Troubleshooting](iot-hub-raspberry-pi-node-troubleshooting.md) guide for solutions to common problems.
+You should now see the LED on your Pi blinking every two seconds.  If you don’t see the LED flashing, take a look at the [Troubleshooting](iot-hub-raspberrypikit-node-troubleshooting.md) guide for solutions to common problems.
 ![LED blinking](media/iot-hub-raspberry-pi-lessons/lesson1/led_blinking.jpg)
 
 > [AZURE.NOTE] You can use `Ctrl - C` to terminate the application.
@@ -109,4 +109,4 @@ You should now see the LED on your Pi blinking every two seconds.  If you don’
 You have now installed all of the required tools you need to work with your Raspberry Pi 3 and deployed a simple app to your Pi to blink an LED. Now you can move to the next lesson to deploy, build, and run an application that connects your Pi to Azure IoT Hub to send and receive messages.
 
 ## Next Steps
-You are now ready to start on Lesson 2, beginning with [Get the Azure tools](iot-hub-raspberry-pi-node-lesson2-get-azure-tools-win32.md)
+You are now ready to start on Lesson 2, beginning with [Get the Azure tools](iot-hub-raspberrypikit-node-lesson2-get-azure-tools-win32.md)

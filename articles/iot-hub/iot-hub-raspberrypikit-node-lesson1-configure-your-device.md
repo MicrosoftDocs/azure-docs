@@ -101,7 +101,7 @@ You have configured your Raspberry Pi 3 board with Raspbian OS, connected it to 
 ![Hardware is ready](media/iot-hub-raspberry-pi-lessons/lesson1/hardware_ready.jpg)
 
 ## Next Steps
-[1.2 Get the tools](iot-hub-raspberry-pi-node-lesson1-get-the-tools-win32.md)
+[1.2 Get the tools](iot-hub-raspberrypikit-node-lesson1-get-the-tools-win32.md)
 
 
 

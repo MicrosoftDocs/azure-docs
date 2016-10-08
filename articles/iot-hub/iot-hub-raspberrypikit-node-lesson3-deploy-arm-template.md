@@ -56,7 +56,7 @@ Use VS Code to update your ARM template configuration file:
 
 ![ARM template parameters](media/iot-hub-raspberry-pi-lessons/lesson3/arm_para.png)
 
-- Replace **[your IoT Hub name]** with the **{my hub name}** you specified in [Lesson 2](iot-hub-raspberry-pi-node-lesson2-prepare-azure-iot-hub.md)
+- Replace **[your IoT Hub name]** with the **{my hub name}** you specified in [Lesson 2](iot-hub-raspberrypikit-node-lesson2-prepare-azure-iot-hub.md)
 - Replace **[prefix string for new resources]** with any prefix you want. The resource name is globally unique, so this prefix helps you avoid conflict (no dash, no number initial). 
 
 After you finished updating the `arm-template-param.json` file, change directory to `iot-hub-node-raspberrypi-azure-blink` and  run the following command to deploy to Azure:
@@ -72,4 +72,4 @@ It will take about 5 minutes to create these resources. While the resource creat
 You have now cloned the sample repo and created your Azure function app to process IoT hub messages and an Azure storage account to persist them. You can move to the next section to deploy and run the Azure blink sample application on your Raspberry Pi 3.
 
 ## Next Steps
-[3.2 Run the Azure blink sample application on your Raspberry Pi 3](iot-hub-raspberry-pi-node-lesson3-run-azure-blink.md)
+[3.2 Run the Azure blink sample application on your Raspberry Pi 3](iot-hub-raspberrypikit-node-lesson3-run-azure-blink.md)
