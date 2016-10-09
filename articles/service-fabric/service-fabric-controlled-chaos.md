@@ -138,7 +138,7 @@ class Program
     }
 }
 ```
-**PowerShell**
+**PowerShell:**
 
 ```powershell
 $connection = "localhost:19000"
