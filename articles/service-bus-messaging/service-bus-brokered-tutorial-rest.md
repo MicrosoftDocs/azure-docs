@@ -17,6 +17,8 @@
 
 # Service Bus brokered messaging REST tutorial
 
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+
 This tutorial shows how to create a basic REST-based Azure Service Bus queue and topic/subscription.
 
 ## Create a namespace
