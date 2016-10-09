@@ -44,7 +44,7 @@ Download the tools and software to build and deploy your first application for t
 
 ## Create and deploy the blink application
 
-Clone the sample Node.js application from Github, and gulp to deploy this application to your Raspberry Pi 3 board. This sample application blinks the LED connected to the board every 3 seconds.
+Clone the sample Node.js application from Github, and gulp to deploy this application to your Raspberry Pi 3 board. This sample application blinks the LED connected to the board every two seconds.
 
 *Estimated time to complete: 5 minutes* 
 
