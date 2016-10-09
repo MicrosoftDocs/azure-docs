@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/25/2016"
+   ms.date="10/08/2016"
    ms.author="msfussell"/>
 
 # Preview: Deploy a container to Service Fabric
@@ -100,7 +100,7 @@ To download a container you may have to provide login credentials to the contain
 
 The password can and should be encrypted using a certificate deployed to the machine.
 
-The following example shows an account called *TestUser* with the password encrypted using a certificate called *MyCert*. You can use the `Invoke-ServiceFabricEncryptText` Powershell command to create the secret cipher text for the password. See this article [Managing secrets in Service Fabric applications](service-fabric-application-secret-management.md) for details on how. The private key of the certificate to decrypt the password must be deployed to the local machine in an out-of-band method (in Azure this is via the Resource Manager). Then, when Service Fabric deploys the service package to the machine, it is able to decrypt the secret and along with the account name, authenticate with the container repository using these credentials.
+The following example shows an account called *TestUser* with the password encrypted using a certificate called *MyCert*. You can use the `Invoke-ServiceFabricEncryptText` Powershell command to create the secret cipher text for the password. See this article [Managing secrets in Service Fabric applications](service-fabric-application-secret-management.md) for details on how. The private key of the certificate to decrypt the password must be deployed to the local machine in an out-of-band method (in Azure this is via ARM). Then, when Service Fabric deploys the service package to the machine, it is able to decrypt the secret and along with the account name, authenticate with the container repository using these credentials.
 
 
     <ServiceManifestImport>
@@ -109,9 +109,6 @@ The following example shows an account called *TestUser* with the password encry
             <ContainerHostPolicies CodePackageRef="FrontendService.Code">
                 <RepositoryCredentials AccountName="TestUser" Password="[Put encrypted password here using MyCert certificate ]" PasswordEncrypted="true"/>
             </ContainerHostPolicies>
-            <SecurityAccessPolicies>
-                <SecurityAccessPolicy ResourceRef="MyCert" PrincipalRef="TestUser" GrantRights="Full" ResourceType="Certificate" />
-            </SecurityAccessPolicies>
         </Policies>
     </ServiceManifestImport>
 
