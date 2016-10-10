@@ -125,10 +125,10 @@ Create the VM using the configurations that we just created.
 
 If this command was successful, you'll see output like this:
 
-	RequestId IsSuccessStatusCode StatusCode ReasonPhrase
-	--------- ------------------- ---------- ------------
-	                         True         OK OK
-
+  RequestId IsSuccessStatusCode StatusCode ReasonPhrase
+  --------- ------------------- ---------- ------------
+                           True         OK OK
+  
 
 You should see the newly created VM either in the [Azure portal](https://portal.azure.com), under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
 
@@ -138,7 +138,8 @@ You should see the newly created VM either in the [Azure portal](https://portal.
 ```
 
 ## Next steps
-To sign in to your new virtual machine, browse to the VM in the [portal](https://portal.azure.com), click **Connect**, and open the Remote Desktop RDP file. Use the account credentials of your original virtual machine to sign in to your new virtual machine.
+
+To sign in to your new virtual machine, browse to the VM in the [portal](https://portal.azure.com), click **Connect**, and open the Remote Desktop RDP file. Use the account credentials of your original virtual machine to sign in to your new virtual machine. For more information, see [How to connect and log on to an Azure virtual machine running Windows](virtual-machines-windows-connect-logon.md).
 
 
 
