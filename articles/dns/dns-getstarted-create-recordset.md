@@ -3,7 +3,7 @@
    description="How to create host records for Azure DNS.Setting up record sets and records using PowerShell"
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
 
 
 
@@ -115,7 +115,7 @@ You can retrieve the record set from Azure DNS by using `Get-AzureRmDnsRecordSet
 	Tags              : {}
 
 
-You can also use the nslookup tool or other DNS tools to query the new record set.  
+You can also use the nslookup tool or other DNS tools to query the new record set.
 
 If you have not yet delegated the domain to the Azure DNS name servers, you need to explicitly specify the name, server, and address for your zone.
 

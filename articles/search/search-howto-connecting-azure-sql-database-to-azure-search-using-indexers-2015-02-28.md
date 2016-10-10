@@ -247,7 +247,7 @@ Note that the **softDeleteMarkerValue** must be a string – use the string repr
 | bigint | Edm.Int64, Edm.String | |
 | real, float |Edm.Double, Edm.String | |
 | smallmoney, money decimal numeric | Edm.String| Azure Search does not support converting decimal types into Edm.Double because this would lose precision |
-| char, nchar, varchar, nvarchar | Edm.String<br/>Collection(Edm.String)|Transforming a string column into Collection(Edm.String) requires using a preview API version 2015-02-28-Preview. See [this article](search-api-indexers-2015-02-28-Preview.md#create-indexer) for details| 
+| char, nchar, varchar, nvarchar | Edm.String<br/>Collection(Edm.String)|Transforming a string column into Collection(Edm.String) requires using a preview API version 2015-02-28-Preview. See [this article](search-api-indexers-2015-02-28-Preview.md#CreateIndexer) for details| 
 |smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String| |
 |uniqueidentifer | Edm.String | |
 |geography | Edm.GeographyPoint | Only geography instances of type POINT with SRID 4326 (which is the default) are supported | | 

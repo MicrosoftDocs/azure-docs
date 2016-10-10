@@ -32,35 +32,34 @@ So, how do you go about getting an Azure AD tenant?  The process might be a litt
 - [Have none of the above & want to start from scratch](#start-from-scratch)
 
 ## Use an existing Office 365 subscription
-If you have an existing Office 365 subscription but don't have an Azure subscription (and can't sign into the [Azure Management Portal](https://manage.windowsazure.com)), please follow [these instructions](https://technet.microsoft.com/library/dn832618.aspx) to gain access to your Azure AD tenant.
+If you have an existing Office 365 subscription, you already have an Azure AD tenant! You can sign in to the [Azure portal](https://portal.azure.com) with your O365 account and start using Azure AD.
 
 ## Use an MSA Azure subscription
-If you have previously signed up for an Azure subscription with your individual Microsoft Account, you already have a tenant!  In the [Azure Management Portal](https://manage.windowsazure.com), you should find a tenant named "Default Tenant" listed under "All Items" and "Active Directory."  You are free to use this tenant as you see fit - but you may want to create an Organizational administrator account.
+If you have previously signed up for an Azure subscription with your individual Microsoft Account, you already have a tenant!  When you log in to the [Azure Portal](https://portal.azure.com), you will automatically be logged in to your default tenant. You are free to use this tenant as you see fit - but you may want to create an Organizational administrator account.
 
 To do so, follow these steps.  Alternatively, you may wish to create a new tenant and create an administrator in that tenant following a similar process.
 
-1.	Log into the [Azure Management Portal](https://manage.windowsazure.com) with your individual account
-2.	Navigate to the “Active Directory” section of the portal (found in the left nav bar)
-3.	Select the “Default Directory” entry in the list of available directories
-4.	Click on the Users link at the top of the page.  You will see a single user in the list with value “Microsoft account” in the Sourced From column
-5.	Click “Add User” at the bottom of the page
-6.	In the Add User Form provide the following details:
-    - Type of User: New user in your organization
+1.	Log into the [Azure Portal](https://portal.azure.com) with your individual account
+2.	Navigate to the “Azure Active Directory” section of the portal (found in the left nav bar, under **More Services**)
+3.	You should automatically be signed in to the "Default Directory", if not you can switch directories by clicking on your account name in the top right corner.
+4.	From the **Quick Tasks** section, choose **Add a user**.
+5.	In the Add User Form, provide the following details:
+
+    - Name: (choose an appropriate value)
     - User name: (choose a user name for this administrator)
-    - First Name/Last Name/Display Name: (choose appropriate values)
+    - Profile: (fill in the appropriate values for First name, Last name, Job title and Department)
     - Role: Global Administrator
-    - Alternate Email Address: (enter appropriate values)
-    - Optional: Enable Multi-Factor Authentication
-    - Lastly, click on the green “CREATE” button to finalize user creation (and display the temporary password).
-7.	When you have completed the Add User Form, and receive the temporary password for the new administrative user, be sure to record this password as you will need to login with this new user in order to change the password. You can also send the password directly to the user, using an alternative e-mail.
-8.	To change the temporary password, log into https://login.microsoftonline.com with this new user account and change the password when requested.
+
+6.	When you have completed the Add User Form, and receive the temporary password for the new administrative user, be sure to record this password as you will need to login with this new user in order to change the password. You can also send the password directly to the user, using an alternative e-mail.
+7.  Click on **Create** to create the new user.
+8.	To change the temporary password, log into [https://login.microsoftonline.com](https://login.microsoftonline.com) with this new user account and change the password when requested.
 
 
 ## Use an organizational Azure subscription
-If you have previously signed up for an Azure subscription with your organizational account, you already have a tenant!  In the [Azure Management Portal](https://manage.windowsazure.com), you should find a tenant listed under "All Items" and "Active Directory."  You are free to use this tenant as you see fit.  You may also wish to create a new tenant using the "New" button in the bottom left hand corner of the portal.
+If you have previously signed up for an Azure subscription with your organizational account, you already have a tenant!  In the [Azure Portal](https://portal.azure.com), you should find a tenant when you navigate to "More Services" and "Azure Active Directory."  You are free to use this tenant as you see fit. 
 
 
 ## Start from scratch
-If all of the above is gibberish to you, don't worry.  Simply visit [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) to sign up for Azure with a new organization.  Once you've completed the process, you will have your very own Azure AD tenant with the domain name you chose during sign up.  In the [Azure Management Portal](https://manage.windowsazure.com), you can find your tenant by navigating to "Active Directory" in the left hand nav.
+If all of the above is gibberish to you, don't worry.  Simply visit [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) to sign up for Azure with a new organization.  Once you've completed the process, you will have your very own Azure AD tenant with the domain name you chose during sign up.  In the [Azure Portal](https://portal.azure.com), you can find your tenant by navigating to "Azure Active Directory" in the left hand nav.
 
 As part of the process of signing up for Azure, you will be required to provide credit card details.  You can proceed with confidence - you will not be charged for publishing applications in Azure AD or creating new tenants.

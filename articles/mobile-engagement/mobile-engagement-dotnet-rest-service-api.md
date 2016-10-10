@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/07/2016" 
+	ms.date="10/05/2016" 
 	ms.author="wesmc;ricksal" />
 
 #Using REST to access Azure Mobile Engagement Service APIs

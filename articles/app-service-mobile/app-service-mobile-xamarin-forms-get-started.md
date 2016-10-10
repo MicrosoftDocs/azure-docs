@@ -3,7 +3,7 @@
 	description="Follow this tutorial to get started using Azure Mobile Apps for Xamarin.Forms development"
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="wesmc7777"
+	authors="adrianhall"
 	manager="erikre"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/11/2016"
-	ms.author="glenga"/>
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>
 
 #Create a Xamarin.Forms app
 
