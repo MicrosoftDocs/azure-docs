@@ -327,7 +327,7 @@ The following example creates a shared access policy on a share, and then uses t
 	
 	}
 
-For more information about creating and using shared access signatures, see [Using Shared Access Signatures (SAS)](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/).
+For more information about creating and using shared access signatures, see [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 ## Next Steps
 
