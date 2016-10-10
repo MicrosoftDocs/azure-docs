@@ -31,7 +31,7 @@ A company that has a news media website is interested in getting an advantage ov
 ## Prerequisites
 -	Twitter account and [OAuth access token](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 -	[TwitterClient.zip](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip) from the Microsoft Download Center
--	Optional: Source code for twitter client from [Github](https://aka.ms/azure-stream-analytics-twitterclient)
+-	Optional: Source code for twitter client from [GitHub](https://aka.ms/azure-stream-analytics-twitterclient)
 
 ## Create an event hub input and a consumer group
 
@@ -55,7 +55,7 @@ We have provided a client application that will connect to Twitter data via [Twi
 
 - 0 = negative
 - 2 = neutral
-- 4 = positive)
+- 4 = positive
 
 Then, Tweet events are pushed to the event hub.  
 
@@ -132,11 +132,11 @@ Stream Analytics supports a simple, declarative query model that describes trans
 
 #### Sample data input
 
-To validate your query against actual job data, you can use the **SAMPLE DATA** feature to extract events from your stream and create a .JSON file of the events for testing.
+To validate your query against actual job data, you can use the **SAMPLE DATA** feature to extract events from your stream and create a .json file of the events for testing.
 
 1.	Select your event hub input, and then click **SAMPLE DATA** at the bottom of the page.
 2.	In the dialog box that opens, specify a **START TIME** to start collecting data and a **DURATION** for how much additional data to consume.
-3.	Click the **DETAILS** button, and then click the **Click here** link to download and save the generated .JSON file.
+3.	Click the **DETAILS** button, and then click the **Click here** link to download and save the generated .json file.
 
 #### Pass-through query
 To start, we will do a simple pass-through query that projects all the fields in an event.
@@ -149,7 +149,7 @@ To start, we will do a simple pass-through query that projects all the fields in
 	Make sure that the name of the input source matches the name of the input that you specified earlier.
 
 3.	Click **Test** under the query editor.
-4.	Go to your sample .JSON file.
+4.	Go to your sample .json file.
 5.	Click the **CHECK** button, and see the results below the query definition.
 
 	![Results displayed below query definition](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-sentiment-by-topic.png)
