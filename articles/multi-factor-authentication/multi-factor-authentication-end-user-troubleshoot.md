@@ -98,3 +98,7 @@ Much of this information can be found on your sign-in page. When you don't verif
 ![Sign in error details](./media/multi-factor-authentication-end-user-troubleshoot/view_details.png)
 
 Including this information helps us to solve your problem as quickly as possible.
+
+## Related topics
+- [Manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md)  
+- [Microsoft Authenticator application FAQ](multi-factor-authentication-app-faq.md)
