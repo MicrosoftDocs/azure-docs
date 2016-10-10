@@ -46,13 +46,15 @@ The following Log Analytics features and solutions are not currently available i
   - Office 365 solution
   - Windows 10 Upgrade Analytics solution
   - Application Dependency Monitoring
-  - Update Management
-  - Change Management
   - Application Insights
   - Azure Activity Logs
   - Azure Automation Analytics
   - Key Vault Analytics
   - Surface Hub
++ Solutions and features that require Azure Automation, including:
+  - Update Management
+  - Change Management
+  - Alerting that triggers an Azure Automation runbook
 + Features that are in preview in public Azure, including
   - Export of data to PowerBI
 + Azure portal integration
@@ -69,10 +71,10 @@ The following Log Analytics features and solutions are not currently available i
 
 The following Log Analytics features have different behavior in Azure Government:
 
-+ The Windows agent must be downloaded from the Log Analytics portal for Azure Government.
++ The Windows agent must be downloaded from the [Log Analytics portal](https://oms.microsoft.us) for Azure Government.
 + Uploading data using the Data Collector API requires the use of the Azure Government URL, https://*workspaceId*.ods.opinsights.azure.us where *workspaceId* is the Workspace Id from the OMS portal. 
 + When viewing metric graphs with a time range of less than six hours, the graph does not automatically update with new metric values
-+ To connect your System Center Operations Manager management server to Log Analytics you need to download and install updated Management Packs.
++ To connect your System Center Operations Manager management server to Log Analytics, you need to download and install updated Management Packs.
   1. Download and save the [updated management packs](http://go.microsoft.com/fwlink/?LinkId=828749)
   2. Unzip the file you have downloaded
   3. Import the management packs into Operations Manager. For information about how to import a management pack from a disk, see the [How to Import an Operations Manager Management Pack](http://technet.microsoft.com/en-us/library/hh212691.aspx) topic on the Microsoft TechNet website.
