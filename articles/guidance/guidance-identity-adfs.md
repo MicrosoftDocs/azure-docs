@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/05/2016"
+   ms.date="10/10/2016"
    ms.author="telmos"/>
 
 # Implementing a secure hybrid network architecture with federated identities in Azure
@@ -86,10 +86,15 @@ The following diagram highlights the important components in this architecture (
 This section summarizes recommendations for implementing AD FS in Azure, covering:
 
 - VM recommendations.
+
 - Networking recommendations.
+
 - Availability recommendations.
+
 - Security recommendations.
+
 - AD FS installation recommendations.
+
 - AD FS Trust recommendations.
 
 ### VM recommendations
@@ -249,6 +254,8 @@ This environment comprises an AD forest for a domain named contoso.com. The doma
 - **[virtualMachines-adds.parameters.json][on-premises-virtualmachines-adds-parameters]**. This file contains the configuration for the on-premises VMs hosting AD DS services. By default, two *Standard-DS3-v2* VMs are created.
 
 - **[virtualNetworkGateway.parameters.json][on-premises-virtualnetworkgateway-parameters]** and **[connection.parameters.json][on-premises-connection-parameters]**. These files hold the settings for the VPN connection to the Azure VPN gateway in the cloud, including the shared key to be used to protect traffic traversing the gateway.
+
+The remaining files in the folder contain the configuration information used to create the on-premises domain using this infrastructure; they install AD DS, setup DNS, create a forest, and  configure the replication sites for the forest.
 
 ### Cloud components
 
@@ -525,7 +532,9 @@ These components form the core of this architecture. The [**parameters/azure**][
 
 	The *adfs-farm-rest.parameters.json* file is used to add the remaining AD FS servers to the farm. Again, if you have changed the domain or name of the group managed service account, you should update this file. You should also update the `vms` array if you have created additional AD FS servers.
 
-- **TODO: ADFS PROXY**
+- **[loadBalancer-adfsproxy.parameters.json][loadBalancer-adfsproxy-parameters]**. This file is similar in structure and content to the *loadBalancer-adfs.parameters.json* file; it contains the data for building the AD FS proxy servers and load balancer.
+
+- **[adfsproxy-farm-first.parameters.json][adfsproxy-farm-first-parameters]**, and **[adfsproxy-farm-rest.parameters.json][adfsproxy-farm-rest-parameters]**. The script uses the settings in these files to create the AD FS proxy server farm. 
 
 - **[virtualNetworkGateway.parameters.json][virtualnetworkgateway-parameters]**. This file contains the settings used to create the Azure VPN gateway in the cloud used to connect to the on-premises network. You should modify the `sharedKey` value in the `connectionsSettings` section to match that of the on-premises VPN device. For more information, see [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][hybrid-azure-on-prem-vpn].
 
@@ -573,34 +582,58 @@ To run the script that deploys the solution:
     $securityResourceGroupName = "ra-adfs-security-rg"
     $addsResourceGroupName = "ra-adfs-adds-rg"
     $adfsResourceGroupName = "ra-adfs-adfs-rg"
+    $adfsproxyResourceGroupName = "ra-adfs-proxy-rg"
 	```
 
-6. Edit the parameter files in the Scripts/Parameters/Onpremise and Scripts/Parameters/Azure folders. Update the resource group references in these files to match the names of the resource groups assigned to the variables in the Deploy-ReferenceArchitecture.ps1 file. The following table shows which parameter files reference which resource group. 
+6. Edit the parameter files in the Scripts/Parameters/Onpremise and Scripts/Parameters/Azure folders. Update the resource group references in these files to match the names of the resource groups assigned to the variables in the Deploy-ReferenceArchitecture.ps1 file. The following table shows which parameter files reference which resource group. Note that the *ra-adfs-workload-rg*, *ra-adfs-security-rg*, *ra-adfs-adds-rg*, *ra-adfs-adfs-rg*, and *ra-adfs-proxy-rg* groups are only used in the PowerShell script and do not occur in the parameter files.
 
 	|Resource Group|Parameter File(s)|
     |--------------|--------------|
     |ra-adfs-onpremise-rg|parameters\onpremise\connection.parameters.json<br /> parameters\onpremise\virtualMachines-adds.parameters.json<br />parameters\onpremise\virtualNetwork-adds-dns.parameters.json<br />parameters\onpremise\virtualNetwork.parameters.json<br />parameters\onpremise\virtualNetworkGateway.parameters.json<br />parameters\azure\virtualNetworkGateway.parameters.json
-    |ra-adfs-network-rg|parameters\azure\dmz-private.parameters.json<br />parameters\azure\dmz-public.parameters.json<br />parameters\azure\loadBalancer-adfs.parameters.json<br />parameters\azure\loadBalancer-biz.parameters.json<br />parameters\azure\loadBalancer-data.parameters.json<br />parameters\azure\loadBalancer-web.parameters.json<br />parameters\azure\virtualMachines-adds.parameters.json<br />parameters\azure\virtualMachines-mgmt.parameters.json<br />parameters\azure\virtualNetwork-with-onpremise-and-azure-dns.parameters.json<br />parameters\azure\virtualNetwork.parameters.json<br />parameters\azure\virtualNetworkGateway.parameters.json (*two occurrences*)
-    |ra-adfs-workload-rg|*?? - TBD*
-    |ra-adfs-security-rg|*?? - TBD*
-    |ra-adfs-adds-rg|*?? - TBD*
-    |ra-adfs-adfs-rg|*?? - TBD*
+    |ra-adfs-network-rg|parameters\azure\dmz-private.parameters.json<br />parameters\azure\dmz-public.parameters.json<br />parameters\azure\loadBalancer-adfs.parameters.json<br />parameters\azure\loadBalancer-adfsproxy.parameters.json<br />parameters\azure\loadBalancer-biz.parameters.json<br />parameters\azure\loadBalancer-data.parameters.json<br />parameters\azure\loadBalancer-web.parameters.json<br />parameters\azure\virtualMachines-adds.parameters.json<br />parameters\azure\virtualMachines-mgmt.parameters.json<br />parameters\azure\virtualNetwork-with-onpremise-and-azure-dns.parameters.json<br />parameters\azure\virtualNetwork.parameters.json<br />parameters\azure\virtualNetworkGateway.parameters.json (*two occurrences*)
 
 	Additionally, set the configuration for the on-premises and cloud components, as described in the Solution Components section above.
 
 7. Open an Azure PowerShell window, move to the Scripts folder, and run the following command:
 
 	```powershell
-	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location>
+	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> <mode>
 	```
 
 	Replace `<subscription id>` with your Azure subscription ID.
 
 	For `<location>`, specify an Azure region, such as `eastus` or `westus`.
 
-8. **TBC**
+	The `<mode>` parameter can have one of the following values:
 
-<!-- TBD: Add Verification Steps -->
+	- `Onpremise`, to create the simulated on-premises environment.
+
+	- `Infrastructure`, to create the VNet infrastructure in the cloud.
+
+	- `CreateVpn`, to build Azure virtual network gateway and connect it to the on-premises network.
+
+	- `AzureADDS`, to construct the VMs acting as AD DS servers, deploy Active Directory to these VMs, and create the domain in the cloud.
+
+	- `AdfsVm` to create the AD FS VMs and join them to the domain in the cloud.
+
+	- `ProxyVm` to build the AD FS proxy VMs and join them to the domain in the cloud.
+
+	- `Prepare`, which performs all of the above tasks. Use this option if you are building an entirely new deployment and you don't have an existing on-premises infrastructure.
+
+	>[AZURE.NOTE. You can also run the script with a `<mode>` parameter of `Workload` to create the web, business, and data tier VMs and network. This setup is not included as part of the `Prepare` mode.
+
+8. 	When prompted [obtain an SSL Certificate for AD FS][adfs_certificates] and install this certificate on all AD FS and AD FS proxy VMs.
+
+	>[AZURE.NOTE] The comments at the end of the script provide detailed instructions for creating a self-signed test certificate and authority using the `makecert` command. Do not use the certificates generated by makecert in a production environment.
+
+9. Run the following commands to configure the AD FS and AD FS proxy server farms:
+
+	```powershell
+	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Adfs
+	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Proxy
+	```
+
+10. *Add verification steps*
 
 ## Next steps
 
@@ -666,6 +699,7 @@ To run the script that deploys the solution:
 [loadBalancer-biz-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/loadBalancer-biz.parameters.json
 [loadBalancer-data-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/loadBalancer-data.parameters.json
 [virtualMachines-mgmt-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/virtualMachines-mgmt.parameters.json
-
-
+[loadBalancer-adfsproxy-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/loadBalancer-adfsproxy.parameters.json
+[adfsproxy-farm-first-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/adfsproxy-farm-first.parameters.json
+[adfsproxy-farm-rest-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/adfsproxy-farm-rest.parameters.json
 [0]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure1.png "Secure hybrid network architecture with Active Directory"
