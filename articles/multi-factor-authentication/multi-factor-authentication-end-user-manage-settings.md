@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="kgremban"
 	manager="femila"
-	editor="pblachar"/>
+	editor="yossib"/>
 
 <tags
 	ms.service="multi-factor-authentication"
@@ -14,25 +14,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/03/2016"
+	ms.date="10/10/2016"
 	ms.author="kgremban"/>
 
 # Manage your settings for two-step verification
 
-If your work or school uses Azure Multi-Factor Authentication, then you
-
->[AZURE.IMPORTANT]
->Help us make this page better.  If you do not find an answer to your issue on this page, please provide detailed feedback so that we can get this added.
 
 
 
 ## Where to find the settings page
-Depending on how your company set up Azure Multi-Factor Authengit stication, there are a few places where you can change your settings like your phone number.
+Depending on how your company set up Azure Multi-Factor Authentication, there are a few places where you can change your settings like your phone number.
 
 If your IT admin sent out a specific URL or steps to manage two-step verification, follow those instructions. Otherwise, the following instructions should work for everybody else. If you follow these steps but don't see the same options, that means that your work or school customized their own portal. Ask your admin for the link to your Azure Multi-Factor Authentication portal.
 
 
-1. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com)  
+1. Sign in to [https://myapps.microsoft.com](https://myapps.microsoft.com)  
 2. At the top, select **profile**.  
 3. Select **Additional security verification**.  
 
@@ -43,27 +39,23 @@ If your IT admin sent out a specific URL or steps to manage two-step verificatio
 	![Proofup](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
 
 
-## I have a new phone and need to change my phone number
+## I want to change my phone number, or add a secondary number
 
-If you have a new phone and need to change the primary contact number that mfa uses, you can do this in one of two ways.
+It is important to configure a secondary authentication phone number.  Because your primary phone number and your mobile app are probably on the same phone, the secondary phone number is the only way you will be able to get back into your account if your phone is lost or stolen.
 
->[AZURE.IMPORTANT]
->It is important to configure a secondary authentication phone number.  Because your primary phone number and your mobile app are probably on the same phone, the secondary phone number is the only way you will be able to get back into your account if your phone is lost or stolen.
+> [AZURE.NOTE]
+> If you don't have access to your primary phone number, and need help getting in to your account, see our help topics in [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md).
 
-The first is using a secondary authentication method.  If you have specified a secondary authentication phone number you can sign-in using it.
-![Setup](./media/multi-factor-authentication-end-user-manage/altphone.png)
-Notice in the screen shot above, two phone numbers have been setup.  One ending in 67 and the second ending in 30.
+**To change you primary phone number:**
+1. On the Additional security verification page, select the text box with your current phone number and edit it with your new phone number.
+2. Select **Save**.
+3. If this is the number that you use for your preferred verification option, you have to verify the new number before you can save it.
 
-To sign in using the alternate phone number, sign-in as you normally would, then simply choose **Use a different verification option**.
-![Different Verification](./media/multi-factor-authentication-end-user-manage/differentverification.png)
-
-Then select your other phone number.  In this case, you would select **Call me at +X XXXXXXXX30**
-
-![Alternate phone](./media/multi-factor-authentication-end-user-manage/altphone2.png)
-
-The second is by contacting your administrator or the person who setup mfa for you.  You only need to do this if you have not configured a secondary authentication phone number.  Otherwise you will have to contact your administrator or the person who setup mfa and have them clear you settings so the next time you sign-in, you will be prompted to [set up multi-factor authentication](multi-factor-authentication-end-user-first-time.md) again.
-
+**To add a secondary phone number:**
+1. On the Additional security verification page, check the box next to **Alternate authentication phone.**
+2. Enter your secondary phone number in the text box.
+3. Select **Save** and your changes are finished.
 
 
 ## How do I clean up Microsoft Authenticator from my old device and move to a new one?
-When you uninstall the app from your device or reset the device, it does not remove the activation on the back end. You should use the steps outlined in [moving to a new device.](multi-factor-authentication-microsoft-authenticator.md#how-to-move-to-the-new-microsoft-authenticator-app).
+When you uninstall the app from your device or reset the device, it does not remove the activation on the back end. You should use the steps outlined in [moving to a new device](multi-factor-authentication-microsoft-authenticator.md#how-to-move-to-the-new-microsoft-authenticator-app).
