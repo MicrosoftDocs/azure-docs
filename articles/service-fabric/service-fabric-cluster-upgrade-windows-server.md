@@ -47,7 +47,7 @@ Use these steps to upgrade your cluster to a supported version, if your cluster 
 For clusters that have connectivity to [http://download.microsoft.com](http://download.microsoft.com), we periodically check for the availability of new service fabric versions.
 
 
-When a new service fabric version is available, the package is downloaded locally to the cluster and provisioned for upgrade. Additionally to inform the customer of this new version, the system places an explicit cluster health warnings similar to the following
+When a new service fabric version is available, the package is downloaded locally to the cluster and provisioned for upgrade. Additionally to inform the customer of this new version, the system places an explicit cluster health warning similar to the following
 
 “The current cluster version <version#> support ends <Date>." Once the cluster is running the latest version, the warning goes away.
 
@@ -113,7 +113,7 @@ Once you have fixed the issues that resulted in the rollback, you need to initia
 Use these steps to upgrade your cluster to a supported version, if your cluster nodes **do not have** internet connectivity to [http://download.microsoft.com](http://download.microsoft.com) 
 
 
->[AZURE.NOTE]If you are running a cluster that is not internet connected, you will have to monitor the service fabric team blog to get notified of a new release. The system **does not** place an any cluster health warnings to alert you of it.  
+>[AZURE.NOTE]If you are running a cluster that is not internet connected, you will have to monitor the service fabric team blog to get notified of a new release. The system **does not** place any cluster health warning to alert you of it.  
 
 1. Modify your cluster configuration to set the following property to false.
 
@@ -193,7 +193,7 @@ You can monitor the progress of the upgrade on Service fabric explorer or by run
 	Get-ServiceFabricClusterUpgrade
 	```
 
-	If the cluster health policies are not met, the upgrade is rolled back.  You can specify custom health policies at the time for the start-serviceFabricClusterUpgrade command refer to [this document](https://msdn.microsoft.com/library/mt125872.aspx) for details. 
+	If the cluster health policies are not met, the upgrade is rolled back. You can specify custom health policies at the time for the start-serviceFabricClusterUpgrade command refer to [this document](https://msdn.microsoft.com/library/mt125872.aspx) for details. 
 
 Once you have fixed the issues that resulted in the rollback, you need to initiate the upgrade again, by following the same steps as before.
 
