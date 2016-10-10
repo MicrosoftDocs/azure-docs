@@ -54,27 +54,27 @@ Follow these steps to install and run MongoDB on a virtual machine running Windo
 
 10. Now that MongoDB is installed and running, you need to open a port in Windows Firewall so you can remotely connect to MongoDB.  From the **Start** menu, select **Administrative Tools** and then **Windows Firewall with Advanced Security**.
 
-11. In the left pane, select **Inbound Rules**.  In the **Actions** pane on the right, select **New Rule...**.
+11. a) In the left pane, select **Inbound Rules**.  In the **Actions** pane on the right, select **New Rule...**.
 
 	![Windows Firewall][Image1]
 
-	In the **New Inbound Rule Wizard**, select **Port** and then click **Next**.
+	b) In the **New Inbound Rule Wizard**, select **Port** and then click **Next**.
 
 	![Windows Firewall][Image2]
 
-	Select **TCP** and then **Specific local ports**.  Specify a port of "27017" (the default port MongoDB listens on) and click **Next**.
+	c) Select **TCP** and then **Specific local ports**.  Specify a port of "27017" (the default port MongoDB listens on) and click **Next**.
 
 	![Windows Firewall][Image3]
 
-	Select **Allow the connection** and click **Next**.
+	d) Select **Allow the connection** and click **Next**.
 
 	![Windows Firewall][Image4]
 
-	Click **Next** again.
+	e) Click **Next** again.
 
 	![Windows Firewall][Image5]
 
-	Specify a name for the rule, such as "MongoPort", and click **Finish**.
+	f) Specify a name for the rule, such as "MongoPort", and click **Finish**.
 
 	![Windows Firewall][Image6]
 
