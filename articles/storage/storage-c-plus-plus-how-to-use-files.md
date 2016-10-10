@@ -41,14 +41,14 @@ To install the Azure Storage Client 2.4.0 for C++, you can use one of the follow
 
 Install-Package wastorage
 
-## Setup your application to use File storage
+## Set up your application to use File storage
 
 Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access files:
 
 	#include "was/storage_account.h"
 	#include "was/file.h"
 
-## Setup an Azure storage connection string
+## Set up an Azure storage connection string
 
 To use File storage, you need to connect to your Azure storage account. The first step would be to configure a connection string which we’ll use to connect to your storage account. Let’s define a static variable to do that.
 
@@ -66,7 +66,7 @@ You can use the **cloud_storage_account** class to represent your Storage Accoun
 
 ## How to: Create a Share
 
-All files and directories in File storage reside in a container called a **Share**. Your storage account can have as much shares as your account capacity allows. To obtain access to a share and its contents, you need to use a File storage client.
+All files and directories in File storage reside in a container called a **Share**. Your storage account can have as many shares as your account capacity allows. To obtain access to a share and its contents, you need to use a File storage client.
 
 	// Create the file storage client.
 	azure::storage::cloud_file_client file_client = 
@@ -114,7 +114,7 @@ Now that you have a reference to the root directory of the share, you can upload
 
 ## How to: Create a Directory
 
-You can also organize storage by putting files inside sub-directories instead of having all of them in the root directory. The Azure file storage service allows you to create as much directories as your account will allow. The code below will create a directory named **my-sample-directory** under the root directory as well as a sub-directory named **my-sample-sub-directory**.
+You can also organize storage by putting files inside subdirectories instead of having all of them in the root directory. The Azure file storage service allows you to create as much directories as your account will allow. The code below will create a directory named **my-sample-directory** under the root directory as well as a subdirectory named **my-sample-subdirectory**.
 	
 	// Retrieve a reference to a directory
 	azure::storage::cloud_file_directory directory = share.get_directory_reference(_XPLATSTR("my-sample-directory"));
@@ -122,9 +122,9 @@ You can also organize storage by putting files inside sub-directories instead of
 	// Return value is true if the share did not exist and was successfully created.
 	directory.create_if_not_exists();
 	
-	// Create a sub-directory.
+	// Create a subdirectory.
 	azure::storage::cloud_file_directory subdirectory = 
-	  directory.get_subdirectory_reference(_XPLATSTR("my-sample-sub-directory"));
+	  directory.get_subdirectory_reference(_XPLATSTR("my-sample-subdirectory"));
 	subdirectory.create_if_not_exists();
 
 ## How to: List files and directories in a share
@@ -206,7 +206,7 @@ Deleting a directory is a simple task, although it should be noted that you cann
 	
 	// Get a reference to the subdirectory you want to delete.
 	azure::storage::cloud_file_directory sub_directory =
-	  directory.get_subdirectory_reference(_XPLATSTR("my-sample-sub-directory"));
+	  directory.get_subdirectory_reference(_XPLATSTR("my-sample-subdirectory"));
 	
 	// Delete the subdirectory and the sample directory.
 	sub_directory.delete_directory_if_exists();
