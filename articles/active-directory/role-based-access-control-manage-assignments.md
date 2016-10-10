@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="09/30/2016"
+	ms.date="10/10/2016"
 	ms.author="kgremban"/>
 
 # View access assignments for users and groups in the Azure portal - Public preview
 
 > [AZURE.SELECTOR]
-- [Azure portal](role-based-access-control-azure-portal.md)
-- [Azure classic portal](role-based-access-control-configure.md)
+- [Manage access by user or group](role-based-access-control-manage-assignments.md)
+- [Manage access by resource](role-based-access-control-configure.md)
 
 With Role-Based Access Control (RBAC) in the Azure Active Directory preview, you can manage access to your Azure resources. [What's in the preview?](active-directory-preview-explainer.md)
 

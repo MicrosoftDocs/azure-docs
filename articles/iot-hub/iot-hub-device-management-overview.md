@@ -110,8 +110,8 @@ To continue learning about the Azure IoT Hub device management features, see the
 [img-report_progress_pattern]: media/iot-hub-device-management-overview/report-progress-pattern.png
 
 [lnk-get-started]: iot-hub-device-management-get-started.md
-[lnk-twins-getstarted]: iot-hub-device-management-device-twin.md
-[lnk-twin-properties]: iot-hub-twin-properties.md
+[lnk-twins-getstarted]: iot-hub-node-node-twin-getstarted.md
+[lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
 [lnk-hub-getstarted]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-methods]: iot-hub-c2d-methods.md
 [lnk-jobs]: iot-hub-schedule-jobs.md

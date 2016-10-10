@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/12/2016" 
+	ms.date="10/10/2016" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
@@ -35,10 +35,7 @@ There are some important steps to perform before moving a resource. By verifying
 
 1. The service must support the ability to move resources. See the list below for information about which [services support moving resources](#services-that-support-move).
 2. The destination subscription must be registered for the resource provider of the resource being moved. If not, you receive an error stating that the **subscription is not registered for a resource type**. You might encounter this problem when moving a resource to a new subscription, but that subscription has never been used 
-with that resource type. To learn how to 
-check the registration status and register resource providers, see [Resource providers and types](../resource-manager-supported-services.md#resource-providers-and-types).
-3. If you are using Azure PowerShell or Azure CLI, use the latest version. To update your version, run the Microsoft Web Platform Installer and check if a 
-new version is available. For more information, see [How to install and configure Azure PowerShell](powershell-install-configure.md) and [Install the Azure CLI](xplat-cli-install.md).
+with that resource type. To learn how to check the registration status and register resource providers, see [Resource providers and types](../resource-manager-supported-services.md#resource-providers-and-types).
 4. If you are moving App Service app, you have reviewed [App Service limitations](#app-service-limitations).
 5. If you are moving resources deployed through classic model, you have reviewed [Classic deployment limitations](#classic-deployment-limitations).
 
@@ -56,6 +53,7 @@ For now, the services that support moving to both a new resource group and subsc
 - DNS
 - DocumentDB
 - HDInsight clusters
+- IoT Hubs
 - Key Vault
 - Media Services
 - Mobile Engagement
@@ -117,6 +115,14 @@ To accomplish this move, perform two separate move operations in the following s
 
 1. Move the **web-a** to **plan-group**
 2. Move **web-a** and **plan-a** to **combined-group**.
+
+Currently, if your web app includes an SSL certificate that you purchased externally and uploaded to the app, you must delete the certificate before moving the web app. For example, you can perform the following steps:
+
+1. Delete the uploaded certificate from the web app
+2. Move the web app
+3. Upload the certificate to the web app
+
+If your web app uses an App Service Certificate, you can move the web app and certificate to a new resource group in the same subscription without issue. To move an App Service Certificate to a new subscription, contact Azure support.
 
 ## Recovery Services limitations
 
@@ -184,11 +190,11 @@ With request body:
 
 ## Use portal
 
-To move resources to a new resource group in the same subscription, select the resource group containing those resources, and then select the **Move** button.
+To move resources to a new resource group in the **same subscription**, select the resource group containing those resources, and then select the **Move** button.
 
 ![move resources](./media/resource-group-move-resources/edit-rg-icon.png)
 
-To move resources to a new subscription, select the resource group containing those resources, and then select the edit subscription icon.
+To move resources to a **new subscription**, select the resource group containing those resources, and then select the edit subscription icon.
 
 ![move resources](./media/resource-group-move-resources/change-subscription.png)
 

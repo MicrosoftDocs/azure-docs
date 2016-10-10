@@ -28,7 +28,7 @@ The following **menu** links to topics that describe how to use tools to explore
 ## Prerequisites
 This article assumes that you have:
 
-* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../storage/storage-create-storage-account.md)
+* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../storage/storage-create-storage-account.md#create-a-storage-account)
 * Stored your data in an Azure blob storage account. If you need instructions, see [Moving data to and from Azure Storage](../storage/storage-moving-data.md)
 
 ## Load the data into a Pandas DataFrame

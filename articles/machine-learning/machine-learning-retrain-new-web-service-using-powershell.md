@@ -32,6 +32,7 @@ Copied the following information from the retraining output:
 * RelativeLocation
 
 The steps you take are:
+
 1.	Sign in to your Azure Resource Manager account.
 2.	Get the Web service definition
 3.	Export the Web Service Definition as JSON

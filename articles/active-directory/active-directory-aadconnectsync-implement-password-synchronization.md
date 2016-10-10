@@ -92,9 +92,9 @@ In this case, the new password overrides your synchronized password and all pass
 If you change your on-premises password again, the new password is synchronized to the cloud, and overrides the manually updated password.
 
 ## Enabling password synchronization
-Password synchronization is automatically enabled, when you install Azure AD Connect using the **Express Settings**. For more details, see [Getting started with Azure AD Connect using express settings](active-directory-aadconnect-get-started-express.md).
+Password synchronization is automatically enabled, when you install Azure AD Connect using the **Express Settings**. For more details, see [Getting started with Azure AD Connect using express settings](./aad-connect/active-directory-aadconnect-get-started-express.md).
 
-If you use custom settings when you install Azure AD Connect, you enable password synchronization on the user sign-in page. For more details, see [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
+If you use custom settings when you install Azure AD Connect, you enable password synchronization on the user sign-in page. For more details, see [Custom installation of Azure AD Connect](./aad-connect/active-directory-aadconnect-get-started-custom.md).
 
 ![Enabling password synchronization](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png)
 

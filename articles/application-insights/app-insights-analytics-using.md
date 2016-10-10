@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Using Analytics - the powerful search tool of Application Insights | Microsoft Azure" 
-	description="Using the Analytics, 
-	             the powerful diagnostic search tool of Application Insights. " 
+	description="Using the Analytics, the powerful diagnostic search tool of Application Insights. " 
 	services="application-insights" 
     documentationCenter=""
 	authors="danhadari" 
@@ -13,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/06/2016" 
+	ms.date="10/03/2016" 
 	ms.author="danha"/>
 
 
@@ -183,7 +182,6 @@ After you've run a query, you can download a .csv file. Click **Export, to Excel
 4. Edit credentials if needed and now you can build your report.
 
     ![](./media/app-insights-analytics-using/260.png)
-
 
 
 

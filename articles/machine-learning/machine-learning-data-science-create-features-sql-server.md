@@ -31,11 +31,11 @@ This **menu** links to topics that describe how to create features for data in v
 ## Prerequisites
 This article assumes that you have:
 
-* Created an Azure storage account. If you need instructions, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
+* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../storage/storage-create-storage-account.md#create-a-storage-account)
 * Stored your data in SQL Server. If you have not, see [Move data to an Azure SQL Database for Azure Machine Learning](machine-learning-data-science-move-sql-azure.md) for instructions on how to move the data there.
 
 
-##<a name="sql-featuregen"></a>Feature Generation with SQL
+## <a name="sql-featuregen"></a>Feature Generation with SQL
 
 In this section, we describe ways of generating features using SQL:  
 
@@ -46,7 +46,7 @@ In this section, we describe ways of generating features using SQL:
 
 > [AZURE.NOTE] Once you generate additional features, you can either add them as columns to the existing table or create a new table with the additional features and primary key, that can be joined with the original table.
 
-###<a name="sql-countfeature"></a>Count based Feature Generation
+### <a name="sql-countfeature"></a>Count based Feature Generation
 
 This document demonstrates two ways of generating count features. The first method uses conditional sum and the second method uses the 'where` clause. These can then be joined with the original table (using primary key columns) to have count features alongside the original data.
 
@@ -55,14 +55,14 @@ This document demonstrates two ways of generating count features. The first meth
 	select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename>
 	where <column_name3> = '<some_value>' group by <column_name1>,<column_name2>
 
-###<a name="sql-binningfeature"></a>Binning Feature Generation
+### <a name="sql-binningfeature"></a>Binning Feature Generation
 
 The following example shows how to generate binned features by binning (using 5 bins) a numerical column that can be used as a feature instead:
 
 	`SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
-###<a name="sql-featurerollout"></a>Rolling out the features from a single column
+### <a name="sql-featurerollout"></a>Rolling out the features from a single column
 
 In this section, we demonstrate how to roll-out a single column in a table to generate additional features. The example assumes that there is a latitude or longitude column in the table from which you are trying to generate features.
 
@@ -98,13 +98,13 @@ The above location based features can be further used to generate additional cou
 > [AZURE.TIP] You can programmatically insert the records using your language of choice. You may need to insert the data in chunks to improve write efficiency [Check out the example of how to do this using pyodbc here](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
 Another alternative is to insert data in the database using [BCP utility](https://msdn.microsoft.com/library/ms162802.aspx)
 
-###<a name="sql-aml"></a>Connecting to Azure Machine Learning
+### <a name="sql-aml"></a>Connecting to Azure Machine Learning
 
 The newly generated feature can be added as a column to an existing table or stored in a new table and joined with the original table for machine learning. Features can be generated or accessed if already created, using the [Import Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) module in Azure ML as shown below:
 
 ![azureml readers](./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png)
 
-##<a name="python"></a>Using a programming language like Python
+## <a name="python"></a>Using a programming language like Python
 
 Using Python to generate features when the data is in SQL Server is similar to processing data in Azure blob using Python as documented in [Process Azure Blob data in you data science environment](machine-learning-data-science-process-data-blob.md). The data needs to be loaded from the database into a pandas data frame and then can be processed further. We document the process of connecting to the database and loading the data into the data frame in this section.
 

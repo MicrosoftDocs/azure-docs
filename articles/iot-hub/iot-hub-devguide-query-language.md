@@ -76,22 +76,29 @@ So the following query retrieves the whole set of device twins:
 
 IoT Hub allows to retrieve twins filtering with arbitrary conditions. For instance,
 
-        SELECT * FROM devices WHERE tags.location.region = 'US'
+        SELECT * FROM devices
+        WHERE tags.location.region = 'US'
 
 retrieves the twins with the **location.region** tag set to **US**.
 Boolean operators and arithmetic comparisons are supported as well, e.g.
 
-        SELECT * FROM devices WHERE tags.location.region = 'US' AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
+        SELECT * FROM devices
+        WHERE tags.location.region = 'US'
+            AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
 
 retrieves all twins located in the US configured to send telemetry less often than every minute. As a convenience, it is also possible to use array constants in conjunction with the **IN** and **NIN** (not in) operators. For instance,
 
-        SELECT * FROM devices WHERE property.reported.connectivity IN ['wired', 'wifi']
+        SELECT * FROM devices
+        WHERE property.reported.connectivity IN ['wired', 'wifi']
 
 retrieves all twins that reported wifi or wired connectivity. Refer to the [WHERE clause][lnk-query-where] section for the full reference of the filtering capabilities.
 
 Grouping and aggregations are also supported. For instance,
 
-        SELECT properties.reported.telemetryConfig.status AS status, COUNT() AS numberOfDevices FROM devices GROUP BY properties.reported.telemetryConfig.status
+        SELECT properties.reported.telemetryConfig.status AS status,
+            COUNT() AS numberOfDevices
+        FROM devices
+        GROUP BY properties.reported.telemetryConfig.status
 
 returns the count of the devices in each telemetry configuration status.
 
@@ -111,6 +118,49 @@ returns the count of the devices in each telemetry configuration status.
         ]
 
 The example above illustrates a situation where three devices reported successfull configuration, two are still applying the configuration, and one reported an error.
+
+### C# example
+
+The query functionality is exposed by the [C# service SDK][lnk-hub-sdks] in the the **RegistryManager** class.
+Here is an example of a simple query:
+
+        var query = registryManager.CreateQuery("SELECT * FROM devices", 100);
+        while (query.HasMoreResults)
+        {
+            var page = await query.GetNextAsTwinAsync();
+            foreach (var twin in page) 
+            {
+                // do work on twin object
+            }
+        }
+
+Note how the **query** object is instantiated with a page size (up to 1000), and then multiple pages can be retrieved by calling the **GetNextAsTwinAsync** methods multiple times.
+It is important to note that the query object exposes multiple **Next\***, depending on the deserialization option required by the query, i.e. twin or job objects, or plain Json to be used when using projections.
+
+### Node example
+
+The query functionality is exposed by the [Node service SDK][lnk-hub-sdks] in the the **Registry** object.
+Here is an example of a simple query:
+
+        var query = registry.createQuery('SELECT * FROM devices', 100);
+        var onResults = function(err, results) {
+            if (err) {
+                console.error('Failed to fetch the results: ' + err.message);
+            } else {
+                // Do something with the results
+                results.forEach(function(twin) {
+                    console.log(twin.deviceId);
+                });
+
+                if (query.hasMoreResults) {
+                    query.nextAsTwin(onResults);
+                }
+            }
+        };
+        query.nextAsTwin(onResults);
+
+Note how the **query** object is instantiated with a page size (up to 1000), and then multiple pages can be retrieved by calling the **nextAsTwin** methods multiple times.
+It is important to note that the query object exposes multiple **next\***, depending on the deserialization option required by the query, i.e. twin or job objects, or plain Json to be used when using projections.
 
 ### Limitations
 
@@ -152,19 +202,25 @@ Currently, this collection is queriable as **devices.jobs** in the IoT Hub query
 
 For instance, to get all jobs (past and scheduled) that affect a single device, you can use the following query:
 
-        SELECT * FROM devices.jobs WHERE devices.jobs.deviceId = 'myDeviceId'
+        SELECT * FROM devices.jobs
+        WHERE devices.jobs.deviceId = 'myDeviceId'
 
 Note how this query provides the device-specific status (and possibly the direct method response) of each job returned.
 It is also possible to filter with arbitrary Boolean conditions on all properties of the objects in the **devices.jobs** collection.
 For instance, the following query:
 
-        SELECT * FROM devices.jobs WHERE devices.jobs.deviceId = 'myDeviceId' AND devices.jobs.jobType = 'scheduleTwinUpdate' AND devices.jobs.status = 'completed' AND devices.jobs.createdTimeUtc > '2016-09-01'
+        SELECT * FROM devices.jobs
+        WHERE devices.jobs.deviceId = 'myDeviceId'
+            AND devices.jobs.jobType = 'scheduleTwinUpdate'
+            AND devices.jobs.status = 'completed'
+            AND devices.jobs.createdTimeUtc > '2016-09-01'
 
 retrieves all completed twin update jobs for device **myDeviceId** that were created after September 2016.
 
 It is also possible to retrieve the per-device outcomes of a single job.
 
-        SELECT * FROM devices.jobs WHERE devices.jobs.jobId = 'myJobId'
+        SELECT * FROM devices.jobs
+        WHERE devices.jobs.jobId = 'myJobId'
 
 ### Limitations
 Currently, queries on **devices.jobs** do not support:
@@ -227,7 +283,10 @@ The **GROUP BY <group_specification>** clause is an optional step that is can be
 
 An example of a query using GROUP BY is:
 
-        SELECT properties.reported.telemetryConfig.status AS status, COUNT() AS numberOfDevices FROM devices GROUP BY properties.reported.telemetryConfig.status
+        SELECT properties.reported.telemetryConfig.status AS status,
+            COUNT() AS numberOfDevices
+        FROM devices
+        GROUP BY properties.reported.telemetryConfig.status
 
 The formal syntax for GROUP BY is:
 

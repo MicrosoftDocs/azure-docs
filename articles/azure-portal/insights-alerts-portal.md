@@ -61,7 +61,7 @@ You can configure and get information about alert rules using
 
 	![Add Alert](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 
-4. **Name** your alert rule, and choose a **Description**, which also shows notification emails.
+4. **Name** your alert rule, and choose a **Description**, which also shows in notification emails.
 5. Select the **Metric** you want to monitor, then choose a **Condition** and **Threshold** value for the metric. Also chose the **Period** of time that the metric rule must be satisfied before the alert triggers. So for example, if you use the period "PT5M" and your alert looks for CPU above 80%, the alert triggers when the CPU has been consistently above 80% for 5 minutes. Once the first trigger occurs, it again triggers when the CPU stays below 80% for 5 minutes. The CPU measurement occurs every 1 minute.   
 
 6. Check **Email owners...** if you want administrators and co-administrators to be emailed when the alert fires.
