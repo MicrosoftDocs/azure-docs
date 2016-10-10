@@ -21,64 +21,56 @@
 
 Create a new VM from a specialized VHD.
 
-The quickest way to create a VM from a specialized VHD is to use a [quick start template](https://azure.microsoft.com/documentation/templates/201-vm-from-specialized-vhd/). 
-
-To use this quick start template, you need to provide the following information:
-- osDiskVhdUriUri - Uri of the VHD. This is in the format: `https://<storageAccountName>.blob.core.windows.net/<containerName>/<vhdName>.vhd`.
-- osType - the operating system type, either Windows or Linux 
-- vmSize - [Size of the VM](virtual-machines-windows-sizes.md) 
-- vmName - the name you want to use for the new VM 
-
-You can also use Azure PowerShell to create a VM from a specialized image. To use PowerShell, follow the steps in the rest of this document.
+[AZURE.NOTE] After you have created the VM, you will need to use an Administrator account or account that has remote access permissions in order to log onto the machine using the **Connect** button in the Azure portal.
 
 ## Create a virtual network
 
 Create the vNet and subNet of the [virtual network](../virtual-network/virtual-networks-overview.md).
 
-1. Replace the value of variables with your own information. Provide the address prefix for the subnet in CIDR format. Create the variables and the subnet.
+1. Replace the value of variables with your own information. Provide the address prefix for the subnet in CIDR format. This example creates a subnet named **mySubNet**, in the resource group **myResourceGroup**, and sets the subnet address prefix to **10.0.0.0/24**.
 
 ```powershell
-	$rgName = "<resourceGroup>"
-	$subnetName = "<subNetName>"
-	$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix <0.0.0.0/0>
+	$rgName = "myResourceGroup"
+	$subnetName = "mySubNet"
+	$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
 ```
       
-2. Replace the value of **$vnetName** with a name for the virtual network. Provide the address prefix for the virtual network in CIDR format. Create the variable and the virtual network with the subnet.
+2. Replace the value of **$vnetName** with a name for the virtual network. Provide the address prefix for the virtual network in CIDR format. This example sets the virtual network name to be **myVnetName**, the location to **West US**, and the address prefix for the virtual network to **10.0.0.0/16**. 
 
 ```powershell
-	$location = "<location>"
-	$vnetName = "<vnetName>"
-	$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix <0.0.0.0/0> -Subnet $singleSubnet
+	$location = "West US"
+	$vnetName = "myVnetName"
+	$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
 ```    
             
 ## Create a public IP address and network interface
 
 To enable communication with the virtual machine in the virtual network, you need a [public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
 
-1. Replace the value of **$ipName** with a name for the public IP address. Create the variable and the public IP address.
+1. Replace the value of **$ipName** with a name for the public IP address. In this example, the public IP address name is set to **myIP**.
 
 ```powershell
-	$ipName = "<ipName>"
+	$ipName = "myIP"
 	$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
 ```       
 
-2. Replace the value of **$nicName** with a name for the network interface. Create the variable and the network interface.
+2. Replace the value of **$nicName** with a name for the network interface. In this example, the NIC name is set to **myNicName**.
 
 ```powershell
-$nicName = "<nicName>"
+$nicName = "myNicName"
 $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 ```
 
 ## Create the network security group and an RDP rule
 
-In order to be able to log into your VM using RDP, you need to have an security rule that allows RDP access on port 3389. 
+In order to be able to log into your VM using RDP, you need to have an security rule that allows RDP access on port 3389. Because the VHD for the new VM was created from an existing specialized VM, after the VM is created you can use an existing account from the source virtual machine that had permission to log on using RDP.
 
-Replace the value of $nsgName with a name for your NSG. Create the variable, the rule and the network security group.
+Replace the value of $nsgName with a name for your NSG. Create the variable, the rule and the network security group. This example sets the NSG name to **myNsg** and the RDP rule name to **myRdpRule**.
 
 ```powershell
 $nsgName = "<nsgName>"
 
-$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP" `
+$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
     -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
@@ -88,28 +80,43 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $loc
 ```
 
 
-## Create a VM by using the copied VHD
+## Create the VM configuration
 
-Set up the VM configurations, create the new VM and attach the copied VHD as the OS VHD.
+Set up the VM configurations and attach the copied VHD as the OS VHD.
 
 
 ```powershell
-	#Set the VM name and size
+	# Set the URI for the VHD that you want to use. In this example, the VHD file named "myOsDisk.vhd" is kept in a storage account named "myStorageAccount" in a container named "myContainer".
+	$osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
+	
+	#Set the VM name and size. This example sets the VM name to "myVM" and the VM size to "Standard_A2".
+	$vmName = "myVM"
 	$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
 
 	#Add the NIC
 	$vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 
-	#Add the OS disk by using the URL of the copied OS VHD
+	#Add the OS disk by using the URL of the copied OS VHD. In this example, when the OS disk is created, the term "osDisk" is appened to the VM name to create the OS disk name. This example also specifies that this Windows-based VHD should be attached to the VM as the OS disk.
 	$osDiskName = $vmName + "osDisk"
 	$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
 
-	#Add data disks by using the URLs of the copied data VHDs at the appropriate Logical Unit Number (Lun)
+	
+	
+If you have data disks that need to be attached to the VM, you should also add the following: 
+
+```powershell
+	# Optional: Add data disks by using the URLs of the copied data VHDs at the appropriate Logical Unit Number (Lun).
 	$dataDiskName = $vmName + "dataDisk"
 	$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 0 -CreateOption attach
 ```
 
 The data and operating system disk URLs look something like this: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. You can find this on the portal by browsing to the target storage container, clicking the operating system or data VHD that was copied, and then copying the contents of the URL.
+
+
+## Create the VM
+
+Create the VM using the configurations that we just created.
+
 
 ```powershell
 	#Create the new VM
