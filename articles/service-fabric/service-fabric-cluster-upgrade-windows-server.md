@@ -35,7 +35,6 @@ You do this by setting the "fabricClusterAutoupgradeEnabled" cluster configurati
 >[AZURE.NOTE] Make sure to keep your cluster always running a supported Service Fabric version. As and when we announce the release of a new version of service fabric, the previous version is marked for end of life after a minimum of 60 days from that date. The new releases are announced [on the service fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/ ). The new release is available to choose then. 
 
 
-
 >[AZURE.NOTE] You can upgrade your cluster to the new version only if you are using a  production-style node configuration, where each Service Fabric node is allocated on a separate physical or virtual machine. If you have a development cluster, where there are more than one service fabric nodes on a single physical or virtual machine, you must tear down your cluster and recreate it with the new version.
 
 
@@ -104,7 +103,7 @@ You can monitor the progress of the upgrade on Service fabric explorer or by run
 	Get-ServiceFabricClusterUpgrade
 	```
 
-	Once the cluster has been upgraded, the health warning on the cluster goes away. If the cluster health policies are not met, the upgrade is rolled back. You can specify custom health policies at the time for the Start-ServiceFabricClusterUpgrade command refer to [this document](https://msdn.microsoft.com/library/mt125872.aspx) for details. 
+	If the cluster health policies are not met, the upgrade is rolled back. You can specify custom health policies at the time for the Start-ServiceFabricClusterUpgrade command refer to [this document](https://msdn.microsoft.com/library/mt125872.aspx) for details. 
 
 Once you have fixed the issues that resulted in the rollback, you need to initiate the upgrade again, by following the same steps as before.
 
@@ -132,7 +131,7 @@ and kick off a configuration upgrade. refer to [Start-ServiceFabricClusterUpgrad
  
 
 
-1. Download the latest version of the package from [Create service fabric cluster for windows server](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-cluster-	creation-for-windows-server/#download-the-service-fabric-standalone-package) document 
+1. Download the latest version of the package from [Create service fabric cluster for windows server](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-creation-for-windows-server/#download-the-service-fabric-standalone-package) document 
 
 
 1. Connect to the cluster from any machine that has administrator access to all the machines that are listed as nodes in the cluster. The machine that this script is run on does not have to be part of the cluster 
