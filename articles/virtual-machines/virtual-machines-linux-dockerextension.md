@@ -95,7 +95,7 @@ data:          Provisioning State        :Succeeded
 data:          Name                      :myVMNicD
 data:          Location                  :westus
 data:            Public IP address       :13.91.107.235
-data:            FQDN                    :mydockergroup.westus.cloudapp.azure.com]
+data:            FQDN                    :mypublicip.westus.cloudapp.azure.com]
 data:
 data:    Diagnostics Instance View:
 info:    vm show command OK
@@ -107,7 +107,13 @@ Towards the end of the output, `FQDN` displays the fully qualified domain name b
 
 
 ## Deploy your first nginx container
-Once the deployment has finished, SSH to your new Docker host using the DNS name you provided during deployment. Let's try to run an nginx container:
+Once the deployment has finished, SSH to your new Docker host using the DNS name you provided during deployment:
+
+```bash
+ssh ops@mypublicip.westus.cloudapp.azure.com
+```
+
+Let's try to run an nginx container:
 
 ```
 sudo docker run -d -p 80:80 nginx
