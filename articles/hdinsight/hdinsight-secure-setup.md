@@ -123,7 +123,7 @@ If you prefer to use an existing AAD, you can skip step 1 and 2.
 4. Enter **User Name**, and then click **Next**. 
 5. Configure user profile; In **Role**, select **Global Admin**; and then click **Next**.
 6. Click **Create** to get a temporary password.
-7. Make a copy of the password - Xoxo9735, and then click **Complete**. jgao@contoso158.onmicrosoft.com
+7. Make a copy of the password - Zoma7815, and then click **Complete**. jgao@contoso158.onmicrosoft.com
 
 
 Follow the same procedure to create two more users with the **User** role. The following users will be used in [Configure Hive policies in secure HDInsight](hdinsight-secure-run-hive.md).
@@ -271,12 +271,12 @@ For more information, see [Join a Windows Server virtual machine to a managed do
 1. RDP into **contosoaadadmin**.
 2. Click **Start**, and then click **Server Manager**.
 3. Click **Dashboard** from the left menu.
-4. Click **Add roles and features**.
+4. Click **Manage**, and then click **Add roles and features**.
 5. Click **Next**.
 6. Select **Role-based or feature-based installation**, and then click **Next**.
 7. Select the current virtual machine from the server pool, and click **Next**.
 8. Click **Next** to skip roles.
-9. Expand **Remote Server Administration Tools**, expand **Role Administration Tools**, select **AD DS and AD LDS Tools**, and then click **Next**. 
+9. Expand **Remote Server Administration Tools**, expand **Role Administration Tools**, select **AD DS and AD LDS Tools** and **DNS Server Tools**, and then click **Next**. 
 10. Click **Next**
 10. Click **Install**.
 
@@ -293,7 +293,7 @@ This organization unit will be used when creating the HDInsight cluster. It will
 2. Click **Start**, click **Administrative Tools**, and then click **Active Directory Administrative Center**.
 5. Click the domain name in the left pane. For example, contoso158.
 6. Click **New** under the domain name in the **Task** pane, and then click **Organizational Unit**.
-7. Enter a name, for sample **Hadoop System Users**, and then click **OK**. 
+7. Enter a name, for example **Hadoop System Users**, and then click **OK**. 
 
 *****************************************
 **additional steps**
