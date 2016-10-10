@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/13/2016"
+   ms.date="10/10/2016"
    ms.author="larryfr"/>
 
 #Use Hive with Hadoop in HDInsight with Beeline
@@ -187,11 +187,21 @@ Beeline can also be used to run a file that contains HiveQL statements. Use the 
         +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
         3 rows selected (1.538 seconds)
 
-##<a id="summary"></a>Summary
+## More about Beeline connectivity
+
+The steps in this document use `localhost` to connect to HiveServer2 running on the cluster headnode. While you can also use the hostname or the fully qualified domain name of the headnode those require additional steps to the process (steps to find the hostname or FQDN). Using `localhost` is sufficient when using Beeline from the headnode.
+
+If you have an edge node in your cluster, with Beeline installed, you will need to use the hostname or FQDN of the headnode to connect.
+
+If you have Beeline installed on a client outside of your cluster, you can connect using the following command. Replace __CLUSTERNAME__ with the name of your HDInsight cluster. Replace __PASSWORD__ with the password for the admin (HTTP login) account.
+
+    beeline -u 'jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=hive2' -n admin -p PASSWORD
+
+Note that the parameters/URI is different than when running directly on a headnode or from an edge node within the cluster. This is because connecting to the cluster from the internet uses a public gateway that routes traffic over port 443. Also, several other services are exposed through the public gateway on port 443, so the URI is different than when connecting directly. When connecting from the internet you must also authenticate the session by providing the password.
+
+##<a id="summary"></a><a id="nextsteps"></a>Next steps
 
 As you can see, the Beeline command provides an easy way to interactively run Hive queries on an HDInsight cluster.
-
-##<a id="nextsteps"></a>Next steps
 
 For general information on Hive in HDInsight:
 
