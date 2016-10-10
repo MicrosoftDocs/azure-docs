@@ -77,11 +77,11 @@ DPS prompts you for a location to stage the data. Choose an existing storage acc
 ![][4]
 
 ## Step 6: Select a data warehouse
-Next, you select an online [Azure SQL Data Warehouse](http://aka.ms/sqldw) database to import the data into. Once you've selected your database, you will need to enter the credentials to connect to the database and select **Next**.
+Next, you select an online [Azure SQL Data Warehouse](http://aka.ms/sqldw) database to import the data into. Once you've selected your database, you need to enter the credentials to connect to the database and select **Next**.
 
 ![][5]
 
-> [AZURE.NOTE] DPS merges the source data tables into the data warehouse and warns you if table name conflicts require it to overwrite existing tables in the data warehouse. You may optionally delete any existing objects in the data warehouse by ticking Delete all existing objects before import.
+> [AZURE.NOTE] DPS merges the source data tables into the data warehouse. DPS warns you if the table name requires it to overwrite existing tables in the data warehouse. You may optionally delete any existing objects in the data warehouse by ticking Delete all existing objects before import.
 
 ## Step 7: Import the data
 DPS confirms that you would like to import the data. Simply click the Start import button to begin the data import.
