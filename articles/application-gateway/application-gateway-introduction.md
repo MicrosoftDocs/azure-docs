@@ -59,7 +59,7 @@ Application Gateway is currently offered in three sizes: Small, Medium, and Larg
 
 There are currently two skus for Application Gateway: WAF and Standard.
 
-You can create up to 50 application gateways per subscription, and each application gateway can have up to 10 instances each. Each application gateway can consist of 10 http listeners. Application Gateway load balancing as an Azure-managed service allows the provisioning of a layer 7 load balancer behind the Azure software load balancer.
+You can create up to 50 application gateways per subscription, and each application gateway can have up to 10 instances each. Each application gateway can consist of 20 http listeners. Application Gateway load balancing as an Azure-managed service allows the provisioning of a layer 7 load balancer behind the Azure software load balancer.
 
 The following table shows an average performance throughput for each application gateway instance:
 
