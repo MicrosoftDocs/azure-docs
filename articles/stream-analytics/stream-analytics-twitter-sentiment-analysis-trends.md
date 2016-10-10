@@ -20,22 +20,22 @@
 
 # Social media analysis: Real-time Twitter sentiment analysis in Azure Stream Analytics
 
-Learn how to build a sentiment analysis solution for social media analytics by bringing real-time Twitter events into Azure Event Hubs. You'll write a Stream Analytics query to analyze the data. You'll then either store the results for later perusal or use a dashboard and [Power BI](https://powerbi.com/) to provide insights in real time.
+Learn how to build a sentiment analysis solution for social media analytics by bringing real-time Twitter events into Azure Event Hubs. You'll write an Azure Stream Analytics query to analyze the data. You'll then either store the results for later perusal or use a dashboard and [Power BI](https://powerbi.com/) to provide insights in real time.
 
 Social media analytics tools help organizations understand trending topics, that is, subjects and attitudes that have a high volume of posts in social media. Sentiment analysis, which is also called *opinion mining*, uses social media analytics tools to determine attitudes toward a product, idea, and so on. Real-time Twitter trend analysis is a great example because the hashtag subscription model enables you to listen to specific keywords and develop sentiment analysis on the feed.
 
-## Scenario - Sentiment Analysis in real time
+## Scenario: Sentiment analysis in real time
 
 A company that has a news media website is interested in getting an advantage over its competitors by featuring site content that is immediately relevant to its readers. The company uses social media analysis on topics that are relevant to readers by doing real-time sentiment analysis on Twitter data. Specifically, to identify trending topics in real time on Twitter, the company needs real-time analytics about the tweet volume and sentiment for key topics. So, in essence, the need is a sentiment analysis analytics engine that's based on this social media feed.
 
 ## Prerequisites
-1.	Twitter account and [OAuth access token](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
-2.	[TwitterClient.zip](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip) from the Microsoft Download Center
-3.	Optional: Source code for twitter client from [Github](https://aka.ms/azure-stream-analytics-twitterclient)
+-	Twitter account and [OAuth access token](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
+-	[TwitterClient.zip](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip) from the Microsoft Download Center
+-	Optional: Source code for twitter client from [Github](https://aka.ms/azure-stream-analytics-twitterclient)
 
 ## Create an event hub input and a consumer group
 
-The sample application will generate events and push them to an Event Hubs instance (an event hub, for short). Service Bus Event Hubs are the preferred method of event ingestion for Stream Analytics. See Event Hubs documentation in [Service Bus documentation](/documentation/services/service-bus/).
+The sample application will generate events and push them to an Event Hubs instance (an event hub, for short). Service Bus event hubs are the preferred method of event ingestion for Stream Analytics. See Event Hubs documentation in [Service Bus documentation](/documentation/services/service-bus/).
 
 Use the following steps to create an event hub.
 
@@ -47,7 +47,7 @@ Use the following steps to create an event hub.
 	![Shared Access Policies where you can create a policy with Manage permissions.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-ananlytics-shared-access-policies.png)
 
 5.	Click **SAVE** at the bottom of the page.
-6.	Go to the **DASHBOARD**, and click **CONNECTION INFORMATION** at the bottom of the page, and then copy and save the connection information. (Use the copy icon that appears under the search icon.)
+6.	Go to the **DASHBOARD**, click **CONNECTION INFORMATION** at the bottom of the page, and then copy and save the connection information. (Use the copy icon that appears under the search icon.)
 
 ## Configure and start the Twitter client application
 
