@@ -17,7 +17,7 @@
    ms.date="05/11/2016"
    ms.author="yushwang" />
 
-# Add a Site-to-Site connection to a VNet with an existing VPN gateway connection using PowerShell
+# Add a Site-to-Site connection to a VNet with an existing VPN gateway connection
 
 > [AZURE.SELECTOR]
 - [Resource Manager - Portal](vpn-gateway-howto-multi-site-to-site-rm-portal.md)
