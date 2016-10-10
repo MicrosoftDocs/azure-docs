@@ -24,11 +24,11 @@ The Azure Active Directory (Azure AD) management experience is in preview in the
 
 ## Learn about what you can do in the preview experience
 
-The preview experience enables you to manage many directory resources such as users, groups, and applications, as well as directory settings, in the Azure portal. We are improving this experience to include all the capabilities that exist in the Azure AD management experience in the [Azure classic portal](https://manage.windowsazure.com). Until then, there are some directory management tasks that you must still complete in the classic portal.
+The preview experience enables you to manage many directory resources such as users, groups,  applications, and directory settings in the Azure portal. We are improving this experience to include all the capabilities that exist in the Azure AD management experience in the [Azure classic portal](https://manage.windowsazure.com). Until then, there are some directory management tasks that you must still complete in the classic portal.
 
 ## Manage the same Azure AD tenants
 
-The preview experience reads and writes to the same Azure Active Directory tenant as the classic portal and the Office 365 Admin center. Changes that are made in any of these portals are reflected in all of the other portals.
+The preview experience reads and writes to the same Azure Active Directory tenant as the classic portal and the Office 365 Admin center. Changes that are made in any of these portals are reflected in all the other portals.
 
 ## Use the same authorization logic
 
