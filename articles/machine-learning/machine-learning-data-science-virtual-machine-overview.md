@@ -1,6 +1,6 @@
 <properties
 	pageTitle="What is a Data Science Virtual Machine? | Microsoft Azure"
-	description="The Data Science Virtual Machine is an Azure VM image purpose built for doing data science productively, available in both Windows and Linux editions."
+	description="Learn the key scenarios, features, and how to get started with Data Science Virtual Machines, an environment and toolkit ready for analytics."
 	keywords="data science tools, data science virtual machine, tools for data science, linux data science"
 	services="machine-learning"
 	documentationCenter=""
@@ -20,12 +20,14 @@
 
 # Introduction to the Data Science Virtual Machine for Linux and Windows, a cloud environment and toolkit
 
-Learn **how to get started** with the **key scenarios** and **key features** of the Data Science Virtual Machine. The Data Science VM is a data science environment and toolkit provisioned in the Microsoft Azure cloud and ready for analytics in Windows Server 2012 and OpenLogic 7.2 CentOS-based Linux versions.
+Learn about the key scenarios and features of Azure Data Science Virtual Machines and how to get started. The Data Science VM is a data science environment and toolkit ready for analytics and provisioned in the Microsoft Azure cloud in Windows Server 2012 or OpenLogic 7.2 CentOS-based Linux versions.
 
 
 ## What can I do in the Data Science Virtual Machine?
 
-The goal of the Data Science Virtual Machine is to provide data professionals at all skill levels and roles with a friction-free data science environment that allows you to start your data science project immediately in a newly created VM instance. This VM saves you considerable time that you would spend if you rolled out a comparable environment on your own. The Data Science VM is preconfigured for the broad usage scenarios:
+The goal of the Data Science Virtual Machine is to provide data professionals at all skill levels and roles with a friction-free data science environment that allows you to start your data science project immediately in a newly created VM instance. This VM saves you considerable time that you would spend if you rolled out a comparable environment on your own.
+
+The Data Science VM is preconfigured for the broad usage scenarios:
 
 - Scale your environment up or down as your project needs change.
 - Use any language to program your data science tasks.
@@ -33,11 +35,11 @@ The goal of the Data Science Virtual Machine is to provide data professionals at
 
 
 
-## Analytics Desktop on Cloud
+## Preconfigured analytics desktop in the cloud
 
 The Data Science VM provides a baseline configuration for data science teams looking to replace their local desktops with a managed cloud desktop. This baseline ensures that all the data scientists on a team have a consistent setup with which to verify experiments and promote collaboration. It also lowers costs by reducing the sysadmin burden and saving on the time needed to evaluate, install, and maintain the various software packages needed to do advanced analytics.  
 
-## Data Science Training and Education
+## Data science training and education
 
 Enterprise trainers and educators that teach data science classes usually provide a virtual machine image to ensure that their students have a consistent setup and that the samples work predictably. The Data Science VM creates an on-demand environment with a consistent setup that eases the support and incompatibility challenges. Cases where these environments need to be built frequently, especially for shorter training classes, benefit substantially.
 
@@ -63,13 +65,13 @@ It also includes tools that make it easy to work with various Azure data and ana
 |Anaconda Python 2.7, 3.5 | Anaconda Python 2.7, 3.5 |
 |Jupyter Notebook Server (R, Python) | JupyterHub: Multi-user Jupyter notebooks (R, Python, Julia) |
 |SQL Server 2016 Developer Edition: Scalable in-database analytics with R services | Postgres, SQuirreL SQL (database tool), SQL Server drivers, and command line (bcp, sqlcmd) |
-|Visual Studio Community Edition 2015 (IDE) </br> - Azure HDInsight (Hadoop), Data Lake, SQL Server Data tools </br> - Node.js, Python, and R tools for Visual Studio |IDEs and editors </br> - Eclipse with Azure toolkit plugin </br> - Emacs (with ESS, auctex, getit) |
+|Visual Studio Community Edition 2015 (IDE) </br> - Azure HDInsight (Hadoop), Data Lake, SQL Server Data tools </br> - Node.js, Python, and R tools for Visual Studio |IDEs and editors </br> - Eclipse with Azure toolkit plugin </br> - Emacs (with ESS, auctex) gedit |
 |Power BI desktop | -- |
-|Machine Learning Tools </br> - Integration with Azure Machine Learning </br> - CNTK (deep learning/AI) </br> - Xgboost (popular ML tool in data science competitions) </br> - Vowpal Wabbit (fast online learner) </br> - Rattle (visual quick-start data and analytics tool) </br> - Mxnet (deep learning/AI) | Machine Learning Tools </br> - Integrations with Azure Machine Learning </br> - CNTK (deep learning/AI) </br> - Vowpal Wabbit (fast online learner) </br> - Rattle (visual quick-start data and analytics tool)  |
+|Machine Learning Tools </br> - Integration with Azure Machine Learning </br> - CNTK (deep learning/AI) </br> - Xgboost (popular ML tool in data science competitions) </br> - Vowpal Wabbit (fast online learner) </br> - Rattle (visual quick-start data and analytics tool) </br> - Mxnet (deep learning/AI) | Machine Learning Tools </br> - Integrations with Azure Machine Learning </br> - CNTK (deep learning/AI) </br> - Xgboost (popular ML tool in data science competitions) </br> - Vowpal Wabbit (fast online learner) </br> - Rattle (visual quick-start data and analytics tool)  |
 | SDKs to access Azure and Cortana Intelligence Suite of services | SDKs to access Azure and Cortana Intelligence Suite of services |
 | Tools for data movement and management of Azure and Big Data resources: Azure Storage Explorer, CLI, PowerShell, AdlCopy (Azure Data Lake), AzCopy, dtui (for DocumentDB), Microsoft Data Management Gateway | Tools for data movement and management of Azure and Big Data resources: Azure Storage Explorer, CLI |
 | Git, Visual Studio Team Services plugin | Git |
-| Windows port of most popular Linux/Unix command line utilities accessible through GitBash command prompt | -- |
+| Windows port of most popular Linux/Unix command line utilities accessible through GitBash/command prompt | -- |
 
 
 
