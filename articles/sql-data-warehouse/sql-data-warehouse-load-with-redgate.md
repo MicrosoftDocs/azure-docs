@@ -40,7 +40,6 @@ Before starting this tutorial, you need to have:
 
 > [AZURE.NOTE] Performance is improved if the storage account and the data warehouse are created in the same region.
 
-
 ## Step 1: Sign in to Data Platform Studio with your Azure account
 Open your web browser and navigate to the [Data Platform Studio](https://www.dataplatformstudio.com/) website. Sign in with the same Azure account that you used to create the storage account and data warehouse. If your email address is associated with both a work or school account and a Microsoft account, be sure to choose the account that has access to your resources.
 
@@ -52,8 +51,8 @@ From the DPS main screen, select the Import to Azure SQL Data Warehouse link to 
 ![][1]
 
 ## Step 3: Install the Data Platform Studio Gateway
-To connect to your on-premise SQL Server database, you need to install the DPS Gateway. The gateway is a client agent that provides access to your on-premise environment, extracts the data, and uploads it to your storage account. Your data never passes through Redgate’s servers.
-To install the Gateway:
+To connect to your on-premise SQL Server database, you need to install the DPS Gateway. The gateway is a client agent that provides access to your on-premise environment, extracts the data, and uploads it to your storage account. Your data never passes through Redgate’s servers. To install the Gateway:
+
 1.	Click the **Create Gateway** link
 2. Download and install the Gateway using the provided installer
 
