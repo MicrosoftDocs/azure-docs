@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/26/2016"
+	ms.date="10/10/2016"
 	ms.author="helaw"/>
 
 # Deploy templates in Azure Stack using PowerShell
@@ -35,7 +35,6 @@ The VHD used in this example template is a default marketplace image (WindowsSer
 		$myNum = "001" #Modify this per deployment
 		$RGName = "myRG$myNum"
 		$myLocation = "local"
-		$myBlobStorageEndpoint = "blob.azurestack.local"
 
 		# Create Resource Group for Template Deployment
 		New-AzureRmResourceGroup -Name $RGName -Location $myLocation
@@ -45,11 +44,10 @@ The VHD used in this example template is a default marketplace image (WindowsSer
 		    -Name myDeployment$myNum `
 		    -ResourceGroupName $RGName `
 		    -TemplateFile c:\templates\azuredeploy-101-simple-windows-vm.json `
-		    -BlobStorageEndpoint $myBlobStorageEndpoint `
 		    -NewStorageAccountName mystorage$myNum `
 		    -DnsNameForPublicIP mydns$myNum `
-		    -AdminUsername username `
-		    -AdminPassword ("password" | ConvertTo-SecureString -AsPlainText -Force) `
+		    -AdminUsername <username> `
+		    -AdminPassword ("<password>" | ConvertTo-SecureString -AsPlainText -Force) `
 		    -VmName myVM$myNum `
 		    -WindowsOSVersion 2012-R2-Datacenter
     ```

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/27/2016"
+	ms.date="10/10/2016"
 	ms.author="erikje"/>
 
 # Deploy Azure Stack POC
@@ -105,7 +105,9 @@ Before you start, make sure that you at least 85 GB of space.
 
     > [AZURE.IMPORTANT] If you want to monitor the deployment progress, sign in as azurestack\AzureStackAdmin. If you sign in as a local admin after the machine is joined to the domain, you won't see the deployment progress. Do not rerun deployment, instead sign in as azurestack\AzureStackAdmin to validate that it's running.
 
-    If the deployment fails, you can try to [rerun it](azure-stack-rerun-deploy.md). Or, you can [redeploy](azure-stack-redeploy.md) it from scratch.
+    When the deployment succeeds, you’ll see the following in the PowerShell console: **COMPLETE: Action ‘Deployment’**.
+
+    If the deployment fails, you can try to [rerun it](azure-stack-rerun-deploy.md). Or, you can [redeploy](azure-stack-redeploy.md) it from scratch.
 
 ### Deployment script examples
 
