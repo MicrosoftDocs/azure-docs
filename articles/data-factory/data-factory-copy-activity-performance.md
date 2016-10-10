@@ -370,7 +370,7 @@ One or more of the following factors might cause the performance bottleneck:
 In this case, bzip2 data compression might be slowing down the entire pipeline. Switching to a gzip compression codec might ease this bottleneck.
 
 
-## Sample scenario: Use parallel copy  
+## Sample scenarios: Use parallel copy  
 
 **Scenario I:** Copy 1,000 1-MB files from the on-premises file system to Blob storage.
 
