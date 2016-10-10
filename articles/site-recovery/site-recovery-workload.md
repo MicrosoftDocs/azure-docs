@@ -1,19 +1,19 @@
 <properties
-	pageTitle="What workloads can you protect with Azure Site Recovery?" 
-	description="Azure Site Recovery protects your workloads and applications by coordinating the replication, failover and recovery of on-premises virtual machines and physical servers to Azure or to a secondary on-premises site" 
-	services="site-recovery" 
-	documentationCenter="" 
-	authors="rayne-wiselman" 
-	manager="jwhit" 
+	pageTitle="What workloads can you protect with Azure Site Recovery?"
+	description="Azure Site Recovery protects your workloads and applications by coordinating the replication, failover and recovery of on-premises virtual machines and physical servers to Azure or to a secondary on-premises site"
+	services="site-recovery"
+	documentationCenter=""
+	authors="rayne-wiselman"
+	manager="cfreeman"
 	editor=""/>
 
-<tags 
-	ms.service="site-recovery" 
+<tags
+	ms.service="site-recovery"
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery" 
-	ms.date="07/06/2016" 
+	ms.workload="storage-backup-recovery"
+	ms.date="10/10/2016"
 	ms.author="raynew"/>
 
 # What workloads can you protect with Azure Site Recovery?
@@ -34,12 +34,13 @@ Site Recovery integrates with Microsoft applications, including SharePoint, Exch
 
 ## Why use Site Recovery for application protection?
 
-Site Recovery contributes to application-level protection and recovery as follows: 
+Site Recovery contributes to application-level protection and recovery as follows:
 
+- App-agnostic, providing replication for any workloads running in a supported VM.
 - Near-synchronous replication with RPOs as low as 30 seconds to meet the needs of most critical business apps.
 - App-consistent snapshots for single or multi-tier applications.
 - Integration with SQL Server AlwaysOn, and partnership with other application-level replication technologies, including AD replication, SQL AlwaysOn, Exchange Database Availability Groups (DAGs) and Oracle Data Guard.
-- Flexible recovery plans that enable you to recover an entire application stack with a single click, and include to include external scripts and manual actions in the plan. 
+- Flexible recovery plans that enable you to recover an entire application stack with a single click, and include to include external scripts and manual actions in the plan.
 - Advanced network management in Site Recovery and Azure to simplify app network requirements, including the ability to reserve IP addresses, configure load-balancing, and integrate with Azure Traffic Manager for low RTO network switchovers.
 -  A rich automation library that provides production-ready, application-specific scripts that can be downloaded and integrated with recovery plans.
 
@@ -51,14 +52,14 @@ Site Recovery can replicate any app running on a supported virtual machine. In a
 
 **Workload** | **Replicate Hyper-V VMs to a secondary site** | **Replicate Hyper-V VMs to Azure** | **Replicate VMware VMs to a secondary site** | **Replicate VMware VMs to Azure**
 ---|---|---|---|---
-Active Directory, DNS | Y | Y | Y | Y 
+Active Directory, DNS | Y | Y | Y | Y
 Web apps (IIS, SQL) | Y | Y | Y | Y
 SCOM | Y | Y | Y | Y
 Sharepoint | Y | Y | Y | Y
 SAP<br/><br/>Replicate SAP site to Azure for non cluster | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft)
 Exchange (non-DAG) | Y | Coming soon | Y | Y
-Remote Desktop/VDI | Y | Y | Y | N/A 
-Linux (operating system and apps) | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) 
+Remote Desktop/VDI | Y | Y | Y | N/A
+Linux (operating system and apps) | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft)
 Dynamics AX | Y | Y | Y | Y
 Dynamics CRM | Y | Coming soon | Y | Coming soon
 Oracle | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft)
@@ -107,7 +108,7 @@ Azure Site Recovery helps you protect your Dynamics AX ERP solution by:
 
 [Learn more](https://gallery.technet.microsoft.com/Dynamics-AX-DR-Solution-b2a76281) about protecting Dynamic AX.
 
-## Protect RDS 
+## Protect RDS
 
 Remote Desktop Services (RDS) enables virtual desktop infrastructure (VDI), session-based desktops, and applications, allowing users to work anywhere. With Azure Site Recovery you can:
 
@@ -137,7 +138,7 @@ Site Recovery  helps protect Exchange as follows:
 
 ## Protect SAP
 
-Use Site Recovery to protect your SAP deployment as follows: 
+Use Site Recovery to protect your SAP deployment as follows:
 
 - Enable protection of the entire SAP deployment by replicating different deployment layers to Azure, or to a secondary site.
 - Simplify cloud migration by using Site Recovery to migrate your SAP deployment to Azure.
@@ -148,4 +149,3 @@ Use Site Recovery to protect your SAP deployment as follows:
 ## Next steps
 
 [Prepare](site-recovery-best-practices.md) for Site Recovery deployment
-
