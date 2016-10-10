@@ -77,7 +77,7 @@ The following Log Analytics features have different behavior in Azure Government
 + To connect your System Center Operations Manager management server to Log Analytics, you need to download and install updated Management Packs.
   1. Download and save the [updated management packs](http://go.microsoft.com/fwlink/?LinkId=828749)
   2. Unzip the file you have downloaded
-  3. Import the management packs into Operations Manager. For information about how to import a management pack from a disk, see the [How to Import an Operations Manager Management Pack](http://technet.microsoft.com/en-us/library/hh212691.aspx) topic on the Microsoft TechNet website.
+  3. Import the management packs into Operations Manager. For information about how to import a management pack from a disk, see the [How to Import an Operations Manager Management Pack](http://technet.microsoft.com/library/hh212691.aspx) topic on the Microsoft TechNet website.
   4. To connect Operations Manager to Log Analytics, follow the steps in [Connect Operations Manager to Log Analytics](../log-analytics/log-analytics-om-agents.md) 
 
 
