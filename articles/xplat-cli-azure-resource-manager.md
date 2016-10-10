@@ -65,76 +65,7 @@ When viewing details on a resource, it is often useful to use the `--json` param
 
 ### Tags
 
-To help you organize your resource, add [tags](resource-group-using-tags.md) to resources and resource groups. To see what tags are already applied, simply get a resource group and its resources with **azure group show**.
-
-    azure group show -n tag-demo-group
-    
-This command returns metadata about the resource group, including any tags applied to it.
-    
-    info:    Executing command group show
-    + Listing resource groups
-    + Listing resources for the group
-    data:    Id:                  /subscriptions/{guid}/resourceGroups/tag-demo-group
-    data:    Name:                tag-demo-group
-    data:    Location:            westus
-    data:    Provisioning State:  Succeeded
-    data:    Tags: Dept=Finance;Environment=Production
-    data:    Resources:
-    data:
-    data:      Id      : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
-    data:      Name    : tfsqlserver
-    data:      Type    : servers
-    data:      Location: eastus2
-    data:      Tags    : Dept=Finance;Environment=Production
-    ...
-
-To get the tags for only the resource group, use a JSON utility such as [jq](http://stedolan.github.io/jq/download/).
-
-    azure group show -n tag-demo-group --json | jq ".tags"
-    
-This command returns the tags for that resource group.
-    
-    {
-      "Dept": "Finance",
-      "Environment": "Production" 
-    }
-
-View the tags for a particular resource by using **azure resource show**.
-
-    azure resource show -g tag-demo-group -n tfsqlserver -r Microsoft.Sql/servers -o 2014-04-01-preview --json | jq ".tags"
-    
-This command returns the following.
-    
-    {
-      "Dept": "Finance",
-      "Environment": "Production"
-    }
-    
-Retrieve all the resources with a particular tag by using a command like the following.
-
-    azure resource list --json | jq ".[] | select(.tags.Dept == \"Finance\") | .name"
-    
-This command returns the names of the resources with that tag.
-    
-    "tfsqlserver"
-    "tfsqlserver/tfsqldata"
-
-Tags are updated as a whole, so if you add one tag to a resource that's already tagged, you need to retrieve the existing tags that you want to keep. To set tag values 
-for a resource group, use **azure group set** and provide all the tags for the resource group. 
-
-    azure group set -n tag-demo-group -t Dept=Finance;Environment=Production;Project=Upgrade
-    
-A summary of the resource group with the new tags is returned.
-    
-    info:    Executing command group set
-    ...
-    data:    Name:                tag-demo-group
-    data:    Location:            westus
-    data:    Provisioning State:  Succeeded
-    data:    Tags: Dept=Finance;Environment=Production;Project=Upgrade
-    ...
-    
-You can list the existing tags in your subscription with **azure tag list**, and add a tag with **azure tag create**. To remove a tag from the taxonomy for your subscription, first remove the tag from any resources it's used with, and then remove it with **azure tag delete**.
+[AZURE.INCLUDE [resource-manager-tag-resources-cli](../includes/resource-manager-tag-resources-cli.md)]
 
 ## Manage resources
 
