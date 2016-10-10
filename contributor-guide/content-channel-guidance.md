@@ -41,3 +41,5 @@ Beyond this, there are specific types of deliverable and subject matter areas th
 - **Case studies**: Case studies are a very specific deliverable that goes through marketing, they have their own process and guidelines and are created from specific customer and partner engagements. Don't call something a case study unless it's part of the formal case study process.
 
 - **Downloadable files**: Technical documents should be delivered as articles, not downloads. Other downloabable things should go to the Download Center.
+
+- **Compliance**: Industry standards and compliance information for Azure services must be posted to https://www.microsoft.com/en-us/TrustCenter/Compliance?service=Azure#Icons. This includes certification for standards such as ISO, country-specific and government certifications, banking, health, or other certifications.
