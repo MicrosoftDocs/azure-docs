@@ -26,7 +26,7 @@ This article explains how to use Service Bus messaging features (queues and publ
 
 ## Get started with Service Bus
 
-This guide assumes that you already have a Service Bus namespace containing a queue named **queue1**. If you do not, then you can [create the namespace and queue](../service-bus/service-bus-create-namespace-portal.md) using the [Azure portal](https://portal.azure.com). For more information about how to create Service Bus namespaces and queues, see [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md).
+This guide assumes that you already have a Service Bus namespace containing a queue named **queue1**. If you do not, then you can [create the namespace and queue](../service-bus-messaging/service-bus-create-namespace-portal.md) using the [Azure portal](https://portal.azure.com). For more information about how to create Service Bus namespaces and queues, see [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md).
 
 > [AZURE.NOTE] Partitioned queues and topics also support AMQP. For more information, see [Partitioned messaging entities](service-bus-partitioning.md) and [AMQP 1.0 support for Service Bus partitioned queues and topics](service-bus-partitioned-queues-and-topics-amqp-overview.md).
 

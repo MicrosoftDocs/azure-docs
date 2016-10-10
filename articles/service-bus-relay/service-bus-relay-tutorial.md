@@ -762,8 +762,8 @@ This tutorial showed how to build a Service Bus client application and service u
 To learn more about Service Bus, see the following topics.
 
 - [Service Bus messaging overview](../service-bus-messaging/service-bus-messaging-overview.md)
-- [Service Bus fundamentals](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-- [Service Bus architecture](../service-bus/service-bus-architecture.md)
+- [Service Bus fundamentals](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
+- [Service Bus architecture](../service-bus-messaging/service-bus-architecture.md)
 
 [Azure classic portal]: http://manage.windowsazure.com
 
