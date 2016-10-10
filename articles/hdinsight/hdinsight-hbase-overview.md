@@ -32,6 +32,7 @@ HDInsight HBase is offered as a managed cluster that is integrated into the Azur
 
 The HDInsight implementation leverages the scale-out architecture of HBase to provide automatic sharding of tables, strong consistency for reads and writes, and automatic failover. Performance is enhanced by in-memory caching for reads and high-throughput streaming for writes. Virtual network provisioning is also available for HDInsight HBase. For details, see  [Provision HDInsight clusters on Azure Virtual Network] [hbase-provision-vnet].
 
+> [AZURE.WARNING] HBase on HDInsight is configured to use a block size of 256KB when writing to Azure storage. While this isn't a problem with HBase APIs or REST APIs, it can cause problems when using the `hadoop` or `hdfs dfs` commands. For more information, see the [storage exception for write on blob](hdinsight-upload-data.md#storageexception) section of the Upload Data in HDInsight document.
 
 ## How is data managed in HDInsight HBase?
 
