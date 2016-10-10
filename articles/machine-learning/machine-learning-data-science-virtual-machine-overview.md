@@ -71,7 +71,7 @@ It also includes tools that make it easy to work with various Azure data and ana
 | SDKs to access Azure and Cortana Intelligence Suite of services | SDKs to access Azure and Cortana Intelligence Suite of services |
 | Tools for data movement and management of Azure and Big Data resources: Azure Storage Explorer, CLI, PowerShell, AdlCopy (Azure Data Lake), AzCopy, dtui (for DocumentDB), Microsoft Data Management Gateway | Tools for data movement and management of Azure and Big Data resources: Azure Storage Explorer, CLI |
 | Git, Visual Studio Team Services plugin | Git |
-| Windows port of most popular Linux/Unix command line utilities accessible through GitBash/command prompt | -- |
+| Windows port of most popular Linux/Unix command-line utilities accessible through GitBash/command prompt | -- |
 
 
 
