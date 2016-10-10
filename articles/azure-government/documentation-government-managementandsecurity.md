@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="10/07/2016"
+	ms.date="10/10/2016"
 	ms.author="ryansoc"/>
 
 
@@ -42,15 +42,23 @@ The following Log Analytics features and solutions are not currently available i
 
 + Solutions that are in preview in public Azure, including:
   - Network Monitoring solution
+  - Azure Networking Analytics solution
   - Office 365 solution
   - Windows 10 Upgrade Analytics solution
   - Application Dependency Monitoring
-  - Update Assessment
+  - Update Management
+  - Change Management
+  - Application Insights
+  - Azure Activity Logs
+  - Azure Automation Analytics
+  - Key Vault Analytics
+  - Surface Hub
 + Features that are in preview in public Azure, including
   - Export of data to PowerBI
 + Azure portal integration
   - Selecting Azure storage accounts to monitor must be done through PowerShell or Resource Manager templates
   - Selecting virtual machines to enable the Log Analytics agent must be done through PowerShell or Resource Manager templates
+  - Azure metrics and Azure diagnostics
 + Linux monitoring
 + Integration with System Center Operations Manager 2016
 + Computers Groups from System Center Configuration Manager
@@ -62,9 +70,15 @@ The following Log Analytics features and solutions are not currently available i
 The following Log Analytics features have different behavior in Azure Government:
 
 + The Windows agent must be downloaded from the Log Analytics portal for Azure Government.
-+ The Security and Audit solution does not have support for Malicious IP detection.
-+ Uploading data using the Data Collector API requires the use of the Azure Government URL.
++ Uploading data using the Data Collector API requires the use of the Azure Government URL, https://*workspaceId*.ods.opinsights.azure.us where *workspaceId* is the Workspace Id from the OMS portal. 
 + When viewing metric graphs with a time range of less than six hours, the graph does not automatically update with new metric values
++ To connect your System Center Operations Manager management server to Log Analytics you need to download and install updated Management Packs.
+  1. Download and save the [updated management packs](http://go.microsoft.com/fwlink/?LinkId=828749)
+  2. Unzip the file you have downloaded
+  3. Import the management packs into Operations Manager. For information about how to import a management pack from a disk, see the [How to Import an Operations Manager Management Pack](http://technet.microsoft.com/en-us/library/hh212691.aspx) topic on the Microsoft TechNet website.
+  4. To connect Operations Manager to Log Analytics, follow the steps in [Connect Operations Manager to Log Analytics](../log-analytics/log-analytics-om-agents.md) 
+
+
 
 ### Frequently asked questions
 
