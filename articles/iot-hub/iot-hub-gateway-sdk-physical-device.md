@@ -34,7 +34,7 @@ The walkthrough shows you how to build and run an IoT Gateway on an Intel Edison
 When you run the gateway it:
 
 - Connects to a SensorTag device using the Bluetooth Low Energy (BLE) protocol.
-- Connects to IoT Hub using the AMQP protocol.
+- Connects to IoT Hub using the HTTP protocol.
 - Forwards telemetry from the SensorTag device to IoT Hub.
 - Routes commands from IoT Hub to the SensorTag device.
 
