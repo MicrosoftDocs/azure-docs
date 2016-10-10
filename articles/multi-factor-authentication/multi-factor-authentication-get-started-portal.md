@@ -1,28 +1,28 @@
 <properties 
-	pageTitle="Deploying the user portal for the Azure Multi-Factor Authentication Server" 
-	description="This is the Azure Multi-factor authentication page that describes how to get started with Azure MFA and the user portal." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="femila" 
+	pageTitle="Deploying the user portal for the Azure Multi-Factor Authentication Server"
+	description="This is the Azure Multi-factor authentication page that describes how to get started with Azure MFA and the user portal."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/15/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/15/2016"
+	ms.author="kgremban"/>
 
 # Deploying the user portal for the Azure Multi-Factor Authentication Server
 
-The User Portal allows the administrator to install and configure the Azure Multi-Factor Authentication User Portal. The User Portal is an IIS web site which allows users to enroll in Azure Multi-Factor Authentication and maintain their accounts. A user may change their phone number, change their PIN, or bypass Azure Multi-Factor Authentication during their next sign on. 
+The User Portal allows the administrator to install and configure the Azure Multi-Factor Authentication User Portal. The User Portal is an IIS web site which allows users to enroll in Azure Multi-Factor Authentication and maintain their accounts. A user may change their phone number, change their PIN, or bypass Azure Multi-Factor Authentication during their next sign on.
 
-Users will log in to the User Portal using their normal username and password and will either complete a Azure Multi-Factor Authentication call or answer security questions to complete their authentication. If user enrollment is allowed, a user will configure their phone number and PIN the first time they log in to the User Portal. 
+Users will log in to the User Portal using their normal username and password and will either complete a Azure Multi-Factor Authentication call or answer security questions to complete their authentication. If user enrollment is allowed, a user will configure their phone number and PIN the first time they log in to the User Portal.
 
-User Portal Administrators may be set up and granted permission to add new users and update existing users. 
+User Portal Administrators may be set up and granted permission to add new users and update existing users.
 
 <center>![Setup](./media/multi-factor-authentication-get-started-portal/install.png)</center>
 
@@ -30,12 +30,12 @@ User Portal Administrators may be set up and granted permission to add new users
 
 The following pre-requisites are required for installing the Users Portal on the same server as the Azure Multi-Factor Authentication Server:
 
-- IIS needs to be installed including asp.net and IIS 6 meta base compatibility (for IIS 7 or higher) 
+- IIS needs to be installed including asp.net and IIS 6 meta base compatibility (for IIS 7 or higher)
 - Logged in user must have admin rights for the computer and Domain if applicable.  This is because the account needs permissions to create Active Directory security groups.
 
 ### To deploy the user portal for the Azure Multi-Factor Authentication Server
 
-1. Within the Azure Multi-Factor Authentication Server: click User Portal icon in the left menu, click Install User Portal button. 
+1. Within the Azure Multi-Factor Authentication Server: click User Portal icon in the left menu, click Install User Portal button.
 1. Click Next.
 1. Click Next.
 1. If the computer is joined to a domain and the Active Directory configuration for securing communication between the User Portal and the Azure Multi-Factor Authentication service is incomplete, the Active Directory step will be displayed. Click the Next button to automatically complete this configuration.
@@ -48,7 +48,7 @@ The following pre-requisites are required for installing the Users Portal on the
 
 ## Deploying the Azure Multi-Factor Authentication Server User Portal on a Separate Server
 
-In order to use the Azure Multi-Factor Authentication App, the following are required so that the app can successfully communicate with User Portal: 
+In order to use the Azure Multi-Factor Authentication App, the following are required so that the app can successfully communicate with User Portal:
 
 Please see Hardware and Software Requirements for hardware and software requirements:
 
@@ -71,7 +71,7 @@ Installing the user portal on a server other than the Azure Multi-Factor Authent
 
 ### Install the web service SDK
 
-If the Azure Multi-Factor Authentication Web Service SDK is not already installed on the Azure Multi-Factor Authentication Server, go to that server and open the Azure Multi-Factor Authentication Server. Click the Web Service SDK icon, click the Install Web Service SDK… button and follow the instructions presented. The Web Service SDK must be secured with an SSL certificate. A self-signed certificate is okay for this purpose, but it has to be imported into the “Trusted Root Certification Authorities” store of the Local Computer account on the User Portal web server so that it will trust that certificate when initiating the SSL connection. 
+If the Azure Multi-Factor Authentication Web Service SDK is not already installed on the Azure Multi-Factor Authentication Server, go to that server and open the Azure Multi-Factor Authentication Server. Click the Web Service SDK icon, click the Install Web Service SDK… button and follow the instructions presented. The Web Service SDK must be secured with an SSL certificate. A self-signed certificate is okay for this purpose, but it has to be imported into the “Trusted Root Certification Authorities” store of the Local Computer account on the User Portal web server so that it will trust that certificate when initiating the SSL connection.
 
 <center>![Setup](./media/multi-factor-authentication-get-started-portal/sdk.png)</center>
 
@@ -101,7 +101,7 @@ Now that the portal is installed, you need to configure the Azure Multi-Factor A
 Azure Multi-Factor Authentication server provides several options for the user portal.  The following table provides a list of these options and an explaination of what they are used for.
 
 User Portal Settings|Description|
-:------------- | :------------- | 
+:------------- | :------------- |
 User Portal URL| Allows you to enter the URL of where the portal is being hosted.
 Primary authentication| Allows you to specify the type of authentication to use when signing in to the portal.  Either Windows, Radius, or LDAP authentication.
 Allow users to log in|Allows users to enter a username and password on the sign in page for the User portal.  If this is not selected, the boxes will be greyed out.
@@ -153,7 +153,7 @@ Allows you to setup the user portal to accept claims from an identity provider u
 ![SAML](./media/multi-factor-authentication-get-started-portal/saml.png)
 
 ## Trusted IPs
-This tab allows you to specify either single IP addresses or IP address ranges that can be added so that if a user is signing in from one of these IP addresses, then multi-factor authentication is bypassed. 
+This tab allows you to specify either single IP addresses or IP address ranges that can be added so that if a user is signing in from one of these IP addresses, then multi-factor authentication is bypassed.
 
 ![User portal trusted IPs](./media/multi-factor-authentication-get-started-portal/trusted.png)
 
@@ -168,13 +168,13 @@ If they select the Voice Call authentication method or have been pre-configured 
 
 If the user is required to use a PIN when they authenticate, the page will also prompt them to enter a PIN.  After entering their phone number(s) and PIN (if applicable), the user clicks the Call Me Now to Authenticate button.  Azure Multi-Factor Authentication will perform a phone call authentication to the user’s primary phone number.  The user must answer the phone call and enter their PIN (if applicable) and press # to move on to the next step of the self-enrollment process.   
 
-If the user selects the SMS Text authentication method or has been pre-configured to use that method, the page will prompt the user for their mobile phone number.  If the user is required to use a PIN when they authenticate, the page will also prompt them to enter a PIN.  After entering their phone number and PIN (if applicable), the user clicks the Text Me Now to Authenticate button.  Azure Multi-Factor Authentication will perform an SMS authentication to the user’s mobile phone.  The user must receive the SMS which contains a one- time-passcode (OTP) and reply to the message with that OTP plus their PIN if applicable) to move on to the next step of the self-enrollment process. 
+If the user selects the SMS Text authentication method or has been pre-configured to use that method, the page will prompt the user for their mobile phone number.  If the user is required to use a PIN when they authenticate, the page will also prompt them to enter a PIN.  After entering their phone number and PIN (if applicable), the user clicks the Text Me Now to Authenticate button.  Azure Multi-Factor Authentication will perform an SMS authentication to the user’s mobile phone.  The user must receive the SMS which contains a one- time-passcode (OTP) and reply to the message with that OTP plus their PIN if applicable) to move on to the next step of the self-enrollment process.
 
 ![User portal SMS](./media/multi-factor-authentication-get-started-portal/text.png)   
 
 If the user selects the Mobile app authentication method or has been pre-configured to use that method, the page will prompt the user to install the Azure Multi-Factor Authentication app on their device and generate an activation code.  After installing the Azure Multi-Factor Authentication app, the user clicks the Generate Activation Code button.    
 
->[AZURE.NOTE]In order to use the Azure Multi-Factor Authentication app, the user must enable push notifications for their device. 
+>[AZURE.NOTE]In order to use the Azure Multi-Factor Authentication app, the user must enable push notifications for their device.
 
 The page then displays an activation code and a URL along with a barcode picture.  If the user is required to use a PIN when they authenticate, the page will also prompt them to enter a PIN.  The user enters the activation code and URL into the Azure Multi-Factor Authentication app or uses the barcode scanner to scan the barcode picture and clicks the Activate button.    
 
@@ -186,5 +186,3 @@ If the administrators have configured the Azure Multi-Factor Authentication Serv
 ![User portal security questions](./media/multi-factor-authentication-get-started-portal/secq.png)  
 
 The user self-enrollment is now complete and the user is logged in to the User Portal.  Users can log back in to the User Portal at any time in the future to change their phone numbers, PINs, authentication methods and security questions if allowed by their administrators.
-
- 

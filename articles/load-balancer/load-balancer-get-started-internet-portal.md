@@ -17,7 +17,7 @@
    ms.date="09/14/2016"
    ms.author="annahar" />
 
-# Get started creating an Internet-facing load balancer using the Azure portal
+# Creating an Internet-facing load balancer using the Azure portal
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
@@ -106,7 +106,7 @@ You can get more information about load balancer components with Azure Resource 
 
 ## Remove a Load Balancer
 
-To delete a load balancer, select the load balancer you want to remove. In the *Load Balancer* blade, click on **Delete** located at the stop of the blade. Then select **Yes** when prompted.
+To delete a load balancer, select the load balancer you want to remove. In the *Load Balancer* blade, click on **Delete** located at the top of the blade. Then select **Yes** when prompted.
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 	pageTitle="Create a DocumentDB account with protocol support for MongoDB | Microsoft Azure" 
 	description="Learn how to create a DocumentDB account with protocol support for MongoDB, now available for preview." 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # How to create a DocumentDB account with protocol support for MongoDB using the Azure portal
 

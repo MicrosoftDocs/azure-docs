@@ -4,7 +4,7 @@
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
-   manager="dwrede" 
+   manager="erikre" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="08/19/2016"
+   ms.date="10/04/2016"
    ms.author="piyushjo"/>
 
 # Troubleshooting guide for API issues
@@ -99,7 +99,7 @@ The following are possible issues you may encounter with how administrators inte
 - [Troubleshooting Guide - SDK][Link 25]
  
 <!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
+[Link 1]: mobile-engagement-user-interface-home.md
 [Link 2]: mobile-engagement-troubleshooting-guide.md
 [Link 3]: mobile-engagement-how-tos.md
 [Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553

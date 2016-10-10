@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Use Azure Media Video Thumbnails to Create a Video Summarization"
+	pageTitle="Use Azure Media Video Thumbnails to Create a Video Summarization | Microsoft Azure"
 	description="Video summarization can help you create summaries of long videos by automatically selecting interesting snippets from the source video. This is useful when you want to provide a quick overview of what to expect in a long video."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"   
+	ms.date="09/26/2016"   
 	ms.author="milanga;juliako;"/>
 
 #Use Azure Media Video Thumbnails to Create a Video Summarization

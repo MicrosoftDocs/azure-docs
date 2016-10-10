@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/07/2016"
+   ms.date="09/16/2016"
    ms.author="alkohli" />
 
 # Failover and disaster recovery for your StorSimple device
@@ -180,9 +180,12 @@ For Update 3 and later versions, StorSimple also supports failback. After the fa
 
 - The volume containers that are failed over are cleaned from the source device.
 
-- A delete job per volume container (failed over) is seen in the **Jobs** page. The time to complete the deletion of volume containers is dependent on the amount of data in the containers. If you are planning test failovers/failbacks, we recommend that you test volume containers with less data (Gbs).
+- A background job per volume container (failed over) is initiated on the source device. If you attempt to failback while the job is in progress, you will recieve a notification to that effect. You will need to wait until the job is complete to start the failback. 
 
-- Once all the delete jobs are complete, you can attempt the failback.
+	The time to complete the deletion of volume containers is dependent on various factors such as amount of data, age of the data, number of backups, and the network bandwidth available for the operation. If you are planning test failovers/failbacks, we recommend that you test volume containers with less data (Gbs). In most cases, you can start the failback 24 hours after the failover is complete. 
+
+
+
 
 ## Frequently asked questions
 

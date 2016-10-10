@@ -3,7 +3,7 @@
    description="Troubleshoot classic deployment issues when you create a new Windows virtual machine in Azure"
    services="virtual-machines-windows"
    documentationCenter=""
-   authors="jiangchen79"
+   authors="JiangChen79"
    manager="felixwu"
    editor=""
    tags="top-support-issue"/>

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="09/07/2016"
+   ms.date="09/30/2016"
    ms.author="tomfitz"/>
 
 # Use Azure CLI to create a service principal to access resources
@@ -51,32 +51,31 @@ Now, proceed to a section for either [password](#create-service-principal-with-p
 
 ## Create service principal with password
 
-In this section, you perform the steps to:
+In this section, you perform the steps to create the AD application with a password, and assign the Reader role to the service principal.
 
-- create the AD application with a password, and the service principal
-- assign the Reader role to the service principal
-
-To quickly perform these steps, use the following commands. 
-
-    azure ad sp create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example -p <Your_Password>
-    azure role assignment create --objectId ff863613-e5e2-4a6b-af07-fff6f2de3f4e -o Reader -c /subscriptions/{subscriptionId}/
-
-Let's go through these steps more carefully to make sure you understand the process.
+Let's go through these steps.
 
 1. Sign in to your account.
 
-        azure config mode arm
         azure login
 
-1. Create a service principal for your application. Provide a display name, the URI to a page that describes your application, the URIs that identify your application, and the password for your application identity. This command creates both the AD application and the service principal.
+1. You have two options for creating the AD application. You can either create the AD application and the service principal in one step, or create them separately. Create them in one step if you do not need specify a home page and identifier URIs for your app. Create them separately if you need to set these values for a web app. Both options are shown in this step.
 
-        azure ad sp create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example -p {your-password}
-        
-     For single-tenant applications, the URIs are not validated.
+     - To create the AD application and service principal in one step, provide the name of the app and a password, as shown in the following command:
+     
+            azure ad sp create -n exampleapp -p {your-password}     
+     
+     - To create the AD application separately, provide the name of the app, a home page URI, identifier URIs, and a password, as shown in the following command:
+     
+            azure ad app create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example -p <Your_Password>
+
+         The preceding command returns an AppId value. To create a service principal, provide that value as a parameter in the following command:
+     
+            azure ad sp create -a <AppId>
      
      If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context".
     
-     The new service principal is returned. The Object Id is needed when granting permissions. The service principal name is needed when logging in.
+     For both options, the new service principal is returned. The Object Id is needed when granting permissions. The service principal name is needed when logging in.
     
         info:    Executing command ad sp create
         + Creating application exampleapp
@@ -151,18 +150,25 @@ To complete these steps, you must have [OpenSSL](http://www.openssl.org/) instal
 
 1. Sign in to your account.
 
-        azure config mode arm
         azure login
 
-1. Create a service principal for your application. Provide a display name, the URI to a page that describes your application, the URIs that identify your application, and the certificate data you copied. This command creates both the AD application and the service principal.
+1. You have two options for creating the AD application. You can either create the AD application and the service principal in one step, or create them separately. Create them in one step if you do not need specify a home page and identifier URIs for your app. Create them separately if you need to set these values for a web app. Both options are shown in this step.
 
-        azure ad sp create -n "exampleapp" --home-page "https://www.contoso.org" -i "https://www.contoso.org/example" --key-value <certificate data>
-        
-     For single-tenant applications, the URIs are not validated.
+     - To create the AD application and service principal in one step, provide the name of the app and the certificate data, as shown in the following command:
      
+            azure ad sp create -n exampleapp --cert-value <certificate data>
+     
+     - To create the AD application separately, provide the name of the app, a home page URI, identifier URIs, and the certificate data, as shown in the following command:
+     
+            azure ad app create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example --cert-value <certificate data>
+
+         The preceding command returns an AppId value. To create a service principal, provide that value as a parameter in the following command:
+     
+            azure ad sp create -a <AppId>
+  
      If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context".
     
-     The new service principal is returned. The Object Id is needed when granting permissions.
+     For both options, the new service principal is returned. The Object Id is needed when granting permissions.
     
         info:    Executing command ad sp create
         - Creating service principal for application 4fd39843-c338-417d-b549-a545f584a74+

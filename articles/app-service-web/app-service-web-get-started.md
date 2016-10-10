@@ -33,11 +33,14 @@ You will:
 
 ## Prerequisites
 
+>[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
+
 - [Install Git](http://www.git-scm.com/downloads). Verify that your installation is successful by running `git --version` from a new Windows command prompt, 
 PowerShell window, Linux shell, or OS X terminal.
 - Get a Microsoft Azure account. If you don't have an account, you can 
 [sign up for a free trial](/pricing/free-trial/?WT.mc_id=A261C142F) or 
 [activate your Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+
 
 >[AZURE.NOTE] You can [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) without an Azure account. Create a starter app and play with
 it for up to an hour--no credit card required, no commitments.
@@ -80,7 +83,7 @@ Now, let's deploy some code to Azure using Git.
 
 5. In the web app blade, scroll down to **Deployment options** or search for it, then click it. 
 
-    ![deploymnet options for your first web app in Azure](./media/app-service-web-get-started/deploy-web-app-deployment-options.png)
+    ![deployment options for your first web app in Azure](./media/app-service-web-get-started/deploy-web-app-deployment-options.png)
 
 6. Click **Choose Source** > **Local Git Repository** > **OK**.
 

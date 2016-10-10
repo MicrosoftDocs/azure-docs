@@ -125,6 +125,8 @@ If you still don’t see the events, then:
 
 6. Point the standard SIEM file forwarder connector to the appropriate folder to pipe the data to the SIEM instance. You may need some field mappings based on the SIEM product you are using.
 
+If you have questions about Azure Log Integration, please send an email to [AzSIEMteam@microsoft.com] (mailto:AzSIEMteam@microsoft.com)
+
 ## Next steps
 
 In this tutorial, you learned how to install Azure log integration and integrate logs from Azure storage. To learn more, see the following:

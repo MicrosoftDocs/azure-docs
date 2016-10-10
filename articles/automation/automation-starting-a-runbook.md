@@ -35,14 +35,6 @@ The following image illustrates detailed step-by-step process in the life cycle 
 
 ## Starting a runbook with the Azure portal
 
-1.	In the Azure portal, select **Automation** and then then click the name of an automation account.
-2.	Select the **Runbooks** tab.
-3.	Select a runbook, and then click **Start**.
-4.	If the runbook has parameters, you will be prompted to provide values with a text box for each parameter. See [Runbook Parameters](#Runbook-parameters) below for further details on parameters.
-5.	Either select **View Job** next to the **Starting** runbook message or select the **Jobs** tab for the runbook to view the runbook job’s status.
-
-## Starting a runbook with the Azure portal
-
 1.	From your automation account, click the **Runbooks** part to open the **Runbooks** blade.
 2.	Click a runbook to open its **Runbook** blade.
 3.	Click **Start**.

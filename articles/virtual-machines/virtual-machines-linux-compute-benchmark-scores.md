@@ -13,12 +13,12 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="07/18/2016"
+ ms.date="09/22/2016"
  ms.author="danlep"/>
 
 # Compute benchmark scores for Linux VMs
 
-The following CoreMark benchmark scores show compute performance for Azure's high performance VM lineup running Ubuntu. Compute benchmark scores are also available for [Windows VMs](virtual-machines-windows-compute-benchmark-scores.md).
+The following CoreMark benchmark scores show compute performance for Azure's high-performance VM lineup running Ubuntu. Compute benchmark scores are also available for [Windows VMs](virtual-machines-windows-compute-benchmark-scores.md).
 
 
 
@@ -84,9 +84,23 @@ Standard_GS4 | 16 | 1 | Intel Xeon E5-2698B v3 @ 2 GHz | 84 | 194,111 | 4,735
 Standard_GS5 | 32 | 2 | Intel Xeon E5-2698B v3 @ 2 GHz | 84 | 357,396 | 16,228
 
 
+## H-series
+
+Size | vCPUs | NUMA nodes | CPU | Runs | Iterations/sec | StdDev
+------- | ------ | ---- | -------| ---- | ---- | -----
+Standard_H8 | 8 | 1 | Intel Xeon E5-2667 v3 @ 3.2 GHz | 28 | 140,782 | 2,512
+Standard_H16 | 16 | 2 | Intel Xeon E5-2667 v3 @ 3.2 GHz | 35 | 275,289 | 7,110 
+Standard_H18m | 8 | 1 | Intel Xeon E5-2667 v3 @ 3.2 GHz | 28 | 139,071 | 3,988 
+Standard_H16m | 16 | 2 | Intel Xeon E5-2667 v3 @ 3.2 GHz | 28 | 275,988 | 6,963 
+Standard_H16r | 16 | 2 | Intel Xeon E5-2667 v3 @ 3.2 GHz | 28 | 273,982 | 6,069 
+Standard_H16mr | 16 | 2 | Intel Xeon E5-2667 v3 @ 3.2 GHz | 28 | 274,523 | 5,698 
+
+
+
 ## About CoreMark
 
-Linux numbers were computed by running [CoreMark](http://www.eembc.org/coremark/faq.php) on Ubuntu. CoreMark was configured with the number of threads set to the number of virtual CPUs and concurrency set to PThreads. The target number of iterations was adjusted based on expected performance to provide a runtime of at least 20 seconds (typically much longer), with the final score representing the number of iterations completed divided by the number of seconds it took to run the test.  Each test was run at least seven times on each VM.  Tests were run in October 2015 on multiple VMs in every Azure public region the VM was supported in on the date run.
+Linux numbers were computed by running [CoreMark](http://www.eembc.org/coremark/faq.php) on Ubuntu. CoreMark was configured with the number of threads set to the number of virtual CPUs, and concurrency set to PThreads. The target number of iterations was adjusted based on expected performance to provide a runtime of at least 20 seconds (typically much longer). The final score represents the number of iterations completed divided by the number of seconds it took to run the test. Each test was run at least seven times on each VM. Tests (except for H-series_ were run in October 2015 on multiple VMs in every Azure public region the VM was supported in on the date run.
+
 ## Next steps
 
 

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/09/2016"
    ms.author="gwallace"/>
 
 # Configure an application gateway for SSL offload by using the portal
@@ -30,7 +30,7 @@ The following scenario goes through configuring SSL offload on an existing appli
 
 ## Before you begin
 
-To configure SSL offload with an application gateway a certificate is required. This certificate is loaded on the application gateway and used to encrypt and decrypt the traffic sent via SSL. The certificate needs to be in Personal Information Exchange (pfx) format. This file format allows for the private key to be exported which is required by the application gateway to perform the encryption and decryption of traffic.
+To configure SSL offload with an application gateway, a certificate is required. This certificate is loaded on the application gateway and used to encrypt and decrypt the traffic sent via SSL. The certificate needs to be in Personal Information Exchange (pfx) format. This file format allows for the private key to be exported which is required by the application gateway to perform the encryption and decryption of traffic.
 
 ## Add an HTTPS listener
 
@@ -38,22 +38,26 @@ The HTTPS listener looks for traffic based on its configuration and helps route 
 
 ### Step 1
 
-Navigate the Azure Portal and select an existing application gateway
+Navigate to the Azure portal and select an existing application gateway
 
 ![app gateway overview blade][1]
 
 ### Step 2
 
-Click Listeners and click the Add button to add a new listener.
+Click Listeners and click the Add button to add a listener.
 
 ### Step 3
 
 Fill out the required information for the listener and upload the .pfx certificate, when complete click OK.
 
-**Name** - This is a friendly name of the listener.
-**Frontend IP configuration** - This is the frontend IP configuration that is used for the listener.
+**Name** - This value is a friendly name of the listener.
+
+**Frontend IP configuration** - This value is the frontend IP configuration that is used for the listener.
+
 **Frontend port (Name/Port)** - A friendly name for the port used on the front end of the application gateway and the actual port used.
+
 **Protocol** - A switch to determine if https or http is used for the front end.
+
 **Certificate (Name/Password)** - If SSL offload is used, a .pfx certificate is required for this setting and a friendly name and password are required.
 
 ![add listener blade][2]
@@ -66,7 +70,7 @@ The listener has now been created. It is time to create a rule to handle the tra
 
 Click the **Rules** of the application gateway, and then click Add.
 
-![appgateway rules blade][3]
+![app gateway rules blade][3]
 
 ### Step 2
 

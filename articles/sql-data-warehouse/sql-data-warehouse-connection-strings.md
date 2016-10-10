@@ -13,17 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/01/2016"
+   ms.date="09/24/2016"
    ms.author="sonyama;barbkess"/>
 
 
 # Drivers for Azure SQL Data Warehouse
-
-> [AZURE.SELECTOR]
-- [Overview](sql-data-warehouse-connect-overview.md)
-- [Authentication](sql-data-warehouse-authentication.md)
-- [Drivers](sql-data-warehouse-connection-strings.md)
-
 
 You can connect to SQL Data Warehouse with several different application protocols such as, [ADO.NET][], [ODBC][], [PHP][] and [JDBC][]. Below are some examples of connections strings for each protocol.  You can also use the Azure portal to build your connection string.  To build your connection string using the Azure portal, navigate to your database blade, under *Essentials* click on *Show database connection strings*.
 
