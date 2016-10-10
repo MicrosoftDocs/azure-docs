@@ -23,7 +23,7 @@
 - [Azure portal](active-directory-users-create-azure-portal.md)
 - [Azure classic portal](active-directory-create-users.md)
 
-This article explains how to add new users in your organization in teh Azure Active Direstory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md)
+This article explains how to add new users in your organization in the Azure Active Direstory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md)
 
 1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
