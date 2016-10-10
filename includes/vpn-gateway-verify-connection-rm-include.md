@@ -40,6 +40,6 @@ In the Azure portal, you can view the connection status by navigating to the con
 
 1. In the [Azure portal](http://portal.azure.com), click **All resources** and navigate to your virtual network gateway.
 2. On the blade for your virtual network gateway, click **Connections**. You can see the status of each connection.
-3. For more information about the connection, click the name of the connection. In the Essentials page for your connection, pay attention to the **Connection Status**. The status will be 'Succeeded' and 'Connected' when you have made a successful connection. You can check the data flowing through by looking at **Data in** and **Data out**.
+3. Click the name of the connection. The **Status** is 'Succeeded' and 'Connected' when you have made a successful connection.
 
 	![Verify connection](./media/vpn-gateway-verify-connection-rm-include/connectionsucceeded.png)
