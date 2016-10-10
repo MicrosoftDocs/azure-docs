@@ -107,9 +107,9 @@ To learn more about Redgate’s Data Platform Studio:
 
 For an overview of other ways to migrate and load your data in SQL Data Warehouse see:
 - [Migrate your solution to SQL Data Warehouse][]
-- [Load data into Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/articles/sql-data-warehouse-overview-load/)
+- [Load data into Azure SQL Data Warehouse](./sql-data-warehouse-overview-load.md)
 
-For more development tips, see the [SQL Data Warehouse development overview](https://azure.microsoft.com/documentation/articles/sql-data-warehouse-overview-develop/).
+For more development tips, see the [SQL Data Warehouse development overview](./sql-data-warehouse-overview-develop.md).
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-redgate/2016-10-05_15-59-56.png
