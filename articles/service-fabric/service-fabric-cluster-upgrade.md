@@ -73,7 +73,7 @@ Once you have fixed the issues that resulted in the rollback, you need to initia
 
 Run the following command, and you should get an output similar to this.
 
-"supportExpiryUtc" tells your when a given release is expiring or has expired. The latest release does not have a valid date - it will have a value of "9999-12-31T23:59:59.9999999", which just means that the expiry date is not yet set.
+"supportExpiryUtc" tells your when a given release is expiring or has expired. The latest release does not have a valid date - it has a value of "9999-12-31T23:59:59.9999999", which just means that the expiry date is not yet set.
 
 ```REST
 GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/clusterVersions?api-version= 2016-09-01

@@ -108,7 +108,7 @@ You can monitor the progress of the upgrade on Service fabric explorer or by run
 Once you have fixed the issues that resulted in the rollback, you need to initiate the upgrade again, by following the same steps as before.
 
 
-###Upgrade the clusters with <U>no connectivity</u> to download the latest code and configuration
+### Upgrade the clusters with <U>no connectivity</u> to download the latest code and configuration
 
 Use these steps to upgrade your cluster to a supported version, if your cluster nodes **do not have** internet connectivity to [http://download.microsoft.com](http://download.microsoft.com) 
 
