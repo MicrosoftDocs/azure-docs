@@ -294,6 +294,7 @@ You can also increase the value of `fs.azure.write.request.size` globally by usi
 For more information on using Ambari, see [Manage HDInsight clusters using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 
 ## Next steps
+
 Now that you understand how to get data into HDInsight, read the following articles to learn how to perform analysis:
 
 * [Get started with Azure HDInsight][hdinsight-get-started]
