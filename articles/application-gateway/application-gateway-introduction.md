@@ -68,7 +68,7 @@ The following table shows an average performance throughput for each application
 | 6K | 7.5 Mbps | 13 Mbps | 50 Mbps |
 |100K | 35 Mbps | 100 Mbps| 200 Mbps |
 
->[AZURE.NOTE] These values are approximate values for an application gateway throughput. The actual throughput depends on various environment details, such as average page size, location of back-end instances, and processing time to serve a page. An example is the first line of the preceding table can be read as "For a 6kb http file, a single application gateway instance SSL throughput is 7.5mbs for a small gateway." For exact performance numbers, you should run your own tests, these values are only provided for capacity planning guidance.
+>[AZURE.NOTE] These values are approximate values for an application gateway throughput. The actual throughput depends on various environment details, such as average page size, location of back-end instances, and processing time to serve a page. For exact performance numbers, you should run your own tests, these values are only provided for capacity planning guidance.
 
 ## Health monitoring
 
