@@ -21,9 +21,9 @@
 
 ## Blueprint Customer Responsibilities Matrix:  Streamlining ATO processes
 
-With the recent announcement of the Azure Blueprint program, customers now have access to documentation to assist them through their agency or system-specific authorization to operate (ATO) processes. This article provides a deeper look at the Azure Blueprint Customer Responsibilities Matrix (CRM) and how security personnel can leverage this document.
+The Azure Blueprint program, allows customers to access documentation to assist their agency or system-specific authorization to operate (ATO) processes. This article provides a deeper look at the Azure Blueprint Customer Responsibilities Matrix (CRM) and how security personnel can leverage this document.
 
-The Azure Blueprint CRM is designed for utility. It is a bare-bones spreadsheet format that defines ONLY the control requirements where the customer building in Azure must implement the security control.
+The Azure Blueprint CRM is designed for utility. It is a spreadsheet format that defines ONLY the control requirements where the customer building in Azure must implement the security control.
 
 >[AZURE.NOTE] Within the context of Azure Blueprint, "customer" references the organization building directly within the Azure IaaS/PaaS environment. Azure customers could include third-party ISVs building on behalf of government or government agencies building directly on Azure.
 
