@@ -3,7 +3,7 @@
 	description="Learn how to add an Office 365 directory (tenant) to an Azure subscription to make the association."
 	services=""
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="mbaldwin"
 	editor=""
 	tags="billing,top-support-issue"/>

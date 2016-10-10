@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2016"
+	ms.date="09/26/2016"
 	ms.author="anajod"/>
     
 # Deploy Linux virtual machines on Azure Stack
 
-You can deploy Linux virtual machines on the Azure Stack POC by adding a Linux-based image into the Azure Stack Platform Image Repository (PIR). Several Linux vendors have provided images that can be added into an Azure Stack POC or you can build your own.
+You can deploy Linux virtual machines on the Azure Stack POC by adding a Linux-based image into the Azure Stack Marketplace. Several Linux vendors have provided images that can be added into an Azure Stack POC or you can build your own.
 
 ## Download an image
 
@@ -28,9 +28,9 @@ You can deploy Linux virtual machines on the Azure Stack POC by adding a Linux-b
   - [CentOS](http://olstacks.cloudapp.net/latest/)
   - [SuSE](https://download.suse.com/Download?buildid=VCFi7y7MsFQ~)
   
- 1. Extract the image VHD if necessary and [add the image to the PIR](../azure-stack/azure-stack-add-image-pir.md). Make sure that the `OSType` parameter is set to `Linux`.
+ 2. Extract the image VHD if necessary and [add the image to the Marketplace](azure-stack-add-vm-image.md). Make sure that the `OSType` parameter is set to `Linux`.
  
- 1. After you've added the image to the PIR, a Marketplace item is created and you can deploy a Linux virtual machine.
+ 3. After you've added the image to the Marketplace, a Marketplace item is created and you can deploy a Linux virtual machine.
   
 ## Prepare your own image
 
@@ -42,10 +42,10 @@ You can deploy Linux virtual machines on the Azure Stack POC by adding a Linux-b
  - [SLES & openSUSE](../virtual-machines/virtual-machines-linux-suse-create-upload-vhd.md)
  - [Ubuntu](../virtual-machines/virtual-machines-linux-create-upload-ubuntu.md)
 
-2. [Add the image to the PIR](../azure-stack/azure-stack-add-image-pir.md). Make sure that the `OSType` parameter is set to `Linux`.
+2. [Add the image to the Marketplace](azure-stack-add-vm-image.md). Make sure that the `OSType` parameter is set to `Linux`.
 
-3. After you've added the image to the PIR, a Marketplace item is created and you can deploy a Linux virtual machine.
+3. After you've added the image to the Marketplace, a Marketplace item is created and you can deploy a Linux virtual machine.
 
 ## Next steps
 
-[Frequently asked questions for Azure Stack](../azure-stack/azure-stack-faq.md)
+[Frequently asked questions for Azure Stack](azure-stack-faq.md)

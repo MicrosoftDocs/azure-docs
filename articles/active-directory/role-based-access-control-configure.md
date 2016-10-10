@@ -13,10 +13,14 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="07/21/2016"
+	ms.date="09/30/2016"
 	ms.author="kgremban"/>
 
 # Use role assignments to manage access to your Azure subscription resources
+
+> [AZURE.SELECTOR]
+- [Azure portal](role-based-access-control-azure-portal.md)
+- [Azure classic portal](role-based-access-control-configure.md)
 
 Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can grant only the amount of access that users need to perform their jobs. This article helps you get up and running with RBAC in the Azure portal. If you want more details about how RBAC helps you manage access, see [What is Role-Based Access Control](role-based-access-control-what-is.md).
 

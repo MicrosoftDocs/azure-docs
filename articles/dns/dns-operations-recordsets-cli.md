@@ -3,7 +3,7 @@
    description="Managing DNS record sets and records on Azure DNS when hosting your domain on Azure DNS. All CLI commands for operations on record sets and records."
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="jtuliani"
    manager="carmonm"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.date="09/22/2016"
+   ms.author="jtuliani"/>
 
 # Manage DNS records and record sets by using CLI
 
@@ -152,6 +152,11 @@ Removing the last record from a record set does not delete the record set. For m
 ### Remove an NS record from record set
 
 	azure network dns record-set delete-record myresourcegroup contoso.com  "test-ns" NS -d "ns1.contoso.com"
+
+### Remove a PTR record from a record set
+In this case 'my-arpa-zone.com' represents the ARPA zone representing your IP range.  Each PTR record set in this zone corresponds to an IP address within this IP range.
+
+	azure network dns record-set delete-record myresourcegroup my-arpa-zone.com "10" PTR -P "myservice.contoso.com"
 
 ### Remove an SRV record from a record set
 

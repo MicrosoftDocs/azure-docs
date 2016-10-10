@@ -17,7 +17,7 @@
   ms.date="08/31/2016"
   ms.author="sewhee" />
 
-# <a name="get-started"></a>Get started creating an Internet-facing load balancer in Resource Manager by using PowerShell
+# <a name="get-started"></a>Creating an Internet-facing load balancer in Resource Manager by using PowerShell
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 

@@ -18,20 +18,20 @@
 
 # Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources
 
-In this topic, you will learn about Azure Resource Manager and classic deployment models, the state of your resources, and why your resources were deployed with one or the other. The Resource Manager deployment model contains important differences from the classic deployment model, and the two models are not completely compatible with each other. To simplify the deployment and management of resources, Microsoft recommends that you use Resource Manager for new resources, and, if possible, re-deploy existing resources through Resource Manager.
+In this topic, you learn about Azure Resource Manager and classic deployment models, the state of your resources, and why your resources were deployed with one or the other. The Resource Manager deployment model contains important differences from the classic deployment model, and the two models are not completely compatible with each other. To simplify the deployment and management of resources, Microsoft recommends that you use Resource Manager for new resources, and, if possible, redeploy existing resources through Resource Manager.
 
-If you are completely new to Resource Manager, you may want to first review the terminology defined in the [Azure Resource Manager overview](resource-group-overview.md).
+If you are new to Resource Manager, you may want to first review the terminology defined in the [Azure Resource Manager overview](resource-group-overview.md).
 
 ## History of the deployment models
 
-Azure originally provided only the classic deployment model. In this model, each resource existed independently; there was no way to group related resources together. Instead, you had to manually track which resources made up your solution or application, and remember to manage them in a coordinated approach. To deploy a solution, you had to either create each resource individually through the classic portal or create a script that deployed all of the resources in the correct order. To delete a solution, you had to delete each resource individually. You could not easily apply and update access control policies for related resources. Finally, you could not apply tags to resources to label them with terms that help you monitor your resources and manage billing.
+Azure originally provided only the classic deployment model. In this model, each resource existed independently; there was no way to group related resources together. Instead, you had to manually track which resources made up your solution or application, and remember to manage them in a coordinated approach. To deploy a solution, you had to either create each resource individually through the classic portal or create a script that deployed all the resources in the correct order. To delete a solution, you had to delete each resource individually. You could not easily apply and update access control policies for related resources. Finally, you could not apply tags to resources to label them with terms that help you monitor your resources and manage billing.
 
-In 2014, Azure introduced Resource Manager which added the concept of a resource group. A resource group is a container for resources that share a common lifecycle. The Resource Manager deployment model provides several benefits:
+In 2014, Azure introduced Resource Manager, which added the concept of a resource group. A resource group is a container for resources that share a common lifecycle. The Resource Manager deployment model provides several benefits:
 
-- You can deploy, manage, and monitor all of the services for your solution as a group, rather than handling these services individually.
+- You can deploy, manage, and monitor all the services for your solution as a group, rather than handling these services individually.
 - You can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state.
 - You can apply access control to all resources in your resource group, and those policies are automatically applied when new resources are added to the resource group.
-- You can apply tags to resources to logically organize all of the resources in your subscription.
+- You can apply tags to resources to logically organize all the resources in your subscription.
 - You can use JavaScript Object Notation (JSON) to define the infrastructure for your solution. The JSON file is known as a Resource Manager template.
 - You can define the dependencies between resources so they are deployed in the correct order.
 
@@ -42,7 +42,7 @@ When Resource Manager was added, all resources were retroactively added to defau
 When deciding which deployment model to use for your resources, there are three scenarios to be aware of:
 
 1. The service supports Resource Manager and provides only a single type.
-2. The service supports Resource Manager but provides two types - one for Resource Manager and one for classic. This applies only to virtual machines, storage accounts, and virtual networks.
+2. The service supports Resource Manager but provides two types - one for Resource Manager and one for classic. This scenario applies only to virtual machines, storage accounts, and virtual networks.
 3. The service does not support Resource Manager.
 
 To discover whether or not a service supports Resource Manager, see [Resource Manager supported providers](resource-manager-supported-services.md).
@@ -51,13 +51,13 @@ If the service you wish to use does not support Resource Manager, you must conti
 
 If the service supports Resource Manager and **is not** a virtual machine, storage account or virtual network, you can use Resource Manager without any complications.
 
-For virtual machines, storage accounts, and virtual networks, if the resource was created through classic deployment, you must continue to operate on it through classic operations. If the virtual machine, storage account, or virtual network was created through Resource Manager deployment, you must continue using Resource Manager operations. This distinction can get particularly confusing when your subscription contains a mix of resources created through Resource Manager and classic deployment. This combination of resources can create unexpected results because the resources do not support the same operations.
+For virtual machines, storage accounts, and virtual networks, if the resource was created through classic deployment, you must continue to operate on it through classic operations. If the virtual machine, storage account, or virtual network was created through Resource Manager deployment, you must continue using Resource Manager operations. This distinction can get confusing when your subscription contains a mix of resources created through Resource Manager and classic deployment. This combination of resources can create unexpected results because the resources do not support the same operations.
 
-In some cases, a Resource Manager command can retrieve information about a resource created through classic deployment, or can perform an administrative task such as moving a classic resource to another resource group, but these cases should not give the impression that the type supports Resource Manager operations. For example, suppose you have a resource group that contains a virtual machine that was created with classic deployment. If you run the following Resource Manager PowerShell command:
+In some cases, a Resource Manager command can retrieve information about a resource created through classic deployment, or can perform an administrative task such as moving a classic resource to another resource group. But, these cases should not give the impression that the type supports Resource Manager operations. For example, suppose you have a resource group that contains a virtual machine that was created with classic deployment. If you run the following Resource Manager PowerShell command:
 
     Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
 
-It will return the virtual machine:
+It returns the virtual machine:
     
     Name              : ExampleClassicVM
     ResourceId        : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.ClassicCompute/virtualMachines/ExampleClassicVM
@@ -77,7 +77,7 @@ There are some other important considerations when working with virtual machines
 - Virtual machines deployed with the Resource Manager deployment model must be included in a virtual network.
 - Virtual machines deployed with the classic deployment model don't have to be included in a virtual network.
 
-To learn about connecting virtual networks from different deployment models, see [Connecting classic VNets to new VNets](./virtual-network/virtual-networks-arm-asm-s2s.md).
+To learn about connecting virtual networks from different deployment models, see [Connect virtual networks from different deployment models in the portal](./vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
 Only resources created through Resource Manager support tags. You cannot apply tags to classic resources. For more information about using tags in Resource Manager, see [Using tags to organize your Azure resources](resource-group-using-tags.md).
 
@@ -93,7 +93,7 @@ To help you understand the two models, let's review the characteristics of Resou
 
      ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
-- Created with the Resource Manager version of the Azure PowerShell cmdlets. These commands have the format *Verb-AzureRmNoun*, as shown below.
+- Created with the Resource Manager version of the Azure PowerShell cmdlets. These commands have the format *Verb-AzureRmNoun*.
 
         New-AzureRmResourceGroupDeployment
 
@@ -104,7 +104,7 @@ To help you understand the two models, let's review the characteristics of Resou
         azure config mode arm
         azure group deployment create 
 
-- The resource type does not include **(classic)** in the name. The image below shows the type as **Storage account**.
+- The resource type does not include **(classic)** in the name. The following image shows the type as **Storage account**.
 
     ![web app](./media/resource-manager-deployment-model/resource-manager-type.png)
 
@@ -134,7 +134,7 @@ Resources created in the classic deployment model share the following characteri
 
      ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
-- Created through the Service Management version of the Azure PowerShell cmdlets. These command names have the format *Verb-AzureNoun*, as shown below.
+- Created through the Service Management version of the Azure PowerShell cmdlets. These command names have the format *Verb-AzureNoun*.
 
         New-AzureVM 
 
@@ -144,7 +144,7 @@ Resources created in the classic deployment model share the following characteri
         azure config mode asm
         azure vm create 
 
-- The resource type includes **(classic)** in the name. The image below shows the type as **Storage account (classic)**.
+- The resource type includes **(classic)** in the name. The following image shows the type as **Storage account (classic)**.
 
     ![classic type](./media/resource-manager-deployment-model/classic-type.png)
 

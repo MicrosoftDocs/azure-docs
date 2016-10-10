@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Update Media Services after Rolling Storage Access Keys" 
+	pageTitle="Update Media Services after rolling storage access keys | Microsoft Azure" 
 	description="This articles give you guidance on how to update Media Services after rolling storage access keys." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="milangada;cenkdin;juliako"/>
 
-#How To: Update Media Services after Rolling Storage Access Keys
+#Update Media Services after rolling storage access keys
 
 When you create a new Azure Media Services account, you are also asked to select an Azure Storage account that is used to store your media content. Note that you can [add more than one storage accounts](meda-services-managing-multiple-storage-accounts.md) to your Media Services account.
 

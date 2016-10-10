@@ -53,8 +53,12 @@ To start with, [download the standalone cluster package](service-fabric-cluster-
                 "CertificateIssuerThumbprint" : "[Thumbprint]",
                 "IsAdmin": true
             }]
+			"HttpApplicationGatewayCertificate":{
+                "Thumbprint": "[Thumbprint]",
+                "X509StoreName": "My"
+			}
         }
-    },
+    }
 
 This section describes the certificates that you need for securing your standalone Windows cluster. To enable certificate-based security set the values of **ClusterCredentialType** and **ServerCredentialType** to *X509*.
 
@@ -68,6 +72,7 @@ The following table lists the certificates that you will need on your cluster se
 |ServerCertificate|This certificate is presented to the client when it tries to connect to this cluster. For convenience, you can choose to use the same certificate for *ClusterCertificate* and *ServerCertificate*. You can use two different server certificates, a primary and a secondary for upgrade. Set the thumbprint of the primary certificate in the **Thumbprint** section and that of the secondary in the **ThumbprintSecondary** variables. |
 |ClientCertificateThumbprints|This is a set of certificates that you want to install on the authenticated clients. You can have a number of different client certificates installed on the machines that you want to allow access to the cluster. Set the thumbprint of each certificate in the **CertificateThumbprint** variable. If you set the **IsAdmin** to *true*, then the client with this certificate installed on it can do administrator management activities on the cluster. If the **IsAdmin** is *false*, the client with this certificate can only perform the actions allowed for user access rights, typically read-only. For more information on roles read [Role based access control (RBAC)](service-fabric-cluster-security.md/#role-based-access-control-rbac)  |
 |ClientCertificateCommonNames|Set the common name of the first client certificate for the **CertificateCommonName**. The **CertificateIssuerThumbprint** is the thumbprint for the issuer of this certificate. Read [Working with certificates](https://msdn.microsoft.com/library/ms731899.aspx) to know more about common names and the issuer.|
+|HttpApplicationGatewayCertificate|This is an optional certificate that can be specified if you want to secure your Http Application Gateway. Make sure reverseProxyEndpointPort is set in nodeTypes if you are using this certificate.|
 
 Here is example cluster configuration where the Cluster, Server, and Client certificates have been provided.
 

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="robinsh"/>
+	ms.author="jahogg;robinsh"/>
 
 # Microsoft Azure Storage Performance and Scalability Checklist
 
