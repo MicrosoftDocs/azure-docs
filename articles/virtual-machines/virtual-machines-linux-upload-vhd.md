@@ -32,7 +32,7 @@ azure config mode arm
 
 In the following examples, replace example parameter names with your own values. Example parameter names included `myResourceGroup`, `mystorageaccount`, and `myimages`.
 
-First, create a resource group. The following example creates a resource group named `myResourceGroup` in the `WestUs` location.:
+First, create a resource group. The following example creates a resource group named `myResourceGroup` in the `WestUs` location:
 
 ```bash
 azure group create myResourceGroup --location "WestUS"
@@ -45,13 +45,13 @@ azure storage account create mystorageaccount --resource-group myResourceGroup \
 	--location "WestUS" --kind Storage --sku-name PLRS
 ```
 
-List the access keys for the storage account you created and make a note of `key1`:
+List the access keys for your storage account. Make a note of `key1`:
 
 ```bash
 azure storage account keys list mystorageaccount --resource-group myResourceGroup
 ```
 
-Create a container within your storage account using the storage key you just obtained. The following example creates a container named `myimages` using the storage key value from `key1`:
+Create a container within your storage account using the storage key you obtained. The following example creates a container named `myimages` using the storage key value from `key1`:
 
 ```bash
 azure storage container create --account-name mystorageaccount \
@@ -65,7 +65,7 @@ azure storage blob upload --blobtype page --account-name mystorageaccount \
 	--account-key key1 --container myimages /path/to/disk/mydisk.vhd
 ```
 
-You can now create a VM from your uploaded virtual disk [using a Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd). You can also use the CLI by specifying the URI to your disk (`--image-urn`). The following creates a VM named `myVM` using the virtual disk previously uploaded:
+You can now create a VM from your uploaded virtual disk [using a Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd). You can also use the CLI by specifying the URI to your disk (`--image-urn`). The following example creates a VM named `myVM` using the virtual disk previously uploaded:
 
 ```bash
 azure vm create myVM -l "WestUS" --resource-group myResourceGroup \
@@ -159,7 +159,7 @@ Make a note of `key1` as you will use it to interact with your storage account i
 ## Create a storage container
 In the same way that you create different directories to logically organize your local file system, you create containers within a storage account to organize your virtual disks and images. A storage account can contain any number of containers. 
 
-The following example creates a new container named `myimages`, specifying the access key obtained in the previous step (`key1`):
+The following example creates a container named `myimages`, specifying the access key obtained in the previous step (`key1`):
 
 ```bash
 azure storage container create --account-name mystorageaccount \
@@ -183,7 +183,7 @@ When you create VMs from your custom disk image, specify the URI to the disk ima
 ### Create a VM using the Azure CLI
 You specify the `--image-urn` parameter with the `azure vm create` command to point to your custom disk image. Ensure that `--storage-account-name` matches the storage account where your custom disk image is stored. You do not have to use the same container as the custom disk image to store your VMs. Make sure to create any additional containers in the same way as the earlier steps before uploading your custom disk images.
 
-The following example create a VM named `myVM` from your custom disk image:
+The following example creates a VM named `myVM` from your custom disk image:
 
 ```bash
 azure vm create myVM -l "WestUS" --resource-group myResourceGroup \
