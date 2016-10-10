@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/31/2016"
+	ms.date="09/07/2016"
 	ms.author="byvinyal"/>
 
 # How to: Monitor Apps in Azure App Service
@@ -156,9 +156,9 @@ all instances.
 Metrics for an application and app service plan are logged and aggregated by 
 the service with the following granularities and retention policies:
 
- * **Minute** granularity metrics are retained for **24 hours**
- * **Hour** granularity metrics are retained for **7 days**
- * **Day** granularity metrics are retained for **30 days**
+ * **Minute** granularity metrics are retained for **48 hours**
+ * **Hour** granularity metrics are retained for **30 days**
+ * **Day** granularity metrics are retained for **90 days**
 
 ## Monitoring Quotas and Metrics in the Azure Portal.
 

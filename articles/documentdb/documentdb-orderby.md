@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2016" 
+	ms.date="10/03/2016" 
 	ms.author="arramac"/>
 
 # Sorting DocumentDB data using Order By
@@ -79,8 +79,6 @@ Here's how you can create a collection with "All Range" indexing for Order By ag
     await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), books);  
 
 >[AZURE.NOTE] Note that Order By only will return results of the data types (String and Number) that are indexed with a RangeIndex. For example, if you have the default indexing policy which only has RangeIndex on numbers, an Order By against a path with string values will return no documents.
->
-> If you have defined a partition key for your collections, note that Order By is supported only within queries that filter against a single partition key.
 
 ### Indexing for Order By for a single property
 Here's how you can create a collection with indexing for Order By against just the Title property, which is a string. There are two paths, one for the Title property ("/Title/?") with Range indexing, and the other for every other property with the default indexing scheme, which is Hash for strings and Range for numbers.                    
@@ -124,6 +122,12 @@ You cannot perform the following:
 - Order By multiple properties (coming soon).
 - Order By with queries on databases, collections, users, permissions or attachments (coming soon).
 - Order By with computed properties e.g. the result of an expression or a UDF/built-in function.
+
+Order By is not currently supported for cross-partition queries when using Query Explorer in the Azure portal.
+
+## Troubleshooting
+
+If you receive an error that Order By is not supported, check to ensure that you're using a version of the [SDK](documentdb-sdk-dotnet.md) that supports Order By. 
 
 ## Next steps
 

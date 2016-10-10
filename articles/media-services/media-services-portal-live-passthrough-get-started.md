@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="08/31/2016" 
+	ms.date="09/05/2016" 
 	ms.author="juliako"/>
 
 
@@ -77,12 +77,13 @@ If you want to view notifications and errors produced by the Azure portal, click
 
 ##Configure streaming endpoints 
 
-Media Services provides dynamic packaging which allows you to deliver your multi-bitrate MP4s in the following streaming formats: MPEG DASH, HLS, Smooth Streaming, or HDS, without you having to re-package into these streaming formats. With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client.
+Media Services provides dynamic packaging, which allows you to deliver your multi-bitrate MP4s in the following streaming formats: MPEG DASH, HLS, Smooth Streaming, or HDS, without you having to repackage into these streaming formats. With dynamic packaging you only need to store and pay for the files in single storage format and Media Services builds and serves the appropriate response based on requests from a client.
 
 To take advantage of dynamic packaging, you need to get at least one streaming unit for the streaming endpoint from which you plan to delivery your content.  
 
 To create and change the number of streaming reserved units, do the following:
 
+1. Log in at the [Azure portal](https://portal.azure.com/).
 1. In the **Settings** window, click **Streaming endpoints**. 
 
 2. Click on the default streaming endpoint. 
@@ -91,7 +92,7 @@ To create and change the number of streaming reserved units, do the following:
 
 3. To specify the number of streaming units, slide the **Streaming units** slider.
 
-	![Streaming units](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
+	![Streaming units](./media/media-services-portal-passthrough-get-started/media-services-streaming-units.png)
 
 4. Click the **Save** button to save your changes.
 
@@ -103,7 +104,7 @@ A channel is associated with events/programs that enable you to control the publ
 	
 You can specify the number of hours you want to retain the recorded content for the program by setting the **Archive Window** length. This value can be set from a minimum of 5 minutes to a maximum of 25 hours. Archive window length also dictates the maximum amount of time clients can seek back in time from the current live position. Events can run over the specified amount of time, but content that falls behind the window length is continuously discarded. This value of this property also determines how long the client manifests can grow.
 
-Each event is associated with an asset. To publish the event you must create an OnDemand locator for the associated asset. Having this locator will enable you to build a streaming URL that you can provide to your clients.
+Each event is associated with an asset. To publish the event, you must create an OnDemand locator for the associated asset. Having this locator enables you to build a streaming URL that you can provide to your clients.
 
 A channel supports up to three concurrently running events so you can create multiple archives of the same incoming stream. This allows you to publish and archive different parts of an event as needed. For example, your business requirement is to archive 6 hours of a program, but to broadcast only last 10 minutes. To accomplish this, you need to create two concurrently running programs. One program is set to archive 6 hours of the event but the program is not published. The other program is set to archive for 10 minutes and this program is published.
 
@@ -119,7 +120,7 @@ If you do want to retain the archived content, but not have it available for str
 
 ###To use the portal to create a channel 
 
-This sections shows how to use the **Quick Create** option to create a pass-through channel.
+This section shows how to use the **Quick Create** option to create a pass-through channel.
 
 For more details about pass-through channels, see [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md).
 
@@ -134,11 +135,15 @@ For more details about pass-through channels, see [Live streaming with on-premis
 	The **CREATE A NEW CHANNEL** window appears.
 4. Give the new channel a name and click **Create**. 
 
-	This will create a pass-through channel with the RTMP ingest protocol.
+	This creates a pass-through channel with the RTMP ingest protocol.
 
-	The channel also adds, starts and publishes a default live event/program. This event is configured to have 8 hours of archive window. 
+##Create events
 
-	To add more events, press **Live Event** button.
+1. Select a channel to which you want to add an event.
+2. Press **Live Event** button.
+
+![Event](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
+
 
 ##Get ingest URLs
 
@@ -146,30 +151,32 @@ Once the channel is created, you can get ingest URLs that you will provide to th
 
 ![Created](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
-##Watch an event
+##Watch the event
 
 To watch the event, click **Watch** in the Azure portal or copy the streaming URL and use a player of your choice. 
  
 ![Created](./media/media-services-portal-passthrough-get-started/media-services-default-event.png)
 
-Live event will automatically convert to on-demand content when stopped.
+Live event automatically get converted to on-demand content when stopped.
 
 ##Clean up
 
 For more details about pass-through channels, see [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md).
 
-- A channel can be stopped only when all events/programs on the channel have been stopped.  Once the Channel is stopped, it will not incur any charges. When you need to start it again, it will have the same ingest URL so you won't need to reconfigure your encoder.
+- A channel can be stopped only when all events/programs on the channel have been stopped.  Once the Channel is stopped, it does not incur any charges. When you need to start it again, it will have the same ingest URL so you won't need to reconfigure your encoder.
 - A channel can be deleted only when all live events on the channel have been deleted.
 
 ##View archived content
 
 Even after you stop and delete the event, the users would be able to stream your archived content as a video on demand, for as long as you do not delete the asset. An asset cannot be deleted if it is used by an event; the event must be deleted first. 
 
-To manage your assets select **Setting** and click **Assets**.
+To manage your assets, select **Setting** and click **Assets**.
 
 ![Assets](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 
-##Media Services learning paths
+##Next step
+
+Review Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

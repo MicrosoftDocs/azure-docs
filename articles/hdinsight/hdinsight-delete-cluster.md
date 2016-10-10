@@ -4,7 +4,7 @@ description="Information on the various ways that you can delete an HDInsight cl
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags

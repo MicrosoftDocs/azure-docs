@@ -29,6 +29,7 @@ With App Service developers can:
 * Implement, deploy and publish APIs with API Apps.
 * Tie business applications together into workflows and transform data with Logic Apps.
 
+
 All App types rely on the scalable and flexible Web App platform which allows developers an optimized full lifecycle experience from App design to App maintenance. The lifecycle capabilities allow for:
 
 * Quick App Creation - start from scratch or pick an OSS package from the Azure Marketplace. 

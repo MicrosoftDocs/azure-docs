@@ -52,7 +52,7 @@ This topic lists some of the more common troubleshooting questions we hear from 
 
 |  Issue                             | Resolution                                      |
 | :----------------------------------| :---------------------------------------------- |
-| Msg 40847: Could not perform the operation because server would exceed the allowed Database Throughput Unit quota of 45000. | Either reduce the [DWU][] of the database you are trying to create or [request a quota increase][].|
+| Msg 40847: Could not perform the operation because server would exceed the allowed Database Transaction Unit quota of 45000. | Either reduce the [DWU][] of the database you are trying to create or [request a quota increase][].|
 | Investigating space utilization    | See [Table sizes][] to understand the space utilization of your system.|
 | Help with managing tables          | See the [Table overview][Overview] article for help with managing your tables.  This article also includes links into more detailed topics like [Table data types][Data types], [Distributing a table][Distribute], [Indexing a table][Index],  [Partitioning a table][Partition], [Maintaining table statistics][Statistics] and [Temporary tables][Temporary].|
 

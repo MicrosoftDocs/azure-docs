@@ -3,7 +3,7 @@
 	description="Learn how to share your Office 365 Azure AD tenant and its users with your Azure subscription, or vice versa"
 	services=""
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="mbaldwin"
 	editor=""
 	tags="billing,top-support-issue"/>
@@ -20,9 +20,7 @@
 # Use your existing Office 365 account with your Azure subscription, or vice versa
 Scenario: If you already have an Office 365 subscription and are ready for an Azure subscription, but want to use the existing Office 365 user account(s) for your Azure subscription. Alternatively, you are an Azure subscriber and want to get an Office 365 subscription for the users in your existing Azure Active Directory. This article shows you how easy it is to achieve both.
 
-> [AZURE.NOTE] This article doesn’t apply to Enterprise Agreement (EA) customers.
-
-> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+> [AZURE.NOTE] This article doesn’t apply to Enterprise Agreement (EA) customers. If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
 ## Quick guidance
 

@@ -24,7 +24,7 @@ This tutorial shows how to create a Java application and deploy it to Azure App 
 
 ## Prerequisites
 
-1. [Java Developer's Kit 8] (or later)
+1. [Java Developer's Kit 8] \(or later)
 1. [Maven] installed on your development machine
 1. [Git] installed on your development machine
 1. A paid or [free trial] subscription to [Microsoft Azure]

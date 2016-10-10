@@ -13,18 +13,8 @@ articles/sql-database/sql-database-get-started-tutorial.md
 Use the following steps in the Azure portal to create an Azure SQL Database logical server.
 
 1. If you're not currently connected, connect to the [Azure portal](http://portal.azure.com).
-2. Click **New**, type **SQL Database**, and then click **SQL Database (new logical server)**.
-
-      ![New logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-1.png)
-
-3. Click **SQL Database (new logical server)**.
-
-      ![New logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-2.png)
-
-4. Click **Create** to open a template to create an empty logical server that can host single databases and elastic database pools.
-
-      ![New logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-3.png)
-
+2. Click **New**, click **Data + Storage**, and then locate **SQL Database**.
+3. Click **SQL Database** to open the SQL Database blade.
 5. Provide the values for the following server properties:
 
  - Server name
@@ -34,12 +24,8 @@ Use the following steps in the Azure portal to create an Azure SQL Database logi
  - Resource group (new or existing)
  - Location
 
-        ![New logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-4.png)
 
 6.  Click **Create**. In the notification area, you can see that deployment has started.
 
-       ![New logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-5.png)
-
 7. Wait for deployment to finish before continuing to the next step.
 
-       ![New logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-6.png)

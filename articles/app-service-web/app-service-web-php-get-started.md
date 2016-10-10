@@ -36,6 +36,8 @@ app example. You will learn:
 
 You can apply what you learn here to other PHP web apps that you deploy to Azure.
 
+>[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
+
 ## Prerequisites
 
 - Install [PHP 5.6.x](http://php.net/downloads.php) (PHP 7 support is beta)
@@ -90,8 +92,9 @@ So far, just the regular Laravel workflow, and you're not here to <a href="https
 With the Azure CLI, you can create an web app in Azure App Service and set it up for Git deployment with a single line
 of command. Let's do this.
 
-3. Log in to Azure like so:
+1. Change into ASM mode and log in to Azure:
 
+        azure config mode asm
         azure login
     
     Follow the help message to continue the login process.

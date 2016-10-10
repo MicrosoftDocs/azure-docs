@@ -59,6 +59,7 @@ From a browser, navigate to the [Azure portal](http://portal.azure.com) and sign
 
 	![Configure the SKU tier and data metering](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit2.png)
 
+>[AZURE.IMPORTANT] Please be aware that the Peering Location indicates the [physical location](expressroute-locations.md) where you are peering with Microsoft. This is **not** linked to "Location" property, which refers to the geography where the Azure Network Resource Provider is located. While they are not related, it is a good practice to choose a Network Resource Provider geographically close to the Peering Location of the circuit. 
 
 ### 3. View the circuits and properties
 

@@ -26,7 +26,7 @@
 - [PowerShell](sql-database-copy-powershell.md)
 - [T-SQL](sql-database-copy-transact-sql.md)
 
-You can use the Azure [SQL Database automated backups](sql-database-automated-backups.md) to create a copy of your SQL database. The copy operation copies the tail of the transaction log and then uses the full, differential, and transaction log backups that are part of the automated backups to create that is transactionally consistent with the source database as of the time of the final transaction log backup. 
+You can use the Azure [SQL Database automated backups](sql-database-automated-backups.md) to create a copy of your SQL database. The copy operation copies the tail of the transaction log and then uses the full, differential, and transaction log backups that are part of the automated backups to create a copy that is transactionally consistent with the source database as of the time of the final transaction log backup. 
 
 You can create the database copy on either the same server or a different server. The service tier and performance level (pricing tier) of the database copy are the same as the source database. After the copy is complete, the copy becomes a fully functional, independent database. The logins, users, and permissions can be managed independently. 
 

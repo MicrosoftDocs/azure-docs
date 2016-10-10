@@ -165,6 +165,34 @@ The host header used in HTTP and HTTPS health checks is the DNS name associated 
 
 This value is part of the endpoint configuration. The value used in the host header cannot be specified separately from the target property.
 
+### What are the IP addresses from which the health checks originate?
+
+The list below contains the IP addresses from where you can expect Traffic Manager health checks to originate. You may use this list to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
+
+
+
+- 13.75.153.124
+- 13.75.152.253
+- 191.232.214.62
+- 191.232.208.52
+- 52.172.155.168
+- 52.172.158.37
+- 13.75.124.254  
+- 13.75.127.63  
+- 137.135.82.249       
+- 137.135.80.149      
+- 104.41.190.203  
+- 104.41.187.209
+- 65.52.217.19
+- 23.96.236.252
+- 40.87.147.10
+- 40.87.151.34
+- 104.215.91.84
+- 13.84.222.37
+- 40.68.30.66
+- 40.68.31.178
+- 137.135.47.215
+- 137.135.46.163
 
 ## Next steps
 

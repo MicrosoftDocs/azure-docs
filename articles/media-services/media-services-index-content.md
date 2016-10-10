@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"   
+	ms.date="09/12/2016"   
 	ms.author="adsolank;juliako;johndeu"/>
 
 
@@ -46,7 +46,7 @@ You can specify more details for your indexing tasks by using a task configurati
 
 You can also process multiple media files at once by using a manifest file.
 
-For more information, see [Task Preset for Azure Media Indexer](#).
+For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
 
 ## Index an asset
 
@@ -162,7 +162,7 @@ If not all input media files are indexed successfully, the indexing job will fai
 
 The following method uploads multiple media files as an asset, and creates a job to index all these files in a batch.
 
-A manifest file with the .lst extension is created and uploading into the asset. The manifest file contains the list of all the asset files. For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
+A manifest file with the .lst extension is created and uploading into the asset. The manifest file contains the list of all the asset files. For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
 
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{

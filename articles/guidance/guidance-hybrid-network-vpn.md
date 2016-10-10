@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="09/08/2016"
    ms.author="roshar"/>
 
 # Implementing a Hybrid Network Architecture with Azure and On-premises VPN
@@ -447,82 +447,94 @@ If traffic is unable to traverse the VPN connection, check the following:
 
 ## Solution components
 
-<!-- The following text is boilerplate, and should be used in all RA docs -->
+A sample solution script, [Deploy-ReferenceArchitecture.ps1][solution-script], is available that you can use to implement the architecture that follows the recommendations described in this article. This script utilizes [Resource Manager][arm-templates] templates. The templates are available as a set of fundamental building blocks, each of which performs a specific action such as creating a VNet or configuring an NSG. The purpose of the script is to orchestrate template deployment.
 
-A sample solution script, [Deploy-ReferenceArchitecture.ps1][solution-script], is available that you can use to implement the architecture that follows the recommendations described in this article. This script utilizes [Azure Resource Manager][arm-templates] templates. The templates are available as a set of fundamental building blocks, each of which performs a specific action such as creating a VNet or configuring an NSG. The purpose of the script is to orchestrate template deployment.
+>[AZURE.NOTE] Deploy-ReferenceArchitecture.ps1 is a PowerShell script. If your operating system does not support PowerShell, a bash script called [deploy-reference-architecture.sh][solution-script-bash] is also available.
 
 The templates are parameterized, with the parameters held in separate JSON files. You can modify the parameters in these files to configure the deployment to meet your own requirements. You do not need to amend the templates themselves. Note that you must not change the schemas of the objects in the parameter files.
 
 When you edit the templates, create objects that follow the naming conventions described in [Recommended Naming Conventions for Azure Resources][naming conventions].
 
-<!-- End of boilerplate -->
+The script references the following parameter files to create a VNet and a VPN gateway that connects to your on-premises network.
 
-The script references the parameters in the **[vpn-gateway-vpn-connection-settings.parameters.json][gateway-parameters]** file to create an Azure VPN gateway, VNet structure, and connection to the on-premises network:
+- **[virtualNetwork.parameters.json][vnet-parameters]**. This file defines the VNet settings, such as the name, address space, subnets, and the addresses of any DNS servers required:
 
-```json
-"parameters": {
-  "virtualNetworkSettings": {
-    "value": {
-      "name": "hybrid-vnet",
-      "addressPrefixes": [
-        "10.20.0.0/16"
-      ],
-      "subnets": [
-        {
-          "name": "GatewaySubnet",
-          "addressPrefix": "10.20.255.224/27"
-        },
-        {
-          "name": "hybrid-internal-subnet",
-          "addressPrefix": "10.20.1.0/24"
+   <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-hybrid-network-vpn/parameters/virtualNetwork.parameters.json#L4-L24 -->
+	```json
+    "parameters": {
+      "virtualNetworkSettings": {
+        "value": {
+          "name": "ra-hybrid-vpn-vnet",
+          "addressPrefixes": [
+            "10.20.0.0/16"
+          ],
+          "subnets": [
+            {
+              "name": "GatewaySubnet",
+              "addressPrefix": "10.20.255.224/27"
+            },
+            {
+              "name": "ra-hybrid-vpn-sn",
+              "addressPrefix": "10.20.1.0/24"
+            }
+          ],
+          "dnsServers": [ ]
         }
-      ],
-      "dnsServers": [ ]
-    }
-  },
-  "virtualNetworkGatewaySettings": {
-    "value": {
-      "name": "hybrid-vgw",
-      "gatewayType": "Vpn",
-      "vpnType": "RouteBased",
-      "sku": "Standard"
-    }
-  },
-  "connectionSettings": {
-    "value": {
-      "name": "hybrid-vpn",
-      "connectionType": "IPsec",
-      "sharedKey": "123secret",
-      "virtualNetworkGateway1": {
-        "name": "hybrid-vgw"
-      },
-      "localNetworkGateway": {
-        "name": "hybrid-lgw",
-        "ipAddress": "40.50.60.70",
-        "addressPrefixes": [ "10.10.0.0/16" ]
       }
     }
-  }
-}
-```
+	```
 
-- The `virtualNetworkSettings` section defines the structure of the VNet to create. You can specify the name of the VNet (*hybrid-vnet* shown in the example above) and the address space (*10.20.0.0/16*).
+	You can specify the name of the VNet (*RA-hybrid-vnet* shown in the example above) and the address space (*10.20.0.0/16*).
 
 	The `subnets` array indicates the subnets to add to the VNet. You must always create at least one subnet named *GatewaySubnet* with an address space of at least /27. You can create additional subnets as required by your application. Do not create any application objects in the GatewaySubnet.
 
 	You can also use the `dnsServers` array to specify the addresses of DNS servers required by your application.
 
-- The `virtualNetworkGatewaySettings` section contains the information used to create the Azure VPN gateway. 
+- **[virtualNetworkGateway.parameters.json][virtualNetworkGateway-parameters]**. This file contains the parameters used to create the Azure VPN gateway:
+
+    <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-hybrid-network-vpn/parameters/virtualNetworkGateway.parameters.json#L4-L33 -->
+	```json
+    "parameters": {
+      "virtualNetworkSettings": {
+        "value": {
+          "name": "ra-hybrid-vpn-vnet"
+        }
+      },
+      "virtualNetworkGatewaySettings": {
+        "value": {
+          "name": "ra-hybrid-vpn-vgw",
+          "gatewayType": "Vpn",
+          "vpnType": "RouteBased",
+          "sku": "Standard"
+        }
+      },
+      "connectionSettings": {
+        "value": {
+          "name": "ra-hybrid-vpn-cn",
+          "connectionType": "IPsec",
+          "sharedKey": "123secret",
+          "virtualNetworkGateway1": {
+            "name": "ra-hybrid-vpn-vgw"
+          },
+          "localNetworkGateway": {
+            "name": "ra-hybrid-vpn-lgw",
+            "ipAddress": "40.50.60.70",
+            "addressPrefixes": [ "10.10.0.0/16" ]
+          }
+        }
+      }
+    }
+	```
 
 	For this architecture, do not change the `gatewayType` parameter. The `vpnType` parameter can be *RouteBased* or *PolicyBased*. You can set the `sku` parameter to *Standard* or *HighPerformance*. 
 
-- The `connectionSettings` section defines the configuration for the local network gateway and the connection to the on-premises network.
+	The `connectionSettings` section defines the configuration for the local network gateway and the connection to the on-premises network.
 
 	The `connectionType` and `sharedKey` settings specify the connection protocol and key to use to connect to the on-premises network (you should have already configured the on-premises VPN appliance).
 
 	The `localNetworkGateway` object specifies the public IP address of the on-premises VPN appliance (*40.50.60.70* in this example), and an array of internal address spaces for the on-premises side of the network.
 
-## Deployment
+## Solution deployment
 
 The solution assumes the following prerequisites:
 
@@ -530,7 +542,9 @@ The solution assumes the following prerequisites:
 
 - You have an existing Azure subscription in which you can create resource groups.
 
-- You have downloaded and installed the most recent build of Azure Powershell. See [here][azure-powershell-download] for instructions.
+- You have installed the [Azure Command-Line Interface][azure-cli].
+
+- If you wish to use PowerShell, you have downloaded and installed the most recent build. See [here][azure-powershell-download] for instructions.
 
 To run the script that deploys the solution:
 
@@ -538,20 +552,27 @@ To run the script that deploys the solution:
 
 	- Scripts
 
-	- Templates
+	- Parameters
 
-2. Download the [Deploy-ReferenceArchitecture.ps1][solution-script] file to the Scripts folder
+2. Download the [Deploy-ReferenceArchitecture.ps1][solution-script] PowerShell script or [deploy-reference-architecture.sh][solution-script-bash] bash script, as appropriate, to the Scripts folder.
 
-3. Download the [vpn-gateway-vpn-connection-settings.parameters.json][gateway-parameters] file to Templates folder:
+3. Download the [virtualNetwork.parameters.json][vnet-parameters] and [virtualNetworkGateway.parameters.json][virtualNetworkGateway-parameters]files to the Parameters folder:
 
-4. Edit the Deploy-ReferenceArchitecture.ps1 file in the Scripts folder, and change the following line to specify the resource group that should be created or used to hold the resources created by the script:
+4. Edit the Deploy-ReferenceArchitecture.ps1 or deploy-reference-architecture.sh file in the Scripts folder, and change the following line to specify the resource group that should be created or used to hold the VM and resources created by the script:
 
 	```powershell
-	$resourceGroupName = "hybrid-dev-rg"
+	# PowerShell
+	$resourceGroupName = "ra-hybrid-vpn-rg"
 	```
-5. Edit the vpn-gateway-vpn-connection-settings.parameters.json file in the Templates folder to set the parameters for the VNet, virtual network gateway, and connection, as described in the Solution Components section above.
 
-6. Open an Azure PowerShell window, move to the Scripts folder, and run the following command:
+	```bash
+	# bash
+	RESOURCE_GROUP_NAME="ra-hybrid-vpn-rg"
+	```
+
+5. Edit each of the JSON files in the Parameters folder to set the parameters for the virtual network, VPN gateway, and connection, as described in the Solution Components section above.
+
+6. If you are using PowerShell, open an Azure PowerShell window, move to the Scripts folder, and run the following command:
 
 	```powershell
 	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location>
@@ -561,9 +582,25 @@ To run the script that deploys the solution:
 
 	For `<location>`, specify an Azure region, such as `eastus` or `westus`.
 
-7. When the script has completed, use the Azure portal to verify that the network and gateway have been created successfully.
+7. If you are using bash, open a bash shell command prompt, move to the Scripts folder, and run the following command:
 
-8. From an on-premises machine, verify that you can connect to the VNet through the gateway.
+	```bash
+	azure login
+	```
+
+	Follow the instructions to log in to your Azure account. When you have connected, run the following command:
+
+	```bash
+	./deploy-reference-architecture.sh -s <subscription id> -l <location>
+	```
+
+	Replace `<subscription id>` with your Azure subscription ID.
+
+	For `<location>`, specify an Azure region, such as `eastus` or `westus`.
+
+8. When the script has completed, use the Azure portal to verify that the network and gateway have been created successfully.
+
+9. From an on-premises machine, verify that you can connect to the VNet through the gateway.
 
 ## Next steps
 
@@ -624,12 +661,12 @@ To run the script that deploys the solution:
 [vpn-appliance-ipsec]: ../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec-parameters
 [expressroute]: ./guidance-hybrid-network-expressroute.md
 [naming conventions]: ./guidance-naming-conventions.md
-
-[solution-script]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-hybrid-network-vpn/Scripts/Deploy-ReferenceArchitecture.ps1
-[gateway-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-hybrid-network-vpn/Templates/vpn-gateway-vpn-connection-settings.parameters.json 
-
+[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn/Deploy-ReferenceArchitecture.ps1
+[solution-script-bash]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn/deploy-reference-architecture.sh
+[vnet-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn/parameters/virtualNetwork.parameters.json
+[virtualNetworkGateway-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn/parameters/virtualNetworkGateway.parameters.json
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
-
+[azure-cli]: https://azure.microsoft.com/documentation/articles/xplat-cli-install/
 [0]: ./media/guidance-hybrid-network-vpn/arch-diagram.png "Structure of a hybrid network spanning the on-premises and cloud infrastructures"
 [1]: ./media/guidance-hybrid-network-vpn/partitioned-vpn.png "Partitioning a VNet to improve scalability"
 [2]: ./media/guidance-hybrid-network-vpn/audit-logs.png "Audit logs in the Azure portal"

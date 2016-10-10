@@ -87,6 +87,13 @@ This example sends a notification for a [template registration](../notification-
 	    context.done();
 	};
 
+## Azure Notification Hub code example for a F# timer trigger
+
+This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `location` and `message`.
+
+	let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
+	    notification = dict [("location", "Redmond"); ("message", "Hello from F#!")]
+
 ## Azure Notification Hub code example for a C# queue trigger
 
 This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `message`.

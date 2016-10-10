@@ -94,7 +94,7 @@ Use the [IoT Hub REST API][lnk-rest-api] to create an IoT hub in your resource g
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
     ```
 
-3. Add the following code to the **CreateIoTHub** method to describe the IoT hub to create and generate a JSON representation:
+3. Add the following code to the **CreateIoTHub** method to describe the IoT hub to create and generate a JSON representation (for the current list of locations that support IoT Hub see [Azure Status][lnk-status]):
 
     ```
     var description = new
@@ -182,22 +182,17 @@ To learn more about developing for IoT Hub, see the following:
 
 To further explore the capabilities of IoT Hub, see:
 
-- [Designing your solution][lnk-design]
-- [Exploring device management using the sample UI][lnk-dmui]
 - [Simulating a device with the Gateway SDK][lnk-gateway]
-- [Using the Azure portal to manage IoT Hub][lnk-portal]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
+[lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
-[lnk-sdks]: iot-hub-sdks-summary.md
+[lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-design]: iot-hub-guidance.md
-[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-[lnk-portal]: iot-hub-manage-through-portal.md

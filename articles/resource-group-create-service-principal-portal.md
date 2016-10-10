@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/18/2016"
+   ms.date="09/07/2016"
    ms.author="tomfitz"/>
 
 # Use portal to create Active Directory application and service principal that can access resources
@@ -26,7 +26,9 @@
 
 When you have an application that needs to access or modify resources, you must set up an Active Directory (AD) application and assign the required permissions to it. This topic shows you how to perform those steps through the portal. Currently, you must use the classic portal to create a new Active Directory application, and then switch to the Azure portal to assign a role to the application. 
 
-> [AZURE.NOTE] You may find it easier to set up your AD application and service principal through [PowerShell](resource-group-authenticate-service-principal.md) or [Azure CLI](resource-group-authenticate-service-principal-cli.md), especially if you want to use a certificate for authentication. This topic does not show how to use a certificate.
+> [AZURE.NOTE] The steps in this topic only apply when using the **classic portal** to create the AD application. **If you use the Azure portal for creating the AD application, these steps will not succeed.** 
+>
+> You may find it easier to set up your AD application and service principal through [PowerShell](resource-group-authenticate-service-principal.md) or [Azure CLI](resource-group-authenticate-service-principal-cli.md), especially if you want to use a certificate for authentication. This topic does not show how to use a certificate.
 
 For an explanation of Active Directory concepts, see [Application Objects and Service Principal Objects](./active-directory/active-directory-application-objects.md). 
 For more information about Active Directory authentication, see [Authentication Scenarios for Azure AD](./active-directory/active-directory-authentication-scenarios.md).
@@ -35,7 +37,7 @@ For detailed steps on integrating an application into Azure for managing resourc
 
 ## Create an Active Directory application
 
-1. Log in to your Azure Account through the [classic portal](https://manage.windowsazure.com/).
+1. Log in to your Azure Account through the [classic portal](https://manage.windowsazure.com/). 
 
 2. Make sure you know the default Active Directory for your subscription. You can only grant access for applications in the same directory as your subscription. Select **Settings** and look for the directory name associated with your subscription.  For more information, see [How Azure subscriptions are associated with Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
    
@@ -120,7 +122,7 @@ If your application accesses resources on behalf of a signed-in user, you must g
 
 1. Select **Add application**.
 
-2. From the list, select the **Azure Service Management API**. Then, select the complete icon.
+2. From the list, select the **Windows Azure Service Management API**. Then, select the complete icon.
 
       ![select app](./media/resource-group-create-service-principal-portal/select-app.png)
 
@@ -150,9 +152,23 @@ You can set the scope at the level of the subscription, resource group, or resou
 
      If you do not have the correct permissions to grant access to an application, you must either request that your subscription administrator adds you to the User Access Administrator role, or request that an administrator grants access to the application.
 
-1. Navigate to the level of scope you wish to assign the application to. For this topic, you can navigate to a resource group, and from the resource group blade, select **Access control**.
+1. Navigate to the level of scope you wish to assign the application to. To assign a role at the subscription scope, select **Subscriptions**.
+
+     ![select subscription](./media/resource-group-create-service-principal-portal/select-subscription.png)
+
+     Select the particular subscription to assign the application to.
+
+     ![select subscription for assignment](./media/resource-group-create-service-principal-portal/select-one-subscription.png)
+
+     Select the **Access** icon in the upper-right corner.
+
+     ![select access](./media/resource-group-create-service-principal-portal/select-access.png)
+     
+     Or, to assign a role at resource group scope, navigate to a resource group. From the resource group blade, select **Access control**.
 
      ![select users](./media/resource-group-create-service-principal-portal/select-users.png)
+
+     The following steps are the same for any scope.
 
 2. Select **Add**.
 

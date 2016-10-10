@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="Blackmist"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -47,6 +47,10 @@ The Azure REST API allows you to perform management operations on services hoste
     > `Remove-item alias:curl`
     >
     > Once the alias has been removed, you should be able to use the version of cURL that you have installed on your system.
+
+### Access control requirements
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ##Create a template
 

@@ -23,11 +23,11 @@
 - [Backup FAQ for classic mode](backup-azure-backup-faq.md)
 - [Backup FAQ for Resource Manager mode](backup-azure-backup-ibiza-faq.md)
 
-This article provides information specific to Recovery Services vault and it supplements the [Azure Backup FAQ](backup-azure-backup-faq). The Azure Backup FAQ provides the full set of questions and answers about the Azure Backup service.  
+This article provides information specific to Recovery Services vault and it supplements the [Azure Backup FAQ](backup-azure-backup-faq.md). The Azure Backup FAQ provides the full set of questions and answers about the Azure Backup service.  
 
 You can ask questions about Azure Backup in the Disqus section of this article or a related article. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
-## Recovery Services vaults are Resource Manager based, are Backup vaults (classic mode) still supported? <br/>
+## Recovery Services vaults are Resource Manager based. Are Backup vaults (classic mode) still supported? <br/>
 Yes, Backup vaults are still supported. Create Backup vaults in the [Classic portal](https://manage.windowsazure.com). Create Recovery Services vaults in the [Azure portal](https://portal.azure.com). However we strongly recommend you to create recovery services vault as all future enhancements will be available only in Recovery Services vault. 
 
 ## Can I migrate a Backup vault to a Recovery Services vault? <br/>

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2016"
+   ms.date="09/16/2016"
    ms.author="gwallace"/>
 
 # URL Path Based Routing overview
@@ -26,7 +26,7 @@ Requests for http://contoso.com/video* are routed to VideoServerPool, and http:/
 
 ## UrlPathMap configuration element
 
-UrlPathMap element is used to specify Path patterns to back-end server pool mappings. This following is the snippet of urlPathMap element from template file.
+UrlPathMap element is used to specify Path patterns to back-end server pool mappings. The following code example is the snippet of urlPathMap element from template file.
 
 	"urlPathMaps": [
 	{
@@ -84,6 +84,6 @@ Snippet of PathBasedRouting rule:
 
     }
 	
-## Next steps 
+## Next steps
 
 After learning about URL-based content routing, go to [create an application gateway using URL-based routing](application-gateway-create-url-route-portal.md) to create an application gateway with URL routing rules.

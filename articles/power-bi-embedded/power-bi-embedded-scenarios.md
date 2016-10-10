@@ -3,8 +3,8 @@
    description="Common Microsoft Power BI Embedded scenarios"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
-   manager="mblythe"
+   authors="guyinacube"
+   manager="erikre"
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="07/05/2016"
-   ms.author="owend"/>
+   ms.date="10/04/2016"
+   ms.author="asaxton"/>
 
 # Common Power BI Embedded scenarios
 

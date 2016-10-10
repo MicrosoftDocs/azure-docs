@@ -347,11 +347,11 @@ Get started at development time with:
  * [Troubleshooting][qna]
  * [MSDN Forum](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
-* Suggestions:
+ * [Get developer support](app-insights-get-dev-support.md)
+* Your suggestions:
  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 * Blog:
  * [Application Insights blog](https://azure.microsoft.com/blog/tag/application-insights)
-
 
 
 
