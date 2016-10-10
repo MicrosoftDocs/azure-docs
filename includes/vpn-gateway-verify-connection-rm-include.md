@@ -36,7 +36,7 @@ You can verify that your connection succeeded by using the `Get-AzureRmVirtualNe
 
 ### To verify your connection by using the Azure portal
 
-In the Azure portal, you can view the connection status by navigating to the connection. There are multiple ways to do this. Below is one way to navigate to your connection.
+In the Azure portal, you can view the connection status by navigating to the connection. There are multiple ways to do this. The following steps show one way to navigate to your connection and verify.
 
 1. In the [Azure portal](http://portal.azure.com), click **All resources** and navigate to your virtual network gateway.
 2. On the blade for your virtual network gateway, click **Connections**. You can see the status of each connection.
