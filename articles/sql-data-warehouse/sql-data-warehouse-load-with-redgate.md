@@ -98,14 +98,17 @@ Once the import is complete DPS will display a summary of the data import and a 
 
 ## Next steps
 To explore your data within SQL Data Warehouse, start by viewing:
+
 - [Query Azure SQL Data Warehouse (Visual Studio)][]
 - [Visualize data with Power BI][]
 
 To learn more about Redgate’s Data Platform Studio:
+
 - [Visit the DPS homepage](http://www.dataplatformstudio.com/)
 - [Watch a demo of DPS on Channel9](https://channel9.msdn.com/Blogs/cloud-with-a-silver-lining/Loading-data-into-Azure-SQL-Datawarehouse-with-Redgate-Data-Platform-Studio)
 
 For an overview of other ways to migrate and load your data in SQL Data Warehouse see:
+
 - [Migrate your solution to SQL Data Warehouse][]
 - [Load data into Azure SQL Data Warehouse](./sql-data-warehouse-overview-load.md)
 
