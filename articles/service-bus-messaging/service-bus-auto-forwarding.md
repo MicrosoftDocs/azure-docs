@@ -1,13 +1,13 @@
 <properties 
     pageTitle="Auto-forwarding Service Bus messaging entities | Microsoft Azure"
     description="How to chain a queue or subscription to another queue or topic."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" /> 
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"

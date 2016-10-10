@@ -1,13 +1,13 @@
 <properties 
     pageTitle="Create applications that use Service Bus topics and subscriptions | Microsoft Azure"
     description="Introduction to the publish-subscribe capabilities offered by Service Bus topics and subscriptions."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" />
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"

@@ -1,13 +1,13 @@
 <properties 
     pageTitle="Service Bus queues, topics, and subscriptions | Microsoft Azure"
     description="Overview of Service Bus messaging entities."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="tysonn" />
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"

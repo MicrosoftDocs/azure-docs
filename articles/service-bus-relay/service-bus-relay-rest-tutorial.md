@@ -1,13 +1,13 @@
 <properties
     pageTitle="Service Bus REST tutorial using relayed messaging | Microsoft Azure"
     description="Build a simple Service Bus relay host application that exposes a REST-based interface."
-    services="service-bus-relay"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" />
 <tags
-    ms.service="service-bus-relay"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"

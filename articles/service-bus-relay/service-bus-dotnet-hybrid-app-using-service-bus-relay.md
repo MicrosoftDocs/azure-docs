@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Hybrid on-premises/cloud application (.NET) | Microsoft Azure"
 	description="Learn how to create a .NET on-premises/cloud hybrid application using the Azure Service Bus relay."
-	services="service-bus-relay"
+	services="service-bus"
 	documentationCenter=".net"
 	authors="sethmanheim"
 	manager="timlt"
 	editor=""/>
 
 <tags
-	ms.service="service-bus-relay"
+	ms.service="service-bus"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"

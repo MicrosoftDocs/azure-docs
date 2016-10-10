@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="How to use AMQP 1.0 with the Java Service Bus API | Microsoft Azure" 
 	description="How to use the Java Message Service (JMS) with Azure Service Bus and Advanced Message Queuing Protodol (AMQP) 1.0." 
-	services="service-bus-messaging" 
+	services="service-bus" 
 	documentationCenter="java" 
 	authors="sethmanheim" 
 	manager="timlt" 
 	editor=""/>
 
 <tags 
-	ms.service="service-bus-messaging" 
+	ms.service="service-bus" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 

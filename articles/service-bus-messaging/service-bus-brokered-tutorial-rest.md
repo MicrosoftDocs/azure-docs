@@ -1,13 +1,13 @@
 <properties 
     pageTitle="Service Bus brokered messaging REST tutorial | Microsoft Azure"
     description="Brokered messaging REST tutorial."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" />
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"

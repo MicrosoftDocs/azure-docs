@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Service Bus Premium and Standard Messaging pricing tiers overview | Microsoft Azure"
 	description="Service Bus Premium and Standard Messaging"
-	services="service-bus-messaging"
+	services="service-bus"
 	documentationCenter=".net"
 	authors="djrosanova"
 	manager="timlt"
 	editor=""/>
 
 <tags
-	ms.service="service-bus-messaging"
+	ms.service="service-bus"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"

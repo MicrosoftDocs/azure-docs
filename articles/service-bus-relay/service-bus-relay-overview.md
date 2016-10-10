@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Service Bus relay overview | Microsoft Azure"
 	description="Overview of Service Bus relay."
-	services="service-bus-relay"
+	services="service-bus"
 	documentationCenter=".net"
 	authors="sethmanheim"
 	manager="timlt"
 	editor=""/>
 
 <tags
-	ms.service="service-bus-relay"
+	ms.service="service-bus"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"

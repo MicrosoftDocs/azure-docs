@@ -1,13 +1,13 @@
 <properties 
     pageTitle="Service Bus relay samples overview | Microsoft Azure"
     description="Categorizes and describes Service Bus relay samples with links to each."
-    services="service-bus-relay"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" />
 <tags 
-    ms.service="service-bus-relay"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"

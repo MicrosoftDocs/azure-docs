@@ -1,13 +1,13 @@
 <properties 
     pageTitle="Service Bus FAQ | Microsoft Azure"
     description="Answers some frequently-asked questions about Azure Service Bus."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager=""
     editor="" />
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"

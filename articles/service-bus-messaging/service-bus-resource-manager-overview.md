@@ -1,14 +1,14 @@
 <properties
     pageTitle="Create Service Bus resources using Azure Resource Manager templates | Microsoft Azure"
     description="Use Azure Resource Manager templates to automate the creation of Service Bus resources"
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="tbd"
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"

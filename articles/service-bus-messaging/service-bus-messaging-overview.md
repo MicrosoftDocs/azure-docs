@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Service Bus messaging overview | Microsoft Azure"
 	description="Service Bus Messaging: flexible data delivery in the cloud"
-	services="service-bus-messaging"
+	services="service-bus"
 	documentationCenter=".net"
 	authors="sethmanheim"
 	manager="timlt"
 	editor=""/>
 
 <tags
-	ms.service="service-bus-messaging"
+	ms.service="service-bus"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"

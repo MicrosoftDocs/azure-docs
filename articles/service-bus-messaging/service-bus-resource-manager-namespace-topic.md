@@ -1,14 +1,14 @@
 <properties
     pageTitle="Create a Service Bus namespace with topic and subscription using an Azure Resource Manager template | Microsoft Azure"
     description="Create a Service Bus namespace with topic and subscription using Azure Resource Manager template"
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="tbd"
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"

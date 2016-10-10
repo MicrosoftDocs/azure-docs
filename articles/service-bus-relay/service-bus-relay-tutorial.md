@@ -1,13 +1,13 @@
 <properties 
     pageTitle="Service Bus Relay tutorial | Microsoft Azure"
     description="Build a Service Bus client application and service using Service Bus Relay."
-    services="service-bus-relay"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="tysonn" />
 <tags 
-    ms.service="service-bus-relay"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"

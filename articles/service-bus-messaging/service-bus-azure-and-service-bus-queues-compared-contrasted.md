@@ -1,13 +1,13 @@
 <properties 
     pageTitle="Azure Queues and Service Bus queues - compared and contrasted | Microsoft Azure"
     description="Analyzes differences and similarities between two types of queues offered by Azure."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="tysonn" />
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"

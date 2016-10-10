@@ -1,13 +1,13 @@
 <properties 
     pageTitle="Write applications that use Service Bus queues | Microsoft Azure"
     description="How to write a simple queue-based application that uses Service Bus."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" />
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"

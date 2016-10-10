@@ -1,14 +1,14 @@
 <properties
     pageTitle="Create a Service Bus authorization rule using an Azure Resource Manager template | Microsoft Azure"
     description="Create a Service Bus authorization rule for namespace and queue using Azure Resource Manager template"
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="tbd"
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
