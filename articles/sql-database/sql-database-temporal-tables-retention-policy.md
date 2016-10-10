@@ -20,9 +20,9 @@
 
 Temporal Tables may increase database size more than regular tables, especially if you retain historical data for a longer period of time. Hence, retention policy for historical data is an important aspect of planning and managing the lifecycle of every temporal table. Temporal Tables in Azure SQL Database come with easy-to-use retention mechanism that helps you accomplish this task.
 
-Temporal history retention can be configured at the individual table level,  which gives you the finest level of granularity. Applying retention policy is simple: it requires you to set only one parameter during table creation or schema change.
+Temporal history retention can be configured at the individual table level, which gives you the finest level of granularity. Applying retention policy is simple: it requires you to set only one parameter during table creation or schema change.
 
-After you define retention policy, Azure SQL Database will start checking regularly if there are rows belonging to the history table that are eligible for automatic data cleanup. Identification of matching rows and their removal from the history table occurs transparently, in the background task that is scheduled and run by the system. Age condition for the history table rows is checked based on the column representing end of SYSTEM_TIME period. If retention period, for example, is set to six months, table rows eligible for cleanup will satisfy the following condition:
+After you define retention policy, Azure SQL Database will start checking regularly if there are rows belonging to the history table that are eligible for automatic data cleanup. Identification of matching rows and their removal from the history table occurs transparently, in the background task that is scheduled and run by the system. Age condition for the history table rows is checked based on the column representing end of SYSTEM_TIME period. If retention period, for example, is set to six months, table rows eligible for cleanup satisfies the following condition:
 ````
 ValidTo < DATEADD (MONTH, -6, SYSUTCDATETIME())
 ````
@@ -64,7 +64,7 @@ CREATE TABLE dbo.WebsiteUserInfo
 ````
 Azure SQL Database allows you to specify retention period by using different time units: DAYS, WEEKS, MONTHS, and YEARS. If HISTORY_RETENTION_PERIOD is omitted, INFINITE retention is assumed. You can also use INFINITE keyword explicitly.
 
-In some scenarios you will want to configure retention after table creation, or to change previously configured value. In that case use ALTER TABLE statement:
+In some scenarios, you may want to configure retention after table creation, or change previously configured value. In that case use ALTER TABLE statement:
 ````
 ALTER TABLE dbo.WebsiteUserInfo
 SET (SYSTEM_VERSIONING = ON (HISTORY_RETENTION_PERIOD = 9 MONTHS));
@@ -96,7 +96,7 @@ The cleanup task for the clustered columnstore removes entire [row groups](https
 ![Clustered columnstore retention](./media/sql-database-temporal-tables-retention-policy/cciretention.png)
 
 
-Excellent data compression and efficient retention cleanup makes clustered columnstore index a perfect choice for scenarios when your workload rapidly generates high amount of historical data. That patternt is typical for intensive [transactional processing workloads that use temporal tables](https://msdn.microsoft.com/library/mt631669.aspx) for change tracking and auditing, trend analysis or IoT data ingestion.
+Excellent data compression and efficient retention cleanup makes clustered columnstore index a perfect choice for scenarios when your workload rapidly generates high amount of historical data. That pattern is typical for intensive [transactional processing workloads that use temporal tables](https://msdn.microsoft.com/library/mt631669.aspx) for change tracking and auditing, trend analysis, or IoT data ingestion.
 
 ##Index considerations
 
@@ -122,7 +122,7 @@ GO
 CREATE CLUSTERED COLUMNSTORE INDEX IX_WebsiteUserInfoHistory ON WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON);
 ````
-Note that when you have finite retention period configured for the history table with the clustered columnstore index, you cannot create additional non-clustered B-tree index on that table:
+When you have finite retention period configured for the history table with the clustered columnstore index, you cannot create additional non-clustered B-tree index on that table:
 ````
 CREATE NONCLUSTERED INDEX IX_WebHistNCI ON WebsiteUserInfoHistory ([UserName])
 ````
