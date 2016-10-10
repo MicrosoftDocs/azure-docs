@@ -31,9 +31,7 @@ Note that you must add a minimum set of "basic integration" in order to be able 
 
 ##Navigate to your Mobile Engagement portal
 
-To start monitoring and managing your application, navigate to your Mobile Engagement portal by clicking the **Engage** button at the bottom.
-
-![](../../includes/media/mobile-engagement-connect-app-with-monitor/engage-button.png)
+To start monitoring and managing your application, navigate to your Mobile Engagement portal by clicking the **Engagement portal** button in the top bar.
 
 Once you are in the  Mobile Engagement portal, you can analyze, create and manage segments, reach out to the users, etc.:    
 
