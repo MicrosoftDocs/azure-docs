@@ -3,7 +3,7 @@
    description="Learn to load data with Azure Data Factory"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="lodipalm"
+   authors="twounder"
    manager="barbkess"
    editor=""
    tags="azure-sql-data-warehouse"/>
@@ -13,15 +13,16 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/16/2016"
-   ms.author="lodipalm;barbkess;sonyama"/>
+   ms.date="10/10/2016"
+   ms.author="mausher;barbkess;sonyama"/>
 
 # Load Data with Azure Data Factory 
 
 > [AZURE.SELECTOR]
-- [Data Factory][]
-- [PolyBase][]
-- [BCP][]
+- [Redgate](sql-data-warehouse-load-with-redgate.md)  
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
+- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
+- [BCP](sql-data-warehouse-load-with-bcp.md)  
 
  This tutorial shows you how to create a pipeline in Azure Data Factory to move data from Azure Storage Blob to SQL Data Warehouse. With the following steps you will:
 
