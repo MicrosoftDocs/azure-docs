@@ -6,11 +6,11 @@ Follow these steps to install and run MongoDB on a virtual machine running Windo
 
 2. Select the **Tools** button in the upper right corner.  In **Internet Options**, select the **Security** tab, and then select the **Trusted Sites** icon, and finally click the **Sites** button. Add _https://\*.mongodb.org_ to the list of trusted sites.
 
-3. Go to [Downloads- MongoDB] [MongoDownloads].
+3. Go to [Downloads - MongoDB](https://www.mongodb.com/download-center#community).
 
-4. Find the **Current Stable Release**, select the latest **64-bit** version in the Windows column, download and run the MSI installer.
+4. Find the **Current Stable Release** of **Community Server**, select the latest **64-bit** version in the Windows column, download and run the MSI installer.
 
-5. MongoDB is typically installed on C:\Program Files\MongoDB. Search for Environment Variables on the desktop and add the MongoDB binaries path to the PATH variable. For example, you might find the binaries at C:\Program Files\MongoDB\Server\3.2\bin on your machine.
+5. MongoDB is typically installed in C:\Program Files\MongoDB. Search for Environment Variables on the desktop and add the MongoDB binaries path to the PATH variable. For example, you might find the binaries at C:\Program Files\MongoDB\Server\3.2\bin on your machine.
 
 6. Create MongoDB data and log directories in the data disk (drive **F:**, for example) you created in the steps above. From **Start**, select **Command Prompt** to open a command prompt window.  Type:
 
@@ -23,7 +23,7 @@ Follow these steps to install and run MongoDB on a virtual machine running Windo
 		F:\> C:
 		C:\> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
 
-	All log messages will be directed to the *F:\MongoLogs\mongolog.log* file as mongod.exe server starts and preallocates journal files. It may take several minutes for MongoDB to preallocate the journal files and start listening for connections. The command prompt will stay focused on this task while your MongoDB instance is running.
+	All log messages are directed to the *F:\MongoLogs\mongolog.log* file as mongod.exe server starts and preallocates journal files. It may take several minutes for MongoDB to preallocate the journal files and start listening for connections. The command prompt stays focused on this task while your MongoDB instance is running.
 
 8. To start the MongoDB administrative shell, open another command window from **Start** and type the following:
 
@@ -46,7 +46,7 @@ Follow these steps to install and run MongoDB on a virtual machine running Windo
 
 		C:\> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log --logappend  --install
 
-	This creates a service named MongoDB with a description of "Mongo DB". The **--logpath** option must be used to specify a log file, since the running service will not have a command window to display output.  The **--logappend** option specifies that a restart of the service will cause output to append to the existing log file.  The **--dbpath** option specifies the location of the data directory. For more service-related command line options, see [Service-related command line options] [MongoWindowsSvcOptions].
+	This creates a service named MongoDB with a description of "Mongo DB". The **--logpath** option must be used to specify a log file, since the running service does not have a command window to display output.  The **--logappend** option specifies that a restart of the service causes output to append to the existing log file.  The **--dbpath** option specifies the location of the data directory. For more service-related command line options, see [Service-related command line options] [MongoWindowsSvcOptions].
 
 	To start the service, run this command:
 
@@ -86,7 +86,7 @@ Follow these steps to install and run MongoDB on a virtual machine running Windo
 
 	![Endpoints][Image8]
 
-14. Add an endpoint with name "Mongo", protocol **TCP**, and both **Public** and **Private** ports set to "27017". This will allow MongoDB to be accessed remotely.
+14. Add an endpoint with name "Mongo", protocol **TCP**, and both **Public** and **Private** ports set to "27017". This allows MongoDB to be accessed remotely.
 
 	![Endpoints][Image9]
 
