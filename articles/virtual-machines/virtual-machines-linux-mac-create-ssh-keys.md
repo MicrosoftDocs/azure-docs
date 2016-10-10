@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/08/2016"
+	ms.date="10/06/2016"
 	ms.author="v-livech"/>
 
 # Create SSH keys on Linux and Mac for Linux VMs in Azure
@@ -23,7 +23,7 @@ With an SSH keypair you can create Virtual Machines on Azure that default to usi
 
 ## Quick Command Listing
 
-In the following command examples, replace the values between &lt; and &gt; with the values from your own environment.
+In the following command examples, replace the values between &lt; and &gt; with the values from your own environment.  Start by changing directories, `cd ~/.ssh/` so that all your ssh keys are created in that directory.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "<your_user@yourdomain.com>"
@@ -78,7 +78,7 @@ Azure requires at least 2048-bit, ssh-rsa format public and private keys. To cre
 
 ## Using ssh-keygen
 
-This command creates a password secured (encrypted) SSH Keypair using 2048-bit RSA and it is commented to easily identify it.
+This command creates a password secured (encrypted) SSH Keypair using 2048-bit RSA and it is commented to easily identify it.  Start by changing directories, `cd ~/.ssh/` so that all your ssh keys are created in that directory.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
@@ -101,12 +101,12 @@ If you are using the classic deploy model (Azure Classic Portal or the Azure Ser
 To create a PEM formatted key from an existing SSH public key:
 
 ```bash
-ssh-keygen -f id_rsa.pub -m 'PEM' -e > id_rsa.pem
+ssh-keygen -f ~/.ssh/id_rsa.pub -e > ~/.ssh/id_ssh2.pem
 ```
 
 ## Walkthrough of ssh-keygen
 
-Each step explained in detail.  Start by running `ssh-keygen`.
+Each step explained in detail.  Start by changing to the `~/.ssh` directory and then run `ssh-keygen`.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"

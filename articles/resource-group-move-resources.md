@@ -56,6 +56,7 @@ For now, the services that support moving to both a new resource group and subsc
 - DNS
 - DocumentDB
 - HDInsight clusters
+- IoT Hubs
 - Key Vault
 - Media Services
 - Mobile Engagement
@@ -184,11 +185,11 @@ With request body:
 
 ## Use portal
 
-To move resources to a new resource group in the same subscription, select the resource group containing those resources, and then select the **Move** button.
+To move resources to a new resource group in the **same subscription**, select the resource group containing those resources, and then select the **Move** button.
 
 ![move resources](./media/resource-group-move-resources/edit-rg-icon.png)
 
-To move resources to a new subscription, select the resource group containing those resources, and then select the edit subscription icon.
+To move resources to a **new subscription**, select the resource group containing those resources, and then select the edit subscription icon.
 
 ![move resources](./media/resource-group-move-resources/change-subscription.png)
 

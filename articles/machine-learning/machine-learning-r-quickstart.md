@@ -609,7 +609,7 @@ If you are not used to defensive programming in R, all this code may seem a bit 
 
 2. I return a value of NA for each case. There are many other possibilities that might have fewer side effects. I could return a vector of zeroes, or the original input vector, for example.
 
-3. Checks are run on the arguments to the function. In each case, if an error is detected, a default value is returned and a message is produced by the `warming()` function. I am using `warning()` rather than `stop()` as the latter will terminate execution, exactly what I am trying to avoid. Note that I have written this code in a procedural style, as in this case a functional approach seemed complex and obscure.
+3. Checks are run on the arguments to the function. In each case, if an error is detected, a default value is returned and a message is produced by the `warning()` function. I am using `warning()` rather than `stop()` as the latter will terminate execution, exactly what I am trying to avoid. Note that I have written this code in a procedural style, as in this case a functional approach seemed complex and obscure.
 
 4. The log computations are wrapped in `tryCatch()` so that exceptions will not cause an abrupt halt to processing. Without `tryCatch()` most errors raised by R functions result in a stop signal, which does just that.
 
@@ -816,7 +816,7 @@ The final line of code creates a pairwise scatterplot. After running the R code,
 
 *Figure 17. Pairwise scatterplot of de-trended and standardized time series.*
 
-You can compare these results to those shown in Figure 17. With the trend removed and the variables standardized, we see a lot less structure in the relationships between these variables.
+You can compare these results to those shown in Figure 16. With the trend removed and the variables standardized, we see a lot less structure in the relationships between these variables.
 
 The code to compute the correlations as R ccf objects is as follows.
 

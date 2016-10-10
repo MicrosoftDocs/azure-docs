@@ -39,6 +39,6 @@ This group will be represented as a distribution group in on-premises AD DS. You
 > [AZURE.IMPORTANT] The user writeback preview feature was removed in the August 2015 update to Azure AD Connect. If you have enabled it, then you should disable this feature.
 
 ## Next steps
-Continue your [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
+Continue your [Custom installation of Azure AD Connect](./aad-connect/active-directory-aadconnect-get-started-custom.md).
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

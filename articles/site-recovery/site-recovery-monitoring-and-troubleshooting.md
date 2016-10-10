@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="07/06/2016" 
-	ms.author="anbacker"/>
+	ms.date="10/05/2016"	
+	ms.author="rajanaki"/>
 	
 # Monitor and troubleshoot protection for virtual machines and physical servers
 
