@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/15/2016"
+   ms.date="10/04/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse
@@ -35,7 +35,7 @@ When the user account is configured for MFA the interactive authentication work 
 - SSMS supports Active Directory Universal Authentication for Object Explorer, Query Editor, and Query Store visualization.
 - Neither DacFx nor the Schema Designer support Universal Authentication.
 - MSA accounts are not supported for Active Directory Universal Authentication.
-- Active Directory Universal Authentication is not supported in SSMS for users that are imported into the current Active Directory from other Active Directories.
+- Active Directory Universal Authentication is not supported in SSMS for users that are imported into the current Active Directory from other Azure Active Directories. These users are not supported, because it would require a tenant ID to validate the accounts, and there is no mechanism to provide that.
 - There are no additional software requirements for Active Directory Universal Authentication except that you must use a supported version of SSMS.
 
 ## Configuration steps
