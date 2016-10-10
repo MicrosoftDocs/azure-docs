@@ -1,4 +1,5 @@
 
+
 | **Limit identifier**                                                                          | **Limit**     | **Comments**                                                                                                                                                     |
 |-----------------------------------------------------------------------------------------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Total capacity (including cloud) | Up to 64 TB per virtual device |
@@ -18,5 +19,6 @@
 | Maximum number of scheduled backups retained by the device                                              | 55 | 30 daily backups<br>12 monthly backups<br>13 yearly backups                                                                                                                                                 |
 | Maximum number of manual backups retained by the device | 45 | |
 | Maximum number of files per share                                         | 1 million            | When performing a device restore, the restore times are proportional to number of files across all the shares on the device. |
+| Maximum number of files per virtual array| 4 million |  |
 | Restore recover time                                                                          | Quick restore | The restore is based on the heat map and depends on the volume size.<br>Backup operations can occur while a restore operation is in progress.                                                                                            |
 
