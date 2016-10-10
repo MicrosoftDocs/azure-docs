@@ -46,15 +46,15 @@ It is important to configure a secondary authentication phone number.  Because y
 > [AZURE.NOTE]
 > If you don't have access to your primary phone number, and need help getting in to your account, see our help topics in [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md).
 
-**To change you primary phone number:**
-1. On the Additional security verification page, select the text box with your current phone number and edit it with your new phone number.
-2. Select **Save**.
-3. If this is the number that you use for your preferred verification option, you have to verify the new number before you can save it.
+**To change you primary phone number:**  
+1. On the Additional security verification page, select the text box with your current phone number and edit it with your new phone number.  
+2. Select **Save**.  
+3. If this is the number that you use for your preferred verification option, you have to verify the new number before you can save it.  
 
-**To add a secondary phone number:**
-1. On the Additional security verification page, check the box next to **Alternate authentication phone.**
-2. Enter your secondary phone number in the text box.
-3. Select **Save** and your changes are finished.
+**To add a secondary phone number:**  
+1. On the Additional security verification page, check the box next to **Alternate authentication phone.**  
+2. Enter your secondary phone number in the text box.  
+3. Select **Save** and your changes are finished.  
 
 
 ## How do I clean up Microsoft Authenticator from my old device and move to a new one?
@@ -62,4 +62,4 @@ When you uninstall the app from your device or reset the device, it does not rem
 
 ## Next steps
 - Get troubleshooting tips and help on [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md)
-- Set up [app passwords](multi-factor-authentication-end-user-app-passwords.md) for any apps that don't support two-step verification. 
+- Set up [app passwords](multi-factor-authentication-end-user-app-passwords.md) for any apps that don't support two-step verification.
