@@ -26,7 +26,7 @@ Organizations need a BCDR strategy that determines how apps, workloads, and data
 
 Site Recovery is an Azure service that contributes to your BCDR strategy, by orchestrating replication of on-premises physical servers and virtual machines to the cloud (Azure) or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary location to keep apps and workloads available. You fail back to your primary location when it returns to normal operations.
 
-## Site Recovery in Azure
+## Site Recovery in the Azure portal
 
 Azure has two different [deployment models](../resource-manager-deployment-model.md) for creating and working with resources. The Azure Resource Manager model and the classic services management model. Azure also has two portals – the [Azure classic portal](https://manage.windowsazure.com/) that supports the classic deployment model, and the [Azure portal](https://portal.azure.com) with support for both deployment models.
 
