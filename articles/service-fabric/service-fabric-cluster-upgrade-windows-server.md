@@ -47,9 +47,9 @@ Use these steps to upgrade your cluster to a supported version, if your cluster 
 For clusters that have connectivity to [http://download.microsoft.com](http://download.microsoft.com), we periodically check for the availability of new service fabric versions.
 
 
-When a new service fabric version is available, the package is downloaded locally to the cluster and provisioned for upgrade. Additionally to inform the customer of this new version, the system places an explicit cluster health warning similar to the following
+When a new service fabric version is available, the package is downloaded locally to the cluster and provisioned for upgrade. Additionally to inform the customer of this new version, the system places an explicit cluster health warning similar to the following:
 
-“The current cluster version <version#> support ends <Date>." Once the cluster is running the latest version, the warning goes away.
+“The current cluster version [version#] support ends [Date].", Once the cluster is running the latest version, the warning goes away.
 
 
 #### Cluster Upgrade workflow.
