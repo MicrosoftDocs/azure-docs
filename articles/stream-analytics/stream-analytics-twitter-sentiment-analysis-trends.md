@@ -69,12 +69,12 @@ Follow these steps to set up the application:
 	Note that you will need to make an empty application to generate a token.  
 3.	Replace the EventHubConnectionString and EventHubName values in TwitterClient.exe.config with the connection string and name of your event hub. The connection string that you copied earlier gives you both the connection string and the name of your event hub, so be sure to separate them and put each in the correct field. For example, consider the following connection string:
 
-    Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey;EntityPath=yourhub
+        Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey;EntityPath=yourhub
 
 	The TwitterClient.exe.config file should contain your settings as in the following example:
 
-	add key="EventHubConnectionString" value="Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey"
-    add key="EventHubName" value="yourhub"
+        add key="EventHubConnectionString" value="Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey"
+        add key="EventHubName" value="yourhub"
 
 	It is important to note that the text "EntityPath=" does __not__ appear in the EventHubName value.
 
@@ -175,7 +175,6 @@ To compare the number of mentions among topics, we'll use a [TumblingWindow](htt
 To identify trending topics, we'll look for topics that cross a threshold value for mentions in a given amount of time. For the purposes of this tutorial, we'll check for topics that are mentioned more than 20 times in the last five seconds by using a [SlidingWindow](https://msdn.microsoft.com/library/azure/dn835051.aspx).
 
 1.	Change the query in the code editor to:
-
 		SELECT System.Timestamp as Time, Topic, COUNT(*) as Mentions
 		FROM TwitterStream TIMESTAMP BY CreatedAt
 		GROUP BY SLIDINGWINDOW(s, 5), topic
@@ -186,7 +185,6 @@ To identify trending topics, we'll look for topics that cross a threshold value 
 	![Sliding Window query output](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-query-output.png)
 
 #### Count of mentions and sentiment: Tumbling window with aggregation
-
 The final query that we will test uses **TumblingWindow** to get the number of mentions, average, minimum, maximum, and standard deviation of sentiment score for each topic every five seconds.
 
 1.	Change the query in the code editor to:
@@ -202,7 +200,7 @@ The final query that we will test uses **TumblingWindow** to get the number of m
 
 ## Create output sink
 
-Now that we have defined an event stream, an event hub input to ingest events, and a query to perform a transformation over the stream, the last step is to define an output sink for the job.  We'll write the aggregated tweet events from our job query to an Azure Blob.  You could also push your results to SQL Database, Table Store, or Event Hubs, depending on your specific application needs.
+Now that we have defined an event stream, an event hub input to ingest events, and a query to perform a transformation over the stream, the last step is to define an output sink for the job.  We'll write the aggregated tweet events from our job query to Azure Blob.  You could also push your results to Azure SQL Database, Azure Table Store, or Event Hubs, depending on your specific application needs.
 
 Use the following steps to create a container for Blob storage, if you don't already have one:
 
