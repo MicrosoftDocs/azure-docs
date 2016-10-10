@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Connect multiple on-premises sites to a virtual network using a VPN Gateway"
+   pageTitle="Connect a virtual network to multiple sites using VPN Gateway and PowerShell"
    description="This article will walk you through connecting multiple local on-premises sites to a virtual network using a VPN Gateway for the classic deployment model."
    services="vpn-gateway"
    documentationCenter="na"
@@ -17,7 +17,7 @@
    ms.date="05/11/2016"
    ms.author="yushwang" />
 
-# Connect multiple on-premises sites to a virtual network
+# Add a Site-to-Site connection to a VNet with an existing VPN gateway connection using PowerShell
 
 > [AZURE.SELECTOR]
 - [Resource Manager - Portal](vpn-gateway-howto-multi-site-to-site-rm-portal.md)

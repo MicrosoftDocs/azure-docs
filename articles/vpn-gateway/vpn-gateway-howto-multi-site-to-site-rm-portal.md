@@ -1,6 +1,6 @@
 <properties
    pageTitle="How to add multiple VPN gateway Site-to-Site connections to a virtual network for the Resource Manager deployment model using the Azure portal"
-   description="Add multiple VPN gateway S2S connections to a VNet"
+   description="Add multi-site S2S connections to a VPN gateway that has an existing connection"
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -14,18 +14,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/03/2016"
+   ms.date="10/10/2016"
    ms.author="cherylmc"/>
 
 
 
-# How to add multiple VPN gateway Site-to-Site connections to a VNet using the Azure portal
+# Add a Site-to-Site connection to a VNet with an existing VPN gateway connection using the Azure portal
 
 > [AZURE.SELECTOR]
 - [Resource Manager - Portal](vpn-gateway-howto-multi-site-to-site-rm-portal.md)
 - [Classic - PowerShell](vpn-gateway-multi-site.md)
 
-This article walks you through using the Azure portal to add Site-to-Site connections to a VPN gateway that has an existing connection. This article applies to VNets created using the Resource Manager deployment model that have a RouteBased virtual network gateway. This article does not apply to ExpressRoute and Site-to-Site coexsiting connection configurations.
+This article walks you through using the Azure portal to add Site-to-Site (S2S) connections to a VPN gateway that has an existing connection. This type of connection is often referred to as a "multi-site" configuration. You can use this article to add a S2S connection to a VNet that already has a S2S connection, Point-to-Site connection, or VNet-to-VNet connection. There are some limitations when adding connections. Check the [Before you begin](#before) section in this article to verify before you start your configuration. 
+
+This article applies to VNets created using the Resource Manager deployment model that have a RouteBased VPN gateway. These steps do not apply to ExpressRoute/Site-to-Site coexisting connection configurations. See [ExpressRoute/S2S coexisting connections](../expressroute/expressroute-howto-coexist-resource-manager.md)
 
 ### Deployment models and methods
 
@@ -36,19 +38,19 @@ We update this table as new articles and additional tools become available for t
 [AZURE.INCLUDE [vpn-gateway-table-multi-site](../../includes/vpn-gateway-table-multisite-include.md)] 
 
 
-## Before you begin
+## <a name="before"></a>Before you begin
 
-This article assumes that you have the following items configured:
+Verify the following items:
 
-- A virtual network created using the Resource Manager deployment model that has an existing connection.
-- The virtual network gateway for your VNet must be RouteBased.
-- You are not adding a connection to an ExpressRoute/Site-to-Site coexisting connection configuration.
+- You are not creating an ExpressRoute/S2S coexsting connection.
+- You have a virtual network that was created using the Resource Manager deployment model with an existing connection.
+- The virtual network gateway for your VNet is RouteBased. If you have a PolicyBased VPN gateway, you must delete the virtual network gateway and create a new VPN gateway as RoutBased.
 - None of the address ranges overlap for any of the VNets that this VNet is connecting to.
-- A compatible VPN device and someone who is able to configure it. See [About VPN Devices](vpn-gateway-about-vpn-devices.md). If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you.
-- An externally facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
+- You have compatible VPN device and someone who is able to configure it. See [About VPN Devices](vpn-gateway-about-vpn-devices.md). If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you.
+- You have an externally facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
 
 
-## Part 1 - Configure a connection
+## <a name="part1"></a>Part 1 - Configure a connection
 
 1. From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
 2. Click **All resources** and locate your **virtual network gateway** from the list of resources and click it.
@@ -66,7 +68,7 @@ This article assumes that you have the following items configured:
 
 	![Add connection blade](./media/vpn-gateway-howto-multi-site-to-site-rm-portal/addconnectionblade.png "Add connection blade")<br>
 
-## Part 2 - Add a local network gateway
+## <a name="part2"></a>Part 2 - Add a local network gateway
 
 1. Click **Local network gateway** ***Choose a local network gateway***. This will open the **Choose local network gateway** blade.
 
@@ -81,14 +83,14 @@ This article assumes that you have the following items configured:
 	- **Address space:** The address space that you want to be routed to the new local network site.
 4. Click **OK** on the **Create local network gateway** blade to save the changes.
 
-## Part 3 - Add the shared key and create the connection
+## <a name="part3"></a>Part 3 - Add the shared key and create the connection
 
 1. On the **Add connection** blade, add the shared key that you want to use to create your connection. You can either get the shared key from your VPN device, or make one up here and then configure your VPN device to use the same shared key. The important thing is that the keys are exactly the same.
 
 	![Shared key](./media/vpn-gateway-howto-multi-site-to-site-rm-portal/sharedkey.png "Shared key")<br>
 2. At the bottom of the blade, click **OK** to create the connection.
 
-## Part 4 - Verify the VPN connection
+## <a name="part4"></a>Part 4 - Verify the VPN connection
 
 You can verify your VPN connection either in the portal, or by using PowerShell.
 
