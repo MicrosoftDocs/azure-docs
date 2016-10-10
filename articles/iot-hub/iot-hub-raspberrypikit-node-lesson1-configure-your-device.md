@@ -22,6 +22,8 @@
 ## 1.1.1 What you will do
 Configure your Raspberry Pi 3 for first time use and install the Raspbian OS, a free operating system that is optimized for the Raspberry Pi hardware.
 
+> [AZURE.NOTE] For Windows 10 IoT Core samples, please visit [windowsondevices.com](http://www.windowsondevices.com/)
+
 ## 1.1.2 What you will learn
 In this section, you will learn:
 -	How to install Raspbian OS on your Raspberry Pi 3
