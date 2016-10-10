@@ -77,7 +77,7 @@ The services that currently do not support moving a resource are:
 - Application Gateway
 - Application Insights
 - Express Route
-i- Recovery Services vault - also do not move the Compute, Network, and Storage resources associated with the Recovery Services vault, see [Recovery Services limitations](#recovery-services-limitations).
+- Recovery Services vault - also do not move the Compute, Network, and Storage resources associated with the Recovery Services vault, see [Recovery Services limitations](#recovery-services-limitations).
 - Virtual Machines Scale Sets
 - Virtual Networks (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 - VPN Gateway
@@ -97,7 +97,7 @@ For example, if your resource group contains:
 - **web-b** which is associated with **plan-b** and **app-insights-b**
 
 Your options are:
-f
+
 - Move **web-a**, **plan-a**, **web-b**, and **plan-b**
 - Move **web-a** and **web-b**
 - Move **web-a**
