@@ -19,15 +19,20 @@
 
 # Connect multiple on-premises sites to a virtual network
 
-This article applies to connecting multiple on-premises sites to a VNet created using the classic deployment model (also known as Service Management). When we have an article with steps for VNets created using the Resource Manager model, I'll link to it from this page. 
+> [AZURE.SELECTOR]
+- [Resource Manager - Portal](vpn-gateway-howto-multi-site-to-site-rm-portal.md)
+- [Classic - PowerShell](vpn-gateway-multi-site.md)
 
-**About Azure deployment models**
+This article applies to connecting multiple on-premises sites to a VNet created using the classic deployment model (also known as Service Management). 
+
+### Deployment models and methods
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-**Deployment models and tools for multi-site connections**
+We update this table as new articles and additional tools become available for this configuration. When an article is available, we link directly to it from this table.
 
 [AZURE.INCLUDE [vpn-gateway-table-multi-site](../../includes/vpn-gateway-table-multisite-include.md)] 
+
 
 
 ## About connecting
@@ -170,7 +175,7 @@ For example:
 
 	Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site2"
 
-If you prefer, you can also use the *Get Virual Network Gateway Shared Key* REST API to get the pre-shared keys.
+If you prefer, you can also use the *Get Virtual Network Gateway Shared Key* REST API to get the pre-shared keys.
 
 ## 7. Verify your connections
 
