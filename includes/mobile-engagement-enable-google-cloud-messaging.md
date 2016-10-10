@@ -5,7 +5,7 @@
 
 1. Navigate to the [Firebase Console](https://console.firebase.google.com/) and sign-in with your Google account credentials.
 
-2. Clock on **Create new Project ** button to create a new project. Alternatively, you can also click on **Import Google Project** to import and existing project. 
+2. Click on **Create new Project** button to create a new project. Alternatively, you can also click on **Import Google Project** to import and existing project. 
 
 3. If you opted for creating a new project then provide a **Project name** and choose a **Country/Region**.
 
@@ -13,4 +13,4 @@
  
 5. Click on the **Cloud Messaging** tab at the top. 
 
-6. Make a note of the **Server Key** and the **Sender ID** that you will use later as **Project Number** in the *Android Manifest file*.  
+6. Make a note of the **Server Key** and the **Sender ID** that you will use later in the *Android Manifest file*.  
