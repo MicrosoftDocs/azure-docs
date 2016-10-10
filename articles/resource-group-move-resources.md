@@ -77,7 +77,7 @@ The services that currently do not support moving a resource are:
 - Application Gateway
 - Application Insights
 - Express Route
-- Recovery Services vault - also do not move the Compute, Network, and Storage resources associated with the Recovery Services vault, see [Recovery Services limitations](#recovery-services-limitations).
+i- Recovery Services vault - also do not move the Compute, Network, and Storage resources associated with the Recovery Services vault, see [Recovery Services limitations](#recovery-services-limitations).
 - Virtual Machines Scale Sets
 - Virtual Networks (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 - VPN Gateway
@@ -97,7 +97,7 @@ For example, if your resource group contains:
 - **web-b** which is associated with **plan-b** and **app-insights-b**
 
 Your options are:
-
+f
 - Move **web-a**, **plan-a**, **web-b**, and **plan-b**
 - Move **web-a** and **web-b**
 - Move **web-a**
@@ -118,9 +118,9 @@ To accomplish this move, perform two separate move operations in the following s
 
 Currently, if your web app includes an SSL certificate that you purchased externally and uploaded to the app, you must delete the certificate before moving the web app. For example, you can perform the following steps:
 
-1. Delete the uploaded certicate from the web app
+1. Delete the uploaded certificate from the web app
 2. Move the web app
-3. Upload the certifcate to the web app
+3. Upload the certificate to the web app
 
 If your web app uses an App Service Certificate, you can move the web app and certificate to a new resource group in the same subscription without issue. To move an App Service Certificate to a new subscription, contact Azure support.
 
