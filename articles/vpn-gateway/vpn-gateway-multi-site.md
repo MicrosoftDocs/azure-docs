@@ -23,7 +23,9 @@
 - [Resource Manager - Portal](vpn-gateway-howto-multi-site-to-site-rm-portal.md)
 - [Classic - PowerShell](vpn-gateway-multi-site.md)
 
-This article applies to connecting multiple on-premises sites to a VNet created using the classic deployment model (also known as Service Management). 
+This article walks you through using PowerShell to add Site-to-Site (S2S) connections to a VPN gateway that has an existing connection. This type of connection is often referred to as a "multi-site" configuration. 
+
+This article applies to virtual networks created using the classic deployment model (also known as Service Management). These steps do not apply to ExpressRoute/Site-to-Site coexisting connection configurations. See [ExpressRoute/S2S coexisting connections](../expressroute/expressroute-howto-coexist-classic.md) for information about coexisting connections.
 
 ### Deployment models and methods
 
