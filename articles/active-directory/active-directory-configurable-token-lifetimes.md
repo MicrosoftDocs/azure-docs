@@ -19,7 +19,7 @@
 
 # Configurable Token Lifetimes in Azure Active Directory (Public Preview)
 
->[AZURE.WARNING]
+>[AZURE.NOTE]
 >This capability is currently in public preview.  You should be prepared to revert or remove any changes.  We are opening up this feature for everyone to try during the public preview, however, certain aspects may require an [Azure AD Premium subscription](active-directory-get-started-premium.md) once generally available.
 
 
@@ -81,51 +81,240 @@ Multi-Factor Session Token Max Age|	MaxAgeSessionMultiFactor***|	Session tokens 
 Property|Affects|Default|
 ----- | ----- | ----- |
 Refresh Token Max Inactive Time (federated users with insufficient revocation information)|Refresh tokens (Issued for federated users with insufficient revocation information)|12 hours|
-Refresh Token Max Inactive Time (Confidential Clients)|	Refresh tokens (Issued for Confidential Clients)|90 days|Refresh token Max Age (Issued for Confidential Clients) |	Refresh tokens (Issued for Confidential Clients) |Until-revoked### Priority and evaluation of policiesToken Lifetime policies can be created and assigned to specific applications, tenants and service principals. This means that it is possible for multiple policies to apply to a specific application. The Token Lifetime policy that takes effect follows these rules:
+Refresh Token Max Inactive Time (Confidential Clients)|	Refresh tokens (Issued for Confidential Clients)|90 days|
+Refresh token Max Age (Issued for Confidential Clients) |	Refresh tokens (Issued for Confidential Clients) |Until-revoked
+
+### Priority and evaluation of policies
+
+Token Lifetime policies can be created and assigned to specific applications, tenants and service principals. This means that it is possible for multiple policies to apply to a specific application. The Token Lifetime policy that takes effect follows these rules:
+
 
 - If a policy is explicitly assigned to the service principal, it will be enforced. 
 - If no policy is explicitly assigned to the service principal, a policy explicitly assigned to the parent tenant of the service principal will be enforced. 
 - If no policy is explicitly assigned to the service principal or the tenant, the policy assigned to the application will be enforced. 
-- If no policy has been assigned to the service principal, the tenant, or the application object, the default values will be enforced (see table above).For more information on the relationship between application objects and service principal objects in Azure AD, see [Application and service principal objects in Azure Active Directory](active-directory-application-objects.md).A token’s validity is evaluated at the time it is used. The policy with the highest priority on the application that is being accessed takes effect.>[AZURE.NOTE]>Example
->>A user wants to access 2 web applications, A and B. 
+- If no policy has been assigned to the service principal, the tenant, or the application object, the default values will be enforced (see table above).
+
+For more information on the relationship between application objects and service principal objects in Azure AD, see [Application and service principal objects in Azure Active Directory](active-directory-application-objects.md).
+
+A token’s validity is evaluated at the time it is used. The policy with the highest priority on the application that is being accessed takes effect.
+
+
+>[AZURE.NOTE]
+>Example
+>
+>A user wants to access 2 web applications, A and B. 
 >
 >
 >- Both applications are in the same parent tenant. 
 >- Token lifetime policy 1 with a Session Token Max Age of 8 hours is set as the parent tenant’s default.
 >- Web application A is a regular use web application and isn’t linked to any policies. 
->- Web application B is used for highly sensitive processes and its service principal is linked to token lifetime policy 2 with a Session Token Max Age of 30 minutes.>>At 12:00PM the user opens up a new browser session and tries to access web application A. the user is redirected to Azure AD and is asked to sign-in. This drops a cookie with a session token in the browser. The user is redirected back to web application A with an ID token that allows them to access the application.>
->At 12:15PM, the user then tries to access web application B. The browser redirects to Azure AD which detects the session cookie. Web application B’s service principal is linked to a policy 1, but is also part of the parent tenant with default policy 2. Policy 2 takes effect since policies linked to service principals have a higher priority than tenant default policies. The session token was originally issued within the last 30 minutes so it is considered valid. The user is redirected back to web application B with an ID token granting them access.>
->At 1:00PM the user tries navigating to web application A. The user is redirected to Azure AD. Web application A is not linked to any policies, but since it is in a tenant with default policy 1, this policy takes effect. The session cookie is detected that was originally issued within the last 8 hours and the user is silently redirected back to web application A with a new ID token without needing to authenticate.>
->The user immediately tries to access web application B. The user is redirected to Azure AD. As before, policy 2 takes effect. As the token was issued longer than 30 minutes ago, the user is then prompted to re-enter their credentials, and a brand new session and ID token are issued. The user can then access web application B.## Configurable policy properties: In-Depth### Access token lifetime**String:** AccessTokenLifetime**Affects:** Access tokens, ID tokens**Summary:** This policy controls how long access and ID tokens for this resource are considered valid. Reducing the access token lifetime mitigates the risk of an access or ID token being used by a malicious actor for an extended period of time (as they cannot be revoked) but also adversely impacts performance as the tokens will have to be replaced more often.### Refresh token max inactive time**String:** MaxInactiveTime**Affects:** Refresh tokens**Summary:** This policy controls how old a refresh token can be before a client can no longer use it to retrieve a new access/refresh token pair when attempting to access this resource. Since a new Refresh token is usually returned a refresh token is used, the client must not have reached out to any resource using the current refresh token for the specified period of time before this policy would prevent access. This policy will force users who have not been active on their client to re-authenticate to retrieve a new refresh token. It is important to note that the Refresh Token Max Inactive Time must be set to a lower value than the Single-Factor Token Max Age and the Multi-Factor Refresh Token Max Age.### Single-factor refresh token max age**String:** MaxAgeSingleFactor**Affects:** Refresh tokens**Summary:** This policy controls how long a user can continue to use refresh tokens to get new access/refresh token pairs after the last time they authenticated successfully with only a single factor. Once a user authenticates and receives a new refresh token, they will be able to use the refresh token flow (as long as the current refresh token is not revoked and it is not left unused for longer than the inactive time) for the specified period of time. At that point, users will be forced to re-authenticate to receive a new refresh token. Reducing the max age will force users to authenticate more often. Since single-factor authentication is considered less secure than a multi-factor authentication, it is recommended that this policy is set to an equal or lesser value than the Multi-Factor Refresh Token Max Age Policy.### Multi-factor refresh token max age**String:** MaxAgeMultiFactor**Affects:** Refresh tokens**Summary:** This policy controls how long a user can continue to use refresh tokens to get new access/refresh token pairs after the last time they authenticated successfully with multiple factors. Once a user authenticates and receives a new refresh token, they will be able to use the refresh token flow (as long as the current refresh token is not revoked and it is not left unused for longer than the inactive time) for the specified period of time. At that point, users will be forced to re-authenticate to receive a new refresh token. Reducing the max age will force users to authenticate more often. Since single-factor authentication is considered less secure than a multi-factor authentication, it is recommended that this policy is set to an equal or greater value than the Single-Factor Refresh Token Max Age Policy.### Single-factor session token max age**String:** MaxAgeSessionSingleFactor**Affects:** Session tokens (persistent and non-persistent)**Summary:** This policy controls how long a user can continue to use session tokens to get new ID and session tokens after the last time they authenticated successfully with only a single factor. Once a user authenticates and receives a new session token, they will be able to use the session token flow (as long as the current session token is not revoked or expired) for the specified period of time. At that point, users will be forced to re-authenticate to receive a new session token. Reducing the max age will force users to authenticate more often. Since single-factor authentication is considered less secure than a multi-factor authentication, it is recommended that this policy is set to an equal or lesser value than the Multi-Factor Session Token Max Age Policy.### Multi-factor session token max age**String:** MaxAgeSessionMultiFactor**Affects:** Session tokens (persistent and non-persistent)**Summary:** This policy controls how long a user can continue to use session tokens to get new ID and session tokens after the last time they authenticated successfully with multiple factors. Once a user authenticates and receives a new session token, they will be able to use the session token flow (as long as the current session token is not revoked or expired) for the specified period of time. At that point, users will be forced to re-authenticate to receive a new session token. Reducing the max age will force users to authenticate more often. Since single-factor authentication is considered less secure than a multi-factor authentication, it is recommended that this policy is set to an equal or greater value than the Single-Factor Session Token Max Age Policy.## Sample token lifetime policiesBeing able to create and manage token lifetimes for apps, service principals, and your overall tenant exposes all kinds of new scenarios possible in Azure AD.  We're going to walk through a few common policy scenarios that will help you impose new rules for:
+>- Web application B is used for highly sensitive processes and its service principal is linked to token lifetime policy 2 with a Session Token Max Age of 30 minutes.
+>
+>At 12:00PM the user opens up a new browser session and tries to access web application A. the user is redirected to Azure AD and is asked to sign-in. This drops a cookie with a session token in the browser. The user is redirected back to web application A with an ID token that allows them to access the application.
+>
+>At 12:15PM, the user then tries to access web application B. The browser redirects to Azure AD which detects the session cookie. Web application B’s service principal is linked to a policy 1, but is also part of the parent tenant with default policy 2. Policy 2 takes effect since policies linked to service principals have a higher priority than tenant default policies. The session token was originally issued within the last 30 minutes so it is considered valid. The user is redirected back to web application B with an ID token granting them access.
+>
+>At 1:00PM the user tries navigating to web application A. The user is redirected to Azure AD. Web application A is not linked to any policies, but since it is in a tenant with default policy 1, this policy takes effect. The session cookie is detected that was originally issued within the last 8 hours and the user is silently redirected back to web application A with a new ID token without needing to authenticate.
+>
+>The user immediately tries to access web application B. The user is redirected to Azure AD. As before, policy 2 takes effect. As the token was issued longer than 30 minutes ago, the user is then prompted to re-enter their credentials, and a brand new session and ID token are issued. The user can then access web application B.
+
+## Configurable policy properties: In-Depth
+
+### Access token lifetime
+
+**String:** AccessTokenLifetime
+
+**Affects:** Access tokens, ID tokens
+
+**Summary:** This policy controls how long access and ID tokens for this resource are considered valid. Reducing the access token lifetime mitigates the risk of an access or ID token being used by a malicious actor for an extended period of time (as they cannot be revoked) but also adversely impacts performance as the tokens will have to be replaced more often.
+
+### Refresh token max inactive time
+
+**String:** MaxInactiveTime
+
+**Affects:** Refresh tokens
+
+**Summary:** This policy controls how old a refresh token can be before a client can no longer use it to retrieve a new access/refresh token pair when attempting to access this resource. Since a new Refresh token is usually returned a refresh token is used, the client must not have reached out to any resource using the current refresh token for the specified period of time before this policy would prevent access. 
+
+This policy will force users who have not been active on their client to re-authenticate to retrieve a new refresh token. 
+
+It is important to note that the Refresh Token Max Inactive Time must be set to a lower value than the Single-Factor Token Max Age and the Multi-Factor Refresh Token Max Age.
+
+### Single-factor refresh token max age
+
+**String:** MaxAgeSingleFactor
+
+**Affects:** Refresh tokens
+
+**Summary:** This policy controls how long a user can continue to use refresh tokens to get new access/refresh token pairs after the last time they authenticated successfully with only a single factor. Once a user authenticates and receives a new refresh token, they will be able to use the refresh token flow (as long as the current refresh token is not revoked and it is not left unused for longer than the inactive time) for the specified period of time. At that point, users will be forced to re-authenticate to receive a new refresh token. 
+
+Reducing the max age will force users to authenticate more often. Since single-factor authentication is considered less secure than a multi-factor authentication, it is recommended that this policy is set to an equal or lesser value than the Multi-Factor Refresh Token Max Age Policy.
+
+### Multi-factor refresh token max age
+
+**String:** MaxAgeMultiFactor
+
+**Affects:** Refresh tokens
+
+**Summary:** This policy controls how long a user can continue to use refresh tokens to get new access/refresh token pairs after the last time they authenticated successfully with multiple factors. Once a user authenticates and receives a new refresh token, they will be able to use the refresh token flow (as long as the current refresh token is not revoked and it is not left unused for longer than the inactive time) for the specified period of time. At that point, users will be forced to re-authenticate to receive a new refresh token. 
+
+Reducing the max age will force users to authenticate more often. Since single-factor authentication is considered less secure than a multi-factor authentication, it is recommended that this policy is set to an equal or greater value than the Single-Factor Refresh Token Max Age Policy.
+
+### Single-factor session token max age
+
+**String:** MaxAgeSessionSingleFactor
+
+**Affects:** Session tokens (persistent and non-persistent)
+
+**Summary:** This policy controls how long a user can continue to use session tokens to get new ID and session tokens after the last time they authenticated successfully with only a single factor. Once a user authenticates and receives a new session token, they will be able to use the session token flow (as long as the current session token is not revoked or expired) for the specified period of time. At that point, users will be forced to re-authenticate to receive a new session token. 
+
+Reducing the max age will force users to authenticate more often. Since single-factor authentication is considered less secure than a multi-factor authentication, it is recommended that this policy is set to an equal or lesser value than the Multi-Factor Session Token Max Age Policy.
+
+### Multi-factor session token max age
+
+**String:** MaxAgeSessionMultiFactor
+
+**Affects:** Session tokens (persistent and non-persistent)
+
+**Summary:** This policy controls how long a user can continue to use session tokens to get new ID and session tokens after the last time they authenticated successfully with multiple factors. Once a user authenticates and receives a new session token, they will be able to use the session token flow (as long as the current session token is not revoked or expired) for the specified period of time. At that point, users will be forced to re-authenticate to receive a new session token. 
+
+Reducing the max age will force users to authenticate more often. Since single-factor authentication is considered less secure than a multi-factor authentication, it is recommended that this policy is set to an equal or greater value than the Single-Factor Session Token Max Age Policy.
+
+## Sample token lifetime policies
+
+Being able to create and manage token lifetimes for apps, service principals, and your overall tenant exposes all kinds of new scenarios possible in Azure AD.  We're going to walk through a few common policy scenarios that will help you impose new rules for:
+
 
 - Token Lifetimes
 - Token Max Inactive Times
-- Token Max AgeWe'll walk through a few scenarios including:
+- Token Max Age
+
+We'll walk through a few scenarios including:
+
 
 - Managing a Tenant's Default Policy
 - Creating a Policy for Web Sign-in
 - Creating a Policy for Native Apps calling a Web API
 - Managing an Advanced Policy 
 
-### PrerequisitesIn the sample scenarios we'll be creating, updating, linking, and deleting policies on apps, service principals, and your overall tenant.  If you are new to Azure AD, checkout [this article](active-directory-howto-tenant.md) to help you get started before proceeding with these samples.  
+### Prerequisites
+In the sample scenarios we'll be creating, updating, linking, and deleting policies on apps, service principals, and your overall tenant.  If you are new to Azure AD, checkout [this article](active-directory-howto-tenant.md) to help you get started before proceeding with these samples.  
 
-1. To begin, download the latest [Azure AD PowerShell Cmdlet Preview](https://www.powershellgallery.com/packages/AzureADPreview). 2.	Once you have the Azure AD PowerShell Cmdlets, run Connect command to sign into your Azure AD admin account. You'll need to do this whenever you start a new session.                Connect-AzureAD -Confirm3.	Run the following command to see all policies that have been created in your tenant.  This command should be used after most operations in the following scenarios.  It will also help you get the **Object ID** of your policies.                 Get-AzureADPolicy### Sample: Managing a tenant's default policyIn this sample, we will create a policy that allows your users to sign in less frequently across your entire tenant. To do this, we create a token lifetime policy for Access/Id and Single-Factor Refresh Tokens that is applied across your tenant. This policy will be applied to every application in your tenant, and each service principal that doesn’t already have a policy set to it. 1.	**Create a Token Lifetime Policy.** Set the Single-Factor Refresh Token to "until-revoked" meaning it won't expire until access is revoked.  The policy definition below is what we will be creating:                @("{          `"TokenLifetimePolicy`":              {                 `"Version`":1,                  `"MaxAgeSingleFactor`":`"until-revoked`"              }        }")Then run the following command to create this policy. 		    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1, `"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName TenantDefaultPolicyScenario -IsTenantDefault $true -Type TokenLifetimePolicy		To see your new policy and get its ObjectID, run the following command.    Get-AzureADPolicy&nbsp;&nbsp;2.	**Update the Policy**You've decided that the first policy is not quite as secure as your service requires, and have decided you want your Single-Factor Refresh Tokens to expire in 2 days. Run the following command. 		    Set-AzureADPolicy -ObjectId <ObjectID FROM GET COMMAND> -DisplayName TenantDefaultPolicyUpdatedScenario -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"2.00:00:00`"}}")		&nbsp;&nbsp;3. **You're done!** ### Sample: Creating a policy for web sign-in>[AZURE.NOTE]
->Linking policies to applications is currently disabled.  We are working on enabling this shortly.  This page will be updated as soon as the feature is available.In this scenario, we will create and assign a policy to the service principal of a web app.  This policy will set the lifetime of the Access/Id Tokens and the Max Age of a Multi-Factor Session Token.  1.	**Create a Token Lifetime Policy.**This policy for Web Sign-in will set the Access/Id Token lifetime and the Max Single-Factor Session Token Age to 2 hours.    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"AccessTokenLifetime`":`"02:00:00`",`"MaxAgeSessionSingleFactor`":`"02:00:00`"}}") -DisplayName WebPolicyScenario -IsTenantDefault $false -Type TokenLifetimePolicyTo see your new policy and get its ObjectID, run the following command.    Get-AzureADPolicy&nbsp;&nbsp;2.	**Assign the policy to your service principal.**We're going to link this new policy with a service principal. Run the following command.            Add-AzureADServicePrincipalPolicy -ObjectId <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>&nbsp;&nbsp;3.	**You're Done!**  ### Sample: Creating a policy for native apps calling a web APIIn this scenario, we will create and assign a policy to a Web API that is being called by a Native App.  This policy will improve the app's security by imposing a strict set of rules. The policy will be applied to the Web API, that way when the Native App requests it as a resource this policy will be applied. 1.	**Create a Token Lifetime Policy.** This command will create a strict policy for a Web API             New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"30.00:00:00`",`"MaxAgeMultiFactor`":`"until-revoked`",`"MaxAgeSingleFactor`":`"180.00:00:00`"}}") -DisplayName WebApiDefaultPolicyScenario -IsTenantDefault $false -Type TokenLifetimePolicy         To see your new policy and get its ObjectID, run the following command.    Get-AzureADPolicy&nbsp;&nbsp;2.	**Assign the policy to your Web API**.We're going to link this new policy with a service principal. Run the following command.    Add-AzureADApplicationPolicy -ObjectId <ObjectID of the App> -RefObjectId <ObjectId of the Policy>&nbsp;&nbsp;3.	**You're Done!** ### Sample: Managing an advanced policy 
 
-In this scenario, we will create and manage a policy that is applied to multiple objects.  This will give some insight into the priority of policies explained above, and will also help you manage more complicated scenarios.  While the policy will be a simple ruleset, the entities it's applied to is not. 
+1. To begin, download the latest [Azure AD PowerShell Cmdlet Preview](https://www.powershellgallery.com/packages/AzureADPreview). 
+2.	Once you have the Azure AD PowerShell Cmdlets, run Connect command to sign into your Azure AD admin account. You'll need to do this whenever you start a new session.
+        
+        Connect-AzureAD -Confirm
+
+3.	Run the following command to see all policies that have been created in your tenant.  This command should be used after most operations in the following scenarios.  It will also help you get the **Object ID** of your policies. 
+        
+        Get-AzureADPolicy
+
+### Sample: Managing a tenant's default policy
+
+In this sample, we will create a policy that allows your users to sign in less frequently across your entire tenant. 
+
+To do this, we create a token lifetime policy for Single-Factor Refresh Tokens that is applied across your tenant. This policy will be applied to every application in your tenant, and each service principal that doesn’t already have a policy set to it. 
+
+1.	**Create a Token Lifetime Policy.** 
+
+Set the Single-Factor Refresh Token to "until-revoked" meaning it won't expire until access is revoked.  The policy definition below is what we will be creating:
+        
+        @("{
+          `"TokenLifetimePolicy`":
+              {
+                 `"Version`":1, 
+                 `"MaxAgeSingleFactor`":`"until-revoked`"
+              }
+        }")
+
+Then run the following command to create this policy. 
+
+		
+    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1, `"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName TenantDefaultPolicyScenario -IsTenantDefault $true -Type TokenLifetimePolicy
+		
+To see your new policy and get its ObjectID, run the following command.
+
+    Get-AzureADPolicy
+&nbsp;&nbsp;2.	**Update the Policy**
+
+You've decided that the first policy is not quite as strict as your service requires, and have decided you want your Single-Factor Refresh Tokens to expire in 2 days. Run the following command. 
+		
+    Set-AzureADPolicy -ObjectId <ObjectID FROM GET COMMAND> -DisplayName TenantDefaultPolicyUpdatedScenario -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"2.00:00:00`"}}")
+		
+&nbsp;&nbsp;3. **You're done!** 
+
+### Sample: Creating a policy for web sign-in
+
+>[AZURE.NOTE]
+>Linking policies to applications is currently disabled.  We are working on enabling this shortly.  This page will be updated as soon as the feature is available.
+
+In this sample, we will create a policy that will require your users to authenticate more frequently into your Web App. This policy will set the lifetime of the Access/Id Tokens and the Max Age of a Multi-Factor Session Token to the service principal of your web app.
+
+1.	**Create a Token Lifetime Policy.**
+
+This policy for Web Sign-in will set the Access/Id Token lifetime and the Max Single-Factor Session Token Age to 2 hours.
+
+    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"AccessTokenLifetime`":`"02:00:00`",`"MaxAgeSessionSingleFactor`":`"02:00:00`"}}") -DisplayName WebPolicyScenario -IsTenantDefault $false -Type TokenLifetimePolicy
+
+To see your new policy and get its ObjectID, run the following command.
+
+    Get-AzureADPolicy
+&nbsp;&nbsp;2.	**Assign the policy to your service principal.**
+
+We're going to link this new policy with a service principal.  You'll also need a way to access the **ObjectId** of your service principal. You can query the [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) or go to our [Graph Explorer Tool](https://graphexplorer.cloudapp.net/) and sign into your Azure AD account to see all your tenant's service principals. 
+
+Once you have the **ObjectId**, Run the following command.
+        
+    Add-AzureADServicePrincipalPolicy -ObjectId <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
+&nbsp;&nbsp;3.	**You're Done!** 
+
+ 
+
+### Sample: Creating a policy for native apps calling a Web API
+
+In this sample, we will create a policy that requires users to authenticate less and will lengthen the amount of time they can be inactive without having to authenticate again. The policy will be applied to the Web API, that way when the Native App requests it as a resource this policy will be applied.
+
+1.	**Create a Token Lifetime Policy.** 
+
+This command will create a strict policy for a Web API. 
+        
+    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"30.00:00:00`",`"MaxAgeMultiFactor`":`"until-revoked`",`"MaxAgeSingleFactor`":`"180.00:00:00`"}}") -DisplayName WebApiDefaultPolicyScenario -IsTenantDefault $false -Type TokenLifetimePolicy
+         
+To see your new policy and get its ObjectID, run the following command.
+
+    Get-AzureADPolicy
+
+&nbsp;&nbsp;2.	**Assign the policy to your Web API**.
+
+We're going to link this new policy with an application.  You'll also need a way to access the **ObjectId** of your application. The best way to find your app's **ObjectId** is to use the [Azure Portal](https://portal.azure.com/). 
+
+Once you have the **ObjectId**, Run the following command.
+
+    Add-AzureADApplicationPolicy -ObjectId <ObjectID of the App> -RefObjectId <ObjectId of the Policy>
+
+&nbsp;&nbsp;3.	**You're Done!** 
+
+### Sample: Managing an advanced policy 
+
+In this sample, we will create a few policies to demonstrate how the priority system works, and how you can manage multiple policies applied to several objects. This will give some insight into the priority of policies explained above, and will also help you manage more complicated scenarios. 
 
 1.	**Create a Token Lifetime Policy**
 
-So far pretty simple. We've created a tenant default policy that sets the Access/Id Token lifetime to 12 hours. 
+So far pretty simple. We've created a tenant default policy that sets the Single-Factor Refresh Token lifetime to 30 days. 
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"AccessTokenLifetime`":`"12:00:00`"}}") -DisplayName ComplexPolicyScenario -IsTenantDefault $true -Type TokenLifetimePolicy
+    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"30.00:00:00`"}}") -DisplayName ComplexPolicyScenario -IsTenantDefault $true -Type TokenLifetimePolicy
 To see your new policy and get it's ObjectID, run the following command.
  
     Get-AzureADPolicy
 
 &nbsp;&nbsp;2.	**Assign the Policy to a Service Principal**
 
-Now we have a policy on the entire tenant.  Let's say we want to preserve this policy on a specific Service Principal, but update it for the entire tenant. 
+Now we have a policy on the entire tenant.  Let's say we want to preserve this 30 day policy for a specific service principal, but change the tenant default policy to be the upper limit of "until-revoked". 
+
+First, We're going to link this new policy with our service principal.  You'll also need a way to access the **ObjectId** of your service principal. You can query the [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) or go to our [Graph Explorer Tool](https://graphexplorer.cloudapp.net/) and sign into your Azure AD account to see all your tenant's service principals. 
+
+Once you have the **ObjectId**, Run the following command.
 
     Add-AzureADServicePrincipalPolicy -ObjectId <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
 
@@ -134,7 +323,7 @@ Now we have a policy on the entire tenant.  Let's say we want to preserve this p
     Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName ComplexPolicyScenario -IsTenantDefault $false
 &nbsp;&nbsp;4.	**Create a new Tenant Default Policy**
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"AccessTokenLifetime`":`"6:00:00`"}}") -DisplayName ComplexPolicyScenarioTwo -IsTenantDefault $true -Type TokenLifetimePolicy
+    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName ComplexPolicyScenarioTwo -IsTenantDefault $true -Type TokenLifetimePolicy
 
 &nbsp;&nbsp;5.	 **You're Done!** 
 
@@ -275,4 +464,3 @@ Parameters|Description|Example|
 -----| ----- |-----|
 -ObjectId|The object Id of the Application.|-ObjectId &lt;ObjectID of Application&gt; 
 -PolicyId| The ObjectId of Policy.|-PolicyId &lt;ObjectID of Policy&gt;
-
