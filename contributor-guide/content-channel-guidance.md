@@ -6,15 +6,19 @@
 
 GitHub is a relatively easy way (once you get over the Git hump) to author and publish technical content. But we need to ensure that content stays within the boundaries of technical documentation - there are other channels for other types of information.
 
-- **Technical articles about using the product** belong in the azure-content​/azure-content-pr repositories for publication to http://azure.microsoft.com/documentation/articles. They should contain conceptual or procedural information required to understand and use the product. The technical content channel is for technical content showing people **how** to do something. You can talk about the "what" and "why" to help customers understand intent, but the articles should focus on the actual content telling people how to do the task or complete the scenario.
+##Technical content that belongs in the azure-content-pr repository
 
-- **Reference content**: managed reference, REST APIs, PowerShell cmdlet help, schema reference, and error reference belongs in the MSDN scoped Azure library (http://msdn.microsoft.com/library/azure/). Node, Ruby, and other language reference content belongs on http://azure.github.io/​.
+**Technical articles about using the product** belong in the azure-content and azure-content-pr repositories for publication to http://azure.microsoft.com/documentation/articles. They should contain conceptual or procedural information required to understand and use the product. The technical content channel is for technical content showing people **how** to do something. You can talk about the "what" and "why" to help customers understand intent, but the articles should focus on the actual content telling people how to do the task or complete the scenario.
 
-- **First person/announcements**: Content written in the first person voice and that is generally related to announcements and promotions typically belongs on the Azure blog.
+##Technical content that does not belong in the azure-content-pr repository
 
-- **Code and project samples**: These go in the samples repositories and are featured in the sample gallery.
+**Reference content**: managed reference, REST APIs, PowerShell cmdlet help, schema reference, and error reference belongs in the MSDN scoped Azure library (http://msdn.microsoft.com/library/azure/). Node, Ruby, and other language reference content belongs on http://azure.github.io/.
 
-Beyond this, there are specific types of deliverable and subject matter areas that are not part of the technical documentation experience because these deliverables and subject matter areas belong in other content channels or should not be handled as documentation articles.​ Here's a checklist:
+##Content channel guidelines for other types of product-related content
+
+- **First person/announcement/promotional content**: Content written in the first person voice and that is generally related to announcements and promotions typically belongs on the Azure blog.
+
+- **Code and project samples**: Code and project samples go in the samples repositories and are featured in the sample gallery.
 
 - **Pricing information**: You can talk about the impact technical choices have on cost in a general way, but do not quote specific pricing details in technical articles. Instead, provide a link to the pricing page for the service you're talking about.
 
