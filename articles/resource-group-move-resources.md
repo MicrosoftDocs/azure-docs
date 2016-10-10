@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2016" 
+	ms.date="10/10/2016" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
@@ -91,8 +91,6 @@ When working with App Service apps, you cannot move only an App Service plan. To
 
 If your original resource group also includes an Application Insights resource, you cannot move that resource because Application Insights does not currently support the move operation. If you include the Application Insights resource when moving App Service apps, the entire move operation fails. However, the Application Insights and App Service plan do not need to reside in the same resource group as the app for the app to function correctly.
 
-If your App Service app includes an SSL certificate, you must delete the certificate from the app. Then, add it back to the app after the move has completed.
-
 For example, if your resource group contains:
 
 - **web-a** which is associated with **plan-a** and **app-insights-a**
@@ -118,11 +116,13 @@ To accomplish this move, perform two separate move operations in the following s
 1. Move the **web-a** to **plan-group**
 2. Move **web-a** and **plan-a** to **combined-group**.
 
-If your web app includes an SSL certificate, you perform the following steps:
+Currently, if your web app includes an SSL certificate that you purchased externally and uploaded to the app, you must delete the certificate before moving the web app. For example, you can perform the following steps:
 
-1. Delete the certicate from the web app
+1. Delete the uploaded certicate from the web app
 2. Move the web app
-3. Recreate the certifcate on the web app
+3. Upload the certifcate to the web app
+
+If your web app uses an App Service Certificate, you can move the web app and certificate to a new resource group in the same subscription without issue. To move an App Service Certificate to a new subscription, contact Azure support.
 
 ## Recovery Services limitations
 
