@@ -54,7 +54,7 @@ The Data Science VM can be used to evaluate or learn tools such as Microsoft R S
 
 The Data Science Virtual Machine has many popular data science and other tools already installed and configured to jump-start building intelligent applications using advanced analytics. These tools can be deployed on the cloud, on-premises, or in a hybrid environment.
 
-It also includes tools that make it easy to work with various Azure Data and analytics products. You can explore and build predictive models on large-scale data sets using the Microsoft R Server (Developer Edition) on the VM. A host of other tools from the open source community and from Microsoft are also included.
+It also includes tools that make it easy to work with various Azure data and analytics products. You can explore and build predictive models on large-scale data sets using the Microsoft R Server (Developer Edition) on the VM. A host of other tools from the open source community and from Microsoft are also included, as well as sample code and notebooks.
 
 
 |Windows Edition | Linux Edition |
@@ -71,8 +71,6 @@ It also includes tools that make it easy to work with various Azure Data and ana
 | Git, Visual Studio Team Services plugin | Git |
 | Windows port of most popular Linux/Unix command line utilities accessible through GitBash command prompt | -- |
 
-
-Also, sample code and notebooks to get your project underway quickly.
 
 
 ## How to get started with the Windows Server Data Science VM
