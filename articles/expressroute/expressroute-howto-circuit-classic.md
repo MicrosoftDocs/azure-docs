@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/14/2016"
+   ms.date="10/10/2016"
    ms.author="ganesr;cherylmc"/>
 
 # Create and modify an ExpressRoute circuit
