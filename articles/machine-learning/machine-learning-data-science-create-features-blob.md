@@ -25,7 +25,7 @@ This **menu** links to topics that describe how to create features for data in v
 
 
 ## Prerequisites
-This article assumes that you have created an Azure blob storage account and have stored your data there. If you need instructions to set up an account, see [Create an Azure Storage account](../hdinsight-get-started.md#storage)
+This article assumes that you have created an Azure blob storage account and have stored your data there. If you need instructions to set up an account, see [Create an Azure Storage account](../storage/storage-create-storage-account.md#create-a-storage-account)
 
 
 ## Load the data into a Pandas data frame

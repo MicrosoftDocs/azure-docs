@@ -12,12 +12,12 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="06/13/2016"
+    ms.date="10/06/2016"
     ms.author="sethm" />
 
 # Service Bus pricing and billing
 
-Service Bus is offered in Basic, Standard, and [Premium](../service-bus-messaging/service-bus-premium-messaging.md) tiers. You can choose a service tier for each Service Bus service namespace that you create, and this tier selection applies across all queues, topics/subscriptions, relays, and Event Hubs created within that namespace.
+Service Bus is offered in Basic, Standard, and [Premium](../service-bus-messaging/service-bus-premium-messaging.md) tiers. You can choose a service tier for each Service Bus service namespace that you create, and this tier selection applies across all entities created within that namespace.
 
 >[AZURE.NOTE] For detailed information about current Service Bus pricing, see the [Azure Service Bus pricing page](https://azure.microsoft.com/pricing/details/service-bus/), and the [Service Bus FAQ](service-bus-faq.md#service-bus-pricing).
 
@@ -25,7 +25,7 @@ Service Bus uses the following two meters for queues and topics/subscriptions:
 
 1. **Messaging Operations**: Defined as API calls against queue or topic/subscription service endpoints. This meter will replace messages sent or received as the primary unit of billable usage for queues and topics/subscriptions.
 
-2. **Brokered Connections**: Defined as the peak number of persistent connections open against queues, topics/subscriptions, or Event Hubs during a given one-hour sampling period. This meter will only apply in the Standard tier, in which you can open additional connections (previously, connections were limited to 100 per queue/topic/subscription) for a nominal per-connection fee.
+2. **Brokered Connections**: Defined as the peak number of persistent connections open against queues, topics, or subscriptions during a given one-hour sampling period. This meter will only apply in the Standard tier, in which you can open additional connections (previously, connections were limited to 100 per queue/topic/subscription) for a nominal per-connection fee.
 
 The **Standard** tier introduces graduated pricing for operations performed with queues and topics/subscriptions, resulting in volume-based discounts of up to 80% at the highest usage levels. There is also a Standard tier base charge of $10 per month, which enables you to perform up to 12.5 million operations per month at no additional cost.
 
@@ -39,7 +39,6 @@ The following table summarizes the functional differences between the Basic and 
 
 |Capability|Basic|Standard/Premium|
 |---|---|---|
-|Event Hubs|Yes|Yes|
 |Queues|Yes|Yes|
 |Scheduled messages|Yes|Yes|
 |Topics/Subscriptions|No|Yes|
@@ -77,15 +76,13 @@ The following prices were effective starting November 1, 2014:
 |100 million-2,500 million operations/month|$0.50 per million operations|
 |Over 2,500 million operations/month|$0.20 per million operations|
 
->[AZURE.NOTE] Premium tier is currently in preview and the following price reflects a 50% preview discount.
-
 |Premium|Cost|
 |---|---|
 |Daily|$11.13 fixed rate per Message Unit|
 
 ## Brokered connections
 
-*Brokered connections* accommodate customer usage patterns that involve a large number of "persistently connected" senders/receivers against queues, topics/subscriptions or Event Hubs. Persistently connected senders/receivers are those that connect using either AMQP or HTTP with a non-zero receive timeout (for example, HTTP long polling). HTTP senders and receivers with an immediate timeout do not generate brokered connections.
+*Brokered connections* accommodate customer usage patterns that involve a large number of "persistently connected" senders/receivers against queues, topics, or subscriptions. Persistently connected senders/receivers are those that connect using either AMQP or HTTP with a non-zero receive timeout (for example, HTTP long polling). HTTP senders and receivers with an immediate timeout do not generate brokered connections.
 
 Previously, queues and topics/subscriptions had a limit of 100 concurrent connections per URL. The current billing scheme removes the per-URL limit for queues and topics/subscriptions, and implements quotas and metering on brokered connections at the Service Bus namespace and Azure subscription levels.
 
@@ -98,7 +95,9 @@ The Basic tier includes, and is strictly limited to, 100 brokered connections pe
 |100,000-500,000/month|$0.025 per connection/month|
 |Over 500,000/month|$0.015 per connection/month|
 
->[AZURE.NOTE] 1,000 brokered connections are included with the Standard messaging tier (via the base charge) and can be shared across all queues, topics/subscriptions and Event Hubs within the associated Azure subscription.
+>[AZURE.NOTE] 1,000 brokered connections are included with the Standard messaging tier (via the base charge) and can be shared across all queues, topics, and subscriptions within the associated Azure subscription.
+
+<br />
 
 >[AZURE.NOTE] Billing is based on the peak number of concurrent connections and is prorated hourly based on 744 hours per month.
 
@@ -127,7 +126,7 @@ See [this topic](../service-bus-messaging/service-bus-faq.md#how-is-the-relay-ho
 
 A brokered connection is defined as one of the following:
 
-1. An AMQP connection from a client to a Service Bus topic/subscription, queue, or Event Hub.
+1. An AMQP connection from a client to a Service Bus queue or topic/subscription.
 
 2. An HTTP call to receive a message from a Service Bus topic or queue that has a receive timeout value greater than zero.
 
@@ -135,7 +134,7 @@ Service Bus charges for the peak number of concurrent brokered connections that 
 
 For example:
 
-1. Each of 10,000 devices connect via a single AMQP connection, and receive commands from a Service Bus topic. The devices send telemetry events to an Event Hub. If all devices connect for 12 hours each day, the following connection charges apply (in addition to any other Service Bus topic charges): 10,000 connections * 12 hours * 31 days / 744 = 5,000 brokered connections. After the monthly allowance of 1,000 brokered connections, you would be charged for 4,000 brokered connections, at the rate of $0.03 per brokered connection, for a total of $120.
+1. Each of 10,000 devices connects via a single AMQP connection, and receives commands from a Service Bus topic. The devices send telemetry events to an Event Hub. If all devices connect for 12 hours each day, the following connection charges apply (in addition to any other Service Bus topic charges): 10,000 connections * 12 hours * 31 days / 744 = 5,000 brokered connections. After the monthly allowance of 1,000 brokered connections, you would be charged for 4,000 brokered connections, at the rate of $0.03 per brokered connection, for a total of $120.
 
 2. 10,000 devices receive messages from a Service Bus queue via HTTP, specifying a non-zero timeout. If all devices connect for 12 hours every day, you will see the following connection charges (in addition to any other Service Bus charges): 10,000 HTTP Receive connections * 12 hours per day * 31 days / 744 hours = 5,000 brokered connections.
 

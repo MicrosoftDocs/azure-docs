@@ -39,7 +39,7 @@ Application Gateway currently supports layer 7 application delivery with the fol
 - **[URL-based content routing](application-gateway-url-route-overview.md)** - This feature provides the capability to use different back-end servers for different traffic. Traffic for a folder on the web server or for a CDN could be routed to a different back-end, reducing unneeded load on backends that don't server specific content.
 - **[Multi-site routing](application-gateway-multi-site-overview.md)** - Application gateway allows for you to consolidate up to 20 websites on a single application gateway.
 - **[Websocket support](application-gateway-websocket.md)** - Another great feature of Application Gateway is the native support for Websocket.
-- **[Health monitoring](application-gateway-probe-overview.md)** - Application gateway provides default health monitoring of backend resources as well as custom probes to monitor for more specific scenarios.
+- **[Health monitoring](application-gateway-probe-overview.md)** - Application gateway provides default health monitoring of backend resources and custom probes to monitor for more specific scenarios.
 
 ## Benefits
 
@@ -56,6 +56,8 @@ Application Gateway is useful for:
 ## Gateway sizes and instances
 
 Application Gateway is currently offered in three sizes: Small, Medium, and Large. Small instance sizes are intended for development and testing scenarios.
+
+There are currently two skus for Application Gateway: WAF and Standard.
 
 You can create up to 50 application gateways per subscription, and each application gateway can have up to 10 instances each. Each application gateway can consist of 10 http listeners. Application Gateway load balancing as an Azure-managed service allows the provisioning of a layer 7 load balancer behind the Azure software load balancer.
 

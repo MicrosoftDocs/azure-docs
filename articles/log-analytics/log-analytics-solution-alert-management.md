@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Alert Management solution in Log Analytics | Microsoft Azure"
+   pageTitle="Alert Management solution in Operations Management Suite (OMS) | Microsoft Azure"
    description="The Alert Management solution in Log Analytics helps you analyze all of the alerts in your environment.  In addition to consolidating alerts generated within OMS, it imports alerts from connected System Center Operations Manager (SCOM) management groups into Log Analytics."
    services="log-analytics"
    documentationCenter=""
@@ -7,15 +7,15 @@
    manager="jwhit"
    editor="tysonn" />
 <tags
-   ms.service="log-analytics"
+   ms.service="operations-management-suite"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/06/2016"
+   ms.date="10/06/2016"
    ms.author="bwren" />
 
-# Alert Management solution in Log Analytics
+# Alert Management solution in Operations Management Suite (OMS)
 
 ![Alert Management icon](media/log-analytics-solution-alert-management/icon.png) The Alert Management solution helps you analyze all of the alerts in your environment.  In addition to consolidating alerts generated within OMS, it imports alerts from connected System Center Operations Manager (SCOM) management groups into Log Analytics.  In environments with multiple management groups, the Alert Management solution will provide a consolidated view of alerts across all management groups.
 

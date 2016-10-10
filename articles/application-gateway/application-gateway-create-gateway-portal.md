@@ -120,10 +120,7 @@ Next give the public IP address a friendly name and click **OK**
 The last setting to configure when creating an application gateway is the listener configuration.  If **http** is used, nothing is left to configure and **OK** can be clicked. To use **https**
 further configuration is required.
 
-To use **https**, a certificate is required. The private key of the certificate is needed so a .pfx export of the certificate needs to be provided and the password for the file.
-
-
-![blank Listener Configuration section on Settings blade][8]
+To use **https**, a certificate is required. The private key of the certificate is needed so a .pfx export of the certificate and password need to be provided.
 
 ### Step 10
 
@@ -151,6 +148,8 @@ These steps create a basic application gateway with default settings for the lis
 Learn how to create custom health probes by visiting [Create a custom health probe](application-gateway-create-probe-portal.md)
 
 Learn how to configure SSL Offloading and take the costly SSL decryption off your web servers by visiting [Configure SSL Offload](application-gateway-ssl-portal.md)
+
+Learn how to protect your applications with [Web Application Firewall](application-gateway-webapplicationfirewall-overview.md) a feature of application gateway.
 
 <!--Image references-->
 [1]: ./media/application-gateway-create-gateway-portal/figure1.png

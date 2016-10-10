@@ -62,7 +62,7 @@ In this section, you create a Java console app that creates a new device identit
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.7</version>
+      <version>1.0.9</version>
     </dependency>
     ```
     
@@ -152,7 +152,7 @@ In this section, you create a Java console app that reads device-to-cloud messag
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.7.1</version> 
+        <version>0.8.2</version> 
     </dependency>
     ```
 
@@ -295,7 +295,7 @@ In this section, you create a Java console app that simulates a device that send
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-device-client</artifactId>
-      <version>1.0.8</version>
+      <version>1.0.14</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>

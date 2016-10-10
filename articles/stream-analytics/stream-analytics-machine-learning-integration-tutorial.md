@@ -16,7 +16,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/26/2016" 
+	ms.date="10/04/2016" 
 	ms.author="jeffstok"
 />
 
@@ -37,7 +37,7 @@ The following image demonstrates this configuration. For a more realistic scenar
 The prerequisites for completing the tasks that are demonstrated in this article are as follows:
 
 -	An active Azure subscription.
--	A CSV file with some data in it. You can download the file shown in Figure 1 from [GitHub](https://github.com/jeffstokes72/azure-stream-analytics-repository/blob/master/sampleinputs.csv), or you can create your own file. For this article, we assume that you use the one provided for download on GitHub.
+-	A CSV file with some data in it. You can download the file shown in Figure 1 from [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample Data/sampleinput.csv), or you can create your own file. For this article, we assume that you use the one provided for download on GitHub.
 
 At a high level, to complete the tasks demonstrated in this article, you'll do the following:
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="10/04/2016"
 	ms.author="sethm"/>
 
 # How to use Service Bus queues
@@ -23,12 +23,12 @@
 This guide describes how to use Service Bus queues. The samples are
 written in Ruby and use the Azure gem. The scenarios
 covered include **creating queues, sending and receiving messages**, and
-**deleting queues**. For more information on queues, see the [Next Steps](#next-steps) section.
+**deleting queues**. For more information about Service Bus queues, see the [Next Steps](#next-steps) section.
 
 ## What are Service Bus queues?
 
 Service Bus queues support a *brokered messaging* communication
-model. When using queues, components of a distributed application do not
+model. With queues, components of a distributed application do not
 communicate directly with each other; instead they exchange messages via
 a queue, which acts as an intermediary. A message producer (sender)
 hands off a message to the queue and then continues its processing.
@@ -57,12 +57,12 @@ a wide variety of scenarios:
 Using queues can enable you to scale out your applications better, and
 enable more resiliency to your architecture.
 
-## Create a service namespace
+## Create a namespace
 
-To begin using Service Bus queues in Azure, you must first create a service namespace. A service namespace provides a scoping container for addressing Service Bus resources within your application. You must create the
-namespace through the command-line interface because the Azure classic portal does not create the namespace with an ACS connection.
+To begin using Service Bus queues in Azure, you must first create a namespace. A namespace provides a scoping container for addressing Service Bus resources within your application. You must create the
+namespace through the command-line interface because the Azure portal does not create the namespace with an ACS connection.
 
-To create a service namespace:
+To create a namespace:
 
 1. Open an Azure Powershell console.
 
@@ -85,7 +85,7 @@ will use this value in your code later in this tutorial.
 
 ![Copy key](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
 
-> [AZURE.NOTE] You can also find this key if you log on to the [Azure classic portal](http://manage.windowsazure.com/) and navigate to the connection information for your Service Bus namespace.
+> [AZURE.NOTE] You can also find this key if you log on to the [Azure portal](https://portal.azure.com/) and navigate to the connection information for your Service Bus namespace.
 
 ## Create a Ruby application
 
