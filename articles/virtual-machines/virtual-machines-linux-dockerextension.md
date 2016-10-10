@@ -71,7 +71,7 @@ info:    group create command OK
 
 The Azure CLI returns you to the prompt after only a few seconds, but in the background the template is being deployed in to the resource group you created. Wait a few minutes for the deployment to finish before trying to SSH to the VM.
 
-You can obtain details about the deployment and the DNS name of the VM by using the `azure vm show` command. In the following example, replace `myResourceGroup` with the name you specified in the previous step (the default VM name from the template is `myDockerVM`, so leave that as-is):
+You can obtain details about the deployment and the DNS name of the VM by using the `azure vm show` command. In the following example, replace `myResourceGroup` with the name you specified in the previous step (the default VM name from the template is `myDockerVM`, so leave that name as-is):
 
 ```bash
 azure vm show -g myResourceGroup -n myDockerVM
