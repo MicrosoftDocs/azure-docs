@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/27/2016"
+	ms.date="10/10/2016"
 	ms.author="davidmu"/>
 
 # Create a Windows Virtual Machine Scale Set using Azure PowerShell
@@ -86,13 +86,10 @@ A virtual machine scale set must be contained in a resource group.
 
 A storage account is used by a virtual machine to store the operating system disk and diagnostic data used for scaling. When possible, it is best practice to have a storage account for each virtual machine created in a scale set. If not possible, plan for no more than 20 VMs per storage account. The example in this article shows three storage accounts being created for three virtual machines.
 
-1. Replace the value of **saName** with the name that you want to use for the storage account and then create the variable: 
+1. Replace the value of **$saName** with a name for the storage account. Test the name for uniqueness. 
 
         $saName = "storage account name"
-        
-2. Test whether the name that you selected is unique:
-    
-        Test-AzureName -Storage $saName
+        Get-AzureRmStorageAccountNameAvailability $saName
 
     If the answer is **False**, your proposed name is unique.
 
