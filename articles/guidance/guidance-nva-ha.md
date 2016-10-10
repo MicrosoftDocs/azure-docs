@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Deploying virtual appliances in high availability"
+   pageTitle="Deploying virtual appliances in high availability | Microsoft Azure"
    description="How to deploy network virtual appliances in high availability."
    services=""
    documentationCenter="na"
