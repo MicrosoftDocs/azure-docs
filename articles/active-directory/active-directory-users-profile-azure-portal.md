@@ -28,7 +28,7 @@ This article explains how to add user profile information, such as a profile pic
 
     ![Opening user management](./media/active-directory-users-profile-azure-portal/create-users-user-management.png)
 
-3.  On the **Users and groups*** blade, select **Users**.
+3.  On the **Users and groups** blade, select **Users**.
 
     ![Opening the Users blade](./media/active-directory-users-profile-azure-portal/create-users-open-users-blade.png)
 
@@ -36,14 +36,14 @@ This article explains how to add user profile information, such as a profile pic
 
 5. On the blade for the selected user, select **Profile**.
 
-    ![Opening Work information](./media/active-directory-users-profile-azure-portal/active-directory-create-users-profile.png)
+    ![Opening work information](./media/active-directory-users-profile-azure-portal/active-directory-create-users-profile.png)
 
-6. Add or change the profile information, and then in the command bar select **Save**.
+6. Add or change the profile information. Then, in the command bar, select **Save**.
 
-## What's next
+## Next steps
 
-- [Add a user](active-directory-users-create-azure-portal.md)
-- [Reset a user's password in the new Azure portal](active-directory-users-reset-password-azure-portal.md)
-- [Assign a user to a role in your Azure AD](active-directory-users-assign-role-azure-portal.md)
-- [Change a user's work information](active-directory-users-work-info-azure-portal.md)
-- [Delete a user in your Azure AD](active-directory-users-delete-user-azure-portal.md)
+- [Add new users to Azure Active Directory preview](active-directory-users-create-azure-portal.md)
+- [Assign a user to administrator roles in Azure Active Directory preview](active-directory-users-reset-password-azure-portal.md)
+- [Add or change work information for a user in Azure Active Directory preview](active-directory-users-assign-role-azure-portal.md)
+- [Add or change profile information for a user in Azure Active Directory preview](active-directory-users-work-info-azure-portal.md)
+- [Delete a user from a directory in Azure Active Directory preview](active-directory-users-delete-user-azure-portal.md)
