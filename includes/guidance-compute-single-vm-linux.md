@@ -145,9 +145,10 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 ## Solution deployment
 
 The sample deployment provided in this guidance uses three different [template building blocks][blocks] to create:
-	- a virtual network (vnet)
-	- a network security group (NSG)
-	- a virtual machine (VM)
+
+- a virtual network (VNet)
+- a network security group (NSG)
+- a virtual machine (VM)
 
 This reference architecture uses a single resource group that you can deploy by clicking the button below and accepting the default values for all parameters.
 
@@ -207,7 +208,8 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
 [arm-templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm
-[azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/[components]: #Solution-components
+[azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[components]: #Solution-components
 [blocks]: https://github.com/mspnp/template-building-blocks
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Single Linux VM architecture in Azure"
 
