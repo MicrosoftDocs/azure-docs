@@ -137,8 +137,8 @@ The result is that the user can use his or her domain credentials to access reso
 
 [Azure-Note] If your organization needs to comply with Federal Information Processing Standards (FIPS), then you cannot use password sync, as this feature requires use of MD5 hash algorithms, even though the MD5 hash is further protected by rehashing using SHA256 prior to transmission to the cloud.
 
-For more information, see Implementing password synchronization with Azure AD Connect sync, at https://azure.microsoft.com/en-gb/documentation/services/active-directory/.
-
+aFor more information, see Implementing password synchronization with Azure AD Connect sync, at https://azure.microsoft.com/en-gb/documentation/services/active-directory/.
+a
 ### Single Sign-On with Active Directory Federation Services
 ADFS enables true SSO between on-premises Active Directory and Azure AD and offers more options for authentication, such as Multi-Factor Authentication (MFA) through smart cards or managed mobile devices. The difference with ADFS is that rather than a hash of the password being used to check the validity of the user’s password, when the user attempts to access a cloud-based resource, the entire authentication request is forwarded to one or more servers running ADFS.
 
@@ -158,13 +158,20 @@ As a real-world example of this integration, a Department of Defense (DoD) organ
 This approach gives a good balance between functionality and security, while providing the highest level of integration between the on-premise Active Directory and the cloud environment. However, getting to this end state does require acceptance of a significantly different attitude to the cloud, where Azure Government is seen as an entity within the organizational network, and not something “out there”.
 
 ## Screening
-Azure Government ensures that personnel who have access to customer content are all US citizens. All Microsoft personnel who have access to customer content that is hosted in Azure Government undergo the background checks and screenings set out in the following table:
+
+The recently announced FedRAMP High and Department of Defense (DoD) Impact Level 4 accreditation. This has raised the security and compliance bar across the Azure Government environment.
+
+We are now screening all our operators at National Agency Check with Law and Credit (NACLC) as defined in section 5.6.2.2 of the DoD Cloud Computing Security Requirements Guide (SRG):
+
+[Azure.Note]: The minimum background investigation required for CSP personnel having access to Level 4 and 5 information based on a “noncritical-sensitive” (e.g., DoD’s ADP-2) is a National Agency Check with Law and Credit (NACLC) (for “noncritical-sensitive” contractors), or a Moderate Risk Background Investigation (MBI) for a “moderate risk” position designation.
+
+The following table summarizes our current screening for Azure Government operators:
 
 Azure Gov screenings and background checks | Description|
 ---|---|
 US citizenship |Verification of US citizenship.
 Microsoft cloud background check (every two years)|Social Security number search, criminal history check, Office of Foreign Assets Control list (OFAC), Bureau of Industry and Security list (BIS), Office of Defense Trade Controls Debarred Persons list.
-National Agency Check with Law and Credit (NACLC) (every five years) | Adds fingerprint background check against FBI databases. For additional information, go to the <a href="https://www.opm.gov/investigations/background-investigations/federal-investigations-notices/1997/fin97-02/"> Office Personnel Management Site </a>.
+National Agency Check with Law and Credit (NACLC) (every five years) | Adds fingerprint background check against FBI databases. For additional information, go to the <a href="https://www.opm.gov/investigations/background-investigations/federal-investigations-notices/1997/fin97-02/"> Office Personnel Management Site </a>. | <a href="https://www.microsoft.com/en-us/TrustCenter/Compliance/CJISCriminal"> Criminal Justice Information Services (CJIS) </a> | CJIS is a state, local and FBI government screening which processes fingerprint records and validates criminal histories on operational staff who could be provided access to critical criminal justice information (CJI) data.  Each state does their own background check and subsequent approval of all employees with potential access to CJI.
 
 For Azure operations personnel, the following access principles apply:
 - Duties are clearly defined, with separate responsibilities for requesting, approving and deploying changes.
