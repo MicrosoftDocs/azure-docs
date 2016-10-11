@@ -23,17 +23,14 @@ To deploy the Azure Stack POC, you first need to [prepare the deployment machine
 
 Before you start, make sure that you at least 85 GB of space.
 
-1. The download of Azure Stack POC TP2 is comprised of a zip file containing the following 12 files, totaling ~20GB:
+1. The download of Azure Stack POC TP2 is comprised of a zip file containing the following 12 files, totaling ~20 GB:
     - 1 MicrosoftAzureStackPOC.EXE
-    - 11 MicrosoftAzureStackPOC-N.BIN (where N is 1-11)
-2. Extract these files into a single folder on your computer.
-3. Right-Click on the MicrosoftAzureStackPOC.EXE > Run as an administrator.
 4. Review the License Agreement screen and information of the Self-Extractor Wizard and then click **Next**.
 5. Review the Privacy Statement screen and information of the Self-Extractor Wizard and then click **Next**.
 6. Select the Destination for the files to be extracted, click **Next**.
     - The default is: <drive letter>:\<current folder>\Microsoft Azure Stack POC
 7. Review the Destination location screen and information of the Self-Extractor Wizard, and then **click** Extract.
-8. Extraction will take some time, because it is extracting: CloudBuilder.vhdx (~44.5GB) and ThirdPartyLicenses.rtf files.
+8. Extraction will take some time, because it is extracting: CloudBuilder.vhdx (~44.5 GB) and ThirdPartyLicenses.rtf files.
 
 > [AZURE.NOTE] After you extract the files, you can delete the zip file to recover space on the machine. Or, you can move the zip file to another location so that if you need to redeploy you don’t need to download the zip files again.
 
@@ -66,6 +63,9 @@ Before you start, make sure that you at least 85 GB of space.
     This downloads the Azure Stack TP2 support files to the folder specified by the $LocalPath parameter.
     
 6. Open an elevated PowerShell console and change the directory to where you copied the files.
+    - 11 MicrosoftAzureStackPOC-N.BIN (where N is 1-11)
+2. Extract these files into a single folder on your computer.
+3. Right-Click on the MicrosoftAzureStackPOC.EXE > Run as an administrator.
 
 7. Run the PrepareBootFromVHD.ps1 script. This and the unattend files are available with the other support scripts provided along with this build.
     There are five parameters for this PowerShell script:
@@ -145,7 +145,6 @@ If your environment DOES NOT have DHCP enabled, you will need to include the fol
 | NatIPv4Address | Required for DHCP NAT support | Sets a static IP address for MAS-BGPNAT01. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet. |
 | NatIPv4DefaultGateway | Required for DHCP NAT support | Sets the default gateway used with the static IP address for MAS-BGPNAT01. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet.  |
 | NatIPv4Subnet | Required for DHCP NAT support | IP Subnet prefix used for DHCP over NAT support. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet.  |
-| NatSubnetPrefix | Required for DHCP NAT support | IP Subnet prefix to be used for DHCP over NAT support. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet. |
 | PublicVLan | Optional | Sets the VLAN ID. Only use this parameter if the host and MAS-BGPNAT01 must configure VLAN ID to access the physical network (and Internet). For example, `.\InstallAzureStackPOC.ps1 –Verbose –PublicVLan 305` |
 | Rerun | Optional | Use this flag to re-run deployment.  All previous input will be used. Re-entering data previously provided is not supported because several unique values are generated and used for deployment. |
 | TimeServer | Optional | Use this parameter if you need to specify a specific time server. |
