@@ -186,5 +186,7 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 ##Next steps
 
 To learn how to use Temporal Tables in your applications check out [Getting Started with Temporal Tables in Azure SQL Database](sql-database-temporal-tables.md).
+
 Visit Channel 9 to hear a [real customer temporal implementation success story](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) and watch a [live temporal demonstration](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
+
 For detailed information about Temporal Tables, review [MSDN documentation](https://msdn.microsoft.com/library/dn935015.aspx).
