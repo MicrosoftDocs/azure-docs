@@ -19,7 +19,7 @@
 
 # Overview of SQL Server on Azure Virtual Machines
 
-This topic describes your options for running SQL Server on Azure virtual machines (VMs), along with [links to portal images](#option-1-deploy-a-sql-vm-per-minute-licensing) and an overview of [common tasks](#manage-your-sql-vm).
+This topic describes your options for running SQL Server on Azure virtual machines (VMs), along with [links to portal images](#option-1-create-a-sql-vm-with-per-minute-licensing) and an overview of [common tasks](#manage-your-sql-vm).
 
 >[AZURE.NOTE] If you're already familiar with SQL Server and just want to see how to deploy a SQL Server VM, see [Provision a SQL Server virtual machine in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
 
@@ -27,8 +27,6 @@ This topic describes your options for running SQL Server on Azure virtual machin
 If you are a database administrator or a developer, Azure VMs provide a way to move your on-premises SQL Server workloads and applications to the Cloud. The following video provides a technical overview of SQL Server Azure VMs.
 
 > [AZURE.VIDEO data-driven-sql-server-2016-azure-vm-is-the-best-platform-for-sql-server-2016]
-
->[AZURE.NOTE] The video focuses on SQL Server 2016, but Azure provides VM images for many versions of SQL Server, including 2008, 2012, 2014, and 2016. 
 
 The video covers the following areas:
 
@@ -43,6 +41,8 @@ The video covers the following areas:
 | 07:30 | Configuration support |
 | 08:00 | Monitoring |
 | 08:32 | Demo: Create a SQL Server 2016 VM |
+
+>[AZURE.NOTE] The video focuses on SQL Server 2016, but Azure provides VM images for many versions of SQL Server, including 2008, 2012, 2014, and 2016. 
 
 ## Understand your options
 SQL Server running on Azure VMs is one option for storing your relational data in Azure. The following table provides a quick summary of other SQL offerings on Azure.
