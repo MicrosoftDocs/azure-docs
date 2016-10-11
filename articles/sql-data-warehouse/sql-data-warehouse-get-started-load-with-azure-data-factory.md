@@ -57,9 +57,9 @@ Once you have all of the pieces ready, you are ready to copy sample data to your
 
 2. Use this AZCopy command to copy the three years of data to your Azure Storage Blob.
 
-````
-AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core.windows.net/<container name> /DestKey:<storage key> /Pattern:FactInternetSales.csv
-````
+    ````
+    AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core.windows.net/<container name> /DestKey:<storage key> /Pattern:FactInternetSales.csv
+    ````
 
 
 ## Step 2: Connect resources to Azure Data Factory
@@ -76,18 +76,18 @@ Link your Azure storage account and SQL Data Warehouse to your data factory.
 
 2. To register SQL Data Warehouse navigate to the 'Author and Deploy' section, select 'New Data Store', and then 'Azure SQL Data Warehouse'. Copy and paste in this template, and then fill in your specific information.
 
-```JSON
-{
-    "name": "<Linked Service Name>",
-    "properties": {
-        "description": "",
-	    "type": "AzureSqlDW",
-	    "typeProperties": {
-	         "connectionString": "Data Source=tcp:<server name>.database.windows.net,1433;Initial Catalog=<server name>;Integrated Security=False;User ID=<user>@<servername>;Password=<password>;Connect Timeout=30;Encrypt=True"
-         }
+    ```JSON
+    {
+        "name": "<Linked Service Name>",
+        "properties": {
+            "description": "",
+            "type": "AzureSqlDW",
+            "typeProperties": {
+                 "connectionString": "Data Source=tcp:<server name>.database.windows.net,1433;Initial Catalog=<server name>;Integrated Security=False;User ID=<user>@<servername>;Password=<password>;Connect Timeout=30;Encrypt=True"
+             }
+        }
     }
-}
-```
+    ```
 
 ### Step 2.2: Define the dataset
 
@@ -97,56 +97,55 @@ After creating the linked services, we will have to define the data sets.  Here 
 
 2. Click 'New dataset' and then 'Azure Blob storage' to link your storage to your data factory.  You can use the below script to define your data in Azure Blob storage:
 
-```JSON
-{
-    "name": "<Dataset Name>",
-	"properties": {
-	    "type": "AzureBlob",
-		"linkedServiceName": "<linked storage name>",
-		"typeProperties": {
-		    "folderPath": "<containter name>",
-			"fileName": "FactInternetSales.csv",
-			"format": {
-			"type": "TextFormat",
-			"columnDelimiter": ",",
-			"rowDelimiter": "\n"
+    ```JSON
+    {
+        "name": "<Dataset Name>",
+        "properties": {
+            "type": "AzureBlob",
+            "linkedServiceName": "<linked storage name>",
+            "typeProperties": {
+                "folderPath": "<containter name>",
+                "fileName": "FactInternetSales.csv",
+                "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ",",
+                "rowDelimiter": "\n"
+                }
+            },
+            "external": true,
+            "availability": {
+                "frequency": "Hour",
+                "interval": 1
+            },
+            "policy": {
+                "externalData": {
+                    "retryInterval": "00:01:00",
+                    "retryTimeout": "00:10:00",
+                    "maximumRetry": 3
+                }
             }
-        },
-	    "external": true,
-	    "availability": {
-		    "frequency": "Hour",
-		    "interval": 1
-	    },
-	    "policy": {
-	        "externalData": {
-		        "retryInterval": "00:01:00",
-		        "retryTimeout": "00:10:00",
-		        "maximumRetry": 3
-	        }
         }
-	}
-}
-```
-
+    }
+    ```
 
 3. Now we will also define our dataset for SQL Data Warehouse.  We start in the same way, by clicking 'New dataset' and then 'Azure SQL Data Warehouse'.
 
-```JSON
-{
-    "name": "DWDataset",
-	"properties": {
-	    "type": "AzureSqlDWTable",
-	    "linkedServiceName": "AzureSqlDWLinkedService",
-	    "typeProperties": {
-		    "tableName": "FactInternetSales"
-		},
-	    "availability": {
-	        "frequency": "Hour",
-		    "interval": 1
+    ```JSON
+    {
+        "name": "DWDataset",
+        "properties": {
+            "type": "AzureSqlDWTable",
+            "linkedServiceName": "AzureSqlDWLinkedService",
+            "typeProperties": {
+                "tableName": "FactInternetSales"
+            },
+            "availability": {
+                "frequency": "Hour",
+                "interval": 1
+            }
         }
     }
-}
-```
+    ```
 
 ## Step 3: Create and run your pipeline
 
@@ -154,53 +153,53 @@ Finally, we will set-up and run the pipeline in Azure Data Factory.  This is the
 
 In the 'Author and Deploy' section now click 'More Commands' and then 'New Pipeline'.  After you create the pipeline, you can use the below code to transfer the data to your data warehouse:
 
-```JSON
-{
-    "name": "<Pipeline Name>",
-    "properties": {
-        "description": "<Description>",
-        "activities": [
-          {
-            "type": "Copy",
-    		"typeProperties": {
-    		    "source": {
-	    		    "type": "BlobSource",
-	    			"skipHeaderLineCount": 1
-	    	    },
-	    		"sink": {
-	    		    "type": "SqlDWSink",
-	    		    "writeBatchSize": 0,
-	    			"writeBatchTimeout": "00:00:10"
-	    		}
-	    	},
-	    	"inputs": [
-	    	  {
-	    		"name": "<Storage Dataset>"
-	    	  }
-	    	],
-	    	"outputs": [
-	    	  {
-	    	    "name": "<Data Warehouse Dataset>"
-	    	  }
-	    	],
-	    	"policy": {
-	            "timeout": "01:00:00",
-	    	    "concurrency": 1
-	    	},
-	    	"scheduler": {
-	    	    "frequency": "Hour",
-	    		"interval": 1
-	    	},
-	    	"name": "Sample Copy",
-	    	"description": "Copy Activity"
-	      }
-	    ],
-	    "start": "<Date YYYY-MM-DD>",
-	    "end": "<Date YYYY-MM-DD>",
-	    "isPaused": false
+    ```JSON
+    {
+        "name": "<Pipeline Name>",
+        "properties": {
+            "description": "<Description>",
+            "activities": [
+              {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource",
+                        "skipHeaderLineCount": 1
+                    },
+                    "sink": {
+                        "type": "SqlDWSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:10"
+                    }
+                },
+                "inputs": [
+                  {
+                    "name": "<Storage Dataset>"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "name": "<Data Warehouse Dataset>"
+                  }
+                ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "Sample Copy",
+                "description": "Copy Activity"
+              }
+            ],
+            "start": "<Date YYYY-MM-DD>",
+            "end": "<Date YYYY-MM-DD>",
+            "isPaused": false
+        }
     }
-}
-```
+    ```
 
 ## Next steps
 
