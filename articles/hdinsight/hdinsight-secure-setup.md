@@ -412,8 +412,29 @@ After creating the VNet, you will configure the Resource Manager VNet to use the
 
 
 
+## Peer the AAD VNet and the HDInsight VNet
 
-## Bridge the AAD VNet and the HDInsight VNet
+**To peer the two VNet**
+
+1. Sign on to the [Azure portal](https://portal.azure.com).
+2. Click **More services** from the left menu.
+3. Click **Virtual Networks**. Don't click **Virtual networks (classic)**.
+4. Click **contosohdivnet**.  This is the HDInsight Vnet.
+5. Click **Peerings** on the left menu of the blade.
+6. Click **Add** from the top menu. It opens the **Add peering** blade.
+7. On the **Add peering** blade, set or select the following values:
+
+	- Name: ContosoAADHDIVnetPeering
+	- Virtual network deployment model: Classic
+	- Subscription: Select your subscription name used for the classic (AAD) vnet.
+	- Virtual network: contosoaadvnet.
+
+8. Click **OK**.
+
+
+## (delete) Bridge the AAD VNet and the HDInsight VNet 
+
+[jgao: this section is replaced by the peering section. I will delete this section.]
 
 
 There are 3 steps in this section.
@@ -505,6 +526,9 @@ In this section, you will create a Linux-based Hadoop cluster in HDInsight using
 
 2. From the **Parameters** blade, enter the following values:
 
+	- Subscription: (Select your Azure subscription).
+	- Resouce group: Click **Use existing**, and specify the same resource group you have been using.  For example contosohdirg. 
+
 	- **ClusterVNetID**: /subscriptions/&lt;SubscriptionID>/resourceGroups/&lt;ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/&lt;VNetName>
 	- **ClusterVNetSubNetID**: /subscriptions/&lt;SubscriptionID>/resourceGroups/&lt;ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/&lt;VNetName>/subnets/Subnet1
     - **ClusterName**: Enter a name for the Hadoop cluster that you will create. For example contosohdicluster
@@ -515,7 +539,10 @@ In this section, you will create a Linux-based Hadoop cluster in HDInsight using
 	- OrganizationUnitDN: OU=Hadoop System Users,DC=contoso158,DC=onmicrosoft,DC=com
 	- LDAPUrls: ["ldaps://40.84.54.252:636"], ["ldaps://10.1.0.4:636","ldaps://10.1.0.5:636"]
 	- DomainAdminUserName: jgao@contoso158.onmicrosoft.com
-	- DomainAdminPassword: Bodu8439
+	- DomainAdminPassword: Zoma7815
+
+	- **I agree to the terms and conditions stated above**: (Check)
+	- **Pin to dashboard**: (Check)
 
 	The organizational unit is what you created earlier in the article.
 
@@ -529,10 +556,8 @@ In this section, you will create a Linux-based Hadoop cluster in HDInsight using
     - Subnet name: default
     - Subnet address range: 10.2.0.0/24
 
-3. Click **OK** to save the parameters.
-4. From the **Custom deployment** blade, click **Resource group** dropdown box, and then click **Use existing**, and specify the same resource group you have been using.  For example contosohdirg. 
-5. Click **Legal terms**, and then click **Purchase**.
-6. Click **Create**. You will see a new tile titled **Submitting deployment for Template deployment**. It takes about around 20 minutes to create a cluster. Once the cluster is created, you can click the cluster blade in the portal to open it.
+
+6. Click **Purchase**. You will see a new tile titled **Deploying Template deployment**. It takes about around 20 minutes to create a cluster. Once the cluster is created, you can click the cluster blade in the portal to open it.
 
 After you complete the tutorial, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-management-portal.md#delete-clusters).
 
