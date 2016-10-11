@@ -57,7 +57,7 @@ These are controls that you can use to enforce a conditional access policy:
 
 - **Block**. You can apply conditions like user location to block user access. For example, you can block access when a user is not on a trusted network.
 
-- **Compliant devices**. At the device level, you can set policies so that only computers that are domain-joined, or mobile devices that are enrolled in a mobile device management application, and which meet policy compliance requirements, can access your organization's resources. For example, you can use Intune to check device compliance, and then report it to Azure AD for enforcement when the user attempts to access an application. For detailed guidance about how to use Intune to protect apps and data, see [Protect apps and data with Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/protect-apps-and-data-with-microsoft-intune). You also can use Intune to enforce data protection for lost or stolen devices. For more information, see [Help protect your data with full or selective wipe using Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune).
+- **Compliant devices**. You can set conditional access policies at the device level. You might set up a policy so that only computers that are domain-joined, or mobile devices that are enrolled in a mobile device management application, can access your organization's resources. For example, you can use Intune to check device compliance, and then report it to Azure AD for enforcement when the user attempts to access an application. For detailed guidance about how to use Intune to protect apps and data, see [Protect apps and data with Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/protect-apps-and-data-with-microsoft-intune). You also can use Intune to enforce data protection for lost or stolen devices. For more information, see [Help protect your data with full or selective wipe using Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune).
 
 ## Applications
 
@@ -76,7 +76,7 @@ You can set policies based on these requirements:
 - **Domain-joined devices**. Set a policy to restrict access to devices that are joined to an on-premises Active Directory domain, and which also are registered with Azure AD. This policy applies to Windows desktops, laptops, and enterprise tablets.
 For more information about how to set up automatic registration of domain-joined devices with Azure AD, see [Set up automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
 
-- **Compliant devices**. Set a policy to restrict access to devices that are marked **compliant** in the directory by the management system. This policy ensures that only devices that meet security policies such as enforcing file encryption on a device are allowed access. You can use this policy to restrict access from the following devices:
+- **Compliant devices**. Set a policy to restrict access to devices that are marked **compliant** in the management system directory. This policy ensures that only devices that meet security policies such as enforcing file encryption on a device are allowed access. You can use this policy to restrict access from the following devices:
 
     - **Windows domain-joined devices**. Managed by System Center Configuration Manager (in the current branch) deployed in a hybrid configuration
     - **Windows 10 Mobile work or personal devices**. Managed by Intune or by a supported third-party mobile device management system
@@ -85,7 +85,7 @@ For more information about how to set up automatic registration of domain-joined
 
 Users who access applications that are protected by a device-based, certification authority policy must access the application from a device that meets this policy's requirements. Access is denied if attempted on a device that doesn’t meet policy requirements.
 
-For information about how to configure a device-based, certification authority policy in Azure AD, see [Device-based conditional access policy for Azure Active Directory-connected applications](active-directory-conditional-access-policy-connected-applications.md).
+For information about how to configure a device-based, certification authority policy in Azure AD, see [Set device-based conditional access policy for Azure Active Directory-connected applications](active-directory-conditional-access-policy-connected-applications.md).
 
 ## Resources
 
@@ -100,7 +100,7 @@ See the following resource categories and articles to learn more about setting c
 
 ### Device-based conditional access
 
-- [Device-based conditional access policy for access control to Azure Active Directory-connected applications](active-directory-conditional-access-policy-connected-applications.md)
+- [Set device-based conditional access policy for access control to Azure Active Directory-connected applications](active-directory-conditional-access-policy-connected-applications.md)
 - [Set up automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
 - [Troubleshooting for Azure Active Directory access issues](active-directory-conditional-access-device-remediation.md)
 - [Protect data on lost or stolen devices by using Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)
