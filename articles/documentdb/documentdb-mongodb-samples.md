@@ -170,7 +170,6 @@ You can use the [Create a web app in Azure that connects to MongoDB running on a
 
 ## Next steps
 
-- Read about the DocumentDB with protocol support for MongoDB [preview development guidelines](documentdb-mongodb-guidelines.md).
 - Learn how to [use MongoChef](documentdb-mongodb-mongochef.md) with a DocumentDB account with protocol support for MongoDB.
 
  
