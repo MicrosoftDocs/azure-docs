@@ -18,13 +18,13 @@
    ms.date="10/03/2016"
    ms.author="adegeo"/>
 
-# Scale an Azure Container Service cluster
+# Scale an Azure Container Service
 
-You can scale out the number of nodes your Azure Container Service has by using the Azure CLI tool. When you use the Azure CLI to scale, the tool returns you a new configuration file representing the change applied to the container.
+You can scale out the number of nodes your Azure Container Service (ACS) has by using the Azure CLI tool. When you use the Azure CLI to scale, the tool returns you a new configuration file representing the change applied to the container.
 
 ## About the command
 
-The Azure CLI must be in Azure Resource Manager (arm) mode for you to interact with Azure Containers. You can switch to arm mode by calling `azure config mode arm`. The `acs` command has a child-command named `scale` that does all the scale operations for a container. You can get help about the various parameters used in the scale command by running `azure acs scale --help`, which outputs something similar to this:
+The Azure CLI must be in Azure Resource Manager (arm) mode for you to interact with Azure Containers. You can switch to arm mode by calling `azure config mode arm`. The `acs` command has a child-command named `scale` that does all the scale operations for a container service. You can get help about the various parameters used in the scale command by running `azure acs scale --help`, which outputs something similar to this:
 
 ```azurecli
 azure acs scale --help
@@ -46,11 +46,11 @@ help:
 help:    Current Mode: arm (Azure Resource Management)
 ```
 
-## Scale a container
+## Use the command to scale
 
-To scale a container, you first need to know the **resource group** and the **container name**, and also specify the new count of agents. By using a smaller or higher amount, you can scale down or up respectively.
+To scale a container service, you first need to know the **resource group** and the **Azure Container Service (ACS) name**, and also specify the new count of agents. By using a smaller or higher amount, you can scale down or up respectively.
 
-You may want to know what the current agent count for a container before you scale. Use the `azure acs show <resource group> <container name>` command to output the container config. Note the <mark>Count</mark> result.
+You may want to know what the current count of agents for a container service before you scale. Use the `azure acs show <resource group> <ACS name>` command to return the ACS config. Note the <mark>Count</mark> result.
 
 #### See current count
 
@@ -91,7 +91,7 @@ data:         StorageUri     : https://<storageid>.blob.core.windows.net/
 
 #### Scale to new count
 
-As it is probably already self-evident, you can scale the container by calling `azure acs scale` and supplying the **resource group**, **name**, and **agent count**. When you scale a container, Azure CLI returns a JSON string representing the new configuration of the container, including the new agent count.
+As it is probably already self-evident, you can scale the container service by calling `azure acs scale` and supplying the **resource group**, **ACS name**, and **agent count**. When you scale a container service, Azure CLI returns a JSON string representing the new configuration of the container service, including the new agent count.
 
 ```azurecli
 azure acs scale containers-test containerservice-containers-test 10
