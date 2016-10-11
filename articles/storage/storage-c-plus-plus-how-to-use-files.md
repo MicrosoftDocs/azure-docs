@@ -141,7 +141,7 @@ The following code demonstrates how to retrieve and output the URI of each item 
 	  share.get_root_directory_reference();
 	
 	// Output URI of each item.
-	azure::storage::list_file_and_directory_result_iterator end_of_results;
+	azure::storage::list_file_and_diretory_result_iterator end_of_results;
 	
 	for (auto it = directory.list_files_and_directories(); it != end_of_results; ++it)
 	{
@@ -258,7 +258,7 @@ The example below shows how to check the current usage for a share and how to se
 	
 	}
 
-### Generate a shared access signature for a file or file share
+## Generate a shared access signature for a file or file share
 
 You can generate a shared access signature (SAS) for a file share or for an individual file. You can also create a shared access policy on a file share to manage shared access signatures. Creating a shared access policy is recommended, as it provides a means of revoking the SAS if it should be compromised.
 
@@ -301,7 +301,6 @@ The following example creates a shared access policy on a share, and then uses t
 
 		//save the updated policy list
 		permissions.set_policies(policies);
-
 		share.upload_permissions(permissions);
 
 		//Retrieve the root directory and file references
@@ -311,22 +310,17 @@ The following example creates a shared access policy on a share, and then uses t
 		  root_dir.get_file_reference(_XPLATSTR("my-sample-file-1"));
 
 		// Generate a SAS for a file in the share 
-		//  and associate this access policy with it.
-		
+		//  and associate this access policy with it.		
 		utility::string_t sas_token = file.get_shared_access_signature(sharedPolicy);
 		
-		// Create a new CloudFile object from the SAS, and write some text to the file.
-		
+		// Create a new CloudFile object from the SAS, and write some text to the file.		
 		azure::storage::cloud_file file_with_sas(azure::storage::storage_credentials(sas_token).transform_uri(file.uri().primary_uri()));
+		utility::string_t text = _XPLATSTR("My sample content");		
+		file_with_sas.upload_text(text);		
 		
-		utility::string_t text = _XPLATSTR("My sample content");
-		
-		file_with_sas.upload_text(text);
-		
-		utility::string_t downloaded_text = file_with_sas.download_text();
-		
-		ucout << downloaded_text << std::endl;
-		
+		//Download and print URL with SAS.
+		utility::string_t downloaded_text = file_with_sas.download_text();		
+		ucout << downloaded_text << std::endl;		
 		ucout << azure::storage::storage_credentials(sas_token).transform_uri(file.uri().primary_uri()).to_string() << std::endl;
 	
 	}
