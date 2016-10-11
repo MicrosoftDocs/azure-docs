@@ -153,7 +153,7 @@ In the label beneath the input box, you can see the attributes that have been se
      Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
    ```
 
-  >[AZURE.NOTE] When you start a runbook by using PowerShell cmdlets, a default parameter, **MicrosoftApplicationManagementStartedBy**, is created with the value **PowerShell**. You can view this parameter in the **Job details** blade.
+>[AZURE.NOTE] When you start a runbook by using PowerShell cmdlets, a default parameter, **MicrosoftApplicationManagementStartedBy** is created with the value **PowerShell**. You can view this parameter in the **Job details** blade.  
 
 #### Start a runbook by using an SDK and assign parameters
 
