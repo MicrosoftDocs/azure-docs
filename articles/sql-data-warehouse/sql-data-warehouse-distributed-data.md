@@ -37,7 +37,7 @@ There are performance considerations for the selection of a distribution column,
   
 ![Distributed table](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Distributed table")  
   
--   Each row belongs to one and only one distribution.  
+-   Each row belongs to one distribution.  
   
 -   A deterministic hash algorithm assigns each row to one distribution.  
   
@@ -45,7 +45,7 @@ There are performance considerations for the selection of a distribution column,
 
 ## Round-robin distributed tables
 
-A round-robin distributed table distributes the rows by assigning each row to a distribution in a sequential manner. It is quick to load data into a round-robin table, but query performance might be slower.  Joining a round-robin table usually requires reshuffling the rows to enable the query to produce accurate results, which takes time.
+A round-robin distributed table distributes the rows by assigning each row to a distribution in a sequential manner. It is quick to load data into a round-robin table, but query performance might be slower.  Joining a round-robin table usually requires reshuffling the rows to enable the query to produce an accurate result, which takes time.
 
 ## Distributed storage locations are called distributions
 
