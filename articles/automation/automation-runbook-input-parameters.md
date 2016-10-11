@@ -135,7 +135,7 @@ In the label beneath the input box, you can see the attributes that have been se
 
   - **Azure Resource Manager cmdlets:** You can start an Automation runbook that was created in a resource group by using [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx).
 
-  **Example:**
+   **Example:**
 
    ```
     $params = @{“VMName”=”WSVMClassic”;”resourceGroupeName”=”WSVMClassicSG”}
@@ -145,12 +145,12 @@ In the label beneath the input box, you can see the attributes that have been se
 
   - **Azure Service Management cmdlets:** You can start an automation runbook that was created in a default resource group by using [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx).
 
-  **Example:**
+   **Example:**
 
    ```
-     $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
+    $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
 
-     Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
+    Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
    ```
 
 >[AZURE.NOTE] When you start a runbook by using PowerShell cmdlets, a default parameter, **MicrosoftApplicationManagementStartedBy** is created with the value **PowerShell**. You can view this parameter in the **Job details** blade.  
@@ -160,17 +160,17 @@ In the label beneath the input box, you can see the attributes that have been se
   - **Azure Resource Manager method:** You can start a runbook by using the SDK of a programming language. Below is a C# code snippet for starting a runbook in your Automation account. You can view all the code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
 
    ```
-      public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
+     public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
         {
-           var response = AutomationClient.Jobs.Create(resourceGroupName, automationAccount, new JobCreateParameters
+          var response = AutomationClient.Jobs.Create(resourceGroupName, automationAccount, new JobCreateParameters
            {
-               Properties = new JobCreateProperties
+              Properties = new JobCreateProperties
                {
-                   Runbook = new RunbookAssociationProperty
+                  Runbook = new RunbookAssociationProperty
                    {
-                       Name = runbookName
+                     Name = runbookName
                    },
-                       Parameters = parameters
+                     Parameters = parameters
                }
            });
         return response.Job;
@@ -180,34 +180,34 @@ In the label beneath the input box, you can see the attributes that have been se
   - **Azure Service Management method:** You can start a runbook by using the SDK of a programming language. Below is a C# code snippet for starting a runbook in your Automation account. You can view all the code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
 
    ```      
-      public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
-       {
-         var response = AutomationClient.Jobs.Create(automationAccount, new JobCreateParameters
-       {
-         Properties = new JobCreateProperties
-            {
-               Runbook = new RunbookAssociationProperty
-            {
-               Name = runbookName
+    public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
+      {
+        var response = AutomationClient.Jobs.Create(automationAccount, new JobCreateParameters
+      {
+        Properties = new JobCreateProperties
+           {
+             Runbook = new RunbookAssociationProperty
+           {
+             Name = runbookName
                 },
-                   Parameters = parameters
+                  Parameters = parameters
                 }
-           });
-            return response.Job;
-        }
+         });
+        return response.Job;
+      }
    ```
 
   To start this method, create a dictionary to store the runbook parameters, **VMName** and  **resourceGroupName**, and their values. Then start the runbook. Below is the C# code snippet for calling the method that's defined above.
 
    ```
-     IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
+    IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
 
-     // Add parameters to the dictionary.
-     RunbookParameters.Add("VMName", "WSVMClassic");
-     RunbookParameters.Add("resourceGroupName", "WSSC1");
+    // Add parameters to the dictionary.
+    RunbookParameters.Add("VMName", "WSVMClassic");
+    RunbookParameters.Add("resourceGroupName", "WSSC1");
 
-     //Call the StartRunbook method with parameters
-     StartRunbook(“Get-AzureVMGraphical”, RunbookParameters);
+    //Call the StartRunbook method with parameters
+    StartRunbook(“Get-AzureVMGraphical”, RunbookParameters);
    ```
 
 #### Start a runbook by using the REST API and assign parameters
@@ -231,17 +231,15 @@ In order to pass parameters to the runbook job, use the request body. It takes t
 If you want to start the **Get-AzureVMTextual** runbook that was created earlier with **VMName** and **resourceGroupName** as parameters, use the following JSON format for the request body.
 
    ```
-       {
-        "properties":{
-         "runbook":{
-         "name":"Get-AzureVMTextual"
-          },
-          "parameters":{
-           "VMName":"WSVMClassic",
-           "resourceGroupName":”WSCS1”
-           }
-         }
-       }
+    {
+      "properties":{
+        "runbook":{
+        "name":"Get-AzureVMTextual"},
+      "parameters":{
+         "VMName":"WSVMClassic",
+         "resourceGroupName":”WSCS1”}
+        }
+    }
    ```
 
 A HTTP status code 201 is returned if the job is successfully created. For more information on response headers and the response body, refer to the article about how to [create a runbook job by using the REST API.](https://msdn.microsoft.com/library/azure/mt163849.aspx)
