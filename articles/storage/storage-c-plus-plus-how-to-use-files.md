@@ -81,7 +81,7 @@ Using the File storage client, you can then obtain a reference to a share.
 To create the share, use the **create_if_not_exists** method of the **cloud_file_share** object.
 
 	if (share. create_if_not_exists()) {	
-	std::wcout << U(“New share created”) << std::endl;	
+		std::wcout << U("New share created") << std::endl;	
 	}
 
 At this point, **share** holds a reference to a share named **my-sample-share**.
@@ -101,15 +101,18 @@ Now that you have a reference to the root directory of the share, you can upload
 	concurrency::streams::istream input_stream = 
       concurrency::streams::file_stream<uint8_t>::open_istream(_XPLATSTR("DataFile.txt")).get();
 
-	azure::storage::cloud_file file1 = root_dir.get_file_reference(_XPLATSTR("my-sample-file-1"));
+	azure::storage::cloud_file file1 = 
+	  root_dir.get_file_reference(_XPLATSTR("my-sample-file-1"));
 	file1.upload_from_stream(input_stream);
 
 	// Upload some files from text.
-	azure::storage::cloud_file file2 = root_dir.get_file_reference(_XPLATSTR("my-sample-file-2"));
+	azure::storage::cloud_file file2 = 
+	  root_dir.get_file_reference(_XPLATSTR("my-sample-file-2"));
 	file2.upload_text(_XPLATSTR("more text"));
 
 	// Upload a file from a file.
-	azure::storage::cloud_file file4 = root_dir.get_file_reference(_XPLATSTR("my-sample-file-3"));
+	azure::storage::cloud_file file4 = 
+	  root_dir.get_file_reference(_XPLATSTR("my-sample-file-3"));
 	file4.upload_from_file(_XPLATSTR("DataFile.txt"));	
 
 ## How to: Create a Directory
@@ -160,7 +163,8 @@ To download files, first retrieve a file reference and then call the **download_
 The following example uses the **download_to_stream** and **download_text** methods to demonstrate downloading the files which were created in previous sections.
 
 	// Download as text
-	azure::storage::cloud_file text_file = root_dir.get_file_reference(_XPLATSTR("my-sample-file-2"));
+	azure::storage::cloud_file text_file = 
+	  root_dir.get_file_reference(_XPLATSTR("my-sample-file-2"));
 	utility::string_t text = text_file.download_text();
 	ucout << "File Text: " << text << std::endl;
 	
