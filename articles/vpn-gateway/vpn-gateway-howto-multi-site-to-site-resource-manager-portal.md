@@ -58,26 +58,26 @@ Verify the following items:
 2. Click **All resources** and locate your **virtual network gateway** from the list of resources and click it.
 3. On the **Virtual network gateway** blade, click **Connections**.
 
-	![Connections blade](./media/vpn-gateway-howto-multi-site-to-site-rm-portal/connectionsblade.png "Connections blade")<br>
+	![Connections blade](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "Connections blade")<br>
 
 4. On the **Connections** blade, click **+Add**.
 
-	![Add connection button](./media/vpn-gateway-howto-multi-site-to-site-rm-portal/addbutton.png "Add connection button")<br>
+	![Add connection button](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "Add connection button")<br>
 
 5. On the **Add connection** blade, fill out the following fields:
 	- **Name:** The name you want to give to the site you are creating the connection to.
 	- **Connection type:** Select **Site-to-site (IPsec)**.
 
-	![Add connection blade](./media/vpn-gateway-howto-multi-site-to-site-rm-portal/addconnectionblade.png "Add connection blade")<br>
+	![Add connection blade](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Add connection blade")<br>
 
 ## <a name="part2"></a>Part 2 - Add a local network gateway
 
 1. Click **Local network gateway** ***Choose a local network gateway***. This will open the **Choose local network gateway** blade.
 
-	![Choose local network gateway](./media/vpn-gateway-howto-multi-site-to-site-rm-portal/chooselng.png "Choose local network gateway")<br>
+	![Choose local network gateway](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "Choose local network gateway")<br>
 2. Click **Create new** to open the **Create local network gateway** blade.
 
-	![Create local network gateway blade](./media/vpn-gateway-howto-multi-site-to-site-rm-portal/createlngblade.png "Create local network gateway")<br>
+	![Create local network gateway blade](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Create local network gateway")<br>
 
 3. On the **Create local network gateway** blade, fill out the following fields:
 	- **Name:** The name you want to give to the local network gateway resource.
@@ -89,7 +89,7 @@ Verify the following items:
 
 1. On the **Add connection** blade, add the shared key that you want to use to create your connection. You can either get the shared key from your VPN device, or make one up here and then configure your VPN device to use the same shared key. The important thing is that the keys are exactly the same.
 
-	![Shared key](./media/vpn-gateway-howto-multi-site-to-site-rm-portal/sharedkey.png "Shared key")<br>
+	![Shared key](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/sharedkey.png "Shared key")<br>
 2. At the bottom of the blade, click **OK** to create the connection.
 
 ## <a name="part4"></a>Part 4 - Verify the VPN connection
