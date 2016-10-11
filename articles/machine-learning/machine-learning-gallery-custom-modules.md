@@ -43,6 +43,8 @@ custom modules.
 custom modules
  in the Gallery, or you can search by selecting filter criteria on the left of the page and entering search terms at the top.
 
+### Comment and share
+
  Click any
 custom module
  to open the
@@ -62,9 +64,18 @@ custom module
 You can use any custom module in the Gallery in your own experiments.
 There are two ways to get a copy of the module:
 
-- From the Gallery - When you download a module from the Gallery you also get a sample experiment. You can copy the module from the sample and paste into another experiment.
+- **From the Gallery** - When you download a module from the Gallery, the module is added to the module palette in your workspace. You also get a sample experiment that gives you an example of how to use the module.
 
-- From within Machine Learning Studio - You can import any custom module while you're working in Studio. The module is added to the module palette in your workspace where it's available for use in other experiments.
+- **From within Machine Learning Studio** - You can import any custom module while you're working in Studio, and the module is added to the module palette in your workspace.
+
+Once the custom module is in your module palette, it's available for you to use in any experiment in your workspace just like any other module:
+
+1. Create a new experiment or open an existing one
+2. In the module palette to the left of the experiment canvas, click **Custom** to expand the list of custom modules in your workspace
+
+	![Custom module list in Studio palette](media\machine-learning-gallery-custom-modules\custom-module-in-studio-palette.png)
+3. Select the module you imported and drag it to your experiment
+
 
 ### From the Gallery
 
@@ -76,18 +87,9 @@ To download a copy of a custom module from the Gallery:
 
 	![Open custom module from the Gallery](media\machine-learning-gallery-custom-modules\open-custom-module-from-gallery.png)
 
-	Each custom module includes a sample experiment that demonstrates how to use the module. When you click **Open in Studio**, this sample experiment is loaded into your Machine Learning Studio workspace and opened (if you're not already signed in to Studio, you will be prompted to sign in using your Microsoft account before the experiment is copied to your workspace). When you download a custom module this way, the module is not added to your module palette in Studio, it is just made available in the sample experiment.
+	Each custom module includes a sample experiment that demonstrates how to use the module. When you click **Open in Studio**, this sample experiment is loaded into your Machine Learning Studio workspace and opened (if you're not already signed in to Studio, you will be prompted to sign in using your Microsoft account before the experiment is copied to your workspace).
 
-To use the custom module in another experiment:
-
-1. In the sample experiment, right-click the custom module and select **Copy**
-
-2. Create a new experiment or open an existing one
-
-3. Right-click the experiment canvas and select **Paste**
-
-
-This pastes a copy of the custom module into your experiment. To use the module in other experiments, just repeat the copy/paste process.
+The custom module is copied to your workspace and placed in your module palette alongside all the other built-in or custom Studio modules. You can now use it like any other module in your workspace.
 
 ### From within Machine Learning Studio
 
@@ -99,20 +101,9 @@ You can also import the same custom modules from the Gallery while you're workin
 
 3. Point your mouse at a module and select **Import Module** (to see information about the module, select **View in Gallery** which takes you to the details page for the module in the Gallery)
 
-	The module is copied to your workspace and placed in your module palette alongside all the other built-in or custom Studio modules.
-
 	![Import custom module into Machine Learning Studio](media\machine-learning-gallery-custom-modules\add-custom-module-in-studio.png)
 
-5. Create a new experiment or open an existing one
-
-6. In the module palette to the left of the experiment canvas, click **Custom** to expand the list of custom modules in your workspace
-
-	![Custom module list in Studio palette](media\machine-learning-gallery-custom-modules\custom-module-in-studio-palette.png)
-
-7. Select the module you imported and drag it to your experiment
-
-
-You can now use this custom module like any other module in Machine Learning Studio.
+The custom module is copied to your workspace and placed in your module palette alongside all the other built-in or custom Studio modules. You can now use it like any other module in your workspace.
 
 
 
