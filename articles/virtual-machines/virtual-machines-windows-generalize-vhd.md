@@ -24,7 +24,7 @@
 
 This section shows you how to generalize your Windows virtual machine for use as an image. Sysprep removes all your personal account information, among other things, and prepares the machine to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
 
-[AZURE.IMPORTANT] If you are running Sysprep before uploading your VHD to Azure for the first time, make sure you have [prepared your VHD](virtual-machines-windows-prepare-for-upload-vhd-image.md). 
+>[AZURE.IMPORTANT] If you are running Sysprep before uploading your VHD to Azure for the first time, make sure you have [prepared your VHD](virtual-machines-windows-prepare-for-upload-vhd-image.md). 
 
 1. Sign in to the Windows virtual machine.
 
