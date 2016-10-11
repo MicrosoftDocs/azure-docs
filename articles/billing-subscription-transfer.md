@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="09/23/2016"
+   ms.date="10/10/2016"
    ms.author="genli"/>
 
 # Transferring ownership of an Azure subscription
