@@ -18,7 +18,7 @@
 
 # Overview of Monitoring in Microsoft Azure
 
-This article provides a conceptual overview of monitoring Azure resources and pointers to more information on specific types of resources.  For high-level information on monitoring your application from non-Azure point of view, see [Monitoring and diagnostics guidance](../best-practices-monitoring.md).
+This article provides a conceptual overview of monitoring Azure resources. It provides pointers to  information on specific types of resources.  For high-level information on monitoring your application from non-Azure point of view, see [Monitoring and diagnostics guidance](../best-practices-monitoring.md).
 
 Cloud applications are complex with many moving parts. Monitoring provides data to ensure that your application stays up and running in a healthy state. It also helps you to stave off potential problems or troubleshoot past ones. In addition, you can use monitoring data to gain deep insights about your application. That knowledge can help you to improve application performance or maintainability, or automate actions that would otherwise require manual intervention.
 
@@ -53,7 +53,7 @@ Collectable metrics vary based on the resource type. For example, Virtual Machin
 
 For compute resources you can obtain metrics on the Guest OS and diagnostics modules like Azure Diagnostics. Azure Diagnostics helps gather and route gather diagnostic data to other locations, including Azure storage.
 
-A list of collectable metrics is available at 
+A list of currently collectable metrics is available at [supported metrics](monitoring-supported-metrics).
 
 ### Application - Diagnostics Logs, Application Logs, and Metrics
 **Compute Only**
@@ -82,7 +82,7 @@ A few visualization methods include:
 - Use the Azure portal
 - Route data to Azure Application Insights
 - Route data to Microsoft PowerBI
-- Route the data to a 3rd party visualization tool using either live streaming or by having the tool read from an archive in Azure storage
+- Route the data to a third party visualization tool using either live streaming or by having the tool read from an archive in Azure storage
 
 ### Archive
 Monitoring data is typically written to Azure storage and kept there until you delete it.
@@ -91,7 +91,8 @@ A few ways to use this data:
 
 - Once written, you can have other tools within or outside of Azure read it and process it.
 - You download the data locally for a local archive or change your retention policy in the cloud to keep data for extended periods of time.  
-- You leave the data in Azure storage indefinitely. Note that you have to pay for Azure storage based on the amount of data you keep.
+- You leave the data in Azure storage indefinitely, though you have to pay for Azure storage based on the amount of data you keep.
+- 
 
 ### Query
 You can use the Azure Monitor REST API, cross platform Command-Line Interface (CLI) commands, PowerShell cmdlets, or the .NET SDK to access the data in the system or Azure storage
@@ -99,7 +100,7 @@ You can use the Azure Monitor REST API, cross platform Command-Line Interface (C
 Examples include:
 
 -  Getting data for a custom monitoring application you have written
--  Creating custom queries and sending that data to a 3rd party application.
+-  Creating custom queries and sending that data to a third party application.
 
 ### Route
 You can stream monitoring data to other locations in real time.
@@ -107,7 +108,7 @@ You can stream monitoring data to other locations in real time.
 Examples include:
 
 - Send to Application Insights so you can use the visualization tools there.
-- Send to Event Hubs so you can route to 3rd party tools to perform real-time analysis.
+- Send to Event Hubs so you can route to third party tools to perform real-time analysis.
 
 ### Automate
 You can use monitoring data to trigger events or even whole processes
@@ -120,7 +121,7 @@ Examples include:
 
 ## Methods of Use
 In general, you can manipulate data tracking, routing, and retrieval using one of the following methods. Not all methods are available for all actions or data types.
-
+sep
 - [Azure portal](https://portal.azure.com)
 - [PowerShell](insights-powershell-samples.md)  
 - [Cross-platform Command Line Interface (CLI)](insights-cli-samples.md)
@@ -130,7 +131,7 @@ In general, you can manipulate data tracking, routing, and retrieval using one o
 ## Azure’s Monitoring Offerings
 Azure has offerings available for monitoring your services from bare-metal infrastructure to application telemetry. The best monitoring strategy combines use of all three to gain comprehensive, detailed insight into the health of your services.
 
-- [Azure Monitor](http://aka.ms/azmondocs) – Offers visualization, query, routing, alerting, autoscale, and automation on data both from the Azure infrastructure (Activity Log) and each individual Azure resource (Diagnostic Logs). This article is part of the Azure Monitor documentation. The Azure Monitor name was released September 25th at Ignite 2016.  The previous name was "Azure Insights".  
+- [Azure Monitor](http://aka.ms/azmondocs) – Offers visualization, query, routing, alerting, autoscale, and automation on data both from the Azure infrastructure (Activity Log) and each individual Azure resource (Diagnostic Logs). This article is part of the Azure Monitor documentation. The Azure Monitor name was released September 27 at Ignite 2016.  The previous name was "Azure Insights."  
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) – Provides rich detection and diagnostics for issues at the application layer of your service, well-integrated on top of data from Azure Monitoring. It's the default diagnostics platform for App Service Web Apps.  You can route data from other services to it.  
 - [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) part of [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) – Provides a holistic IT management solution for both on premise and cloud-based infrastructure, including log search and analytics from your Azure resources.  
 
@@ -138,7 +139,7 @@ Azure has offerings available for monitoring your services from bare-metal infra
 ## Next steps
 Learn more about
 - [Azure Monitor in a video from Ignite 2016](https://myignite.microsoft.com/videos/4977) 
-- [Azure Monitor](http://aka.ms/azmondocs) by exploring the links in the TOC to the left and the videos at this link.
+- [Getting Started with Azure Monitor](monitoring-get-started.md) 
 - [Azure Diagnostics](../azure-diagnostics.md) if you are attempting to diagnose problems in your Cloud Service, Virtual Machine, or Service Fabric application.
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) if you are trying to diagnostic problems in your App Service Web app.
 - [Troubleshooting Azure Storage](../storage/storage-e2e-troubleshooting.md) when using Storage Blobs, Tables, or Queues
