@@ -38,14 +38,14 @@ include:
 - **Declare application roles (appRoles) exposed by your app**. The Application entity's appRoles property is a collection of type [AppRole][APPLICATION-ENTITY-APP-ROLE]. See the [Role based access control in cloud applications using Azure AD][RBAC-CLOUD-APPS-AZUREAD] article for an implementation example.
 - **Declare known client applications (knownClientApplications)**, which allow you to logically tie the consent of the specified client application(s) to the resource/web API.
 - **Request Azure AD to issue group memberships claim** for the signed in user (groupMembershipClaims).  This can also be configured to issue claims about the user's directory roles memberships. See the [Authorization in Cloud Applications using AD Groups][AAD-GROUPS-FOR-AUTHORIZATION] article for an implementation example.
-- **Allow your application to support OAuth 2.0 Implicit grant** flows (oauth2AllowImplicitFlow). This type of grant flow is used with embedded JavaScript web pages or Single Page Applications (SPA). For more details on the implicit authorization grant, see [Understanding the OAuth2 implicit grant flow in Azure Active Directory][IMPLICIT-GRANT].
+- **Allow your application to support OAuth 2.0 Implicit grant** flows (oauth2AllowImplicitFlow). This type of grant flow is used with embedded JavaScript web pages or Single Page Applications (SPA). For more information on the implicit authorization grant, see [Understanding the OAuth2 implicit grant flow in Azure Active Directory][IMPLICIT-GRANT].
 - **Enable use of X509 certificates as the secret key** (keyCredentials). See the [Build service and daemon apps in Office 365][O365-SERVICE-DAEMON-APPS] and [Developer’s guide to auth with Azure Resource Manager API][DEV-GUIDE-TO-AUTH-WITH-ARM] articles for implementation examples.
-- **Add a new App ID URI** for your application (identifierURIs[]). App ID URIs are used to uniquely identify an application within its Azure AD tenant (or across multiple Azure AD tenants, for multi-tenant scenarios when qualified via a verified custom domain). They are used when requesting permissions to a resource application, or acquiring an access token for a resource application. When you update this element, the same update is made to the corresponding service principal's servicePrincipalNames[] collection, which lives in the application's home tenant.
+- **Add a new App ID URI** for your application (identifierURIs[]). App ID URIs are used to uniquely identify an application within its Azure AD tenant (or across multiple Azure AD tenants, for multi-tenant scenarios when qualified via verified custom domain). They are used when requesting permissions to a resource application, or acquiring an access token for a resource application. When you update this element, the same update is made to the corresponding service principal's servicePrincipalNames[] collection, which lives in the application's home tenant.
 
 The application manifest also provides a good way to track the state of your application registration. Because it's available in JSON format, the file representation can be checked into your source control, along with your application's source code.
 
 ## Step by step example
-Now lets walk through the steps required to update your application's identity configuration through the application manifest. We will highlight one of the examples given above, showing how to declare a new permission scope on a resource application:
+Now lets walk through the steps required to update your application's identity configuration through the application manifest. We will highlight one of the preceding examples, showing how to declare a new permission scope on a resource application:
 
 1. Navigate to the [Azure classic portal][AZURE-CLASSIC-PORTAL] and sign in with an account that has service administrator or co-administrator privileges.
 
@@ -57,7 +57,7 @@ Now lets walk through the steps required to update your application's identity c
 
     ![Select the Azure AD tenant][SELECT-AZURE-AD-APP]
 
-4. Now that you've selected the application's main page, notice the "Manage Manifest" feature on the bottom of the page (1). If you click this link, you will be prompted to either download or upload the JSON manifest file. Click "Download Manifest" (2) which will be immediately followed with the download confirmation dialog prompting you to confirm by clicking "Download Manifest" (3), then either open or save the file locally (4).
+4. Now that you've selected the application's main page, notice the "Manage Manifest" feature on the bottom of the page (1). If you click this link, you will be prompted to either download or upload the JSON manifest file. Click "Download Manifest" (2). This will be immediately followed with the download confirmation dialog prompting you to confirm by clicking "Download Manifest" (3), then either open or save the file locally (4).
 
     ![Manage the manifest, download option][MANAGE-MANIFEST-DOWNLOAD]
 
@@ -92,9 +92,9 @@ Now lets walk through the steps required to update your application's identity c
         }
         ],
 
-    The entry must be unique, and you must therefore generate a new Globally Unique ID (GUID) for the `"id"` property. In this case, because we specified `"type": "User"`, this permission can be consented to by any account authenticated by the Azure AD tenant in which the resource/API application is registered, granting the client application permission to access it on the account's behalf. The description and display name strings are used during consent and for display in the Azure classic portal.  
+    The entry must be unique, and you must therefore generate a new Globally Unique ID (GUID) for the `"id"` property. In this case, because we specified `"type": "User"`, this permission can be consented to by any account authenticated by the Azure AD tenant in which the resource/API application is registered. This grants the client application permission to access it on the account's behalf. The description and display name strings are used during consent and for display in the Azure classic portal.
 
-6. When you're finished updating the manifest, return to the Azure AD application page in the Azure classic portal, click the "Manage Manifest" feature again (1), but this time select the "Upload Manifest" option (2). Similar to the download, you will be greeted again with a second dialog, prompting you for the location of the JSON file. Click "Browse for file ..." (3), then use the "Choose File to Upload" dialog to select the JSON file (4), and press "Open". Once the dialog goes away, select the "OK" check mark (5) and your manifest will be uploaded.  
+6. When you're finished updating the manifest, return to the Azure AD application page in the Azure classic portal, and click the "Manage Manifest" feature again (1). But this time, select the "Upload Manifest" option (2). Similar to the download, you will be greeted again with a second dialog, prompting you for the location of the JSON file. Click "Browse for file ..." (3), then use the "Choose File to Upload" dialog to select the JSON file (4), and press "Open". Once the dialog goes away, select the "OK" check mark (5) and your manifest will be uploaded.  
 
     ![Manage the manifest, upload option][MANAGE-MANIFEST-UPLOAD]
 
@@ -102,7 +102,7 @@ Now lets walk through the steps required to update your application's identity c
 
     ![Upload the manifest JSON - confirmation][UPLOAD-MANIFEST-CONFIRM]
 
-Now that the manifest is saved, you can give a registered client application access to the new permission we added above, but this time you can use the Azure classic portal's Web UI instead of editing the client application's manifest:  
+Now that the manifest is saved, you can give a registered client application access to the new permission we added above. This time you can use the Azure classic portal's Web UI instead of editing the client application's manifest:  
 
 1. First go to the "Configure" page of the client application to which you wish to add access to the new API, and click the "Add application" button.
 2. Then you will be presented with the list of registered resource applications (APIs) in the tenant. Click the plus/+ symbol next to the resource application's name to select it.  
