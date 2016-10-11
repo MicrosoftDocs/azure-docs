@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Register Windows domain-joined devices with Azure Active Directory | Microsoft Azure"
-	description="Register your domain-joined Windows devices automatically and silently with Azure Active Directory."
+	pageTitle="Set up automatic registration of Windows domain-joined devices with Azure Active Directory | Microsoft Azure"
+	description="Set up your domain-joined Windows devices to register automatically and silently with Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
@@ -18,7 +18,7 @@
 
 
 
-# Register Windows domain-joined devices by using Azure Active Directory
+# Set up automatic registration of Windows domain-joined devices with Azure Active Directory
 
 To use [Azure Active Directory device-based conditional access](active-directory-conditional-access.md), your Windows domain-joined computers must be registered with Azure Active Directory (Azure AD). In this article, you can learn what you need to do to set up registration of Windows domain-joined devices with Azure AD in your organization.
 
@@ -29,12 +29,9 @@ Using conditional access in Azure AD gives you these advantages:
 -	Access to Windows Store for Business
 -	Stronger authentication and convenient sign-in with Windows Hello
 
-> [AZURE.NOTE] The Windows 10 November Update offers some of the enhanced user experiences in Azure AD, but the Windows 10 Anniversary Update fully supports device-based conditional access. For more information about conditional access, see [Azure Active Directory device-based conditional access](active-directory-conditional-access.md). For more information about Windows 10 devices in the workplace and the user experience when the user registers a Windows 10 device with Azure AD, see [Windows 10 for the enterprise: Use devices for work](active-directory-azureadjoin-windows10-devices-overview.md).
+> [AZURE.NOTE] The Windows 10 November Update offers some of the enhanced user experiences in Azure AD, but the Windows 10 Anniversary Update fully supports device-based conditional access. For more information about conditional access, see [Azure Active Directory device-based conditional access](active-directory-conditional-access.md). For more information about Windows 10 devices in the workplace and how a user registers a Windows 10 device with Azure AD, see [Windows 10 for the enterprise: Use devices for work](active-directory-azureadjoin-windows10-devices-overview.md).
 
-Some earlier versions of Windows support registration, including these:
-
-- Windows 8.1
-- Windows 7
+You can register some earlier versions of Windows, including Windows 8.1 and Windows 7.
 
 If you are using a Windows Server computer as a desktop, you can register these platforms:
 
@@ -102,7 +99,7 @@ If the service connection point doesn’t exist, create it by running the follow
 
 In a federated Azure AD configuration, devices rely on AD FS (or on the on-premises federation server) to authenticate to Azure AD. Then, they register against Azure Active Directory Device Registration Service (Azure AD Device Registration Service).
 
-> [AZURE.NOTE] In a nonfederated configuration, user password hashes are synced to Azure AD, and Windows 10 and Windows Server 2016 domain-joined computers authenticate against Azure AD Device Registration Service. A user authenticates by using a credential that the user writes into their on-premises computer accounts, and which is relayed to Azure AD via Azure AD Connect. For non-Windows 10 and Windows Server 2016 computers in a nonfederated configuration, you have options for setting a device-based certificate authority in your organization. For more information, see [Download Windows Installer packages for non-Windows 10 computers](#download-windows-installer-packages-for-non-Windows-10-computers).
+> [AZURE.NOTE] In a non-federated configuration, user password hashes are synced to Azure AD, and Windows 10 and Windows Server 2016 domain-joined computers authenticate against Azure AD Device Registration Service. A user authenticates by using a credential that the user writes into their on-premises computer accounts, and which is relayed to Azure AD via Azure AD Connect. For non-Windows 10 and Windows Server 2016 computers in a non-federated configuration, you have options for setting a device-based certificate authority in your organization. For more information, see [Download Windows Installer packages for non-Windows 10 computers](#download-windows-installer-packages-for-non-Windows-10-computers).
 
 For Windows 10 and Windows Server 2016 computers, Azure AD Connect associates the device object in Azure AD with the on-premises computer account object. The following claims must exist during authentication for Azure AD Device Registration Service to complete registration and create the device object:
 
@@ -208,7 +205,7 @@ The Windows 10 Anniversary Update and Windows Server 2016 domain-joined computer
 
 > [AZURE.NOTE] Windows 10 domain-joined computers automatically register with Azure AD only if the rollout Group Policy object is set.
 
-You can use a Group Policy object to manage the rollout of automatic registration of Windows 10 and Windows Server 2016 domain-joined computers. To roll out automatic registration of non-Windows 10 domain-joined computers, you can deploy a Windows Installer package to computers that you select.
+You can use a Group Policy object to control the rollout of automatic registration of Windows 10 and Windows Server 2016 domain-joined computers. To roll out automatic registration of non-Windows 10 domain-joined computers, you can deploy a Windows Installer package to computers that you select.
 
 > [AZURE.NOTE] The Group Policy for rollout control also triggers the registration of Windows 8.1 domain-joined computers. You can use the policy for registering Windows 8.1 domain-joined computers. Or, if you have a mix of Windows versions, including Windows 7 or Windows Server versions, you can register all your non-Windows 10 and Windows Server 2016 computers by using a Windows Installer package.
 
@@ -240,7 +237,7 @@ To set the policy, do these steps:
 
 ### Download Windows Installer packages for non-Windows 10 computers  
 
-To register domain-joined computers running Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, you can download and install these Windows Installer package (.msi) files:
+To register domain-joined computers running Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2, you can download and install these Windows Installer package (.msi) files:
 
 - [x64](http://download.microsoft.com/download/C/A/7/CA79FAE2-8C18-4A8C-A4C0-5854E449ADB8/Workplace_x64.msi)
 - [x86](http://download.microsoft.com/download/C/A/7/CA79FAE2-8C18-4A8C-A4C0-5854E449ADB8/Workplace_x86.msi)
