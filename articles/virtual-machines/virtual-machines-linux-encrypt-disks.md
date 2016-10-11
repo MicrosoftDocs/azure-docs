@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Learn how to encrypt disks on a Linux VM | Microsoft Azure"
-   description="How to encrypt disks on a Linux VM using the Azure CLI"
+   pageTitle="Encrypt disks on a Linux VM | Microsoft Azure"
+   description="How to encrypt disks on a Linux VM using the Azure CLI and the Resource Manager deployment model"
    services="virtual-machines-linux"
    documentationCenter=""
    authors="iainfoulds"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="09/26/2016"
+   ms.date="10/11/2016"
    ms.author="iainfou"/>
 
-# Encrypting disks on a Linux VM
-For enhanced virtual machine (VM) security and compliance, virtual disks in Azure can be encrypted at rest. Disks are encrypted using cryptographic keys that are secured in an Azure Key Vault. You control these cryptographic keys and can audit their use. There is no charge for encrypting virtual disks in Azure. This article details how to encrypt virtual disks on a Linux VM using the Azure CLI. Only VMs created using the Resource Manager deployment model can be encrypted.
+# Encrypt disks on a Linux VM using the Azure CLI
+For enhanced virtual machine (VM) security and compliance, virtual disks in Azure can be encrypted at rest. Disks are encrypted using cryptographic keys that are secured in an Azure Key Vault. You control these cryptographic keys and can audit their use. This article details how to encrypt virtual disks on a Linux VM using the Azure CLI and the Resource Manager deployment model.
 
 
 ## Quick commands
@@ -54,7 +54,7 @@ azure keyvault set-policy --vault-name myKeyVault --resource-group myResourceGro
   --enabled-for-disk-encryption true
 ```
 
-Create an endpoint using Azure Active Directory for handling the authentication and exchanging of cryptographic keys from Key Vault. The `--home-page` and `--identifier-uris` do not need to be actual routable address. For the highest level of security, client secrets should be used instead of passwords. The Azure CLI cannot currently generate client secrets. Client secrets can only be generated in the Azure portal. The following example creates an Azure Active Directory endpoint named `myAADApp` and uses a password of `myPassword`. :
+Create an endpoint using Azure Active Directory for handling the authentication and exchanging of cryptographic keys from Key Vault. The `--home-page` and `--identifier-uris` do not need to be actual routable address. For the highest level of security, client secrets should be used instead of passwords. The Azure CLI cannot currently generate client secrets. Client secrets can only be generated in the Azure portal. The following example creates an Azure Active Directory endpoint named `myAADApp` and uses a password of `myPassword`:
 
 ```bash
 azure ad app create --name myAADApp \
@@ -117,7 +117,7 @@ azure vm show-disk-encryption-status --resource-group myResourceGroup --name myV
 ```
 
 ## Overview of disk encryption
-Virtual disks on Linux VMs are encrypted at rest using [dm-crypt](https://wikipedia.org/wiki/Dm-crypt). Cryptographic keys are stored in Azure Key Vault using software-protection, or you can import or generate your keys in Hardware Security Modules (HSMs) certified to FIPS 140-2 level 2 standards. You retain control of these cryptographic keys and can audit their use. These cryptographic keys are used to encrypt and decrypt virtual disks attached to your VM. An Azure Active Directory endpoint provides a secure mechanism for issuing these cryptographic keys as VMs are powered on and off.
+Virtual disks on Linux VMs are encrypted at rest using [dm-crypt](https://wikipedia.org/wiki/Dm-crypt). There is no charge for encrypting virtual disks in Azure. Cryptographic keys are stored in Azure Key Vault using software-protection, or you can import or generate your keys in Hardware Security Modules (HSMs) certified to FIPS 140-2 level 2 standards. You retain control of these cryptographic keys and can audit their use. These cryptographic keys are used to encrypt and decrypt virtual disks attached to your VM. An Azure Active Directory endpoint provides a secure mechanism for issuing these cryptographic keys as VMs are powered on and off.
 
 The process for encrypting a VM is as follows:
 
