@@ -9,7 +9,7 @@
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/26/2016"
@@ -59,7 +59,7 @@ Application Gateway is currently offered in three sizes: Small, Medium, and Larg
 
 There are currently two skus for Application Gateway: WAF and Standard.
 
-You can create up to 50 application gateways per subscription, and each application gateway can have up to 10 instances each. Each application gateway can consist of 10 http listeners. Application Gateway load balancing as an Azure-managed service allows the provisioning of a layer 7 load balancer behind the Azure software load balancer.
+You can create up to 50 application gateways per subscription, and each application gateway can have up to 10 instances each. Each application gateway can consist of 20 http listeners. Application Gateway load balancing as an Azure-managed service allows the provisioning of a layer 7 load balancer behind the Azure software load balancer.
 
 The following table shows an average performance throughput for each application gateway instance:
 
@@ -68,7 +68,7 @@ The following table shows an average performance throughput for each application
 | 6K | 7.5 Mbps | 13 Mbps | 50 Mbps |
 |100K | 35 Mbps | 100 Mbps| 200 Mbps |
 
->[AZURE.NOTE] These values are approximate values for an application gateway throughput. The actual throughput depends on various environment details, such as average page size, location of back-end instances, and processing time to serve a page. An example from the first row in the preceding table can be read as "For a 6kb http file, a single application gateway instance SSL throughput is 7.5mbs for a small gateway." For exact performance numbers, you should run your own tests. These values are only provided for capacity planning guidance.
+>[AZURE.NOTE] These values are approximate values for an application gateway throughput. The actual throughput depends on various environment details, such as average page size, location of back-end instances, and processing time to serve a page. For exact performance numbers, you should run your own tests, these values are only provided for capacity planning guidance.
 
 ## Health monitoring
 
