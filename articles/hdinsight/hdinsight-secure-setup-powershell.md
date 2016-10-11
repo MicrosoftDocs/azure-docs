@@ -19,7 +19,7 @@
 
 # Configure Secure HDInsight
 
-Learn how to set up an Azure HDInsight cluster with Azure Active Directory(Azure AD) and [Apache Ranger](http://hortonworks.com/apache/ranger/) to take advantage of strong authentication and rich role-based access control(RBAC) policies.  Secure HDInsight can only be configured on Linux-based clusters. For more information, see [Introduce Secure HDInsight](hdinsight-secure-introduction.md).
+Learn how to set up an Azure HDInsight cluster with Azure Active Directory(AD) and [Apache Ranger](http://hortonworks.com/apache/ranger/) to take advantage of strong authentication and rich role-based access control(RBAC) policies.  Secure HDInsight can only be configured on Linux-based clusters. For more information, see [Introduce Secure HDInsight](hdinsight-secure-introduction.md).
 
 This article is the first tutorial of a series:
 
@@ -37,7 +37,7 @@ Azure service names must be globally unique.  The following names are used in th
 **Names:**
 
 - Azure AD VNet: contosoaadvnet
-- Azure AD Virtual Machine (VM): contosoaadadmin. This VM is used to configure organization unit and reversed DNS.
+- Azure AD Virtual Machine (VM): contosoaadadmin
 - Azure AD directory: contosoaaddirectory
 - Azure AD domain name: contoso158 (contoso158.onmicrosoft.com)
 
@@ -55,21 +55,21 @@ This tutorial provides the steps for configuring a secured HDInsight. Each secti
 
 ## Procedures
 
-1. Create an Azure classic VNet for your Azure AD.  
-2. Create and configure an Azure AD Domain service.
-3. Add a VM to the classic Vnet for creating organizational unit . 
-4. Create an organizational unit.
-5. Create an HDInsight VNet in the Azure resource management mode.
+1. Create an Azure classic VNet for your Azure Active Directory.  
+2. Create and configure an Azure Active Directory Domain service.
+3. Add a VM in the classic Vnet. 
+4. Configure an organizational unit.
+5. Create an HDInsight VNet (Resource Manager VNet)
 6. Peer the two VNets.
 7. Create an HDInsight cluster.
 
-This tutorial gives you the instructions to create an Azure AD. If you have already configure an Azure AD, you can skip step 2.
+This tutorial gives you the instructions to create an Azure Active Directory. If you have already configure an Azure Active Directory, you can skip step 2.
 
 Step 4 to 7 can be done using a PowerShell script, see [Configure Secure HDInsight using Azure PowerShell script](hdinsight-secure-setup-powershell.md).
 	
 ## Create an Azure classic VNet
 
-In this section, you create a classic VNet using the Azure classic portal. In the next section, you enable the Azure AD service for your Azure AD in the classic VNet. For additional information about the following procedure and using other VNet creation methods, see [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
+In this section, you create a classic VNet using the Azure classic portal. In the next section,  you enable the Azure AD service for your Azure AD. For additional information about the following procedure and using other VNet creation methods, see [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
 
 **To create a classic VNet**
 
@@ -88,17 +88,17 @@ In this section, you create a classic VNet using the Azure classic portal. In th
 	
 6. Click **Complete** to create the VNet.
 
-## Create and configure an Azure AD Domain service for your Azure AD
+## Create and configure an Azure AD service for your Azure AD
 
 In this section, you will:
 
 1. Create an Azure AD.
 2. Create Azure AD users. These are domain users. The first user will be used to configure the Azure AD.  The other two users are optional for this tutorial.  They will be used in [Configure Hive policies in secure HDInsight](hdinsight-secure-run-hive.md) when you configure Ranger policies.
 3. Create the AAD DC Administrators group and add the Azure AD user to the group. You use this user to create the organizational unit.
-4. Enable Azure AD Domain Service for the Azure AD.
+4. Enable Azure AD Service for the VNet.
 5. Update the DNS setting for the VNet - Use the Azure AD domain controllers for domain name resolution.
 6. Configure DNS for the VNet.
-7. Configure LDAPS for the Azure AD. The Lightweight Directory Access Protocol (LDAP) is used to read from and write to Active Directory.
+7. Configure LDAPS for the Azure AD.
 
 If you prefer to use an existing Azure AD, you can skip step 1 and 2.
 
@@ -107,9 +107,9 @@ If you prefer to use an existing Azure AD, you can skip step 1 and 2.
 1. From the [Azure classic portal](https://manage.windowsazure.com), click **New** > **App Services** > **Active Directory** > **Directory** > **Custom Create**. 
 3. Enter or select the following values:
 
-	- **Name**: contosoaaddirectory
-	- **Domain name**: contoso158.  This name must be globally unique. Replace the number in the name with a different number until it is validated successfully.
-	- **Country or region**: Select your country or region.
+	- Name: contosoaaddirectory
+	- Domain name: contoso158.  This name must be globally unique. Replace the number in the name with a different number until it is validated successfully.
+	- Country or region: Select your country or region.
 4. Click **Complete**.
 
 
@@ -121,9 +121,9 @@ If you prefer to use an existing Azure AD, you can skip step 1 and 2.
 3. Click **Users** from the top menu.
 4. Click **Add User**.
 4. Enter **User Name**, and then click **Next**. 
-5. Configure user profile; In **Role**, select **Global Admin**; and then click **Next**.  The Global Admin role is needed to create organizational units.
+5. Configure user profile; In **Role**, select **Global Admin**; and then click **Next**.
 6. Click **Create** to get a temporary password.
-7. Make a copy of the password - Zoma7815, and then click **Complete**. jgao@contoso158.onmicrosoft.com. Later in this tutorial, you will use this gobal admin user to sign on to the admin VM for creating an organization unit and configuratin reverse DNS.
+7. Make a copy of the password - Zoma7815, and then click **Complete**. jgao@contoso158.onmicrosoft.com
 
 
 Follow the same procedure to create two more users with the **User** role. The following users will be used in [Configure Hive policies in secure HDInsight](hdinsight-secure-run-hive.md).
@@ -141,7 +141,7 @@ Follow the same procedure to create two more users with the **User** role. The f
 4. Click **Add a Group** or **Add Group**.
 5. Enter or select the following values:
 
-	- **Name**: AAD DC Administrators.  Don't change the group name.
+	- **Name**: AAD DC Administrators.  The name has to be "AAD DC Administrators".
 	- **Group Type**: Security.
 6. Click **Complete**.
 7. Click **AAD DC Administrators** to open the group.
@@ -150,11 +150,11 @@ Follow the same procedure to create two more users with the **User** role. The f
 
 	- Members of this group will be granted administrative privileges on machines that are domain joined to the Azure AD domain Service domain you will set up.	
 	- After domain joined, this group will be added to the Administrators group on the domain-joined virtual machines.
-	- Members of this group will also be able to use Remote Desktop to connect remotely to domain-joined machines.
+	- Members of this group will also be able to use Remote Desktop to connect remotely to domain-joined machines. [jgao: this is not correct based on my testing]
 
-For more information, see [Azure AD Domain Services (Preview) - Create the 'AAD DC Administrators' group](../active-directory-domain-services/active-directory-ds-getting-started.md).
+For more information, see [Azure AD Domain Services (Preview) - Create the 'AAD DC Administrators' group](../active-directory/active-directory-ds-getting-started.md).
 
-**To enable Azure AD Domain service for your Azure AD**
+**To enable Azure ADDS for your Active Directory**
 
 1. From the [Azure classic portal](https://manage.windowsazure.com), click **Active Directory** > **contosoaaddirectory**. 
 3. Click **Configure** from the top menu.
@@ -167,9 +167,9 @@ For more information, see [Azure AD Domain Services (Preview) - Create the 'AAD 
 6. Click **Save** from the bottom of the page. You will see **Pending ...** next to **Enable domain services for this directory**.  
 7. Wait until **Pending ...** disappears, and **IP Address** gets populated. Two IP addresses will get populated. These are the IP addresses of the domain controllers provisioned by Domain Services. Each IP address will be visible after the corresponding domain controller is provisioned and ready. This step can take up 3 hours. Make a copy of the two IP addresses. You will need them later.
 
-For more information, see [Azure AD Domain Services (Preview) - Enable Azure AD Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-enableaadds.md).
+For more information, see [Azure AD Domain Services (Preview) - Enable Azure AD Domain Services](../active-directory/active-directory-ds-getting-started-enableaadds.md).
 
-**To update DNS settings for the classic VNet**
+**To update DNS settings for the VNet**
 
 1. From the [Azure classic portal](https://manage.windowsazure.com), click **Networks** > **contosoaadvnet**. 
 3. Click **Configure** from the top menu.
@@ -180,11 +180,11 @@ For more information, see [Azure AD Domain Services (Preview) - Enable Azure AD 
 5. Click **Save** from the bottom of the page.
 6. Click **Yes** to confirm.	
 
-For more information, see [Azure AD Domain Services (Preview) - Update DNS settings for the Azure virtual network](../active-directory-domain-services/active-directory-ds-getting-started-dns.md).
+For more information, see [Azure AD Domain Services (Preview) - Update DNS settings for the Azure virtual network](../active-directory/active-directory-ds-getting-started-dns.md).
 
 You can skip the next step in this tutorial. In your real implementation, you might need it:
 
-- (Optional) [Enable password synchronization to AAD domain services for a cloud-only Azure AD directory](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md).
+- (Optional) [Enable password synchronization to AAD domain services for a cloud-only Azure AD directory](../active-directory/active-directory-ds-getting-started-password-sync.md).
 	
 
 **To configure LDAPS for the Azure AD**
@@ -216,9 +216,9 @@ You can skip the next step in this tutorial. In your real implementation, you mi
 6. Follow the instruction to specify the certificate file and the password. You will see **Pending ...** next to **Enable domain services for this directory**.  
 7. Wait until **Pending ...** disappears, and **Secure LDAP Certificate** got populated.  This can take up 10 minutes or more.
  
-Note – If some background tasks are being run on the Azure AD Domain service, you may see an error while uploading certificate. There is an operation being performed for this tenant. Please try again later.  In case you experience this error, please try again after some time. The second controller may take up to 3 hours to be provisioned.
+Note – If some background tasks are being run on the ADDS, you may see an error while uploading certificate. There is an operation being performed for this tenant. Please try again later.  In case you experience this error, please try again after some time. The second controller may take up to 3 hours to be provisioned.
 
-For more information, see [Configure Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
+For more information, see [Configure Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain](../active-directory/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
 
 > [AZURE.NOTE] The rest of the procedures can be done autometically using an Azure PowerShell script.  See [Configure Secure HDInsight using Azure PowerShell script](hdinsight-secure-setup-powershell.md).
@@ -264,7 +264,7 @@ In this section, you will add a virtual machine to the Azure AD VNet, you will i
 9. Click **Close**.
 10. Click **Restart Now**.
 
-For more information, see [Join a Windows Server virtual machine to a managed domain](../active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm.md).
+For more information, see [Join a Windows Server virtual machine to a managed domain](../active-directory/active-directory-ds-admin-guide-join-windows-vm.md).
 
 **To install Active Directory administration tools and DNS tools**
 
@@ -284,6 +284,7 @@ For more information, see [Install Active Directory administration tools on the 
 
 
 **To configure reverse DNS**
+
 
 1. RDP to contosoaadadmin using the Azure AD user account.
 2. Click **Start**, click **Administrative Tools**, and then click **DNS**. 
@@ -423,12 +424,10 @@ After creating the VNet, you will configure the Resource Manager VNet to use the
 6. Click **Add** from the top menu. It opens the **Add peering** blade.
 7. On the **Add peering** blade, set or select the following values:
 
-	- **Name**: ContosoAADHDIVnetPeering
-	- **Virtual network deployment model**: Classic
-	- **Subscription**: Select your subscription name used for the classic (Azure AD) vnet.
-	- **Virtual network**: contosoaadvnet.
-	- **Allow virtual network access**: (Check)
-	- **Allow forwarded traffic**: (Check). Leave the other two checkboxes unchecked.
+	- Name: ContosoAADHDIVnetPeering
+	- Virtual network deployment model: Classic
+	- Subscription: Select your subscription name used for the classic (Azure AD) vnet.
+	- Virtual network: contosoaadvnet.
 
 8. Click **OK**.
 
