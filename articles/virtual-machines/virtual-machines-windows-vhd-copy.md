@@ -51,7 +51,7 @@ The **Status** for the VM in the Azure portal changes from **Stopped** to **Stop
 
 ## Get the storage account URLs
 
-You need the URLs of the source and destination storage accounts. The URLs look like: https://<storageaccount>.blob.core.windows.net/<containerName>. If you already know the storage account and container name, you can just replace the information between the brackets to create your URL. 
+You need the URLs of the source and destination storage accounts. The URLs look like: `https://<storageaccount>.blob.core.windows.net/<containerName>/`. If you already know the storage account and container name, you can just replace the information between the brackets to create your URL. 
 
 You can use the Azure portal or Azure Powershell to get the URL:
 
@@ -73,7 +73,7 @@ You can copy files between storage accounts using AzCopy. For the destination co
 
 To use AzCopy, open a command prompt on your local machine and navigate to the folder where AzCopy is installed. It will be similar to *C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy*. 
 
-To copy all of the files within a container, you use the **/S** switch. This can be used to copy the VMs OS VHD and all of the data disks if they are in the same container. This example shows how to copy all of the files in the container **mysourcecontainer** in storage account **mysourcestorageaccount** to the container **mydestinationcontainer** in the **mydestinationstorageaccount** storage account. Replace the names of the storage accounts and containers with your own. Replace <sourceStorageAccountKey1> and <destinationStorageAccountKey1> with your own keys.
+To copy all of the files within a container, you use the **/S** switch. This can be used to copy the OS VHD and all of the data disks if they are in the same container. This example shows how to copy all of the files in the container **mysourcecontainer** in storage account **mysourcestorageaccount** to the container **mydestinationcontainer** in the **mydestinationstorageaccount** storage account. Replace the names of the storage accounts and containers with your own. Replace <sourceStorageAccountKey1> and <destinationStorageAccountKey1> with your own keys.
 
 ```
 	AzCopy /Source:https://mysourcestorageaccount.blob.core.windows.net/mysourcecontainer /Dest:https://mydestinationatorageaccount.blob.core.windows.net/mydestinationcontainer /SourceKey:<sourceStorageAccountKey1> /DestKey:<destinationStorageAccountKey1> /S
@@ -88,6 +88,7 @@ If you only want to copy a specific VHD in a container with multiple files, you 
 
 When it is finished, you will get a message that looks something like:
 
+```
   Finished 2 of total 2 file(s).
   [2016/10/07 17:37:41] Transfer summary:
   -----------------
@@ -96,7 +97,7 @@ When it is finished, you will get a message that looks something like:
   Transfer skipped:        0
   Transfer failed:         0
   Elapsed time:            00.00:13:07
-
+```
 
 ## Troubleshooting
 
