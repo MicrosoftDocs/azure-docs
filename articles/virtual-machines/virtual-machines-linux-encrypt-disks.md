@@ -156,7 +156,7 @@ Disk encryption is not currently supported in the following scenarios:
 
 
 ## Create the Azure Key Vault and keys
-To complete the remainder of this guide, uou need the [latest Azure CLI](../xplat-cli-install.md) installed and logged in using the Resource Manager mode as follows:
+To complete the remainder of this guide, you need the [latest Azure CLI](../xplat-cli-install.md) installed and logged in using the Resource Manager mode as follows:
 
 ```
 azure config mode arm
