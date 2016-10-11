@@ -95,11 +95,11 @@ In addition to storing diagnostic log events in an Azure Storage account, you ca
 
   Send your diagnostic logs to Log Analytics where you can analyze them in the Operations Management Suite (OMS) portal, or export them for analysis in Power BI or Excel.
 
-[pool_create]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
-[pool_delete_start]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
-[pool_delete_complete]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
-[pool_resize_start]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
-[pool_resize_complete]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
-[task_start]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
-[task_complete]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
-[task_fail]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
+[pool_create]: https://msdn.microsoft.com/library/azure/mt743615.aspx
+[pool_delete_start]: https://msdn.microsoft.com/library/azure/mt743610.aspx
+[pool_delete_complete]: https://msdn.microsoft.com/library/azure/mt743618.aspx
+[pool_resize_start]: https://msdn.microsoft.com/library/azure/mt743609.aspx
+[pool_resize_complete]: https://msdn.microsoft.com/library/azure/mt743608.aspx
+[task_start]: https://msdn.microsoft.com/library/azure/mt743616.aspx
+[task_complete]: https://msdn.microsoft.com/library/azure/mt743612.aspx
+[task_fail]: https://msdn.microsoft.com/library/azure/mt743607.aspx
