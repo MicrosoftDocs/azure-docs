@@ -86,7 +86,7 @@ Use the provided Ethernet cable to connect your Raspberry Pi 3 to your LAN. Make
 Follow the [instructions](https://www.raspberrypi.org/learning/software-guide/wifi/) available from the Raspberry Pi Foundation to connect your Raspberry Pi 3 to your WiFi network. This requires you to first connect a monitor and keyboard to your Pi.
 
 ## 1.1.7 Connect the LED to your Raspberry Pi
-To complete this section, use the provided breadboard, connector wires, LED, and resistor. You will connect them to the [General-purpose input/output](https://www.raspberrypi.org/documentation/usage/gpio/) (GPIO) ports of your Raspberry Pi 3. 
+To complete this section, use the provided [breadboard](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard), connector wires, LED, and resistor. You will connect them to the [General-purpose input/output](https://www.raspberrypi.org/documentation/usage/gpio/) (GPIO) ports of your Raspberry Pi 3. 
 
 ![Breadboard, LED and Resistor](media/iot-hub-raspberry-pi-lessons/lesson1/breadboard_led_resistor.jpg)
 
