@@ -65,4 +65,4 @@ Click [here](https://code.visualstudio.com/docs/setup/windows) to install VS Cod
 You have now installed all the required desktop tools and software you need for your first Raspberry Pi 3 sample application. In the next section you deploy, build, and run the sample application on the Raspberry Pi 3.
 
 ## Next Steps
-[1.3 Create and deploy the blink sample application](iot-hub-raspberrypikit-node-lesson1-depoly-blink-app.md)
+[1.3 Create and deploy the blink sample application](iot-hub-raspberrypikit-node-lesson1-deploy-blink-app.md)

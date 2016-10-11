@@ -48,7 +48,7 @@ Clone the sample Node.js application from Github, and gulp to deploy this applic
 
 *Estimated time to complete: 5 minutes* 
 
-[Go to 'Create and deploy the blink application'](iot-hub-raspberrypikit-node-lesson1-depoly-blink-app.md)
+[Go to 'Create and deploy the blink application'](iot-hub-raspberrypikit-node-lesson1-deploy-blink-app.md)
 
 ## Lesson 2: Create your IoT hub
 
