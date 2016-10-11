@@ -60,7 +60,7 @@ If you deployed a Classic Web Service:
 * Get the PATCH URL and code
 * Use the PATCH URL to point the new Endpoint at the retrained model 
 
-For a walkthrough of the preceding steps, see [Retrain a Classic Web service](machine-learning-retrain-a-classic-web-service).
+For a walkthrough of the preceding steps, see [Retrain a Classic Web service](machine-learning-retrain-a-classic-web-service.md).
 
 If you run into difficulties retraining a Classic Web service, see [Troubleshooting the retraining of an Azure Machine Learning Classic Web service](machine-learning-troubleshooting-retraining-models.md).
 
