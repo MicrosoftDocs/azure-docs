@@ -83,7 +83,6 @@ You can use the [**Write-Output**](https://technet.microsoft.com/library/hh84992
 
     ![Automation graphical runbook](media/automation-runbook-input-parameters/automation-02-graphical-runbok-editor.png)
 
-
 3. The **Input and output** blade displays a list of input parameters that are defined for the runbook. On this blade, you can either add a new input parameter or edit the configuration of an existing input parameter. To add a new parameter for the runbook, click **Add input** to open the **Runbook input parameter** blade. There, you can configure the following parameters:
 
     | **Property** | **Description** |
@@ -110,7 +109,7 @@ You can use the [**Write-Output**](https://technet.microsoft.com/library/hh84992
       - Default value - Custom
       - Custom default value - \<Name of the resource group that contains the virtual machines>
 
-5. Once you add the parameters, click **OK**.  You can now view them in the **Input and output blade**. Click **OK** again, and then click  **Save** and **Publish** your runbook.
+5. Once you add the parameters, click **OK**.  You can now view them in the **Input and output blade**. Click **OK** again, and then click **Save** and **Publish** your runbook.
 
 ## Assign values to input parameters in runbooks
 
@@ -126,7 +125,7 @@ A runbook can be started many ways: through the Azure portal, with a webhook, wi
 
   ![Start using the portal](media/automation-runbook-input-parameters/automation-04-startrunbookusingportal.png)
 
-  In the label beneath the input box, you can see the attributes that have been set for the parameter. Attributes include mandatory or optional, type, and  default value. In the help balloon next to the parameter name, you can see all the key information you need to make decisions about parameter input values. This information includes whether a parameter is mandatory or optional. It also includes the type and  default value (if any), and  other helpful notes.
+  In the label beneath the input box, you can see the attributes that have been set for the parameter. Attributes include mandatory or optional, type, and  default value. In the help balloon next to the parameter name, you can see all the key information you need to make decisions about parameter input values. This information includes whether a parameter is mandatory or optional. It also includes the type and default value (if any), and other helpful notes.
 
   ![Help balloon](media/automation-runbook-input-parameters/automation-05-helpbaloon.png)
 
@@ -136,7 +135,7 @@ A runbook can be started many ways: through the Azure portal, with a webhook, wi
 
     - **Azure Resource Manager cmdlets:** You can start an Automation runbook that was created in a resource group by using [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx).
 
-    **Example:**  
+    **Example:**
 
       ```
         $params = @{“VMName”=”WSVMClassic”;”resourceGroupeName”=”WSVMClassicSG”}
@@ -146,7 +145,7 @@ A runbook can be started many ways: through the Azure portal, with a webhook, wi
 
     - **Azure Service Management cmdlets:** You can start an automation runbook that was created in a default resource group by using [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx).
 
-    **Example:**  
+    **Example:**
 
       ```
         $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
@@ -178,7 +177,7 @@ A runbook can be started many ways: through the Azure portal, with a webhook, wi
         }
     ```
 
-  - **Azure Service Management method:** You can start a runbook by using the SDK of a programming language. Below is a C# code snippet for starting a runbook in your Automation account. You can view all the code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
+  - **Azure Service Management method:** You can start a runbook by using the SDK of a programming language. Below is a C# code snippet for starting a runbook in your Automation account. You can view all the code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
 
     ```      
         public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -215,19 +214,19 @@ A runbook can be started many ways: through the Azure portal, with a webhook, wi
 
   A runbook job can be created and started with the Azure Automation REST API by using the **PUT** method with the following request URI.
 
-  https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08
+    https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08
 
   In the request URI, replace the following parameters:
 
-  * **subscription-id:** Your Azure subscription ID.  
-  * **cloud-service-name:** The name of the cloud service to which the request should be sent.  
-  * **automation-account-name:** The name of your automation account that's hosted within the specified cloud service.  
+  - **subscription-id:** Your Azure subscription ID.  
+  - **cloud-service-name:** The name of the cloud service to which the request should be sent.  
+  - **automation-account-name:** The name of your automation account that's hosted within the specified cloud service.  
   * **job-id:** The GUID for the job. GUIDs in PowerShell can be created by using the **[GUID]::NewGuid().ToString()** command.
 
   In order to pass parameters to the runbook job, use the request body. It takes the following two properties provided in JSON format:
 
-  * **Runbook name:** Required. The name of the runbook for the job to start.  
-  * **Runbook parameters:** Optional. A dictionary of the parameter list in (name, value) format where name should be of String type and value can be any valid JSON value.
+  - **Runbook name:** Required. The name of the runbook for the job to start.  
+  - **Runbook parameters:** Optional. A dictionary of the parameter list in (name, value) format where name should be of String type and value can be any valid JSON value.
 
   If you want to start the **Get-AzureVMTextual** runbook that was created earlier with **VMName** and **resourceGroupName** as parameters, use the following JSON format for the request body.
 
@@ -245,7 +244,7 @@ A runbook can be started many ways: through the Azure portal, with a webhook, wi
        }
    ```
 
-  An HTTP status code 201 is returned if the job is successfully created. For more information on response headers and the response body, refer to the article about how to [create a runbook job by using the REST API.](https://msdn.microsoft.com/library/azure/mt163849.aspx)
+  A HTTP status code 201 is returned if the job is successfully created. For more information on response headers and the response body, refer to the article about how to [create a runbook job by using the REST API.](https://msdn.microsoft.com/library/azure/mt163849.aspx)
 
 ### Test a runbook and assign parameters
 
@@ -261,7 +260,7 @@ You can [link a schedule](automation-schedules.md) to your runbook so that the r
 
 ### Create a webhook for a runbook and assign parameters
 
-You can create a [webhook](automation-webhooks.md)  for your runbook and configure runbook input parameters. You can’t save the webhook until all mandatory parameter values are provided.
+You can create a [webhook](automation-webhooks.md) for your runbook and configure runbook input parameters. You can’t save the webhook until all mandatory parameter values are provided.
 
 ![Create webhook and assign parameters](media/automation-runbook-input-parameters/automation-08-createwebhookandassignparameters.png)
 
