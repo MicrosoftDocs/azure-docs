@@ -153,53 +153,53 @@ Finally, we will set-up and run the pipeline in Azure Data Factory.  This is the
 
 In the 'Author and Deploy' section now click 'More Commands' and then 'New Pipeline'.  After you create the pipeline, you can use the below code to transfer the data to your data warehouse:
 
-    ```JSON
-    {
-        "name": "<Pipeline Name>",
-        "properties": {
-            "description": "<Description>",
-            "activities": [
+```JSON
+{
+    "name": "<Pipeline Name>",
+    "properties": {
+        "description": "<Description>",
+        "activities": [
+          {
+            "type": "Copy",
+            "typeProperties": {
+                "source": {
+                    "type": "BlobSource",
+                    "skipHeaderLineCount": 1
+                },
+                "sink": {
+                    "type": "SqlDWSink",
+                    "writeBatchSize": 0,
+                    "writeBatchTimeout": "00:00:10"
+                }
+            },
+            "inputs": [
               {
-                "type": "Copy",
-                "typeProperties": {
-                    "source": {
-                        "type": "BlobSource",
-                        "skipHeaderLineCount": 1
-                    },
-                    "sink": {
-                        "type": "SqlDWSink",
-                        "writeBatchSize": 0,
-                        "writeBatchTimeout": "00:00:10"
-                    }
-                },
-                "inputs": [
-                  {
-                    "name": "<Storage Dataset>"
-                  }
-                ],
-                "outputs": [
-                  {
-                    "name": "<Data Warehouse Dataset>"
-                  }
-                ],
-                "policy": {
-                    "timeout": "01:00:00",
-                    "concurrency": 1
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                },
-                "name": "Sample Copy",
-                "description": "Copy Activity"
+                "name": "<Storage Dataset>"
               }
             ],
-            "start": "<Date YYYY-MM-DD>",
-            "end": "<Date YYYY-MM-DD>",
-            "isPaused": false
-        }
+            "outputs": [
+              {
+                "name": "<Data Warehouse Dataset>"
+              }
+            ],
+            "policy": {
+                "timeout": "01:00:00",
+                "concurrency": 1
+            },
+            "scheduler": {
+                "frequency": "Hour",
+                "interval": 1
+            },
+            "name": "Sample Copy",
+            "description": "Copy Activity"
+          }
+        ],
+        "start": "<Date YYYY-MM-DD>",
+        "end": "<Date YYYY-MM-DD>",
+        "isPaused": false
     }
-    ```
+}
+```
 
 ## Next steps
 
