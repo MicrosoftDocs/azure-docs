@@ -173,7 +173,8 @@ delegated offer as a template.
 > ![](media/azure-stack-delegated-provider/image5.png)
 2.  Assign a name to the offer. Here we choose ResellerOffer. Select the
     delegated offer to base it on and then click
-    **Create**.![](media/azure-stack-delegated-provider/image6.png)
+    **Create**.!
+> ![](media/azure-stack-delegated-provider/image6.png)
 > [AZURE.NOTE] Note the difference compared to offer creation as experienced by the
 > service administrator. The delegated provider does not construct the
 > offer from base plans and add-on plans; she can only choose from
