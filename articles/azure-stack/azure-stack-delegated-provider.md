@@ -126,7 +126,7 @@ provider (DP) and the user.
 
   ![](media/azure-stack-delegated-provider/image3.png)
 
-> [AZURE.NOTE]: as with all Azure Stack offers, you have the option of making
+> [AZURE.NOTE] As with all Azure Stack offers, you have the option of making
 > the offer public and letting users sign up for it, or keeping it
 > private and having service administrator manage the sign-up. Delegated
 > providers are usually a small group and you want to control who is
@@ -148,8 +148,7 @@ change the plans and quotas it includes.
     offer](azure-stack-create-offer.md)
     based on it. For this article, we use an offer
     called DelegatedOffer.
-
-> [AZURE.NOTE] this offer does not need to be made public. It can be made
+> [AZURE.NOTE] This offer does not need to be made public. It can be made
 > public if you choose, but, in most cases, you only want delegated
 > providers to have access to it. Once you delegate a private offer as
 > described in the following steps, the delegated provider will have
@@ -172,11 +171,9 @@ delegated offer as a template.
 1.  Click **New** &gt; **Tenant Offers + Plans** &gt; **Offer**.
 
 > ![](media/azure-stack-delegated-provider/image5.png)
-
 2.  Assign a name to the offer. Here we choose ResellerOffer. Select the
     delegated offer to base it on and then click
     **Create**.![](media/azure-stack-delegated-provider/image6.png)
-
 > [AZURE.NOTE] Note the difference compared to offer creation as experienced by the
 > service administrator. The delegated provider does not construct the
 > offer from base plans and add-on plans; she can only choose from
@@ -196,12 +193,9 @@ delegated offer as a template.
 
     c.  Copy the portal URL to a separate location, such as Notepad.
 
-        ![](media/azure-stack-delegated-provider/image7.png)
-
+    ![](media/azure-stack-delegated-provider/image7.png)
 <!-- -->
-
-5.  Sign out as the delegated provider. Close the browser tab you have
-    been using.
+You have now completed the creation of a delegated offer as a delegated provider. Sign out as the delegated provider. Close the browser tab you have been using.
 
 ##Sign up for the offer
 
