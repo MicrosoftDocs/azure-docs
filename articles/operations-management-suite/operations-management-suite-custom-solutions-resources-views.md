@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2016"
+   ms.date="10/10/2016"
    ms.author="bwren" />
 
 # Views in Operations Management Suite (OMS) solutions (Preview)
 
->[AZURE.NOTE]This is preliminary documentation for custom solutions in OMS which are currently in preview. Any schema described below is subject to change.    
+>[AZURE.NOTE]This is preliminary documentation for creating solutions in OMS which are currently in preview. Any schema described below is subject to change.    
 
 [Solutions in Operations Management Suite (OMS)](operations-management-suite-custom-solutions.md) will typically include one or more views to visualize data.  This article describes how to export a view created by the [View Designer](../log-analytics/log-analytics-view-designer.md) and include it in a solution.  
 
->[AZURE.NOTE]The samples in this article use parameters and variables that are either required or common to solutions  and described in [Custom solutions in Operations Management Suite (OMS)](operations-management-suite-custom-solutions.md) 
+>[AZURE.NOTE]The samples in this article use parameters and variables that are either required or common to solutions  and described in [Solutions in Operations Management Suite (OMS)](operations-management-suite-custom-solutions.md) 
 
 
 ## Prerequisites

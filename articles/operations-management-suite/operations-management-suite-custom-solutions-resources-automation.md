@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Automation resources in OMS custom solutions | Microsoft Azure"
-   description="Custom solutions in OMS will typically include runbooks in Azure Automation to automate processes such as collecting and processing monitoring data.  This article describes how to include runbooks and their related resources in a custom solution."
+   pageTitle="Automation resources in OMS solutions | Microsoft Azure"
+   description="Solutions in OMS will typically include runbooks in Azure Automation to automate processes such as collecting and processing monitoring data.  This article describes how to include runbooks and their related resources in a solution."
    services="operations-management-suite"
    documentationCenter=""
    authors="bwren"
@@ -12,21 +12,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/03/2016"
+   ms.date="10/10/2016"
    ms.author="bwren" />
 
-# Automation resources in OMS custom solutions (Preview)
+# Automation resources in OMS solutions (Preview)
 
->[AZURE.NOTE]This is preliminary documentation for custom solutions in OMS which are currently in preview. The schema described below is subject to change.     
+>[AZURE.NOTE]This is preliminary documentation for creating solutions in OMS which are currently in preview. The schema described below is subject to change.     
 
-[Custom solutions in OMS](operations-management-suite-custom-solutions.md) will typically include runbooks in Azure Automation to automate processes such as collecting and processing monitoring data.  In addition to runbooks, Automation accounts includes assets such as variables and schedules that support the runbooks used in the solution.  This article describes how to include runbooks and their related resources in a custom solution.
+[Solutions in OMS](operations-management-suite-custom-solutions.md) will typically include runbooks in Azure Automation to automate processes such as collecting and processing monitoring data.  In addition to runbooks, Automation accounts includes assets such as variables and schedules that support the runbooks used in the solution.  This article describes how to include runbooks and their related resources in a solution.
 
->[AZURE.NOTE]The samples in this article use parameters and variables that are either required or common to solutions  and described in [Custom solutions in Operations Management Suite (OMS)](operations-management-suite-custom-solutions.md) 
+>[AZURE.NOTE]The samples in this article use parameters and variables that are either required or common to solutions  and described in [Solutions in Operations Management Suite (OMS)](operations-management-suite-custom-solutions.md) 
 
 >[AZURE.NOTE]You can get sample Resource Manager templates for Automation resources from the [QuickStart templates in GitHub](https://github.com/azureautomation/automation-packs/tree/master/101-sample-automation-resource-templates).
 
 ## Prerequisites
-This article assumes that you're already familiar with how to create a [custom solution in Operations Management Suite (OMS)](operations-management-suite-custom-solutions-creating.md) and the structure of a solution file.
+This article assumes that you're already familiar with how to create a [solution in Operations Management Suite (OMS)](operations-management-suite-custom-solutions-creating.md) and the structure of a solution file.
 
 ## Automation account
 All resources in Azure Automation are contained in an [Automation account](../automation/automation-security-overview.md#automation-account-overview).  As described in [OMS workspace and Automation account](operations-management-suite-custom-solutions.md#oms-workspace-and-automation-account) the Automation account isn't included in the solution but must exist before the solution is installed.  If it isn't available, then the solution install will fail.
@@ -83,7 +83,7 @@ In order to start a runbook when the solution is installed, you create a **job**
 
 The job includes the runbook name and any parameter values to be sent to the runbook.  The job must [depend on](operations-management-suite-custom-solutions-creating.md#resources) the runbook that it's starting since the runbook must be created before the job.  You also create dependencies on other jobs for runbooks that should be completed before the current one.
 
-The name of a job resource must contain a GUID which is typically assigned by a parameter.  You can read more about GUID parameters in [Creating custom solutions in Operations Management Suite (OMS)](operations-management-suite-custom-solutions-creating.md#parameters).  
+The name of a job resource must contain a GUID which is typically assigned by a parameter.  You can read more about GUID parameters in [Creating solutions in Operations Management Suite (OMS)](operations-management-suite-custom-solutions-creating.md#parameters).  
 
 Following is an example of a job resource that starts a runbook when the solution is installed.  Two other runbooks must be completed before this one starts, so it has dependencies on the jobs for those runbooks.  The runbook also accepts parameters   
 
@@ -313,4 +313,4 @@ Following is a sample of the required elements of a solution to support the modu
 
 ## Next steps
 
-- [Add a view to your custom solution](operations-management-suite-custom-solutions-resources-views.md) to visualize collected data.
+- [Add a view to your solution](operations-management-suite-custom-solutions-resources-views.md) to visualize collected data.

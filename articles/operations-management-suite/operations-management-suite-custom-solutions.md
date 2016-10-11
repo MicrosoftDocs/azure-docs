@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Custom solutions in Operations Management Suite (OMS) | Microsoft Azure"
+   pageTitle="Solutions in Operations Management Suite (OMS) | Microsoft Azure"
    description="Solutions extend the functionality of Operations Management Suite (OMS) by providing packaged management scenarios that customers can add to their OMS workspace.  This article provides details on how custom solutions created by customers and partners."
    services="operations-management-suite"
    documentationCenter=""
@@ -12,40 +12,69 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/03/2016"
+   ms.date="10/10/2016"
    ms.author="bwren" />
 
-# Custom solutions in Operations Management Suite (OMS) (Preview)
+# Solutions in Operations Management Suite (OMS) (Preview)
 
 >[AZURE.NOTE]This is preliminary documentation for custom solutions in OMS which are currently in preview.    
 
-Solutions extend the functionality of Operations Management Suite (OMS) by providing packaged management scenarios that customers can add to their OMS workspace.  In addition to [solutions provided by Microsoft](../log-analytics/log-analytics-add-solutions.md), partners and customers can create custom solutions to be used in their own environment or made available to customers through the community.
+Solutions extend the functionality of Operations Management Suite (OMS) by providing packaged management scenarios that customers can add to their OMS workspace.  In addition to [solutions provided by Microsoft](../log-analytics/log-analytics-add-solutions.md), partners and customers can create solutions to be used in their own environment or made available to customers through the community.
 
-## Creating a custom solution
-Complete guidance on creating custom solutions are available at [Creating custom solutions in Operations Management Suite (OMS)](operations-management-suite-custom-solutions-creating.md). 
+## Finding and installing solutions
+There are multiple methods for locating and installing OMS solutions as described in the following sections.
 
+### OMS Portal
+Solutions provided by Microsoft may be installed from the Solutions Gallery in the OMS portal.
 
-## Installing a custom solution
-Since custom solutions are implemented as Resource Manager templates in Azure, they cannot be deployed from the OMS console like Microsoft solutions.  
+1. Log in to the OMS portal.
+2. Click the **Solutions Gallery** tile.
+2. On the OMS Solutions Gallery page, learn about each available solution. Click the name of the solution that you want to add to OMS.
+3. On the page for the solution that you chose, detailed information about the solution is displayed. Click **Add**.
+4. A new tile for the solution that you added appears on the Overview page in OMS and you can start using it after the OMS service processes your data.
 
-There are three methods for installing a custom solution depending on how it has been made available from its author.
+### Azure Marketplace
+Solutions provided by Microsoft and trusted partners may be installed from the Solutions Gallery in the OMS portal.
 
-- Solutions from trusted Microsoft partners will be available in the [Azure Marketplace](http://azure.microsoft.com/marketplace/).  These solutions will have a complete user interface to guide you through the installation.
-- Authors can make solutions available to the community at [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/).  This provides some user interface to assist with installation, but you must provide values for all parameters.  
-- Since a custom solution is implemented as a Resource Manager template, you can use any of the standard methods for [deploying a template](../resource-group-template-deploy-portal.md).
+1. Log in to the Azure portal.
+2. In the left pane, select **More services**.
+3. Either scroll down to **Solutions** or type *solutions* into the **Filter** dialog.
+4. Click the **+ Add** button.
+5. Search for solutions that you're interested in either by browsing, clicking the **Filter** button, or typing in the **Search Everthing** box.
+6. Click a marketplace item to view its detailed information.
+4. Click **Create** to openthe **Add Solution** pane.
+5. You will be prompted to required information such as the [OMS workspace and Automation account](#oms-workspace-and-automation-account) in addition to values for any parameters in the solution.
+6. Click **Create** to install the solution.
 
+### Azure Quickstart Templates
+Members of the community can submit solutions to Azure Quickstart Templates.  You can either download these templates for later installation or inspect them to learn how to [create your own solutions](#creating-a-solution).
+
+1. Follow the process described in [OMS workspace and Automation account](#oms-workspace-and-automation-account) to link a workspace and account.
+2. Go to [Azure Quickstart Templates](https://azure.microsoft.com/en-us/documentation/templates/).  
+3. Search for a solution that you're interested in.
+4. Select the solution from the results to view its details.
+5. Click the **Deploy to Azure** button.
+6. You will be prompted to provide information such as the resource group and location in addition to values for any parameters in the solution.
+7. Click **Purchase** to install the solution.
+
+### Deploy Azure Resource Manager template
+Solutions that you get from the community or that you [create yourself](#creating-a-solution) are implemented as a Resource Manager template, and you can use any of the standard methods for [deploying a template](../resource-group-template-deploy-portal.md).  Note that before installing the solution, you must create and link the [OMS workspace and Automation account](#oms-workspace-and-automation-account).
 
 ## OMS workspace and Automation account
-Solutions require an [OMS workspace](../log-analytics/log-analytics-manage-access.md) to contain views and an [Automation account](../automation/automation-security-overview.md#automation-account-overview) to contain runbooks and related resources.  These must be available before the resources in the solution are created and should not be defined in the solution itself.  The user will specify a workspace and account when they deploy your solution, but as the author you should consider the following points.
+Most solutions require an [OMS workspace](../log-analytics/log-analytics-manage-access.md) to contain views and an [Automation account](../automation/automation-security-overview.md#automation-account-overview) to contain runbooks and related resources. The workspace and account must meet the following requirements.
 
-- A solution can only use one OMS workspace and one Automation account.  It will accept the names for each in the solution's parameters and use them with related resources throughout the solution. 
+- A solution can only use one OMS workspace and one Automation account.  
 - The OMS workspace and Automation account used by a solution must be linked to one another. An OMS workspace may only be linked to one Automation account, and an Automation account may only be linked to one OMS workspace.
 - To be linked, the OMS workspace and Automation account must be in the same resource group and region.  The exception is an OMS workspace in East US region and and Automation account in East US 2.
 
-### Creating a link between the OMS workspace and Automation account
-Currently, the only way to create a link between an OMS workspace and Automation account is through the user interface in the Azure portal when a installs a solution from the Azure Marketplace.  The user is prompted to select a workspace and account, and they are limited to the those with a matching resource group and region.  The link is created just before the solution is installed. 
+### Creating a link between an OMS workspace and Automation account
+How you specify the OMS workspace and Automation account depends on the installation method for your solution.
 
-If your solution will be made available through [Azure QuickStart templates](https://azure.microsoft.com/documentation/templates/), then you must link the OMS workspace and Automation account before installing the solution.  You can do this by selecting any solution in the Azure Marketplace and selecting the OMS workspace and Automation account.  You don't have to actually install the solution because the link will be created as soon as the OMS workspace and Automation account are selected.  Once the link is created, then you can use that OMS workspace and Automation account for any solution. 
+- When you install a Microsoft solution through the OMS portal, it is installed in the current OMS workspace and no Automation account is required.
+
+- When you install a solution through the Azure Marketplace, you are prompted for an OMS workspace and Automation account, and the link between them is created for you.  
+
+- For solutions outside of the Azure Marketplace, you must link the OMS workspace and Automation account before installing the solution.  You can do this by selecting any solution in the Azure Marketplace and selecting the OMS workspace and Automation account.  You don't have to actually install the solution because the link will be created as soon as the OMS workspace and Automation account are selected.  Once the link is created, then you can use that OMS workspace and Automation account for any solution. 
 
 ### Verifying the link between an OMS workspace and Automation account
 You can verify the link between an OMS workspace and an Automation account using the following procedure.
@@ -56,20 +85,26 @@ You can verify the link between an OMS workspace and an Automation account using
 4. Select **Workspace** to view the details of the OMS workspace linked to this Automation account.
 
 
-## Listing custom solutions
-Custom solutions will not be listed in the OMS console, and you must use the Azure portal to view and manage custom solutions.  
+## Listing solutions
+Use the following procedure to to view the solutions in the workspaces linked to your Azure subscription.
 
 1. Log in to the Azure portal.
 2. In the left pane, select **More services**.
 3. Either scroll down to **Solutions** or type *solutions* into the **Filter** dialog.
-4. Standard and custom solutions installed in all your workspaces will be listed.
+4. Solutions installed in all your workspaces will be listed.
 
-## Removing a custom solution
+Note that you can view only the Microsoft solutions installed in the current workspace using the OMS portal.
+
+## Removing a solution
 When a solution is removed, all resources in the solution are also removed.  
 
-1. Locate the solution in the Azure portal using the procedure in [Listing custom solutions](#listingcustom-solutions).
+1. Locate the solution in the Azure portal using the procedure in [Listing solutions](#listing-solutions).
 2. Select the solution you want to remove.
 3. Click the **Delete** button.
+
+## Creating a solution
+Complete guidance on creating solutions are available at [Creating solutions in Operations Management Suite (OMS)](operations-management-suite-custom-solutions-creating.md). 
+
 
 ## Next steps
 

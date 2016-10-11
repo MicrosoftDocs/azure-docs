@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creating custom solutions in Operations Management Suite (OMS) | Microsoft Azure"
-   description="Solutions extend the functionality of Operations Management Suite (OMS) by providing packaged management scenarios that customers can add to their OMS workspace.  This article provides details on how you can create custom solutions to be used in your own environment or made available to your customers."
+   pageTitle="Creating solutions in Operations Management Suite (OMS) | Microsoft Azure"
+   description="Solutions extend the functionality of Operations Management Suite (OMS) by providing packaged management scenarios that customers can add to their OMS workspace.  This article provides details on how you can create solutions to be used in your own environment or made available to your customers."
    services="operations-management-suite"
    documentationCenter=""
    authors="bwren"
@@ -12,24 +12,32 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/03/2016"
+   ms.date="10/10/2016"
    ms.author="bwren" />
 
-# Creating custom solutions in Operations Management Suite (OMS) (Preview)
+# Creating solutions in Operations Management Suite (OMS) (Preview)
 
->[AZURE.NOTE]This is preliminary documentation for custom solutions in OMS which are currently in preview. Any schema described below is subject to change.  
+>[AZURE.NOTE]This is preliminary documentation for creating solutions in OMS which are currently in preview. Any schema described below is subject to change.  
 
-Solutions extend the functionality of Operations Management Suite (OMS) by providing packaged management scenarios that customers can add to their OMS workspace.  This article provides details on creating your own custom solutions that you can use in your own environment or make available to customers through the community.
+Solutions extend the functionality of Operations Management Suite (OMS) by providing packaged management scenarios that customers can add to their OMS workspace.  This article provides details on creating your own solutions that you can use in your own environment or make available to customers through the community.
 
-## Planning your custom solution
+## Planning your solution
 Solutions in OMS include multiple resources supporting a particular management scenario.  When planning your solution, you should focus on the management scenario that you're trying to achieve and all required resources to support it.  Each solution should be self contained and define each resource that it requires, even if one or more resources are also defined by other solutions.  When a solution is installed, each resource is created unless it already exists, and you can define what happens to resources when a solution is removed.  
 
 For example, a solution might include an [Azure Automation runbook](../automation/automation-intro.md) that collects data to the Log Analytics repository using a [schedule](../automation/automation-schedules.md) and a [custom view](../log-analytics/log-analytics-view-designer.md) that provides various visualizations of the collected data.  The same schedule might be used by another solution.  As the solution author, you would define all three resources but specify that the runbook and view should be automatically removed when the solution is removed.    You would also define the schedule but specify that it should remain in place if the solution were removed in case it was still in use by the other solution.
 
-## Custom solution files
-Custom solutions in Operations Management Suite (OMS) are implemented as [Resource Management templates](../resource-manager-template-walkthrough.md).  The main task in learning how to author custom solutions is learning how to [author a template](../resource-group-authoring-templates.md).  This article provides unique details of templates used for custom solutions and how to define typical solution resources.
+## OMS workspace and Automation account
+Solutions require an [OMS workspace](../log-analytics/log-analytics-manage-access.md) to contain views and an [Automation account](../automation/automation-security-overview.md#automation-account-overview) to contain runbooks and related resources.  These must be available before the resources in the solution are created and should not be defined in the solution itself.  The user will specify a workspace and account when they deploy your solution, but as the author you should consider the following points.
 
-The basic structure of a solution file is the same as a [Resource Manager Template](resource-group-authoring-templates.md#template-format) which is as follows.  Each of the following sections describes the top level elements and and their contents in a custom solution.  
+- A solution can only use one OMS workspace and one Automation account.  It will accept the names for each in the solution's parameters and use them with related resources throughout the solution. 
+- The OMS workspace and Automation account used by a solution must be linked to one another. An OMS workspace may only be linked to one Automation account, and an Automation account may only be linked to one OMS workspace.
+- To be linked, the OMS workspace and Automation account must be in the same resource group and region.  The exception is an OMS workspace in East US region and and Automation account in East US 2.
+
+
+## Solution files
+Solutions in Operations Management Suite (OMS) are implemented as [Resource Management templates](../resource-manager-template-walkthrough.md).  The main task in learning how to author solutions is learning how to [author a template](../resource-group-authoring-templates.md).  This article provides unique details of templates used for solutions and how to define typical solution resources.
+
+The basic structure of a solution file is the same as a [Resource Manager Template](resource-group-authoring-templates.md#template-format) which is as follows.  Each of the following sections describes the top level elements and and their contents in a solution.  
 
     {
        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -114,14 +122,14 @@ Following is a sample parameter entity for a solution.  This includes all of the
 				"description": "Pricing tier of both Log Analytics workspace and Azure Automation account"
 			}
 		},
-		"JobIDGuid": {
+		"jobIdGuid": {
 		"type": "string",
 			"metadata": {
 				"description": "GUID for a runbook job",
 				"control": "guid"
 			}
 		},
-		"AdditionalParameter": {
+		"additionalParameter": {
 			"type": "string",
 			"metadata": {
 				"description": "Additional parameter for solution."
@@ -142,7 +150,6 @@ Following is an example of a **variables** element with typical parameters used 
 		"SolutionVersion": "1.1", 
 		"SolutionPublisher": "Contoso", 
 		"SolutionName": "My Solution",
-		
 		"LogAnalyticsApiVersion": "2015-11-01-preview",
 		"AutomationApiVersion": "2015-10-31"
 	},
@@ -250,15 +257,16 @@ You can get the details and samples of resources that are common to solutions in
 - [Custom views](operations-management-suite-custom-solutions-resources-views.md)
 - [Automation resources](operations-management-suite-custom-solutions-resources-automation.md)
 
-## Testing a custom solution
-Prior to deploying your custom solution, it is recommended that you test it using [Test-AzureRmResourceGroupDeployment](../resource-group-template-deploy.md#deploy-with-powershell).  This will validate your solution file and help you identify any problems before attempting to deploy it.
+## Testing a solution
+Prior to deploying your solution, it is recommended that you test it using [Test-AzureRmResourceGroupDeployment](../resource-group-template-deploy.md#deploy-with-powershell).  This will validate your solution file and help you identify any problems before attempting to deploy it.
 
 
-## Installing a custom solution
-Since custom solutions are implemented as Resource Manager templates in Azure, they cannot be deployed from the OMS console like Microsoft solutions.  
-There are three methods for deploying a custom solution.
+## Installing a solution
+Since solutions are implemented as Resource Manager templates in Azure, they cannot be deployed from the OMS console like Microsoft solutions.  
 
-- Since a custom solution is implemented as a Resource Manager template, you can use any of the standard methods for [deploying a template](../resource-group-template-deploy-portal.md).
+There are three methods for deploying a solution.
+
+- Since a solution is implemented as a Resource Manager template, you can use any of the standard methods for [deploying a template](../resource-group-template-deploy-portal.md).
 - Submit your solution to [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/) to make it available to the community.  The QuickStart templates are stored in a [GitHub](http://github.com) repository, and you can get instructions  from the [Azure Resource Manager QuickStart Templates Contribution Guide](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE).
 - If you are already a trusted partner with Microsoft, then you may be able to submit your solution to the [Azure Marketplace](http://azure.microsoft.com/marketplace/).
 
