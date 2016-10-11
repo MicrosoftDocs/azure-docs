@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/19/2016"  
+	ms.date="10/10/2016"  
 	ms.author="piyushjo"/>
 
 
@@ -27,15 +27,13 @@ Note that you must add a minimum set of "basic integration" in order to be able 
 
 ##Setup Mobile Engagement for your mobile app in Azure
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##Navigate to your Mobile Engagement portal
 
-To start monitoring and managing your application, navigate to your Mobile Engagement portal by clicking the **Engage** button at the bottom.
+To start monitoring and managing your application, navigate to your Mobile Engagement portal by clicking the **Engagement portal** button in the top bar.
 
-![](../../includes/media/mobile-engagement-connect-app-with-monitor/engage-button.png)
-
-Once you are in the  Mobile Engagement portal, you can analiyze, create and manage segments, reach out to the users, etc.:    
+Once you are in the  Mobile Engagement portal, you can analyze, create and manage segments, reach out to the users, etc.:    
 
 - [Monitor real time data about your application](mobile-engagement-user-interface-monitor.md)
 - [Analyze historical data about your application](mobile-engagement-user-interface-analytics.md)

@@ -31,7 +31,7 @@ A Service Bus namespace is mapped to a scale unit. The scale unit handles all t
 
 - **One gateway store.** The gateway store holds the data for every entity that is defined in this scale unit. The gateway store is implemented on top of a SQL Azure database.
 
-- **Multiple messaging stores.** Messaging stores hold the messages of all queues, topics and subscriptions that are defined in this scale unit. It also contains all subscription data. Unless [partitioned messaging entities](../service-bus-messaging/service-bus-partitioning.md) is enabled, a queue or topic is mapped to one messaging store. Subscriptions are stored in the same messaging store as their parent topic. Except for Service Bus [Premium Messaging](../service-bus-messaging/service-bus-premium-messaging.md), the messaging stores are implemented on top of SQL Azure databases.
+- **Multiple messaging stores.** Messaging stores hold the messages of all queues, topics and subscriptions that are defined in this scale unit. It also contains all subscription data. Unless [partitioned messaging entities](service-bus-partitioning.md) is enabled, a queue or topic is mapped to one messaging store. Subscriptions are stored in the same messaging store as their parent topic. Except for Service Bus [Premium Messaging](service-bus-premium-messaging.md), the messaging stores are implemented on top of SQL Azure databases.
 
 ## Containers
 
@@ -55,6 +55,6 @@ When the relay connection is established, the clients can exchange messages via 
 
 Now that you've read an overview of Service Bus architecture, to get started visit the following links:
 
-- [Service Bus messaging overview](../service-bus-messaging/service-bus-messaging-overview.md)
+- [Service Bus messaging overview](service-bus-messaging-overview.md)
 - [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
-- [A queued messaging solution using Service Bus queues](../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
+- [A queued messaging solution using Service Bus queues](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)

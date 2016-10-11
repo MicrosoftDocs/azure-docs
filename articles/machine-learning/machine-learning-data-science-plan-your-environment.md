@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="How to identify scenarios and plan for advanced analytics data processing | Microsoft Azure" 
-	description="Plan for advanced analytics by considering a series of key questions." 
-	services="machine-learning" 
-	documentationCenter="" 
+<properties
+	pageTitle="How to identify scenarios and plan for advanced analytics data processing | Microsoft Azure"
+	description="Plan for advanced analytics by considering a series of key questions."
+	services="machine-learning"
+	documentationCenter=""
 	authors="bradsev"
-	manager="jhubbard" 
+	manager="jhubbard"
 	editor="cgronlun" />
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/19/2016" 
-	ms.author="bradsev" /> 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/19/2016"
+	ms.author="bradsev" />
 
 
 # How to identify scenarios and plan for advanced analytics data processing
@@ -42,7 +42,7 @@ The logistic questions concern the location of the **data source**, the **target
 
 3. **How are you going to move the data?** The procedures and resources available to ingest or load data into a variety of different storage and processing environments are outlined in the following topics.
 
-	-  [Load data into storage environments for analytics](machine-learning-data-science-ingest-data.md) 
+	-  [Load data into storage environments for analytics](machine-learning-data-science-ingest-data.md)
 	-  [Import your training data into Azure Machine Learning Studio from various data sources](machine-learning-data-science-import-data.md).
 
 4. **Does the data need to be moved on a regular schedule or modified during migration?** Consider using Azure Data Factory (ADF) when data needs to be continually migrated, particularly if a hybrid scenario that accesses both on-premise and cloud resources is involved, or when the data is transacted or needs to be modified or have business logic added to it in the course of being migrated. For further information, see [Move data from an on-premise SQL server to SQL Azure with Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md)
@@ -51,9 +51,9 @@ The logistic questions concern the location of the **data source**, the **target
 
 
 ## Data characteristics questions: type, format and size
-These questions are key to planning your storage and processing environments, each of which are appropriate to various types of data and each of which have certain restrictions. 
+These questions are key to planning your storage and processing environments, each of which are appropriate to various types of data and each of which have certain restrictions.
 
-1. **What are the data types?** For Example: 
+1. **What are the data types?** For Example:
 	- Numerical
 	- Categorical
 	- Strings
@@ -88,7 +88,7 @@ Pre-processing and cleaning data are important tasks that typically must be cond
 
 ## Tools and languages questions
 There are lots of options here depending on what languages and development environments or tools you need or are most conformable using.
- 
+
 1. **What languages do you prefer to use for analysis?**  
 	- R
 	- Python
@@ -102,16 +102,8 @@ There are lots of options here depending on what languages and development envir
 	- [Python Tools for Visual Studio](http://microsoft.github.io/PTVS/)
 	- [Anaconda](https://www.continuum.io/why-anaconda)
 	- [Jupiter notebooks](http://jupyter.org/)
-	- [Microsoft Power BI](http://powerbi.microsoft.com) 
+	- [Microsoft Power BI](http://powerbi.microsoft.com)
 
 
 ## Identify your advanced analytics scenario
 Once you have answered the questions in the previous section, you are ready to determine which scenario best fits your case. The sample scenarios are outlined in [Scenarios for advanced analytics in Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md).
-
-
-
-
-
-
-
- 

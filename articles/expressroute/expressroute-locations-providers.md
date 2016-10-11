@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/20/2016"
+   ms.date="10/10/2016"
    ms.author="cherylmc" />
 
 # ExpressRoute partners and peering locations
@@ -70,7 +70,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **London** | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc+, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
 | **Las Vegas** | Level 3 Communications+, Megaport
 | **Los Angeles** | CoreSite, Equinix, Megaport, NTT, Zayo Group |
-| **Melbourne** | Equinix, Megaport, NEXTDC, Telstra Corporation |
+| **Melbourne** | AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
 | **New York** | Equinix, Megaport, Zayo Group |
 | **Montreal** | Cologix+ |
 | **Mumbai** | Tata Communications |
@@ -80,7 +80,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **Seattle** | Equinix, Level 3 Communications, Megaport |
 | **Silicon Valley** | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
 | **Singapore** | Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, Orange, SingTel, Tata Communications, Verizon |
-| **Sydney** | AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
+| **Sydney** | AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Tokyo** | Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
 | **Toronto** | Cologix, Equinix, Zayo Group |
 | **Washington DC** | Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
@@ -111,7 +111,7 @@ To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/featu
 | **Location**  | **Service Providers** |
 |---------------|-----------------------|
 | **Berlin** | Colt+, e-shelter+ |
-| **Frankfurt** | Colt, Equinix+, Interxion |
+| **Frankfurt** | Colt, Equinix, Interxion |
 
 ## <a name="nonpartners"></a>Connectivity through service providers not listed
 
