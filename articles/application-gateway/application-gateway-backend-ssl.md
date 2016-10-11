@@ -27,11 +27,11 @@ When configured with end to end SSL communication mode, application gateway term
 
 ![end to end ssl scenario][1]
 
-In this example, requests using TLS1.2 will be routed to backend servers in Pool1 using end to end SSL.
+In this example, requests using TLS1.2 are routed to backend servers in Pool1 using end to end SSL.
 
 ## End to end SSL and white listing of certificates
 
-Application gateway only communicates with known backend instances that have whitelisted their certificate with the application gateway. To enable whitelisting of certificates, you must upload the public key of backend server certificates to the application gateway. Only connections to known and white listed backends are then allowed. The remaining backends will result in a gateway error. Self-signed certificates are for test purposes only and not recommended for production workloads. Such certificates must also be white listed with the application gateway as described above before they can be used.
+Application gateway only communicates with known backend instances that have whitelisted their certificate with the application gateway. To enable whitelisting of certificates, you must upload the public key of backend server certificates to the application gateway. Only connections to known and whitelisted backends are then allowed. The remaining backends results in a gateway error. Self-signed certificates are for test purposes only and not recommended for production workloads. Such certificates must also be white listed with the application gateway as described in the preceding steps before they can be used.
 
 ## Application Gateway SSL Policy
 
@@ -39,7 +39,7 @@ Application gateway supports user configurable SSL negotiation policies, which a
 
 1. SSL 2.0 and 3.0 disabled by default for all Application Gateways. They are not configurable at all.
 2. SSL policy definition gives you option to disable any of the following 3 protocols - TLSv1\_0, TLSv1\_1, TLSv1\_2.
-3. If no SSL policy is defined all three (TLSv1\_0, TLSv1\_1, TLSv1_2) are be enabled.
+3. If no SSL policy is defined all three (TLSv1\_0, TLSv1\_1, TLSv1_2) are enabled.
 
 ## Next steps
 

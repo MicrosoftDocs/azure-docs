@@ -24,7 +24,7 @@ Application Gateway supports end to end encryption of traffic. Application Gatew
 
 Another feature that application gateway supports is disabling certain SSL protocol versions. Application Gateway supports disabling the following protocol version; TLSv1.0, TLSv1.1 and TLSv1.2.
 
-> [AZURE.NOTE] SSL 2.0 and SSL 3.0 are disabled by default and cannot be enabled, they are considered unsecured and are not able to be used with Application Gateway
+> [AZURE.NOTE] SSL 2.0 and SSL 3.0 are disabled by default and cannot be enabled. They are considered unsecured and are not able to be used with Application Gateway
 
 ![scenario image][scenario]
 
@@ -79,7 +79,7 @@ Assign an address range for the subnet be used for the Application Gateway itsel
 
     $gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 10.0.0.0/24
 
-> [AZURE.NOTE] Subnets configured for application gateway should be properly sized. An application gateway can be configured for up to 10 instances, each instance takes 1 IP address from the subnet. Too small of a subnet can adversely affect scaling out an application gateway.
+> [AZURE.NOTE] Subnets configured for application gateway should be properly sized. An application gateway can be configured for up to 10 instances. Each instance takes 1 IP address from the subnet. Too small of a subnet can adversely affect scaling out an application gateway.
 
 ### Step 2
 
