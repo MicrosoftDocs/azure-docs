@@ -87,7 +87,7 @@ To run Azure AD Join, do the following steps for the platform your device runs o
 5.	Sign out, and then sign in with your work account (your Azure AD account).
 6.	Try again to access the application.
 
-To add your work or school account, do the following steps.
+To add your work or school account, do the following steps:
 
 **Windows 10 Anniversary Update**
 
@@ -106,7 +106,7 @@ To add your work or school account, do the following steps.
 4.	Authenticate to your organization, provide multi-factor authentication if prompted, and then follow the steps that are shown.
 5.	Try again to access the application.
 
-If your device is not domain-joined and runs Windows 8.1, to do a Workplace Join and enroll in Microsoft Intune, do the following steps.
+If your device is not domain-joined and runs Windows 8.1, to do a Workplace Join and enroll in Microsoft Intune, do the following steps:
 
 1.	Open **PC Settings**.
 2.	Click **Network** > **Workplace**.
