@@ -1,6 +1,6 @@
-<properties
+Properties
 	pageTitle="Azure Active Directory conditional access | Microsoft Azure"  
-    description="Use conditional access control in Azure Active Directory to check for specific conditions when authenticating the user and before allowing access to the application."  
+    description="Use conditional access control in Azure Active Directory to check for specific conditions when authenticating for access to applications."  
     services="active-directory"
 	keywords="conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies"
 	documentationCenter=""
@@ -74,18 +74,18 @@ You can restrict access to applications from devices that are registered with Az
 You can set policies based on these requirements:
 
 - **Domain-joined devices**. Set a policy to restrict access to devices that are joined to an on-premises Active Directory domain, and which also are registered with Azure AD. This policy applies to Windows desktops, laptops, and enterprise tablets.
-For more information about how to set up automatic registration of domain-joined devices with Azure AD, see [Automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
+For more information about how to set up automatic registration of domain-joined devices with Azure AD, see [Set up automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
 
 - **Compliant devices**. Set a policy to restrict access to devices that are marked **compliant** in the directory by the management system. This policy ensures that only devices that meet security policies such as enforcing file encryption on a device are allowed access. You can use this policy to restrict access from the following devices:
 
-    - **Windows domain-joined devices**. Managed by System Center Configuration Manager (current branch) deployed in a hybrid configuration
+    - **Windows domain-joined devices**. Managed by System Center Configuration Manager (in the current branch) deployed in a hybrid configuration
     - **Windows 10 Mobile work or personal devices**. Managed by Intune or by a supported third-party mobile device management system
     - **iOS and Android devices**. Managed by Intune
 
 
 Users who access applications that are protected by a device-based, certification authority policy must access the application from a device that meets this policy's requirements. Access is denied if attempted on a device that doesn’t meet policy requirements.
 
-For information about how to configure a device-based, certification authority policy in Azure AD, see [Configure device-based conditional access policy for Azure Active Directory-connected applications](active-directory-conditional-access-policy-connected-applications.md).
+For information about how to configure a device-based, certification authority policy in Azure AD, see [Device-based conditional access policy for Azure Active Directory-connected applications](active-directory-conditional-access-policy-connected-applications.md).
 
 ## Resources
 
@@ -101,8 +101,8 @@ See the following resource categories and articles to learn more about setting c
 ### Device-based conditional access
 
 - [Device-based conditional access policy for access control to Azure Active Directory-connected applications](active-directory-conditional-access-policy-connected-applications.md)
-- [Automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
-- [User remediation for accessing Azure AD device-based conditional access-protected applications](active-directory-conditional-access-device-remediation.md)
+- [Set up automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
+- [Troubleshooting for Azure Active Directory access issues](active-directory-conditional-access-device-remediation.md)
 - [Protect data on lost or stolen devices by using Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)
 
 
