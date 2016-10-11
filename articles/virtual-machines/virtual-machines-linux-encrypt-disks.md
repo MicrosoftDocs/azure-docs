@@ -21,9 +21,15 @@ For enhanced virtual machine (VM) security and compliance, virtual disks in Azur
 
 
 ## Quick commands
-The following section details the base commands to encrypt virtual disks on your VM. More detailed information and context for each step can be found the rest of the document.
+If you need to quickly accomplish the task, the following section details the base commands to encrypt virtual disks on your VM. More detailed information and context for each step can be found the rest of the document, [starting here](#overview-of-disk-encryption).
 
-You need the [latest Azure CLI](../xplat-cli-install.md) installed and logged in using the Resource Manager mode (`azure config mode arm`). Replace all example parameters with your own names, required location, and key values.
+You need the [latest Azure CLI](../xplat-cli-install.md) installed and logged in using the Resource Manager mode as follows:
+
+```
+azure config mode arm
+```
+
+In the following examples, replace example parameter names with your own values. Example parameter names include `myResourceGroup`, `myKeyVault`, and `myVM`.
 
 First, enable the Azure Key Vault provider within your Azure subscription and create a resource group. The following example creates a resource group name `myResourceGroup` in the `WestUS` location:
 
@@ -150,9 +156,13 @@ Disk encryption is not currently supported in the following scenarios:
 
 
 ## Create the Azure Key Vault and keys
-To complete the remainder of this guide, you need the [latest Azure CLI](../xplat-cli-install.md) installed and logged in using the Resource Manager mode (`azure config mode arm`). 
+To complete the remainder of this guide, uou need the [latest Azure CLI](../xplat-cli-install.md) installed and logged in using the Resource Manager mode as follows:
 
-Throughout the command examples, replace all example parameters with your own names, required location, and key values. The following examples use a convention of `myResourceGroup`, `myKeyVault`, `myAADApp`, etc.
+```
+azure config mode arm
+```
+
+Throughout the command examples, replace all example parameters with your own names, location, and key values. The following examples use a convention of `myResourceGroup`, `myKeyVault`, `myAADApp`, etc.
 
 The first step is to create an Azure Key Vault to store your cryptographic keys. Azure Key Vault can store keys, secrets, or passwords that allow you to securely implement them in your applications and services. For virtual disk encryption, you use Key Vault to store a cryptographic key that is used to encrypt or decrypt your virtual disks. 
 
