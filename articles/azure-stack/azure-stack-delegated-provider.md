@@ -202,7 +202,7 @@ delegated offer as a template.
 
     ![](media/azure-stack-delegated-provider/image7.png)
 <!-- -->
-You have now completed the creation of a delegated offer as a delegated provider. Sign out as the delegated provider. Close the browser tab you have been using.
+-  You have now completed the creation of a delegated offer as a delegated provider. Sign out as the delegated provider. Close the browser tab you have been using.
 
 ##Sign up for the offer
 
