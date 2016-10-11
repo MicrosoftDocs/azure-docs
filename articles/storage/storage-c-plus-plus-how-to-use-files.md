@@ -19,6 +19,8 @@
 
 [AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
+[AZURE.INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
+
 [AZURE.INCLUDE [storage-file-overview-include](../../includes/storage-file-overview-include.md)]
 
 ## About this tutorial
