@@ -178,7 +178,7 @@ connect to it using HTTPS.
 
 2.  In your web browser, modify the link to use **https** instead of **http**, and then visit the page.
 
-    **Note:** If you are using a self-signed certificate, when you
+    >[AZURE.NOTE] If you are using a self-signed certificate, when you
     browse to an HTTPS endpoint that's associated with the self-signed
     certificate you may see a certificate error in the browser. Using a
     certificate signed by a trusted certification authority eliminates this problem; in the meantime, you can ignore the error. (Another option is to add the self-signed certificate to the user's trusted certificate authority certificate store.)
