@@ -351,41 +351,41 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
-|cpu_percent|CPU percentage|Percent|Maximum|CPU percentage|
-|physical_data_read_percent|Data IO percentage|Percent|Maximum|Data IO percentage|
-|log_write_percent|Log IO percentage|Percent|Maximum|Log IO percentage|
-|dtu_consumption_percent|DTU percentage|Percent|Maximum|DTU percentage|
+|cpu_percent|CPU percentage|Percent|Average|CPU percentage|
+|physical_data_read_percent|Data IO percentage|Percent|Average|Data IO percentage|
+|log_write_percent|Log IO percentage|Percent|Average|Log IO percentage|
+|dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage|
 |storage|Total database size|Bytes|Maximum|Total database size|
 |connection_successful|Successful Connections|Count|Total|Successful Connections|
 |connection_failed|Failed Connections|Count|Total|Failed Connections|
 |blocked_by_firewall|Blocked by Firewall|Count|Total|Blocked by Firewall|
 |deadlock|Deadlocks|Count|Total|Deadlocks|
 |storage_percent|Database size percentage|Percent|Maximum|Database size percentage|
-|xtp_storage_percent|In-Memory OLTP storage percent(Preview)|Percent|Maximum|In-Memory OLTP storage percent(Preview)|
-|workers_percent|Workers percentage|Percent|Maximum|Workers percent|
-|sessions_percent|Sessions percent|Percent|Maximum|Sessions percent|
-|dtu_limit|DTU limit|Count|Maximum|DTU limit|
-|dtu_used|DTU used|Count|Maximum|DTU used|
+|xtp_storage_percent|In-Memory OLTP storage percent(Preview)|Percent|Average|In-Memory OLTP storage percent(Preview)|
+|workers_percent|Workers percentage|Percent|Average|Workers percent|
+|sessions_percent|Sessions percent|Percent|Average|Sessions percent|
+|dtu_limit|DTU limit|Count|Average|DTU limit|
+|dtu_used|DTU used|Count|Average|DTU used|
 |service_level_objective|Service level objective of the database|Count|Total|Service level objective of the database|
 |dwu_limit|dwu limit|Count|Maximum|dwu limit|
-|dwu_consumption_percent|DWU percentage|Percent|Maximum|DWU percentage|
-|dwu_used|DWU used|Count|Maximum|DWU used|
+|dwu_consumption_percent|DWU percentage|Percent|Average|DWU percentage|
+|dwu_used|DWU used|Count|Average|DWU used|
 
 ## Microsoft.Sql/servers/elasticPools
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
-|cpu_percent|CPU percentage|Percent|Maximum|CPU percentage|
-|physical_data_read_percent|Data IO percentage|Percent|Maximum|Data IO percentage|
-|log_write_percent|Log IO percentage|Percent|Maximum|Log IO percentage|
-|dtu_consumption_percent|DTU percentage|Percent|Maximum|DTU percentage|
-|storage_percent|Storage percentage|Percent|Maximum|Storage percentage|
-|workers_percent|Workers percent|Percent|Maximum|Workers percent|
-|sessions_percent|Sessions percent|Percent|Maximum|Sessions percent|
-|eDTU_limit|eDTU limit|Count|Maximum|eDTU limit|
-|storage_limit|Storage limit|Bytes|Maximum|Storage limit|
-|eDTU_used|eDTU used|Count|Maximum|eDTU used|
-|storage_used|Storage used|Bytes|Maximum|Storage used|
+|cpu_percent|CPU percentage|Percent|Average|CPU percentage|
+|physical_data_read_percent|Data IO percentage|Percent|Average|Data IO percentage|
+|log_write_percent|Log IO percentage|Percent|Average|Log IO percentage|
+|dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage|
+|storage_percent|Storage percentage|Percent|Average|Storage percentage|
+|workers_percent|Workers percent|Percent|Average|Workers percent|
+|sessions_percent|Sessions percent|Percent|Average|Sessions percent|
+|eDTU_limit|eDTU limit|Count|Average|eDTU limit|
+|storage_limit|Storage limit|Bytes|Average|Storage limit|
+|eDTU_used|eDTU used|Count|Average|eDTU used|
+|storage_used|Storage used|Bytes|Average|Storage used|
 
 ## Microsoft.StreamAnalytics/streamingjobs
 
