@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2016"
+	ms.date="10/10/2016"
 	ms.author="cynthn"/>
 
 
@@ -42,12 +42,12 @@ The .json file is the template.
 	
 ## Download the template using PowerShell
 
-You can also download the .json template file using the [Export-AzureRMResourceGroup](https://msdn.microsoft.com/library/mt715427.aspx) cmdlet. You can use the `-path` parameter to provide the filename and path for the .json file.
+You can also download the .json template file using the [Export-AzureRMResourceGroup](https://msdn.microsoft.com/library/mt715427.aspx) cmdlet. You can use the `-path` parameter to provide the filename and path for the .json file. This example shows how to download the template for the resource group named **myResourceGroup** to the **C:\users\public\downloads** folder on your local computer.
 
 ```powershell
-	Export-AzureRmResourceGroup -ResourceGroupName "<resourceGroupName>" -Path <pathForDownload> 
+	Export-AzureRmResourceGroup -ResourceGroupName "myResourceGroup" -Path "C:\users\public\downloads"
 ```
 
 ## Next steps
 
-Deploy resources from a template.
+To learn more about deploying resources using templates, see [Resource Manager template walkthrough](../resource-manager/resource-manager-template-walkthrough).
