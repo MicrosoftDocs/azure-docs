@@ -17,7 +17,7 @@
 
 # Service Bus pricing and billing
 
-Service Bus is offered in Basic, Standard, and [Premium](../service-bus-messaging/service-bus-premium-messaging.md) tiers. You can choose a service tier for each Service Bus service namespace that you create, and this tier selection applies across all entities created within that namespace.
+Service Bus is offered in Basic, Standard, and [Premium](service-bus-premium-messaging.md) tiers. You can choose a service tier for each Service Bus service namespace that you create, and this tier selection applies across all entities created within that namespace.
 
 >[AZURE.NOTE] For detailed information about current Service Bus pricing, see the [Azure Service Bus pricing page](https://azure.microsoft.com/pricing/details/service-bus/), and the [Service Bus FAQ](service-bus-faq.md#service-bus-pricing).
 
@@ -120,7 +120,7 @@ Relays are available only in Standard tier namespaces. Otherwise, pricing and co
 
 ### How is the Relay Hours meter calculated?
 
-See [this topic](../service-bus-messaging/service-bus-faq.md#how-is-the-relay-hours-meter-calculated).
+See [this topic](service-bus-faq.md#how-is-the-relay-hours-meter-calculated).
 
 ### What are brokered connections and how do I get charged for them?
 
@@ -146,6 +146,6 @@ Yes. There are no connection charges for sending events using HTTP, regardless o
 
 - For more details about Service Bus pricing, see the [Azure Service Bus pricing page](https://azure.microsoft.com/pricing/details/service-bus/).
 
-- See the [Service Bus FAQ](../service-bus-messaging/service-bus-faq.md#service-bus-pricing) for some common FAQs around Service bus pricing and billing.
+- See the [Service Bus FAQ](service-bus-faq.md#service-bus-pricing) for some common FAQs around Service bus pricing and billing.
 
 [Azure classic portal]: http://manage.windowsazure.com

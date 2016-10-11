@@ -141,6 +141,6 @@ For the complete Service Bus and Event Hubs .NET API reference, see the [Azure r
 
 To learn more about [Service Bus](https://azure.microsoft.com/services/service-bus/), see the following topics.
 
-- [Service Bus messaging overview](../service-bus-messaging/service-bus-messaging-overview.md)
+- [Service Bus messaging overview](service-bus-messaging-overview.md)
 - [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 - [Service Bus architecture](service-bus-architecture.md)
