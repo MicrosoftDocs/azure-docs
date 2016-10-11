@@ -39,28 +39,28 @@ A virtual machine scale set must be contained in a resource group.
 
         Get-AzureLocation | Sort Name | Select Name, AvailableServices
 
-    You should see something like this example:
+  You should see something like this example:
 
-    Name                AvailableServices
-    ----                -----------------
-    Australia East      {Compute, Storage, PersistentVMRole, HighMemory}
-    Australia Southeast {Compute, Storage, PersistentVMRole, HighMemory}
-    Brazil South        {Compute, Storage, PersistentVMRole, HighMemory}
-    Central India       {Compute, Storage, PersistentVMRole, HighMemory}
-    Central US          {Compute, Storage, PersistentVMRole, HighMemory}
-    East Asia           {Compute, Storage, PersistentVMRole, HighMemory}
-    East US             {Compute, Storage, PersistentVMRole, HighMemory}
-    East US 2           {Compute, Storage, PersistentVMRole, HighMemory}
-    Japan East          {Compute, Storage, PersistentVMRole, HighMemory}
-    Japan West          {Compute, Storage, PersistentVMRole, HighMemory}
-    North Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-    North Europe        {Compute, Storage, PersistentVMRole, HighMemory}
-    South Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-    South India         {Compute, Storage, PersistentVMRole, HighMemory}
-    Southeast Asia      {Compute, Storage, PersistentVMRole, HighMemory}
-    West Europe         {Compute, Storage, PersistentVMRole, HighMemory}
-    West India          {Compute, Storage, PersistentVMRole, HighMemory}
-    West US             {Compute, Storage, PersistentVMRole, HighMemory}
+  Name                AvailableServices
+  ----                -----------------
+  Australia East      {Compute, Storage, PersistentVMRole, HighMemory}
+  Australia Southeast {Compute, Storage, PersistentVMRole, HighMemory}
+  Brazil South        {Compute, Storage, PersistentVMRole, HighMemory}
+  Central India       {Compute, Storage, PersistentVMRole, HighMemory}
+  Central US          {Compute, Storage, PersistentVMRole, HighMemory}
+  East Asia           {Compute, Storage, PersistentVMRole, HighMemory}
+  East US             {Compute, Storage, PersistentVMRole, HighMemory}
+  East US 2           {Compute, Storage, PersistentVMRole, HighMemory}
+  Japan East          {Compute, Storage, PersistentVMRole, HighMemory}
+  Japan West          {Compute, Storage, PersistentVMRole, HighMemory}
+  North Central US    {Compute, Storage, PersistentVMRole, HighMemory}
+  North Europe        {Compute, Storage, PersistentVMRole, HighMemory}
+  South Central US    {Compute, Storage, PersistentVMRole, HighMemory}
+  South India         {Compute, Storage, PersistentVMRole, HighMemory}
+  Southeast Asia      {Compute, Storage, PersistentVMRole, HighMemory}
+  West Europe         {Compute, Storage, PersistentVMRole, HighMemory}
+  West India          {Compute, Storage, PersistentVMRole, HighMemory}
+  West US             {Compute, Storage, PersistentVMRole, HighMemory}
 
 2. Pick a location that works best for you, replace the value of **$locName** with that location name, and then create the variable:
 
@@ -74,7 +74,7 @@ A virtual machine scale set must be contained in a resource group.
     
         New-AzureRmResourceGroup -Name $rgName -Location $locName
 
-    You should see something like this example:
+  You should see something like this example:
 
     ResourceGroupName : myrg1
     Location          : centralus
