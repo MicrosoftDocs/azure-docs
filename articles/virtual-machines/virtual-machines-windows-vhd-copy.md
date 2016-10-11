@@ -21,9 +21,9 @@
 	
 # Create a copy Windows VM running in Azure 
 
-This article shows you how to use the AZCopy tool to create a copy of the VHD from a Windows VM that is running in Azure. You can a VHD from either a generalized VM or a specialized VM.
+This article shows you how to use the AZCopy tool to create a copy of the VHD from a Windows VM that is running in Azure. You can copy a VHD from either a generalized VM or a specialized VM.
 
-If you want to upload a VHD from an on-premises VM, like one created using Hyper-V, the see [Upload a Windows VHD from an on-premises VM to Azure ](virtual-machines-windows-upload-image.md).
+If you want to upload a VHD from an on-premises VM, like one created using Hyper-V, the see [Upload a Windows VHD from an on-premises VM to Azure](virtual-machines-windows-upload-image.md).
 
 
 ## Before you begin
