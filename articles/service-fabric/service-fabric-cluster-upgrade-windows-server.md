@@ -1,6 +1,6 @@
 <properties
    pageTitle="Upgrade an Standalone Service Fabric cluster on Windows Server | Microsoft Azure"
-   description="Upgrade the Service Fabric code and/or configuration that runs a standalone Service Fabric cluster, including setting cluster update mode,?"
+   description="Upgrade the Service Fabric code and/or configuration that runs a standalone Service Fabric cluster, including setting cluster update mode"
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
