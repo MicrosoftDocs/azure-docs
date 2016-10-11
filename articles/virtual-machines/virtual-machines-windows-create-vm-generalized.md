@@ -19,27 +19,29 @@
 
 # Create a VM from a generalized VHD image
 
-A generalized VHD image has had all of your personal account information removed using Sysprep. 
+A generalized VHD image has had all of your personal account information removed using [Sysprep](virtual-machines-windows-generalize-vhd.md). You can create a generalized VHD by running Sysprep on an on-premises VM, then [uploading the VHD to Azure](virtual-machines-windows-upload-image.md) or by running Sysprep on an existing Azure VM and then [copying the VHD](virtual-machines-windows-vhd-copy.md).
 
-The quickest way to create a VM from a specialized VHD is to use a [quick start template]
+The quickest way to create a VM from a generalized VHD is to use a [quick start template]
 (https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image). 
 
 To use this quick start template, you need to provide the following information:
 
-- Subscription - if you have more than one subscription, select the one to use for the VM.
-- Resource group  - this needs to be the resource group containers the storage account where the VHD is located
-- Location - region where the resource group is located
-- Custom Vm Name - name for the new VM
-- User Image Storage Account Name - name of the storage account where the VHD is stored.
-- Os Disk Vhd Uri - URL of the VHD to use when creating the VM. This is in the format: `https://<storageAccountName>.blob.core.windows.net/<containerName>/<vhdName>.vhd`.
-- Dns Label Prefix - name to be used as the prefix for DNS.
-- Admin User Name - the name for the administrator acocunt to create for the VM. This is used for connecting to the VM using RDP.
-- Admin Password - password for the administrator account.
-- Os Type - this should be set to Windows
-- Vm Size - the size of the VM to be created. See [Vm Sizes](virtual-machines-windows-sizes.md) for more information
-- New Or Existing Vnet - you can use an existing virtual network or have a new one created for you.
-- New Or Existing Vnet Name - the name of the virtual network.
-- New Or Existing Subnet Name - name for the subnet.
+| Setting                   | Description                                                                              |
+|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Subscription                    | If you have more than one subscription, select the one to use for the VM.                                                                              |
+| Resource group                  | The resource group that contains the storage account where the VHD is located                                                            |
+| Location                        | Region where the resource group is located                                                                                                             |
+| Custom Vm Name                  | Name for the new VM                                                                                                                                    |
+| User Image Storage Account Name | Name of the storage account where the VHD is stored.                                                                                                   |
+| Os Disk Vhd Uri                 | URL of the VHD to use when creating the VM. This is in the format: `https://<storageAccountName>.blob.core.windows.net/<containerName>/<vhdName>.vhd`. |
+| Dns Label Prefix                | Name to be used as the prefix for DNS.                                                                                                                 |
+| Admin User Name                 | Name for the administrator account to create for the VM. This is used for connecting to the VM using RDP.                                          |
+| Admin Password                  | Password for the administrator account.                                                                                                                |
+| Os Type                         | This should be set to Windows                                                                                                                          |
+| Vm Size                         | The size of the VM to be created. For more information, see [Vm Sizes](virtual-machines-windows-sizes.md).                                             |
+| New Or Existing Vnet            | You can use an existing virtual network or have a new one created for you.                                                                             |
+| New Or Existing Vnet Name       | Name of the virtual network.                                                                                                                       |
+| New Or Existing Subnet Name     | Name for the subnet.                                                                                                                                   |
 
 ## Prerequisites
 
@@ -179,6 +181,7 @@ The following PowerShell script shows how to set up the virtual machine configur
 	# Create the new VM
 	New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
 ```
+## Verify that the VM was created 
 
 When complete, you should see the newly created VM in the [Azure portal](https://portal.azure.com) under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
 
