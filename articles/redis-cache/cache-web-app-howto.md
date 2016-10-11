@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="07/22/2016" 
+	ms.date="10/11/2016" 
 	ms.author="sdanie"/>
 
 # How to create a Web App with Redis Cache
