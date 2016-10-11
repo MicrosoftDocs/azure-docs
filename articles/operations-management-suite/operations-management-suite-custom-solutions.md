@@ -50,7 +50,7 @@ Solutions provided by Microsoft and trusted partners may be installed from the S
 Members of the community can submit solutions to Azure Quickstart Templates.  You can either download these templates for later installation or inspect them to learn how to [create your own solutions](#creating-a-solution).
 
 1. Follow the process described in [OMS workspace and Automation account](#oms-workspace-and-automation-account) to link a workspace and account.
-2. Go to [Azure Quickstart Templates](https://azure.microsoft.com/en-us/documentation/templates/).  
+2. Go to [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/).  
 3. Search for a solution that you're interested in.
 4. Select the solution from the results to view its details.
 5. Click the **Deploy to Azure** button.
