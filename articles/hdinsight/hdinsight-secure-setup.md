@@ -283,9 +283,26 @@ For more information, see [Join a Windows Server virtual machine to a managed do
 For more information, see [Install Active Directory administration tools on the virtual machine](https://azure.microsoft.com/en-us/documentation/articles/active-directory-ds-admin-guide-administer-domain/#task-2---install-active-directory-administration-tools-on-the-virtual-machine).
 
 
-[jgao: how about adding a step here to check the AADDC Users OU?]
+**To configure reverse DNS**
 
-This organization unit will be used when creating the HDInsight cluster. It will be used to retain the Hadoop system users.
+
+1. RDP to contosoaadadmin using the AAD user account.
+2. Click **Start**, click **Administrative Tools**, and then click **DNS**. 
+3. Click **No** to skip adding ContosoAADAdmin.
+4. Select **The following computer**, enter the IP address of the first DNS server you configured earlier, and then click **OK**.  The IP address shall be 10.1.0.4. You shall see the DC/DNS is added to the left pane.
+3. Expand the DC/DNS server, right-click **Reverse Lookup Zones**, and then click **New Zone**. The New Zone Wizard opens.
+4. Click **Next**.
+5. Select **Primary zone**, and then click **Next**.
+6. Select **To all DNS servers running on domain controllers in this domain**, and then click **Next**.
+6. Select **IPv4 Reverse Lookup Zone, and then click **Next**.
+7. In **Network ID**, enter **10**, and then click **Next**.
+8. Click **Next**.
+9. Click **Next**.
+10. Click **Finish**.
+
+
+
+The organization unit you create next will be used when creating the HDInsight cluster. The Hadoop system users and computer accounts will be placed in this OU.
 
 **Create an Organizational Unit (OU) on an AAD Domain Services managed domain**
 
@@ -293,7 +310,7 @@ This organization unit will be used when creating the HDInsight cluster. It will
 2. Click **Start**, click **Administrative Tools**, and then click **Active Directory Administrative Center**.
 5. Click the domain name in the left pane. For example, contoso158.
 6. Click **New** under the domain name in the **Task** pane, and then click **Organizational Unit**.
-7. Enter a name, for example **Hadoop System Users**, and then click **OK**. 
+7. Enter a name, for example **HDInsightOU**, and then click **OK**. 
 
 *****************************************
 **additional steps**
@@ -303,11 +320,13 @@ https://azure.microsoft.com/en-us/documentation/articles/active-directory-ds-adm
 
 For more information, See [Create an Organizational Unit (OU) on an AAD Domain Services managed domain](https://azure.microsoft.com/en-us/documentation/articles/active-directory-ds-admin-guide-create-ou/).
 
+#########################################################################
+#########################################################################
 
 
-## Create a Resource Manager virtual network for HDInsight cluster
+## Create an Azure Resource Manager virtual network for HDInsight cluster
 
-In this section, you will create a Resource Manager VNet that will be used for the HDInsight cluster. A Resource Manager template is used in this tutorial to create the VNet.  For more information on creating Azure VNET using other methods, see [Create a virtual network](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
+In this section, you will create an Azure Resource Manager VNet that will be used for the HDInsight cluster. A Resource Manager template is used in this tutorial to create the VNet.  For more information on creating Azure VNET using other methods, see [Create a virtual network](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
 
 After creating the VNet, you will configure the Resource Manager VNet to use the same DNS servers as for the AAD VNet. If you follow the steps in this tutorial to create the classic VNet and the AAD, the DNS servers are 10.1.0.4 and 10.1.0.5.
 
@@ -346,29 +365,53 @@ After creating the VNet, you will configure the Resource Manager VNet to use the
 
 2. From the **Parameters** blade, enter the following values:
 
+	- **Resoruce group**: contosohdirg
+	- **Location**: (Select a location)
     - **VNetName**:  contosohdivnet.
 	- **VNetAddressPrefix**: 10.2.0.0/16
 	- **SubNet1Prefix**: 10.2.0.0/24
 	- **SubNetName**: Subnet1
-
-3. Click **OK** to save the parameters.
-4. From the **Custom deployment** blade, click **Create new** under **Resource Group**, and then enter **contosohdirg**.  The resource group is a container that groups the cluster, the dependent storage account and other linked resource.
-5. Click **Legal terms**, and then click **Create**.
-6. Click **Create**. You will see a new tile titled **Submitting deployment for Template deployment**. 
+	- **I agree to the terms and conditions stated above**: (select)
+	- **Pin to dashboard**: (select)
+6. Click **Purchase**. You will see a new tile titled **Submitting deployment for Template deployment**. 
 
 **To configure DNS for the Resource Manager VNet**
 
-1. From the [Azure classic portal](https://manage.windowsazure.com), click **Browse** -> **Virtual networks**. Don't click **Virtual networks (classic).
+1. From the [Azure portal](https://portal.azure.com), click **More services** -> **Virtual networks**. Don't click **Virtual networks (classic)**.
 2. Click **contosohdivnet**.
-3. Click **Settings** from the top menu.
-4. Click **DNS servers** from the Settings blade.
-6. Click **Custom DNS**, and then enter the following values:
+4. Click **DNS servers** from the left side of the new blade.
+6. Click **Custom**, and then enter the following values:
 
-	- Primary DNS server: 10.1.0.4
-	- Secondary DNS server: 10.1.0.5
+	- 10.1.0.4
+	- 10.1.0.5
 
 	These DNS server IP addresses must match to the DNS servers in the AAD VNet (classic VNet).
 7. Click **Save**.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Bridge the AAD VNet and the HDInsight VNet
 
