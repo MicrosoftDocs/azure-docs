@@ -29,7 +29,7 @@ For IT Admins, Azure AD provides an affordable, easy to use solution to give emp
 
 For application developers, Azure AD lets you focus on building your application by making it fast and simple to integrate with a world class identity management solution used by millions of organizations around the world.
 
-Azure AD also includes a full suite of identity management capabilities including multi-factor authentication, device registration, self-service password management, self-service group management, privileged account management, role based access control, application usage monitoring, rich auditing and security monitoring and alerting. These capabilities can help secure cloud based applications, streamline IT processes, cut costs and help assure corporate compliance goals are met.
+Azure AD also includes a full suite of identity management capabilities including multi-factor authentication, device registration, self-service password management, self-service group management, privileged account management, role based access control, application usage monitoring, rich auditing and security monitoring and alerting. These capabilities can help secure cloud based applications, streamline IT processes, cut costs and help ensure that corporate compliance goals are met.
 
 Additionally, with just [four clicks](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx), Azure AD can be integrated with an existing Windows Server Active Directory, giving organizations the ability to leverage their existing on-premises identity investments to manage access to cloud based SaaS applications.
 
@@ -55,10 +55,10 @@ For more details, see [Service Level Agreements](https://azure.microsoft.com/sup
 Your organization can use Azure AD to improve employee productivity, streamline IT processes, improve security and cut costs in many ways:
 
 -	Quickly adopt cloud services, providing employees and partners with an easy single-sign on experience powered by Azure AD’s fully automated SaaS app access management and provisioning services capabilities.
--	Empower employees with access to world class cloud apps and service and self-services capabilities from wherever they need to work on the devices they love to use.
+-	Empower employees with access to world class cloud apps and self-service capabilities from wherever they need to work on the devices they love to use.
 -	Easily and securely manage employee and vendor access to your corporate social media accounts.
 -	Improve application security with Azure AD multifactor authentication and conditional access.
--	Implement consistent, self-service application access management, empowering business owners to move quickly while cutting IT costs and overhead.
+-	Implement consistent, self-service application access management, empowering business owners to move quickly while cutting IT costs and overheads.
 -	Monitor application usage and protect your business from advanced threats with security reporting and monitoring.
 -	Secure mobile (remote) access to on-premises applications.
 
@@ -70,10 +70,10 @@ Your organization can use Azure AD to improve employee productivity, streamline 
 ## How can I get started?
 -	If you are an IT admin:
  - [Try it out!](https://azure.microsoft.com/trial/get-started-active-directory/) - you can sign up for a free 30 trial today and deploy your first cloud solution in under 5 minutes using this link
- - Read our “Getting started with Azure AD” for tips and tricks on getting an Azure AD tenant up and running fast
+ - Read “Getting started with Azure AD” for tips and tricks on getting an Azure AD tenant up and running fast
 -	If you are a developer:
  - Check out our [Developers Guide](active-directory-developers-guide.md) to Azure Active Directory
- - [Start a trial](https://azure.microsoft.com/trial/get-started-active-directory/) – sign up for a free 30 day trial today and get started integrating your app with Azure AD
+ - [Start a trial](https://azure.microsoft.com/trial/get-started-active-directory/) – sign up for a free 30 day trial today and  start integrating your apps with Azure AD
 
 
 

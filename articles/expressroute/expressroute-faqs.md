@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/04/2016"
+   ms.date="09/19/2016"
    ms.author="cherylmc"/>
 
 # ExpressRoute FAQ
@@ -53,6 +53,7 @@ Most Azure services are supported over ExpressRoute.
 
 - Connectivity to virtual machines and cloud services deployed in virtual networks are supported over the private peering path.
 - Azure Websites are supported over the public peering path.
+- IoT Hub is supported over the public peering path.
 - Office 365 is supported over the Microsoft peering path.
 - All other services are accessible over the public peering path. The exceptions are as follows.
 

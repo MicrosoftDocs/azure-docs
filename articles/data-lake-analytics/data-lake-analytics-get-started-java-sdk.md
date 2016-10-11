@@ -24,8 +24,6 @@ Learn how to use the Azure Data Lake Analytics Java SDK to create an Azure Data 
 
 In this tutorial, you will develop a Java console application which contains samples of common administrative tasks as well as creating test data and submitting a job.  To go through the same tutorial using other supported tools, click the tabs on the top of this section.
 
-[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
-
 ## Prerequisites
 
 * Java Development Kit (JDK) 8 (using Java version 1.8).

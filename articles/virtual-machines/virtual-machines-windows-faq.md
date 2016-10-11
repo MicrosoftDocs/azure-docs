@@ -131,7 +131,6 @@ Passwords must be 8 - 123 characters in length and meet 3 out of the following 4
 
 The following passwords are not allowed:
 
-The following passwords are not allowed
 <table>
 	<tr>
 		<td style="text-align:center">abc@123</td><td style="text-align:center">P@$$w0rd</td><td style="text-align:center">P@ssw0rd</td><td style="text-align:center">P@ssword123</td><td style="text-align:center">Pa$$word</td>

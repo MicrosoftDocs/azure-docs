@@ -4,7 +4,7 @@
 
 2. Click **Data + Analytics**, then click **Event Hubs**.
 
-	![][9]
+	![](./media/event-hubs-create-event-hub/create-event-hub9.png)
 
 3. In the **Create namespace** blade, enter a namespace name. The system immediately checks to see if the name is available.
 
@@ -14,25 +14,25 @@
 
 2. Click **Create** to create the namespace.
 
-6. In the Event Hubs namespace list, click the newly-created namespace.
+6. In the Event Hubs namespace list, click the newly-created namespace.      
 
-	![][2]
+	![](./media/event-hubs-create-event-hub/create-event-hub2.png)
 
 7. In the namespace blade, click **Event Hubs**.
 
-	![][3]
+	![](./media/event-hubs-create-event-hub/create-event-hub3.png)
 
 8. At the top of the blade, click **Add Event Hub**.
 
-	![][4]
+	![](./media/event-hubs-create-event-hub/create-event-hub4.png)
 
 3. Type a name for your Event Hub, then click **Create**.
 
-	![][5]
+	![](./media/event-hubs-create-event-hub/create-event-hub5.png)
 
 4. In the list of Event Hubs, click the newly created Event Hub name. 
 
-	![][6]
+	![](./media/event-hubs-create-event-hub/create-event-hub6.png)
 
 5. Back in the namespace blade (not the specific Event Hub blade), click **Shared access policies**, and then click **RootManageSharedAccessKey**.
 
@@ -40,16 +40,8 @@
 
 5. Click the copy button to copy the **RootManageSharedAccessKey** connection string to the clipboard. Save this connection string to use later in the tutorial.
 
-	![][8]
+	![](./media/event-hubs-create-event-hub/create-event-hub8.png)
 
 Your Event Hub is now created, and you have the connection strings you need to send and receive events.
-
-[2]: ./media/event-hubs-create-event-hub/create-event-hub2.png
-[3]: ./media/event-hubs-create-event-hub/create-event-hub3.png
-[4]: ./media/event-hubs-create-event-hub/create-event-hub4.png
-[5]: ./media/event-hubs-create-event-hub/create-event-hub5.png
-[6]: ./media/event-hubs-create-event-hub/create-event-hub6.png
-[8]: ./media/event-hubs-create-event-hub/create-event-hub8.png
-[9]: ./media/event-hubs-create-event-hub/create-event-hub9.png
 
 [Azure portal]: https://portal.azure.com/

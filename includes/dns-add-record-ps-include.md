@@ -24,6 +24,13 @@ In this example, we use the record set name "@" to create an MX record at the zo
 	Add-AzureRmDnsRecordConfig -RecordSet $rs -Nsdname "ns1.contoso.com"
 	Set-AzureRmDnsRecordSet -RecordSet $rs
 
+### Create a PTR record set with a single record
+In this case 'my-arpa-zone.com' represents the ARPA zone representing your IP range.  Each PTR record set in this zone corresponds to an IP address within this IP range.  
+
+	$rs = New-AzureRmDnsRecordSet -Name "10" -RecordType PTR -Ttl 3600 -ZoneName my-arpa-zone.com -ResourceGroupName MyAzureResourceGroup
+	Add-AzureRmDnsRecordConfig -RecordSet $rs -Ptrdname "myservice.contoso.com"
+	Set-AzureRmDnsRecordSet -RecordSet $rs
+
 ### Create an SRV record set with a single record
 
 If you are creating an SRV record in the root of a zone, simply specify *_service* and *_protocol* in the record name. There is no need to include"@" in the record name.

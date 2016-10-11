@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="09/16/2016"
 	ms.author="garye"/>
 
 
@@ -30,6 +30,8 @@ This is the first step of the walkthrough, [Develop a predictive analytics solut
 6.	[Access the web service](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
+
+<!-- This needs to be updated to refer to the new way of creating workspaces in the Ibiza portal -->
 
 To use Machine Learning Studio, you need to have a Microsoft Azure Machine Learning workspace. This workspace contains the tools you need to create, manage, and publish experiments.  
 

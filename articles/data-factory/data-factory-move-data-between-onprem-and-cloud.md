@@ -4,7 +4,7 @@
     keywords="data gateway, data integration, move data, gateway credentials"
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/12/2016" 
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Move data between on-premises sources and the cloud with Data Management Gateway
 This article provides an overview of data integration between on-premises data stores and cloud data stores using Data Factory. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article and other data factory core concepts articles: [datasets](data-factory-create-datasets.md) and [pipelines](data-factory-create-pipelines.md). 
@@ -94,7 +94,7 @@ In this step, you use the Azure portal to create an Azure Data Factory instance 
 	2. **Gateway name** is set to **adftutorialgateway**.
 	4. The status bar the bottom displays **Connected to the cloud service** along with a **green check mark**.
 
-	On the **Home** tab, you can also do the following: 
+	On the **Home** tab, you can also do the following operations: 
 		- **Register** a gateway with a key from the Azure portal by using the Register button. 
 		- **Stop** the Data Management Gateway Host Service running on your gateway machine. 
 		- **Schedule updates** to be installed at a specific time of the day. 
@@ -104,14 +104,14 @@ In this step, you use the Azure portal to create an Azure Data Factory instance 
 
 	![Gateway certificate configuration](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
 
-	You can also do the following on the Settings tab: 
+	You can also do the following actions on the Settings tab: 
 		- View or export the certificate being used by the gateway.
 		- Change the HTTPS endpoint used by the gateway		- 
 9. (optional) Switch to the **Diagnostics** tab, check the **Enable verbose logging** option if you want to enable verbose logging that you can use to troubleshoot any issues with the gateway. The logging information can be found in **Event Viewer** under **Applications and Services Logs** -> **Data Management Gateway** node. 
 
 	![Diagnostics tab](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
 
-	You can also do the following in the **Diagnostics** tab: 
+	You can also perform the following actions in the **Diagnostics** tab: 
 	
 	- Use **Test Connection** section to an on-premises data source using the gateway.
 	- Click **View Logs** to see the Data Management Gateway log in an Event Viewer window. 
@@ -127,7 +127,7 @@ In this step, you create two linked services: **AzureStorageLinkedService** and 
 1.	In the **Data Factory Editor**, click **New data store** on the toolbar and select **SQL Server**. 
 
 	![New SQL Server linked service](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png) 
-3.	In the **JSON editor**, do the following: 
+3.	In the **JSON editor**, do the following steps: 
 	1. For the **gatewayName**, specify **adftutorialgateway**.	
 	2. If you are using Windows authentication:
 		1. In the **connectionString**, set the **Integrated Security** to **true**, specify database **server name** and **database name**, and remove **User ID** and **Password**. 
@@ -163,7 +163,7 @@ In this step, you create two linked services: **AzureStorageLinkedService** and 
    
  
 ## Create datasets
-In this step, you create input and output datasets that represent input and output data for the copy operation (On-premises SQL Server database => Azure blob storage). Before creating datasets or tables (rectangular datasets), you need to do the following (detailed steps follows the list):
+In this step, you create input and output datasets that represent input and output data for the copy operation (On-premises SQL Server database => Azure blob storage). Before creating datasets or tables (rectangular datasets), you need to do the following steps (detailed steps follows the list):
 
 - Create a table named **emp** in the SQL Server Database you added as a linked service to the data factory and insert couple of sample entries into the table.
 - Create a blob container named **adftutorial** in the Azure blob storage account you added as a linked service to the data factory.
@@ -219,7 +219,7 @@ In this step, you create input and output datasets that represent input and outp
 		  }
 		}
 
-	Note the following: 
+	Note the following points: 
 	
 	- **type** is set to **SqlServerTable**.
 	- **tableName** is set to **emp**.
@@ -255,7 +255,7 @@ In this step, you create input and output datasets that represent input and outp
 		  }
 		}
   
-	Note the following: 
+	Note the following points: 
 	
 	- **type** is set to **AzureBlob**.
 	- **linkedServiceName** is set to **AzureStorageLinkedService** (you had created this linked service in Step 2).
@@ -337,7 +337,7 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
 			  }
 			}
 
-	Note the following:
+	Note the following points:
  
 	- In the activities section, there is only activity whose **type** is set to **Copy**.
 	- **Input** for the activity is set to **EmpOnPremSQLTable** and **output** for the activity is set to **OutputBlobTable**.
@@ -364,7 +364,7 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
 
 	![Diagram Link](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
 
-2. You should see the diagram similar to the following:
+2. You should see the diagram similar to the following image:
 
 	![Diagram View](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramView.png)
 

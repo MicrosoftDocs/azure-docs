@@ -74,10 +74,16 @@ To set up email notifications for alerts
 5. In the **Severity** dialog, choose one or more levels that you want to trigger email notification.
 
 6. Click **Save**.
+### What alert types are available for Azure IaaS VM backup?
+| Alert Level  | Alerts sent |
+| ------------- | ------------- |
+| Critical | Backup failure, recovery failure  |
+| Warning  | None |
+| Informational  | None  | 
 
 ### Are there situations where email isn't sent even if notifications are configured?
 
-There are situations where an alert is not sent, even though the notifications have been properly configured. In the following situations email notifications are not sent:
+There are situations where an alert is not sent, even though the notifications have been properly configured. In the following situations email notifications are not sent to avoid alert noise:
 
 - If notifications are configured to Hourly Digest, and an alert is raised and resolved within the hour.
 - The job is canceled.

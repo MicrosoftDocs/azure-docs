@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Troubleshooting guide for live streaming" 
+	pageTitle="Troubleshooting guide for live streaming | Microsoft Azure" 
 	description="This topic gives suggestions on how to troubleshoot live streaming problems." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 #Troubleshooting guide for live streaming
