@@ -1,4 +1,4 @@
-<properties
+2<properties
 	pageTitle="Azure Government documentation | Microsoft Azure"
 	description="This provides a comparision of features and guidance on developing applications for Azure Government"
 	services="Azure-Government"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="10/11/2016"
+	ms.date="10/12/2016"
 	ms.author="ryansoc"/>
 
 
