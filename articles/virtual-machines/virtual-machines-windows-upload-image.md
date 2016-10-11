@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2016"
+	ms.date="10/10/2016"
 	ms.author="cynthn"/>
 
 # Upload a Windows VHD from an on-premises VM to Azure 
@@ -56,7 +56,7 @@ A pop-up window opens for you to enter your Azure account credentials.
 		Get-AzureRmSubscription
 ```
 
-3. Set the correct subscription using the subscription ID.		
+3. Set the correct subscription using the subscription ID. Replace **<subscriptionID>** with the ID of the correct subscription.
 
 ```powershell
 	Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
@@ -64,9 +64,9 @@ A pop-up window opens for you to enter your Azure account credentials.
 	
 ## Get the storage account
 
-You need a storage account in Azure house the uploaded VM image. You can either use an existing storage account or create a new one. 
+You need a storage account in Azure to store the uploaded VM image. You can either use an existing storage account or create a new one. 
 
-Show the available storage accounts.
+To show the available storage accounts, type:
 
 ```powershell
 		Get-AzureRmStorageAccount
@@ -74,7 +74,7 @@ Show the available storage accounts.
 
 If you want to use an existing storage account, proceed to the [Upload the VM image](#upload-the-vm-vhd-to-your-storage-account) section.
 
-If you want to create a storage account, follow these steps:
+If you need to create a storage account, follow these steps:
 
 1. You need the name of the resource group where the storage account should be created. To find out all the resource groups that are in your subscription, type:
 
@@ -82,16 +82,16 @@ If you want to create a storage account, follow these steps:
 		Get-AzureRmResourceGroup
 ```
 
-	To create a resource group, use this command:
+	To create a resource group named **myResourceGroup** in the **West US** region, type:
 
 ```powershell
-		New-AzureRmResourceGroup -Name <resourceGroupName> -Location <location>
+		New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
 ```
 
-2. Create a storage account in this resource group by using the [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet:
+2. Create a storage account named **mystorageaccount** in this resource group by using the [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet:
 
 ```powershell
-	New-AzureRmStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Location "<location>" -SkuName "<skuName>" -Kind "Storage"
+	New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" -SkuName "Standard_LRS" -Kind "Storage"
 ```
 			
 Valid values for -SkuName are:
@@ -106,39 +106,30 @@ Valid values for -SkuName are:
 
 ## Upload the VHD to your storage account
 
-Use the [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) cmdlet to upload the image to a container in your storage account:
-
-```powershell
-		$rgName = "<resourceGroupName>"
-		$urlOfUploadedImageVhd = "https://<storageAccount>.blob.core.windows.net/<blobContainer>/<targetVHDName>.vhd"
-		Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd -LocalFilePath <localPathOfVHDFile.vhd>
+Use the [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) cmdlet to upload the image to a container in your storage account. This example uploads the file **myVHD.vhd** from C:\Users\Public\Documents\Virtual hard disks\ to a storage account named **mystorageaccount** in the **myResourceGroup** resource group. The file will be placed into the container named **mycontainer** and the new file name will be **myUploadedVHD.vhd**.
 ```
 
-Where:
-
-- **storageAccount** is the name of the storage account for the image. 
-
-- **blobContainer** is the blob container where you want to store your image. If an existing blob container with this name isn't found, it's created for you.
-
-- **targetVHDName** is the name that you want to use for the uploaded VHD file.
-
-- **localPathOfVHDFile** is the full path and name of the .vhd file on your local machine.
+```powershell
+		$rgName = "myResourceGroup"
+		$urlOfUploadedImageVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
+		Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
+```
 
 
 If successful, you get a response that looks similar to this:
 
-	C:\> Add-AzureRmVhd -ResourceGroupName testUpldRG -Destination https://testupldstore2.blob.core.windows.net/testblobs/WinServer12.vhd -LocalFilePath "C:\temp\WinServer12.vhd"
-	MD5 hash is being calculated for the file C:\temp\WinServer12.vhd.
-	MD5 hash calculation is completed.
-	Elapsed time for the operation: 00:03:35
-	Creating new page blob of size 53687091712...
-	Elapsed time for upload: 01:12:49
+  C:\> Add-AzureRmVhd -ResourceGroupName myResourceGroup -Destination https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
+  MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
+  MD5 hash calculation is completed.
+  Elapsed time for the operation: 00:03:35
+  Creating new page blob of size 53687091712...
+  Elapsed time for upload: 01:12:49
 
-	LocalFilePath           DestinationUri
-	-------------           --------------
-	C:\temp\WinServer12.vhd https://testupldstore2.blob.core.windows.net/testblobs/WinServer12.vhd
+  LocalFilePath           DestinationUri
+  -------------           --------------
+  C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
 
-This command may take a while to complete, depending on your network connection and the size of your VHD file.
+Depending on your network connection and the size of your VHD file, this command may take a while to complete
 
 
 ## Next steps
