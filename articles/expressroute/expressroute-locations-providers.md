@@ -111,7 +111,7 @@ To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/featu
 | **Location**  | **Service Providers** |
 |---------------|-----------------------|
 | **Berlin** | Colt+, e-shelter+ |
-| **Frankfurt** | Colt, Equinix+, Interxion |
+| **Frankfurt** | Colt, Equinix, Interxion |
 
 ## <a name="nonpartners"></a>Connectivity through service providers not listed
 
