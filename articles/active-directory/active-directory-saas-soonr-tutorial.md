@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -138,7 +138,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 	D. The **Single sign-out service URL**
 
 
-5.To configure Single Sign On at the Soonr Workplace, you can refer this <a href="https://na01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fsoonr.com%2FAWPHelp%2FContent%2F0_HOME%2FSupport_for_End_Clients.htm&data=01%7C01%7Cv-saikra%40microsoft.com%7Ccbb4367ab09b4dacaac408d3eebe3f42%7C72f988bf86f141af91ab2d7cd011db47%7C1&sdata=FB92qtE6m%2Fd8yox7AnL2f1h%2FGXwSkma9x9H8Pz0955M%3D&reserved=0/">End-User Support URL</a>  article from Soonr team.
+5. To configure Single Sign On at the Soonr Workplace, please reach out to Sooner team at <a href="https://na01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fsoonr.com%2FAWPHelp%2FContent%2F0_HOME%2FSupport_for_End_Clients.htm&data=01%7C01%7Cv-saikra%40microsoft.com%7Ccbb4367ab09b4dacaac408d3eebe3f42%7C72f988bf86f141af91ab2d7cd011db47%7C1&sdata=FB92qtE6m%2Fd8yox7AnL2f1h%2FGXwSkma9x9H8Pz0955M%3D&reserved=0/">End-User Support URL</a>.
    
 6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 
@@ -211,8 +211,7 @@ The objective of this section is to create a test user in the Azure classic port
 
 ### Creating a Soonr Workplace test user
 
-The objective of this section is to create a user called Britta Simon in Soonr Workplace. Please refer Soonr Workplace support url at <a href="http://soonr.com/AWPHelp/Content/0_HOME/Support_for_End_Clients.htm/">End-User Support URL</a> for additional support.
-
+ The objective of this section is to create a user called Britta Simon in Soonr Workplace. Please work with Soonr support team to create a user in the platform. You can raise the support ticket with Soonr from <a href="https://na01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fsoonr.com%2FAWPHelp%2FContent%2F0_HOME%2FSupport_for_End_Clients.htm&data=01%7C01%7Cv-saikra%40microsoft.com%7Ccbb4367ab09b4dacaac408d3eebe3f42%7C72f988bf86f141af91ab2d7cd011db47%7C1&sdata=FB92qtE6m%2Fd8yox7AnL2f1h%2FGXwSkma9x9H8Pz0955M%3D&reserved=0/">End-User Support URL</a>.
 
 > [AZURE.NOTE] If you need to create an user manually, you need to 
 > contact the Soonr Workplace support team.
