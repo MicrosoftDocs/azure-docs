@@ -214,7 +214,7 @@ A runbook can be started many ways: through the Azure portal, with a webhook, wi
 
     A runbook job can be created and started with the Azure Automation REST API by using the **PUT** method with the following request URI.
 
-    https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08
+    `https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08`
 
     In the request URI, replace the following parameters:
 
