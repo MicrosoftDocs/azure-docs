@@ -111,12 +111,12 @@ provider (DP) and the user.
     offer based on it:
 
     a.  [Create a
-        plan](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-create-plan/).
+        plan](https://azure.microsoft.com/documentation/articles/azure-stack-create-plan/).
         This plan should include only the subscriptions service. In this
         article, we use a plan called PlanForDelegation.
 
     b.  [Create an
-        offer](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-create-offer/)
+        offer](https://azure.microsoft.com/documentation/articles/azure-stack-create-offer/)
         based on this plan. In this article, we use an offer
         called OfferToDP.
 
@@ -143,9 +143,9 @@ customers to see it, because the delegated provider will not be able to
 change the plans and quotas it includes.
 
 1.  As service administrator, [create a
-    plan](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-create-plan/)
+    plan](https://azure.microsoft.com/documentation/articles/azure-stack-create-plan/)
     and [an
-    offer](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-create-offer/)
+    offer](https://azure.microsoft.com/documentation/articles/azure-stack-create-offer/)
     based on it. For this article, we use an offer
     called DelegatedOffer.
 
@@ -236,4 +236,4 @@ for the delegated provider as it was for the service administrator (see
 offer](#service-admin-creates-the-delegated-offer)).
 
 ##Next steps
-[Provision a VM](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-provision-vm/)
+[Provision a VM](https://azure.microsoft.com/documentation/articles/azure-stack-provision-vm/)
