@@ -26,7 +26,7 @@ This article describes how to use Service Bus queues in Node.js. The samples are
 
 ## Create a Node.js application
 
-Create a blank Node.js application. For instructions on how to create a Node.js application, see [Create and deploy a Node.js application to an Azure Website][], or [Node.js Cloud Service][] (using Windows PowerShell).
+Create a blank Node.js application. For instructions on how to create a Node.js application, see [Create and deploy a Node.js application to an Azure Website][], or [Node.js Cloud Service][] using Windows PowerShell.
 
 ## Configure your application to use Service Bus
 

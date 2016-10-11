@@ -32,7 +32,7 @@ and subscriptions, see the [Next steps](#next-steps) section.
 
 ## Create a Node.js application
 
-Create a blank Node.js application. For instructions on creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or Web Site with WebMatrix.
+Create a blank Node.js application. For instructions on creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service][] using Windows PowerShell, or Web Site with WebMatrix.
 
 ## Configure your application to use Service Bus
 
