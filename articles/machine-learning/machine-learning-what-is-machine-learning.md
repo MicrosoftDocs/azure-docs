@@ -68,7 +68,7 @@ In [Machine Learning Studio](machine-learning-what-is-ml-studio.md), you can qui
     * [Deploy web services](machine-learning-publish-a-machine-learning-web-service.md)
     * [Train and retrain models through APIs](machine-learning-retrain-models-programmatically.md)
     * [Manage web service endpoints](machine-learning-create-endpoint.md)
-    * [Scale web services](machine-learning-scaling-endpoints.md)
+    * [Scale a web service](machine-learning-scaling-webservice.md)
     * [Consume web services](machine-learning-consume-web-services.md)
 
 ## Key machine learning terms and concepts
