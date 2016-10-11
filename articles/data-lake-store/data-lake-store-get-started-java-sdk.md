@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/15/2016"
+   ms.date="10/11/2016"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using Java
@@ -38,11 +38,17 @@ Learn how to use the Azure Data Lake Store Java SDK to perform basic operations 
 
 ## How do I authenticate using Azure Active Directory?
 
-In this tutorial we use a client key to retrieve an Azure Active Directory token. We use this token to create an Data Lake Store client object to perform operations file and directory operations. For instructions on how to authenticate with Azure Data Lake Store using the client key, see [Authenticating with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
+In this tutorial we use a Azure AD application client secret to retrieve an Azure Active Directory token. We use this token to create an Data Lake Store client object to perform operations file and directory operations. For instructions on how to authenticate with Azure Data Lake Store using the client secret, we perform the following high-level steps:
+
+1. Create an Azure AD web application
+2. Retrieve the client ID, client secret, and token endpoint for the Azure AD web application.
+3. Configure access for the Azure AD web application on the Data Lake Store file/folder that you want to access from the Java application you are creating.
+
+For instructions on how to perform these steps, see [Create an Active Directory application](data-lake-store-authenticate-using-active-directory.md#create-an-active-directory-application).
 
 Azure Active Directory provides other options as well to retrieve a token. You can pick from a number of different authentication mechanisms to suit your scenario, for example, an application running in a browser, an application distributed as a desktop application, or a server application running on-premises or in an Azure virtual machine. You can also pick from different types of credentials like passwords, certificates, 2-factor authentication, etc. In addition, Azure Active Directory allows you to synchronize your on-premises Active Directory users with the cloud. For details, see [Authentication Scenarios for Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md). 
 
-## Create a Java aplication
+## Create a Java application
 
 The code sample available [here](https://github.com/asikaria-msft/clientV2-sample) walks you through the process of creating files in the store, concatenating files, downloading a file, and deleting some files in the store. This section of the article walk you through the main parts of the code.
 

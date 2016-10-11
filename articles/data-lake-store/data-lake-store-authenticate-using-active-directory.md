@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/27/2016"
+   ms.date="10/11/2016"
    ms.author="nitinme"/>
 
 # Authenticate with Data Lake Store using Azure Active Directory
@@ -33,7 +33,7 @@ Both these options result in your application being provided with an OAuth 2.0 t
 
 	![Get subscription ID](./media/data-lake-store-authenticate-using-active-directory/get-subscription-id.png)
 
-* Your Azure AD domain name. You can retrieve it by hovering the mouse in the top-right corner of the Azure Portal. 
+* Your Azure AD domain name. You can retrieve it by hovering the mouse in the top-right corner of the Azure Portal. From the screenshot below, the domain name is **contoso.microsoft.com**, and the GUID within brackets is the tenant ID. 
 
 	![Get AAD domain](./media/data-lake-store-authenticate-using-active-directory/get-aad-domain.png)
 
@@ -63,9 +63,9 @@ Your application can directly provide user credentials to Azure AD. This method 
 
 * Redirect URI for the Azure AD native client application. 
 
-For instructions on how to create an Azure AD application and retrieve the client ID, see [Create an Active Directory Application](../resource-group-create-service-principal-portal.md#create-an-active-directory-application). 
+For instructions on how to create an Azure AD application and retrieve the client ID, see the section, [Create an Active Directory application](#create-an-active-directory-application) below. 
 
->[AZURE.NOTE] The instructions in the above links are for an Azure AD web application. However, the steps are exactly the same even if you chose to create a native client application instead.
+>[AZURE.NOTE] The instructions below are for an Azure AD web application. However, the steps are exactly the same even if you chose to create a native client application instead.
 
 ## Service-to-service authentication
 
@@ -75,25 +75,25 @@ This is the recommended approach if you want your application to automatically a
 
 * Azure AD domain name (already listed in the prerequisite of this article).
 
-* Azure AD **web application**.
+* Azure AD **web application**. (See Step 1 below, under [Create an Active Directory application](#create-an-active-directory-application)).
 
-* Client ID for the Azure AD web application.
+* Client ID, client secret, and token endpoint for the Azure AD web application. (See Step 2 below, under [Create an Active Directory application](#create-an-active-directory-application)).
+		
+* Enable access for the Azure AD web application on the the Data Lake Store file/folder or the Data Lake Analytics account that you want to work with. (See Step 3 below, under [Create an Active Directory application](#create-an-active-directory-application)).
 
-	>[AZURE.NOTE] For instructions on how to create an Azure AD application and retrieve the client ID, see [Create an Active Directory Application](../resource-group-create-service-principal-portal.md#create-an-active-directory-application).
-	
-* Configure the Azure AD web application to either use the client secret or a certificate. To create a web application using a certificate, see [Create a service principal with certificate](../resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+>[AZURE.NOTE] By default the Azure AD application is configured to use the client secret, which you can retrieve from the Azure AD application. However, if you want the Azure AD application to use a certificate instead, you must create the Azure AD web application using Azure PowerShell, as described at [Create a service principal with certificate](../resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
 
-* Enable access for the Azure AD web application on the the Data Lake Store file/folder or the Data Lake Analytics account that you want to work with. For instructions on how to provide access to an Azure AD application to a Data Lake Store file/folder, see [Assign users or security group as ACLs to the Azure Data Lake Store file system](data-lake-store-secure-data.md#filepermissions).
 
-## Authenticate using Azure Active Directory client keys
 
-In this section, we use client keys to authenticate using Azure Active Directory. Using client keys for authentication is a 3-step process.
+## Create an Active Directory application
+
+In this section we learn about how to create and use an Azure AD application to authenticate using Azure Active Directory. Using Azure AD application for authentication with Data Lake Store is a 3-step process.
 
 1. Create an Azure Active Directory identity
 2. Retrieve the client id, authentication key, and OAuth token for the identity
 3. Assign the identity to the Azure Data Lake Store account
 
-### Step 1: Create an Azure Active Directory identity
+### Step 1: Create an Azure Active Directory application
 
 1. Log in to your Azure Account through the [classic portal](https://manage.windowsazure.com/).
 
@@ -129,7 +129,7 @@ For **APP ID URI**, provide the URI that identifies your application.
 
 	Click the check mark to complete the wizard and create the application.
 
-### Step 2: Get client id, authentication key, and token endpoint
+### Step 2: Get client id, client secret, and token endpoint
 
 When programmatically logging in, you need the id for your application. If the application runs under its own credentials, you will also need an authentication key.
 
@@ -157,25 +157,37 @@ When programmatically logging in, you need the id for your application. If the a
 
 	![tenant id](./media/data-lake-store-authenticate-using-active-directory/save-tenant.png)
 
-### Step 3: Assign the identity to the Azure Data Lake Store account
+### Step 3: Assign the Azure AD application to the Azure Data Lake Store account file or folder
 
 1. Sign on to the new [Azure Portal](https://portal.azure.com) and open the Azure Data Lake Store account that you want to associate with the Azure Active Directory application you created earlier.
 
-2. From the Data Lake Store blade, click the **Access** icon.
+1. In your Data Lake Store account blade, click **Data Explorer**.
 
-	![Assign identity to Data Lake Store](./media/data-lake-store-authenticate-using-active-directory/assign-id-to-adls.png)
+	![Create directories in Data Lake Store account](./media/data-lake-store-authenticate-using-active-directory/adl.start.data.explorer.png "Create directories in Data Lake account")
 
-3. From the **Users** blade, click **Add**.
+2. In the **Data Explorer** blade, click the file or folder for which you want to provide access to the Azure AD application, and then click **Access**. To configure access to a file, you must click **Access** from the **File Preview** blade.
 
-	![Assign identity to Data Lake Store](./media/data-lake-store-authenticate-using-active-directory/assign-id-to-adls-2.png)
+	![Set ACLs on Data Lake file system](./media/data-lake-store-authenticate-using-active-directory/adl.acl.1.png "Set ACLs on Data Lake file system")
 
-4. From the **Add Access** blade, click **Select a role**, and then select the **Owner** role.
+3. The **Access** blade lists the standard access and custom access already assigned to the root. Click the **Add** icon to add custom-level ACLs.
 
-	![Assign identity to Data Lake Store](./media/data-lake-store-authenticate-using-active-directory/assign-id-to-adls-3.png)
+	![List standard and custom access](./media/data-lake-store-authenticate-using-active-directory/adl.acl.2.png "List standard and custom access")
 
-5. In the **Add users** blade, search for the Azure Active Directory application you created earlier, select the application, and then click **Select**. Click **OK** to save the changes.
+4. Click the **Add** icon to open the **Add Custom Access** blade. In this blade, click **Select User or Group**, and then in **Select User or Group** blade, look for the security group you created earlier in Azure Active Directory. If you have a lot of groups to search from, use the text box at the top to filter on the group name. Click the group you want to add and then click **Select**.
 
-	![Assign identity to Data Lake Store](./media/data-lake-store-authenticate-using-active-directory/assign-id-to-adls-4.png)
+	![Add a group](./media/data-lake-store-authenticate-using-active-directory/adl.acl.3.png "Add a group")
+
+5. Click **Select Permissions**, select the permissions and whether you want to assign the permissions as a default ACL, access ACL, or both. Click **OK**.
+
+	![Assign permissions to group](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "Assign permissions to group")
+
+	For more information about permissions in Data Lake Store, and Default/Access ACLs, see [Access Control in Data Lake Store](data-lake-store-access-control.md).
+
+
+6. In the **Add Custom Access** blade, click **OK**. The newly added group, with the associated permissions, will now be listed in the **Access** blade.
+
+	![Assign permissions to group](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Assign permissions to group")	
+
 
 ## Next steps
 
