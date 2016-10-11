@@ -139,7 +139,7 @@ Examine the results to determine whether the newly trained model performs well e
 
 Copy the *BaseLocation*, *RelativeLocation*, and *SasBlobToken* from the output results.
 
-# Use the Machine Learning Management PowerShell cmdlets to retrain the Web service
+## Use the Machine Learning Management PowerShell cmdlets to retrain the Web service
 
 When you retrain a New Web service, you update the predictive Web service definition to reference the new trained model.  
 

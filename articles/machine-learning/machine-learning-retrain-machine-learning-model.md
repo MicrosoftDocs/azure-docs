@@ -52,7 +52,7 @@ Retrain the Web service:
 * Deploy the retraining web service
 * Grab Batch Execution Service code and retrain the model
 
-For a walkthrough of the preceding steps, see [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically).
+For a walkthrough of the preceding steps, see [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically.md).
 
 If you deployed a Classic Web Service:
 
@@ -62,7 +62,7 @@ If you deployed a Classic Web Service:
 
 For a walkthrough of the preceding steps, see [Retrain a Classic Web service](machine-learning-retrain-a-classic-web-service).
 
-If you run into difficulties retraining a Classic Web service, see [Troubleshooting the retraining of an Azure Machine Learning Classic Web service](machine-learning-troubleshooting-retraining-models).
+If you run into difficulties retraining a Classic Web service, see [Troubleshooting the retraining of an Azure Machine Learning Classic Web service](machine-learning-troubleshooting-retraining-models.md).
 
 
 if you deployed a New Web service:
@@ -74,7 +74,7 @@ if you deployed a New Web service:
 * Import the JSON into a Web Service Definition
 * Update the Web service with new Web Service Definition
 
-For a walkthrough of the preceding steps, see [Retrain a New Web service using the Machine Learning Management PowerShell cmdlets](machine-learning-retrain-new-web-service-using-powershell).
+For a walkthrough of the preceding steps, see [Retrain a New Web service using the Machine Learning Management PowerShell cmdlets](machine-learning-retrain-new-web-service-using-powershell.md).
 
 The process for setting up retraining for a Classic Web service involves the following steps:
 
@@ -91,9 +91,9 @@ Diagram 2: Retraining process for a New Web service overview
 
 ## Other Resources
 
-[Retraining and Updating Azure Machine Learning models with Azure Data Factory](https://azure.microsoft.com/en-us/blog/retraining-and-updating-azure-machine-learning-models-with-azure-data-factory/)
+[Retraining and Updating Azure Machine Learning models with Azure Data Factory](https://azure.microsoft.com/blog/retraining-and-updating-azure-machine-learning-models-with-azure-data-factory/)
 
-Retrain a New Web service with PowerShell video
+<!--Retrain a New Web service with PowerShell video-->
 
 
 

@@ -26,9 +26,9 @@ Once you have retrained the model, the following walkthroughs show how to update
 - If you deployed a Classic Web service in the Machine Learning Web Services portal, see [Retrain a Classic Web service](machine-learning-retrain-a-classic-web-service.md). 
 - If you deployed a New Web service, see [Retrain a New Web service using the Machine Learning Management cmdlets](machine-learning-retrain-new-web-service-using-powershell.md).
 
-For an overview of the retraining process, see [Retrain a Machine Learning Model](machine-learning-retrain-machine-learning-model).
+For an overview of the retraining process, see [Retrain a Machine Learning Model](machine-learning-retrain-machine-learning-model.md).
 
-If you want to start with your existing New Azure Resource Manager based Web service, see [Retrain an existing Predictive Web service](machine-learning-retrain-existing-arm-web-service).
+If you want to start with your existing New Azure Resource Manager based Web service, see [Retrain an existing Predictive Web service](machine-learning-retrain-existing-arm-web-service.md).
 
 ## Create a Training Experiment
  
@@ -63,7 +63,7 @@ To retrain the trained model, you must deploy the Training Experiment that you c
 1. To return to the training experiment, click the Experiments icon in the left pane, then click the experiment named Census Model.  
 2. In the Search Experiment Items search box, type Web service. 
 3. Drag a *Web Service Input* module onto the experiment canvas and connect its output to the *Clean Missing Data* module. You want the data clean up to be applied to the retrained dataset that will be retrained to ensure that your input data is processed the same way as your original training data.
-4. Drag two *Web service Output* modules onto the experiment canvas. Connect the output of the *Train Model* module to one and the output of the *Evaluate Model* module to the other. The Web service output for **Train Model** gives us the new trained model. The output attached to **Evaluate Model** returns that module’s output which are the performance results.
+4. Drag two *Web service Output* modules onto the experiment canvas. Connect the output of the *Train Model* module to one and the output of the *Evaluate Model* module to the other. The Web service output for **Train Model** gives us the new trained model. The output attached to **Evaluate Model** returns that module’s output which is the performance results.
 5. Click **Run**. 
 
 Next you must deploy the Training Experiment as a web service that produces a trained model and model evaluation results. To accomplish this, your next set of actions are dependent on whether you are working with a Classic Web service or a New Web service.  
