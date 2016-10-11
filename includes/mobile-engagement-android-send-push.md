@@ -64,7 +64,7 @@ Scroll down to the **Notification** section, click an icon, and then click `PNGS
 
 ###Enable your app to receive GCM push notifications
 
-1. Paste the following into your Manifest.xml between the `<application>` and `</application>` tags after replacing the `project number` obtained from your Google Play console. The \n is intentional so make sure that you end the project number with it.
+1. Paste the following into your Manifest.xml between the `<application>` and `</application>` tags after replacing the **Sender ID** obtained from your Firebase project console. The \n is intentional so make sure that you end the project number with it.
 
 		<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 

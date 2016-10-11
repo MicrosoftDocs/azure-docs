@@ -75,7 +75,7 @@ You can also pass an instance of the **Entity** class to the **insert\_entity** 
 This code shows how to replace the old version of an existing entity with an updated version.
 
 	task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the garbage', 'priority' : 250}
-	table_service.update_entity('tasktable', task)
+	table_service.update_entity('tasktable', 'tasksSeattle', '1', task, content_type='application/atom+xml')
 
 If the entity that is being updated does not exist, then the update
 operation will fail. If you want to store an entity
@@ -83,10 +83,10 @@ regardless of whether it existed before, use **insert\_or\_replace_entity**.
 In the following example, the first call will replace the existing entity. The second call will insert a new entity, since no entity with the specified **PartitionKey** and **RowKey** exists in the table.
 
 	task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the garbage again', 'priority' : 250}
-	table_service.insert_or_replace_entity('tasktable', task)
+	table_service.insert_or_replace_entity('tasktable', 'tasksSeattle', '1', task, content_type='application/atom+xml')
 
 	task = {'PartitionKey': 'tasksSeattle', 'RowKey': '3', 'description' : 'Buy detergent', 'priority' : 300}
-	table_service.insert_or_replace_entity('tasktable', task)
+	table_service.insert_or_replace_entity('tasktable', 'tasksSeattle', '1', task, content_type='application/atom+xml')
 
 ## Change a group of entities
 

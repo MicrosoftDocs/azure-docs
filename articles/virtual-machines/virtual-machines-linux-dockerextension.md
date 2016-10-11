@@ -13,12 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="07/20/2016"
+   ms.date="10/10/2016"
    ms.author="iainfou"/>
 
 # Using the Docker VM Extension to deploy your environment
-
-> [AZURE.NOTE] If you have a few moments, please help us to improve the Azure Linux VM documentation by taking this [quick survey](https://aka.ms/linuxdocsurvey) of your experiences. Every answer helps us help you get your work done.
 
 Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux (and Windows as well). With Azure, you have the flexibility to deploy Docker in a few different manners depending on your needs:
 
@@ -42,7 +40,7 @@ Let's use an existing quick-start template to show how to deploy an Ubuntu VM th
 Deploy the template using the Azure CLI, specifying a name for our new resource group (here `myDockerResourceGroup`) along with the template URI:
 
 ```
-azure group create --name myDockerResourceGroup --location "West US" \
+azure group create --name myResourceGroup --location "West US" \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
@@ -50,19 +48,19 @@ Answer the prompts for naming your storage account, username and password, and D
 
 ```
 info:    Executing command group create
-+ Getting resource group myDockerResourceGroup
-+ Updating resource group myDockerResourceGroup
-info:    Updated resource group myDockerResourceGroup
++ Getting resource group myResourceGroup
++ Updating resource group myResourceGroup
+info:    Updated resource group myResourceGroup
 info:    Supply values for the following parameters
-newStorageAccountName: mydockerstorage
+newStorageAccountName: mystorageaccount
 adminUsername: ops
 adminPassword: P@ssword!
-dnsNameForPublicIP: mydockergroup
+dnsNameForPublicIP: mypublicip
 + Initializing template configurations and parameters
 + Creating a deployment
 info:    Created template deployment "azuredeploy"
-data:    Id:                  /subscriptions/guid/resourceGroups/myDockerResourceGroup
-data:    Name:                myDockerResourceGroup
+data:    Id:                  /subscriptions/guid/resourceGroups/myResourceGroup
+data:    Name:                myResourceGroup
 data:    Location:            westus
 data:    Provisioning State:  Succeeded
 data:    Tags: null
@@ -73,10 +71,10 @@ info:    group create command OK
 
 The Azure CLI returns you to the prompt after only a few seconds, but in the background the template is being deployed in to the resource group you created. Wait a few minutes for the deployment to finish before trying to SSH to the VM.
 
-You can obtain details about the deployment and the DNS name of the VM by using the `azure vm show` command. In the following example, replace `myDockerResourceGroup` with the name you specified in the previous step:
+You can obtain details about the deployment and the DNS name of the VM by using the `azure vm show` command. In the following example, replace `myResourceGroup` with the name you specified in the previous step (the default VM name from the template is `myDockerVM`, so leave that name as-is):
 
 ```bash
-azure vm show -g myDockerResourceGroup -n myDockerVM
+azure vm show -g myResourceGroup -n myDockerVM
 info:    Executing command vm show
 + Looking up the VM "myDockerVM"
 + Looking up the NIC "myVMNicD"
@@ -86,30 +84,7 @@ data:    ProvisioningState               :Succeeded
 data:    Name                            :MyDockerVM
 data:    Location                        :westus
 data:    Type                            :Microsoft.Compute/virtualMachines
-data:
-data:    Hardware Profile:
-data:      Size                          :Standard_F1
-data:
-data:    Storage Profile:
-data:      Image reference:
-data:        Publisher                   :Canonical
-data:        Offer                       :UbuntuServer
-data:        Sku                         :14.04.4-LTS
-data:        Version                     :latest
-data:
-data:      OS Disk:
-data:        OSType                      :Linux
-data:        Name                        :osdisk1
-data:        Caching                     :ReadWrite
-data:        CreateOption                :FromImage
-data:        Vhd:
-data:          Uri                       :http://mydockerstorage.blob.core.windows.net/vhds/osdiskfordockersimple.vhd
-data:
-data:    OS Profile:
-data:      Computer Name                 :MyDockerVM
-data:      User Name                     :ops
-data:      Linux Configuration:
-data:        Disable Password Auth       :false
+[...]
 data:
 data:    Network Profile:
 data:      Network Interfaces:
@@ -120,7 +95,7 @@ data:          Provisioning State        :Succeeded
 data:          Name                      :myVMNicD
 data:          Location                  :westus
 data:            Public IP address       :13.91.107.235
-data:            FQDN                    :mydockergroup.westus.cloudapp.azure.com
+data:            FQDN                    :mypublicip.westus.cloudapp.azure.com]
 data:
 data:    Diagnostics Instance View:
 info:    vm show command OK
@@ -132,7 +107,13 @@ Towards the end of the output, `FQDN` displays the fully qualified domain name b
 
 
 ## Deploy your first nginx container
-Once the deployment has finished, SSH to your new Docker host using the DNS name you provided during deployment. Let's try to run an nginx container:
+Once the deployment has finished, SSH to your new Docker host using the DNS name you provided during deployment:
+
+```bash
+ssh ops@mypublicip.westus.cloudapp.azure.com
+```
+
+Let's try to run an nginx container:
 
 ```
 sudo docker run -d -p 80:80 nginx

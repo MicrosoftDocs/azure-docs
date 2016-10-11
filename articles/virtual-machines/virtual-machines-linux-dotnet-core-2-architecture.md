@@ -102,7 +102,7 @@ After deployment, the storage account can be viewed in the Azure portal.
 
 ![Storage Account](./media/virtual-machines-linux-dotnet-core/storacct.png)
 
-Clicking into the storage account blob container, the virtual hard driver file for each virtual machine deployed with the template can be seen.
+Clicking into the storage account blob container, the virtual hard drive file for each virtual machine deployed with the template can be seen.
 
 ![Virtual Hard Drives](./media/virtual-machines-linux-dotnet-core/vhd.png)
 

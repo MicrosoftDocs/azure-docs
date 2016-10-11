@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2016" 
+	ms.date="10/03/2016" 
 	ms.author="danha"/>
 
 
@@ -182,7 +182,6 @@ After you've run a query, you can download a .csv file. Click **Export, to Excel
 4. Edit credentials if needed and now you can build your report.
 
     ![](./media/app-insights-analytics-using/260.png)
-
 
 
 

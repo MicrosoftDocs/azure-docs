@@ -138,203 +138,23 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 - Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks. 
 
-## Solution components
-
-A sample solution script, [Deploy-ReferenceArchitecture.ps1][solution-script], is available that you can use to implement the architecture that follows the recommendations described in this article. This script utilizes [Resource Manager][ARM-Templates] templates. The templates are available as a set of fundamental building blocks, each of which performs a specific action such as creating a VNet or configuring an NSG. The purpose of the script is to orchestrate template deployment.
-
-The templates are parameterized, with the parameters held in separate JSON files. You can modify the parameters in these files to configure the deployment to meet your own requirements. You do not need to amend the templates themselves. Note that you must not change the schemas of the objects in the parameter files.
-
-When you edit the templates, create objects that follow the naming conventions described in [Recommended Naming Conventions for Azure Resources][naming conventions].
-
-The script references the following parameter files to build the VM and the surrounding infrastructure:
-
-- **[virtualNetwork.parameters.json][vnet-parameters]**. This file defines the VNet settings, such as the name, address space, subnets, and the addresses of any DNS servers required. Note that subnet addresses must be subsumed by the address space of the VNet.
-
-	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/windows/virtualNetwork.parameters.json#L4-L21 -->
-	```json
-  "parameters": {
-    "virtualNetworkSettings": {
-      "value": {
-        "name": "ra-single-vm-vnet",
-        "resourceGroup": "ra-single-vm-rg",
-        "addressPrefixes": [
-          "172.17.0.0/16"
-        ],
-        "subnets": [
-          {
-            "name": "ra-single-vm-sn",
-            "addressPrefix": "172.17.0.0/24"
-          }
-        ],
-        "dnsServers": [ ]
-      }
-    }
-  }
-	```
-
-- **[networkSecurityGroups.parameters.json][nsg-parameters]**. This file contains the definitions of NSGs and NSG rules. The `name` parameter in the `virtualNetworkSettings` block specifies the VNet to which the NSG is attached. The `subnets` parameter in the `networkSecurityGroupSettings` block identifies any subnets which apply the NSG rules in the VNet. These should be items defined in the **virtualNetwork.parameters.json** file.
-
-	Note that the default security rule shown in the example enables a user to connect to the VM through a remote desktop (RDP) connection. You can open additional ports (or deny access through specific ports) by adding further items to the `securityRules` array.
-
-	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/windows/networkSecurityGroups.parameters.json#L4-L36 -->
-	```json
-  "parameters": {
-    "virtualNetworkSettings": {
-      "value": {
-        "name": "ra-single-vm-vnet",
-        "resourceGroup": "ra-single-vm-rg"
-      }
-    },
-    "networkSecurityGroupsSettings": {
-      "value": [
-        {
-          "name": "ra-single-vm-nsg",
-          "subnets": [
-            "ra-single-vm-sn"
-          ],
-          "networkInterfaces": [
-          ],
-          "securityRules": [
-            {
-              "name": "RDPAllow",
-              "direction": "Inbound",
-              "priority": 100,
-              "sourceAddressPrefix": "*",
-              "destinationAddressPrefix": "*",
-              "sourcePortRange": "*",
-              "destinationPortRange": "3389",
-              "access": "Allow",
-              "protocol": "Tcp"
-            }
-          ]
-        }
-      ]
-    }
-  }
-	```
-
-- **[virtualMachineParameters.json][vm-parameters]**. This file defines the settings for the VM itself, including the name and size of the VM, the security credentials for the admin user, the disks to be created, and the storage accounts to hold these disks.
-
-	You must specify an image in the `imageReference` section. The values shown below create a VM with the latest build of Windows Server 2012 R2 Datacenter. You can use the following Azure CLI command to obtain a list of all available Windows images in a region (the example uses the westus region):
-
-	```text
-	azure vm image list westus MicrosoftWindowsServer WindowsServer
-	```
-
-	The `subnetName` parameter in the `nics` section specifies the subnet for the VM. Similarly, the `name` parameter in the `virtualNetworkSettings` identifies the VNet to use. These values should be the name of a subnet and VNet defined in the **virtualNetwork.parameters.json** file. 
-
-	You can create multiple VMs either sharing a storage account or with their own storage accounts by modifying the settings in the `buildingBlockSettings` section. If you create multiple VMs, you must also specify the name of an availability set to use or create in the `availabilitySet` section.
-
-	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/windows/virtualMachine.parameters.json#L4-L64 -->
-	```json
-   "parameters": {
-    "virtualMachinesSettings": {
-      "value": {
-        "namePrefix": "ra-single-vm",
-        "computerNamePrefix": "cn",
-        "size": "Standard_DS1_v2",
-        "osType": "windows",
-        "adminUsername": "testuser",
-        "adminPassword": "AweS0me@PW",
-        "sshPublicKey": "",
-        "osAuthenticationType": "password",
-        "nics": [
-          {
-            "isPublic": "true",
-            "subnetName": "ra-single-vm-sn",
-            "privateIPAllocationMethod": "dynamic",
-            "publicIPAllocationMethod": "dynamic",
-            "enableIPForwarding": false,
-            "dnsServers": [
-            ],
-            "isPrimary": "true"
-          }
-        ],
-        "imageReference": {
-          "publisher": "MicrosoftWindowsServer",
-          "offer": "WindowsServer",
-          "sku": "2012-R2-Datacenter",
-          "version": "latest"
-        },
-        "dataDisks": {
-          "count": 2,
-          "properties": {
-            "diskSizeGB": 128,
-            "caching": "None",
-            "createOption": "Empty"
-          }
-        },
-        "osDisk": {
-          "caching": "ReadWrite"
-        },
-        "extensions": [ ],
-        "availabilitySet": {
-          "useExistingAvailabilitySet": "No",
-          "name": ""
-        }
-      }
-    },
-    "virtualNetworkSettings": {
-      "value": {
-        "name": "ra-single-vm-vnet",
-        "resourceGroup": "ra-single-vm-rg"
-      }
-    },
-    "buildingBlockSettings": {
-      "value": {
-        "storageAccountsCount": 1,
-        "vmCount": 1,
-        "vmStartIndex": 0
-      }
-    }
-  }
-	```
-
 ## Solution deployment
 
-The solution assumes the following prerequisites:
+The sample deployment provided in this guidance uses three different [template building blocks][blocks] to create:
 
-- You have an existing Azure subscription in which you can create resource groups.
+- a virtual network (VNet)
+- a network security group (NSG)
+- a virtual machine (VM)
 
-- You have downloaded and installed the most recent build of Azure PowerShell. See [here][azure-powershell-download] for instructions.
+This reference architecture uses a single resource group that you can deploy by clicking the button below and accepting the default values for all parameters.
 
-To run the script that deploys the solution:
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-single-vm%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
 
-1. Create a folder that contains subfolders named `Scripts` and `Templates`.
+### Customize the deployment
 
-2. In the Templates folder, create another subfolder named Windows.
-
-3. Download the [Deploy-ReferenceArchitecture.ps1][solution-script] file to the Scripts folder.
-
-4. Download the following files to Templates/Windows folder:
-
-	- [virtualNetwork.parameters.json][vnet-parameters]
-
-	- [networkSecurityGroups.parameters.json][nsg-parameters]
-
-	- [virtualMachineParameters.json][vm-parameters]
-
-5. Edit the Deploy-ReferenceArchitecture.ps1 file in the Scripts folder, and change the following line to specify the resource group that should be created or used to hold the VM and resources created by the script:
-
-	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/Deploy-ReferenceArchitecture.ps1#L37 -->
-	```powershell
-	$resourceGroupName = "ra-single-vm-rg"
-	```
-6. Edit each of the JSON files in the Templates/Windows folder to set the parameters for the virtual network, NSG, and VM, as described in the Solution Components section above.
-
-	>[AZURE.NOTE] Make sure that you set the `resourceGroup` parameter in the `virtualNetworkSettings` section of the virtualMachineParameters.json file to be the same as the one you specified in the Deploy-ReferenceArchitecture.ps1 script file.
-
-7. Open a PowerShell window, move to the Scripts folder, and run the following command:
-
-	```powershell
-	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Windows
-	```
-
-	Replace `<subscription id>` with your Azure subscription ID.
-
-	For `<location>`, specify an Azure region, such as `eastus` or `westus`.
-
-8. When the script has completed, use the Azure portal to verify that the network, NSG, and VM have been created successfully.
+If you need to change the deployment to match your needs, follow the instructions in the [guidance-single-vm][readme] page. 
 
 ## Next steps
 
@@ -390,3 +210,5 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [vm-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/windows/virtualMachine.parameters.json
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Single Windows VM architecture in Azure"
+[readme]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm
+[blocks]: https://github.com/mspnp/template-building-blocks
