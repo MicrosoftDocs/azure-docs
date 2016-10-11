@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Connect a virtual network to multiple sites using VPN Gateway and PowerShell"
+   pageTitle="Connect a virtual network to multiple sites using VPN Gateway and PowerShell | Microsoft Azure"
    description="This article will walk you through connecting multiple local on-premises sites to a virtual network using a VPN Gateway for the classic deployment model."
    services="vpn-gateway"
    documentationCenter="na"
@@ -20,7 +20,7 @@
 # Add a Site-to-Site connection to a VNet with an existing VPN gateway connection
 
 > [AZURE.SELECTOR]
-- [Resource Manager - Portal](vpn-gateway-howto-multi-site-to-site-rm-portal.md)
+- [Resource Manager - Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 - [Classic - PowerShell](vpn-gateway-multi-site.md)
 
 This article walks you through using PowerShell to add Site-to-Site (S2S) connections to a VPN gateway that has an existing connection. This type of connection is often referred to as a "multi-site" configuration. 

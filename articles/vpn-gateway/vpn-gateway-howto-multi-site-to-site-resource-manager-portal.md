@@ -1,5 +1,5 @@
 <properties
-   pageTitle="How to add multiple VPN gateway Site-to-Site connections to a virtual network for the Resource Manager deployment model using the Azure portal"
+   pageTitle="How to add multiple VPN gateway Site-to-Site connections to a virtual network for the Resource Manager deployment model using the Azure portal | Microsoft Azure"
    description="Add multi-site S2S connections to a VPN gateway that has an existing connection"
    services="vpn-gateway"
    documentationCenter="na"
@@ -22,7 +22,7 @@
 # Add a Site-to-Site connection to a VNet with an existing VPN gateway connection
 
 > [AZURE.SELECTOR]
-- [Resource Manager - Portal](vpn-gateway-howto-multi-site-to-site-rm-portal.md)
+- [Resource Manager - Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 - [Classic - PowerShell](vpn-gateway-multi-site.md)
 
 This article walks you through using the Azure portal to add Site-to-Site (S2S) connections to a VPN gateway that has an existing connection. This type of connection is often referred to as a "multi-site" configuration. 
