@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/27/2016"
+	ms.date="10/10/2016"
 	ms.author="erikje"/>
 
 # Deploy Azure Stack POC
@@ -105,7 +105,9 @@ Before you start, make sure that you at least 85 GB of space.
 
     > [AZURE.IMPORTANT] If you want to monitor the deployment progress, sign in as azurestack\AzureStackAdmin. If you sign in as a local admin after the machine is joined to the domain, you won't see the deployment progress. Do not rerun deployment, instead sign in as azurestack\AzureStackAdmin to validate that it's running.
 
-    If the deployment fails, you can try to [rerun it](azure-stack-rerun-deploy.md). Or, you can [redeploy](azure-stack-redeploy.md) it from scratch.
+    When the deployment succeeds, you’ll see the following in the PowerShell console: **COMPLETE: Action ‘Deployment’**.
+
+    If the deployment fails, you can try to [rerun it](azure-stack-rerun-deploy.md). Or, you can [redeploy](azure-stack-redeploy.md) it from scratch.
 
 ### Deployment script examples
 
@@ -122,7 +124,7 @@ If your AAD Identity is associated with GREATER THAN ONE AAD Directory:
     cd C:\CloudDeployment\Configuration
     $adminpass = ConvertTo-SecureString "<LOCAL ADMIN PASSWORD>" -AsPlainText -Force
     $aadpass = ConvertTo-SecureString "<AAD GLOBAL ADMIN ACCOUNT PASSWORD>" -AsPlainText -Force
-    $aadcred = New-Object System.Management.Automation.PSCredential "<AAD GLOBAL ADMIN ACCOUNT> example: user@AADDirName.onmicrosoft.com>", $aadpass)
+    $aadcred = New-Object System.Management.Automation.PSCredential ("<AAD GLOBAL ADMIN ACCOUNT> example: user@AADDirName.onmicrosoft.com>", $aadpass)
     .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass -AADAdminCredential $aadcred -AADDirectoryTenantName "<SPECIFIC AAD DIRECTORY example: AADDirName.onmicrosoft.com>"
 
 If your environment DOES NOT have DHCP enabled, you will need to include the following ADDITIONAL parameters to one of the options above (example usage provided):

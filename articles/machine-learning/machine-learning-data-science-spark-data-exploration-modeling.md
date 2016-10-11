@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="10/07/2016"
 	ms.author="deguhath;bradsev;gokuma" />
 
 # Data exploration and modeling with Spark
@@ -25,27 +25,27 @@ This walkthrough uses HDInsight Spark to do data exploration and binary classifi
 - The **binary classification** task is to predict whether or not a tip is paid for the trip. 
 - The **regression** task is to predict the amount of the tip based on other tip features. 
 
-The models we use include logistic and linear regression, random forests and gradient boosted trees:
+The models we use include logistic and linear regression, random forests, and gradient boosted trees:
 
 - [Linear regression with SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) is a linear regression model that uses a Stochastic Gradient Descent (SGD) method and for optimization and feature scaling to predict the tip amounts paid. 
 - [Logistic regression with LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) or "logit" regression, is a regression model that can be used when the dependent variable is categorical to do data classification. LBFGS is a quasi-Newton optimization algorithm that approximates the Broyden–Fletcher–Goldfarb–Shanno (BFGS) algorithm using a limited amount of computer memory and that is widely used in machine learning.
-- [Random forests](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) are ensembles of decision trees.  They combine many decision trees in order to reduce the risk of overfitting. Random forests are used for regression and classification and can handle categorical features, extend to the multiclass classification setting, do not require feature scaling, and are able to capture non-linearities and feature interactions. Random forests are one of the most successful machine learning models for classification and regression.
+- [Random forests](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) are ensembles of decision trees.  They combine many decision trees to reduce the risk of overfitting. Random forests are used for regression and classification and can handle categorical features and can be extended to the multiclass classification setting. They do not require feature scaling and are able to capture non-linearities and feature interactions. Random forests are one of the most successful machine learning models for classification and regression.
 - [Gradient boosted trees](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) are ensembles of decision trees. GBTs train decision trees iteratively to minimize a loss function. GBTs are used for regression and classification and can handle categorical features, do not require feature scaling, and are able to capture non-linearities and feature interactions. They can also be used in a multiclass-classification setting.
 
-The modeling steps also contain code showing how to train, evaluate and save each type of model. Python has been used to code the solution and to show the relevant plots.   
+The modeling steps also contain code showing how to train, evaluate, and save each type of model. Python has been used to code the solution and to show the relevant plots.   
 
 
->[AZURE.NOTE] Although the Spark MLlib toolkit is designed to work on large datasets, for purposes of demonstrating its modeling capabilities, a relatively small sample (~30 Mb using 170K rows, about 0.1% of the original NYC dataset) is used, for convenience. The exercise given here runs efficiently on an HDInsight cluster with 2 worker nodes (in about 10 mins). The same code, with minor modifications, can be used to process larger data-sets, with appropriate modifications for caching data in memory or changing the cluster size.
+>[AZURE.NOTE] Although the Spark MLlib toolkit is designed to work on large datasets, a relatively small sample (~30 Mb using 170K rows, about 0.1% of the original NYC dataset) is used here for convenience. The exercise given here runs efficiently (in about 10 minutes) on an HDInsight cluster with 2 worker nodes. The same code, with minor modifications, can be used to process larger data-sets, with appropriate modifications for caching data in memory and changing the cluster size.
 
 ## Prerequisites
 
-You need an Azure account and an HDInsight Spark You need an HDInsight 3.4 Spark 1.6 cluster to complete this walkthrough. See the [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) for these requirements, for a description of the NYC 2013 Taxi data used here, and for instructions on how execute code from a Jupyter notebook on the Spark cluster. The **machine-learning-data-science-spark-data-exploration-modeling.ipynb** notebook that contains the code samples in this topic are available in [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark). 
+You need an Azure account and an HDInsight Spark You need an HDInsight 3.4 Spark 1.6 cluster to complete this walkthrough. See the [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) for instructions on how to satisfy these requirements. That topic also contains a description of the NYC 2013 Taxi data used here and instructions on how to execute code from a Jupyter notebook on the Spark cluster. The **pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb** notebook that contains the code samples in this topic is available in [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark). 
 
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
-## Setup: storage locations, libraries and the preset Spark context
+## Setup: storage locations, libraries, and the preset Spark context
 
 Spark is able to read and write to Azure Storage Blob (also known as WASB). So any of your existing data stored there can be processed using Spark and the results stored again in WASB.
 
@@ -54,7 +54,7 @@ To save models or files in WASB, the path needs to be specified properly. The de
 
 ### Set directory paths for storage locations in WASB
 
-The following code sample specifies the location of the data to be read and the path for the model storage directory to which the model output will be saved. 
+The following code sample specifies the location of the data to be read and the path for the model storage directory to which the model output is saved:
 
 
 	# SET PATHS TO FILE LOCATIONS: DATA AND MODEL STORAGE
@@ -69,7 +69,7 @@ The following code sample specifies the location of the data to be read and the 
 
 ### Import libraries
 
-Set up also requires importing necessary libraries. Set spark context and import necessary libraries with the following code.
+Set up also requires importing necessary libraries. Set spark context and import necessary libraries with the following code:
 
 
 	# IMPORT LIBRARIES
@@ -90,25 +90,23 @@ Set up also requires importing necessary libraries. Set spark context and import
 
 ### Preset Spark context and PySpark magics
 
-The PySpark kernels that are provided with Jupyter notebooks have a preset context, so you do not need to set the Spark or Hive contexts explicitly before you can start working with the application you are developing; these are available for you by default. These contexts are:
+The PySpark kernels that are provided with Jupyter notebooks have a preset context. So you do not need to set the Spark or Hive contexts explicitly before you start working with the application you are developing. These contexts are available for you by default. These contexts are:
 
 - sc - for Spark 
 - sqlContext - for Hive
 
 The PySpark kernel provides some predefined “magics”, which are special commands that you can call with %%. There are two such commands that are used in these code samples.
 
-- **%%local**  Specified that the code in subsequent lines will be executed locally. Code must be valid Python code.
-- **%%sql -o <variable name>**  Executes a Hive query against the sqlContext. If the -o parameter is passed, the result of the query is persisted in the %%local Python context as a Pandas dataframe.
+- **%%local** Specifies that the code in subsequent lines is to be executed locally. Code must be valid Python code.
+- **%%sql -o <variable name>** Executes a Hive query against the sqlContext. If the -o parameter is passed, the result of the query is persisted in the %%local Python context as a Pandas DataFrame.
  
 
-For more information on the kernels for Jupyter notebooks and the predefined "magics" called with %% (e.g. %%local) that they provide, see [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+For more information on the kernels for Jupyter notebooks and the predefined "magics" that they provide, see [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
  
 
 ## Data ingestion from public blob
 
-This section contains the code for a series of tasks required to ingest the data sample to be modeled. Read in a joined 0.1% sample of the taxi trip and fare file (stored as a .tsv file), format and clean the data, create and cache a data frame in memory, and then register it as a temp-table in SQL-context.
-
-The first step in the data science process is to ingest the data to be analyzed from external sources or systems where is resides into your data exploration and modeling environment. This environment is Spark in this walkthrough. This section contains the code to complete a series of tasks:
+The first step in the data science process is to ingest the data to be analyzed from sources where is resides into your data exploration and modeling environment. The environment is Spark in this walkthrough. This section contains the code to complete a series of tasks:
 
 - ingest the data sample to be modeled
 - read in the input dataset (stored as a .tsv file)
@@ -183,16 +181,16 @@ Time taken to execute above cell: 51.72 seconds
 
 ## Data exploration & visualization
 
-Once the data has been brought into Spark, the next step in the data science process is to gain deeper understanding of the data through exploration and visualization. In this section we examine the taxi data using SQL queries and plot the target variables and prospective features for visual inspection. Specifically, we plot the frequency of passenger counts in taxi trips, the frequency of tip amounts, and how tips vary by payment amount and type.
+Once the data has been brought into Spark, the next step in the data science process is to gain deeper understanding of the data through exploration and visualization. In this section, we examine the taxi data using SQL queries and plot the target variables and prospective features for visual inspection. Specifically, we plot the frequency of passenger counts in taxi trips, the frequency of tip amounts, and how tips vary by payment amount and type.
 
 ### Plot a histogram of passenger count frequencies in the sample of taxi trips
 
 This code and subsequent snippets use SQL magic to query the sample and local magic to plot the data.
 
-- **SQL magic (`%%sql`)** The HDInsight PySpark kernel supports easy inline HiveQL queries against the sqlContext. The (-o VARIABLE_NAME) argument persists the output of the SQL query as a Pandas dataframe on the Jupyter server. This means it'll be available in the local mode.
+- **SQL magic (`%%sql`)** The HDInsight PySpark kernel supports easy inline HiveQL queries against the sqlContext. The (-o VARIABLE_NAME) argument persists the output of the SQL query as a Pandas DataFrame on the Jupyter server. This means it is available in the local mode.
 - The **`%%local` magic** is used to run code locally on the Jupyter server, which is the headnode of the HDInsight cluster. Typically, you use `%%local` magic in conjunction with the `%%sql` magic with -o parameter. The -o parameter would persist the output of the SQL query locally and then %%local magic would trigger the next set of code snippet to run locally against the output of the SQL queries that is persisted locally
 
-The output will be automatically visualized after you run the code.
+The output is automatically visualized after you run the code.
 
 This query retrieves the trips by passenger count. 
 
@@ -339,9 +337,9 @@ This code shows how to create a new feature by binning hours into traffic time b
 
 This section shows how to index or encode categorical features for input into the modeling functions. The modeling and predict functions of MLlib require features with categorical input data to be indexed or encoded prior to use. Depending on the model, you need to index or encode them in different ways:  
 
-- **Tree based modeling** requires categories to be encoded as numerical values (e.g. a feature with 3 categories may be encoded with 0, 1, 2). This is provided by MLlib’s [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) function. This function encodes a string column of labels to a column of label indices that are ordered by label frequencies. Note that although indexed with numerical values for input and data handling, the tree based algorithms can be specified to treat them appropriately as categories. 
+- **Tree-based modeling** requires categories to be encoded as numerical values (for example, a feature with three categories may be encoded with 0, 1, 2). This is provided by MLlib’s [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) function. This function encodes a string column of labels to a column of label indices that are ordered by label frequencies. Although indexed with numerical values for input and data handling, the tree-based algorithms can be specified to treat them appropriately as categories. 
 
-- **Logistic and Linear Regression models** require one-hot encoding, where, for example, a feature with 3 categories can be expanded into 3 feature columns, with each containing 0 or 1 depending on the category of an observation. MLlib provides [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) function to do one-hot encoding. This encoder maps a column of label indices to a column of binary vectors, with at most a single one-value. This encoding allows algorithms which expect numerical valued features, such as logistic regression, to be applied to categorical features.
+- **Logistic and Linear Regression models** require one-hot encoding, where, for example, a feature with three categories can be expanded into three feature columns, with each containing 0 or 1 depending on the category of an observation. MLlib provides [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) function to do one-hot encoding. This encoder maps a column of label indices to a column of binary vectors, with at most a single one-value. This encoding allows algorithms that expect numerical valued features, such as logistic regression, to be applied to categorical features.
 
 Here is the code to index and encode categorical features:
 
@@ -496,7 +494,7 @@ Feature scaling, also known as data normalization, insures that features with wi
 
 >[AZURE.NOTE] We have found the LinearRegressionWithSGD algorithm to be sensitive to feature scaling.
 
-Here is the code to scale to scale variables for use with the regularized linear SGD algorithm.
+Here is the code to scale variables for use with the regularized linear SGD algorithm.
 
 	# FEATURE SCALING
 
@@ -534,7 +532,7 @@ Time taken to execute above cell: 13.17 seconds
 
 ### Cache objects in memory
 
-The time taken for training and testing of ML algorithms can be reduced by caching the input data frame objects used for classification, regression and scaled features.
+The time taken for training and testing of ML algorithms can be reduced by caching the input data frame objects used for classification, regression, and scaled features.
 
 	# RECORD START TIME
 	timestart = datetime.datetime.now()
@@ -573,7 +571,7 @@ This section shows how use three models for the binary classification task of pr
 - Random forest model
 - Gradient Boosting Trees
 
-Each model building code section will be split into steps: 
+Each model building code section is split into steps: 
 
 1. **Model training** data with one parameter set
 2. **Model evaluation** on a test data set with metrics
@@ -581,7 +579,7 @@ Each model building code section will be split into steps:
 
 ### Classification using logistic regression
 
-The code in this section shows how to train evaluate, and save a logistic regression model with [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset.
+The code in this section shows how to train, evaluate, and save a logistic regression model with [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset.
 
 **Train the logistic regression model using CV and hyperparameter sweeping**
 
@@ -731,7 +729,7 @@ Here is the code to make predictions and plot the ROC-curve.
 
 ### Random forest classification
 
-The code in this section shows how to train evaluate, and save a random forest model that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset.
+The code in this section shows how to train, evaluate, and save a random forest model that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset.
 	
 	#PREDICT WHETHER A TIP IS PAID OR NOT USING RANDOM FOREST
 
@@ -785,7 +783,7 @@ Time taken to execute above cell: 31.09 seconds
 
 ### Gradient boosting trees classification
 
-The code in this section shows how to train evaluate, and save a gradient boosting trees model that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset.
+The code in this section shows how to train, evaluate, and save a gradient boosting trees model that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset.
 
 	#PREDICT WHETHER A TIP IS PAID OR NOT USING GRADIENT BOOSTING TREES
 
@@ -839,7 +837,7 @@ This section shows how use three models for the regression task of predicting th
 - Random forest
 - Gradient Boosting Trees
 
-These models were described in the introduction. Each model building code section will be split into steps: 
+These models were described in the introduction. Each model building code section is split into steps: 
 
 1. **Model training** data with one parameter set
 2. **Model evaluation** on a test data set with metrics
@@ -906,7 +904,7 @@ Time taken to execute above cell: 58.42 seconds
 
 ### Random Forest regression
 
-The code in this section shows how to train evaluate, and save a random forest regression that predicts tip amount for the NYC taxi trip data.
+The code in this section shows how to train, evaluate, and save a random forest regression that predicts tip amount for the NYC taxi trip data.
 
 
 	#PREDICT TIP AMOUNTS USING RANDOM FOREST
@@ -961,7 +959,7 @@ Time taken to execute above cell: 49.21 seconds
 
 ### Gradient boosting trees regression
 
-The code in this section shows how to train evaluate, and save a gradient boosting trees model that predicts tip amount for the NYC taxi trip data.
+The code in this section shows how to train, evaluate, and save a gradient boosting trees model that predicts tip amount for the NYC taxi trip data.
 
 **Train and evaluate **
 
@@ -1013,7 +1011,7 @@ Time taken to execute above cell: 34.52 seconds
 
 **Plot**
 
-*tmp_results* is registered as a Hive table in the previous cell. Results from the table is output into the *sqlResults* data-frame for plotting. Here is the code
+*tmp_results* is registered as a Hive table in the previous cell. Results from the table are output into the *sqlResults* data-frame for plotting. Here is the code
 
 	# PLOT SCATTER-PLOT BETWEEN ACTUAL AND PREDICTED TIP VALUES
 
@@ -1044,7 +1042,7 @@ Here is the code to plot the data using the Jupyter server.
 ![Actual-vs-predicted-tip-amounts](./media/machine-learning-data-science-spark-data-exploration-modeling/actual-vs-predicted-tips.png)
 
 	
-## Cleanup objects from memory
+## Clean up objects from memory
 
 Use `unpersist()` to delete objects cached in memory.​
 		
@@ -1071,7 +1069,7 @@ Use `unpersist()` to delete objects cached in memory.​
 
 ## Record storage locations of the models for consumption and scoring
 
-For the consumption and scoring an independent dataset described in the [Score and evaluate Spark-built machine learning models](machine-learning-data-science-spark-model-consumption.md) topic, you will need to copy and paste these file names containing the saved models created here into the Consumption Jupyter notebook. Here is the code to print out the paths to model files you need there.
+To consume and score an independent dataset described in the [Score and evaluate Spark-built machine learning models](machine-learning-data-science-spark-model-consumption.md) topic, you need to copy and paste these file names containing the saved models created here into the Consumption Jupyter notebook. Here is the code to print out the paths to model files you need there.
 
 	# MODEL FILE LOCATIONS FOR CONSUMPTION
 	print "logisticRegFileLoc = modelDir + \"" + logisticregressionfilename + "\"";
@@ -1099,7 +1097,7 @@ BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-0
 
 ## What's next?
 
-Now that you have created regression and classification models with the Spark MlLib, you are ready to learn how to score and evaluate these models. The advanced data exploration and modeling notebook dives deeper into including cross-validation, hyper-parameter sweeping and model evaluation. 
+Now that you have created regression and classification models with the Spark MlLib, you are ready to learn how to score and evaluate these models. The advanced data exploration and modeling notebook dives deeper into including cross-validation, hyper-parameter sweeping, and model evaluation. 
 
 **Model consumption:** To learn how to score and evaluate the classification and regression models created in this topic, see [Score and evaluate Spark-built machine learning models](machine-learning-data-science-spark-model-consumption.md).
 
