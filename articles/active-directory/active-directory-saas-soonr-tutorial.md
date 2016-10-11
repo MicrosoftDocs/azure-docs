@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="femila"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2016"
+	ms.date="10/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -121,7 +121,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 	![Configure Single Sign-On](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_04.png) 
 
 
-    a. In the **Sign On URL** textbox, type the URL used by users, to sign-on to your  application using the following pattern: `https://\<server-name\>.soonr.com/singlesignon/saml/SSO`.
+    a. In the **Sign On URL** textbox, type the URL used by users, to sign-on to your  application using the following pattern: `https://<server-name>.soonr.com/singlesignon/saml/SSO`.
 
     b. Click **Next**.
 
@@ -131,15 +131,14 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
     a. Click **Download metadata**, and then save the file on your computer.
 
-	b. The **ISSUER URL**
+	b. The **Issuer URL**
 
     C. The **SAML SSO URL**
 
-	D. The **SINGLE SIGN-OUT SERVICE URL**
+	D. The **Single sign-out service URL**
 
 
-5. To get SSO configured for your application, refer to the Soonr Workplace SSO Integration guide or you can refer to <a href="http://soonr.com/AWPHelp/Content/0_HOME/Support_for_End_Clients.htm/">End-User Support URL</a> for more details.
- 
+5.To configure Single Sign On at the Soonr Workplace, you can refer this <a href="https://na01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fsoonr.com%2FAWPHelp%2FContent%2F0_HOME%2FSupport_for_End_Clients.htm&data=01%7C01%7Cv-saikra%40microsoft.com%7Ccbb4367ab09b4dacaac408d3eebe3f42%7C72f988bf86f141af91ab2d7cd011db47%7C1&sdata=FB92qtE6m%2Fd8yox7AnL2f1h%2FGXwSkma9x9H8Pz0955M%3D&reserved=0/">End-User Support URL</a>  article from Soonr team.
    
 6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 
