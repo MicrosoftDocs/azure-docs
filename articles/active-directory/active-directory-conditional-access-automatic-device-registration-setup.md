@@ -31,7 +31,10 @@ Using conditional access in Azure AD gives you these advantages:
 
 > [AZURE.NOTE] The Windows 10 November Update offers some of the enhanced user experiences in Azure AD, but the Windows 10 Anniversary Update fully supports device-based conditional access. For more information about conditional access, see [Azure Active Directory device-based conditional access](active-directory-conditional-access.md). For more information about Windows 10 devices in the workplace and how a user registers a Windows 10 device with Azure AD, see [Windows 10 for the enterprise: Use devices for work](active-directory-azureadjoin-windows10-devices-overview.md).
 
-You can register some earlier versions of Windows, including Windows 8.1 and Windows 7.
+You can register some earlier versions of Windows, including these versions:
+
+-	Windows 8.1
+-	Windows 7
 
 If you are using a Windows Server computer as a desktop, you can register these platforms:
 
@@ -45,7 +48,7 @@ If you are using a Windows Server computer as a desktop, you can register these 
 
 The main requirement for automatic registration of domain-joined devices by using Azure AD is to have an up-to-date version of Azure Active Directory Connect (Active AD Connect).
 
-Depending on how you deployed Azure AD Connect, and whether you used an Express or Custom installation or an in-place upgrade, the following prerequisites might have been configured automatically:
+Depending on how you deployed Azure AD Connect, and whether you used an express or custom installation or an in-place upgrade, the following prerequisites might have been configured automatically:
 
 -	**Service connection point in on-premises Active Directory**. For discovery of Azure AD tenant information by computers that register for Azure AD
 
@@ -58,7 +61,7 @@ If some devices in your organizations are not Windows 10 domain-joined devices, 
 
 
 
-## Service connection point for discovery of Azure AD tenant
+## Set a service connection point for discovery of the Azure AD tenant
 
 A service connection point object must exist in the configuration naming context partition of the forest of the domain where computers are joined. The service connection point holds discovery information about the Azure AD tenant where computers register. In a multi-forest Active Directory configuration, the service connection point must exist in all forests that have domain-joined computers.
 
@@ -76,7 +79,7 @@ You can check for the Azure AD tenant object and discovery values by using the f
 
 	$scp.Keywords;
 
-The ``$scp.Keywords` output shows the Azure AD tenant information:
+The `$scp.Keywords` output shows the Azure AD tenant information:
 
 	azureADName:microsoft.com
 
@@ -95,7 +98,7 @@ If the service connection point doesn’t exist, create it by running the follow
 > When you run the Initialize-ADSyncDomainJoinedComputerSync cmdlet, replace [*connector account name*] with the domain account that's used in the Active Directory connector account.  
 > The cmdlet uses the Active Directory PowerShell module, which relies on Active Directory Web Services in a domain controller. Active Directory Web Services is supported in domain controllers in Windows Server 2008 R2 and later versions. For domain controllers in Windows Server 2008 or earlier versions, use the System.DirectoryServices API via PowerShell to create the service connection point, and then assign the Keywords values.
 
-## AD FS rules for instant computer registration in federated organizations
+## Create AD FS rules for instant device registration in federated organizations
 
 In a federated Azure AD configuration, devices rely on AD FS (or on the on-premises federation server) to authenticate to Azure AD. Then, they register against Azure Active Directory Device Registration Service (Azure AD Device Registration Service).
 
@@ -182,14 +185,14 @@ Make sure that IWA is set as a valid alternative to multi-factor authentication 
 
 5.	Select **Next**.
 
-6.	In the **Claim rule name** box, type **Auth Method Claim Rule**.
+6.	In the **Claim rule name** box, enter **Auth Method Claim Rule**.
 
-7.	In the **Claim rule** box, type this command:
+7.	In the **Claim rule** box, enter this command:
 
- `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"]
-=> issue(claim = c);`.
+	`c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"]
+	=> issue(claim = c);`.
 
-8. On your federation server, in Windows PowerShell, type this command:
+8. On your federation server, enter this PowerShell command:
 
 	`Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 
@@ -209,7 +212,7 @@ You can use a Group Policy object to control the rollout of automatic registrati
 
 > [AZURE.NOTE] The Group Policy for rollout control also triggers the registration of Windows 8.1 domain-joined computers. You can use the policy for registering Windows 8.1 domain-joined computers. Or, if you have a mix of Windows versions, including Windows 7 or Windows Server versions, you can register all your non-Windows 10 and Windows Server 2016 computers by using a Windows Installer package.
 
-### Group Policy object to control the rollout of automatic registration
+### Create a Group Policy object to control the rollout of automatic registration
 
 To control the rollout of automatic registration of domain-joined computers with Azure AD, you can deploy the **Register domain-joined computers as devices** Group Policy to the computers you want to register. For example, you can deploy the policy to an organizational unit or to a security group.
 
