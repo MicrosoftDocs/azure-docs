@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sql-database"
-   ms.date="10/11/2016"
+   ms.date="10/12/2016"
    ms.author="bonova"/>
 
 #Manage historical data with temporal retention policy
@@ -23,26 +23,34 @@ Temporal Tables may increase database size more than regular tables, especially 
 Temporal history retention can be configured at the individual table level, which gives you the finest level of granularity. Applying retention policy is simple: it requires you to set only one parameter during table creation or schema change.
 
 After you define retention policy, Azure SQL Database will start checking regularly if there are rows belonging to the history table that are eligible for automatic data cleanup. Identification of matching rows and their removal from the history table occurs transparently, in the background task that is scheduled and run by the system. Age condition for the history table rows is checked based on the column representing end of SYSTEM_TIME period. If retention period, for example, is set to six months, table rows eligible for cleanup satisfies the following condition:
+
 ````
 ValidTo < DATEADD (MONTH, -6, SYSUTCDATETIME())
 ````
+
 In the example above we assumed that **ValidTo** column corresponds to the end of SYSTEM_TIME period.
 
 ##How to configure temporal history retention?
 
-Before you configure retention policy for a temporal table, check first whether temporal historical retention is enabled *at the database level*.  
+Before you configure retention policy for a temporal table, check first whether temporal historical retention is enabled *at the database level*.
+
 ````
 SELECT is_temporal_history_retention_enabled, name
 FROM sys.databases
 ````
+
 Database flag **is_temporal_history_retention_enabled** is set to ON by default but it can be altered by the end users. It is also automatically set to OFF after [point in time restore](sql-database-point-in-time-restore-portal.md) operation. To enable temporal history retention cleanup for your database, execute the following statement:
+
 ````
 ALTER DATABASE <myDB>
 SET TEMPORAL_HISTORY_RETENTION  ON
 ````
+
 > [AZURE.IMPORTANT] You are able to configure retention for temporal tables even if **is_temporal_history_retention_enabled** is OFF, but automatic cleanup for aged rows will not be triggered in that case.
 
+
 You can configure retention policy during table creation by specifying value for the HISTORY_RETENTION_PERIOD parameter:
+
 ````
 CREATE TABLE dbo.WebsiteUserInfo
 (  
@@ -62,16 +70,20 @@ CREATE TABLE dbo.WebsiteUserInfo
 	 )
  );
 ````
+
 Azure SQL Database allows you to specify retention period by using different time units: DAYS, WEEKS, MONTHS, and YEARS. If HISTORY_RETENTION_PERIOD is omitted, INFINITE retention is assumed. You can also use INFINITE keyword explicitly.
 
 In some scenarios, you may want to configure retention after table creation, or change previously configured value. In that case use ALTER TABLE statement:
+
 ````
 ALTER TABLE dbo.WebsiteUserInfo
 SET (SYSTEM_VERSIONING = ON (HISTORY_RETENTION_PERIOD = 9 MONTHS));
 ````
+
 Keep in mind that setting SYSTEM_VERSIONING to OFF *does not preserve* retention period value. Setting SYSTEM_VERSIONING to ON without HISTORY_RETENTION_PERIOD specified explicitly results in the INFINITE retention period.
 
 To review current state of the retention policy, use the following query that joins temporal retention enablement flag at the database level with retention periods for individual tables:
+
 ````
 SELECT DB.is_temporal_history_retention_enabled,
 SCHEMA_NAME(T1.schema_id) AS TemporalTableSchema,
@@ -83,6 +95,7 @@ OUTER APPLY (select is_temporal_history_retention_enabled from sys.databases whe
 LEFT JOIN sys.tables T2   
 ON T1.history_table_id = T2.object_id WHERE T1.temporal_type = 2
 ````
+
 The following picture illustrates above query results:
 ![Temporal retention metadata](./media/sql-database-temporal-tables-retention-policy/retentionmetadata.png)
 
@@ -113,6 +126,7 @@ Cannot drop the clustered index 'WebsiteUserInfoHistory.IX_WebsiteUserInfoHistor
 Cleanup on the clustered columnstore index assumes that new rows are inserted in the ascending order (by the end of period column), which is always the case when history table is populated exclusively by the SYSTEM_VERSIONIOING mechanism. If row groups in the history table are not ordered by end of period column (may be the case if you migrated existing historical data), you should re-create clustered columnstore index on top of B-tree rowstore index that is properly ordered, to achieve optimal performance.
 
 Avoid rebuilding clustered columnstore index on the history table with the finite retention period, because it may change ordering in the row groups naturally imposed by the system-versioning operation. If you need to rebuild clustered columnstore index on the history table, do that by re-creating it on top of compliant B-tree index, preserving ordering in the rowgroups necessary for regular data cleanup. The same approach should be taken if you create temporal table with existing history table that has clustered column index without guaranteed data order:
+
 ````
 /*Create B-tree ordered by the end of period column*/
 CREATE CLUSTERED INDEX IX_WebsiteUserInfoHistory ON WebsiteUserInfoHistory (ValidTo)
@@ -122,10 +136,13 @@ GO
 CREATE CLUSTERED COLUMNSTORE INDEX IX_WebsiteUserInfoHistory ON WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON);
 ````
+
 When you have finite retention period configured for the history table with the clustered columnstore index, you cannot create additional non-clustered B-tree index on that table:
+
 ````
 CREATE NONCLUSTERED INDEX IX_WebHistNCI ON WebsiteUserInfoHistory ([UserName])
 ````
+
 An attempt to execute above statement will fail with the following error:
 
 *Msg 13772, Level 16, State 1 <br></br>
@@ -136,6 +153,7 @@ Cannot create non-clustered index on a temporal history table 'WebsiteUserInfoHi
 All queries on the temporal table automatically filter out rows matching retention policy to avoid unpredictable and inconsistent results, since aged rows can be deleted by the cleanup task, *at any point in time and in arbitrary order*.
 
 The following picture shows query plan for a simple query
+
 ````
 SELECT * FROM dbo.WebsiteUserInfo FROM SYSTEM_TIME ALL;
 ````
@@ -157,10 +175,10 @@ When you create a database by [restoring existing database to a specific point i
 Therefore you can use it to *inspect historical data beyond configured retention period*. Say that a temporal table has one MONTH retention period specified. If your database was created in Premium Service tier, you would be able to create database copy with the database state up to 35 days back in the past. That effectively would allow you to analyze historical rows that are up to 65 days old by querying the history table directly.
 
 If you want to activate temporal retention cleanup, run the following Transact-SQL statement after point in time restore:
+
 ````
 ALTER DATABASE <myDB>
 SET TEMPORAL_HISTORY_RETENTION  ON
-
 ````
 
 ##Next steps
