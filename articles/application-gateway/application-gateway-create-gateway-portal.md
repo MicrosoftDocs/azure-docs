@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/09/2016"
+   ms.date="10/11/2016"
    ms.author="gwallace" />
 
 # Create an application gateway by using the portal
@@ -65,7 +65,8 @@ Next fill out the basic information about the application gateway. When complete
 The information needed for the basic settings is:
 
 - **Name** - The name for the application gateway.
-- **SKU size** - This setting is the size of the application gateway, available options are (Small, Medium, and Large).
+- **Tier** - This is the tier of the application gateway. Two tiers are available, **WAF** and **Standard**. WAF enables the web application firewall feature.
+- **SKU size** - This setting is the size of the application gateway, available options are (**Small**, **Medium**, and **Large**). *Small is not available when WAF tier is chosen*
 - **Instance count** - The number of instances, this value should be a number between 2 and 10.
 - **Resource group** - The resource group to hold the application gateway, it can be an existing resource group or a new one.
 - **Location** - The region for the application gateway, it is the same location at the resource group. *The location is important as the virtual network and public IP must be in the same location as the gateway*.
