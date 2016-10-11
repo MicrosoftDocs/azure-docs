@@ -32,7 +32,7 @@ You can set your cluster to download the service fabric updates, when Microsoft 
 You do this by setting the "fabricClusterAutoupgradeEnabled" cluster configuration to true or false.
 
 
->[AZURE.NOTE] Make sure to keep your cluster always running a supported Service Fabric version. As and when we announce the release of a new version of service fabric, the previous version is marked for end of life after a minimum of 60 days from that date. The new releases are announced [on the service fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/ ). The new release is available to choose then. 
+>[AZURE.NOTE] Make sure to keep your cluster always running a supported Service Fabric version. As and when we announce the release of a new version of service fabric, the previous version is marked for end of support after a minimum of 60 days from that date. The new releases are announced [on the service fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/ ). The new release is available to choose then. 
 
 
 You can upgrade your cluster to the new version only if you are using a  production-style node configuration, where each Service Fabric node is allocated on a separate physical or virtual machine. If you have a development cluster, where there are more than one service fabric nodes on a single physical or virtual machine, you must tear down your cluster and recreate it with the new version.
