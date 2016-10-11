@@ -33,9 +33,9 @@ You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You
 
 > [AZURE.VIDEO transfer-an-azure-subscription]
 
-> [AZURE.NOTE]  You have to be the account administrator to perform an ownership transfer. For more information about how to find out who is the account administrator of the subscription, see the [Frequently asked questions](#faq).
-
 1.  Sign in at <https://account.windowsazure.com/Subscriptions>
+
+  > [AZURE.NOTE]  You have to be the account administrator to perform an ownership transfer. For more information about how to find out who is the account administrator of the subscription, see the [Frequently asked questions](#faq).
 
 2.  Select the subscription to transfer.
 
