@@ -18,7 +18,7 @@
 
 # Get started with Linux compute nodes in an HPC Pack cluster in Azure
 
-Set up a [Microsoft HPC Pack]() cluster in Azure that contains a head node running Windows Server and several compute nodes running a supported Linux distribution. Explore options to move data among the Linux nodes and the Windows head node of the cluster. Learn how to submit Linux HPC jobs to the cluster.
+Set up a [Microsoft HPC Pack](https://technet.microsoft.com/en-us/library/cc514029.aspx) cluster in Azure that contains a head node running Windows Server and several compute nodes running a supported Linux distribution. Explore options to move data among the Linux nodes and the Windows head node of the cluster. Learn how to submit Linux HPC jobs to the cluster.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)].
 
@@ -144,13 +144,13 @@ Modify the file as needed for your environment and desired cluster configuration
 
 2. Change directory to the folder where the script is installed (E:\IaaSClusterScript in this example).
 
-    ```
+    ```powershell
     cd E:\IaaSClusterScript
     ```
 
 3. Run the following command to deploy the HPC Pack cluster. This example assumes that the configuration file is located in E:\HPCDemoConfig.xml
 
-    ```
+    ```powershell
     .\New-HpcIaaSCluster.ps1 –ConfigFile E:\HPCDemoConfig.xml –AdminUserName MyAdminName
     ```
 
@@ -200,8 +200,9 @@ For detailed steps to create an Azure File share and mount it on the head node, 
 
 In the following example, create an Azure File share on a storage account. To mount the share on the head node, open a Command Prompt and enter the following commands:
 
-```
+```command
 cmdkey /add:allvhdsje.file.core.windows.net /user:allvhdsje /pass:<storageaccountkey>
+
 net use Z: \\allvhdje.file.core.windows.net\rdma /persistent:yes
 ```
 
@@ -211,7 +212,7 @@ To mount the Azure File share on Linux nodes, run a **clusrun** command on the h
 
 Open a Windows PowerShell window and enter the following commands:
 
-```
+```powershell
 clusrun /nodegroup:LinuxNodes mkdir -p /rdma
 
 clusrun /nodegroup:LinuxNodes mount -t cifs //allvhdsje.file.core.windows.net/rdma /rdma -o vers=2.1`,username=allvhdsje`,password=<storageaccountkey>'`,dir_mode=0777`,file_mode=0777
@@ -233,11 +234,11 @@ Alternatively, mount a shared folder of the head node on Linux nodes. A share pr
 
 2. Open a Windows PowerShell window and run the following commands:
 
-```
-PS > clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
+    ```powershell
+    clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
 
-PS > clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS7RDMA-HN/OpenFOAM /openfoam -o vers=2.1`,username=<username>`,password='<password>'`,dir_mode=0777`,file_mode=0777
-```
+    clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS7RDMA-HN/OpenFOAM /openfoam -o vers=2.1`,username=<username>`,password='<password>'`,dir_mode=0777`,file_mode=0777
+    ```
 
 The first command creates a folder named /openfoam on all nodes in the LinuxNodes group. The second command mounts the shared folder //CentOS7RDMA-HN/OpenFOAM onto the folder with dir and file mode bits set to 777. The username and password in the command should be the username and password of a cluster user on the head node. (See [Add or remove cluster users](https://technet.microsoft.com/library/ff919330.aspx).)
 
@@ -262,10 +263,11 @@ The NFS service enables you to share and migrate files between computers running
 
 2. Open a Windows PowerShell window and run the following commands:
 
-  ```
-  PS > clusrun /nodegroup:LinuxNodes mkdir -p /nfsshare
-  PS > clusrun /nodegroup:LinuxNodes mount CentOS7RDMA-HN:/nfs /nfsshared
-  ```
+    ```powershell
+    clusrun /nodegroup:LinuxNodes mkdir -p /nfsshare
+
+    clusrun /nodegroup:LinuxNodes mount CentOS7RDMA-HN:/nfs /nfsshared
+    ```
 
   The first command creates a folder named /nfsshared on all nodes in the LinuxNodes group. The second command mounts the NFS share CentOS7RDMA-HN:/nfs onto the folder. Here CentOS7RDMA-HN:/nfs is the remote path of your NFS share.
 
@@ -284,24 +286,24 @@ To submit jobs via the REST API, refer to [Creating and Submitting Jobs by Using
 
 ## Clusrun for Linux nodes
 
-The HPC Pack **clusrun** tool can be used to execute commands on Linux nodes either through a Command Prompt or HPC Cluster Manager. Following are some basic examples.
+The HPC Pack [clusrun](https://technet.microsoft.com/library/cc947685.aspx) tool can be used to execute commands on Linux nodes either through a Command Prompt or HPC Cluster Manager. Following are some basic examples.
 
 * Show current user names on all nodes in the cluster.
 
-    ```
-    > clusrun whoami
+    ```command
+    clusrun whoami
     ```
 
 * Install the **gdb** debugger tool with **yum** on all nodes in the linuxnodes group and then restart the nodes after 10 minutes.
 
-    ```
-    > clusrun /nodegroup:linuxnodes yum install gdb –y; shutdown –r 10
+    ```command
+    clusrun /nodegroup:linuxnodes yum install gdb –y; shutdown –r 10
     ```
 
 * Create a shell script displaying each number 1 through 10 for one second on each Linux node in the cluster, run it, and show output from the nodes immediately.
 
-    ```
-    > clusrun /interleaved /nodegroup:linuxnodes echo \"for i in {1..10}; do echo \\\"\$i\\\"; sleep 1; done\" ^> script.sh; chmod +x script.sh; ./script.sh
+    ```command
+    clusrun /interleaved /nodegroup:linuxnodes echo \"for i in {1..10}; do echo \\\"\$i\\\"; sleep 1; done\" ^> script.sh; chmod +x script.sh; ./script.sh
     ```
 
 >[AZURE.NOTE] You might need to use certain escape characters in **clusrun** commands. As shown in this example, use ^ in a Command Prompt to escape the ">" symbol.
