@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Device-based conditional access policy for Azure Active Directory-connected applications | Microsoft Azure"
+	pageTitle="Set device-based conditional access policy for Azure Active Directory-connected applications | Microsoft Azure"
 	description="Set device-based conditional access policies for Azure AD-connected applications."
 	services="active-directory"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.author="markvi"/>
 
 
-# Device-based conditional access policy for Azure Active Directory-connected applications
+# Set device-based conditional access policy for Azure Active Directory-connected applications
 
 
 Azure Active Directory (Azure AD) device-based conditional access can help you protect organization resources from:
@@ -137,12 +137,12 @@ You have two options for the type of application to include:
 
 To enforce access policy for applications, select **For browser and native applications**. Then, you can include:
 
-- Browsers (for example, Edge in Windows 10 or Safari in iOS).
+- Browsers (for example, Microsoft Edge in Windows 10 or Safari in iOS).
 - Applications that use the Active Directory Authentication Library (ADAL) on any platform, or which use the WebAccountManager (WAM) API in Windows 10.
 
->[AZURE.NOTE] For more information about browser support and other considerations for a user who is accessing a device-based, Certificate Authority-protected application, see [Azure Active Directory conditional access](active-directory-conditional-access.md).
+>[AZURE.NOTE] For more information about browser support and other considerations for a user who is accessing a device-based, certificate authority-protected application, see [Azure Active Directory conditional access](active-directory-conditional-access.md).
 
-## Protect email access from Exchange ActiveSync-based applications
+## Help protect email access from Exchange ActiveSync-based applications
 
 In Office 365 Exchange Online applications, you can use Exchange ActiveSync to block email access to Exchange ActiveSync-based mail applications.
 
