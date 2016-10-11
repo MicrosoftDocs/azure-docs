@@ -43,7 +43,7 @@ Before you start, make sure that you at least 85 GB of space.
 
 4. Copy the CloudBuilder.vhdx file to C:\CloudBuilder.vhdx.
 
-    > [AZURE.NOTE] If you choose not to use the recommended script to prepare your POC host computer (steps 5 – step 7), do not enter any license key at the activation page. A trial version of Windows Server 2016 image is included, and entering a license key will cause expiration warning messages.
+    > [AZURE.NOTE] If you choose not to use the recommended script to prepare your POC host computer (steps 5 – step 7), do not enter any license key at the activation page. A trial version of Windows Server 2016 image is included, and entering a license key causes expiration warning messages.
 
 5. On the POC machine, run the following PowerShell script to download the Azure Stack TP2 support files:
 
@@ -82,7 +82,7 @@ Before you start, make sure that you at least 85 GB of space.
 
 8. When the script is complete, you must confirm the reboot. If there are other users logged in, this command will fail. If the command fails, run the following command: `Restart-Computer -force` 
 
-9. The HOST reboots into the OS of the CloudBuilder.vhdx, where the remainder of the deployment steps take place.
+9. The HOST reboots into the OS of the CloudBuilder.vhdx, where the deployment continues.
 
 > [AZURE.IMPORTANT] Azure Stack requires access to the Internet, either directly or through a transparent proxy. The TP2 POC deployment supports exactly one NIC for networking. If you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script in the next section.
 
