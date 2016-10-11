@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/10/2016"
+   ms.date="10/11/2016"
    ms.author="telmos"/>
 
 # Implementing a secure hybrid network architecture with federated identities in Azure
@@ -40,8 +40,6 @@ For more information about how AD FS works, see [Active Directory Federation Ser
 ## Architecture diagram
 
 The following diagram highlights the important components in this architecture (*click to zoom in*). For more information about the grayed-out elements, read [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture], [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access], and [Implementing a secure hybrid network architecture with Active Directory identities in Azure][implementing-active-directory]:
-
-**NOTE: NEED TO UPDATE ADDRESS SPACES IN DIAGRAM TO MATCH SAMPLE, WHEN STABILIZED**
 
 [![0]][0]
 
@@ -263,148 +261,137 @@ These components form the core of this architecture. The [**parameters/azure**][
 
 - **[virtualNetwork.parameters.json][vnet-parameters]**. This file defines  structure of the VNet for the VMs and other components in the cloud. It includes settings, such as the name, address space, subnets, and the addresses of any DNS servers required. Note that the DNS addresses shown in this example reference the IP addresses of the on-premises DNS servers, and also the default Azure DNS server. You should modify these addresses to reference your own DNS setup if you are not using the sample on-premises environment:
 
-	**QUESTION FOR HANZ: What does virtualNetwork-with-onpremise-and-azure-dns.parameters.json do?**
-
 	```json
     {
-      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "virtualNetworkSettings": {
-          "value": {
-            "name": "ra-adfs-vnet",
-            "resourceGroup": "ra-adfs-network-rg",
-            "addressPrefixes": [
-              "10.0.0.0/16"
-            ],
-            "subnets": [
-              {
-                "name": "dmz-private-in",
-                "addressPrefix": "10.0.0.0/27"
-              },
-              {
-                "name": "dmz-private-out",
-                "addressPrefix": "10.0.0.32/27"
-              },
-              {
-                "name": "dmz-public-in",
-                "addressPrefix": "10.0.0.64/27"
-              },
-              {
-                "name": "dmz-public-out",
-                "addressPrefix": "10.0.0.96/27"
-              },
-              {
-                "name": "mgmt",
-                "addressPrefix": "10.0.0.128/25"
-              },
-              {
-                "name": "GatewaySubnet",
-                "addressPrefix": "10.0.255.224/27"
-              },
-              {
-                "name": "web",
-                "addressPrefix": "10.0.1.0/24"
-              },
-              {
-                "name": "biz",
-                "addressPrefix": "10.0.2.0/24"
-              },
-              {
-                "name": "data",
-                "addressPrefix": "10.0.3.0/24"
-              },
-              {
-                "name": "adds",
-                "addressPrefix": "10.0.4.0/27"
-              },
-              {
-                "name": "adfs",
-                "addressPrefix": "10.0.5.0/27"
-              },
-              {
-                "name": "proxy",
-                "addressPrefix": "10.0.6.0/27"
-              }
-            ],
-            "dnsServers": [
-              "192.168.0.4",
-              "192.168.0.5",
-              "168.63.129.16"
-            ]
-          }
+      "virtualNetworkSettings": {
+        "value": {
+          "name": "ra-adfs-vnet",
+          "resourceGroup": "ra-adfs-network-rg",
+          "addressPrefixes": [
+            "10.0.0.0/16"
+          ],
+          "subnets": [
+            {
+              "name": "dmz-private-in",
+              "addressPrefix": "10.0.0.0/27"
+            },
+            {
+              "name": "dmz-private-out",
+              "addressPrefix": "10.0.0.32/27"
+            },
+            {
+              "name": "dmz-public-in",
+              "addressPrefix": "10.0.0.64/27"
+            },
+            {
+              "name": "dmz-public-out",
+              "addressPrefix": "10.0.0.96/27"
+            },
+            {
+              "name": "mgmt",
+              "addressPrefix": "10.0.0.128/25"
+            },
+            {
+              "name": "GatewaySubnet",
+              "addressPrefix": "10.0.255.224/27"
+            },
+            {
+              "name": "web",
+              "addressPrefix": "10.0.1.0/24"
+            },
+            {
+              "name": "biz",
+              "addressPrefix": "10.0.2.0/24"
+            },
+            {
+              "name": "data",
+              "addressPrefix": "10.0.3.0/24"
+            },
+            {
+              "name": "adds",
+              "addressPrefix": "10.0.4.0/27"
+            },
+            {
+              "name": "adfs",
+              "addressPrefix": "10.0.5.0/27"
+            },
+            {
+              "name": "proxy",
+              "addressPrefix": "10.0.6.0/27"
+            }
+          ],
+          "dnsServers": [
+            "192.168.0.4",
+            "192.168.0.5",
+            "168.63.129.16"
+          ]
         }
       }
     }
     ```
 
-- **[virtualMachines-adds.parameters.json ][virtualmachines-adds-parameters]**. This file configures the VMs running AD DS in the cloud. The configuration consists of two VMs. You should change the admin user name and password, and you can optionally modify the VM size to match the requirements of the domain:
+- **[virtualMachines-adds.parameters.json ][virtualmachines-adds-parameters]**. This file configures the VMs running AD DS in the cloud. The configuration consists of two VMs. You should change the admin user name and password in the `virtualMachineSettings` section, and you can optionally modify the VM size to match the requirements of the domain:
 
 	For more information, see [Extending Active Directory to Azure][extending-ad-to-azure].
 
 	```json
-    {
-      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "virtualMachinesSettings": {
-          "value": {
-            "namePrefix": "ra-adfs-ad",
-            "computerNamePrefix": "aad",
-            "size": "Standard_DS3_v2",
-            "osType": "Windows",
-            "adminUsername": "testuser",
-            "adminPassword": "AweS0me@PW",
-            "osAuthenticationType": "password",
-            "nics": [
-              {
-                "isPublic": "false",
-                "subnetName": "adds",
-                "privateIPAllocationMethod": "Static",
-                "startingIPAddress": "10.0.4.4",
-                "enableIPForwarding": false,
-                "dnsServers": [
-                ],
-                "isPrimary": "true"
-              }
-            ],
-            "imageReference": {
-              "publisher": "MicrosoftWindowsServer",
-              "offer": "WindowsServer",
-              "sku": "2012-R2-Datacenter",
-              "version": "latest"
-            },
-            "dataDisks": {
-              "count": 1,
-              "properties": {
-                "diskSizeGB": 127,
-                "caching": "None",
-                "createOption": "Empty"
-              }
-            },
-            "osDisk": {
-              "caching": "ReadWrite"
-            },
-            "extensions": [
-            ],
-            "availabilitySet": {
-              "useExistingAvailabilitySet": "No",
-              "name": "ra-adfs-as"
+      "virtualMachinesSettings": {
+        "value": {
+          "namePrefix": "ra-adfs-ad",
+          "computerNamePrefix": "aad",
+          "size": "Standard_DS3_v2",
+          "osType": "Windows",
+          "adminUsername": "testuser",
+          "adminPassword": "AweS0me@PW",
+          "osAuthenticationType": "password",
+          "nics": [
+            {
+              "isPublic": "false",
+              "subnetName": "adds",
+              "privateIPAllocationMethod": "Static",
+              "startingIPAddress": "10.0.4.4",
+              "enableIPForwarding": false,
+              "dnsServers": [
+              ],
+              "isPrimary": "true"
             }
+          ],
+          "imageReference": {
+            "publisher": "MicrosoftWindowsServer",
+            "offer": "WindowsServer",
+            "sku": "2012-R2-Datacenter",
+            "version": "latest"
+          },
+          "dataDisks": {
+            "count": 1,
+            "properties": {
+              "diskSizeGB": 127,
+              "caching": "None",
+              "createOption": "Empty"
+            }
+          },
+          "osDisk": {
+            "caching": "ReadWrite"
+          },
+          "extensions": [
+          ],
+          "availabilitySet": {
+            "useExistingAvailabilitySet": "No",
+            "name": "ra-adfs-as"
           }
-        },
-        "virtualNetworkSettings": {
-          "value": {
-            "name": "ra-adfs-vnet",
-            "resourceGroup": "ra-adfs-network-rg"
-          }
-        },
-        "buildingBlockSettings": {
-          "value": {
-            "storageAccountsCount": 2,
-            "vmCount": 2,
-            "vmStartIndex": 1
-          }
+        }
+      },
+      "virtualNetworkSettings": {
+        "value": {
+          "name": "ra-adfs-vnet",
+          "resourceGroup": "ra-adfs-network-rg"
+        }
+      },
+      "buildingBlockSettings": {
+        "value": {
+          "storageAccountsCount": 2,
+          "vmCount": 2,
+          "vmStartIndex": 1
         }
       }
     }
@@ -608,7 +595,7 @@ To run the script that deploys the solution:
 
 	- `Onpremise`, to create the simulated on-premises environment.
 
-	- `Infrastructure`, to create the VNet infrastructure in the cloud.
+	- `Infrastructure`, to create the VNet infrastructure and jump box in the cloud.
 
 	- `CreateVpn`, to build Azure virtual network gateway and connect it to the on-premises network.
 
@@ -618,22 +605,43 @@ To run the script that deploys the solution:
 
 	- `ProxyVm` to build the AD FS proxy VMs and join them to the domain in the cloud.
 
-	- `Prepare`, which performs all of the above tasks. Use this option if you are building an entirely new deployment and you don't have an existing on-premises infrastructure.
+	- `Prepare`, which performs all of the above tasks. **This is the recommended option if you are building an entirely new deployment and you don't have an existing on-premises infrastructure.**
 
 	>[AZURE.NOTE. You can also run the script with a `<mode>` parameter of `Workload` to create the web, business, and data tier VMs and network. This setup is not included as part of the `Prepare` mode.
 
-8. 	When prompted [obtain an SSL Certificate for AD FS][adfs_certificates] and install this certificate on all AD FS and AD FS proxy VMs.
+	If you use the `Prepare` option, the script takes several hours to complete, and finishes with the message *Preparation is completed. Please install certificate to all adfs and proxy VMs.*
 
-	>[AZURE.NOTE] The comments at the end of the script provide detailed instructions for creating a self-signed test certificate and authority using the `makecert` command. Do not use the certificates generated by makecert in a production environment.
+8.	Restart the jump box (*ra-adfs-mgmt-vm1* in the *ra-adfs-security-rg* group) to allow its DNS settings to take effect.
 
-9. Run the following commands to configure the AD FS and AD FS proxy server farms:
+9.	[Obtain an SSL Certificate for AD FS][adfs_certificates] and install this certificate on the AD FS VMs. Note that you can connect to the AD FS VMs through the jump box. The IP addresses are *10.0.5.4* and *10.0.5.5*. The default username is *contoso\testuser* with password *AweSome@PW*.
+
+	>[AZURE.NOTE] The comments in the Deploy-ReferenceArchitecture.ps1 script at this point provide detailed instructions for creating a self-signed test certificate and authority using the `makecert` command. However, do not use the certificates generated by makecert in a production environment.
+
+10. Run the following Powershell command to configure the AD FS server farm:
 
 	```powershell
 	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Adfs
-	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Proxy
 	```
 
-10. *Add verification steps*
+11. On the jump box, browse to *https://adfs.contoso.com/adfs/ls/idpinitiatedsignon.htm* to test the ADFS installation (you may receive a certificate warnining, which you can ignore for this test). Verify that the Contoso Corporation sign in page appears. Sign in as *contoso\testuser* with password *AweS0me@PW*.
+
+12. Install the SSL certificate on the AD FS proxy VMs. The IP addresses are *10.0.6.4* and *10.0.6.5*.
+
+13. Run the following Powershell command to configure the first AD FS proxy server:
+
+	```powershell
+	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Proxy1
+	```
+
+14. Follow the instructions displayed by the script to test the installation of the first AD FS proxy server.
+
+15. Run the following Powershell command to configure the second first AD FS proxy server:
+
+	```powershell
+	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Proxy2
+	```
+
+16. Follow the instructions displayed by the script to test the complete AD FS proxy configuration.
 
 ## Next steps
 
