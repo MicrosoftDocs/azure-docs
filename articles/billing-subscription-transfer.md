@@ -28,7 +28,7 @@ Do you:
 
 You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You-Go, MSDN, Action Pack, or BizSpark subscriptions.  We’ve added the ability to transfer your subscription to another user. In other words, you can now change the account admin on any Pay-As-You-Go, MSDN, Action Pack, or BizSpark subscription that you own, no matter which country you operate in. We now support the transfer of Azure Marketplace Purchases for these subscription types as well.
 
-> [AZURE.NOTE]  To change your subscription to a different offer, see [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md) for more information.
+> [AZURE.NOTE]  To change your subscription to a different offer, see [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md) for more information.</br>
 
 > [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
