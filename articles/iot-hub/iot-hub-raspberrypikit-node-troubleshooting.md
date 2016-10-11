@@ -64,9 +64,9 @@ Once the debug engine is ready, you should be able to see ```Debugger listening 
 
 ### Configure VS Code to connect to the remote device
 
-Open the **Debug** (Ctrl+Shift+D) panel from the left side.
+Open the **Debug** panel from the left side.
 
-Click the green **Start Debugging** (F5) button. VS Code would open a **launch.json**, which you need to update.
+Click the green **Start Debugging** (F5) button. VS Code would open a **launch.json** file, which you need to update.
 
 Update the **launch.json** file with the following content, replace `[device hostname or IP address]` with the actual device IP address or hostname.   
 
