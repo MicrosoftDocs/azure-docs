@@ -77,11 +77,11 @@ To [configure a graphical runbook](automation-first-runbook-graphical.md) with i
 
 You can use the [**Write-Output**](https://technet.microsoft.com/library/hh849921.aspx) activity to output the names of virtual machines. The activity **Get-AzureRmVm** accepts two parameters, the **virtual machine name** and the **resource group name**. Since these parameters could require different values each time you start the runbook, you can add input parameters to your runbook. Here are the steps to add input parameters:
 
-1. Select the graphical runbook from the **Runbooks** blade and [edit](automation-graphical-authoring-intro.md) it.
+1. Select the graphical runbook from the **Runbooks** blade and then click [**Edit**](automation-graphical-authoring-intro.md) it.
 
-2. From the **Edit** blade, click **Input and output** to open the **Input and output** blade.
+2. From the runbook editor, click **Input and output** to open the **Input and output** blade.
 
-    ![Automation graphical runbook](media/automation-runbook-input-parameters/automation-02-graphicalrunbook.png)
+    ![Automation graphical runbook](media/automation-runbook-input-parameters/automation-02-graphical-runbok-editor.png)
 
 
 3. The **Input and output** blade displays a list of input parameters that are defined for the runbook. On this blade, you can either add a new input parameter or edit the configuration of an existing input parameter. To add a new parameter for the runbook, click **Add input** to open the **Runbook input parameter** blade. There, you can configure the following parameters:
