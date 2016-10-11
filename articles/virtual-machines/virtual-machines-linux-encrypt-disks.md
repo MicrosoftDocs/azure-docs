@@ -121,12 +121,12 @@ Virtual disks on Linux VMs are encrypted at rest using [dm-crypt](https://wikipe
 
 The process for encrypting a VM is as follows:
 
-- Create a cryptographic key in an Azure Key Vault.
-- Configure the cryptographic key to be usable for encrypting disks.
-- To read the cryptographic key from the Azure Key Vault, create an endpoint using Azure Active Directory with the appropriate permissions.
-- Issue the command to encrypt your virtual disks, specifying the Azure Active Directory endpoint and appropriate cryptographic key to be used.
-- The Azure Active Directory endpoint requests the required cryptographic key from Azure Key Vault.
-- The virtual disks are encrypted using the provided cryptographic key.
+1. Create a cryptographic key in an Azure Key Vault.
+2. Configure the cryptographic key to be usable for encrypting disks.
+3. To read the cryptographic key from the Azure Key Vault, create an endpoint using Azure Active Directory with the appropriate permissions.
+4. Issue the command to encrypt your virtual disks, specifying the Azure Active Directory endpoint and appropriate cryptographic key to be used.
+5. The Azure Active Directory endpoint requests the required cryptographic key from Azure Key Vault.
+6. The virtual disks are encrypted using the provided cryptographic key.
 
 
 ## Supporting services and encryption process
@@ -235,10 +235,10 @@ azure vm show-disk-encryption-status --resource-group myResourceGroup --name myV
 ## Encrypt virtual disks
 To now encrypt the virtual disks, you bring together all the previous components:
 
-- Specify the Azure Active Directory application and password.
-- Specify the Key Vault to store the metadata for your encrypted disks.
-- Specify the cryptographic keys to use for the actual encryption and decryption.
-- Specify whether you want to encrypt the OS disk, the data disks, or all.
+1. Specify the Azure Active Directory application and password.
+2. Specify the Key Vault to store the metadata for your encrypted disks.
+3. Specify the cryptographic keys to use for the actual encryption and decryption.
+4. Specify whether you want to encrypt the OS disk, the data disks, or all.
 
 Lets review the details for your Azure Key Vault and the key you created, as you need the Key Vault ID, URI, and then key URL in the final step:
 
