@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Batch diagnostic logging | Microsoft Azure"
-   description="Enable and access diagnostic logs for Azure Batch account resources like pools and tasks."
+   description="Record and analyze diagnostic log events for Azure Batch account resources like pools and tasks."
    services="batch"
    documentationCenter=""
    authors="mmacy"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="big-compute"
-   ms.date="09/23/2016"
+   ms.date="10/12/2016"
    ms.author="marsma"/>
 
 # Azure Batch diagnostic logging
@@ -28,7 +28,7 @@ As with many Azure services, the Batch service emits log events for certain reso
 
 * [Azure Storage account](../storage/storage-create-storage-account.md#create-a-storage-account)
 
-  To persist Batch diagnostic logs, you must create an Azure Storage account where Azure will store the logs. You specify this Storage account account when you [enable diagnostic logging](#enable-diagnostic-logging) for your Batch account. The Storage account you specify when you enable log collection is not the same as a linked storage account referred to in the [application packages](batch-application-packages.md) and [task output persistence](batch-task-output.md) articles.
+  To persist Batch diagnostic logs, you must create an Azure Storage account where Azure will store the logs. You specify this Storage account when you [enable diagnostic logging](#enable-diagnostic-logging) for your Batch account. The Storage account you specify when you enable log collection is not the same as a linked storage account referred to in the [application packages](batch-application-packages.md) and [task output persistence](batch-task-output.md) articles.
 
   >[AZURE.WARNING] You are **charged** for the data stored in your Azure Storage account. This includes the diagnostic logs discussed in this article. Keep this in mind when designing your [log retention policy](../azure-portal/monitoring-archive-diagnostic-logs.md).
 
@@ -85,9 +85,15 @@ The Batch service currently emits the following Service Log events. This list ma
 
 ## Next steps
 
-* Learn how to [stream Azure Diagnostic Logs to Event Hubs](../azure-portal/monitoring-stream-diagnostic-logs-to-event-hubs.md).
+In addition to storing diagnostic log events in an Azure Storage account, you can also stream Batch Service Log events to an [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md), and send them to [Azure Log Analytics](../log-analytics/log-analytics-overview.md).
 
-* You can analyze your logs with [Operations Management Suite (OMS) Log Analytics](../log-analytics/log-analytics-azure-storage-json.md).
+* [Stream Azure Diagnostic Logs to Event Hubs](../azure-portal/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+
+  Stream Batch diagnostic events to the highly scalable data ingress service, Event Hubs. Event Hubs can ingest millions of events per second, which you can then transform and store using any real-time analytics provider.
+
+* [Analyze Azure diagnostic logs using Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
+
+  Send your diagnostic logs to Log Analytics where you can analyze them in the Operations Management Suite (OMS) portal, or export them for analysis in Power BI or Excel.
 
 [pool_create]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [pool_delete_start]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
