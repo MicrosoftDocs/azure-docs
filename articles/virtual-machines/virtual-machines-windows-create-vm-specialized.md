@@ -19,42 +19,42 @@
 
 # Create a VM from a specialized VHD
 
-Create a new VM from a specialized VHD.
+Create a new VM by attaching a specialized VHD as the OS disk using Powershell. A specialized VHD maintains the user accounts, applications and other state data from your original VM. 
 
-[AZURE.NOTE] After you have created the VM, you will need to use an Administrator account or account that has remote access permissions in order to log onto the machine using the **Connect** button in the Azure portal.
+If you want to create a VM from a generalized VHD, see [Create a VM from a generalized VHD image](virtual-machines-windows-create-vm-generalized.md).
 
-## Create a virtual network
+## Create the subNet and vNet
 
 Create the vNet and subNet of the [virtual network](../virtual-network/virtual-networks-overview.md).
 
-1. Replace the value of variables with your own information. Provide the address prefix for the subnet in CIDR format. This example creates a subnet named **mySubNet**, in the resource group **myResourceGroup**, and sets the subnet address prefix to **10.0.0.0/24**.
+1. Create the subNet. This example creates a subnet named **mySubNet**, in the resource group **myResourceGroup**, and sets the subnet address prefix to **10.0.0.0/24**.
 
 ```powershell
-	$rgName = "myResourceGroup"
-	$subnetName = "mySubNet"
-	$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
+$rgName = "myResourceGroup"
+$subnetName = "mySubNet"
+$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
 ```
-      
-2. Replace the value of **$vnetName** with a name for the virtual network. Provide the address prefix for the virtual network in CIDR format. This example sets the virtual network name to be **myVnetName**, the location to **West US**, and the address prefix for the virtual network to **10.0.0.0/16**. 
+
+2. Create the vNet. This example sets the virtual network name to be **myVnetName**, the location to **West US**, and the address prefix for the virtual network to **10.0.0.0/16**. 
 
 ```powershell
-	$location = "West US"
-	$vnetName = "myVnetName"
-	$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
+$location = "West US"
+$vnetName = "myVnetName"
+$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
 ```    
             
-## Create a public IP address and network interface
+## Create a public IP address and NIC
 
 To enable communication with the virtual machine in the virtual network, you need a [public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
 
-1. Replace the value of **$ipName** with a name for the public IP address. In this example, the public IP address name is set to **myIP**.
+1. Create the public IP. In this example, the public IP address name is set to **myIP**.
 
 ```powershell
-	$ipName = "myIP"
-	$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
+$ipName = "myIP"
+$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
 ```       
 
-2. Replace the value of **$nicName** with a name for the network interface. In this example, the NIC name is set to **myNicName**.
+2. Create the NIC. In this example, the NIC name is set to **myNicName**.
 
 ```powershell
 $nicName = "myNicName"
@@ -65,7 +65,7 @@ $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Lo
 
 In order to be able to log into your VM using RDP, you need to have an security rule that allows RDP access on port 3389. Because the VHD for the new VM was created from an existing specialized VM, after the VM is created you can use an existing account from the source virtual machine that had permission to log on using RDP.
 
-Replace the value of $nsgName with a name for your NSG. Create the variable, the rule and the network security group. This example sets the NSG name to **myNsg** and the RDP rule name to **myRdpRule**.
+This example sets the NSG name to **myNsg** and the RDP rule name to **myRdpRule**.
 
 ```powershell
 $nsgName = "<nsgName>"
@@ -79,10 +79,11 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $loc
     -Name $nsgName -SecurityRules $rdpRule
 ```
 
+For more information about endpoints and NSG rules, see [Opening ports to a VM in Azure using PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md).
 
 ## Create the VM configuration
 
-Set up the VM configurations and attach the copied VHD as the OS VHD.
+Set up the VM configuration to attach the copied VHD as the OS VHD.
 
 
 ```powershell
@@ -99,9 +100,9 @@ Set up the VM configurations and attach the copied VHD as the OS VHD.
 	#Add the OS disk by using the URL of the copied OS VHD. In this example, when the OS disk is created, the term "osDisk" is appened to the VM name to create the OS disk name. This example also specifies that this Windows-based VHD should be attached to the VM as the OS disk.
 	$osDiskName = $vmName + "osDisk"
 	$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
+```
 
-	
-	
+
 If you have data disks that need to be attached to the VM, you should also add the following: 
 
 ```powershell
@@ -117,19 +118,18 @@ The data and operating system disk URLs look something like this: `https://Stora
 
 Create the VM using the configurations that we just created.
 
-
 ```powershell
-	#Create the new VM
-	New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
+#Create the new VM
+New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
 ```
 
 If this command was successful, you'll see output like this:
 
-  RequestId IsSuccessStatusCode StatusCode ReasonPhrase
-  --------- ------------------- ---------- ------------
-                           True         OK OK
-  
-
+RequestId IsSuccessStatusCode StatusCode ReasonPhrase
+--------- ------------------- ---------- ------------
+                         True         OK OK   
+   
+<br>   
 You should see the newly created VM either in the [Azure portal](https://portal.azure.com), under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
 
 ```powershell

@@ -21,6 +21,8 @@
 
 A generalized VHD image has had all of your personal account information removed using [Sysprep](virtual-machines-windows-generalize-vhd.md). You can create a generalized VHD by running Sysprep on an on-premises VM, then [uploading the VHD to Azure](virtual-machines-windows-upload-image.md) or by running Sysprep on an existing Azure VM and then [copying the VHD](virtual-machines-windows-vhd-copy.md).
 
+If you want to create a VM from a generalized VHD, see [Create a VM from a specialized VHD](virtual-machines-windows-create-vm-specialized.md).
+
 The quickest way to create a VM from a generalized VHD is to use a [quick start template]
 (https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image). 
 
