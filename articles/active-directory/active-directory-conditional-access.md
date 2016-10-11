@@ -1,4 +1,4 @@
-Properties
+<Properties
 	pageTitle="Azure Active Directory conditional access | Microsoft Azure"  
     description="Use conditional access control in Azure Active Directory to check for specific conditions when authenticating for access to applications."  
     services="active-directory"
