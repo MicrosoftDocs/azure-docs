@@ -125,7 +125,7 @@ azure vm extension set myResourceGroup myVM \
 ```
 
 ### Reset SSH credentials for a user
-If SSHD appears to function correctly, you can reset the credentials for a giver user. To reset the password for a user, create a file named `PrivateConf.json`. The following example resets the credentials for `myUsername` to the value specified in `myPassword`. Enter the following in to your `PrivateConf.json` file, using your own values:
+If SSHD appears to function correctly, you can reset the credentials for a giver user. To reset the password for a user, create a file named `PrivateConf.json`. The following example resets the credentials for `myUsername` to the value specified in `myPassword`. Enter the following lines into your `PrivateConf.json` file, using your own values:
 
 ```bash
 {
@@ -133,7 +133,7 @@ If SSHD appears to function correctly, you can reset the credentials for a giver
 }
 ```
 
-Or to reset the SSH key for a user, first create a file named `PrivateConf.json`. The following example resets the credentials for `myUsername` to the value specified in `myPassword`, on the VM named `myVM` in `myResourceGroup`. Enter the following in to your `PrivateConf.json` file, using your own values:
+Or to reset the SSH key for a user, first create a file named `PrivateConf.json`. The following example resets the credentials for `myUsername` to the value specified in `myPassword`, on the VM named `myVM` in `myResourceGroup`. Enter the following lines into your `PrivateConf.json` file, using your own values:
 
 ```bash
 {
