@@ -21,7 +21,7 @@
 
 # Enable Microsoft Windows Hello for Business in your organization
 
-After connecting Windows 10 domain-joined devices with Azure Active Directory, do the following to enable Microsoft Windows Hello for Business in your organization:
+After [connecting Windows 10 domain-joined devices with Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md), do the following to enable Microsoft Windows Hello for Business in your organization:
 
 1. Deploy System Center Configuration Manager  
 
@@ -112,7 +112,7 @@ This scenario:
 
 	b. As **Use a Trusted Platform Module (TPM)**, select **Required**. 
 
-	c. As **Authentication method", select **Certificate-based**.
+	c. As **Authentication method**, select **Certificate-based**.
 
 	d. Click **Next**.
 
