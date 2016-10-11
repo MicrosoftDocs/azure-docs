@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/05/2016"
+	ms.date="10/10/2016"
 	ms.author="spelluru"/>
 
 # Tutorial: Create a pipeline with Copy Activity using Azure Resource Manager template
@@ -59,37 +59,93 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
 	    "contentVersion": "1.0.0.0",
 	    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
 	    "parameters": {
-	      "dataFactoryName": { "type": "string" },
-	      "storageAccountName": { "type": "string" },
-	      "storageAccountKey": { "type": "securestring" },
-	      "sourceBlobContainer": { "type": "string" },
-	      "sourceBlobName": { "type": "string" },
-	      "sqlServerName": { "type": "string" },
-	      "databaseName": { "type": "string" },    
-	      "sqlServerUserName": { "type": "string" },
-	      "sqlServerPassword": { "type": "securestring" },
-	      "targetSQLTable": { "type": "string" }
+	      "dataFactoryName": {
+	        "type": "string",
+	        "metadata": {
+	          "description": "Data factory name"
+	        }
+	      },
+	      "storageAccountName": {
+	        "type": "string",
+	        "metadata": {
+	          "description": "Name of the Azure storage account that contains the data to be copied."
+	        }
+	      },
+	      "storageAccountKey": {
+	        "type": "securestring",
+	        "metadata": {
+	          "description": "Key for the Azure storage account."
+	        }
+	      },
+	      "sourceBlobContainer": {
+	        "type": "string",
+	        "metadata": {
+	          "description": "Name of the blob container in the Azure Storage account."
+	        }
+	      },
+	      "sourceBlobName": {
+	        "type": "string",
+	        "metadata": {
+	          "description": "Name of the blob in the container that has the data to be copied to Azure SQL Database table"
+	        }
+	      },
+	      "sqlServerName": {
+	        "type": "string",
+	        "metadata": {
+	          "description": "Name of the Azure SQL Server that will hold the output/copied data."
+	        }
+	      },
+	      "databaseName": {
+	        "type": "string",
+	        "metadata": {
+	          "description": "Name of the Azure SQL Database in the Azure SQL server."
+	        }
+	      },
+	      "sqlServerUserName": {
+	        "type": "string",
+	        "metadata": {
+	          "description": "Name of the user that has access to the Azure SQL server."
+	        }
+	      },
+	      "sqlServerPassword": {
+	        "type": "securestring",
+	        "metadata": {
+	          "description": "Password for the user."
+	        }
+	      },
+	      "targetSQLTable": {
+	        "type": "string",
+	        "metadata": {
+	          "description": "Table in the Azure SQL Database that will hold the copied data."
+	        }
+	      }
 	    },
 	    "variables": {
-	      "apiVersion": "2015-10-01",
 	      "azureSqlLinkedServiceName": "AzureSqlLinkedService",
 	      "azureStorageLinkedServiceName": "AzureStorageLinkedService",
 	      "blobInputDatasetName": "BlobInputDataset",
 	      "sqlOutputDatasetName": "SQLOutputDataset",
-	      "pipelineName": "Blob2SQLPipeline"    
+	      "pipelineName": "Blob2SQLPipeline",
+	      "dataFactoryID": "[resourceId('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]",
+	      "azureStorageLinkedServiceID": "[resourceId('Microsoft.DataFactory/dataFactories/linkedservices/', parameters('dataFactoryName'), variables('azureStorageLinkedServiceName'))]",
+	      "azureSqlLinkedServiceID": "[resourceId('Microsoft.DataFactory/dataFactories/linkedservices/', parameters('dataFactoryName'), variables('azureSqlLinkedServiceName'))]",
+	      "blobInputDatasetID": "[resourceId('Microsoft.DataFactory/dataFactories/datasets/', parameters('dataFactoryName'), variables('blobInputDatasetName'))]",
+	      "sqlOutputDatasetID": "[resourceId('Microsoft.DataFactory/dataFactories/datasets/', parameters('dataFactoryName'), variables('sqlOutputDatasetName'))]"
 	    },
 	    "resources": [
 	      {
 	        "name": "[parameters('dataFactoryName')]",
-	        "apiVersion": "[variables('apiVersion')]",
+	        "apiVersion": "2015-10-01",
 	        "type": "Microsoft.DataFactory/datafactories",
-	        "location": "westus",
+	        "location": "West US",
 	        "resources": [
 	          {
-	            "type": "Microsoft.DataFactory/datafactories/linkedservices",
-	            "name": "[concat(parameters('dataFactoryName'), '/', variables('azureStorageLinkedServiceName'))]",
-	            "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]" ],
-	            "apiVersion": "[variables('apiVersion')]",
+	            "type": "linkedservices",
+	            "name": "[variables('azureStorageLinkedServiceName')]",
+	            "dependsOn": [
+	              "[variables('dataFactoryId')]"
+	            ],
+	            "apiVersion": "2015-10-01",
 	            "properties": {
 	              "type": "AzureStorage",
 	              "description": "Azure Storage linked service",
@@ -99,10 +155,12 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
 	            }
 	          },
 	          {
-	            "type": "Microsoft.DataFactory/datafactories/linkedservices",
-	            "name": "[concat(parameters('dataFactoryName'), '/', variables('azureSqlLinkedServiceName'))]",
-	            "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]" ],
-	            "apiVersion": "[variables('apiVersion')]",
+	            "type": "linkedservices",
+	            "name": "[variables('azureSqlLinkedServiceName')]",
+	            "dependsOn": [
+	              "[variables('dataFactoryId')]"
+	            ],
+	            "apiVersion": "2015-10-01",
 	            "properties": {
 	              "type": "AzureSqlDatabase",
 	              "description": "Azure SQL linked service",
@@ -112,13 +170,13 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
 	            }
 	          },
 	          {
-	            "type": "Microsoft.DataFactory/datafactories/datasets",
-	            "name": "[concat(parameters('dataFactoryName'), '/', variables('blobInputDatasetName'))]",
+	            "type": "datasets",
+	            "name": "[variables('blobInputDatasetName')]",
 	            "dependsOn": [
-	              "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]",
-	              "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedServices/', variables('azureStorageLinkedServiceName'))]"
+	              "[variables('dataFactoryId')]",
+	              "[variables('azureStorageLinkedServiceID')]"
 	            ],
-	            "apiVersion": "[variables('apiVersion')]",
+	            "apiVersion": "2015-10-01",
 	            "properties": {
 	              "type": "AzureBlob",
 	              "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
@@ -134,7 +192,7 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
 	              ],
 	              "typeProperties": {
 	                "folderPath": "[concat(parameters('sourceBlobContainer'), '/')]",
-	                "fileName":  "[parameters('sourceBlobName')]",
+	                "fileName": "[parameters('sourceBlobName')]",
 	                "format": {
 	                  "type": "TextFormat",
 	                  "columnDelimiter": ","
@@ -148,13 +206,13 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
 	            }
 	          },
 	          {
-	            "type": "Microsoft.DataFactory/datafactories/datasets",
-	            "name": "[concat(parameters('dataFactoryName'), '/', variables('sqlOutputDatasetName'))]",
+	            "type": "datasets",
+	            "name": "[variables('sqlOutputDatasetName')]",
 	            "dependsOn": [
-	              "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]",
-	              "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedServices/', variables('azureSqlLinkedServiceName'))]"
+	              "[variables('dataFactoryId')]",
+	              "[variables('azureSqlLinkedServiceID')]"
 	            ],
-	            "apiVersion": "[variables('apiVersion')]",
+	            "apiVersion": "2015-10-01",
 	            "properties": {
 	              "type": "AzureSqlTable",
 	              "linkedServiceName": "[variables('azureSqlLinkedServiceName')]",
@@ -178,30 +236,39 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
 	            }
 	          },
 	          {
-	            "type": "Microsoft.DataFactory/datafactories/datapipelines",
-	            "name": "[concat(parameters('dataFactoryName'), '/', variables('pipelineName'))]",
+	            "type": "datapipelines",
+	            "name": "[variables('pipelineName')]",
 	            "dependsOn": [
-	              "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]",
-	              "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedServices/', variables('azureStorageLinkedServiceName'))]",
-	              "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedServices/', variables('azureSqlLinkedServiceName'))]",
-	              "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/datasets/', variables('sqlOutputDatasetName'))]",
-	              "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/datasets/', variables('blobInputDatasetName'))]"
-		          ],
-	            "apiVersion": "[variables('apiVersion')]",
+	              "[variables('dataFactoryId')]",
+	              "[variables('azureStorageLinkedServiceID')]",
+	              "[variables('azureSqlLinkedServiceID')]",
+	              "[variables('blobInputDatasetID')]",
+	              "[variables('sqlOutputDatasetID')]"
+	            ],
+	            "apiVersion": "2015-10-01",
 	            "properties": {
 	              "activities": [
 	                {
 	                  "name": "CopyFromAzureBlobToAzureSQL",
 	                  "description": "Copy data frm Azure blob to Azure SQL",
 	                  "type": "Copy",
-	                  "inputs": [ { "name": "[variables('blobInputDatasetName')]" } ],
-	                  "outputs": [ { "name": "[variables('sqlOutputDatasetName')]" } ],
+	                  "inputs": [
+	                    {
+	                      "name": "[variables('blobInputDatasetName')]"
+	                    }
+	                  ],
+	                  "outputs": [
+	                    {
+	                      "name": "[variables('sqlOutputDatasetName')]"
+	                    }
+	                  ],
 	                  "typeProperties": {
 	                    "source": {
 	                      "type": "BlobSource"
 	                    },
 	                    "sink": {
-	                      "type": "SqlSink"
+	                      "type": "SqlSink",
+	                      "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM {0}', 'emp')"
 	                    },
 	                    "translator": {
 	                      "type": "TabularTranslator",
@@ -211,14 +278,13 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
 	                  "Policy": {
 	                    "concurrency": 1,
 	                    "executionPriorityOrder": "NewestFirst",
-	                    "style": "StartOfInterval",
-	                    "retry": 0,
+	                    "retry": 3,
 	                    "timeout": "01:00:00"
 	                  }
 	                }
 	              ],
-	              "start": "2016-10-01T00:00:00Z",
-	              "end": "2016-10-02T00:00:00Z"
+	              "start": "2016-10-02T00:00:00Z",
+	              "end": "2016-10-03T00:00:00Z"
 	            }
 	          }
 	        ]
@@ -232,21 +298,25 @@ Create a JSON file named **ADFCopyTutorialARM-Parameters.json** that contains pa
 > [AZURE.NOTE] The name of the Azure data factory must be **globally unique**.  
 
 	{
-	  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-	  "contentVersion": "1.0.0.0",
-	  "parameters": {
-	    "dataFactoryName": { "value": "<Name of the data factory>" },
-	    "storageAccountName": { "value": "<Azure Storage account name>" },
-	    "storageAccountKey": { "value": "<Azure Storage account key>" },
-	    "sourceBlobContainer": { "value": "adftutorial" },
-	    "sourceBlobName": { "value": "emp.txt" },
-	    "sqlServerName": { "value": "<Azure SQL server name>" },
-	    "databaseName": { "value": "<Azure SQL database name>" },
-	    "sqlServerUserName": { "value": "<Azure SQL server - user name>" },
-	    "sqlServerPassword" :  {"value":  "<Azure SQL server - user password>"},
-	    "targetSQLTable": { "value": "emp" }
-	  }
+		"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+		"contentVersion": "1.0.0.0",
+		"parameters": { 
+			"dataFactoryName": { "value": "<Name of the data factory>" },
+			"storageAccountName": {	"value": "<Name of the Azure storage account>"	},
+    		"storageAccountKey": {
+	   	  		"value": "<Key for the Azure storage account>"
+		    },
+    		"sourceBlobContainer": { "value": "adftutorial" },
+	    	"sourceBlobName": { "value": "emp.txt" },
+    		"sqlServerName": { "value": "<Name of the Azure SQL server>" },
+	    	"databaseName": { "value": "<Name of the Azure SQL database>" },
+    		"sqlServerUserName": { "value": "<Name of the user who has access to the Azure SQL database>" },
+	    	"sqlServerPassword": { "value": "<password for the user>" },
+	    	"targetSQLTable": { "value": "emp" }
+		}
 	}
+
+
 
 
 > [AZURE.IMPORTANT] You may have separate parameter JSON files for development, testing, and production environments that you can use with the same Data Factory JSON template. By using a Power Shell script, you can automate deploying Data Factory entities in these environments.  
