@@ -246,9 +246,6 @@ You've decided that the first policy is not quite as strict as your service requ
 
 ### Sample: Creating a policy for web sign-in
 
->[AZURE.NOTE]
->Linking policies to applications is currently disabled.  We are working on enabling this shortly.  This page will be updated as soon as the feature is available.
-
 In this sample, we will create a policy that will require your users to authenticate more frequently into your Web App. This policy will set the lifetime of the Access/Id Tokens and the Max Age of a Multi-Factor Session Token to the service principal of your web app.
 
 1.	**Create a Token Lifetime Policy.**
@@ -272,6 +269,9 @@ Once you have the **ObjectId**, Run the following command.
  
 
 ### Sample: Creating a policy for native apps calling a Web API
+
+>[AZURE.NOTE]
+>Linking policies to applications is currently disabled.  We are working on enabling this shortly.  This page will be updated as soon as the feature is available.
 
 In this sample, we will create a policy that requires users to authenticate less and will lengthen the amount of time they can be inactive without having to authenticate again. The policy will be applied to the Web API, that way when the Native App requests it as a resource this policy will be applied.
 
