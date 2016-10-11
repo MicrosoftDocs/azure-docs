@@ -399,7 +399,7 @@ Parameters|Description|Example|
 ### Application policies
 The following cmdlets can be used for application policies.</br></br>
 
-#### Assign-AzureADApplicationPolicy         
+#### Add-AzureADApplicationPolicy         
 Links the specified policy to an application
 
     Add-AzureADApplicationPolicy -ObjectId <object id of application> -RefObjectId <object id of policy>
@@ -434,7 +434,7 @@ Parameters|Description|Example|
 ### Service principal policies
 The following cmdlets can be used for service principal policies.</br></br>
 
-#### Assign-AzureADServicePrincipalPolicy         
+#### Add-AzureADServicePrincipalPolicy         
 Links the specified policy to a service principal
 
     Add-AzureADServicePrincipalPolicy -ObjectId <object id of service principal> -RefObjectId <object id of policy>
