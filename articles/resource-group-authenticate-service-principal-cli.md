@@ -119,7 +119,22 @@ Now, you need to log in as the application to perform operations.
 
 2. If you need to retrieve the client id to use for logging in, use:
 
-        azure ad sp show -c exampleapp
+        azure ad sp show -c exampleapp --json
+
+     The value to use for logging in is the guid listed in the service principal names.
+
+        [
+          {
+            "objectId": "ff863613-e5e2-4a6b-af07-fff6f2de3f4e",
+            "objectType": "ServicePrincipal",
+            "displayName": "exampleapp",
+            "appId": "7132aca4-1bdb-4238-ad81-996ff91d8db4",
+            "servicePrincipalNames": [
+              "https://www.contoso.org/example",
+              "7132aca4-1bdb-4238-ad81-996ff91d8db4"
+            ]
+          }
+        ]
 
 3. Log in as the service principal.
 
@@ -222,6 +237,21 @@ Now, you need to log in as the application to perform operations.
 2. If you need to retrieve the client id to use for logging in, use:
 
         azure ad sp show -c exampleapp
+
+     The value to use for logging in is the guid listed in the service principal names.
+
+        [
+          {
+            "objectId": "7dbc8265-51ed-4038-8e13-31948c7f4ce7",
+            "objectType": "ServicePrincipal",
+            "displayName": "exampleapp",
+            "appId": "4fd39843-c338-417d-b549-a545f584a745",
+            "servicePrincipalNames": [
+              "https://www.contoso.org/example",
+              "4fd39843-c338-417d-b549-a545f584a745"
+            ]
+          }
+        ]
 
 1. Log in as the service principal.
 
