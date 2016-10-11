@@ -46,7 +46,7 @@ You also need to add your Python and pip folder (where python.exe and pip.exe ar
 ## 2.1.5 Install the Azure Command-Line Interface (CLI)
 The Azure CLI provides a multiplatform command line experience for Azure, enabling you to work directly from your command line to provision and manage resources.
 
-Run the following from a command prompt, it might take 5 minutes to install Azure CLI.
+Run the following from a command prompt using administrator privilege, it might take 5 minutes to install Azure CLI.
 
 ```bash
 pip install --upgrade azure-cli
