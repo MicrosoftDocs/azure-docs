@@ -103,7 +103,7 @@ See the following resource categories and articles to learn more about setting c
 - [Set device-based conditional access policy for access control to Azure Active Directory-connected applications](active-directory-conditional-access-policy-connected-applications.md)
 - [Set up automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
 - [Troubleshooting for Azure Active Directory access issues](active-directory-conditional-access-device-remediation.md)
-- [Protect data on lost or stolen devices by using Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)
+- [Help protect data on lost or stolen devices by using Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)
 
 
 ### Protect resources based on sign-in risk
