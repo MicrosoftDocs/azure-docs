@@ -26,24 +26,6 @@ If you want to create a VM from a generalized VHD, see [Create a VM from a speci
 The quickest way to create a VM from a generalized VHD is to use a [quick start template]
 (https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image). 
 
-To use this quick start template, you need to provide the following information:
-
-| Setting                   | Description                                                                              |
-|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Subscription                    | If you have more than one subscription, select the one to use for the VM.                                                                              |
-| Resource group                  | The resource group that contains the storage account where the VHD is located                                                            |
-| Location                        | Region where the resource group is located                                                                                                             |
-| Custom Vm Name                  | Name for the new VM                                                                                                                                    |
-| User Image Storage Account Name | Name of the storage account where the VHD is stored.                                                                                                   |
-| Os Disk Vhd Uri                 | URL of the VHD to use when creating the VM. This is in the format: `https://<storageAccountName>.blob.core.windows.net/<containerName>/<vhdName>.vhd`. |
-| Dns Label Prefix                | Name to be used as the prefix for DNS.                                                                                                                 |
-| Admin User Name                 | Name for the administrator account to create for the VM. This is used for connecting to the VM using RDP.                                          |
-| Admin Password                  | Password for the administrator account.                                                                                                                |
-| Os Type                         | This should be set to Windows                                                                                                                          |
-| Vm Size                         | The size of the VM to be created. For more information, see [Vm Sizes](virtual-machines-windows-sizes.md).                                             |
-| New Or Existing Vnet            | You can use an existing virtual network or have a new one created for you.                                                                             |
-| New Or Existing Vnet Name       | Name of the virtual network.                                                                                                                       |
-| New Or Existing Subnet Name     | Name for the subnet.                                                                                                                                   |
 
 ## Prerequisites
 
@@ -68,19 +50,19 @@ Create the vNet and subNet of the [virtual network](../virtual-network/virtual-n
 
 1. Create the subnet. The following sample creates a subnet named **mySubnet** in the resource group **myResourceGroup** with the address prefix of **10.0.0.0/24**.  
 
-```powershell
+	```powershell
 	$rgName = "myResourceGroup"
 	$subnetName = "mySubNet"
 	$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
-```
+	```
       
 2. Create the virtual network. The following sample creates a virtual network named **myVnet** in the **West US** location with the address prefix of **10.0.0.0/16**.  
 
-```powershell
+	```powershell
 	$location = "West US"
 	$vnetName = "myVnet"
 	$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
-```    
+	```    
             
 ## Create a public IP address and network interface
 
@@ -88,17 +70,17 @@ To enable communication with the virtual machine in the virtual network, you nee
 
 1. Create a public IP address. This example creates a public IP address named **myPip**. 
 
-```powershell
+	```powershell
 	$ipName = "myPip"
 	$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
-```       
+	```       
 
 2. Create the NIC. This example creates a NIC named **myNic**. 
 
-```powershell
-$nicName = "myNic"
-$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-```
+	```powershell
+	$nicName = "myNic"
+	$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+	```
 
 ## Create the network security group and an RDP rule
 

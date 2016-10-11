@@ -29,19 +29,19 @@ Create the vNet and subNet of the [virtual network](../virtual-network/virtual-n
 
 1. Create the subNet. This example creates a subnet named **mySubNet**, in the resource group **myResourceGroup**, and sets the subnet address prefix to **10.0.0.0/24**.
 
-```powershell
-$rgName = "myResourceGroup"
-$subnetName = "mySubNet"
-$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
-```
+	```powershell
+	$rgName = "myResourceGroup"
+	$subnetName = "mySubNet"
+	$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
+	```
 
 2. Create the vNet. This example sets the virtual network name to be **myVnetName**, the location to **West US**, and the address prefix for the virtual network to **10.0.0.0/16**. 
 
-```powershell
-$location = "West US"
-$vnetName = "myVnetName"
-$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
-```    
+	```powershell
+	$location = "West US"
+	$vnetName = "myVnetName"
+	$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
+	```    
             
 ## Create a public IP address and NIC
 
@@ -49,17 +49,17 @@ To enable communication with the virtual machine in the virtual network, you nee
 
 1. Create the public IP. In this example, the public IP address name is set to **myIP**.
 
-```powershell
-$ipName = "myIP"
-$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
-```       
+	```powershell
+	$ipName = "myIP"
+	$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
+	```       
 
 2. Create the NIC. In this example, the NIC name is set to **myNicName**.
 
-```powershell
-$nicName = "myNicName"
-$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-```
+	```powershell
+	$nicName = "myNicName"
+	$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+	```
 
 ## Create the network security group and an RDP rule
 
@@ -68,7 +68,7 @@ To be able to log in to your VM using RDP, you need to have an security rule tha
 This example sets the NSG name to **myNsg** and the RDP rule name to **myRdpRule**.
 
 ```powershell
-$nsgName = "<nsgName>"
+$nsgName = "myNsg"
 
 $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
@@ -125,10 +125,13 @@ New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
 
 If this command was successful, you'll see output like this:
 
+```
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 --------- ------------------- ---------- ------------
                          True         OK OK   
-   
+ 
+```
+ 
 <br>   
 You should see the newly created VM either in the [Azure portal](https://portal.azure.com), under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
 

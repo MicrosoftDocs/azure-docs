@@ -42,13 +42,12 @@ You can upload both generalized and specialized VHDs to Azure. Each type require
 
 If you don't already have PowerShell version 1.4 or above installed, read [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
-1. Open Azure PowerShell and sign in to your Azure account.
+1. Open Azure PowerShell and sign in to your Azure account. A pop-up window opens for you to enter your Azure account credentials.
 
 ```powershell
 Login-AzureRmAccount
 ```
 
-	A pop-up window opens for you to enter your Azure account credentials.
 
 2. Get the subscription IDs for your available subscriptions.
 
@@ -56,7 +55,7 @@ Login-AzureRmAccount
 Get-AzureRmSubscription
 ```
 
-3. Set the correct subscription using the subscription ID. Replace **<subscriptionID>** with the ID of the correct subscription.
+3. Set the correct subscription using the subscription ID. Replace `<subscriptionID>` with the ID of the correct subscription.
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
@@ -106,8 +105,7 @@ If you need to create a storage account, follow these steps:
 
 ## Upload the VHD to your storage account
 
-Use the [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) cmdlet to upload the image to a container in your storage account. This example uploads the file **myVHD.vhd** from C:\Users\Public\Documents\Virtual hard disks\ to a storage account named **mystorageaccount** in the **myResourceGroup** resource group. The file will be placed into the container named **mycontainer** and the new file name will be **myUploadedVHD.vhd**.
-```
+Use the [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) cmdlet to upload the image to a container in your storage account. This example uploads the file **myVHD.vhd** from `"C:\Users\Public\Documents\Virtual hard disks\"` to a storage account named **mystorageaccount** in the **myResourceGroup** resource group. The file will be placed into the container named **mycontainer** and the new file name will be **myUploadedVHD.vhd**.
 
 ```powershell
 $rgName = "myResourceGroup"
