@@ -328,7 +328,7 @@ Now that you've learned the basics of Service Bus topics and subscriptions, foll
 -   [Topic filters sample][]
 -   API reference for [SqlFilter][].
 -   Build a working application that sends and receives messages to and from a Service Bus queue: [Service Bus brokered messaging .NET tutorial][].
--   Service Bus samples: Download from [Azure samples][] or see the [overview](../service-bus/service-bus-samples.md).
+-   Service Bus samples: Download from [Azure samples][] or see the [overview](service-bus-samples.md).
 
   [Azure portal]: https://portal.azure.com
 

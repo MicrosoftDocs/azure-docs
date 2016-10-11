@@ -86,4 +86,5 @@ Once you have determined the service tier for your pool, you are ready to determ
 
 ## Additional resources
 
-For information on common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+- [Design patterns for multi-tenant SaaS applications using Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+- [Microsoft Virtual Academy video course on elastic database capabilities in Azure SQL Database](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/14/2016"
+   ms.date="10/05/2016"
    ms.author="dobett"/>
 
 
@@ -24,13 +24,13 @@
 
 ## Create a C sample solution on Windows
 
-The following steps show you how to use Visual Studio to create a simple client application written in C that communicates with the Remote Monitoring preconfigured solution.
+The following steps show you how to use Visual Studio to create a client application written in C that communicates with the Remote Monitoring preconfigured solution.
 
 Create a starter project in Visual Studio 2015 and add the IoT Hub device client NuGet packages:
 
-1. In Visual Studio 2015, create a new C console application using the Visual C++ **Win32 Console Application** template. Name the project **RMDevice**.
+1. In Visual Studio 2015, create a C console application using the Visual C++ **Win32 Console Application** template. Name the project **RMDevice**.
 
-2. On the **Applications Settings** page in the **Win32 Application Wizard**, ensure that **Console application** is selected, and un-check **Precompiled header** and **Security Development Lifecycle (SDL) checks**.
+2. On the **Applications Settings** page in the **Win32 Application Wizard**, ensure that **Console application** is selected, and uncheck **Precompiled header** and **Security Development Lifecycle (SDL) checks**.
 
 3. In **Solution Explorer**, delete the files stdafx.h, targetver.h, and stdafx.cpp.
 
@@ -42,7 +42,7 @@ Create a starter project in Visual Studio 2015 and add the IoT Hub device client
     - Microsoft.Azure.IoTHub.IoTHubClient
     - Microsoft.Azure.IoTHub.HttpTransport
 
-6. In **Solution Explorer**, right-click on the **RMDevice** project and then click **Properties** to open the project's **Property Pages** dialog box. For details,see [Setting Visual C++ Project Properties][lnk-c-project-properties]. 
+6. In **Solution Explorer**, right-click on the **RMDevice** project and then click **Properties** to open the project's **Property Pages** dialog box. For details, see [Setting Visual C++ Project Properties][lnk-c-project-properties]. 
 
 7. Click the **Linker** folder, then click the **Input** property page.
 
@@ -50,9 +50,9 @@ Create a starter project in Visual Studio 2015 and add the IoT Hub device client
 
 ## Specify the behavior of the IoT Hub device
 
-The IoT Hub client libraries use a model to specify the format of messages the device sends to IoT Hub and the commands from IoT Hub that the device responds to.
+The IoT Hub client libraries use a model to specify the format of the messages the device sends to IoT Hub and the commands it receives from IoT Hub.
 
-1. In Visual Studio, open the RMDevice.c file. Replace the existing `#include` statements with the following:
+1. In Visual Studio, open the RMDevice.c file. Replace the existing `#include` statements with the following code:
 
     ```
     #include "iothubtransporthttp.h"
@@ -114,7 +114,7 @@ The IoT Hub client libraries use a model to specify the format of messages the d
 
 ## Implement the behavior of the device
 
-You must now add code that implements the behavior defined in the model.
+Now add code that implements the behavior defined in the model.
 
 1. Add the following functions that execute when the device receives the **SetTemperature** and **SetHumidity** commands from IoT Hub:
 
@@ -199,7 +199,7 @@ You must now add code that implements the behavior defined in the model.
     }
     ```
 
-4. Add the following function to connect to IoT Hub, send and receive messages, and disconnect from the hub. Notice how the device sends metadata about itself, including the commands it supports, to IoT Hub as soon as it connects - this enables the solution to update the status of the device to **Running** on the dashboard:
+4. Add the following function to connect to IoT Hub, send and receive messages, and disconnect from the hub. Notice how the device sends metadata about itself, including the commands it supports, to IoT Hub when it connects. This metadata enables the solution to update the status of the device to **Running** on the dashboard:
 
     ```
     void remote_monitoring_run(void)
@@ -318,7 +318,7 @@ You must now add code that implements the behavior defined in the model.
     }
     ```
     
-    For reference, here is a sample **DeviceInfo** message sent to IoT Hub at start up:
+    For reference, here is a sample **DeviceInfo** message sent to IoT Hub at startup:
 
     ```
     {
