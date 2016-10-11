@@ -1,6 +1,6 @@
 <properties
    pageTitle="Understanding the Azure Active Directory Application Manifest | Microsoft Azure"
-   description="Detailed coverage of how to use the Azure Active Directory application manifest, which represents an application's identity configuration in an Azure AD tenant, and is used to facilitate OAuth authorization, consent experience, and more."
+   description="Detailed coverage of the Azure Active Directory application manifest, which represents an application's identity configuration in an Azure AD tenant, and is used to facilitate OAuth authorization, consent experience, and more."
    services="active-directory"
    documentationCenter=""
    authors="bryanla"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/25/2016"
+   ms.date="10/11/2016"
    ms.author="dkershaw;bryanla"/>
 
 # Understanding the Azure Active Directory application manifest
@@ -118,6 +118,9 @@ Now that the manifest is saved, you can give a registered client application acc
 That's it. Now your applications will run using their new identity configuration.
 
 ## Next steps
+- For more details on the relationship between an application's Application and Service Principal object(s), see [Application and service principal objects in Azure AD][AAD-APP-OBJECTS].
+- See the [Azure AD developer glossary][AAD-DEVELOPER-GLOSSARY] for definitions of some of the core Azure Active Directory (AD) developer concepts.
+
 Please use the DISQUS comments section below to provide feedback and help us refine and shape our content.
 
 <!--Image references-->
@@ -134,6 +137,8 @@ Please use the DISQUS comments section below to provide feedback and help us ref
 [UPLOAD-MANIFEST-CONFIRM]: ./media/active-directory-application-manifest/upload-manifest-confirm.png
 
 <!--article references -->
+[AAD-APP-OBJECTS]: active-directory-application-objects.md
+[AAD-DEVELOPER-GLOSSARY]: active-directory-dev-glossary.md
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
 [ADD-UPD-RMV-APP]: active-directory-integrating-applications.md
 [APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
