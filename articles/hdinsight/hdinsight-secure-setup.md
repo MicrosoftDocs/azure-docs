@@ -152,11 +152,9 @@ Follow the same procedure to create two more users with the **User** role. The f
 	- After domain joined, this group will be added to the Administrators group on the domain-joined virtual machines.
 	- Members of this group will also be able to use Remote Desktop to connect remotely to domain-joined machines.
 
+10. Repeat the same steps to create another group called **HiveUsers**, and add the four Hiver users to the group.
+
 For more information, see [Azure AD Domain Services (Preview) - Create the 'AAD DC Administrators' group](../active-directory-domain-services/active-directory-ds-getting-started.md).
-
-
-[jgao: add a step here to create a group called "HiveUsers", and add the 4 hiver users to the group.]
-
 
 **To enable Azure AD Domain service for your Azure AD**
 
@@ -284,7 +282,7 @@ For more information, see [Join a Windows Server virtual machine to a managed do
 10. Click **Next**
 10. Click **Install**.
 
-For more information, see [Install Active Directory administration tools on the virtual machine](https://azure.microsoft.com/en-us/documentation/articles/active-directory-ds-admin-guide-administer-domain/#task-2---install-active-directory-administration-tools-on-the-virtual-machine).
+For more information, see [Install Active Directory administration tools on the virtual machine](../active-directory-domain-services/active-directory-ds-admin-guide-administer-domain.md#task-2---install-active-directory-administration-tools-on-the-virtual-machine).
 
 
 **To configure reverse DNS**
@@ -315,16 +313,8 @@ The organization unit you create next will be used when creating the HDInsight c
 6. Click **New** under the domain name in the **Task** pane, and then click **Organizational Unit**.
 7. Enter a name, for example **HDInsightOU**, and then click **OK**. 
 
-*****************************************
-**additional steps**
-Permissions/security for newly created OUs
-https://azure.microsoft.com/en-us/documentation/articles/active-directory-ds-admin-guide-create-ou/#permissionssecurity-for-newly-created-ous
-*****************************************
 
-For more information, See [Create an Organizational Unit (OU) on an AAD Domain Services managed domain](https://azure.microsoft.com/en-us/documentation/articles/active-directory-ds-admin-guide-create-ou/).
-
-#########################################################################
-#########################################################################
+For more information, See [Create an Organizational Unit (OU) on an AAD Domain Services managed domain](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
 
 
 ## Create an Azure Resource Manager virtual network for HDInsight cluster
@@ -487,32 +477,6 @@ In this section, you will create a Linux-based Hadoop cluster in HDInsight using
 After you complete the tutorial, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-management-portal.md#delete-clusters).
 
 
-
-## Configure the Ranger user sync service
-
-[jgao: this part is actually done in the Resource Manager template.  It might be good to keep it as a validation procedure.]
-
-**To configure the Ranger user sync service**
-
-1. From the [Azure classic portal](https://manage.windowsazure.com), open the cluster. For example: contosohdicluster.
-3. Click **Dashboard**.
-4. Sign in to Ambari using the Hadoop HTTP username and password.
-5. Click **Ranger** from the left menu.
-6. Click the **Configs** tab.
-7. Click the **Ranger User Info** tab.
-8. Click the **Common Configs** tab.
-9. Configure the fields highlighted in the following screenshots:
-
-	![Secure HDInsight Ranger user sync configuration](.\media\hdinsight-secure-setup\hdinsight-secure-ranger-user-sync-common-configs.png)
-
-	By default, new users belong to the **AADDC Users** OU. If your AD is configured differently, then specify the appropriate OU.
-
-	![Secure HDInsight Ranger user sync configuration](.\media\hdinsight-secure-setup\hdinsight-secure-ranger-user-sync-user-configs.png)
-
-10. Click **Save**.
-11. Click **Restart**.
-
-
 ## Test the connection between the two VNets
 
 [This part only tests the network connectivity and domain name resolution. Do I need to add another procedure for validating the AAD configuration, for example, verify domain users are populated when creating a Ranger policy.]
@@ -521,7 +485,7 @@ To test the connection between the two VNets, you will ping one of the cluster n
 
 **To find the cluster node IP addresses**
 
-1. From the [Azure classic portal](https://manage.windowsazure.com), open the cluster. For example: contosohdicluster.
+1. From the [Azure portal](https://portal.azure.com), open the cluster. For example: contosohdicluster.
 3. Click **Dashboard**.
 4. Sign in to Ambari using the Hadoop HTTP username and password.
 5. Click **Hosts** from the top. You will see a list of the Hadoop nodes.  Write down the IP address and the domain name of one of the nodes.
@@ -538,5 +502,6 @@ To test the connection between the two VNets, you will ping one of the cluster n
 ## Next steps:
 
 - [Configure Hive policies in secure HDInsight](hdinsight-secure-run-hive.md)
+- [Configure Secure HDInsight using Azure PowerShel](hdinsight-secure-setup-powershell.md)
 
 
