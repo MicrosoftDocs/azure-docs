@@ -162,7 +162,7 @@ change the plans and quotas it includes.
 
 > ![](media/azure-stack-delegated-provider/image4.png)
 
-##Customize the offer
+##Delegated provider customizes the offer
 
 
 Sign in as the delegated provider and create a new offer using the
@@ -171,10 +171,13 @@ delegated offer as a template.
 1.  Click **New** &gt; **Tenant Offers + Plans** &gt; **Offer**.
 
 > ![](media/azure-stack-delegated-provider/image5.png)
+
+
 2.  Assign a name to the offer. Here we choose ResellerOffer. Select the
     delegated offer to base it on and then click
-    **Create**.!
+    **Create**.
 > ![](media/azure-stack-delegated-provider/image6.png)
+
 > [AZURE.NOTE] Note the difference compared to offer creation as experienced by the
 > service administrator. The delegated provider does not construct the
 > offer from base plans and add-on plans; she can only choose from
