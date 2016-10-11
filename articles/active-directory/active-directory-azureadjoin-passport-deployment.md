@@ -15,8 +15,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2016"
-	ms.author="femila;markvi"/>
+	ms.date="10/11/2016"
+	ms.author="markvi"/>
 
 
 # Enable Microsoft Windows Hello for Business in your organization
@@ -49,12 +49,6 @@ To configure the Microsoft Windows Hello for Business policy settings, you have 
 
 
 Using Group Policy in Active Directory is the recommended method to configure Microsoft Windows Hello for Business policy settings. 
-
-\<Backup\>
-
-You can use Group Policy in Windows Server Active Directory to configure your Windows 10 domain-joined devices to provision Windows Hello for Business user credentials on user sign-in to Windows.
-
-\</Backup\>
 
 
 
@@ -136,13 +130,6 @@ This scenario:
 
 
 ## Configure the certificate profile 
-
-\<Backup\>
-
-Configure the certificate profile to use the Windows Hello for Business enrollment certificate in Configuration Manager
-
-\</Backup\>
-
 
 If you are using certificate-based authentication for on-premises authentication, you need to configure and deploy a certificate profile. This task requires you to set up an NDES server and Certificate Registration Point site role in the System Center Configuration Manager. For more details, see the [Prerequisites for Certificate Profiles in Configuration Manager](https://technet.microsoft.com/library/dn261205.aspx).
 
