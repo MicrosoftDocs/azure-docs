@@ -42,7 +42,7 @@ A virtual machine scale set must be contained in a resource group.
     You should see something like this example:
 
     Name                AvailableServices
-        ----                -----------------
+    ----                -----------------
     Australia East      {Compute, Storage, PersistentVMRole, HighMemory}
     Australia Southeast {Compute, Storage, PersistentVMRole, HighMemory}
     Brazil South        {Compute, Storage, PersistentVMRole, HighMemory}
@@ -282,7 +282,8 @@ Finally, you can create the scale set.
     VirtualMachineProfile : Microsoft.Azure.Management.Compute.Models.VirtualMachineScaleSetVMProfile
     ProvisioningState     : Updating
     OverProvision         :
-    Id                    : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microso
+    Id                    : 
+    /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microso
                             ft.Compute/virtualMachineScaleSets/myvmss1
     Name                  : myvmss1
     Type                  : Microsoft.Compute/virtualMachineScaleSets
