@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Conditional access- What applications are supported | Microsoft Azure"
+	pageTitle="Applications that use conditional access applications in Azure Active Directory | Microsoft Azure"
 	description="With conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application."
     services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.devlang="na"
 	ms.topic="article"
     ms.tgt_pltfrm="na"
-    ms.workload="identity" 
+    ms.workload="identity"
 	ms.date="09/26/2016"
 	ms.author="markvi"/>
 
@@ -52,11 +52,11 @@ Currently, apps that do not use modern authentication must be blocked access by 
 
 ## Office 365 SharePoint Online
 
-Legacy protocols can be disabled at SharePoint, by using the Set-SPOTenant cmdlet. This cmdlet will prevent Office clients using non-modern authentication protocols from accessing SharePoint Online resources. 
+Legacy protocols can be disabled at SharePoint, by using the Set-SPOTenant cmdlet. This cmdlet will prevent Office clients using non-modern authentication protocols from accessing SharePoint Online resources.
 
 **Example command**:
     `Set-SPOTenant -LegacyAuthProtocolsEnabled $false`
- 
+
 ## Office 365 Exchange Online
 
 On Exchange, there are two main categories of protocol review and select the right policy for your organization:
@@ -70,56 +70,48 @@ The following rules can be used to block legacy protocol access at AD FS, in two
 
 ### Option 1: Allow Exchange ActiveSync and only allow legacy apps on the intranet
 
-By applying the following three rules to the AD FS Relying Party Trust for Microsoft Office 365 Identity Platform, Exchange ActiveSync traffic will be allowed, along with browser and modern authentication traffic. Legacy apps will be blocked from the extranet. 
+By applying the following three rules to the AD FS Relying Party Trust for Microsoft Office 365 Identity Platform, Exchange ActiveSync traffic will be allowed, along with browser and modern authentication traffic. Legacy apps will be blocked from the extranet.
 
 Rule 1
 
     `@RuleName = “Allow all intranet traffic”
-	c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "true"] 
+	c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "true"]
 	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");`
 
 Rule 2
 
     @RuleName = “Allow EAS”
-	c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value == "Microsoft.Exchange.ActiveSync"] 
+	c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value == "Microsoft.Exchange.ActiveSync"]
 	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 Rule 3
 
 	@RuleName = “Allow Extranet browser or browser dialog traffic”
-	c1:[Type == " http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && 
-	c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"] 
+	c1:[Type == " http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] &&
+	c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
 	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
-### Option 2: Allow Exchange ActiveSync and block legacy apps 
-By applying the following three rules to the AD FS Relying Party Trust for Microsoft Office 365 Identity Platform, Exchange ActiveSync traffic will be allowed, along with browser and modern authentication traffic. Legacy apps will be blocked from any location. 
+### Option 2: Allow Exchange ActiveSync and block legacy apps
+By applying the following three rules to the AD FS Relying Party Trust for Microsoft Office 365 Identity Platform, Exchange ActiveSync traffic will be allowed, along with browser and modern authentication traffic. Legacy apps will be blocked from any location.
 
 Rule 1
 
     @RuleName = “Allow all intranet traffic only for browser and modern authentication clients”
-	c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "true"] && 
-	c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"] 
+	c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "true"] &&
+	c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
 	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 
-Rule 2 
+Rule 2
 
     @RuleName = “Allow EAS”
-	c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value == "Microsoft.Exchange.ActiveSync"] 
+	c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value == "Microsoft.Exchange.ActiveSync"]
 	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 
-Rule 3 
+Rule 3
 
     @RuleName = “Allow Extranet browser or browser dialog traffic”
-	c1:[Type == " http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && 
-	c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"] 
+	c1:[Type == " http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] &&
+	c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
 	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
-
-
-
-
-
-
-
-
