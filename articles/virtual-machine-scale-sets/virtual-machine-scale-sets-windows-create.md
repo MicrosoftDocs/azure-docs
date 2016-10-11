@@ -91,7 +91,7 @@ A storage account is used by a virtual machine to store the operating system dis
         $saName = "storage account name"
         Get-AzureRmStorageAccountNameAvailability $saName
 
-    If the answer is **False**, your proposed name is unique.
+    If the answer is **True**, your proposed name is unique.
 
 3. Replace the value of **$saType** with the type of the storage account and then create the variable:  
 
