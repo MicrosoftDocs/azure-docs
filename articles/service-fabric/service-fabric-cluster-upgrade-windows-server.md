@@ -131,7 +131,7 @@ and kick off a configuration upgrade. refer to [Start-ServiceFabricClusterUpgrad
  
 
 
-1. Download the latest version of the package from [Create service fabric cluster for windows server](service-fabric-cluster-creation-for-windows-server.md/#download-the-service-fabric-standalone-package) document 
+1. Download the latest version of the package from [Create service fabric cluster for windows server](service-fabric-cluster-creation-for-windows-server/#download-the-service-fabric-standalone-package) document 
 
 
 1. Connect to the cluster from any machine that has administrator access to all the machines that are listed as nodes in the cluster. The machine that this script is run on does not have to be part of the cluster 
