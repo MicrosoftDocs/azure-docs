@@ -21,7 +21,6 @@
 
 
 > [AZURE.SELECTOR]
-- [Overview](sql-database-service-tiers.md)
 - [**Azure portal**](sql-database-scale-up.md)
 - [PowerShell](sql-database-scale-up-powershell.md)
 
