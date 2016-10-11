@@ -50,7 +50,7 @@ Both uploaded VHDs and existing Azure VM VHDs need to be generalized before you 
 
 ## Set the URI of the VHD
 
-The URI for the VHD to use is in the format: https://**myStorageAccount**.blob.core.windows.net/**myContainer**/**MyVhdName**.vhd. In this example the VHD named **myVHD** is in the storage account **mystorageaccount** in the container **mycontainer**.
+The URI for the VHD to use is in the format: https://**mystorageaccount**.blob.core.windows.net/**mycontainer**/**MyVhdName**.vhd. In this example the VHD named **myVHD** is in the storage account **mystorageaccount** in the container **mycontainer**.
 
 ```powershell
 $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vhd"
