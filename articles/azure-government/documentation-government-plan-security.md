@@ -91,79 +91,13 @@ Azure implements network access control and segregation through VLAN isolation, 
 
 Customers can further isolate their resources across subscriptions, resource groups, virtual networks, and subnets.
 
-## Identity
-For any organization contemplating a move to Azure Government, one area that will drive more design decisions and generate more architectural discussions than any other will be the issue of managing identity in the cloud. You look at some of the options for identity management between on-premise and cloud-based environments and review one approach that a Department of Defense organization used to simplify their Active Directory deployment while maintaining effective security of user identities.
-
-The options for managing identity in Azure Government are as follows:
-- Azure Active Directory (Azure AD), either with or without on-premises Active Directory
-- Directory synchronization between on-premises Active Directory and Azure AD, either with or without password synchronization using Azure AD Connect
-- Hybrid integration between on-premises Active Directory and Azure AD providing single sign-on (SSO) with Active Directory Federation Services
-- Extension of on-premises Active Directory into Azure Government
-
-### Azure Active Directory
-Azure AD is Microsoft’s Identity and Access Management as a Service (IDaaS) offering for organizations of all sizes. Organizations without on-premises Active Directory can use it as their main identity and access management resource; those with Active Directory or other directories already deployed can connect their current infrastructure and synchronize identity attributes into the cloud. Alternatively, they can maintain two different sets of credentials and have users authenticate to Azure Government using different user names and passwords (or multi-factor authentication) to that for the on-premises Active Directory. Azure Government supports new MFA options, as well as smartcards. Authentication can also be verified through a phone call, a text message or a mobile app verification code.
-
-The advantage of using Azure Active Directory on its own is that the organization then does not require any on-premises domain controllers, as all identity management, password reset and user administration is carried out in the cloud. However, while this approach might provide a workable solution for a small, green-field organization without any investment in an on-premises directory service, it is unlikely that Azure AD on its own will be a suitable design for larger or established clients.
-
-It is possible to use Azure AD alongside on-premises Active Directory, with no synchronization between the two. This approach certainly provides some reassurance for those who might have concerns in relation to identity-based attacks on the cloud leading to data loss on-premises. However, that reassurance is not guaranteed, as it is difficult to prevent users from manually assigning the same password to both their on-premises and cloud-based accounts. In addition, users now have to remember two sets of credentials; one for their on-premise applications and data, the other for those in Azure Government.
-
-### Azure AD Connect and Directory Synchronization
-Azure AD Connect is the replacement for Azure Active Directory Sync (DirSync) and Azure AD Sync. This component enables flow of identity information from Active Directory to Azure AD, thus populating Azure AD with user, group, and contact information. In addition, it supports limited write-back capabilities in support of hybrid deployments of Exchange Online with Exchange Server.
-
-Azure AD Connect supports the following range of synchronization options:
-- Single forest to single Azure AD
-- Multiple forests to single Azure AD directory
-- Staging server
-- GALsync with on-premises sync server
-
-Note that each object only once in an Azure AD directory the following arrangements are NOT supported:
-- Single forest with multiple sync servers to single Azure AD
-- Multiple forests, multiple sync servers to one Azure AD directory
-- Each object replicated multiple times in an Azure AD directory
-- GALsync using writeback
-
-For more information, see Topologies for Azure AD Connect, at https://azure.microsoft.com/en-gb/documentation/articles/active-directory-aadconnect-topologies/.
-
-[Azure.Note]: When connecting to Azure AD using Azure AD Connect, you need to configure a registry setting to select the Azure Government Cloud endpoint.
-
-For more information, see Microsoft Azure Government Cloud, at https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect-instances/#microsoft-azure-government-cloud.
-
-### Azure AD Connect with Password Synchronization
-A further option with Azure AD Connect is password synchronization. Password synchronization enables users to authenticate to cloud-based resources using the same credentials as they use to log on to the domain. However, this is not the same as SSO and does not offer such depth of functionality.
-
-Password synchronization stores a hash of the user’s on-premises password in Azure AD and compares that stored value with the hash of the password generated when the user logs on to a resource in Azure Government. If the two hashes match, then the supplied password must be correct and the user is permitted to access the cloud resource.
-
-The result is that the user can use his or her domain credentials to access resources in the cloud. However, it is important to understand the technical differences between this mechanism and those for true SSO in the following section. For example, Azure AD Connect does not support advanced authentication options such as MFA or provide a true hybrid architecture for use with SaaS
-
-[Azure-Note] If your organization needs to comply with Federal Information Processing Standards (FIPS), then you cannot use password sync, as this feature requires use of MD5 hash algorithms, even though the MD5 hash is further protected by rehashing using SHA256 prior to transmission to the cloud.
-
-aFor more information, see Implementing password synchronization with Azure AD Connect sync, at https://azure.microsoft.com/en-gb/documentation/services/active-directory/.
-a
-### Single Sign-On with Active Directory Federation Services
-ADFS enables true SSO between on-premises Active Directory and Azure AD and offers more options for authentication, such as Multi-Factor Authentication (MFA) through smart cards or managed mobile devices. The difference with ADFS is that rather than a hash of the password being used to check the validity of the user’s password, when the user attempts to access a cloud-based resource, the entire authentication request is forwarded to one or more servers running ADFS.
-
-The ADFS servers then interrogate the on-premises Active Directory, and if the credentials are correct, create a security token. This token contains a number of claims about the user, such as Name, email address and so on, which is then presented to the cloud-based resource to confirm that the user has been authenticated. The user can now access the resource in Azure Government.
-
-SSO with ADFS does offer significant advantages in terms of security (easy account termination) and in support for advanced scenarios, such as MFA. Disadvantages include the requirement to run an ADFS infrastructure, which requires additional hardware and configuration. Also, failure of the federation server will prevent users from authenticating to cloud resources.
-
-### Extension of On-premises Active Directory into Azure Government
-The final identity integration option with Azure Government is possibly the simplest of all, but one that requires organizations to take a significant leap in terms of where they define their security boundaries. In effect, this change is to consider Azure Government part of the organization’s internal network, rather than external to it. In consequence, IP address ranges, subnets, domain name registration, security and firewalls are all configured so that the Azure Government segment simply appears as another network segment on the organization’s intranet.
-
-The only difference with such a configuration is an increase in the round-trip time to any resources hosted on those subnets, resulting in slightly greater latency. With Azure ExpressRoute connectivity, bandwidth to Azure Government can consist of one or more pairs of 10Gb connection points, giving in effect, greater bandwidth to the Azure resources than experienced from 1Gb internal switches.
-
-The huge advantage from an identity management perspective, this architecture enables you to extend your Active Directory forest into Azure Government without further configuration. By deploying Windows Server virtual machine images and installing Active Directory Domain Services, either into an existing domain within the forest or into a separate domain. This domain controller can also provide other services linked to domain operations, such as Active Directory-integrated DNS. They can also provide some of the Flexible Single Master Operations (FSMO) roles within the domain and also host a copy of the Global Catalog; however, it is unlikely that cloud-based DCs would be Schema Masters or Domain Naming Masters.
-
-As a real-world example of this integration, a Department of Defense (DoD) organization recently integrated Azure Government into its network, connecting to the cloud through a Cloud Access Point (CAP) provided by the Defense Infrastructure Services Agency (DISA). The DoD department connected to the CAP by using an IPSec-secured Virtual Private Network (VPN). From there, access to Azure Government was through two pairs of 10GBs connections, although at present, each link is throttled to 350Mbs. For more information about the DoD Azure ExpressRoute implementation, see Department of Defense - Getting Started with Private Connectivity, at link here.
-
-This approach gives a good balance between functionality and security, while providing the highest level of integration between the on-premise Active Directory and the cloud environment. However, getting to this end state does require acceptance of a significantly different attitude to the cloud, where Azure Government is seen as an entity within the organizational network, and not something “out there”.
-
 ## Screening
 
 The recently announced FedRAMP High and Department of Defense (DoD) Impact Level 4 accreditation. This has raised the security and compliance bar across the Azure Government environment.
 
 We are now screening all our operators at National Agency Check with Law and Credit (NACLC) as defined in section 5.6.2.2 of the DoD Cloud Computing Security Requirements Guide (SRG):
 
-[Azure.Note]: The minimum background investigation required for CSP personnel having access to Level 4 and 5 information based on a “noncritical-sensitive” (e.g., DoD’s ADP-2) is a National Agency Check with Law and Credit (NACLC) (for “noncritical-sensitive” contractors), or a Moderate Risk Background Investigation (MBI) for a “moderate risk” position designation.
+>[Azure.Note] The minimum background investigation required for CSP personnel having access to Level 4 and 5 information based on a “noncritical-sensitive” (e.g., DoD’s ADP-2) is a National Agency Check with Law and Credit (NACLC) (for “noncritical-sensitive” contractors), or a Moderate Risk Background Investigation (MBI) for a “moderate risk” position designation.
 
 The following table summarizes our current screening for Azure Government operators:
 
