@@ -33,11 +33,14 @@ You will:
 
 ## Prerequisites
 
+>[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
+
 - [Install Git](http://www.git-scm.com/downloads). Verify that your installation is successful by running `git --version` from a new Windows command prompt, 
 PowerShell window, Linux shell, or OS X terminal.
 - Get a Microsoft Azure account. If you don't have an account, you can 
 [sign up for a free trial](/pricing/free-trial/?WT.mc_id=A261C142F) or 
 [activate your Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+
 
 >[AZURE.NOTE] You can [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) without an Azure account. Create a starter app and play with
 it for up to an hour--no credit card required, no commitments.
@@ -49,7 +52,7 @@ it for up to an hour--no credit card required, no commitments.
 
 2. From the left menu, click **New** > **Web + Mobile** > **Web App**.
 
-    ![](./media/app-service-web-get-started/create-web-app-portal.png)
+    ![start creating your first web app in Azure](./media/app-service-web-get-started/create-web-app-portal.png)
 
 3. In the app creation blade, use the following settings for your new app:
 
@@ -60,19 +63,19 @@ it for up to an hour--no credit card required, no commitments.
 
     When you're done, your app creation blade should look like this:
 
-    ![](./media/app-service-web-get-started/create-web-app-settings.png)
+    ![configure your first web app in Azure](./media/app-service-web-get-started/create-web-app-settings.png)
 
 3. Click **Create** at the bottom. You can click the **Notification** icon at the top to see the progress.
 
-    ![](./media/app-service-web-get-started/create-web-app-started.png)
+    ![app creation notification for your first web app in Azure](./media/app-service-web-get-started/create-web-app-started.png)
 
 4. When deployment is finished, you should see this notification message. Click the message to open your deployment's blade.
 
-    ![](./media/app-service-web-get-started/create-web-app-finished.png)
+    ![deployment finished message for your first web app in Azure](./media/app-service-web-get-started/create-web-app-finished.png)
 
 5. In the **Deployment succeeded** blade, click the **Resource** link to open your new web app's blade.
 
-    ![](./media/app-service-web-get-started/create-web-app-resource.png)
+    ![resource link for your first web app in Azure](./media/app-service-web-get-started/create-web-app-resource.png)
 
 ## Deploy code to your web app
 
@@ -80,7 +83,7 @@ Now, let's deploy some code to Azure using Git.
 
 5. In the web app blade, scroll down to **Deployment options** or search for it, then click it. 
 
-    ![](./media/app-service-web-get-started/deploy-web-app-deployment-options.png)
+    ![deployment options for your first web app in Azure](./media/app-service-web-get-started/deploy-web-app-deployment-options.png)
 
 6. Click **Choose Source** > **Local Git Repository** > **OK**.
 
@@ -90,7 +93,7 @@ Now, let's deploy some code to Azure using Git.
 
 7. Back in the web app blade, scroll down to **Properties** or search for it, then click it. Next to **Git URL**, click the **Copy** button.
 
-    ![](./media/app-service-web-get-started/deploy-web-app-properties.png)
+    ![properties blade for your first web app in Azure](./media/app-service-web-get-started/deploy-web-app-properties.png)
 
     You're now ready to deploy your code with Git.
 

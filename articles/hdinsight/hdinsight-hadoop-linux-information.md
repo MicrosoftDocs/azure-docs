@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/30/2016"
+   ms.date="09/13/2016"
    ms.author="larryfr"/>
 
 # Information about using HDInsight on Linux
@@ -71,9 +71,9 @@ This returns a JSON document describing the service, and then jq pulls out only 
 	>
 	> Authentication is plaintext - always use HTTPS to help ensure that the connection is secure.
 
-* **SSH** - &lt;clustername>-ssh.azurehdinsight.net on port 22 or 23. Port 22 is used to connect to head node 0, while 23 is used to connect to head node 1. For more information on the head nodes, see [Availability and reliability of Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md).
+* **SSH** - &lt;clustername>-ssh.azurehdinsight.net on port 22 or 23. Port 22 is used to connect to the primary headnode, while 23 is used to connect to the secondary. For more information on the head nodes, see [Availability and reliability of Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md).
 
-	> [AZURE.NOTE] You can only access the cluster head nodes through SSH from a client machine. Once connected, you can then access the worker nodes by using SSH from the head node.
+	> [AZURE.NOTE] You can only access the cluster head nodes through SSH from a client machine. Once connected, you can then access the worker nodes by using SSH from a headnode.
 
 ## File locations
 

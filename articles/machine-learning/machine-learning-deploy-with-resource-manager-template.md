@@ -119,13 +119,19 @@ The resource group name is used by the template to generate the storage account 
 $rgd = New-AzureRmResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\mlworkspace.json" -ResourceGroupName $rg.ResourceGroupName
 ```
 
-Once the deployment is completed, it is straightforward to access the properties of the workspace you deployed. For example, you can access the Primary Key Token.
+Once the deployment is completed, it is straightforward to access properties of the workspace you deployed. For example, you can access the Primary Key Token.
 
 ```
 # Access Azure ML Workspace Token after its deployment.
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
+Another way to retrieve tokens of existing workspace is to use the Invoke-AzureRmResourceAction command. For example, you can list the primary and secondary tokens of all workspaces.
+
+```  
+# List the primary and secondary tokens of all workspaces
+Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}  
+```
 After the workspace is provisioned, you can also automate many Azure Machine Learning Studio tasks using the [PowerShell Module for Azure Machine Learning](http://aka.ms/amlps).
 
 ## Next Steps 

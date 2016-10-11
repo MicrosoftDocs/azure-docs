@@ -1,10 +1,10 @@
-﻿<properties 
+<properties 
 	pageTitle="Machine Learning Recommendations API Documentation | Microsoft Azure" 
 	description="Azure Machine Learning Recommendations API documentation for a recommendations engine available in the Microsoft Azure Marketplace." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="LuisCabrer" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -30,22 +30,22 @@ This document depicts Microsoft Azure Machine Learning Recommendations APIs.
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ##1. General overview
-This document is an API reference. You should start with the “Azure Machine Learning Recommendation – Quick Start” document.
+This document is an API reference. You should start with the “Azure Machine Learning Recommendation - Quick Start” document.
 
 The Azure Machine Learning Recommendations API can be divided into the following logical groups:
 
 - <ins>Limitations</ins> - Recommendations API limitations.
 - <ins>General Information</ins> - Information on authentication, service URI and versioning.
-- <ins>Model Basic</ins> – APIs that enable you to do the basic operations on model (e.g. create, update and delete a model).
-- <ins>Model Advanced</ins> – APIs that enable you to get advanced data insights on the model.
-- <ins>Model Business Rules</ins> – APIs that enable you to manage business rules on the model recommendation results.
-- <ins>Catalog</ins> – APIs that enable you to do basic operations on a model catalog. A catalog contains metadata information on the items of the usage data.
+- <ins>Model Basic</ins> - APIs that enable you to do the basic operations on model (e.g. create, update and delete a model).
+- <ins>Model Advanced</ins> - APIs that enable you to get advanced data insights on the model.
+- <ins>Model Business Rules</ins> - APIs that enable you to manage business rules on the model recommendation results.
+- <ins>Catalog</ins> - APIs that enable you to do basic operations on a model catalog. A catalog contains metadata information on the items of the usage data.
 - <ins>Feature</ins> - APIs that enable to get insights on item into the catalog and how to use this information to build better recommendations.
-- <ins>Usage Data</ins> – APIs that enable you to do basic operations on the model usage data. Usage data in the basic form consists of rows that include pairs of &#60;userId&#62;,&#60;itemId&#62;.
-- <ins>Build</ins> – APIs that enable you to trigger a model build and do basic operations that are related to this build. You can trigger a model build once you have valuable usage data.
-- <ins>Recommendation</ins> – APIs that enable you to consume recommendations once the build of a model ends.
+- <ins>Usage Data</ins> - APIs that enable you to do basic operations on the model usage data. Usage data in the basic form consists of rows that include pairs of &#60;userId&#62;,&#60;itemId&#62;.
+- <ins>Build</ins> - APIs that enable you to trigger a model build and do basic operations that are related to this build. You can trigger a model build once you have valuable usage data.
+- <ins>Recommendation</ins> - APIs that enable you to consume recommendations once the build of a model ends.
 - <ins>User Data</ins> - APIs that enable you to fetch information on the user usage data.
-- <ins>Notifications</ins> – APIs that enable you to receive notifications on problems related to your API operations. (For example, you are reporting usage data via Data Acquisition and most of the events processing are failing. An error notification will be raised.)
+- <ins>Notifications</ins> - APIs that enable you to receive notifications on problems related to your API operations. (For example, you are reporting usage data via Data Acquisition and most of the events processing are failing. An error notification will be raised.)
 
 ##2. Limitations
 
@@ -111,7 +111,7 @@ Creates a “create model” request.
 
 HTTP Status code: 200
 
-- `feed/entry/content/properties/id` – Contains the model ID.
+- `feed/entry/content/properties/id` - Contains the model ID.
 **Note**: model ID is case sensitive.
 
 OData XML
@@ -164,16 +164,16 @@ HTTP Status code: 200
 
 The model data can be found under the following elements:
 
-- `feed/entry/content/properties/Id` – Model unique ID.
-- `feed/entry/content/properties/Name` – Model name.
-- `feed/entry/content/properties/Date` – Model creation date.
-- `feed/entry/content/properties/Status` – Model status. One of the following:
+- `feed/entry/content/properties/Id` - Model unique ID.
+- `feed/entry/content/properties/Name` - Model name.
+- `feed/entry/content/properties/Date` - Model creation date.
+- `feed/entry/content/properties/Status` - Model status. One of the following:
     - Created - Model is created and does not contain Catalog and Usage.
-	- ReadyForBuild – Model is created and contains Catalog and Usage.
-- `feed/entry/content/properties/HasActiveBuild` – Indicates if the model was built successfully.
-- `feed/entry/content/properties/BuildId` – Model active build ID.
-- `feed/entry/content/properties/Mpr` – Model mean percentile ranking (MPR - see ModelInsight for more information).
-- `feed/entry/content/properties/UserName` – Model internal user name.
+	- ReadyForBuild - Model is created and contains Catalog and Usage.
+- `feed/entry/content/properties/HasActiveBuild` - Indicates if the model was built successfully.
+- `feed/entry/content/properties/BuildId` - Model active build ID.
+- `feed/entry/content/properties/Mpr` - Model mean percentile ranking (MPR - see ModelInsight for more information).
+- `feed/entry/content/properties/UserName` - Model internal user name.
 
 OData XML
 
@@ -225,20 +225,20 @@ Retrieves all models of the current user.
 
 HTTP Status code: 200
 
-- `feed/entry/content/properties/Id` – Model unique ID.
-- `feed/entry/content/properties/Name` – Model name.
-- `feed/entry/content/properties/Date` – Model creation date.
-- `feed/entry/content/properties/Status` – Model status. One of the following:
+- `feed/entry/content/properties/Id` - Model unique ID.
+- `feed/entry/content/properties/Name` - Model name.
+- `feed/entry/content/properties/Date` - Model creation date.
+- `feed/entry/content/properties/Status` - Model status. One of the following:
   - Created - Model is created and does not contain Catalog and Usage.
-  - ReadyForBuild – Model is created and contains Catalog and Usage.
-- `feed/entry/content/properties/HasActiveBuild` – Indicates if the model was built successfully.
-- `feed/entry/content/properties/BuildId` – Model active build ID.
-- `feed/entry/content/properties/Mpr` – Model MPR (see ModelInsight for more information).
-- `feed/entry/content/properties/UserName` – Model internal user name.
-- `feed/entry/content/properties/UsageFileNames` – List of model usage files separated by comma.
-- `feed/entry/content/properties/CatalogId` – Model catalog ID.
-- `feed/entry/content/properties/Description` – Model description.
-- `feed/entry/content/properties/CatalogFileName` – Model catalog file name.
+  - ReadyForBuild - Model is created and contains Catalog and Usage.
+- `feed/entry/content/properties/HasActiveBuild` - Indicates if the model was built successfully.
+- `feed/entry/content/properties/BuildId` - Model active build ID.
+- `feed/entry/content/properties/Mpr` - Model MPR (see ModelInsight for more information).
+- `feed/entry/content/properties/UserName` - Model internal user name.
+- `feed/entry/content/properties/UsageFileNames` - List of model usage files separated by comma.
+- `feed/entry/content/properties/CatalogId` - Model catalog ID.
+- `feed/entry/content/properties/Description` - Model description.
+- `feed/entry/content/properties/CatalogFileName` - Model catalog file name.
 
 OData XML
 
@@ -277,7 +277,7 @@ OData XML
 ###5.4.	Update Model
 
 You can update the model description or the active build ID.<br>
-<ins>Active build ID</ins> – Every build for every model has a build ID. The active build ID is the first successful build of every new model. Once you have an active build ID and you do additional builds for the same model, you need to explicitly set it as the default build ID if you want to. When you consume recommendations, if you do not specify the build ID that you want to use, the default one will be used automatically.<br>
+<ins>Active build ID</ins> - Every build for every model has a build ID. The active build ID is the first successful build of every new model. Once you have an active build ID and you do additional builds for the same model, you need to explicitly set it as the default build ID if you want to. When you consume recommendations, if you do not specify the build ID that you want to use, the default one will be used automatically.<br>
 This mechanism enables you - once you have a recommendation model in production - to build new models and test them before you promote them to production.
 
 
@@ -586,7 +586,7 @@ Available only for Recommendation build.
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
 |	modelId	|	Unique identifier of the model |
-|	buildId	|	Optional – number that identifies a successful build. |
+|	buildId	|	Optional - number that identifies a successful build. |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -846,9 +846,9 @@ These are the types of rules supported:
 
 HTTP Status code: 200
 
-- `feed/entry/content/properties/Id` – Unique identifier of this rule.
-- `feed/entry/content/properties/Type` – Type of the rule.
-- `feed/entry/content/properties/Parameter` – Rule parameter.
+- `feed/entry/content/properties/Id` - Unique identifier of this rule.
+- `feed/entry/content/properties/Type` - Type of the rule.
+- `feed/entry/content/properties/Parameter` - Rule parameter.
 
 OData XML
 
@@ -919,9 +919,9 @@ HTTP Status code: 200
 
 The API returns the newly created rule with its details. The rules property can be retrieved from the following paths:
 
-- `feed/entry/content/properties/Id` – Unique identifier of this rule.
-- `feed/entry/content/properties/Type` – Type of the rule: BlockList or Upsale.
-- `feed/entry/content/properties/Parameter` – Rule parameter.
+- `feed/entry/content/properties/Id` - Unique identifier of this rule.
+- `feed/entry/content/properties/Type` - Type of the rule: BlockList or Upsale.
+- `feed/entry/content/properties/Parameter` - Rule parameter.
 
 OData XML
 
@@ -1026,8 +1026,8 @@ Note: The maximum file size is 200MB.
 HTTP Status code: 200
 
 The API returns a report of the import.
-- `feed\entry\content\properties\LineCount` – Number of lines accepted.
-- `feed\entry\content\properties\ErrorCount` – Number of lines that were not inserted due to an error.
+- `feed\entry\content\properties\LineCount` - Number of lines accepted.
+- `feed\entry\content\properties\ErrorCount` - Number of lines that were not inserted due to an error.
 
 OData XML
 
@@ -1073,12 +1073,12 @@ HTTP Status code: 200
 
 The response includes one entry per catalog item. Each entry has the following data:
 
-- `feed/entry/content/properties/ExternalId` – Catalog item external ID, the one provided by the customer.
-- `feed/entry/content/properties/InternalId` – Catalog item internal ID, the one that Azure Machine Learning Recommendations has generated.
-- `feed/entry/content/properties/Name` – Catalog item name.
-- `feed/entry/content/properties/Category` – Catalog item category.
-- `feed/entry/content/properties/Description` – Catalog item description.
-- `feed/entry/content/properties/Metadata` – Catalog item metadata.
+- `feed/entry/content/properties/ExternalId` - Catalog item external ID, the one provided by the customer.
+- `feed/entry/content/properties/InternalId` - Catalog item internal ID, the one that Azure Machine Learning Recommendations has generated.
+- `feed/entry/content/properties/Name` - Catalog item name.
+- `feed/entry/content/properties/Category` - Catalog item category.
+- `feed/entry/content/properties/Description` - Catalog item description.
+- `feed/entry/content/properties/Metadata` - Catalog item metadata.
 
 
 OData XML
@@ -1176,12 +1176,12 @@ HTTP Status code: 200
 
 The response includes one entry per catalog item. Each entry has the following data:
 
-- `feed/entry/content/properties/InternalId` – Catalog item internal ID, the one that Azure Machine Learning Recommendations has generated.
-- `feed/entry/content/properties/Name` – Catalog item name.
-- `feed/entry/content/properties/Rating` –  (for future use)
-- `feed/entry/content/properties/Reasoning` –  (for future use)
-- `feed/entry/content/properties/Metadata` –  (for future use)
-- `feed/entry/content/properties/FormattedRating` – (for future use)
+- `feed/entry/content/properties/InternalId` - Catalog item internal ID, the one that Azure Machine Learning Recommendations has generated.
+- `feed/entry/content/properties/Name` - Catalog item name.
+- `feed/entry/content/properties/Rating` -  (for future use)
+- `feed/entry/content/properties/Reasoning` -  (for future use)
+- `feed/entry/content/properties/Metadata` -  (for future use)
+- `feed/entry/content/properties/FormattedRating` - (for future use)
 
 OData XML
 
@@ -1231,9 +1231,9 @@ This section shows how to upload usage data by using a file. You can call this A
 
 HTTP Status code: 200
 
-- `Feed\entry\content\properties\LineCount` – Number of lines accepted.
-- `Feed\entry\content\properties\ErrorCount` – Number of lines that were not inserted due to an error.
-- `Feed\entry\content\properties\FileId` – File identifier.
+- `Feed\entry\content\properties\LineCount` - Number of lines accepted.
+- `Feed\entry\content\properties\ErrorCount` - Number of lines that were not inserted due to an error.
+- `Feed\entry\content\properties\FileId` - File identifier.
 
 OData XML
 
@@ -1397,10 +1397,10 @@ HTTP Status code: 200
 
 The response includes one entry per usage file. Each entry has the following data:
 
-- `feed\entry\content\properties\Id` – Usage file ID.
-- `feed\entry\content\properties\Length` – Usage file length in MB.
-- `feed\entry\content\properties\DateModified` – Date when the usage file was created.
-- `feed\entry\content\properties\UseInModel` – Whether the usage file is used in the model.
+- `feed\entry\content\properties\Id` - Usage file ID.
+- `feed\entry\content\properties\Length` - Usage file length in MB.
+- `feed\entry\content\properties\DateModified` - Date when the usage file was created.
+- `feed\entry\content\properties\UseInModel` - Whether the usage file is used in the model.
 
 OData XML
 
@@ -1464,8 +1464,8 @@ HTTP Status code: 200
 
 A collection of key/value elements. Each one contains the sum of events for a specific event type grouped by hour.
 
-- `feed\entry[i]\content\properties\Key` – Contains the time (grouped by hour) and the event type.
-- `feed\entry[i]\content\properties\Value` – Total event count.
+- `feed\entry[i]\content\properties\Key` - Contains the time (grouped by hour) and the event type.
+- `feed\entry[i]\content\properties\Value` - Total event count.
 
 OData XML
 
@@ -1935,13 +1935,13 @@ You cannot consume recommendations till the build ends.
 
 Valid build status:
 
-- Create – Build request was created.
-- Queued – Build request was sent and it is queued.
-- Building – Build is in progress.
-- Success – Build ended successfully.
-- Error – Build ended with a failure.
-- Cancelled – Build was cancelled.
-- Cancelling – A cancel request for the build was sent.
+- Create - Build request was created.
+- Queued - Build request was sent and it is queued.
+- Building - Build is in progress.
+- Success - Build ended successfully.
+- Error - Build ended with a failure.
+- Cancelled - Build was cancelled.
+- Cancelling - A cancel request for the build was sent.
 
 
 Note that the build ID can be found under the following path: `Feed\entry\content\properties\Id`
@@ -2011,13 +2011,13 @@ You cannot consume recommendations till the build ends.
 
 Valid build status:
 
-- Create – Model was created.
-- Queued – Model build was triggered and it is queued.
-- Building – Model is being built.
-- Success – Build ended successfully.
-- Error – Build ended with a failure.
-- Cancelled – Build was cancelled.
-- Cancelling – Build is being cancelled.
+- Create - Model was created.
+- Queued - Model build was triggered and it is queued.
+- Building - Model is being built.
+- Success - Build ended successfully.
+- Error - Build ended with a failure.
+- Cancelled - Build was cancelled.
+- Cancelling - Build is being cancelled.
 
 Note that the build ID can be found under the following path: `Feed\entry\content\properties\Id`
 
@@ -2084,28 +2084,28 @@ HTTP Status code: 200
 
 The response includes one entry per build. Each entry has the following data:
 
-- `feed/entry/content/properties/UserName` – Name of the user.
-- `feed/entry/content/properties/ModelName` – Name of the model.
-- `feed/entry/content/properties/ModelId` – Model unique identifier.
-- `feed/entry/content/properties/IsDeployed` – Whether the build is deployed (a.k.a. active build).
-- `feed/entry/content/properties/BuildId` – Build unique identifier.
+- `feed/entry/content/properties/UserName` - Name of the user.
+- `feed/entry/content/properties/ModelName` - Name of the model.
+- `feed/entry/content/properties/ModelId` - Model unique identifier.
+- `feed/entry/content/properties/IsDeployed` - Whether the build is deployed (a.k.a. active build).
+- `feed/entry/content/properties/BuildId` - Build unique identifier.
 - `feed/entry/content/properties/BuildType` - Type of the build.
-- `feed/entry/content/properties/Status` – Build status. Can be one of the following: Error, Building, Queued, Cancelling, Cancelled, Success.
-- `feed/entry/content/properties/StatusMessage` – Detailed status message (applies only to specific states).
-- `feed/entry/content/properties/Progress` – Build progress (%).
-- `feed/entry/content/properties/StartTime` – Build start time.
-- `feed/entry/content/properties/EndTime` – Build end time.
-- `feed/entry/content/properties/ExecutionTime` – Build duration.
-- `feed/entry/content/properties/ProgressStep` – Details about the current stage of a build in progress.
+- `feed/entry/content/properties/Status` - Build status. Can be one of the following: Error, Building, Queued, Cancelling, Cancelled, Success.
+- `feed/entry/content/properties/StatusMessage` - Detailed status message (applies only to specific states).
+- `feed/entry/content/properties/Progress` - Build progress (%).
+- `feed/entry/content/properties/StartTime` - Build start time.
+- `feed/entry/content/properties/EndTime` - Build end time.
+- `feed/entry/content/properties/ExecutionTime` - Build duration.
+- `feed/entry/content/properties/ProgressStep` - Details about the current stage of a build in progress.
 
 Valid build status:
-- Created – Build request entry was created.
-- Queued – Build request was triggered and it is queued.
-- Building – Build is in process.
-- Success – Build ended successfully.
-- Error – Build ended with a failure.
-- Cancelled – Build was cancelled.
-- Cancelling – Build is being cancelled.
+- Created - Build request entry was created.
+- Queued - Build request was triggered and it is queued.
+- Building - Build is in process.
+- Success - Build ended successfully.
+- Error - Build ended with a failure.
+- Cancelled - Build was cancelled.
+- Cancelling - Build is being cancelled.
 
 Valid values for build type:
 - Rank - Rank build.
@@ -2168,28 +2168,28 @@ HTTP Status code: 200
 
 The response includes one entry per build. Each entry has the following data:
 
-- `feed/entry/content/properties/UserName` – Name of the user.
-- `feed/entry/content/properties/ModelName` – Name of the model.
-- `feed/entry/content/properties/ModelId` – Model unique identifier.
-- `feed/entry/content/properties/IsDeployed` – Whether the build is deployed.
-- `feed/entry/content/properties/BuildId` – Build unique identifier.
+- `feed/entry/content/properties/UserName` - Name of the user.
+- `feed/entry/content/properties/ModelName` - Name of the model.
+- `feed/entry/content/properties/ModelId` - Model unique identifier.
+- `feed/entry/content/properties/IsDeployed` - Whether the build is deployed.
+- `feed/entry/content/properties/BuildId` - Build unique identifier.
 - `feed/entry/content/properties/BuildType` - Type of the build.
-- `feed/entry/content/properties/Status` – Build status. Can be one of the following: Error, Building, Queued, Cancelled, Cancelling, Success.
-- `feed/entry/content/properties/StatusMessage` – Detailed status message (applies only to specific states).
-- `feed/entry/content/properties/Progress` – Build progress (%).
-- `feed/entry/content/properties/StartTime` – Build start time.
-- `feed/entry/content/properties/EndTime` – Build end time.
-- `feed/entry/content/properties/ExecutionTime` – Build duration.
-- `feed/entry/content/properties/ProgressStep` – Details about the current stage of a build in progress.
+- `feed/entry/content/properties/Status` - Build status. Can be one of the following: Error, Building, Queued, Cancelled, Cancelling, Success.
+- `feed/entry/content/properties/StatusMessage` - Detailed status message (applies only to specific states).
+- `feed/entry/content/properties/Progress` - Build progress (%).
+- `feed/entry/content/properties/StartTime` - Build start time.
+- `feed/entry/content/properties/EndTime` - Build end time.
+- `feed/entry/content/properties/ExecutionTime` - Build duration.
+- `feed/entry/content/properties/ProgressStep` - Details about the current stage of a build in progress.
 
 Valid build status:
-- Created – Build request entry was created.
-- Queued – Build request was triggered and it is queued.
-- Building – Build is in process.
-- Success – Build ended successfully.
-- Error – Build ended with a failure.
-- Cancelled – Build was cancelled.
-- Cancelling – Build is being cancelled.
+- Created - Build request entry was created.
+- Queued - Build request was triggered and it is queued.
+- Building - Build is in process.
+- Success - Build ended successfully.
+- Error - Build ended with a failure.
+- Cancelled - Build was cancelled.
+- Cancelling - Build is being cancelled.
 
 
 Valid values for build type:
@@ -2284,8 +2284,8 @@ Retrieves build parameters.
 HTTP Status code: 200
 
 This API returns a collection of key/value elements. Each element represents a parameter and its value:
-- `feed/entry/content/properties/Key` – Build parameter name.
-- `feed/entry/content/properties/Value` – Build parameter value.
+- `feed/entry/content/properties/Key` - Build parameter name.
+- `feed/entry/content/properties/Value` - Build parameter value.
 
 The table below depicts the value that each key represents.
 
@@ -2496,10 +2496,10 @@ HTTP Status code: 200
 
 
 The response includes one entry per recommended item. Each entry has the following data:
-- `Feed\entry\content\properties\Id` – Recommended item ID.
-- `Feed\entry\content\properties\Name` – Name of the item.
-- `Feed\entry\content\properties\Rating` – Rating of the recommendation; higher number means higher confidence.
-- `Feed\entry\content\properties\Reasoning` – Recommendation reasoning (e.g. recommendation explanations).
+- `Feed\entry\content\properties\Id` - Recommended item ID.
+- `Feed\entry\content\properties\Name` - Name of the item.
+- `Feed\entry\content\properties\Rating` - Rating of the recommendation; higher number means higher confidence.
+- `Feed\entry\content\properties\Reasoning` - Recommendation reasoning (e.g. recommendation explanations).
 
 The example response below includes 10 recommended items.
 
@@ -2677,10 +2677,10 @@ HTTP Status code: 200
 
 
 The response includes one entry per recommended item. Each entry has the following data:
-- `Feed\entry\content\properties\Id` – Recommended item ID.
-- `Feed\entry\content\properties\Name` – Name of the item.
-- `Feed\entry\content\properties\Rating` – Rating of the recommendation; higher number means higher confidence.
-- `Feed\entry\content\properties\Reasoning` – Recommendation reasoning (e.g. recommendation explanations).
+- `Feed\entry\content\properties\Id` - Recommended item ID.
+- `Feed\entry\content\properties\Name` - Name of the item.
+- `Feed\entry\content\properties\Rating` - Rating of the recommendation; higher number means higher confidence.
+- `Feed\entry\content\properties\Reasoning` - Recommendation reasoning (e.g. recommendation explanations).
 
 See a response example in 12.1
 
@@ -2707,12 +2707,12 @@ HTTP Status code: 200
 
 
 The response includes one entry per recommended item set (a set of items which are usually bought together with the seed/input item). Each entry has the following data:
-- `Feed\entry\content\properties\Id1` – Recommended item ID.
-- `Feed\entry\content\properties\Name1` – Name of the item.
-- `Feed\entry\content\properties\Id2` – 2nd recommended item ID (optional).
-- `Feed\entry\content\properties\Name2` – Name of the 2nd item (optional).
-- `Feed\entry\content\properties\Rating` – Rating of the recommendation; higher number means higher confidence.
-- `Feed\entry\content\properties\Reasoning` – Recommendation reasoning (e.g. recommendation explanations).
+- `Feed\entry\content\properties\Id1` - Recommended item ID.
+- `Feed\entry\content\properties\Name1` - Name of the item.
+- `Feed\entry\content\properties\Id2` - 2nd recommended item ID (optional).
+- `Feed\entry\content\properties\Name2` - Name of the 2nd item (optional).
+- `Feed\entry\content\properties\Rating` - Rating of the recommendation; higher number means higher confidence.
+- `Feed\entry\content\properties\Reasoning` - Recommendation reasoning (e.g. recommendation explanations).
 
 The example response below includes 3 recommended item sets.
 
@@ -2799,12 +2799,12 @@ HTTP Status code: 200
 
 
 The response includes one entry per recommended item set (a set of items which are usually bought together with the seed/input item). Each entry has the following data:
-- `Feed\entry\content\properties\Id1` – Recommended item ID.
-- `Feed\entry\content\properties\Name1` – Name of the item.
-- `Feed\entry\content\properties\Id2` – 2nd recommended item ID (optional).
-- `Feed\entry\content\properties\Name2` – Name of the 2nd item (optional).
-- `Feed\entry\content\properties\Rating` – Rating of the recommendation; higher number means higher confidence.
-- `Feed\entry\content\properties\Reasoning` – Recommendation reasoning (e.g. recommendation explanations).
+- `Feed\entry\content\properties\Id1` - Recommended item ID.
+- `Feed\entry\content\properties\Name1` - Name of the item.
+- `Feed\entry\content\properties\Id2` - 2nd recommended item ID (optional).
+- `Feed\entry\content\properties\Name2` - Name of the 2nd item (optional).
+- `Feed\entry\content\properties\Rating` - Rating of the recommendation; higher number means higher confidence.
+- `Feed\entry\content\properties\Reasoning` - Recommendation reasoning (e.g. recommendation explanations).
 
 See a response example in 12.3
 
@@ -2836,10 +2836,10 @@ HTTP Status code: 200
 
 
 The response includes one entry per recommended item. Each entry has the following data:
-- `Feed\entry\content\properties\Id` – Recommended item ID.
-- `Feed\entry\content\properties\Name` – Name of the item.
-- `Feed\entry\content\properties\Rating` – Rating of the recommendation; higher number means higher confidence.
-- `Feed\entry\content\properties\Reasoning` – Recommendation reasoning (e.g. recommendation explanations).
+- `Feed\entry\content\properties\Id` - Recommended item ID.
+- `Feed\entry\content\properties\Name` - Name of the item.
+- `Feed\entry\content\properties\Rating` - Rating of the recommendation; higher number means higher confidence.
+- `Feed\entry\content\properties\Reasoning` - Recommendation reasoning (e.g. recommendation explanations).
 
 See a response example in 12.1
 
@@ -2873,10 +2873,10 @@ HTTP Status code: 200
 
 
 The response includes one entry per recommended item. Each entry has the following data:
-- `Feed\entry\content\properties\Id` – Recommended item ID.
-- `Feed\entry\content\properties\Name` – Name of the item.
-- `Feed\entry\content\properties\Rating` – Rating of the recommendation; higher number means higher confidence.
-- `Feed\entry\content\properties\Reasoning` – Recommendation reasoning (e.g. recommendation explanations).
+- `Feed\entry\content\properties\Id` - Recommended item ID.
+- `Feed\entry\content\properties\Name` - Name of the item.
+- `Feed\entry\content\properties\Rating` - Rating of the recommendation; higher number means higher confidence.
+- `Feed\entry\content\properties\Reasoning` - Recommendation reasoning (e.g. recommendation explanations).
 
 See a response example in 12.1
 
@@ -2908,10 +2908,10 @@ HTTP Status code: 200
 
 
 The response includes one entry per recommended item. Each entry has the following data:
-- `Feed\entry\content\properties\Id` – Recommended item ID.
-- `Feed\entry\content\properties\Name` – Name of the item.
-- `Feed\entry\content\properties\Rating` – Rating of the recommendation; higher number means higher confidence.
-- `Feed\entry\content\properties\Reasoning` – Recommendation reasoning (e.g. recommendation explanations).
+- `Feed\entry\content\properties\Id` - Recommended item ID.
+- `Feed\entry\content\properties\Name` - Name of the item.
+- `Feed\entry\content\properties\Rating` - Rating of the recommendation; higher number means higher confidence.
+- `Feed\entry\content\properties\Reasoning` - Recommendation reasoning (e.g. recommendation explanations).
 
 See a response example in 12.1
 
@@ -2946,10 +2946,10 @@ HTTP Status code: 200
 
 
 The response includes one entry per recommended item. Each entry has the following data:
-- `Feed\entry\content\properties\Id` – Recommended item ID.
-- `Feed\entry\content\properties\Name` – Name of the item.
-- `Feed\entry\content\properties\Rating` – Rating of the recommendation; higher number means higher confidence.
-- `Feed\entry\content\properties\Reasoning` – Recommendation reasoning (e.g. recommendation explanations).
+- `Feed\entry\content\properties\Id` - Recommended item ID.
+- `Feed\entry\content\properties\Name` - Name of the item.
+- `Feed\entry\content\properties\Rating` - Rating of the recommendation; higher number means higher confidence.
+- `Feed\entry\content\properties\Reasoning` - Recommendation reasoning (e.g. recommendation explanations).
 
 See a response example in 12.1
 
@@ -2980,10 +2980,10 @@ Retrieve the list of item used in the active build or in the specified build for
 HTTP Status code: 200
 
 The response includes one entry per recommended item. Each entry has the following data:
-- `Feed\entry\content\properties\Id` – Recommended item ID.
-- `Feed\entry\content\properties\Name` – Name of the item.
-- `Feed\entry\content\properties\Rating` – N/A.
-- `Feed\entry\content\properties\Reasoning` – N/A.
+- `Feed\entry\content\properties\Id` - Recommended item ID.
+- `Feed\entry\content\properties\Name` - Name of the item.
+- `Feed\entry\content\properties\Rating` - N/A.
+- `Feed\entry\content\properties\Reasoning` - N/A.
 
 OData XML
 
@@ -3041,11 +3041,11 @@ HTTP Status code: 200
 OData XML
 
     The response includes one entry per notification. Each entry has the following data:
-		* feed\entry\content\properties\UserName – Internal user name identification.
-		* feed\entry\content\properties\ModelId – Model ID.
-		* feed\entry\content\properties\Message – Notification message.
-		* feed\entry\content\properties\DateCreated – Date that this notification was created in UTC format.
-		* feed\entry\content\properties\NotificationType – Notification types. Values are BuildFailure, RecommendationFailure, and DataAquisitionFailure.
+		* feed\entry\content\properties\UserName - Internal user name identification.
+		* feed\entry\content\properties\ModelId - Model ID.
+		* feed\entry\content\properties\Message - Notification message.
+		* feed\entry\content\properties\DateCreated - Date that this notification was created in UTC format.
+		* feed\entry\content\properties\NotificationType - Notification types. Values are BuildFailure, RecommendationFailure, and DataAquisitionFailure.
 
 	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetNotifications" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />

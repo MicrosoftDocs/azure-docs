@@ -38,7 +38,7 @@ To the top right, you have a button **Add new rule**. This button is used to cre
 At the bottom, you have buttons for acting on a selected sync rule. **Edit** and **Delete** do what you expect them to. **Export** produces a PowerShell script for recreating the sync rule. This procedure allows you to move a sync rule from one server to another.
 
 ## Create your first custom rule
-The most common change is changes to the attribute flows. The data in your source directory might not be how you want it in Azure AD. In the example in this section, you want to make sure the given name of a user is always in **Proper case**.
+The most common change is changes to the attribute flows. The data in your source directory might not be as in Azure AD. In the example in this section, you want to make sure the given name of a user is always in **Proper case**.
 
 ### Disable the scheduler
 The [scheduler](active-directory-aadconnectsync-feature-scheduler.md) runs every 30 minutes by default. You want to make sure it is not starting while you are making changes and troubleshoot your new rules. To temporarily disable the scheduler, start PowerShell, and run `Set-ADSyncScheduler -SyncCycleEnabled $false`

@@ -20,7 +20,7 @@
 
 # Azure Functions triggers and bindings developer reference
 
-The following articles explain how to configure and code triggers and bindings in Azure Functions. The articles assume that you've read the [Azure Functions developer reference](functions-reference.md), and the [C#](functions-reference-csharp.md) or [Node.js](functions-reference-node.md) developer reference articles.
+The following articles explain how to configure and code triggers and bindings in Azure Functions. The articles assume that you've read the [Azure Functions developer reference](functions-reference.md), and the [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md), or [Node.js](functions-reference-node.md) developer reference articles.
 
 ## Triggers and bindings articles
 

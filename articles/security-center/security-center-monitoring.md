@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
 
 #Security health monitoring in Azure Security Center
@@ -29,7 +29,7 @@ For more information on how to apply recommendations read [Implementing security
 
 On the **Resources security health** tile you can to monitor the security state of your resources. In the example below, you can see a number of issues with high and medium severity that require attention. The security policies that are enabled will impact the types of controls that are monitored.
 
-![Resources health](./media/security-center-monitoring/security-center-monitoring-fig1-ga.png)
+![Resources health](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
 
 If Security Center identifies a vulnerability that needs to addressed, such as a VM with missing security updates or a subnet without a [network security group](../virtual-network/virtual-networks-nsg.md), it will be listed here.
 
@@ -51,7 +51,7 @@ This section shows the total number of VMs that were initialized for data collec
 
 
 ####Virtual machine recommendations
-This section has a set of recommendations for each VM monitored by Azure Security Center. The first column lists the recommendation, the second column the total number of VMs that are affected by that recommendation and the third column shows the severity of the issue as illustrated below.
+This section has a set of [recommendations for each VM](security-center-virtual-machine-recommendations.md) monitored by Azure Security Center. The first column lists the recommendation, the second column the total number of VMs that are affected by that recommendation and the third column shows the severity of the issue as illustrated below.
 
 ![VM Recommendations](./media/security-center-monitoring/security-center-monitoring-fig4-ga.png)
 
@@ -116,7 +116,7 @@ When you click on **Networking** in the **Resources security health** tile, the 
 
 Similar to the virtual machines resource health information, this blade provides a summarized list of issues at the top of the blade and a list of monitored networks on the bottom.
 
-The networking status breakdown section lists potential security issues and offers recommendations. Possible issues can include:
+The networking status breakdown section lists potential security issues and offers [recommendations](security-center-network-recommendations.md). Possible issues can include:
 
 - Next Generation Firewall (NGFW) not installed
 - Network Security Groups (NSGs) on subnets not enabled
@@ -160,8 +160,8 @@ In this topology view, the first level has [Virtual Networks](../virtual-network
 
 The bottom part of this blade has the recommendations for this VM, similar to what is described above. You can click on a recommendation to learn more or apply the needed security control/configuration.
 
-###Monitor SQL resources
-When you click **SQL** in the **Resources security health** tile, the SQL blade will open with recommendations for issues such as auditing, transparent data encryption not being enabled. It also has recommendations for the general health state of the database.
+###Monitor data
+When you click **Data** in the **Resources security health** tile, the **SQL** blade will open with recommendations for issues such as auditing, transparent data encryption not being enabled. It also has [recommendations](security-center-sql-service-recommendations.md) for the general health state of the database.
 
 ![SQL Resource Health](./media/security-center-monitoring/security-center-monitoring-fig13-ga.png)
 

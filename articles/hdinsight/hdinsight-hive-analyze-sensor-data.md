@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016" 
+	ms.date="09/20/2016" 
 	ms.author="larryfr"/>
 
 #Analyze sensor data using the Hive Query Console on Hadoop in HDInsight
@@ -51,5 +51,7 @@ In this sample, you'll use Hive to process historical data produced by heating, 
 	When prompted, authenticate by using the administrator user name and password you used when provisioning this cluster.
 
 2. From the web page that opens, click the **Getting Started Gallery** tab, and then under the **Solutions with Sample Data** category, click the **Sensor Data Analysis** sample.
+
+    ![Getting started gallery image](./media/hdinsight-hive-analyze-sensor-data/getting-started-gallery.png)
 
 3. Follow the instructions provided on the web page to finish the sample.

@@ -67,7 +67,7 @@ Learn how to [set up an HTTP proxy for VM backups](backup-azure-vms-prepare.md#u
 ### Solution
 Most agent-related or extension-related failures for Linux VMs are caused by issues that affect an old VM agent. As a general guideline, the first steps to troubleshoot this issue are the following:
 
-1. [Install the latest Azure VM agent](https://acom-swtest-2.azurewebsites.net/documentation/articles/virtual-machines-linux-update-agent/).
+1. [Install the latest Azure VM agent](https://github.com/Azure/WALinuxAgent).
 2. Make sure that the Azure agent is running on the VM. To do this, run the following command:     ```ps -e```
 
     If this process is not running, use the following commands to restart it.

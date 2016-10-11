@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/13/2016" 
 	ms.author="bradsev" /> 
 
 #Explore data in the Team Data Science Process
 
-This document covers how to explore data in four different environments typically used in the Team Data Science Process:
+This document covers how to explore data in four different storage environments that are typically used in the Data Science Process:
 
 - **Azure blob container** data is explored using the [Pandas](http://pandas.pydata.org/) Python package.
-- **SQL Server data** data is explored by using SQL and by using a programming language like Python.
+- **SQL Server** data is explored by using SQL and by using a programming language like Python.
 - **Hive table** data is explored using Hive queries.
 - **Azure Machine Learning (AML) Studio** data is explored using AML modules.
 
-This **menu** links to the topics that describe how to use these tools to explore data from various storage environments. 
+The following **menu** links to the topics that describe how to use these tools to explore data from various storage environments. 
 
 [AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 

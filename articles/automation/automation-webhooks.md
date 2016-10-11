@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/24/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte;bwren;sngun"/>
 
 # Azure Automation webhooks
@@ -195,7 +195,7 @@ Besides using Azure alerts as a notification system, you can also kick off runbo
 
 ![Webhooks](media/automation-webhooks/webhook-alert.jpg)
 
-### Alert Context
+### Alert context
 
 Consider an Azure resource such as a virtual machine, CPU utilization of this machine is one of the key performance metric. If the CPU utilization is 100% or more than a certain amount for long period of time, you might want to restart the virtual machine to fix the problem. This can be solved by configuring an alert rule to the virtual machine and this rule takes CPU percentage as its metric. CPU percentage here is just taken as an example but there are many other metrics that you can configure to your Azure resources and restarting the virtual machine is an action that is taken to fix this issue, you can configure the runbook to take other actions.
 
@@ -269,7 +269,7 @@ The following sample runbook is triggered when the alert rule becomes active and
 
  
 
-## Next Steps
+## Next steps
 
 - For details on different ways to start a runbook, see [Starting a Runbook](automation-starting-a-runbook.md)
 - For information on viewing the Status of a Runbook Job, refer to [Runbook execution in Azure Automation](automation-runbook-execution.md)

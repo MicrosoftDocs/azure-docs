@@ -221,7 +221,7 @@ In this section, you create a test user in the classic portal called Britta Simo
 
 ### Creating a The Funding Portal test user
 
-In this section, you create a user called Britta Simon in The Funding Portal. In this section, you create a user called Britta Simon in The Funding Portal. If you don't know how to add Britta Simon in The Funding Portal, please work with The Funding Portal support team to add the test user and enable SSO. Contact them at info@regenteducation.com.
+In this section, you create a user called Britta Simon in The Funding Portal. If you don't know how to add Britta Simon in The Funding Portal, please work with The Funding Portal support team to add the test user and enable SSO. Contact them at info@regenteducation.com.
 
 ### Assigning the Azure AD test user
 

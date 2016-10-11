@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # Create a copy of a Windows virtual machine in the Azure Resource Manager deployment model

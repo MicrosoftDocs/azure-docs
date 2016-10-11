@@ -73,7 +73,7 @@ In this article, you learn about various Azure DevTest Labs features that can be
 
     Azure DevTest Labs allows you to set a policy in the lab to specify the maximum number of VMs that can be created by a trainee in the lab. 
 
-    If you are conducting multi-day training and want to stop all the VMs at a particular time of the day and then automatically retart them the following day, you can easily accomplish that by setting auto-shutdown and auto-start policies in the lab. 
+    If you are conducting multi-day training and want to stop all the VMs at a particular time of the day and then automatically restart them the following day, you can easily accomplish that by setting auto-shutdown and auto-start policies in the lab. 
 
     Finally, when training is complete you can delete all the VMs at once by running a single PowerShell script. 
 

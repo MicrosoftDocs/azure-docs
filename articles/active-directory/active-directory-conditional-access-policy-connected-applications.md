@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2016"
+	ms.date="09/14/2016"
 	ms.author="markvi"/>
 
 
@@ -81,7 +81,7 @@ You have two options for the scope:
 By selecting **Except**, you can exclude users from this policy while accessing the application. This is helpful when you need to enable specific users to access the application temporarily. Select this option, for example, if some of your users have devices that are not ready for conditional access (not yet registered, coming out of compliance, etc.).
  
 
-## Selecting the conditions devices must meet 
+## Selecting the conditions that devices must meet 
 
 With **Device Rules**, you set the conditions for devices to be able to access the application. 
 

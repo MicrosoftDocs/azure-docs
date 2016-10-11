@@ -1,1 +1,0 @@
-Topic assignments for news articles in the RCV1-V2 Reuters news dataset. A news article can be assigned to several topics. The format of each row is "<topic name> <document id> 1". The dataset contains 2.6M topic assignments. The dataset was made available by David. D. Lewis.

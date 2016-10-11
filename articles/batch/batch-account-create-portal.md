@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/26/2016"
+	ms.date="09/21/2016"
 	ms.author="marsma"/>
 
 # Create an Azure Batch account using the Azure portal
@@ -28,7 +28,7 @@ Learn how to create an Azure Batch account in the [Azure portal][azure_portal], 
 
 1. Sign in to the [Azure portal][azure_portal].
 
-2. Click **New** > **Virtual Machines** > **Batch Service**.
+2. Click **New** > **Compute** > **Batch Service**.
 
 	![Batch in the Marketplace][marketplace_portal]
 

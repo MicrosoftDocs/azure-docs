@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016"
-	ms.author="fashah;bradsev" /> 
+	ms.date="09/14/2016"
+	ms.author="bradsev" /> 
 
 # Move data to an Azure SQL Database for Azure Machine Learning
 
@@ -22,7 +22,7 @@ This topic outlines the options for moving data either from flat files (CSV or T
 
 For a topic that outlines the options for moving data to an on-premise SQL Server for Machine Learning, see [Move data to SQL Server on an Azure virtual machine](machine-learning-data-science-move-sql-server-virtual-machine.md).
 
-The **menu** below links to topics that describe how to ingest data into other target environments where the data can be stored and processed during the Team Data Science Process (TDSP).
+The following **menu** links to topics that describe how to ingest data into target environments where the data can be stored and processed during the Team Data Science Process (TDSP).
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
@@ -31,15 +31,15 @@ The following table summarizes the options for moving data to an Azure SQL Datab
 <b>SOURCE</b> |<b>DESTINATION: Azure SQL Database</b> |
 -------------- |--------------------------------|
 <b>Flat file (CSV or TSV formatted)</b> |<a href="#bulk-insert-sql-query">Bulk Insert SQL Query |
-<b>On-premise SQL Server</b> | 1. <a href="#export-flat-file">Export to Flat File<br> 2. <a href="#insert-tables-bcp">SQL Database Migration Wizard<br> 3. <a href="#db-migration">Database backup and restore<br> 4. <a href="#adf">Azure Data Factory |
+<b>On-premise SQL Server</b> | 1. <a href="#export-flat-file">Export to Flat File<br> 2. <a href="#insert-tables-bcp">SQL Database Migration Wizard<br> 3. <a href="#db-migration">Database back up and restore<br> 4. <a href="#adf">Azure Data Factory |
 
 
 ## <a name="prereqs"></a>Prerequisites
-This procedures outlined here require that you have:
+The procedures outlined here require that you have:
 
 * An **Azure subscription**. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-* An **Azure storage account**. You will use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](storage-create-storage-account.md#create-a-storage-account) article. After you have created the storage account, you will need to obtain the account key used to access the storage. See [View, copy and regenerate storage access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
-* Access to an **Azure SQL Database**. If you must setup an Azure SQL Database, [Getting Started with Microsoft Azure SQL Database ](../sql-database/sql-database-get-started.md) provides information on how to provision a new instance of a Azure SQL Database.
+* An **Azure storage account**. You use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](storage-create-storage-account.md#create-a-storage-account) article. After you have created the storage account, you need to obtain the account key used to access the storage. See [View, copy and regenerate storage access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+* Access to an **Azure SQL Database**. If you must set up an Azure SQL Database, [Getting Started with Microsoft Azure SQL Database](../sql-database/sql-database-get-started.md) provides information on how to provision a new instance of an Azure SQL Database.
 * Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 **Data**: The migration processes are demonstrated using the [NYC Taxi dataset](http://chriswhong.com/open-data/foil_nyc_taxi/). The NYC Taxi dataset contains information on trip data and fairs and is available, as noted that post, on Azure blob storage: [NYC Taxi Data](http://www.andresmh.com/nyctaxitrips/). A sample and description of these files are provided in [NYC Taxi Trips Dataset Description](machine-learning-data-science-process-sql-walkthrough.md#dataset).
@@ -62,28 +62,28 @@ If the source data is stored in an on-premise SQL Server, there are various poss
 
 1. [Export to Flat File](#export-flat-file) 
 2. [SQL Database Migration Wizard](#insert-tables-bcp)
-3. [Database backup and restore](#db-migration)
+3. [Database back up and restore](#db-migration)
 4. [Azure Data Factory](#adf)
 
-The steps for the first three are very similar to those sections in [Move data to SQL Server on an Azure virtual machine](machine-learning-data-science-move-sql-server-virtual-machine.md) that cover these same procedures. Links to the appropriate sections  in that topic are provided below.
+The steps for the first three are very similar to those sections in [Move data to SQL Server on an Azure virtual machine](machine-learning-data-science-move-sql-server-virtual-machine.md) that cover these same procedures. Links to the appropriate sections in that topic are provided in the following instructions.
 
 ###<a name="export-flat-file"></a>Export to Flat File
 
-The steps for this exporting to a flat file are similar to those covered [Export to Flat File](machine-learning-data-science-move-sql-server-virtual-machine.md#export-flat-file).
+The steps for this exporting to a flat file are similar to those covered in [Export to Flat File](machine-learning-data-science-move-sql-server-virtual-machine.md#export-flat-file).
 
 ###<a name="insert-tables-bcp"></a>SQL Database Migration Wizard
 
-The steps for using the SQL Database Migration Wizard are similar to those covered [SQL Database Migration Wizard](machine-learning-data-science-move-sql-server-virtual-machine.md#sql-migration).
+The steps for using the SQL Database Migration Wizard are similar to those covered in [SQL Database Migration Wizard](machine-learning-data-science-move-sql-server-virtual-machine.md#sql-migration).
 
-###<a name="db-migration"></a>Database backup and restore
+###<a name="db-migration"></a>Database back up and restore
 
-The steps for using database backup and restore are similar to those covered [Database backup and restore](machine-learning-data-science-move-sql-server-virtual-machine.md#sql-backup).
+The steps for using database back up and restore are similar to those covered in [Database back up and restore](machine-learning-data-science-move-sql-server-virtual-machine.md#sql-backup).
 
 ###<a name="adf"></a>Azure Data Factory
 
-The procedure for moving data to an Azure SQL database with Azure Data Factory (ADF) is provided in the topic [Move data from an on-premise SQL server to SQL Azure with Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md).This topic shows how to move data from an on-premise SQL Server database to a Azure SQL database via Azure Blob Storage using ADF. 
+The procedure for moving data to an Azure SQL database with Azure Data Factory (ADF) is provided in the topic [Move data from an on-premise SQL server to SQL Azure with Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md). This topic shows how to move data from an on-premise SQL Server database to an Azure SQL database via Azure Blob Storage using ADF. 
 
-Consider using ADF when data needs to be continually migrated in a hybrid scenario that accesses both on-premise and cloud resources, and when the data is transacted or needs to be modified or have business logic added to it in the course of being migrated. ADF allows for the scheduling and monitoring of jobs using simple JSON scripts that manage the movement of data on a periodic basis. ADF also has other capabilities such as support for complex operations.
+Consider using ADF when data needs to be continually migrated in a hybrid scenario that accesses both on-premise and cloud resources, and when the data is transacted or needs to be modified or have business logic added to it when being migrated. ADF allows for the scheduling and monitoring of jobs using simple JSON scripts that manage the movement of data on a periodic basis. ADF also has other capabilities such as support for complex operations.
 
 
 

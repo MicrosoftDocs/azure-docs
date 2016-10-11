@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="bradsev" />
 
 
 # Scenarios for advanced analytics in Azure Machine Learning
 
-This article outlines the variety of sample data sources and target scenarios that can be handled by the Team Data Science Process (TDSP). The TDSP provides a systematic approach for teams to collaborate on building intelligent applications. The scenarios presented here illustrate options available in the data processing workflow that depend on the data characteristics, source locations, and target repositories in Azure.
+This article outlines the variety of sample data sources and target scenarios that can be handled by the [Team Data Science Process (TDSP)](data-science-process-overview.md). The TDSP provides a systematic approach for teams to collaborate on building intelligent applications. The scenarios presented here illustrate options available in the data processing workflow that depend on the data characteristics, source locations, and target repositories in Azure.
 
 The **decision tree** for selecting the sample scenarios that is appropriate for your data and objective is presented in the last section.
 
@@ -29,9 +29,10 @@ The **decision tree** for selecting the sample scenarios that is appropriate for
 Each of the following sections presents a sample scenario. For each scenario, a possible data science or advanced analytics flow and supporting Azure resources are listed.
 
 >[AZURE.NOTE] **For all of the following scenarios, you need to:**
-
-*   [Create a storage account](../storage/storage-create-storage-account.md)
-*   [Create an Azure ML workspace](machine-learning-create-workspace.md)
+><br/>
+>* [Create a storage account](../storage/storage-create-storage-account.md)
+><br/>
+>* [Create an Azure Machine Learning workspace](machine-learning-create-workspace.md)
 
 
 ## <a name="smalllocal"></a>Scenario \#1: Small to medium tabular dataset in a local files
@@ -93,7 +94,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
 9. Read the data from Azure blobs using the [Import Data][import-data] module.
 
-10. Build Azure ML experiment flow starting with ingested dataset(s).
+10. Build Azure Machine Learning experiment flow starting with ingested dataset(s).
 
 
 ## <a name="smalllocaltodb"></a>Scenario \#4: Small to medium dataset of local files, targeting SQL Server in an Azure Virtal Machine
@@ -114,19 +115,18 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
 6.  Load data to SQL Server database running on an Azure VM.
 
-    a.  Option \#1: Using SQL Server Management Studio.
+    Option \#1: Using SQL Server Management Studio.
 
-		i.  Login to SQL Server VM
-        ii. Run SQL Server Management Studio.
-        iii. Create database and target tables.
-        iv. Use one of the bulk import methods to load the data from VM-local files.
+    - Login to SQL Server VM
+    - Run SQL Server Management Studio.
+    - Create database and target tables.
+    - Use one of the bulk import methods to load the data from VM-local files.
 
-    b.  Option \#2: Using IPython Notebook – not advisable for medium and larger
-        datasets
-
-        i.  Use ODBC connection string to access SQL Server on VM.
-        ii. Create database and target tables.
-        iii. Use one of the bulk import methods to load the data from VM-local files.
+    Option \#2: Using IPython Notebook – not advisable for medium and larger datasets
+    <!-- -->    
+    - Use ODBC connection string to access SQL Server on VM.
+    - Create database and target tables.
+    - Use one of the bulk import methods to load the data from VM-local files.
 
 7.  Explore data, create features as needed. Note that the features do not need to be materialized in the database tables. Only note the necessary query to create them.
 
@@ -136,7 +136,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
 10. Read the data directly from the SQL Server using the [Import Data][import-data] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Import Data][import-data] query.
 
-11. Build Azure ML experiment flow starting with ingested dataset(s).
+11. Build Azure Machine Learning experiment flow starting with ingested dataset(s).
 
 ## <a name="largelocaltodb"></a>Scenario \#5: Large dataset in a local files, target SQL Server in Azure VM
 
@@ -172,7 +172,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
     f.  If table joins are required, create indexes to expedite joins.
 
- > [AZURE.NOTE] For faster loading of large data sizes, it is recommended to create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+     > [AZURE.NOTE] For faster loading of large data sizes, it is recommended that you create partitioned tables and bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Explore data, create features as needed. Note that the features do not need to be materialized in the database tables. Only note the necessary query to create them.
 
@@ -182,7 +182,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
 8. Read the data directly from the SQL Server using the [Import Data][import-data] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Import Data][import-data] query.
 
-9. Simple Azure ML experiment flow starting with uploaded dataset
+9. Simple Azure Machine Learning experiment flow starting with uploaded dataset
 
 ## <a name="largedbtodb"></a>Scenario \#6: Large dataset in a SQL Server database on-prem, targeting SQL Server in an Azure Virtual Machine
 
@@ -194,7 +194,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
 2.  Use one of the data export methods to export the data from SQL Server to dump files.
 
-    a.  Note: If you decide to move all data from the on-prem database,
+    > [AZURE.NOTE] If you decide to move all data from the on-prem database,
         an alternate (faster) method to move the full database to the
         SQL Server instance in Azure. Skip the steps to export data,
         create database, and load/import data to the target database and
@@ -216,7 +216,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
 	f.  If table joins are required, create indexes to expedite joins.
 
-> [AZURE.NOTE] For faster loading of large data sizes, create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+    > [AZURE.NOTE] For faster loading of large data sizes, create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Explore data, create features as needed. Note that the features do not need to be materialized in the database tables. Only note the necessary query to create them.
 
@@ -226,7 +226,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
 8. Read the data directly from the SQL Server using the [Import Data][import-data] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Import Data][import-data] query.
 
-9. Simple Azure ML experiment flow starting with uploaded dataset.
+9. Simple Azure Machine Learning experiment flow starting with uploaded dataset.
 
 ### Alternate method to copy a full database from an on-premises  SQL Server to Azure SQL Database
 
@@ -234,7 +234,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
 #### Additional Azure resources: Azure Virtual Machine (SQL Server / IPython Notebook server)
 
-To replicate the entire SQL Server database in your SQL Server VM, you should copy a database from one location/server to another, assuming that the database can be taken temporarily offline. You do this in the SQL Server Management Studio Object Explorer GUI, or using the equivalent Transact-SQL commands.
+To replicate the entire SQL Server database in your SQL Server VM, you should copy a database from one location/server to another, assuming that the database can be taken temporarily offline. You do this in the SQL Server Management Studio Object Explorer, or using the equivalent Transact-SQL commands.
 
 1. Detach the database at the source location. For more information, see [Detach a database](https://technet.microsoft.com/library/ms191491(v=sql.110).aspx).
 2. In Windows Explorer or Windows Command Prompt window, copy the detached database file or files and log file or files to the target location on the SQL Server VM in Azure.
@@ -291,7 +291,7 @@ To replicate the entire SQL Server database in your SQL Server VM, you should co
 
 9. Read the data directly from the `Hive Queries` using the [Import Data][import-data] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Import Data][import-data] query.
 
-10. Simple Azure ML experiment flow starting with uploaded dataset.
+10. Simple Azure Machine Learning experiment flow starting with uploaded dataset.
 
 ## <a name="decisiontree"></a>Decision tree for scenario selection
 ------------------------

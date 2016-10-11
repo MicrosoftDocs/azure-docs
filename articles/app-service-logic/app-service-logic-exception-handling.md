@@ -22,7 +22,7 @@ Logic Apps provides a rich set of tools and patterns to help ensure your integra
 
 ## Retry policies
 
-The most basic type of exception and error handling is a retry-policy.  This policy defines if the action should retry if initial request timed out or failed (any request that resulted in a 429 or 5xx response).  By default, all actions retry 3 additional times over 20-second intervals.  So if the first request received a `500 Internal Server Error` response, the workflow engine pauses for 20 seconds, and attempt the request again.  If after all retries the response is still an exception or failure, the workflow will continue and mark the action status as `Failed`.
+The most basic type of exception and error handling is a retry-policy.  This policy defines if the action should retry if initial request timed out or failed (any request that resulted in a 429 or 5xx response).  By default, all actions retry 4 additional times over 20-second intervals.  So if the first request received a `500 Internal Server Error` response, the workflow engine pauses for 20 seconds, and attempt the request again.  If after all retries the response is still an exception or failure, the workflow will continue and mark the action status as `Failed`.
 
 You can configure retry policies in the **inputs** of a particular action.  A retry-policy can be configured to try as many as 4 times over 1 hour intervals.  Full details on the input properties can be [found on MSDN][retryPolicyMSDN].
 
