@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Hybrid on-premises/cloud application (.NET) | Microsoft Azure"
 	description="Learn how to create a .NET on-premises/cloud hybrid application using the Azure Service Bus relay."
-	services="service-bus-relay"
+	services="service-bus"
 	documentationCenter=".net"
 	authors="sethmanheim"
 	manager="timlt"
 	editor=""/>
 
 <tags
-	ms.service="service-bus-relay"
+	ms.service="service-bus"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
@@ -53,7 +53,7 @@ services securely accessible to solutions that reside outside the
 corporate perimeter without requiring intrusive changes to the corporate
 network infrastructure. Such Service Bus relay services are still hosted
 inside their existing environment, but they delegate listening for
-incoming sessions and requests to the cloud-hosted Service Bus. Service Bus also protects those services from unauthorized access by using [Shared Access Signature](../service-bus/service-bus-sas-overview.md) (SAS) authentication.
+incoming sessions and requests to the cloud-hosted Service Bus. Service Bus also protects those services from unauthorized access by using [Shared Access Signature](../service-bus-messaging/service-bus-sas-overview.md) (SAS) authentication.
 
 ## Solution scenario
 

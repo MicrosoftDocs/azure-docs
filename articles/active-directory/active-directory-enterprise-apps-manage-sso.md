@@ -13,10 +13,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="09/12/2016"
+    ms.date="09/30/2016"
     ms.author="asmalser"/>
 
-#Preview: Managing single sign-on for enterprise apps in the new Azure portal
+# Preview: Managing single sign-on for enterprise apps in the new Azure portal
+
+> [AZURE.SELECTOR]
+- [Azure portal](active-directory-enterprise-apps-manage-sso.md)
+- [Azure classic portal](active-directory-sso-integrate-saas-apps.md)
 
 This article describes how to use the [Azure portal](https://portal.azure.com) to manage single sign-on settings for applications, particularly ones that have been added from the [Azure Active Directory (Azure AD) application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). The Azure AD management experience for single sign-on is currently in public preview, and this article describes the new features as well as a few temporary limitations that will be in place only during the preview period. [What's in the preview?](active-directory-preview-explainer.md)
 

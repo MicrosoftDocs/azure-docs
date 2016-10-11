@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create a Virtual Machine Scale Set | Microsoft Azure"
+	pageTitle="Create a Virtual Machine Scale Set using PowerShell | Microsoft Azure"
 	description="Create a Virtual Machine Scale Set using PowerShell"
 	services="virtual-machine-scale-sets"
     documentationCenter=""
@@ -14,32 +14,32 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/25/2016"
+	ms.date="10/10/2016"
 	ms.author="davidmu"/>
 
-# Create a Windows Virtual Machine Scale Set using Azure PowerShell
+# Create a Windows virtual machine scale set using Azure PowerShell
 
-These steps follow a fill-in-the-blanks approach for creating an Azure Virtual Machine Scale Set. See [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md) to learn more about scale sets.
+These steps follow a fill-in-the-blanks approach for creating an Azure virtual machine scale set. See [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md) to learn more about scale sets.
 
 It should take about 30 minutes to do the steps in this article.
 
 ## Step 1: Install Azure PowerShell
 
-See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about how to install the latest version of Azure PowerShell, select the subscription that you want to use, and sign in to your Azure account.
+See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 
 ## Step 2: Create resources
 
-Create the resources that are needed for your new virtual machine scale set.
+Create the resources that are needed for your new scale set.
 
 ### Resource group
 
 A virtual machine scale set must be contained in a resource group.
 
-1.  Get a list of available locations and the services that are supported:
+1. Get a list of available locations and the services that are supported:
 
         Get-AzureLocation | Sort Name | Select Name, AvailableServices
 
-    You should see something like this
+    You should see something like this example:
 
         Name                AvailableServices
         ----                -----------------
@@ -74,7 +74,7 @@ A virtual machine scale set must be contained in a resource group.
     
         New-AzureRmResourceGroup -Name $rgName -Location $locName
 
-    You should see something like this:
+    You should see something like this example:
 
         ResourceGroupName : myrg1
         Location          : centralus
@@ -84,17 +84,14 @@ A virtual machine scale set must be contained in a resource group.
 
 ### Storage account
 
-A storage account is used by a virtual machine to store the operating system disk and diagnostic data used for scaling. It is a best practice to have one storage account for every 20 virtual machines created in a scale set. Since scale sets are designed to be easy to scale out, create as many storage accounts as you need for the maximum number of virtual machines you plan your scale set to grow to. The example in this article shows 3 storage accounts being created, allowing the scale set to grow comfortably to 60 virtual machines.
+A storage account is used by a virtual machine to store the operating system disk and diagnostic data used for scaling. When possible, it is best practice to have a storage account for each virtual machine created in a scale set. If not possible, plan for no more than 20 VMs per storage account. The example in this article shows three storage accounts being created for three virtual machines.
 
-1. Replace the value of **saName** with the name that you want to use for the storage account and then create the variable: 
+1. Replace the value of **$saName** with a name for the storage account. Test the name for uniqueness. 
 
         $saName = "storage account name"
-        
-2. Test whether the name that you selected is unique:
-    
-        Test-AzureName -Storage $saName
+        Get-AzureRmStorageAccountNameAvailability $saName
 
-    If the answer is **False**, your proposed name is unique.
+    If the answer is **True**, your proposed name is unique.
 
 3. Replace the value of **$saType** with the type of the storage account and then create the variable:  
 
@@ -106,12 +103,12 @@ A storage account is used by a virtual machine to store the operating system dis
     
         New-AzureRmStorageAccount -Name $saName -ResourceGroupName $rgName –Type $saType -Location $locName
 
-    You should see something like this:
+    You should see something like this example:
 
         ResourceGroupName   : myrg1
         StorageAccountName  : myst1
         Id                  : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microsoft
-	                    	.Storage/storageAccounts/myst1
+	                          .Storage/storageAccounts/myst1
         Location            : centralus
         AccountType         : StandardLRS
         CreationTime        : 3/15/2016 4:51:52 PM
@@ -127,19 +124,19 @@ A storage account is used by a virtual machine to store the operating system dis
         Tags                : {}
         Context             : Microsoft.WindowsAzure.Commands.Common.Storage.AzureStorageContext
 
-5. Repeat steps 1 through 4 to create 3 storage accounts, for example myst1, myst2, and myst3.
+5. Repeat steps 1 through 4 to create three storage accounts, for example myst1, myst2, and myst3.
 
 ### Virtual network
 
 A virtual network is required for the virtual machines in the scale set.
 
-1. Replace the value of **$subName** with the name that you want to use for the subnet in the virtual network and then create the variable: 
+1. Replace the value of **$subnetName** with the name that you want to use for the subnet in the virtual network and then create the variable: 
 
-        $subName = "subnet name"
+        $subnetName = "subnet name"
         
 2. Create the subnet configuration:
     
-        $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subName -AddressPrefix 10.0.0.0/24
+        $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
         
     The address prefix may be different in your virtual network.
 
@@ -205,15 +202,15 @@ You have all the resources that you need for the scale set configuration, so let
         
 3. Create the configuration for the scale set:
 
-        $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A1" -UpgradePolicyMode "manual"
+        $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
         
-    This example shows a scale set being created with 3 virtual machines. See [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md) for more about the capacity of scale sets. This step also includes setting the size (referred to as SkuName) of the virtual machines in the set. Look at [Sizes for virtual machines](../virtual-machines/virtual-machines-windows-sizes.md) to find a size that meets your needs.
+    This example shows a scale set being created with three virtual machines. See [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md) for more about the capacity of scale sets. This step also includes setting the size (referred to as SkuName) of the virtual machines in the set. To find a size that meets your needs, look at [Sizes for virtual machines](../virtual-machines/virtual-machines-windows-sizes.md).
     
 4. Add the network interface configuration to the scale set configuration:
         
         Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmss -Name $vmssConfig -Primary $true -IPConfiguration $ipConfig
         
-    You should see something like this:
+    You should see something like this example:
 
         Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
         UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
@@ -226,7 +223,7 @@ You have all the resources that you need for the scale set configuration, so let
         Location              : Central US
         Tags                  :
 
-#### Operating system  profile
+#### Operating system profile
 
 1. Replace the value of **$computerName** with the computer name prefix that you want to use and then create the variable: 
 
@@ -256,7 +253,7 @@ You have all the resources that you need for the scale set configuration, so let
         $imageOffer = "WindowsServer"
         $imageSku = "2012-R2-Datacenter"
         
-    Look at [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md) to find the information about other images to use.
+    To find the information about other images to use, look at [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
         
 3. Replace the value of **$vhdContainers** with a list that contains the paths where the virtual hard disks are stored, such as "https://mystorage.blob.core.windows.net/vhds", and then create the variable:
        
@@ -278,7 +275,7 @@ Finally, you can create the scale set.
 
         New-AzureRmVmss -ResourceGroupName $rgName -Name $vmssName -VirtualMachineScaleSet $vmss
 
-    You should see something like this that shows you the deployment succeeded:
+    You should see something like this example that shows a successful deployment:
 
         Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
         UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
@@ -286,7 +283,7 @@ Finally, you can create the scale set.
         ProvisioningState     : Updating
         OverProvision         :
         Id                    : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microso
-                               ft.Compute/virtualMachineScaleSets/myvmss1
+                                ft.Compute/virtualMachineScaleSets/myvmss1
         Name                  : myvmss1
         Type                  : Microsoft.Compute/virtualMachineScaleSets
         Location              : centralus
@@ -294,10 +291,10 @@ Finally, you can create the scale set.
 
 ## Step 3: Explore resources
 
-Use these resources to explore the virtual machine scale set that you just created:
+Use these resources to explore the virtual machine scale set that you created:
 
 - Azure portal - A limited amount of information is available using the portal.
-- [Azure Resource Explorer](https://resources.azure.com/) - This is the best tool for exploring the current state of your scale set.
+- [Azure Resource Explorer](https://resources.azure.com/) - This tool is the best for exploring the current state of your scale set.
 - Azure PowerShell - Use this command to get information:
 
         Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"

@@ -56,17 +56,17 @@ Azure Machine Learning has two types of services:
 * Request-Response Service (RRS) - A low latency, highly scalable service that provides an interface to the stateless models created and deployed from the Machine Learning Studio.
 * Batch Execution Service (BES) - An asynchronous service that scores a batch for data records.
 
-There are several ways to consume the REST API and access the web service. For example, you can write an application in C#, R, or Python using the sample code generated for you when you deployed the web service. 
+There are several ways to consume the REST API and access the web service. For example, you can write an application in C#, R, or Python using the sample code generated for you when you deployed the web service.
 
 The sample code is available on:
-The Consume page for the Web service in the Azure Machine Learning Web Services portal, 
-The API Help Page in the web service dashboard in Machine Learning Studio. 
+The Consume page for the Web service in the Azure Machine Learning Web Services portal,
+The API Help Page in the web service dashboard in Machine Learning Studio.
 
 Or you can use the sample Microsoft Excel workbook created for you (also available in the web service dashboard in Studio).
 
 **What are the main updates with the new Azure ML Web Services?**
 
-For more information about the New Azure Machine Learning Web Services, refer to the [related documentation](machine-learning-whats-new.md). 
+For more information about the New Azure Machine Learning Web Services, refer to the [related documentation](machine-learning-whats-new.md).
 
 ## Machine Learning Studio questions
 
@@ -267,7 +267,7 @@ See [Machine Learning Module Error Codes](https://msdn.microsoft.com/library/azu
 
 **What is the scalability of the web service?**
 
-Currently, the default endpoint is provisioned with 20 concurrent RRS requests per endpoint. You can scale this to 200 concurrent requests per endpoint and you can scale each web service to 10,000 endpoints per web service as described in [Scaling API endpoints](machine-learning-scaling-endpoints.md). For BES, each endpoint allows processing 40 requests at a time and additional requests beyond 40 requests are queued. These queued requests run automatically as the queue drains.
+Currently, the default endpoint is provisioned with 20 concurrent RRS requests per endpoint. You can scale this to 200 concurrent requests per endpoint and you can scale each web service to 10,000 endpoints per web service as described in [Scaling a Web Service](machine-learning-scaling-webservice.md). For BES, each endpoint allows processing 40 requests at a time and additional requests beyond 40 requests are queued. These queued requests run automatically as the queue drains.
 
 
 **Are R jobs spread across nodes?**
@@ -356,7 +356,7 @@ While you are evaluating Machine Learning Studio, you can use the free billing t
 
 Once you have decided that Azure Machine Learning meets your needs, you can sign up for the standard tier. To sign up, you must have a Microsoft Azure Subscription.
 
-In the standard tier you are billed a monthly for each workspace you define in Machine Learning Studio. When you run an experiment in the studio, you are billed for compute resources when you are running an experiment. When you deploy a Classic Web Service, transactions and compute hours are billed on a Pay As You Go (PAYG) basis. 
+In the standard tier you are billed a monthly for each workspace you define in Machine Learning Studio. When you run an experiment in the studio, you are billed for compute resources when you are running an experiment. When you deploy a Classic Web Service, transactions and compute hours are billed on a Pay As You Go (PAYG) basis.
 
 The New Machine Learning Web Services introduce Billing Plans that allow for more predictability in costs. Tiered pricing offers discounted rates to customers that need a large amount of capacity.
 
@@ -371,7 +371,7 @@ For additional billing and pricing information, see [Machine Learning Pricing](h
 **Does Machine Learning have a free trial?**
 
  Azure Machine Learning has a free subscription option (see [Machine Learning Pricing](https://azure.microsoft.com/pricing/details/machine-learning/) for details), and Machine Learning Studio has an 8-hour quick evaluation trial available (log in to [Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2) for this trial).
- 
+
  In addition, when you sign up for an Azure free trial, you can try any Azure services for a month. To learn more about the Azure free trial, visit [Azure Free Trial FAQ](/pricing/free-trial-faq/).
 
 **What is a transaction?**
@@ -384,7 +384,7 @@ Yes, your transactions from your RRS and BES are aggregated and charged against 
 
 **What is an API compute hour?**
 
-An API compute hour is the billing unit for the time API Calls take to run using the ML compute resources. All your calls are aggregated for billing purposes. 
+An API compute hour is the billing unit for the time API Calls take to run using the ML compute resources. All your calls are aggregated for billing purposes.
 
 **How long does a typical production API call take?**
 
@@ -392,17 +392,17 @@ Production API call times can vary significantly, generally ranging from hundred
 
 **What is a Studio Compute hour?**
 
-A Studio Compute hour is the billing unit for the aggregate time your experiments use compute resources in studio. 
+A Studio Compute hour is the billing unit for the aggregate time your experiments use compute resources in studio.
 
 **In the New Web Services, what is the dev/test tier meant for?**
 
 The Azure ML new Web Services provide multiple tiers that you can use to provision your billing plan. The dev/test tier is a tier that provides limited included quantities that allow you to test your experiment as new web service without incurring costs. You have the opportunity to "Kick the Tires" to see how it works.
 
-**Are there separate storage charges?** 
+**Are there separate storage charges?**
 
 The Machine Learning Free tier does not require or allow separate storage. The Machine Learning Standard tier requires users to have an Azure storage account. Azure storage is [billed separately](https://azure.microsoft.com/pricing/details/storage/).
 
-**How does Machine Learning support high-availability work?** 
+**How does Machine Learning support high-availability work?**
 
 Production API call times can vary significantly, generally ranging from hundreds of milliseconds to a few seconds, but may require minutes depending on the complexity of the data processing and machine learning model. The best way to estimate production API call times is to benchmark a model on the Machine Learning service.
 
@@ -410,7 +410,7 @@ Production API call times can vary significantly, generally ranging from hundred
 
 The Machine Learning service is a multitenant service, and actual compute resources used on the backend vary and are optimized for performance and predictability.
 
-### Management of New Web Services 
+### Management of New Web Services
 
 **What happens if I delete my plan?**
 
@@ -420,29 +420,29 @@ Note: You cannot delete a plan that is in use by a web service. To delete the pl
 
 **What is a plan instance?**
 
-A plan instance is a unit of included quantities that you can add to your billing plan. When you select a billing tier for your billing plan, it comes with one instance. If you need more included quantities, you can add instances of the selected billing tier to your plan. 
+A plan instance is a unit of included quantities that you can add to your billing plan. When you select a billing tier for your billing plan, it comes with one instance. If you need more included quantities, you can add instances of the selected billing tier to your plan.
 
 **How many plan instances can I add?**
 
 You can have one instance of the dev/test tier in a subscription.
 
-For tiers S1, S2, and S3 you can add as many as necessary. 
+For tiers S1, S2, and S3 you can add as many as necessary.
 
 Note: Depending on your anticipated usage, it may be more cost effective to upgrade to a higher included quantities tier rather than add instances to the current tier.
 
 **What happens when I change plan tiers (Upgrade / downgrade)?**
 
-The old plan is deleted and the current usage is billed on a prorated basis. A new plan with the full included quantities of the upgraded/downgraded tier is created for the rest of the period. 
+The old plan is deleted and the current usage is billed on a prorated basis. A new plan with the full included quantities of the upgraded/downgraded tier is created for the rest of the period.
 
 Note: Included quantities are allocated per period and unused quantities do not roll over.
 
 **What happens when I increase the instances in a plan?**
 
-Quantities are included on a prorated basis and may take 24 hours to be effective. 
+Quantities are included on a prorated basis and may take 24 hours to be effective.
 
 **What happens when I delete an instance of a plan?**
 
-The instance is removed from your subscription and you are billed for a prorated usage. 
+The instance is removed from your subscription and you are billed for a prorated usage.
 
 
 ### Signing up for New Web Services plans
@@ -451,9 +451,9 @@ The instance is removed from your subscription and you are billed for a prorated
 
 You have two ways to create billing plans.
 
-When you first deploy a new web service, you can choose an existing plan or create a new plan. 
+When you first deploy a new web service, you can choose an existing plan or create a new plan.
 
-Plans created in this manner are in your default region and your web service will be deployed to that region. 
+Plans created in this manner are in your default region and your web service will be deployed to that region.
 
 If you want to deploy services to regions other than your default region, you may want to define your billing plans before you deploy your service,
 
@@ -461,7 +461,7 @@ In that case you can log into the Azure Machine Learning Web Services portal and
 
 **Which plan should I choose to start off with?**
 
-We recommend you that you start with the standard S1 tier and monitor your service for usage. If you find you are using your included quantities rapidly, you can add instances or move to a higher tier and get better discounted rates. You can adjust your billing plan as needed throughout your billing cycle. 
+We recommend you that you start with the standard S1 tier and monitor your service for usage. If you find you are using your included quantities rapidly, you can add instances or move to a higher tier and get better discounted rates. You can adjust your billing plan as needed throughout your billing cycle.
 
 **Which regions are the new plans available in?**
 
@@ -479,21 +479,21 @@ Yes. Plan pricing varies by region. When you deploy a web service to another reg
 
 **How do I check if my web service usage is in overage?**
 
-You can view the usage on all your plans on the Plans page in the Azure Machine Learning Web Services portal. sign in to the portal and click the Plans menu option. 
+You can view the usage on all your plans on the Plans page in the Azure Machine Learning Web Services portal. sign in to the portal and click the Plans menu option.
 
-In the Transactions and Compute columns of the table, you can see the included quantities of the plan and the percentage used. 
+In the Transactions and Compute columns of the table, you can see the included quantities of the plan and the percentage used.
 
 **What happens when I use up the include quantities in the dev/test tier?**
 
 Services that have a dev/test tier assigned them are stopped until the next period or you move them to one of the paid tiers.
 
-**For Classic Web Services and Overages of New Web Services, how are prices calculated for Request Response (RRS) and Batch (BES) workloads?** 
+**For Classic Web Services and Overages of New Web Services, how are prices calculated for Request Response (RRS) and Batch (BES) workloads?**
 
-For an RRS workload, you are charged for every API transaction call that you make and for the compute time associated with those requests. Your RRS Production API Transaction costs are calculated as the total number of API calls that you make multiplied by the price per 1,000 transactions (prorated by individual transaction). Your RRS API Production API Compute Hour costs are calculated as the amount of time required for each API call to run, multiplied by the total number of API transactions multiplied by the price per Production API Compute Hour. 
+For an RRS workload, you are charged for every API transaction call that you make and for the compute time associated with those requests. Your RRS Production API Transaction costs are calculated as the total number of API calls that you make multiplied by the price per 1,000 transactions (prorated by individual transaction). Your RRS API Production API Compute Hour costs are calculated as the amount of time required for each API call to run, multiplied by the total number of API transactions multiplied by the price per Production API Compute Hour.
 
 For example for Standard S1 overage, 1,000,000 API Transactions that take 0.72 seconds each to run would result in (1,000,000 * $0.50/1K API transactions) in $500 in Production API Transaction costs and (1,000,000 * 0.72 sec * $2/hr) $400 in Production API Compute Hours, for a total of $900.
 
-For a BES workload, you are charged in the same manner, however, the API transaction costs represent the number of batch jobs that you submit and the compute costs represent the compute time associated with those batch jobs. Your BES Production API Transaction costs are calculated as the total number of jobs submitted multiplied by the price per 1,000 transactions (prorated by individual transaction). Your BES API Production API Compute Hour costs are calculated as the amount of time required for each row in your job to run multiplied by the total number of rows in your job multiplied by the total number of jobs multiplied by the price per Production API Compute Hour. When using the Machine Learning calculator, the transaction meter represents the number of jobs that you plan to submit and the time per transaction field represents the combined time needed for all the rows in each job to run. 
+For a BES workload, you are charged in the same manner, however, the API transaction costs represent the number of batch jobs that you submit and the compute costs represent the compute time associated with those batch jobs. Your BES Production API Transaction costs are calculated as the total number of jobs submitted multiplied by the price per 1,000 transactions (prorated by individual transaction). Your BES API Production API Compute Hour costs are calculated as the amount of time required for each row in your job to run multiplied by the total number of rows in your job multiplied by the total number of jobs multiplied by the price per Production API Compute Hour. When using the Machine Learning calculator, the transaction meter represents the number of jobs that you plan to submit and the time per transaction field represents the combined time needed for all the rows in each job to run.
 
 For example with Standard S1 overage, if you submit 100 jobs per day that each consist of 500 rows that take 0.72 seconds each, then your monthly overage costs would be (100 jobs per day = 3,100 jobs/mo * $0.50/1K API transactions) $1.55 in Production API Transaction costs and (500 rows * 0.72 sec * 3,100 Jobs * $2/hr) $620 in Production API Compute Hours, for a total of $621.55.
 
@@ -506,30 +506,30 @@ Yes, Classic Web Services are still available in Azure Machine Learning.
 
 **What is included in the Azure Machine Learning Free tier?**
 
-The Azure Machine Learning Free tier is intended to provide an in-depth introduction to the Azure Machine Learning Studio. All you need is a Microsoft account to sign up. The Free tier includes free access to one Azure Machine Learning Studio workspace per [Microsoft account](https://www.microsoft.com/account/default.aspx). It includes the ability to use up to 10 GB of storage and the ability to operationalize models as staging APIs. Free tier workloads are not covered by an SLA and are intended for development and personal use only. Free tier workloads canâ€™t access data by connecting to an on-premises SQL server. 
+The Azure Machine Learning Free tier is intended to provide an in-depth introduction to the Azure Machine Learning Studio. All you need is a Microsoft account to sign up. The Free tier includes free access to one Azure Machine Learning Studio workspace per [Microsoft account](https://www.microsoft.com/account/default.aspx). It includes the ability to use up to 10 GB of storage and the ability to operationalize models as staging APIs. Free tier workloads are not covered by an SLA and are intended for development and personal use only. Free tier workloads canâ€™t access data by connecting to an on-premises SQL server.
 
 **What is included in the Azure Machine Learning Standard tier and plans?**
 
 The Azure Machine Learning Standard tier is a paid production version of Azure Machine Learning Studio. The Azure ML service Studio monthly fee is billed on a per workspace per month basis and prorated for partial months. Azure ML Studio experiment hours are billed per compute hour for active experimentation. Billing is prorated for partial hours.  
 
-The Azure ML API service is billed depending on whether it's a classic web services or a new web service. 
+The Azure ML API service is billed depending on whether it's a classic web services or a new web service.
 
-The following charges are aggregated per workspace for your subscription. 
+The following charges are aggregated per workspace for your subscription.
 
 * Machine Learning Workspace Subscription - The Machine Learning Workspace Subscription is a monthly fee that provides access to an ML Studio workspace and is required to run experiments both in the studio and utilizing the production APIs.
 * Studio Experiment Hours - this meter aggregates all compute charges accrued by running experiments in ML Studio and running production API calls in the staging environment.
 * Access data by connecting to an on-premises SQL server in your models for your training and scoring.
-* For Classic Web Services: 
+* For Classic Web Services:
 	* Production API Compute Hours - this meter includes compute charges accrued by Web services running in production.
 	* Production API Transactions (in 1000s) - this meter includes charges accrued per call to your production web service.
 
-Apart from the preceding charges, in the case of New Web Services, charges are aggregated to the plan selected: 
+Apart from the preceding charges, in the case of New Web Services, charges are aggregated to the plan selected:
 
 * Standard S1/S2/S3 API Plan (Units) - this meter represents the type of instance selected for new Web Services
 * Standard S1/S2/S3 Overage API Compute Hours - this meter includes compute charges accrued by the New Web Services running in production after the included quantities in existing instance(s) are used up. The additional usage is charged at the overate rate associated with S1/S2/S3 plan tier.
 * Standard S1/S2/S3 Overage API Transactions (in 1,000s) - this meter includes charges accrued per call to your production New Web Service after the included quantities in existing instance(s) are used up. The additional usage is charged at the overate rate associated with S1/S2/S3 plan tier.
-* Included Quantity API Compute Hours - with the New Web Services, this meter represents the included quantity of API Compute Hours 
-* Included Quantity API Transactions (in 1,000s) - with the New Web Services, this meter represents the included quantity of API Transactions 
+* Included Quantity API Compute Hours - with the New Web Services, this meter represents the included quantity of API Compute Hours
+* Included Quantity API Transactions (in 1,000s) - with the New Web Services, this meter represents the included quantity of API Transactions
 
 
 **How do I sign up for Azure ML Free tier?**
@@ -548,7 +548,7 @@ No, the Standard tier is equivalent to the version of the Machine Learning servi
 
 **Can I deploy my machine learning models as APIs in the Free tier?**
 
-Yes, you can operationalize machine learning models to staging API services as part of the free tier. In order to put the staging API service into production and get a production end point for the operationalized service, you must use the Standard tier. 
+Yes, you can operationalize machine learning models to staging API services as part of the free tier. In order to put the staging API service into production and get a production end point for the operationalized service, you must use the Standard tier.
 
 **What is the difference between Azure Free trial and Azure Machine Learning Free tier?**
 

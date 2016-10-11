@@ -1,14 +1,14 @@
 <properties
     pageTitle="Get started with Service Bus queues | Microsoft Azure"
     description="How to write a C# console application for Service Bus messaging"
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="jtaubensee"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="tbd"
     ms.topic="hero-article"
     ms.tgt_pltfrm="dotnet"
@@ -16,7 +16,7 @@
     ms.date="08/23/2016"
     ms.author="jotaub;sethm"/>
 
-# Get started with Service Bus Queues
+# Get started with Service Bus queues
 
 [AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 

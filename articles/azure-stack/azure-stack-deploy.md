@@ -75,7 +75,7 @@ After you have installed the operating system onto your hardware, you can use th
 
 ## Microsoft Azure Active Directory accounts
 
-The Microsoft Azure Stack deployment must be connected to Azure. Therefore, you must prepare a Microsoft Azure Active Directory account prior to running the deployment PowerShell script. This account will become the Global Admin for the Azure Active Directory tenant. It will be used to provision and delegate applications and service principals for all Azure Stack services that interact with Azure Active Directory and Graphic API. It will also be used as the owner of the default provider subscription (which you can later change). You can log into your Azure Stack system’s admin portal by using this account.
+The Microsoft Azure Stack POC deployment must be connected to Azure. Therefore, you must prepare a Microsoft Azure Active Directory account prior to running the deployment PowerShell script. This account will become the Global Admin for the Azure Active Directory tenant. It will be used to provision and delegate applications and service principals for all Azure Stack services that interact with Azure Active Directory and Graphic API. It will also be used as the owner of the default provider subscription (which you can later change). You can log into your Azure Stack system’s admin portal by using this account.
 
 1. Create an Azure AD account that is the directory administrator for at least one Azure Active Directory. If you already have one, you can use that. Otherwise, you can create one for free at  [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (in China, visit <http://go.microsoft.com/fwlink/?LinkID=717821> instead.)
 
@@ -121,7 +121,7 @@ Make sure there is a DHCP server available on the network that the NIC connects 
 
 ### Internet access
 
-Azure Stack requires access to the Internet, either directly or through a transparent proxy. Azure Stack does not support the configuration of a web proxy to enable Internet access. Both the host IP and the new IP assigned to the NATVM (by DHCP or static IP) must be able to access Internet. Ports 80 and 443 are used under the graph.windows.net and login.windows.net domains.
+Azure Stack requires access to the Internet, either directly or through a transparent proxy. Azure Stack does not support the configuration of a web proxy to enable Internet access. Both the host IP and the new IP assigned to the MAS-BGPNAT01 (by DHCP or static IP) must be able to access Internet. Ports 80 and 443 are used under the graph.windows.net and login.windows.net domains.
 
 ### Telemetry
 

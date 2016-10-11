@@ -23,7 +23,7 @@ Azure SQL Database offers three [service tiers](sql-database-service-tiers.md): 
 
 >[AZURE.NOTE] This article focuses on performance guidance for single databases in Azure SQL Database. For performance guidance related to elastic database pools, see [Price and performance considerations for elastic database pools](sql-database-elastic-pool-guidance.md). Note, though, that you can apply many of the tuning recommendations in this article to databases in an elastic database pool, and get similar performance benefits.
 
-These are the three Azure SQL Database service tiers that you can choose from (performance is measured in database throughput units, or [DTUs](sql-database-what-is-a-dtu.md)):
+These are the three Azure SQL Database service tiers that you can choose from (performance is measured in database throughput units, or [DTUs](sql-database-what-is-a-dtu.md):
 
 - **Basic**. The Basic service tier offers good performance predictability for each database, hour over hour. In a Basic database, sufficient resources support good performance in a small database that doesn't have multiple concurrent requests.
 - **Standard**. The Standard service tier offers improved performance predictability and raises the bar for databases that have multiple concurrent requests, like workgroup and web applications. When you choose a Standard service tier database, you can size your database application based on predictable performance, minute over minute.

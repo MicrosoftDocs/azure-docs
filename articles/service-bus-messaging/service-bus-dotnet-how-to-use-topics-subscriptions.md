@@ -1,14 +1,14 @@
 <properties
     pageTitle="Use Service Bus topics with .NET | Microsoft Azure"
     description="Learn how to use Service Bus topics and subscriptions with .NET in Azure. Code samples are written for .NET applications."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
@@ -156,6 +156,8 @@ if (!namespaceManager.TopicExists("TestTopic"))
 
 You can also create topic subscriptions using the [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) class. Subscriptions are named and can have an optional filter that
 restricts the set of messages passed to the subscription's virtual queue.
+
+> [AZURE.IMPORTANT] In order for messages to be received by a subscription, you must create that subscription before sending any messages to the topic. If there are no subscriptions to a topic, the topic discards those messages.
 
 ### Create a subscription with the default (MatchAll) filter
 
@@ -326,7 +328,7 @@ Now that you've learned the basics of Service Bus topics and subscriptions, foll
 -   [Topic filters sample][]
 -   API reference for [SqlFilter][].
 -   Build a working application that sends and receives messages to and from a Service Bus queue: [Service Bus brokered messaging .NET tutorial][].
--   Service Bus samples: Download from [Azure samples][] or see the [overview](../service-bus/service-bus-samples.md).
+-   Service Bus samples: Download from [Azure samples][] or see the [overview](service-bus-samples.md).
 
   [Azure portal]: https://portal.azure.com
 
