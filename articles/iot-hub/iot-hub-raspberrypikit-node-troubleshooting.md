@@ -106,3 +106,13 @@ Azure-cli is a preview build, you can refer to [Preview Install Guide](https://g
 If you encounter any bugs with the tool please file an [issue](https://github.com/Azure/azure-cli/issues) in the Issues section of our GitHub repo.
 
 For help troubleshooting common problems, please check the [readme](https://github.com/Azure/azure-cli/blob/master/README.rst).
+
+## Python installation issues
+
+### Lagacy installation issues (MacOS)
+When installing pip, permission error will be thrown when there are legacy packages, which are installed with su permission. This is because previous install of Python via brew(MacOS) is not uninstalled completely.Some pip packages from previous installation is created by root, which caused permission error. Solution is to remove those packages installed by root. Follow below instructions:
+
+1. Go to /usr/local/lib/python2.7/site-packages
+2. List packages create by root: `ls -l | grep root`
+3. Uninstall packages from step2: `sudo rm -rf {package name}`
+4. Reinstall Python.

@@ -40,6 +40,15 @@ Login to your Azure account with the following command. All of your available su
 az login
 ```
 
+Run the following command to register the provider before you deploy Azure resource.
+
+```bash
+az resource provider register -n "Microsoft.Devices"
+```
+
+> [AZURE.NOTE] Most providers are registered automatically by the Azure portal or the command-line interface you are using, but not all. For more information about the provider, you can refer to [resource manager common deployment errors](../resource-manager-common-deployment-errors.md)
+
+
 Use the following command to set the subscription that you want to use by default. The subscription ID or name can be found in the output of `az login`.
 
 ```bash

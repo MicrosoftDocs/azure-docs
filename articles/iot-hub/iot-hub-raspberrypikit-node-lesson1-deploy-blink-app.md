@@ -72,7 +72,7 @@ code iot-hub-node-raspberrypi-blink
 Now install the libraries and other modules you need for the sample:
 
 ```bash
-cd iot-hub-node-raspberrypi-blink && npm install --save
+cd iot-hub-node-raspberrypi-blink && npm install
 ```
 
 ## 1.3.7 Configure the device connection
