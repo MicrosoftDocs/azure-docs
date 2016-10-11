@@ -29,9 +29,9 @@ When configured with end to end SSL communication mode, application gateway term
 
 In this example, requests using TLS1.2 are routed to backend servers in Pool1 using end to end SSL.
 
-## End to end SSL and white listing of certificates
+## End to end SSL and whitelisting of certificates
 
-Application gateway only communicates with known backend instances that have whitelisted their certificate with the application gateway. To enable whitelisting of certificates, you must upload the public key of backend server certificates to the application gateway. Only connections to known and whitelisted backends are then allowed. The remaining backends results in a gateway error. Self-signed certificates are for test purposes only and not recommended for production workloads. Such certificates must also be white listed with the application gateway as described in the preceding steps before they can be used.
+Application gateway only communicates with known backend instances that have whitelisted their certificate with the application gateway. To enable whitelisting of certificates, you must upload the public key of backend server certificates to the application gateway. Only connections to known and whitelisted backends are then allowed. The remaining backends results in a gateway error. Self-signed certificates are for test purposes only and not recommended for production workloads. Such certificates must also be whitelisted with the application gateway as described in the preceding steps before they can be used.
 
 ## Application Gateway SSL Policy
 
