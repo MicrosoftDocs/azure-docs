@@ -350,6 +350,6 @@ In order to remove a multi-tenant application’s access to your directory (afte
 
 - To learn more about the role the app manifest plays, see [Understanding the Azure Active Directory application manifest](active-directory-application-manifest.md)
 
-- See the [Azure AD developer glossary][active-directory-dev-glossary.md] for definitions of some of the core Azure Active Directory (AD) developer concepts.
+- See the [Azure AD developer glossary](active-directory-dev-glossary.md) for definitions of some of the core Azure Active Directory (AD) developer concepts.
 
 - Visit the [Active Directory developer's guide](active-directory-developers-guide.md) for an overview of all developer related content.
