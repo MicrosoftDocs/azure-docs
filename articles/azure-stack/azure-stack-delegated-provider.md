@@ -126,7 +126,7 @@ provider (DP) and the user.
 
   ![](media/azure-stack-delegated-provider/image3.png)
 
-> Note: as with all Azure Stack offers, you have the option of making
+> [AZURE.NOTE]: as with all Azure Stack offers, you have the option of making
 > the offer public and letting users sign up for it, or keeping it
 > private and having service administrator manage the sign-up. Delegated
 > providers are usually a small group and you want to control who is
@@ -149,16 +149,16 @@ change the plans and quotas it includes.
     based on it. For this article, we use an offer
     called DelegatedOffer.
 
-> Note: this offer does not need to be made public. It can be made
+> [AZURE.NOTE] this offer does not need to be made public. It can be made
 > public if you choose, but, in most cases, you only want delegated
 > providers to have access to it. Once you delegate a private offer as
 > described in the following steps, the delegated provider will have
 > access to it.
 
-1.  Delegate the offer. Go to DelegatedOffer, and in the Settings pane,
+2.  Delegate the offer. Go to DelegatedOffer, and in the Settings pane,
     click **Delegated Providers** &gt; **Add**.
 
-2.  Select the delegated provider’s subscription from the drop-down list
+3.  Select the delegated provider’s subscription from the drop-down list
     box and click **Delegate**.
 
 > ![](media/azure-stack-delegated-provider/image4.png)
@@ -173,11 +173,11 @@ delegated offer as a template.
 
 > ![](media/azure-stack-delegated-provider/image5.png)
 
-1.  Assign a name to the offer. Here we choose ResellerOffer. Select the
+2.  Assign a name to the offer. Here we choose ResellerOffer. Select the
     delegated offer to base it on and then click
     **Create**.![](media/azure-stack-delegated-provider/image6.png)
 
-> Note the difference compared to offer creation as experienced by the
+> [AZURE.NOTE] Note the difference compared to offer creation as experienced by the
 > service administrator. The delegated provider does not construct the
 > offer from base plans and add-on plans; she can only choose from
 > offers that have been delegated to her, and will not make changes to
