@@ -102,7 +102,7 @@ $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Lo
 
 ## Create the network security group and an RDP rule
 
-In order to be able to log into your VM using RDP, you need to have an security rule that allows RDP access on port 3389. 
+To be able to log in to your VM using RDP, you need to have a security rule that allows RDP access on port 3389. 
 
 This example creates an NSG named **myNsg** that contains a rule called **myRdpRule** that allows RDP traffic over port 3389. For more information about NSGs, see [Opening ports to a VM in Azure using PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md).
 
