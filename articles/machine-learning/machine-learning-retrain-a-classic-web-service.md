@@ -20,6 +20,9 @@
 
 The Predictive Web Service you deployed is the default scoring endpoint. Default endpoints are kept in sync with the original training and scoring experiments, and therefore the trained model for the default endpoint cannot be replaced. To retrain the Web service, you must add a new endpoint to the Web service. 
 
+>[AZURE.NOTE] The steps in this walkthrough assumes that you have created the Web service using the steps found in [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically.md).
+
+
 ## Add a new Endpoint
  
 The Predictive Web Service that you deployed contains a default scoring endpoint that is kept in sync with the original training and scoring experiments trained model. To update your Web service to with a new trained model, you must create a new scoring endpoint. 
