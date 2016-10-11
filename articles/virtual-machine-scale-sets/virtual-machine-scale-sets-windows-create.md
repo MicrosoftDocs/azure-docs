@@ -35,32 +35,32 @@ Create the resources that are needed for your new scale set.
 
 A virtual machine scale set must be contained in a resource group.
 
-1.  Get a list of available locations and the services that are supported:
+1. Get a list of available locations and the services that are supported:
 
         Get-AzureLocation | Sort Name | Select Name, AvailableServices
 
-  You should see something like this example:
+    You should see something like this example:
 
-  Name                AvailableServices
-  ----                -----------------
-  Australia East      {Compute, Storage, PersistentVMRole, HighMemory}
-  Australia Southeast {Compute, Storage, PersistentVMRole, HighMemory}
-  Brazil South        {Compute, Storage, PersistentVMRole, HighMemory}
-  Central India       {Compute, Storage, PersistentVMRole, HighMemory}
-  Central US          {Compute, Storage, PersistentVMRole, HighMemory}
-  East Asia           {Compute, Storage, PersistentVMRole, HighMemory}
-  East US             {Compute, Storage, PersistentVMRole, HighMemory}
-  East US 2           {Compute, Storage, PersistentVMRole, HighMemory}
-  Japan East          {Compute, Storage, PersistentVMRole, HighMemory}
-  Japan West          {Compute, Storage, PersistentVMRole, HighMemory}
-  North Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-  North Europe        {Compute, Storage, PersistentVMRole, HighMemory}
-  South Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-  South India         {Compute, Storage, PersistentVMRole, HighMemory}
-  Southeast Asia      {Compute, Storage, PersistentVMRole, HighMemory}
-  West Europe         {Compute, Storage, PersistentVMRole, HighMemory}
-  West India          {Compute, Storage, PersistentVMRole, HighMemory}
-  West US             {Compute, Storage, PersistentVMRole, HighMemory}
+        Name                AvailableServices
+        ----                -----------------
+        Australia East      {Compute, Storage, PersistentVMRole, HighMemory}
+        Australia Southeast {Compute, Storage, PersistentVMRole, HighMemory}
+        Brazil South        {Compute, Storage, PersistentVMRole, HighMemory}
+        Central India       {Compute, Storage, PersistentVMRole, HighMemory}
+        Central US          {Compute, Storage, PersistentVMRole, HighMemory}
+        East Asia           {Compute, Storage, PersistentVMRole, HighMemory}
+        East US             {Compute, Storage, PersistentVMRole, HighMemory}
+        East US 2           {Compute, Storage, PersistentVMRole, HighMemory}
+        Japan East          {Compute, Storage, PersistentVMRole, HighMemory}
+        Japan West          {Compute, Storage, PersistentVMRole, HighMemory}
+        North Central US    {Compute, Storage, PersistentVMRole, HighMemory}
+        North Europe        {Compute, Storage, PersistentVMRole, HighMemory}
+        South Central US    {Compute, Storage, PersistentVMRole, HighMemory}
+        South India         {Compute, Storage, PersistentVMRole, HighMemory}
+        Southeast Asia      {Compute, Storage, PersistentVMRole, HighMemory}
+        West Europe         {Compute, Storage, PersistentVMRole, HighMemory}
+        West India          {Compute, Storage, PersistentVMRole, HighMemory}
+        West US             {Compute, Storage, PersistentVMRole, HighMemory}
 
 2. Pick a location that works best for you, replace the value of **$locName** with that location name, and then create the variable:
 
@@ -74,13 +74,13 @@ A virtual machine scale set must be contained in a resource group.
     
         New-AzureRmResourceGroup -Name $rgName -Location $locName
 
-  You should see something like this example:
+    You should see something like this example:
 
-    ResourceGroupName : myrg1
-    Location          : centralus
-    ProvisioningState : Succeeded
-    Tags              :
-    ResourceId        : /subscriptions/########-####-####-####-############/resourceGroups/myrg1
+        ResourceGroupName : myrg1
+        Location          : centralus
+        ProvisioningState : Succeeded
+        Tags              :
+        ResourceId        : /subscriptions/########-####-####-####-############/resourceGroups/myrg1
 
 ### Storage account
 
@@ -105,24 +105,24 @@ A storage account is used by a virtual machine to store the operating system dis
 
     You should see something like this example:
 
-    ResourceGroupName   : myrg1
-    StorageAccountName  : myst1
-    Id                  : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microsoft
-	                      .Storage/storageAccounts/myst1
-    Location            : centralus
-    AccountType         : StandardLRS
-    CreationTime        : 3/15/2016 4:51:52 PM
-    CustomDomain        :
-    LastGeoFailoverTime :
-    PrimaryEndpoints    : Microsoft.Azure.Management.Storage.Models.Endpoints
-    PrimaryLocation     : centralus
-    ProvisioningState   : Succeeded
-    SecondaryEndpoints  :
-    SecondaryLocation   :
-    StatusOfPrimary     : Available
-    StatusOfSecondary   :
-    Tags                : {}
-    Context             : Microsoft.WindowsAzure.Commands.Common.Storage.AzureStorageContext
+        ResourceGroupName   : myrg1
+        StorageAccountName  : myst1
+        Id                  : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microsoft
+	                          .Storage/storageAccounts/myst1
+        Location            : centralus
+        AccountType         : StandardLRS
+        CreationTime        : 3/15/2016 4:51:52 PM
+        CustomDomain        :
+        LastGeoFailoverTime :
+        PrimaryEndpoints    : Microsoft.Azure.Management.Storage.Models.Endpoints
+        PrimaryLocation     : centralus
+        ProvisioningState   : Succeeded
+        SecondaryEndpoints  :
+        SecondaryLocation   :
+        StatusOfPrimary     : Available
+        StatusOfSecondary   :
+        Tags                : {}
+        Context             : Microsoft.WindowsAzure.Commands.Common.Storage.AzureStorageContext
 
 5. Repeat steps 1 through 4 to create three storage accounts, for example myst1, myst2, and myst3.
 
@@ -212,16 +212,16 @@ You have all the resources that you need for the scale set configuration, so let
         
     You should see something like this example:
 
-    Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
-    UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
-    VirtualMachineProfile : Microsoft.Azure.Management.Compute.Models.VirtualMachineScaleSetVMProfile
-    ProvisioningState     :
-    OverProvision         :
-    Id                    :
-    Name                  :
-    Type                  :
-    Location              : Central US
-    Tags                  :
+        Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
+        UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
+        VirtualMachineProfile : Microsoft.Azure.Management.Compute.Models.VirtualMachineScaleSetVMProfile
+        ProvisioningState     :
+        OverProvision         :
+        Id                    :
+        Name                  :
+        Type                  :
+        Location              : Central US
+        Tags                  :
 
 #### Operating system profile
 
@@ -277,18 +277,17 @@ Finally, you can create the scale set.
 
     You should see something like this example that shows a successful deployment:
 
-    Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
-    UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
-    VirtualMachineProfile : Microsoft.Azure.Management.Compute.Models.VirtualMachineScaleSetVMProfile
-    ProvisioningState     : Updating
-    OverProvision         :
-    Id                    : 
-    /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microso
-                            ft.Compute/virtualMachineScaleSets/myvmss1
-    Name                  : myvmss1
-    Type                  : Microsoft.Compute/virtualMachineScaleSets
-    Location              : centralus
-    Tags                  :
+        Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
+        UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
+        VirtualMachineProfile : Microsoft.Azure.Management.Compute.Models.VirtualMachineScaleSetVMProfile
+        ProvisioningState     : Updating
+        OverProvision         :
+        Id                    : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microso
+                                ft.Compute/virtualMachineScaleSets/myvmss1
+        Name                  : myvmss1
+        Type                  : Microsoft.Compute/virtualMachineScaleSets
+        Location              : centralus
+        Tags                  :
 
 ## Step 3: Explore resources
 
