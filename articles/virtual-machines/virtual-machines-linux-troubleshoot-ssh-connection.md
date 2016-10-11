@@ -62,10 +62,10 @@ Select your VM in the Azure portal. Scroll down to the **Support + Troubleshooti
 ![Reset SSH configuration or credentials in the Azure portal](./media/virtual-machines-linux-troubleshoot-ssh-connection/reset-credentials-using-portal.png)
 
 ### Reset the SSH configuration
-As a first step, select `Reset SSH configuration only` from the **Mode** drop-down menu as in the preceeding screenshot, then click the **Reset** button. Once this action has completed, try to access your VM again.
+As a first step, select `Reset SSH configuration only` from the **Mode** drop-down menu as in the preceding screenshot, then click the **Reset** button. Once this action has completed, try to access your VM again.
 
 ### Reset SSH credentials for a user
-To reset the credentials of an existing user, select either `Reset SSH public key` or `Reset password` from the **Mode** drop-down menu as in the preceeding screenshot. Specify the username and an SSH key or new password, then click the **Reset** button.
+To reset the credentials of an existing user, select either `Reset SSH public key` or `Reset password` from the **Mode** drop-down menu as in the preceding screenshot. Specify the username and an SSH key or new password, then click the **Reset** button.
 
 You can also create a user with sudo privileges on the VM from this menu. Enter a new username and associated password or SSH key, and then click the **Reset** button.
 
