@@ -38,7 +38,7 @@ This article shows you two options to deploy an HPC Pack cluster in Azure with L
 
 * **PowerShell script** - Use the [Microsoft HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) (**New-HpcIaaSCluster.ps1**) to automate a complete cluster deployment in the classic deployment model. This Azure PowerShell script uses an HPC Pack VM image in the Azure Marketplace for fast deployment and provides a comprehensive set of configuration parameters to deploy Linux compute nodes.
 
-For an overview of HPC Pack cluster deployment options in Azure, see [Options to create and manage a high-performance computing (HPC) cluster in Azure with Microsoft HPC Pack](virtual-machines-linux-hpcpack-cluster-options.md).
+For more information about HPC Pack cluster deployment options in Azure, see [Options to create and manage a high-performance computing (HPC) cluster in Azure with Microsoft HPC Pack](virtual-machines-linux-hpcpack-cluster-options.md).
 
 ### Prerequisites
 
@@ -48,10 +48,10 @@ For an overview of HPC Pack cluster deployment options in Azure, see [Options to
 
 * **Linux distributions** - Currently HPC Pack supports the following Linux distributions for compute nodes. You can use Marketplace versions of these distributions where available, or supply your own.
 
-    * CentOS-based: 6.5, 6.6, 6.7, 7.0, 7.1, 7.2, 6.5 HPC, 7.1 HPC
-    * Red Hat Enterprise Linux: 6.7, 6.8, 7.2
-    * SUSE Linux Enterprise Server: SLES 12, SLES 12 (Premium), SLES 12 for HPC, SLES 12 for HPC (Premium)
-    * Ubuntu Server: 14.04 LTS, 16.04 LTS
+    * **CentOS-based**: 6.5, 6.6, 6.7, 7.0, 7.1, 7.2, 6.5 HPC, 7.1 HPC
+    * **Red Hat Enterprise Linux**: 6.7, 6.8, 7.2
+    * **SUSE Linux Enterprise Server**: SLES 12, SLES 12 (Premium), SLES 12 for HPC, SLES 12 for HPC (Premium)
+    * **Ubuntu Server**: 14.04 LTS, 16.04 LTS
 
     >[AZURE.TIP]To use the Azure RDMA network with one of the RDMA-capable VM sizes, specify a SUSE Linux Enterprise Server 12 HPC or CentOS-based HPC image from the Azure Marketplace. For more information, see [About H-series and compute-intensive A-series VMs](virtual-machines-linux-a8-a9-a10-a11-specs.md).
 
@@ -312,7 +312,7 @@ The HPC Pack [clusrun](https://technet.microsoft.com/library/cc947685.aspx) tool
 
 * Try scaling up the cluster to a larger number of nodes, or try running a Linux workload on the cluster. For an example, see [Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md).
 
-* Try a cluster with size [A8 or A9](virtual-machines-windows-a8-a9-a10-a11-specs.md) compute nodes to run MPI workloads. For an example, see [Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md).
+* Try a cluster with [RDMA-capable, compute-intensive VMs](virtual-machines-windows-a8-a9-a10-a11-specs.md) to run MPI workloads. For an example, see [Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md).
 
 * If you are interested in working with Linux nodes in an on-premises HPC Pack cluster, see the [TechNet guidance](https://technet.microsoft.com/library/mt595803.aspx).
 
