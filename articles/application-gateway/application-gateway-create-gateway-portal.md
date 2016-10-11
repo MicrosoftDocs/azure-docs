@@ -43,7 +43,7 @@ This scenario will:
 
 ![Scenario example][scenario]
 
->[AZURE.NOTE] Additional configuration of the application gateway, including custom health probes, backend pool addresses, and additional rules are configured after the application gateway is configured and not during initial deployment.
+>[AZURE.IMPORTANT] Additional configuration of the application gateway, including custom health probes, backend pool addresses, and additional rules are configured after the application gateway is configured and not during initial deployment.
 
 ## Before you begin
 
@@ -141,7 +141,7 @@ Once the application gateway has been created, navigate to it in the portal to c
 
 ![Application Gateway resource view][10]
 
-These steps create a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. You can modify these settings to suit your deployment once the provisioning is successful
+These steps create a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. You can modify these settings to suit your deployment once the provisioning is successful. As described earlier, this process creates a default application gateway.  The next steps are to configure the application gateway by adding pool members, modifying settings, and adjusting rules in the gateway for it to work properly.
 
 ## Next steps
 
