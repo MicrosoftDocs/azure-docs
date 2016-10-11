@@ -32,7 +32,7 @@ In this section, you will learn:
 - How to install Git and Node.js
     - [Git](https://git-scm.com) is an open source distributed version control system used to store the sample code for this lesson
     - [Node.js](https://nodejs.org/en/) is a JavaScript runtime with a rich package ecosystem
-- How to use NPM to download additional Node.js packages and development tools
+- How to use NPM to download additional Node.js packages and development tools. The minimum required version of the Node.js is 4.5 LTS.
     - [NPM](https://www.npmjs.com) is the package manager for Node.js
 
 ## 1.2.3 What you need
