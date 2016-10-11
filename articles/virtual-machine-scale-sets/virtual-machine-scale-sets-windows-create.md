@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create a Virtual Machine Scale Set | Microsoft Azure"
+	pageTitle="Create a Virtual Machine Scale Set using PowerShell | Microsoft Azure"
 	description="Create a Virtual Machine Scale Set using PowerShell"
 	services="virtual-machine-scale-sets"
     documentationCenter=""
@@ -17,9 +17,9 @@
 	ms.date="10/10/2016"
 	ms.author="davidmu"/>
 
-# Create a Windows Virtual Machine Scale Set using Azure PowerShell
+# Create a Windows virtual machine scale set using Azure PowerShell
 
-These steps follow a fill-in-the-blanks approach for creating an Azure Virtual Machine Scale Set. See [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md) to learn more about scale sets.
+These steps follow a fill-in-the-blanks approach for creating an Azure virtual machine scale set. See [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md) to learn more about scale sets.
 
 It should take about 30 minutes to do the steps in this article.
 
@@ -29,7 +29,7 @@ See [How to install and configure Azure PowerShell](../powershell-install-config
 
 ## Step 2: Create resources
 
-Create the resources that are needed for your new virtual machine scale set.
+Create the resources that are needed for your new scale set.
 
 ### Resource group
 
@@ -41,26 +41,26 @@ A virtual machine scale set must be contained in a resource group.
 
     You should see something like this example:
 
-        Name                AvailableServices
+    Name                AvailableServices
         ----                -----------------
-        Australia East      {Compute, Storage, PersistentVMRole, HighMemory}
-        Australia Southeast {Compute, Storage, PersistentVMRole, HighMemory}
-        Brazil South        {Compute, Storage, PersistentVMRole, HighMemory}
-        Central India       {Compute, Storage, PersistentVMRole, HighMemory}
-        Central US          {Compute, Storage, PersistentVMRole, HighMemory}
-        East Asia           {Compute, Storage, PersistentVMRole, HighMemory}
-        East US             {Compute, Storage, PersistentVMRole, HighMemory}
-        East US 2           {Compute, Storage, PersistentVMRole, HighMemory}
-        Japan East          {Compute, Storage, PersistentVMRole, HighMemory}
-        Japan West          {Compute, Storage, PersistentVMRole, HighMemory}
-        North Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-        North Europe        {Compute, Storage, PersistentVMRole, HighMemory}
-        South Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-        South India         {Compute, Storage, PersistentVMRole, HighMemory}
-        Southeast Asia      {Compute, Storage, PersistentVMRole, HighMemory}
-        West Europe         {Compute, Storage, PersistentVMRole, HighMemory}
-        West India          {Compute, Storage, PersistentVMRole, HighMemory}
-        West US             {Compute, Storage, PersistentVMRole, HighMemory}
+    Australia East      {Compute, Storage, PersistentVMRole, HighMemory}
+    Australia Southeast {Compute, Storage, PersistentVMRole, HighMemory}
+    Brazil South        {Compute, Storage, PersistentVMRole, HighMemory}
+    Central India       {Compute, Storage, PersistentVMRole, HighMemory}
+    Central US          {Compute, Storage, PersistentVMRole, HighMemory}
+    East Asia           {Compute, Storage, PersistentVMRole, HighMemory}
+    East US             {Compute, Storage, PersistentVMRole, HighMemory}
+    East US 2           {Compute, Storage, PersistentVMRole, HighMemory}
+    Japan East          {Compute, Storage, PersistentVMRole, HighMemory}
+    Japan West          {Compute, Storage, PersistentVMRole, HighMemory}
+    North Central US    {Compute, Storage, PersistentVMRole, HighMemory}
+    North Europe        {Compute, Storage, PersistentVMRole, HighMemory}
+    South Central US    {Compute, Storage, PersistentVMRole, HighMemory}
+    South India         {Compute, Storage, PersistentVMRole, HighMemory}
+    Southeast Asia      {Compute, Storage, PersistentVMRole, HighMemory}
+    West Europe         {Compute, Storage, PersistentVMRole, HighMemory}
+    West India          {Compute, Storage, PersistentVMRole, HighMemory}
+    West US             {Compute, Storage, PersistentVMRole, HighMemory}
 
 2. Pick a location that works best for you, replace the value of **$locName** with that location name, and then create the variable:
 
@@ -74,13 +74,13 @@ A virtual machine scale set must be contained in a resource group.
     
         New-AzureRmResourceGroup -Name $rgName -Location $locName
 
-    You should see something like this:
+    You should see something like this example:
 
-        ResourceGroupName : myrg1
-        Location          : centralus
-        ProvisioningState : Succeeded
-        Tags              :
-        ResourceId        : /subscriptions/########-####-####-####-############/resourceGroups/myrg1
+    ResourceGroupName : myrg1
+    Location          : centralus
+    ProvisioningState : Succeeded
+    Tags              :
+    ResourceId        : /subscriptions/########-####-####-####-############/resourceGroups/myrg1
 
 ### Storage account
 
@@ -105,24 +105,24 @@ A storage account is used by a virtual machine to store the operating system dis
 
     You should see something like this example:
 
-        ResourceGroupName   : myrg1
-        StorageAccountName  : myst1
-        Id                  : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microsoft
-	                    	.Storage/storageAccounts/myst1
-        Location            : centralus
-        AccountType         : StandardLRS
-        CreationTime        : 3/15/2016 4:51:52 PM
-        CustomDomain        :
-        LastGeoFailoverTime :
-        PrimaryEndpoints    : Microsoft.Azure.Management.Storage.Models.Endpoints
-        PrimaryLocation     : centralus
-        ProvisioningState   : Succeeded
-        SecondaryEndpoints  :
-        SecondaryLocation   :
-        StatusOfPrimary     : Available
-        StatusOfSecondary   :
-        Tags                : {}
-        Context             : Microsoft.WindowsAzure.Commands.Common.Storage.AzureStorageContext
+    ResourceGroupName   : myrg1
+    StorageAccountName  : myst1
+    Id                  : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microsoft
+	                      .Storage/storageAccounts/myst1
+    Location            : centralus
+    AccountType         : StandardLRS
+    CreationTime        : 3/15/2016 4:51:52 PM
+    CustomDomain        :
+    LastGeoFailoverTime :
+    PrimaryEndpoints    : Microsoft.Azure.Management.Storage.Models.Endpoints
+    PrimaryLocation     : centralus
+    ProvisioningState   : Succeeded
+    SecondaryEndpoints  :
+    SecondaryLocation   :
+    StatusOfPrimary     : Available
+    StatusOfSecondary   :
+    Tags                : {}
+    Context             : Microsoft.WindowsAzure.Commands.Common.Storage.AzureStorageContext
 
 5. Repeat steps 1 through 4 to create three storage accounts, for example myst1, myst2, and myst3.
 
@@ -130,9 +130,9 @@ A storage account is used by a virtual machine to store the operating system dis
 
 A virtual network is required for the virtual machines in the scale set.
 
-1. Replace the value of **$subName** with the name that you want to use for the subnet in the virtual network and then create the variable: 
+1. Replace the value of **$subnetName** with the name that you want to use for the subnet in the virtual network and then create the variable: 
 
-        $subName = "subnet name"
+        $subnetName = "subnet name"
         
 2. Create the subnet configuration:
     
@@ -212,16 +212,16 @@ You have all the resources that you need for the scale set configuration, so let
         
     You should see something like this example:
 
-        Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
-        UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
-        VirtualMachineProfile : Microsoft.Azure.Management.Compute.Models.VirtualMachineScaleSetVMProfile
-        ProvisioningState     :
-        OverProvision         :
-        Id                    :
-        Name                  :
-        Type                  :
-        Location              : Central US
-        Tags                  :
+    Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
+    UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
+    VirtualMachineProfile : Microsoft.Azure.Management.Compute.Models.VirtualMachineScaleSetVMProfile
+    ProvisioningState     :
+    OverProvision         :
+    Id                    :
+    Name                  :
+    Type                  :
+    Location              : Central US
+    Tags                  :
 
 #### Operating system profile
 
@@ -253,7 +253,7 @@ You have all the resources that you need for the scale set configuration, so let
         $imageOffer = "WindowsServer"
         $imageSku = "2012-R2-Datacenter"
         
-    Look at [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md) to find the information about other images to use.
+    To find the information about other images to use, look at [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
         
 3. Replace the value of **$vhdContainers** with a list that contains the paths where the virtual hard disks are stored, such as "https://mystorage.blob.core.windows.net/vhds", and then create the variable:
        
@@ -277,21 +277,21 @@ Finally, you can create the scale set.
 
     You should see something like this example that shows a successful deployment:
 
-        Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
-        UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
-        VirtualMachineProfile : Microsoft.Azure.Management.Compute.Models.VirtualMachineScaleSetVMProfile
-        ProvisioningState     : Updating
-        OverProvision         :
-        Id                    : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microso
-                               ft.Compute/virtualMachineScaleSets/myvmss1
-        Name                  : myvmss1
-        Type                  : Microsoft.Compute/virtualMachineScaleSets
-        Location              : centralus
-        Tags                  :
+    Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
+    UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
+    VirtualMachineProfile : Microsoft.Azure.Management.Compute.Models.VirtualMachineScaleSetVMProfile
+    ProvisioningState     : Updating
+    OverProvision         :
+    Id                    : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microso
+                            ft.Compute/virtualMachineScaleSets/myvmss1
+    Name                  : myvmss1
+    Type                  : Microsoft.Compute/virtualMachineScaleSets
+    Location              : centralus
+    Tags                  :
 
 ## Step 3: Explore resources
 
-Use these resources to explore the virtual machine scale set that you just created:
+Use these resources to explore the virtual machine scale set that you created:
 
 - Azure portal - A limited amount of information is available using the portal.
 - [Azure Resource Explorer](https://resources.azure.com/) - This tool is the best for exploring the current state of your scale set.
