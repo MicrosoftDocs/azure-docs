@@ -1,19 +1,19 @@
 <properties
 	pageTitle="Change Tracking solution in Log Analytics | Microsoft Azure"
 	description="You can use the Configuration Change Tracking solution in Log Analytics to help you easily identify software and Windows Services changes that occur in your environment — identifying these configuration changes can help you pinpoint operational issues."
-	services="log-analytics"
+	services="operations-management-suite"
 	documentationCenter=""
 	authors="bandersmsft"
 	manager="jwhit"
 	editor=""/>
 
 <tags
-	ms.service="log-analytics"
+	ms.service="operations-management-suite"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/08/2016"
+	ms.date="10/07/2016"
 	ms.author="banders"/>
 
 # Change Tracking solution in Log Analytics

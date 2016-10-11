@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Indexing Media Files with Azure Media Indexer 2 Preview"
+	pageTitle="Indexing Media Files with Azure Media Indexer 2 Preview | Microsoft Azure"
 	description="Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. This topic shows how to use Media Indexer 2 Preview."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="adsolank;juliako;"/>
 
 

@@ -14,41 +14,41 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/14/2016"
+	ms.date="09/30/2016"
 	ms.author="arluca"/>
 
 # Using Azure AD Connect Health with AD DS
-The following documentation is specific to monitoring Active Directory Domain Services with Azure AD Connect Health. This includes AD DS installed on Windows Server 2008 R2, Windows Server 2012 and Windows Server 2012 R2.
+The following documentation is specific to monitoring Active Directory Domain Services with Azure AD Connect Health. The supported versions of AD DS are: Windows Server 2008 R2, Windows Server 2012, and Windows Server 2012 R2.
 
-For information on monitoring AD FS with Azure AD Connect Health see [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md). Additionally, for information on monitoring Azure AD Connect (Sync) with Azure AD Connect Health see [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md).
+For more information on monitoring AD FS with Azure AD Connect Health, see [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md). Additionally, for information on monitoring Azure AD Connect (Sync) with Azure AD Connect Health see [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md).
 
 ![Azure AD Connect Health for AD DS](./media/active-directory-aadconnect-health/aadconnect-health-adds-entry.png)
 
 ## Alerts for Azure AD Connect Health for AD DS
-The Alerts section within Azure AD Connect Health for AD DS, provides you a list of active and resolved alerts, related to your Domain Controllers. Selecting an active or resolved alert will open a new blade with additional information, along with resolution steps, and links to supporting documentation. Each alert type can have one or more instances, which correspond to each of the domain controllers affected by that particular alert. Near the bottom of the alert blade, you can select an affected domain controllers and a new blade will open with additional details about that specific alert instance.
+The Alerts section within Azure AD Connect Health for AD DS, provides you a list of active and resolved alerts, related to your domain controllers. Selecting an active or resolved alert opens a new blade with additional information, along with resolution steps, and links to supporting documentation. Each alert type can have one or more instances, which correspond to each of the domain controllers affected by that particular alert. Near the bottom of the alert blade, you can double-click an affected domain controller to open an additional blade with more details about that alert instance.
 
-Enabling email notifications for alerts is available within this blade, as well as changing the time range in view. Expanding the time range will allow you to see prior resolved alerts.
+Within this blade, you can enable email notifications for alerts and change the time range in view. Expanding the time range allows you to see prior resolved alerts.
 
 ![Azure AD Connect sync error](./media/active-directory-aadconnect-health/aadconnect-health-adds-alerts.png)
 
-## Domain Controllers
-This dashboard provides a topological view of your environment, along with key operational metrics and health status of each of your monitored domain controllers. The presented metrics help to quickly identify, any domain controllers that might require further investigation. By default, only a subset of columns are displayed; however, by clicking on the columns command you will find the entire set of columns that are availble. Selecting the columns that you most care about, turns this dashboard into a single and easy place to view the health of your AD DS environement. 
+## Domain Controllers Dashboard
+This dashboard provides a topological view of your environment, along with key operational metrics and health status of each of your monitored domain controllers. The presented metrics help to quickly identify, any domain controllers that might require further investigation. By default, only a subset of the columns is displayed. However, you can find the entire set of available columns, by double-clicking the columns command. Selecting the columns that you most care about, turns this dashboard into a single and easy place to view the health of your AD DS environment. 
 
 ![Domain Controllers](./media/active-directory-aadconnect-health/aadconnect-health-adds-domainsandsites-dashboard.png)
 
-Domain Controllers can be grouped by their respective domain or site, which is helpful for understanding the environment topology. Lastly, if you double click on the blade header, the dashboard will maximize to utilize the avaialbe screen real-estate. This can be particuarly helpful when you are displaying several columns. 
+Domain controllers can be grouped by their respective domain or site, which is helpful for understanding the environment topology. Lastly, if you double-click the blade header, the dashboard maximizes to utilize the available screen real-estate. This larger view is helpful when multiple columns are displayed. 
 
-## Replication Status
-This dashboard provides a view of the replication status and replication topology of your monitored domian controllers. The status of the most recent replication attempt is listed, along with helpful documentation for any error that is found. Selecting a domain controller with an error, will open a new blade with additional information, along with resolution steps, and links to troubleshooting documentation. 
+## Replication Status Dashboard
+This dashboard provides a view of the replication status and replication topology of your monitored domain controllers. The status of the most recent replication attempt is listed, along with helpful documentation for any error that is found. You can double-click a domain controller with an error, to open a new blade with information such as: details about the error, recommended resolution steps, and links to troubleshooting documentation. 
 
 ![Replication Status](./media/active-directory-aadconnect-health/aadconnect-health-adds-replication.png)
 
 ## Monitoring
-This feature provides graphical trends of different performance counters, which are continously collected from each of the monitored domain controllers. Performance of a domain controller can easily be compared across all other monitored domain controllers in your forest. Additionally, you can see various performance counters side by side, which is helpful when troubleshooting issues in your environment. 
+This feature provides graphical trends of different performance counters, which are continuously collected from each of the monitored domain controllers. Performance of a domain controller can easily be compared across all other monitored domain controllers in your forest. Additionally, you can see various performance counters side by side, which is helpful when troubleshooting issues in your environment. 
 
 ![Monitoring](./media/active-directory-aadconnect-health/aadconnect-health-adds-monitoring.png)
 
-By default, we have preselected four performance counters; however, you can include others by clicking the filter command and selecting or deselecting any desired performance counters. Additionally, if you click on a particular performance counter graph a new blade will open, which includes the respective data points for each of the monitored domain controllers.
+By default, we have preselected four performance counters; however, you can include others by clicking the filter command and selecting or deselecting any desired performance counters. Additionally, you can double-click a performance counter graph to open a new blade, which includes data points for each of the monitored domain controllers.
 
 ## Related links
 

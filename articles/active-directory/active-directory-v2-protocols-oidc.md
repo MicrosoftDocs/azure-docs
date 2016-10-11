@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/30/2016"
 	ms.author="dastrock"/>
 
 # v2.0 Protocols - OpenID Connect
@@ -29,6 +29,41 @@ OpenID Connect is an authentication protocol built on top of OAuth 2.0 that can 
 The most basic sign-in flow contains the following steps - each of them is described in detail below.
 
 ![OpenId Connect Swimlanes](../media/active-directory-v2-flows/convergence_scenarios_webapp.png)
+
+## Fetch the OpenID Connect metadata document
+OpenID Connect describes a metadata document that contains most of the information required for an app to perform sign-in.  This includes information such as the URLs to use, the location of the service's public signing keys, and so on.  For the v2.0 endpoint, the OpenID Connect metadata document you should use is:
+
+```
+https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
+```
+
+Where the `{tenant}` can take one of four different values:
+
+| Value | Description |
+| ----------------------- | ------------------------------- |
+| `common` | Allows users with both personal Microsoft accounts and work/school accounts from Azure Active Directory to sign into the application. |
+| `organizations` | Allows only users with work/school accounts from Azure Active Directory to sign into the application. |
+| `consumers` | Allows only users with personal Microsoft accounts (MSA) to sign into the application. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` | Allows only users with work/school accounts from a particular Azure Active Directory tenant to sign into the application.  Either the friendly domain name of the Azure AD tenant or the tenant's guid identifier can be used.  |
+
+The metadata is a simple json document, a snippet of which is provided below.  Its contents are fully described in the [OpenID Connect specification](https://openid.net).
+
+```
+{
+  "authorization_endpoint": "https:\/\/login.microsoftonline.com\/common\/oauth2\/v2.0\/authorize",
+  "token_endpoint": "https:\/\/login.microsoftonline.com\/common\/oauth2\/v2.0\/token",
+  "token_endpoint_auth_methods_supported": [
+    "client_secret_post",
+    "private_key_jwt"
+  ],
+  "jwks_uri": "https:\/\/login.microsoftonline.com\/common\/discovery\/v2.0\/keys",
+  
+  ...
+  
+}
+```
+
+Typically, you would use this metadata document to configure an OpenID Connect library or SDK; the library would use the metadata to do its work.  However, if you're not using a pre-build OpenID Connect library, you can follow the steps in the remainder of this article to perform sign-in in a web app using the v2.0 endpoint. 
 
 ## Send the sign-in request
 When your web app needs to authenticate the user, it can direct the user to the `/authorize` endpoint.  This request is similar to the first leg of the [OAuth 2.0 Authorization Code Flow](active-directory-v2-protocols-oauth-code.md), with a few important distinctions:
@@ -170,7 +205,7 @@ To acquire access tokens, you'll need to slightly modify the sign in request fro
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e		// Your registered Application Id
-&response_type=id_token+code
+&response_type=id_token%20code
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F 	  // Your registered Redirect Uri, url encoded
 &response_mode=form_post						      // 'query', 'form_post', or 'fragment'
 &scope=openid%20                                      // Include both 'openid' and scopes your app needs  
@@ -181,9 +216,9 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 ```
 
 > [AZURE.TIP] Click the link below to execute this request! After signing in, your browser should be redirected to `https://localhost/myapp/` with an `id_token` and a `code` in the address bar.  Note that this request uses `response_mode=query` (for tutorial purposes only).  It is recommended to use `response_mode=form_post`.
-    <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token+code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
+    <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-By including permission scopes in the request and using `response_type=code+id_token`, the v2.0 endpoint will ensure that the user has consented to the permissions indicated in the `scope` query parameter, and return your app an authorization code to exchange for an access token.
+By including permission scopes in the request and using `response_type=id_token code`, the v2.0 endpoint will ensure that the user has consented to the permissions indicated in the `scope` query parameter, and return your app an authorization code to exchange for an access token.
 
 #### Successful response
 A successful response using `response_mode=form_post` looks like:

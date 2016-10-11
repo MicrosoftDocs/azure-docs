@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/21/2016"
+   ms.date="10/03/2016"
    ms.author="cherylmc" />
 
 # About virtual network gateways for ExpressRoute
@@ -21,9 +21,9 @@
 
 A virtual network gateway is used to send network traffic between Azure virtual networks and on-premises locations. When you configure an ExpressRoute connection, you must create and configure a virtual network gateway and a virtual network gateway connection.
 
-When you create a virtual network gateway, you specify several settings. One of the required settings specifies whether the gateway will be used for ExpressRoute or VPN Gateway traffic. In the Resource Manager deployment model, the setting is '-GatewayType'.
+When you create a virtual network gateway, you specify several settings. One of the required settings specifies whether the gateway will be used for ExpressRoute or Site-to-Site VPN traffic. In the Resource Manager deployment model, the setting is '-GatewayType'.
 
-When network traffic is sent on a dedicated private connection, you use the gateway type 'ExpressRoute'. This is also referred to as an ExpressRoute gateway. When network traffic is sent encrypted across a public connection, you use the gateway type 'Vpn'. This is referred to as a VPN gateway. Site-to-Site, Point-to-Site, and VNet-to-VNet connections all use a VPN gateway. 
+When network traffic is sent on a dedicated private connection, you use the gateway type 'ExpressRoute'. This is also referred to as an ExpressRoute gateway. When network traffic is sent encrypted across the public Internet, you use the gateway type 'Vpn'. This is referred to as a VPN gateway. Site-to-Site, Point-to-Site, and VNet-to-VNet connections all use a VPN gateway. 
 
 Each virtual network can have only one virtual network gateway per gateway type. For example, you can have one virtual network gateway that uses -GatewayType Vpn, and one that uses -GatewayType ExpressRoute. This article focuses on the ExpressRoute virtual network gateway.
 
@@ -31,7 +31,7 @@ Each virtual network can have only one virtual network gateway per gateway type.
 
 [AZURE.INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-If you use the Azure portal to create a Resource Manager virtual network gateway, the virtual network gateway is configured using the Standard SKU by default. Currently, you cannot specify other SKUs for the Resource Manager deployment model in the Azure portal. However, after creating your gateway, you can upgrade to a more powerful gateway SKU (for example, from Basic/Standard to HighPerformance) using the 'Resize-AzureRmVirtualNetworkGateway' PowerShell cmdlet.
+If you want to upgrade your gateway to a more powerful gateway SKU, in most cases you can use the 'Resize-AzureRmVirtualNetworkGateway' PowerShell cmdlet. This will work for upgrades to Standard and HighPerformance SKUs. However, to upgrade to the UltraPerformance SKU, you will need to recreate the gateway.
 
 ###  <a name="aggthroughput"></a>Estimated aggregate throughput by gateway SKU
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2016"
+	ms.date="09/23/2016"
 	ms.author="banders"/>
 
 # Log Analytics data security
@@ -138,6 +138,8 @@ For your organization to send data to Log Analytics, you configure Windows agent
 An OMS workspace is where data is collected, aggregated, analyzed, and presented. A workspace is primarily used as a means to partition data, and each workspace is unique. For example, you might want to have your production data managed with one OMS workspace and your test data managed with another workspace. Workspaces also help an administrator control user access to the data. Each workspace can have multiple user accounts associated with it, and each user account can access multiple OMS workspace. You create workspaces based on datacenter region. Each workspace is replicated to other datacenters in the region, primarily for OMS service availability.
 
 For Operations Manager, when the configuration wizard completes, each Operations Manager management group establishes a connection with the Log Analytics service. You then use the Add Computers Wizard to choose which computers in the management group are allowed to send data to the service. For other agent types, each connects securely to the OMS service.
+
+All communication between connected systems and the Log Analytics service is encrypted.  The TLS (HTTPS) protocol is used for encryption.  The Microsoft SDL process is followed to ensure Log Analytics is up-to-date with the most recent advances in cryptographic protocols.
 
 Each type of agent collects data for Log Analytics. The type of data that is collected is dependent on the types of solutions used. You can see a summary of data collection at [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md). Additionally, more detailed collection information is available for most solutions. A solution is a bundle of predefined views, log search queries, data collection rules, and processing logic. Only administrators can use Log Analytics to import a solution. After the solution is imported, it is moved to the Operations Manager management servers (if used), and then to any agents that you have chosen. Afterward, the agents collect the data.
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="09/14/2016"
+	ms.date="10/05/2016"
 	ms.author="piyushjo" />
 
 # Get Started with Azure Mobile Engagement for iOS apps in Objective C
@@ -34,7 +34,7 @@ Completing this tutorial is a prerequisite for all other Mobile Engagement tutor
 
 ##<a id="setup-azme"></a>Setup Mobile Engagement for your iOS app
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##<a id="connecting-app"></a>Connect your app to the Mobile Engagement backend
 
@@ -62,28 +62,24 @@ We will create a basic app with XCode to demonstrate the integration.
 
 	![][3]
 
-6. For **XCode 7** - add `libxml2.tbd` instead of `libxml2.dylib`.
-
-7. Go back to the Azure portal in your app's **Connection Info** page and copy the connection string.
+6. Go back to the Azure portal in your app's **Connection Info** page and copy the connection string.
 
 	![][4]
 
-8. Add the following line of code in your **AppDelegate.m** file.
+7. Add the following line of code in your **AppDelegate.m** file.
 
 		#import "EngagementAgent.h"
 
-9. Now paste the connection string in the `didFinishLaunchingWithOptions` delegate.
+8. Now paste the connection string in the `didFinishLaunchingWithOptions` delegate.
 
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 		{
-  			[...]
-			//[EngagementAgent setTestLogEnabled:YES];
-   
+  			[...]   
   			[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];
   			[...]
 		}
 
-10. `setTestLogEnabled` is an optional statement which enables SDK logs for you to identify issues. 
+9. `setTestLogEnabled` is an optional statement which enables SDK logs for you to identify issues. 
 
 ##<a id="monitor"></a>Enable real-time monitoring
 
@@ -123,6 +119,7 @@ The following sections set up your app to receive them.
 1. Back in **AppDeletegate.m** file, import the Engagement Reach module.
 
 		#import "AEReachModule.h"
+		#import <UserNotifications/UserNotifications.h>
 
 2. Inside the `application:didFinishLaunchingWithOptions` method, create a Reach module and pass it to your existing Engagement initialization line:
 
@@ -137,12 +134,19 @@ The following sections set up your app to receive them.
 
 1. Add the following line to the `application:didFinishLaunchingWithOptions` method:
 
-		if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-			[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
+		if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
+		{
+			if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)
+			{
+				[UNUserNotificationCenter.currentNotificationCenter requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {}];
+			}else
+			{
+				[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)   categories:nil]];
+			}
 			[application registerForRemoteNotifications];
 		}
-		else {
-
+		else
+		{
 			[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
 		}
 

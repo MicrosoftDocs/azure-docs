@@ -17,7 +17,7 @@
   ms.date="08/31/2016"
   ms.author="sewhee" />
 
-# <a name="get-started"></a>Get started creating an Internet-facing load balancer in Resource Manager by using PowerShell
+# <a name="get-started"></a>Creating an Internet-facing load balancer in Resource Manager by using PowerShell
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
@@ -191,13 +191,13 @@ Create network interfaces (or modify existing ones) and then associate them to N
                         }
         EnableIPForwarding   : False
         NetworkSecurityGroup : null
-        Primary              : 
+        Primary              :
 
 5. Use the `Add-AzureRmVMNetworkInterface` cmdlet to assign the NICs to different VMs.
 
 ## Create a virtual machine
 
-For guidance on creating a virtual machine and assigning a NIC, see option 5 in [Create and preconfigure a Windows virtual machine with Resource Manager and Azure PowerShell](../virtual-machines/virtual-machines-windows-create-powershell.md#Example).
+For guidance on creating a virtual machine and assigning a NIC, see [Create an Azure VM using PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md).
 
 ## Add the network interface to the load balancer
 
