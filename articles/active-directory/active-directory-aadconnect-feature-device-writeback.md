@@ -75,7 +75,7 @@ Use the following procedure to enable device writeback in Azure AD Connect.
 ![Custom install Device Writeback optional features](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback3.png)
 3.	On the writeback page, you will see the supplied domain as the default Device writeback forest.
 ![Custom Install device writeback target forest](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback4.png)
-4.	Complete the installation of the Wizard with no additional configuration changes. If needed, refer to [Custom installation of Azure AD Connect.](active-directory-aadconnect-get-started-custom.md)
+4.	Complete the installation of the Wizard with no additional configuration changes. If needed, refer to [Custom installation of Azure AD Connect.](./aad-connect/active-directory-aadconnect-get-started-custom.md)
 
 ## Enable conditional access
 Detailed instructions to enable this scenario are available within [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](https://msdn.microsoft.com/library/azure/dn788908.aspx).

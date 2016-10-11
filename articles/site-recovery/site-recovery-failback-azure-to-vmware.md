@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="07/08/2016"
+   ms.date="10/05/2016"
    ms.author="ruturajd"/>
 
 # Fail back VMware virtual machines and physical servers to the on-premises site

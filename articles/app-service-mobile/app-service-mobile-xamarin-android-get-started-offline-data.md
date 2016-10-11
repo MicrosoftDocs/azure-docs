@@ -146,24 +146,13 @@ In this section you will reconnect the app to the mobile backend, which simulate
 
 * [Cloud Cover: Offline Sync in Azure Mobile Services] \(note: the video is on Mobile Services, but offline sync works in a similar way in Azure Mobile Apps\)
 
-<!-- ##Summary
-
-[AZURE.INCLUDE [mobile-services-offline-summary-csharp](../../includes/mobile-services-offline-summary-csharp.md)]
-
-## Next steps
-
-* [Handling conflicts with offline support for Mobile Services]
-
-* [How to use the Xamarin Component client for Azure Mobile Services]
- -->
 
 <!-- Images -->
 
 <!-- URLs. -->
-[Create a Xamarin Android app]: ../app-service-mobile-xamarin-android-get-started.md
-[Offline Data Sync in Azure Mobile Apps]: ../app-service-mobile-offline-data-sync.md
+[Create a Xamarin Android app]: app-service-mobile-xamarin-android-get-started.md
+[Offline Data Sync in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 
-[How to use the Xamarin Component client for Azure Mobile Services]: ../partner-xamarin-mobile-services-how-to-use-client-library.md
 
 [Xamarin Studio]: http://xamarin.com/download
 [Xamarin extension]: http://xamarin.com/visual-studio

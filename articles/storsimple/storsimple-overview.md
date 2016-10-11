@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="09/20/2016"
+   ms.date="10/05/2016"
    ms.author="v-sharos@microsoft.com"/>
 
 # StorSimple 8000 series: a hybrid cloud storage solution
@@ -238,7 +238,7 @@ Following is a list of the StorSimple supported infrastructure components.
 
 | Scenario | Workload      | Supported |  Restrictions                                 | Version      |
 |----------|---------------|-----------|-----------------------------------------------|--------------|
-| General  | Express Route | Yes       |                                                All versions |
+| General  | Express Route | Yes       |                                               |All versions |
 | General  | DataCore FC   | Yes*       |Supported with DataCore SANsymphony            | All versions |
 | General  | DFSR          | Yes*      |Supported only with locally pinned volumes     | All versions |
 | General  | Indexing      | Yes*       |For tiered volumes, only metadata indexing is supported (no data).<br>For locally pinned volumes, complete indexing is supported.| All versions |

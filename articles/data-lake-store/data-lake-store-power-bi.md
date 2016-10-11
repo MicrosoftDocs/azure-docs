@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Analyze data in Data Lake Store by using Power BI | Azure"
+   pageTitle="Analyze data in Data Lake Store by using Power BI | Microsoft Azure"
    description="Use Power BI to analyze data stored in Azure Data Lake Store"
    services="data-lake-store" 
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/18/2016"
+   ms.date="10/05/2016"
    ms.author="nitinme"/>
 
 # Analyze data in Data Lake Store by using Power BI
@@ -25,8 +25,6 @@ In this article you will learn how to use Power BI Desktop to analyze and visual
 Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-
-- **Enable your Azure subscription** for Data Lake Store Public Preview. See [instructions](data-lake-store-get-started-portal.md#signup).
 
 - **Azure Data Lake Store account**. Follow the instructions at [Get started with Azure Data Lake Store using the Azure Portal](data-lake-store-get-started-portal.md). This article assumes that you have already created a Data Lake Store account, called **mybidatalakestore**, and uploaded a sample data file (**Drivers.txt**) to it. This sample file is available for download from [Azure Data Lake Git Repository](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt).
 

@@ -122,7 +122,7 @@ When the service sends a message, it is considered *Enqueued*. When a device wan
 
 A device can also:
 
-- *Reject* the message, which causes IoT Hub to set it to the **Deadlettered** state.
+- *Reject* the message, which causes IoT Hub to set it to the **Deadlettered** state. Note: devices connecting with MQTT cannot reject C2D messages.
 - *Abandon* the message, which causes IoT Hub to put the message back in the queue, with the state set to **Enqueued**.
 
 A thread could fail to process a message without notifying IoT Hub. In this case, messages automatically transition from the **Invisible** state back to the **Enqueued** state after a *visibility (or lock) timeout*. The default value of this timeout is one minute.
