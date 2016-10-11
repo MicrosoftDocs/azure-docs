@@ -49,8 +49,8 @@ As with the Relay infrastructure, the brokered messaging capability is provided 
 
 To learn more about Service Bus messaging, see the following topics.
 
-- [Service Bus fundamentals](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
+- [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 - [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 - [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
-- [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [How to use Service Bus topics and subscriptions](./service-bus-dotnet-how-to-use-topics-subscriptions.md)
  

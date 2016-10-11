@@ -91,5 +91,5 @@ Samples that demonstrate various Service Bus relay features.
 See the following topics for conceptual overviews of Service Bus.
 
 - [Service Bus relay overview](service-bus-relay-overview.md)
-- [Service Bus architecture](../service-bus/service-bus-architecture.md)
-- [Service Bus fundamentals](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+- [Service Bus architecture](../service-bus-messaging/service-bus-architecture.md)
+- [Service Bus fundamentals](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
