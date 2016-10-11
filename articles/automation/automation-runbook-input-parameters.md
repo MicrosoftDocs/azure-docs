@@ -135,7 +135,7 @@ In the label beneath the input box, you can see the attributes that have been se
 
   - **Azure Resource Manager cmdlets:** You can start an Automation runbook that was created in a resource group by using [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx).
 
-   **Example:**
+    **Example:**
 
    ```
     $params = @{“VMName”=”WSVMClassic”;”resourceGroupeName”=”WSVMClassicSG”}
@@ -145,7 +145,7 @@ In the label beneath the input box, you can see the attributes that have been se
 
   - **Azure Service Management cmdlets:** You can start an automation runbook that was created in a default resource group by using [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx).
 
-   **Example:**
+    **Example:**
 
    ```
     $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
