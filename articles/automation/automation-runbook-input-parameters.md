@@ -38,7 +38,7 @@ Windows PowerShell supports more attributes of input parameters than those liste
 
 A parameter definition in PowerShell Workflow runbooks has the following general form, where multiple parameters are separated by commas.
 
-```
+   ```
      Param
      (
          [Parameter (Mandatory= $true/$false)]
@@ -47,7 +47,7 @@ A parameter definition in PowerShell Workflow runbooks has the following general
          [Parameter (Mandatory= $true/$false)]
          [Type] Name2 = <Default value>
      )
-```
+   ```
 
 >[AZURE.NOTE] When you're defining parameters, if you don’t specify the **Mandatory** attribute, then by default, the parameter is considered optional. Also, if you set a default value for a parameter in PowerShell Workflow runbooks, it will be treated by PowerShell as an optional parameter, regardless of the **Mandatory** attribute value.
 
@@ -99,16 +99,16 @@ You can use the [**Write-Output**](https://technet.microsoft.com/library/hh84992
 4. Create two parameters with the following properties that will be used by the **Get-AzureRmVm** activity:
 
     - **Parameter1:**
-    - Name - VMName
-    - Type - String
-    - Mandatory - No
+      - Name - VMName
+      - Type - String
+      - Mandatory - No
 
     - **Parameter2:**
-    - Name - resourceGroupName
-    - Type - String
-    - Mandatory - No
-    - Default value - Custom
-    - Custom default value - \<Name of the resource group that contains the virtual machines>
+      - Name - resourceGroupName
+      - Type - String
+      - Mandatory - No
+      - Default value - Custom
+      - Custom default value - \<Name of the resource group that contains the virtual machines>
 
 5. Once you add the parameters, click **OK**.  You can now view them in the **Input and output blade**. Click **OK** again, and then click  **Save** and **Publish** your runbook.
 
@@ -122,16 +122,15 @@ A runbook can be started many ways: through the Azure portal, with a webhook, wi
 
 - **Start a published runbook by using the Azure portal and assign parameters**
 
-When you [start the runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), the **Start Runbook** blade opens and you can configure values for the parameters that you just created.
+  When you [start the runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), the **Start Runbook** blade opens and you can configure values for the parameters that you just created.
 
-![Start using the portal](media/automation-runbook-input-parameters/automation-04-startrunbookusingportal.png)
+  ![Start using the portal](media/automation-runbook-input-parameters/automation-04-startrunbookusingportal.png)
 
-In the label beneath the input box, you can see the attributes that have been set for the parameter. Attributes include mandatory or optional, type, and  default value. In the help balloon next to the parameter name, you can see all the key information you need to make decisions about parameter input values. This information includes whether a parameter is mandatory or optional. It also includes the type and  default value (if any), and  other helpful notes.
+  In the label beneath the input box, you can see the attributes that have been set for the parameter. Attributes include mandatory or optional, type, and  default value. In the help balloon next to the parameter name, you can see all the key information you need to make decisions about parameter input values. This information includes whether a parameter is mandatory or optional. It also includes the type and  default value (if any), and  other helpful notes.
 
-![Help balloon](media/automation-runbook-input-parameters/automation-05-helpbaloon.png)
+  ![Help balloon](media/automation-runbook-input-parameters/automation-05-helpbaloon.png)
 
-
->[AZURE.NOTE] String type parameters support **Empty** String values.  Entering **[EmptyString]** in the input parameter box will pass an empty string to the parameter. Also, String type parameters don’t support **Null** values being passed. If you don’t pass any value to the String parameter, then PowerShell will interpret it as null.
+  >[AZURE.NOTE] String type parameters support **Empty** String values.  Entering **[EmptyString]** in the input parameter box will pass an empty string to the parameter. Also, String type parameters don’t support **Null** values being passed. If you don’t pass any value to the String parameter, then PowerShell will interpret it as null.
 
 - **Start a published runbook by using PowerShell cmdlets and assign parameters**
 
@@ -155,11 +154,11 @@ In the label beneath the input box, you can see the attributes that have been se
         Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
       ```
 
->[AZURE.NOTE] When you start a runbook by using PowerShell cmdlets, a default parameter, **MicrosoftApplicationManagementStartedBy**, is created with the value **PowerShell**. You can view this parameter in the **Job details** blade.
+    >[AZURE.NOTE] When you start a runbook by using PowerShell cmdlets, a default parameter, **MicrosoftApplicationManagementStartedBy**, is created with the value **PowerShell**. You can view this parameter in the **Job details** blade.
 
 - **Start a runbook by using an SDK and assign parameters**
 
-    - **Azure Resource Manager method:** You can start a runbook by using the SDK of a programming language. Below is a C# code snippet for starting a runbook in your Automation account. You can view all the code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
+  - **Azure Resource Manager method:** You can start a runbook by using the SDK of a programming language. Below is a C# code snippet for starting a runbook in your Automation account. You can view all the code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
 
     ```
         public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -179,7 +178,7 @@ In the label beneath the input box, you can see the attributes that have been se
         }
     ```
 
-    - **Azure Service Management method:** You can start a runbook by using the SDK of a programming language. Below is a C# code snippet for starting a runbook in your Automation account. You can view all the code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
+  - **Azure Service Management method:** You can start a runbook by using the SDK of a programming language. Below is a C# code snippet for starting a runbook in your Automation account. You can view all the code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
 
     ```      
         public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -199,9 +198,9 @@ In the label beneath the input box, you can see the attributes that have been se
         }
     ```
 
-To start this method, create a dictionary to store the runbook parameters, **VMName** and  **resourceGroupName**, and their values. Then start the runbook. Below is the C# code snippet for calling the method that's defined above.
+  To start this method, create a dictionary to store the runbook parameters, **VMName** and  **resourceGroupName**, and their values. Then start the runbook. Below is the C# code snippet for calling the method that's defined above.
 
-```
+   ```
     IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
 
     // Add parameters to the dictionary.
@@ -210,29 +209,29 @@ To start this method, create a dictionary to store the runbook parameters, **VMN
 
     //Call the StartRunbook method with parameters
     StartRunbook(“Get-AzureVMGraphical”, RunbookParameters);
-```
+   ```
 
 - **Start a runbook by using the REST API and assign parameters**
 
-A runbook job can be created and started with the Azure Automation REST API by using the **PUT** method with the following request URI.
+  A runbook job can be created and started with the Azure Automation REST API by using the **PUT** method with the following request URI.
 
-    https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08
+  https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08
 
-In the request URI, replace the following parameters:
+  In the request URI, replace the following parameters:
 
-* **subscription-id:** Your Azure subscription ID.  
-* **cloud-service-name:** The name of the cloud service to which the request should be sent.  
-* **automation-account-name:** The name of your automation account that's hosted within the specified cloud service.  
-* **job-id:** The GUID for the job. GUIDs in PowerShell can be created by using the **[GUID]::NewGuid().ToString()** command.
+  * **subscription-id:** Your Azure subscription ID.  
+  * **cloud-service-name:** The name of the cloud service to which the request should be sent.  
+  * **automation-account-name:** The name of your automation account that's hosted within the specified cloud service.  
+  * **job-id:** The GUID for the job. GUIDs in PowerShell can be created by using the **[GUID]::NewGuid().ToString()** command.
 
-In order to pass parameters to the runbook job, use the request body. It takes the following two properties provided in JSON format:
+  In order to pass parameters to the runbook job, use the request body. It takes the following two properties provided in JSON format:
 
-* **Runbook name:** Required. The name of the runbook for the job to start.  
-* **Runbook parameters:** Optional. A dictionary of the parameter list in (name, value) format where name should be of String type and value can be any valid JSON value.
+  * **Runbook name:** Required. The name of the runbook for the job to start.  
+  * **Runbook parameters:** Optional. A dictionary of the parameter list in (name, value) format where name should be of String type and value can be any valid JSON value.
 
-If you want to start the **Get-AzureVMTextual** runbook that was created earlier with **VMName** and **resourceGroupName** as parameters, use the following JSON format for the request body.
+  If you want to start the **Get-AzureVMTextual** runbook that was created earlier with **VMName** and **resourceGroupName** as parameters, use the following JSON format for the request body.
 
-```
+   ```
         {
            "properties":{
            "runbook":{
@@ -244,9 +243,9 @@ If you want to start the **Get-AzureVMTextual** runbook that was created earlier
            }
           }
        }
-```
+   ```
 
-An HTTP status code 201 is returned if the job is successfully created. For more information on response headers and the response body, refer to the article about how to [create a runbook job by using the REST API.](https://msdn.microsoft.com/library/azure/mt163849.aspx)
+  An HTTP status code 201 is returned if the job is successfully created. For more information on response headers and the response body, refer to the article about how to [create a runbook job by using the REST API.](https://msdn.microsoft.com/library/azure/mt163849.aspx)
 
 ### Test a runbook and assign parameters
 
