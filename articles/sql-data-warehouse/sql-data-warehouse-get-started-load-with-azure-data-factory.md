@@ -24,9 +24,9 @@
 - [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
 - [BCP](sql-data-warehouse-load-with-bcp.md)  
 
- This tutorial shows you how to create a pipeline in Azure Data Factory to move data from Azure Storage Blob to SQL Data Warehouse. With the following steps you will:
+This tutorial shows you how to create a pipeline in Azure Data Factory to move data from Azure Storage Blob to Azure SQL Data Warehouse. With the following steps you will:
 
-+ Set-up sample data in an Azure Storage Blob.
++ Set up sample data in an Azure Storage Blob.
 + Connect resources to Azure Data Factory.
 + Create a pipeline to move data from Storage Blobs to SQL Data Warehouse.
 
@@ -39,21 +39,21 @@ To familiarize yourself with Azure Data Factory, see [Introduction to Azure Data
 
 ### Create or identify resources
 
-Before starting this tutorial, you need to have the following resources.
+Before starting this tutorial, you need to have the following resources:
 
    + **Azure Storage Blob**: This tutorial uses Azure Storage Blob as the data source for the Azure Data Factory pipeline, and so you need to have one available to store the sample data. If you don't have one already, learn how to [Create a storage account][].
 
    + **SQL Data Warehouse**: This tutorial moves the data from Azure Storage Blob to  SQL Data Warehouse and so need to have a data warehouse online that is loaded with the AdventureWorksDW sample data. If you do not already have a data warehouse, learn how to [provision one][Create a SQL Data Warehouse]. If you have a data warehouse but didn't provision it with the sample data, you can [load it manually][Load sample data into SQL Data Warehouse].
 
-   + **Azure Data Factory**: Azure Data Factory will complete the actual load and so you need to have one that you can use to build the data movement pipeline.If you don't have one already, learn how to create one in Step 1 of [Get started with Azure Data Factory (Data Factory Editor)][].
+   + **Azure Data Factory**: Azure Data Factory completes the actual load and so you need to have one that you can use to build the data movement pipeline. If you don't have one already, learn how to create one in Step 1 of [Get started with Azure Data Factory (Data Factory Editor)][].
 
    + **AZCopy**: You need AZCopy to copy the sample data from your local client to your Azure Storage Blob. For install instructions, see the [AZCopy documentation][].
 
 ## Step 1: Copy sample data to Azure Storage Blob
 
-Once you have all of the pieces ready, you are ready to copy sample data to your Azure Storage Blob.
+Once you have all the pieces ready, you are ready to copy sample data to your Azure Storage Blob.
 
-1. [Download sample data][]. This data will add another three years of sales data to your AdventureWorksDW sample data.
+1. [Download sample data][]. This data adds another three years of sales data to your AdventureWorksDW sample data.
 
 2. Use this AZCopy command to copy the three years of data to your Azure Storage Blob.
 
@@ -128,7 +128,7 @@ After creating the linked services, we will have to define the data sets.  Here 
     }
     ```
 
-3. Now we will also define our dataset for SQL Data Warehouse.  We start in the same way, by clicking 'New dataset' and then 'Azure SQL Data Warehouse'.
+3. Now we define our dataset for SQL Data Warehouse. We start in the same way, by clicking 'New dataset' and then 'Azure SQL Data Warehouse'.
 
     ```JSON
     {
@@ -149,9 +149,9 @@ After creating the linked services, we will have to define the data sets.  Here 
 
 ## Step 3: Create and run your pipeline
 
-Finally, we will set-up and run the pipeline in Azure Data Factory.  This is the operation that will complete the actual data movement.  You can find a full view of the operations that you can complete with SQL Data Warehouse and Azure Data Factory [here][Move data to and from Azure SQL Data Warehouse using Azure Data Factory].
+Finally, we set up and run the pipeline in Azure Data Factory.  This is the operation that completes the actual data movement.  You can find a full view of the operations that you can complete with SQL Data Warehouse and Azure Data Factory [here][Move data to and from Azure SQL Data Warehouse using Azure Data Factory].
 
-In the 'Author and Deploy' section now click 'More Commands' and then 'New Pipeline'.  After you create the pipeline, you can use the below code to transfer the data to your data warehouse:
+In the 'Author and Deploy' section, click 'More Commands' and then 'New Pipeline'.  After you create the pipeline, you can use the below code to transfer the data to your data warehouse:
 
 ```JSON
 {
@@ -209,10 +209,10 @@ To learn more, start by viewing:
 - [Azure SQL Data Warehouse Connector][]. This is the core reference topic for using Azure Data Factory with Azure SQL Data Warehouse.
 
 
-These topics provide detailed information about Azure Data Factory. They discuss Azure SQL Database or HDinsight, but the information also applies to Azure SQL Data Warehouse.
+These topics provide detailed information about Azure Data Factory. They discuss Azure SQL Database or HDInsight, but the information also applies to Azure SQL Data Warehouse.
 
-- [Tutorial: Get started with Azure Data Factory][] This is the core tutorial for processing data with Azure Data Factory. In this tutorial you will build your first pipeline that uses HDInsight to transform and analyze web logs on a monthly basis. Note, there is no copy activity in this tutorial.
-- [Tutorial: Copy data from Azure Storage Blob to Azure SQL Database][]. In this tutorial, you will create a pipeline in Azure Data Factory to copy data from Azure Storage Blob to Azure SQL Database.
+- [Tutorial: Get started with Azure Data Factory][] This is the core tutorial for processing data with Azure Data Factory. In this tutorial, you will build your first pipeline that uses HDInsight to transform and analyze web logs on a monthly basis. Note, there is no copy activity in this tutorial.
+- [Tutorial: Copy data from Azure Storage Blob to Azure SQL Database][]. In this tutorial, you create a pipeline in Azure Data Factory to copy data from Azure Storage Blob to Azure SQL Database.
 
 <!--Image references-->
 
