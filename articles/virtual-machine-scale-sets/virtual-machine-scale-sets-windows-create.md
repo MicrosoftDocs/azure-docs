@@ -136,7 +136,7 @@ A virtual network is required for the virtual machines in the scale set.
         
 2. Create the subnet configuration:
     
-        $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subName -AddressPrefix 10.0.0.0/24
+        $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
         
     The address prefix may be different in your virtual network.
 
