@@ -1,13 +1,13 @@
 <properties 
     pageTitle="Service Bus relay samples overview | Microsoft Azure"
     description="Categorizes and describes Service Bus relay samples with links to each."
-    services="service-bus-relay"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" />
 <tags 
-    ms.service="service-bus-relay"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
@@ -91,5 +91,5 @@ Samples that demonstrate various Service Bus relay features.
 See the following topics for conceptual overviews of Service Bus.
 
 - [Service Bus relay overview](service-bus-relay-overview.md)
-- [Service Bus architecture](../service-bus/service-bus-architecture.md)
-- [Service Bus fundamentals](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+- [Service Bus architecture](../service-bus-messaging/service-bus-architecture.md)
+- [Service Bus fundamentals](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)

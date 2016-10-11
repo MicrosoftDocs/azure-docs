@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="How to use Service Bus queues in Node.js | Microsoft Azure" 
 	description="Learn how to use Service Bus queues in Azure from a Node.js app." 
-	services="service-bus-messaging" 
+	services="service-bus" 
 	documentationCenter="nodejs" 
 	authors="sethmanheim" 
 	manager="timlt" 
 	editor=""/>
 
 <tags 
-	ms.service="service-bus-messaging" 
+	ms.service="service-bus" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 

@@ -32,7 +32,7 @@ Congratulations! You have now created a Service Bus Messaging namespace.
 
 ## Next steps
 
-Check out our [GitHub repository](https://github.com/Azure-Samples/azure-servicebus-messaging-samples][github-samples) with samples that show some of the more advanced features of Azure Service Bus Messaging.
+Check out our [GitHub samples][github-samples] which show some of the more advanced features of Azure Service Bus Messaging.
 
-[create-namespace-using-arm]: ../service-bus-messaging/service-bus-resource-manager-overview.md
+[create-namespace-using-arm]: service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples

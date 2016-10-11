@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="How to use Service Bus topics with PHP | Microsoft Azure" 
 	description="Learn how to use Service Bus topics with PHP in Azure." 
-	services="service-bus-messaging" 
+	services="service-bus" 
 	documentationCenter="php" 
 	authors="sethmanheim" 
 	manager="timlt" 
 	editor=""/>
 
 <tags 
-	ms.service="service-bus-messaging" 
+	ms.service="service-bus" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
