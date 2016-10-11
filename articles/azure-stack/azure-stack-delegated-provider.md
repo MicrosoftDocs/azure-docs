@@ -170,6 +170,7 @@ delegated offer as a template.
 
 1.  Click **New** &gt; **Tenant Offers + Plans** &gt; **Offer**.
 
+
 > ![](media/azure-stack-delegated-provider/image5.png)
 
 
@@ -183,6 +184,7 @@ delegated offer as a template.
 > offer from base plans and add-on plans; she can only choose from
 > offers that have been delegated to her, and will not make changes to
 > them.
+
 
 3.  Make the offer public by clicking **Browse** &gt; **Offers**,
     selecting the offer, and clicking **Change State**.
