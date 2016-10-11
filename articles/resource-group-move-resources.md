@@ -22,8 +22,8 @@ This topic shows you how to move resources to either a new subscription or a new
 
 Typically, you move resources when you decide that:
 
-1. For billing purposes, a resource needs to live in a different subscription.
-2. A resource no longer shares the same lifecycle as the resources it was previously grouped with. You want to move it to a new resource group so you can manage that resource separately from the other resources.
+- For billing purposes, a resource needs to live in a different subscription.
+- A resource no longer shares the same lifecycle as the resources it was previously grouped with. You want to move it to a new resource group so you can manage that resource separately from the other resources.
 
 When moving resources, both the source group and the target group are locked during the operation. Write and delete operations are blocked on the groups until the move completes.
 
@@ -174,45 +174,45 @@ To move classic resources to a new subscription, you must use REST operations th
 
 1. Check if the source subscription can participate in a cross-subscription move. Use the following operation:
 
-       POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+         POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
     
      In the request body, include:
 
-       {
-         "role": "source"
-       }
+         {
+           "role": "source"
+         }
 
      The response for the validation operation is in the following format:
 
-       {
-         "status": "{status}",
-         "reasons": [
-           "reason1",
-           "reason2"
-         ]
-       }
+         {
+           "status": "{status}",
+           "reasons": [
+             "reason1",
+             "reason2"
+           ]
+         }
 
 2. Check if the destination subscription can participate in a cross-subscription move. Use the following operation:
 
-       POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+         POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
 
      In the request body, include:
 
-       {
-         "role": "target"
-       }
+         {
+           "role": "target"
+         }
 
      The response is in the same format as the source subscription validation.
 
 3. If both subscriptions pass validation, move all classic resources from one subscription to another subscription with the following operation:
 
-       POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
+         POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
 
     In the request body, include:
 
-       {
-         "target": "/subscriptions/{target-subscription-id}"
-       }
+         {
+           "target": "/subscriptions/{target-subscription-id}"
+         }
 
 The operation may run for several minutes. 
 
