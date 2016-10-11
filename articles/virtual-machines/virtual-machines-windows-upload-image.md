@@ -44,22 +44,22 @@ If you don't already have PowerShell version 1.4 or above installed, read [How t
 
 1. Open Azure PowerShell and sign in to your Azure account. A pop-up window opens for you to enter your Azure account credentials.
 
-```powershell
-Login-AzureRmAccount
-```
+	```powershell
+	Login-AzureRmAccount
+	```
 
 
 2. Get the subscription IDs for your available subscriptions.
 
-```powershell
-Get-AzureRmSubscription
-```
+	```powershell
+	Get-AzureRmSubscription
+	```
 
 3. Set the correct subscription using the subscription ID. Replace `<subscriptionID>` with the ID of the correct subscription.
 
-```powershell
-Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
-```
+	```powershell
+	Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
+	```
 
 ## Get the storage account
 
@@ -67,9 +67,9 @@ You need a storage account in Azure to store the uploaded VM image. You can eith
 
 To show the available storage accounts, type:
 
-```powershell
-Get-AzureRmStorageAccount
-```
+	```powershell
+	Get-AzureRmStorageAccount
+	```
 
 If you want to use an existing storage account, proceed to the [Upload the VM image](#upload-the-vm-vhd-to-your-storage-account) section.
 
@@ -81,7 +81,7 @@ If you need to create a storage account, follow these steps:
 	Get-AzureRmResourceGroup
 	```
 
-	To create a resource group named **myResourceGroup** in the **West US** region, type:
+To create a resource group named **myResourceGroup** in the **West US** region, type:
 
 	```powershell
 	New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
