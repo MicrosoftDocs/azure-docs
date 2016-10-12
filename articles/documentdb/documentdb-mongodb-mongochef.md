@@ -128,6 +128,5 @@ To create a database, collection, and documents using MongoChef, perform the fol
 ## Next steps
 
 - Explore DocumentDB with protocol support for MongoDB [samples](documentdb-mongodb-samples.md).
-- Read about the DocumentDB with protocol support for MongoDB [preview development guidelines](documentdb-mongodb-guidelines.md).
 
  

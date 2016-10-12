@@ -9,7 +9,7 @@
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="10/04/2016"

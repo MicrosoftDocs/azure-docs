@@ -147,7 +147,7 @@ Make the change to your application and rebuild the modified service.  Update th
 Now, you can start the application upgrade with the following command:
 
 ```
- azure servicefabric application upgrade start -–application-name fabric:/MySFApp -–application-type-version 2.0  --upgrade-mode UnmonitoredAuto
+ azure servicefabric application upgrade start -–application-name fabric:/MySFApp -–target-application-type-version 2.0  --rolling-upgrade-mode UnmonitoredAuto
 ```
 
 You can now monitor the application upgrade using SFX. In a few minutes, the application would have been updated.  You can also try an updated app with an error and check the auto rollback functionality in service fabric.

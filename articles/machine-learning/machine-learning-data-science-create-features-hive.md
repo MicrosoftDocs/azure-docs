@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="jhubbard" 
+	manager="jhubbard"
 	editor="cgronlun"  />
 
 <tags
@@ -19,7 +19,7 @@
 
 #Create features for data in an Hadoop cluster using Hive queries
 
-This document shows how to create features for data stored in an Azure HDInsight Hadoop cluster using Hive queries. These Hive queries use embedded Hive User Defined Functions (UDFs), the scripts for which are provided. 
+This document shows how to create features for data stored in an Azure HDInsight Hadoop cluster using Hive queries. These Hive queries use embedded Hive User Defined Functions (UDFs), the scripts for which are provided.
 
 The operations needed to create features can be memory intensive. The performance of Hive queries becomes more critical in such cases and can be improved by tuning certain parameters. The tuning of these parameters is discussed in the final section.
 
@@ -180,6 +180,3 @@ The default parameter settings of Hive cluster might not be suitable for the Hiv
 		set mapreduce.reduce.java.opts=-Xmx8192m;
 		set mapred.reduce.tasks=128;
 		set mapred.tasktracker.reduce.tasks.maximum=128;
-
-
- 
