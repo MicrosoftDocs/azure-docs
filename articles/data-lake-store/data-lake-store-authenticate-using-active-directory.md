@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/11/2016"
+   ms.date="10/12/2016"
    ms.author="nitinme"/>
 
 # Authenticate with Data Lake Store using Azure Active Directory
@@ -55,17 +55,15 @@ Your application can directly provide user credentials to Azure AD. This method 
 
 ### What do I need to use this approach?
 
-* Azure AD domain name (already listed in the prerequisite of this article).
-
-* Azure AD **native client application**. 
-
-* Client ID for the Azure AD native client application.
-
-* Redirect URI for the Azure AD native client application. 
+| Requirements | Instructions available at |
+|-------------------------|-----------------------------------|
+| Azure AD domain name       | Already listed in the prerequisite of this article        |
+| Azure AD **web application** | See Step 1 below, under [Create an Active Directory application](#create-an-active-directory-application) |
+| Client ID for the Azure AD web application | See Step 2 below, under [Create an Active Directory application](#create-an-active-directory-application)|
+| Reply URI for the Azure AD web application | See Step 2 below, under [Create an Active Directory application](#create-an-active-directory-application)| 
+| Set delegated permissions |  See Step 2 below, under [Create an Active Directory application](#create-an-active-directory-application)|
 
 For instructions on how to create an Azure AD application and retrieve the client ID, see the section, [Create an Active Directory application](#create-an-active-directory-application) below. 
-
->[AZURE.NOTE] The instructions below are for an Azure AD web application. However, the steps are exactly the same even if you chose to create a native client application instead.
 
 ## Service-to-service authentication
 
@@ -73,25 +71,25 @@ This is the recommended approach if you want your application to automatically a
 
 ### What do I need to use this approach?
 
-* Azure AD domain name (already listed in the prerequisite of this article).
+| Requirements | Instructions available at |
+|-------------------------|-----------------------------------|
+| Azure AD domain name       | Already listed in the prerequisite of this article        |
+| Azure AD **web application** | See Step 1 below, under [Create an Active Directory application](#create-an-active-directory-application) |
+| Client ID, client secret, and token endpoint for the Azure AD web application | See Step 3 below, under [Create an Active Directory application](#create-an-active-directory-application)|
+| Enable access for the Azure AD web application on the the Data Lake Store file/folder or the Data Lake Analytics account that you want to work with. | See Step 4 below, under [Create an Active Directory application](#create-an-active-directory-application)| 
 
-* Azure AD **web application**. (See Step 1 below, under [Create an Active Directory application](#create-an-active-directory-application)).
-
-* Client ID, client secret, and token endpoint for the Azure AD web application. (See Step 2 below, under [Create an Active Directory application](#create-an-active-directory-application)).
-		
-* Enable access for the Azure AD web application on the the Data Lake Store file/folder or the Data Lake Analytics account that you want to work with. (See Step 3 below, under [Create an Active Directory application](#create-an-active-directory-application)).
 
 >[AZURE.NOTE] By default the Azure AD application is configured to use the client secret, which you can retrieve from the Azure AD application. However, if you want the Azure AD application to use a certificate instead, you must create the Azure AD web application using Azure PowerShell, as described at [Create a service principal with certificate](../resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
 
-
-
 ## Create an Active Directory application
 
-In this section we learn about how to create and use an Azure AD application to authenticate using Azure Active Directory. Using Azure AD application for authentication with Data Lake Store is a 3-step process.
+In this section we learn about how to create and use an Azure AD web application to authenticate with Azure Data Lake Store using Azure Active Directory. Configurations you need in an Azure AD web application differ based on whether you are using the web app for end-user authentication or service-to-service authentication. The instructions in this section are comprehensive and cover requirements for both types of authentication. However, the table below summarizes the steps you should care about depending on whether you are using end-user authentication or service-to-service authentication.
 
-1. Create an Azure Active Directory application
-2. Retrieve the client id, authentication key, and OAuth token for the application
-3. Assign the identity to the Azure Data Lake Store account
+| End-user authentication | Service-to-service authentication |
+|-------------------------|-----------------------------------|
+| Use Step 1, Step 2      | Use Step 1, Step 3, Step 4        |
+
+
 
 ### Step 1: Create an Azure Active Directory application
 
@@ -120,7 +118,7 @@ In this section we learn about how to create and use an Azure AD application to 
 
      ![add](./media/data-lake-store-authenticate-using-active-directory/add-icon.png)
 
-6. Provide a name for the application and select the type of application you want to create. For this tutorial, create a **WEB APPLICATION AND/OR WEB API** and click the next button. If you select **NATIVE CLIENT APPLICATION**, the remaining steps of this article will not match your experience.
+6. Provide a name for the application and select the type of application you want to create. For this tutorial, create a **WEB APPLICATION AND/OR WEB API** and click the next button.
 
      ![name application](./media/data-lake-store-authenticate-using-active-directory/tell-us-about-your-application.png)
 
@@ -131,7 +129,33 @@ For **APP ID URI**, provide the URI that identifies your application.
 
 	Click the check mark to complete the wizard and create the application.
 
-### Step 2: Get client id, client secret, and token endpoint
+### Step 2: Get client id, reply URI, and set delegated permissions (only for end-user authentication)
+
+1. Click on the **Configure** tab to configure your application's password.
+
+     ![configure application](./media/data-lake-store-authenticate-using-active-directory/application-configure.png)
+
+2. Copy the **CLIENT ID**.
+  
+     ![client id](./media/data-lake-store-authenticate-using-active-directory/client-id.png)
+
+3. Under the **Single sign-on** section, copy the **Reply URI**.
+
+	![client id](./media/data-lake-store-authenticate-using-active-directory/aad-end-user-auth-get-reply-uri.png)
+
+4. Under **Permissions to other applications**, click **Add application**
+
+	![client id](./media/data-lake-store-authenticate-using-active-directory/aad-end-user-auth-set-permission-1.png)
+
+5. In the **Permissions to other applications** wizard, select **Azure Data Lake** and **Windows Azure Service Management API**, and click the checkmark.
+
+6. By default the **Delegated Permissions** for the newly added services is set to zero. Click the **Delegated Permissions** drop-down for Azure Data Lake and Windows Azure Management Service and select the available checkboxes to set the values to 1. The result should look like this.
+
+	 ![client id](./media/data-lake-store-authenticate-using-active-directory/aad-end-user-auth-set-permission-2.png)
+
+7. Click **Save**.
+
+### Step 3: Get client id, client secret, and token endpoint (only for service-to-service authentication)
 
 When programmatically logging in, you need the id for your application. If the application runs under its own credentials, you will also need an authentication key.
 
@@ -159,7 +183,7 @@ When programmatically logging in, you need the id for your application. If the a
 
 	![tenant id](./media/data-lake-store-authenticate-using-active-directory/save-tenant.png)
 
-### Step 3: Assign the Azure AD application to the Azure Data Lake Store account file or folder
+### Step 4: Assign the Azure AD application to the Azure Data Lake Store account file or folder (only for service-to-service authentication)
 
 1. Sign on to the new [Azure Portal](https://portal.azure.com) and open the Azure Data Lake Store account that you want to associate with the Azure Active Directory application you created earlier.
 
@@ -193,6 +217,7 @@ When programmatically logging in, you need the id for your application. If the a
 
 ## Next steps
 
+In this article you created an Azure AD web application and gathered the information you need in your client applications that you author using .NET SDK, Java SDK, etc. You can now proceed to the following articles that talk about how to use the Azure AD web application to first authenticate with Data Lake Store and then perform other operations on the store.
+
 - [Get started with Azure Data Lake Store using .NET SDK](data-lake-store-get-started-net-sdk.md)
 - [Get started with Azure Data Lake Store using Java SDK](data-lake-store-get-started-java-sdk.md)
-- [Secure data in Data Lake Store](data-lake-store-secure-data.md)

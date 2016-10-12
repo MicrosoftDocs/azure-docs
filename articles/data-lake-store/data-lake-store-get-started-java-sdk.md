@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/11/2016"
+   ms.date="10/12/2016"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using Java
@@ -38,7 +38,7 @@ Learn how to use the Azure Data Lake Store Java SDK to perform basic operations 
 
 ## How do I authenticate using Azure Active Directory?
 
-In this tutorial we use a Azure AD application client secret to retrieve an Azure Active Directory token. We use this token to create an Data Lake Store client object to perform operations file and directory operations. For instructions on how to authenticate with Azure Data Lake Store using the client secret, we perform the following high-level steps:
+In this tutorial we use a Azure AD application client secret to retrieve an Azure Active Directory token (service-to-service authentication). We use this token to create an Data Lake Store client object to perform operations file and directory operations. For instructions on how to authenticate with Azure Data Lake Store using the client secret, we perform the following high-level steps:
 
 1. Create an Azure AD web application
 2. Retrieve the client ID, client secret, and token endpoint for the Azure AD web application.
