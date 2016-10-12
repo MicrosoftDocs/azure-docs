@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/29/2016"
+	ms.date="10/11/2016"
 	ms.author="bwren"/>
 
 
@@ -46,7 +46,7 @@ The next two tables list the attributes that are required for each request to th
 | Authorization | The authorization signature. Later in the article, you can read about how to create an HMAC-SHA256 header. |
 | Log-Type | Specify the record type of the data that is being submitted. Currently, the log type supports only alpha characters. It does not support numerics or special characters. |
 | x-ms-date | The date that the request was processed, in RFC 1123 format. |
-| time-generated-field | You can specify that the message’s timestamp field be used as the **TimeGenerated** field to reflect the actual timestamp from the message data. If this field isn’t specified, the default for **TimeGenerated** is the time that the message is ingested. If you specify a message field, it should follow the ISO 8601 format YYYY-MM-DDThh:mm:ssZ. |
+| time-generated-field | The name of a field in the data that contains the timestamp of the data item. If you specify a field then its contents are used for **TimeGenerated**. If this field isn’t specified, the default for **TimeGenerated** is the time that the message is ingested. The contents of the message field should follow the ISO 8601 format YYYY-MM-DDThh:mm:ssZ. |
 
 
 ## Authorization
@@ -204,8 +204,8 @@ $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 # Specify the name of the record type that you'll be creating
 $LogType = "MyRecordType"
 
-# Specify a time in the format YYYY-MM-DDThh:mm:ssZ to specify a created time for the records
-$TimeStampField = ""
+# Specify a field with the created time for the records
+$TimeStampField = "DateValue"
 
 
 # Create two records with the same set of properties to create
