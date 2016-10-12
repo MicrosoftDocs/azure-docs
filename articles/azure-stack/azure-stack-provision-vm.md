@@ -24,7 +24,7 @@ As an administrator, you can create virtual machines to evaluate resources befor
 
 	![](media/azure-stack-provision-vm/image01.png)
 
-2.  In the **Basics** blade, type a **Name**, **User name**, and **Password**. For **VM disk type**, chose **HDD**. Choose a **Subscription**. Create a new **Resource group**, or select an existing one, and then click **OK**.  
+2.  In the **Basics** blade, type a **Name**, **User name**, and **Password**. For **VM disk type**, choose **HDD**. Choose a **Subscription**. Create a new **Resource group**, or select an existing one, and then click **OK**.  
 
 3.  In the **Choose a size** blade, click **A1 Basic**, and then click **Select**.  
 
