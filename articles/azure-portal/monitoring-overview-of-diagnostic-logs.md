@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/26/2016"
-	ms.author="johnkem"/>
+	ms.date="10/12/2016"
+	ms.author="johnkem; magoedte"/>
 
 # Overview of Azure Diagnostic Logs
 **Azure Diagnostic Logs** are logs emitted by a resource that provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type (for example, Windows event system logs are one category of Diagnostic Log for VMs and blob, table, and queue logs are categories of Diagnostic Logs for storage accounts) and differ from the [Activity Log (formerly known as Audit Log or Operational Log)](monitoring-overview-activity-logs.md), which provides insight into the operations that were performed on resources in your subscription. Not all resources support the new type of Diagnostic Logs described here. The list of Supported Services below shows which resource types support the new Diagnostic Logs.
@@ -147,7 +147,7 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 |    Data Lake Analytics        |    [Accessing diagnostic logs for Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 |    Logic Apps                 |    No schema available.                                                                                         |
 |    Azure Batch                |    No schema available.                                                                                         |
-|    Azure Automation           |    No schema available.                                                                                         |
+|    Azure Automation           |    [Log analytics for Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md)                                                                                         |
 |    Event Hub                  |    No schema available.                                                                                         |
 |    Service Bus                |    No schema available.                                                                                         |
 |    Stream Analytics           |    No schema available.                                                                                         |

@@ -3,7 +3,7 @@
 	description="Learn about the DocumentDB Document Explorer, an Azure Portal tool to view JSON, edit, create, and upload JSON documents with DocumentDB, a NoSQL document database."
     keywords="view json"
 	services="documentdb"
-	authors="AndrewHoh"
+	authors="kirillg"
 	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/30/2016"
-	ms.author="anhoh"/>
+	ms.author="kirillg"/>
 
 # View, edit, create, and upload JSON documents using DocumentDB Document Explorer
 
