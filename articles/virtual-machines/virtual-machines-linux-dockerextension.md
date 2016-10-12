@@ -18,11 +18,11 @@
 
 # Create a Docker environment in Azure using the Docker VM Extension
 
-Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux (and Windows as well). In Azure, you can use Docker according to your needs:
+Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux (and Windows as well). In Azure, you can deploy Docker in various ways according to your needs:
 
 - To quickly prototype an app, you can create a single Docker host using [Docker Machine](./virtual-machines-linux-docker-machine.md).
-- For larger, more stable environments, you can use the Docker VM Extension. The Docker VM Extension also supports [Docker Compose](virtual-machines-linux-docker-compose-quickstart.md) to generate consistent container deployments.
-- To build production-ready, scalable environments that use the additional scheduling and management tools, you can deploy a [Docker Swarm cluster on Azure Container Services](../container-service/container-service-deployment.md).
+- For larger, more stable environments, you can use the Docker VM Extension, which also supports [Docker Compose](virtual-machines-linux-docker-compose-quickstart.md) to generate consistent container deployments.
+- To build production-ready, scalable environments that provide additional scheduling and management tools, you can deploy a [Docker Swarm cluster on Azure Container Services](../container-service/container-service-deployment.md).
 
 This article focuses on using the Docker VM Extension and Azure Resource Manager templates.
 
@@ -31,7 +31,7 @@ This article focuses on using the Docker VM Extension and Azure Resource Manager
 
 The Azure Docker VM Extension installs and configures the Docker daemon, Docker client, and Docker Compose in your Linux virtual machine (VM). By using the Docker VM Extension, you have more control than simply using Docker Machine or creating the Docker host yourself. These additional controls make the Docker VM Extension suited for more robust developer or production environments.
 
-Using Azure Resource Manager, you create and deploy templates that define the entire structure of your environment. You can reuse these templates to create additional deployments in a consistent manner. Templates allow you to define resources such as the Docker host VMs, storage, Role-Based Access Controls (RBAC), and diagnostics. For more information about Azure Resource Manager and templates, see [Resource Manager overview](../resource-group-overview.md). 
+Using Azure Resource Manager, you create templates that define the entire structure of your environment. You can reuse these templates to create additional deployments in a consistent manner. Templates allow you to define resources such as the Docker host VMs, storage, Role-Based Access Controls (RBAC), and diagnostics. For more information about Azure Resource Manager and templates, see [Resource Manager overview](../resource-group-overview.md). 
 
 
 ## Deploy a template with the Docker VM Extension
@@ -75,7 +75,7 @@ info:    group create command OK
 
 ```
 
-The Azure CLI returns you to the prompt after only a few seconds, but in the background the template is being deployed and your Docker host is created and configured. It takes a few minutes for the deployment to finish. You can view details about the Docker host status using the `azure vm show` command.
+The Azure CLI returns you to the prompt after only a few seconds, but your Docker host is still being created and configured in Azure. It takes a few minutes for the deployment to finish. You can view details about the Docker host status using the `azure vm show` command.
 
 The following example checks the status of the VM named `myDockerVM` (the default name from the template - don't change this name) in the resource group named `myResourceGroup`. Enter the name of the resource group you created in the preceding step:
 
@@ -191,9 +191,9 @@ You can find more detailed walkthrough on using Resource Manager templates by re
 
 ## Next steps
 
-You may wish to [configure the Docker daemon TCP port](https://docs.docker.com/engine/reference/commandline/dockerd/#/bind-docker-to-another-hostport-or-a-unix-socket), understand [Docker security](https://docs.docker.com/engine/security/security/), or deploy containers using [Docker Compose](https://docs.docker.com/compose/overview/). For more information on the Azure Docker VM Extension itself, see the GitHub project](https://github.com/Azure/azure-docker-extension/).
+You may wish to [configure the Docker daemon TCP port](https://docs.docker.com/engine/reference/commandline/dockerd/#/bind-docker-to-another-hostport-or-a-unix-socket), understand [Docker security](https://docs.docker.com/engine/security/security/), or deploy containers using [Docker Compose](https://docs.docker.com/compose/overview/). For more information on the Azure Docker VM Extension itself, see the [GitHub project](https://github.com/Azure/azure-docker-extension/).
 
-Read more information about the additional deployment options:
+Read more information about the additional Docker deployment options in Azure:
 
 - [Use Docker Machine with the Azure driver](./virtual-machines-linux-docker-machine.md)  
 - [Get Started with Docker and Compose to define and run a multi-container application on an Azure virtual machine](virtual-machines-linux-docker-compose-quickstart.md).
