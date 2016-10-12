@@ -18,7 +18,7 @@
 # System performance counters in Application Insights
 
 
-Windows provides a wide variety of [performance counters](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) such as CPU occupancy, memory, disk and network usage. You can also define your own. [Application Insights][app-insights-overview.md] can show these performance counters if your application is running on an on-premises host or virtual machine to which you have administrative access. The charts indicate the resources available to your live application, and can help to identify unbalanced load between server instances.
+Windows provides a wide variety of [performance counters](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) such as CPU occupancy, memory, disk, and network usage. You can also define your own. [Application Insights](app-insights-overview.md) can show these performance counters if your application is running on an on-premises host or virtual machine to which you have administrative access. The charts indicate the resources available to your live application, and can help to identify unbalanced load between server instances.
 
 Performance counters appear in the Servers blade, which includes a table that segments by server instance.
 
@@ -30,9 +30,9 @@ Performance counters appear in the Servers blade, which includes a table that se
 
 ### Install Status Monitor
 
-If Application Insights Status Monitor isn't yet installed on your server machines, you'll need to install it in order to see performance counters.
+If Application Insights Status Monitor isn't yet installed on your server machines, you need to install it to see performance counters.
 
-Download and run [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648) on each server instance in order to see performance counters. If it's already installed, you don't need to install it again.
+Download and run [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648) on each server instance. If it's already installed, you don't need to install it again.
 
 * *I [installed the Application Insights SDK in my app](app-insights-asp-net.md) during development. Do I still need Status Monitor?*
 
@@ -49,16 +49,18 @@ You can edit a chart to display different performance counters. The available co
 
 ## Collect additional counters
 
-The available counters are those that Application Insights collects by default. But a wider range of performance counters is generated in your server, and you can configure Application Insights to collect them.
+Application Insights collects a small range of performance counters by default. But a wider range of counters is generated in your server, and you can configure Application Insights to collect them.
 
-The complete set of metrics available on your server can be determined on by using the PowerShell command: [`Get-Counter -ListSet *`](https://technet.microsoft.com/library/hh849685.aspx).
+1. Find out what counters are available in your server. The complete set of counters available on your server can be determined on by using this PowerShell command: 
 
-If the counters you want aren't in the metrics list, you can add them to the set that the SDK collects. 
+    `Get-Counter -ListSet *`
+
+    (See [`Get-Counter`](https://technet.microsoft.com/library/hh849685.aspx).)
 
 1. Open ApplicationInsights.config.
 
  * If you added Application Insights to your app during development, edit the .config file in your project, and then re-deploy it to your servers.
- * If you used Status Monitor to instrument an app at runtime, you'll find ApplicationInsights.config in the root directory of the app. Edit it there, and copy the result to each server instance.
+ * If you used Status Monitor to instrument a web app at runtime, find ApplicationInsights.config in the root directory of the app under IIS. Edit it there, and copy the result to each server instance.
 
 2. Edit the performance collector directive:
 
