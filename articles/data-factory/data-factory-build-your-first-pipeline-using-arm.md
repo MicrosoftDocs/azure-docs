@@ -120,7 +120,8 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFGetStarted** folder 
             	"type": "linkedservices",
 	            "name": "[variables('hdInsightOnDemandLinkedServiceName')]",
             	"dependsOn": [
-              		"[variables('dataFactoryName')]"
+              		"[variables('dataFactoryName')]",
+              		"[variables('azureStorageLinkedServiceName')]"
             	],
             	"apiVersion": "2015-10-01",
             	"properties": {
