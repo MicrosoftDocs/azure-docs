@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/26/2016"
+	ms.date="10/12/2016"
 	ms.author="erikje"/>
 
 # Provision a virtual machine
@@ -24,11 +24,11 @@ As an administrator, you can create virtual machines to evaluate resources befor
 
 	![](media/azure-stack-provision-vm/image01.png)
 
-2.  In the **Basics** blade, type a **Name**, **User name**, and **Password**. For **VM disk type**, choose **HDD**. Choose a **Subscription**. Create a new **Resource group**, or select an existing one, and then click **OK**.  
+2.  In the **Basics** blade, type a **Name**, **User name**, and **Password**. For **VM disk type**, choose **HDD**. Choose a **Subscription**. Create a **Resource group**, or select an existing one, and then click **OK**.  
 
 3.  In the **Choose a size** blade, click **A1 Basic**, and then click **Select**.  
 
-4.  In the **Settings** blade, click **Virtual network**. In the **Choose virtual network** blade, click **Create new**. In the **Create virtual network** blade, accept all the defaults and click **OK**. In the **Settings** blade, click **OK**.
+4.  In the **Settings** blade, click **Virtual network**. In the **Choose virtual network** blade, click **Create new**. In the **Create virtual network** blade, accept all the defaults, and click **OK**. In the **Settings** blade, click **OK**.
 
 	![](media/azure-stack-provision-vm/image04.png)
 
