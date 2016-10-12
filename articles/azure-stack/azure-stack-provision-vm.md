@@ -28,7 +28,7 @@ As an administrator, you can create virtual machines to evaluate resources befor
 
 3.  In the **Choose a size** blade, click **A1 Basic**, and then click **Select**.  
 
-4.  In the **Settings** blade, click **Virtual network**. In the **Choose virtual network** blade, click **Create new**. In the **Create virtual network** blade, accept all the defaults and click **OK**. In the **Settings** blade, click **OK** to create the virtual machine.
+4.  In the **Settings** blade, click **Virtual network**. In the **Choose virtual network** blade, click **Create new**. In the **Create virtual network** blade, accept all the defaults and click **OK**. In the **Settings** blade, click **OK**.
 
 	![](media/azure-stack-provision-vm/image04.png)
 
