@@ -26,6 +26,7 @@ Configure your Raspberry Pi 3 for first time use and install the Raspbian OS, a 
 
 ## 1.1.2 What you will learn
 In this section, you will learn:
+
 -	How to install Raspbian OS on your Raspberry Pi 3
 -	How to power up your Pi using USB cable
 -	How to connect your Pi to the network using Ethernet cable or WiFi
@@ -55,12 +56,11 @@ You also need:
 ## 1.1.4 Download Raspbian OS
 Prepare your Raspberry Pi 3 SD card to use the Raspbian OS.
 
-- [Download](https://www.sdcard.org/downloads/formatter_4/index.html) the SD Card Formatter utility and follow the instructions to format your SD card
-- [Download](https://downloads.raspberrypi.org/raspbian_latest) the zip file for Raspbian OS and unzip into a folder on your computer or laptop 
-- Visit [etcher.io](https://www.etcher.io) and download and install the Etcher SD card image utility
-- Run Etcher and select the Raspbian image you unzipped on your computer or laptop
+- [Download](https://downloads.raspberrypi.org/raspbian_latest) the zip file for Raspbian OS and unzip into a folder on your computer or laptop.
+- Visit [etcher.io](https://www.etcher.io) and download and install the Etcher SD card image utility.
+- Run Etcher and select the Raspbian image you unzipped on your computer or laptop.
 - Select the SD card drive. Note that the software may have already selected the correct drive.
-Finally, click Burn to transfer the Raspbian OS image to the SD card. Once complete, the utility automatically ejects/unmounts the SD card so it's safe to remove it from the computer
+Finally, click Burn to transfer the Raspbian OS image to the SD card. Once complete, the utility automatically ejects/unmounts the SD card so it's safe to remove it from the computer.
 
 You can now insert the SD card into your Raspberry Pi 3 board.
 
