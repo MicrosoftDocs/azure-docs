@@ -160,7 +160,7 @@ azure network traffic-manager endpoint set --name <endpoint> --profile-name <pro
 
 ### SQL Database
 
-If the primary database fails, perform a manual failover to the secondary database. See [Initiate a planned or unplanned failover for Azure SQL Database][sql-failover]. Until you fail over, the secondary database remains read-only. Also follow the steps listed in [Finalize your recovered Azure SQL Database][sql-db-finalize].
+If the primary database fails, perform a manual failover to the secondary database. See [Restore an Azure SQL Database or failover to a secondary][sql-failover]. Until you fail over, the secondary database remains read-only. 
 
 
 <!-- links -->
@@ -173,8 +173,7 @@ If the primary database fails, perform a manual failover to the secondary databa
 [regional-pairs]: ../best-practices-availability-paired-regions.md
 [resource groups]: ../resource-group-overview.md
 [services-by-region]: https://azure.microsoft.com/en-us/regions/#services
-[sql-db-finalize]: ../sql-database/sql-database-recovered-finalize.md
-[sql-failover]: ../sql-database/sql-database-geo-replication-failover-powershell.md
+[sql-failover]: ../sql-database/sql-database-disaster-recovery.md
 [sql-replication]: ../sql-database/sql-database-geo-replication-overview.md
 [sql-rpo]: ../sql-database/sql-database-business-continuity.md#sql-database-business-continuity-features
 [storage-outage]: ../storage/storage-disaster-recovery-guidance.md
