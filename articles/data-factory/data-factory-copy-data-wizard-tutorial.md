@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Tutorial: Create a pipeline using Copy Wizard" 
+	pageTitle="Tutorial: Create a pipeline using Copy Wizard | Microsoft Azure" 
 	description="In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using the Copy Wizard supported by Data Factory" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" **
+	ms.tgt_pltfrm="na"
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
 	ms.date="09/16/2016" 
