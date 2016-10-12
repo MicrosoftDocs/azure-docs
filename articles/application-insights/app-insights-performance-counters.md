@@ -18,7 +18,7 @@
 # System performance counters in Application Insights
 
 
-Windows provides a wide variety of [performance counters](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) such as CPU occupancy, memory, disk, and network usage. You can also define your own. [Application Insights](app-insights-overview.md) can show these performance counters if your application is running on an on-premises host or virtual machine to which you have administrative access. The charts indicate the resources available to your live application, and can help to identify unbalanced load between server instances.
+Windows provides a wide variety of [performance counters](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) such as CPU occupancy, memory, disk, and network usage. You can also define your own. [Application Insights](app-insights-overview.md) can show these performance counters if your application is running under IIS on an on-premises host or virtual machine to which you have administrative access. The charts indicate the resources available to your live application, and can help to identify unbalanced load between server instances.
 
 Performance counters appear in the Servers blade, which includes a table that segments by server instance.
 
@@ -41,17 +41,21 @@ Download and run [Status Monitor installer](http://go.microsoft.com/fwlink/?Link
 
 ## View performance counters
 
-The Servers blade shows a default set of counters. The blade is a [Metrics Explorer](app-insights-metrics-explorer.md) blade, so you can adjust the time range and filters for the blade, and edit the charts that are displayed.
+The Servers blade shows a default set of performance counters. 
 
-You can edit a chart to display different performance counters. The available counters are listed when you edit a chart.
+To see other counters, either edit the charts on the Servers blade, or open a new [Metrics Explorer](app-insights-metrics-explorer.md) blade and add new charts. 
+
+The available counters are listed as metrics when you edit a chart.
 
 ![Performance counters reported in Application Insights](./media/app-insights-performance-counters/choose-performance-counters.png)
 
+To see all your most useful charts in one place, create a [dashboard](app-insights-dashboards.md) and pin them to it.
+
 ## Collect additional counters
 
-Application Insights collects a small range of performance counters by default. But a wider range of counters is generated in your server, and you can configure Application Insights to collect them.
+If the performance counter you want isn't shown in the list of metrics, that's because the Application Insights SDK isn't collecting it in your web server. You can configure it to do so.
 
-1. Find out what counters are available in your server. The complete set of counters available on your server can be determined on by using this PowerShell command: 
+1. Find out what counters are available in your server by using this PowerShell command at the server:
 
     `Get-Counter -ListSet *`
 
@@ -59,8 +63,8 @@ Application Insights collects a small range of performance counters by default. 
 
 1. Open ApplicationInsights.config.
 
- * If you added Application Insights to your app during development, edit the .config file in your project, and then re-deploy it to your servers.
- * If you used Status Monitor to instrument a web app at runtime, find ApplicationInsights.config in the root directory of the app under IIS. Edit it there, and copy the result to each server instance.
+ * If you added Application Insights to your app during development, edit ApplicationInsights.config in your project, and then re-deploy it to your servers.
+ * If you used Status Monitor to instrument a web app at runtime, find ApplicationInsights.config in the root directory of the app in IIS. Update it there in each server instance.
 
 2. Edit the performance collector directive:
 
@@ -69,23 +73,23 @@ Application Insights collects a small range of performance counters by default. 
     <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
       <Counters>
         <Add PerformanceCounter="\Objects\Processes"/>
-        <Add PerformanceCounter="\Sales(electronics)\# Items Sold" ReportAs="Item sales"/>
+        <Add PerformanceCounter="\Sales(photo)\# Items Sold" ReportAs="Photo sales"/>
       </Counters>
     </Add>
 
 ```
 
-You can capture both standard counters, and those you have implemented yourself. `\Objects\Processes` is an example of a standard counter, available on all Windows systems. `\Sales(electronics)\# Items Sold` is an example of a custom counter that might be implemented in a web server. 
+You can capture both standard counters and those you have implemented yourself. `\Objects\Processes` is an example of a standard counter, available on all Windows systems. `\Sales(photo)\# Items Sold` is an example of a custom counter that might be implemented in a web service. 
 
 The format is `\Category(instance)\Counter"`, or for categories that don't have instances, just `\Category\Counter`.
 
-`ReportAs` is required for counter names that contain special characters that are not in the following sets: letters, round brackets, forward slash, hyphen, underscore, space, dot.
+`ReportAs` is required for counter names that do not match `[a-zA-Z()/-_ \.]+` - that is, they contain characters that are not in the following sets: letters, round brackets, forward slash, hyphen, underscore, space, dot.
 
 If you specify an instance, it will be collected as a dimension "CounterInstanceName" of the reported metric.
 
 ### Collecting performance counters in code
 
-To collect system performance counters and push them to Application Insights, you can use the snippet below:
+To collect system performance counters and send them to Application Insights, you can adapt the snippet below:
 
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
@@ -96,7 +100,7 @@ Or you can do the same thing with custom metrics you created:
 
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
-      @"\Sales(electronics)\# Items Sold", "Items sold"));
+      @"\Sales(photo)\# Items Sold", "Photo sales"));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 
 ## Performance counters in Analytics
@@ -104,11 +108,13 @@ Or you can do the same thing with custom metrics you created:
 You can search and display performance counter reports in [Analytics](app-insights-analytics.md).
 
 
-The **performanceCounters** schema exposes the `category`, `counter` name, and `instance` name of each performance counter. Counter instance names are only applicable to some performance counters, and typically indicate the name of the process to which the count relates. In the telemetry for each application, you’ll see only the counters for that application. For example, to see what counters are available: 
+The **performanceCounters** schema exposes the `category`, `counter` name, and `instance` name of each performance counter.  In the telemetry for each application, you’ll see only the counters for that application. For example, to see what counters are available: 
 
 ![Performance counters in Application Insights analytics](./media/app-insights-analytics-tour/analytics-performance-counters.png)
 
-For example, to get a chart of available memory over the recent period: 
+('Instance' here refers to the performance counter instance,  not the role or server machine instance. The performance counter instance name typically segments counters such as processor time by the name of the process or application.)
+
+To get a chart of available memory over the recent period: 
 
 ![Memory timechart in Application Insights analytics](./media/app-insights-analytics-tour/analytics-available-memory.png)
 
