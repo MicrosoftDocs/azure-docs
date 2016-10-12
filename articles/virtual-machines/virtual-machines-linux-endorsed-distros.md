@@ -44,9 +44,9 @@ CentOS by OpenLogic | CentOS 6.3+, 7.0+ | CentOS 6.3: [LIS Download](http://go.m
 Debian | Debian 7.9+, 8.2+ | In Kernel | Package: In repo under "waagent" <br/>Source Code: [GitHub](https://github.com/Azure/WALinuxAgent)
 Oracle Linux | 6.4+, 7.0+ | In Kernel | Package: In repo under "WALinuxAgent" <br/>Source Code: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 Red Hat Enterprise Linux | RHEL 6.7+, 7.1+ | In Kernel|Package: In repo under "WALinuxAgent" <br/>Source Code: [GitHub](https://github.com/Azure/WALinuxAgent)
-SUSE Linux Enterprise | SLES 11 SP4, SLES 12+ and <p> SLES for SAP 11.3+ | In Kernel | Package: In [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo under "WALinuxAgent" <br/>Source Code: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-openSUSE | openSUSE 13.2+ | In Kernel | Package: In [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo under "WALinuxAgent" <br/>Source Code: [GitHub](https://github.com/Azure/WALinuxAgent)
-Ubuntu|Ubuntu 12.04, 14.04 and 16.04 | In Kernel | Package: In repo under "walinuxagent" <br/>Source Code: [GitHub](https://github.com/Azure/WALinuxAgent)
+SUSE Linux Enterprise | SLES 11 SP4, SLES 12+ and <p> SLES for SAP 11.3+ | In Kernel | Package: In [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo under "python-azure-agent" <br/>Source Code: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+openSUSE | openSUSE 13.2+ | In Kernel | Package: In [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo under "python-azure-agent" <br/>Source Code: [GitHub](https://github.com/Azure/WALinuxAgent)
+Ubuntu|Ubuntu 12.04, 14.04 and 16.04 | In Kernel | Package: In repo under "python-azure-agent" <br/>Source Code: [GitHub](https://github.com/Azure/WALinuxAgent)
 
 
 ## Partners

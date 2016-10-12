@@ -167,10 +167,10 @@ For more information about creating a VM, see [Create and preconfigure a Windows
 
 1. Create an Availability Set and Storage account
 
-        New-AzureRmAvailabilitySet -Name $availabilitySetName -ResourceGroupName NRP-RG -location 'West US'
+        New-AzureRmAvailabilitySet -Name 'myNrpIPv6AvSet' -ResourceGroupName NRP-RG -location 'West US'
         $availabilitySet = Get-AzureRmAvailabilitySet -Name 'myNrpIPv6AvSet' -ResourceGroupName NRP-RG
-        New-AzureRmStorageAccount -ResourceGroupName NRP-RG -Name $vmStorageAccount -Location 'West US' -SkuName $LRS
-        $CreatedStorageAccount = Get-AzureRmStorageAccount -ResourceGroupName NRP-RG -Name $vmStorageAccount
+        New-AzureRmStorageAccount -ResourceGroupName NRP-RG -Name 'mynrpipv6stacct' -Location 'West US' -SkuName $LRS
+        $CreatedStorageAccount = Get-AzureRmStorageAccount -ResourceGroupName NRP-RG -Name 'mynrpipv6stacct'
 
 2. Create each VM and assign the previous created NICs
 

@@ -4,7 +4,7 @@
    services="cloud-services" 
    documentationCenter="na" 
    authors="raiye" 
-   manager="markkie" 
+   manager="timlt" 
    editor=""/>
 
 <tags

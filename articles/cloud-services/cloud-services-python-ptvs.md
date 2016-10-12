@@ -354,8 +354,8 @@ For more details about using Azure services from your web and worker roles, such
 [Blob Service]: ../storage/storage-python-how-to-use-blob-storage.md
 [Queue Service]: ../storage/storage-python-how-to-use-queue-storage.md
 [Table Service]: ../storage/storage-python-how-to-use-table-storage.md
-[Service Bus Queues]: ../service-bus/service-bus-python-how-to-use-queues.md
-[Service Bus Topics]: ../service-bus/service-bus-python-how-to-use-topics-subscriptions.md
+[Service Bus Queues]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
+[Service Bus Topics]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->

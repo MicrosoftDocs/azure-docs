@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/29/2016"
+   ms.date="10/11/2016"
    ms.author="christb"/>
 
 # Azure Reference Architectures

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2016"
+	ms.date="10/10/2016"
 	ms.author="banders"/>
 
 # Connect Linux computers to Log Analytics
@@ -133,9 +133,8 @@ Linux performance counters are similar to Windows performance counters—both op
 ### To add a Linux performance counter in OMS
 
 1. To configure OMS Agents for Linux using the OMS portal, you can add Linux performance counters on the Settings page, click **Data**.  
+2. On the **Settings** page under **Data** , click **Linux performance counters** and then select or type the name of the counter you want to add.  
     ![data](./media/log-analytics-linux-agents/oms-settings-data01.png)
-2. On the **Settings** page under **Data** , click **Linux performance counters** and then to the left of the plus icon, type the name of the counter you want to add.  
-    ![Linux performance counters](./media/log-analytics-linux-agents/oms-linuxperfcounter01.png)
 3. If you don't know the full name of the counter, you can start typing a partial name and a list of available counters will appear. When you find the counter you want to add, click the name in the list and then click the plus icon to add the counter.
 4. After you add the counter, it appears in the list of counters highlighted with a colored bar.
 5. By default, the **Apply below configuration to my machines** option is selected. If you want to disable sending configuration data, clear the selection.
