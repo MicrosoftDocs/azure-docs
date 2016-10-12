@@ -82,7 +82,7 @@ If your app is actively writing trace statements, then you should see them in th
 The **Azure portal** provides console access to your app. You can explore 
 your app's file system and run powershell/cmd scripts. You are bound by the 
 same permissions set as your running app code when executing console commands. 
-Access to protected directories or runing scripts that require elevated 
+Access to protected directories or running scripts that require elevated 
 permissions is blocked.  
 
 ![][ConsoleScreenshot]
