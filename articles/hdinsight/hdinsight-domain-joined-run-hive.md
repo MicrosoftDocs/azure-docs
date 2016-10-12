@@ -66,7 +66,7 @@ In this section, you will create two Ranger policies for accessing hivesampletab
 	- Select User: hiveuser1
 	- Permissions: select
 
-	![HDInsight Secure Ranger Hive policy configure](./media/hdinsight-secure-run-hive/hdinsight-secure-configure-ranger-policy.png).
+	![HDInsight Secure Ranger Hive policy configure](./media/hdinsight-domain-joined-run-hive/hdinsight-secure-configure-ranger-policy.png).
 
 	>[AZURE.NOTE] If a domain user is not populated in Select User, wait a few moments for Ranger to sync with AAD.
 

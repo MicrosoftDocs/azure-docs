@@ -33,7 +33,7 @@ Perimeter security in HDInsight is achieved using virtual networks and Gateway s
 
 ### Authentication
 
-With this public preview, an enterprise admin can provision a Domain-joined HDInsight cluster, in a [virtual network](https://azure.microsoft.com/services/virtual-network/). The nodes of the HDInsight cluster will be joined to the domain managed by the enterprise. This is achieved through use of [Azure Active Directory Domain Services](https://technet.microsoft.com/library/cc770946(v=ws.10).aspx). The HDInsight cluster can be configured with either Windows Azure Storage Blob or Azure Data Lake Storage as the data stores for HDFS. All the nodes in the cluster are joined to a domain that the enterprise manages. With this setup, the enterprise employees can log on to the cluster nodes using their domain credentials. They can also use their domain credentials to authenticate with other approved endpoints like Hue, Ambari Views, ODBC tools, PowerShell and REST APIs to interact with the cluster. The admin has full control over limiting the number of users interacting with the cluster via these endpoints.
+With this public preview, an enterprise admin can provision a Domain-joined HDInsight cluster, in a [virtual network](https://azure.microsoft.com/services/virtual-network/). The nodes of the HDInsight cluster will be joined to the domain managed by the enterprise. This is achieved through use of [Azure Active Directory Domain Services](https://technet.microsoft.com/library/cc770946(v=ws.10).aspx). The HDInsight cluster can be configured with either Azure Storage Blob or Azure Data Lake Storage as the data stores for HDFS. All the nodes in the cluster are joined to a domain that the enterprise manages. With this setup, the enterprise employees can log on to the cluster nodes using their domain credentials. They can also use their domain credentials to authenticate with other approved endpoints like Hue, Ambari Views, ODBC tools, PowerShell and REST APIs to interact with the cluster. The admin has full control over limiting the number of users interacting with the cluster via these endpoints.
 
 ### Authorization
 
@@ -48,7 +48,7 @@ Along with protecting the HDInsight cluster resources from unauthorized users, a
 
 ### Encryption
 
-Protecting data is important for meeting organizational security and compliance requirements, and along with restricting access to data from unauthorized employees, it should also be secured by encrypting it. Both the data stores for HDInsight clusters, Windows Azure Storage Blob, and Azure Data Lake Storage support transparent server-side [encryption of data](https://azure.microsoft.com/documentation/articles/storage-service-encryption/) at rest. Secure HDInsight clusters will seamlessly work with this server side encryption of data at rest capability.
+Protecting data is important for meeting organizational security and compliance requirements, and along with restricting access to data from unauthorized employees, it should also be secured by encrypting it. Both the data stores for HDInsight clusters, Azure Storage Blob, and Azure Data Lake Storage support transparent server-side [encryption of data](../storage/storage-service-encryption/) at rest. Secure HDInsight clusters will seamlessly work with this server side encryption of data at rest capability.
 
 
 ## Configure Domain-joined HDInsight clusters

@@ -88,7 +88,7 @@ In this section, you create a classic VNet using the Azure classic portal. In th
 	
 6. Click **Complete** to create the VNet.
 
-## Create and configur Azure Active Directory Domain Services for your Azure AD
+## Create and configure Azure Active Directory Domain Services for your Azure AD
 
 In this section, you will:
 
@@ -269,7 +269,7 @@ For more information, see [Join a Windows Server virtual machine to a managed do
 
 **To install Active Directory administration tools and DNS tools**
 
-1. RDP into **contosoaadadmin** using the Acure AD user account.
+1. RDP into **contosoaadadmin** using the Azure AD user account.
 2. Click **Start**, and then click **Server Manager**.
 3. Click **Dashboard** from the left menu.
 4. Click **Manage**, and then click **Add roles and features**.
