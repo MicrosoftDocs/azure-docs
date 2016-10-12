@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/16/2016"
+   ms.date="10/11/2016"
    ms.author="alkohli" />
 
 # Deploy your on-premises StorSimple device (Update 2)
@@ -49,11 +49,11 @@ Perform these required steps to configure your StorSimple device and connect it 
 | **STEP-BY-STEP DEPLOYMENT**                                                                   | These steps are required to deploy your StorSimple device in production.                                                                                      |
 | [Step 1: Create a new service](#step-1-create-a-new-service)                                                         | Set up cloud management and storage for your   StorSimple device. *Skip this step if you have an existing service for other StorSimple devices*.                |
 | [Step 2: Get the service registration key](#step-2-get-the-service-registration-key)                                               | Use this key to register & connect your StorSimple device with the management service.                                                                         |
-| [Step 3: Configure and register the device through Windows PowerShell for StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)    | Connect the device to your network and register it with Azure to complete   the setup using the management service.                                            |
+| [Step 3: Configure and register the device through Windows PowerShell for StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)    | Connect the device to your network and register it with Azure to complete the setup using the management service.                                            |
 | [Step 4: Complete minimum device setup](#step-4-complete-minimum-device-setupd)</br>[Optional: Update your StorSimple device](#scan-for-and-apply-updates)      | Use the management service to complete the device setup and enable it to provide storage.                                                                      |
 | [Step 5: Create a volume container](#step-5-create-a-volume-container)                                                      | Create a container to provision volumes. A volume container has storage   account, bandwidth, and encryption settings for all the volumes contained in it.    |
 | [Step 6: Create a volume](#step-6-create-a-volume)                                                                | Provision storage volume(s) on the StorSimple device for your servers.                                                                                        |
-| [Step 7: Mount, initialize, and format a volume](#step-7-mount-initialize-and-format-a-volume)</br>[Optional: Configure MPIO](storsimple-configure-mpio-windows-server.md)            | Connect your servers to the iSCSI storage provided by the device. Optionally configure MPIO to ensure that your servers can tolerate link, network and itnerface failure.                                                                                                                                                              |
+| [Step 7: Mount, initialize, and format a volume](#step-7-mount-initialize-and-format-a-volume)</br>[Optional: Configure MPIO](storsimple-configure-mpio-windows-server.md)            | Connect your servers to the iSCSI storage provided by the device. Optionally configure MPIO to ensure that your servers can tolerate link, network and interface failure.                                                                                                                                                              |
 | [Step 8: Take a backup](#step-8-take-a-backup)                                                                  | Set up your backup policy to protect your data                                                                                                                 |
 |                                                                                        |                                                                                                                                                               |
 | **OTHER PROCEDURES**                                                                   | You may need to refer to these procedures as you deploy your solution.                                                                                     	 |

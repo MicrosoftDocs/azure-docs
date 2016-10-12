@@ -1,14 +1,14 @@
 <properties
 	pageTitle="How to use Service Bus topics (Ruby) | Microsoft Azure"
 	description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications."
-	services="service-bus-messaging"
+	services="service-bus"
 	documentationCenter="ruby"
 	authors="sethmanheim"
 	manager="timlt"
 	editor=""/>
 
 <tags
-	ms.service="service-bus-messaging"
+	ms.service="service-bus"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"

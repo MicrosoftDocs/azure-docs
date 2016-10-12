@@ -4,7 +4,7 @@
 	services=""
     suite="iot-suite"
 	documentationCenter=".net"
-	authors="stevehob"
+	authors="aguilaaj"
 	manager="timlt"
 	editor=""/>
 
@@ -14,8 +14,8 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="06/27/2016"
-     ms.author="stevehob"/>
+     ms.date="10/11/2016"
+     ms.author="aguilaaj"/>
 
 # Customize a preconfigured solution
 

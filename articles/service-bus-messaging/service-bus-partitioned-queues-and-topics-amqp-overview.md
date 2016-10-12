@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="AMQP 1.0 support for Service Bus partitioned queues and topics | Microsoft Azure" 
 	description="Learn about using the Advanced Message Queuing Protocol (AMQP) 1.0 with Service Bus partitioned queues and topics." 
-	services="service-bus-messaging" 
+	services="service-bus" 
 	documentationCenter=".net" 
 	authors="hillaryc" 
 	manager="timlt" 
 	editor=""/>
 
 <tags 
-	ms.service="service-bus-messaging" 
+	ms.service="service-bus" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
