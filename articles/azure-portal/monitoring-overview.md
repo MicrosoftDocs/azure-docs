@@ -53,7 +53,7 @@ Collectable metrics vary based on the resource type. For example, Virtual Machin
 
 For compute resources you can obtain metrics on the Guest OS and diagnostics modules like Azure Diagnostics. Azure Diagnostics helps gather and route gather diagnostic data to other locations, including Azure storage.
 
-A list of currently collectable metrics is available at [supported metrics](monitoring-supported-metrics).
+A list of currently collectable metrics is available at [supported metrics](monitoring-supported-metrics.md).
 
 ### Application - Diagnostics Logs, Application Logs, and Metrics
 **Compute Only**
@@ -121,7 +121,7 @@ Examples include:
 
 ## Methods of Use
 In general, you can manipulate data tracking, routing, and retrieval using one of the following methods. Not all methods are available for all actions or data types.
-sep
+
 - [Azure portal](https://portal.azure.com)
 - [PowerShell](insights-powershell-samples.md)  
 - [Cross-platform Command Line Interface (CLI)](insights-cli-samples.md)
