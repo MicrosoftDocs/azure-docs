@@ -70,7 +70,7 @@ Here's an example:
             "key": "YourStorageAccountKey"
 	},
     "CommitmentPlan": {
-        "id": "subscriptions/YouSubscriptionID/resourceGroups/YourResourceGroupID/Microsoft.MachineLearning/commitmentPlans/YourPlanName"
+        "id": "subscriptions/YouSubscriptionID/resourceGroups/YourResourceGroupID/providers/Microsoft.MachineLearning/commitmentPlans/YourPlanName"
     }
 
 See the following articles and sample code for additional details:
