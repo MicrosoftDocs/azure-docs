@@ -53,7 +53,7 @@ Security Center employs advanced security analytics, which go far beyond signatu
 
 Security analytics that come with the Standard tier are:
 
-- **Threat intelligence** - Looks for known bad actors by using global threat intelligence from Microsoft products and services, the Microsoft Digital Crimes Unit (DCU), the Microsoft Security Response Center (MSRC), and external feeds
+- **Threat intelligence** - Looks for known bad actors by using global threat intelligence from Microsoft products and services, the Microsoft Digital Crimes Unit, the Microsoft Security Response Center, and external feeds
 - **Behavioral analysis** - Applies known patterns to discover malicious behavior
 - **Anomaly detection** - Uses statistical profiling to build a historical baseline. It alerts on deviations from established baselines that conform to a potential attack vector
 
@@ -61,7 +61,7 @@ In the **Security alerts** blade below, Security Center has detected a security 
 
 ![Security incident][3]
 
-The **Network communication** alert below provides details about the alert, which includes its full description, its severity, its current state (which in this case is dismissed, meaning the user has taken an action to dismiss it), the attacked resource, and remediation steps. There is also a list of links to Microsoft Threat Intelligence reports. These reports can be used for security remediation and defensive purposes.
+The **Network communication** alert below provides details about the alert. Details include its full description, its severity, its current state (which in this case is dismissed, meaning the user took action to dismiss it), the attacked resource, and remediation steps. There is also a list of links to Microsoft Threat Intelligence reports. These reports can be used for security remediation and defensive purposes.
 
 ![Security alert details][4]
 
