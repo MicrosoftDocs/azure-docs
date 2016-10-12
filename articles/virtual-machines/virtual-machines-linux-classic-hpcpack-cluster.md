@@ -13,12 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="10/11/2016"
+ ms.date="10/12/2016"
  ms.author="danlep"/>
 
 # Get started with Linux compute nodes in an HPC Pack cluster in Azure
 
-Set up a [Microsoft HPC Pack](https://technet.microsoft.com/en-us/library/cc514029.aspx) cluster in Azure that contains a head node running Windows Server and several compute nodes running a supported Linux distribution. Explore options to move data among the Linux nodes and the Windows head node of the cluster. Learn how to submit Linux HPC jobs to the cluster.
+Set up a [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) cluster in Azure that contains a head node running Windows Server and several compute nodes running a supported Linux distribution. Explore options to move data among the Linux nodes and the Windows head node of the cluster. Learn how to submit Linux HPC jobs to the cluster.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)].
 
@@ -32,7 +32,7 @@ For other options to run Linux HPC workloads in Azure, see [Technical resources 
 
 ## Deploy an HPC Pack cluster with Linux compute nodes
 
-This article shows you two options to deploy an HPC Pack cluster in Azure with Linux compute nodes. Both methods use a Windows Server VM image with HPC Pack to create the head node. 
+This article shows you two options to deploy an HPC Pack cluster in Azure with Linux compute nodes. Both methods use a Marketplace image of Windows Server with HPC Pack to create the head node. 
 
 * **Azure Resource Manager template** - Use a template from the Azure Marketplace, or a quickstart template from the community, to automate creation of the cluster in the Resource Manager deployment model. For example, the [HPC Pack cluster for Linux workloads](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) template in the Azure Marketplace creates a complete HPC Pack cluster infrastructure for Linux HPC workloads.
 
@@ -50,7 +50,7 @@ For more information about HPC Pack cluster deployment options in Azure, see [Op
 
     * **CentOS-based**: 6.5, 6.6, 6.7, 7.0, 7.1, 7.2, 6.5 HPC, 7.1 HPC
     * **Red Hat Enterprise Linux**: 6.7, 6.8, 7.2
-    * **SUSE Linux Enterprise Server**: SLES 12, SLES 12 (Premium), SLES 12 for HPC, SLES 12 for HPC (Premium)
+    * **SUSE Linux Enterprise Server**: SLES 12, SLES 12 (Premium), SLES 12 SP1, SLES 12 SP1 (Premium), SLES 12 for HPC, SLES 12 for HPC (Premium)
     * **Ubuntu Server**: 14.04 LTS, 16.04 LTS
 
     >[AZURE.TIP]To use the Azure RDMA network with one of the RDMA-capable VM sizes, specify a SUSE Linux Enterprise Server 12 HPC or CentOS-based HPC image from the Azure Marketplace. For more information, see [About H-series and compute-intensive A-series VMs](virtual-machines-linux-a8-a9-a10-a11-specs.md).
