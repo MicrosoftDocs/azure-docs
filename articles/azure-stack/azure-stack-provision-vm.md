@@ -20,6 +20,8 @@
 
 As an administrator, you can create virtual machines to evaluate resources before offering them in plans.
 
+## Provision a virtual machine
+
 1.  On the Azure Stack POC computer, log in to `https://portal.azurestack.local` as [an admin](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator), and then click **New** > **Virtual machines** > **WindowsServer-2012-R2-Datacenter**.  
 
 	![](media/azure-stack-provision-vm/image01.png)
