@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2016"
+   ms.date="10/12/2016"
    ms.author="terrylan"/>
 
 # Azure Security Center pricing
@@ -71,20 +71,12 @@ To enable virtual machine behavioral analytics, data collection must be turned o
 
 To validate that data collection is enabled, select the **Policy** tile. The **Security policy** blade opens listing your Azure subscriptions. Select a subscription. If **Data collection** is off, change it to on and save the change. See [Enable data collection in Azure Security Center](security-center-enable-data-collection.md).
 
-## See also
+## Next steps
 
-In this document, you were introduced to pricing for Security Center. For additional pricing information, see the Security Center [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
-
-To learn more about Security Center, see the following:
-
-- [Azure Security Center detection capabilities](security-center-detection-capabilities.md) – Learn how Security Center’s advanced detection capabilities provides you with the insights needed to respond quickly.
-- [Setting security policies in Azure Security Center](security-center-policies.md) - Learn how to configure security policies.
-- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) - Learn how recommendations help you protect your Azure resources.
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md) - Learn how to monitor the health of your Azure resources.
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) - Learn how to manage and respond to security alerts.
-- [Handling Security Incident in Azure Security Center](security-center-incident.md) – Learn how to use security alert capability to assist you handling security incidents.
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) - Learn how to monitor the health status of your partner solutions.
-- [Azure Security Center FAQ](security-center-faq.md) - Find frequently asked questions about using the service.
+- In this document, you were introduced to pricing for Security Center. For additional pricing information, see the Security Center [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+- To learn more about Security Center’s advanced detection capabilities, see [Azure Security Center detection capabilities](security-center-detection-capabilities.md).
+- If you have questions about using Security Center, see the [Azure Security Center FAQ](security-center-faq.md).
+- If you still have questions about using Security Center, or Azure, visit the [Azure Forums](https://social.msdn.microsoft.com/Forums/home?forum=AzureSecurityCenter&filter=alltypes&sort=lastpostdesc).
 
 <!--Image references-->
 [1]: ./media/security-center-pricing/free-trial.png
