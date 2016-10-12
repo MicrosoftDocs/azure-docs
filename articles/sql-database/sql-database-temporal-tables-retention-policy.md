@@ -30,7 +30,7 @@ ValidTo < DATEADD (MONTH, -6, SYSUTCDATETIME())
 
 In the example above we assumed that **ValidTo** column corresponds to the end of SYSTEM_TIME period.
 
-##How to configure temporal history retention?
+##How to configure retention policy?
 
 Before you configure retention policy for a temporal table, check first whether temporal historical retention is enabled *at the database level*.
 
@@ -39,7 +39,7 @@ SELECT is_temporal_history_retention_enabled, name
 FROM sys.databases
 ````
 
-Database flag **is_temporal_history_retention_enabled** is set to ON by default, but it can be altered by the end users. It is also automatically set to OFF after [point in time restore](sql-database-point-in-time-restore-portal.md) operation. To enable temporal history retention cleanup for your database, execute the following statement:
+Database flag **is_temporal_history_retention_enabled** is set to ON by default, but users can change it with ALTER DATABASE statement. It is also automatically set to OFF after [point in time restore](sql-database-point-in-time-restore-portal.md) operation. To enable temporal history retention cleanup for your database, execute the following statement:
 
 ````
 ALTER DATABASE <myDB>
@@ -147,9 +147,9 @@ An attempt to execute above statement will fail with the following error:
 *Msg 13772, Level 16, State 1 <br></br>
 Cannot create non-clustered index on a temporal history table 'WebsiteUserInfoHistory' since it has finite retention period and clustered columnstore index defined.*
 
-##Querying temporal tables with finite retention period
+##Querying tables with retention policy
 
-All queries on the temporal table automatically filter out historical rows matching retention policy, to avoid unpredictable and inconsistent results, since aged rows can be deleted by the cleanup task, *at any point in time and in arbitrary order*.
+All queries on the temporal table automatically filter out historical rows matching finite retention policy, to avoid unpredictable and inconsistent results, since aged rows can be deleted by the cleanup task, *at any point in time and in arbitrary order*.
 
 The following picture shows the query plan for a simple query:
 
