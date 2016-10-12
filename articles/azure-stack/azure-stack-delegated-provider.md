@@ -165,8 +165,7 @@ change the plans and quotas it includes.
 ##Delegated provider customizes the offer
 
 
-Sign in as the delegated provider and create a new offer using the
-delegated offer as a template.
+Sign in as the delegated provider and create a new offer using the delegated offer as a template.
 
 -  Click **New** &gt; **Tenant Offers + Plans** &gt; **Offer**.
 
@@ -174,26 +173,17 @@ delegated offer as a template.
 	![](media/azure-stack-delegated-provider/image5.png)
 
 
--  Assign a name to the offer. Here we choose ResellerOffer. Select the
-    delegated offer to base it on and then click
-    **Create**.
+-  Assign a name to the offer. Here we choose ResellerOffer. Select the delegated offer to base it on and then click **Create**.
     
 	![](media/azure-stack-delegated-provider/image6.png)
 
 
-> [AZURE.NOTE] Note the difference compared to offer creation as experienced by the
-> service administrator. The delegated provider does not construct the
-> offer from base plans and add-on plans; she can only choose from
-> offers that have been delegated to her, and will not make changes to
-> them.
+	>[AZURE.NOTE] Note the difference compared to offer creation as experienced by the service administrator. The delegated provider does not construct the offer from base plans and add-on plans; she can only choose from offers that have been delegated to her, and will not make changes to them.
 
 
--  Make the offer public by clicking **Browse** &gt; **Offers**,
-    selecting the offer, and clicking **Change State**.
+-  Make the offer public by clicking **Browse** &gt; **Offers**, selecting the offer, and clicking **Change State**.
 
--  The delegated provider exposes these offers through his or her own
-    portal URL. Note that these offers are visible only through this
-    delegated portal. To find and change this URL:
+-  The delegated provider exposes these offers through his or her own portal URL. Note that these offers are visible only through this    delegated portal. To find and change this URL:
 
     a.  Click **Browse**&gt; **Provider Settings** &gt; **Portal URL**.
 
