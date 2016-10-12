@@ -288,7 +288,7 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
 	- Run `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext` to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure portal.
 1. Run the following command to deploy Data Factory entities using the Resource Manager template you created in Step 1. 
 
-		New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
+		New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFTutorialARM-Parameters.json
 
 ## Monitor pipeline
  
