@@ -67,9 +67,9 @@ You need a storage account in Azure to store the uploaded VM image. You can eith
 
 To show the available storage accounts, type:
 
-	```powershell
-	Get-AzureRmStorageAccount
-	```
+```powershell
+Get-AzureRmStorageAccount
+```
 
 If you want to use an existing storage account, proceed to the [Upload the VM image](#upload-the-vm-vhd-to-your-storage-account) section.
 

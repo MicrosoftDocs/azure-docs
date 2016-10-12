@@ -26,7 +26,7 @@ When you create a VM in Azure using the portal or PowerShell, a Resource Manager
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. One the hub menu, select **Virtual Machines**.
-3. Select the original virtual machine in the list.
+3. Select the virtual machine from the list.
 5. Select **Automation script**.
 6. Select **Download** and save the .zip file to your local computer.
 7. Open the .zip file and extract the files to a folder. The .zip file will contain:
