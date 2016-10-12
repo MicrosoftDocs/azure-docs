@@ -31,7 +31,7 @@ This article focuses on using the Docker VM Extension and Azure Resource Manager
 
 The Azure Docker VM Extension installs and configures the Docker daemon, Docker client, and Docker Compose in your Linux virtual machine (VM). By using the Docker VM Extension, you have more control than simply using Docker Machine or creating the Docker host yourself. These additional controls make the Docker VM Extension suited for more robust developer or production environments.
 
-Using Azure Resource Manager, you create and deploy templates that define the entire structure of your environment. You can reuse these templates to create additional temployments in a consistent manner. Templates allow you to define resources such as the Docker host VMs, storage, Role-Based Access Controls (RBAC), and diagnostics. For more information about Azure Resource Manager and templates, see [Resource Manager overview](../resource-group-overview.md). 
+Using Azure Resource Manager, you create and deploy templates that define the entire structure of your environment. You can reuse these templates to create additional deployments in a consistent manner. Templates allow you to define resources such as the Docker host VMs, storage, Role-Based Access Controls (RBAC), and diagnostics. For more information about Azure Resource Manager and templates, see [Resource Manager overview](../resource-group-overview.md). 
 
 
 ## Deploy a template with the Docker VM Extension
@@ -77,13 +77,13 @@ info:    group create command OK
 
 The Azure CLI returns you to the prompt after only a few seconds, but in the background the template is being deployed and your Docker host is created and configured. It takes a few minutes for the deployment to finish. You can view details about the Docker host status using the `azure vm show` command.
 
-The following example checks the status of the VM named `myDockerVM` (the default name from the template - don't change this) in the resource group named `myResourceGroup`. Enter the name of the resource group you created in the preceding step:
+The following example checks the status of the VM named `myDockerVM` (the default name from the template - don't change this name) in the resource group named `myResourceGroup`. Enter the name of the resource group you created in the preceding step:
 
 ```bash
 azure vm show -g myResourceGroup -n myDockerVM
 ```
 
-The output of the `azure vm show` command is similar to the following:
+The output of the `azure vm show` command is similar to the following example:
 
 ```
 info:    Executing command vm show
@@ -187,6 +187,7 @@ This example uses an existing quick-start template. You can also deploy the Azur
 ```
 
 You can find more detailed walkthrough on using Resource Manager templates by reading [Azure Resource Manager overview](../resource-group-overview.md)
+
 
 ## Next steps
 
