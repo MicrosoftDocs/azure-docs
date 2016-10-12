@@ -85,10 +85,15 @@ When you choose an [RDMA-capable size](../virtual-machines/virtual-machines-wind
 
 Look for the sizes specified as "RDMA capable" in the following articles:
 
-* **CloudServiceConfiguration** pools: [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md)
+* **CloudServiceConfiguration** pools
+
+  * [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md) (Windows only)
+
 * **VirtualMachineConfiguration** pools
-  * Windows: [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md)
-  * Linux: [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md)
+
+  * [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux)
+
+  * [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows)
 
 >[AZURE.NOTE] To take advantage of RDMA on [Linux compute nodes](batch-linux-nodes.md), you must install **Intel MPI** on the nodes.
 
