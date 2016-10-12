@@ -3,7 +3,7 @@
    description="The list of updates applied to Guest OS releases" 
    services="cloud-services" 
    documentationCenter="na" 
-   authors="yuemlu" 
+   authors="raiye" 
    manager="timlt" 
    editor=""/>
 
