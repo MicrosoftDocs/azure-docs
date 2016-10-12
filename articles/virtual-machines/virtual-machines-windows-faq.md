@@ -69,7 +69,7 @@ Yes. For instructions, see [How to expand the OS drive of a Virtual Machine in a
 
 ## Can I copy or clone an existing Azure VM?
 
-Yes. For instructions, see [How to create a copy of a Windows virtual machine in the Resource Manager deployment model](virtual-machines-windows-specialized-image.md).
+Yes. For instructions, see [How to create a copy of a Windows virtual machine in the Resource Manager deployment model](virtual-machines-windows-vhd-copy.md).
 
 ## Why am I not seeing Canada Central and Canada East regions through Azure Resource Manager?
 
