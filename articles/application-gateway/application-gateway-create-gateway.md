@@ -59,6 +59,8 @@ To create an application gateway:
 
 >[AZURE.NOTE] If you need to configure a custom probe for your application gateway, see [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-classic-ps.md). Check out [custom probes and health monitoring](application-gateway-probe-overview.md) for more information.
 
+![Scenario example][scenario]
+
 ### Create an application gateway resource
 
 To create the gateway, use the **New-AzureApplicationGateway** cmdlet, replacing the values with your own. Billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
@@ -294,7 +296,7 @@ Add the front-end port to the configuration.
 Add the back-end server pool to the configuration.
 
 	$appgwconfig.BackendAddressPools = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool]"
-	$appgwconfig.BackendAddressPools.Add($pool)  
+	$appgwconfig.BackendAddressPools.Add($pool)
 
 Add the back-end pool setting to the configuration.
 
@@ -401,3 +403,5 @@ If you want more information about load balancing options in general, see:
 
 - [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
+
+[scenario]: ./media/application-gateway-create-gateway/scenario.png

@@ -44,6 +44,7 @@ As a result, you may find it useful to consider deciding what your Azure Resourc
 - [Active Directory](#active-directory-limits)
 - [API Management](#api-management-limits)
 - [App Service](#app-service-limits)
+- [Application Gateway](#application-gateway-limits)
 - [Application Insights](#application-insights-limits)
 - [Automation](#automation-limits)
 - [Azure Redis Cache](#azure-redis-cache-limits)
@@ -121,6 +122,10 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 #### Networking limits
 [AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
+
+#### Application Gateway limits
+
+[AZURE.INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
 
 #### Traffic Manager limits
 
