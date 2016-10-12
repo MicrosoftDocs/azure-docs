@@ -24,13 +24,13 @@ Multi-instance tasks allow you to run an Azure Batch task on multiple compute no
 
 ## Multi-instance task overview
 
-In Batch, each task is normally executed on a single compute node--you submit multiple tasks to a job, and the Batch service schedules each task for execution on a node. However, by configuring a task's **multi-instance settings**, you can instruct Batch to split that task into subtasks for execution on multiple nodes.
+In Batch, each task is normally executed on a single compute node--you submit multiple tasks to a job, and the Batch service schedules each task for execution on a node. However, by configuring a task's **multi-instance settings**, you tell Batch to instead create one primary task and several subtasks that are then executed on multiple nodes.
 
 ![Multi-instance task overview][1]
 
 When you submit a task with multi-instance settings to a job, Batch performs several steps unique to multi-instance tasks:
 
-1. The Batch service splits the task into one **primary** and several **subtasks**. The total number of tasks (primary plus all subtasks) matches the number of **instances** (compute nodes) you specify in the multi-instance settings.
+1. The Batch service creates one **primary** and several **subtasks** based on the multi-instance settings. The total number of tasks (primary plus all subtasks) matches the number of **instances** (compute nodes) you specify in the multi-instance settings.
 1. Batch designates one of the compute nodes as the **master**, and schedules the primary task to execute on the master. It schedules the subtasks to execute on the remainder of the compute nodes allocated to the multi-instance task, one subtask per node.
 1. The primary and all subtasks download any **common resource files** you specify in the multi-instance settings.
 1. After the common resource files have been downloaded, the primary and subtasks execute the **coordination command** you specify in the multi-instance settings. The coordination command is typically used to prepare nodes for executing the task. This can include starting background services (such as [Microsoft MPI][msmpi_msdn]'s `smpd.exe`) and verifying that the nodes are ready to process inter-node messages.
@@ -58,8 +58,6 @@ myCloudPool.MaxTasksPerComputeNode = 1;
 
 Additionally, multi-instance tasks can execute *only* on nodes in **pools created after 14 December 2015**.
 
-> [AZURE.TIP] When you choose an [RDMA-capable size](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) such as A9 for the compute nodes in your Batch pool, your MPI application can take advantage of Azure's high-performance, low-latency remote direct memory access (RDMA) network. You can see the full list of compute node sizes available for Batch pools in [Sizes for Cloud Services](./../cloud-services/cloud-services-sizes-specs.md).
-
 ### Use a StartTask for MPI application installation
 
 To run MPI applications with a multi-instance task, you first need to get your MPI software onto the compute nodes in the pool. This is a great time to use a [StartTask][net_starttask], which executes whenever a node joins a pool, or is restarted. This code snippet creates a StartTask that specifies the MS-MPI setup package as a [resource file][net_resourcefile], and the command line that is executed after the resource file is downloaded to the node.
@@ -81,7 +79,18 @@ myCloudPool.StartTask = startTask;
 await myCloudPool.CommitAsync();
 ```
 
-> [AZURE.NOTE] You are not limited to using MS-MPI when implementing an MPI solution with multi-instance tasks in Batch. You may use any implementation of the MPI standard that is compatible with the operating system you specify for the compute nodes in your pool.
+### Remote direct memory access (RDMA)
+
+When you choose an [RDMA-capable size](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) such as A9 for the compute nodes in your Batch pool, your MPI application can take advantage of Azure's high-performance, low-latency remote direct memory access (RDMA) network.
+
+Look for the sizes specified as "RDMA capable" in the following articles:
+
+* **CloudServiceConfiguration** pools: [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md)
+* **VirtualMachineConfiguration** pools
+  * Windows: [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md)
+  * Linux: [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md)
+
+>[AZURE.NOTE] To take advantage of RDMA on [Linux compute nodes](batch-linux-nodes.md), you must install **Intel MPI** on the nodes.
 
 ## Create a multi-instance task with Batch .NET
 
@@ -122,6 +131,7 @@ myMultiInstanceTask.MultiInstanceSettings = new MultiInstanceSettings(numberOfNo
 ```
 
 ### Master node
+
 When you submit a multi-instance task, the Batch service designates one of the compute nodes as the "master" node, and schedules the primary task to execute on the master node. The subtasks are scheduled to execute on the remainder of the nodes allocated to the multi-instance task.
 
 ## Coordination command
