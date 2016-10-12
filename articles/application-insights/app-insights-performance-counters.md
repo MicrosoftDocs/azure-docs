@@ -24,7 +24,7 @@ Performance counters appear in the Servers blade, which includes a table that se
 
 ![Performance counters reported in Application Insights](./media/app-insights-performance-counters/counters-by-server-instance.png)
 
-(For web applications on Azure, [send Azure Diagnostics to Application Insights](app-insights-azure-diagnostics.md).)
+(Performance counters aren't available for Azure Web Apps. But you can [send Azure Diagnostics to Application Insights](app-insights-azure-diagnostics.md).)
 
 ## Configure performance counter collection
 
