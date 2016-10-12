@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Microsoft Azure Stack Proof Of Concept (POC) Architecture | Microsoft Azure"
+	pageTitle="Microsoft Azure Stack Proof Of Concept (POC) architecture | Microsoft Azure"
 	description="View the Microsoft Azure Stack POC architecture."
 	services="azure-stack"
 	documentationCenter=""
