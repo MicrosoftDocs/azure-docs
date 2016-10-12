@@ -4,7 +4,7 @@
 	services="notification-hubs"
 	documentationCenter="android"
 	keywords="push notifications,push notification,android push notification,fcm,firebase cloud messaging"
-	authors="wesmc7777"
+	authors="ysxu"
 	manager="erikre"
 	editor=""/>
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="java"
 	ms.topic="hero-article"
 	ms.date="07/14/2016"
-	ms.author="wesmc"/>
+	ms.author="yuaxu"/>
 
 # Sending push notifications to Android with Azure Notification Hubs
 

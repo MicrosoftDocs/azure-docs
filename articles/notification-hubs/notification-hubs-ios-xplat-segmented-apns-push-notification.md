@@ -3,7 +3,7 @@
 	description="Learn how to use Azure Service Bus Notification Hubs to send breaking news notifications to iOS devices."
 	services="notification-hubs"
 	documentationCenter="ios"
-	authors="wesmc7777"
+	authors="ysxu"
 	manager="erikre"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="06/29/2016"
-	ms.author="wesmc"/>
+	ms.author="yuaxu"/>
 
 # Use Notification Hubs to send breaking news
 

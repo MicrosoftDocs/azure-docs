@@ -4,7 +4,7 @@
 	services="notification-hubs"
 	documentationCenter=".net"
 	keywords="push notifications,push notification,scheduling push notifications"
-	authors="wesmc7777"
+	authors="ysxu"
 	manager="erikre"
 	editor=""/>
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="06/29/2016"
-	ms.author="wesmc"/>
+	ms.author="yuaxu"/>
 
 # How To: Send scheduled notifications
 

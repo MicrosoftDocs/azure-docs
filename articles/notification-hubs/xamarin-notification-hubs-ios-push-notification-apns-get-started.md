@@ -4,7 +4,7 @@
 	services="notification-hubs"
     keywords="ios push notifications,push messages,push notifications,push message"
 	documentationCenter="xamarin"
-	authors="wesmc7777"
+	authors="ysxu"
 	manager="erikre"
 	editor=""/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
 	ms.date="06/29/2016"
-	ms.author="wesmc"/>
+	ms.author="yuaxu"/>
 
 # iOS Push Notifications with Notification Hubs for Xamarin apps
 

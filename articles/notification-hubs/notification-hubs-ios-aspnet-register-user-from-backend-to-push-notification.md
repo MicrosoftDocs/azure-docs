@@ -3,7 +3,7 @@
 	description="Learn how to request push notification registration in an iOS app with Azure Notification Hubs when registeration is performed by ASP.NET Web API."
 	services="notification-hubs"
 	documentationCenter="ios"
-	authors="wesmc7777"
+	authors="ysxu"
 	manager="erikre"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="06/29/2016"
-	ms.author="wesmc"/>
+	ms.author="yuaxu"/>
 
 # Register the current user for push notifications by using ASP.NET
 

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Azure Notification Hubs"
 	description="Learn how to use push notifications in Azure. Code samples written in C# using the .NET API."
-	authors="wesmc7777"
+	authors="ysxu"
 	manager="erikre"
 	editor=""
 	services="notification-hubs"
@@ -14,7 +14,7 @@
 	ms.devlang="multiple"
 	ms.topic="hero-article"
 	ms.date="08/25/2016"
-	ms.author="wesmc"/>
+	ms.author="yuaxu"/>
 
 
 #Azure Notification Hubs

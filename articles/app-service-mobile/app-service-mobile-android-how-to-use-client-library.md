@@ -3,7 +3,7 @@
 	description="How to use Android client SDK for Azure Mobile Apps."
 	services="app-service\mobile"
 	documentationCenter="android"
-	authors="yuaxu"
+	authors="ysxu"
 	manager="erikre"
 	editor=""/>
 
@@ -794,8 +794,7 @@ dependencies {
 ## How to: add push notification to your app
 
 You can [read an overview][6] that describes how Microsoft Azure Notification Hubs supports a wide variety of 
-push notifications.  In [this tutorial][5], a push notification is sent to all devices every time a record is 
-inserted.
+push notifications.  In [this tutorial][5], a push notification is sent to all devices every time a record is inserted.
 
 ## How to: add offline sync to your app
 

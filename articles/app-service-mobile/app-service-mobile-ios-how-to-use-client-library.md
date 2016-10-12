@@ -3,7 +3,7 @@
 	description="How to Use iOS SDK for Azure Mobile Apps"
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="yuaxu"
+	authors="ysxu"
 	manager="yochayk"
 	editor=""/>
 

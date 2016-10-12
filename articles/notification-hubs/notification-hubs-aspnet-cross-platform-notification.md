@@ -3,7 +3,7 @@
 	description="Learn how to use Notification Hubs templates to send, in a single request, a platform-agnostic notification that targets all platforms."
 	services="notification-hubs"
 	documentationCenter=""
-	authors="wesmc7777"
+	authors="ysxu"
 	manager="erikre"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.date="10/03/2016" 
-	ms.author="wesmc"/>
+	ms.author="yuaxu"/>
 
 # Send cross-platform notifications to users with Notification Hubs
 

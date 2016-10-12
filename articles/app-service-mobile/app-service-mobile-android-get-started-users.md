@@ -3,7 +3,7 @@
 	description="Learn how to use Mobile Apps in Azure App Service to authenticate users of your Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft."
 	services="app-service\mobile"
 	documentationCenter="android"
-	authors="yuaxu"
+	authors="ysxu"
 	manager="erikre"
 	editor=""/>
 

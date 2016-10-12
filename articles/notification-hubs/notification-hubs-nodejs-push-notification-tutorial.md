@@ -4,7 +4,7 @@
     keywords="push notification,push notifications,node.js push,ios push"
 	services="notification-hubs"
 	documentationCenter="nodejs"
-	authors="wesmc7777"
+	authors="ysxu"
 	manager="dwrede"
 	editor=""/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="javascript"
 	ms.topic="article"
 	ms.date="05/27/2016"
-	ms.author="wesmc"/>
+	ms.author="yuaxu"/>
 
 # Sending push notifications with Azure Notification Hubs and Node.js
 [AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]

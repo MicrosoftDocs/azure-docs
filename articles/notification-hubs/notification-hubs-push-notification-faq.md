@@ -3,7 +3,7 @@
 	description="FAQs on designing/implementing solutions on Notification Hubs"
 	services="notification-hubs"
 	documentationCenter="mobile"
-	authors="wesmc7777"
+	authors="ysxu"
 	manager="erikre"
     keywords="push notification, push notifications, iOS push notifications, android push notifications, ios push, android push"
 	editor="" />
@@ -15,7 +15,7 @@
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.date="10/03/2016"
-	ms.author="wesmc" />
+	ms.author="yuaxu" />
 
 #Push Notifications with Azure Notification Hubs - Frequently Asked Questions
 

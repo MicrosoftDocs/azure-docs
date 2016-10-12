@@ -2,7 +2,7 @@
 	pageTitle="Azure Notification Hubs Notify Users for iOS with .NET backend"
 	description="Learn how to send push notifications to users in Azure. Code samples written in Objective-C and the .NET API for the backend."
 	documentationCenter="ios"
-	authors="wesmc7777"
+	authors="ysxu"
 	manager="erikre"
 	editor=""
 	services="notification-hubs"/>
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="10/03/2016"
-	ms.author="wesmc"/>
+	ms.author="yuaxu"/>
 
 #Azure Notification Hubs Notify Users for iOS with .NET backend
 

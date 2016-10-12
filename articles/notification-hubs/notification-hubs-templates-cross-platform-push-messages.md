@@ -3,7 +3,7 @@
 	description="This topic explains Templates for Azure notification hubs."
 	services="notification-hubs"
 	documentationCenter=".net"
-	authors="wesmc7777"
+	authors="ysxu"
 	manager="erikre"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.date="06/29/2016"
-	ms.author="wesmc"/>
+	ms.author="yuaxu"/>
 
 # Templates
 

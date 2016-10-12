@@ -3,7 +3,7 @@
 	description="Learn how to send rich push notifications to an iOS app from Azure. Code samples written in Objective-C and C#."
 	documentationCenter="ios"
 	services="notification-hubs"
-	authors="wesmc7777"
+	authors="ysxu"
 	manager="erikre"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="06/29/2016"
-	ms.author="wesmc"/>
+	ms.author="yuaxu"/>
 
 #Azure Notification Hubs Rich Push
 

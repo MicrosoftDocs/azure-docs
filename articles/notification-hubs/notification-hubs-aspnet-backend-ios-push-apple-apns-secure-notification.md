@@ -2,7 +2,7 @@
 	pageTitle="Azure Notification Hubs Secure Push"
 	description="Learn how to send secure push notifications to an iOS app from Azure. Code samples written in Objective-C and C#."
 	documentationCenter="ios"
-	authors="wesmc7777"
+	authors="ysxu"
 	manager="erikre"
 	editor=""
 	services="notification-hubs"/>
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="06/29/2016"
-	ms.author="wesmc"/>
+	ms.author="yuaxu"/>
 
 #Azure Notification Hubs Secure Push
 
