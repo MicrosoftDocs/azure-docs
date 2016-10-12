@@ -95,7 +95,7 @@ Look for the sizes specified as "RDMA capable" in the following articles:
 
   * [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows)
 
->[AZURE.NOTE] To take advantage of RDMA on [Linux compute nodes](batch-linux-nodes.md), you must install **Intel MPI** on the nodes.
+>[AZURE.NOTE] To take advantage of RDMA on [Linux compute nodes](batch-linux-nodes.md), you must install **Intel MPI** on the nodes. For more information on CloudServiceConfiguration and VirtualMachineConfiguration pools, see the [Pool](batch-api-basics.md#Pool) section of the Batch feature overview.
 
 ## Create a multi-instance task with Batch .NET
 
