@@ -1,4 +1,4 @@
-<properties
+1<properties
 	pageTitle="Understand your Azure external service charges | Microsoft Azure"
 	description="Learn about billing of external services, formerly known as Marketplace, charges in Azure."
 	services=""
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/11/2016"
+	ms.date="10/12/2016"
 	ms.author="adpick"/>
 
 # Understand your Azure external service charges
@@ -43,9 +43,9 @@ When you provision a new external service or resource, a warning is shown:
 
 External services are treated as individual orders within your Azure subscription. The billing period for each service is set when you purchase the service. Not to be confused with the billing period of the subscription under which you purchased it. You also receive separate bills and your credit card is charged separately.
 
-### Each external services has a different billing model
+### Each external service has a different billing model
 
-Some services are billed in a pay-as-you-go fashion while others use a monthly based payment model. You need a credit card for Azure external services. That means you can't buy external services if your subscription uses invoice pay.
+Some services are billed in a pay-as-you-go fashion while others use a monthly based payment model. You need a credit card for Azure external services, you can't buy external services with invoice pay.
 
 ### You can't use monthly free credits for external services
 
