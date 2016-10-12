@@ -147,7 +147,7 @@ For **APP ID URI**, provide the URI that identifies your application.
 
 	![client id](./media/data-lake-store-authenticate-using-active-directory/aad-end-user-auth-set-permission-1.png)
 
-5. In the **Permissions to other applications** wizard, select **Azure Data Lake** and **Windows Azure Service Management API**, and click the checkmark.
+5. In the **Permissions to other applications** wizard, select **Azure Data Lake** and **Windows** **Azure Service Management API**, and click the checkmark.
 
 6. By default the **Delegated Permissions** for the newly added services is set to zero. Click the **Delegated Permissions** drop-down for Azure Data Lake and Windows Azure Management Service and select the available checkboxes to set the values to 1. The result should look like this.
 
