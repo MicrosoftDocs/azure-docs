@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Billing and Subscription FAQ | Microsoft Azure"
+	pageTitle="Azure billing and subscription FAQ | Microsoft Azure"
 	description="Provide answers to the common Azure Billing and Subscription questions"
 	services=""
 	documentationCenter=""
@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="09/07/2016"
 	ms.author="genli"/>
 
-#  Azure Billing and Subscription FAQ
+#  Azure billing and subscription FAQ
 
 This article answers some of the most common questions about Azure Billing and Subscription.
 
 > [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
-## Account Administration
+## Account administration
 
 - [How do I manage Administrator accounts in the new Azure portal?](#how-do-i-manage-administrator-accounts-in-the-new-azure-portal)
 - [Can notifications be sent to a different email address other than the Account Owner email address associated with my account?](#can-notifications-be-sent-to-a-different-email-address-other-than-the-account-owner-email-address-associated-with-my-account)
@@ -34,6 +34,7 @@ This article answers some of the most common questions about Azure Billing and S
 
 - [How do I get a copy of my invoice?](#how-do-i-get-a-copy-of-my-invoice)
 - [I do not see an invoice for the last billing period. Why?](#i-do-not-see-an-invoice-for-the-last-billing-period-why)
+- [How do I make a payment?](#how-do-i-make-a-payment)
 
 ## Free Trial
 
@@ -52,7 +53,7 @@ This article answers some of the most common questions about Azure Billing and S
 - [Can I use my existing Windows licenses that I bought outside of Azure?](#can-i-use-my-existing-windows-licenses-that-i-bought-outside-of-azure)
 - [Who can purchase Azure services?](#who-can-purchase-azure-services)
 
-## Making Payments
+## Making payments
 
 - [What payment options do I have in purchasing Azure?](#what-payment-options-do-i-have-in-purchasing-azure)
 - [How can I request the invoice method of payment?](#how-can-i-request-the-invoice-method-of-payment)
@@ -60,8 +61,9 @@ This article answers some of the most common questions about Azure Billing and S
 - [How do I remove a credit card that I no longer use as an Azure payment method?](#how-do-i-remove-a-credit-card-that-i-no-longer-use-as-an-azure-payment-method)
 - [How can I update or change my credit card information?](#how-can-i-update-or-change-my-credit-card-information)
 - [How can I edit my payment information for my Azure subscriptions?](#how-can-i-edit-my-payment-information-for-my-azure-subscriptions)
+- [Why am I seeing a message that I need to use an international credit card?](#why-am-i-seeing-a-message-that-i-need-to-use-an-international-credit-card)
 
-## Azure Pricing
+## Azure pricing
 
 - [Where can I find the Benefits and Pricing information for Azure Services?](#where-can-i-find-the-benefits-and-pricing-information-for-azure-services)
 - [How do I change my pricing plan?](#how-do-i-change-my-pricing-plan)
@@ -73,12 +75,12 @@ This article answers some of the most common questions about Azure Billing and S
 - [What are the Azure SLA Credits?](#what-are-the-azure-sla-credits)
 - [How will Azure Service Level Agreements work with current on-premises Microsoft licensing agreements?](#how-will-azure-service-level-agreements-work-with-current-on-premises-microsoft-licensing-agreements)
 
-## Azure Spending Limits
+## Spending limits
 
 - [Can I turn the Spending Limit back on if I turn off it?](#can-i-turn-the-spending-limit-back-on-if-i-turn-off-it)
 - [Can I adjust the amount of the Spending Limit?](#can-i-adjust-the-amount-of-the-spending-limit)
 
-## Support Plans
+## Support plans
 
 - [How do I purchase Azure Support?](#how-do-i-purchase-azure-support)
 - [Does the monthly rate cover a single Azure plan or the entire account?](#does-the-monthly-rate-cover-a-single-azure-plan-or-the-entire-account)
@@ -252,6 +254,10 @@ For more information, see the article [How to change the credit card used to pay
 
 >[AZURE.NOTE] Currently, the Change Payment Method tool does not allow you to remove an existing credit card as a payment method. For information about how to remove a credit card, see the [How do I remove a credit card that I no longer use as an Azure payment method?](#how-do-i-remove-a-credit-card-that-i-no-longer-use-as-an-azure-payment-method) in this article.
 
+### Why am I seeing a message that I need to use an international credit card?
+
+In some cases, although you’re paying for Azure services in your local/preferred currency, you are purchasing services through a non-local Microsoft entity and your credit card is being processed by a non-local bank. In these cases, cards issued by local banks may fail which can negatively impact your Azure services. If you’re unsure whether your credit card is enabled for international transactions, please contact your bank or card issuer to confirm. See [supported countries and currencies](billing-countries-and-currencies.md).
+
 ### Why can't I edit or add details to my subscription?
 
 To view and edit the Azure account information, you must sign in to the Azure Account Center as the account administrator.  If you are the AA and still cannot edit the subscription, please submit a support ticket to request assistance. To create a support ticket, see the article [How to Create a Support Ticket for Azure Billing and Subscription Issues](billing-how-to-create-billing-support-ticket.md).
@@ -317,3 +323,9 @@ Free Trial subscriptions are not eligible for quota increases. If you have a Fre
 Visit the [Free Trial offer page](https://azure.microsoft.com/offers/ms-azr-0044p/) and read the [Official Free Trial FAQ](https://azure.microsoft.com/pricing/free-trial-faq/).
 
 > [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+
+### How do I make a payment?
+
+If you have set up a credit card or a debit card as your payment method, the payment will be made automatically.
+
+If you are set up to use an [invoice method of payment](https://azure.microsoft.com/pricing/invoicing/), send your payment to the location listed at the bottom of your invoice. For more help, [contact support](billing-how-to-create-billing-support-ticket.md).

@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="richcar"
-   manager="josha"
+   manager="carmonm"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/20/2016"
+   ms.date="10/10/2016"
    ms.author="richcar"/>
 
 # ExpressRoute for Cloud Solution Providers (CSP)

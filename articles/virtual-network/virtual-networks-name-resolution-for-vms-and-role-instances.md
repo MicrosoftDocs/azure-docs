@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
    pageTitle="Resolution for VMs and Role Instances"
    description="Name Resolution scenarios for Azure IaaS , hybrid solutions, between different cloud services, Active Directory and using your own DNS server "
    services="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/03/2016"
+   ms.date="08/31/2016"
    ms.author="telmos" />
 
 # Name Resolution for VMs and Role Instances

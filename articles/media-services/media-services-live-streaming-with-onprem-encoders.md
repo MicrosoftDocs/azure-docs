@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Live streaming with on-premise encoders that create multi-bitrate streams" 
+	pageTitle="Live streaming with on-premise encoders that create multi-bitrate streams | Microsoft Azure" 
 	description="This topic describes how to set up a Channel that receives a multi-bitrate live stream from an on-premises encoder. The stream can then be delivered to client playback applications through one or more Streaming Endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Stream, MPEG DASH, HDS." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/19/2016" 
 	ms.author="cenkdin;juliako"/>
 
 #Live streaming with on-premise encoders that create multi-bitrate streams
@@ -272,7 +272,7 @@ Choose **Portal**, **.NET**, **REST API** to see how to create and manage channe
 
 [Azure Media Services Fragmented MP4 Live Ingest Specification](media-services-fmp4-live-ingest-overview.md)
 
-[Delivering Live Streaming Events with Azure Media Services](media-services-live-streaming-workflow.md)
+[Delivering Live Streaming Events with Azure Media Services](media-services-overview.md)
 
 [Media Services Concepts](media-services-concepts.md)
 

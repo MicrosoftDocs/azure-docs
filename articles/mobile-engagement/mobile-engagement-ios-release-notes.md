@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/30/2016"
+	ms.date="09/12/2016"
 	ms.author="piyushjo" />
 
 #Azure Mobile Engagement iOS SDK release notes
+
+##4.0.0 (09/12/2016)
+
+-   Fixed notification not actioned on iOS 10 devices.
+-   Deprecate XCode 7.
 
 ##3.2.4 (06/30/2016)
 

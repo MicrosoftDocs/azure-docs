@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/17/2016"
+   ms.date="09/06/2016"
    ms.author="bwren" />
 
 # Managing alerts with Microsoft monitoring 
@@ -61,7 +61,7 @@ You can’t completely manage SCOM alerts in Log Analytics though since you can 
   
 SCOM allows you to run Diagnostics and Recoveries in response to a monitor entering an unhealthy state.  This happens simultaneous to the monitor creating the alert.  Diagnostics and recoveries are typically implemented as a script that runs on the agent.  A diagnostic attempts to gather more information about the detected issue while a recovery attempts to correct the problem.
 
-Log Analytics allows you to start an [Azure Automation runbook](https://azure.microsoft.com/documentation/services/automation/) in response to a Log Analytics alert.  Runbooks can contain complex logic implemented in PowerShell.  The script runs in Azure and can access any Azure resources or external resources available from the cloud.  Azure Automation does have the ability to execute runbooks on a server in your local datacenter, but this feature is not currently available when starting the runbook in response to Log Analytics alerts.
+Log Analytics allows you to start an [Azure Automation runbook](https://azure.microsoft.com/documentation/services/automation/) or call a webhook in response to a Log Analytics alert.  Runbooks can contain complex logic implemented in PowerShell.  The script runs in Azure and can access any Azure resources or external resources available from the cloud.  Azure Automation does have the ability to execute runbooks on a server in your local datacenter, but this feature is not currently available when starting the runbook in response to Log Analytics alerts.
 
 Both recoveries in SCOM and runbooks in OMS can contain PowerShell scripts, but recoveries are more difficult to create and manage because they must be contained within a management pack.  Runbooks are stored in Azure Automation which provides features for authoring, testing, and managing runbooks.
 

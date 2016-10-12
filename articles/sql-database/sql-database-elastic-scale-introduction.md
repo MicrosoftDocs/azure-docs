@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/27/2016"
+    ms.date="09/06/2016"
     ms.author="ddove"/>
 
 # Scaling out with Azure SQL Database
@@ -33,7 +33,7 @@ In this graphic, colors of the database represent schemas. Databases with the sa
 1. A set of **Azure SQL databases** are hosted on Azure using sharding architecture.
 2. The **Elastic Database client library** is used to manage a shard set.
 3. A subset of the databases are put into an **Elastic Database pool**. (See [What is a pool?](sql-database-elastic-pool.md)).
-4. An **Elastic Database job** runs T-SQL scripts against all databases.
+4. An **Elastic Database job** runs scheduled or ad-hoc T-SQL scripts against all databases.
 5. The **split-merge tool** is used to move data from one shard to another.
 6. The **Elastic Database query** allows you to write a query that spans all databases in the shard set.
 7. **Elastic transactions** allows you to run transactions that span several databases. 

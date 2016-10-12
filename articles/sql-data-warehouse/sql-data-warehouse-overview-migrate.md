@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/17/2016"
+   ms.date="08/30/2016"
    ms.author="barbkess;jrj;sonyama"/>
 
 # Migrate your solution to SQL Data Warehouse
@@ -23,6 +23,7 @@ SQL Data Warehouse is a distributed database system that elastically scales to m
 It is also important to remember that SQL Data Warehouse is a platform based in Microsoft Azure. Therefore part of your migration may well include transferring your data to the cloud. Data transfer is a subject in its own right and should be carefully considered; especially as volumes increase. Data transfer and data loading are discrete topics.
 
 ## Migration guidance
+
 Make sure you have read through these articles to ensure you understand some of the product differences and fundamental concepts before embarking on your migration.
 
 - [Migrate your schema][]
@@ -30,11 +31,8 @@ Make sure you have read through these articles to ensure you understand some of 
 - [Migrate your code][]
 
 ## Next steps
-For additional development tips, see the [development overview][].
 
-You can also view the [Transact-SQL reference][] for even more information.
-
-Finally, check out the [loading overview][]. That article discusses various data loading options and provides step by step guidance.
+The CAT (Customer Advisory Team) also has some great SQL Data Warehouse guidance which they publish through blogs.  Take a look at their article, [Migrating data to Azure SQL Data Warehouse in practice][] for additional guidance on migration.
 
 <!--Image references-->
 
@@ -43,11 +41,9 @@ Finally, check out the [loading overview][]. That article discusses various data
 [Migrate your data]: sql-data-warehouse-migrate-data.md
 [Migrate your code]: sql-data-warehouse-migrate-code.md
 
-[development overview]: sql-data-warehouse-overview-develop.md
-[loading overview]: sql-data-warehouse-overview-load.md
-[Transact-SQL reference]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
+[Migrating data to Azure SQL Data Warehouse in practice]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/

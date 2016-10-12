@@ -14,22 +14,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2016"
+	ms.date="09/27/2016"
 	ms.author="davidmu"/>
 
-# Manage virtual machines in a Virtual Machine Scale Set
+# Manage virtual machines in a virtual machine scale set
 
-Use the tasks in this article to manage virtual machine resources in your Virtual Machine Scale Set.
+Use the tasks in this article to manage virtual machines in your virtual machine scale set.
 
-All of the tasks that involve managing a virtual machine in a scale set require that you know the instance ID of the machine that you want to manage. You can use [Azure Resource Explorer](https://resources.azure.com) to find the instance ID of a virtual machine in a scale set. You also use Resource Explorer to verify the status of the tasks that you finish.
+Most of the tasks that involve managing a virtual machine in a scale set require that you know the instance ID of the machine that you want to manage. You can use [Azure Resource Explorer](https://resources.azure.com) to find the instance ID of a virtual machine in a scale set. You also use Resource Explorer to verify the status of the tasks that you finish.
 
-See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about how to install the latest version of Azure PowerShell, select the subscription that you want to use, and sign in to your Azure account.
+See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 
-## Display information about a virtual machine scale set
+## Display information about a scale set
 
-You can get general information about a scale set, which is also referred to as the instance view. Or, you can get more specific information, such as information about the resources in the set.
+You can get general information about a scale set, which is also referred to as the instance view. Or, you can get more specific information, such as information about the resources in the scale set.
 
-In this command, replace *resource group name* with the name of the resource group that contains the virtual machine scale set, *scale set name* with the name of the virtual machine scale set, and then run it:
+Replace the quoted values with the name or your resource group and scale set and then run the command:
 
     Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
 
@@ -89,11 +89,11 @@ It returns something like this:
         Settings                                : {"xmlCfg":"...","storageAccount":"astore"}
     ProvisioningState                           : Succeeded
     
-In this command, replace *resource group name* with the name of the resource group that contains the virtual machine scale set, *scale set name* with the name of the virtual machine scale set, and *#* with the instance identifier of the virtual machine that you want to get information about, and then run it:
+Replace the quoted values with the name of your resource group and scale set. Replace *#* with the instance identifier of the virtual machine that you want to get information about and then run it:
 
     Get-AzureRmVmssVM -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
         
-It returns something like this:
+It returns something like this example:
 
     Id                            : /subscriptions/{sub-id}/resourceGroups/myrg1/providers/Microsoft.Compute/
                                     virtualMachineScaleSets/myvmss1/virtualMachines/0
@@ -144,7 +144,7 @@ It returns something like this:
         
 ## Start a virtual machine in a scale set
 
-In this command, replace *resource group name* with the name of the resource group that contains the virtual machine scale set, *scale set name* with the name of the scale set, *#* with the identifier of the virtual machine that you want to start, and then run it:
+Replace the quoted values with the name of your resource group and scale set. Replace *#* with the identifier of the virtual machine that you want to start and then run it:
 
     Start-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
 
@@ -164,11 +164,11 @@ In Resource Explorer, we can see that the status of the instance is **running**:
       }
     ]
 
-You can start all of the virtual machines in the set by not using the -InstanceId parameter.
+You can start all the virtual machines in the scale set by not using the -InstanceId parameter.
     
 ## Stop a virtual machine in a scale set
 
-In this command, replace *resource group name* with the name of the resource group that contains the virtual machine scale set, *scale set name* with the name of the scale set, *#* with the identifier of the virtual machine that you want to stop, and then run it:
+Replace the quoted values with the name of your resource group and scale set. Replace *#* with the identifier of the virtual machine that you want to stop and then run it:
 
 	Stop-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
 
@@ -188,20 +188,30 @@ In Resource Explorer, we can see that the status of the instance is **deallocate
       }
     ]
     
-To stop a virtual machine and not deallocate it, use the -StayProvisioned parameter. You can stop all of the virtual machines in the set by not using the -InstanceId parameter.
+To stop a virtual machine and not deallocate it, use the -StayProvisioned parameter. You can stop all the virtual machines in the set by not using the -InstanceId parameter.
     
 ## Restart a virtual machine in a scale set
 
-In this command, replace *resource group name* with the name of the resource group that contains the virtual machine scale set, *scale set name* with the name of the scale set, *#* with the identifier of the virtual machine that you want to restart, and then run it:
+Replace the quoted values with the name of your resource group and the scale set. Replace *#* with the identifier of the virtual machine that you want to restart and then run it:
 
 	Restart-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
     
-You can restart all of the virtual machines in the set by not using the -InstanceId parameter.
+You can restart all the virtual machines in the set by not using the -InstanceId parameter.
 
 ## Remove a virtual machine from a scale set
 
-In this command, replace *resource group name* with the name of the resource group that contains the virtual machine scale set, *scale set name* with the name of the scale set, *#* with the identifier of the virtual machine that you want to remove from the scale set, and then run it:  
+Replace the quoted values with the name of your resource group and the scale set. Replace *#* with the identifier of the virtual machine that you want to remove and then run it:  
 
 	Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name" -InstanceId #
 
 You can remove the virtual machine scale set all at once by not using the -InstanceId parameter.
+
+## Change the capacity of a scale set
+
+You can add or remove virtual machines by changing the capacity of the set. Get the scale set that you want to change, set the capacity to what you want it to be, and then update the scale set with the new capacity. In these commands, replace the quoted values with the name of your resource group and the scale set.
+
+  $vmss = Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
+  $vmss.sku.capacity = 5
+  Update-AzureRmVmss -ResourceGroupName "resource group name" -Name "scale set name" -VirtualMachineScaleSet $vmss 
+
+If you are removing virtual machines from the scale set, the virtual machines with the highest ids are removed first.

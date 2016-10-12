@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Media Services PlayReady License Template Overview" 
+	pageTitle="Media Services PlayReady license template overview" 
 	description="This topic gives an overview of a PlayReady license template that used to configure PlayReady licenses." 
 	authors="juliako" 
 	manager="erikre" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="06/22/2016"  
+ 	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
-#Media Services PlayReady License Template Overview
+#Media Services PlayReady license template overview
 
 Azure Media Services now provides a service for delivering Microsoft PlayReady licenses. When the end user player (for example, Silverlight) tries to play your PlayReady protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, it issues the license which is sent to the client and can be used to decrypt and play the specified content.
 

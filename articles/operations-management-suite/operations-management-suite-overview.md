@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/05/2016"
+   ms.date="10/04/2016"
    ms.author="bwren" />
 
 # Operations Management Suite (OMS) overview
@@ -48,7 +48,7 @@ Azure Automation provides configuration management with [PowerShell DSC](../auto
 ## ![OMS Security and Compliance](media/operations-management-suite-overview/icon-security-compliance.png) Security and Compliance
 Security and Compliance helps you identify, assess, and mitigate security risks to your infrastructure.  These features of OMS are implemented through multiple solutions in Log Analytics that analyze log data and configuration from agent systems to assist you in ensuring the ongoing security of your environment.
 
-- The [Security and Audit solution](log-analytics-security-audit.md ) collects and analyzes security events on managed systems to identify suspicious activity.
+- The [Security and Audit solution](oms-security-getting-started.md ) collects and analyzes security events on managed systems to identify suspicious activity.
 - The [Antimalware solution](log-analytics-malware.md ) reports on the status of antimalware protection on managed systems.  
 - The System Updates solution performs an analysis of the security updates and other updates on your managed systems so that you easily identify systems requiring patching.
 

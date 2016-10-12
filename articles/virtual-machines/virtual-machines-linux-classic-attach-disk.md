@@ -82,14 +82,14 @@ You can attach both empty disks and disks that contain data to your Azure VMs. B
 5. When prompted, type **p** to make the partition the primary partition. Type **1** to make it the first partition, and then type enter to accept the default value for the cylinder. On some systems, it can show the default values of the first and the last sectors, instead of the cylinder. You can choose to accept these defaults.
 
 
-	![Create partition](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
+	![Create partition](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartdetails.png)
 
 
 
 6. Type **p** to see the details about the disk that is being partitioned.
 
 
-	![List disk information](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
+	![List disk information](./media/virtual-machines-linux-classic-attach-disk/fdiskpartitiondetails.png)
 
 
 
@@ -140,7 +140,7 @@ You can attach both empty disks and disks that contain data to your Azure VMs. B
 
 		# sudo vi /etc/fstab
 
-	In this example we use the UUID value for the new **/dev/sdc1** device that was created in the previous steps, and the mountpoint **/datadrive**. Add the following line to the end of the **/etc/fstab** file:
+	In this example, we use the UUID value for the new **/dev/sdc1** device that was created in the previous steps, and the mountpoint **/datadrive**. Add the following line to the end of the **/etc/fstab** file:
 
 		UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
 
@@ -153,9 +153,9 @@ You can attach both empty disks and disks that contain data to your Azure VMs. B
 		# sudo umount /datadrive
 		# sudo mount /datadrive
 
-	If the `mount` command produces an error, check the /etc/fstab file for correct syntax. If additional data drives or partitions are created, you need to enter them into /etc/fstab separately as well.
+	If the `mount` command produces an error, check the /etc/fstab file for correct syntax. If additional data drives or partitions are created, enter them into /etc/fstab separately as well.
 
-	You need to make the drive writable by using this command:
+	Make the drive writable by using this command:
 
 		# sudo chmod go+w /datadrive
 

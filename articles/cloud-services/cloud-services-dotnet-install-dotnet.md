@@ -76,7 +76,7 @@ Startup tasks allow you to perform operations before a role starts. Installing t
 	REM ***** To install .NET 4.6 set the variable netfx to "NDP46" *****
 	REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" *****
 	REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" *****
-	set netfx="NDP462"
+	set netfx="NDP461"
 	
 	REM ***** Set script start timestamp *****
 	set timehour=%time:~0,2%
@@ -141,7 +141,7 @@ Startup tasks allow you to perform operations before a role starts. Installing t
 	
 	:restart
 	echo Restarting to complete .NET (%netfx%) installation >> %startuptasklog%
-	goto end
+	EXIT /B %ERRORLEVEL%
 	
 	:installed
 	echo .NET (%netfx%) is installed >> %startuptasklog%

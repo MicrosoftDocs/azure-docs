@@ -3,7 +3,7 @@
 	description="Learn about how to move data from MongoDB database using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -14,20 +14,20 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/04/2016" 
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Move data From MongoDB using Azure Data Factory
 
-This article outlines how you can use the Copy Activity in an Azure data factory to move data from an on-premises MongoDB database to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and the source/sink data store combinations that the copy activity supports.
+This article outlines how you can use the Copy Activity in an Azure data factory to move data from an on-premises MongoDB database to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity and the source/sink data store combinations that the copy activity supports.
 
 Data Factory service supports connecting to on-premises MongoDB sources using the Data Management Gateway. See [Data Management Gateway](data-factory-data-management-gateway.md) article to learn about Data Management Gateway and [Move data from on-premises to cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions on setting up the gateway a data pipeline to move data. 
 
-> [AZURE.NOTE] You need to leverage the gateway to connect to MongoDB even if it is hosted in Azure IaaS VMs. If you are trying to connect to an instance of MongoDB hosted in cloud, you can also install the gateway instance in the IaaS VM.
+> [AZURE.NOTE] You need to use the gateway to connect to MongoDB even if it is hosted in Azure IaaS VMs. If you are trying to connect to an instance of MongoDB hosted in cloud, you can also install the gateway instance in the IaaS VM.
 
 Data Factory currently supports only moving data from MongoDB to other data stores, but not for moving data from other data stores to MongoDB.
 
 ## Prerequisites
-For the Azure Data Factory service to be able to connect to your on-premises MongoDB database , you must install the following: 
+For the Azure Data Factory service to be able to connect to your on-premises MongoDB database, you must install the following components: 
 
 - Data Management Gateway 2.0 or above on the same machine that hosts the database or on a separate machine to avoid competing for resources with the database. Data Management Gateway is a software that connects on-premises data sources to cloud services in a secure and managed way. See [Data Management Gateway](data-factory-data-management-gateway.md) article for details about Data Management Gateway.
   
@@ -36,7 +36,7 @@ For the Azure Data Factory service to be able to connect to your on-premises Mon
 ## Copy Data wizard
 The easiest way to create a pipeline that copies data from a MongoDB database to any of the supported sink data stores is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
 
-The following example provides sample JSON definitions that you can use to create a pipeline by using [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from MongoDB database to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.
+The following example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from MongoDB database to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.
 
 ## Sample: Copy data from MongoDB to Azure Blob
 This sample shows how to copy data from an on-premises MongoDB database to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
@@ -51,7 +51,7 @@ The sample has the following data factory entities:
 
 The sample copies data from a query result in MongoDB database to a blob every hour. The JSON properties used in these samples are described in sections following the samples. 
 
-As a first step, please setup the data management gateway as per the instructions in the [Data Management Gateway](data-factory-data-management-gateway.md) article. 
+As a first step, setup the data management gateway as per the instructions in the [Data Management Gateway](data-factory-data-management-gateway.md) article. 
 
 **MongoDB linked service**
 
@@ -239,7 +239,7 @@ See [Setting Credentials and Security](data-factory-move-data-between-onprem-and
 
 ## Dataset type properties
 
-For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
+For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
 The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **MongoDbCollection** has the following properties:
 
@@ -249,11 +249,11 @@ The **typeProperties** section is different for each type of dataset and provide
 
 ## Copy activity type properties
 
-For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities. 
+For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities. 
 
-Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.
+Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
 
-In case of Copy Activity when source is of type **MongoDbSource** the following properties are available in typeProperties section:
+When the source is of type **MongoDbSource** the following properties are available in typeProperties section:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
@@ -264,12 +264,12 @@ Azure Data Factory service infers schema from a MongoDB collection by using the 
 
 ## Type mapping for MongoDB
 
-As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from source types to sink types with the following 2 step approach:
+As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from source types to sink types with the following 2-step approach:
 
 1. Convert from native source types to .NET type
 2. Convert from .NET type to native sink type
 
-When moving data to MongoDB the following mappings will be used from MongoDB types to .NET types.
+When moving data to MongoDB the following mappings are used from MongoDB types to .NET types.
 
 | MongoDB type | .NET Framework type |
 | ------------------- | ------------------- | 
@@ -287,17 +287,17 @@ When moving data to MongoDB the following mappings will be used from MongoDB typ
 > [AZURE.NOTE]  
 > To learn about support for arrays using virtual tables, refer to [Support for complex types using virtual tables](#support-for-complex-types-using-virtual-tables) section below. 
 
-The following MongoDB data types are not supported at this time:DBPointer, JavaScript, Max/Min key, Regular Expression, Symbol, Timestamp, Undefined
+Currently, the following MongoDB data types are not supported: DBPointer, JavaScript, Max/Min key, Regular Expression, Symbol, Timestamp, Undefined
 
 ## Support for complex types using virtual tables
-Azure Data Factory uses a built-in ODBC driver to connect to and copy data from your MongoDB database. For complex types such as arrays or objects with different types across the documents, the driver will re-normalize data into corresponding virtual tables. Specifically, if a table contains such columns, the driver generates the following virtual tables:
+Azure Data Factory uses a built-in ODBC driver to connect to and copy data from your MongoDB database. For complex types such as arrays or objects with different types across the documents, the driver re-normalizes data into corresponding virtual tables. Specifically, if a table contains such columns, the driver generates the following virtual tables:
 
 -	A **base table**, which contains the same data as the real table except for the complex type columns. The base table uses the same name as the real table that it represents.
 -	A **virtual table** for each complex type column, which expands the nested data. The virtual tables are named using the name of the real table, a separator “_” and the name of the array or object.
 
 Virtual tables refer to the data in the real table, enabling the driver to access the denormalized data. See Example section below details. You can access the content of MongoDB arrays by querying and joining the virtual tables.
 
-You can leverage the [Copy Wizard](data-factory-data-movement-activities.md#data-factory-copy-wizard) to intuitively view the list of tables in MongoDB database including the virtual tables, and preview the data inside. You can also construct a query in the Copy Wizard and validate to see the result.
+You can use the [Copy Wizard](data-factory-data-movement-activities.md#data-factory-copy-wizard) to intuitively view the list of tables in MongoDB database including the virtual tables, and preview the data inside. You can also construct a query in the Copy Wizard and validate to see the result.
 
 ### Example
 
@@ -305,17 +305,17 @@ For example, “ExampleTable” below is a MongoDB table that has one column wit
 
 _id | Customer Name | Invoices | Service Level | Ratings
 --- | ------------- | -------- | ------------- | -------
-1111 | ABC | [{invoice_id:”123”, item:”toaster”, price:”456”, discount:”0.2”}, {invoice_id:”124”, item:”oven”,price: ”1235”,discount: ”0.2”}] | Silver | [5,6]
-2222 | XYZ | [{invoice_id:”135”, item:”fridge”,price: ”12543”,discount: ”0.0”}] | Gold | [1,2]
+1111 | ABC | [{invoice_id:”123”, item:”toaster”, price:”456”, discount:”0.2”}, {invoice_id:”124”, item:”oven”, price: ”1235”, discount: ”0.2”}] | Silver | [5,6]
+2222 | XYZ | [{invoice_id:”135”, item:”fridge”, price: ”12543”, discount: ”0.0”}] | Gold | [1,2]
 
-The driver would generate multiple virtual tables to represent this single table. The first virtual table is the base table named “ExampleTable”, shown below. The base table contains all of the data of the original table, but the data from the arrays has been omitted and will be expanded in the virtual tables.
+The driver would generate multiple virtual tables to represent this single table. The first virtual table is the base table named “ExampleTable”, shown below. The base table contains all the data of the original table, but the data from the arrays has been omitted and is expanded in the virtual tables.
 
 _id | Customer Name | Service Level
 --- | ------------- | -------------
 1111 | ABC | Silver
 2222 | XYZ | Gold
 
-The following tables show the virtual tables that represent the original arrays in the example. Each of these tables contain the following
+The following tables show the virtual tables that represent the original arrays in the example. These tables contain the following: 
 
 - A reference back to the original primary key column corresponding to the row of the original array (via the _id column)
 - An indication of the position of the data within the original array 

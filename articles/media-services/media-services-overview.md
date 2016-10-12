@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Media Services Overview and Common Scenarios" 
+	pageTitle="Azure Media Services overview and common scenarios | Microsoft Azure" 
 	description="This topic gives an overview of Azure Media Services" 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="08/07/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako;anilmur"/>
 
-#Azure Media Services Overview and Common Scenarios
+#Azure Media Services overview and common scenarios
 
 Microsoft Azure Media Services is an extensible cloud-based platform that enables developers to build scalable media management and delivery applications. Media Services is based on REST APIs that enable you to securely upload, store, encode and package video or audio content for both on-demand and live streaming delivery to various clients (for example, TV, PC, and mobile devices).
 
@@ -24,19 +24,19 @@ You can build end-to-end workflows using entirely Media Services. You can also c
 
 You can choose to stream your content live or deliver content on demand. This topic shows common scenarios for delivering your content [live](media-services-overview.md#live_scenarios) or [on demand](media-services-overview.md#vod_scenarios). The topic also links to other relevant topics.
 
-## SDKs and tools 
+## SDKs and tools
 
 To build Media Services solutions, you can use:
 
 - [Media Services REST API](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- One of the available client SDKs: 
-	- [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), 
-	- [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java), 
-	- [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php), 
-	- [Azure Media Services for Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (This is a non-Microsoft version of a Node.js SDK. It is maintained by a community and currently does not have a 100% coverage of the AMS APIs). 
-- Existing tools: 
-	- [Azure Classic Portal](http://manage.windowsazure.com/) 
-	- [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) is a Winforms/C# application for Windows)
+- One of the available client SDKs:
+- [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services),
+- [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java),
+- [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
+- [Azure Media Services for Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (This is a non-Microsoft version of a Node.js SDK. It is maintained by a community and currently does not have a 100% coverage of the AMS APIs).
+- Existing tools:
+- [Azure Classic Portal](http://manage.windowsazure.com/)
+- [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) is a Winforms/C# application for Windows)
 
 ##Media Services learning paths
 
@@ -48,13 +48,13 @@ You can view AMS learning paths here:
 ##Prerequisites
 
 To start using Azure Media Services, you should have the following:
- 
+
 3. An Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com).
 2. An Azure Media Services account. Use the Azure Classic Portal, .NET, or REST API to create Azure Media Services account. For more information, see [Create Account](media-services-create-account.md).
-3. (Optional) Set up development environment. Choose .NET or REST API for your development environment. For more information, see [Set up environment](media-services-dotnet-how-to-use.md). 
+3. (Optional) Set up development environment. Choose .NET or REST API for your development environment. For more information, see [Set up environment](media-services-dotnet-how-to-use.md).
 
-	Also, learn how to connect  programmatically [Connect](media-services-dotnet-connect-programmatically.md).
-4. (Recommended) Allocate one or more scale units. It is recommended to allocate one or more scale units for applications in production environment.   For more information, see [Managing streaming endpoints](media-services-manage-origins.md).
+Also, learn how to connect  programmatically [Connect](media-services-dotnet-connect-programmatically.md).
+4. (Recommended) Allocate one or more scale units. It is recommended to allocate one or more scale units for applications in production environment.   For more information, see [Managing streaming endpoints](media-services-portal-manage-streaming-endpoints.md).
 
 ##Concepts and overview
 
@@ -135,14 +135,14 @@ When working with Live Streaming the following components are commonly involved:
 - A camera that is used to broadcast an event.
 - A live video encoder that converts signals from the camera to streams that are sent to a live streaming service.
 
-	Optionally, multiple live time synchronized encoders. For certain critical live events that demand very high availability and quality of experience, it is recommended to employ active-active redundant encoders with time synchronizationto achieve seamless failover with no data loss.
+Optionally, multiple live time synchronized encoders. For certain critical live events that demand very high availability and quality of experience, it is recommended to employ active-active redundant encoders with time synchronizationto achieve seamless failover with no data loss.
 - A live streaming service that enables you to do the following:
-	
-	- ingest live content using various live streaming protocols (for example RTMP or Smooth Streaming),
-	- (optionally) encode your stream into adaptive bitrate stream
-	- preview your live stream,
-	- record and store the ingested content in order to be streamed later (Video-on-Demand)
-	- deliver the content through common streaming protocols (for example, MPEG DASH, Smooth, HLS, HDS) directly to your customers, or to a Content Delivery Network (CDN) for further distribution.
+
+- ingest live content using various live streaming protocols (for example RTMP or Smooth Streaming),
+- (optionally) encode your stream into adaptive bitrate stream
+- preview your live stream,
+- record and store the ingested content in order to be streamed later (Video-on-Demand)
+- deliver the content through common streaming protocols (for example, MPEG DASH, Smooth, HLS, HDS) directly to your customers, or to a Content Delivery Network (CDN) for further distribution.
 
 
 **Microsoft Azure Media Services** (AMS) provides the ability to ingest,  encode, preview, store, and deliver your live streaming content.
@@ -155,8 +155,8 @@ A **Channel** represents a pipeline for processing live streaming content. A Cha
 
 - An on-premises live encoder sends multi-bitrate **RTMP** or **Smooth Streaming** (fragmented MP4) to the Channel that is configured for **pass-through** delivery. The **pass-through** delivery is when the ingested streams pass through **Channel**s without any further processing. You can use the following live encoders that output multi-bitrate Smooth Streaming: Elemental, Envivio, Cisco.  The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders.  A live encoder can also send a single bitrate stream to a channel that is not enabled for live encoding, but that is not recommended. When requested, Media Services delivers the stream to customers.
 
-	>[AZURE.NOTE] Using a pass-through method is the most economical way to do live streaming when you are doing multiple events over a long period of time, and you have already invested in on-premises encoders. See [pricing](/pricing/details/media-services/) details.
-	
+>[AZURE.NOTE] Using a pass-through method is the most economical way to do live streaming when you are doing multiple events over a long period of time, and you have already invested in on-premises encoders. See [pricing](/pricing/details/media-services/) details.
+
 - An on-premises live encoder sends a single-bitrate stream to the Channel that is enabled to perform live encoding with Media Services in one of the following formats: RTP (MPEG-TS), RTMP, or Smooth Streaming (Fragmented MP4). The Channel then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.
 
 
@@ -185,7 +185,7 @@ Azure Media Services provides the tools you need to create rich, dynamic client 
 
 ##Enabling Azure CDN
 
-Media Services supports integration with Azure CDN. For information on how to enable Azure CDN, see [How to Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md#enable_cdn).
+Media Services supports integration with Azure CDN. For information on how to enable Azure CDN, see [How to Manage Streaming Endpoints in a Media Services Account](media-services-portal-manage-streaming-endpoints.md).
 
 ##Scaling a Media Services account
 
@@ -193,7 +193,7 @@ You can scale **Media Services** by specifying the number of **Streaming Reserve
 
 You can also scale your Media Services account by adding storage accounts to it. Each storage account is limited to 500 TB. To expand your storage beyond the default limitations, you can choose to attach multiple storage accounts to a single Media Services account.
 
-[This](media-services-how-to-scale.md) topic links to relevant topics.
+[This](media-services-portal-scale-streaming-endpoints.md) topic links to relevant topics.
 
 ##Support
 

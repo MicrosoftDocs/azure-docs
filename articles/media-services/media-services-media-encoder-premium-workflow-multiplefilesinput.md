@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"  
+	ms.date="10/10/2016"  
 	ms.author="xpouyat;anilmur;juliako"/>
 
 # Using multiple input files and component properties with Premium Encoder

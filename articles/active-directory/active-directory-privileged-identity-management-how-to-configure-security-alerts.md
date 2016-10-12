@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/17/2016"
+   ms.date="09/02/2016"
    ms.author="kgremban"/>
 
 # How to configure security alerts in Azure AD Privileged Identity Management
@@ -30,7 +30,7 @@ Azure Privileged Identity Management (PIM) generates alerts when there is suspic
 | **Roles are being assigned outside of PIM** | An administrator was permanently assigned to a role, outside of the PIM interface. | Review the new role assignment. Since other services can only assign permanent administrators, change it to an eligible assignment if necessary. |
 | **Roles are being activated too frequently** | There were too many reactivations of the same role within the time allowed in the settings. | Contact the user to see why they have activated the role so many times. Maybe the time limit is too short for them to complete their tasks, or maybe they're using scripts to automatically activate a role. |
 | **Roles don't require multi-factor authentication for activation** | There are roles without MFA enabled in the settings. | We require MFA for the most highly privileged roles, but strongly encourage that you enable MFA for activation of all roles. |
-| **Administrators aren't using their privileged roles** | There are temporary administrators that haven’t activated their roles recently. | Start an access review to determine the users that don't need access anymore. |
+| **Administrators aren't using their privileged roles** | There are eligible administrators that haven’t activated their roles recently. | Start an access review to determine the users that don't need access anymore. |
 | **There are too many global administrators** | There are more global administrators than recommended. | If you have a high number of global administrators, it's likely that users are getting more permissions than they need. Move users to less privileged roles, or make some of them eligible for the role instead of permanently assigned. |
 
 ## Configure security alert settings

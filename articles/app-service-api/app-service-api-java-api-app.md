@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="get-started-article"
-	ms.date="06/01/2016"
+	ms.date="08/31/2016"
 	ms.author="rachelap"/>
 
 # Build and deploy a Java API app in Azure App Service
@@ -24,7 +24,7 @@ This tutorial shows how to create a Java application and deploy it to Azure App 
 
 ## Prerequisites
 
-1. [Java Developer's Kit 8] (or later)
+1. [Java Developer's Kit 8] \(or later)
 1. [Maven] installed on your development machine
 1. [Git] installed on your development machine
 1. A paid or [free trial] subscription to [Microsoft Azure]

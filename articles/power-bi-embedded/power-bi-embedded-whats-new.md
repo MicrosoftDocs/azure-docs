@@ -3,8 +3,8 @@
    description="Get the latest info on what's new in Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
-   manager="mblythe"
+   authors="guyinacube"
+   manager="erikre"
    editor=""
    tags=""/>
 <tags
@@ -13,12 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="07/06/2016"
-   ms.author="owend"/>
+   ms.date="10/04/2016"
+   ms.author="asaxton"/>
 
 # What's new in Power BI Embedded
 
 Updates to **Power BI Embedded** are released on a regular basis. However, not every release includes new user-facing features; some releases are focused on back-end service capabilities. We’ll highlight new user-facing capabilities here. Be sure to check back often.
+
+## August 31st, 2016
+
+Included in this release:
+
+- All new JavaScript SDK that supports [advanced filtering and page navigation](power-bi-embedded-interact-with-reports.md).
+- Power BI Embedded is now supported in the Canada Central datacenter. Check [datacenter status](https://azure.microsoft.com/status/).
 
 ## July 11th, 2016
 

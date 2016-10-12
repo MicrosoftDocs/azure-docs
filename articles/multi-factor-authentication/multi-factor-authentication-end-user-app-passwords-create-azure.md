@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Create app passwords in the Azure portal for Azure Multi-Factor Authentication" 
-	description="This page shows users how they can create additional app passwords in the Azure portal." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenp" 
+<properties
+	pageTitle="Create app passwords in the Azure portal for Azure Multi-Factor Authentication"
+	description="This page shows users how they can create additional app passwords in the Azure portal."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Create app passwords in the Azure portal for Azure Multi-Factor Authentication
 
@@ -31,5 +31,3 @@ If you use multi-factor authentication with Azure you will want to create app pa
 
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-azure/app2.png)</center>
-
- 

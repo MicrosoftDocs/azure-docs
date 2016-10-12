@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/21/2016"
+	ms.date="09/06/2016"
 	ms.author="cephalin;dariac"/>
     
 # Deploy your app to Azure App Service
@@ -233,7 +233,7 @@ For more information, see the following resources:
 * [Provision a web app with a SQL Database](app-service-web-arm-with-sql-database-provision.md)
 * [Provision and deploy microservices predictably in Azure](app-service-deploy-complex-application-predictably.md)
 * [Building Real-World Cloud Apps with Azure - Automate Everything](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything). E-book chapter that explains how the sample application shown in the e-book uses Windows PowerShell scripts to create an Azure test environment and deploy to it. See the [Resources](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources) section for links to additional Azure PowerShell documentation.
-* [Using Windows PowerShell Scripts to Publish to Dev and Test Environments](http://msdn.microsoft.com/library/dn642480.aspx). How to use Windows PowerShell deployment scripts that Visual Studio generates.
+* [Using Windows PowerShell Scripts to Publish to Dev and Test Environments](../vs-azure-tools-publishing-using-powershell-scripts.md). How to use Windows PowerShell deployment scripts that Visual Studio generates.
 
 ###<a name="api"></a>Automate deployment with .NET management API
 

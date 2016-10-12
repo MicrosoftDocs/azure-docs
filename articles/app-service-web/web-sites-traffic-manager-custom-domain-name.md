@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
+	ms.date="09/20/2016"
 	ms.author="robmcm"/>
 
 # Configuring a custom domain name for a web app in Azure App Service using Traffic Manager
@@ -55,7 +55,7 @@ To associate your custom domain with a web app in Azure App Service, you must ad
 
 1. While the specifics of each registrar vary, in general you map *from* your custom domain name (such as **contoso.com**,) *to* the Traffic Manager domain name (**contoso.trafficmanager.net**) that is used for your web app.
 
-> [AZURE.NOTE] Alternatively, if a record is already in use and you need to preemptively bind your apps to it, create a TXT record for **awverify.contoso.com** to **contoso.trafficmanager.net**.
+    > [AZURE.NOTE] Alternatively, if a record is already in use and you need to preemptively bind your apps to it, you can create an additional CNAME record. For example, to preemptively bind **www.contoso.com** to your web app, create a CNAME record from **awverify.www** to **contoso.trafficmanager.net**. You can then add "www.contoso.com" to your Web App without changing the "www" CNAME record. For more information, see [Create DNS records for a web app in a custom domain][CREATEDNS].
 
 1. Once you have finished adding or modifying DNS records at your registrar, save the changes.
 
@@ -71,3 +71,7 @@ For more information, see the [Node.js Developer Center](/develop/nodejs/).
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
+
+<!-- URL List -->
+
+[CREATEDNS]: ../dns/dns-web-sites-custom-domain.md

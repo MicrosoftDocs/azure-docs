@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
-	ms.author="femila"/>
+	ms.date="09/21/2016"
+	ms.author="MarkVi"/>
 
 # Configure automatic device registration for Windows 7 domain joined devices
 
-As an IT admin, you can configure your Windows 7 domain joined devices to automatically register with Azure AD. To do so, you must deploy the device registration software package to your Windows 7 domain joined devices using a software distribution system such as System Center Configuration Manager. Be sure to read through and complete the prerequisites listed in Automatic Device Registration with Azure Active Directory for Windows Domain-Joined Devices.
+As an IT admin, you can configure your Windows 7 domain joined devices to automatically register with Azure AD. To do so, you must deploy the device registration software package to your Windows 7 domain joined devices using a software distribution system such as System Center Configuration Manager. Be sure to read through and complete the prerequisites listed in Automatic Device Registration with Azure Active Directory for Windows Domain-Joined devices.
+
+>[AZURE.NOTE]
+ For latest instructions on how to set up automatic device registration see, [How to setup automatic registration of Windows domain joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
 
 ##Installing the device registration software package on Windows 7 domain joined devices
 

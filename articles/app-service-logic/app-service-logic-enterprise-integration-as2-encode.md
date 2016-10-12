@@ -66,8 +66,8 @@ Connect to Encode AS2 Message to establish security and reliability while transm
 
 ##Try it for yourself
 
-Why not give it a try. Click [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) to deploy a fully operational logic app of your own using the Logic Apps AS2 features
- 
+Why not give it a try. Click [here](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/) to deploy a fully operational logic app of your own using the Logic Apps AS2 features
+
 ## Next steps
 
 [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack") 

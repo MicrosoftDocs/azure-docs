@@ -17,6 +17,16 @@
 	ms.author="spelluru"/>
 
 # Use custom activities in an Azure Data Factory pipeline
+> [AZURE.SELECTOR]
+[Hive](data-factory-hive-activity.md)  
+[Pig](data-factory-pig-activity.md)  
+[MapReduce](data-factory-map-reduce.md)  
+[Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
+[Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
+[Stored Procedure](data-factory-stored-proc-activity.md)
+[Data Lake Analytics U-SQL](data-factory-usql-activity.md)
+[.NET custom](data-factory-use-custom-activities.md)
+
 There are two types of activities that you can use in an Azure Data Factory pipeline.
  
 - [Data Movement Activities](data-factory-data-movement-activities.md) to move data between [supported data stores](data-factory-data-movement-activities.md#supported-data-stores).
@@ -24,7 +34,9 @@ There are two types of activities that you can use in an Azure Data Factory pipe
 
 If you need to move data to/from a data store that is not supported by Azure Data Factory, you can create a custom .NET activity with your own data movement logic and use the activity in the pipeline. 
 
-Similarly, if you need to transform/process data in a way that is not supported by Data Factory, you can create a custom activity with your own data processing logic and use the activity in the pipeline. 
+Similarly, if you need to transform/process data in a way that is not supported by Data Factory, you can create a custom activity with your own data processing logic and use the activity in the pipeline.
+
+> [AZURE.NOTE] Currently, Data Management Gateway supports only the copy activity and stored procedure activity in Data Factory. It is not possible to use the gateway from a custom activity to access on-premises data sources.
  
 You can configure the custom .NET activity to run using either an **Azure Batch** service or an **Azure HDInsight** cluster.   
 
@@ -526,7 +538,7 @@ In this step, you create datasets to represent input and output data.
 		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "fileName": "{slice}.txt",
-		            "folderPath": "adftutorial/customactivityoutput",
+		            "folderPath": "adftutorial/customactivityoutput/",
 		            "partitionedBy": [
 		                {
 		                    "name": "slice",
@@ -615,7 +627,7 @@ In this step, you create datasets to represent input and output data.
 
 	- **Concurrency** is set to **2** so that two slices are processed in parallel by 2 VMs in the Azure Batch pool.
 	- There is one activity in the activities section and it is of type: **DotNetActivity**.
-	- **AssemblyName** is set to the name of the DLL: **MyActivities.dll**.
+	- **AssemblyName** is set to the name of the DLL: **MyDotnetActivity.dll**.
 	- **EntryPoint** is set to **MyDotNetActivityNS.MyDotNetActivity**.
 	- **PackageLinkedService** is set to **AzureStorageLinkedService** that points to the blob storage that contains the custom activity zip file. If you are using different Azure Storage accounts for input/output files and the custom activity zip file, you create another Azure Storage linked service. This article assumes that you are using the same Azure Storage account..
 	- **PackageFile** is set to **customactivitycontainer/MyDotNetActivity.zip**. It is in the format: containerforthezip/nameofthezip.zip.
