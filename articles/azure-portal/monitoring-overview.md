@@ -138,6 +138,7 @@ Azure has offerings available for monitoring your services from bare-metal infra
 
 ## Next steps
 Learn more about
+
 - [Azure Monitor in a video from Ignite 2016](https://myignite.microsoft.com/videos/4977) 
 - [Getting Started with Azure Monitor](monitoring-get-started.md) 
 - [Azure Diagnostics](../azure-diagnostics.md) if you are attempting to diagnose problems in your Cloud Service, Virtual Machine, or Service Fabric application.
