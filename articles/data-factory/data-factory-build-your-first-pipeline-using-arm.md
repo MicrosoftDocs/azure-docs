@@ -336,11 +336,11 @@ It is a unique string based on the resource group ID.
 ### Defining Data Factory entities
 The following Data Factory entities are defined in the JSON template: 
 
-1. [Azure Storage linked service](#azure-storage-linked-service)
-2. [HDInsight on-demand linked service](#hdinsight-on-demand-linked-service)
-3. [Azure blob input dataset](#azure-blob-input-dataset)
-4. [Azure blob output dataset](#azure-blob-output-dataset)
-5. [Data pipeline with a copy activity](#data-pipeline)
+- [Azure Storage linked service](#azure-storage-linked-service)
+- [HDInsight on-demand linked service](#hdinsight-on-demand-linked-service)
+- [Azure blob input dataset](#azure-blob-input-dataset)
+- [Azure blob output dataset](#azure-blob-output-dataset)
+- [Data pipeline with a copy activity](#data-pipeline)
 
 #### Azure Storage linked service
 You specify the name and key of your Azure storage account in this section. See [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service) for details about JSON properties used to define an Azure Storage linked service. 
