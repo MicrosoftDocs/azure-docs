@@ -1,13 +1,13 @@
 <properties 
     pageTitle="Partitioned queues and topics | Microsoft Azure"
     description="Describes how to partition Service Bus queues and topics by using multiple message brokers."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" /> 
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
