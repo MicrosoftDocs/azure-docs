@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/11/2016"
+	ms.date="10/12/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -53,22 +53,21 @@ Use the information in [Azure SQL Database Service Tiers and Performance Levels]
 
 Open the SQL Database blade for the database you want to scale up or down:
 
-1.	In the [Azure portal](https://portal.azure.com) 
-2.	Click **More services** > **SQL databases**.
+1.	In the [Azure portal](https://portal.azure.com), click **More services** > **SQL databases**.
 2.	Click the database you want to change.
-3.	On the SQL database blade click **Pricing tier (scale DTUs)**
+3.	On the **SQL database** blade click **Pricing tier (scale DTUs)**:
 
     ![pricing tier][1]
 
 1.  Choose a new tier and click **Select**:
 
-    Clicking **Select** submits a scale request to change the pricing tier. Depending on the size of your database the scale operation can take some time to complete. Click the notification for details and status of the scale operation. 
+    Clicking **Select** submits a scale request to change the pricing tier. Depending on the size of your database the scale operation can take some time to complete (see the info at the top of this article).
 
     > [AZURE.NOTE] Changing your database pricing tier does not change the max database size. To change your database max size use [Transact-SQL (T-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) or [PowerShell](https://msdn.microsoft.com/library/mt619433.aspx).
 
     ![select pricing tier][2]
 
-3.	Click the notification icon, in the upper right:
+3.	Click the notification icon (bell), in the upper right:
 
     ![notifications][3]
 
