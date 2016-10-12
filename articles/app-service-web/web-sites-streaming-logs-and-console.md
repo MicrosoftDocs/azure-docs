@@ -27,7 +27,7 @@ Setting up this feature requires a few simple steps:
 
 - Write traces in your code
 - Enable Application **Diagnostic Logs** for your app
-- View the stream from the built-in  **Streaming Logs** UI in the **Azure portal**.
+- View the stream from the built-in **Streaming Logs** UI in the **Azure portal**.
 
 ### How to write traces in your code ###
 
@@ -55,15 +55,15 @@ console.log("My trace statement").
 
 ### How to enable and view the streaming logs
 ![][BrowseSitesScreenshot]
-Diagnostics are enabled on a per app basis. To do this, browse to the site you 
-would like to enable this feature for.  
+Diagnostics are enabled on a per app basis. Start by browsing to the site you 
+would like to enable this feature on.  
   
 ![][DiagnosticsLogs]
 From settings menu, scroll down to the **Monitoring** section and click on 
 **(1) Diagnostic Logs**. Then **(2) enable** **Application Logging (Filesystem)** 
 or **Application Logging (blob)** The **Level** option lets you change the severity 
-level of traces to capture. If you're just trying to get familiar with the feature 
-set the level to **Verbose** as this ensures all of your trace statements are 
+level of traces to capture. If you're just trying to get familiar with the feature, 
+set the level to **Verbose** to ensure all of your trace statements are 
 collected.
 
 Click **SAVE** at the top of the blade and you're ready to view logs.
@@ -73,7 +73,7 @@ log and the more traces are produced. Make sure **severity level** is
 configured to the correct verbosity for a production or high traffic site. 
 
 ![][StreamingLogsScreenshot]
-To view the **streaming logs** from within the Azure portal click on 
+To view the **streaming logs** from within the Azure portal, click on 
 **(1) Log Stream** also in the **Monitoring** section of the settings menu. 
 If your app is actively writing trace statements, then you should see them in the 
 **(2) streaming logs UI** in near real time.
