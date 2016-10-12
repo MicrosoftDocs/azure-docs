@@ -243,7 +243,9 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFGetStarted** folder 
 > [AZURE.NOTE] You can find another example of Resource Manager template for creating an Azure data factory on [Tutorial: Create a pipeline with Copy Activity using an Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md).  
 
 ## Parameters JSON 
-Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parameters for the Azure Resource Manager template. Specify values for these parameters and save the JSON file.
+Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parameters for the Azure Resource Manager template.  
+
+> [AZURE.IMPORTANT] Specify the name and key of your Azure Storage account in this parameter file. 
 
 	{
 		"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
