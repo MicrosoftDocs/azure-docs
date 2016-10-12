@@ -25,7 +25,7 @@ This article shows you how to use Create and Manage Azure Notification Hubs usin
 + Create a Notification Hub
 + Set Credentials
 
-If you also need to create a new service bus namespace for your notification hubs, see [Manage Service Bus with PowerShell](../service-bus/service-bus-powershell-how-to-provision.md).
+If you also need to create a new service bus namespace for your notification hubs, see [Manage Service Bus with PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md).
 
 Managing Notifications Hubs is not supported directly by the cmdlets included with Azure PowerShell. The best approach from PowerShell is to reference the Microsoft.Azure.NotificationHubs.dll assembly. The assembly is distributed with the [Microsoft Azure Notification Hubs NuGet package](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
@@ -156,7 +156,7 @@ else
 
 ## Additional Resources
 
-- [Manage Service Bus with PowerShell](../service-bus/service-bus-powershell-how-to-provision.md)
+- [Manage Service Bus with PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md)
 - [How to create Service Bus queues, topics and subscriptions using a PowerShell script](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [How to create a Service Bus Namespace and an Event Hub using a PowerShell script](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 

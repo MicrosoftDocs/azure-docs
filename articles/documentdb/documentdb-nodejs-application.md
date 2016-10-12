@@ -4,7 +4,7 @@
 	keywords="Application development, database tutorial, learn node.js, node.js tutorial, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="nodejs" 
-	authors="AndrewHoh" 
+	authors="syamkmsft" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
 	ms.date="08/25/2016" 
-	ms.author="anhoh"/>
+	ms.author="syamk"/>
 
 # <a name="_Toc395783175"></a>Build a Node.js web application using DocumentDB
 

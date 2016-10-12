@@ -3,7 +3,7 @@
 	description="Learn about data storage and document storage in DocumentDB and how you can scale DocumentDB to meet the capacity needs of your application." 
 	keywords="document storage"
 	services="documentdb" 
-	authors="mimig1" 
+	authors="syamkmsft" 
 	manager="jhubbard" 
 	editor="cgronlun" 
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/18/2016" 
-	ms.author="mimig"/>
+	ms.author="syamk"/>
 
 # Learn about storage and predictable performance provisioning in DocumentDB
 Azure DocumentDB is a fully managed, scalable document-oriented NoSQL database service for JSON documents. With DocumentDB, you don’t have to rent virtual machines, deploy software, or monitor databases. DocumentDB is operated and continuously monitored by Microsoft engineers to deliver world class availability, performance, and data protection.  
