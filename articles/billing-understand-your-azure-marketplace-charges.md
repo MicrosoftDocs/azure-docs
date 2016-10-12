@@ -91,7 +91,7 @@ Update your payment methods for external service orders from the [Account Center
 
 3. Click **Change payment method** on the right side of the page. This link brings you to a different portal to manage your payment method.
     
-    ![Order summary](./media/billing-understand-your-azure-marketplace-charges/change-payment.png)
+    ![Order summary](./media/billing-understand-your-azure-marketplace-charges/change-payment.PNG)
 
 4. Click **Edit info** and follow instructions to update your payment information.
 
