@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/27/2016"
+	ms.date="10/12/2016"
 	ms.author="erikje"/>
 
 # Azure Stack deployment prerequisites
@@ -85,10 +85,10 @@ The Microsoft Azure Stack POC deployment must be connected to Azure. Therefore, 
 
     | **Azure Active Directory account**  | **Supported?** |
     |---|---| 
-    | Organization ID with valid Public Azure Subscription  | Yes |
+    | Work or school account with valid Public Azure Subscription  | Yes |
     | Microsoft Account with valid Public Azure Subscription  | No |
-    | Organization ID with valid China Azure Subscription  | Yes |
-    | Organization ID with valid US Government Azure Subscription  | Yes |
+    | Work or school account with valid China Azure Subscription  | Yes |
+    | Work or school account with valid US Government Azure Subscription  | Yes |
 
 
 ## Network
