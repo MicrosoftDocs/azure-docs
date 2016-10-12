@@ -31,7 +31,7 @@ To learn about how to create and deploy a Machine Learning Web service using Mac
 
 ## Azure Machine Learning Web service ##
 
-With the Azure Machine Learning Web service, an external application communicates with a Machine Learning workflow scoring model in real time. A Machine Learning Web service call returns prediction results to an external application. To make a Machine Learning Web service call, you pass an API key which is created when you deploy a prediction. The Machine Learning Web service is based on REST, a popular architecture choice for web programming projects.
+With the Azure Machine Learning Web service, an external application communicates with a Machine Learning workflow scoring model in real time. A Machine Learning Web service call returns prediction results to an external application. To make a Machine Learning Web service call, you pass an API key that is created when you deploy a prediction. The Machine Learning Web service is based on REST, a popular architecture choice for web programming projects.
 
 Azure Machine Learning has two types of services:
 
@@ -95,6 +95,7 @@ The Machine Learning API help contains details about a prediction Web service.
 3. Click **API help page** under either the Request-Response or Batch Execution endpoints.
 
 **To view Machine Learning API help for a New Web service**
+
 In the Azure Machine Learning Web Services Portal:
 
 1. Click **WEB SERVICES** on the top menu.
@@ -102,18 +103,18 @@ In the Azure Machine Learning Web Services Portal:
 
 Click **Consume** to get the URIs for the Request-Reposonse and Batch Execution Services and Sample code in C#, R, and Python.
 
-Click **Swagger API** to get Swagger based documentation for the the APIs called from the supplied URIs.
+Click **Swagger API** to get Swagger based documentation for the APIs called from the supplied URIs.
 
 ### C# Sample ###
 
-To connect to a Machine Learning Web service, use an **HttpClient** passing ScoreData. ScoreData contains a FeatureVector, an n-dimensional  vector of numerical features that represents the ScoreData. You authenticate to the Machine Learning service with an API key.
+To connect to a Machine Learning Web service, use an **HttpClient** passing ScoreData. ScoreData contains a FeatureVector, an n-dimensional vector of numerical features that represents the ScoreData. You authenticate to the Machine Learning service with an API key.
 
-To connect to a Machine Learning Web service, the **Microsoft.AspNet.WebApi.Client** Nuget package must be installed.
+To connect to a Machine Learning Web service, the **Microsoft.AspNet.WebApi.Client** NuGet package must be installed.
 
-**Install Microsoft.AspNet.WebApi.Client Nuget in Visual Studio**
+**Install Microsoft.AspNet.WebApi.Client NuGet in Visual Studio**
 
 1. Publish the Download dataset from UCI: Adult 2 class dataset Web Service.
-2. Click **Tools** > **Nuget Package Manager** > **Package Manager Console**.
+2. Click **Tools** > **NuGet Package Manager** > **Package Manager Console**.
 2. Choose **Install-Package Microsoft.AspNet.WebApi.Client**.
 
 **To run the code sample**
@@ -131,5 +132,5 @@ To connect to a Machine Learning Web service, use the **urllib2** library passin
 **To run the code sample**
 
 1. Deploy "Sample 1: Download dataset from UCI: Adult 2 class dataset" experiment, part of the Machine Learning sample collection.
-2. Assign apiKey with the key from a Web service. See **Get an Azure Machine Learning authorization key** above.
+2. Assign apiKey with the key from a Web service. See the **Get an Azure Machine Learning authorization key** section near the beginning of this article.
 3. Assign serviceUri with the Request URI.

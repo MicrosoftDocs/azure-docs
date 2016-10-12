@@ -62,8 +62,8 @@ To retrain the trained model, you must deploy the Training Experiment that you c
 
 1. To return to the training experiment, click the Experiments icon in the left pane, then click the experiment named Census Model.  
 2. In the Search Experiment Items search box, type Web service. 
-3. Drag a *Web Service Input* module onto the experiment canvas and connect its output to the *Clean Missing Data* module. You want the data clean up to be applied to the retrained dataset that will be retrained to ensure that your input data is processed the same way as your original training data.
-4. Drag two *Web service Output* modules onto the experiment canvas. Connect the output of the *Train Model* module to one and the output of the *Evaluate Model* module to the other. The Web service output for **Train Model** gives us the new trained model. The output attached to **Evaluate Model** returns that module’s output which is the performance results.
+3. Drag a *Web Service Input* module onto the experiment canvas and connect its output to the *Clean Missing Data* module.  This ensures that your retraining data is processed the same way as your original training data.
+4. Drag two *Web service Output* modules onto the experiment canvas. Connect the output of the *Train Model* module to one and the output of the *Evaluate Model* module to the other. The Web service output for **Train Model** gives us the new trained model. The output attached to **Evaluate Model** returns that module’s output, which is the performance results.
 5. Click **Run**. 
 
 Next you must deploy the Training Experiment as a web service that produces a trained model and model evaluation results. To accomplish this, your next set of actions are dependent on whether you are working with a Classic Web service or a New Web service.  
@@ -136,7 +136,9 @@ You also must ensure the input file is available at the location you specify in 
 
 ### Specify the output location
 
-When specifying the output location in the Request Payload, the extension of the file specified in *RelativeLocation* must be specified as ilearner. See the following example.
+When specifying the output location in the Request Payload, the extension of the file specified in *RelativeLocation* must be specified as ilearner. 
+
+See the following example:
 
     Outputs = new Dictionary<string, AzureBlobDataReference>() {
         {
