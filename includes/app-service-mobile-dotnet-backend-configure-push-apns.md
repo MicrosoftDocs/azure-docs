@@ -64,7 +64,6 @@
 	        var table = azureMobileApps.table();
 	        
 	        // When adding record, send a push notification via APNS
-	        // For this to work, you must have an APNS Hub already configured
 	        table.insert(function (context) {
 	            // For details of the Notification Hubs JavaScript SDK, 
 	            // see http://aka.ms/nodejshubs
@@ -73,8 +72,7 @@
 				// Create a payload that contains the new item Text.
 	            var payload = "{\"aps\":{\"alert\":\"" + context.item.text + "\"}}";
 	            
-	            // Execute the insert.  The insert returns the results as a Promise,
-	            // Do the push as a post-execute action within the promise flow.
+	            // Execute the insert; Push as a post-execute action when results are returned as a Promise.
 	            return context.execute()
 	                .then(function (results) {
 	                    // Only do the push if configured
@@ -87,7 +85,6 @@
 	                            }
 	                        });
 	                    }
-	                    // Don't forget to return the results from the context.execute()
 	                    return results;
 	                })
 	                .catch(function (error) {
