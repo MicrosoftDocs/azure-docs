@@ -33,11 +33,11 @@ External services used to be called Azure Marketplace. Generally, they're servic
 
 ### Identify external services
 
-When you provision a new external service or resource, you'll see a warning about it:
+When you provision a new external service or resource, a warning is shown:
 
 ![Marketplace purchase warning](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
 
->[AZURE.NOTE] Usually external services are published by companies that are not Microsoft, but sometimes Microsoft products are also categorized as external services.
+>[AZURE.NOTE] External services are published by companies that are not Microsoft, but sometimes Microsoft products are also categorized as external services.
 
 ### External services are billed separately
 
@@ -45,11 +45,11 @@ External services are treated as individual orders within your Azure subscriptio
 
 ### External services have different billing models
 
-Some services are billed in a pay-as-you-go fashion while others use a monthly-based payment model. You need a credit card for Azure external services. If your subscription uses invoice pay, you can't buy external services. 
+Some services are billed in a pay-as-you-go fashion while others use a monthly based payment model. You need a credit card for Azure external services. If your subscription uses invoice pay, you can't buy external services. 
 
 ### You can't use monthly free credits for external services
 
-If you are using an Azure subscription that includes [free credits](https://azure.microsoft.com/pricing/spending-limits/), they can't be applied to external service bills. You must have a credit card associated with your subscription to purchase external services, and this is the card that is charged.
+If you are using an Azure subscription that includes [free credits](https://azure.microsoft.com/pricing/spending-limits/), they can't be applied to external service bills. You must use a credit card to purchase external services.
 
 ## View external service spending and history
 
@@ -65,7 +65,7 @@ You can view a list of the external services that are on each subscription withi
 
 3. Click **External Services**.
 
-	![Click on External Services in the subscription blade](./media/billing-understand-your-azure-marketplace-charges/external-service-blade.png)
+	![Click External Services in the subscription blade](./media/billing-understand-your-azure-marketplace-charges/external-service-blade.png)
 
 4. You should see each of your external service orders, the publisher name, service tier you bought, name you gave the resource, and the current order status. Select the external service you want to see the past bills.
 
