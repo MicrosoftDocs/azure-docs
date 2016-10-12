@@ -245,7 +245,7 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFGetStarted** folder 
 ## Parameters JSON 
 Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parameters for the Azure Resource Manager template.  
 
-> [AZURE.IMPORTANT] Specify the name and key of your Azure Storage account in this parameter file. 
+> [AZURE.IMPORTANT] Specify the name and key of your Azure Storage account for the **storageAccountName** and **storageAccountKey** parameters in this parameter file. 
 
 	{
 		"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
