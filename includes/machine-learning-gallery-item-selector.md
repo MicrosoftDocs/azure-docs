@@ -1,10 +1,10 @@
-The **[Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com)** is a community driven site for discovering and sharing solutions built with the Cortana Intelligence Suite set of products. 
+The **[Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com)** is a community driven site for discovering and sharing solutions built with the Cortana Intelligence Suite.
 The Gallery contains a variety of resources that you can use to develop your own analytics solutions.
 
 > [AZURE.SELECTOR]
 - [Overview](machine-learning-gallery-how-to-use-contribute-publish.md)
-- [Industries](machine-learning-gallery-industry-solutions.md)
-- [Solutions](machine-learning-gallery-solution-templates.md)
+- [Industries](machine-learning-gallery-industries.md)
+- [Solutions](machine-learning-gallery-solutions.md)
 - [Experiments](machine-learning-gallery-experiments.md)
 - [APIs](machine-learning-gallery-apis.md)
 - [Notebooks](machine-learning-gallery-jupyter-notebooks.md)
