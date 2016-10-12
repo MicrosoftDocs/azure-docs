@@ -4,7 +4,7 @@
 	services="Azure-Government"
 	cloud="gov" 
 	documentationCenter=""
-	authors="brendal"
+	authors="brendalee"
 	manager="zakramer"
 	editor=""/>
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
 	ms.date="10/10/2016"
-	ms.author="brendal"/>
+	ms.author="brendalee"/>
 
 
 # Azure Resource Manager
