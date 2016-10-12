@@ -18,7 +18,9 @@
 	ms.author="ryansoc"/>
 
 
-#  Department of Defense (DoD) Overview
+#  Department of Defense (DoD) in Azure Government
+
+## Overview
 
 Azure Government is being used by more and more Department of Defense (DoD) agencies and associated organizations, to deploy an ever-growing range of workloads and solutions, including those workloads covered by <a href="http://iasecontent.disa.mil/cloud/SRG/index.html"> The DoD Cloud Computing Security Requirements Guide, Version 1, Release 2 </a> at Impact Level 4 (L4).
 
