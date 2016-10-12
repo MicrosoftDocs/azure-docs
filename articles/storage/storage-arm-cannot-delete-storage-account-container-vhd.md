@@ -49,7 +49,7 @@ These issues can be caused by the following conditions:
 
 -	A virtual machine (VM) has a lease on the VHD that you are trying to delete.
 -	A VM has a lease on a VHD in the container that you are trying to delete.
--	A VM has a lease on a VHD in the Storage Account that you are trying to delete
+-	A VM has a lease on a VHD in the Storage Account that you are trying to delete.
 
 
 **What is a lease?**
@@ -69,12 +69,13 @@ To detach the VHD from the VM that is using it (data disks):
 
 1.	Sign in to the [Azure portal](https://portal.azure.com).
 2.	On the Hub menu, select **Virtual Machines**.
-3.	Select the VM that holds a lease on the VHD. Usually, you can determine which VM holds the VHD by checking name of the VHD.
-	![the image of how to check which VM hold the VHD](./media/storage-arm-cannot-delete-storage-account-container-vhd/billing1.png)
-4.	Select Disks in the VM Details blade.
-5.	Select the data disk you suspect holds a lease on the VHD.
+3.	Select the VM that you suspect holds a lease on the VHD. Usually, you can determine which VM holds the VHD by checking name of the VHD.
+	![The image of how to check which VM holds the VHD](./media/storage-arm-cannot-delete-storage-account-container-vhd/checkvm.png)
+4.	Select **Disks** in the VM details blade.
+5.	Select the data disk that holds a lease on the VHD. You can determine which vhd is attadee in the disk by checking the url of the VHD.
+
 6.	Determine with certainty that nothing is actively using the data disk.
-7.	Click Detach in the Disk Details blade.
+7.	Click **Detach** in the Disk Details blade.
 8.	The disk should now be detached from the VM, and the VHD should no longer have a lease on it. It may take a few minutes for the lease to be released. To verify that the lease has been released, go to **All resources** > **Blobs** > **vhds**. In the **Blob** properties pane. The **Lease Status** value should be **Unlocked**.
 
 
