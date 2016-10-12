@@ -143,7 +143,7 @@ Use the following cmdlets to show the two public IP addresses allocated for your
 	PS D:\> $gw1pip1.IpAddress
 	40.112.190.5
 
-	PS D:\> $gw1pip1.IpAddress
+	PS D:\> $gw1pip2.IpAddress
 	138.91.156.129
 
 	PS D:\> $vnet1gw.BgpSettingsText
