@@ -89,11 +89,13 @@ This is the recommended approach if you want your application to automatically a
 
 In this section we learn about how to create and use an Azure AD application to authenticate using Azure Active Directory. Using Azure AD application for authentication with Data Lake Store is a 3-step process.
 
-1. Create an Azure Active Directory identity
-2. Retrieve the client id, authentication key, and OAuth token for the identity
+1. Create an Azure Active Directory application
+2. Retrieve the client id, authentication key, and OAuth token for the application
 3. Assign the identity to the Azure Data Lake Store account
 
 ### Step 1: Create an Azure Active Directory application
+
+>[AZURE.NOTE] The steps below use the Azure Portal. You can also create an Azure AD application using [Azure PowerShell](../resource-group-authenticate-service-principal.md) or [Azure CLI](../resource-group-authenticate-service-principal-cli.md).
 
 1. Log in to your Azure Account through the [classic portal](https://manage.windowsazure.com/).
 
