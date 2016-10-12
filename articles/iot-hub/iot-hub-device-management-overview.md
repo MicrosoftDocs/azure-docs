@@ -1,6 +1,6 @@
 <properties
  pageTitle="IoT Hub device management overview | Microsoft Azure"
- description="This article provides an overview of device management in Azure IoT Hub: device lifecycle, reboot, factory reset, firmware update, configuration, device twins, queries, jobs"
+ description="This article provides an overview of device management in Azure IoT Hub: enterprise device lifecycle, reboot, factory reset, firmware update, configuration, device twins, queries, jobs"
  services="iot-hub"
  documentationCenter=""
  authors="bzurcher"
@@ -20,13 +20,13 @@
 
 ## Introduction
 
-Azure IoT Hub provides the features and extensibility model to enable device and back-end developers to build robust IoT device management solutions.  Devices in IoT range from very constrained sensors and single purposed microcontrollers, to powerful gateways that route communications for groups of devices with different communication protocols.  In addition, user cases and requirements for IoT operators will vary significantly from industry to industry.  Notwithstanding this variation, Azure IoT Hub device management provides the capabilities, patterns and code libraries which cater to a diverse set of devices and end-users.
+Azure IoT Hub provides the features and extensibility model to enable device and back-end developers to build robust IoT device management solutions. Devices in IoT range from very constrained sensors and single purposed microcontrollers, to powerful gateways that route communications for groups of devices.  In addition, use cases and requirements for IoT operators will vary significantly from industry to industry.  Notwithstanding this variation, Azure IoT Hub device management provides the capabilities, patterns and code libraries which cater to a diverse set of devices and end-users.
 
-A crucial part of creating a successful IoT solution is providing a strategy for how operators will handle the ongoing management of their collection of devices. IoT operators require tools and applications which are simple, reliable, and enable them to focus on more strategic aspects of their jobs. The following will provide a brief overview of Azure IoT Hub approach to device management and how the different aspects of the service can be leveraged to build a capable solution.
+A crucial part of creating a successful enterprise IoT solution is providing a strategy for how operators will handle the ongoing management of their collection of devices. IoT operators require tools and applications which are simple, reliable, and enable them to focus on more strategic aspects of their jobs. The following will provide a brief overview of Azure IoT Hub approach to device management and how the different aspects of the service can be leveraged to build a capable solution.
 
 ## IoT device management principles
 
-IoT brings with it a unique set of device management challenges and every solution must account for the following principles:
+IoT brings with it a unique set of device management challenges and every enterprise-class solution must account for the following principles:
 
 ![Azure IoT Hub device management principles graphic][img-dm_principles]
 
@@ -36,11 +36,11 @@ IoT brings with it a unique set of device management challenges and every soluti
 
 - **Context awareness**: IoT environments are dynamic and ever-changing. Reliability of service is paramount. Device management operations must factor in SLA maintenance windows, network and power states, in-use conditions, and device geolocation to ensure that maintenance downtime doesn't affect critical business operations or create dangerous conditions.
 
-- **Service many roles**: Support for the unique workflows and processes of IoT operations roles is crucial. The operations staff must also work harmoniously with the given constraints of internal IT departments.  They most also find sustainable ways to surface realtime device operations information to supervisors and other management roles.
+- **Service many roles**: Support for the unique workflows and processes of IoT operations roles is crucial. The operations staff must also work harmoniously with the given constraints of internal IT departments.  They most also find sustainable ways to surface realtime device operations information to supervisors and other business managerial roles.
 
 ## IoT device lifecycle
 
-There is a set of general device management stages which are common for all IoT projects. In Azure IoT, there are five identified stages within the IoT device lifecycle:
+There is a set of general device management stages which are common for all enterprise IoT projects. In Azure IoT, there are five identified stages within the IoT device lifecycle:
 
 ![The five Azure IoT device lifecycle phases: plan, provision, configure, monitor, retire][img-device_lifecycle]
 
@@ -62,19 +62,19 @@ Within each of these five stages, there are a number of device operator requirem
 
     *Further reading*: [How to use twin properties][lnk-twin-properties], [Query language for twins and jobs][lnk-query-language]
 
-5. **Retire**:  Replace or decommission devices after a failure, upgrade cycle, or at the end of the service lifetime.  The IoT Hub device twin can be leveraged to maintain device info if the physical device is being replace, or archived if being retired. Use the IoT Hub device registry for securely revoking device identities and credentials.
+5. **Retire**:  Replace or decommission devices after a failure, upgrade cycle, or at the end of the service lifetime.  The IoT Hub device twin can be leveraged to maintain device info if the physical device is being replaced, or archived if being retired. Use the IoT Hub device registry for securely revoking device identities and credentials.
 
     *Further reading*: [How to use twin properties][lnk-twin-properties], [Manage device identities][lnk-identity-registry]
 
 ## IoT Hub device management patterns
 
-IoT Hub enables the following set of (initial) device management patterns.  As shown in the [tutorials][lnk-get-started], you can extend these patterns to fit your exact scenario and design new patterns for other scnarios based on these core patterns.
+IoT Hub enables the following set of device management patterns.  The [device managment tutorials][lnk-get-started] will show in more detail how you can extend these patterns to fit your exact scenario and design new patterns based on these core templates.
 
-1. **Reboot** - The back-end application informs the device through a D2C method that a reboot has been initiated.  The device uses the device twin reported properties to update the reboot status of the device.
+1. **Reboot** - The back-end application informs the device through a direct method that a reboot has been initiated.  The device uses the device twin reported properties to update the reboot status of the device.
 
     ![Azure IoT Hub device management reboot pattern graphic][img-reboot_pattern]
 
-2. **Factory Reset** - The back-end application informs the device through a D2C method that a factory reset has been initiated.  The device uses the device twin reported properties to update the factory reset status of the device.
+2. **Factory Reset** - The back-end application informs the device through a direct method that a factory reset has been initiated.  The device uses the device twin reported properties to update the factory reset status of the device.
 
     ![Azure IoT Hub device management factory reset pattern graphic][img-facreset_pattern]
 
@@ -82,7 +82,7 @@ IoT Hub enables the following set of (initial) device management patterns.  As s
 
     ![Azure IoT Hub device management configuration pattern graphic][img-config_pattern]
 
-4. **Firmware Update** - The back-end application informs the device through a D2C method that a firmware update has been initiated.  The device initiates a multi-step process to download the firmware package, apply the firmware package, and finally reconnect to the IoT Hub service.  Throughout the mult-step process, the device uses the device twin reported properties to update the progress and status of the device.
+4. **Firmware Update** - The back-end application informs the device through a direct method that a firmware update has been initiated.  The device initiates a multi-step process to download the firmware package, apply the firmware package, and finally reconnect to the IoT Hub service.  Throughout the mult-step process, the device uses the device twin reported properties to update the progress and status of the device.
 
     ![Azure IoT Hub device management firmware update pattern graphic][img-fwupdate_pattern]
 
@@ -92,7 +92,7 @@ IoT Hub enables the following set of (initial) device management patterns.  As s
 
 ## Next Steps
 
-Using the building blocks that Azure IoT Hub provides, developers can create IoT applications which fulfill the unique IoT operator requirements within in each device lifecycle stage.
+Using the capabilities, patterns and code libraries Azure IoT Hub device management provides, developers can create IoT applications which fulfill the enterprise IoT operator requirements within in each device lifecycle stage.
 
 To continue learning about the Azure IoT Hub device management features, see the [Get started with Azure IoT Hub device management][lnk-get-started] tutorial.
 
