@@ -18,7 +18,7 @@
 
 # Overview of Monitoring in Microsoft Azure
 
-This article provides a conceptual overview of monitoring Azure resources. It provides pointers to  information on specific types of resources.  For high-level information on monitoring your application from non-Azure point of view, see [Monitoring and diagnostics guidance](../best-practices-monitoring.md).
+This article provides a conceptual overview of monitoring Azure resources. It provides pointers to information on specific types of resources.  For high-level information on monitoring your application from non-Azure point of view, see [Monitoring and diagnostics guidance](../best-practices-monitoring.md).
 
 Cloud applications are complex with many moving parts. Monitoring provides data to ensure that your application stays up and running in a healthy state. It also helps you to stave off potential problems or troubleshoot past ones. In addition, you can use monitoring data to gain deep insights about your application. That knowledge can help you to improve application performance or maintainability, or automate actions that would otherwise require manual intervention.
 
@@ -82,7 +82,7 @@ A few visualization methods include:
 - Use the Azure portal
 - Route data to Azure Application Insights
 - Route data to Microsoft PowerBI
-- Route the data to a third party visualization tool using either live streaming or by having the tool read from an archive in Azure storage
+- Route the data to a third-party visualization tool using either live streaming or by having the tool read from an archive in Azure storage
 
 ### Archive
 Monitoring data is typically written to Azure storage and kept there until you delete it.
@@ -100,7 +100,7 @@ You can use the Azure Monitor REST API, cross platform Command-Line Interface (C
 Examples include:
 
 -  Getting data for a custom monitoring application you have written
--  Creating custom queries and sending that data to a third party application.
+-  Creating custom queries and sending that data to a third-party application.
 
 ### Route
 You can stream monitoring data to other locations in real time.
@@ -108,7 +108,7 @@ You can stream monitoring data to other locations in real time.
 Examples include:
 
 - Send to Application Insights so you can use the visualization tools there.
-- Send to Event Hubs so you can route to third party tools to perform real-time analysis.
+- Send to Event Hubs so you can route to third-party tools to perform real-time analysis.
 
 ### Automate
 You can use monitoring data to trigger events or even whole processes
