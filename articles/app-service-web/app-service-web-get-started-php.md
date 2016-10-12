@@ -117,7 +117,7 @@ the basic skills you need to run any PHP web app in Azure, such as:
 - Create and configure apps in Azure from PowerShell/Bash.
 - Set PHP version.
 - Use a start file that is not in the root application directory.
-- Enable Commposer automation.
+- Enable Composer automation.
 - Access environment-specific variables.
 - Troubleshoot common errors.
 

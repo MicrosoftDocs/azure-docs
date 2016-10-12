@@ -102,7 +102,7 @@ are installed on your machine.
 
     ![Push code to your first web app in Azure](./media/app-service-web-get-started/5-push-code.png)
 
-    If you used one of the language frameworks, you'll see different output. This is because `git push` not only puts code in Azure, but also triggers deployment tasks
+    If you used one of the language frameworks, you'll see different output. `git push` not only puts code in Azure, but also triggers deployment tasks
     in the deployment engine. If you have any package.json
     (Node.js) or requirements.txt (Python) files in your project (repository) root, or if you have a packages.config file in your ASP.NET project, the deployment
     script restores the required packages for you. You can also [enable the Composer extension](web-sites-php-mysql-deploy-use-git.md#composer) to automatically process composer.json files
