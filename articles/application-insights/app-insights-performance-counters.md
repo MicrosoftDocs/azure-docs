@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Performance counters in Application Insights" 
+	pageTitle="Performance counters in Application Insights | Microsoft Azure" 
 	description="Monitor system and custom .NET performance counters in Application Insights." 
 	services="application-insights" 
     documentationCenter=""
