@@ -198,7 +198,7 @@ You cannot abort migration if the commit operation fails. All migration operatio
 
 **Do I have to buy another express route circuit if I have to use IaaS under Resource Manager?**
 
-No. We recently enabled [coexistence of an ExpressRoute circuit across classic and Resource Manager](../expressroute/expressroute-howto-coexist-resource-manager.md). You don’t have to buy a new ExpressRoute circuit if you already have one.
+No. We recently enabled [moving ExpressRoute circuits from the classic to the Resource Manager deployment model](../expressroute/expressroute-move.md). You don’t have to buy a new ExpressRoute circuit if you already have one.
 
 **What if I had configured Role-Based Access Control policies for my classic IaaS resources?**
 

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/14/2016"
-	ms.author="bradsev;sunliangms;sachouks" />
+	ms.author="bradsev;sachouks" />
 
 # Move Data to and from Azure Blob Storage
 

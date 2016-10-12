@@ -13,7 +13,7 @@ ms.workload="data-services"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="06/14/2016"
+ms.date="09/16/2016"
 ms.author="garye;krishnan"/>
 
 # Perform advanced analytics with Azure Machine Learning using data from an on-premises SQL Server database
@@ -90,73 +90,73 @@ Extension](https://chrome.google.com/webstore/search/clickonce?_category=extensi
 The first step is to create and set up the gateway to access your
 on-premises SQL database.
 
-1.  Login to [Azure Machine Learning
+1. Login to [Azure Machine Learning
     Studio](https://studio.azureml.net/Home/) and select the workspace
     that you want to work in.
 
-2.  Click the **SETTINGS** blade on the left, and then click the **DATA
+2. Click the **SETTINGS** blade on the left, and then click the **DATA
     GATEWAYS** tab at the top.
 
-3.  Click **NEW DATA GATEWAY** at the bottom of the screen.
+3. Click **NEW DATA GATEWAY** at the bottom of the screen.
 
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/new-data-gateway-button.png)
 
-4.  In the **New data gateway** dialog, enter the **Gateway Name** and
+4. In the **New data gateway** dialog, enter the **Gateway Name** and
     optionally add a **Description**. Click the arrow on the bottom
     right hand corner to go to the next step of the configuration.
 
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/new-data-gateway-dialog-enter-name.png)
 
-5.  In the Download and register data gateway dialog, copy the GATEWAY
+5. In the Download and register data gateway dialog, copy the GATEWAY
     REGISTRATION KEY to the clipboard.
 
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/download-and-register-data-gateway.png)
 
-6.  <span id="note-1" class="anchor"></span>If you have not yet
+6. <span id="note-1" class="anchor"></span>If you have not yet
     downloaded and installed the Microsoft Data Management Gateway, then
     click **Download data management gateway**. This takes you to the
     Microsoft Download Center where you can select the gateway version
     you need, download it, and install it. You can find detailed information on installation prerequisites, installation steps, and troubleshooting tips in the beginning sections of the article [Move data between on-premises sources and cloud with Data Management Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
 
-7.  After the gateway is installed, the Data Management Gateway
+7. After the gateway is installed, the Data Management Gateway
     Configuration Manager will open and the **Register gateway** dialog
     is displayed. Paste the **Gateway Registration Key** that you copied
     to the clipboard and click **Register**.
 
-8.  If you already have a gateway installed, run the Data Management
+8. If you already have a gateway installed, run the Data Management
     Gateway Configuration Manager, click **Change key**, paste the
     **Gateway Registration Key** that you copied to the clipboard, and
     click **OK**.
 
-9.  When the installation is complete, the **Register gateway** dialog
+9. When the installation is complete, the **Register gateway** dialog
     for Microsoft Data Management Gateway Configuration Manager
     is displayed. Paste the GATEWAY REGISTRATION KEY that you copied to
     the clipboard above and click **Register**.
 
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-register-gateway.png)
 
-10.  The gateway configuration is complete when the following values are
+10. The gateway configuration is complete when the following values are
     set on the **Home** tab in Microsoft Data Management Gateway
     Configuration Manager:
 
-    -   **Gateway name** and **Instance name** are set to the name of
+    - **Gateway name** and **Instance name** are set to the name of
         the gateway.
 
-    -   **Registration** is set to **Registered**.
+    - **Registration** is set to **Registered**.
 
-    -   **Status** is set to **Started**.
+    - **Status** is set to **Started**.
 
-    -   The status bar the bottom displays **Connected to Data
+    - The status bar at the bottom displays **Connected to Data
         Management Gateway Cloud Service** along with a green
         check mark.
 
-    ![](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-registered.png)
+     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-registered.png)
 
-    Azure Machine Learning Studio also gets updated when the registration is successful.
+     Azure Machine Learning Studio also gets updated when the registration is successful.
 
     ![](media\machine-learning-use-data-from-an-on-premises-sql-server\gateway-registered.png)
 
-11.  In the **Download and register data gateway** dialog, click the
+11. In the **Download and register data gateway** dialog, click the
     check mark to complete the setup. The **Settings** page displays the
     gateway status as "Online". In the right hand pane you'll find
     status and other useful information.

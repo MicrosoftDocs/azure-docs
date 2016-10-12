@@ -31,7 +31,7 @@ Requirements and key aspects of VNet peering:
 - The two virtual networks that are peered should be in the same Azure region.
 - The virtual networks that are peered should have non-overlapping IP address spaces.
 - VNet peering is between two virtual networks, and there is no derived transitive relationship. For example, if virtual network A is peered with virtual network B, and if virtual network B is peered with virtual network C, it does not translate to virtual network A being peered with virtual network C.
-- Peering can be established between virtual networks in two different subscriptions as long a privileged user of both subscriptions authorizes the peering.
+- Peering can be established between virtual networks in two different subscriptions as long a privileged user of both subscriptions authorizes the peering and the subscriptions are associated to the same Active Directory tenant. 
 - A virtual network that uses the Resource Manager deployment model can be peered with another virtual network that uses this model, or with a virtual network that uses the classic deployment model. However, virtual networks that use the classic deployment model can't be peered to each other.
 - Though the communication between virtual machines in peered virtual networks has no additional bandwidth restrictions, bandwidth cap based on VM size still applies.
 

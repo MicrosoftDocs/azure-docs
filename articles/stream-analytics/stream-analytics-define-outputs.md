@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="08/29/2016"
+	ms.date="09/26/2016"
 	ms.author="jeffstok"/>
 
 # Stream Analytics outputs: Options for storage, analysis

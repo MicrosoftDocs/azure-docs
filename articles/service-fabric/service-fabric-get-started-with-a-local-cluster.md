@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2016"
-   ms.author="ryanwi"/>
+   ms.date="09/09/2016"
+   ms.author="ryanwi;mikhegn"/>
 
 # Get started with deploying and upgrading applications on your local cluster
 The Azure Service Fabric SDK includes a full local development environment that you can use to quickly get started with deploying and managing applications on a local cluster. In this article, you create a local cluster, deploy an existing application to it, and then upgrade that application to a new version, all from Windows PowerShell.
@@ -193,11 +193,42 @@ Before wrapping up, it's important to remember that the local cluster is real. A
 
 3. To shut down the cluster but keep the application data and traces, click **Stop Local Cluster** in the system tray app.
 
-4. To delete the cluster entirely, click **Remove Local Cluster** in the system tray app. Note that this option will result in another slow deployment the next time you press F5 in Visual Studio. Remove the local cluster only if you don't intend to use it for some time or if you need to reclaim resources.
+4. To delete the cluster entirely, click **Remove Local Cluster** in the system tray app. This option will result in another slow deployment the next time you press F5 in Visual Studio. Remove the local cluster only if you don't intend to use it for some time or if you need to reclaim resources.
+
+## 1 Node and 5 Node cluster mode
+
+When working with the local cluster to develop applications, you often find yourself doing quick iterations of writing code, debugging, changing code, debugging etc.
+To help optimize this process, the local cluster can run in two modes: 1 Node or 5 Node. Both cluster modes have their benefits.
+5 Node cluster mode enables you to work with a real cluster. You can test failover scenarios, work with more instances and replicas of your services.
+1 Node cluster mode is optimized to do quick deployment and registration of services, to help you quickly validate code using the Service Fabric runtime.
+
+Both 1 Node cluster mode and 5 Node cluster mode is not an emulator or simulator. It runs the same platform code that is found on multi-machine clusters.
+
+> [AZURE.NOTE] This feature is available in SDK version 5.2 and above.
+
+To change the cluster mode to a 1 Node cluster, either use the Service Fabric Local Cluster Manager or use PowerShell the following way:
+
+1. Launch a new PowerShell window as an administrator.
+
+2. Run the cluster setup script from the SDK folder:
+
+	```powershell
+	& "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
+	```
+
+    Cluster setup takes a few moments. After setup is finished, you should see output similar to:
+    
+    ![Cluster setup output][cluster-setup-success-1-node]
+
+If you are using the Service Fabric Local Cluster Manager:
+
+![Switch cluster mode][switch-cluster-mode]
+
+> [AZURE.WARNING] When changing cluster mode, the current cluster is being removed from your system and a new cluster is being created. The data you must have stored in the cluster, will be deleted when you change cluster mode.
 
 ## Next steps
 - Now that you have deployed and upgraded some pre-built applications, you can [try building your own in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
-- All of the actions performed on the local cluster in this article can be performed on an [Azure cluster](service-fabric-cluster-creation-via-portal.md) as well.
+- All the actions performed on the local cluster in this article can be performed on an [Azure cluster](service-fabric-cluster-creation-via-portal.md) as well.
 - The upgrade that we performed in this article was basic. See the [upgrade documentation](service-fabric-application-upgrade.md) to learn more about the power and flexibility of Service Fabric upgrades.
 
 <!-- Images -->
@@ -217,3 +248,5 @@ Before wrapping up, it's important to remember that the local cluster is real. A
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 [sfe-delete-application]: ./media/service-fabric-get-started-with-a-local-cluster/sfe-delete-application.png
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
+[switch-cluster-mode]: ./media/service-fabric-get-started-with-a-local-cluster/switch-cluster-mode.png

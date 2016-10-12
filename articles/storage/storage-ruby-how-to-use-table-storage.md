@@ -13,7 +13,7 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="robmcm"/>
+	ms.author="gusapost;robmcm"/>
 
 
 # How to use Azure Table Storage from Ruby

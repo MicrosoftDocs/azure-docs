@@ -24,7 +24,7 @@ authors="ashmaka"
 
 ## What is an index?
 
-An *index* is a persistent store of *documents* and other constructs used by an Azure Search service. A document is a single unit searchable data in your index. For example, an e-commerce retailer might have a document for each item they sell, a news organization might have a document for each article, etc. Mapping these concepts to more familiar database equivalents: an *index* is conceptually similar to a *table*, and *documents* are roughly equivalent to *rows* in a table.
+An *index* is a persistent store of *documents* and other constructs used by an Azure Search service. A document is a single unit of searchable data in your index. For example, an e-commerce retailer might have a document for each item they sell, a news organization might have a document for each article, etc. Mapping these concepts to more familiar database equivalents: an *index* is conceptually similar to a *table*, and *documents* are roughly equivalent to *rows* in a table.
 
 When you add/upload documents and submit search queries to Azure Search, you submit your requests to a specific index in your search service.
 

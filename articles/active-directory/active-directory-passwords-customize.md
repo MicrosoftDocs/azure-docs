@@ -72,7 +72,7 @@ The following table describes how each control affects the experience for users 
               </td>
               <td>
                 <p>
-                  <strong>”Contact your administrator” emails:</strong>
+                  <strong>"Contact your administrator" emails:</strong>
                 </p>
                 <ul>
                   <li class="unordered">
@@ -202,9 +202,8 @@ The following table describes how each control affects the experience for users 
                 </p>
                 <ul>
                   <li class="unordered">
-												If set to no, then all end users in your directory can register for password reset at <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a><br><br></li>
-                  <li class="unordered">
-												If set to yes, then only end users specified in the <strong>group that can perform password reset</strong> control can register for password reset at  <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a><br><br></li>
+                    This setting does not affect users' access to the password reset registration portal. If <strong>Users enabled for password reset</strong> is set to <strong>yes</strong>, all end users in your directory can register for password reset at <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a>.
+                  </li>
                 </ul>
                 <p>
                   <strong>Password reset portal:</strong>
@@ -245,7 +244,8 @@ The following table describes how each control affects the experience for users 
                 </p>
                 <ul>
                   <li class="unordered">
-												If <strong>restrict access to password reset</strong> is set to <strong>yes</strong>, then only end users in this group will be able to register for password reset. <br><br></li>
+                    This setting does not affect users' access to the password reset registration portal. If <strong>Users enabled for password reset</strong> is set to <strong>yes</strong>, all end users in your directory can register for password reset at <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a>.
+                  </li>
                 </ul>
                 <p>
                   <strong>Password reset portal:</strong>
@@ -270,12 +270,6 @@ The following table describes how each control affects the experience for users 
                 <p>(Only visible if <strong>users enabled for password reset</strong> is set to <strong>yes</strong>).</p>
               </td>
               <td>
-                <p>
-
-                </p>
-                <p>
-
-                </p>
                 <p>
                   <strong>Note:</strong>
                 </p>

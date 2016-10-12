@@ -27,8 +27,8 @@ We will examine the various sections of this file below.
 This covers the broad cluster specific configurations, as shown in the JSON snippet below.
 
     "name": "SampleCluster",
-    "clusterManifestVersion": "1.0.0",
-    "apiVersion": "2015-01-01-alpha",
+    "clusterConfigurationVersion": "1.0.0",
+    "apiVersion": "2016-09-26",
 
 You can give any friendly name to your Service Fabric cluster by assigning it to the **name** variable. You may change the **clusterManifestVersion** as per your setup; it will need to be updated before upgrading your Service Fabric configuration. You may leave the **apiVersion** to the default value.
 
@@ -68,24 +68,30 @@ A Service Fabric cluster needs a minimum of 3 nodes. You can add more nodes to t
 |upgradeDomain|Upgrade domains describe sets of nodes that are shut down for Service Fabric upgrades at about the same time. You can choose which nodes to assign to which Upgrade domains, as they are not limited by any physical requirements.| 
 
 
-## Diagnostics configurations
-You can configure parameters to enable diagnostics and troubleshooting node and cluster failures, by using the **diagnosticsFileShare** section as shown in the following snippet. 
-
-    "diagnosticsFileShare": {
-        "etlReadIntervalInMinutes": "5",
-        "uploadIntervalInMinutes": "10",
-        "dataDeletionAgeInDays": "7",
-        "etwStoreConnectionString": "file:c:\ProgramData\SF\FileshareETW",
-        "crashDumpConnectionString": "file:c:\ProgramData\SF\FileshareCrashDump",
-        "perfCtrConnectionString": "file:c:\ProgramData\SF\FilesharePerfCtr"
-    },
-
-These variables help in collecting ETW trace logs, crash dumps as well as performance counters. Read [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) and [ETW Tracing](https://msdn.microsoft.com/library/ms751538.aspx) for more information on ETW trace logs. [Crash dumps](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) for Service Fabric node as well as the cluster can be directed to the **crashDumpConnectionString** folder. The [performance counters](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) for the cluster can be directed to the **perfCtrConnectionString** folder on your machine.
-
-
 ## Cluster **properties**
 
 The **properties** section in the ClusterConfig.JSON is used to configure the cluster as follows.
+
+### **diagnosticsStore**
+You can configure parameters to enable diagnostics and troubleshooting node and cluster failures, by using the **diagnosticsStore** section as shown in the following snippet. 
+
+    "diagnosticsStore": {
+        "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
+        "dataDeletionAgeInDays": "7",
+        "storeType": "FileShare",
+        "IsEncrypted": "false",
+        "connectionstring": "c:\\ProgramData\\SF\\DiagnosticsStore"
+    }
+
+The **metadata** is a description of your cluster diagnostics and can be set as per your setup. These variables help in collecting ETW trace logs, crash dumps as well as performance counters. Read [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) and [ETW Tracing](https://msdn.microsoft.com/library/ms751538.aspx) for more information on ETW trace logs. All logs including [Crash dumps](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) and [performance counters](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) can be directed to the **connectionString** folder on your machine. You can also use **AzureStorage** for storing diagnostics. See below for a sample snippet.
+
+	"diagnosticsStore": {
+        "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
+        "dataDeletionAgeInDays": "7",
+        "storeType": "AzureStorage",
+        "IsEncrypted": "false",
+        "connectionstring": "xstore:DefaultEndpointsProtocol=https;AccountName=[AzureAccountName];AccountKey=[AzureAccountKey]"
+    }
 
 ### **security** 
 The **security** section is necessary for a secure standalone Service Fabric cluster. The following snippet shows a part of this section.
@@ -111,10 +117,12 @@ Note that since a primary node runs a single copy of the system services, you wo
 ### **nodeTypes**
 The **nodeTypes** section describes the type of the nodes that your cluster has. At least one node type must be specified for a cluster, as shown in the snippet below. 
 
-	"nodeTypes": [{
+    "nodeTypes": [{
         "name": "NodeType0",
         "clientConnectionEndpointPort": "19000",
         "clusterConnectionEndpoint": "19001",
+        "leaseDriverEndpointPort": "19002"
+        "serviceConnectionEndpointPort": "19003",
         "httpGatewayEndpointPort": "19080",
         "applicationPorts": {
 			"startPort": "20001",
@@ -127,7 +135,7 @@ The **nodeTypes** section describes the type of the nodes that your cluster has.
         "isPrimary": true
     }]
 
-The **name** is the friendly name for this particular node type. To create a node of this node type, you will need to assign the friendly name for this node type to the **nodeTypeRef** variable for that node, as mentioned in the [Nodes on the cluster](#clusternodes) section above. For each node type, you can define various endpoints for connecting to this cluster. You can choose any port number for these connection endpoints, as long as they do not conflict with any other endpoints in this cluster. In a cluster with multiple node types, there will be one primary node type, which has **isPrimary** set to *true*. The rest of the nodes will have the **isPrimary** set to *false*. Read [Service Fabric cluster capacity planning considerations](service-fabric-cluster-capacity.md) for more information on **nodeTypes** and **reliabilityLevel** values as per your cluster capacity, as well as to know the difference between the primary and the non-primary node types.
+The **name** is the friendly name for this particular node type. To create a node of this node type, you will need to assign the friendly name for this node type to the **nodeTypeRef** variable for that node, as mentioned in the [Nodes on the cluster](#clusternodes) section above. For each node type, you can define various endpoints for connecting to this cluster. You can choose any port number for these connection endpoints, as long as they do not conflict with any other endpoints in this cluster. If you want to create a http application gateway port, then you can specify "reverseProxyEndpointPort": [Port number] in addition to other ports as above. In a cluster with multiple node types, there will be one primary node type, which has **isPrimary** set to *true*. The rest of the nodes will have the **isPrimary** set to *false*. Read [Service Fabric cluster capacity planning considerations](service-fabric-cluster-capacity.md) for more information on **nodeTypes** and **reliabilityLevel** values as per your cluster capacity, as well as to know the difference between the primary and the non-primary node types.
 
 
 ### **fabricSettings**
@@ -143,7 +151,7 @@ This section allows you to set the root directories for the Service Fabric data 
             "value": "C:\ProgramData\SF\Log"
     }]
 
-Note that if you customize only the data root, then the log root will be placed one level below the data root.
+It is recommended you use a non-OS drive as the FabricDataRoot and FabricLogRoot as it provides more reliability against OS crashes. Note that if you customize only the data root, then the log root will be placed one level below the data root.
 
 
 ## Next steps

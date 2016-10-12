@@ -184,7 +184,7 @@ There are two ways to start event:
 	
 	![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
 	
-	If you left **Publish this event now** checked, the event the PUBLISHING URLs will get created.
+	If you left **Publish this live event now** checked, the event the PUBLISHING URLs will get created.
 	
 	You can press **Start**, whenever you are ready to stream the event.
 

@@ -67,6 +67,6 @@ Get started with Azure Resource Manager cmdlets, command line tools, and REST AP
 
 ## Next steps
 
-You can also [get started creating an Internet facing load balancer](load-balancer-get-started-internet-arm-ps.md) and configure what type of [distribution mode](load-balancer-distribution-mode.md) for an especific load balancer network traffic behavior.
+You can also [get started creating an Internet facing load balancer](load-balancer-get-started-internet-arm-ps.md) and configure what type of [distribution mode](load-balancer-distribution-mode.md) for a specific load balancer network traffic behavior.
 
 Learn how to manage [idle TCP timeout settings for a load balancer](load-balancer-tcp-idle-timeout.md). This is important when your application needs to keep connections alive for servers behind a load balancer.

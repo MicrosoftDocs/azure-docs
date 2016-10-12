@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory Domain Services preview: Supported regions | Microsoft Azure"
+	pageTitle="Azure Active Directory Domain Services: Supported regions | Microsoft Azure"
 	description="Supported Azure regions for Azure AD Domain Services"
 	services="active-directory-ds"
 	documentationCenter=""
@@ -13,9 +13,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/21/2016"
 	ms.author="maheshu"/>
 
-# Azure AD Domain Services *(Preview)*
+# Azure AD Domain Services - Supported regions
 
-To learn where Azure AD Domain Services are available, please see [Azure Services by region](https://azure.microsoft.com/regions/#services/).
+To learn where Azure AD Domain Services is available, see [Azure Services by region](https://azure.microsoft.com/regions/#services/).

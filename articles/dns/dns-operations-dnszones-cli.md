@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Manage DNS zones using CLI | Microsoft Azure" 
-   description="You can manage DNS zones using Azure CLI. How to update, delete and create DNS zones on Azure DNS" 
-   services="dns" 
-   documentationCenter="na" 
-   authors="cherylmc" 
-   manager="carmonm" 
+<properties
+   pageTitle="Manage DNS zones using CLI | Microsoft Azure"
+   description="You can manage DNS zones using Azure CLI. How to update, delete and create DNS zones on Azure DNS"
+   services="dns"
+   documentationCenter="na"
+   authors="sdwheeler"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
+   ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
 
 # How to manage DNS Zones using CLI
 
@@ -25,7 +25,7 @@
 
 This guide will show how to manage your DNS zone resources using the cross-platform Azure CLI.
 
-These instructions use Microsoft Azure CLI. Be sure to update to the latest Azure CLI (0.9.8 or later) to use the Azure DNS commands. Type `azure -v` to check which Azure CLI version is currently installed in your computer. You can install Azure CLI for Windows, Linux, or MAC. More information is available at [Install the Azure CLI](../xplat-cli-install.md). 
+These instructions use Microsoft Azure CLI. Be sure to update to the latest Azure CLI (0.9.8 or later) to use the Azure DNS commands. Type `azure -v` to check which Azure CLI version is currently installed in your computer. You can install Azure CLI for Windows, Linux, or MAC. More information is available at [Install the Azure CLI](../xplat-cli-install.md).
 
 Azure DNS is an Azure Resource Manager-only service. It does not have an ASM API. You will need to make sure the Azure CLI is configured to use Resource Manager mode. You can do this by using the `azure config mode arm` command.<BR>
 If you see the message "*error: 'dns' is not an azure command*", it's most likely because you are using Azure CLI in ASM mode, not Resource Manager mode.
@@ -58,10 +58,10 @@ Changes to a DNS zone resource can be made using `azure network dns zone set`. T
 ## Delete a DNS Zone
 
 DNS zones can be deleted using `azure network dns zone delete`. This operation has an optional *-q* switch which suppresses the prompt to confirm you want to remove the DNS zone.
- 
-Before deleting a DNS zone in Azure DNS, you will need to delete all records sets, except for the NS and SOA records at the root of the zone that were created automatically when the zone was created. 
 
-	azure network dns zone delete myresourcegroup contoso.com 
+Before deleting a DNS zone in Azure DNS, you will need to delete all records sets, except for the NS and SOA records at the root of the zone that were created automatically when the zone was created.
+
+	azure network dns zone delete myresourcegroup contoso.com
 
 
 

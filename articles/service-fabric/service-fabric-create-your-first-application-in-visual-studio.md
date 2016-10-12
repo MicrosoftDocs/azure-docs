@@ -13,10 +13,16 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2016"
+   ms.date="09/28/2016"
    ms.author="ryanwi"/>
 
-# Create your first Azure Service Fabric application in Visual Studio
+
+# Create your first Azure Service Fabric application
+
+> [AZURE.SELECTOR]
+- [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
+- [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
+- [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 
 The Service Fabric SDK includes an add-in for Visual Studio that provides templates and tools for creating, deploying, and debugging Service Fabric applications. This topic walks you through the process of creating your first application in Visual Studio.
 

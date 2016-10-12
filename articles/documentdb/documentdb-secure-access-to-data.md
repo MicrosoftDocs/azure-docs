@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="09/19/2016" 
 	ms.author="kipandya"/>
 
 # Securing access to DocumentDB data
@@ -38,6 +38,7 @@ DocumentDB provides first class concepts in order to control access to DocumentD
 	- Permission
 - Application resources
 	- Collection
+	- Offer
 	- Document
 	- Attachment
 	- Stored procedure
@@ -129,7 +130,7 @@ There are two available access levels which may be provided by a permission reso
 > [AZURE.NOTE] In order to run DocumentDB stored procedures the user must have the All permission on the collection in which the stored procedure will be run.
 
 
-The following code snippet shows how to create a permission resource, read the resource token (token) of the permission resource and associate the permissions with the user created above.
+The following code snippet shows how to create a permission resource, read the resource token of the permission resource and associate the permissions with the user created above.
 
     // Create a permission.
     Permission docPermission = new Permission

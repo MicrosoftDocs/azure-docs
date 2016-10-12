@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/21/2016"
-	ms.author="curtand;viviali"/>
+	ms.date="09/22/2016"
+	ms.author="curtand"/>
 
 # Add new users  or users with Microsoft accounts to Azure Active Directory
 

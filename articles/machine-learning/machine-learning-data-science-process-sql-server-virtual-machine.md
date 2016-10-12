@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/16/2016" 
 	ms.author="fashah;garye;bradsev" /> 
 
 #<a name="heading"></a>Process Data in SQL Server Virtual Machine on Azure
@@ -114,9 +114,7 @@ The above location-based features can be further used to generate additional cou
 
 
 > [AZURE.TIP] You can programmatically insert the records using your language of choice. You may need to insert the data in chunks to improve write efficiency (for an example of how to do this using pyodbc, see [A HelloWorld sample to access SQLServer with python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)). 
- 
-
-> [AZURE.TIP] Another alternative is to insert data in the database using the [BCP utility](https://msdn.microsoft.com/library/ms162802.aspx).
+Another alternative is to insert data in the database using the [BCP utility](https://msdn.microsoft.com/library/ms162802.aspx).
 
 ###<a name="sql-aml"></a>Connecting to Azure Machine Learning
 

@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="07/07/2016"
+   	ms.date="10/05/2016"
    	ms.author="nitinme"/>
 
 
@@ -31,6 +31,10 @@ The Azure portal is a web-based management tool for services and resources hoste
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - __A modern web browser__. The Azure  portal uses HTML5 and Javascript, and may not function correctly in older web browsers.
+
+### Access control requirements
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ##Create clusters
 

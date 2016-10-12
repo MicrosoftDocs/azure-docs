@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/05/2016"
+   ms.date="10/03/2016"
    ms.author="tomfitz"/>
 
 # Resource locks template schema
 
-Creates a new lock on a resource and its child resources.
+Creates a lock on a resource and its child resources.
 
 ## Schema format
 
@@ -42,26 +42,25 @@ To create a lock, add the following schema to the resources section of your temp
 
 The following tables describe the values you need to set in the schema.
 
-| Name | Value |
-| ---- | ---- | 
-| type | Enum<br />Required<br />**{namespace}/{type}/providers/locks** - for resources or<br />**Microsoft.Authorization/locks** - for resource groups<br /><br />The resource type to create. |
-| apiVersion | Enum<br />Required<br />**2015-01-01**<br /><br />The API version to use for creating the resource. |  
-| name | String<br />Required<br />**{resource}/Microsoft.Authorization/{lockname}** - for resources or<br />**{lockname}** - for resource groups<br />up to 64 characters, and cannot contain <, > %, &, ?, or any control characters.<br /><br />A value that specifes both the resource to lock and a name for the lock. |
-| dependsOn | Array<br />Optional<br />A comma-separated list of a resource names or resource unique identifiers.<br /><br />The collection of resources this lock depends on. If the resource you are locking is deployed in the same template, include that resource name in this element to ensure the resource is deployed first. | 
-| properties | Object<br />Required<br />[properties object](#properties)<br /><br />An object that identifies the type of lock, and notes about the lock. |  
+| Name | Required | Description |
+| ---- | -------- | ----------- |
+| type | Yes | The resource type to create.<br /><br />For resources:<br />**{namespace}/{type}/providers/locks**<br /><br/>For resource groups:<br />**Microsoft.Authorization/locks** |
+| apiVersion | Yes | The API version to use for creating the resource.<br /><br />Use:<br />**2015-01-01**<br /><br /> |
+| name | Yes | A value that specifies both the resource to lock and a name for the lock. Can be up to 64 characters, and cannot contain <, > %, &, ?, or any control characters.<br /><br />For resources:<br />**{resource}/Microsoft.Authorization/{lockname}**<br /><br />For resource groups:<br />**{lockname}** |
+| dependsOn | No | A comma-separated list of a resource names or resource unique identifiers.<br /><br />The collection of resources this lock depends on. If the resource you are locking is deployed in the same template, include that resource name in this element to ensure the resource is deployed first. | 
+| properties | Yes | An object that identifies the type of lock, and notes about the lock.<br /><br />See [properties object](#properties-object). |  
 
-<a id="properties" />
 ### properties object
 
-| Name | Value |
-| ------- | ---- |
-| level   | Enum<br />Required<br />**CannotDelete**<br /><br />The type of lock to apply to the scope. CanNotDelete allows modification but prevents deletion. |
-| notes   | String<br />Optional<br />up to 512 characters<br /><br />Description of the lock. |
+| Name | Required | Description |
+| ---- | -------- | ----------- |
+| level   | Yes | The type of lock to apply to the scope.<br /><br />**CannotDelete** - users can modify resource but not delete it.<br />**ReadOnly** - users can read from a resource, but they can't delete it or perform any actions on it. |
+| notes   | No | Description of the lock. Can be up to 512 characters. |
 
 
 ## How to use the lock resource
 
-You add this resource to your template to prevent specified actions on a resource. The lock applies to all users and groups. Typically, you apply a lock for only a limited duration, such as, when a process is running and you want to make sure someone in your organization doesn't inadvertently modify or delete a resource.
+You add this resource to your template to prevent specified actions on a resource. The lock applies to all users and groups.
 
 To create or delete management locks, you must have access to **Microsoft.Authorization/*** or **Microsoft.Authorization/locks/*** actions. Of the built-in roles, only **Owner** and **User Access Administrator** are 
 granted those actions. For information about role-based access control, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md).
