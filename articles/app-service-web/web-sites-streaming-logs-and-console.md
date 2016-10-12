@@ -18,7 +18,7 @@
 
 # Streaming Logs and the Console
 
-### Streaming Logs
+## Streaming Logs
 
 The **Azure portal** provides an integrated streaming log viewer that 
 lets you view tracing events from your **App Service** apps in real time.  
