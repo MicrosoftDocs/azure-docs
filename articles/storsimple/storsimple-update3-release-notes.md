@@ -1,4 +1,4 @@
-properties 
+<properties 
    pageTitle="StorSimple 8000 Series Update 3 release notes | Microsoft Azure"
    description="Describes the new features, issues, and workarounds for StorSimple 8000 Series Update 3."
    services="storsimple"
