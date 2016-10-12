@@ -121,9 +121,9 @@ To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/featu
 
 | **Service provider**  |**Microsoft Azure** | **Office 365** | **Locations** |
 |-----------------------|--------------------|----------------|---------------|
-| **[Colt]( http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Supported | Not Supported | Berlin+, Frankfurt|
+| **[Colt]( http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Supported | Not Supported | Berlin, Frankfurt|
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supported | Not Supported | Frankfurt|
-| **e-shelter** | Coming soon | Not Supported | Berlin+|
+| **e-shelter** | Supported | Not Supported | Berlin|
 | **Interxion** | Supported | Not Supported | Frankfurt|
 
 ## <a name="nonpartners"></a>Connectivity through service providers not listed
