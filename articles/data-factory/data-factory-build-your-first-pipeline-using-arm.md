@@ -240,17 +240,7 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFGetStarted** folder 
     	]
 	}
 
-Note the following: 
-
-- The Data Factory creates a **Windows-based** HDInsight cluster for you with the above JSON. You could also have it create a **Linux-based** HDInsight cluster. See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details. 
-- You could use **your own HDInsight cluster** instead of using an on-demand HDInsight cluster. See [HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) for details.
-- The HDInsight cluster creates a **default container** in the blob storage you specified in the JSON (**linkedServiceName**). HDInsight does not delete this container when the cluster is deleted. This behavior is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice needs to be processed unless there is an existing live cluster (**timeToLive**) and is deleted when the processing is done.
-
-	As more slices are processed, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Use tools such as [Microsoft Storage Explorer](http://storageexplorer.com/) to delete containers in your Azure blob storage.
-
-See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details.
-
-> [AZURE.NOTE] You can find another example of Resource Manager template for creating an Azure data factory on [Github](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json).  
+> [AZURE.NOTE] You can find another example of Resource Manager template for creating an Azure data factory on [Tutorial: Create a pipeline with Copy Activity using an Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md).  
 
 ## Parameters JSON 
 Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parameters for the Azure Resource Manager template. Specify values for these parameters and save the JSON file.
@@ -324,7 +314,7 @@ You can also use Monitor and Manage App to monitor your data pipelines. See [Mon
 
 ## Data Factory entities in the template
 ### Define data factory
-You define a data factory in the resource manager template as shown in the following sample:  
+You define a data factory in the Resource Manager template as shown in the following sample:  
 
 	"resources": [
 	{
@@ -338,7 +328,7 @@ The dataFactoryName is defined as:
       
       "dataFactoryName": "[concat('HiveTransformDF', uniqueString(resourceGroup().id))]",
 
-It is an unique string based on the resource group ID.  
+It is a unique string based on the resource group ID.  
 
 ### Defining Data Factory entities
 The following Data Factory entities are defined in the JSON template: 
@@ -391,6 +381,17 @@ See [Compute linked services](data-factory-compute-linked-services.md#azure-hdin
           }
         }
       }
+
+Note the following points: 
+
+- The Data Factory creates a **Windows-based** HDInsight cluster for you with the above JSON. You could also have it create a **Linux-based** HDInsight cluster. See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details. 
+- You could use **your own HDInsight cluster** instead of using an on-demand HDInsight cluster. See [HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) for details.
+- The HDInsight cluster creates a **default container** in the blob storage you specified in the JSON (**linkedServiceName**). HDInsight does not delete this container when the cluster is deleted. This behavior is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice needs to be processed unless there is an existing live cluster (**timeToLive**) and is deleted when the processing is done.
+
+	As more slices are processed, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Use tools such as [Microsoft Storage Explorer](http://storageexplorer.com/) to delete containers in your Azure blob storage.
+
+See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details.
+
 
 
 #### Azure blob input dataset
