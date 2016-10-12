@@ -26,7 +26,7 @@ Here are some of the things you can do with Diagnostic Logs:
 
 - Save them to a **Storage Account** for auditing or manual inspection. You can specify the retention time (in days) using the **Diagnostic Settings**.
 - [Stream them to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
-- Analyze them with [OMS Log Analytics](../log-analytics/log-analytics-azure-storage-json.md) 
+- Analyze them with [OMS Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
 
 ## Diagnostic Settings
 Diagnostic Logs for non-Compute resources are configured using Diagnostic Settings. **Diagnostic Settings** for a resource control:
@@ -71,7 +71,7 @@ To enable storage of Diagnostic Logs in a Storage Account, use this command:
 
     Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 
-The Storage Account ID is the resource id for the storage account to which you want to send the logs. 
+The Storage Account ID is the resource id for the storage account to which you want to send the logs.
 
 To enable streaming of Diagnostic Logs to an Event Hub, use this command:
 
@@ -95,7 +95,7 @@ To enable storage of Diagnostic Logs in a Storage Account, use this command:
 
     azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
 
-The Storage Account ID is the resource id for the storage account to which you want to send the logs. 
+The Storage Account ID is the resource id for the storage account to which you want to send the logs.
 
 To enable streaming of Diagnostic Logs to an Event Hub, use this command:
 
@@ -146,8 +146,8 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 |    Data Lake Store            |    [Accessing diagnostic logs for Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 |    Data Lake Analytics        |    [Accessing diagnostic logs for Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 |    Logic Apps                 |    No schema available.                                                                                         |
-|    Azure Batch                |    No schema available.                                                                                         |
-|    Azure Automation           |    [Log analytics for Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md)                                                                                         |
+|    Azure Batch                |    [Azure Batch diagnostic logging](../batch/batch-diagnostics.md)                                              |
+|    Azure Automation           |    [Log analytics for Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md)          |
 |    Event Hub                  |    No schema available.                                                                                         |
 |    Service Bus                |    No schema available.                                                                                         |
 |    Stream Analytics           |    No schema available.                                                                                         |
