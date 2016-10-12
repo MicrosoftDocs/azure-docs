@@ -147,7 +147,7 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 |    Data Lake Analytics        |    [Accessing diagnostic logs for Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 |    Logic Apps                 |    No schema available.                                                                                         |
 |    Azure Batch                |    No schema available.                                                                                         |
-|    Azure Automation           |    [Accessing diagnostic logs for Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md#log-analytics-records)                                                                                         |
+|    Azure Automation           |    [Log analytics for Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md)                                                                                         |
 |    Event Hub                  |    No schema available.                                                                                         |
 |    Service Bus                |    No schema available.                                                                                         |
 |    Stream Analytics           |    No schema available.                                                                                         |
