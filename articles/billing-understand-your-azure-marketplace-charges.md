@@ -1,4 +1,4 @@
-1<properties
+<properties
 	pageTitle="Understand your Azure external service charges | Microsoft Azure"
 	description="Learn about billing of external services, formerly known as Marketplace, charges in Azure."
 	services=""
