@@ -5,6 +5,12 @@
 	documentationCenter=""
 	authors="luiscabrer"
 	manager="jhubbard"
+	pageTitle="Building a model with the Recommnendations UI"
+	description="Azure Machine Learning Recommendations - Building a model with the Recommnendations UI"
+	services="cognitive-services"
+	documentationCenter=""
+	authors="luiscabrer"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -32,7 +38,7 @@ This exercise will take about 30 minutes.
 new [Recommendations API](https://www.microsoft.com/cognitive-services/en-us/recommendations-api) subscription. You can sign up for the service on the  **Azure Portal**
 at [http://portal.azure.com/](http://portal.azure.com/) and sign in with your Azure account. Detailed instructions on the 
 sign up process are provided in *Task 1* of the
-[Getting Started Guide](https://azure.microsoft.com/en-us/documentation/articles/cognitive-services-recommendations-quick-start/) 
+[Getting Started Guide](cognitive-services-recommendations-quick-start.md) 
 
 1. Once you have obtained a **Key** for your Recommendations API subscription, go to [Recommendations UI](https://recommendations-portal.azurewebsites.net/). 
 
@@ -50,7 +56,7 @@ Usually you would query your store database for these pieces of information. Tod
 You can download the data from [http://aka.ms/RecoSampleData](http://aka.ms/RecoSampleData). Copy and unpack the **Books.Zip** file into a folder on your local machine. 
 For instance **c:\data**.
 
-Detailed information on the schema of the catalog and usage files can be found in the [Collecting Data To Train your Model](https://azure.microsoft.com/en-us/documentation/articles/cognitive-services-recommendations-collecting-data/) article.
+Detailed information on the schema of the catalog and usage files can be found in the [Collecting Data To Train your Model](cognitive-services-recommendations-collecting-data.md) article.
  
 For this lab we are going to work with a small file so that you don’t have very to wait too long for training. If you want to try a more realistic file, we have placed **MsStoreData.zip** that is based on sample transactions from the Microsoft Store in the same location.
 
@@ -103,3 +109,5 @@ Congratulations! you have trained a model and then got recommendations from that
 that allows you to see the state of your projects and builds. 
 
 Now that you have a model, you may want to learn how to do all of the steps above programatically. For that we invite you to download the Recommendations Sample, and also check out the API Reference.  
+
+
