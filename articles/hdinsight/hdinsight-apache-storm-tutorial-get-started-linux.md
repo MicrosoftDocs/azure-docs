@@ -99,7 +99,7 @@ The [storm-starter](https://github.com/apache/storm/tree/master/examples/storm-s
 
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm.starter.WordCountTopology wordcount
 		
-	> [AZURE.NOTE] The `*` portion of the file name is used to match the version number in the file name, which changes as HDInsight is updated.
+	> [AZURE.NOTE] The `*` portion of the file name is used to match the version number, which changes as HDInsight is updated.
 
     This will start the example WordCount topology on the cluster, with a friendly name of 'wordcount'. It will randomly generate sentences and count the occurrence of each word in the sentences.
 
