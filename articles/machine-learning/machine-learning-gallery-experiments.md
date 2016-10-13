@@ -27,7 +27,7 @@ The Gallery contains a wide variety of
 **[Experiments](https://gallery.cortanaintelligence.com/experiments)**
 that have been developed in [Azure Machine Learning Studio](https://studio.azureml.net). These range from quick proof-of-concept experiments that demonstrate a specific machine learning technique, to fully-developed solutions for complex machine learning problems.
 
-> [AZURE.NOTE] An *experiment* is a canvas in Azure Machine Learning Studio that lets you construct a predictive analysis model by connecting together data with various analytical modules. You can try different ideas, do trial runs, and eventually publish your model as a web service in Azure. For an example of creating a simple experiment, see [Machine learning tutorial: Create your first experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md). For a more complete walkthrough of creating a predictive analytics solution, see [Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
+> [AZURE.NOTE] An ***experiment*** is a canvas in Azure Machine Learning Studio that lets you construct a predictive analysis model by connecting together data with various analytical modules. You can try different ideas, do trial runs, and eventually publish your model as a web service in Azure. For an example of creating a simple experiment, see [Machine learning tutorial: Create your first experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md). For a more complete walkthrough of creating a predictive analytics solution, see [Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
 
 ## Discover
 
@@ -66,9 +66,9 @@ experiment
 You can download a copy of any experiment from the Gallery into your Studio workspace and then modify your copy to create your own solutions.
 There are two ways to get a copy of the experiment:
 
-- From the Gallery - If you find an experiment you like in the Gallery, you can easily download a copy and open it in your Machine Learning Studio workspace.
+- **From the Gallery** - If you find an experiment you like in the Gallery, you can easily download a copy and open it in your Machine Learning Studio workspace.
 
-- From within Machine Learning Studio - In Studio, you can use any experiment in the Gallery as a template to create a new experiment.
+- **From within Machine Learning Studio** - In Studio, you can use any experiment in the Gallery as a template to create a new experiment.
 
 ### From the Gallery
 
@@ -82,7 +82,7 @@ To download a copy of an experiment from the Gallery:
 When you click **Open in Studio**, the experiment is loaded into your Machine Learning Studio workspace and opened (if you're not already signed in to Studio, you will be prompted to sign in using your Microsoft account before the experiment is copied to your workspace).
 
 
-### In Machine Learning Studio
+### From within Machine Learning Studio
 
 You can also open the same sample experiments while you're working in Machine Learning Studio:
 
@@ -128,10 +128,12 @@ Follow these steps to contribute an experiment to the Cortana Intelligence Galle
 	- Feature engineering
 	- Model description
 	- Results and evaluation of model performance
-
+  </br>
+  </br>
   You can use Markdown to format as needed. Click the **Preview** icon to see how things will look when published.
-
+  </br>
   ![Click "Preview" to see what your text will look like](media\machine-learning-gallery-experiments\preview-markdown-text.png)
+  </br>
   </br>
   > [AZURE.TIP] The box provided for Markdown editing and preview box is quite small. We recommend that you write your documentation in a Markdown editor and paste the completed document into the text box.  After you've published your experiment, you can use standard web-based tools in Markdown for editing and preview to make necessary tweaks and corrections.
 
@@ -142,6 +144,7 @@ Follow these steps to contribute an experiment to the Cortana Intelligence Galle
 8. Choose whether to publish your content publicly, or have it only accessible to people with the link.
 
   ![Choose whether to publish publicly or as unlisted](media\machine-learning-gallery-experiments\choose-public-or-unlisted.png)
+  </br>
   </br>
   > [AZURE.TIP] If you want to make sure your documentation looks right before releasing it publicly, you can publish it as unlisted first, and then switch it to Public from the item page.
 
