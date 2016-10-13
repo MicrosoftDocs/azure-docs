@@ -44,7 +44,7 @@ Solutions.
  Click **See all** to view all
 Solutions.
  From this page you can browse all the
-Soutions
+Solutions
  in the Gallery, or you can search by selecting filter criteria on the left of the page and entering search terms at the top.
 
  Click any
@@ -60,7 +60,7 @@ Solution
 
 ## Deploy
 
-If you want to use a Solution, click **Deploy**. This will walk you through the process of configuring and deploying the Solution in your workspace.
+If you want to use a Solution, click **Deploy**. Follow the steps presented to configure and deploy the Solution in your workspace.
 
 ![Deploy a Gallery Solution](media\machine-learning-gallery-solutions\deploy-solution.png)
 
