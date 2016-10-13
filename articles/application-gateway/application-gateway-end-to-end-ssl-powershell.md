@@ -157,7 +157,7 @@ Create the HTTP listener for the application gateway. Assign the front-end ip co
 
 Upload the certificate to be used on the ssl enabled backend pool resources.
 
-    $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
+    $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile <path to .cer file>
 
 > [AZURE.NOTE] The certificate provided in this step should be the public key of the pfx cert present on the backend. This step whitelists the backend with the application gateway.
 
