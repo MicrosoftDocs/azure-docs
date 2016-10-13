@@ -16,20 +16,20 @@
 	ms.date="10/04/2016"
     ms.author="iainfou"/>
 
-# Install and Configure MongoDB on a Windows VM in Azure
-[MongoDB](http://www.mongodb.org) is a popular open-source, high-performance NoSQL database. This article guides you through installing and configuring MongoDB on a Windows Server 2012 R2 virtual machine (VM) in Azure created using the Resource Manager deployment model. You can also [install MongoDB on a Linux VM in Azure](virtual-machines-linux-install-mongodb.md).
+# Install and configure MongoDB on a Windows VM in Azure
+[MongoDB](http://www.mongodb.org) is a popular open-source, high-performance NoSQL database. This article guides you through installing and configuring MongoDB on a Windows Server 2012 R2 virtual machine (VM) in Azure. You can also [install MongoDB on a Linux VM in Azure](virtual-machines-linux-install-mongodb.md).
 
 
 ## Prerequisites
 
-Before you install and configure MongoDB you need to create a VM and, ideally, add a data disk to it. See the following articles to create a VM and add a data disk:
+Before you install and configure MongoDB, you need to create a VM and, ideally, add a data disk to it. See the following articles to create a VM and add a data disk:
 
-- [Create a Windows Server VM using the Azure portal](virtual-machines-windows-hero-tutorial.md)
-	- Or, [create a Windows Server VM using Azure PowerShell](virtual-machines-windows-ps-create.md)
-- [Attach a data disk to a Windows Server VM using the Azure portal](virtual-machines-windows-attach-disk-portal.md)
-	- Or, [attach a data disk to a Windows Server VM using Azure PowerShell](https://msdn.microsoft.com/library/mt603673.aspx)
+- [Create a Windows Server VM using the Azure portal](virtual-machines-windows-hero-tutorial.md).
+	- Or, [create a Windows Server VM using Azure PowerShell](virtual-machines-windows-ps-create.md).
+- [Attach a data disk to a Windows Server VM using the Azure portal](virtual-machines-windows-attach-disk-portal.md).
+	- Or, [attach a data disk to a Windows Server VM using Azure PowerShell](https://msdn.microsoft.com/library/mt603673.aspx).
 
-[Log on to your Windows Server VM](virtual-machines-windows-connect-logon.md) using Remote Desktop to begin installing and configuring MongoDB.
+To begin installing and configuring MongoDB, [log on to your Windows Server VM](virtual-machines-windows-connect-logon.md) by using Remote Desktop.
 
 
 ## Install MongoDB
@@ -38,19 +38,19 @@ Before you install and configure MongoDB you need to create a VM and, ideally, a
 
 1. After you've connected to your VM using Remote Desktop, open Internet Explorer from the **Start** menu on the VM.
 
-2. Select **Use recommended security, privacy, and compatibility settings** when Internet Explorer first opens and click **OK**.
+2. Select **Use recommended security, privacy, and compatibility settings** when Internet Explorer first opens, and click **OK**.
 
 3. Internet Explorer enhanced security configuration is enabled by default. Add the MongoDB website to the list of allowed sites:
 
-	- Select the **Tools** button in the upper right corner.
+	- Select the **Tools** icon in the upper-right corner.
 	- In **Internet Options**, select the **Security** tab, and then select the **Trusted Sites** icon.
-	- Click the **Sites** button. Add _https://\*.mongodb.org_ to the list of trusted sites, then close the dialog box.
+	- Click the **Sites** button. Add _https://\*.mongodb.org_ to the list of trusted sites, and then close the dialog box.
 
 	![Configure Internet Explorer security settings](./media/virtual-machines-windows-install-mongodb/configure-internet-explorer-security.png)
 
 4. Browse to the [MongoDB - Downloads](http://www.mongodb.org/downloads) page (http://www.mongodb.org/downloads).
 
-5. By default, it should select the **Community Server** edition and the latest current stable release for Windows Server 2008 R2 64-bit and later. To download the installer, click the **DOWNLOAD (msi)** button:
+5. By default, it should select the **Community Server** edition and the latest current stable release for Windows Server 2008 R2 64-bit and later. To download the installer, click **DOWNLOAD (msi)**.
 
 	![Download MongoDB installer](./media/virtual-machines-windows-install-mongodb/download-mongodb.png)
 
@@ -93,7 +93,7 @@ Before you install and configure MongoDB you need to create a VM and, ideally, a
 	```
 
 	It may take several minutes for MongoDB to preallocate the journal files and start listening for connections. All log messages are directed to the *F:\MongoLogs\mongolog.log* file as `mongod.exe` server starts and preallocates journal files.
-	
+
 	> [AZURE.NOTE] The command prompt stays focused on this task while your MongoDB instance is running. Leave the command prompt window open to continue running MongoDB. Or, install MongoDB as service, as detailed in the next step.
 
 4. For a more robust MongoDB experience, install the `mongod.exe` as a service. Creating a service means you don't need to leave a command prompt running each time you wish to use MongoDB. Create the service as follows, adjusting the path to your data and log directories accordingly:
@@ -104,8 +104,8 @@ Before you install and configure MongoDB you need to create a VM and, ideally, a
 	```
 
 	The preceding command creates a service named MongoDB with a description of "Mongo DB". The following parameters are also specified:
-	
-	- The `--dbpath` option specifies the location of the data directory. 
+
+	- The `--dbpath` option specifies the location of the data directory.
 	- The `--logpath` option must be used to specify a log file, since the running service does not have a command window to display output.
 	- The `--logappend` option specifies that a restart of the service causes output to append to the existing log file.
 
@@ -140,7 +140,7 @@ db.foo.find()
 The output is similar to the following example:
 
 ```
-{ "_id" : "ObjectId("57f6a86cee873a6232d74842"), "a" : 1 } 
+{ "_id" : "ObjectId("57f6a86cee873a6232d74842"), "a" : 1 }
 ```
 
 Exit the `mongo` console as follows:
