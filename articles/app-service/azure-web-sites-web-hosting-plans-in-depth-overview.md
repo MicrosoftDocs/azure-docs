@@ -37,17 +37,17 @@ When you have multiple plans in a single resource group, you can also define an 
 
 ## Create an App Service plan or use existing one
 
-When you create a new app, you should consider creating a resource group. On the other hand, if the app that you are about to create is a component for a larger application, this app should be created within the resource group that's allocated for that larger application.
+When you create an  app, you should consider creating a resource group. On the other hand, if the app that you are about to create is a component for a larger application, this app should be created within the resource group that's allocated for that larger application.
 
 Whether the new app is an altogether new application or part of a larger one, you can choose to use an existing App Service plan to host it or create a new one. This decision is more a question of capacity and expected load.
 
 If this new app is going to use many resources and have different scaling factors from the other apps hosted in an existing plan, we recommend that you isolate it in its own plan.
 
-When you create a new plan, you can allocate a new set of resources for your app and gain greater control over resource allocation because each plan gets its own set of instances.
+When you create a plan, you can allocate a new set of resources for your app and gain greater control over resource allocation because each plan gets its own set of instances.
 
 Because you can move apps across plans, you can change the way that resources are allocated across the bigger application.
 
-Finally, if you want to create a new app in a different region, and that region doesn't have an existing plan, create a new plan in that region to be able to host your app there.
+Finally, if you want to create an app in a different region, and that region doesn't have an existing plan, create a plan in that region to be able to host your app there.
 
 ## Create an App Service plan
 
@@ -99,7 +99,7 @@ You can change the pricing tier and instance size by clicking the **Scale Up** i
 
 ## App Service Plan cleanup
 **App Service plans** that have no apps associated to them still incur charges since they continue to reserve the compute capacity configured in the App Service plan scale properties.
-In order to avoid unexpected charges, when the last app hosted in an App Service plan is deleted, this also deletes the App Service plan.
+To avoid unexpected charges, when the last app hosted in an App Service plan is deleted, the resulting empty App Service plan is also deleted.
 
 
 ## Summary
