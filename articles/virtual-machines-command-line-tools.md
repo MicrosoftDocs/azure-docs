@@ -25,7 +25,7 @@ This article provides syntax and options for Azure CLI commands you'd commonly u
 
 To get started, first [install the Azure CLI](xplat-cli-install.md) and [connect to your Azure subscription](xplat-cli-connect.md).
 
-For current command syntax and options at the command line, type `azure help` or, to display help for a specific command, `azure help [command]`. You'll also find CLI examples in the documentation for creating and managing specific Azure services.
+For current command syntax and options at the command line, type `azure help` or, to display help for a specific command, `azure help [command]`. Also find CLI examples in the documentation for creating and managing specific Azure services.
 
 Optional parameters are shown in square brackets (for example, `[parameter]`). All other parameters are required.
 
@@ -33,11 +33,11 @@ In addition to command-specific optional parameters documented here, there are t
 
 ## Setting asm mode
 
-Currently the asm mode is enabled by default when you first install the CLI. If you need to, use the following command to set asm mode.
+Use the following command to enable Azure CLI Service Management mode commands.
 
 	azure config mode asm
 
->[AZURE.NOTE] The CLI's Azure Resource Manager mode and asm mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
+>[AZURE.NOTE] The CLI's Azure Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
 
 ## Manage your account information and publish settings
 One way the CLI can connect to your account is by using your Azure subscription information. (See [Connect to an Azure subscription from the Azure CLI](xplat-cli-connect.md) for other options.) This information can be obtained from the Azure classic portal in a publish settings file as described here. You can import the publish settings file as a persistent local configuration setting that the CLI uses for subsequent operations. You only need to import your publish settings once.
@@ -67,7 +67,7 @@ This command imports a publishsettings file or certificate so that it can be use
 	warn:   Remember to delete it now that it has been imported.
 	info:   Account publish settings imported successfully
 
-> [AZURE.NOTE] The publishsettings file can contain details (that is, subscription name and ID) about more than one subscription. When you import the publishsettings file, the first subscription is used as the default description. To use a different subscription, run the following command.
+> [AZURE.NOTE] The publishsettings file can contain details (that is, subscription name and ID) about more than one subscription. When you import the publishsettings file, the first subscription is used as the default description. To use a different subscription, run the following command:
 <code>~$ azure config set subscription &lt;other-subscription-id&gt;</code>
 
 **account clear [options]**
@@ -293,7 +293,7 @@ This command shows details about an Azure virtual machine. The --json option spe
 
 **vm delete [options] &lt;name>**
 
-This command deletes an Azure virtual machine. By default, this command does not delete the Azure blob from which the operating system disk and the data disk are created. To delete the blob as well as the virtual machine on which it is based, specify the -b option.
+This command deletes an Azure virtual machine. By default, this command does not delete the Azure blob from which the operating system disk and the data disk are created. To delete the blob and the virtual machine on which it is based, specify the -b option.
 
 	~$ azure vm delete my-vm
 	info:   Executing command vm delete
@@ -503,7 +503,7 @@ The commands for attaching data disks (azure vm disk attach and azure vm disk at
 
 When you detach a data disk with the azure vm disk detach command, use the &lt;lun&gt; parameter to indicate which disk to detach.
 
-> [AZURE>NOTE] You should always detach data disks in reverse order, starting with the highest-numbered LUN that has been assigned. The Linux SCSI layer does not support detaching a lower-numbered LUN while a higher-numbered LUN is still attached. For example, you should not detach LUN 0 if LUN 1 is still attached.
+>[AZURE.NOTE] You should always detach data disks in reverse order, starting with the highest-numbered LUN that has been assigned. The Linux SCSI layer does not support detaching a lower-numbered LUN while a higher-numbered LUN is still attached. For example, you should not detach LUN 0 if LUN 1 is still attached.
 
 **vm disk show [options] &lt;name>**
 
@@ -1051,7 +1051,7 @@ This command supports the following additional options:
 
 **site job stop [options] &lt;jobName> &lt;jobType> [name]**
 
-This command stops the specified web job. Only continuous jobs can  be stopped.
+This command stops the specified web job. Only continuous jobs can be stopped.
 
 This command supports the following additional options:
 
@@ -1551,14 +1551,14 @@ This command creates a job named `getUpdates` that is scheduled to run hourly.
 
 This command supports the following additional options:
 
-+ **-i `<number>`** or **--interval `<number>`**: The job interval, as an integer; the default value is `15`.
++ **-i `<number>`** or **--interval `<number>`**: The job interval, as an integer. The default value is `15`.
 + **-u `<unit>`** or **--intervalUnit `<unit>`**: The unit for the _interval_, which can be one of the following values:
 	+ **minute** (default)
 	+ **hour**
 	+ **day**
 	+ **month**
 	+ **none** (on-demand jobs)
-+ **-t `<time>`** **--startTime `<time>`** The start time of the first run for the script, in ISO format; the default value is `now`.
++ **-t `<time>`** **--startTime `<time>`** The start time of the first run for the script, in ISO format. The default value is `now`.
 
 > [AZURE.NOTE] New jobs are created in a disabled state because a script must still be uploaded. Use the **mobile script upload** command to upload a script and the **mobile job update** command to enable the job.
 
@@ -1572,14 +1572,14 @@ The following command enables the disabled `getUpdates` job.
 
 This command supports the following additional options:
 
-+ **-i `<number>`** or **--interval `<number>`**: The job interval, as an integer; the default value is `15`.
++ **-i `<number>`** or **--interval `<number>`**: The job interval, as an integer. The default value is `15`.
 + **-u `<unit>`** or **--intervalUnit `<unit>`**: The unit for the _interval_, which can be one of the following values:
 	+ **minute** (default)
 	+ **hour**
 	+ **day**
 	+ **month**
 	+ **none** (on-demand jobs)
-+ **-t `<time>`** **--startTime `<time>`** The start time of the first run for the script, in ISO format; the default value is `now`.
++ **-t `<time>`** **--startTime `<time>`** The start time of the first run for the script, in ISO format. The default value is `now`.
 + **-a `<status>`** or **--status `<status>`**: The job status, which can be either `enabled` or `disabled`.
 
 **mobile job delete [options] [servicename] [jobname]**

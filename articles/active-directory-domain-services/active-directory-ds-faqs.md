@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory Domain Services: FAQs | Microsoft Azure"
+	pageTitle="FAQs - Azure Active Directory Domain Services | Microsoft Azure"
 	description="Frequently asked questions about Azure Active Directory Domain Services"
 	services="active-directory-ds"
 	documentationCenter=""
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2016"
+	ms.date="10/07/2016"
 	ms.author="maheshu"/>
 
-# Azure Active Directory Domain Services preview: FAQs
+# Azure Active Directory Domain Services: Frequently Asked Questions (FAQs)
 
-This page answers frequently asked questions about the Azure Active Directory Domain Services preview. Keep checking back for updates.
+This page answers frequently asked questions about the Azure Active Directory Domain Services. Keep checking back for updates.
 
 ### Troubleshooting guide
 Refer to our [Troubleshooting guide](active-directory-ds-troubleshooting.md) for solutions to common issues encountered when configuring or administering Azure AD Domain Services.
@@ -47,7 +47,7 @@ No. The domain provided by Azure AD Domain Services is a managed domain. You do 
 No. You do not have permissions to connect to domain controllers for the managed domain via Remote Desktop. Members of the 'AAD DC Administrators' group can administer the managed domain using AD administration tools such as the Active Directory Administration Center (ADAC) or AD PowerShell. These tools are installed using the 'Remote Server Administration Tools' feature on a Windows server joined to the managed domain.
 
 #### I’ve enabled Azure AD Domain Services. What user account do I use to domain join machines to this domain?
-Users you’ve added to the administrative group (for example, ‘AAD DC Administrators’) are able to domain-join machines. Additionally, users in this group are granted remote desktop access to machines that have been joined to the domain.
+Users you’ve added to the administrative group (for example, ‘AAD DC Administrators’) can domain-join machines. Additionally, users in this group are granted remote desktop access to machines that have been joined to the domain.
 
 #### Can I wield domain administrator privileges for the domain provided by Azure AD Domain Services?
 No. You are not granted administrative privileges on the managed domain. Both ‘Domain Administrator’ and ‘Enterprise Administrator’ privileges are not available for you to use within the domain. Existing domain administrator or enterprise administrator groups within your Azure AD directory are also not granted domain/enterprise administrator privileges on the domain.
@@ -64,7 +64,7 @@ Yes. Users that belong to the 'AAD DC Administrators' group are granted 'DNS Adm
 ### Billing and availability
 
 #### Is Azure AD Domain Services a paid service?
-The service is available at a special reduced price during the public preview period. Billing commences at full price once the service is generally available (GA). For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/active-directory-ds/).
+Yes. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/active-directory-ds/).
 
 #### Is there a free trial for the service?
 This service is included in the free trial for Azure. You can sign up for a [free one-month trial of Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -74,6 +74,3 @@ No, Azure AD Domain Services is a pay-as-you-go Azure service and is not part of
 
 #### What Azure regions is the service available in?
 Refer to our [regions page](active-directory-ds-regions.md) to see a list of the Azure regions where Azure AD Domain Services is available.
-
-#### When will Azure AD Domain Services be Generally Available?
-We cannot currently share timelines for when the service reaches general availability status.

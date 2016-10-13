@@ -81,7 +81,7 @@ The properties in *protectedSettings* (sometimes referred to as private configur
 ## Specifying diagnostics storage account as parameters 
 
 The diagnostics extension json snippet above assumes two parameters *existingdiagnosticsStorageAccountName* and
-*existingdiagnosticsStorageAccountName* to specify the diagnostics storage account where diagnostics data will be stored. Specifying the diagnostics storage account as a parameter makes it easy to change the diagnostics storage account across different environments e.g. you may want to use a different diagnostics storage account for testing and a different one for your production deployment.  
+*existingdiagnosticsStorageResourceGroup* to specify the diagnostics storage account where diagnostics data will be stored. Specifying the diagnostics storage account as a parameter makes it easy to change the diagnostics storage account across different environments e.g. you may want to use a different diagnostics storage account for testing and a different one for your production deployment.  
 
         "existingdiagnosticsStorageAccountName": {
             "type": "string",

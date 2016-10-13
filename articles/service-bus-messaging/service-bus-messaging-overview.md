@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Service Bus messaging overview | Microsoft Azure"
 	description="Service Bus Messaging: flexible data delivery in the cloud"
-	services="service-bus-messaging"
+	services="service-bus"
 	documentationCenter=".net"
 	authors="sethmanheim"
 	manager="timlt"
 	editor=""/>
 
 <tags
-	ms.service="service-bus-messaging"
+	ms.service="service-bus"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
@@ -49,9 +49,8 @@ As with the Relay infrastructure, the brokered messaging capability is provided 
 
 To learn more about Service Bus messaging, see the following topics.
 
-- [Service Bus fundamentals](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+- [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 - [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
-- [Service Bus architecture](../service-bus/service-bus-architecture.md)
 - [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
-- [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [How to use Service Bus topics and subscriptions](./service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
