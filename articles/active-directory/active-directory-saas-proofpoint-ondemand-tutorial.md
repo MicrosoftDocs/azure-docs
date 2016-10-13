@@ -27,7 +27,7 @@ Integrating Proofpoint on Demand with Azure AD provides you with the following b
 - You can enable your users to automatically get signed on to Proofpoint on Demand (single sign-on, or SSO) with their Azure AD accounts.
 - You can manage your accounts in one central location, the Azure classic portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 
@@ -60,17 +60,17 @@ To configure the integration of Proofpoint on Demand into Azure AD, you need to 
 	![Active Directory icon][1]
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. To open the applications view, in the directory view, click **APPLICATIONS** on menu at the top.
+3. To open the applications view, in the directory view, click **APPLICATIONS** on the menu at the top.
 
-	![The APPLICATIONS menu item][2]
+	![APPLICATIONS menu item][2]
 
 4. Click **ADD** at the bottom of the page.
 
-	![The ADD button][3]
+	![ADD button][3]
 
 5. In the **What do you want to do** dialog box, click **Add an application from the gallery**.
 
-	![The choice of adding an application from the gallery][4]
+	![Choice of adding an application from the gallery][4]
 
 6. In the search box, type **Proofpoint on Demand**.
 
@@ -111,7 +111,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	!["Configure App Settings" page with boxes filled in](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_04.png)
 
-    a. In the **SIGN ON URL** box, type the URL where users sign on to your Proofpoint on Demand application. Use the following pattern: **https://\<hostname\>.pphosted.com/ppssamlsp_hostname**.
+    a. In the **SIGN ON URL** box, type the URL where users sign on to your Proofpoint on Demand application. Use the following pattern: **https://\<hostname\>.pphosted.com/ppssamlsp_hostname**
 
 	b. In the **IDENTIFIER** box, type the URL by using the following pattern: **https://\<hostname/>.pphosted.com/ppssamlsp**
 
@@ -150,7 +150,7 @@ In this section, you create a test user named Britta Simon in the classic portal
 
 ![The test user in the list of users][20]
 
-1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1. In the Azure classic portal, in the left navigation pane, click **Active Directory**.
 
 	![Active Directory icon](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_09.png)
 
@@ -158,11 +158,11 @@ In this section, you create a test user named Britta Simon in the classic portal
 
 3. To display the list of users, on the menu at the top, click **USERS**.
 
-	![The USERS menu item](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_03.png)
+	![USERS menu item](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_03.png)
 
 4. To open the **Add User** dialog box, on the toolbar at the bottom, click **ADD USER**.
 
-	![The ADD USER button](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_04.png)
+	![ADD USER button](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_04.png)
 
 5. On the **Tell us about this user** page, perform the following steps:
 	!["Tell us about this user" page with boxes filled in](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_05.png)
@@ -227,14 +227,14 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 5. On the toolbar at the bottom, click **ASSIGN**.
 
-	![Assign User][205]
+	![Assign button][205]
 
 
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration by using the Access Panel.
 
-When you click the **Proofpoint on Demand** tile on the Access Panel, you should get automatically signed on to your Proofpoint on Demand application.
+When you click the **Proofpoint on Demand** tile on the Access Panel, you should be automatically signed on to your Proofpoint on Demand application.
 
 
 ## Additional resources
