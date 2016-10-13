@@ -22,7 +22,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and is the
 
 ## Frequently asked questions
 
-- **What happened to the Azure Authenticatior, Multi-Factor Auth, and Microsoft account apps?**
+- **What happened to the Azure Authenticator, Multi-Factor Auth, and Microsoft account apps?**
 
 	The Microsoft Authenticator app replaces each other these apps. Azure Authenticator upgraded to Microsoft Authenticator. If you use the Multi-Factor Auth or Microsoft account apps, install Microsoft Authenticator and add your accounts again. Make sure to finish adding your accounts to the new app before deleting the old ones.
 
@@ -44,13 +44,13 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and is the
 
 - **I restored my device from a backup, and my account codes are missing or not working. What happened?**  
 
-	For security purposes, we don't restore accounts from app backups at this time. If you restore the iOS app from a backup, your accounts are still displayed but they don't work to receive sign-in verifications or generate security codes. After you restore the app, delete your accounts and add them again.
+	For security purposes, we don't restore accounts from app backups. If you restore the iOS app from a backup, your accounts are still displayed but they don't work to receive sign-in verifications or generate security codes. After you restore the app, delete your accounts and add them again.
 
 - **I got a new device. How do I remove the Microsoft Authenticator app from my old device and move to the new one?**
 
-	Adding the Microsoft Authenticator app to a new device does not automatically remove it from any other devices. To manage which devices are configured for your account, visit the same website that you use to add a new device, and choose to remove old apps.
+	Adding the Microsoft Authenticator app to a new device does not automatically remove it from any other devices. To manage which devices are configured for your account, visit the same website that you use to manage two-step verification, and choose to remove old apps.
 
-	For personal Microsoft accounts, this website is your [account security](https://account.microsoft.com/security) page. For work or school Microsoft accounts, this website may be either [MyApps](https://myapps.microsoft.com) or a custom portal that your organization set up.
+	For personal Microsoft accounts, this website is your [account security](https://account.microsoft.com/security) page. For work or school Microsoft accounts, this website may be either [MyApps](https://myapps.microsoft.com) or a custom portal that your organization has set up.
 
 ## Contact us
 

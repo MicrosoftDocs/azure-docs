@@ -50,7 +50,7 @@ Azure Multi-Factor Authentication is an easy to use, scalable, and reliable solu
 
 ## How Azure Multi-Factor Authentication works
 
-The security of two-step verification lies in its layered approach. Compromising multiple verification methods presents a significant challenge for attackers. Even if an attacker manages to learn your password, it is useless without also having possession of the trusted device. Should you lose the device, the person who finds it won't be able to use it unless he or she also knows your password.
+The security of two-step verification lies in its layered approach. Compromising multiple verification methods presents a significant challenge for attackers. Even if an attacker manages to learn your password, it is useless without also having possession of the trusted device. Should you lose the device, the person who finds it can't use it unless he or she also knows your password.
 
 >[AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]
 
@@ -67,7 +67,7 @@ Verification code with mobile app | The mobile app on a user’s device generate
 For the mobile app verification methods, Azure Multi-Factor Authentication works with third-party authentication apps for smart phones. However, we recommend the Microsoft Authenticator app, which is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 ## Available versions of Azure Multi-Factor Authentication
-Azure Multi-Factor Authentication is available in three different versions. The table below describes each of these in more detail.
+Azure Multi-Factor Authentication is available in three different versions. 
 
 Version | Description
 ------------- | ------------- |
