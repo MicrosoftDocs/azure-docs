@@ -68,7 +68,7 @@ collected.
 
 Click **SAVE** at the top of the blade and you're ready to view logs.
 
-**NOTE:** The higher the **severity level** the more resources are consumed to 
+[AZURE.NOTE] The higher the **severity level** the more resources are consumed to 
 log and the more traces are produced. Make sure **severity level** is 
 configured to the correct verbosity for a production or high traffic site. 
 
