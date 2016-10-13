@@ -357,10 +357,11 @@ Azure AD Identity Protection helps you manage the mitigation of risky sign-ins b
 	![Sign-in risk policy](./media/active-directory-identityprotection/1016.png "Sign-in risk policy")
 
 
-- Set the controls to be enforced when the policy triggers::  
+- Set the controls to be enforced when the policy triggers:  
 
 	![Sign-in risk policy](./media/active-directory-identityprotection/1017.png "Sign-in risk policy")
-
+	
+	Require multi-factor authentication is met for a user 
 
 - Switch the state of your policy:
 
