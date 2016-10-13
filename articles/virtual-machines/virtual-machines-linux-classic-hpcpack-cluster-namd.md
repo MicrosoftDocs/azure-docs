@@ -13,18 +13,22 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="06/23/2016"
+ ms.date="10/13/2016"
  ms.author="danlep"/>
 
 # Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure
 
-This article shows you how to deploy a Microsoft HPC Pack cluster on Azure with multiple Linux compute nodes and run a [NAMD](http://www.ks.uiuc.edu/Research/namd/) job with **charmrun** to calculate and visualize the structure of a large biomolecular system.
+This article shows you one way to run a Linux high-performance computing (HPC) workload on Azure virtual machines. Here, you set up a [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) cluster on Azure with multiple Linux compute nodes and run a [NAMD](http://www.ks.uiuc.edu/Research/namd/) job with **charmrun** to calculate and visualize the structure of a large biomolecular system.  
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)].
 
-NAMD (for Nanoscale Molecular Dynamics program) is a parallel molecular dynamics package designed for high-performance simulation of large biomolecular systems containing up to millions of atoms, such as viruses, cell structures, and large proteins. NAMD scales to hundreds of cores for typical simulations and to more than 500,000 cores for the largest simulations.
+* **NAMD** (for Nanoscale Molecular Dynamics program) is a parallel molecular dynamics package designed for high-performance simulation of large biomolecular systems containing up to millions of atoms, such as viruses, cell structures, and large proteins. NAMD scales to hundreds of cores for typical simulations and to more than 500,000 cores for the largest simulations.
 
-Microsoft HPC Pack provides features to run a variety of large-scale HPC and parallel applications, including MPI applications, on clusters of Microsoft Azure virtual machines. Originally developed as a solution for Windows HPC workloads, HPC Pack now supports running Linux HPC applications on Linux compute node VMs deployed in an HPC Pack cluster. See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md) for an introduction.
+* **Microsoft HPC Pack** provides features to run a variety of large-scale HPC and parallel applications in clusters of on-premises computers or Azure virtual machines. Originally developed as a solution for Windows HPC workloads, HPC Pack now supports running Linux HPC applications on Linux compute node VMs deployed in an HPC Pack cluster. See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md) for an introduction.
+
+For other options to run Linux HPC workloads in Azure, see [Technical resources for batch and high-performance computing](../batch/batch-hpc-solutions.md).
+
+
 
 
 ## Prerequisites
@@ -47,7 +51,7 @@ It's easy to generate an RSA key pair, which contains a public key and a private
 
 2.	Run the following command.
 
-    ```
+    ```bash
     ssh-keygen -t rsa
     ```
 
@@ -77,7 +81,7 @@ It's easy to generate an RSA key pair, which contains a public key and a private
 
 3.	Open a Command Prompt and enter the following command to set the credentials data for the hpclab\hpcuser account. You use the **extendeddata** parameter to pass the name of the C:\cred.xml file you created for the key data.
 
-    ```
+    ```command
     hpccred setcreds /extendeddata:c:\cred.xml /user:hpclab\hpcuser /password:<UserPassword>
     ```
 
@@ -102,7 +106,7 @@ Now set up an SMB file share, and mount the shared folder on all Linux nodes to 
 
 4. Open a Windows PowerShell window and run the following commands to mount the shared folder on the Linux nodes.
 
-    ```
+    ```command
     clusrun /nodegroup:LinuxNodes mkdir -p /namd2
 
     clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS66HN/Namd/namd2 /namd2 -o vers=2.1`,username=<username>`,password='<password>'`,dir_mode=0777`,file_mode=0777
@@ -117,7 +121,7 @@ The first command creates a folder named /namd2 on all nodes in the LinuxNodes g
 
 Your NAMD job needs a *nodelist* file for **charmrun** to determine the number of nodes to use when starting NAMD processes. You'll use a Bash script that generates the nodelist file and runs **charmrun** with this nodelist file. You can then submit a NAMD job in HPC Cluster Manager that calls this script.
 
-Using a text editor of your choice, create a Bash script in the /namd2 folder containing the NAMD program files and name it hpccharmrun.sh. You can simply copy the example provided in the sample files at the end of this article. 
+Using a text editor of your choice, create a Bash script in the /namd2 folder containing the NAMD program files and name it hpccharmrun.sh. You can simply copy the example provided in the sample files at the end of this article to use as a starting point. 
 
 >[AZURE.TIP] Save your script as a text file with Linux line endings (LF only, not CR LF). This ensures that it runs properly on the Linux nodes.
 
@@ -125,7 +129,7 @@ Following are details about what this bash script does. If you're doing a proof 
 
 1.	Define some variables.
 
-    ```
+    ```bash
     #!/bin/bash
 
     # The path of this script
@@ -207,7 +211,7 @@ Following are details about what this bash script does. If you're doing a proof 
 
 
 
-Following is the information in the nodelist file, which the script will generate:
+Following is the information in the nodelist file, which the script generates:
 
 ```
 group main
@@ -239,7 +243,7 @@ Now you are ready to submit a NAMD job in HPC Cluster Manager.
 
     ![New HPC job][namd_job]
 
-4.	On the **Job Details** page, under **Job Resources**, select the type of resource as **Node** and set the **Minimum** to 3. In this example we'll run the job on 3 Linux nodes and each node has 4 cores.
+4.	On the **Job Details** page, under **Job Resources**, select the type of resource as **Node** and set the **Minimum** to 3. In this example we run the job on 3 Linux nodes and each node has 4 cores.
 
     ![Job resources][job_resources]
 
@@ -270,7 +274,7 @@ Now you are ready to submit a NAMD job in HPC Cluster Manager.
 
     Under some conditions HPC Pack remembers the user information you input before and won’t show this dialog box. To make HPC Pack show it again, enter the following in a Command window and then submit the job.
 
-    ```
+    ```command
     hpccred delcreds
     ```
 
