@@ -22,7 +22,7 @@ To connect to Microsoft cloud services using ExpressRoute, you’ll need to set 
 
 Refer to the [Circuits and routing domains](expressroute-circuit-peerings.md) article for a description of the routing sessions that need to be set up in to facilitate connectivity.
 
-**Note:** Microsoft does not support any router redundancy protocols (e.g., HSRP, VRRP) for high availability configurations. We rely on a redundant pair of BGP sessions per peering for high availability.
+>[AZURE.NOTE] Microsoft does not support any router redundancy protocols (e.g., HSRP, VRRP) for high availability configurations. We rely on a redundant pair of BGP sessions per peering for high availability.
 
 ## IP addresses used for peerings
 
@@ -85,7 +85,7 @@ Make sure that your IP address and AS number are registered to you in one of the
 - [RADB](http://www.radb.net/)
 - [ALTDB](http://altdb.net/)
 
-	>[AZURE.IMPORTANT] Public IP addresses advertised to Microsoft over ExpressRoute must not be advertised to the Internet. This may break connectivity to other Microsoft services. However, Public IP addresses used by servers in your network that communicate with O365 endpoints within Microsoft may be advertised over ExpressRoute. 
+>[AZURE.IMPORTANT] Public IP addresses advertised to Microsoft over ExpressRoute must not be advertised to the Internet. This may break connectivity to other Microsoft services. However, Public IP addresses used by servers in your network that communicate with O365 endpoints within Microsoft may be advertised over ExpressRoute. 
 
 ## Dynamic route exchange
 
@@ -115,8 +115,7 @@ Default routes are permitted only on Azure private peering sessions. In such a c
 
  - Azure public peering is enabled to route traffic to public endpoints
  - You use user-defined routing to allow internet connectivity for every subnet requiring Internet connectivity.
-
-**Note:** Advertising default routes will break Windows and other VM license activation. Follow instructions [here](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) to work around this.
+>[AZURE.NOTE] Advertising default routes will break Windows and other VM license activation. Follow instructions [here](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) to work around this.
 
 ## Support for BGP communities (Preview)
 
