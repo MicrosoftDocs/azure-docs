@@ -25,13 +25,13 @@ Azure Premium Storage delivers high-performance, low-latency disk support for vi
 
 The purpose of this guide is to help new users of Azure Premium Storage better prepare to make a smooth transition from their current system to Premium Storage. The guide addresses three of the key components in this process: 
 
-- [Plan the Migration to Premium Storage](#plan-the-migration-to-premium-storage)
-- [Prepare and Copy Virtual Hard Disks (VHDs) to Premium Storage](#prepare-and-copy-virtual-hard-disks-VHDs-to-premium-storage)
-- [Create Azure Virtual Machine using Premium Storage](#create-azure-virtual-machine-using-premium-storage)l
+  - [Plan the Migration to Premium Storage](#plan-the-migration-to-premium-storage)
+  - [Prepare and Copy Virtual Hard Disks (VHDs) to Premium Storage](#prepare-and-copy-virtual-hard-disks-VHDs-to-premium-storage)
+  - [Create Azure Virtual Machine using Premium Storage](#create-azure-virtual-machine-using-premium-storage)l
 
 You can either migrate VMs from other platforms to Azure Premium Storage or migrate existing Azure VMs from Standard Storage to Premium Storage. This guide covers steps for both two scenarios. Follow the steps specified in the relevant section depending on your scenario.
 
->[Azure.Note] You can find a feature overview and pricing of Premium Storage in Premium Storage: [High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md). We recommend migrating any virtual machine disk requiring high IOPS to Azure Premium Storage for the best performance for your application. If your disk does not require high IOPS, you can limit costs by maintaining it in Standard Storage, which stores virtual machine disk data on Hard Disk Drives (HDDs) instead of SSDs.
+>[AZURE.NOTE] You can find a feature overview and pricing of Premium Storage in Premium Storage: [High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md). We recommend migrating any virtual machine disk requiring high IOPS to Azure Premium Storage for the best performance for your application. If your disk does not require high IOPS, you can limit costs by maintaining it in Standard Storage, which stores virtual machine disk data on Hard Disk Drives (HDDs) instead of SSDs.
 
 Completing the migration process in its entirety may require additional actions both before and after the steps provided in this guide. Examples include configuring virtual networks or endpoints or making code changes within the application itself. These actions are unique to each application and you should complete them along with the steps provided in this guide to make the full transition to Premium Storage as seamless as possible.
 
@@ -278,7 +278,7 @@ A sample migration script is provided at the end of this section. This simple sc
 
 Prepare your application for downtime. In order to do a clean migration, you have to stop all the processing in the current system. Only then you can get it to consistent state which you can migrate to the new platform. Downtime duration will depend on the amount of data in the disks to migrate.
 
->[Azure.Note] If you are creating an ARM (Azure Resource Manager) VM from a specialized VHD Disk, please refer to [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) for deploying ARM VM using existing disk.
+>[AZURE.NOTE] If you are creating an ARM (Azure Resource Manager) VM from a specialized VHD Disk, please refer to [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) for deploying ARM VM using existing disk.
 
 ### Register your VHD
 
