@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/04/2016"
+   ms.date="10/13/2016"
    ms.author="jgao"/>
 
 # Get started with Azure Data Lake Analytics using REST APIs
