@@ -68,19 +68,20 @@ The Manage References dialog appears.
 
 2. Under .NET framework assemblies, find and select the System.Configuration assembly.
 3. Press OK.
-4. Open the App.config file (add the file to your project if it was not added by default) and add an *appSettings* section to the file. Set the values for your Azure Media Services account name and account key, as shown in the following example.
+4. Open the App.config file (add the file to your project if it was not added by default) and add an *appSettings* section to the file. 	
+Set the values for your Azure Media Services account name and account key, as shown in the following example.
 
-To find the Name and Key values, go to the Azure portal and select your account. The Settings window appears on the right. In the Settings window, select Keys. Clicking on the icon next to each text box copies the value to the system clipboard.
+	To find the Name and Key values, go to the Azure portal and select your account. The Settings window appears on the right. In the Settings window, select Keys. Clicking on the icon next to each text box copies the value to the system clipboard.
 
 
-	<configuration>
-	...
-	    <appSettings>
-	      <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-	      <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-	    </appSettings>
-	  
-	</configuration>
+		<configuration>
+		...
+		    <appSettings>
+		      <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+		      <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+		    </appSettings>
+
+		</configuration>
 
 5. Overwrite the existing using statements at the beginning of the Program.cs file with the following code.
 
