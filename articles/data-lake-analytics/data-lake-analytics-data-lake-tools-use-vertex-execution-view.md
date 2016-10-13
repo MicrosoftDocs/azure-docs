@@ -38,28 +38,28 @@ After entering the Vertex Execution View, there are three parts:
 
 - Vertex selector: On the left is the Vertex selector.  You can select the vertices by features (such as top 10 data read, or choose by stage).
 
-    One of the most common used filter is the vertices on critical path. You can think critical path as the longest path of your U-SQL job, so if you want to optimize your job, you can usually look at the critical path and then see which vertex takes the longest time and get some additional insights.
+    One of the most common used filters is the vertices on critical path. Critical path is the longest path of a U-SQL job. It is useful for optimizing your jobs by checking which vertex takes the longest time.
 
 - The top center pane:
 
     ![Data Lake Analytics Tools Vertex Execution View](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane2.png)
 
-    This view will also show the running status of all the vertices. It will convert the time accordingly to your local machine, and will show different status in different colors.
+    This view also shows the running status of all the vertices. It converts the time accordingly to your local machine, and shows different status in different colors.
 
 - The bottom center pane:
 
     ![Data Lake Analytics Tools Vertex Execution View](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane3.png)
 
-    - Process Name: the name of the vertex instance. It is composed of different parts in StageName|VertexName|VertexRunInstance. For example, the SV7_Split[62].v1 vertex stands for the second running instance (.v1, index starting from 0) of Vertex number 62 in Stage SV7_Split.
-    - Total Data Read/Write: how much data was read/written by this vertex.
-    - State/Exit Status: what’s the final status when the vertex is ended.
-    - Exit Code/Failure Type: what’s the error if the vertex is failed.
+    - Process Name: The name of the vertex instance. It is composed of different parts in StageName|VertexName|VertexRunInstance. For example, the SV7_Split[62].v1 vertex stands for the second running instance (.v1, index starting from 0) of Vertex number 62 in Stage SV7_Split.
+    - Total Data Read/Write: The data was read/written by this vertex.
+    - State/Exit Status: The final status when the vertex is ended.
+    - Exit Code/Failure Type: The error when the vertex failed.
     - Creation Reason: Why the vertex was created.
-    - Resource Latency/Process Latency/PN Queue Latency: how long does it take for the vertex to wait for resources, to process data, and to stay in the queue.
+    - Resource Latency/Process Latency/PN Queue Latency: the time taken for the vertex to wait for resources, to process data, and to stay in the queue.
     - Process/Creator GUID: GUID for the current running vertex or its creator.
     - Version: the N-th instance of the running vertex (the system might schedule new instances of a vertex for many reasons, for example failover, compute redundancy, etc.)
     - Version Created Time.
-    - Process Create Start Time/Process Queued Time/Process Start Time/Process Complete Time: when the vertex process starts creation, when the vertex process starts to queue, when the certain vertex process starts, when the certain vertex is completed.
+    - Process Create Start Time/Process Queued Time/Process Start Time/Process Complete Time: when the vertex process starts creation; when the vertex process starts to queue; when the certain vertex process starts; when the certain vertex is completed.
 
 ## See also
 
