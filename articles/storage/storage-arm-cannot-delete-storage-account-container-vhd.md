@@ -53,7 +53,7 @@ This issue can be caused by the storage account contains a VHD that is in the le
 
 To resolve these issues, you have to locate the VM that is using the VHD. Then, you must detach the VHD from the VM (for data disks) or delete the VM that is using the VHD (for OS disks). This removes the lease from the VHD, and allows it to be deleted.
 
-### Locate the VHD that is causing the error and the associated VM
+### Step 1: Locate the VHD that is causing the error and the associated VM
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -65,7 +65,9 @@ To resolve these issues, you have to locate the VM that is using the VHD. Then, 
 
 	![locatevm.png](./media/storage-arm-cannot-delete-storage-account-container-vhd/locatevm.png)
 
-### Detach the VHD from the VM that is using it (for data disks):
+### Step 2: Remove the lease from the VHD
+
+To detach the VHD from the VM that is using it (for data disks):
 
 1.	Sign in to the [Azure portal](https://portal.azure.com).
 2.	On the Hub menu, select **Virtual Machines**.
@@ -76,8 +78,7 @@ To resolve these issues, you have to locate the VM that is using the VHD. Then, 
 7.	Click **Detach** in the Disk Details blade.
 8.	The disk should now be detached from the VM, and the VHD should no longer have a lease on it. It may take a few minutes for the lease to be released. To verify that the lease has been released, go to **All resources** > **Blobs** > **vhds**. In the **Blob** properties pane. The **Lease Status** value should be **Unlocked**.
 
-
-### Delete the VM that is using the VHD (for OS disks):
+To delete the VHD from the VM that is using it (for data disks):
 
 1.	Sign in to the [Azure portal](https://portal.azure.com).
 2.	On the Hub menu, select **Virtual Machines**.
@@ -85,11 +86,3 @@ To resolve these issues, you have to locate the VM that is using the VHD. Then, 
 4.	Make sure that nothing is actively using the virtual machine, and that you no longer require the virtual machine.
 5.	At the top of the VM Details blade, select **Delete**, and then click **Yes** to confirm.
 6.	The VM should be deleted, but the VHD should be retained. However, the VHD should no longer have a lease on it. It may take a few minutes for the lease to be released. To verify that the lease is released, go to **All resources** > *Storage Account Name* > **Blobs** > **vhds**. In the Blob properties pane, the **Lease Status** value should be **Unlocked**.
-
-## What is a lease?
-
-A lease is a lock that can be used to control access to a blob (for example, a VHD). When a blob is leased, only the owners of the lease can access the blob. A lease is important for the following reasons:
-
-- It prevents data corruption if multiple owners try to write to the same portion of the blob at the same time.
--	It prevents the blob from being deleted if something is actively using it (for example, a VM).
--	It prevents the Storage Account from being deleted if something is actively using it (for example, a VM).
