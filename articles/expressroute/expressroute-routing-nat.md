@@ -115,6 +115,7 @@ Default routes are permitted only on Azure private peering sessions. In such a c
 
  - Azure public peering is enabled to route traffic to public endpoints
  - You use user-defined routing to allow internet connectivity for every subnet requiring Internet connectivity.
+ 
 >[AZURE.NOTE] Advertising default routes will break Windows and other VM license activation. Follow instructions [here](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) to work around this.
 
 ## Support for BGP communities (Preview)
