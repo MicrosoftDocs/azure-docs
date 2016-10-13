@@ -357,7 +357,7 @@ This link relationship is established by assigning the value of the **user name*
 
 1. Click **Advanced Settings**, and under **Additional Identity Provider Properties**, perform the following steps:
 
-    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC7694983ex.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694983ex.png "Configure single sign-on")
 
     a. In the **Protocol Binding for the IDP's SingleLogoutRequest** textbox, type **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**.
 
