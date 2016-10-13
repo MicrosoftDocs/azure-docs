@@ -31,7 +31,7 @@ The following table provides a quick overview of the differences between LRS, ZR
 
 | Replication strategy                                                               | LRS | ZRS | GRS | RA-GRS |
 |:----------------------------------------------------------------------------------|:---|:---|:---|:------|
-| Data is replicated across multiple facilities.                                     | No  | Yes | Yes | Yes    |
+| Data is replicated across multiple datacenters.                                     | No  | Yes | Yes | Yes    |
 | Data can be read from the secondary location as well as from the primary location. | No  | No  | No  | Yes    |
 | Number of copies of data maintained on separate nodes.                             | 3   | 3   | 6   | 6      |
 
@@ -53,7 +53,7 @@ Locally redundant storage may still be desirable in certain scenarios:
 
 - If your application stores data that can be easily reconstructed, you may opt for LRS.
 
-- Some applications are restricted to replicating data only within a country due to data governance requirements. A paired region could be in another country; please see [Azure regions](https://azure.microsoft.com/en-us/regions/) for information on region pairs.
+- Some applications are restricted to replicating data only within a country due to data governance requirements. A paired region could be in another country; please see [Azure regions](https://azure.microsoft.com/regions/) for information on region pairs.
 
 ## Zone-redundant storage
 
