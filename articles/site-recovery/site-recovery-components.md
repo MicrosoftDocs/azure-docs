@@ -40,7 +40,7 @@ Azure has two different [deployment models](../resource-manager-deployment-model
 The information in this article applies to both classic and Azure portal deployments. The table summarizes any differences.
 
 **Replicate** | **Azure portal** | **Classic portal**
---- | ---
+--- | --- | ---
 **VMware VM replication to Azure** | Simplified deployment process.<br/><br/> Fail over VMs to classic or Resource Manager-based storage.<br/><br/> Replicate to classic or Resource Manager-based storage.<br/><br/> Use classic or Resource Manager networks for connecting the Azure VMs after failover.<br/><br/> Use LRS or GRS storage. | Fail over to classic storage only.<br/><br/> Use classic networks only to connect VMs after failover.<br/><br/> Use GRS storage.
 ** Hyper-V VM replication (without VMM) to Azure** | Simplified deployment process.<br/><br/> Fail over VMs to classic or Resource Manager-based storage.<br/><br/> Replicate to classic or Resource Manager-based storage.<br/><br/> Use classic or Resource Manager networks for connecting the Azure VMs after failover.
 ** Hyper-V VM replication (with VMM) to Azure** | Simplified deployment process.<br/><br/> Fail over VMs to classic or Resource Manager-based storage.<br/><br/> Replicate to classic or Resource Manager-based storage.<br/><br/> Use classic or Resource Manager networks for connecting the Azure VMs after failover.<br/><br/> Must set up network mapping | Fail over to classic storage only.<br/><br/> Use classic networks only to connect VMs after failover.
@@ -53,7 +53,7 @@ The information in this article applies to both classic and Azure portal deploym
 Site Recovery can be deployed to orchestrate replication in a number of scenarios:
 
 - **Replicate VMware VMs**: You can replicate on-premises VMware virtual machines to Azure storage, or to a secondary datacenter.
-- - **Replicate physical machines**: You can replicate physical machines running Windows or Linux to Azure storage, or to a secondary datacenter. The process for replicating physical machines is almost the same as the process for replicating VMware VMs.
+- **Replicate physical machines**: You can replicate physical machines running Windows or Linux to Azure storage, or to a secondary datacenter. The process for replicating physical machines is almost the same as the process for replicating VMware VMs.
 - **Replicate Hyper-V VMs**: If your Hyper-V hosts are managed in System Center VMM clouds, you can replicate VMs to Azure, or to a secondary datacenter. If hosts aren't managed by VMM, you can replicate to Azure only. You can replicate Hyper-V VMs that aren't managed by VMM to Azure storage.
 - **Migrate VMs**: You can use Site Recovery to [migrate Azure IaaS VMs](site-recovery-migrate-azure-to-azure.md) between regions, or to [migrate AWS Windows instances](site-recovery-migrate-aws-to-azure.md) to Azure IaaS VMs. Full replication isn't currently supported. You can replicate for migration (fail over), but you can't fail back. 
 
