@@ -65,20 +65,17 @@ Administrators can:
 **The multi-factor authentication registration has three steps:**
 
 1. In the first step, the user gets a notification about the requirement to set the account up for multi-factor authentication. 
-<br><br>
-![Remediation](./media/active-directory-identityprotection-flows/140.png "Remediation")
-<br>
+
+	![Remediation](./media/active-directory-identityprotection-flows/140.png "Remediation")
 
 
 2. To set multi-factor authentication up, you need to let the system know how you want to be contacted.
-<br><br>
-![Remediation](./media/active-directory-identityprotection-flows/141.png "Remediation")
-<br>
+
+	![Remediation](./media/active-directory-identityprotection-flows/141.png "Remediation")
  
 3. The system submits a challenge to you and you need to respond.
-<br><br>
-![Remediation](./media/active-directory-identityprotection-flows/142.png "Remediation")
-<br>
+
+	![Remediation](./media/active-directory-identityprotection-flows/142.png "Remediation")
 
  
 
@@ -91,45 +88,20 @@ When an administrator has configured a policy for sign-in risks, the affected us
 **The risky sign-in flow has two steps:** 
 
 1. The user is informed that something unusual was detected about their sign-in, such as signing in from a new location, device, or app. 
-<br><br>
-![Remediation](./media/active-directory-identityprotection-flows/120.png "Remediation")
-<br>
+
+	![Remediation](./media/active-directory-identityprotection-flows/120.png "Remediation")
 
 2. The user is required to prove their identity by solving a security challenge. If the user is registered for multi-factor authentication they need to round-trip a security code to their phone number. Since this is a just a risky sign in and not a compromised account, the user won’t have to change the password in this flow. 
-<br><br>
-![Remediation](./media/active-directory-identityprotection-flows/121.png "Remediation")
-<br>
+
+	![Remediation](./media/active-directory-identityprotection-flows/121.png "Remediation")
 
 
 
  
 ## Risky sign-in blocked
 Administrators can also choose to set a Sign-In Risk policy to block users upon sign-in depending on the risk level. To get unblocked, end users must contact an administrator or help desk, or they can try signing in from a familiar location or device. Self-recovering by solving multi-factor authentication is not an option in this case.
-<br><br>
+
 ![Remediation](./media/active-directory-identityprotection-flows/200.png "Remediation")
-<br>
-
-
-
-## Multi-factor authentication registration during a risky sign-in
-
-It is important that users register for multi-factor authentication so that they are prepared and able to pass security challenges. If a user isn’t registered for multi-factor authentication but the policy requires them to be, they could be asked to register during a risky sign-in. This means, an attacker could end up being asked to add a phone number instead of the good user. 
-
-To avoid this situation, require users to register for multi-factor authentication as soon as possible, so that a phone number is already associated with their account in case they ever get compromised. Alternatively, administrators can completely block compromised users who aren’t registered for multi-factor authentication.
-
-**The multi-factor authentication registration during a risky sign-in has two steps:** 
-
-1. The user is notified that the account is at risk. 
-<br><br>
-![Remediation](./media/active-directory-identityprotection-flows/150.png "Remediation")
-<br>
-
-2. The multi-factor authentication registration process is initiated.
-<br><br>
-![Remediation](./media/active-directory-identityprotection-flows/151.png "Remediation")
-<br> 
-
-For the next steps, see [Multi-factor authentication registration](#multi-factor-authentication-registration)
 
 
 
@@ -142,23 +114,17 @@ When a user risk security policy has been configured, users who meet the user ri
 
 1. The user is informed that their account security is at risk because of suspicious activity or leaked credentials.
 
-<br>
-![Remediation](./media/active-directory-identityprotection-flows/101.png "Remediation")
-<br> 
+	![Remediation](./media/active-directory-identityprotection-flows/101.png "Remediation")
 
 2.	The user is required to prove their identity by solving a security challenge. If the user is registered for multi-factor authentication they can self-recover from being compromised. They will need to round-trip a security code to their phone number. 
 
-<br>
-![Remediation](./media/active-directory-identityprotection-flows/110.png "Remediation")
-<br>
+	![Remediation](./media/active-directory-identityprotection-flows/110.png "Remediation")
 
 
 3.	Finally, the user is forced to change their password since someone else may have had access to their account. 
 Screenshots of this experience are below.
  
-<br>
-![Remediation](./media/active-directory-identityprotection-flows/111.png "Remediation")
-<br>
+	![Remediation](./media/active-directory-identityprotection-flows/111.png "Remediation")
 
 
 
@@ -166,9 +132,8 @@ Screenshots of this experience are below.
 
 To get a user that was blocked by a user risk security policy unblocked, the user must contact an administrator or help desk. Self-recovering by solving multi-factor authentication is not an option in this case.
 
-<br>
+
 ![Remediation](./media/active-directory-identityprotection-flows/104.png "Remediation")
-<br>
 
 
 
@@ -177,9 +142,7 @@ To get a user that was blocked by a user risk security policy unblocked, the use
 
 If compromised users are blocked from signing in, an administrator can generate a temporary password for them. The users will have to change their password during a next sign-in.
 
-<br>
 ![Remediation](./media/active-directory-identityprotection-flows/160.png "Remediation")
-<br> 
 
 
  
