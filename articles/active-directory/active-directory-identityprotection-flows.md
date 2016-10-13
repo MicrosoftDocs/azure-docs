@@ -111,28 +111,6 @@ Administrators can also choose to set a Sign-In Risk policy to block users upon 
 
 
 
-## Multi-factor authentication registration during a risky sign-in
-
-It is important that users register for multi-factor authentication so that they are prepared and able to pass security challenges. If a user isn’t registered for multi-factor authentication but the policy requires them to be, they could be asked to register during a risky sign-in. This means, an attacker could end up being asked to add a phone number instead of the good user. 
-
-To avoid this situation, require users to register for multi-factor authentication as soon as possible, so that a phone number is already associated with their account in case they ever get compromised. Alternatively, administrators can completely block compromised users who aren’t registered for multi-factor authentication.
-
-**The multi-factor authentication registration during a risky sign-in has two steps:** 
-
-1. The user is notified that the account is at risk. 
-<br><br>
-![Remediation](./media/active-directory-identityprotection-flows/150.png "Remediation")
-<br>
-
-2. The multi-factor authentication registration process is initiated.
-<br><br>
-![Remediation](./media/active-directory-identityprotection-flows/151.png "Remediation")
-<br> 
-
-For the next steps, see [Multi-factor authentication registration](#multi-factor-authentication-registration)
-
-
-
 
 ## Compromised account recovery
 
