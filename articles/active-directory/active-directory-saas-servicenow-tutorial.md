@@ -309,7 +309,7 @@ This link relationship is established by assigning the value of the **user name*
 
 1. On the **Single Sign-On** dialog, click **Add New Certificate**.
 
-    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC7694973ex.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694973ex.png "Configure single sign-on")
 
 
 
