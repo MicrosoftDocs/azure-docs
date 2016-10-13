@@ -38,7 +38,7 @@ See [Authenticate using Azure Active Directory](,./data-lake-store/data-lake-sto
 
 You must create an Azure Resource group, and a Data Lake Store account before you can create a Data Lake Analytics account.  See [Create a Data Lake Store account](../data-lake-store/data-lake-store-get-started-rest-api.md#create-a-data-lake-store-account).
 
-The following is the Curl command:
+The following Curl command shows how to make the call:
 
 	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/<AzureSubscriptionID>/resourceGroups/<AzureResourceGroupName>/providers/Microsoft.DataLakeAnalytics/accounts/<NewAzureDataLakeAnalyticsAccountName>?api-version=2015-10-01-preview -d@"C:\tutorials\adla\CreateDataLakeAnalyticsAccountRequest.json"
 
@@ -61,7 +61,7 @@ Replace \<`REDACTED`\> with the authorization token, \<`AzureSubscriptionID`\> w
 
 ## List Data Lake Analytics accounts in a subscription
 
-The following is the Curl command:
+The following Curl command shows how to make the call:
 
 	curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/<AzureSubscriptionID>/providers/Microsoft.DataLakeAnalytics/Accounts?api-version=2015-10-01-preview
 
@@ -104,7 +104,7 @@ Replace \<`REDACTED`\> with the authorization token, \<`AzureSubscriptionID`\> w
 
 ## Get information about a Data Lake Analytics account
 
-The following is the Curl command:
+The following Curl command shows how to make the call:
 
 	curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/<AzureSubscriptionID>/resourceGroups/<AzureResourceGroupName>/providers/Microsoft.DataLakeAnalytics/accounts/<DataLakeAnalyticsAccountName>?api-version=2015-11-01
 
@@ -137,7 +137,7 @@ Replace \<`REDACTED`\> with the authorization token, \<`AzureSubscriptionID`\> w
 
 ## List Data Lake Stores of a Data Lake Analytics account
 
-The following is the Curl command:
+The following Curl command shows how to make the call:
 
 	curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/<AzureSubscriptionID>/resourceGroups/<AzureResourceGroupName>/providers/Microsoft.DataLakeAnalytics/accounts/<DataLakeAnalyticsAccountName>/DataLakeStoreAccounts/?api-version=2015-10-01-preview
 
@@ -158,7 +158,7 @@ Replace \<`REDACTED`\> with the authorization token, \<`AzureSubscriptionID`\> w
 
 ## Submit U-SQL jobs
 
-The following is the Curl command:
+The following Curl command shows how to make the call:
 
 	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/Jobs/<NewGUID>?api-version=2016-03-20-preview -d@"C:\tutorials\adla\SubmitADLAJob.json"
 
@@ -216,11 +216,14 @@ The output is similar to:
 
 ## List U-SQL jobs
 
-The following is the Curl command:
+The following Curl command shows how to make the call:
 
 	curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/Jobs?api-version=2015-10-01-preview 
 
-Replace \<`REDACTED`\> with the authorization token, and \<`DataLakeAnalyticsAccountName`\> with the name of an existing Data Lake Analytics Account. The output is similar to:
+Replace \<`REDACTED`\> with the authorization token, and \<`DataLakeAnalyticsAccountName`\> with the name of an existing Data Lake Analytics Account. 
+
+
+The output is similar to:
 
 	{
 	"value": [
@@ -228,7 +231,7 @@ Replace \<`REDACTED`\> with the authorization token, and \<`DataLakeAnalyticsAcc
 		"jobId": "65cf1691-9dbe-43cd-90ed-1cafbfb406fb",
 		"name": "convertTSVtoCSV",
 		"type": "USql",
-		"submitter": "jgao@microsoft.com",
+		"submitter": "someone@microsoft.com",
 		"account": null,
 		"degreeOfParallelism": 1,
 		"priority": 1000,
@@ -247,7 +250,7 @@ Replace \<`REDACTED`\> with the authorization token, and \<`DataLakeAnalyticsAcc
 		"jobId": "8f8ebf8c-4b63-428a-ab46-a03d2cc5b65a",
 		"name": "convertTSVtoCSV",
 		"type": "USql",
-		"submitter": "jgaoadl@SPI",
+		"submitter": "someoneadl@SPI",
 		"account": null,
 		"degreeOfParallelism": 1,
 		"priority": 1000,
@@ -270,16 +273,25 @@ Replace \<`REDACTED`\> with the authorization token, and \<`DataLakeAnalyticsAcc
 
 ## Get catalog items:
 
-[jgao: The following call works in PowerShell but failed in Curl]
+The following Curl command shows how to get the databases from the catalog:
 
-	C:\Tutorials\Curl>curl -i -X Get -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlliUkFRUlljRV9tb3RXVkpLSHJ3TEJiZF85cyIsImtpZCI6IlliUkFRUlljRV9tb3RXVkpLSHJ3TEJiZF85cyJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuY29yZS53aW5kb3dzLm5ldC8iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaWF0IjoxNDc1NjcyNDAzLCJuYmYiOjE0NzU2NzI0MDMsImV4cCI6MTQ3NTY3NjMwMywiYXBwaWQiOiI1OWRlZmQ0Ny1jZDk5LTQ1ODYtOWVmNC03MDRjMzBmNTY0NjEiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwib2lkIjoiYTI4ODM4M2ItZTQ2MS00OTU4LTg4NjktOThlMjg3NjMyZDU1Iiwic3ViIjoiYTI4ODM4M2ItZTQ2MS00OTU4LTg4NjktOThlMjg3NjMyZDU1IiwidGlkIjoiNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3IiwidmVyIjoiMS4wIn0.fLdZhyFPBggFRZa5n43dvOGO2BaQ7g32P_PwctesrrqqtO8O36euwrYlS0gZUuCFu_qFjfjxaae4lchiMW236WvfGJZpJyzpvfczMTxQb97CMWcGAbAoeH9CASFfr4vonPb8cS4ntPRV0K4jzDAF6sTAycsUW3cyUBK3kKK47ureUm9rLaX-WHRPrbrXxw67a1EeE1bRG2x5zlUi6aKFeucpSf_dZscBvD3J6IVjc8WVreylNfkw6BRN1MQ1guyJmuqLUm2aEDDxmR_ZkXvQ5IBP_QC12BeBU43G3WYbBAe20YOYvI17xNxMCuGjapQI1Qyh7xpRMAv4C_dSopNa3Q" https://myadla0831.azuredatalakeanalytics.net/catalog?api-version=2016-03-20-preview
-	HTTP/1.1 404 Not Found
-	Server: Microsoft-IIS/8.5
-	X-Content-Type-Options: nosniff
-	Strict-Transport-Security: max-age=15724800; includeSubDomains
-	Date: Wed, 05 Oct 2016 14:08:41 GMT
-	Connection: close
-	Content-Length: 0
+	curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/catalog/usql/databases?api-version=2015-10-01-preview
+
+The output is similar to:
+
+{
+  "@odata.context":"https://myadla0831.azuredatalakeanalytics.net/sqlip/$metadata#databases","value":[
+    {
+      "computeAccountName":"myadla0831","databaseName":"mytest","version":"f6956327-90b8-4648-ad8b-de3ff09274ea"
+    },{
+      "computeAccountName":"myadla0831","databaseName":"master","version":"e8bca908-cc73-41a3-9564-e9bcfaa21f4e"
+    }
+  ]
+}
+
+
+
+
 
 ## See also
 
