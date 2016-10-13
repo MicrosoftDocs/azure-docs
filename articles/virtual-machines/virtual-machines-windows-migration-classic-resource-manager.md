@@ -3,7 +3,7 @@
 	description="This article walks through the platform-supported migration of resources from classic to Azure Resource Manager"
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="mahthi"
+	authors="singhkays"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="mahthi"/>
+	ms.author="kasing"/>
 
 # Platform-supported migration of IaaS resources from classic to Azure Resource Manager
 
