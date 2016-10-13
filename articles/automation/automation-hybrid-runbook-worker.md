@@ -135,9 +135,7 @@ Since the primary purpose of the Hybrid Runbook Worker feature is to manage loca
 
 ## Removing Hybrid Runbook Worker
 
-You can remove one or more Hybrid Runbook Workers from a group or you can remove the group, depending on your requirements.  To remove a Hybrid Runbook Worker from an on-premises computer, perform the following.  
-
-1. Open a PowerShell session in Administrator mode and run the following command - **Remove-HybridRunbookWorker** cmdlet.  Use the **-Verbose** switch for a detailed log of the removal process. 
+You can remove one or more Hybrid Runbook Workers from a group or you can remove the group, depending on your requirements.  To remove a Hybrid Runbook Worker from an on-premises computer, open a PowerShell session in Administrator mode and run the following command - **Remove-HybridRunbookWorker** cmdlet.  Use the **-Verbose** switch for a detailed log of the removal process. 
 
 This does not remove the Microsoft Monitoring Agent from the computer, only the functionality and configuration of the Hybrid Runbook Worker role.  
 
