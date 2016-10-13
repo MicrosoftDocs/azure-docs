@@ -39,7 +39,7 @@ When you try to delete a container in an ARM Storage Account, you receive the fo
 
 **Failed to delete storage container 'vhds'. Error: There is currently a lease on the container and no lease ID was specified in the request.**
 
-This issue can be caused by the container contains a VHD that is in the lease state.
+This issue can be caused by the container contains a VHD that is locked in the lease state.
 
 ### Scenario 3
 
@@ -47,7 +47,7 @@ When you try to delete an ARM Storage Account, you receive the following error m
 
 **Failed to delete storage account 'StorageAccountName'. Error: The storage account cannot be deleted due to its artifacts being in use.**
 
-This issue can be caused by the storage account contains a VHD that is in the lease state.
+This issue can be caused by the storage account contains a VHD that is locked in the lease state.
 
 ## Solution
 
@@ -61,7 +61,7 @@ To resolve these issues, you have to locate the VM that is using the VHD. Then, 
 
 	![locateVHD1.png](./media/storage-arm-cannot-delete-storage-account-container-vhd/opencontainer.png)
 
-3. Check the properties of each VHD in the container. Locate the VHD that is in **Leased** state. Then you need to find the VM that is using the VHD. Usually, you can determine which VM holds the VHD by checking name of the VHD.
+3. Check the properties of each VHD in the container. Locate the VHD that is in the **Leased** state. Then you need to find the VM that is using the VHD. Usually, you can determine which VM holds the VHD by checking name of the VHD.
 
 	![locatevm.png](./media/storage-arm-cannot-delete-storage-account-container-vhd/locatevm.png)
 
@@ -85,4 +85,4 @@ To detach the VHD from the VM that is using it (for data disks):
 5.	Select the data disk that holds a lease on the VHD. You can determine which vhd is attached in the disk by checking the url of the VHD.
 6.	Determine with certainty that nothing is actively using the data disk.
 7.	Click **Detach** in the Disk details blade.
-8.	The disk should now be detached from the VM, and the VHD should no longer have a lease on it. It may take a few minutes for the lease to be released. To verify that the lease has been released, go to **All resources**> **Storage Account Name** > **Blobs** > **vhds**. In the **Blob** properties pane. The **Lease Status** value should be **Unlocked**.
+8.	The disk should now be detached from the VM, and the VHD should no longer have a lease on it. It may take a few minutes for the lease to be released. To verify that the lease has been released, go to **All resources**> **Storage Account Name** > **Blobs** > **vhds**. In the **Blob properties** pane. The **Lease Status** value should be **Unlocked**.
