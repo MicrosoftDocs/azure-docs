@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/26/2016"
+	ms.date="10/13/2016"
 	ms.author="helaw"/>
 
 # Frequently asked questions for Azure Stack
@@ -54,6 +54,9 @@ Per the “hardware” section of the requirements page in the documentation, th
 While Storage Spaces Direct supports NVMe disks, with Azure Stack Technical Preview 2 we are only supporting a subset of the possible drive types and combinations possible for Storage Spaces Direct. 
 
 More specifically, the deployment script does not support NVMe based on the way bus types are discovered. While it is possible to edit the deployment script to make it run, keep in mind we would recommend using the disks/bus types combinations that have been tested for this release.
+
+### How can I reinstall Azure Stack?
+You can follow the steps in the [redeployment guide](azure-stack-redeploy.md).  
 
 ## Tenant
 
