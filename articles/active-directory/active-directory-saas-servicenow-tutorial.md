@@ -298,7 +298,7 @@ This link relationship is established by assigning the value of the **user name*
 
 3. On the **Single Sign-On** dialog, click the configuration icon on the upper right and set the following properties:
 
-    ![Configure app URL](./media/active-directory-saas-servicenow-tutorial/IC7694981ex.png "Configure app URL")
+    ![Configure app URL](./media/active-directory-saas-servicenow-tutorial/ic7694981ex.png "Configure app URL")
 
     a. Toggle **Enable multiple provider SSO** to the right.
 
