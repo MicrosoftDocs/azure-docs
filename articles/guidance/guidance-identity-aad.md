@@ -697,7 +697,7 @@ The configuration illustrated in these steps consists of two instances of the Az
 [aad-editions]: ../active-directory/active-directory-editions.md
 [guidance-adds]: ./guidance-iaas-ra-secure-vnet-ad.md
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory/v1_0/
-[azure-multifactor-authentication]: ../active-directory/multi-factor-authentication.md
+[azure-multifactor-authentication]: ../multi-factor-authentication/multi-factor-authentication.md
 [aad-conditional-access]: ../active-directory//active-directory-conditional-access.md
 [aad-dynamic-membership-rules]: ../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md
 [aad-dynamic-memberships]: https://youtu.be/Tdiz2JqCl9Q
