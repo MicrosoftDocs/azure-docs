@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="10/13/2016"
+	ms.date="10/14/2016"
 	ms.author="marsma"/>
 
 # Automatically scale compute nodes in an Azure Batch pool
@@ -326,7 +326,7 @@ $TargetDedicated = min(400, $totalNodes)
 
 >[AZURE.NOTE] An automatic scaling formula is comprised of [Batch REST][rest_api] API variables, types, operations, and functions. You use these in formula strings even while you're working with the [Batch .NET][net_api] library.
 
-## Create a pool with automatic scaling enabled
+## Create an autoscale-enabled pool
 
 To enable automatic scaling when you're creating a pool, use one of the following techniques:
 
@@ -336,7 +336,7 @@ To enable automatic scaling when you're creating a pool, use one of the followin
 
 > [AZURE.IMPORTANT] If you create an autoscale-enabled pool by using one of the above techniques, the *targetDedicated* parameter for the pool must **not** be specified. Also note that if you wish to manually resize an autoscale-enabled pool (for example, with [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]), then you must first **disable** automatic scaling on the pool, then resize it.
 
-The following code snippet shows the creation of an autoscale-enabled pool by using the [Batch .NET][net_api] library. The pool's autoscale formula sets the target number of nodes to 5 on Mondays, and 1 on every other day of the week. The [automatic scaling interval](#automatic-scaling-interval) is set to 30 minutes. In this and the other C# snippets in this article, "myBatchClient" is a properly initialized instance of [BatchClient][net_batchclient].
+The following code snippet creates an autoscale-enabled pool by using the [Batch .NET][net_api] library. The pool's autoscale formula sets the target number of nodes to 5 on Mondays, and 1 on every other day of the week. The [automatic scaling interval](#automatic-scaling-interval) is set to 30 minutes. In this and the other C# snippets in this article, "myBatchClient" is a properly initialized instance of [BatchClient][net_batchclient].
 
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool("mypool", "3", "small");
@@ -357,29 +357,50 @@ The minimum interval is five minutes, and the maximum is 168 hours. If an interv
 
 > [AZURE.NOTE] Autoscaling is not currently intended to respond to changes in less than a minute, but rather is intended to adjust the size of your pool gradually as you run a workload.
 
-## Enable automatic scaling after a pool is created
+## Enable autoscaling on an existing pool
 
-If you've already set up a pool with a specified number of compute nodes by using the *targetDedicated* parameter, you can update the existing pool at a later time to automatically scale. You can do this in one of these ways:
+If you've already create a pool with a specific number of compute nodes by using the *targetDedicated* parameter, you can still enable autoscaling on the pool. You can do this in one of these ways:
 
 - [BatchClient.PoolOperations.EnableAutoScale][net_enableautoscale]--This .NET method requires the ID of an existing pool and the automatic scaling formula to apply to the pool.
 - [Enable automatic scaling on a pool][rest_enableautoscale]--This REST API request requires the ID of the existing pool in the URI and the automatic scaling formula in the request body.
 
 > [AZURE.NOTE] If a value was specified for the *targetDedicated* parameter when the pool was created, it is ignored when the automatic scaling formula is evaluated.
 
-This code snippet demonstrates enabling autoscaling on an existing pool by using the [Batch .NET][net_api] library. Note that both enabling and updating the formula on an existing pool use the same method. As such, this technique would *update* the formula on the specified pool if autoscaling had already been enabled. The snippet assumes that "mypool" is the ID of an existing pool ([CloudPool][net_cloudpool]).
+This code snippet enables autoscaling on an existing pool by using the [Batch .NET][net_api] library. The snippet assumes that "mypool" is the ID of an existing pool.
 
 ```csharp
 // Define the autoscaling formula. In this snippet, the formula sets the target
 // number of nodes to 5 on Mondays, and 1 on every other day of the week
 string myAutoScaleFormula = "$TargetDedicated = (time().weekday == 1 ? 5:1);";
 
-// Update the existing pool's autoscaling formula by calling the
-// BatchClient.PoolOperations.EnableAutoScale method, passing in both the
-// pool's ID and the new formula.
-myBatchClient.PoolOperations.EnableAutoScale("mypool", myAutoScaleFormula);
+// Set the existing pool's autoscaling formula by calling the
+// BatchClient.PoolOperations.EnableAutoScale method
+myBatchClient.PoolOperations.EnableAutoScale(
+	"myexistingpool",
+	autoscaleFormula: myAutoScaleFormula);
 ```
 
-## Evaluate the automatic scaling formula
+### Update an autoscale formula
+
+You use the same [EnableAutoScale][net_enableautoscale] method to *update* the formula on an existing autoscale-enabled pool. There is no "UpdateAutoScale" method. As such, the previous code snippet would *update* the formula on the pool if autoscaling had already been enabled.
+
+```csharp
+myBatchClient.PoolOperations.EnableAutoScale(
+	"mypmyexistingpoolool",
+	autoscaleFormula: myNewFormula);
+```
+
+### Update the autoscaling interval
+
+As with updating an autoscale formula, you use the same [EnableAutoScale][net_enableautoscale] method to change the autoscale evaluation interval of an existing autoscale-enabled pool. For example, to set the autoscale evaluation interval to 60 minutes for a pool that's already autoscale-enabled:
+
+```csharp
+myBatchClient.PoolOperations.EnableAutoScale(
+    "myexistingpool",
+    autoscaleEvaluationInterval: TimeSpan.FromMinutes(60));
+```
+
+## Evaluate an automatic scaling formula
 
 You can evaluate a formula by performing a "test run" of the formula on an existing pool. To evaluate an autoscale formula, you must first **enable autoscaling** on the pool with a **valid formula**.
 
@@ -582,5 +603,5 @@ string formula = string.Format(@"
 
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_autoscaleformula]: https://msdn.microsoft.com/library/azure/dn820173.aspx
-[rest_autoscaleinterval]: https://msdn.microsoft.com/en-us/library/azure/dn820173.aspx
+[rest_autoscaleinterval]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 [rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
