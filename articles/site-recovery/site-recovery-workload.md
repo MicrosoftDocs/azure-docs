@@ -148,4 +148,4 @@ Use Site Recovery to protect your SAP deployment, as follows:
 
 ## Next steps
 
-[Prepare](site-recovery-best-practices.md) for Site Recovery deployment
+[Prepare for Site Recovery deployment](site-recovery-best-practices.md) 
