@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="10/10/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.author="twounder;barbkess"/>
 
 # Load Data with Azure Data Factory 
 
