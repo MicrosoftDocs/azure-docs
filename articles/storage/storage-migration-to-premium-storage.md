@@ -25,7 +25,7 @@ Azure Premium Storage delivers high-performance, low-latency disk support for vi
 
 The purpose of this guide is to help new users of Azure Premium Storage better prepare to make a smooth transition from their current system to Premium Storage. The guide addresses three of the key components in this process: 
 
-  - [Plan the Migration to Premium Storage](#plan-the-migration-to-premium-storage)
+  - [Plan for the Migration to Premium Storage](#plan-the-migration-to-premium-storage)
   - [Prepare and Copy Virtual Hard Disks (VHDs) to Premium Storage](#prepare-and-copy-virtual-hard-disks-VHDs-to-premium-storage)
   - [Create Azure Virtual Machine using Premium Storage](#create-azure-virtual-machine-using-premium-storage)
 
@@ -35,7 +35,7 @@ You can either migrate VMs from other platforms to Azure Premium Storage or migr
 
 Completing the migration process in its entirety may require additional actions both before and after the steps provided in this guide. Examples include configuring virtual networks or endpoints or making code changes within the application itself. These actions are unique to each application and you should complete them along with the steps provided in this guide to make the full transition to Premium Storage as seamless as possible.
 
-## <a name="plan-the-migration-to-premium-storage"></a>Plan the Migration to Premium Storage
+## <a name="plan-the-migration-to-premium-storage"></a>Plan for the Migration to Premium Storage
 
 This section ensures that you are ready to follow the migration steps in this article, and helps you to make the best decision on VM and Disk types.
 
@@ -81,9 +81,16 @@ Pick a location where Azure Premium Storage is available. See [Azure Services by
 #### Other Azure VM configuration settings
 When creating an Azure VM you will be asked to configure certain VM settings. Remember, there are few settings that are fixed for the lifetime of the VM, while you can modify or add others later. Review these Azure VM configuration settings and make sure that these are configured appropriately to match your workload requirements.
 
+### Optimization
+
+[Azure Premium Storage: Design for High Performance](storage-premium-storage-performance.md) provides guidelines for building high performance applications using Azure Premium Storage. You can follow the guidelines combined with perfomance best practices applicable to technologies used by your application.
+
 ## <a name="prepare-and-copy-virtual-hard-disks-VHDs-to-premium-storage"></a>Prepare and Copy Virtual Hard Disks (VHDs) to Premium Storage
 
 The following section provides guidelines for preparing VHDs from your VM and copy VHDs to Azure Storage.
+
+- [Scenario 1: "I am migrating VMs from other platforms to Azure Premium Storage."](#scenario1)
+- [Scenario 2: "I am migrating existing Azure VMs to Azure Premium Storage."](#scenario2)
 
 ### Prerequisites
 
@@ -99,7 +106,7 @@ To prepare VHDs for migration, you'll need:
 >
 > Note that Microsoft Azure only supports fixed size VHD files. VHDX files or dynamic VHDs are not supported. If you have a dynamic VHD, you can convert it to fixed size using the [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) cmdlet.
 
-### Scenario 1: "I am migrating VMs from other platforms to Azure Premium Storage."
+### <a name="scenario1"></a>Scenario 1: "I am migrating VMs from other platforms to Azure Premium Storage."
 
 If you are migrating VHD from non-Azure Cloud Storage to Azure, you must first export the VHD to a local directory. Have the complete source path of the local directory where VHD is stored handy, and then using AzCopy to upload it to Azure Storage.
 
@@ -175,7 +182,7 @@ You can also upload a VHD to your storage account using one of the following mea
 >
 > Import/Export can be used to copy to a standard storage account. You will need to copy from standard storage to premium storage account using a tool like AzCopy.
 
-### Scenario 2: "I am migrating existing Azure VMs to Azure Premium Storage."
+### <a name="scenario2"></a>Scenario 2: "I am migrating existing Azure VMs to Azure Premium Storage."
 
 If you are migrating existing Azure VMs, prepare VHDs according to the type of VHD you want, and then copy the VHD with AzCopy or PowerShell.
 
@@ -191,7 +198,7 @@ If you are migrating existing Azure VMs to Premium Storage, your VHD may be:
 
 Below we walk through these 3 scenarios for preparing your VHD.
 
-##### Generalized Operating System VHD to create multiple VM instances
+##### Use Generalized Operating System VHD to create multiple VM instances
 
 If you are uploading a VHD that will be used to create multiple generic Azure VM instances, you must first generalize VHD using a sysprep utility. This applies to a VHD that is on-premises or in the cloud. Sysprep removes any machine-specific information from the VHD.
 
@@ -208,11 +215,11 @@ If you are uploading a VHD that will be used to create multiple generic Azure VM
 
 For an Ubuntu VM, use virt-sysprep to achieve the same. See [virt-sysprep](http://manpages.ubuntu.com/manpages/precise/man1/virt-sysprep.1.html) for more details. See also some of the open source [Linux Server Provisioning software](http://www.cyberciti.biz/tips/server-provisioning-software.html) for other Linux operating systems.
 
-##### Unique Operating System VHD to create a single VM instance
+##### Use Unique Operating System VHD to create a single VM instance
 
 If you have an application running on the VM which requires the machine specific data, do not generalize the VHD. A non-generalized VHD can be used to create a unique Azure VM instance. For example, if you have Domain Controller on your VHD, executing sysprep will make it ineffective as a Domain Controller. Review the applications running on your VM and impact of sysprep on them before generalizing VHD.
 
-##### Data disk VHDs to be attached to VM instance(s)
+##### Register Data Disk VHD
 
 If you have data disks in a cloud storage to be migrated you must make sure the VMs that use these data disks must be shut down. For data disks that are on-premises, create a consistent VHD.
 
@@ -678,7 +685,7 @@ The automation script is provided below. Replace text with your information and 
 
     New-AzureVM -ServiceName $DestServiceName -VMs $vm -Location $Location
 
-#### Optimization
+#### <a name="optimization"></a>Optimization
 
 Your current VM configuration may be customized specifically to work well with Standard disks. For instance, to increase the performance by using many disks in a striped volume. For example, instead of using 4 disks separately on Premium Storage, you may be able to optimize the cost by having a single disk. Optimizations like this need to be handled on a case by case basis and require custom steps after the migration. Also, note that this process may not well work for databases and applications that depend on the disk layout defined in the setup.
 
