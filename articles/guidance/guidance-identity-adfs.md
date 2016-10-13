@@ -14,18 +14,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/11/2016"
+   ms.date="10/13/2016"
    ms.author="telmos"/>
 
 # Implementing a secure hybrid network architecture with federated identities in Azure
 
 [AZURE.INCLUDE [pnp-RA-branding](../../includes/guidance-pnp-header-include.md)]
 
-This article describes best practices for implementing a secure hybrid network that extends your on-premises network to Azure, and uses [Active Directory Federation Services (AD FS)][active-directory-federation-services] to perform federated authentication and authorization for components running in the cloud. This architecture extends the structure described by [Extending Active Directory to Azure][implementing-active-directory].
+This article describes best practices for implementing a secure hybrid network that extends your on-premises network to Azure, and that uses [Active Directory Federation Services (AD FS)][active-directory-federation-services] to perform federated authentication and authorization for components running in the cloud. This architecture extends the structure described by [Extending Active Directory to Azure][implementing-active-directory].
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments.
 
-AD FS can run on-premises, but in a hybrid scenario where elements of an application are located in Azure it can be more efficient to implement this functionality in the cloud. Typical use cases for this architecture include:
+AD FS can run on-premises, but in a hybrid scenario where applications are located in Azure it can be more efficient to implement this functionality in the cloud. Typical use cases for this architecture include:
 
 - Hybrid applications where workloads run partly on-premises and partly in Azure.
 
@@ -189,7 +189,7 @@ You can use either SQL Server or the Windows Internal Database (WID) to hold AD 
 
 ## Security considerations
 
-AD FS is heavily dependent on the HTTPS protocol, so make sure that the NSG rules for the subnet containing the web tier VMs permit HTTPS requests. These requests can originate from the on-premises network, the subnets containing the web tier, business tier, data tier, private DMZ, and public DMZ, as well as the subnet containing the AD FS servers.
+AD FS utilizes the HTTPS protocol, so make sure that the NSG rules for the subnet containing the web tier VMs permit HTTPS requests. These requests can originate from the on-premises network, the subnets containing the web tier, business tier, data tier, private DMZ, and public DMZ, as well as the subnet containing the AD FS servers.
 
 You should also consider using a set of network virtual appliances that logs detailed information on traffic traversing the edge of your virtual network for auditing purposes.
 
@@ -399,7 +399,7 @@ These components form the core of this architecture. The [**parameters/azure**][
 
 - **[add-adds-domain-controller.parameters.json][add-adds-domain-controller-parameters]**. This file contains the settings for creating the CONTOSO domain spanning the AD DS servers. It makes use of custom extensions that establish the domain and add the AD DS servers to it. Unless you create additional AD DS servers (in which case you should add them to the `vms` array), change their names from the default, or wish to create a domain with a different name you don't need to modify this file.
 
-- **[loadBalancer-adfs.parameters.json ][loadbalancer-adfs-parameters]** The file contains two sets of configuration parameters. The `virtualMachihneSettings` section defines the VMs that host the AD FS service in the cloud. By default, the script creates two of these VMs in the same availability set:
+- **[loadBalancer-adfs.parameters.json ][loadbalancer-adfs-parameters]** The file contains two sets of configuration parameters. The `virtualMachineSettings` section defines the VMs that host the AD FS service in the cloud. By default, the script creates two of these VMs in the same availability set:
 
 	```json
     "virtualMachinesSettings": {
@@ -691,9 +691,9 @@ To run the script that deploys the solution:
 [on-premises-connection-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/onpremise/connection.parameters.json
 [azure-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-identity-adfs/parameters/azure
 [vnet-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/virtualNetwork.parameters.json
-[dmz-private-parameters]: https://github.com/mspnp/reference-architectures/blob/master/guidance-identity-adfs/parameters/azure/dmz-private.parameters.json
-[dmz-public-parameters]: https://github.com/mspnp/reference-architectures/blob/master/guidance-identity-adfs/parameters/azure/dmz-public.parameters.json
-[virtualnetworkgateway-parameters]: https://github.com/mspnp/reference-architectures/blob/master/guidance-identity-adfs/parameters/azure/virtualNetworkGateway.parameters.json
+[dmz-private-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/dmz-private.parameters.json
+[dmz-public-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/dmz-public.parameters.json
+[virtualnetworkgateway-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/virtualNetworkGateway.parameters.json
 [hybrid-azure-on-prem-vpn]: ./guidance-hybrid-network-vpn.md
 [virtualmachines-adds-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/virtualMachines-adds.parameters.json
 [extending-ad-to-azure]: ./guidance-iaas-ra-secure-vnet-ad.md
