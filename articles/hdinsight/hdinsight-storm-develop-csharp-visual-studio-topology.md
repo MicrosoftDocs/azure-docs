@@ -88,6 +88,8 @@ In the steps in this document, you will use the basic Storm Application project 
 
 	As part of project creation, the latest [SCP.NET packages](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/) will be downloaded from NuGet.
 
+    [AZURE.INCLUDE [scp.net version important](../../includes/hdinsight-storm-scpdotnet-version.md)]
+
 In the next sections, you will modify this project into a basic WordCount application.
 
 ###Implement the spout
