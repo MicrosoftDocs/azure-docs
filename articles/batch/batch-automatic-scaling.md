@@ -282,9 +282,9 @@ You can use both **resource** and **task** metrics when you're defining a formul
 
 ## Build an autoscale formula
 
-You construct an autoscale formula by forming statements that use the above components, then combine those statements into a complete formula.
+You construct an autoscale formula by forming statements that use the above components, then combine those statements into a complete formula. In this section, we'll create an example autoscale formula that can perform some real-world scaling decisions.
 
-First we define the requirements for our new autoscale formula. It should:
+First, let's define the requirements for our new autoscale formula. The formula should:
 
 1. **Increase** the target number of compute nodes in a pool if CPU usage is high.
 2. **Decrease** the target number of compute nodes in a pool when CPU usage is low.
