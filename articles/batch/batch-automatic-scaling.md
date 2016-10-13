@@ -282,22 +282,28 @@ You can use both **resource** and **task** metrics when you're defining a formul
 
 ## Build an autoscale formula
 
-You construct an autoscale formula by forming statements that use the above components and then combining those statements into a complete formula. For example, here we construct a formula by first defining the requirements for a formula that will:
+You construct an autoscale formula by forming statements that use the above components, then combine those statements into a complete formula.
 
-1. Increase the target number of compute nodes in a pool if CPU usage is high.
-2. Decrease the target number of compute nodes in a pool when CPU usage is low.
-3. Always restrict the maximum number of nodes to 400.
+First we define the requirements for our new autoscale formula. It should:
 
-For the *increase* of nodes during high CPU usage, we define the statement that populates a user-defined variable ($TotalNodes) with a value that is 110 percent of the current target number of nodes, if the minimum average CPU usage during the last 10 minutes was above 70 percent:
+1. **Increase** the target number of compute nodes in a pool if CPU usage is high.
+2. **Decrease** the target number of compute nodes in a pool when CPU usage is low.
+3. Always restrict the **maximum** number of nodes to 400.
+
+To *increase* the number of nodes during high CPU usage, we define the statement that populates a user-defined variable (`$totalNodes`) with a value that is 110 percent of the current target number of nodes, but only if the minimum average CPU usage during the last 10 minutes was above 70 percent. Otherwise, we use the current dedicated value.
 
 ```bash
-$totalNodes = (min($CPUPercent.GetSample(TimeInterval_Minute * 10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;
+$totalNodes =
+    (min($CPUPercent.GetSample(TimeInterval_Minute * 10)) > 0.7) ?
+    ($CurrentDedicated * 1.1) : $CurrentDedicated;
 ```
 
-The next statement sets the same variable to 90 percent of the current target number of nodes if the average CPU usage of the past 60 minutes was *under* 20 percent. This lowers the target number during low CPU usage. Note that this statement also references the user-defined variable *$TotalNodes* from the statement above.
+To *decrease* the number of nodes during low CPU usage, the next statement in our new formula sets the same `$totalNodes` variable to 90 percent of the current target number of nodes if the average CPU usage in the past 60 minutes was *under* 20 percent. Otherwise, use the current value of `$totalNodes` that we populated in the statement above.
 
 ```bash
-$totalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute * 60)) < 0.2) ? ($CurrentDedicated * 0.9) : $totalNodes;
+$totalNodes =
+    (avg($CPUPercent.GetSample(TimeInterval_Minute * 60)) < 0.2) ?
+    ($CurrentDedicated * 0.9) : $totalNodes;
 ```
 
 Now limit the target number of dedicated compute nodes to a **maximum** of 400:
@@ -309,8 +315,12 @@ $TargetDedicated = min(400, $totalNodes)
 Here's the complete formula:
 
 ```bash
-$totalNodes = (min($CPUPercent.GetSample(TimeInterval_Minute * 10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;
-$totalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute * 60)) < 0.2) ? ($CurrentDedicated * 0.9) : $totalNodes;
+$totalNodes =
+    (min($CPUPercent.GetSample(TimeInterval_Minute * 10)) > 0.7) ?
+    ($CurrentDedicated * 1.1) : $CurrentDedicated;
+$totalNodes =
+    (avg($CPUPercent.GetSample(TimeInterval_Minute * 60)) < 0.2) ?
+    ($CurrentDedicated * 0.9) : $totalNodes;
 $TargetDedicated = min(400, $totalNodes)
 ```
 
@@ -382,58 +392,83 @@ If you want to test a formula on a pool that doesn't yet have autoscaling enable
 
   In this REST API request, you specify the pool ID in the URI. The autoscale formula is specified in the *autoScaleFormula* element of the request body. The response of the operation contains any error information that might be related to the formula.
 
-In this [Batch .NET][net_api] code snippet, we evaluate a formula prior to applying it to the [CloudPool][net_cloudpool].
+In this [Batch .NET][net_api] code snippet, we evaluate a formula prior to applying it to the [CloudPool][net_cloudpool]. If the pool does not have autoscaling enabled, we enable it first.
 
 ```csharp
-// First obtain a reference to the existing pool
-CloudPool pool = myBatchClient.PoolOperations.GetPool("mypool");
+// First obtain a reference to an existing pool
+CloudPool pool = batchClient.PoolOperations.GetPool("myBatchPool");
+
+// If if autoscaling isn't already enabled on the pool, enable it.
+// You can't evaluate an autoscale formula on non-autoscale-enabled pool.
+if (pool.AutoScaleEnabled == false)
+{
+    // We need a valid autoscale formula to enable autoscaling on the
+    // pool. This formula is valid, but won't resize the pool.
+    pool.EnableAutoScale(
+        autoscaleFormula: $"$TargetDedicated = {pool.CurrentDedicated};",
+        autoscaleEvaluationInterval: TimeSpan.FromMinutes(10));
+
+    // Batch limits EnableAutoScale calls to once every 30 seconds.
+    // Because we want to apply our new autoscale formula below if it
+    // evaluates successfully, and we *just* enabled autoscaling on
+    // this pool, we pause here to ensure we pass that threshold.
+    Thread.Sleep(TimeSpan.FromSeconds(31));
+
+    // Refresh the properties of the pool so that we've got the
+    // latest value for AutoScaleEnabled
+    pool.Refresh();
+}
 
 // We must ensure that autoscaling is enabled on the pool prior to
 // evaluating a formula
 if (pool.AutoScaleEnabled.HasValue && pool.AutoScaleEnabled.Value)
 {
-	// The formula to evaluate - adjusts target number of nodes based on
-	// day of week and time of day
-	string myFormula = @"
-		$curTime = time();
-		$workHours = $curTime.hour >= 8 && $curTime.hour < 18;
-		$isWeekday = $curTime.weekday >= 1 && $curTime.weekday <= 5;
-		$isWorkingWeekdayHour = $workHours && $isWeekday;
-		$TargetDedicated = $isWorkingWeekdayHour ? 20:10;
-	";
+    // The formula to evaluate - adjusts target number of nodes based on
+    // day of week and time of day
+    string myFormula = @"f
+        $curTime = time();
+        $workHours = $curTime.hour >= 8 && $curTime.hour < 18;
+        $isWeekday = $curTime.weekday >= 1 && $curTime.weekday <= 5;
+        $isWorkingWeekdayHour = $workHours && $isWeekday;
+        $TargetDedicated = $isWorkingWeekdayHour ? 20:10;
+    ";
 
-	// Perform the autoscale formula evaluation. Note that this does not
-	// actually apply the formula to the pool.
-	AutoScaleEvaluation eval =
-		client.PoolOperations.EvaluateAutoScale(pool.Id, myFormula);
+    // Perform the autoscale formula evaluation. Note that this does not
+    // actually apply the formula to the pool.
+    AutoScaleRun eval =
+        batchClient.PoolOperations.EvaluateAutoScale(pool.Id, myFormula);
 
-	if (eval.AutoScaleRun.Error == null)
-	{
-		// Evaluation success - print the results of the AutoScaleRun.
-		// This will display the values of each variable as evaluated by the
-		// autoscale formula.
-		Console.WriteLine("AutoScaleRun.Results: " +
-			eval.AutoScaleRun.Results);
+    if (eval.Error == null)
+    {
+        // Evaluation success - print the results of the AutoScaleRun.
+        // This will display the values of each variable as evaluated by the
+        // autoscale formula.
+        Console.WriteLine("AutoScaleRun.Results: " +
+            eval.Results.Replace("$", "\n    $"));
 
-		// Apply the formula to the pool since it evaluated successfully
-		client.PoolOperations.EnableAutoScale(pool.Id, myFormula);
-	}
-	else
-	{
-		// Evaluation failed, output the message associated with the error
-		Console.WriteLine("AutoScaleRun.Error.Message: " +
-			eval.AutoScaleRun.Error.Message);
-	}
+        // Apply the formula to the pool since it evaluated successfully
+        batchClient.PoolOperations.EnableAutoScale(pool.Id, myFormula);
+    }
+    else
+    {
+        // Evaluation failed, output the message associated with the error
+        Console.WriteLine("AutoScaleRun.Error.Message: " +
+            eval.Error.Message);
+    }
 }
 ```
 
 Successful evaluation of the formula in this snippet will result in output similar to the following:
 
 ```bash
-AutoScaleRun.Results: $TargetDedicated = 10;$NodeDeallocationOption = requeue;$CurTime = 2015 - 08 - 25T20: 08:42.271Z;$IsWeekday = 1;$IsWorkingWeekdayHour = 0;$WorkHours = 0
+AutoScaleRun.Results:
+    $TargetDedicated=10;
+    $NodeDeallocationOption=requeue;
+    $curTime=2016-10-13T19:18:47.805Z;
+    $isWeekday=1;
+    $isWorkingWeekdayHour=0;
+    $workHours=0
 ```
-
->[AZURE.TIP] The one-line autoscale formula `$TargetDedicated = 0` is a valid formula you can use when you first enable autoscaling on a pool, before you evaluate the "real" formula you want to test.
 
 ## Obtain information about automatic scaling runs
 
