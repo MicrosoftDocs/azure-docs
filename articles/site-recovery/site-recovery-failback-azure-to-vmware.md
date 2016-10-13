@@ -146,7 +146,7 @@ If you have protected your machines as classic resources (that is the VM recover
 
 The master target server receives the failback data. A master target server is automatically installed on the on-premises management server but if you're failing back a lot of data you might need to set up an additional master target server. Do this as follows:
 
->[AZURE.NOTE] If you want to install a master target server on Linux, follow the instructions in the next procedure.
+>[AZURE.NOTE] If you want to install a master target server on Linux, follow the instructions in the next procedure. Make sure you only use CentOS 6.6 minimal operating system only, for the MT OS.
 
 1. If you're installing the master target server on Windows, open the Quick Start page from the VM on which you're installing the master target server, and download the installation file for the Azure Site Recovery Unified Setup wizard.
 2. Run setup and in **Before you begin** select **Add additional process servers to scale out deployment**.
@@ -185,6 +185,7 @@ You’ll need to download and install some additional packages.
 	- # rpm –ivh kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm
 	- # wget [http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_65.rpm](http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_65.rpm)
 	- # rpm –ivh xfsprogs-3.1.1-16.el6.x86_64.rpm
+	- # yum install device-mapper-multipath   This is required to enable Multipath packages on the MT server.
 
 #### Apply custom changes
 
