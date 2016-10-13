@@ -21,9 +21,9 @@
 
 An App Service plan represents a set of features and capacity that you can share across multiple apps, which include Web Apps, Mobile Apps, Logic Apps, or API Apps, in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). These plans support five pricing tiers: *Free*, *Shared*, *Basic*, *Standard*, and *Premium*. Each tier has its own capabilities and capacity. Apps in the same subscription and geographic location can share a plan. All the apps that share a plan can use all the capabilities and features that are defined by the plan's tier. All apps that are associated with a plan run on the resources that the plan defines.
 
-For example, if your plan is configured to use two "small" instances in the standard service tier, all apps that are associated with that plan will run on both instances and will have access to the standard service tier functionality. Plan instances on which apps are running are fully managed and highly available.
+For example, if your plan is configured to use two "small" instances in the standard service tier, all apps that are associated with that plan run on both instances and have access to the standard service tier functionality. Plan instances on which apps are running are fully managed and highly available.
 
-In this article, we'll explore the key characteristics, such as tier and scale, of an App Service plan and how they come into play while managing your apps.
+This article explores the key characteristics, such as tier and scale, of an App Service plan and how they come into play while managing your apps.
 
 ## Apps and App Service plans
 
@@ -31,9 +31,9 @@ An app in App Service can be associated with only one App Service plan at any gi
 
 Both apps and plans are contained in a resource group. A resource group serves as the lifecycle boundary for every resource that's within it. You can use resource groups to manage all the pieces of an application together.
 
-Because a single resource group can have multiple App Service plans, you can allocate different apps to different physical resources. For example, you can separate resources among dev, test, and production environments. A scenario for this is when you might want to allocate one plan with its own dedicated set of resources for your production apps, and a second plan for your dev and test environments. In this way, load testing against a new version of your apps will not compete for the same resources as your production apps, which are serving real customers.
+Because a single resource group can have multiple App Service plans, you can allocate different apps to different physical resources. For example, you can separate resources among dev, test, and production environments. Having separate environments for production and dev/test lets you isolate resources. In this way, load testing against a new version of your apps does not compete for the same resources as your production apps, which are serving real customers.
 
-When you have multiple plans in a single resource group, you can also define an application that spans geographical regions. For example, a highly available app running in two regions will include two plans, one for each region, and one app associated with each plan. In such a situation, all the copies of the app will be associated with a single resource group. A single view of a resource group that has multiple plans and multiple apps makes it easy to manage, control, and view the health of the application.
+When you have multiple plans in a single resource group, you can also define an application that spans geographical regions. For example, a highly available app running in two regions includes at least two plans, one for each region, and one app associated with each plan. In such a situation, all the copies of the app are then contained in a single resource group. Having a resource group with multiple plans and multiple apps makes it easy to manage, control, and view the health of the application.
 
 ## Create a new App Service plan vs. use an existing plan
 
@@ -55,7 +55,7 @@ Finally, if you want to create a new app in a different region, and that region 
 
 You can create an empty App Service plan from the App Service plan browse experience or as part of app creation.
 
-In the [Azure portal](https://portal.azure.com), click **New**, click **Web + mobile**, and then click 	**Web App**, **Mobile App**, **API App** or **Logic App**.
+In the [Azure portal](https://portal.azure.com), click **New** > **Web + mobile**, and then **Web App**, **Mobile App**, **API App** or **Logic App**.
 ![Create an app in the Azure portal.][createWebApp]
 
 You can then select or create the App Service plan for the new app.
