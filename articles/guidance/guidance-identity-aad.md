@@ -25,7 +25,7 @@ This article describes best practices for integrating on-premises Active Directo
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments.
 
-You can use directory and identity services, such as those provided by AD Directory Services (AD DS) to authenticate identities. These identities can belong to users, computers, applications, or other resources that form part of a security domain. You can host directory and identity services on-premises, but in a hybrid scenario where elements of an application are located in Azure it can be more efficient to extend this functionality into the cloud. This approach can help  reduce the latency caused by sending authentication and local authorization requests from the cloud back to the directory and identity services running on-premises.
+You can use directory and identity services, such as those provided by AD Directory Services (AD DS) to authenticate identities. These identities can belong to users, computers, applications, or other resources that form part of a security boundary. You can host directory and identity services on-premises, but in a hybrid scenario where elements of an application are located in Azure it can be more efficient to extend this functionality into the cloud. This approach can help  reduce the latency caused by sending authentication and local authorization requests from the cloud back to the directory and identity services running on-premises.
 
 Azure provides two solutions for implementing directory and identity services in the cloud:
 
@@ -39,7 +39,7 @@ Azure provides two solutions for implementing directory and identity services in
 
 2. You can deploy a VM running AD DS as a domain controller in Azure, extending your existing AD infrastructure (including AD DS and AD FS) from your on-premises datacenter. This approach is more common for scenarios where the on-premises network and Azure virtual network are connected by a VPN and/or ExpressRoute connection. This solution also supports bi-directional replication enabling you make changes in the cloud and on-premises, wherever it is most appropriate.
 
-This architecture focuses on solution 1. For more information about the second solution, see [Federating with a customer's AD FS for multitenant apps in Azure][adfs-multitenant].
+This architecture focuses on solution 1. For more information about the second solution, see [Extending Active Directory to Azure][guidance-adds].
 
 Typical use cases for this architecture include:
 
@@ -59,7 +59,7 @@ You should note that AAD does not provide all the functionality of AD. For examp
 
 ## Architecture diagram
 
-The following diagram highlights the important components in this architecture (*click to zoom in*). For more information about the grayed-out elements, read [Running VMs for an N-tier architecture on Azure][implementing-a-multi-tier-architecture-on-Azure]:
+The following diagram highlights the important components in this architecture. For more information about the workload elements in Azure, read [Running VMs for an N-tier architecture on Azure][implementing-a-multi-tier-architecture-on-Azure]:
 
 > [AZURE.NOTE] For simplicity, this diagram only shows the connections directly related to AAD, and does not depict web browser request redirects or other protocol related traffic that may occur as part of the authentication and identity federation process. For example, a user (on-premises or remote) will typically access a web app through a browser, and the web app may transparently redirect the web browser to authenticate the request through AAD. Once authenticated, the request can be passed back to the web app together with the appropriate identity information.
 
@@ -69,10 +69,6 @@ The following diagram highlights the important components in this architecture (
 
 - **Web tier subnet**. This subnet holds VMs that implement a custom cloud-based application developed by your organization and for which AAD can act as an identity broker.
 
-- **On-premises web apps**. These are web apps hosted in your organizations on-premises network. AAD can provide remote access to these web apps through the **Azure AD application proxy** which runs in the cloud. Your organization must run a **application proxy connector** on-premises to expose the web app to AAD.
-
-	>[AZURE.NOTE] The application proxy connector opens an outbound network connection to the Azure AD application proxy. Remote users requests are routed back from AAD through this connection to the web apps. This mechanism removes the need to open inbound ports in the on-premises firewall, reducing the attack surface exposed by your organization.
-
 - **On-premises AD DS server**. Your organization will likely already have an existing directory service such as AD DS. You can synchronize many of the items in your AD DS directory (such as user and group information) with AAD, to enable AAD to use this information to authenticate identities.
 
 - **Azure AD Connect sync server**. This is an on-premises computer that runs the Azure AD Connect sync service. You install this service by using the Azure AD Connect software. The Azure AD Connect sync service synchronizes information (Users, Groups, Contacts, etc) held in the on-premises AD to AAD in the cloud. For example, you can provision or deprovision groups and users on-premises and these changes will be propagated to AAD. The Azure AD Connect sync service passes information to the AAD tenant.
@@ -81,7 +77,10 @@ The following diagram highlights the important components in this architecture (
 
 ## Recommendations
 
-This section summarizes recommendations for implementing AAD.
+This section summarizes recommendations for implementing AAD as follows.
+
+- AD Connect
+- Security
 
 ### Azure AD Connect sync service recommendations
 
@@ -139,7 +138,7 @@ If you are integrating an on-premises directory with AAD, configure Azure AD Con
 
 	In this topology, don't use separate Azure AD Connect sync servers to connect each on-premises forest to a single AAD tenant. This can result in duplicated identity information in AAD if users are present in more than one forest.
 
-- **Multiple forests, separate topologies**. This approach enables you to merge identity information from separate forests into a single AAD tenant. This strategy is useful if you are combining forests from different organizations (after a takeover, for example), and the identity information for each user is held in only one forest:
+- **Multiple forests, separate topologies**. This approach enables you to merge identity information from separate forests into a single AAD tenant. This strategy is useful if you are combining forests from different organizations (after a merger or acquisition, for example), and the identity information for each user is held in only one forest:
 
 	If the GALs in each forest are synchronized, then a user in one forest may be present in another as a contact. This can occur if, for example, your organization has implemented GALSync with Forefront Identity manager 2010 or Microsoft Identity Manager 2016. In this scenario, you can specify that users should be identified by their *Mail* attribute. You can also match identities using the *ObjectSID* and *msExchMasterAccountSID* attributes; this is useful if you have one or more resource forests with disabled accounts.
 
@@ -173,19 +172,23 @@ By default, the AAD service assumes that users will log in by providing the same
 
 - You might require that users experience seamless SSO (without additional password prompts) when accessing cloud resources from domain joined machines on the corporate network.
 
-- Your organization might already have AD FS or a 3rd party federation provider deployed. You can configure AAD to use this infrastructure to implement authentication and SSO rather than by using password information held in the cloud.
+- Your organization might already have ADFS or a 3rd party federation provider deployed. You can configure AAD to use this infrastructure to implement authentication and SSO rather than by using password information held in the cloud.
 
 For more information, see [Azure AD Connect User Sign on options][aad-user-sign-in].
+
+## Azure AD application proxy considerations
+
+Use Azure AD to provide access to on-premises applications.
+
+- Expose your on-premises web applications using application proxy connectors manage by the Azure AD application proxy component. The application proxy connector opens an outbound network connection to the Azure AD application proxy. Remote users requests are routed back from AAD through this connection to the web apps. This mechanism removes the need to open inbound ports in the on-premises firewall, reducing the attack surface exposed by your organization.
+
+For more information, see [Publish applications using Azure AD Application proxy][aad-app-proxy].
 
 ## Object synchronization considerations
 
 The default configuration of Azure AD Connect synchronizes objects from your local AD directory based on the set of rules specified in the article [Azure AD Connect sync: Understanding the default configuration][aad-connect-sync-default-rules]. Only objects that satisfy these rules are synchronized, others are ignored. For example, User objects must have a unique *sourceAnchor* attribute and the *accounEnabled* attribute must be populated. User Objects that do not have a *sAMAccountName* attribute or that start with the text *AAD_* or *MSOL_* are not synchronized. Azure AD Connect applies many other rules to User objects, as well as to Contact, Group, ForeignSecurityPrincipal, and Computer objects. If you need to modify the default set of rules, use the Synchronization Rules Editor installed with Azure AD Connect (also documented in [Azure AD Connect sync: Understanding the default configuration][aad-connect-sync-default-rules]).
 
-You can filter by domain or OU to limit the objects to be synchronized by performing a custom installation of Azure AD Connect:
-
-[![8]][8]
-
-You can also implement complex custom filtering, as described in the article [Azure AD Connect sync: Configure Filtering][aad-filtering].
+You can define your own filters to limit the objects to be synchronized by domain or OU. Or implement more complex custom filtering, as described in [Azure AD Connect sync: Configure Filtering][aad-filtering].
 
 ## Security considerations
 
@@ -211,9 +214,7 @@ Scalability is addressed by the AAD service and the configuration of the Azure A
 
 	For more information, see [Azure AD: Under the hood of our geo-redundant, highly available, distributed cloud directory][aad-scalability].
 
-- For the Azure AD Connect sync server, you should determine how many objects you are likely to synchronize from your local directory. If you have less then 100,000 objects you can use the default SQL Server Express LocalDB software provided with Azure AD Connect. If you have a larger number of objects, you should install a production version of SQL Server and perform a custom installation of the Azure AD Connect specifying that it should use an existing instance of SQL Server:
-
-	[![6]][6]
+- For the Azure AD Connect sync server, you should determine how many objects you are likely to synchronize from your local directory. If you have less then 100,000 objects you can use the default SQL Server Express LocalDB software provided with Azure AD Connect. If you have a larger number of objects, you should install a production version of SQL Server and perform a custom installation of the Azure AD Connect specifying that it should use an existing instance of SQL Server.
 
 ## Availability considerations
 
@@ -241,15 +242,13 @@ AAD provides the following options for managing domains and directories in the c
 
 - [Azure Active Directory PowerShell Module][aad-powershell]. Use this module if you need to script common Azure AD administrative tasks such as user management, domain management and for configuring single sign-on.
 
-- Azure AD management blade in the Azure portal. This blade provides an interactive management view of the directory, and enables you to control and configure most aspects of AAD:
+- Azure AD management blade in the Azure portal. This blade provides an interactive management view of the directory, and enables you to control and configure most aspects of AAD.
 
 	[![10]][10]
 
 Azure AD Connect installs the following tools that you use to maintain the Azure AD Connect sync services from your on-premises machines:
 
-- The Microsoft Azure Active Directory Connect console. This tool enables you to modify the configuration of the Azure AD Sync server, customize the way in which synchronization occurs, enable or disable staging mode, and switch the user sign-in mode (you can enable AD FS sign-in using your on-premises infrastructure):
-
-	[![11]][11]
+- The Microsoft Azure Active Directory Connect console. This tool enables you to modify the configuration of the Azure AD Sync server, customize the way in which synchronization occurs, enable or disable staging mode, and switch the user sign-in mode (you can enable AD FS sign-in using your on-premises infrastructure).
 
 - The Synchronization Service Manager. Use the *Operations* tab in this tool to manage the synchronization process and detect whether any parts of the process have failed. You can trigger synchronizations manually using this tool. 
 
@@ -261,8 +260,6 @@ Azure AD Connect installs the following tools that you use to maintain the Azure
 
 -  The Synchonization Rules Editor. Use this tool to customize the way in which objects are transformed when they are copied between an on-premises directory and AAD in the cloud. This tool enables you to specify additional attributes and objects for synchronization, and filters to determine which instances should or should not be synchronized.
 
-	[![14]][14]
-
 	For more information, see the Synchronization Rule Editor section in the document [Azure AD Connect sync: Understanding the default configuration][aad-connect-sync-default-rules].
 
 The page [Azure AD Connect sync: Best practices for changing the default configuration][aad-sync-best-practices] contains additional information and tips for managing Azure AD Connect.
@@ -271,21 +268,11 @@ The page [Azure AD Connect sync: Best practices for changing the default configu
 
 Health monitoring is performed by using a series of agents installed on-premises:
 
-- Azure AD Connect installs an agent that captures information about synchronizations. Use the Azure Active Directory Connect Health blade in the Azure portal to monitor the health and performance of Azure AD Connect:
+- Azure AD Connect installs an agent that captures information about synchronizations. Use the Azure Active Directory Connect Health blade in the Azure portal to monitor the health and performance of Azure AD Connect. For more information, see [Using Azure AD Connect Health for sync][aad-health].
 
-	[![15]][15]
+- To monitor the health of the AD DS domains and directories from Azure, install the Azure AD Connect Health for AD DS agent on a machine within the on-premises domain. Use the Azure Active Directory Connect Health blade in the Azure portal to monitor AD DS. For more information, see [Using Azure AD Connect Health with AD DS][aad-health-adds]
 
-	For more information, see [Using Azure AD Connect Health for sync][aad-health].
-
-- To monitor the health of the AD DS domains and directories from Azure, install the Azure AD Connect Health for AD DS agent on a machine within the on-premises domain. Use the Azure Active Directory Connect Health blade in the Azure portal to monitor AD DS:
-
-	[![16]][16]
-
-	For more information, see [Using Azure AD Connect Health with AD DS][aad-health-adds]
-
-- Install the Azure AD Connect Health for AD FS agent to monitor the health of AD FS running on on-premises, and use the the Azure Active Directory Connect Health blade in the Azure portal to monitor AD DS.
-
-	For more information, see [Using Azure AD Connect Health with AD FS][aad-health-adfs]
+- Install the Azure AD Connect Health for AD FS agent to monitor the health of AD FS running on on-premises, and use the the Azure Active Directory Connect Health blade in the Azure portal to monitor AD DS. For more information, see [Using Azure AD Connect Health with AD FS][aad-health-adfs]
 
 For additional information on installing the AD Connect Health agents and their requirements, see [Azure AD Connect Health Agent Installation][aad-agent-installation].
 
@@ -341,14 +328,14 @@ The steps that follow assume the following prerequisites:
 
     - [managementTierParameters.json][managementtier-parameters-windows]
 
-5. Edit the Deploy-ReferenceArchitecture.ps1 file in the Scripts folder, and change the following line to specify the resource group that should be created or used to hold the VM and resources created by the script:
+5. Edit the **Deploy-ReferenceArchitecture.ps**1 file in the Scripts folder, and change the following line to specify the resource group that should be created or used to hold the VM and resources created by the script:
 
-    ```powershell
-    # PowerShell
-    $resourceGroupName = "ra-aad-ntier-rg"
-    ```
+		```powershell
+		# PowerShell
+		$resourceGroupName = "ra-aad-ntier-rg"
+		```
 
-6. Edit the following files in the Parameters/Windows folder and set the `resourceGroup` value in the `virtualNetworkSettings` section in each of these files to be the same as that you specified in the Deploy-ReferenceArchitecture.ps1 script file.
+6. Edit the following files in the **parameters/window**s folder and set the `resourceGroup` value in the `virtualNetworkSettings` section in each of these files to be the same as that you specified in the **Deploy-ReferenceArchitecture.ps1** script file.
 
     - networkSecurityGroup.parameters.json
 
@@ -362,21 +349,19 @@ The steps that follow assume the following prerequisites:
 
 7. Open an Azure PowerShell window, move to the Scripts folder, and run the following command:
 
-    ```powershell
-    .\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Windows ntier
-    ```
+		```powershell
+		.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Windows ntier
+		```
 
-    Replace `<subscription id>` with your Azure subscription ID.
+    Replace **<subscription id>** with your Azure subscription ID.
 
-    For `<location>`, specify an Azure region, such as `eastus` or `westus`.
+    For **<location>**, specify an Azure region, such as *eastus* or *westus*.
 
 8. When the script has completed, use the Azure portal to obtain the public IP address of the web-tier load balancer (*ra-aad-ntier-web-lb*):
 
 	[![18]][18]
 
-9. Log in to your test client computer (or VM), and verify that you can access the web-tier by using Internet Explorer to browse to the public IP address of the web-tier load balancer. The default IIS page should appear:
-
-	[![19]][19]
+9. Log in to your test client computer (or VM), and verify that you can access the web-tier by using Internet Explorer to browse to the public IP address of the web-tier load balancer. The default IIS page should appear.
 
 ### Simulate configuration of a public web site
 
@@ -384,39 +369,39 @@ The steps that follow assume the following prerequisites:
 
 1. On your test client computer, edit the file C:\Windows\System32\drivers\etc\hosts by using Notepad, and add an entry that associates the name www.contoso.com with the public IP address of the web-tier load balancer:
 
-	```text
-	# Copyright (c) 1993-2009 Microsoft Corp.
-	#
-	# This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
-	#
-	# This file contains the mappings of IP addresses to host names. Each
-	# entry should be kept on an individual line. The IP address should
-	# be placed in the first column followed by the corresponding host name.
-	# The IP address and the host name should be separated by at least one
-	# space.
-	#
-	# Additionally, comments (such as these) may be inserted on individual
-	# lines or following the machine name denoted by a '#' symbol.
-	#
-	# For example:
-	#
-	#      102.54.94.97     rhino.acme.com          # source server
-	#       38.25.63.10     x.acme.com              # x client host
-	
-	# localhost name resolution is handled within DNS itself.
-	#	127.0.0.1       localhost
-	#	::1             localhost
-	
-	52.165.38.64	www.contoso.com
-	```
+		```text
+		# Copyright (c) 1993-2009 Microsoft Corp.
+		#
+		# This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
+		#
+		# This file contains the mappings of IP addresses to host names. Each
+		# entry should be kept on an individual line. The IP address should
+		# be placed in the first column followed by the corresponding host name.
+		# The IP address and the host name should be separated by at least one
+		# space.
+		#
+		# Additionally, comments (such as these) may be inserted on individual
+		# lines or following the machine name denoted by a '#' symbol.
+		#
+		# For example:
+		#
+		#      102.54.94.97     rhino.acme.com          # source server
+		#       38.25.63.10     x.acme.com              # x client host
+		
+		# localhost name resolution is handled within DNS itself.
+		#	127.0.0.1       localhost
+		#	::1             localhost
+		
+		52.165.38.64	www.contoso.com
+		```
 
 2. Verify that you can now browse to www.contoso.com from the test client computer. The same default IIS page should appear as before.
 
 3. On the test client computer, open a command prompt as Administrator and use the makecert utility to create a fake root certification authority certificate:
 
-	```
-	makecert -sky exchange -pe -a sha256 -n "CN=MyFakeRootCertificateAuthority" -r -sv MyFakeRootCertificateAuthority.pvk MyFakeRootCertificateAuthority.cer -len 2048
-	```
+		```
+		makecert -sky exchange -pe -a sha256 -n "CN=MyFakeRootCertificateAuthority" -r -sv MyFakeRootCertificateAuthority.pvk MyFakeRootCertificateAuthority.cer -len 2048
+		```
 
 	Verify that the following files are created:
 
@@ -424,18 +409,19 @@ The steps that follow assume the following prerequisites:
 
 	- MyFakeRootCertificateAuthority.pvk
 
-4. Run the following command to install the fake root certification authority authority:
+4. Run the following command to install the test root certification authority authority:
 
-	```
-	certutil.exe -addstore Root MyFakeRootCertificateAuthority.cer
-	```
+		```
+		certutil.exe -addstore Root MyFakeRootCertificateAuthority.cer
+		```
 
-5. Use the fake certification authority to generate a certificate for www.contoso.com:
+5. Use the test certification authority to generate a certificate for www.contoso.com:
 
-	```
-	makecert -sk pkey -iv MyFakeRootCertificateAuthority.pvk -a sha256 -n "CN=www.contoso.com" -ic MyFakeRootCertificateAuthority.cer -sr localmachine -ss my -sky exchange -pe
-	```
-6. Run the `mmc` command, and add the Certificates snap-in for the computer account for the local computer.
+		```
+		makecert -sk pkey -iv MyFakeRootCertificateAuthority.pvk -a sha256 -n "CN=www.contoso.com" -ic MyFakeRootCertificateAuthority.cer -sr localmachine -ss my -sky exchange -pe
+		```
+
+6. Run the **mmc** command, and add the Certificates snap-in for the computer account for the local computer.
 
 7. In the */Certificates (Local Computer)/Personal/Certificate/* store, export the www.contoso.com certificate with its private key to a file named www.contoso.com.pfx:
 
@@ -563,10 +549,10 @@ The on-premises environment comprises a pair of domain controllers for the `cont
 
 5. Edit the Deploy-ReferenceArchitecture.ps1 file in the Scripts folder, and change the following line to specify the resource group that should be created or used to hold the VM and resources created by the script:
 
-    ```powershell
-    # PowerShell
-    $resourceGroupName = "ra-aad-onpremise-rg"
-    ```
+		```powershell
+		# PowerShell
+		$resourceGroupName = "ra-aad-onpremise-rg"
+		```
 
 6. Edit the following files in the Parameters/Onpremise folder and set the `resourceGroup` value in the `virtualNetworkSettings` section in each of these files to be the same as that you specified in the Deploy-ReferenceArchitecture.ps1 script file.
 
@@ -580,9 +566,9 @@ The on-premises environment comprises a pair of domain controllers for the `cont
 
 7. Open an Azure PowerShell window, move to the Scripts folder, and run the following command:
 
-    ```powershell
-    .\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Windows onpremise
-    ```
+		```powershell
+		.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Windows onpremise
+		```
 
     Replace `<subscription id>` with your Azure subscription ID.
 
@@ -650,10 +636,10 @@ The configuration illustrated in these steps consists of two instances of the Az
 
 4. Switch to the *ra-aad-onpremise-adc-vm1* VM, open a PowerShell window, and run the following commands:
 
-	```[powershell]
-	Import-Module ADSync
-	Start-ADSyncSyncCycle -PolicyType Delta
-	```
+		```[powershell]
+		Import-Module ADSync
+		Start-ADSyncSyncCycle -PolicyType Delta
+		```
 
 	Verify that the command returns *Success*.
 
@@ -681,9 +667,10 @@ The configuration illustrated in these steps consists of two instances of the Az
 	
 4. Open a command prompt as Administrator, move to the folder holding the file that you just copied, and run the following command:
 
-	```
-	certutil.exe -addstore Root MyFakeRootCertificateAuthority.cer
-	```
+		```
+		certutil.exe -addstore Root MyFakeRootCertificateAuthority.cer
+		```
+
 5. Using Internet Explorer, navigate to https://www.contoso.com. Verify that the AAD sign-in page for the ContosoWebApp1 web application appears.
 
 6. Log in as dianet@*myaadname*.onmicrosoft.com. The application should run and sign you in correctly.
@@ -706,35 +693,35 @@ The configuration illustrated in these steps consists of two instances of the Az
 [azure-ad-connect]: ../active-directory/active-directory-aadconnect.md
 [ad-azure-guidelines]: https://msdn.microsoft.com/library/azure/jj156090.aspx
 [aad-explained]: https://youtu.be/tj_0d4tR6aM
-[aad-editions]: https://azure.microsoft.com/documentation/articles/active-directory-editions/
-[adfs-multitenant]: ./guidance-multitenant-identity-adfs.md
+[aad-editions]: ../active-directory/active-directory-editions.md
+[guidance-adds]: ./guidance-iaas-ra-secure-vnet-ad
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory/v1_0/
-[azure-multifactor-authentication]: https://azure.microsoft.com/documentation/articles/multi-factor-authentication/
-[aad-conditional-access]: https://azure.microsoft.com/documentation/articles/active-directory-conditional-access/
-[aad-dynamic-membership-rules]: https://azure.microsoft.com/documentation/articles/active-directory-accessmanagement-groups-with-advanced-rules/
+[azure-multifactor-authentication]: ../active-directory/multi-factor-authentication.md
+[aad-conditional-access]: ../active-directory//active-directory-conditional-access.md
+[aad-dynamic-membership-rules]: ../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md
 [aad-dynamic-memberships]: https://youtu.be/Tdiz2JqCl9Q
-[aad-user-sign-in]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-user-signin/
-[aad-sync-requirements]: https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-directory-sync-requirements/
-[aad-topologies]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-topologies/
-[aad-filtering]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnectsync-configure-filtering/
+[aad-user-sign-in]: ../active-directory/active-directory-aadconnect-user-signin.md
+[aad-sync-requirements]: ../active-directory/active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md
+[aad-topologies]: ../active-directory/active-directory-aadconnect-topologies/
+[aad-filtering]: ../active-directory/active-directory-aadconnectsync-configure-filtering/
 [aad-scalability]: https://blogs.technet.microsoft.com/enterprisemobility/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-distributed-cloud-directory/
-[aad-connect-sync-default-rules]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnectsync-understanding-default-configuration/
-[aad-identity-protection]: https://azure.microsoft.com/documentation/articles/active-directory-identityprotection/
-[aad-password-management]: https://azure.microsoft.com/documentation/articles/active-directory-passwords-customize/
-[aad-application-proxy]: https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-enable/
-[aad-connect-sync-operational-tasks]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnectsync-operations/#staging-mode
-[aad-custom-domain]: https://azure.microsoft.com/documentation/articles/active-directory-add-domain/
+[aad-connect-sync-default-rules]: ../active-directory/active-directory-aadconnectsync-understanding-default-configuration.md
+[aad-identity-protection]: ../active-directory/active-directory-identityprotection.md
+[aad-password-management]: ../active-directory/active-directory-passwords-customize.md
+[aad-application-proxy]: ../active-directory/active-directory-application-proxy-enable.md
+[aad-connect-sync-operational-tasks]: ../active-directory/active-directory-aadconnectsync-operations.md#staging-mode
+[aad-custom-domain]: ../active-directory/active-directory-add-domain.md
 [aad-powershell]: https://msdn.microsoft.com/library/azure/mt757189.aspx
-[aad-sync-disaster-recovery]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnectsync-operations/#disaster-recovery
-[aad-sync-best-practices]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnectsync-best-practices-changing-default-configuration/
-[aad-adfs]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-get-started-custom/#configuring-federation-with-ad-fs
-[aad-health]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-health-sync/
-[aad-health-adds]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-health-adds/
-[aad-health-adfs]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-health-adfs/
-[aad-agent-installation]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-health-agent-install/
-[aad-reporting-guide]: https://azure.microsoft.com/documentation/articles/active-directory-reporting-guide/
+[aad-sync-disaster-recovery]: ../active-directory/active-directory-aadconnectsync-operations.md#disaster-recovery
+[aad-sync-best-practices]: ../active-directory/active-directory-aadconnectsync-best-practices-changing-default-configuration.md
+[aad-adfs]: ../active-directory/active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs
+[aad-health]: ../active-directory/active-directory-aadconnect-health-sync.md
+[aad-health-adds]: ../active-directory/active-directory-aadconnect-health-adds.md
+[aad-health-adfs]: ../active-directory/active-directory-aadconnect-health-adfs.md
+[aad-agent-installation]: ../active-directory/active-directory-aadconnect-health-agent-install.md
+[aad-reporting-guide]: ../active-directory/active-directory-reporting-guide.md
 [azure-cli]: ../virtual-machines-command-line-tools.md
-[azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[azure-powershell-download]: ../active-directory/powershell-install-configure.md
 [solution-script]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-aad/Deploy-ReferenceArchitecture.ps1
 [vnet-parameters-windows]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-aad/parameters/windows/virtualNetwork.parameters.json
 [nsg-parameters-windows]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-aad/parameters/windows/networkSecurityGroups.parameters.json
@@ -751,34 +738,35 @@ The configuration illustrated in these steps consists of two instances of the Az
 [virtualMachines-adc-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-aad/parameters/onpremise/virtualMachines-adc.parameters.json
 [virtualMachines-adc-joindomain-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-aad/parameters/onpremise/virtualMachines-adc-joindomain.parameters.json
 [aad-connect-download]: http://www.microsoft.com/download/details.aspx?id=47594
-[aad-custom-directory]: https://azure.microsoft.com/documentation/articles/active-directory-add-domain/
-[aad-password-management]: https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-their-azure-ad-passwords
-[aad-sso]: https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/
-[aad-app-proxy]: https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-publish/
+[aad-custom-directory]: ../active-directory/active-directory-add-domain.md
+[aad-password-management]: ../active-directory/active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords
+[aad-sso]: ../active-directory/active-directory-appssoaccess-whatis.md
+[aad-app-proxy]: ../active-directory/active-directory-application-proxy-publish.md
 [aad-connect-adfs]: https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect
-[0]: ./media/guidance-ra-identity-aad/figure1.png "Cloud identity architecture using Azure Active Directory"
-[1]: ./media/guidance-ra-identity-aad/figure2.png "Single forest, single AAD directory topology"
-[2]: ./media/guidance-ra-identity-aad/figure3.png "Multiple forests, single AAD directory topology"
-[4]: ./media/guidance-ra-identity-aad/figure5.png "Staging server topology"
-[5]: ./media/guidance-ra-identity-aad/figure6.png "Multiple AAD directories topology"
-[6]: ./media/guidance-ra-identity-aad/figure7.png "Selecting a custom installation of Azure AD Connect Sync with a specific instance of SQL Server"
-[7]: ./media/guidance-ra-identity-aad/figure8.png "Specifying the SSO method for user sign-in"
-[8]: ./media/guidance-ra-identity-aad/figure9.png "Specifying Domain and OU filtering options"
-[9]: ./media/guidance-ra-identity-aad/figure10.png "Enabling password write-back"
-[10]: ./media/guidance-ra-identity-aad/figure11.png "The Azure AD management blade in the portal"
-[11]: ./media/guidance-ra-identity-aad/figure12.png "The Azure AD Connect console"
-[12]: ./media/guidance-ra-identity-aad/figure13.png "The Operations tab in the Synchronization Service Manager"
-[13]: ./media/guidance-ra-identity-aad/figure14.png "The Connectors tab in the Synchronization Service Manager"
-[14]: ./media/guidance-ra-identity-aad/figure15.png "The Synchronization Rules Editor"
-[15]: ./media/guidance-ra-identity-aad/figure16.png "The Azure Active Directory Connect Health blade in the Azure portal showing synchronization health"
-[16]: ./media/guidance-ra-identity-aad/figure17.png "The Azure Active Directory Connect Health blade in the Azure portal showing AD DS health"
-[17]: ./media/guidance-ra-identity-aad/figure18.png "Security reports available in the Azure portal"
-[18]: ./media/guidance-ra-identity-aad/figure19.png "The Azure portal highlighting the public IP address of the web-tier load balancer"
-[19]: ./media/guidance-ra-identity-aad/figure20.png "Using Internet Explorer to browse to the public IP address of the web-tier load balancer"
-[20]: ./media/guidance-ra-identity-aad/figure21.png "The certificates snap-in showing the www.contoso.com certificate"
-[21]: ./media/guidance-ra-identity-aad/figure22.png "Connecting to the management tier VM"
-[22]: ./media/guidance-ra-identity-aad/figure23.png "Creating the HTTPS binding for the default web site"
-[23]: ./media/guidance-ra-identity-aad/figure24.png "Creating the ContosoWebApp1 web application"
-[24]: ./media/guidance-ra-identity-aad/figure25.png "Setting the authentication properties of the ContosoWebApp1 web application"
-[25]: ./media/guidance-ra-identity-aad/figure26.png "Signing in to Azure AAD from the ContosoWebApp1 web application"
-[26]: ./media/guidance-ra-identity-aad/figure27.png "Changing the folder for the default web site"
+[aad-app-proxy]: ../active-directory/active-directory-application-proxy-publish.md
+[0]: ./media/guidance-identity-aad/figure1.png "Cloud identity architecture using Azure Active Directory"
+[1]: ./media/guidance-identity-aad/figure2.png "Single forest, single AAD directory topology"
+[2]: ./media/guidance-identity-aad/figure3.png "Multiple forests, single AAD directory topology"
+[4]: ./media/guidance-identity-aad/figure5.png "Staging server topology"
+[5]: ./media/guidance-identity-aad/figure6.png "Multiple AAD directories topology"
+[6]: ./media/guidance-identity-aad/figure7.png "Selecting a custom installation of Azure AD Connect Sync with a specific instance of SQL Server"
+[7]: ./media/guidance-identity-aad/figure8.png "Specifying the SSO method for user sign-in"
+[8]: ./media/guidance-identity-aad/figure9.png "Specifying Domain and OU filtering options"
+[9]: ./media/guidance-identity-aad/figure10.png "Enabling password write-back"
+[10]: ./media/guidance-identity-aad/figure11.png "The Azure AD management blade in the portal"
+[11]: ./media/guidance-identity-aad/figure12.png "The Azure AD Connect console"
+[12]: ./media/guidance-identity-aad/figure13.png "The Operations tab in the Synchronization Service Manager"
+[13]: ./media/guidance-identity-aad/figure14.png "The Connectors tab in the Synchronization Service Manager"
+[14]: ./media/guidance-identity-aad/figure15.png "The Synchronization Rules Editor"
+[15]: ./media/guidance-identity-aad/figure16.png "The Azure Active Directory Connect Health blade in the Azure portal showing synchronization health"
+[16]: ./media/guidance-identity-aad/figure17.png "The Azure Active Directory Connect Health blade in the Azure portal showing AD DS health"
+[17]: ./media/guidance-identity-aad/figure18.png "Security reports available in the Azure portal"
+[18]: ./media/guidance-identity-aad/figure19.png "The Azure portal highlighting the public IP address of the web-tier load balancer"
+[19]: ./media/guidance-identity-aad/figure20.png "Using Internet Explorer to browse to the public IP address of the web-tier load balancer"
+[20]: ./media/guidance-identity-aad/figure21.png "The certificates snap-in showing the www.contoso.com certificate"
+[21]: ./media/guidance-identity-aad/figure22.png "Connecting to the management tier VM"
+[22]: ./media/guidance-identity-aad/figure23.png "Creating the HTTPS binding for the default web site"
+[23]: ./media/guidance-identity-aad/figure24.png "Creating the ContosoWebApp1 web application"
+[24]: ./media/guidance-identity-aad/figure25.png "Setting the authentication properties of the ContosoWebApp1 web application"
+[25]: ./media/guidance-identity-aad/figure26.png "Signing in to Azure AAD from the ContosoWebApp1 web application"
+[26]: ./media/guidance-identity-aad/figure27.png "Changing the folder for the default web site"
