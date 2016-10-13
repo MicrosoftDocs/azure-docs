@@ -255,6 +255,7 @@ Once the reprotect completes, the VM will be replicating back to Azure and you c
 3. When a VM is configured with Static IP address and is failed over to Azure, the IP address is acquired via DHCP. When you fail over back to On-prem, the VM continues to use DHCP to acquire the IP address. You will need to manually login into the machine and set the IP address back to Static address if required.
 4. If you are using either ESXi 5.5 free edition or vSphere 6 Hypervisor free edition, failover would succeed, but failback will not succeed. You will need to upgrade to either Evaluation License to enable failback.
 5. If CS is not reachable from the Process server, you can check connectivity from your process server to CS by - Telnet to the CS machine on port 443. You can also try to ping the CS from the PS machine. A PS server should also have a hearbeat when it is connected to the CS.
+6. If you are trying to failback to an alternate vCenter, make sure that your new vCenter is discovered, with the Master Target server also discovered. As a typical symptom, you will see the datastores are not accessible/visible in the Reprotect dialog.
 
 ## Failing back with ExpressRoute
 
