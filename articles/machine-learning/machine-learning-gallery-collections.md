@@ -90,7 +90,6 @@ Follow these steps to create and contribute a collection to the Cortana Intellig
 
 	> [AZURE.IMPORTANT] Once you set a collection to **Public**, you can not set it to **Unlisted**.
 
-
 	![Select Public or Unlisted](media\machine-learning-gallery-collections\create-collection-page-3.png)
 
 - Click **Create**
@@ -99,14 +98,22 @@ Your collection is now part of the Cortana Intelligence Gallery. It will be list
 
 ### Add items to a collection
 
-You can add items to your collection by opening the collection, clicking **Edit**, and then clicking **Add Item**. You'll be shown a list of items you've contributed to the Gallery, or you can search the Gallery for items to add. Click an item to select it. Every item you select is included in the set of items to add - the **Add** button indicates how many items have been selected.
+You can add items to your collection by opening the collection, clicking **Edit**, and then clicking **Add Item**.
+
+![Add items to a Collection from the details page](media\machine-learning-gallery-collections\add-to-collection-from-details-page.png)
+
+You'll be shown a list of items you've contributed to the Gallery, or you can search the Gallery for items to add. Click an item to select it. Every item you select is included in the set of items to add - the **Add** button indicates how many items have been selected.
+
+![Add to collection](media\machine-learning-gallery-collections\add-to-collection.png)
 
 Or, if you find an item while browsing through the Gallery that you want to include, just open the item, click **Add to collection**, and specify the collection you want to add it to.
 
-You can change the summary, description, or tags of your collection by opening the collection and clicking **Edit**.
-While you're editing your collection, you can also change the order of the items in the collection by using the arrow buttons next to an item to move it in the list. And you add notes to the items in your collection by clicking the upper-right corner of an item and selecting **Add/Edit note**.
+![Add items to a Collection from the details page](media\machine-learning-gallery-collections\add-to-collection-from-item-details.png)
 
-To remove an item from your collection, click the upper-right corner of the item and select **Remove**.
+You can change the summary, description, or tags of your collection by opening the collection and clicking **Edit**.
+While you're editing your collection, you can also change the order of the items in the collection by using the arrow buttons next to an item to move it in the list. And you add notes to the items in your collection by clicking the upper-right corner of an item and selecting **Add/Edit note**. To remove an item from your collection, select **Remove**.
+
+![Change details for a Collection](media\machine-learning-gallery-collections\change-collection-details.png)
 
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**

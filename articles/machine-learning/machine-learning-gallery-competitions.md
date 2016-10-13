@@ -33,6 +33,8 @@ provide an exciting opportunity to compete with the community of data scientists
   in the Gallery, open the [Gallery](http://gallery.cortanaintelligence.com), point your mouse to **More** at the top of the Gallery home page, and select
 **Competitions**.
 
+![Select Competitions from the Gallery home page](media/machine-learning-gallery-competitions/select-competitions-in-gallery.png)
+
  The
 **[Competitions](https://gallery.cortanaintelligence.com/competitions)**
  page displays a list of the most popular

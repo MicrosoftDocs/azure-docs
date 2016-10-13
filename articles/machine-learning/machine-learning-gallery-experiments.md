@@ -27,7 +27,7 @@ The Gallery contains a wide variety of
 **[Experiments](https://gallery.cortanaintelligence.com/experiments)**
 that have been developed in [Azure Machine Learning Studio](https://studio.azureml.net). These range from quick proof-of-concept experiments that demonstrate a specific machine learning technique, to fully-developed solutions for complex machine learning problems.
 
-> [AZURE.TIP] An *experiment* is a canvas in Azure Machine Learning Studio that lets you construct a predictive analysis model by connecting together data with various analytical modules. You can try different ideas, do trial runs, and eventually publish your model as a web service in Azure. For an example of creating a simple experiment, see [Machine learning tutorial: Create your first experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md). For a more complete walkthrough of creating a predictive analytics solution, see [Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
+> [AZURE.NOTE] An *experiment* is a canvas in Azure Machine Learning Studio that lets you construct a predictive analysis model by connecting together data with various analytical modules. You can try different ideas, do trial runs, and eventually publish your model as a web service in Azure. For an example of creating a simple experiment, see [Machine learning tutorial: Create your first experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md). For a more complete walkthrough of creating a predictive analytics solution, see [Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
 
 ## Discover
 
@@ -131,22 +131,23 @@ Follow these steps to contribute an experiment to the Cortana Intelligence Galle
 
   You can use Markdown to format as needed. Click the **Preview** icon to see how things will look when published.
 
-	![Click "Preview" to see what your text will look like](media\machine-learning-gallery-experiments\preview-markdown-text.png)
-
-	> [AZURE.TIP] The box provided for Markdown editing and preview box is quite small. We recommend that you write your documentation in a Markdown editor and paste the completed document into the text box.  After you've published your experiment, you can use standard web-based tools in Markdown for editing and preview to make necessary tweaks and corrections.
+  ![Click "Preview" to see what your text will look like](media\machine-learning-gallery-experiments\preview-markdown-text.png)
+  </br>
+  > [AZURE.TIP] The box provided for Markdown editing and preview box is quite small. We recommend that you write your documentation in a Markdown editor and paste the completed document into the text box.  After you've published your experiment, you can use standard web-based tools in Markdown for editing and preview to make necessary tweaks and corrections.
 
 7. Upload a thumbnail image for your gallery item. This will appear at the top of the item page and in the item tile when browsing the gallery. You can choose an image from your computer or select one of the stock images.
 
-	![Upload or select an image for the Gallery](media\machine-learning-gallery-experiments\select-gallery-image.png)
+  ![Upload or select an image for the Gallery](media\machine-learning-gallery-experiments\select-gallery-image.png)
 
 8. Choose whether to publish your content publicly, or have it only accessible to people with the link.
 
   ![Choose whether to publish publicly or as unlisted](media\machine-learning-gallery-experiments\choose-public-or-unlisted.png)
-	> [AZURE.TIP] If you want to make sure your documentation looks right before releasing it publicly, you can publish it as unlisted first, and then switch it to Public from the item page.
+  </br>
+  > [AZURE.TIP] If you want to make sure your documentation looks right before releasing it publicly, you can publish it as unlisted first, and then switch it to Public from the item page.
 
 9. Click the **OK** checkmark to publish the experiment to the Gallery.
 
-	![Click the OK checkmark to publish the experiment](media\machine-learning-gallery-experiments\ok-checkmark.png)
+  ![Click the OK checkmark to publish the experiment](media\machine-learning-gallery-experiments\ok-checkmark.png)
 
 See the section below, **Suggestions for publishing and for quality documentation**, for tips on how to publish a quality Gallery experiment.
 
@@ -166,6 +167,7 @@ go back to the experiment in Machine Learning Studio, make your changes, and pub
 If you just need to change any of the following information for your experiment,
 or you need to delete the experiment from the Gallery,
 you can make all of these changes in the Gallery:
+
 - Experiment name
 - Summary or description text
 - Tags specified
