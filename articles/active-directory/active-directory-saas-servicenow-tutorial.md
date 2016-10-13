@@ -336,7 +336,7 @@ This link relationship is established by assigning the value of the **user name*
 
 1. On the **Single Sign-On** dialog, click **Add New IdP**.
 
-    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC7694976ex.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694976ex.png "Configure single sign-on")
 
 
 1. On the **Add New Identity Provider** dialog, under **Configure Identity Provider**, perform the following steps:
