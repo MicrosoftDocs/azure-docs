@@ -19,24 +19,24 @@
 # What workloads can you protect with Azure Site Recovery?
 
 
-This article describes which workloads and applications you can protect with Azure Site Recovery.
+This article describes workloads and applications you can replicate with the Azure Site Recovery service.
 
 Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Overview
 
-Organizations need a business continuity and disaster recovery (BCDR) strategy, that determines how apps, workloads, and data remain available during planned and unplanned downtime, and recover to regular working conditions as soon as possible.
+Organizations need a business continuity and disaster recovery (BCDR) strategy to keep workloads and data safe and available during planned and unplanned downtime, and recover to regular working conditions as soon as possible.
 
-Site Recovery is an Azure service that contributes to your BCDR strategy. Using Site Recovery, you can deploy application-aware resiliency solutionsm by orchestrating replication of on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary site. Whether your apps are Windows or Linux-based, running on physical servers, VMware or Hyper-V, you can use Site Recovery to orchestrate replication, perform disaster recovery testing, and run failovers and failback.
+Site Recovery is an Azure service that contributes to your BCDR strategy. Using Site Recovery, you can deploy application-aware replication to the cloud, or to a secondary site. Whether your apps are Windows or Linux-based, running on physical servers, VMware or Hyper-V, you can use Site Recovery to orchestrate replication, perform disaster recovery testing, and run failovers and failback.
 
 
-Site Recovery integrates with Microsoft applications, including SharePoint, Exchange, Dynamics, SQL Server and Active Directory. Microsoft also works closely with leading vendors including Oracle, SAP, IBM and Red Hat, to ensure their applications and services work well on Microsoft platforms including Azure. You can customize a solution on an app-by-app basis.
+Site Recovery integrates with Microsoft applications, including SharePoint, Exchange, Dynamics, SQL Server and Active Directory. Microsoft also works closely with leading vendors including Oracle, SAP, IBM and Red Hat. You can customize replication solutions on an app-by-app basis.
 
-## Why use Site Recovery for application protection?
+## Why use Site Recovery for application replication?
 
 Site Recovery contributes to application-level protection and recovery as follows:
 
-- App-agnostic, providing replication for any workloads running in a supported VM.
+- App-agnostic, providing replication for any workloads running on a supported machine.
 - Near-synchronous replication, with RPOs as low as 30 seconds to meet the needs of most critical business apps.
 - App-consistent snapshots, for single or multi-tier applications.
 - Integration with SQL Server AlwaysOn, and partnership with other application-level replication technologies, including AD replication, SQL AlwaysOn, Exchange Database Availability Groups (DAGs) and Oracle Data Guard.
@@ -46,9 +46,9 @@ Site Recovery contributes to application-level protection and recovery as follow
 
 
 
-##Workload summary
+## Workload summary
 
-Site Recovery can replicate any app running on a supported virtual machine. In addition we've partnered with product teams to carry out additional app-specific testing.
+Site Recovery can replicate any app running on a supported machine. In addition we've partnered with product teams to carry out additional app-specific testing.
 
 **Workload** | **Replicate Hyper-V VMs to a secondary site** | **Replicate Hyper-V VMs to Azure** | **Replicate VMware VMs to a secondary site** | **Replicate VMware VMs to Azure**
 ---|---|---|---|---
