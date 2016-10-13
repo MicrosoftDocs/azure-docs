@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/26/2016"
+	ms.date="10/13/2016"
 	ms.author="roopalik;garye"/>
 
 
@@ -40,7 +40,7 @@ Make them your own with the included instructions or with a featured partner.
  The
 **[Solutions](https://gallery.cortanaintelligence.com/solutions)**
  page displays a list of the most recently added
-templates.
+Solutions.
  Click **See all** to view all
 Solutions.
  From this page you can browse all the

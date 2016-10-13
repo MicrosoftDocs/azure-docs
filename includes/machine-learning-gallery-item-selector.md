@@ -6,9 +6,9 @@ The Gallery contains a variety of resources that you can use to develop your own
 - [Industries](machine-learning-gallery-industries.md)
 - [Solutions](machine-learning-gallery-solutions.md)
 - [Experiments](machine-learning-gallery-experiments.md)
-- [APIs](machine-learning-gallery-apis.md)
+<!-- - [APIs](machine-learning-gallery-apis.md) -->
 - [Notebooks](machine-learning-gallery-jupyter-notebooks.md)
 - [Competitions](machine-learning-gallery-competitions.md)
 - [Tutorials](machine-learning-gallery-tutorials.md)
 - [Collections](machine-learning-gallery-collections.md)
-- [Custom Modules](machine-learning-gallery-custom-modules.md)
+<!-- - [Custom Modules](machine-learning-gallery-custom-modules.md) -->

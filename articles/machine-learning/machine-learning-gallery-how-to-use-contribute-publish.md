@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/26/2016"
+	ms.date="10/13/2016"
 	ms.author="roopalik;garye"/>
 
 
@@ -34,7 +34,9 @@ The Cortana Intelligence Gallery contains a variety of resources that you can us
 - **[Jupyter Notebooks](machine-learning-gallery-jupyter-notebooks.md)** - Jupyter Notebooks include code, data visualizations, and documentation in a single, interactive canvas.
 Notebooks in the Gallery provide tutorials and detailed explanations of advanced machine learning techniques and solutions.
 
+<!--
 - **[Machine Learning APIs](https://machine-learning-gallery-apis.md)** - An experiment developed in Azure Machine Learning can be launched as a web service so that the analytics model can be accessed by others through a set of REST APIs. A variety of these APIs are available in the Gallery, such as a product recommendation engine or cloud-based face and speech recognition.
+-->
 
 -  **[Solutions](machine-learning-gallery-solutions.md)** - Quickly build Cortana Intelligence Solutions from preconfigured solutions, reference architectures, and design patterns. Make them your own with the included instructions or with a featured partner.
 
@@ -47,6 +49,8 @@ These basic Gallery resources can be grouped together logically in a couple diff
 - **[Industries](machine-learning-gallery-industries.md)** - The Industries section of the Gallery brings together various resources that are specific to such industries as retail, manufacturing, banking, and healthcare.
 
 Finally, **[Competitions](machine-learning-gallery-competitions.md)** provide an exciting opportunity to compete with the community of data scientsts to solve complex problems using Cortana Intelligence Suite.
+
+![Cortana Intelligence Gallery home page](media\machine-learning-gallery-how-to-use-contribute-publish\gallery-home-page.png)
 
 ## Discover and learn
 
