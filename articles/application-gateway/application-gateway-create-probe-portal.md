@@ -54,11 +54,11 @@ Click **Probes** and click the **Add** button to add a new probe.
 Fill out the required information for the probe and when complete click **OK**.
 
 - **Name** - This is a friendly name to the probe that is accessible in the portal.
-- **Host** - This is the host name that is used for the probe.
-- **Path** - The remainder of the full url for the custom probe.
-- **Interval (secs)** - How often the probe is run to check for health.
-- **Timeout (secs)** - The amount of time the probe waits before timing out.
-- **Unhealthy threshold** - Number of failed attempts to be considered unhealthy.
+- **Host** - This is the host name that is used for the probe. Applicable only when multi-site is configured on Application Gateway, otherwise use '127.0.0.1'. This is different from VM host name.
+- **Path** - The remainder of the full url for the custom probe. A valid path starts with '/'
+- **Interval (secs)** - How often the probe is run to check for health. It is not recommended to set the lower than 30 seconds.
+- **Timeout (secs)** - The amount of time the probe waits before timing out. The timeout interval needs to be high enough that an http call can be made to ensure the backend health page is available.
+- **Unhealthy threshold** - Number of failed attempts to be considered unhealthy. A threshold of 0 means that if a health check fails the back-end will be determined unhealthy immediately.
 
 > [AZURE.IMPORTANT] the host name is not the server name. This is the name of the virtual host running on the application server. The probe is sent to http://(host name):(port from httpsetting)/urlPath
 

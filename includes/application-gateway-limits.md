@@ -1,6 +1,6 @@
 Resource| Default limit | Note
 ---|---|---
-Application Gateway | 50 per subscription | 
+Application Gateway | 50 per subscription |
 Frontend IP Configurations| 2 | 1 public and 1 private
 Frontend Ports | 20 |
 Backend Address Pools | 20 |
@@ -14,5 +14,3 @@ Request timeout min | 1 second |
 Request timeout max | 24hrs |
 Number of sites | 20 | 1 per HTTP Listeners
 URL Maps per listener | 1 |
-
-<sup>1</sup>Contact support in case you need to increase these limits.
