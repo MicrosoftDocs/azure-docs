@@ -27,7 +27,7 @@ The purpose of this guide is to help new users of Azure Premium Storage better p
 
   - [Plan the Migration to Premium Storage](#plan-the-migration-to-premium-storage)
   - [Prepare and Copy Virtual Hard Disks (VHDs) to Premium Storage](#prepare-and-copy-virtual-hard-disks-VHDs-to-premium-storage)
-  - [Create Azure Virtual Machine using Premium Storage](#create-azure-virtual-machine-using-premium-storage)l
+  - [Create Azure Virtual Machine using Premium Storage](#create-azure-virtual-machine-using-premium-storage)
 
 You can either migrate VMs from other platforms to Azure Premium Storage or migrate existing Azure VMs from Standard Storage to Premium Storage. This guide covers steps for both two scenarios. Follow the steps specified in the relevant section depending on your scenario.
 
