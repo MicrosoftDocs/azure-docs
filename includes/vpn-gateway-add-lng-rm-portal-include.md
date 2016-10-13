@@ -1,4 +1,4 @@
-1. In the portal, navigate to **New** > **Networking** > **Local network gateway**.
+1. In the portal, from **All resources**, click **+Add**. In the **Everything** blade search, input **Local network gateway** and search. Click **Local network gateway** from the list to open the blade, then click **Create** to open the **Create local network gateway** blade.
 
 	![create local network gateway](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
 
