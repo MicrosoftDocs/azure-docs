@@ -72,8 +72,8 @@ The following table describes the parameters:
 
 | Parameter | Description |
 |-----------|-------------|
-| Name | The ARM resource name for the Traffic Manager profile resource. Profiles in the same resource group must have unique names. This name is separate from the DNS name used for DNS queries.|
-| ResourceGroupName | The name of the ARM resource group containing the profile resource.|
+| Name | The resource name for the Traffic Manager profile resource. Profiles in the same resource group must have unique names. This name is separate from the DNS name used for DNS queries.|
+| ResourceGroupName | The name of the resource group containing the profile resource.|
 | TrafficRoutingMethod | Specifies the traffic-routing method used to determine which endpoint is returned in response a DNS query. Possible values are 'Performance', 'Weighted' or 'Priority'.|
 | RelativeDnsName | Specifies the hostname portion of the DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully qualified domain name (FQDN) of the profile. For example, setting the value of 'contoso' becomes 'contoso.trafficmanager.net.'|
 | TTL | Specifies the DNS Time-to-Live (TTL), in seconds. This TTL informs the Local DNS resolvers and DNS clients how long to cache DNS responses for this Traffic Manager profile.|
@@ -159,7 +159,7 @@ In this example, a 'classic' Cloud Service endpoint is added to a Traffic Manage
 
 ### Example 3: Adding a publicIpAddress endpoint using New-AzureRmTrafficManagerEndpoint
 
-In this example, an ARM public IP address resource is added to the Traffic Manager profile. The public IP address must have a DNS name configured, and can be bound either to the NIC of a VM or to a load balancer.
+In this example, a public IP address resource is added to the Traffic Manager profile. The public IP address must have a DNS name configured, and can be bound either to the NIC of a VM or to a load balancer.
 
     $ip = Get-AzureRmPublicIpAddress -Name MyPublicIP -ResourceGroupName MyRG
     New-AzureRmTrafficManagerEndpoint -Name MyIpEndpoint -ProfileName MyProfile -ResourceGroupName MyRG -Type AzureEndpoints -TargetResourceId $ip.Id -EndpointStatus Enabled
