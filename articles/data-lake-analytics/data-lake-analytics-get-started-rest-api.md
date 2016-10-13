@@ -38,7 +38,7 @@ See [Authenticate using Azure Active Directory](,./data-lake-store/data-lake-sto
 
 You must create an Azure Resource group, and a Data Lake Store account before you can create a Data Lake Analytics account.  See [Create a Data Lake Store account](../data-lake-store/data-lake-store-get-started-rest-api.md#create-a-data-lake-store-account).
 
-The following Curl command shows how to make the call:
+The following Curl command shows how to create an account:
 
 	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/<AzureSubscriptionID>/resourceGroups/<AzureResourceGroupName>/providers/Microsoft.DataLakeAnalytics/accounts/<NewAzureDataLakeAnalyticsAccountName>?api-version=2015-10-01-preview -d@"C:\tutorials\adla\CreateDataLakeAnalyticsAccountRequest.json"
 
@@ -61,7 +61,7 @@ Replace \<`REDACTED`\> with the authorization token, \<`AzureSubscriptionID`\> w
 
 ## List Data Lake Analytics accounts in a subscription
 
-The following Curl command shows how to make the call:
+The following Curl command shows how to list accounts in a subscription:
 
 	curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/<AzureSubscriptionID>/providers/Microsoft.DataLakeAnalytics/Accounts?api-version=2015-10-01-preview
 
@@ -104,7 +104,7 @@ Replace \<`REDACTED`\> with the authorization token, \<`AzureSubscriptionID`\> w
 
 ## Get information about a Data Lake Analytics account
 
-The following Curl command shows how to make the call:
+The following Curl command shows how to get an account information:
 
 	curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/<AzureSubscriptionID>/resourceGroups/<AzureResourceGroupName>/providers/Microsoft.DataLakeAnalytics/accounts/<DataLakeAnalyticsAccountName>?api-version=2015-11-01
 
@@ -137,7 +137,7 @@ Replace \<`REDACTED`\> with the authorization token, \<`AzureSubscriptionID`\> w
 
 ## List Data Lake Stores of a Data Lake Analytics account
 
-The following Curl command shows how to make the call:
+The following Curl command shows how to list Data Lake Stores of an account:
 
 	curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/<AzureSubscriptionID>/resourceGroups/<AzureResourceGroupName>/providers/Microsoft.DataLakeAnalytics/accounts/<DataLakeAnalyticsAccountName>/DataLakeStoreAccounts/?api-version=2015-10-01-preview
 
@@ -158,7 +158,7 @@ Replace \<`REDACTED`\> with the authorization token, \<`AzureSubscriptionID`\> w
 
 ## Submit U-SQL jobs
 
-The following Curl command shows how to make the call:
+The following Curl command shows how to submit a U-SQL job:
 
 	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/Jobs/<NewGUID>?api-version=2016-03-20-preview -d@"C:\tutorials\adla\SubmitADLAJob.json"
 
@@ -216,7 +216,7 @@ The output is similar to:
 
 ## List U-SQL jobs
 
-The following Curl command shows how to make the call:
+The following Curl command shows how to list U-SQL jobs:
 
 	curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/Jobs?api-version=2015-10-01-preview 
 
@@ -271,7 +271,7 @@ The output is similar to:
 	}
 
 
-## Get catalog items:
+## Get catalog items
 
 The following Curl command shows how to get the databases from the catalog:
 
@@ -288,10 +288,6 @@ The output is similar to:
     }
   ]
 }
-
-
-
-
 
 ## See also
 
