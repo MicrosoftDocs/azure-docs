@@ -30,7 +30,7 @@ Get and run a sample from [here](https://azure.microsoft.com/documentation/sampl
 
 ##Prerequisites
 
-- Two Media Services accounts in a new or existing Azure subscription. See the topic [How to Create a Media Services Account](media-services-create-account.md).
+- Two Media Services accounts in a new or existing Azure subscription. See the topic [How to Create a Media Services Account](media-services-portal-create-account.md).
 - Operating Systems: Windows 10, Windows 7, Windows 2008 R2, or Windows 8.
 - .NET Framework 4.5.
 - Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express) or later.
