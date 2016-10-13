@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/29/2016"
+	ms.date="08/15/2016"
 	ms.author="magoedte;csand"/>
 
 #Managing Azure RemoteApp using Azure Automation
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
 This guide will introduce you to the Azure Automation service, and how it can be used to simplify management of Azure RemoteApp.
 

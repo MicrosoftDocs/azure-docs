@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
     ms.topic="hero-article"
-    ms.date="07/21/2016"
+    ms.date="08/17/2016"
     ms.author="ricksal"/>
 
 #Create an Android app
@@ -32,7 +32,6 @@ To complete this tutorial, you need the following:
 
 * [Android Developer Tools](https://developer.android.com/sdk/index.html), which includes the Android Studio integrated development environment, and the latest Android platform.
 * Azure Mobile Android SDK, which is automatically referenced as part of the quickstart project you download.
-* A PC with [Visual Studio Community 2013] or newer&mdash;not required for a Node.js backend.
 * An [active Azure account](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Create a new Azure mobile app backend

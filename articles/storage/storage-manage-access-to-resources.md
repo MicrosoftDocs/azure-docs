@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 
 # Manage anonymous read access to containers and blobs
@@ -22,7 +22,7 @@
 
 By default, only the owner of the storage account may access storage resources within that account. For Blob storage only, you can set a container's permissions to permit anonymous read access to the container and its blobs, so that you can grant access to those resources without sharing your account key.
 
-Anonymous access is best for scenarios where you want certain blobs to always be available for anonymous read access. For finer-grained control, you can create a shared access signature, which enables you to delegate restricted access using different permissions and over a specified time interval. For more information about creating shared access signatures, see [Shared Access Signatures: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md).
+Anonymous access is best for scenarios where you want certain blobs to always be available for anonymous read access. For finer-grained control, you can create a shared access signature, which enables you to delegate restricted access using different permissions and over a specified time interval. For more information about creating shared access signatures, see [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 ## Grant anonymous users permissions to containers and blobs
 
@@ -152,5 +152,5 @@ The following table shows which operations may be called by anonymous users when
 ## See Also
 
 - [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx)
-- [Shared access signatures: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md)
+- [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 - [Delegating Access with a Shared Access Signature](https://msdn.microsoft.com/library/azure/ee395415.aspx) 

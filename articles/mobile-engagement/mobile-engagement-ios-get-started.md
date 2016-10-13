@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Get Started with Azure Mobile Engagement for iOS in Objective C"
+	pageTitle="Get Started with Azure Mobile Engagement for iOS in Objective C | Microsoft Azure"
 	description="Learn how to use Azure Mobile Engagement with analytics and push notifications for iOS apps."
 	services="mobile-engagement"
-	documentationCenter="ios"
+	documentationCenter="mobile"
 	authors="piyushjo"
-	manager="dwrede"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
+	ms.date="09/14/2016"
 	ms.author="piyushjo" />
 
 # Get Started with Azure Mobile Engagement for iOS apps in Objective C
@@ -25,7 +25,7 @@ In this tutorial, you create a blank iOS app that collects basic data and receiv
 
 This tutorial requires the following:
 
-+ XCode 6 or XCode 7, which you can install from your MAC App Store
++ XCode 8, which you can install from your MAC App Store
 + the [Mobile Engagement iOS SDK]
 
 Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for iOS apps.

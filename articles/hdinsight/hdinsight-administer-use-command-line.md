@@ -3,7 +3,7 @@
 	description="How to use the Azure CLI to manage Hadoop clusters in HDIsight"
 	services="hdinsight"
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	authors="mumian"
 	tags="azure-portal"
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight using the Azure CLI

@@ -5,6 +5,6 @@ In this scenario, there are two VNets in a subscription, HubVNet and VNet1 as de
 
 ![NVA Transit](./media/virtual-networks-create-vnetpeering-scenario-transit-include/figure01.PNG)
 
-NOTE: For the simplicity, assume all VNets here are in the same subscription. But it also works for cross-subscription scenario. 
+> [AZURE.NOTE] For the simplicity, assume all VNets here are in the same subscription. But it also works for cross-subscription scenario.
 
 The key property to enable Transit routing is the "Allow Forwarded Traffic" parameter. This allows accepting and sending trafic from/to the NVA in the peered VNet.  

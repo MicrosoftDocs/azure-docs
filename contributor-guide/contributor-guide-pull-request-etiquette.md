@@ -18,7 +18,7 @@ Here's the basics you need to know about working with pull request reviewers.
   - Pull requests for timed/dated releases
   - Pull requests that change or add lots of files
 
-- <b>Pull requests may take a few days to be merged</b>
+- <b>SLA for pull request review</b>
 
   In the private repository, each time your pull request enters the pull request queue with the ready-to-merge label, the team tries to review the pull request within 12 business hours (M-F, 8 AM to 5 PM) and provide feedback or merge if no feedback is required. This SLA applies to the act of reviewing the PR, not merging it. PRs will be merged when they meet [the criteria for merging](contributor-guide-pr-criteria.md). 
 
@@ -41,7 +41,7 @@ You can help make the pull request queue work better by following these best pra
 
 ## Criteria for expedited pull requests
 
-- Contact your pull request reviewer to expedite PRs only when absolutely necessary. You can request expedited PR handling for Red Zone, privacy, legal, and security issues; for truly broken customer experiences; and for executive escalations. 
+- Contact azdocprs to expedite PRs only when absolutely necessary. You can request expedited PR handling for Red Zone, privacy, legal, and security issues; for truly broken customer experiences; and for executive escalations. 
 - Content for feature releases does not qualify for expedited handling - feature release content requires prior planning or it must be handled through the standard priority queue.
 
 

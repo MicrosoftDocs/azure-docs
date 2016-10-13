@@ -3,7 +3,7 @@
 	description="This topic shows how to configure different asset delivery policies with Azure Media Services .NET SDK." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,Mingfeiy" 
+	authors="Mingfeiy" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="08/31/2016"
+	ms.author="juliako;mingfeiy"/>
 
 #Configure Asset Delivery Policies with .NET SDK
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -157,7 +157,7 @@ Azure Media Services also enables you to add Widevine encryption. The following 
 
 ##DynamicEnvelopeEncryption asset delivery policy 
 
-The following **CreateAssetDeliveryPolicy** method creates the **AssetDeliveryPolicy** that is configured to apply dynamic envelope encryption (**DynamicEnvelopeEncryption**) to HLS and DASH protocols (other protocols will be blocked from streaming). The method takes two parameters : **Asset** (the asset to which you want to apply the delivery policy) and **IContentKey** (the content key of the **EnvelopeEncryption** type, for more information, see: [Creating a content key](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
+The following **CreateAssetDeliveryPolicy** method creates the **AssetDeliveryPolicy** that is configured to apply dynamic envelope encryption (**DynamicEnvelopeEncryption**) to Smooth Streaming, HLS, and DASH protocols (if you decide to not specify some protocols, they will be blocked from streaming). The method takes two parameters : **Asset** (the asset to which you want to apply the delivery policy) and **IContentKey** (the content key of the **EnvelopeEncryption** type, for more information, see: [Creating a content key](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
 
 
 For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.   
@@ -189,7 +189,7 @@ For information on what values you can specify when creating an AssetDeliveryPol
             _context.AssetDeliveryPolicies.Create(
                         "AssetDeliveryPolicy",
                         AssetDeliveryPolicyType.DynamicEnvelopeEncryption,
-                        AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.Dash,
+                        AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.Dash,
                         assetDeliveryPolicyConfiguration);
 
         // Add AssetDelivery Policy to the asset

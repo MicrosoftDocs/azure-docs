@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Shared Access Signatures: Understanding the SAS Model | Microsoft Azure"
-	description="Learn about delegating access to Azure Storage resources, including blobs, queues, tables, and files, using shared access signatures (SAS). Shared access signatures protect your storage account key while granting access to resources in your account to other users. You can control the permissions that you grant and the interval over which the SAS is valid. If you also establish a stored access policy, you can revoke the SAS should you fear your account security is compromised."
+	pageTitle="Using Shared Access Signatures (SAS) | Microsoft Azure"
+	description="Learn about delegating access to Azure Storage resources, including blobs, queues, tables, and files, using shared access signatures (SAS)."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 
 
 
-# Shared Access Signatures, Part 1: Understanding the SAS model
+# Using Shared Access Signatures (SAS)
 
 ## Overview
 

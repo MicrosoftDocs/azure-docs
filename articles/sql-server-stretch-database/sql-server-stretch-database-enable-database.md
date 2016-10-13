@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="08/05/2016"
 	ms.author="douglasl"/>
 
 # Enable Stretch Database for a database
@@ -22,7 +22,9 @@ To configure an existing database for Stretch Database, select **Tasks | Stretch
 
 If you select **Tasks | Stretch | Enable** for an individual table, and you have not yet enabled the database for Stretch Database, the wizard configures the database for Stretch Database and lets you select tables as part of the process. Follow the steps in this topic instead of the steps in [Enable Stretch Database for a table](sql-server-stretch-database-enable-database.md).
 
-Enabling Stretch Database on  a database or a table requires db\_owner permissions. Enabling Stretch Database on a database also requires CONTROL DATABASE permissions.
+Enabling Stretch Database on a database or a table requires db\_owner permissions. Enabling Stretch Database on a database also requires CONTROL DATABASE permissions.
+
+ >   [AZURE.NOTE] Later, if you disable Stretch Database, remember that disabling Stretch Database for a table or for a database does not delete the remote object. If you want to delete the remote table or the remote database, you have to drop it by using the Azure management portal. The remote objects continue to incur Azure costs until you delete them manually.
 
 ## Before you get started
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/05/2016" 
 	ms.author="stbaro"/>
 
 #Modeling data in DocumentDB#
@@ -123,7 +123,7 @@ In this case it would be better to consider the following model.
 		
 	Post document:
 	{
-		"id": 1,
+		"id": "1",
 		"name": "What's new in the coolest Cloud",
 		"summary": "A blog post by someone real famous",
 		"recentComments": [
@@ -135,7 +135,7 @@ In this case it would be better to consider the following model.
 
 	Comment documents:
 	{
-		"postId": 1
+		"postId": "1"
 		"comments": [
 			{"id": 4, "author": "anon", "comment": "more goodness"},
 			{"id": 5, "author": "bob", "comment": "tails from the field"},
@@ -144,7 +144,7 @@ In this case it would be better to consider the following model.
 		]
 	},
 	{
-		"postId": 1
+		"postId": "1"
 		"comments": [
 			{"id": 100, "author": "anon", "comment": "yet more"},
 			...
@@ -199,7 +199,7 @@ In the JSON below we chose to use the example of a stock portfolio from earlier 
 	
     Stock documents:
     {
-        "id": 1,
+        "id": "1",
         "symbol": "zaza",
         "open": 1,
         "high": 2,
@@ -209,7 +209,7 @@ In the JSON below we chose to use the example of a stock portfolio from earlier 
         "pe": 5.89
     },
     {
-        "id": 2,
+        "id": "2",
         "symbol": "xcxc",
         "open": 89,
         "high": 93.24,
@@ -250,13 +250,13 @@ If we look at the JSON below that models publishers and books.
 	}
 
 	Book documents:
-	{"id": 1, "name": "DocumentDB 101" }
-	{"id": 2, "name": "DocumentDB for RDBMS Users" }
-	{"id": 3, "name": "Taking over the world one JSON doc at a time" }
+	{"id": "1", "name": "DocumentDB 101" }
+	{"id": "2", "name": "DocumentDB for RDBMS Users" }
+	{"id": "3", "name": "Taking over the world one JSON doc at a time" }
 	...
-	{"id": 100, "name": "Learn about Azure DocumentDB" }
+	{"id": "100", "name": "Learn about Azure DocumentDB" }
 	...
-	{"id": 1000, "name": "Deep Dive in to DocumentDB" }
+	{"id": "1000", "name": "Deep Dive in to DocumentDB" }
 
 If the number of the books per publisher is small with limited growth, then storing the book reference inside the publisher document may be useful. However, if the number of books per publisher is unbounded, then this data model would lead to mutable, growing arrays, as in the example publisher document above. 
 
@@ -269,13 +269,13 @@ Switching things around a bit would result in a model that still represents the 
 	}
 	
 	Book documents: 
-	{"id": 1,"name": "DocumentDB 101", "pub-id": "mspress"}
-	{"id": 2,"name": "DocumentDB for RDBMS Users", "pub-id": "mspress"}
-	{"id": 3,"name": "Taking over the world one JSON doc at a time"}
+	{"id": "1","name": "DocumentDB 101", "pub-id": "mspress"}
+	{"id": "2","name": "DocumentDB for RDBMS Users", "pub-id": "mspress"}
+	{"id": "3","name": "Taking over the world one JSON doc at a time"}
 	...
-	{"id": 100,"name": "Learn about Azure DocumentDB", "pub-id": "mspress"}
+	{"id": "100","name": "Learn about Azure DocumentDB", "pub-id": "mspress"}
 	...
-	{"id": 1000,"name": "Deep Dive in to DocumentDB", "pub-id": "mspress"}
+	{"id": "1000","name": "Deep Dive in to DocumentDB", "pub-id": "mspress"}
 
 In the above example, we have dropped the unbounded collection on the publisher document. Instead we just have a a reference to the publisher on each book document.
 
@@ -287,21 +287,21 @@ In a relational database *many:many* relationships are often modeled with join t
 You might be tempted to replicate the same thing using documents and produce a data model that looks similar to the following.
 
 	Author documents: 
-	{"id": 1, "name": "Thomas Andersen" }
-	{"id": 2, "name": "William Wakefield" }
+	{"id": "a1", "name": "Thomas Andersen" }
+	{"id": "a2", "name": "William Wakefield" }
 	
 	Book documents:
-	{"id": 1, "name": "DocumentDB 101" }
-	{"id": 2, "name": "DocumentDB for RDBMS Users" }
-	{"id": 3, "name": "Taking over the world one JSON doc at a time" }
-	{"id": 4, "name": "Learn about Azure DocumentDB" }
-	{"id": 5, "name": "Deep Dive in to DocumentDB" }
+	{"id": "b1", "name": "DocumentDB 101" }
+	{"id": "b2", "name": "DocumentDB for RDBMS Users" }
+	{"id": "b3", "name": "Taking over the world one JSON doc at a time" }
+	{"id": "b4", "name": "Learn about Azure DocumentDB" }
+	{"id": "b5", "name": "Deep Dive in to DocumentDB" }
 	
 	Joining documents: 
-	{"authorId": 1, "bookId": 1 }
-	{"authorId": 2, "bookId": 1 }
-	{"authorId": 1, "bookId": 2 }
-	{"authorId": 1, "bookId": 3 }
+	{"authorId": "a1", "bookId": "b1" }
+	{"authorId": "a2", "bookId": "b1" }
+	{"authorId": "a1", "bookId": "b2" }
+	{"authorId": "a1", "bookId": "b3" }
 
 This would work. However, loading either an author with their books, or loading a book with its author, would always require at least two additional queries against the database. One query to the joining document and then another query to fetch the actual document being joined. 
 
@@ -309,14 +309,14 @@ If all this join table is doing is gluing together two pieces of data, then why 
 Consider the following.
 
 	Author documents:
-	{"id": 1, "name": "Thomas Andersen", "books": [1, 2, 3]}
-	{"id": 2, "name": "William Wakefield", "books": [1, 4]}
+	{"id": "a1", "name": "Thomas Andersen", "books": ["b1, "b2", "b3"]}
+	{"id": "a2", "name": "William Wakefield", "books": ["b1", "b4"]}
 	
 	Book documents: 
-	{"id": 1, "name": "DocumentDB 101", "authors": [1, 2]}
-	{"id": 2, "name": "DocumentDB for RDBMS Users", "authors": [1]}
-	{"id": 3, "name": "Learn about Azure DocumentDB", "authors": [1]}
-	{"id": 4, "name": "Deep Dive in to DocumentDB", "authors": [2]}
+	{"id": "b1", "name": "DocumentDB 101", "authors": ["a1", "a2"]}
+	{"id": "b2", "name": "DocumentDB for RDBMS Users", "authors": ["a1"]}
+	{"id": "b3", "name": "Learn about Azure DocumentDB", "authors": ["a1"]}
+	{"id": "b4", "name": "Deep Dive in to DocumentDB", "authors": ["a2"]}
 
 Now, if I had an author, I immediately know which books they have written, and conversely if I had a book document loaded I would know the ids of the author(s). This saves that intermediary query against the join table reducing the number of server round trips your application has to make. 
 
@@ -331,11 +331,11 @@ Consider the following JSON.
 
 	Author documents: 
 	{
-	    "id": 1,
+	    "id": "a1",
 	    "firstName": "Thomas",
 	    "lastName": "Andersen",		
 	    "countOfBooks": 3,
-	 	"books": [1, 2, 3],
+	 	"books": ["b1", "b2", "b3"],
 		"images": [
 			{"thumbnail": "http://....png"}
 			{"profile": "http://....png"}
@@ -343,11 +343,11 @@ Consider the following JSON.
 		]
 	},
 	{
-	    "id": 2,
+	    "id": "a2",
 	    "firstName": "William",
 	    "lastName": "Wakefield",
 	    "countOfBooks": 1,
-		"books": [1, 4, 5],
+		"books": ["b1", "b4", "b5"],
 		"images": [
 			{"thumbnail": "http://....png"}
 		]
@@ -355,18 +355,18 @@ Consider the following JSON.
 	
 	Book documents:
 	{
-		"id": 1,
+		"id": "b1",
 		"name": "DocumentDB 101",
 		"authors": [
-			{"id": 1, "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
-			{"id": 2, "name": "William Wakefield", "thumbnailUrl": "http://....png"}
+			{"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
+			{"id": "a2", "name": "William Wakefield", "thumbnailUrl": "http://....png"}
 		]
 	},
 	{
-		"id": 2,
+		"id": "b2",
 		"name": "DocumentDB for RDBMS Users",
 		"authors": [
-			{"id": 1, "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
+			{"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
 		]
 	}
 

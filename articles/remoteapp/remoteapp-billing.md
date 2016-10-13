@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/26/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # How to stop being billed for Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
 As long as you have Azure RemoteApp collections, even with no users assigned, you will be billed for RemoteApp. To stop this billing, delete all of your collections. 
 

@@ -47,12 +47,12 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 
 ## Scenario description
-The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.
+The objective of this tutorial is to enable you to test Microsoft Azure AD Single Sign-On in a test environment.
 
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Aravo from the gallery
-2. Configuring and testing Azure AD single sign-on
+2. Configuring and testing Microsoft Azure AD Single Sign-On
 
 
 ## Adding Aravo from the gallery
@@ -86,32 +86,32 @@ To configure the integration of Aravo into Azure AD, you need to add Aravo from 
 	![Selecting the app in the gallery](./media/active-directory-saas-aravo-tutorial/tutorial_aravo_0001.png)
 
 
-##  Configuring and testing Azure AD single sign-on
-The objective of this section is to show you how to configure and test Azure AD single sign-on with Aravo based on a test user called "Britta Simon".
+##  Configuring and testing Microsoft Azure AD Single Sign-On
+The objective of this section is to show you how to configure and test Microsoft Azure AD Single Sign-On with Aravo based on a test user called "Britta Simon".
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in Aravo to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Aravo needs to be established.
 
 This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Aravo.
 
-To configure and test Azure AD single sign-on with Aravo, you need to complete the following building blocks:
+To configure and test Microsoft Azure AD Single Sign-On with Aravo, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Configuring Microsoft Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Microsoft Azure AD Single Sign-On with Britta Simon.
 3. **[Creating a Aravo test user](#creating-a-aravo-test-user)** - to have a counterpart of Britta Simon in Aravo that is linked to the Azure AD representation of her.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Microsoft Azure AD Single Sign-On.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD Single Sign-On
+### Configuring Microsoft Azure AD Single Sign-On
 
-In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your Aravo application.
+In this section, you enable Microsoft Azure AD Single Sign-On in the classic portal and configure single sign-on in your Aravo application.
 
-**To configure Azure AD single sign-on with Aravo, perform the following steps:**
+**To configure Microsoft Azure AD Single Sign-On with Aravo, perform the following steps:**
 
 1. In the classic portal, on the **Aravo** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 	 
 	![Configure Single Sign-On][6] 
 
-2. On the **How would you like users to sign on to Aravo** page, select **Azure AD Single Sign-On**, and then click **Next**.
+2. On the **How would you like users to sign on to Aravo** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-aravo-tutorial/tutorial_aravo_03.png) 
 
@@ -249,7 +249,7 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 
 ### Testing single sign-on
 
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
+The objective of this section is to test your Microsoft Azure AD Single Sign-On configuration using the Access Panel.
 
 When you click the Aravo tile in the Access Panel, you should get automatically signed-on to your Aravo application.
 

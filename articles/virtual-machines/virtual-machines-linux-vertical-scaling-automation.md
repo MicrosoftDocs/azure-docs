@@ -3,8 +3,8 @@
 	description="How to vertically scale a Linux Virtual Machine in response to monitoring alerts with Azure Automation"
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="singhkay"
-	manager="drewm"
+	authors="singhkays"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 

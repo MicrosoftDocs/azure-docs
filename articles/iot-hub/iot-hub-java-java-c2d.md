@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="06/23/2016"
+     ms.date="09/13/2016"
      ms.author="dobett"/>
 
 # Tutorial: How to send cloud-to-device messages with IoT Hub and Java
@@ -32,14 +32,14 @@ This tutorial builds on [Get started with IoT Hub]. It shows you how to:
 
 You can find more information on cloud-to-device messages in the [IoT Hub Developer Guide][IoT Hub Developer Guide - C2D].
 
-At the end of this tutorial, you will run two Java console applications:
+At the end of this tutorial, you run two Java console applications:
 
 * **simulated-device**, a modified version of the app created in [Get started with IoT Hub], which connects to your IoT hub and receives cloud-to-device messages.
 * **send-c2d-messages**, which sends a cloud-to-device message to the simulated device through IoT Hub, and then receives its delivery acknowledgement.
 
 > [AZURE.NOTE] IoT Hub has SDK support for many device platforms and languages (including C, Java, and Javascript) through Azure IoT device SDKs. For step-by-step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [Azure IoT Developer Center].
 
-To complete this tutorial, you'll need the following:
+To complete this tutorial, you need the following:
 
 + Java SE 8. <br/> [Prepare your development environment][lnk-dev-setup] describes how to install Java for this tutorial on either Windows or Linux.
 
@@ -49,7 +49,7 @@ To complete this tutorial, you'll need the following:
 
 ## Receive messages on the simulated device
 
-In this section, you'll modify the simulated device application you created in [Get started with IoT Hub] to receive cloud-to-device messages from the IoT hub.
+In this section, you modify the simulated device application you created in [Get started with IoT Hub] to receive cloud-to-device messages from the IoT hub.
 
 1. Using a text editor, open the simulated-device\src\main\java\com\mycompany\app\App.java file.
 
@@ -81,9 +81,9 @@ In this section, you'll modify the simulated device application you created in [
 
 ## Send a cloud-to-device message
 
-In this section, you'll create a Java console app that sends cloud-to-device messages to the simulated device app. You need the device Id of the device you added in the [Get started with IoT Hub] tutorial and the connection string for your IoT hub which you can find in the [Azure portal].
+In this section, you create a Java console app that sends cloud-to-device messages to the simulated device app. You need the device Id of the device you added in the [Get started with IoT Hub] tutorial. You also need the connection string for your IoT hub that you can find in the [Azure portal].
 
-1. Create a new Maven project called **send-c2d-messages** using the following command at your command-prompt. Note that this is a single, long command:
+1. Create a Maven project called **send-c2d-messages** using the following command at your command-prompt. Note this is a single, long command:
 
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=send-c2d-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -91,7 +91,7 @@ In this section, you'll create a Java console app that sends cloud-to-device mes
 
 2. At your command prompt, navigate to the new send-c2d-messages folder.
 
-3. Using a text editor, open the pom.xml file in the send-c2d-messages folder and add the following dependency to the **dependencies** node. This enables you to use the **iothub-java-service-client** package in your application to communicate with your IoT hub service:
+3. Using a text editor, open the pom.xml file in the send-c2d-messages folder and add the following dependency to the **dependencies** node. Adding the dependency enables you to use the **iothub-java-service-client** package in your application to communicate with your IoT hub service:
 
     ```
     <dependency>
@@ -159,7 +159,7 @@ In this section, you'll create a Java console app that sends cloud-to-device mes
 
 You are now ready to run the applications.
 
-1. At a command-prompt in the simulated-device folder, run the following command to begin sending telemetry data to your IoT hub and to listen for cloud-to-device messages sent from your IoT hub:
+1. At a command-prompt in the simulated-device folder, run the following command to begin sending telemetry to your IoT hub and to listen for cloud-to-device messages sent from your hub:
 
     ```
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
@@ -173,7 +173,7 @@ You are now ready to run the applications.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Run the command to send the c2d message][img-send-command]
+    ![Run the command to send the cloud-to-device message][img-send-command]
 
 ## Next steps
 

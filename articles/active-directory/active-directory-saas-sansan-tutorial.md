@@ -47,11 +47,11 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
+In this tutorial, you test Microsoft Microsoft Azure AD Single Sign-On in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding SanSan from the gallery
-2. Configuring and testing Azure AD single sign-on
+2. Configuring and testing Microsoft Azure AD Single Sign-On
 
 
 ## Adding SanSan from the gallery
@@ -85,33 +85,33 @@ To configure the integration of SanSan into Azure AD, you need to add SanSan fro
 
 	![Creating an Azure AD test user](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_06.png)
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with SanSan based on a test user called "Britta Simon".
+##  Configuring and testing Microsoft Azure AD Single Sign-On
+In this section, you configure and test Microsoft Azure AD Single Sign-On with SanSan based on a test user called "Britta Simon".
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in SanSan is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in SanSan needs to be established.
 This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in SanSan.
 
-To configure and test Azure AD single sign-on with SanSan, you need to complete the following building blocks:
+To configure and test Microsoft Azure AD Single Sign-On with SanSan, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Configuring Microsoft Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Microsoft Azure AD Single Sign-On with Britta Simon.
 4. **[Creating an SanSan test user](#creating-an-sansan-test-user)** - to have a counterpart of Britta Simon in SanSan that is linked to the Azure AD representation of her.
-5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Microsoft Azure AD Single Sign-On.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD single sign-on
+### Configuring Microsoft Azure AD Single Sign-On
 
-In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your SanSan application.
+In this section, you enable Microsoft Azure AD Single Sign-On in the classic portal and configure single sign-on in your SanSan application.
 
 
-**To configure Azure AD single sign-on with SanSan, perform the following steps:**
+**To configure Microsoft Azure AD Single Sign-On with SanSan, perform the following steps:**
 
 
 1. In the Azure classic portal, on the **SanSan** application integration page, click Configure single sign-on to open the Configure Single Sign-On dialog.
 
 	![Configure Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_general_05.png) 
 
-2. On the **How would you like users to sign on to SanSan** page, select **Azure AD Single Sign-On**, and then click **Next**.
+2. On the **How would you like users to sign on to SanSan** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
  	
 	![Configure Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_03.png) 
 
@@ -269,7 +269,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Testing single sign-on
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Microsoft Azure AD Single Sign-On configuration using the Access Panel.
 When you click the SanSan tile in the Access Panel, you should get automatically signed-on to your SanSan application.
 
 

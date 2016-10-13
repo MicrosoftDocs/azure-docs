@@ -3,7 +3,7 @@
    description="Authenticating and authorizing with Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/26/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Authenticating and authorizing with Power BI Embedded
 

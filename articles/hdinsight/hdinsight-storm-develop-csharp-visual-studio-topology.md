@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/27/2016"
+   ms.date="09/14/2016"
    ms.author="larryfr"/>
 
 # Develop C# topologies for Apache Storm on HDInsight using Hadoop tools for Visual Studio

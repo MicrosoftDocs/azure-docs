@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="09/08/2016"
    ms.author="terrylan"/>
 
 # Azure storage security overview
@@ -27,9 +27,9 @@ Azure Storage is the cloud storage solution for modern applications that rely on
 - Delegated access to the data objects in Azure Storage can be granted using Shared Access Signatures.
 - The authentication method used by someone when they access storage can be tracked using Storage analytics.
 
-For a more detailed look at security in Azure Storage see the [Azure Storage security guide](../storage/storage-security-guide.md). This guide provides a deep dive into the security features of Azure Storage such as storage account keys, data encryption in transit and at rest, and storage analytics.
+For a more detailed look at security in Azure Storage, see the [Azure Storage security guide](../storage/storage-security-guide.md). This guide provides a deep dive into the security features of Azure Storage such as storage account keys, data encryption in transit and at rest, and storage analytics.
 
-This article will provide an overview of Azure security features that can be used with Azure Storage. Links are provided to articles that will give details of each feature so you can learn more.
+This article provides an overview of Azure security features that can be used with Azure Storage. Links are provided to articles that give details of each feature so you can learn more.
 
 Here are the core features to be covered in this article:
 
@@ -42,7 +42,7 @@ Here are the core features to be covered in this article:
 
 ## Role-Based Access Control (RBAC)
 
-You can secure your storage account with Role-Based Access Control (RBAC). Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce security policies for data access. These access rights are granted by assigning the appropriate RBAC role to groups and applications at a certain scope. You can leverage [built-in RBAC roles](../active-directory/role-based-access-built-in-roles.md), such as Storage Account Contributor, to assign privileges to users.
+You can secure your storage account with Role-Based Access Control (RBAC). Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce security policies for data access. These access rights are granted by assigning the appropriate RBAC role to groups and applications at a certain scope. You can use [built-in RBAC roles](../active-directory/role-based-access-built-in-roles.md), such as Storage Account Contributor, to assign privileges to users.
 
 Learn more:
 
@@ -50,7 +50,7 @@ Learn more:
 
 ## Delegated access to storage objects
 
-A shared access signature (SAS) provides delegated access to resources in your storage account. This means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to share your account access keys. The SAS is a URI that encompasses in its query parameters all of the information necessary for authenticated access to a storage resource. To access storage resources with the SAS, the client only needs to pass in the SAS to the appropriate constructor or method.
+A shared access signature (SAS) provides delegated access to resources in your storage account. The SAS means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions. You can grant these limited permissions without having to share your account access keys. The SAS is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the SAS, the client only needs to pass in the SAS to the appropriate constructor or method.
 
 Learn more:
 
@@ -71,7 +71,7 @@ Learn more about client-side encryption:
 
 ## Encryption at rest
 
-For many organizations, [data encryption at rest](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is a mandatory step towards data privacy, compliance and data sovereignty. There are three Azure features that provide encryption of data that is “at rest”:
+For many organizations, [data encryption at rest](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is a mandatory step towards data privacy, compliance, and data sovereignty. There are three Azure features that provide encryption of data that is “at rest”:
 
 - [Storage Service Encryption](../storage/storage-security-guide.md#encryption-at-rest) allows you to request that the storage service automatically encrypt data when writing it to Azure Storage.
 - [Client-side Encryption](../storage/storage-security-guide.md#client-side-encryption) also provides the feature of encryption at rest.

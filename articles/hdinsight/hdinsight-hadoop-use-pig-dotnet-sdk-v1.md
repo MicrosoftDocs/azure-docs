@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=".net"
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Manage Azure Backup vaults and servers | Microsoft Azure"
-	description="Use this tutorial to learn how to manage Azure Backup vaults and servers."
+	pageTitle="Manage Azure recovery services vaults and servers | Microsoft Azure"
+	description="Use this tutorial to learn how to manage Azure recovery services vaults and servers."
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
@@ -13,79 +13,154 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
-	ms.author="jimpark;markgal"/>
+	ms.date="07/19/2016"
+	ms.author="jimpark; markgal"/>
 
 
-# Manage Azure Backup vaults and servers
-In this article you'll find an overview of the backup management tasks available through the management portal and the Microsoft Azure Backup agent.
+# Monitor and manage Azure recovery services vaults and servers for Windows machines
 
->[AZURE.NOTE] This article provides the procedures for working in the classic deployment model.
+> [AZURE.SELECTOR]
+- [Resource Manager](backup-azure-manage-windows-server.md)
+- [Classic](backup-azure-manage-windows-server-classic.md)
+
+In this article you'll find an overview of the backup management tasks available through the Azure management portal and the Microsoft Azure Backup agent.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 ## Management portal tasks
-1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
-2. Click **Recovery Services**, then click the name of backup vault to view the Quick Start page.
+### Access your Recovery Services vaults
 
-    ![Manage Azure Backup tabs](./media/backup-azure-manage-windows-server/rs-left-nav.png)
+1. Sign in to the [Azure Portal](https://portal.azure.com/) using your Azure subscription.
 
-By selecting the options at the top of the Quick Start page, you can see the available management tasks.
+2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list will filter based on your input. Click **Recovery Services vaults**.
 
-![Manage Azure Backup tabs](./media/backup-azure-manage-windows-server/qs-page.png)
+    ![Create Recovery Services Vault step 1](./media/backup-azure-manage-windows-server/browse-to-rs-vaults.png) <br/>
 
-### Dashboard
-Select **Dashboard** to see the usage overview for the server. The **usage overview** includes:
+2. Select the name of the vault you want to view from the list to open the Recovery Services vault dashboard blade.
 
-- The number of Windows Servers registered to cloud
-- The number of Azure virtual machines protected in cloud
-- The total storage consumed in Azure
-- The status of recent jobs
+    ![recovery services vault dashboard](./media/backup-azure-manage-windows-server/rs-vault-dashboard.png) <br/>
 
-At the bottom of the Dashboard you can perform the following tasks:
+## Monitor jobs and alerts
+You monitor jobs and alerts from the Recovery Services vault dashboard, where you see:
 
-- **Manage certificate** - If a certificate was used to register the server, then use this to update the certificate. If you are using vault credentials, do not use **Manage certificate**.
-- **Delete** - Deletes the current backup vault. If a backup vault is no longer being used, you can delete it to free up storage space. **Delete** is only enabled after all registered servers have been deleted from the vault.
+- Backup alerts details
+- Files and folders, as well as Azure virtual machines protected in cloud
+- Total storage consumed in Azure
+- Backup job status
+
+![Backup dashboard tasks](./media/backup-azure-manage-windows-server/dashboard-tiles.png)
+
+Clicking the information in each of these tiles will open the associated blade where you manage	related tasks.
+
+From the top of the Dashboard:
+
+- Settings provides access available backup tasks.
+- Backup - helps you back up new files and folders (or Azure VMs) to the Recovery Services vault.
+- Delete - If a recovery services vault is no longer being used, you can delete it to free up storage space. Delete is only enabled after all protected servers have been deleted from the vault.
 
 ![Backup dashboard tasks](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
 
-## Registered items
-Select **Registered Items** to view the names of the servers that are registered to this vault.
+## Manage Backup alerts
+Click the **Backup Alerts** tile to open the **Backup Alerts** blade and manage alerts.
 
-![Registered items](./media/backup-azure-manage-windows-server/registered-items.png)
+![Backup alerts](./media/backup-azure-manage-windows-server/manage-backup-alerts.png)
 
-The **Type** filter defaults to Azure Virtual Machine. To view the names of the servers that are registered to this vault, select **Windows server** from the drop down menu.
+The Backup Alerts tile shows you the number of:
 
-From here you can perform the following tasks:
+- critical alerts unresolved in last 24 hours
+- warning alerts unresolved in last 24 hours
 
-- **Allow Re-registration** - When this option is selected for a server you can use the **Registration Wizard** in the on-premises Microsoft Azure Backup agent to register the server with the backup vault a second time. You might need to re-register due to an error in the certificate or if a server had to be rebuilt.
-- **Delete** - Deletes a server from the backup vault. All of the stored data associated with the server is deleted immediately.
+Clicking on each of these links takes you to the **Backup Alerts** blade with a filtered view of these alerts (critical or warning).
 
-    ![Registered items](./media/backup-azure-manage-windows-server/registered-items-tasks.png)
+From the Backup Alerts blade, you:
 
-## Protected items
-Select **Protected Items** to view the items that have been backed up from the servers.
+- Choose the appropriate information to include with your alerts.
 
-![Protected items](./media/backup-azure-manage-windows-server/protected-items.png)
+    ![Choose colunms](./media/backup-azure-manage-windows-server/choose-alerts-colunms.png)
 
-## Configure
+- Filter alerts for severity, status and start/end times.
 
-From the **Configure** tab you can select the appropriate storage redundancy option. The best time to select the storage redundancy option is right after creating a vault and before any machines are registered to it.
+    ![Filter alerts](./media/backup-azure-manage-windows-server/filter-alerts.png)
 
->[AZURE.WARNING] Once an item has been registered to the vault, the storage redundancy option is locked and cannot be modified.
+- Configure notifications for severity, frequency and recipients, as well as turn alerts on or off.
 
-![Configure](./media/backup-azure-manage-windows-server/configure.png)
+    ![Filter alerts](./media/backup-azure-manage-windows-server/configure-notifications.png)
 
-See this article for more information about [storage redundancy](../storage/storage-redundancy.md).
+If **Per Alert** is selected as the **Notify** frequency no grouping or reduction in emails occurs. Every alert results in 1 notification. This is the default setting and the resolution email is also sent out immediately.
+
+If **Hourly Digest** is selected as the **Notify** frequency one email is sent to the user telling them that there are unresolved new alerts generated in the last hour. A resolution email is sent out at the end of the hour.
+
+Alerts can be sent for the following severity levels:
+
+- critical
+- warning
+- information
+
+You inactivate the alert with the **inactivate** button in the job details blade. When you click inactivate, you can provide resolution notes.
+
+You choose the columns you want to appear as part of the alert with the **Choose columns** button.
+
+>[AZURE.NOTE] From the **Settings** blade, you manage backup alerts by selecting **Monitoring and Reports > Alerts and Events > Backup Alerts** and then clicking **Filter** or **Configure Notifications**.
+
+## Manage Backup items
+Managing on-premises backups is now available in the management portal. In the Backup section of the dashboard, the **Backup Items** tile shows the number of backup items protected to the vault.
+
+Click **File-Folders** in the Backup Items tile.
+
+![Backup items tile](./media/backup-azure-manage-windows-server/backup-items-tile.png)
+
+The Backup Items blade opens with the filter set to File-Folder where you see each specific backup item listed.
+
+![Backup items](./media/backup-azure-manage-windows-server/backup-item-list.png)
+
+If you click a specific backup items from the list, you see the essential details for that item.
+
+>[AZURE.NOTE] From the **Settings** blade, you manage files and folders by selecting **Protected Items > Backup Items** and then selecting **File-Folders** from the drop down menu.
+
+![Backup items from settings](./media/backup-azure-manage-windows-server/backup-files-and-folders.png)
+
+## Manage Backup jobs
+Backup jobs for both on-premises (when the on-premises server is backing up to Azure) and Azure backups are visible in the dashboard.
+
+In the Backup section of the dashboard, the Backup job tile shows the number of jobs:
+
+- in progress
+- failed in the last 24 hours.
+
+To manage your backup jobs, click the **Backup Jobs** tile, which opens the Backup Jobs blade.
+
+![Backup items from settings](./media/backup-azure-manage-windows-server/backup-jobs.png)
+
+You modify the information available in the Backup Jobs blade with the **Choose columns** button at the top of the page.
+
+Use the **Filter** button to select between Files and folders and Azure virtual machine backup.
+
+If you don't see your backed up files and folders, click **Filter** button at the top of the page and select **Files and folders** from the Item Type menu.
+
+>[AZURE.NOTE] From the **Settings** blade, you manage backup jobs by selecting **Monitoring and Reports > Jobs > Backup Jobs** and then selecting **File-Folders** from the drop down menu.
+
+## Monitor Backup usage
+In the Backup section of the dashboard, the Backup Usage tile show the storage consumed in Azure. Storage usage is provided for:
+- Cloud LRS storage usage associated with the vault
+- Cloud GRS storage usage associated with the vault
+
+## Production servers
+To manage your production servers, click **Settings**. Under Manage click **Backup infrastructure > Production Servers**.
+
+The Production Servers blade lists of all your available production servers. Click on a server in the list to open the server details.
+
+![Protected items](./media/backup-azure-manage-windows-server/production-server-list.png)
 
 ## Microsoft Azure Backup agent tasks
 
-### Console
+## Open the backup agent
 
-Open the **Microsoft Azure Backup agent** (you can find it by searching your machine for *Microsoft Azure Backup*).
+Open the **Microsoft Azure Backup agent** (you find it by searching your machine for *Microsoft Azure Backup*).
 
 ![Schedule a Windows Server Backup](./media/backup-azure-manage-windows-server/snap-in-search.png)
 
-From the **Actions** available at the right of the backup agent console you can perform the following management tasks:
+From the **Actions** available at the right of the backup agent console you perform the following management tasks:
 
 - Register Server
 - Schedule Backup
@@ -96,7 +171,7 @@ From the **Actions** available at the right of the backup agent console you can 
 
 >[AZURE.NOTE] To **Recover Data**, see [Restore files to a Windows server or Windows client machine](backup-azure-restore-windows-server.md).
 
-### Modify an existing backup
+## Modify an existing backup
 
 1. In the Microsoft Azure Backup agent click **Schedule Backup**.
 
@@ -132,14 +207,14 @@ From the **Actions** available at the right of the backup agent console you can 
 
     After modifying protection, you can confirm that backups are triggering correctly by going to the **Jobs** tab and confirming that changes are reflected in the backup jobs.
 
-### Enable Network Throttling  
+## Enable Network Throttling  
 The Azure Backup agent provides a Throttling tab which allows you to control how network bandwidth is used during data transfer. This control can be helpful if you need to back up data during work hours but do not want the backup process to interfere with other internet traffic. Throttling of data transfer applies to back up and restore activities.  
 
 To enable throttling:
 
 1. In the **Backup agent**, click **Change Properties**.
 
-2. Select the **Enable internet bandwidth usage throttling for backup operations** checkbox.
+2. Select the **Enable internet bandwidth usage throttling for backup operations** checktile.
 
     ![Network throttling](./media/backup-azure-manage-windows-server/throttling-dialog.png)
 
@@ -149,7 +224,7 @@ To enable throttling:
 
 4. Click **OK**.
 
-## Exclusion settings
+## Manage exclusion settings
 
 1. Open the **Microsoft Azure Backup agent** (you can find it by searching your machine for *Microsoft Azure Backup*).
 
@@ -192,6 +267,23 @@ To enable throttling:
 9. Continue through the Schedule Backup Wizard by clicking **Next** until the **Confirmation page**, then click **Finish**.
 
     ![Schedule a Windows Server Backup](./media/backup-azure-manage-windows-server/finish-exclusions.png)
+
+## Frequently asked questions
+**Q1. The backup job status shows as completed in the Azure backup agent, why doesn't it get reflected immediately in portal?**
+
+A1. There is at maximum delay of 15 mins between the backup job status reflected in the Azure backup agent and the Azure portal.
+
+**Q.2 When a backup job fails, how long does it take to raise an alert?**
+
+A.2 An alert is raised within 5 mins of the Azure backup failure.
+
+**Q3. Is there a case where an email won’t be sent if notifications are configured?**
+
+A3. Below are the cases when the notification will not be sent in order to reduce the alert noise: 
+
+   - If notifications are configured hourly and an alert is raised and resolved within the hour
+   - Job is canceled.
+   - Second backup job failed becuase original backup job is in progress. 
 
 ## Next steps
 - [Restore Windows Server or Windows Client from Azure](backup-azure-restore-windows-server.md)

@@ -4,7 +4,7 @@ description="Learn how to use Shared Access Signatures to restrict HDInsight acc
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags

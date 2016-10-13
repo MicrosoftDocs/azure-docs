@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="05/16/2016" 
+    ms.date="08/08/2016" 
     ms.author="arramac"/>
     
 # Working with Geospatial data in Azure DocumentDB
@@ -275,6 +275,8 @@ As we described in the [Schema Agnostic Indexing with Azure DocumentDB](http://w
 In a nutshell, the geometry is projected from geodetic coordinates onto a 2D plane then divided progressively into cells using a **quadtree**. These cells are mapped to 1D based on the location of the cell within a **Hilbert space filling curve**, which preserves locality of points. Additionally when location data is indexed, it goes through a process known as **tessellation**, i.e. all the cells that intersect a location are identified and stored as keys in the DocumentDB index. At query time, arguments like points and polygons are also tessellated to extract the relevant cell ID ranges, then used to retrieve data from the index.
 
 If you specify an indexing policy that includes spatial index for /* (all paths), then all points found within the collection are indexed for efficient spatial queries (ST_WITHIN and ST_DISTANCE). Spatial indexes do not have a precision value, and always use a default precision value.
+
+>[AZURE.NOTE] DocumentDB supports automatic indexing of Points, Polygons (private preview), and LineStrings (private preview). For access to the preview, please email askdocdb@microsoft.com, or contact us via Azure Support.
 
 The following JSON snippet shows an indexing policy with spatial indexing enabled, i.e. index any GeoJSON point found within documents for spatial querying. If you are modifying the indexing policy using the Azure Portal, you can specify the following JSON for indexing policy to enable spatial indexing on your collection.
 

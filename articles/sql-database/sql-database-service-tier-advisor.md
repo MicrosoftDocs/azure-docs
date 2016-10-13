@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="05/09/2016"
+   ms.date="08/08/2016"
    ms.author="sstein"/>
 
 # SQL Database pricing tier recommendations
 
- Pricing tier recommendations are provided that recommend the service tier and performance level that is best suited for running an existing Azure SQL database’s workload.
+ Pricing tier recommendations suggest the service tier and performance level that is best suited for running an existing Azure SQL database’s workload.
 
 > [AZURE.NOTE] Pricing tier recommendations are only available for Web and Business databases and elastic database pools -- and only available in the [Azure portal](https://portal.azure.com/).
 

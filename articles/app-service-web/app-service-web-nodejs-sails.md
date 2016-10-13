@@ -53,8 +53,10 @@ First, quickly create a default Sails.js app by following these steps:
 
 Next, create the App service app resource. You're going to deploy your Sails.js app to it later.
 
-1. In the same terminal, log in to Azure like so:
+1. log in to Azure like so:
+1. In the same terminal, change into ASM mode and log in to Azure:
 
+        azure config mode asm
         azure login
 
     Follow the prompt to continue the login in a browser with a Microsoft account that has your Azure subscription.

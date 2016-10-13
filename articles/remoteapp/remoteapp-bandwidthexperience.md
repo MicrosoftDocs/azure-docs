@@ -12,10 +12,13 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/27/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 # Azure RemoteApp - how do network bandwidth and quality of experience work together?
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
 When you are looking at the [overall network bandwidth](remoteapp-bandwidth.md) required for Azure RemoteApp, keep in mind the following factors - these are all part of a dynamic system that impacts the overall user experience. 
 

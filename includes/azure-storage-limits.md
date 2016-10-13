@@ -1,6 +1,6 @@
 Resource|Default Limit
 ---|---
-Max number of storage accounts per subscription|100<sup>1</sup>
+Number of storage accounts per subscription|200<sup>1</sup>
 TB per storage account|500 TB
 Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account|Only limit is the 500 TB storage account capacity
 Max size of a single blob container, table, or queue|500 TB
@@ -28,7 +28,7 @@ Max egress<sup>2</sup> per storage account (US Regions)|20 Gbps if RA-GRS/GRS/ZR
 Max ingress<sup>2</sup> per storage account (European and Asian Regions)|5 Gbps if GRS/ZRS<sup>3</sup> enabled, 10 Gbps for LRS
 Max egress<sup>2</sup> per storage account (European and Asian Regions)|10 Gbps if RA-GRS/GRS/ZRS<sup>3</sup> enabled, 15 Gbps for LRS
 
-<sup>1</sup>This includes both Standard and Premium storage accounts. If you require more than 100 storage accounts, make a request through [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts. 
+<sup>1</sup>This includes both Standard and Premium storage accounts. If you require more than 200 storage accounts, make a request through [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts. 
 
 <sup>2</sup>*Ingress* refers to all data (requests) being sent to a storage account. *Egress* refers to all data (responses) being received from a storage account.  
 

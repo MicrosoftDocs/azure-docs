@@ -1,6 +1,6 @@
 <properties
-pageTitle="Use the SharePoint Online Connector  in your Logic Apps or Power Apps| Microsoft Azure"
-description="Get started using the Azure App Service SharePoint Online Connector  in your Logic apps and your PowerApps."
+pageTitle="Use the SharePoint Online Connector in your Logic Apps | Microsoft Azure"
+description="Get started using the Azure App Service SharePoint Online Connector  in your Logic apps."
 services=""    
 documentationCenter=""     
 authors="msftman"    
@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="07/18/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Get started with the SharePoint Online Connector 
@@ -23,10 +23,6 @@ The SharePoint Connector provides an way to work with Lists on SharePoint.
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
-With SharePoint, you can:
-
-* Use it to build logic apps
-* Use it to build PowerApps  
 
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -88,7 +84,6 @@ While on the designer of your logic app, follow these steps to sign into SharePo
 6. You can then add other triggers and actions that you need to complete your logic app.   
 7. Save your work by selecting **Save** on the menu bar above.  
 
->[AZURE.TIP] You can use this connection in other logic apps or PowerApps or both.
 
 ## SharePoint REST API reference
 #### This documentation is for version: 1.0
@@ -698,7 +693,6 @@ None of the properties are required.
 
 ## Next Steps
 [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-[Create a power app](../power-apps/powerapps-get-started-azure-portal.md)  
 
 [1]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig1.png  
 [2]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig2.png 

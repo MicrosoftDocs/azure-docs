@@ -3,7 +3,7 @@
    description="Understanding ILPIP (PIP) and how to manage them"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/10/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Instance level public IP overview
 An instance level public IP (ILPIP) is a public IP address that you can assign directly to your VM or role instance, rather than to the cloud service that your VM or role instance reside in. This doesn’t take the place of the VIP (virtual IP) that is assigned to your cloud service. Rather, it’s an additional IP address that you can use to connect directly to your VM or role instance.

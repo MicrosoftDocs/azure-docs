@@ -13,11 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/27/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 # Never store sensitive data on custom images
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
 When you host your own application in Azure RemoteApp, the first step is to create a custom image. We use that custom image to create VM instances that serve your apps to your users. The custom image should contain ONLY applications and never sensitive data that can be lost, such as SQL databases, personnel files, or special data files like QuickBooks company files. All sensitive data should reside external to Azure RemoteApp on a file server, another Azure VM, or in SQL Azure. The image should just host the application that connects to the data source and presents the data. Review [Requirements for Azure RemoteApp images](remoteapp-imagereqs.md) for more information. 
 

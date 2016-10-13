@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
+	ms.date="08/19/2016"
 	ms.author="wesmc"/>
 
 # Azure Functions Notification Hub output binding
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 This article explains how to configure and code Azure Notification Hub bindings in Azure Functions. 
 
@@ -84,6 +86,13 @@ This example sends a notification for a [template registration](../notification-
 	    };
 	    context.done();
 	};
+
+## Azure Notification Hub code example for a F# timer trigger
+
+This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `location` and `message`.
+
+	let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
+	    notification = dict [("location", "Redmond"); ("message", "Hello from F#!")]
 
 ## Azure Notification Hub code example for a C# queue trigger
 

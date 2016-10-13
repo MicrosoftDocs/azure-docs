@@ -65,7 +65,7 @@ Deleted database restore allows you to restore a deleted database to the deletio
 
 > [AZURE.IMPORTANT] If you delete an Azure SQL Database server instance, all of its databases are also deleted and cannot be recovered. There is no support for restoring a deleted server at this time.
 
-You can use the same or a new database name for the restored database. You can use the [Azure portal](sql-database-restore-deleted-database-portal.md), [PowerShell](sql-database-restore-deleted-database-powershell.md) or the [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+You can use the same or a new database name for the restored database. You can use the [Azure portal](sql-database-restore-deleted-database-portal.md), [PowerShell](sql-database-restore-deleted-database-powershell.md) or the [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
 > [AZURE.SELECTOR]
 - [Deleted database restore: Azure portal](sql-database-restore-deleted-database-portal.md)

@@ -229,3 +229,4 @@ subscriptions > {your subscription} > resourceGroups > {your resource group} > p
 - Take a look at [Automatically scale machines in a Virtual Machine Scale Set](virtual-machine-scale-sets-windows-autoscale.md) to see an example of how to create a scale set with automatic scaling configured.
 - Find examples of Azure Insights monitoring features in [Azure Insights PowerShell quick start samples](../azure-portal/insights-powershell-samples.md)
 - Learn about notification features in [Use autoscale actions to send email and webhook alert notifications in Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) and [Use audit logs to send email and webhook alert notifications in Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md)
+- Learn about [advanced autoscale scenarios](./virtual-machine-scale-sets-advanced-autoscale.md).

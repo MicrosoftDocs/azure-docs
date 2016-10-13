@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Overview of Azure Diagnostics"
+	pageTitle="Overview of Azure Diagnostics | Microsoft Azure"
 	description="Use Azure diagnostics for debugging, measuring performance, monitoring, traffic analysis in cloud services, virtual machines and service fabric"
 	services="multiple"
 	documentationCenter=".net"

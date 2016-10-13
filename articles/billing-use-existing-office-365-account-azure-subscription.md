@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Share a single Azure AD tenant across Office 365 and Azure subscriptions | Microsoft Azure"
 	description="Learn how to share your Office 365 Azure AD tenant and its users with your Azure subscription, or vice versa"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="mbaldwin"
 	editor=""
-	tags="top-support-issue"/>
+	tags="billing,top-support-issue"/>
 
 <tags
 	ms.service="billing"
@@ -14,13 +14,15 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/20/2016"
+	ms.date="08/17/2016"
 	ms.author="cjiang"/>
 
 # Use your existing Office 365 account with your Azure subscription, or vice versa
 Scenario: If you already have an Office 365 subscription and are ready for an Azure subscription, but want to use the existing Office 365 user account(s) for your Azure subscription. Alternatively, you are an Azure subscriber and want to get an Office 365 subscription for the users in your existing Azure Active Directory. This article shows you how easy it is to achieve both.
 
 > [AZURE.NOTE] This article doesn’t apply to Enterprise Agreement (EA) customers.
+
+> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
 ## Quick guidance
 
@@ -146,3 +148,5 @@ See [How Azure subscription are associated with Azure Active Directory](./active
 
 ##Next steps
 There is a related scenario where you acquired both of the Azure and Office 365 subscriptions separately in the past, and wants to be able to access the Office 365 tenant from the Azure subscription. To learn how to accomplish this task, see [Associate an Office 365 tenant with an Azure subscription](billing-add-office-365-tenant-to-azure-subscription.md).
+
+> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

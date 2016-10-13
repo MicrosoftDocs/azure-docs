@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create an IoT Hub using an ARM template and PowerShell | Microsoft Azure"
+	pageTitle="Create an IoT Hub using a Resource Manager template and PowerShell | Microsoft Azure"
 	description="Follow this tutorial to get started using Resource Manager templates to create an IoT Hub with PowerShell."
 	services="iot-hub"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="07/19/2016"
+     ms.date="09/07/2016"
      ms.author="dobett"/>
 
 # Create an IoT hub using PowerShell
@@ -22,16 +22,16 @@
 
 ## Introduction
 
-You can use Azure Resource Manager (ARM) to create and manage Azure IoT hubs programmatically. This tutorial shows you how to use a resource manager template to create an IoT hub with PowerShell.
+You can use Azure Resource Manager to create and manage Azure IoT hubs programmatically. This tutorial shows you how to use a Resource Manager template to create an IoT hub with PowerShell.
 
 > [AZURE.NOTE] Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model.
 
-In order to complete this tutorial you'll need the following:
+To complete this tutorial you need the following:
 
 - An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
 - [Microsoft Azure PowerShell 1.0][lnk-powershell-install] or later.
 
-> [AZURE.TIP] The article [Using Azure PowerShell with Azure Resource Manager][lnk-powershell-arm] provides more information about how to use PowerShell scripts and ARM templates to create Azure resources. 
+> [AZURE.TIP] The article [Using Azure PowerShell with Azure Resource Manager][lnk-powershell-arm] provides more information about how to use PowerShell scripts and Resource Manager templates to create Azure resources. 
 
 ## Connect to your Azure subscription
 
@@ -56,9 +56,9 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 
 ## Submit a template to create an IoT hub
 
-Use a JSON template to create a new IoT hub in your resource group. You can also use a template to make changes to an existing IoT hub.
+Use a JSON template to create an IoT hub in your resource group. You can also use a template to make changes to an existing IoT hub.
 
-1. Use a text editor to create an ARM template called **template.json** with the following resource definition to create a new standard IoT hub. This example adds the IoT Hub in the **East US** region, creates two consumer groups (**cg1** and **cg2**) on the Event Hub-compatible endpoint, and uses the **2016-02-03** API version. This template also expects you to pass in the IoT hub name as a parameter called **hubName**.
+1. Use a text editor to create a Resource Manager template called **template.json** with the following resource definition to create a new standard IoT hub. This example adds the IoT Hub in the **East US** region, creates two consumer groups (**cg1** and **cg2**) on the Event Hub-compatible endpoint, and uses the **2016-02-03** API version. This template also expects you to pass in the IoT hub name as a parameter called **hubName**. For the current list of locations that support IoT Hub see [Azure Status][lnk-status].
 
     ```
     {
@@ -122,11 +122,11 @@ Use a JSON template to create a new IoT hub in your resource group. You can also
 
 5. You can verify that your application added the new IoT hub by visiting the [portal][lnk-azure-portal] and viewing your list of resources, or by using the **Get-AzureRmResource** PowerShell cmdlet.
 
-> [AZURE.NOTE] This example application adds an S1 Standard IoT Hub for which you will be billed. You can delete the IoT hub through the [portal][lnk-azure-portal] or by using the **Remove-AzureRmResource** PowerShell cmdlet when you are finished.
+> [AZURE.NOTE] This example application adds an S1 Standard IoT Hub for which you are billed. You can delete the IoT hub through the [portal][lnk-azure-portal] or by using the **Remove-AzureRmResource** PowerShell cmdlet when you are finished.
 
 ## Next steps
 
-Now you have deployed an IoT hub using an ARM template with PowerShell, you may want to explore further:
+Now you have deployed an IoT hub using a Resource Manager template with PowerShell, you may want to explore further:
 
 - Read about the capabilities of the [IoT Hub Resource Provider REST API][lnk-rest-api].
 - Read [Azure Resource Manager overview][lnk-azure-rm-overview] to learn more about the capabilities of Azure Resource Manager.
@@ -146,6 +146,7 @@ To further explore the capabilities of IoT Hub, see:
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
+[lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../resource-group-overview.md

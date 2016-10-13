@@ -14,43 +14,46 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/14/2016"
+   ms.date="09/02/2016"
    ms.author="amitsriva" />
 
-#Diagnostics Logging for Application Gateway
+# Diagnostics Logging for Application Gateway
 
-You can use different types of logs in Azure to manage and troubleshoot Application Gateways. Some of these logs can be accessed through the portal, and all logs can be extracted from an Azure blob storage, and viewed in different tools, such as [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel and PowerBI. You can learn more about the different types of logs from the list below. 
+You can use different types of logs in Azure to manage and troubleshoot Application Gateways. Some of these logs can be accessed through the portal, and all logs can be extracted from an Azure blob storage, and viewed in different tools, such as [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel, and PowerBI. You can learn more about the different types of logs from the following list.
 
-- **Audit logs:** You can use [Azure Audit Logs](../azure-portal/insights-debugging-with-events.md) (formerly known as Operational Logs) to view all operations being submitted to your Azure subscription(s), and their status. Audit logs are enabled by default, and can be viewed in the Azure preview portal.
+- **Audit logs:** You can use [Azure Audit Logs](../azure-portal/insights-debugging-with-events.md) (formerly known as Operational Logs) to view all operations being submitted to your Azure subscription, and their status. Audit logs are enabled by default, and can be viewed in the Azure preview portal.
 - **Access logs:** You can use this log to view Application Gateway access pattern and analyze important information including caller's IP, URL requested, response latency, return code, bytes in and out. Access log is collected every 300 seconds. This log contains one record per instance of Application Gateway. The Application Gateway instance can be identified by 'instanceId' property.
-- **Performance logs:** You can use this log to view how Application Gateway instances are performing. This log captures performance information on per instance basis including total request served, throughput in bytes, total requests served, failed request count, healthy and unhealthy backend instance count. Performance log is collected every 60 seconds.
+- **Performance logs:** You can use this log to view how Application Gateway instances are performing. This log captures performance information on per instance basis including total request served, throughput in bytes, total requests served, failed request count, healthy and unhealthy back-end instance count. Performance log is collected every 60 seconds.
 
 >[AZURE.WARNING] Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For a better understanding of the two models, reference the [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md) article.
 
-##Enable logging
-Audit logging is automatically enabled at all times for every Resource Manager resource. You need to enable access and performance logging to start collecting the data available through those logs. To enable logging, follow the steps below. 
+## Enable logging
+Audit logging is automatically enabled for every Resource Manager resource. You must enable access and performance logging to start collecting the data available through those logs. To enable logging, see the following steps. 
 
-1. Note your storage account's Resource ID, where the log data will be stored. This would be of the form: /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name>. Any storage account in your subscription can be used. You can use the preview portal to find this information.
-![Preview portal - Application Gateway Diagnostics](./media/application-gateway-diagnostics/diagnostics1.png)
- 
-2. Note your Application Gateway's Resource ID for which logging is to be enabled. This would be of the form: /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>. You can use the preview portal to find this information.
-![Preview portal - Application Gateway Diagnostics](./media/application-gateway-diagnostics/diagnostics2.png)
+1. Note your storage account's Resource ID, where the log data is stored. This would be of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Storage/storageAccounts/\<storage account name\>. Any storage account in your subscription can be used. You can use the preview portal to find this information.
+
+	![Preview portal - Application Gateway Diagnostics](./media/application-gateway-diagnostics/diagnostics1.png)
+
+2. Note your Application Gateway's Resource ID for which logging is to be enabled. This would be of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/applicationGateways/\<application gateway name\>. You can use the preview portal to find this information.
+
+	![Preview portal - Application Gateway Diagnostics](./media/application-gateway-diagnostics/diagnostics2.png)
 
 3. Enable diagnostics logging using the following powershell cmdlet.
 
 		Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true 	
 
->[AZURE.INFORMATION] Audit logs do not require a separate storage account. The use of storage for access and performance logging will incur service charges.
-
+>[AZURE.INFORMATION] Audit logs do not require a separate storage account. The use of storage for access and performance logging incurs service charges.
 
 ## Audit log
+
 This log (formerly known as the "operational log") is generated by Azure by default.  The logs are preserved for 90 days in Azure’s Event Logs store. Learn more about these logs by reading the [View events and audit logs](../azure-portal/insights-debugging-with-events.md) article.
 
 ## Access log
-This log is only generated if you've enabled it on a per Application Gateway basis as detailed above. The data is stored in the storage account you specified when you enabled the logging. Each access of Application Gateway islogged in JSON format, as seen below.
+
+This log is only generated if you've enabled it on a per Application Gateway basis as detailed in the preceding steps. The data is stored in the storage account you specified when you enabled the logging. Each access of Application Gateway is logged in JSON format, as seen in the following example.
 
 	{
-		"resourceId": "/SUBSCRIPTIONS/<subscription id>/RESOURCEGROUPS/<resoource group name>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<application gateway name>",
+		"resourceId": "/SUBSCRIPTIONS/<subscription id>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<application gateway name>",
 		"operationName": "ApplicationGatewayAccess",
 		"time": "2016-04-11T04:24:37Z",
 		"category": "ApplicationGatewayAccessLog",
@@ -71,9 +74,9 @@ This log is only generated if you've enabled it on a per Application Gateway bas
 		}
 	}
 
-
 ## Performance log
-This log is only generated if you've enabled it on a per Application Gateway basis as detailed above. The data is stored in the storage account you specified when you enabled the logging. The following data is logged:
+
+This log is only generated if you have enabled it on a per Application Gateway basis as detailed in the preceding steps. The data is stored in the storage account you specified when you enabled the logging. The following data is logged:
 
 	{
 		"resourceId": "/SUBSCRIPTIONS/<subscription id>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<application gateway name>",
@@ -93,13 +96,15 @@ This log is only generated if you've enabled it on a per Application Gateway bas
 	}
 
 ## View and analyze the audit log
+
 You can view and analyze audit log data using any of the following methods:
 
 - **Azure tools:** Retrieve information from the audit logs through Azure PowerShell, the Azure Command Line Interface (CLI), the Azure REST API, or the Azure preview portal.  Step-by-step instructions for each method are detailed in the [Audit operations with Resource Manager](../resource-group-audit.md) article.
 - **Power BI:** If you don't already have a [Power BI](https://powerbi.microsoft.com/pricing) account, you can try it for free. Using the [Azure Audit Logs content pack for Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) you can analyze your data with pre-configured dashboards that you can use as-is, or customize.
 
-## View and analyze the access and performance log 
-Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) can collect the counter and event log files from your Blob storage account and includes visualizations and powerful search capabilities to analyze your logs. 
+## View and analyze the access and performance log
+
+Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) can collect the counter and event log files from your Blob storage account and includes visualizations and powerful search capabilities to analyze your logs.
 
 You can also connect to your storage account and retrieve the JSON log entries for access and performance logs. Once you download the JSON files, you can convert them to CSV and view in Excel, PowerBI, or any other data visualization tool.
 

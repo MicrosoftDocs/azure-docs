@@ -3,7 +3,7 @@
    description="Learn how to plan and design virtual networks in Azure based on your isolation, connectivity, and location requirements."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/08/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Plan and design Azure Virtual Networks
 
@@ -81,7 +81,7 @@ By default, your VNet uses [Azure-provided name resolution.](virtual-networks-na
 
 ### Limits
 
-Make sure you view all the [limits related to networking services in Azure](../azure-subscription-service-limits#networking-limits) before designing your solution. Some limits can be increased by opening a support ticket.
+Make sure you view all the [limits related to networking services in Azure](../azure-subscription-service-limits.md#networking-limits) before designing your solution. Some limits can be increased by opening a support ticket.
 
 ### Role-Based Access Control (RBAC)
 

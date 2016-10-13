@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="05/03/2016"
+      ms.date="08/03/2016"
       ms.author="v-jeana; hascipio; v-dabosl"/>
 
 # How to troubleshoot common Azure Marketplace publisher issues
@@ -29,7 +29,7 @@ The following shows you how to request a credit or refund on behalf of a custome
 
   ![1_RequestRefund][1]
 
-  1. Navigate to the support pages.
+  1. Navigate to the support pages here: [https://support.microsoft.com/en-us/getsupport?tenant=ClassicCommercial&locale=en-us&supportregion=en-us&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884](https://support.microsoft.com/en-us/getsupport?tenant=ClassicCommercial&locale=en-us&supportregion=en-us&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884).
   2. In the **Problem type** box, select **Managing Customers**.
   3. In the **Category** box, select **Approve or request a customer refund**.
   4. Click **Start request**.

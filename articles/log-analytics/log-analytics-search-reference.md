@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="08/11/2016"
 	ms.author="banders"/>
 
 
@@ -357,13 +357,11 @@ The *measure* command is used to apply statistical functions to the raw search r
 
 Syntax:
 
-	 measure aggregateFunction([aggregatedField]) [as fieldAlias] by groupField [interval interval]
+	measure aggregateFunction1([aggregatedField]) [as fieldAlias1] [, aggregateFunction2([aggregatedField2]) [as fieldAlias2] [, ...]] by groupField1 [, groupField2 [, groupField3]]  [interval interval]
+	
 
-	 measure aggregateFunction1([aggregatedField]) [as fieldAlias1] , aggregateFunction2([aggregatedField]) [as fieldAlias2] by groupField [interval interval]
+	measure aggregateFunction1([aggregatedField]) [as fieldAlias1] [, aggregateFunction2([aggregatedField2]) [as fieldAlias2] [, ...]]  interval interval
 
-	 measure aggregateFunction([aggregatedField])  interval interval
-
-	 measure aggregateFunction1([aggregatedField]), aggregateFunction2([aggregatedField]), ...  interval interval
 
 
 Aggregates the results by *groupField* and calculates the aggregated measure values by using *aggregatedField*.
@@ -474,13 +472,21 @@ Same as the previous example, but uses *PCT70*. Note that *PCT##* is only an ali
 
 **Example 12**
 
+	Type:Perf | measure avg(CounterValue) by Computer, CounterName
+
+*Explanation*
+
+Groups Perf first by Computer and then CounterName, and calculates the average (avg).
+
+**Example 13**
+
 	Type:Alert | measure count() as Count by WorkflowName | sort Count desc | top 5
 
 *Explanation*
 
 Gets the top five workflows with the maximum number of alerts.
 
-**Example 13**
+**Example 14**
 
 	* | measure countdistinct(Computer) by Type
 
@@ -488,7 +494,7 @@ Gets the top five workflows with the maximum number of alerts.
 
 Counts the number of unique computers reporting for each Type.
 
-**Example 14**
+**Example 15**
 
 	* | measure countdistinct(Computer) Interval 1HOUR
 
@@ -496,7 +502,7 @@ Counts the number of unique computers reporting for each Type.
 
 Counts the number of unique computers reporting for every hour.
 
-**Example 15**
+**Example 16**
 
 ```
 Type:Perf CounterName=”% Processor Time” InstanceName=”_Total” | measure avg(CounterValue) by Computer Interval 1HOUR
@@ -506,7 +512,7 @@ Type:Perf CounterName=”% Processor Time” InstanceName=”_Total” | measure
 
 Groups % Processor Time by Computer, and returns the average for every 1 hour.
 
-**Example 16**
+**Example 17**
 
 	Type:W3CIISLog | measure max(TimeTaken) by csMethod Interval 5MINUTES
 
@@ -514,7 +520,7 @@ Groups % Processor Time by Computer, and returns the average for every 1 hour.
 
 Groups W3CIISLog by method, and returns the maximum for every 5 minutes.
 
-**Example 17**
+**Example 18**
 
 ```
 Type:Perf CounterName=”% Processor Time” InstanceName=”_Total”  | measure min(CounterValue) as MIN, avg(CounterValue) as AVG, percentile75(CounterValue) as PCT75, max(CounterValue) as MAX by Computer Interval 1HOUR
@@ -523,6 +529,17 @@ Type:Perf CounterName=”% Processor Time” InstanceName=”_Total”  | measur
 *Explanation*
 
 Groups % Processor Time by computer, and returns the minimum, average, 75 percentile, and maximum for every 1 hour.
+
+**Example 19**
+
+```
+Type:Perf CounterName=”% Processor Time”  | measure min(CounterValue) as MIN, avg(CounterValue) as AVG, percentile75(CounterValue) as PCT75, max(CounterValue) as MAX by Computer, InstanceName Interval 1HOUR
+```
+
+*Explanation*
+
+Groups % Processor Time first by computer and then by Instance name, and returns the minimum, average, 75 percentile, and maximum for every 1 hour
+
 
 ### Where
 
@@ -613,8 +630,8 @@ Tag Perf Counter Values less than 50% las LOW and others as HIGH
 |---------|---------|---------|
 | abs | Returns the absolute value of the specified value or function. | `abs(x)` <br> `abs(-5)` |
 | and | Returns a value of true if and only if all of its operands evaluate to  true. | `and(not(exists(**popularity**)),exists(**price**))` |
-| def | def is short for default. Returns the value of field "field", or if the field does not exist, returns the default value specified and yields the first value where: `exists()==true`. | `div(1,y)` <br> `div(sum(x,100),max(y,1))` |
-| div | `div(x,y)` divides x by y. | `div(1,y),div(sum(x,100),max(y,1))` |
+| def | def is short for default. Returns the value of field "field", or if the field does not exist, returns the default value specified and yields the first value where: `exists()==true`. | `def(rating,5)` - This def() function returns the rating, or if no rating specified in the document, returns 5 <br> `def(myfield, 1.0)` - equivalent to `if(exists(myfield),myfield,1.0)` |
+| div | `div(x,y)` divides x by y. | `div(1,y)` <br> `div(sum(x,100),max(y,1))` |
 | dist | Returns the distance between two vectors, (points) in an n-dimensional space. Takes in the power, plus two or more, ValueSource instances and calculates the distances between the two vectors. Each ValueSource must be a number. There must be an even number of ValueSource instances passed in and the method assumes that the first half represent the first vector and the second half represent the second vector.  | `dist(2, x, y, 0, 0)` - Calculates the Euclidean distance between,(0,0) and (x,y) for each document. <br> `dist(1, x, y, 0, 0)` - Calculates the Manhattan (taxicab), distance between (0,0) and (x,y) for each document. <br> `dist(2,,x,y,z,0,0,0)` - Euclidean distance between (0,0,0) and (x,y,z) for each document.<br>`dist(1,x,y,z,e,f,g)` - Manhattan distance between (x,y,z) and (e,f,g), where each letter is a field name. |
 | exists | Returns TRUE if any member of the field exists. | `exists(author)` - Returns TRUE for any document has a value in the "author" field.<br>`exists(query(price:5.00))` -  Returns TRUE if "price" matches,"5.00". |
 | hsin | The Haversine distance calculates the distance between two points on a sphere when traveling along the sphere. The values must be in radians. hsin also takes a Boolean argument to specify whether the function should convert its output to radians. | `hsin(2, true, x, y, 0, 0)` |

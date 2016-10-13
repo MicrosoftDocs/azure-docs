@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
   authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""
 	/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/14/2016"
+	ms.date="08/10/2016"
 	ms.author="curtand"/>
 
 # Setting up Azure Active Directory for self-service group management

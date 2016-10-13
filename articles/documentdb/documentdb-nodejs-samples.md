@@ -3,7 +3,7 @@
 	description="Find NoSQL Node.js examples on github for common tasks in DocumentDB, including CRUD operations for JSON documents in NoSQL databases." 
 	keywords="node.js examples"
 	services="documentdb" 
-	authors="aliuy" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter="nodejs"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/18/2016" 
-	ms.author="andrl"/>
+	ms.author="anhoh"/>
 
 
 # DocumentDB Node.js examples

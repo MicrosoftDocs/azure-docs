@@ -4,7 +4,7 @@ description="Learn how to add Hive libraries (jar files,) to an HDInsight cluste
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags

@@ -161,7 +161,7 @@ Next, we need to add the actual token request code. Insert the following snippet
             // Attempt to authorize user silently
             app.context.acquireTokenSilentAsync(resourceUri, clientId)
             .then(authCompletedCallback, function () {
-                // We require user cridentials so triggers authentication dialog
+                // We require user credentials so triggers authentication dialog
                 app.context.acquireTokenAsync(resourceUri, clientId, redirectUri)
                 .then(authCompletedCallback, function (err) {
                     app.error("Failed to authenticate: " + err);
@@ -189,7 +189,7 @@ If that attempt fails, we fall back on `acquireTokenAsync` - which will visibly 
             // Attempt to authorize user silently
             app.context.acquireTokenSilentAsync(resourceUri, clientId)
             .then(authCompletedCallback, function () {
-                // We require user cridentials so triggers authentication dialog
+                // We require user credentials so triggers authentication dialog
                 app.context.acquireTokenAsync(resourceUri, clientId, redirectUri)
                 .then(authCompletedCallback, function (err) {
                     app.error("Failed to authenticate: " + err);

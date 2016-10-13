@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="08/02/2016"
 	ms.author="anajod"/>
     
 # Deploy Linux virtual machines on Azure Stack
@@ -23,6 +23,7 @@ You can deploy Linux virtual machines on the Azure Stack POC by adding a Linux-b
 ## Download an image
 
  1. Download and extract an Azure Stack-compatible image from the following links, or prepare your own:
+  - [Bitnami](https://bitnami.com/azure-stack)
   - [Ubuntu 14.04 LTS](https://partner-images.canonical.com/azure/azure_stack/)
   - [CentOS](http://olstacks.cloudapp.net/latest/)
   - [SuSE](https://download.suse.com/Download?buildid=VCFi7y7MsFQ~)

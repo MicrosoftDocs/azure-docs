@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="vm-windows"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="06/20/2016"
+  ms.date="09/06/2016"
   ms.author="cjiang"/>
 
 # Troubleshoot classic deployment issues with creating a new Windows virtual machine in Azure

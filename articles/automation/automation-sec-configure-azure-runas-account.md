@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/29/2016"
+    ms.date="08/17/2016"
     ms.author="magoedte"/>
 
 # Authenticate Runbooks with Azure Run As account
@@ -30,7 +30,7 @@ This simplifies the process for you and helps you quickly start building and dep
 Using a Run As and Classic Run As account, you can:
 
 - Provide a standardized way to authenticate with Azure when managing Azure Resource Manager or Azure Service Management resources from runbooks in the Azure portal.  
-- Automate the use of global runbooks configured in Azure Alerts
+- Automate the use of global runbooks configured in Azure Alerts.
 
 
 >[AZURE.NOTE] The Azure [Alert integration feature](../azure-portal/insights-receive-alert-notifications.md) with Automation Global Runbooks requires an Automation account that is configured with a Run As and Classic Run As account. You can either select an Automation account that already has a Run As and Classic Run As account defined or choose to create a new one.
@@ -53,7 +53,7 @@ In this section, you will perform the following steps to create a new Azure Auto
 
 1. Log in to the Azure portal with an account that is a member of the Subscription Admins role and co-administrator of the subscription.
 2. Select **Automation Accounts**.
-3. In the Automation Accounts blade, click **Add**.<br>![Add Automation Account](media/automation-sec-configure-azure-runas-account/create-automation-account-properties.png)
+3. In the Automation Accounts blade, click **Add**.<br>![Add Automation Account](media/automation-sec-configure-azure-runas-account/create-automation-account-properties-b.png)
 
     >[AZURE.NOTE] If you see the following warning in the **Add Automation Account** blade, this is because your account is not a member of the Subscription Admins role and co-admin of the subcription.<br>![Add Automation Account Warning](media/automation-sec-configure-azure-runas-account/create-account-without-perms.png)
 
@@ -74,7 +74,7 @@ In this section, you will perform the following steps to create a new Azure Auto
 When the Automation account is successfully created, several resources are automatically created for you.  The following table summarizes resources for the Run As account.<br>
 
 Resource|Description 
-----|----
+--------|-----------
 AzureAutomationTutorial Runbook|An example PowerShell runbook that demonstrates how to authenticate using the Run As account and gets all the Resource Manager resources.
 AzureAutomationTutorialScript Runbook|An example PowerShell runbook that demonstrates how to authenticate using the Run As account and gets all the Resource Manager resources. 
 AzureRunAsCertificate|Certificate asset automatically created during Automation account creation or using the PowerShell script below for an existing account.  It allows you to authenticate with Azure so that you can manage Azure Resource Manager resources from runbooks.  This certificate has a one-year lifespan. 
@@ -83,7 +83,7 @@ AzureRunAsConnection|Connection asset automatically created during Automation ac
 The following table summarizes resources for the Classic Run As account.<br>
 
 Resource|Description 
-----|----
+--------|-----------
 AzureClassicAutomationTutorial Runbook|An example runbook which gets all the Classic VMs in a subscription using the Classic Run As Account (certificate) and then outputs the VM name and status.
 AzureClassicAutomationTutorial Script Runbook|An example runbook  which gets all the Classic VMs in a subscription using the Classic Run As Account (certificate) and then outputs the VM name and status.
 AzureClassicRunAsCertificate|Certificate asset automatically created that is used to authenticate with Azure so that you can manage Azure classic resources from runbooks.  This certificate has a one-year lifespan. 

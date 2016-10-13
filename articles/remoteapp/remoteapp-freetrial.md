@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/27/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Free 30 day trial of Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
 If you have an Azure subscription, you can try [Azure RemoteApp free for 30 days](https://www.remoteapp.windowsazure.com/en/tour.aspx). To start, simply sign in to the Azure Management Portal, navigate to the Azure RemoteApp node, and then create a collection. This is a great way to test drive the full administrative experience before converting to a paid subscription of Azure RemoteApp.  
 

@@ -3,7 +3,7 @@
 	description="When planning your hybrid identity solution, identify the data protection requirements for your business and which options are available to best fulfil these requirements."
 	documentationCenter=""
 	services="active-directory"
-	authors="yuridio"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="04/28/2016"
-	ms.author="yuridio"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 #Plan for enhancing data security through strong identity solution
 

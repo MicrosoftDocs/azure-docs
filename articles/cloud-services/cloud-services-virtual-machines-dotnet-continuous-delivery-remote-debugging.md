@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="08/15/2016"
 	ms.author="tarcher"/>
 
 # Enable remote debugging when using continuous delivery to publish to Azure

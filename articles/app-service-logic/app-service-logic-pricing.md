@@ -73,7 +73,7 @@ $appserviceplan = Get-AzureRmResource -ResourceType "Microsoft.Web/serverFarms" 
 $logicapp = Get-AzureRmResource -ResourceType "Microsoft.Logic/workflows" -ResourceGroupName $LogicApp_RG -ResourceName $LogicApp_Name
 
 $sku = @{
-    "name" = $appservicePlan.Name;
+    "name" = $appservicePlan.Sku.tier;
     "plan" = @{
       "id" = $appserviceplan.ResourceId;
       "type" = "Microsoft.Web/ServerFarms";

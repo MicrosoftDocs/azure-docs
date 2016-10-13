@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Configure Content Key Authorization Policy using Media Services .NET SDK" 
+	pageTitle="Configure content key authorization policy using Media Services .NET SDK | Microsoft Azure" 
 	description="Learn how to configure an authorization policy for a content key using Media Services .NET SDK." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,Mingfeiy" 
+	authors="Mingfeiy" 
 	manager="erikre" 
 	editor=""/>
 
@@ -13,12 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="09/15/2016"
+	ms.author="juliako;mingfeiy"/>
 
 
 
-#Dynamic Encryption: Configure Content Key Authorization Policy 
+# Dynamic encryption: configure content key authorization policy
+
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)] 
 
 ##Overview
@@ -438,8 +439,6 @@ To get a test token based on the token restriction that was used for the key aut
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-
-
-##Next Steps
+##Next step
 Now that you have configured content key's authorization policy, go to the [How to configure asset delivery policy](media-services-dotnet-configure-asset-delivery-policy.md) topic.
  

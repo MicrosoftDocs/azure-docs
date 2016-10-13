@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="09/03/2016"
    ms.author="barbkess;sonyama"/>
 
 # Manage compute power in Azure SQL Data Warehouse (Overview)
@@ -98,6 +98,10 @@ To resume a database, use any of these individual methods.
 - [Resume compute with PowerShell][]
 - [Resume compute with REST APIs][]
 
+## Permissions
+
+Scaling the database will require the permissions described in [ALTER DATABASE][].  Pause and Resume will require the [SQL DB Contributor][] permission, specifically Microsoft.Sql/servers/databases/action.
+
 <a name="next-steps-bk"></a>
 
 ## Next steps
@@ -140,7 +144,10 @@ Please refer to the following articles to help you understand some additional ke
 [Best practices]: ./sql-data-warehouse-best-practices.md 
 [development overview]: ./sql-data-warehouse-overview-develop.md
 
+[SQL DB Contributor]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
+
 <!--MSDN references-->
+[ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
 
 <!--Other Web references-->
 [Azure portal]: http://portal.azure.com/

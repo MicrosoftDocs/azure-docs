@@ -37,7 +37,7 @@ areas that will contribute to your applications success:
 3. Understanding and correctly leverage the platform hosting your app.
 	* What features should I leverage to achieve my scale goals?
 
-This section will help you understand all the factors and help you device a
+This section will help you understand all the factors and help you devise a
 strategy that takes advantage of the necessary App Service features to achieve
 your scalability goals.
 

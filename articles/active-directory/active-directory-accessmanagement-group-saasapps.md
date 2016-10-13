@@ -1,11 +1,11 @@
 
 <properties
-	pageTitle="Using a group to manage access to SaaS Applications| Microsoft Azure"
+	pageTitle="Using a group to manage access to SaaS Applications | Microsoft Azure"
 	description="How to use groups in Azure Active Directory Premium or Basic to assign access to SaaS applications that are integrated with Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="08/10/2016"
 	ms.author="curtand"/>
 
 

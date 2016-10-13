@@ -15,13 +15,13 @@
     ms.workload="search"
     ms.topic="article"
     ms.tgt_pltfrm="na"
-    ms.date="05/17/2016"
+    ms.date="08/29/2016"
     ms.author="liamca"
 />
 
 # Lucene query syntax examples for building queries in Azure Search
 
-When constructing queries for Azure Search, you can use either the default [simple query syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx) or the alternative[Lucene Query Parser in Azure Search](https://msdn.microsoft.com/library/azure/mt589323.aspx). The Lucene Query Parser supports more complex query constructs, such as field-scoped queries, fuzzy search, proximity search, term boosting, and reqular expression search.
+When constructing queries for Azure Search, you can use either the default [simple query syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx) or the alternative [Lucene Query Parser in Azure Search](https://msdn.microsoft.com/library/azure/mt589323.aspx). The Lucene Query Parser supports more complex query constructs, such as field-scoped queries, fuzzy search, proximity search, term boosting, and reqular expression search.
 
 In this article, you can step through examples that display Lucene query syntax and results side by side. Examples run against a pre-loaded Search index in [JSFiddle](https://jsfiddle.net/), an online code editor for testing script and HTML. 
 

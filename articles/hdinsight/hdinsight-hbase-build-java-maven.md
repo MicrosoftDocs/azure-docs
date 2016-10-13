@@ -4,7 +4,7 @@ description="Learn how to use Apache Maven to build a Java-based Apache HBase ap
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"
 tags="azure-portal"/>
 

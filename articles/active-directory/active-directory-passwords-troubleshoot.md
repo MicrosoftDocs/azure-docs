@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="08/12/2016"
 	ms.author="asteen"/>
 
 # How to troubleshoot Password Management
@@ -456,7 +456,21 @@ If you encounter an error when enabling, disabling, or using Password Writeback,
               <p>During restart of ADSync service, if writeback was configured, the WCF endpoint will be started up. However, if the startup of the endpoint fails, we will simply log event 6800 and let the sync service startup. Presence of this event means that the Password Writeback endpoint was not started up. Event log details for this event (6800) along with event log entries generate by PasswordResetService component will indicate why the endpoint could not be started up. Review these event log errors and try to re-start the Azure AD Connect if Password Writeback still isn’t working. If the problem persists, try to disable and re-enable Password Writeback.</p>
             </td>
           </tr>
-          <tr>
+					<tr>
+            <td>
+              <p>When a user attempts to reset a password or unlock an account with password writeback enabled, the operation fails. In addition, you see an event in the Azure AD Connect event log containing: “Synchronization Engine returned an error hr=800700CE, message=The filename or extension is too long” after the unlock operation occurs.
+							</p>
+            </td>
+            <td>
+              <p>This can occur if you had upgraded from older versions of Azure AD Connect or DirSync. Upgrading to older versions of Azure AD Connect set a 254 character password for the Azure AD Management Agent account (newer versions will set a 127 character length password). Such long passwords work for AD Connector Import and Export operations but they are not supported by the Unlock operation.
+							</p>
+            </td>
+            <td>
+              <p>[Find the Active Directory account](active-directory-aadconnect-accounts-permissions.md#active-directory-account) for Azure AD Connect and reset the password to contain no more than 127 characters. Then open **Synchronization Service** from the Start menu. Navigate to **Connectors** and find the **Active Directory Connector**. Select it and click **Properties**. Navigate to the page **Credentials** and enter the new password. Select **OK** to close the page.
+							</p>
+            </td>
+          </tr>
+					<tr>
             <td>
               <p>Error configuring writeback during Azure AD Connect installation.</p>
             </td>

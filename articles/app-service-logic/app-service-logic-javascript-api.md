@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="05/31/2016"
+   ms.date="09/01/2016"
    ms.author="stepsic"/>
 
 # JavaScript API App

@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="data-lake-analytics"
    authors="edmacauley"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags

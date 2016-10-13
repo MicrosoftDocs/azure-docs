@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="07/27/2016"
+   ms.date="08/03/2016"
    ms.author="hascipio;"/>
 
 # Post-production guide for virtual machine offers in the Azure Marketplace
@@ -41,20 +41,21 @@ Once the offer/SKU is listed in the [Azure Marketplace](http://azure.microsoft.c
 
 ## 1. How to update the technical details of a SKU
 
-You can update a VM image and re-publish your offer by following the steps given below:
+You can add a new version to the listed SKU and re-publish your offer by following the steps given below:
 
 1. Login to the [Publishing portal](https://publish.windowsazure.com).
 2. Navigate to the **VIRTUAL MACHINES** tab and select your offer.
 3. From the left hand side menu, click on the **VM IMAGES** tab.
-4. From the **SKUs** section of the VM IMAGES tab, locate the SKU that you want to update. After that update the version number of the SKU. The new version should be of X.Y.Z format where X, Y, Z are integers. Version changes should only be incremental.
-5. In the **OS VHD URL** box, update the shared access signature URI created for the operating system VHD and save the changes.
+4. From the **SKUs** section of the **VM IMAGES** tab, locate the SKU that you want to update.
+5. After that, add a new version number of the SKU and click on the **"+"** button. The new version should be of X.Y.Z format where X, Y, Z are integers. Version changes should only be incremental.
+6. In the **OS VHD URL** box, add the shared access signature URI created for the operating system VHD and save the changes.
 
-    >[AZURE.IMPORTANT] You cannot increment/decrement the data disk count of a listed SKU. You need to create a new SKU in this case. Please refer to the section [3. How to add a new SKU under a live offer](#3-how-to-add-a-new-sku-under-a-live-offer) for detailed guidance.
+    >[AZURE.IMPORTANT] You cannot increment/decrement the data disk count of a listed SKU. You need to create a new SKU in this case. Please refer to the section [3. How to add a new SKU under a listed offer](#3-how-to-add-a-new-sku-under-a-live-offer) for detailed guidance.
 
-6. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md)
-7. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
+7. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md)
+8. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
 
-    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img01.png)
+    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img01_07.png)
 
 ## 2. How to update the non-technical details of an offer or a SKU
 
@@ -73,7 +74,7 @@ You can update the offer details and re-publish your offer by following the step
     >[AZURE.NOTE] Please take care of the following while you are updating the SKU details.
     **Do not enter duplicate text under the offer description and the SKU description. Do not enter duplicate text under the SKU title and the offer long summary. Do not enter duplicate text under the SKU title and the offer summary.**
 
-    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.png)
+    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.1_05.png)
 
 6. Under the *LOGOS* section of the **DETAILS** tab, you can update the logos. However, ensure that the logos follow the [Azure Marketplace guidelines](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content) (refer to the section Step 1: Provide Marketplace marketing content -> Details-> Azure Marketplace Logo Guidelines).
 
@@ -82,7 +83,7 @@ You can update the offer details and re-publish your offer by following the step
 7. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md).
 8. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
 
-    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.1.png)
+    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.1_08.png)
 
 ### 2.2. Update the SKU description
 
@@ -99,7 +100,7 @@ You can update the SKU details and re-publish your offer by following the steps 
 6. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this link
 7. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
 
-    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.2.png)
+    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.2_07.png)
 
 ### 2.3 Change the existing links or add new links
 
@@ -118,7 +119,7 @@ You can change the existing links or add new links and then re-publish your offe
 8. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md).
 9. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
 
-    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.3.png)
+    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.3_09-01.png)
 
     ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.3-2.png)
 
@@ -142,7 +143,7 @@ You can change an existing sample images or add new sample images and then re-pu
 8. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md).
 9. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
 
-    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.4.png)
+    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.4_09.png)
 
 ### 2.5 Update the legal content
 
@@ -157,7 +158,7 @@ You can update the legal content and re-publish your offer by following the step
 7. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md)
 8. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
 
-    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.5.png)
+    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.5_08.png)
 
 ### 2.6 Update the support information
 
@@ -174,7 +175,7 @@ You can update the support information and re-publish your offer by following th
 6. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md)
 7. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
 
-    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.7.png)
+    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.6_07.png)
 
 ### 2.7 Update the categories
 
@@ -187,7 +188,7 @@ You can update the categories section for your offer and re-publish your offer b
 5. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md)
 6. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
 
-    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.7.png)
+    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.7_06.png)
 
 ## 3. How to add a new SKU under a listed offer
 
@@ -206,9 +207,9 @@ You can add a new SKU under your live offer by following the steps given below:
 8. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md)
 9. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
 
-    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img03.1-1.png)
+    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img03_09-01.png)
 
-    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img03.1-2.png)
+    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img03_09-02.png)
 
 ## 4. How to change the data disk count for a listed SKU
 

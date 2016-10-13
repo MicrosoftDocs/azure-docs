@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2016"
+	ms.date="08/09/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C: FAQs
@@ -58,7 +58,22 @@ Each Azure AD B2C tenant has its own B2C features blade on the Azure portal. See
 
 ### How do I customize verification emails (the content and the "From:" field) sent by Azure AD B2C?
 
-Use the [company branding feature](../active-directory/active-directory-add-company-branding.md) to customize the content of verification emails. The "From:" field can be changed via Support.
+You can use the [company branding feature](../active-directory/active-directory-add-company-branding.md) to customize the content of verification emails. Specifically, these two elements of the email can be customized:
+
+- **Banner Logo**: Shown at the bottom-right.
+- **Background color**: Shown at the top.
+
+	![Screen shot of a customized verification email](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
+
+The email signature contains the B2C tenant's name that you provided when you first created the B2C tenant. You can change the name using these instructions:
+
+- Sign into the [Azure classic portal](https://manage.windowsazure.com/) as the Subscription Administrator.
+- Navigate to your B2C tenant.
+- Click on the **Configure** tab.
+- Change the **Name** field under the **Directory properties** section.
+- Click **Save** at the bottom of the page.
+
+Currently there is no way to change the "From:" field on the email. If you are interested in this capability and in fully customizing the body of the verification email, do vote for the feature on [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails).
 
 ### How can I migrate my existing user names, passwords, and profiles from my database to Azure AD B2C?
 

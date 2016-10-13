@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Configure the NewTek TriCaster encoder to send a single bitrate live stream" 
+	pageTitle="Configure the NewTek TriCaster encoder to send a single bitrate live stream | Microsoft Azure" 
 	description="This topic shows how to configure the Tricaster live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,cenkdin,anilmur" 
+	authors="cenkdin" 
 	manager="erikre" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
-	ms.author="juliako"/>
+	ms.date="09/15/2016" 
+	ms.author="juliako;cenkd;anilmur"/>
 
 #Use the NewTek TriCaster encoder to send a single bitrate live stream
 
@@ -160,7 +160,9 @@ The stream is now ready to be embedded in a player, or distributed to an audienc
 Please see the [troubleshooting](media-services-troubleshooting-live-streaming.md) topic for guidance. 
 
 
-##Media Services learning paths
+##Next step
+
+Review Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

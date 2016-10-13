@@ -5,7 +5,7 @@
    services="machine-learning"
    documentationCenter="na"
    authors="brohrer-ms"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cjgronlund"/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/24/2016"
+   ms.date="09/13/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
 # Data Science for Beginners video 1: The 5 questions data science answers
@@ -87,7 +87,7 @@ If you have a credit card, you’ve already benefitted from anomaly detection. Y
 This question can be useful in lots of ways. For instance:
 
   *	If you have a car with pressure gauges, you might want to know: Is this pressure gauge reading normal?
-  *	If you're monitoring the internet you’d want to know: Is this message from the internet typical?
+  *	If you're monitoring the internet, you’d want to know: Is this message from the internet typical?
 
 Anomaly detection flags unexpected or unusual events or behaviors. It gives clues where to look for problems.
 
@@ -105,7 +105,7 @@ Regression algorithms make numerical predictions, such as:
   *	What will the temperature be next Tuesday?  
   *	What will my fourth quarter sales be?
 
-They help answer any question that can asks for a number.
+They help answer any question that asks for a number.
 
 ## Question 4: How is this organized? uses clustering algorithms
 
@@ -113,7 +113,7 @@ Now the last two questions are a bit more advanced.
 
 Sometimes you want to understand the structure of a data set - How is this organized? For this question, you don’t have examples that you already know outcomes for.
 
-There are a lot of ways to tease out the structure of data. One approach is clustering. It separates data into natural "clumps," for easier interpretation. With clustering there is no one right answer.
+There are a lot of ways to tease out the structure of data. One approach is clustering. It separates data into natural "clumps," for easier interpretation. With clustering, there is no one right answer.
 
 ![Clustering algorithms: How is this organized?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-clustering-algorithms.png)
 

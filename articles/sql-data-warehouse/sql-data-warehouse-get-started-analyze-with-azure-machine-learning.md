@@ -3,7 +3,7 @@
    description="Use Azure Machine Learning to build a predictive machine learning model based on data stored in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="shivaniguptamsft"
+   authors="kevinvngo"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/16/2016"
-   ms.author="shigu;barbkess;sonyama"/>
+   ms.date="09/14/2016"
+   ms.author="kevin;barbkess;sonyama"/>
 
 # Analyze data with Azure Machine Learning
 
@@ -145,5 +145,5 @@ To learn more about building predictive machine learning models, refer to [Intro
 <!--Article references-->
 [Azure Machine Learning studio]:https://studio.azureml.net/
 [Introduction to Machine Learning on Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[load sample data manually]: sql-data-warehouse-get-started-load-sample-databases.md
+[load sample data manually]: sql-data-warehouse-load-sample-databases.md
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
