@@ -400,7 +400,7 @@ myBatchClient.PoolOperations.EnableAutoScale(
 	autoscaleFormula: myNewFormula);
 ```
 
-### Update the autoscaling interval
+### Update the autoscale interval
 
 As with updating an autoscale formula, you use the same [EnableAutoScale][net_enableautoscale] method to change the autoscale evaluation interval of an existing autoscale-enabled pool. For example, to set the autoscale evaluation interval to 60 minutes for a pool that's already autoscale-enabled:
 
@@ -410,7 +410,7 @@ myBatchClient.PoolOperations.EnableAutoScale(
     autoscaleEvaluationInterval: TimeSpan.FromMinutes(60));
 ```
 
-## Evaluate an automatic scaling formula
+## Evaluate an autoscale formula
 
 You can evaluate a formula by performing a "test run" of the formula on an existing pool. To evaluate an autoscale formula, you must first **enable autoscaling** on the pool with a **valid formula**.
 
@@ -501,7 +501,7 @@ AutoScaleRun.Results:
     $workHours=0
 ```
 
-## Obtain information about automatic scaling runs
+## Get information about autoscale runs
 
 Periodically check the results of automatic scaling runs to ensure that a formula is performing as expected.
 
@@ -511,7 +511,7 @@ Periodically check the results of automatic scaling runs to ensure that a formul
   - [AutoScaleRun.Timestamp](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.timestamp.aspx)
 - [Get information about a pool](https://msdn.microsoft.com/library/dn820165.aspx)--This REST API request returns information about the pool, which includes the latest automatic scaling run.
 
-## Example formulas
+## Example autoscale formulas
 
 Let's take a look at some examples that show just a few ways that formulas can be used to automatically scale compute resources in a pool.
 
