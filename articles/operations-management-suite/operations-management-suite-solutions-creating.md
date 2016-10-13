@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Creating solutions in Operations Management Suite (OMS) | Microsoft Azure"
+   pageTitle="Creating management solutions in Operations Management Suite (OMS) | Microsoft Azure"
    description="Solutions extend the functionality of Operations Management Suite (OMS) by providing packaged management scenarios that customers can add to their OMS workspace.  This article provides details on how you can create solutions to be used in your own environment or made available to your customers."
    services="operations-management-suite"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
+   ms.date="10/13/2016"
    ms.author="bwren" />
 
 # Creating solutions in Operations Management Suite (OMS) (Preview)
