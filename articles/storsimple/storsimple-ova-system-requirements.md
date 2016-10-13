@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/14/2016"
+   ms.date="10/13/2016"
    ms.author="alkohli"/>
 
 # StorSimple Virtual Array system requirements
@@ -76,6 +76,8 @@ The following software requirements are for the iSCSI initiators that access you
 | **Supported operating systems** | **Version required** | **Additional requirements/notes** |
 | --------------------------- | ---------------- | ------------- |
 | Windows Server              | 2008R2 SP1, 2012, 2012R2 |StorSimple can create thinly provisioned and fully provisioned volumes. It cannot create partially provisioned volumes. StorSimple iSCSI volumes are supported for only: <ul><li>Simple volumes on Windows basic disks.</li><li>Windows NTFS for formatting a volume.</li>|
+
+> [AZURE.IMPORTANT] Do not enable encyrption on the host system connected to your StorSimple Virtual Array such as the Windows Encrypting File System (EFS); this will result in an unsupported configuration.
 
 The following software requirements are for the SMB clients that access your StorSimple Virtual Array (configured as a file server).
 
