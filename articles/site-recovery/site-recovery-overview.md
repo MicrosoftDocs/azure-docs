@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="10/10/2016"
+	ms.date="10/13/2016"
 	ms.author="raynew"/>
 
 #  What is Site Recovery?
@@ -41,9 +41,9 @@ Here's what Site Recovery can do for your business:
 
 - **Simplify BCDR**—You can handle replication, failover and recovery of multiple workloads in a single location in the Azure portal. Site recovery orchestrates replication and failover but doesn't intercept your application data or have any information about it.
 - **Provide flexible replication**—Using Site Recovery, you can replicate workloads running on supported Hyper-V VMs, VMware VMs, and Windows/Linux physical servers.
-- **Replication testing**—Site Recovery provides test failovers to support disaster recovery drills, without affecting production environments.
+- **Perform easy replication testing**—Site Recovery provides test failovers to support disaster recovery drills, without affecting production environments.
 - **Fail over and recover**— You can run planned failovers for expected outages with a zero-data loss, or unplanned failovers with minimal data loss (depending on replication frequency) for unexpected disasters. After failover, you can failback to your primary sites. Site Recovery provides recovery plans that can include scripts and Azure automation workbooks, so that you can customize failover and recovery of multi-tier applications.
-- **Eliminate secondary datacenter**—You can replicate workloads to Azure, rather than to a secondary site. This eliminates the cost and complexity maintaining a secondary datacenter. Replicated data is stored in Azure Storage, with all the resilience that provides. VMs are created with the replicated data when failover occurs.
+- **Eliminate a secondary datacenter**—You can replicate workloads to Azure, rather than to a secondary site. This eliminates the cost and complexity maintaining a secondary datacenter. Replicated data is stored in Azure Storage, with all the resilience that provides. VMs are created with the replicated data when failover occurs.
 - **Integrate with existing BCDR technologies**—Site Recovery integrates with other BCDR features. For example, you can use Site Recovery to protect the SQL Server backend of corporate workloads, including native support for SQL Server AlwaysOn, to manage the failover of availability groups.
 
 ## What can I replicate?
@@ -55,10 +55,10 @@ Here's a summary of what you can replicate using Site Recovery.
 **REPLICATE** | **REPLICATE TO** 
 ---|---
 Workloads running on on-premises VMware VMs | [Azure](site-recovery-vmware-to-azure-classic.md)<br/><br/> [Secondary site](site-recovery-vmware-to-vmware.md)
-Workloads running on Hyper-V VMs managed in VMM cloud  | [Azure](site-recovery-vmm-to-azure.md)<br/><br/> [Secondary site](site-recovery-vmm-to-vmm.md) 
-Workload running Hyper-V VMs managed in VMM cloud with SAN storage|  [Secondary site](site-recovery-vmm-san.md)
-Workloads running on Hyper-V VMs without VMM | [Azure](site-recovery-hyper-v-site-to-azure.md)
-Workloads running on physical Windows/Linux servers | [Azure](site-recovery-vmware-to-azure-classic.md)<br/><br/> [Secondary site](site-recovery-vmware-to-vmware.md)
+Workloads running on on-premises Hyper-V VMs managed in VMM clouds  | [Azure](site-recovery-vmm-to-azure.md)<br/><br/> [Secondary site](site-recovery-vmm-to-vmm.md) 
+Workload running on on-premises Hyper-V VMs managed in VMM clouds, with SAN storage|  [Secondary site](site-recovery-vmm-san.md)
+Workloads running on on-premises Hyper-V VMs, without VMM | [Azure](site-recovery-hyper-v-site-to-azure.md)
+Workloads running on on-premises physical Windows/Linux servers | [Azure](site-recovery-vmware-to-azure-classic.md)<br/><br/> [Secondary site](site-recovery-vmware-to-vmware.md)
 
 
 ## What workloads can I protect?
