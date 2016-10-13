@@ -113,44 +113,44 @@ Follow these steps to contribute an experiment to the Cortana Intelligence Galle
 
 3. When you’re ready to publish your experiment to the Gallery, click **Publish to Gallery** below the experiment canvas.
 
-	![Click "Publish to Gallery"](media\machine-learning-gallery-experiments\publish-experiment-to-gallery.png)
+    ![Click "Publish to Gallery"](media\machine-learning-gallery-experiments\publish-experiment-to-gallery.png)
 
 4. Fill out the title and tags fields. Keep them descriptive, highlighting the techniques used or the real-world problem being solved, for instance, “Binary Classification: Twitter Sentiment Analysis”.
 
-	![Fill out title and tag fields when publishing](media\machine-learning-gallery-experiments\experiment-description.png)
+    ![Fill out title and tag fields when publishing](media\machine-learning-gallery-experiments\experiment-description.png)
 
 5. Write a summary of what your content covers. Briefly describe the problem being solved and how you approached it.
 
 6. Use the detailed description box to step through the different parts of your experiment. Some useful topics to include here are:
-	- Experiment graph screenshot
-	- Data sources and explanation
-	- Data processing
-	- Feature engineering
-	- Model description
-	- Results and evaluation of model performance
-  </br>
-  </br>
-  You can use Markdown to format as needed. Click the **Preview** icon to see how things will look when published.
-  </br>
-  ![Click "Preview" to see what your text will look like](media\machine-learning-gallery-experiments\preview-markdown-text.png)
-  </br>
-  </br>
-  > [AZURE.TIP] The box provided for Markdown editing and preview box is quite small. We recommend that you write your documentation in a Markdown editor and paste the completed document into the text box.  After you've published your experiment, you can use standard web-based tools in Markdown for editing and preview to make necessary tweaks and corrections.
+    - Experiment graph screenshot
+    - Data sources and explanation
+    - Data processing
+    - Feature engineering
+    - Model description
+    - Results and evaluation of model performance
+    </br>
+    </br>
+    You can use Markdown to format as needed. Click the **Preview** icon to see how things will look when published.
+    </br>
+    ![Click "Preview" to see what your text will look like](media\machine-learning-gallery-experiments\preview-markdown-text.png)
+    </br>
+    </br>
+    > [AZURE.TIP] The box provided for Markdown editing and preview box is quite small. We recommend that you write your documentation in a Markdown editor and paste the completed document into the text box.  After you've published your experiment, you can use standard web-based tools in Markdown for editing and preview to make necessary tweaks and corrections.
 
 7. Upload a thumbnail image for your gallery item. This will appear at the top of the item page and in the item tile when browsing the gallery. You can choose an image from your computer or select one of the stock images.
-
-  ![Upload or select an image for the Gallery](media\machine-learning-gallery-experiments\select-gallery-image.png)
+    </br>
+    ![Upload or select an image for the Gallery](media\machine-learning-gallery-experiments\select-gallery-image.png)
 
 8. Choose whether to publish your content publicly, or have it only accessible to people with the link.
 
-  ![Choose whether to publish publicly or as unlisted](media\machine-learning-gallery-experiments\choose-public-or-unlisted.png)
-  </br>
-  </br>
-  > [AZURE.TIP] If you want to make sure your documentation looks right before releasing it publicly, you can publish it as unlisted first, and then switch it to Public from the item page.
+    ![Choose whether to publish publicly or as unlisted](media\machine-learning-gallery-experiments\choose-public-or-unlisted.png)
+    </br>
+    </br>
+    > [AZURE.TIP] If you want to make sure your documentation looks right before releasing it publicly, you can publish it as unlisted first, and then switch it to Public from the item page.
 
 9. Click the **OK** checkmark to publish the experiment to the Gallery.
 
-  ![Click the OK checkmark to publish the experiment](media\machine-learning-gallery-experiments\ok-checkmark.png)
+    ![Click the OK checkmark to publish the experiment](media\machine-learning-gallery-experiments\ok-checkmark.png)
 
 See the section below, **Suggestions for publishing and for quality documentation**, for tips on how to publish a quality Gallery experiment.
 
