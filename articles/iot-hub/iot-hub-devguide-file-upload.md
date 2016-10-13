@@ -44,7 +44,7 @@ IoT Hub has an endpoint specifically for devices to request a SAS URI for storag
 
 ```
 {
-    "fileName": "{name of the file for which a SAS URI will be generated}"
+    "blobName": "{name of the file for which a SAS URI will be generated}"
 }
 ```
 
