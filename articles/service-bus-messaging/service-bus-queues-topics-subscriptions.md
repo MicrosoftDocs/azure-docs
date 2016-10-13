@@ -1,13 +1,13 @@
 <properties 
     pageTitle="Service Bus queues, topics, and subscriptions | Microsoft Azure"
     description="Overview of Service Bus messaging entities."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="tysonn" />
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
@@ -19,7 +19,7 @@
 
 Microsoft Azure Service Bus supports a set of cloud-based, message-oriented-middleware technologies including reliable message queuing and durable publish/subscribe messaging. These brokered messaging capabilities can be thought of as decoupled messaging features that support publish-subscribe, temporal decoupling, and load balancing scenarios using the Service Bus messaging fabric. Decoupled communication has many advantages; for example, clients and servers can connect as needed and perform their operations in an asynchronous fashion.
 
-The messaging entities that form the core of the brokered messaging capabilities in Service Bus are queues, topics/subscriptions, rules/actions, and Event Hubs.
+The messaging entities that form the core of the brokered messaging capabilities in Service Bus are queues, topics/subscriptions, and rules/actions.
 
 ## Queues
 
@@ -156,12 +156,6 @@ With this subscription filter in place, only messages that have the `StoreName` 
 
 For more information about possible filter values, see the documentation for the [SqlFilter](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx) and [SqlRuleAction](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlruleaction.aspx) classes. Also, see the [Brokered Messaging: Advanced Filters](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) and [Topic Filters](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters) samples.
 
-## Event Hubs
-
-[Event Hubs](https://azure.microsoft.com/services/event-hubs/) is an event processing service, used to provide event and telemetry ingress to Azure at massive scale, with low latency and high reliability. This service, when used with other downstream services, is particularly useful in application instrumentation, user experience or workflow processing, and [Internet of Things (IoT)](https://azure.microsoft.com/services/iot-hub/) scenarios.
-
-Event Hubs are a message streaming construct, and although they may appear similar to queues and topics, they have very different characteristics. For example, Event Hubs do not provide message TTL, deadlettering, transactions, or acknowledgments as these are traditional brokered messaging features not streaming features. Event Hubs provide other stream-related features such as partitioning, preserving order, and stream replay.
-
 ## Next steps
 
 See the following advanced topics for more information and examples of using Service Bus brokered messaging entities.
@@ -169,8 +163,6 @@ See the following advanced topics for more information and examples of using Ser
 - [Service Bus messaging overview](service-bus-messaging-overview.md)
 - [Service Bus brokered messaging .NET tutorial](service-bus-brokered-tutorial-dotnet.md)
 - [Service Bus brokered messaging REST tutorial](service-bus-brokered-tutorial-rest.md)
-- [Event Hubs documentation](https://azure.microsoft.com/documentation/services/event-hubs/)
-- [Event Hubs developer guide](../event-hubs/event-hubs-programming-guide.md)
 - [Topic Filters sample ](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters)
 - [Brokered Messaging: Advanced Filters sample](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
