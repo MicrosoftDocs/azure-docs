@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
+   ms.date="10/12/2016"
    ms.author="cherylmc" />
 
 # ExpressRoute partners and peering locations
@@ -45,7 +45,7 @@ The table below provides information on regions and geopolitical boundaries for 
 |---|---|---|---|
 |**US Government cloud**|US Gov Iowa, US Gov Virginia|Chicago, Dallas, New York, Washington DC|
 |**China**|China North, China East|Beijing, Shanghai|
-|**Germany**|Germany Central, Germany East|Berlin+, Frankfurt|
+|**Germany**|Germany Central, Germany East|Berlin, Frankfurt|
 
 
 Connectivity across geopolitical regions is not supported on the standard ExpressRoute SKU. You will need to enable the ExpressRoute premium add-on to support global connectivity. Connectivity to national cloud environments is not supported. You can work with your connectivity provider if such a need arises.
@@ -110,7 +110,7 @@ To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/featu
 
 | **Location**  | **Service Providers** |
 |---------------|-----------------------|
-| **Berlin** | Colt+, e-shelter+ |
+| **Berlin** | Colt, e-shelter |
 | **Frankfurt** | Colt, Equinix, Interxion |
 
 ## <a name="nonpartners"></a>Connectivity through service providers not listed

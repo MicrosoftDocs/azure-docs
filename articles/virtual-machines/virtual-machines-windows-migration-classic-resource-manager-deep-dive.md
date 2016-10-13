@@ -3,7 +3,7 @@
 	description="This article does a technical deep dive on platform-supported migration of resources from classic to Azure Resource Manager"
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="mahthi"
+	authors="singhkays"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="mahthi"/>
+	ms.author="kasing"/>
 
 # Technical deep dive on platform-supported migration from classic to Azure Resource Manager
 Let's take a deep-dive on migrating from the Azure classic deployment model to the Azure Resource Manager deployment model. We look at resources at a resource and feature level to help you understand how the Azure platform migrates resources between the two deployment models. For more information, please read the service announcement article: [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md).
