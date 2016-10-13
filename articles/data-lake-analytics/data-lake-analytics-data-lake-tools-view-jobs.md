@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/03/2016"
+   ms.date="10/13/2016"
    ms.author="jgao"/>
 
 # Use Job Browser and Job View for Azure Data lake Analytics jobs
@@ -28,22 +28,22 @@ See [Data Lake Tools for Visual Studio prerequisites](data-lake-analytics-data-l
 
 ## Open the Job Browser
 
-The Job browser is accessible via **Server Explorer>Azure>Data Lake Analytics>Jobs** in Visual Studio.  Using the browser, you can access the query store of a Data Lake Analytics account. The following screenshot shows the Job Browser. On the left is the Query store which shows basic information about jobs; on the right is the Job View which provides the detailed information about a job.
+The Job Browser is accessible via **Server Explorer>Azure>Data Lake Analytics>Jobs** in Visual Studio.  Using the browser, you can access the query store of a Data Lake Analytics account. The following screenshot shows the Job Browser. On the left is the Query Store which shows basic information about jobs; on the right is the Job View which provides the detailed information about a job.
 
 ![Data Lake Tools Visual Studio Job Browser](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-open-job-browser.png)
 
 
 ## Job View
 
-Job View shows the detailed information of a job. To open a job, you can double-click a job in the Job Browser, or open it from the Data Lake menu by clicking Job View.  The job URL will be filled in the dialog automatically from your copy-paste buffer [jgao: needs some details here].
+Job View shows the detailed information of a job. To open a job, you can double-click a job in the Job Browser, or open it from the Data Lake menu by clicking Job View. You should see a dialog popularte with the job URL.
 
 ![Data Lake Tools Visual Studio Job Browser](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view.png)
 
-Job view contains:
+Job View contains:
 
 - Job Summary
 
-    Refresh the job view to see the more recent information of running jobs.
+    Refresh the Job View to see the more recent information of running jobs.
 
     - Job Status (graph):
 
@@ -88,7 +88,7 @@ Job view contains:
 
     Every vertex in a stage is doing the same kind of work with different pieces of the same data. For example, if you have a file with 1TB data, and there are hundreds of vertices reading from it, each of them is reading a chunk. Those vertices are grouped in the same stage and doing same work on different pieces of same input file.
 
-    - Stage information
+    - <a name="state-information"></a>Stage information
 
         In a particular stage, some numbers are shown in the placard.
 
@@ -138,7 +138,7 @@ Job view contains:
 
         ![Azure Data Lake Analytics job graph heapmap example](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-example.png)
         
-        - Progress: The job execution progress, see Information in One stage.
+        - Progress: The job execution progress, see Information in [stage information](#stage-information).
         - Data read/written: The heat map of total data read/written in each stages.
         - Compute time: The heat map of SUM (every vertex execution time), you can consider this as how long it would take if all work in the stage is executed with only 1 vertex.
         - Average execution time per node: The heat map of SUM (every vertex execution time) / (Vertex Number). Which means if you could assign all the vertices executed in parallelism, the whole stage will be done in this time frame.
@@ -148,19 +148,19 @@ Job view contains:
 
     You can perform some metadata operations in your U-SQL script, such as create a database, drop a table, etc. These operations are shown in Metadata Operation after compilation. You may find assertions, create entities, drop entities here.
 
-    ![Azure Data Lake Analytics job view metadata operations](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-metadata-operations.png)
+    ![Azure Data Lake Analytics Job View metadata operations](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-metadata-operations.png)
     
 - State History
 
     The State History is also visualized in Job Summary, but you can get more details here. You can find the detailed information such as when the job is prepared, queued, started running, ended. Also you can find how many times the job has been compiled (the CcsAttempts: 1), when is the job dispatched to the cluster actually (the Detail: Dispatching job to cluster), etc.
 
-    ![Azure Data Lake Analytics job view state history](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-state-history.png)
+    ![Azure Data Lake Analytics Job View state history](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-state-history.png)
     
 - Diagnostics
 
-    The tool diagnoses job execution automatically. You will receive alerts when there are some errors or performance issues in your jobs. Please note that you need to download Profile to get full information here. You can find more details through this guide (link TBD).
+    The tool diagnoses job execution automatically. You will receive alerts when there are some errors or performance issues in your jobs. Please note that you need to download Profile to get full information here. 
 
-    ![Azure Data Lake Analytics job view diagnostics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-diagnostics.png)
+    ![Azure Data Lake Analytics Job View diagnostics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-diagnostics.png)
 
     - Warnings: An alert shows up here with compiler warning. You can click “x issue(s)” link to have more details once the alert appears.
     - Vertex run too long: If any vertex run out of time (say 5 hours), issues will be found here.
@@ -185,17 +185,17 @@ Job Detail shows the detailed information of the job, including Script, Resource
 
 - Vertex execution view
 
-    It shows vertices execution details. The Job Profile archives every vertex execution log, such as total data read/written, runtime, state, etc. Through this view, you can get more details on how a job ran. Check this guide (link TBD) for more debugging tutorials.
+    It shows vertices execution details. The Job Profile archives every vertex execution log, such as total data read/written, runtime, state, etc. Through this view, you can get more details on how a job ran. For more information, see [Use the Vertex Execution View in Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-view-jobs.md).
 
 
 
 
 ## See also
 
-- To see a more complex query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+- To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 - To get started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).
 - For management tasks, see [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md).
-- To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
-- To see the same tutorial using other tools, click the tab selectors on the top of the page.
 - To log diagnostics information, see [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
+- To see a more complex query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+- To view use vertex execution view, see [Use the Vertex Execution View in Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)

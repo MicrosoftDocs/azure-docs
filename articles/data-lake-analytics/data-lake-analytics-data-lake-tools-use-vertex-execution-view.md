@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/03/2016"
+   ms.date="10/13/2016"
    ms.author="jgao"/>
 
 # Use the Vertex Execution View in Data Lake Tools for Visual Studio
@@ -22,17 +22,17 @@ Learn how to use the Vertex Execution View to exam Data Lake Analytics jobs.
 
 ## Prerequisites
 
-- Some basic knowlege of using Data Lake Tools for Visual Studio to deveop U-SQL script.  See [Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+- Some basic knowledge of using Data Lake Tools for Visual Studio to develop U-SQL script.  See [Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 
-## Open the Vertex Execution view
+## Open the Vertex Execution View
 
-For a certain job, you can click the “Vertex Execution View” link in the bottom left corner. You might be prompt to load profiles first and it can take some time depending on your network connectivity.
+For a certain job, you can click the “Vertex Execution View” link in the bottom left corner. You might be prompted to load profiles first and it can take some time depending on your network connectivity.
 
 ![Data Lake Analytics Tools Vertex Execution View](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-open-vertex-execution-view.png)
 
 ## Understand Vertex Execution View
 
-After entering the vertex execution view, there are three parts:
+After entering the Vertex Execution View, there are three parts:
 
 ![Data Lake Analytics Tools Vertex Execution View](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view.png)
 
@@ -40,33 +40,33 @@ After entering the vertex execution view, there are three parts:
 
     One of the most common used filter is the vertices on critical path. You can think critical path as the longest path of your U-SQL job, so if you want to optimize your job, you can usually look at the critical path and then see which vertex takes the longest time and get some additional insights.
 
-- [jgao: is there a name for this pane?]
+- The top center pane:
 
     ![Data Lake Analytics Tools Vertex Execution View](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane2.png)
 
     This view will also show the running status of all the vertices. It will convert the time accordingly to your local machine, and will show different status in different colors.
 
-- [jgao: is there a name for this pane?]
+- The bottom center pane:
 
     ![Data Lake Analytics Tools Vertex Execution View](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane3.png)
 
     - Process Name: the name of the vertex instance. It is composed of different parts in StageName|VertexName|VertexRunInstance. For example, the SV7_Split[62].v1 vertex stands for the second running instance (.v1, index starting from 0) of Vertex number 62 in Stage SV7_Split.
-    - Total Data Read/Write: how much data was read/written by this vertex
-    - State/Exit Status: what’s the final status when the vertex is ended
-    - Exit Code/Failure Type: what’s the error if the vertex is failed
-    - Creation Reason: Why the vertex was created
+    - Total Data Read/Write: how much data was read/written by this vertex.
+    - State/Exit Status: what’s the final status when the vertex is ended.
+    - Exit Code/Failure Type: what’s the error if the vertex is failed.
+    - Creation Reason: Why the vertex was created.
     - Resource Latency/Process Latency/PN Queue Latency: how long does it take for the vertex to wait for resources, to process data, and to stay in the queue.
-    - Process/Creator GUID: GUID for the current running vertex or its creator
+    - Process/Creator GUID: GUID for the current running vertex or its creator.
     - Version: the N-th instance of the running vertex (the system might schedule new instances of a vertex for many reasons, for example failover, compute redundancy, etc.)
-    - Version Created Time
+    - Version Created Time.
     - Process Create Start Time/Process Queued Time/Process Start Time/Process Complete Time: when the vertex process starts creation, when the vertex process starts to queue, when the certain vertex process starts, when the certain vertex is completed.
 
 ## See also
 
-- To see a more complex query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+- To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 - To get started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).
 - For management tasks, see [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md).
-- To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
-- To see the same tutorial using other tools, click the tab selectors on the top of the page.
 - To log diagnostics information, see [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
+- To see a more complex query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+- To view job details, see [Use Job Browser and Job View for Azure Data lake Analytics jobs](data-lake-analytics-data-lake-tools-view-jobs.md)
