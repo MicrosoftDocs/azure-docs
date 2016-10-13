@@ -28,7 +28,7 @@ Once you have retrained the model, the following walkthroughs show how to update
 
 For an overview of the retraining process, see [Retrain a Machine Learning Model](machine-learning-retrain-machine-learning-model.md).
 
-If you want to start with your existing New Azure Resource Manager based Web service, see [Retrain an existing Predictive Web service](machine-learning-retrain-existing-arm-web-service.md).
+If you want to start with your existing New Azure Resource Manager based Web service, see [Retrain an existing Predictive Web service](machine-learning-retrain-existing-resource-manager-based-web-service.md).
 
 ## Create a Training Experiment
  
