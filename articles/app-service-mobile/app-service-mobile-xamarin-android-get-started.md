@@ -22,7 +22,8 @@
 
 ##Overview
 
-This tutorial shows you how to add a cloud-based backend service to a Xamarin.Android app. For more information, see [What are Mobile Apps](app-service-mobile-value-prop.md).
+This tutorial shows you how to add a cloud-based backend service to a Xamarin.Android app. For more information, see
+[What are Mobile Apps](app-service-mobile-value-prop.md).
 
 A screenshot from the completed app is below:
 
@@ -32,21 +33,25 @@ Completing this tutorial is a prerequisite for all other Mobile Apps tutorials f
 
 ##Prerequisites
 
-To complete this tutorial, you need the following:
+To complete this tutorial, you need the following prerequisites:
 
-* An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free Mobile Apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+* An active Azure account. If you don't have an account, sign up for an Azure trial and get up to 10 free Mobile
+  Apps. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* Visual Studio with Xamarin. See [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) for instructions.  
- 
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile), where you can immediately create a short-lived starter Mobile App in App Service. No credit cards required; no commitments.
+* Visual Studio with Xamarin. See [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) for instructions.
 
-## Create a new Azure Mobile App backend
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to
+>[Try App Service](https://tryappservice.azure.com/?appServiceName=mobile).  You can immediately create a short-lived starter Mobile
+> App in App Service. No credit cards required; no commitments.
 
-Follow these steps to create a new Mobile App backend.
+## Create an Azure Mobile App backend
+
+Follow these steps to create a Mobile App backend.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-You have now provisioned an Azure Mobile App backend that can be used by your mobile client applications. Next, you will download a server project for a simple "todo list" backend and publish it to Azure.
+You have now provisioned an Azure Mobile App backend that can be used by your mobile client applications. Next, download a server
+project for a simple "todo list" backend and publish it to Azure.
 
 ## Configure the server project
 
@@ -56,7 +61,7 @@ You have now provisioned an Azure Mobile App backend that can be used by your mo
 
 1. Under **Download and run your Xamarin.Android project**, click the **Download** button.
 
-  	This downloads a project that contains a client application that is connected to your mobile app. Save the compressed project file to your local computer, and make a note of where you save it.
+  	Save the compressed project file to your local computer, and make a note of where you save it.
 
 2. Press the **F5** key to build the project and start the app.
 
@@ -64,18 +69,17 @@ You have now provisioned an Azure Mobile App backend that can be used by your mo
 
 	![][10]
 
-	This sends a POST request to the new mobile app backend hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile app backend, and the data appears in the list.
+	Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile app backend, and the
+	data appears in the list.
 
 	> [AZURE.NOTE] You can review the code that accesses your mobile app backend to query and insert data, which is found in the ToDoActivity.cs C# file.
 
 ##Next steps
 
-* [Add authentication to your app ](app-service-mobile-xamarin-android-get-started-users.md)  
-Learn how to authenticate users of your app with an identity provider.
-* [Add push notifications to your Xamarin.Android app](app-service-mobile-xamarin-android-get-started-push.md)  
-Learn how to add push notifications to your app.
-* [How to use the managed client for Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)  
-Learn how to work with the managed client SDK in your Xamarin app. 
+* [Add Offline Sync to your app](app-service-mobile-xamarin-android-get-started-offline-data.md)
+* [Add authentication to your app ](app-service-mobile-xamarin-android-get-started-users.md)
+* [Add push notifications to your Xamarin.Android app](app-service-mobile-xamarin-android-get-started-push.md)
+* [How to use the managed client for Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 
 <!-- Images. -->

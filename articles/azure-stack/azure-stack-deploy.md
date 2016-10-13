@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/27/2016"
+	ms.date="10/12/2016"
 	ms.author="erikje"/>
 
 # Azure Stack deployment prerequisites
@@ -69,15 +69,15 @@ Sample OEM configurations are available.
 
 ## Deployment requirements check tool
 
-After you have installed the operating system onto your hardware, you can use the [Deployment Checker for Azure Stack Technical Preview 2](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) to confirm that your hardware meets all of the requirements.
+After installing the operating system, you can use the [Deployment Checker for Azure Stack Technical Preview 2](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) to confirm that your hardware meets all the requirements.
 
 
 
 ## Microsoft Azure Active Directory accounts
 
-The Microsoft Azure Stack POC deployment must be connected to Azure. Therefore, you must prepare a Microsoft Azure Active Directory account prior to running the deployment PowerShell script. This account will become the Global Admin for the Azure Active Directory tenant. It will be used to provision and delegate applications and service principals for all Azure Stack services that interact with Azure Active Directory and Graphic API. It will also be used as the owner of the default provider subscription (which you can later change). You can log into your Azure Stack system’s admin portal by using this account.
+The Microsoft Azure Stack POC deployment must be connected to Azure. Therefore, you must prepare a Microsoft Azure Active Directory account before running the deployment PowerShell script. This account becomes the Global Admin for the Azure Active Directory tenant. It will be used to provision and delegate applications and service principals for all Azure Stack services that interact with Azure Active Directory and Graphic API. It will also be used as the owner of the default provider subscription (which you can later change). You can log in to your Azure Stack system’s admin portal by using this account.
 
-1. Create an Azure AD account that is the directory administrator for at least one Azure Active Directory. If you already have one, you can use that. Otherwise, you can create one for free at  [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (in China, visit <http://go.microsoft.com/fwlink/?LinkID=717821> instead.)
+1. Create an Azure AD account that is the directory administrator for at least one Azure Active Directory. If you already have one, you can use that. Otherwise, you can create one for free at [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (in China, visit <http://go.microsoft.com/fwlink/?LinkID=717821> instead.)
 
     Save these credentials for use in step 6 of [Run the PowerShell deployment script](azure-stack-run-powershell-script.md#run-the-powershell-deployment-script). This *service administrator* account can configure and manage resource clouds, user accounts, tenant plans, quotas, and pricing. In the portal, they can create website clouds, virtual machine private clouds, create plans, and manage user subscriptions.
 
@@ -85,10 +85,10 @@ The Microsoft Azure Stack POC deployment must be connected to Azure. Therefore, 
 
     | **Azure Active Directory account**  | **Supported?** |
     |---|---| 
-    | Organization ID with valid Public Azure Subscription  | Yes |
+    | Work or school account with valid Public Azure Subscription  | Yes |
     | Microsoft Account with valid Public Azure Subscription  | No |
-    | Organization ID with valid China Azure Subscription  | Yes |
-    | Organization ID with valid US Government Azure Subscription  | Yes |
+    | Work or school account with valid China Azure Subscription  | Yes |
+    | Work or school account with valid US Government Azure Subscription  | Yes |
 
 
 ## Network
@@ -109,7 +109,7 @@ Do not connect the POC machine to the following subnets:
 - 192.168.103.0/25
 - 192.168.104.0/25
 
-These are reserved for the internal networks within the Microsoft Azure Stack POC environment.
+These subnets are reserved for the internal networks within the Microsoft Azure Stack POC environment.
 
 ### IPv4/IPv6
 

@@ -58,7 +58,7 @@ If you experience a failure during installation, the Azure Stack installer allow
 
 ### At the end of the deployment, the PowerShell session is still open and doesn’t show any output
 
-This is probably just the result of the default behavior of a PowerShell command window, when it has been selected. The POC deployment had actually succeeded but the script was paused when selecting the window. Please press the ESC key to unselect it, and the completion message should be shown after it.
+This is probably just the result of the default behavior of a PowerShell command window, when it has been selected. The POC deployment had actually succeeded but the script was paused when selecting the window. You can verify that this is the case by looking for the word "select" in the titlebar of the command window.  Please press the ESC key to unselect it, and the completion message should be shown after it.
 
 ## Templates
 

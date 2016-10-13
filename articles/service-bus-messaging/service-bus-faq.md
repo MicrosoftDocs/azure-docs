@@ -1,13 +1,13 @@
 <properties 
     pageTitle="Service Bus FAQ | Microsoft Azure"
     description="Answers some frequently-asked questions about Azure Service Bus."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager=""
     editor="" />
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
@@ -34,7 +34,7 @@ This article answers some frequently-asked questions about Microsoft Azure Servi
 
 ### What is a Service Bus namespace?
 
-A [namespace](../service-bus/service-bus-create-namespace-portal.md) provides a scoping container for addressing Service Bus resources within your application. Creating one is necessary to use Service Bus and will be one of the first steps in getting started.
+A [namespace](service-bus-create-namespace-portal.md) provides a scoping container for addressing Service Bus resources within your application. Creating one is necessary to use Service Bus and will be one of the first steps in getting started.
 
 ### What is an Azure Service Bus queue?
 
@@ -202,13 +202,13 @@ To learn more about Service Bus messaging, see the following topics.
 - [Introducing Azure Service Bus Premium messaging (blog post)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Introducing Azure Service Bus Premium messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [Service Bus messaging overview](service-bus-messaging-overview.md)
-- [Azure Service Bus architecture overview](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+- [Azure Service Bus architecture overview](service-bus-fundamentals-hybrid-solutions.md)
 - [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 
 [Best practices for performance improvements using Service Bus brokered messaging]: service-bus-performance-improvements.md
-[Best practices for insulating applications against Service Bus outages and disasters]: ../service-bus/service-bus-outages-disasters.md
+[Best practices for insulating applications against Service Bus outages and disasters]: service-bus-outages-disasters.md
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
-[Quotas overview]: ../service-bus/service-bus-quotas.md
-[here]: ../service-bus/service-bus-powershell-how-to-provision.md#migrate-a-namespace-to-another-azure-subscription
-[Exceptions overview]: ../service-bus/service-bus-messaging-exceptions.md
-[Shared Access Signatures]: ../service-bus/service-bus-sas-overview.md
+[Quotas overview]: service-bus-quotas.md
+[here]: service-bus-powershell-how-to-provision.md#migrate-a-namespace-to-another-azure-subscription
+[Exceptions overview]: service-bus-messaging-exceptions.md
+[Shared Access Signatures]: service-bus-sas-overview.md

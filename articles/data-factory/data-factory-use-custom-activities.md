@@ -34,7 +34,9 @@ There are two types of activities that you can use in an Azure Data Factory pipe
 
 If you need to move data to/from a data store that is not supported by Azure Data Factory, you can create a custom .NET activity with your own data movement logic and use the activity in the pipeline. 
 
-Similarly, if you need to transform/process data in a way that is not supported by Data Factory, you can create a custom activity with your own data processing logic and use the activity in the pipeline. 
+Similarly, if you need to transform/process data in a way that is not supported by Data Factory, you can create a custom activity with your own data processing logic and use the activity in the pipeline.
+
+> [AZURE.NOTE] Currently, Data Management Gateway supports only the copy activity and stored procedure activity in Data Factory. It is not possible to use the gateway from a custom activity to access on-premises data sources.
  
 You can configure the custom .NET activity to run using either an **Azure Batch** service or an **Azure HDInsight** cluster.   
 
