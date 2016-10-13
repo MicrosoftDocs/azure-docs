@@ -33,7 +33,7 @@ The tutorial introduces the basic Media Services workflow and the most common pr
 
 ## What you'll learn
 
-The tutorial show how to accomplish the following tasks:
+The tutorial shows how to accomplish the following tasks:
 
 1.  Create a Media Services account (using the Azure portal).
 2.  Configure streaming endpoint (using the Azure portal).
@@ -127,7 +127,7 @@ To create and change the number of streaming reserved units, do the following:
 
 1. Create a new C# Console Application in Visual Studio 2013, Visual Studio 2012, or Visual Studio 2010 SP1. Enter the **Name**, **Location**, and **Solution name**, and then click **OK**.
 
-2. Use the  [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) Nuget package to install **Azure Media Services .NET SDK Extensions**.  The Media Services .NET SDK Extensions is a set of extension methods and helper functions that will simplify your code and make it easier to develop with Media Services. Installing this package, also installs **Media Services .NET SDK** and adds all other required dependencies.
+2. Use the  [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) NuGet package to install **Azure Media Services .NET SDK Extensions**.  The Media Services .NET SDK Extensions is a set of extension methods and helper functions that will simplify your code and make it easier to develop with Media Services. Installing this package, also installs **Media Services .NET SDK** and adds all other required dependencies.
 
 3. Add a reference to System.Configuration assembly. This assembly contains the **System.Configuration.ConfigurationManager** class that is used to access configuration files, for example, App.config.
 
@@ -250,7 +250,7 @@ Add the following method to the Program class.
 
 ##Encode the source file into a set of adaptive bitrate MP4 files
 
-After ingesting assets into Media Services, media can be encoded, transmuxed, watermarked, and so on, before it is delivered to clients. These activities are scheduled and run against multiple background role instances to ensure high performance and availability. These activities are called Jobs, and each Job is comprised of atomic Tasks that do the actual work on the Asset file.
+After ingesting assets into Media Services, media can be encoded, transmuxed, watermarked, and so on, before it is delivered to clients. These activities are scheduled and run against multiple background role instances to ensure high performance and availability. These activities are called Jobs, and each Job is composed of atomic Tasks that do the actual work on the Asset file.
 
 As was mentioned earlier, when working with Azure Media Services, one of the most common scenarios is delivering adaptive bitrate streaming to your clients. Media Services can dynamically package a set of adaptive bitrate MP4 files into one of the following formats: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).
 
@@ -447,7 +447,7 @@ To test progressive download, paste a URL into a browser (for example, Internet 
 
 ### Looking for something else?
 
-If this topic didn't contain what you were expecting, is missing something, or in some other way didn't meet your needs, please provide us with you feedback using the Disqus thread below.
+If this topic didn't contain what you were expecting, is missing something, or in some other way didn't meet your needs, please provide us with your feedback using the Disqus thread below.
 
 
 <!-- Anchors. -->
