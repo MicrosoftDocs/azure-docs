@@ -34,7 +34,7 @@ You can think of automatic scaling formulas as using a Batch autoscale "language
 $myNewVariable = function($ServiceDefinedVariable, $myCustomVariable);
 ```
 
-Formulas generally contain multiple statements that perform operations on values that are obtained in previous statements. For example, first we obtain a value for  `variable1`, then pass it to a function to populate `variable2`:
+Formulas generally contain multiple statements that perform operations on values that are obtained in previous statements. For example, first we obtain a value for `variable1`, then pass it to a function to populate `variable2`:
 
 ```bash
 $variable1 = function1($ServiceDefinedVariable);
@@ -324,17 +324,16 @@ $totalNodes =
 $TargetDedicated = min(400, $totalNodes)
 ```
 
->[AZURE.NOTE] An automatic scaling formula is comprised of [Batch REST][rest_api] API variables, types, operations, and functions. You use these in formula strings even while you're working with the [Batch .NET][net_api] library.
+>[AZURE.NOTE] An automatic scaling formula is composed of [Batch REST][rest_api] API variables, types, operations, and functions. You use these in formula strings even while you're working with the [Batch .NET][net_api] library.
 
 ## Create an autoscale-enabled pool
 
-To enable automatic scaling when you're creating a pool, use one of the following techniques:
+To enable automatic scaling when you're creating a pool, you can use one of the following techniques.
 
-- [New-AzureBatchPool](https://msdn.microsoft.com/library/azure/mt125936.aspx)--This Azure PowerShell cmdlet uses the AutoScaleFormula parameter to specify the automatic scaling formula.
 - [BatchClient.PoolOperations.CreatePool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx)--After this .NET method is called to create a pool, you'll then set the pool's [CloudPool.AutoScaleEnabled](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleenabled.aspx) property and [CloudPool.AutoScaleFormula](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleformula.aspx) property to enable automatic scaling.
 - [Add a pool to an account](https://msdn.microsoft.com/library/azure/dn820174.aspx)--The enableAutoScale and autoScaleFormula elements are used in this REST API request to set up automatic scaling for the pool when it is created.
 
-> [AZURE.IMPORTANT] If you create an autoscale-enabled pool by using one of the above techniques, the *targetDedicated* parameter for the pool must **not** be specified. Also note that if you wish to manually resize an autoscale-enabled pool (for example, with [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]), then you must first **disable** automatic scaling on the pool, then resize it.
+> [AZURE.IMPORTANT] When you create an autoscale-enabled pool, you must **not** specify the `targetDedicated` parameter. Also, if you want to manually resize an autoscale-enabled pool (for example, with [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]), then you must first **disable** automatic scaling on the pool, then resize it.
 
 The following code snippet creates an autoscale-enabled pool by using the [Batch .NET][net_api] library. The pool's autoscale formula sets the target number of nodes to 5 on Mondays, and 1 on every other day of the week. The [automatic scaling interval](#automatic-scaling-interval) is set to 30 minutes. In this and the other C# snippets in this article, "myBatchClient" is a properly initialized instance of [BatchClient][net_batchclient].
 
@@ -345,6 +344,8 @@ pool.AutoScaleFormula = "$TargetDedicated = (time().weekday == 1 ? 5:1);";
 pool.AutoScaleEvaluationInterval = TimeSpan.FromMinutes(30);
 pool.Commit();
 ```
+
+In addition to the Batch REST API and .NET SDK, you can use any of the other [Batch SDKs](batch-technical-overview.md#batch-development-apis), [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md), and the [Batch CLI](batch-cli-get-started.md) to work with autoscaling.
 
 ### Automatic scaling interval
 
