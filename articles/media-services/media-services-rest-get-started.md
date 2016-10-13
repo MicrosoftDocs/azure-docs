@@ -130,7 +130,7 @@ The following steps describe the most common workflow when using the Media Servi
 
 ###Getting an access token
 
-To access Media Services directly through the REST API, retrieve an access token from ACS and use it during every HTTP request you make into the service. This token is similar to other tokens provided by ACS based on access claims provided in the header of an HTTP request and using the OAuth v2 protocol. You do not need any other prerequisites before directly connecting to Media Services.
+To access Media Services directly through the REST API, retrieve an access token from ACS and use it during every HTTP request you make into the service. You do not need any other prerequisites before directly connecting to Media Services.
 
 The following example shows the HTTP request header and body used to retrieve a token.
 
@@ -149,7 +149,7 @@ The following example shows the HTTP request header and body used to retrieve a 
 
 You need to proved the client_id and client_secret values in the body of this request; client_id and client_secret correspond to the AccountName and AccountKey values, respectively. These values are provided to you by Media Services when you set up your account. 
 
-Note that the AccountKey for your Media Services account must be URL-encoded when using it as the client_secret value in your access token request.
+The AccountKey for your Media Services account must be URL-encoded when using it as the client_secret value in your access token request.
 
 	grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
@@ -189,7 +189,7 @@ Make sure to monitor the "expires_in" value of the access token and update your 
 
 The root URI for Media Services is https://media.windows.net/. You should initially connect to this URI, and if you get a 301 redirect back in response, you should make subsequent calls to the new URI. In addition, do not use any auto-redirect/follow logic in your requests. HTTP verbs and request bodies will not be forwarded to the new URI.
 
-Note that the root URI for uploading and downloading Asset files is https://yourstorageaccount.blob.core.windows.net/ where the storage account name is the same one you used during your Media Services account setup.
+The root URI for uploading and downloading Asset files is https://yourstorageaccount.blob.core.windows.net/ where the storage account name is the same one you used during your Media Services account setup.
 
 The following example demonstrates HTTP request to the Media Services root URI (https://media.windows.net/). The request gets a 301 redirect back in response. The subsequent request is using the new URI (https://wamsbayclus001rest-hs.cloudapp.net/api/).     
 
@@ -256,11 +256,11 @@ In Media Services, you upload your digital files into an asset. The **Asset** en
 One of the values that you have to provide when creating an asset is asset creation options. The **Options** property is an enumeration value that describes the encryption options that an Asset can be created with. A valid value is one of the values from the list below, not a combination of values from this list:
 
  
-- **None** = **0** - No encryption is used. Note that when using this option your content is not protected in transit or at rest in storage.
+- **None** = **0** - No encryption is used. When using this option your content is not protected in transit or at rest in storage.
 	If you plan to deliver an MP4 using progressive download, use this option. 
 - **StorageEncrypted** = **1** - Encrypts your clear content locally using AES-256 bit encryption and then uploads it to Azure Storage where it is stored encrypted at rest. Assets protected with Storage Encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. The primary use case for Storage Encryption is when you want to secure your high-quality input media files with strong encryption at rest on disk.
 - **CommonEncryptionProtected** = **2** - Use this option if you are uploading content that has already been encrypted and protected with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).
-- **EnvelopeEncryptionProtected** = **4** – Use this option if you are uploading HLS encrypted with AES. Note that the files must have been encoded and encrypted by Transform Manager.
+- **EnvelopeEncryptionProtected** = **4** – Use this option if you are uploading HLS encrypted with AES. The files must have been encoded and encrypted by Transform Manager.
 
 ### Create an asset
 
@@ -431,7 +431,7 @@ The following example shows how to create an AccessPolicy:
 
 ### Get the Upload URL
 
-To receive the actual upload URL, create a SAS Locator. Locators define the start time and type of connection endpoint for clients that want to access Files in an Asset. You can create multiple Locator entities for a given AccessPolicy and Asset pair to handle different client requests and needs. Each of these Locators use the StartTime value plus the DurationInMinutes value of the AccessPolicy to determine the length of time a URL can be used. For more information, see [Locator](http://msdn.microsoft.com/library/azure/hh974308.aspx).
+To receive the actual upload URL, create a SAS Locator. Locators define the start time and type of connection endpoint for clients that want to access Files in an Asset. You can create multiple Locator entities for a given AccessPolicy and Asset pair to handle different client requests and needs. Each of these Locators uses the StartTime value plus the DurationInMinutes value of the AccessPolicy to determine the length of time a URL can be used. For more information, see [Locator](http://msdn.microsoft.com/library/azure/hh974308.aspx).
 
 
 A SAS URL has the following format:
@@ -581,7 +581,7 @@ If successful, the following is returned:
 
 When working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients. With adaptive bitrate streaming, the client can switch to a higher or lower bitrate stream as the video is displayed based on the current network bandwidth, CPU utilization, and other factors. Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only). 
 
-Media Services provides dynamic packaging, which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) without you having to re-package into these streaming formats. 
+Media Services provides dynamic packaging, which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) without you having to repackage into these streaming formats. 
 
 To take advantage of dynamic packaging, you need to do the following:
 
@@ -597,7 +597,7 @@ To change the number of streaming reserved units, do the following:
 	
 ### Get the streaming endpoint you want to update
 
-For example, let's get the first streaming endpoint in your account (you can have up to 2 streaming endpoints in running state at the same time.)
+For example, let's get the first streaming endpoint in your account (you can have up to two streaming endpoints in running state at the same time.)
 
 **HTTP Request**:
 
@@ -707,7 +707,7 @@ To take advantage of dynamic packaging, you need to do the following:
 - encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files,  
 - get at least one streaming unit for the streaming endpoint from which you plan to deliver your content. 
 
-The following section shows how to create a job that contains one encoding task. The task specifies to transcode the mezzanine file into a set of adaptive bitrate MP4s using **Media Encoder Standard**. The section also shows how to monitor the job processing progress. When the job is complete you would be able to create locators that are needed to get access to your assets. 
+The following section shows how to create a job that contains one encoding task. The task specifies to transcode the mezzanine file into a set of adaptive bitrate MP4s using **Media Encoder Standard**. The section also shows how to monitor the job processing progress. When the job is complete, you would be able to create locators that are needed to get access to your assets. 
 
 ### Get a media processor
 
@@ -758,7 +758,7 @@ The following code requests the encoder's id.
 
 ### Create a job
 
-Each Job can have one or more Tasks depending on the type of processing that you want to accomplish. Through the REST API, you can create Jobs and their related Tasks in one of two ways: Tasks can be defined inline through the Tasks navigation property on Job entities, or through OData batch processing. The Media Services SDK uses batch processing; however, for the readability of the code examples in this topic, tasks are defined inline. For information on batch processing, see [Open Data Protocol (OData) Batch Processing](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Each Job can have one or more Tasks depending on the type of processing that you want to accomplish. Through the REST API, you can create Jobs and their related Tasks in one of two ways: Tasks can be defined inline through the Tasks navigation property on Job entities, or through OData batch processing. The Media Services SDK uses batch processing. However, for the readability of the code examples in this topic, tasks are defined inline. For information on batch processing, see [Open Data Protocol (OData) Batch Processing](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
 The following example shows you how to create and post a Job with one Task set to encode a video at a specific resolution and quality. The following documentation section contains the list of all the [task presets](http://msdn.microsoft.com/library/mt269960) supported by the Media Encoder Standard processor.  
 
