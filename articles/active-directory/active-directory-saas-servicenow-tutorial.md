@@ -341,7 +341,7 @@ This link relationship is established by assigning the value of the **user name*
 
 1. On the **Add New Identity Provider** dialog, under **Configure Identity Provider**, perform the following steps:
 
-    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC7694982ex.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694982ex.png "Configure single sign-on")
 
 
     a. In the **Name** textbox, type a name for your configuration (e.g.: **SAML 2.0**).
