@@ -30,7 +30,7 @@ As the Azure account administrator, you can view the billing invoice and the dai
 
 	>[AZURE.NOTE] Only the  account administrator has permission to access the billing data. For more information about how to find out who is the account administrator of the subscription, see the [Frequently asked questions](billing-subscription-transfer.md#faq).
 
-2. On the Hub menu, select **Billing**. On the **Billing** blade, you can find some useful information such as next bill date.
+2. On the Hub menu, select **Billing**. On the **Billing** blade, you can find some useful information such as next billing date.
 
 	![billing button](./media/billing-download-azure-invoice-daily-usage-date/billing1.png)
 3. In the **Subscription costs** section, select the subscription that you want to view.
