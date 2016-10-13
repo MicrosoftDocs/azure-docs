@@ -28,7 +28,7 @@ At a high level, the following diagram shows the HPC Pack cluster you create and
 ![HPC Pack cluster with Linux nodes][scenario]
 
 
-For other options to run Linux HPC workloads in Azure, see [Technical resources for batch and high-performance computing](..batch/big-compute-resources.md).
+For other options to run Linux HPC workloads in Azure, see [Technical resources for batch and high-performance computing](../batch/big-compute-resources.md).
 
 ## Deploy an HPC Pack cluster with Linux compute nodes
 
