@@ -24,7 +24,7 @@
 ## Cortana Intelligence Competitions
 
 **[Competitions](https://gallery.cortanaintelligence.com/competitions)**
-provide an exciting opportunity to compete with the community of data scientsts to solve complex problems using Cortana Intelligence Suite.
+provide an exciting opportunity to compete with the community of data scientists to solve complex problems using Cortana Intelligence Suite.
 
 ## Discover
 
