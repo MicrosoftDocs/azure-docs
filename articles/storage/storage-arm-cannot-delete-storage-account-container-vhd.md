@@ -65,6 +65,12 @@ A lease is a lock that can be used to control access to a blob (for example, a V
 
 To resolve these issues, you have to locate the VM that is using the VHD. Then, you must detach the VHD from the VM (for data disks) or delete the VM that is using the VHD (for OS disks). This removes the lease from the VHD, and allows it to be deleted.
 
+## Locate the VHD that caused the error
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the Hub menu, select **All resources**, and then locate the storage account that you want to manage or delete.
+3.  
+
 To detach the VHD from the VM that is using it (data disks):
 
 1.	Sign in to the [Azure portal](https://portal.azure.com).
