@@ -42,9 +42,9 @@ The information in this article applies to both classic and Azure portal deploym
 **Replicate** | **Azure portal** | **Classic portal**
 --- | --- | ---
 **VMware VM replication to Azure** | Simplified deployment process.<br/><br/> Fail over VMs to classic or Resource Manager-based storage.<br/><br/> Replicate to classic or Resource Manager-based storage.<br/><br/> Use classic or Resource Manager networks for connecting the Azure VMs after failover.<br/><br/> Use LRS or GRS storage. | Fail over to classic storage only.<br/><br/> Use classic networks only to connect VMs after failover.<br/><br/> Use GRS storage.
-** Hyper-V VM replication (without VMM) to Azure** | Simplified deployment process.<br/><br/> Fail over VMs to classic or Resource Manager-based storage.<br/><br/> Replicate to classic or Resource Manager-based storage.<br/><br/> Use classic or Resource Manager networks for connecting the Azure VMs after failover.
-** Hyper-V VM replication (with VMM) to Azure** | Simplified deployment process.<br/><br/> Fail over VMs to classic or Resource Manager-based storage.<br/><br/> Replicate to classic or Resource Manager-based storage.<br/><br/> Use classic or Resource Manager networks for connecting the Azure VMs after failover.<br/><br/> Must set up network mapping | Fail over to classic storage only.<br/><br/> Use classic networks only to connect VMs after failover.
-** Hyper-V VM replication (with VMM) to secondary site** | Simplified deployment process.<br/><br/> Fail over VMs to classic or Resource Manager-based storage.<br/><br/> Replicate to classic or Resource Manager-based storage.<br/><br/> Use classic or Resource Manager networks for connecting the Azure VMs after failover.<br/><br/> Must set up network mapping | Fail over to classic storage only.<br/><br/> Use classic networks only to connect VMs after failover.<br/><br/> You can set up storage mapping. <br/><br/> SAN replication isn't supported.
+**Hyper-V VM replication (without VMM) to Azure** | Simplified deployment process.<br/><br/> Fail over VMs to classic or Resource Manager-based storage.<br/><br/> Replicate to classic or Resource Manager-based storage.<br/><br/> Use classic or Resource Manager networks for connecting the Azure VMs after failover.
+**Hyper-V VM replication (with VMM) to Azure** | Simplified deployment process.<br/><br/> Fail over VMs to classic or Resource Manager-based storage.<br/><br/> Replicate to classic or Resource Manager-based storage.<br/><br/> Use classic or Resource Manager networks for connecting the Azure VMs after failover.<br/><br/> Must set up network mapping | Fail over to classic storage only.<br/><br/> Use classic networks only to connect VMs after failover.
+**Hyper-V VM replication (with VMM) to secondary site** | Simplified deployment process.<br/><br/> Fail over VMs to classic or Resource Manager-based storage.<br/><br/> Replicate to classic or Resource Manager-based storage.<br/><br/> Use classic or Resource Manager networks for connecting the Azure VMs after failover.<br/><br/> Must set up network mapping | Fail over to classic storage only.<br/><br/> Use classic networks only to connect VMs after failover.<br/><br/> You can set up storage mapping. <br/><br/> SAN replication isn't supported.
 
 
 
@@ -98,7 +98,7 @@ Site Recovery can replicate most apps running on these VMs and physical servers.
 **Component** | **Details**
 --- | ---
 **Azure** | **Account**: You need an Azure account.<br/><br/> **Storage**: You need an Azure storage account to store replicated data. You can use a classic account or a Resource Manager storage account. The account must be GRS. Replicated data is stored in Azure storage and Azure VMs are spun up when failover occurs.<br/><br/> **Network**: You need an Azure virtual network that Azure VMs will connect to when they're created at failover.
-**Hyper-V VMs** | **Host**: One or more Hyper-V hosts. The Site Recovery Provider and Recovery Services agent are installed on each host during deployment.
+**Hyper-V hosts/VMs** | One or more Hyper-V hosts, running one or more VMs.<br/><br/> The Site Recovery Provider and Recovery Services agent are installed on each host during deployment.
 
 - [Learn more](site-recovery-hyper-v-site-to-azure.md#azure-prerequisites) about requirements for Azure portal deployment.
 - [Learn more](site-recovery-hyper-v-site-to-azure-classic.md#azure-prerequisites) about requirements for classic portal deployment.
@@ -114,7 +114,7 @@ Site Recovery can replicate most apps running on these VMs and physical servers.
 --- | ---
 **Azure** | **Account**: You need an Azure account.<br/><br/> **Storage**: You need an Azure storage account to store replicated data. You can use a classic account or a Resource Manager storage account. The account must be GRS. Replicated data is stored in Azure storage and Azure VMs are spun up when failover occurs.<br/><br/> **Network**: You need an Azure virtual network that Azure VMs will connect to when they're created at failover.
 **VMM server** | You need one or more on-premises VMM servers, with one or more private clouds. The Site Recovery Provider is installed on each server during deployment.
-**Hyper-V** | **Host**: One or more Hyper-V hosts running one or more VMs. The Recovery Services agent is installed on each host during deployment.
+**Hyper-V hosts/VMs** | One or more Hyper-V hosts running one or more VMs.<br/><br/> The Recovery Services agent is installed on each host during deployment.
 
 
 - [Learn more](site-recovery-vmm-to-azure.md#azure-requirements) about requirements for Azure portal deployment.
@@ -148,7 +148,7 @@ You set up the component servers in each site (configuration, process, master ta
 --- | ---
 **Azure** | **Account**: You need an Azure account.
 **VMM server** | We recommend a VMM server in the primary site, and one in the secondary site. Each server needs one or more private clouds.<br/><br/> During deployment you install the Azure Site Recovery Provider on the VMM server.
-**Hyper-V** | **Host**: One or more Hyper-V hosts running in the VMM clouds in the primary and secondary site<br/><br/> Each host should have one or more VMs to replicate.<br/><br/>. The Recovery Services agent is installed on each host during deployment.
+**Hyper-V hosts/VMs** | One or more Hyper-V hosts running in the VMM clouds in the primary and secondary site<br/><br/> Each host should have one or more VMs to replicate.<br/><br/>. The Recovery Services agent is installed on each host during deployment.
 
 - [Learn more](site-recovery-vmm-to-vmm.md#azure-prerequisites) about deployment requirements in the Azure portal.
 - [Learn more](site-recovery-vmm-to-vmm-classic.md#before-you-start) about deployment requirements in the Azure classic portal.
@@ -165,7 +165,7 @@ You can replicate Hyper-V VMs managed in VMM clouds to a secondary site using SA
 **Azure** | **Account**: You need an Azure account.
 **VMM server** | We recommend a VMM server in the primary site, and one in the secondary site. Each server needs one or more private clouds.<br/><br/> During deployment you install the Azure Site Recovery Provider on the VMM server.
 **SAN** | A supported SAN array managed by the primary VMM server.<br/><br/> The SAN should share a network infrastructure with another SAN array in the secondary site.
-**Hyper-V** | **Host**: One or more Hyper-V hosts running in the VMM clouds in the primary and secondary site<br/><br/> Each host should have one or more VMs to replicate.<br/><br/>. The Recovery Services agent is installed on each host during deployment.
+**Hyper-V hosts/VMs** | One or more Hyper-V hosts running in the VMM clouds in the primary and secondary site<br/><br/> Each host should have one or more VMs to replicate.<br/><br/>. The Recovery Services agent is installed on each host during deployment.
 
 In this scenario during Site Recovery deployment you'll install the Azure Site Recovery Provider on VMM servers. The Provider coordinates and orchestrates replication with the Site Recovery service over the internet. Data is replicated between the primary and secondary storage arrays using synchronous SAN replication.
 
