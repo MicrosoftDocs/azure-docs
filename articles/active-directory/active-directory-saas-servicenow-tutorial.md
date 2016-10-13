@@ -369,7 +369,7 @@ This link relationship is established by assigning the value of the **user name*
 
 1. Under **Additional Service Provider Properties**, perform the following steps:
 
-    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC7694984ex.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694984ex.png "Configure single sign-on")
 
     a. In the **ServiceNow Homepage** textbox, type the URL of your ServiceNow instance homepage.
 
