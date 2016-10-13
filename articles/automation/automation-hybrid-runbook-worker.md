@@ -21,13 +21,9 @@ Runbooks in Azure Automation cannot access resources in your local data center s
 
 This functionality is illustrated in the following image.<br>  
 
-![Hybrid Runbook Worker Overview](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-overview.png)
+![Hybrid Runbook Worker Overview](media/automation-hybrid-runbook-worker/automation.png)
 
 You can designate one or more computers in your data center to act as a Hybrid Runbook Worker and run runbooks from Azure Automation.  Each worker requires the Microsoft Management Agent with a connection to Microsoft Operations Management Suite and the Azure Automation runbook environment.  Operations Management Suite is only used to install and maintain the management agent and to monitor the functionality of the worker.  The delivery of runbooks and the instruction to run them are performed by Azure Automation.
-
-![Hybrid Runbook Worker Components](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-components_b.png)
-
->[AZURE.NOTE] Operational Insights is in the process of being integrated into Operations Management Suite, and you may see either name used in the portal and in documentation.
 
 There are no inbound firewall requirements to support Hybrid Runbook Workers. The agent on the local computer initiates all communication with Azure Automation in the cloud. When a runbook is started, Azure Automation creates an instruction that is retrieved by agent. The agent then pulls down the runbook and any parameters before running it.  It will also retrieve any [assets](http://msdn.microsoft.com/library/dn939988.aspx) that are used by the runbook from Azure Automation.
 
