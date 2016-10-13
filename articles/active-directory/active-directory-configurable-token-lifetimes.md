@@ -49,7 +49,7 @@ Due to limitations of the environment that the applications run in, public clien
 ID tokens are passed to web sites and native clients and contain profile information about a user. An ID token is bound to a specific combination of user and client. ID tokens are considered valid until expiry.  Normally, a web application matches a user’s session lifetime in the application to the lifetime of the ID token issued for the user.  Adjusting ID token lifetime allows you to control how often the web application will expire the application session and require the user to be re-authenticated with Azure AD (either silently or interactively).
 
 ### Single sign-on session token
-When a user authenticates with Azure AD, a single sign-on session is established with the user’s browser and Azure AD.  The Single Sign-On Session Token, in the form of a cookie, represents this session. It is important to note that the SSO session token is not bound to a specific resource/client application. SSO session tokens can be revoked and their validity is checked every time they are used.
+When a user authenticates with Azure AD and checks the "Keep me signed in" box, a single sign-on session is established with the user’s browser and Azure AD.  The Single Sign-On Session Token, in the form of a cookie, represents this session. It is important to note that the SSO session token is not bound to a specific resource/client application. SSO session tokens can be revoked and their validity is checked every time they are used.
 
 There are two kinds of SSO session tokens. Persistent session tokens are stored as persistent cookies by the browser and non-persistent session tokens are stored as session cookies (these are destroyed when the browser is closed).
 
@@ -112,7 +112,7 @@ A token’s validity is evaluated at the time it is used. The policy with the hi
 >
 >At 12:00PM the user opens up a new browser session and tries to access web application A. the user is redirected to Azure AD and is asked to sign-in. This drops a cookie with a session token in the browser. The user is redirected back to web application A with an ID token that allows them to access the application.
 >
->At 12:15PM, the user then tries to access web application B. The browser redirects to Azure AD which detects the session cookie. Web application B’s service principal is linked to a policy 1, but is also part of the parent tenant with default policy 2. Policy 2 takes effect since policies linked to service principals have a higher priority than tenant default policies. The session token was originally issued within the last 30 minutes so it is considered valid. The user is redirected back to web application B with an ID token granting them access.
+>At 12:15PM, the user then tries to access web application B. The browser redirects to Azure AD which detects the session cookie. Web application B’s service principal is linked to policy 2, but is also part of the parent tenant with default policy 1. Policy 2 takes effect since policies linked to service principals have a higher priority than tenant default policies. The session token was originally issued within the last 30 minutes so it is considered valid. The user is redirected back to web application B with an ID token granting them access.
 >
 >At 1:00PM the user tries navigating to web application A. The user is redirected to Azure AD. Web application A is not linked to any policies, but since it is in a tenant with default policy 1, this policy takes effect. The session cookie is detected that was originally issued within the last 8 hours and the user is silently redirected back to web application A with a new ID token without needing to authenticate.
 >
@@ -134,7 +134,7 @@ A token’s validity is evaluated at the time it is used. The policy with the hi
 
 **Affects:** Refresh tokens
 
-**Summary:** This policy controls how old a refresh token can be before a client can no longer use it to retrieve a new access/refresh token pair when attempting to access this resource. Since a new Refresh token is usually returned a refresh token is used, the client must not have reached out to any resource using the current refresh token for the specified period of time before this policy would prevent access. 
+**Summary:** This policy controls how old a refresh token can be before a client can no longer use it to retrieve a new access/refresh token pair when attempting to access this resource. Since a new Refresh token is usually returned when a refresh token is used, the client must not have reached out to any resource using the current refresh token for the specified period of time before this policy would prevent access. 
 
 This policy will force users who have not been active on their client to re-authenticate to retrieve a new refresh token. 
 
