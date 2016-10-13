@@ -604,7 +604,7 @@ The command to uninstall the Mobility Service using command line is
 #### Install manually on a Linux server:
 
 1. Copy the appropriate tar archive based on the table above to the Linux machine you want to replicate.
-2. Open a shell program and extract the zipped tar archive to a local path by running: `tar -xvzf Microsoft-ASR_UA_8.5.0.0*`
+2. Open a shell program and extract the zipped tar archive to a local path by running: `tar -xvzf Microsoft-ASR_UA_9.3.0.0*`
 3. Create a passphrase.txt file in the local directory to which you extracted the contents of the tar archive. To do this copy the passphrase from C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase on the configuration server, and save it in passphrase.txt by running *`echo <passphrase> >passphrase.txt`* in shell.
 4. Install the Mobility service by running *`sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i <IP address> -p <port> -s y -c https -P passphrase.txt`*.
 5. Specify the internal IP address of the configuration server and make sure port 443 is selected. After installing the service it can take around 15 minutes for status to update in the portal.
