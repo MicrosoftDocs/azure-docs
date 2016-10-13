@@ -19,7 +19,7 @@
 	ms.date="10/04/2016"
 	ms.author="genli"/>
 
-# Reactivate disabled Azure subscription
+# Why is my Azure subscription disabled and how do I reactivate it?
 
 You might have your Azure subscription disabled because you reached your spending limit, have an overdue bill, hit your credit card limit, or because the subscription was canceled by the account administrator. See what issue applies to you and follow the steps in this article to get your subscription reactivated. 
 
@@ -58,7 +58,7 @@ To resolve this issue, [switch to a different credit card](billing-how-to-change
 
 ## The subscription was canceled by the Account Administrator
 
-If you're the account administrator, reactivate your Pay As You Go subscription by using the following steps: 
+If you're the account administrator, reactivate your Pay-As-You-Go subscription by using the following steps: 
 
 1. Log in to the [Azure Account Center](https://account.windowsazure.com/Home/Index).
 2. Select the canceled subscription.
@@ -66,13 +66,8 @@ If you're the account administrator, reactivate your Pay As You Go subscription 
 
 ![Screenshot that shows reactivate links on the right pane.](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
 
-For other subscription types, create a support ticket to have your subscription reactivated.
-
-1. Sign into the [Azure portal](https://portal.azure.com/). 
-2. Select **Help + support** > **New support request**.
-
-![Screenshot that shows the New support request option under Help + Support on the top right of the page.](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
+For other subscription types, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to have your subscription reactivated.
 
 ## Need help? Contact support.
-If you still need help, [create a support ticket](billing-how-to-create-billing-support-ticket.md) in the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). If you can't get to the portal, submit a support request from the [Azure Support web site](https://azure.microsoft.com/support/options/) or from the [Azure Account Center](https://account.windowsazure.com/Subscriptions).
+If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly. 
 
