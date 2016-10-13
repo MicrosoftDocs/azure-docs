@@ -121,7 +121,7 @@ The first command creates a folder named /namd2 on all nodes in the LinuxNodes g
 
 Your NAMD job needs a *nodelist* file for **charmrun** to determine the number of nodes to use when starting NAMD processes. You use a Bash script that generates the nodelist file and runs **charmrun** with this nodelist file. You can then submit a NAMD job in HPC Cluster Manager that calls this script.
 
-Using a text editor of your choice, create a Bash script in the /namd2 folder containing the NAMD program files and name it hpccharmrun.sh. If you want to quickly run a NAMD job, copy the example hpccharmrun.sh script provided in the sample files at the end of this article and go to [Submit a NAMD job](#submit-a-namd-job).
+Using a text editor of your choice, create a Bash script in the /namd2 folder containing the NAMD program files and name it hpccharmrun.sh. For a quick proof of concept, copy the example hpccharmrun.sh script provided at the end of this article and go to [Submit a NAMD job](#submit-a-namd-job).
 
 >[AZURE.TIP] Save your script as a text file with Linux line endings (LF only, not CR LF). This ensures that it runs properly on the Linux nodes.
 
@@ -155,7 +155,7 @@ Following are details about what this bash script does.
     <Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>…
     ```
 
-    This varialbe lists the total number of nodes, node names, and number of cores on each node that are allocated to the job. For example, if the job needs 10 cores to run, the value of $CCP_NODES_CORES is similar to:
+    This variable lists the total number of nodes, node names, and number of cores on each node that are allocated to the job. For example, if the job needs 10 cores to run, the value of $CCP_NODES_CORES is similar to:
 
     ```
     3 CENTOS66LN-00 4 CENTOS66LN-01 4 CENTOS66LN-03 2
@@ -255,7 +255,7 @@ Now you are ready to submit a NAMD job in HPC Cluster Manager.
     * **Command line** -
 `/namd2/hpccharmrun.sh ++remote-shell ssh /namd2/namd2 /namd2/namdsample/1-2-sphere/ubq_ws_eq.conf > /namd2/namd2_hpccharmrun.log`
 
-        >[AZURE.TIP] The preceding command line is a single command without line breaks. It will wrap to appear on several lines under **Command line**.
+        >[AZURE.TIP] The preceding command line is a single command without line breaks. It wraps to appear on several lines under **Command line**.
 
     * **Working directory** - /namd2
 
