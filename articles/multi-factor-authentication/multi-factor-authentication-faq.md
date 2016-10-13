@@ -129,9 +129,9 @@ If you are using Azure Multi-Factor Authentication Server, you can import third-
 
 You can use ActiveIdentity tokens that are OATH TOTP tokens if you put the secret key file in a CSV file and import to Azure Multi-Factor Authentication Server. You can use OATH tokens with Active Directory Federation Services (ADFS), Remote Authentication Dial-In User Service (RADIUS) when the client system can process access challenge responses, and Internet Information Server (IIS) forms-based authentication.
 
-You can import third-part OATH TOTP tokens with the following formats:
-- Portable Symmetric Key Container (PSKC)
-- CSV if the file contains a serial number, a secret key in Base 32 format, and a time interval
+You can import third-part OATH TOTP tokens with the following formats:  
+- Portable Symmetric Key Container (PSKC)  
+- CSV if the file contains a serial number, a secret key in Base 32 format, and a time interval  
 
 **Q: Can I use Azure Multi-Factor Authentication Server to secure Terminal Services?**
 
