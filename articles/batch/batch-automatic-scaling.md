@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="09/27/2016"
+	ms.date="10/13/2016"
 	ms.author="marsma"/>
 
 # Automatically scale compute nodes in an Azure Batch pool
@@ -352,14 +352,18 @@ This code snippet demonstrates enabling autoscaling on an existing pool by using
 
 ## Evaluate the automatic scaling formula
 
-It’s always a good practice to evaluate a formula before you use it in your application. A formula is evaluated by performing a "test run" of the formula on an existing pool. Do this by using:
+You can evaluate a formula by performing a "test run" of the formula on an existing pool. To evaluate an autoscale formula, you must first **enable autoscaling** on the pool with a **valid formula**.
 
-- [BatchClient.PoolOperations.EvaluateAutoScale](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscale.aspx) or [BatchClient.PoolOperations.EvaluateAutoScaleAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscaleasync.aspx)--These .NET methods require the ID of an existing pool and the string that contains the automatic scaling formula. The results of the call are contained in an instance of the [AutoScaleEvaluation](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscaleevaluation.aspx) class.
-- [Evaluate an automatic scaling formula](https://msdn.microsoft.com/library/azure/dn820183.aspx)--In this REST API request, the pool ID is specified in the URI. The automatic scaling formula is specified in the *autoScaleFormula* element of the request body. The response of the operation contains any error information that might be related to the formula.
+If you want to test a formula on a pool that doesn't yet have autoscaling enabled, you can use the one-line formula `$TargetDedicated = 0` when you first enable autoscaling. Then, use one of the following to evaluate the formula you wish to test:
 
-> [AZURE.NOTE] To evaluate an autoscale formula, you must first have enabled autoscaling on the pool by using a valid formula.
+- [BatchClient.PoolOperations.EvaluateAutoScale](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscale.aspx) or [BatchClient.PoolOperations.EvaluateAutoScaleAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscaleasync.aspx)
 
-In this code snippet that uses the [Batch .NET][net_api] library, we evaluate a formula prior to applying it to the pool ([CloudPool][net_cloudpool]).
+  These .NET methods require the ID of an existing pool and the string that contains the autoscale formula to evaluate. The results of the call are contained in an instance of the [AutoScaleEvaluation](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscaleevaluation.aspx) class.
+- [Evaluate an automatic scaling formula](https://msdn.microsoft.com/library/azure/dn820183.aspx)
+
+  In this REST API request, you specify the pool ID in the URI. The autoscale formula is specified in the *autoScaleFormula* element of the request body. The response of the operation contains any error information that might be related to the formula.
+
+In this [Batch .NET][net_api] code snippet, we evaluate a formula prior to applying it to the [CloudPool][net_cloudpool].
 
 ```
 // First obtain a reference to the existing pool
