@@ -51,7 +51,7 @@ Finally, if you want to create a new app in a different region, and that region 
 
 ## Create an App Service plan
 
->[Azure.Note] If you have an App Service Environtment you can review the documentation specific to App Serivce Environments here: [Create an App Service Plan in an App Service Environment](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan)
+>[Azure.Note] If you have an App Service Environment you can review the documentation specific to App Service Environments here: [Create an App Service Plan in an App Service Environment](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan)
 
 You can create an empty App Service plan from the App Service plan browse experience or as part of app creation.
 
