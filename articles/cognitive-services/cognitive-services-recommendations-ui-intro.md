@@ -85,7 +85,7 @@ Now that you have uploaded both the catalog and the usage data, we are ready to 
 1.	Select **Recommendations** as the build type. Notice that we support a Ranking Build and an FBT (Frequently Bought Together) build types as well.
 
  An FBT build allows you to identify patterns for products that are usually purchased/consumed in the same transaction. A ranking build is used to identify features of interest. 
- We won’t go very deep into FBT or ranking builds in this workshop, but if you are interested you should check out the [Build types and model quality documentation page](https://azure.microsoft.com/en-us/documentation/articles/cognitive-services-recommendations-buildtypes/).
+ We won’t go very deep into FBT or ranking builds in this workshop, but if you are interested you should check out the [Build types and model quality documentation page](cognitive-services-recommendations-buildtypes.md).
 
 1. Click the **Build** button. The build process takes about five minutes if you are using the Books data. It takes longer on larger datasets.
 
