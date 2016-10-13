@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="10/13/2016"
 	ms.author="asteen"/>
 
 
-# Azure AD Password Reset for Users and Admins
+# Azure AD Password Reset for IT Administrators
 
   >[AZURE.IMPORTANT] Are you here because you want to reset your Azure or O365 password?  If so, please [skip to this section](#users-how-to-manage-your-own-password).
 
@@ -25,17 +25,6 @@ Self-service has long been a key goal for IT departments across the world as a c
 
 **Azure AD Password Management** is a set of capabilities that allow your users to manage any password from any device, at any time, from any location, while remaining in compliance with the security policies you define.
 
-##USERS: How to manage your own password
-If you're a user (not an admin) in an organization that uses Office 365 or Microsoft Accounts to access work resources, click the links below to learn how to fix common problems with your password.
-
-| Topic |  |
-| --------- | --------- |
-| I want to register for password reset | [How to register for password reset](active-directory-passwords-update-your-own-password.md#how-to-register-for-password-reset) |
-| I want to change my password from O365 | [How to change your password from Office365](active-directory-passwords-update-your-own-password.md#how-to-change-your-password-from-o365) |
-| I want to change my password from myapps.microsoft.com | [How to change your password from the access panel](active-directory-passwords-update-your-own-password.md#how-to-change-your-password-from-the-access-panel) |
-| I forgot my password and want to reset it | [How to reset your password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password) |
-| I can't sign in and want to unlock my account | [How to unlock your on-premises account](active-directory-passwords-update-your-own-password.md#how-to-unlock-your-account) |
-| I want help troubleshooting a failed password reset | [Common problems and their solutions](active-directory-passwords-update-your-own-password.md#common-problems-and-their-solutions) |
 
 ##ADMINS: Learn about how to get started with Azure AD Password Reset
 If you're an admin who wants to enable Azure AD Password Reset, or just learn more about it, start with the links below to get to what you're interested in.
