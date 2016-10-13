@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/04/2016"
+	ms.date="10/13/2016"
 	ms.author="byvinyal"/>
 
 # Azure App Service plans in-depth overview#
@@ -50,6 +50,8 @@ Because you can move apps across plans, you can change the way that resources ar
 Finally, if you want to create a new app in a different region, and that region doesn't have an existing plan, you will have to create a new plan in that region to be able to host your app there.
 
 ## Create an App Service plan
+
+>[Azure.Note] If you have an App Service Environtment you can review the documentation specific to App Serivce Environments here: [Create an App Service Plan in an App Service Environment](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan)
 
 You can create an empty App Service plan from the App Service plan browse experience or as part of app creation.
 
