@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="07/09/2016"
+	ms.date="10/12/2016"
 	ms.author="sstein"
 	ms.workload="NA"
 	ms.topic="article"
@@ -21,10 +21,20 @@
 
 > [AZURE.SELECTOR]
 - [Overview](sql-database-recovery-using-backups.md)
-- [Deleted database restore: Azure portal](sql-database-restore-deleted-database-portal.md)
+- [Restore Deleted DB: Portal](sql-database-restore-deleted-database-portal.md)
+- [**Restore Deleted DB: PowerShell**]()
 
 [AZURE.INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
+
+## Get a list of deleted databases
+
+```
+$resourceGroupName = "resourcegroupname"
+$sqlServerName = "servername"
+
+$DeletedDatabases = Get-AzureRmSqlDeletedDatabaseBackup -ResourceGroupName $resourceGroupName -ServerName $sqlServerName
+```
 
 ## Restore your deleted database into a standalone database
 
