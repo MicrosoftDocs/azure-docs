@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/17/2016" 
+	ms.date="10/11/2016" 
 	ms.author="juliako"/>
 
 #Get started with delivering content on demand using REST 
@@ -37,7 +37,8 @@ The following prerequisites are required to start developing with Media Services
 
 The following tasks are shown in this quickstart.
 
-1.  Create a Media Services account using Portal.
+1.  Create a Media Services account (using the Azure portal).
+2.  Configure streaming endpoint (using the Azure portal).
 1.  Connect to the Media Services account with REST API.
 1.  Create a new asset and upload a video file with REST API.
 1.  Configure streaming units with REST API.
@@ -45,34 +46,68 @@ The following tasks are shown in this quickstart.
 1.  Publish the asset and get streaming and progressive download URLs with REST API. 
 1.  Play your content. 
 
+## Create an Azure Media Services account using the Azure portal
 
-## <a id="create_ams"></a>Create a Media Services account using Portal
+The steps in this section show how to create an AMS account.
 
-1. In the [Azure Classic Portal][], click **New**, click **Media Service**, and then click **Quick Create**.
-   
-	![Media Services Quick Create](./media/media-services-rest-get-started/wams-QuickCreate.png)
+1. Log in at the [Azure portal](https://portal.azure.com/).
+2. Click **+New** > **Media + CDN** > **Media Services**.
 
-2. In **NAME**, enter the name of the new account. A Media Services account name is all lower-case numbers or letters with no spaces, and is 3 - 24 characters in length. 
+	![Media Services Create](./media/media-services-portal-vod-get-started/media-services-new1.png)
 
-3. In **REGION**, select the geographic region that is used to store the metadata records for your Media Services account. Only the available Media Services regions appear in the dropdown. 
+3. In **CREATE MEDIA SERVICES ACCOUNT** enter required values.
 
-4. In **STORAGE ACCOUNT**, select a storage account to provide blob storage of the media content from your Media Services account. You can select an existing storage account in the same geographic region as your Media Services account, or you can create a new storage account. A new storage account is created in the same region. 
-
-5. If you created a new storage account, in **NEW STORAGE ACCOUNT NAME**, enter a name for the storage account. The rules for storage account names are the same as for Media Services accounts.
-
-6. Click **Quick Create** at the bottom of the form.
-
-	You can monitor the status of the process in the message area at the bottom of the window.
-
-	Once account is successfully created, the status changes to Active. 
+	![Media Services Create](./media/media-services-portal-vod-get-started/media-services-new3.png)
 	
-	At the bottom of the page, the **MANAGE KEYS** button appears. When you click this button, a dialog with the Media Services account name and the primary and secondary keys is displayed. You need the account name and the primary key information to programmatically access the Media Services account. 
-
+	1. In **Account Name**, enter the name of the new AMS account. A Media Services account name is all lowercase numbers or letters with no spaces, and is 3 to 24 characters in length.
+	2. In Subscription, select among the different Azure subscriptions that you have access to.
 	
-	![Media Services Page](./media/media-services-rest-get-started/wams-mediaservices-page.png)
+	2. In **Resource Group**, select the new or existing resource.  A resource group is a collection of resources that share lifecycle, permissions, and policies. Learn more [here](resource-group-overview.md#resource-groups).
+	3. In **Location**,  select the geographic region is used to store the media and metadata records for your Media Services account. This  region is used to process and stream your media. Only the available Media Services regions appear in the drop-down list box. 
+	
+	3. In **Storage Account**, select a storage account to provide blob storage of the media content from your Media Services account. You can select an existing storage account in the same geographic region as your Media Services account, or you can create a storage account. A new storage account is created in the same region. The rules for storage account names are the same as for Media Services accounts.
 
-	When you double-click the account name, the Quick Start page is displayed by default. This page enables you to do some management tasks that are also available on other pages of the portal. For example, you can upload a video file from this page, or do it from the CONTENT page.
+		Learn more about storage [here](storage-introduction.md).
 
+	4. Select **Pin to dashboard** to see the progress of the account deployment.
+	
+7. Click **Create** at the bottom of the form.
+
+	Once the account is successfully created, the status changes to **Running**. 
+
+	![Media Services settings](./media/media-services-portal-vod-get-started/media-services-settings.png)
+
+	To manage your AMS account (for example, upload videos, encode assets, monitor job progress) use the **Settings** window.
+
+## Configure streaming endpoints using the Azure portal
+
+When working with Azure Media Services one of the most common scenarios is delivering video via adaptive bitrate streaming to your clients. Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).
+
+Media Services provides dynamic packaging, which allows you to deliver your adaptive bitrate MP4  encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) just-in-time, without you having to store pre-packaged versions of each of these streaming formats.
+
+To take advantage of dynamic packaging, you need to do the following:
+
+- Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files (the encoding steps are demonstrated later in this tutorial).  
+- Create at least one streaming unit for the *streaming endpoint* from which you plan to delivery your content. The steps below show how to change the number of streaming units.
+
+With dynamic packaging, you only need to store and pay for the files in single storage format and Media Services builds and serves the appropriate response based on requests from a client.
+
+To create and change the number of streaming reserved units, do the following:
+
+
+1. In the **Settings** window, click **Streaming endpoints**. 
+
+2. Click the default streaming endpoint. 
+
+	The **DEFAULT STREAMING ENDPOINT DETAILS** window appears.
+
+3. To specify the number of streaming units, slide the **Streaming units** slider.
+
+	![Streaming units](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
+
+4. Click the **Save** button to save your changes.
+
+	>[AZURE.NOTE]The allocation of any new units can take up to 20 minutes to complete.
 
 ## <a id="connect"></a>Connect to the Media Services account with REST API
 
