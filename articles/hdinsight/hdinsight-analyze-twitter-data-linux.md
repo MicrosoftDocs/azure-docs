@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="09/27/2016"
 	ms.author="larryfr"/>
 
 # Analyze Twitter data using Hive in HDInsight
@@ -99,7 +99,7 @@ The following Python code will download 10,000 tweets from Twitter and save them
 
 		nano gettweets.py
 
-5. Use the following as the contents of the __gettweets.py__ file. Replace the placeholder information for __consumer/_secret__, __consumer/_key__, __access/_token__, and __access/_token/_secret__ with the information from your Twitter application.
+5. Use the following as the contents of the __gettweets.py__ file. Replace the placeholder information for __consumer\_secret__, __consumer\_key__, __access/\_token__, and __access\_token\_secret__ with the information from your Twitter application.
 
         #!/usr/bin/python
 
@@ -290,7 +290,7 @@ This stores the data in a location that all nodes in the cluster can access.
 
 4. Use the following command to run the HiveQL contained in the file:
 
-		beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i twitter.hql		
+		beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i twitter.hql
 		
 	This will load the Hive shell, run the HiveQL in the __twitter.hql__ file, and finally return a `jdbc:hive2//localhost:10001/>` prompt.
 	

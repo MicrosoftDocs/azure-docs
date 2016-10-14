@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="raymondlaghaeian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -13,41 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/29/2016"
+	ms.date="10/10/2016"
 	ms.author="raymondl;garye;v-donglo"/>
 
 
-#Retrain Machine Learning models programmatically  
+# Retrain Machine Learning models programmatically  
 
-As part of the process of operationalization of machine learning models in Azure Machine Learning, your model is trained and saved. You then use it to create a predicative Web service. The Web service can then be consumed in web sites, dashboards, and mobile apps. 
+In this walkthrough, you will learn how to programmatically retrain an Azure Machine Learning Web Service using C# and the Machine Learning Batch Execution service.
 
-Models you create using Machine Learning are typically not static. As new data becomes available or when the consumer of the API has their own data the model needs to be retrained. Or, you may need to apply filters obtain a subset of the data and retrain the model. 
+Once you have retrained the model, the following walkthroughs show how to update the model in your predictive Web service:
 
-Retraining may occur frequently. With the Programmatic Retraining API feature, you can programmatically retrain the model using the Retraining APIs and update the Web service with the newly trained model. 
+- If you deployed a Classic Web service in the Machine Learning Web Services portal, see [Retrain a Classic Web service](machine-learning-retrain-a-classic-web-service.md). 
+- If you deployed a New Web service, see [Retrain a New Web service using the Machine Learning Management cmdlets](machine-learning-retrain-new-web-service-using-powershell.md).
 
-This document describes the retraining process, and shows you how to use the Retraining APIs.
+For an overview of the retraining process, see [Retrain a Machine Learning Model](machine-learning-retrain-machine-learning-model.md).
 
-## Why retrain: defining the problem  
-
-As part of the machine learning training process, a model is trained using a set of data. Models you create using Machine Learning are typically not static. As new data becomes available or when the consumer of the API has their own data the model needs to be retrained. Additional scenarios may require you to apply filters obtain a subset of the data and retrain the model. 
-
-In these scenarios, a programmatic API provides a convenient way to allow you or the consumer of your APIs to create a client that can, on a one-time or regular basis, retrain the model using their own data. They can then evaluate the results of retraining, and update the Web service API to use the newly trained model.  
-
-##How to retrain: the end to end process  
-
-To start, the process involves the following components: A Training Experiment and a Predictive Experiment published as a Web service. To enable retraining of a trained model, the Training Experiment must be published as a Web service with the output of a trained model. This enables API access to the model for retraining. 
-
-The process for setting up retraining for a Classic Web service involves the following steps:
-
-![Retraining process overview][1]
-
-Diagram 1: Retraining process for a Classic Web service overview  
-
-The process for setting up retraining for a New Web service involves the following steps:
-
-![Retraining process overview][7]
-
-Diagram 1: Retraining process for a New Web service overview  
+If you want to start with your existing New Azure Resource Manager based Web service, see [Retrain an existing Predictive Web service](machine-learning-retrain-existing-resource-manager-based-web-service.md).
 
 ## Create a Training Experiment
  
@@ -67,7 +48,7 @@ To create the experiment:
 
 Diagram 2: Initial experiment.
 
-## Create a Scoring Experiment and publish as a Web service  
+## Create a Predictive Experiment and publish as a Web service  
 
 Next you create a Predicative Experiment.
 
@@ -79,10 +60,10 @@ Next you create a Predicative Experiment.
 
 To retrain the trained model, you must deploy the Training Experiment that you created as a Retraining Web service. This Web service needs a *Web Service Output* module connected to the *[Train Model][train-model]* module, to be able to produce new trained models.
 
-1. To return to the training experiment, click the Experiments icon in the left pane, then click the experiment named Census Model. 
+1. To return to the training experiment, click the Experiments icon in the left pane, then click the experiment named Census Model.  
 2. In the Search Experiment Items search box, type Web service. 
-3. Drag a *Web Service Input* module onto the experiment canvas and connect its output to the *Clean Missing Data* module. 
-4. Drag two *Web service Output* modules onto the experiment canvas. Connect the output of the *Train Model* module to one and the output of the *Evaluate Model* module to the other. The Web service output for **Train Model** gives us the new trained model. The output attached to **Evaluate Model** returns that module’s output.
+3. Drag a *Web Service Input* module onto the experiment canvas and connect its output to the *Clean Missing Data* module.  This ensures that your retraining data is processed the same way as your original training data.
+4. Drag two *Web service Output* modules onto the experiment canvas. Connect the output of the *Train Model* module to one and the output of the *Evaluate Model* module to the other. The Web service output for **Train Model** gives us the new trained model. The output attached to **Evaluate Model** returns that module’s output, which is the performance results.
 5. Click **Run**. 
 
 Next you must deploy the Training Experiment as a web service that produces a trained model and model evaluation results. To accomplish this, your next set of actions are dependent on whether you are working with a Classic Web service or a New Web service.  
@@ -103,6 +84,8 @@ Diagram 3: Resulting workflow after run.
 
 ## Retrain the model with new data using BES
 
+For this example, you are using C# to create the retraining application. You can also use the Python or R sample code to accomplish this task.
+
 To call the Retraining APIs:
 
 1. Create a C# Console Application in Visual Studio (New->Project->Windows Desktop->Console Application).
@@ -118,29 +101,56 @@ To call the Retraining APIs:
 	2.	Click **Consume**.
 	3.	At the bottom of the Consume page, in the **Sample Code** section, click **Batch**.
 5.	Copy the sample C# code for batch execution and paste it into the Program.cs file, making sure the namespace remains intact.
-7. When specifying the output location in the Request Payload, the extension of the file specified in *RelativeLocation* must be changed from csv to ilearner. See the following example.
 
-		Outputs = new Dictionary<string, AzureBlobDataReference>()
-		{
-			{
-				"output1",
-				new AzureBlobDataReference()
-				{
-					ConnectionString = "DefaultEndpointsProtocol=https;AccountName=mystorageacct;AccountKey=Dx9WbMIThAvXRQWap/aLnxT9LV5txxw==",
-					RelativeLocation = "mycontainer/output1results.ilearner"
-				}
-			},
-		},
+Add the Nuget package Microsoft.AspNet.WebApi.Client as specified in the comments. To add the reference to Microsoft.WindowsAzure.Storage.dll, you might first need to install the client library for Microsoft Azure storage services. For more information, see [Windows Storage Services](https://www.nuget.org/packages/WindowsAzure.Storage).
 
->[AZURE.NOTE] The names of your output locations may be different from the ones in this walkthrough based on the order in which you added the Web service output modules. Since you set up this Training Experiment with two outputs, the results include storage location information for both of them. 
+### Update the apikey declaration
+
+Locate the **apikey** declaration.
+
+	const string apiKey = "abc123"; // Replace this with the API key for the web service
+
+In the **Basic consumption info** section of the **Consume** page, locate the primary key and copy it to the **apikey** declaration.
 
 ### Update the Azure Storage information
 
 The BES sample code uploads a file from a local drive (For example "C:\temp\CensusIpnput.csv") to Azure Storage, processes it, and writes the results back to Azure Storage.  
 
-To accomplish this task, you must retrieve the Storage account name, key, and container information from the Azure classic portal for your Storage account and the update corresponding values in the code. 
+To accomplish this task, you must retrieve the Storage account name, key, and container information for your Storage account from the classic Azure portal and the update corresponding values in the code. 
 
-You also must ensure the input file is available at the location you specify in the code.  
+1. Sign in to the classic Azure portal.
+1. In the left navigation column, click **Storage**.
+1. From the list of storage accounts, select one to store the retrained model.
+1. At the bottom of the page, click **Manage Access Keys**.
+1. Copy and save the **Primary Access Key** and close the dialog. 
+1. At the top of the page, click **Containers**.
+1. Select an existing container or create a new one and save the name.
+
+Locate the *StorageAccountName*, *StorageAccountKey*, and *StorageContainerName* declarations and update the values you saved from the Azure portal.
+
+    const string StorageAccountName = "mystorageacct"; // Replace this with your Azure Storage Account name
+    const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage Key
+    const string StorageContainerName = "mycontainer"; // Replace this with your Azure Storage Container name
+            
+You also must ensure the input file is available at the location you specify in the code. 
+
+### Specify the output location
+
+When specifying the output location in the Request Payload, the extension of the file specified in *RelativeLocation* must be specified as ilearner. 
+
+See the following example:
+
+    Outputs = new Dictionary<string, AzureBlobDataReference>() {
+        {
+            "output1",
+            new AzureBlobDataReference()
+            {
+                ConnectionString = storageConnectionString,
+                RelativeLocation = string.Format("{0}/output1results.ilearner", StorageContainerName) /*Replace this with the location you would like to use for your output file, and valid file extension (usually .csv for scoring results, or .ilearner for trained models)*/
+            }
+        },
+
+>[AZURE.NOTE] The names of your output locations may be different from the ones in this walkthrough based on the order in which you added the Web service output modules. Since you set up this Training Experiment with two outputs, the results include storage location information for both of them.  
 
 ![Retraining output][6]
 

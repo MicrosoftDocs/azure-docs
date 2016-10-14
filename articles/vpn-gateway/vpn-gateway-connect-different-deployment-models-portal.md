@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="10/03/2016"
    ms.author="cherylmc" />
 
 # Connect virtual networks from different deployment models in the portal
@@ -25,15 +25,29 @@
 
 Azure currently has two management models: classic and Resource Manager (RM). If you have been using Azure for some time, you probably have Azure VMs and instance roles running in a classic VNet. Your newer VMs and role instances may be running in a VNet created in Resource Manager. This article walks you through connecting classic VNets to Resource Manager VNets to allow the resources located in the separate deployment models to communicate with each other over a gateway connection. 
 
-You can create a connection between VNets that are in different subscriptions, in different regions, and in different deployment models. You can also connect VNets that already have connections to on-premises networks, as long as the gateway that they have been configured with is dynamic or route-based. For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article.
+You can create a connection between VNets that are in different subscriptions and in different regions. You can also connect VNets that already have connections to on-premises networks, as long as the gateway that they have been configured with is dynamic or route-based. For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article.
+
+### Deployment models and methods for VNet-to-VNet connections
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+
+We update the following table as new articles and additional tools become available for this configuration. When an article is available, we link directly to it from the table.<br><br>
+
+**VNet-to-VNet**
+
+[AZURE.INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)] 
+
+#### VNet peering
 
 [AZURE.INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 ## Before beginning
 
-The following steps walk you through the settings necessary to configure a dynamic or route-based gateway for each VNet and create a VPN connection between the gateways. This configuration does not support static or policy-based gateways. In this article, we use the classic portal, the Azure portal, and PowerShell. Currently, it's not possible to create this configuration using only the Azure portal.
+The following steps walk you through the settings necessary to configure a dynamic or route-based gateway for each VNet and create a VPN connection between the gateways. This configuration does not support static or policy-based gateways. 
 
-Before beginning, verify the following:
+In this article, we use the classic portal, the Azure portal, and PowerShell. Currently, it's not possible to create this configuration using only the Azure portal.
+
+### Prerequisites
 
  - Both VNets have already been created.
  - The address ranges for the VNets do not overlap with each other, or overlap with any of the ranges for other connections that the gateways may be connected to.
@@ -41,22 +55,22 @@ Before beginning, verify the following:
 
 ### <a name="values"></a>Example settings
 
-You can use the example settings as reference when using the PowerShell cmdlets in the following steps.
+You can use the example settings as reference.
 
 **Classic VNet settings**
 
 VNet Name = ClassicVNet <br>
 Location = West US <br>
-Virtual Network Address Spaces = 10.0.0.0/8 <br>
-Subnet-1 = 10.0.0.0/11 <br>
-GatewaySubnet = 10.32.0.0/29 <br>
+Virtual Network Address Spaces = 10.0.0.0/24 <br>
+Subnet-1 = 10.0.0.0/27 <br>
+GatewaySubnet = 10.0.0.32/29 <br>
 Local Network Name = RMVNetLocal <br>
 
 **Resource Manager VNet settings**
 
 VNet Name = RMVNet <br>
 Resource Group = RG1 <br>
-Virtual Network IP Address Spaces = 192.168.1.0/16 <br>
+Virtual Network IP Address Spaces = 192.168.0.0/16 <br>
 Subnet-1 = 192.168.1.0/24 <br>
 GatewaySubnet = 192.168.0.0/26 <br>
 Location = East US <br>
@@ -109,6 +123,8 @@ The screenshots are provided as examples. Be sure to replace the values with you
 ### Part 1 - Create a gateway subnet
 
 Before connecting your virtual network to a gateway, you first need to create the gateway subnet for the virtual network to which you want to connect. Create a gateway subnet with CIDR count of /28 or larger (/27, /26, etc.)
+
+[AZURE.INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 From a browser, navigate to the [Azure portal](http://portal.azure.com) and sign in with your Azure account.
 
@@ -171,7 +187,7 @@ In this section, we create the connection between the VNets. The steps for this 
 		Set-AzureVNetGatewayKey -VNetName ClassicVNet `
 		-LocalNetworkSiteName RMVNetLocal -SharedKey abc123
 
-4. Create the VPN connection by running the following commands.
+4. Create the VPN connection by running the following commands:
 	
 	**Set the variables**
 

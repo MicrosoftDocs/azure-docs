@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Active Directory Domain Services preview: Administer DNS on managed domains | Microsoft Azure"
-	description="Administer DNS on managed domains using Azure Active Directory Domain Services"
+	pageTitle="Azure Active Directory Domain Services: Administer DNS on managed domains | Microsoft Azure"
+	description="Administer DNS on Azure Active Directory Domain Services managed domains"
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/31/2016"
+	ms.date="10/03/2016"
 	ms.author="maheshu"/>
 
 # Administer DNS on an Azure AD Domain Services managed domain
@@ -44,13 +44,13 @@ The first task is to provision a Windows Server virtual machine that is joined t
 
 
 ## Task 2 - Install DNS Server tools on the virtual machine
-Perform the following steps to install the DNS Administration tools on the domain joined virtual machine. For more details on [installing and using Remote Server Administration Tools](https://technet.microsoft.com/library/hh831501.aspx), refer to TechNet.
+Perform the following steps to install the DNS Administration tools on the domain joined virtual machine. For more information on [installing and using Remote Server Administration Tools](https://technet.microsoft.com/library/hh831501.aspx), see Technet.
 
 1. Navigate to **Virtual Machines** node in the Azure classic portal. Select the virtual machine you created in Task 1 and click **Connect** on the command bar at the bottom of the window.
 
     ![Connect to Windows virtual machine](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
 
-2. The classic portal prompts you to open or save a .rdp file, which is used to connect to the virtual machine. Click the .rdp file when it has finished downloading.
+2. The classic portal prompts you to open or save a file with a '.rdp' extension, which is used to connect to the virtual machine. Click the file when it has finished downloading.
 
 3. At the login prompt, use the credentials of a user belonging to the 'AAD DC Administrators' group. For example, we use 'bob@domainservicespreview.onmicrosoft.com' in our case.
 
@@ -72,7 +72,7 @@ Perform the following steps to install the DNS Administration tools on the domai
 
 8. On the **Server Roles** page, click **Next**. We skip this page since we are not installing any roles on the server.
 
-9. On the **Features** page, click to expand the **Remote Server Administration Tools** node and then click to expand the **Role Administration Tools** node. Select **DNS Server Tools** feature from the list of role administration tools as shown below.
+9. On the **Features** page, click to expand the **Remote Server Administration Tools** node and then click to expand the **Role Administration Tools** node. Select **DNS Server Tools** feature from the list of role administration tools.
 
 	![Features page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-tools.png)
 
@@ -96,16 +96,16 @@ Now that the DNS Server Tools feature is installed on the domain joined virtual 
 
     ![DNS Console - connect to domain](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)
 
-4. The DNS Console connects to the managed domain. You should see a view similar to the following.
+4. The DNS Console connects to the managed domain.
 
     ![DNS Console - administer domain](./media/active-directory-domain-services-admin-guide/dns-console-managed-domain.png)
 
 5. You can now use the DNS console to add DNS entries for computers within the virtual network in which you've enabled AAD Domain Services.
 
-> [AZURE.WARNING] Be extremely careful when administering DNS for the managed domain using DNS administration tools. Ensure that you **do not delete or modify the built-in DNS records that are used by Domain Services in the domain**. Built-in DNS records include domain DNS records, name server records, and other records used for DC location. If you modify these records, domain services are disrupted on the virtual network.
+> [AZURE.WARNING] Be careful when administering DNS for the managed domain using DNS administration tools. Ensure that you **do not delete or modify the built-in DNS records that are used by Domain Services in the domain**. Built-in DNS records include domain DNS records, name server records, and other records used for DC location. If you modify these records, domain services are disrupted on the virtual network.
 
 
-For more information about managing DNS, see the [DNS tools article on Technet](https://technet.microsoft.com/library/cc753579.aspx).
+See the [DNS tools article on Technet](https://technet.microsoft.com/library/cc753579.aspx) for more information about managing DNS.
 
 
 ## Related Content

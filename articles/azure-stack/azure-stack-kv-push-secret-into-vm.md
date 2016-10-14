@@ -16,7 +16,7 @@
 	ms.date="09/26/2016"
 	ms.author="ricardom"/>
 
-# Tenant can create VMs and include certificates retrieved from Key Vault
+# Create VMs and include certificates retrieved from Key Vault
 
 In Azure Stack, VMs are deployed through Azure Resource Manager, and you
 can now store certificates in Azure Stack Key Vault. Then Azure Stack
@@ -41,8 +41,7 @@ Here is a quick overview of the process:
 
 -   Upload the certificate as a secret.
 
-Deploying VMs
--------------
+## Deploying VMs
 
 This sample script creates a key vault, and then stores a
 certificate stored in the .pfx file in a local directory, to the key
@@ -122,8 +121,7 @@ Here's sample output from the preceding script:
                            Permissions to Secrets : all
     OriginalVault        : Microsoft.Azure.Management.KeyVault.Vault
     ResourceId           :
-    /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-dd149b4aeb56
-                     
+    /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-dd149b4aeb56                 
     /resourceGroups/contosovaultrg/providers/Microsoft.KeyV
                            ault/vaults/contosovault
     VaultName            : contosovault
@@ -134,15 +132,11 @@ Here's sample output from the preceding script:
     SecretValue     : System.Security.SecureString
     SecretValueText :
     ew0KImRhdGEiOiAiTUlJSkN3SUJBekNDQ01jR0NTcUdTSWIzRFFFSEFh
-               
-    Q0NDTGdFZ2dpME1JSUlzRENDQmdnR0NTcUdTSWIzRFFFSEFhQ0NCZmtF
-                
+    Q0NDTGdFZ2dpME1JSUlzRENDQmdnR0NTcUdTSWIzRFFFSEFhQ0NCZmtF           
     Z2dYMU1JSUY4VENDQmUwR0N5cUdTSWIzRFFFTUNnRUNvSUlFL2pDQ0JQ
     &lt;&lt;&lt; Output truncated… &gt;&gt;&gt;
-
     Attributes      :
     Microsoft.Azure.Commands.KeyVault.Models.SecretAttributes
-
     VaultName       : contosovault
     Name            : servicecert
     Version         : e3391a126b65414f93f6f9806743a1f7
@@ -170,8 +164,8 @@ Both of these files are .pem formatted.
 The application usually finds the certificate by using the thumbprint and
 doesn't need modification.
 
-Retiring certificates
----------------------
+## Retiring certificates
+
 
 In the preceding section, we showed you how to push a new certificate to your
 existing VMs. But your old certificate is still in the VM and cannot be
@@ -182,8 +176,8 @@ secret version to be disabled:
 
     Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0
 
-Conclusion
-----------
+## Conclusion
+
 
 With this new method, the certificate can be kept separate from the VM
 image or the application payload. So we have removed one point of
@@ -201,3 +195,9 @@ the certificate.
 As an added benefit, you now have one convenient place in Key Vault to
 manage all your certificates, including the all the versions that were
 deployed over time.
+
+## Next Steps
+
+[Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
+
+[Allow an application to access Key Vault](azure-stack-kv-sample-app.md)

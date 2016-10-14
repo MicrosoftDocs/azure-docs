@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/19/2016"
+   ms.date="10/12/2016"
    ms.author="larryfr"/>
 
 
@@ -24,7 +24,7 @@ Apache Storm is a scalable, fault-tolerant, distributed, real-time computation s
 
 > [AZURE.NOTE] The steps in this article create a Linux-based HDInsight cluster. For steps to create a Windows-based Storm on HDInsight cluster, see [Apache Storm tutorial: Get started with the Storm Starter sample using data analytics on HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
 
-## Before you begin
+## Prerequisites
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -37,6 +37,10 @@ You must have the following to successfully complete this Apache Storm tutorial:
     - **Linux, Unix or OS X clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X or Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 	- **Windows clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+### Access control requirements
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Create a Storm cluster
 
@@ -93,9 +97,9 @@ The [storm-starter](https://github.com/apache/storm/tree/master/examples/storm-s
 
 2. Use the following command to start an example topology:
 
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.10.0.2.4.2.4-5.jar storm.starter.WordCountTopology wordcount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm.starter.WordCountTopology wordcount
 		
-	> [AZURE.NOTE] The `0.10.0.2.4.2.4-5` portion of the file name may change as HDInsight is updated with newer versions of Storm.
+	> [AZURE.NOTE] The `*` portion of the file name is used to match the version number, which changes as HDInsight is updated.
 
     This will start the example WordCount topology on the cluster, with a friendly name of 'wordcount'. It will randomly generate sentences and count the occurrence of each word in the sentences.
 

@@ -3,7 +3,7 @@
 	description="Learn how move data to/from Azure DocumentDB collection using Azure Data Factory" 
 	services="data-factory, documentdb" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/25/2016" 
-	ms.author="spelluru"/>
+	ms.date="09/26/2016" 
+	ms.author="jingwang"/>
 
 # Move data to and from DocumentDB using Azure Data Factory
 
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to Azure DocumentDB from another data store and move data from DocumentDB to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
+This article outlines how you can use the Copy Activity in an Azure data factory to move data to Azure DocumentDB from another data store and move data from DocumentDB to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity and supported data store combinations.
 
-The following sample(s) show how to copy data to and from Azure DocumentDB and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+The following samples show how to copy data to and from Azure DocumentDB and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
 
 > [AZURE.NOTE] Copying data from on-premises/Azure IaaS data stores to Azure DocumentDB and vice versa are supported with Data Management Gateway version 2.1 and above.
 
@@ -281,7 +281,7 @@ The sample copies data to a collection named “Person”.
 	  }
 	}
 
-The following pipeline copies data from Azure Blob to the Person collection in the 	DocumentDB. As part of the copy activity the input and output datasets have been specified. 
+The following pipeline copies data from Azure Blob to the Person collection in the DocumentDB. As part of the copy activity the input and output datasets have been specified. 
 	
 	{
 	  "name": "BlobToDocDbPipeline",
@@ -354,7 +354,7 @@ The following table provides description for JSON elements specific to Azure Doc
 
 ## Azure DocumentDB Dataset type properties
 
-For a full list of sections & properties available for defining datasets please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
+For a full list of sections & properties available for defining datasets please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
  
 The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for the dataset of type **DocumentDbCollection** has the following properties.
 
@@ -391,7 +391,7 @@ Therefore, for schema-free data sources, the best practice is to specify the str
 
 ## Azure DocumentDB Copy Activity type properties
 
-For a full list of sections & properties available for defining activities please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc are available for all types of activities.
+For a full list of sections & properties available for defining activities please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
  
 **Note:** The Copy Activity takes only one input and produces only one output.
 
@@ -402,15 +402,15 @@ the following properties are available in **typeProperties** section:
 
 | **Property** | **Description** | **Allowed values** | **Required** |
 | ------------ | --------------- | ------------------ | ------------ |
-| query | Specify the query to read data. | Query string supported by DocumentDB. <br/><br/>Example: SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\" | No <br/><br/>If not specified, the SQL statement that is executed: select <columns defined in structure> from mycollection 
+| query | Specify the query to read data. | Query string supported by DocumentDB. <br/><br/>Example: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` | No <br/><br/>If not specified, the SQL statement that is executed: `select <columns defined in structure> from mycollection` 
 | nestingSeparator | Special character to indicate that the document is nested | Any character. <br/><br/>DocumentDB is a NoSQL store for JSON documents, where nested structures are allowed. Azure Data Factory enables user to denote hierarchy via nestingSeparator, which is “.” in the above examples. With the separator, the copy activity will generate the “Name” object with three children elements First, Middle and Last, according to “Name.First”, “Name.Middle” and “Name.Last” in the table definition. | No
 
 **DocumentDbCollectionSink** supports the following properties:
 
 | **Property** | **Description** | **Allowed values** | **Required** |
 | -------- | ----------- | -------------- | -------- |
-| nestingSeparator | A special character in the source column name to indicate that nested document is needed. <br/><br/>For example above: Name.First in the output table produces the following JSON structure in the DocumentDB document:<br/><br/>"Name": {<br/>	"First": "John"<br/>}, | Character that is used to separate nesting levels.<br/><br/>Default value is . (dot). | Character that is used to separate nesting levels. <br/><br/>Default value is . (dot). | No | 
-| writeBatchSize | Number of parallel requests to DocumentDB service to create documents.<br/><br/>You can fine tune the performance when copying data to/from DocumentDB by using this property. You can expect a better performance when you increase writeBatchSize because more parallel requests to DocumentDB are sent. However you’ll need to avoid throttling that can throw the error message: "Request rate is large".<br/><br/>Throttling is decided by a number of factors, including size of documents, number of terms in documents, indexing policy of target collection, etc. For copy operations, you can use a better collection (e.g. S3) to have the most throughput available (2,500 request units/second). | Integer | No (default: 10000) |
+| nestingSeparator | A special character in the source column name to indicate that nested document is needed. <br/><br/>For example above: `Name.First` in the output table produces the following JSON structure in the DocumentDB document:<br/><br/>"Name": {<br/>	"First": "John"<br/>}, | Character that is used to separate nesting levels.<br/><br/>Default value is `.` (dot). | Character that is used to separate nesting levels. <br/><br/>Default value is `.` (dot). | No | 
+| writeBatchSize | Number of parallel requests to DocumentDB service to create documents.<br/><br/>You can fine-tune the performance when copying data to/from DocumentDB by using this property. You can expect a better performance when you increase writeBatchSize because more parallel requests to DocumentDB are sent. However you’ll need to avoid throttling that can throw the error message: "Request rate is large".<br/><br/>Throttling is decided by a number of factors, including size of documents, number of terms in documents, indexing policy of target collection, etc. For copy operations, you can use a better collection (e.g. S3) to have the most throughput available (2,500 request units/second). | Integer | No (default: 10000) |
 | writeBatchTimeout | Wait time for the operation to complete before it times out. | timespan<br/><br/> Example: “00:30:00” (30 minutes). | No |
  
 ## Appendix

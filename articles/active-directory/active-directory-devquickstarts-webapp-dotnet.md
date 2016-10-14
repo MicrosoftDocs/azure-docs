@@ -16,7 +16,7 @@
 	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
-# Web App Sign In & Sign Out with Azure AD
+# ASP.NET Web App Sign In & Sign Out with Azure AD
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 

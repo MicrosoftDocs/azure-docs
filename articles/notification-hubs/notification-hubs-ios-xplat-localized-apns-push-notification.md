@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="10/03/2016"
 	ms.author="wesmc"/>
 
 # Use Notification Hubs to send localized breaking news to iOS devices
 
 > [AZURE.SELECTOR]
-- [Windows Store C#](notification-hubs-windows-store-dotnet-send-localized-breaking-news)
-- [iOS](notification-hubs-ios-send-localized-breaking-news)
+- [Windows Store C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification)
+- [iOS](notification-hubs-ios-xplat-localized-apns-push-notification)
 
 
 ##Overview

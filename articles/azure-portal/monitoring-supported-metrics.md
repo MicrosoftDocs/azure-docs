@@ -26,19 +26,19 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
-|CoreCount|Core Count|Percent|Average|Average number of cores in the batch account|
-|TotalNodeCount|Node Count|Percent|Average|Average number of nodes in the batch account|
-|CreatingNodeCount|Creating Node Count|Percent|Average|Number of nodes being created|
-|StartingNodeCount|Starting Node Count|Percent|Average|Number of nodes starting|
-|WaitingForStartTaskNodeCount|Waiting For Start Task Node Count|Percent|Average|Number of nodes waiting for the Start Task to complete|
-|StartTaskFailedNodeCount|Start Task Failed Node Count|Percent|Average|Number of nodes where the Start Task has failed|
-|IdleNodeCount|Idle Node Count|Percent|Average|Number of idle nodes|
-|OfflineNodeCount|Offline Node Count|Percent|Average|Number of offline nodes|
-|RebootingNodeCount|Rebooting Node Count|Percent|Average|Number of rebooting nodes|
-|ReimagingNodeCount|Reimaging Node Count|Percent|Average|Number of reimaging nodes|
-|RunningNodeCount|Running Node Count|Percent|Average|Number of running nodes|
-|LeavingPoolNodeCount|Leaving Pool Node Count|Percent|Average|Number of nodes leaving the Pool|
-|UnusableNodeCount|Unusable Node Count|Percent|Average|Number of unusable nodes|
+|CoreCount|Core Count|Count|Total|Total number of cores in the batch account|
+|TotalNodeCount|Node Count|Count|Total|Total number of nodes in the batch account|
+|CreatingNodeCount|Creating Node Count|Count|Total|Number of nodes being created|
+|StartingNodeCount|Starting Node Count|Count|Total|Number of nodes starting|
+|WaitingForStartTaskNodeCount|Waiting For Start Task Node Count|Count|Total|Number of nodes waiting for the Start Task to complete|
+|StartTaskFailedNodeCount|Start Task Failed Node Count|Count|Total|Number of nodes where the Start Task has failed|
+|IdleNodeCount|Idle Node Count|Count|Total|Number of idle nodes|
+|OfflineNodeCount|Offline Node Count|Count|Total|Number of offline nodes|
+|RebootingNodeCount|Rebooting Node Count|Count|Total|Number of rebooting nodes|
+|ReimagingNodeCount|Reimaging Node Count|Count|Total|Number of reimaging nodes|
+|RunningNodeCount|Running Node Count|Count|Total|Number of running nodes|
+|LeavingPoolNodeCount|Leaving Pool Node Count|Count|Total|Number of nodes leaving the Pool|
+|UnusableNodeCount|Unusable Node Count|Count|Total|Number of unusable nodes|
 |TaskStartEvent|Task Start Events|Count|Total|Total number of tasks that have started|
 |TaskCompleteEvent|Task Complete Events|Count|Total|Total number of tasks that have completed|
 |TaskFailEvent|Task Fail Events|Count|Total|Total number of tasks that have completed in a failed state|
@@ -218,6 +218,13 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |cacheRead9|Cache Read (Shard 9)|BytesPerSecond|Maximum||
 |percentProcessorTime9|CPU (Shard 9)|Percent|Maximum||
 
+## Microsoft.CognitiveServices/accounts
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|
+|---|---|---|---|---|
+|NumberOfCalls|Total number of API calls|Count|Total|Total number of API calls.|
+|NumberOfFailedCalls|Total number of failed API calls|Count|Total|Total number of failed API calls.|
+
 ## Microsoft.Compute/virtualMachines
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
@@ -270,19 +277,19 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
-|INREQS|Incoming Requests|Count|Total||
-|SUCCREQ|Successful Requests|Count|Total||
-|FAILREQ|Failed Requests|Count|Total||
-|SVRBSY|Server Busy Errors|Count|Total||
-|INTERR|Internal Server Errors|Count|Total||
-|MISCERR|Other Errors|Count|Total||
-|INMSGS|Incoming Messages|Count|Total||
-|OUTMSGS|Outgoing Messages|Count|Total||
-|EHINMBS|Incoming bytes per second|BytesPerSecond|Total||
-|EHOUTMBS|Outgoing bytes per second|BytesPerSecond|Total||
-|EHABL|Archive backlog messages|Count|Total||
-|EHAMSGS|Archive messages|Count|Total||
-|EHAMBS|Archive message throughput|BytesPerSecond|Total||
+|INREQS|Incoming Requests|Count|Total|Event Hub incoming message throughput for a namespace|
+|SUCCREQ|Successful Requests|Count|Total|Total successful requests for a namespace|
+|FAILREQ|Failed Requests|Count|Total|Total failed requests for a namespace|
+|SVRBSY|Server Busy Errors|Count|Total|Total server busy errors for a namespace|
+|INTERR|Internal Server Errors|Count|Total|Total internal server errors for a namespace|
+|MISCERR|Other Errors|Count|Total|Total failed requests for a namespace|
+|INMSGS|Incoming Messages|Count|Total|Total incoming messages for a namespace|
+|OUTMSGS|Outgoing Messages|Count|Total|Total outgoing messages for a namespace|
+|EHINMBS|Incoming bytes per second|BytesPerSecond|Total|Event Hub incoming message throughput for a namespace|
+|EHOUTMBS|Outgoing bytes per second|BytesPerSecond|Total|Total outgoing messages for a namespace|
+|EHABL|Archive backlog messages|Count|Total|Event Hub archive messages in backlog for a namespace|
+|EHAMSGS|Archive messages|Count|Total|Event Hub archived messages in a namespace|
+|EHAMBS|Archive message throughput|BytesPerSecond|Total|Event Hub archived message throughput in a namespace|
 
 ## Microsoft.Logic/workflows
 
@@ -296,6 +303,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |RunLatency|Run Latency|Seconds|Average|Latency of completed workflow runs.|
 |RunSuccessLatency|Run Success Latency|Seconds|Average|Latency of succeeded workflow runs.|
 |RunThrottledEvents|Run Throttled Events|Count|Total|Number of workflow action or trigger throttled events.|
+|RunFailurePercentage|Run Failure Percentage|Percent|Total|Percentage of workflow runs failed.|
 |ActionsStarted|Actions Started |Count|Total|Number of workflow actions started.|
 |ActionsCompleted|Actions Completed |Count|Total|Number of workflow actions completed.|
 |ActionsSucceeded|Actions Succeeded |Count|Total|Number of workflow actions succeeded.|
@@ -314,6 +322,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |TriggerFireLatency|Trigger Fire Latency |Seconds|Average|Latency of fired workflow triggers.|
 |TriggerSuccessLatency|Trigger Success Latency |Seconds|Average|Latency of succeeded workflow triggers.|
 |TriggerThrottledEvents|Trigger Throttled Events|Count|Total|Number of workflow trigger throttled events.|
+|BillableActionExecutions|Billable Action Executions|Count|Total|Number of workflow action executions getting billed.|
+|BillableTriggerExecutions|Billable Trigger Executions|Count|Total|Number of workflow trigger executions getting billed.|
+|TotalBillableExecutions|Total Billable Executions|Count|Total|Number of workflow executions getting billed.|
 
 ## Microsoft.Network/applicationGateways
 
@@ -325,7 +336,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
-|Latency|Latency|Seconds|Average|Average latency for the search service|
 |SearchLatency|Search Latency|Seconds|Average|Average search latency for the search service|
 |SearchQueriesPerSecond|Search queries per second|CountPerSecond|Average|Search queries per second for the search service|
 |ThrottledSearchQueriesPercentage|Throttled search queries percentage|Percent|Average|Percentage of search queries that were throttled for the search service|
@@ -334,64 +344,64 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
-|CPUXNS|CPU usage per namespace|Percent|Maximum||
-|WSXNS|Memory size usage per namespace|Percent|Maximum||
+|CPUXNS|CPU usage per namespace|Percent|Maximum|Service bus premium namespace CPU usage metric|
+|WSXNS|Memory size usage per namespace|Percent|Maximum|Service bus premium namespace memory usage metric|
 
 ## Microsoft.Sql/servers/databases
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
-|cpu_percent|CPU percentage|Percent|Maximum|CPU percentage|
-|physical_data_read_percent|Data IO percentage|Percent|Maximum|Data IO percentage|
-|log_write_percent|Log IO percentage|Percent|Maximum|Log IO percentage|
-|dtu_consumption_percent|DTU percentage|Percent|Maximum|DTU percentage|
+|cpu_percent|CPU percentage|Percent|Average|CPU percentage|
+|physical_data_read_percent|Data IO percentage|Percent|Average|Data IO percentage|
+|log_write_percent|Log IO percentage|Percent|Average|Log IO percentage|
+|dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage|
 |storage|Total database size|Bytes|Maximum|Total database size|
 |connection_successful|Successful Connections|Count|Total|Successful Connections|
 |connection_failed|Failed Connections|Count|Total|Failed Connections|
 |blocked_by_firewall|Blocked by Firewall|Count|Total|Blocked by Firewall|
 |deadlock|Deadlocks|Count|Total|Deadlocks|
 |storage_percent|Database size percentage|Percent|Maximum|Database size percentage|
-|xtp_storage_percent|In-Memory OLTP storage percent(Preview)|Percent|Maximum|In-Memory OLTP storage percent(Preview)|
-|workers_percent|Workers percentage|Percent|Maximum|Workers percent|
-|sessions_percent|Sessions percent|Percent|Maximum|Sessions percent|
-|dtu_limit|DTU limit|Count|Maximum|DTU limit|
-|dtu_used|DTU used|Count|Maximum|DTU used|
+|xtp_storage_percent|In-Memory OLTP storage percent(Preview)|Percent|Average|In-Memory OLTP storage percent(Preview)|
+|workers_percent|Workers percentage|Percent|Average|Workers percent|
+|sessions_percent|Sessions percent|Percent|Average|Sessions percent|
+|dtu_limit|DTU limit|Count|Average|DTU limit|
+|dtu_used|DTU used|Count|Average|DTU used|
 |service_level_objective|Service level objective of the database|Count|Total|Service level objective of the database|
 |dwu_limit|dwu limit|Count|Maximum|dwu limit|
-|dwu_consumption_percent|DWU percentage|Percent|Maximum|DWU percentage|
-|dwu_used|DWU used|Count|Maximum|DWU used|
+|dwu_consumption_percent|DWU percentage|Percent|Average|DWU percentage|
+|dwu_used|DWU used|Count|Average|DWU used|
 
 ## Microsoft.Sql/servers/elasticPools
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
-|cpu_percent|CPU percentage|Percent|Maximum|CPU percentage|
-|physical_data_read_percent|Data IO percentage|Percent|Maximum|Data IO percentage|
-|log_write_percent|Log IO percentage|Percent|Maximum|Log IO percentage|
-|dtu_consumption_percent|DTU percentage|Percent|Maximum|DTU percentage|
-|storage_percent|Storage percentage|Percent|Maximum|Storage percentage|
-|workers_percent|Workers percent|Percent|Maximum|Workers percent|
-|sessions_percent|Sessions percent|Percent|Maximum|Sessions percent|
-|eDTU_limit|eDTU limit|Count|Maximum|eDTU limit|
-|storage_limit|Storage limit|Bytes|Maximum|Storage limit|
-|eDTU_used|eDTU used|Count|Maximum|eDTU used|
-|storage_used|Storage used|Bytes|Maximum|Storage used|
+|cpu_percent|CPU percentage|Percent|Average|CPU percentage|
+|physical_data_read_percent|Data IO percentage|Percent|Average|Data IO percentage|
+|log_write_percent|Log IO percentage|Percent|Average|Log IO percentage|
+|dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage|
+|storage_percent|Storage percentage|Percent|Average|Storage percentage|
+|workers_percent|Workers percent|Percent|Average|Workers percent|
+|sessions_percent|Sessions percent|Percent|Average|Sessions percent|
+|eDTU_limit|eDTU limit|Count|Average|eDTU limit|
+|storage_limit|Storage limit|Bytes|Average|Storage limit|
+|eDTU_used|eDTU used|Count|Average|eDTU used|
+|storage_used|Storage used|Bytes|Average|Storage used|
 
 ## Microsoft.StreamAnalytics/streamingjobs
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
 |ResourceUtilization|SU % Utilization|Percent|Maximum|SU % Utilization|
-|InputEvents|Input Events|Bytes|Total|Input Events|
+|InputEvents|Input Events|Count|Total|Input Events|
 |InputEventBytes|Input Event Bytes|Bytes|Total|Input Event Bytes|
-|LateInputEvents|Late Input Events|Bytes|Total|Late Input Events|
-|OutputEvents|Output Events|Bytes|Total|Output Events|
-|ConversionErrors|Data Conversion Errors|Bytes|Total|Data Conversion Errors|
-|Errors|Runtime Errors|Bytes|Total|Runtime Errors|
-|DroppedOrAdjustedEvents|Out of order Events|Bytes|Total|Out of order Events|
-|AMLCalloutRequests|Function Requests|Bytes|Total|Function Requests|
-|AMLCalloutFailedRequests|Failed Function Requests|Bytes|Total|Failed Function Requests|
-|AMLCalloutInputEvents|Function Events|Bytes|Total|Function Events|
+|LateInputEvents|Late Input Events|Count|Total|Late Input Events|
+|OutputEvents|Output Events|Count|Total|Output Events|
+|ConversionErrors|Data Conversion Errors|Count|Total|Data Conversion Errors|
+|Errors|Runtime Errors|Count|Total|Runtime Errors|
+|DroppedOrAdjustedEvents|Out of order Events|Count|Total|Out of order Events|
+|AMLCalloutRequests|Function Requests|Count|Total|Function Requests|
+|AMLCalloutFailedRequests|Failed Function Requests|Count|Total|Failed Function Requests|
+|AMLCalloutInputEvents|Function Events|Count|Total|Function Events|
 
 ## Microsoft.Web/serverfarms
 

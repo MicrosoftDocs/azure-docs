@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="09/19/2016" 
+ 	ms.date="10/12/2016" 
 	ms.author="juliako"/>
 
 
@@ -28,7 +28,7 @@ Microsoft Azure Media Services enables you to deliver MPEG-DASH, Smooth Streamin
 
 Media Services also provides a **Key/License Delivery Service** from which clients can obtain AES keys or PlayReady/Widevine licenses to play the encrypted content.
 
-This topic shows how to use the **Azure Classic Portal** to configure the content key authorization policy. The key can later be used to dynamically encrypt your content. Note that currently you can encrypt the following streaming formats: HLS, MPEG DASH, and Smooth Streaming. You cannot encrypt HDS streaming format, or progressive downloads.
+This topic shows how to use the Azure portal to configure the content key authorization policy. The key can later be used to dynamically encrypt your content. Note that currently you can encrypt the following streaming formats: HLS, MPEG DASH, and Smooth Streaming. You cannot encrypt HDS streaming format, or progressive downloads.
 
 When a player requests a stream that is set to be dynamically encrypted, Media Services uses the configured key to dynamically encrypt your content using AES or DRM encryption. To decrypt the stream, the player will request the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
 

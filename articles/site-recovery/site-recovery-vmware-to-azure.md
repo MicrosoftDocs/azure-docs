@@ -82,7 +82,7 @@ The graphic shows how these components interact.
 
 ![architecture](./media/site-recovery-vmware-to-azure/v2a-architecture-henry.png)
 
-**Figure 1: VMware/physical to Azure** 
+**Figure 1: VMware/physical to Azure**
 
 ## Azure prerequisites
 
@@ -95,13 +95,13 @@ Here's what you'll need in Azure to deploy this scenario.
 **Azure network** | You'll need an Azure virtual network that Azure VMs will connect to when failover occurs. The Azure virtual network must be in the same region as the Recovery Services vault.
 **Failback from Azure** | You’ll need a temporary process server set up as an Azure VM. You can create this when you’re ready to fail back and delete it after fail back is complete.<br/><br/> To fail back you’ll need a VPN connection (or Azure ExpressRoute) from the Azure network to the on-premises site.
 
-## Configuration server prerequisites
+## Configuration server/ Scale out Process prerequisites
 
-You'll set up an on-premises machine as the configuration server.
+You'll set up an on-premises machine as the configuration server/scale-out process server.
 
 **Prerequisite** | **Details**
 --- | ---
-**Configuration server**| You need an on-premises physical or virtual machine running Windows Server 2012 R2. All of the on-premises Site Recovery components are installed on this machine.<br/><br/>For VMware VM replication, we recommend you deploy the server as a highly available VMware VM. If you're replicating physical machines then the machine can be a physical server.<br/><br/> Failback to the on-premises site from Azure is always to VMware VMs regardless of whether you failed over VMs or physical servers. If you don't deploy the configuration server as a VMware VM you'll need to set up a separate master target server as a VMware VM to receive failback traffic.<br/><br/>If the server is a VMware VM, the network adapter type should be VMXNET3. If you use a different type of network adapter you'll need to install a [VMware update](https://kb.vmware.com/selfservice/microsites/search.do?cmd=displayKC&docType=kc&externalId=2110245&sliceId=1&docTypeID=DT_KB_1_1&dialogID=26228401&stateId=1) on the vSphere 5.5 server.<br/><br/>The server should have a static IP address.<br/><br/>The server should not be a Domain Controller.<br/><br/>The host name of the server should be 15 characters or less.<br/><br/>The operating system should be English only.<br/><br/> You’ll need to install VMware vSphere PowerCLI 6.0. on the configuration server.<br/><br/>The configuration server needs internet access. Outbound access is required as follows:<br/><br/>Temporary access on HTTP 80 during setup of the Site Recovery components (to download MySQL)<br/><br/>Ongoing outbound access on HTTPS 443 for replication management<br/><br/>Ongoing outbound access on HTTPS 9443 for replication traffic (this port can be modified)<br/><br/>The server will also need access to the following URLs so that it can connect to Azure: *.hypervrecoverymanager.windowsazure.com; *.accesscontrol.windows.net; *.backup.windowsazure.com; *.blob.core.windows.net; *.store.core.windows.net<br/><br/>If you have IP address-based firewall rules on the server, check that the rules allow communication to Azure. You'll need to allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) and the HTTPS (443) protocol.<br/><br/>Allow IP address ranges for the Azure region of your subscription, and for West US.<br/><br/>Allow this URL for the MySQL download: .http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi
+**Configuration server/ Scale-out Process server**| You need an on-premises physical or virtual machine running Windows Server 2012 R2. All of the on-premises Site Recovery components are installed on this machine.<br/><br/>For VMware VM replication, we recommend you deploy the server as a highly available VMware VM. If you're replicating physical machines then the machine can be a physical server.<br/><br/> Failback to the on-premises site from Azure is always to VMware VMs regardless of whether you failed over VMs or physical servers. If you don't deploy the configuration server as a VMware VM you'll need to set up a separate master target server as a VMware VM to receive failback traffic.<br/><br/>If the server is a VMware VM, the network adapter type should be VMXNET3. If you use a different type of network adapter you'll need to install a [VMware update](https://kb.vmware.com/selfservice/microsites/search.do?cmd=displayKC&docType=kc&externalId=2110245&sliceId=1&docTypeID=DT_KB_1_1&dialogID=26228401&stateId=1) on the vSphere 5.5 server.<br/><br/>The server should have a static IP address.<br/><br/>The server should not be a Domain Controller.<br/><br/>The host name of the server should be 15 characters or less.<br/><br/>The operating system should be English only.<br/><br/> You’ll need to install VMware vSphere PowerCLI 6.0. on the configuration server.<br/><br/>The configuration server needs internet access. Outbound access is required as follows:<br/><br/>Temporary access on HTTP 80 during setup of the Site Recovery components (to download MySQL)<br/><br/>Ongoing outbound access on HTTPS 443 for replication management<br/><br/>Ongoing outbound access on HTTPS 9443 for replication traffic (this port can be modified)<br/><br/>The server will also need access to the following URLs so that it can connect to Azure: *.hypervrecoverymanager.windowsazure.com; *.accesscontrol.windows.net; *.backup.windowsazure.com; *.blob.core.windows.net; *.store.core.windows.net<br/><br/>If you have IP address-based firewall rules on the server, check that the rules allow communication to Azure. You'll need to allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) and the HTTPS (443) protocol.<br/><br/>Allow IP address ranges for the Azure region of your subscription, and for West US.<br/><br/>Allow this URL for the MySQL download: .http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi
 
 
 ## VMware vCenter/vSphere host prerequisites
@@ -235,7 +235,7 @@ Set up the configuration server and register it in the Recovery Services vault. 
 
 	![Before you start](./media/site-recovery-vmware-to-azure/combined-wiz1.png)
 
-3. In **Third-Party Software License** click **I Accept** to download and install MySQL. 
+3. In **Third-Party Software License** click **I Accept** to download and install MySQL.
 
 	![Third=party software](./media/site-recovery-vmware-to-azure/combined-wiz105.PNG)
 
@@ -369,7 +369,7 @@ Verify you have a storage account for replication, and an Azure network to which
 
 	- If you want to create a storage account using the classic model you'll do that in the Azure portal. [Learn more](../storage/storage-create-storage-account-classic-portal.md)
 	- If you’re using a premium storage account for replicated data you'll need to set up an additional standard storage account to store replication logs that capture ongoing changes to on-premises data.
-	
+
 	> [AZURE.NOTE] Protection to premium storage accounts in Central India and South India is currently not supported.
 
 4.	Select an Azure network. If you haven't created a network and you want to do that using ARM click **+Network** to do that inline. On the **Create virtual network** blade specify a network name, address range, subnet details, subscription, and location. The network should be in the same location as the Recovery Services vault.
@@ -558,7 +558,10 @@ The installers are available on the process server in **C:\Program Files (x86)\M
 Source operating system | Mobility service installation file
 --- | ---
 Windows Server (64 bit only) | Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe
-CentOS 6.4, 6.5, 6.6 (64 bit only) | Microsoft-ASR_UA_9.*.0.0_RHEL6-64_*release.tar.gz
+CentOS 6.5, 6.6, 6.7 (64 bit only) | Microsoft-ASR_UA_9.*.0.0_RHEL6-64_*release.tar.gz
+CentOS 7.0, 7.1, 7.2 (64 bit only) | Microsoft-ASR_UA_9.*.0.0_RHEL7-64_*release.tar.gz
+Red Had Enterprise Linux 6.7 (64 bit only) | Microsoft-ASR_UA_9.*.0.0_RHEL6-64_*release.tar.gz
+Red Had Enterprise Linux 7.1, 7.2 (64 bit only) | Microsoft-ASR_UA_9.*.0.0_RHEL7-64_*release.tar.gz
 SUSE Linux Enterprise Server 11 SP3 (64 bit only) | Microsoft-ASR_UA_9.*.0.0_SLES11-SP3-64_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (64 bit only) | Microsoft-ASR_UA_9.*.0.0_OL6-64_*release.tar.gz
 
@@ -601,7 +604,7 @@ The command to uninstall the Mobility Service using command line is
 #### Install manually on a Linux server:
 
 1. Copy the appropriate tar archive based on the table above to the Linux machine you want to replicate.
-2. Open a shell program and extract the zipped tar archive to a local path by running: `tar -xvzf Microsoft-ASR_UA_8.5.0.0*`
+2. Open a shell program and extract the zipped tar archive to a local path by running: `tar -xvzf Microsoft-ASR_UA_9.3.0.0*`
 3. Create a passphrase.txt file in the local directory to which you extracted the contents of the tar archive. To do this copy the passphrase from C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase on the configuration server, and save it in passphrase.txt by running *`echo <passphrase> >passphrase.txt`* in shell.
 4. Install the Mobility service by running *`sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i <IP address> -p <port> -s y -c https -P passphrase.txt`*.
 5. Specify the internal IP address of the configuration server and make sure port 443 is selected. After installing the service it can take around 15 minutes for status to update in the portal.

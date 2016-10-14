@@ -33,17 +33,19 @@ This is the deployment step where you will start the rerun of the deployment.
 If you want more details on the error, find the associated **summary.YYYY-MM-DD.tt.N.log.xml** in the **C:\CloudDeployment\Logs\** folder.
 Search for the string “Error”, and follow it down through the output until you see a large amount of non-XML formatted text containing the error message (this section often coincides with the last instance of the string “Error”). For example:
 
-![](media/azure-stack-rerun-deploy/image01.png)
+![Error example](media/azure-stack-rerun-deploy/image01.png)
 
 You can also use this information to track the rerun step, follow the “Index” numbers up from that last error. In the image above, you can see (starting from the bottom): 143, 140, and then if scroll up, you see 60:
 
-![](media/azure-stack-rerun-deploy/image02.png)
+![Error example](media/azure-stack-rerun-deploy/image02.png)
 
 Putting this all together (now from the top down), you get 60.140.143, just like in the PS console output of the failure (as seen in the “Find the Failure” section above).
 
 ## Rerun the deployment at a specific step
 
-Now that you have the step that the deployment failed on, you can attempt a -Rerun of the deployment from that step. 
+Now that you have the step that the deployment failed on, you can attempt a -Rerun of the deployment from that step.
+
+> [AZURE.IMPORTANT] The following commands must be run by the correct user, in context with the failure that occurred. If the failure occurred before the HOST was joined to the domain, run these steps as the local administrator account. If the failure occurred after the HOST was joined to the domain, run these steps as the domain administrator (azurestack\azurestackadmin).
 
 ### Execute the Invoke-EceAction command
 
@@ -54,7 +56,7 @@ Now that you have the step that the deployment failed on, you can attempt a -Rer
 
 2. Then execute the following command (example from above used here):
 
-    `Invoke-EceAction -RolePath Cloud -ActionType Deployment -Start 60.140.143 -Verbose`
+        Invoke-EceAction -RolePath Cloud -ActionType Deployment -Start 60.140.143 -Verbose
 
 3.	This will initiate the deployment from the step identified by the -Start parameter of the Invoke-EceAction command
 
@@ -72,7 +74,9 @@ Regardless of the option you choose, the deployment will begin again from the sp
 
     - a new place BEFORE where it failed this time: something else went wrong with an idempotent call, which requires further investigation.
 
+## Next steps
 
+[Connect to Azure Stack](azure-stack-connect-azure-stack.md)
 
 
 

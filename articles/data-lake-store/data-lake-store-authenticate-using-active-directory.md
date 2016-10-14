@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/26/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 # Authenticate with Data Lake Store using Azure Active Directory
@@ -59,7 +59,9 @@ Your application can directly provide user credentials to Azure AD. This method 
 
 * Azure AD **native client application**. 
 
-* Client ID for the Azure AD native client application. 
+* Client ID for the Azure AD native client application.
+
+* Redirect URI for the Azure AD native client application. 
 
 For instructions on how to create an Azure AD application and retrieve the client ID, see [Create an Active Directory Application](../resource-group-create-service-principal-portal.md#create-an-active-directory-application). 
 

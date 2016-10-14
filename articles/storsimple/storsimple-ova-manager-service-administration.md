@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/17/2016"
+   ms.date="10/11/2016"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to administer your StorSimple Virtual Array
@@ -85,7 +85,7 @@ For more information about each workflow, click the appropriate procedure in the
 |View job details|StorSimple Manager service → Jobs| [Manage StorSimple Virtual Array jobs](storsimple-ova-manage-jobs.md)|
 |Configure alert settings</br>Receive alert notifications</br>Manage alerts</br>Review alerts|StorSimple Manager service → Alerts|[View and manage alerts for the StorSimple Virtual Array](storsimple-ova-manage-alerts.md)|
 |Modify the device administrator password|StorSimple Manager service → Devices → Configure|[Change the StorSimple Virtual Array device administrator password](storsimple-ova-change-device-admin-password.md)|
-|Install software updates|StorSimple Manager service → Devices → Maintenance|[Update your Virtual Array](storsimple-ova-update.md)|
+|Install software updates|StorSimple Manager service → Devices → Maintenance|[Update your Virtual Array](storsimple-ova-install-update-01.md)|
 
 >[AZURE.NOTE] You must use the [local web UI](storsimple-ova-web-ui-admin.md) for the following tasks:
 >

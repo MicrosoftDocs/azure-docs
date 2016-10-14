@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/21/2016"
+   ms.date="10/06/2016"
    ms.author="cherylmc" />
 
 # About VPN Gateway settings
@@ -47,7 +47,10 @@ Example:
 
 **Specifying the gateway SKU in the Azure portal**
 
-If you use the Azure portal to create a Resource Manager virtual network gateway, the virtual network gateway is configured using the Standard SKU by default. Currently, you cannot specify other SKUs for the Resource Manager deployment model in the Azure portal. However, after creating your gateway, you can upgrade to a more powerful gateway SKU (from Basic/Standard to HighPerformance) using the `Resize-AzureRmVirtualNetworkGateway` PowerShell cmdlet. You can also downgrade the gateway SKU size using PowerShell.
+If you use the Azure portal to create a Resource Manager virtual network gateway, you can select the gateway SKU by using the dropdown. The options you are presented with correspond to the Gateway type and VPN type that you select.
+
+For example, if you select the gateway type 'VPN' and the VPN type 'Policy-based', you see only the 'Basic' SKU because that is the only SKU available for PolicyBased VPNs. If you select 'Route-based', you can select from Basic, Standard, and HighPerformance SKUs. 
+
 
 **Specifying the gateway SKU using PowerShell**
 
@@ -60,7 +63,9 @@ The following PowerShell example specifies the `-GatewaySku` as *Standard*.
 
 **Changing a gateway SKU**
 
-You can resize a gateway SKU. The following PowerShell example shows a gateway SKU being resized to HighPerformance.
+If you want to upgrade your gateway SKU to a more powerful SKU (from Basic/Standard to HighPerformance) you can use the `Resize-AzureRmVirtualNetworkGateway` PowerShell cmdlet. You can also downgrade the gateway SKU size using this cmdlet.
+
+The following PowerShell example shows a gateway SKU being resized to HighPerformance.
 
 	$gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 	Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
@@ -122,7 +127,7 @@ The following Resource Manager PowerShell example shows a gateway subnet named G
 
 	Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 
->[AZURE.IMPORTANT] Verify that the gateway subnet does not have a Network Security Group (NSG) applied to it, as this may cause connections to fail.
+[AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)] 
 
 
 ## <a name="lng"></a>Local network gateways

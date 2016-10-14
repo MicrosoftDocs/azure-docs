@@ -110,7 +110,7 @@ Note that Widevine license delivery services provided by Azure Media Sevices is 
 
 ##<a id="oct_changes_15"></a>October 2015 Release
 
-Azure Media Services (AMS) is now live in the following data centers: Brazil South,  India West, India South and India Central. You can now use the Azure Classic Portal to [create Media Service accounts](media-services-create-account.md#create-a-media-services-account-using-quick-create) and perform various tasks described [here](https://azure.microsoft.com/documentation/services/media-services/). However, Live Encoding is not enabled in these data centers. Further, not all types of Encoding Reserved Units are available in these data centers.
+Azure Media Services (AMS) is now live in the following data centers: Brazil South,  India West, India South and India Central. You can now use the Azure Classic Portal to [create Media Service accounts](media-services-portal-create-account.md) and perform various tasks described [here](https://azure.microsoft.com/documentation/services/media-services/). However, Live Encoding is not enabled in these data centers. Further, not all types of Encoding Reserved Units are available in these data centers.
 
 - Brazil South:                                          Only Standard and Basic Encoding Reserved Units are available
 - India West, India South and India Central:             Only Basic Encoding Reserved Units are available
