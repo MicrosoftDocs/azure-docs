@@ -286,11 +286,11 @@ Application Insights offers three types of alert, which are delivered by email.
 
 ### Proactive diagnostics 
 
-[Proactive diagnostics](app-insights-nrt-proactive-diagnostics.md)** is automatically set up - you don't have to configure it. Provided your site has enough traffic, you'll get an email if there's a rise in failed requests that is unusual for the time of day or request rate. The alert contains diagnostic information. 
+[Proactive diagnostics](app-insights-proactive-failure-diagnostics.md) is automatically set up - you don't have to configure it. Provided your site has enough traffic, you'll get an email if there's a rise in failed requests that is unusual for the time of day or request rate. The alert contains diagnostic information. 
 
 Here's a sample alert. 
 
-![Sample Intelligent Alert showing cluster analysis around failure](./media/app-insights-nrt-proactive-diagnostics/010.png)
+![Sample Intelligent Alert showing cluster analysis around failure](./media/app-insights-overview/proactive-alert.png)
 
 A second type of proactive detection discovers correlations between failures and factors such as location, client OS, or browser type.
 
