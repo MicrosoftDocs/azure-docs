@@ -70,7 +70,7 @@ To resolve these issues, you have to locate the VM that is using the VHD. Then, 
 
 ### Step 2: Remove the lease from the VHD
 
-To delete the VHD from the VM that is using it (for OS disks):
+To delete the VM that is using the VHD (for OS disks):
 
 1.	Sign in to the [Azure portal](https://portal.azure.com).
 2.	On the Hub menu, select **Virtual Machines**.
