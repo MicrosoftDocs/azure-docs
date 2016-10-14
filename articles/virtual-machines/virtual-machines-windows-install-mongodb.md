@@ -63,11 +63,11 @@ To begin installing and configuring MongoDB, [log on to your Windows Server VM](
 
 ## Configure VM and MongoDB
 
-1. The PATH variables are not updated by the MongoDB installer. Without the MongoDB `bin` location in your PATH variable, you need to specify the full path each time you use a MongoDB executable. To add the location to your PATH variable:
+1. The path variables are not updated by the MongoDB installer. Without the MongoDB `bin` location in your path variable, you need to specify the full path each time you use a MongoDB executable. To add the location to your path variable:
 
-	- Right-click the **Start** menu and select **System**.
-	- Click **Advanced System Settings** and then **Environment Variables**.
-	- Under **System variables**, select **Path** and then click **Edit**.
+	- Right-click the **Start** menu, and select **System**.
+	- Click **Advanced system settings**, and then **Environment Variables**.
+	- Under **System variables**, select **Path**, and then click **Edit**.
 
 	![Configure PATH variables](./media/virtual-machines-windows-install-mongodb/configure-path-variables.png)
 
@@ -92,7 +92,7 @@ To begin installing and configuring MongoDB, [log on to your Windows Server VM](
 	mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
 	```
 
-	It may take several minutes for MongoDB to preallocate the journal files and start listening for connections. All log messages are directed to the *F:\MongoLogs\mongolog.log* file as `mongod.exe` server starts and preallocates journal files.
+	It may take several minutes for MongoDB to allocate the journal files and start listening for connections. All log messages are directed to the *F:\MongoLogs\mongolog.log* file as `mongod.exe` server starts and allocates journal files.
 
 	> [AZURE.NOTE] The command prompt stays focused on this task while your MongoDB instance is running. Leave the command prompt window open to continue running MongoDB. Or, install MongoDB as service, as detailed in the next step.
 
@@ -103,13 +103,13 @@ To begin installing and configuring MongoDB, [log on to your Windows Server VM](
 		--logappend  --install
 	```
 
-	The preceding command creates a service named MongoDB with a description of "Mongo DB". The following parameters are also specified:
+	The preceding command creates a service named MongoDB, with a description of "Mongo DB". The following parameters are also specified:
 
 	- The `--dbpath` option specifies the location of the data directory.
 	- The `--logpath` option must be used to specify a log file, since the running service does not have a command window to display output.
 	- The `--logappend` option specifies that a restart of the service causes output to append to the existing log file.
 
-	To start the MongoDB service, run the following command:
+  To start the MongoDB service, run the following command:
 
 	```
 	net start MongoDB
@@ -119,7 +119,7 @@ To begin installing and configuring MongoDB, [log on to your Windows Server VM](
 
 ## Test the MongoDB instance
 
-With MongoDB running as a single instance or installed as a service, you can now start creating and using your databases. To start the MongoDB administrative shell, open another command prompt window from the **Start** menu and enter the following command:
+With MongoDB running as a single instance or installed as a service, you can now start creating and using your databases. To start the MongoDB administrative shell, open another command prompt window from the **Start** menu, and enter the following command:
 
 ```
 mongo  
@@ -157,9 +157,9 @@ New-NetFirewallRule -DisplayName "Allow MongoDB" -Direction Inbound `
 	-Protocol TCP -LocalPort 27017 -Action Allow
 ```
 
-You can also create the rule using **Windows Firewall with Advanced Security** graphical management tool. Create a new inbound rule to allow TCP port 27017.
+You can also create the rule using the **Windows Firewall with Advanced Security** graphical management tool. Create a new inbound rule to allow TCP port 27017.
 
-If needed, create a Network Security Group rule to allow access to MongoDB from outside of the existing Azure virtual network subnet. You can create the Network Security Group rules using the [Azure portal](virtual-machines-windows-nsg-quickstart-portal.md) or [Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md). As with the Windows Firewall rules, allow TCP port 27017 to the virtual network interface of your MongoDB VM.
+If needed, create a Network Security Group rule to allow access to MongoDB from outside of the existing Azure virtual network subnet. You can create the Network Security Group rules by using the [Azure portal](virtual-machines-windows-nsg-quickstart-portal.md) or [Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md). As with the Windows Firewall rules, allow TCP port 27017 to the virtual network interface of your MongoDB VM.
 
 > [AZURE.NOTE] TCP port 27017 is the default port used by MongoDB. You can change this port by using the `--port` parameter when starting `mongod.exe` manually or from a service. If you change the port, make sure to update the Windows Firewall and Network Security Group rules in the preceding steps.
 
