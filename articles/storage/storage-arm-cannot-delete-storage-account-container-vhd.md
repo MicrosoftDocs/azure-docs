@@ -47,13 +47,13 @@ When you try to delete an ARM Storage Account, you receive the following error m
 
 **Failed to delete storage account 'StorageAccountName'. Error: The storage account cannot be deleted due to its artifacts being in use.**
 
-This issue can occur because a storage account contains a VHD that is in the lease state.
+This issue can occur because the storage account contains a VHD that is in the lease state.
 
 ## Solution
 
-To resolve these issues, you have to locate the VM that is using the VHD. Then, you must detach the VHD from the VM (for data disks) or delete the VM that is using the VHD (for OS disks). This removes the lease from the VHD, and allows it to be deleted.
+To resolve these issues, you have to identify the VHD that is causing the error and the associated VM. Then, you must detach the VHD from the VM (for data disks) or delete the VM that is using the VHD (for OS disks). This removes the lease from the VHD, and allows it to be deleted.
 
-### Step 1: Identify the VHD that is causing the error and the associated VM
+### Step 1: Identify the problem VHD and the associated VM
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
