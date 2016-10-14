@@ -4,7 +4,7 @@
 	keywords="Azure Portal, documentdb, azure, Microsoft azure"
 	services="documentdb"
 	documentationCenter=""
-	authors="AndrewHoh"
+	authors="kirillg"
 	manager="jhubbard"
 	editor="cgronlun"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/24/2016"
-	ms.author="anhoh"/>
+	ms.author="kirillg"/>
 
 # How to manage a DocumentDB account
 
