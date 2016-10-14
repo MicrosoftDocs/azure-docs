@@ -20,7 +20,7 @@ ms.service="virtual-machines-windows"
 
 
 
-If you have set up a [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) cluster in Azure, you might want a way to quickly scale up or scale down the cluster capacity, without maintaining a set of preconfigured compute node VMs. This article shows you how to add on-demand "burst" nodes (worker role instances
+If you set up a [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) cluster in Azure, you might want a way to quickly scale the cluster capacity up or down, without maintaining a set of preconfigured compute node VMs. This article shows you how to add on-demand "burst" nodes (worker role instances
 running in a cloud service) as compute resources to a
  head node in Azure. 
 
@@ -29,7 +29,7 @@ running in a cloud service) as compute resources to a
 ![Burst nodes][burst]
 
 The steps in this article help you add Azure nodes quickly to a
-cloud-based HPC Pack head node VM for a test or proof-ofconcept deployment. The high-level steps are the same as the steps to “burst to Azure” to add cloud compute capacity to an
+cloud-based HPC Pack head node VM for a test or proof-of-concept deployment. The high-level steps are the same as the steps to “burst to Azure” to add cloud compute capacity to an
 on-premises HPC Pack cluster. For a tutorial, see [Set up a hybrid compute cluster with Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). For
 detailed guidance and considerations for production deployments, see
 [Burst to Azure with Microsoft HPC

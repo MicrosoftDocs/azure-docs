@@ -20,7 +20,7 @@ ms.service="virtual-machines-windows"
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Configure an on-premises client computer to submit jobs to a [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) cluster in Azure. This article shows you how to set up a local computer with client tools to submit job over HTTPS to the cluster in Azure. This provides a straightforward, flexible way for a variety of cluster users to submit jobs to a cloud-based HPC Pack cluster. When using the client tools to submit jobs, users don't need to connect directly to the head node VM or access an Azure subscription.
+Configure an on-premises client computer to submit jobs to a [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) cluster in Azure. This article shows you how to set up a local computer with client tools to submit job over HTTPS to the cluster in Azure. In this way, a variety of cluster users can submit jobs to a cloud-based HPC Pack cluster without connecting directly to the head node VM or accessing an Azure subscription.
 
 ![Submit a job to a cluster in Azure][jobsubmit]
 
@@ -28,7 +28,7 @@ Configure an on-premises client computer to submit jobs to a [Microsoft HPC Pack
 
 * **HPC Pack head node deployed in an Azure VM** - We recommend that you use
 automated tools such as an [Azure quickstart template](https://azure.microsoft.com/documentation/templates/) or an [Azure PowerShell script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)
-to deploy the head node and cluster. You will need the DNS
+to deploy the head node and cluster. You need the DNS
 name of the head node and the credentials of a cluster administrator to
 complete the steps in this article.
 
@@ -44,8 +44,8 @@ VM.
 ## Step 1: Install and configure the web components on the head node
 
 To enable a REST interface to submit jobs to the cluster over HTTPS,
-install and configure the HPC Pack web components on the HPC Pack head
-node, if they are not already configured. You first install the web
+ensure that the HPC Pack web components are configured on the HPC Pack head
+node. If they aren't already installed, first install the web
 components by running the HpcWebComponents.msi installation file. Then,
 configure the components by running the HPC PowerShell script
 **Set-HPCWebComponents.ps1**.
@@ -54,7 +54,7 @@ For detailed procedures, see [Install the Microsoft HPC Pack Web
 Components](http://technet.microsoft.com/library/hh314627.aspx).
 
 >[AZURE.TIP] Certain Azure quickstart templates for HPC Pack install and configure the web components automatically. If you use the [HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) to create the cluster,
-you can optionally install and configure the web web components as part of the deployment.
+you can optionally install and configure the web components as part of the deployment.
 
 **To install the web components**
 
@@ -88,7 +88,7 @@ you can optionally install and configure the web web components as part of the d
     ```powershell
     .\Set-HPCWebComponents.ps1 –Service Portal -enable
     ```
-6. After the script completes, stop and restart the HPC Job Scheduler Service by typing the following:
+6. After the script completes, stop and restart the HPC Job Scheduler Service by typing the following commands:
 
     ```powershell
     net stop hpcscheduler
@@ -156,7 +156,7 @@ from the on-premises computer. For example, you can use HPC Pack GUI tools or co
     job list /scheduler:https://<HeadNodeDnsName>.<region>.cloudapp.azure.com /all
     ```
 
-    >[AZURE.TIP] Use the full DNS name of the head node, not the IP address, in the scheduler URL. If you specify the IP address, an error appears similar to "The server certificate needs to either have a valid chain of trust or to be placed in the trusted root store".
+    >[AZURE.TIP] Use the full DNS name of the head node, not the IP address, in the scheduler URL. If you specify the IP address, an error appears similar to "The server certificate needs to either have a valid chain of trust or to be placed in the trusted root store."
 
 3. When prompted, type the user name (in the form &lt;DomainName&gt;\\&lt;UserName&gt;) and password of the HPC cluster administrator or another cluster user that you configured. You can choose to store the credentials locally for more job operations.
 
@@ -169,9 +169,9 @@ from the on-premises computer. For example, you can use HPC Pack GUI tools or co
 
     a. In Control Panel on the client computer, start Credential Manager.
 
-    b. Click **Windows Credentials** >  **Add a generic credential**.
+    b. Click **Windows Credentials** > **Add a generic credential**.
 
-    c. Specify the Internet address (for example, https://&lt;HeadNodeDnsName&gt;.cloudapp.net/HpcScheduler or https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com/HpcScheduler), and the user name (in the form &lt;DomainName&gt;\\&lt;UserName&gt;) and password of the cluster administrator or another cluster user that you configured.
+    c. Specify the Internet address (for example, https://&lt;HeadNodeDnsName&gt;.cloudapp.net/HpcScheduler or https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com/HpcScheduler), and the user name (&lt;DomainName&gt;\\&lt;UserName&gt;) and password of the cluster administrator or another cluster user that you configured.
 
 2. On the client computer, start HPC Job Manager.
 
