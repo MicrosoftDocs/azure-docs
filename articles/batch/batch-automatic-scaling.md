@@ -30,13 +30,13 @@ An automatic scaling formula is a string value that you define that contains one
 
 You can think of automatic scaling formulas as using a Batch autoscale "language." Formula statements are free-formed expressions that can include both service-defined variables (variables defined by the Batch service) and user-defined variables (variables that you define). They can perform various operations on these values by using built-in types, operators, and functions. For example, a statement might take the following form:
 
-```bash
+```
 $myNewVariable = function($ServiceDefinedVariable, $myCustomVariable);
 ```
 
 Formulas generally contain multiple statements that perform operations on values that are obtained in previous statements. For example, first we obtain a value for `variable1`, then pass it to a function to populate `variable2`:
 
-```bash
+```
 $variable1 = function1($ServiceDefinedVariable);
 $variable2 = function2($OtherServiceDefinedVariable, $variable1);
 ```
@@ -45,7 +45,7 @@ With these statements in your formula, your goal is to arrive at a number of com
 
 As a quick example, this two-line autoscale formula specifies that the number of nodes should be adjusted according to the number of active tasks, up to a maximum of 10 compute nodes:
 
-```bash
+```
 $averageActiveTaskCount = avg($ActiveTasks.GetSample(TimeInterval_Minute * 15));
 $TargetDedicated = min(10, $averageActiveTaskCount);
 ```
@@ -182,7 +182,7 @@ The *doubleVecList* value is converted to a single *doubleVec* prior to evaluati
 
 Autoscale formulas act on metrics data (samples) that is provided by the Batch service. A formula grows or shrinks pool size based on the values that it obtains from the service. The service-defined variables that are described above are objects that provide various methods to access data that is associated with that object. For example, the following expression shows a request to get the last five minutes of CPU usage:
 
-```bash
+```
 $CPUPercent.GetSample(TimeInterval_Minute * 5)
 ```
 
@@ -214,13 +214,13 @@ Your autoscale formulas are going to be growing and shrinking your pools--adding
 
 To do so, use `GetSample(interval look-back start, interval look-back end)` to return a **vector** of samples:
 
-```bash
+```
 $runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
 ```
 
 When the above line is evaluated by Batch, it will return a range of samples as a vector of values. For example:
 
-```bash
+```
 $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
 ```
 
@@ -228,7 +228,7 @@ Once you've collected the vector of samples, you can then use functions like `mi
 
 For additional security, you can force a formula evaluation to *fail* if less than a certain sample percentage is available for a particular time period. When you force a formula evaluation to fail, you instruct Batch to cease further evaluation of the formula if the specified percentage of samples is not available--and no change to pool size will be made. To specify a required percentage of samples for the evaluation to succeed, specify it as the third parameter to `GetSample()`. Here, a requirement of 75 percent of samples is specified:
 
-```bash
+```
 $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 75);
 ```
 
@@ -292,7 +292,7 @@ First, let's define the requirements for our new autoscale formula. The formula 
 
 To *increase* the number of nodes during high CPU usage, we define the statement that populates a user-defined variable (`$totalNodes`) with a value that is 110 percent of the current target number of nodes, but only if the minimum average CPU usage during the last 10 minutes was above 70 percent. Otherwise, we use the current dedicated value.
 
-```bash
+```
 $totalNodes =
     (min($CPUPercent.GetSample(TimeInterval_Minute * 10)) > 0.7) ?
     ($CurrentDedicated * 1.1) : $CurrentDedicated;
@@ -300,7 +300,7 @@ $totalNodes =
 
 To *decrease* the number of nodes during low CPU usage, the next statement in our new formula sets the same `$totalNodes` variable to 90 percent of the current target number of nodes if the average CPU usage in the past 60 minutes was *under* 20 percent. Otherwise, use the current value of `$totalNodes` that we populated in the statement above.
 
-```bash
+```
 $totalNodes =
     (avg($CPUPercent.GetSample(TimeInterval_Minute * 60)) < 0.2) ?
     ($CurrentDedicated * 0.9) : $totalNodes;
@@ -308,13 +308,13 @@ $totalNodes =
 
 Now limit the target number of dedicated compute nodes to a **maximum** of 400:
 
-```bash
+```
 $TargetDedicated = min(400, $totalNodes)
 ```
 
 Here's the complete formula:
 
-```bash
+```
 $totalNodes =
     (min($CPUPercent.GetSample(TimeInterval_Minute * 10)) > 0.7) ?
     ($CurrentDedicated * 1.1) : $CurrentDedicated;
@@ -360,8 +360,8 @@ In addition to the Batch REST API and .NET SDK, you can use any of the other [Ba
 
 By default, the Batch service adjusts a pool's size according to its autoscale formula every **15 minutes**. This interval is configurable, however, by using the following pool properties:
 
-- REST API--[autoScaleEvaluationInterval][rest_autoscaleinterval]
-- .NET API--[CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval]
+* [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (Batch .NET)
+* [autoScaleEvaluationInterval][rest_autoscaleinterval] (REST API)
 
 The minimum interval is five minutes, and the maximum is 168 hours. If an interval outside this range is specified, the Batch service will return a Bad Request (400) error.
 
@@ -369,18 +369,28 @@ The minimum interval is five minutes, and the maximum is 168 hours. If an interv
 
 ## Enable autoscaling on an existing pool
 
-If you've already create a pool with a specific number of compute nodes by using the *targetDedicated* parameter, you can still enable autoscaling on the pool. You can do this in one of these ways:
+If you've already created a pool with a set number of compute nodes by using the *targetDedicated* parameter, you can still enable autoscaling on the pool. Each Batch SDK provides an "enable autoscale" operation, for example:
 
-- [BatchClient.PoolOperations.EnableAutoScale][net_enableautoscale]--This .NET method requires the ID of an existing pool and the automatic scaling formula to apply to the pool.
-- [Enable automatic scaling on a pool][rest_enableautoscale]--This REST API request requires the ID of the existing pool in the URI and the automatic scaling formula in the request body.
+* [BatchClient.PoolOperations.EnableAutoScale][net_enableautoscale] (Batch .NET)
+*  [Enable automatic scaling on a pool][rest_enableautoscale] (REST API)
+
+When you enable autoscaling on an existing pool, the following applies:
+
+* If automatic scaling is currently **disabled** on the pool when you issue the "enable autoscale" request, you *must* specify a valid autoscale formula when you issue the request. You can *optionally* specify an autoscale evaluation interval. If you do not specify an interval, the default value of 15 minutes is used.
+
+* If autoscale is currently **enabled** on the pool, you can specify an autoscale formula, an evaluation interval, or both. You can't omit both properties.
+
+  * If you specify a new autoscale evaluation interval, then the existing evaluation schedule is stopped and a new schedule is started. The new schedule's start time is the time at which the "enable autoscale" request was issued.
+
+  * If you omit either the autoscale formula or evaluation interval, the Batch service continues to use the current value of that setting.
 
 > [AZURE.NOTE] If a value was specified for the *targetDedicated* parameter when the pool was created, it is ignored when the automatic scaling formula is evaluated.
 
-This code snippet enables autoscaling on an existing pool by using the [Batch .NET][net_api] library. The snippet assumes that "mypool" is the ID of an existing pool.
+This code snippet enables autoscaling on an existing pool by using the [Batch .NET][net_api] library:
 
 ```csharp
-// Define the autoscaling formula. In this snippet, the formula sets the target
-// number of nodes to 5 on Mondays, and 1 on every other day of the week
+// Define the autoscaling formula. This formula sets the target number of nodes
+// to 5 on Mondays, and 1 on every other day of the week
 string myAutoScaleFormula = "$TargetDedicated = (time().weekday == 1 ? 5:1);";
 
 // Set the existing pool's autoscaling formula by calling the
@@ -392,11 +402,11 @@ myBatchClient.PoolOperations.EnableAutoScale(
 
 ### Update an autoscale formula
 
-You use the same [EnableAutoScale][net_enableautoscale] method to *update* the formula on an existing autoscale-enabled pool. There is no "UpdateAutoScale" method. As such, the previous code snippet would *update* the formula on the pool if autoscaling had already been enabled.
+You use the same "enable autoscale" request to *update* the formula on an existing autoscale-enabled pool (for example, with [EnableAutoScale][net_enableautoscale] in Batch .NET). There is no special "update autoscale" operation. For example, if autoscaling is already enabled on "myexistingpool" when the following code is executed, its autoscale formula is replaced with the contents of `myNewFormula`.
 
 ```csharp
 myBatchClient.PoolOperations.EnableAutoScale(
-	"mypmyexistingpoolool",
+	"mypmyexistingpool",
 	autoscaleFormula: myNewFormula);
 ```
 
@@ -429,12 +439,12 @@ In this [Batch .NET][net_api] code snippet, we evaluate a formula prior to apply
 // First obtain a reference to an existing pool
 CloudPool pool = batchClient.PoolOperations.GetPool("myBatchPool");
 
-// If if autoscaling isn't already enabled on the pool, enable it.
+// If autoscaling isn't already enabled on the pool, enable it.
 // You can't evaluate an autoscale formula on non-autoscale-enabled pool.
 if (pool.AutoScaleEnabled == false)
 {
     // We need a valid autoscale formula to enable autoscaling on the
-    // pool. This formula is valid, but won't resize the pool.
+    // pool. This formula is valid, but won't resize the pool:
     pool.EnableAutoScale(
         autoscaleFormula: $"$TargetDedicated = {pool.CurrentDedicated};",
         autoscaleEvaluationInterval: TimeSpan.FromMinutes(10));
@@ -456,7 +466,7 @@ if (pool.AutoScaleEnabled.HasValue && pool.AutoScaleEnabled.Value)
 {
     // The formula to evaluate - adjusts target number of nodes based on
     // day of week and time of day
-    string myFormula = @"f
+    string myFormula = @"
         $curTime = time();
         $workHours = $curTime.hour >= 8 && $curTime.hour < 18;
         $isWeekday = $curTime.weekday >= 1 && $curTime.weekday <= 5;
@@ -491,7 +501,7 @@ if (pool.AutoScaleEnabled.HasValue && pool.AutoScaleEnabled.Value)
 
 Successful evaluation of the formula in this snippet will result in output similar to the following:
 
-```bash
+```
 AutoScaleRun.Results:
     $TargetDedicated=10;
     $NodeDeallocationOption=requeue;
@@ -503,13 +513,38 @@ AutoScaleRun.Results:
 
 ## Get information about autoscale runs
 
-Periodically check the results of automatic scaling runs to ensure that a formula is performing as expected.
+To ensure your formula is performing as expected, we recommend you periodically check the results of the autoscaling "runs" Batch performs on your pool. To do so, get (or refresh) a reference to the pool, and examine the properties of its last autoscale run.
 
-- [CloudPool.AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscalerun.aspx)--When you use the .NET library, this property of a pool provides an instance of the [AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.aspx) class. This class provides the following properties of the latest automatic scaling run:
-  - [AutoScaleRun.Error](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.error.aspx)
-  - [AutoScaleRun.Results](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.results.aspx)
-  - [AutoScaleRun.Timestamp](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.timestamp.aspx)
-- [Get information about a pool](https://msdn.microsoft.com/library/dn820165.aspx)--This REST API request returns information about the pool, which includes the latest automatic scaling run.
+In Batch .NET, the [CloudPool.AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscalerun.aspx) property has several properties providing information about the latest automatic scaling run performed on the pool by the Batch service.
+
+  * [AutoScaleRun.Error](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.error.aspx)
+  * [AutoScaleRun.Results](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.results.aspx)
+  * [AutoScaleRun.Timestamp](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.timestamp.aspx)
+
+In the REST API, the [Get information about a pool](https://msdn.microsoft.com/library/dn820165.aspx) request returns information about the pool, which includes the latest automatic scaling run information in [autoScaleRun](https://msdn.microsoft.com/library/dn820165.aspx#bk_autrun).
+
+The following C# code snippet uses the Batch .NET library to print information about the last autoscaling run on pool "myPool":
+
+```csharp
+Cloud pool = myBatchClient.PoolOperations.GetPool("myPool");
+Console.WriteLine("Last execution: " + pool.AutoScaleRun.Timestamp);
+Console.WriteLine("Result:" + pool.AutoScaleRun.Results.Replace("$", "\n  $"));
+Console.WriteLine("Error: " + pool.AutoScaleRun.Error);
+```
+
+Sample output of the preceding snippet:
+
+```
+Last execution: 10/14/2016 18:36:43
+Result:
+  $TargetDedicated=10;
+  $NodeDeallocationOption=requeue;
+  $curTime=2016-10-14T18:36:43.282Z;
+  $isWeekday=1;
+  $isWorkingWeekdayHour=0;
+  $workHours=0
+Error:
+```
 
 ## Example autoscale formulas
 
@@ -521,7 +556,7 @@ Perhaps you want to adjust the pool size based on the day of the week and time o
 
 This formula first obtains the current time. If it's a weekday (1-5) and within working hours (8 AM to 6 PM), the target pool size is set to 20 nodes. Otherwise, it's set to 10 nodes.
 
-```bash
+```
 $curTime = time();
 $workHours = $curTime.hour >= 8 && $curTime.hour < 18;
 $isWeekday = $curTime.weekday >= 1 && $curTime.weekday <= 5;
