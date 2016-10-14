@@ -1,9 +1,9 @@
 <properties
 	pageTitle="Restrict access to your Azure CDN content by country | Microsoft Azure"
-	description="Learn how to restrict access to your Azure CDN content using the Country Filtering feature."
+	description="Learn how to restrict access to your Azure CDN content using the Geo-Filtering feature."
 	services="cdn"
 	documentationCenter=""
-	authors="camsoper"
+	authors="camsoper, rli"
 	manager="erikre"
 	editor=""/>
 
@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2016"
+	ms.date="10/13/2016"
 	ms.author="casoper"/>
 
 #Restrict access to your content by country
+> [AZURE.SELECTOR]
+- [Verizon](cdn-restrict-access-by-country.md)
+- [Akamai Standard](cdn-restrict-access-by-country-akamai.md)
 
-[AZURE.INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+> [AZURE.IMPORTANT] The Verizon and Akamai products provide the same geo-filtering functionality, but the user interface differs. This document describes the interface for **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon**.  For query string caching with **Azure CDN Standard from Akamai**, see [Restrict access to your content by country - Akamai](cdn-restrict-access-by-country-akamai.md).
 
 When a user requests your content, by default, the content is served regardless of where the user made this request from. In some cases, you may want to restrict access to your content by country. This topic explains how to use the **Country Filtering** feature in order to configure the service to allow or block access by country.
 
