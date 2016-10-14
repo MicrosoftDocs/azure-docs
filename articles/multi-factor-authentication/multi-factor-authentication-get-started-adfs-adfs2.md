@@ -57,7 +57,7 @@ You enabled IIS authentication, but to perform the pre-authentication to your Ac
 2. On the Settings tab, select the **Use specific LDAP configuration** radio button.
 <center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/ldap1.png)</center>
 3. Click the **Edit…** button.
-4. In the Edit LDAP Configuration dialog box, populate the fields with the information required to connect to the AD domain controller. Descriptions of the fields are included in the table below. Note: This information is also included in the Azure Multi-Factor Authentication Server help file.
+4. In the Edit LDAP Configuration dialog box, populate the fields with the information required to connect to the AD domain controller. Descriptions of the fields are included in the table below. This information is also included in the Azure Multi-Factor Authentication Server help file.
 5. Test the LDAP connection by clicking the **Test** button.
 <center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/ldap2.png)</center>
 6. If the LDAP connection test was successful, click the **OK** button.
