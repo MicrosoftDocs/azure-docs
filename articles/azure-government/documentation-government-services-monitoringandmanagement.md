@@ -54,7 +54,6 @@ The following Log Analytics features and solutions are not currently available i
   - Azure metrics and Azure diagnostics
 + OMS Mobile applications
 + OMS Linux Agent VM Extension
-+ Usage data
 
 The following Log Analytics features have different behavior in Azure Government:
 
