@@ -153,9 +153,9 @@ The article [Deploying a Federation Server Farm][Deploying_a_federation_server_f
 
 2. On the domain controller, generate a new root key for the Key Distribution Service. Set the effective time to be the current time minus 10 hours (this configuration reduces the delay that can occur in distributing and synchronizing keys across the domain). This step is necessary to support creating the group service account that are used to run the ADFS service. The following Powershell command shows an example of how to do this:
 
-		```powershell
+		````powershell
 		Add-KdsRootKey -EffectiveTime (Get-Date).AddHours(-10)
-		```
+		````
 
 3. Add each ADFS server VM to the domain.
 
@@ -259,7 +259,7 @@ These components form the core of this architecture. The [**parameters/azure**][
 
 - **[virtualNetwork.parameters.json][vnet-parameters]**. This file defines structure of the VNet for the VMs and other components in the cloud. It includes settings, such as the name, address space, subnets, and the addresses of any DNS servers required. Note that the DNS addresses shown in this example reference the IP addresses of the on-premises DNS servers, and also the default Azure DNS server. Modify these addresses to reference your own DNS setup if you are not using the sample on-premises environment:
 
-		```json
+		````json
 	    {
 	      "virtualNetworkSettings": {
 	        "value": {
@@ -326,13 +326,13 @@ These components form the core of this architecture. The [**parameters/azure**][
 	        }
 	      }
 	    }
-	    ```
+	    ````
 
 - **[virtualMachines-adds.parameters.json ][virtualmachines-adds-parameters]**. This file configures the VMs running ADDS in the cloud. The configuration consists of two VMs. You should change the admin user name and password in the `virtualMachineSettings` section, and you can optionally modify the VM size to match the requirements of the domain:
 
 	For more information, see [Extending Active Directory to Azure][extending-ad-to-azure].
 
-		```json
+		````json
 	      "virtualMachinesSettings": {
 	        "value": {
 	          "namePrefix": "ra-adfs-ad",
@@ -393,13 +393,13 @@ These components form the core of this architecture. The [**parameters/azure**][
 	        }
 	      }
 	    }
-		```
+		````
 
 - **[add-adds-domain-controller.parameters.json][add-adds-domain-controller-parameters]**. This file contains the settings for creating the CONTOSO domain spanning the ADDS servers. It uses custom extensions that establish the domain and add the ADDS servers to it. Unless you create additional ADDS servers (in which case you should add them to the `vms` array), change their names from the default, or wish to create a domain with a different name you don't need to modify this file.
 
 - **[loadBalancer-adfs.parameters.json ][loadbalancer-adfs-parameters]** The file contains two sets of configuration parameters. The `virtualMachineSettings` section defines the VMs that host the ADFS service in the cloud. By default, the script creates two of these VMs in the same availability set:
 
-		```json
+		````json
 	    "virtualMachinesSettings": {
 	      "value": {
 	        "namePrefix": "ra-adfs-adfs",
@@ -452,11 +452,11 @@ These components form the core of this architecture. The [**parameters/azure**][
 	        "vmStartIndex": 1
 	      }
 	    }
-		```
+		````
 
 	The `loadBalancerSettings` section provides the description of the load balancer for these VMs. The load balancer passes traffic that appears on port 443 (HTTPS) to one or other of the VMs:
 
-		```json
+		````json
 	    "loadBalancerSettings": {
 	      "value": {
 	        "name": "ra-adfs-adfs-lb",
@@ -505,7 +505,7 @@ These components form the core of this architecture. The [**parameters/azure**][
 	        "resourceGroup": "johns-adfs-network-rg"
 	      }
 	    }
-		```
+		````
 
 - **[adfs-farm-domain-join.parameters.json ][adfs-farm-domain-join-parameters]**. This file contains the settings used to add the ADFS servers to the CONTOSO domain. You only need to modify this file if you have created additional ADFS servers (update the `vms` array in this case), or you have changed the domain name.
 
@@ -557,7 +557,7 @@ To run the script that deploys the solution:
 
 5. Edit the Deploy-ReferenceArchitecture.ps1 file in the Scripts folder, and change the following lines to specify the resource groups that should be created or used to hold the resources created by the script:
 
-		```powershell
+		````powershell
 		# Azure Onpremise Deployments
 	    $onpremiseNetworkResourceGroupName = "ra-adfs-onpremise-rg"
 	    
@@ -568,7 +568,7 @@ To run the script that deploys the solution:
 	    $addsResourceGroupName = "ra-adfs-adds-rg"
 	    $adfsResourceGroupName = "ra-adfs-adfs-rg"
 	    $adfsproxyResourceGroupName = "ra-adfs-proxy-rg"
-		```
+		````
 
 6. Edit the parameter files in the Scripts/Parameters/Onpremise and Scripts/Parameters/Azure folders. Update the resource group references in these files to match the names of the resource groups assigned to the variables in the Deploy-ReferenceArchitecture.ps1 file. The following table shows which parameter files reference which resource group. Note that the *ra-adfs-workload-rg*, *ra-adfs-security-rg*, *ra-adfs-adds-rg*, *ra-adfs-adfs-rg*, and *ra-adfs-proxy-rg* groups are only used in the PowerShell script and do not occur in the parameter files.
 
@@ -581,9 +581,9 @@ To run the script that deploys the solution:
 
 7. Open an Azure PowerShell window, move to the Scripts folder, and run the following command:
 
-		```powershell
+		````powershell
 		.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> <mode>
-		```
+		````
 
 	Replace `<subscription id>` with your Azure subscription ID.
 
@@ -617,9 +617,9 @@ To run the script that deploys the solution:
 
 10. Run the following Powershell command to configure the ADFS server farm:
 
-		```powershell
+		````powershell
 		.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Adfs
-		```
+		````
 
 11. On the jump box, browse to *https://adfs.contoso.com/adfs/ls/idpinitiatedsignon.htm* to test the ADFS installation (you may receive a certificate warning, which you can ignore for this test). Verify that the Contoso Corporation sign-in page appears. Sign in as *contoso\testuser* with password *AweS0me@PW*.
 
@@ -627,17 +627,17 @@ To run the script that deploys the solution:
 
 13. Run the following Powershell command to configure the first ADFS proxy server:
 
-		```powershell
+		````powershell
 		.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Proxy1
-		```
+		````
 
 14. Follow the instructions displayed by the script to test the installation of the first ADFS proxy server.
 
 15. Run the following Powershell command to configure the second first ADFS proxy server:
 
-		```powershell
+		````powershell
 		.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Proxy2
-		```
+		````
 
 16. Follow the instructions displayed by the script to test the complete ADFS proxy configuration.
 
