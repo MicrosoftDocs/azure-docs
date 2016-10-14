@@ -275,9 +275,9 @@ This link relationship is established by assigning the value of the **user name*
 
     ![Configure app URL](./media/active-directory-saas-servicenow-tutorial/IC769497.png "Configure app URL")
 
-    a. in the **ServiceNow Sign On URL** textbox, type your URL used by your users to sign-on to your ServiceNow application following the pattern: `https://<InstanceName>.service-now.com`.
+    a. in the **ServiceNow Sign On URL** textbox, type your URL used by your users to sign-on to your ServiceNow application following the pattern: `https://<InstanceName>.service-now.com`
 
-    b. In the **Issuer URL** textbox,type your URL used by your users to sign-on to your ServiceNow application following the pattern `https://<InstanceName>.service-now.com`.
+    b. In the **Issuer URL** textbox,type your URL used by your users to sign-on to your ServiceNow application following the pattern `https://<InstanceName>.service-now.com`
 
     c. Click **Next**
 
