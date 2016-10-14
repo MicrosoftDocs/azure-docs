@@ -28,7 +28,9 @@
 
 In Media Services, you upload your digital files into an asset. The Asset  can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.) Once the files are uploaded, your content is stored securely in the cloud for further processing and streaming.
  
-1. In the **Setting** window, click **Assets**.
+1. In the [Azuer portal](https://portal.azure.com/), go to the **Settings** blade.
+
+2. In **Setting**, click **Assets**.
 
 	![Upload files](./media/media-services-portal-vod-get-started/media-services-upload.png)
 
