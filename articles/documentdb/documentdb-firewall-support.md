@@ -26,7 +26,7 @@ To secure data stored in an Azure DocumentDB database account, DocumentDB has pr
 
 By default, a DocumentDB database account is accessible from public internet as long as the request is accompanied by a valid authorization token. To configure IP policy-based access control, the user must provide the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. Once this configuration is applied, all requests originating from machines outside this allowed list will be blocked by the server.  The connection processing flow for the IP-based access control is described in the following diagram.
 
-![Diagram showing the connection process for IP based access control](./media/documentdb-firewall-support/documentdb-firewall-support-flow.png)
+![Diagram showing the connection process for IP-based access control](./media/documentdb-firewall-support/documentdb-firewall-support-flow.png)
 
 ## Connecting from cloud services
 
