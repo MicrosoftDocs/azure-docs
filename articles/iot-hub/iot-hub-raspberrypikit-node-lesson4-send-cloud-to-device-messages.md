@@ -52,9 +52,9 @@ The sample application runs on your Pi and monitors incoming messages from your 
 
     If you've completed Lesson3 in this machine, you might skip to next section. Or you might need the following commands to replace the placeholders in the `config-raspberrypi.json` in your home folder.
 
-- Replace **[device hostname or IP address]** with your Pi’s IP address or hostname that you got from `devdisco list --eth`
-- Replace **[IoT device connection string]** with the device connection string from the command `az iot hub show-connection-string --name {my hub name} --resource-group {resource group name}`.
-- Replace **[IoT hub connection string]** with the IoT hub connection string from the command `az iot device show-connection-string --hub {my hub name} --device-id {device id} --resource-group {resource group name}`.
+    - Replace **[device hostname or IP address]** with your Pi’s IP address or hostname that you got from `devdisco list --eth`
+    - Replace **[IoT device connection string]** with the device connection string from the command `az iot hub show-connection-string --name {my hub name} --resource-group {resource group name}`.
+    - Replace **[IoT hub connection string]** with the IoT hub connection string from the command `az iot device show-connection-string --hub {my hub name} --device-id {device id} --resource-group {resource group name}`.
 
 
 ## 4.1.5 Deploy and run the sample application
@@ -79,3 +79,6 @@ Congratulation! You’ve successfully achieved the task that the lesson is desig
 ## 4.1.7 Summary
 
 You’ve learned how to send messages from your IoT hub to your Pi to blink the LED. We provide complimentary reading to show you how to change the on and off behavior of the LED.
+
+## Next Steps
+[Complimentary reading: Change the on and off behavior of the LED](iot-hub-raspberrypikit-node-lesson4-change-led-behavior.md)
