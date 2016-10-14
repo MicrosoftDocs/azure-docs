@@ -168,7 +168,7 @@ Or, the following Azure CLI command:
 
 You can also view tagged resources through the Azure portal.
 
-The [usage report](billing-understand-your-bill.md) for your subscription includes tag names and values, which enables you to break out costs by tags. For more information about tags, see [Using tags to organize your Azure resources](resource-group-using-tags.md).
+The [usage report](billing/billing-understand-your-bill.md) for your subscription includes tag names and values, which enables you to break out costs by tags. For more information about tags, see [Using tags to organize your Azure resources](resource-group-using-tags.md).
 
 ## Access control
 

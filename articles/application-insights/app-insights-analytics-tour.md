@@ -524,7 +524,7 @@ If you are using [TrackMetric()](app-insights-api-custom-events-metrics.md#track
 
 ### Performance counters table
 
-[Performance counters](app-insights-web-monitor-performance.md#system-performance-counters) show you basic system metrics for your app, such as CPU, memory, and network utilization. You can configure the SDK to send additional counters, including your own custom counters.
+[Performance counters](app-insights-performance-counters.md) show you basic system metrics for your app, such as CPU, memory, and network utilization. You can configure the SDK to send additional counters, including your own custom counters.
 
 The **performanceCounters** schema exposes the `category`, `counter` name, and `instance` name of each performance counter. Counter instance names are only applicable to some performance counters, and typically indicate the name of the process to which the count relates. In the telemetry for each application, you’ll see only the counters for that application. For example, to see what counters are available: 
 
