@@ -46,17 +46,17 @@ In its current form, Chaos induces only safe faults. This implies that, in the a
 ## Important configuration options
  - **TimeToRun**: Total time that Chaos runs before it finishes with success. You can stop Chaos before it has run for the TimeToRun period through the StopChaos API.
  - **MaxClusterStabilizationTimeout**: The maximum amount of time to wait for the cluster to become healthy before checking on it again. This wait is to reduce the load on the cluster while it is recovering. The checks performed are:
-    - If the cluster health is OK.
-    - If the service health is OK.
-    - If the target replica set size is achieved for the service partition.
-    - That no InBuild replicas exist.
+    - If the cluster health is OK
+    - If the service health is OK
+    - If the target replica set size is achieved for the service partition
+    - That no InBuild replicas exist
  - **MaxConcurrentFaults**: The maximum number of concurrent faults that are induced in each iteration. The higher the number, the more aggressive Chaos is. This results in more complex failovers and transition combinations. Chaos guarantees that, in the absence of external faults, there is no quorum loss or data loss, regardless of how high a value this configuration has.
  - **EnableMoveReplicaFaults**: Enables or disables the faults that cause the primary or secondary replicas to move. These faults are disabled by default.
  - **WaitTimeBetweenIterations**: The amount of time to wait between iterations, that is, after a round of faults and corresponding validation.
  - **WaitTimeBetweenFaults**: The amount of time to wait between two consecutive faults in an iteration.
 
 ## How to run Chaos
-**C# sample:**
+**C#:**
 
 ```csharp
 using System;
