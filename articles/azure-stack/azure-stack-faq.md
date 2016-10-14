@@ -46,7 +46,7 @@ if ($pools -ne $null) {
 
 ### Can I use all SSD disks for the storage pool in the POC installation?
 
-This is not supported in this release.  Refer to the hardware section of the [requirements guide](azure-stack-deploy.md) for more information.
+This configuration is not supported in this release.  For more information, see the [requirements guide](azure-stack-deploy.md) for more information.
 
 ### Can I use NVMe data disks for the Microsoft Azure Stack POC?
 
@@ -65,7 +65,7 @@ Yes, just like in Azure, a tenant can upload images in Azure Stack, in addition 
 
 ### Can I use Nested Virtualization to test the Microsoft Azure Stack POC?
 
-It is possible to deploy Microsoft Azure Stack POC TP2 using Nested Virtualization and we've also experimented with it. We understand it’s also a way to work around some of the hardware requirements. The networking layer in Azure Stack is more complex than a flat network and when you start introducing MAC spoofing and other layers in addition to potential performance impact at the storage layer it becomes complex. In other words, we want to hear your feedback and experiences leveraging Nested Virtualization with Azure Stack, but this is not a configuration we are supporting with this release.
+Nested virtualization is not supported or tested with Azure Stack Technical Preview 2.
 
 ## Virtual machines
 
