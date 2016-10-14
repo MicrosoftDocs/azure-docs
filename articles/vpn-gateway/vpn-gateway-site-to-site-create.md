@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
+   ms.date="10/16/2016"
    ms.author="cherylmc"/>
 
 # Create a VNet with a Site-to-Site connection using the Azure classic portal
@@ -24,16 +24,20 @@
 - [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 - [Classic - Classic Portal](vpn-gateway-site-to-site-create.md)
 
-This article walks you through creating a virtual network and a site-to-site VPN connection to your on-premises network using the **classic deployment model** and the classic portal. Site-to-Site connections can be used for cross-premises and hybrid configurations. Currently, you cannot create an end-to-end Site-to-Site configuration for the classic deployment model using the Azure portal.
+This article walks you through creating a virtual network and a site-to-site VPN gateway connection to your on-premises network using the classic deployment model and the classic portal. Site-to-Site connections can be used for cross-premises and hybrid configurations.
 
 ![Site-to-Site diagram](./media/vpn-gateway-site-to-site-create/site2site.png "site-to-site")
 
 
-### Deployment models and tools for Site-to-Site connections
+### Deployment models and methods for Site-to-Site connections
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+[AZURE.INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] 
 
-[AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
+#### Available deployment methods
+
+You can create a Site-to-Site connection for both the Resource Manager and classic deployment models. The following table shows the currently available deployment models and methods. When an article with configuration steps is available, we link directly to it from this table. 
+
+[AZURE.INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)] 
 
 If you want to connect VNets together, see [Configure a VNet-to-VNet connection for the classic deployment model](virtual-networks-configure-vnet-to-vnet-connection.md). 
  

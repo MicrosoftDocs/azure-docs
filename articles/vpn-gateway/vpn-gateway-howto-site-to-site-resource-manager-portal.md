@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/03/2016"
+   ms.date="10/14/2016"
    ms.author="cherylmc"/>
 
 # Create a VNet with a Site-to-Site connection using the Azure portal
@@ -25,15 +25,18 @@
 - [Classic - Classic Portal](vpn-gateway-site-to-site-create.md)
 
 
-This article walks you through creating a virtual network and a Site-to-Site VPN connection to your on-premises network using the **Azure Resource Manager deployment model** and the Azure portal. Site-to-Site connections can be used for cross-premises and hybrid configurations.
+This article walks you through creating a virtual network and a Site-to-Site VPN gateway connection to your on-premises network using the Azure Resource Manager deployment model and the Azure portal. Site-to-Site connections can be used for cross-premises and hybrid configurations.
 
 ![Diagram](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/s2srmportal.png)
 
 
+### Deployment models and methods for Site-to-Site connections
 
-### Deployment models and tools for Site-to-Site connections
+[AZURE.INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] 
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+#### Available deployment methods
+
+You can create a Site-to-Site connection for both the Resource Manager and classic deployment models. The following table shows the currently available deployment models and methods. When an article with configuration steps is available, we link directly to it from this table.
 
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)] 
 
