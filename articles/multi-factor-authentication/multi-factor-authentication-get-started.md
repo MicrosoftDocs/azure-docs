@@ -18,17 +18,17 @@
 
 #Choose the Azure Multi-Factor Authentication solution for you
 
-Because there are several flavors of Azure Multi-Factor Authentication (MFA) we must answer a few questions in order to figure out which version is the proper one to use.  Those questions are:
+Because there are several flavors of Azure Multi-Factor Authentication (MFA), we must answer a few questions to figure out which version is the proper one to use.  Those questions are:
 
 -	[What am I trying to secure](#what-am-i-trying-to-secure)
 -	[Where are the users located](#where-are-the-users-located)
 - [What features do I need?](#what-featured-do-i-need)
 
-The following sections will provide guidance on determining each of these answers.
+The following sections provide guidance on determining each of these answers.
 
 ## What am I trying to secure?
 
-In order to determine the correct two-step verification solution, first we must answer the question of what are you trying to secure with a second method of authentication.  Is it an application that is in Azure?  Or a remote access system?  By determining what we are trying to secure, we will seek to answer the question of where Multi-Factor Authentication needs to be enabled.  
+To determine the correct two-step verification solution, first we must answer the question of what are you trying to secure with a second method of authentication.  Is it an application that is in Azure?  Or a remote access system?  By determining what we are trying to secure, we can answer the question of where Multi-Factor Authentication needs to be enabled.  
 
 
 What are you trying to secure| Multi-Factor Authentication in the cloud|Multi-Factor Authentication Server
@@ -80,7 +80,7 @@ Remember MFA for trusted devices  | ● |
 Conditional access | ● | ●
 Cache |  | ●
 
-Now that we have determined whether to use cloud multi-factor authentication or the MFA Server on-premises, we can get started setting up and using Azure Multi-Factor Authentication.   **Select the icon that represents your scenario!**
+Now that we have determined whether to use cloud multi-factor authentication or the MFA Server on-premises, we can get started setting up and using Azure Multi-Factor Authentication. **Select the icon that represents your scenario!**
 
 <center>
 
