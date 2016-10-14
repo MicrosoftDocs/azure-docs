@@ -3,7 +3,7 @@
    description="Learn about how Umbraco uses SQL Database to quickly provision and scale services for thousands of tenants in the cloud"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
