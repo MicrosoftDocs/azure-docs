@@ -27,12 +27,12 @@ Disks should be in raw format. If you reinstall the operating system, you may ne
 1. Open Server Manager.
 2. Select Storage Pools.
 3. See if a storage pool is listed.
-4. Right click **storage pool** if listed and enable read / write.
-5. Right click **Virtual Hard Disk** (Lower left corner) and select delete.
-6. Right click **Storage Pool** and click delete.
+4. Right-click **storage pool** if listed and enable read / write.
+5. Right-click **Virtual Hard Disk** (Lower left corner) and select delete.
+6. Right-click **Storage Pool** and click delete.
 7. Launch Azure Stack script again and verify that the disk verification passes.
 
-This can also be achieved by running the following script:
+Optionally, the following script can be used:
 
 ```PowerShell
 $pools = Get-StoragePool -IsPrimordial $False -ErrorVariable Err -ErrorAction SilentlyContinue
@@ -46,13 +46,11 @@ if ($pools -ne $null) {
 
 ### Can I use all SSD disks for the storage pool in the POC installation?
 
-Per the “hardware” section of the requirements page in the documentation, this is not supported in this release and will be improved in a future release.
+This is not supported in this release.  Refer to the hardware section of the [requirements guide](azure-stack-deploy.md) for more information.
 
 ### Can I use NVMe data disks for the Microsoft Azure Stack POC?
 
-While Storage Spaces Direct supports NVMe disks, with Azure Stack Technical Preview 2 we are only supporting a subset of the possible drive types and combinations possible for Storage Spaces Direct. 
-
-More specifically, the deployment script does not support NVMe based on the way bus types are discovered. While it is possible to edit the deployment script to make it run, keep in mind we would recommend using the disks/bus types combinations that have been tested for this release.
+While Storage Spaces Direct supports NVMe disks, only supports a subset of the possible drive types and combinations possible for Storage Spaces Direct. 
 
 ### How can I reinstall Azure Stack?
 You can follow the steps in the [redeployment guide](azure-stack-redeploy.md).  
@@ -67,7 +65,7 @@ Yes, just like in Azure, a tenant can upload images in Azure Stack, in addition 
 
 ### Can I use Nested Virtualization to test the Microsoft Azure Stack POC?
 
-It is possible to deploy Microsoft Azure Stack POC TP2 using Nested Virtualization and we've also experimented with it. We understand it’s also a way to work around some of the hardware requirements. The networking layer in Azure Stack is more complex than a flat network and when you start introducing MAC spoofing and other layers in addition to potential performance impact at the storage layer it becomes complex. In other words, we definitely want to hear your feedback and experiences leveraging Nested Virtualization with Azure Stack, but remember this is not one of the configurations we’ve thoroughly tested or are fully supporting with this release.
+It is possible to deploy Microsoft Azure Stack POC TP2 using Nested Virtualization and we've also experimented with it. We understand it’s also a way to work around some of the hardware requirements. The networking layer in Azure Stack is more complex than a flat network and when you start introducing MAC spoofing and other layers in addition to potential performance impact at the storage layer it becomes complex. In other words, we want to hear your feedback and experiences leveraging Nested Virtualization with Azure Stack, but this is not a configuration we are supporting with this release.
 
 ## Virtual machines
 
