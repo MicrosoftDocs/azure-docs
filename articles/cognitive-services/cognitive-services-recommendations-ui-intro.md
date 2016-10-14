@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Building a model with the Recommnendations UI | Microsoft Azure"
-	description="Azure Machine Learning Recommendations - Building a model with the Recommnendations UI"
+	description="Azure Machine Learning Recommendations - Building a model with the Recommendations UI"
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
@@ -100,7 +100,7 @@ Once your build is completed, you will notice a new build in the builds list. Th
 will not return any recommendations for that item.  If for some reason you have an item that returns no recommendations, try scoring other items.
 
 <a name="Step6"></a>
-## Step 6 - Next steps... ##
+## Step 6 - Next steps ##
 Congratulations! you have trained a model and then got recommendations from that model.  The Recommendations UI is a useful tool 
 that allows you to see the state of your projects and builds. 
 
