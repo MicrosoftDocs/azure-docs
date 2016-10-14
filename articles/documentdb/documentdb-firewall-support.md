@@ -58,11 +58,14 @@ Use the Azure portal to file a request with [Azure Support](https://portal.azure
 	- **Issue type**: Quota
 	- **Subscription**: The subscription associated with the account in which to add the IP access control policy.
 	- **Quota type**: DocumentDB
-	- Support plan: Azure Support Plan - Developer.
-4. In the Problem blade, do the following:
+	- **Support plan**: Quota Support - Included.
+4. In the **Problem** blade, do the following:
 	- **Severity**: Select C - Minimal impact
 	- **Details**: Type "I would like to enable firewall support for my DocumentDB database account."
-	- Click **OK**. 
+	- Click **Next**. 
+5. In the **Contact information** blade, fill in your contact details and click **Create**. 
+
+Once your request is received, IP access control should be enabled within 24 hours. You will be notified with the request is complete.
 
 ![Screenshot of the Help + support blades](./media/documentdb-firewall-support/documentdb-firewall-support-request-access.png)
 
