@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/26/2016"
+   ms.date="10/14/2016"
    ms.author="larryfr"/>
 
 # Develop C# topologies for Apache Storm on HDInsight using Hadoop tools for Visual Studio
@@ -25,9 +25,9 @@ You will also learn how to create hybrid topologies that use C# and Java compone
 
 > [AZURE.NOTE] While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to either a Linux or Windows-based HDInsight cluster.
 >
-> To use a C# topology with a Linux-based cluster, you should update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or higher.
+> To use a C# topology with a Linux-based cluster, you must update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or higher. The version of the package must also match the major version of Storm installed on HDInsight. For example, Storm on HDInsight versions 3.3 and 3.4 use Storm version 0.10.x, while HDInsight 3.5 uses Storm 1.0.x.
 > 
-> C# topologies on Linux-based clusters must be built against .NET 4.5, and use Mono to run on the HDInsight cluster. Most things should work, however you should check the [Mono Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
+> C# topologies on Linux-based clusters must use .NET 4.5, and use Mono to run on the HDInsight cluster. Most things will work, however you should check the [Mono Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
 
 ##Prerequisites
 

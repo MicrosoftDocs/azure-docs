@@ -26,7 +26,13 @@ In this tutorial, you will learn how to use the Visual Studio templates installe
 
 * **EventHubReader**: Reads data from Event Hubs and stores it in Azure Table storage
 
-> [AZURE.NOTE] The steps in this document only work with a Windows-based HDInsight cluster. For a Java version of this project, which will work with either a Linux-based or Windows-based cluster, see [Process events from Azure Event Hubs with Storm on HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
+> [AZURE.NOTE] While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to either a Linux or Windows-based HDInsight cluster.
+>
+> To use a C# topology with a Linux-based cluster, you must update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or higher. The version of the package must also match the major version of Storm installed on HDInsight. For example, Storm on HDInsight versions 3.3 and 3.4 use Storm version 0.10.x, while HDInsight 3.5 uses Storm 1.0.x.
+> 
+> C# topologies on Linux-based clusters must use .NET 4.5, and use Mono to run on the HDInsight cluster. Most things will work, however you should check the [Mono Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
+>
+> For a Java version of this project, which will also work on a Linux-based or Windows-based cluster, see [Process events from Azure Event Hubs with Storm on HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
 
 ## Prerequisites
 
