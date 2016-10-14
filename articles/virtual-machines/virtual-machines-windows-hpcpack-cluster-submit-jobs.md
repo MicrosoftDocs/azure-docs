@@ -20,7 +20,7 @@ ms.service="virtual-machines-windows"
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Configure an on-premises client computer to submit jobs to a [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) in Azure. This article shows you how to set up a local computer with client tools to submit job over HTTPS to the cluster in Azure. This provides a straightforward, flexible way for a variety of cluster users to submit jobs to a cloud-based HPC Pack cluster. When using the client tools to submit jobs, users don't need to connect directly to the head node VM or access an Azure subscription.
+Configure an on-premises client computer to submit jobs to a [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) cluster in Azure. This article shows you how to set up a local computer with client tools to submit job over HTTPS to the cluster in Azure. This provides a straightforward, flexible way for a variety of cluster users to submit jobs to a cloud-based HPC Pack cluster. When using the client tools to submit jobs, users don't need to connect directly to the head node VM or access an Azure subscription.
 
 ![Submit a job to a cluster in Azure][jobsubmit]
 
@@ -152,7 +152,7 @@ from the on-premises computer. For example, you can use HPC Pack GUI tools or co
     
     or
     
-    ```
+    ```command
     job list /scheduler:https://<HeadNodeDnsName>.<region>.cloudapp.azure.com /all
     ```
 
@@ -165,7 +165,7 @@ from the on-premises computer. For example, you can use HPC Pack GUI tools or co
 
 **To use HPC Job Manager on the client computer**
 
-1. If you didn't previously store domain credentials for a cluster user on the client computer when submitting a job, you can add the credentials in Credential Manager.
+1. If you didn't previously store domain credentials for a cluster user when submitting a job, you can add the credentials in Credential Manager.
 
     a. In Control Panel on the client computer, start Credential Manager.
 
@@ -181,7 +181,7 @@ from the on-premises computer. For example, you can use HPC Pack GUI tools or co
 
 **To use the web portal running on the head node**
 
-1. Start a web browser on the client computer, and type one of the following, depending on the full DNS name of the head node:
+1. Start a web browser on the client computer, and enter one of the following addresses, depending on the full DNS name of the head node:
 
     ```
     https://<HeadNodeDnsName>.cloudapp.net/HpcPortal
