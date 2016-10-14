@@ -51,12 +51,12 @@ IoT Hub has an endpoint specifically for devices to request a SAS URI for storag
 IoT Hub returns the following, which the device uses to upload the file:
 
 ```
-{ 
-    “correlationId”: “somecorrelationid”, 
-    “hostname”: “contoso.azure-devices.net”, 
-    “containerName”: “testcontainer”, 
-    “blobName”: “test-device1/image.jpg”, 
-    “sasToken”: “1234asdfSAStoken” 
+{
+    "correlationId": "somecorrelationid",
+    "hostname": "contoso.azure-devices.net",
+    "containerName": "testcontainer",
+    "blobName": "test-device1/image.jpg",
+    "sasToken": "1234asdfSAStoken"
 }
 ```
 
