@@ -38,6 +38,8 @@ The following table shows the currently available deployment models and methods 
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)] 
 
 If you want to connect VNets together, see [Configure a VNet-to-VNet connection for the classic deployment model](virtual-networks-configure-vnet-to-vnet-connection.md). 
+
+If you want to add a Site-to-Site connection to a VNet that already has a connection, see [this article](vpn-gateway-multi-site.md).
  
 ## Before you begin
 

@@ -39,6 +39,8 @@ The following table shows the currently available deployment models and methods 
 
 If you want to connect VNets together, but are not creating a connection to an on-premises location, see [Configure a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md).
 
+If you want to add a Site-to-Site connection to a VNet that already has a connection, see [this article](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
+
 ## Before you begin
 
 Verify that you have the following items before beginning configuration.
