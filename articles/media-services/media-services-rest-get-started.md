@@ -1237,8 +1237,3 @@ If this topic didn't contain what you were expecting, is missing something, or i
 
 
 
-<!-- URLs. -->
-  [Azure Classic Portal]: http://manage.windowsazure.com/
-
-
-

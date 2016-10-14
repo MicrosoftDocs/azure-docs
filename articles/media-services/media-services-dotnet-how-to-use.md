@@ -27,7 +27,7 @@ The **Azure Media Services .NET SDK** library enables you to program against Med
 
 ##Prerequisites
 
--   A Media Services account in a new or existing Azure subscription. See the topic [How to Create a Media Services Account](media-services-create-account.md).
+-   A Media Services account in a new or existing Azure subscription. See the topic [How to Create a Media Services Account](media-services-portal-create-account.md).
 -   Operating Systems: Windows 10, Windows 7, Windows 2008 R2, or Windows 8.
 -   .NET Framework 4.5.
 -    Visual Studio 2015, Visual Studio 2013, Visual Studio 2012, or Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express).
@@ -68,21 +68,20 @@ The Manage References dialog appears.
 
 2. Under .NET framework assemblies, find and select the System.Configuration assembly.
 3. Press OK.
+4. Open the App.config file (add the file to your project if it was not added by default) and add an *appSettings* section to the file. 	
+Set the values for your Azure Media Services account name and account key, as shown in the following example.
+
+	To find the Name and Key values, go to the Azure portal and select your account. The Settings window appears on the right. In the Settings window, select Keys. Clicking on the icon next to each text box copies the value to the system clipboard.
 
 
-4. Open the App.config file (add the file to your project if it was not added by default) and add an *appSettings* section to the file. Set the values for your Azure Media Services account name and account key, as shown in the following example.
+		<configuration>
+		...
+		    <appSettings>
+		      <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+		      <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+		    </appSettings>
 
-To obtain the **account name** and **account key** information, open the **Azure Classic Portal**, select your media services account and click the **MANAGE KEYS** button.
-
-
-	<configuration>
-	...
-	  <appSettings>
-	    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-	    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-	  </appSettings>
-	  
-	</configuration>
+		</configuration>
 
 5. Overwrite the existing using statements at the beginning of the Program.cs file with the following code.
 
