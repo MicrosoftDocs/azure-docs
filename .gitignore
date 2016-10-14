@@ -7,3 +7,6 @@ _themes.MSDN.Modern/
 _themes.VS.Modern/
 
 .openpublishing.buildcore.ps1
+
+AzureMigration.ps1
+.migrationtemp
