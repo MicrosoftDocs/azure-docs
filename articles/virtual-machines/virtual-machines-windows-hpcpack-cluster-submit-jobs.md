@@ -20,7 +20,7 @@ ms.service="virtual-machines-windows"
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Configure an on-premises client computer to submit jobs to a [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) cluster in Azure. This article shows you how to set up a local computer with client tools to submit job over HTTPS to the cluster in Azure. In this way, a variety of cluster users can submit jobs to a cloud-based HPC Pack cluster without connecting directly to the head node VM or accessing an Azure subscription.
+Configure an on-premises client computer to submit jobs to a [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) cluster in Azure. This article shows you how to set up a local computer with client tools to submit job over HTTPS to the cluster in Azure. In this way, several cluster users can submit jobs to a cloud-based HPC Pack cluster, but without connecting directly to the head node VM or accessing an Azure subscription.
 
 ![Submit a job to a cluster in Azure][jobsubmit]
 
@@ -81,7 +81,7 @@ you can optionally install and configure the web components as part of the deplo
 
 4. When prompted to select a certificate, choose the certificate that corresponds to the public DNS name of the head node. For example, if you deploy the head node VM using the classic deployment model, the certificate name looks like CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net. If you use the Resource Manager deployment model, the certificate name looks like CN=&lt;*HeadNodeDnsName*&gt;.&lt;*region*&gt;.cloudapp.azure.com.
 
-    >[AZURE.NOTE] You need to select this certificate later when you submit jobs to the head node from an on-premises computer. Don't select or configure a certificate that corresponds to the computer name of the head node in the Active Directory domain (for example, CN=*MyHPCHeadNode.HpcAzure.local*).
+    >[AZURE.NOTE] You select this certificate later when you submit jobs to the head node from an on-premises computer. Don't select or configure a certificate that corresponds to the computer name of the head node in the Active Directory domain (for example, CN=*MyHPCHeadNode.HpcAzure.local*).
 
 5. To configure the web portal for job submission, type the following command:
 
