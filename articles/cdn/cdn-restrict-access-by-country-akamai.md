@@ -3,7 +3,7 @@
 	description="Learn how to restrict access to your Azure CDN content using the Geo-Filtering feature."
 	services="cdn"
 	documentationCenter=""
-	authors="casoper, rli"
+	authors="camsoper, rli"
 	manager="akucer"
 	editor=""/>
 
