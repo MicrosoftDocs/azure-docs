@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="10/12/2016"
+	ms.date="10/14/2016"
 	ms.author="ryansoc"/>
 
 
