@@ -48,7 +48,7 @@ In the following diagram, SQL Database is running in the US East region. It crea
 <!-- 
 First sentence begins with "The <feature> is ..." followed by a definition of the feature. Provide a 1-2 paragraph intro to explain what the feature is, how it works, and the importance of the feature for solving business problems.
 -->
-A SQL database backup is a file that stores information about the state of the database at a specific point-in-time. SQL Database uses SQL Server technology to create local [full](https://msdn.microsoft.com/library/ms186289.aspx), [differential](https://msdn.microsoft.com/library/ms175526.aspx ), and [transaction log](https://msdn.microsoft.com/library/ms191429.aspx) backups. The transaction log backups happen every 5 minutes, which allows you to do a point-in-time restore to the same server that hosts the database. When you restore a database, the service figures out which full, differential and transaction log backups need to be restored.
+A SQL database backup is a file that stores information about the state of the database at a specific point-in-time. SQL Database uses SQL Server technology to create local [full](https://msdn.microsoft.com/library/ms186289.aspx), [differential](https://msdn.microsoft.com/library/ms175526.aspx ), and [transaction log](https://msdn.microsoft.com/library/ms191429.aspx) backups. The transaction log backups happen every five minutes, which allows you to do a point-in-time restore to the same server that hosts the database. When you restore a database, the service figures out which full, differential, and transaction log backups need to be restored.
 
 >[AZURE.NOTE] SQL Database creates both local database backups and geo-redundant backups automatically. You don't need to do anything to make them happen. There is no additional charge.
 
@@ -58,11 +58,11 @@ Use a database backup to:
 
 - Copy a database to a SQL server in the same or different region. The copy is transactionally consistent with the current SQL Database. To perform a copy, see [database copy](sql-database-copy.md).
 
-- Archive a database backup beyond the backup retention period. To do this, [export a SQL database to a BACPAC file](sql-database-export.md) file. You can then archive the BACPAC to long-term storage and store it beyond your retention period. Or, use the BACPAC to transfer a copy of your database to SQL Server, either on-premises or in an Azure virtual machine (VM).
+- Archive a database backup beyond the backup retention period by [exporting a SQL database to a BACPAC](sql-database-export.md) file. You can then archive the BACPAC to long-term storage and store it beyond your retention period. Or, use the BACPAC to transfer a copy of your database to SQL Server, either on-premises or in an Azure virtual machine (VM).
 
 ## Backups have geographical redunancy
 
-SQL Database uses [Azure Storage replication](../storage/storage-redundancy.md) to backup your database to a different geographical location. To provide geo-redundant storage, SQL Database stores local database backup files in a [Read-Access Geo-Redundant Storage (RA-GRS)](../storage/storage-redundancy.md#read-access-geo-redundant-storage) account. Azure replicates the backup files to a [paired data center](../best-practices-availability-paired-regions.md). This geo-replication ensures you can restore a database in case you cannot access the database backup from your primary database region. 
+SQL Database uses [Azure Storage replication](../storage/storage-redundancy.md) to back sup your database to a different geographical location. To provide geo-redundant storage, SQL Database stores local database backup files in a [Read-Access Geo-Redundant Storage (RA-GRS)](../storage/storage-redundancy.md#read-access-geo-redundant-storage) account. Azure replicates the backup files to a [paired data center](../best-practices-availability-paired-regions.md). This geo-replication ensures you can restore a database in case you cannot access the database backup from your primary database region. 
 
 >[AZURE.NOTE] In Azure storage, the term *replication* refers to copying files from one location to another. SQL's *database replication* refers to keeping to multiple secondary databases synchronized with a primary database. 
 
@@ -79,16 +79,16 @@ Full database backups are taken every week, differential database backups are ta
 
 Each SQL Database backup has a retention period that is based on the [service-tier](sql-database-service-tiers.md) of the database. The retention period for a database in the:
 
-- Basic service tier is 7 days.
+- Basic service tier is seven days.
 - Standard service tier is 35 days.
 - Premium service tier is 35 days.
 
 
-If you downgrade your database from the Standard or Premium service tiers to Basic, the backups will only be saved for 7 days. All existing backups older than 7 days will no longer be available. 
+If you downgrade your database from the Standard or Premium service tiers to Basic, the backups are saved for seven days. All existing backups older than seven days are no longer available. 
 
-If you upgrade your database from the Basic service tier to Standard or Premium, SQL Database will keep existing backups until they are 35 days old. It will keep new backups as they occur for 35 days.
+If you upgrade your database from the Basic service tier to Standard or Premium, SQL Database keeps existing backups until they are 35 days old. It keeps new backups as they occur for 35 days.
  
-If you delete a database, SQL Database keeps the backups in the same way it would for an online database. For example, if a particular backup is four days old when you delete the database, and the retention period is seven days, SQL Database will keep the backup for three more days. 
+If you delete a database, SQL Database keeps the backups in the same way it would for an online database. For example, if a particular backup is four days old when you delete the database, and the retention period is seven days, SQL Database keeps the backup for three more days. 
 
 > [AZURE.IMPORTANT] If you delete the Azure SQL server that hosts SQL Databases, all databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server.
 
