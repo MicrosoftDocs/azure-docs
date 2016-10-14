@@ -419,7 +419,7 @@ myBatchClient.PoolOperations.EnableAutoScale(
 
 ## Evaluate an autoscale formula
 
-You can evaluate a formula before applying it to a pool. Thus, you can perform a "test run" of the formula to see how its statements evaluate before you put the formula into production.
+You can evaluate a formula before applying it to a pool. In this way, you can perform a "test run" of the formula to see how its statements evaluate before you put the formula into production.
 
 To evaluate an autoscale formula, you must first **enable autoscaling** on the pool with a **valid formula**. If you want to test a formula on a pool that doesn't yet have autoscaling enabled, you can use the one-line formula `$TargetDedicated = 0` when you first enable autoscaling. Then, use one of the following to evaluate the formula you want to test:
 
