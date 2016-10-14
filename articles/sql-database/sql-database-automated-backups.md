@@ -58,9 +58,9 @@ Use a database backup to:
 
 - Copy a database to a SQL server in the same or different region. The copy is transactionally consistent with the current SQL Database. To perform a copy, see [database copy](sql-database-copy.md).
 
-- Archive a database backup beyond the backup retention period by [exporting a SQL database to a BACPAC](sql-database-export.md) file. You can then archive the BACPAC to long-term storage and store it beyond your retention period. Or, use the BACPAC to transfer a copy of your database to SQL Server, either on-premises or in an Azure virtual machine (VM).
+- Archive a database backup beyond the backup retention period. To perform an archive, [export a SQL database to a BACPAC](sql-database-export.md) file. You can then archive the BACPAC to long-term storage and store it beyond your retention period. Or, use the BACPAC to transfer a copy of your database to SQL Server, either on-premises or in an Azure virtual machine (VM).
 
-## Backups have geographical redunancy
+## Backups have geographical redundsancy
 
 SQL Database uses [Azure Storage replication](../storage/storage-redundancy.md) to back sup your database to a different geographical location. To provide geo-redundant storage, SQL Database stores local database backup files in a [Read-Access Geo-Redundant Storage (RA-GRS)](../storage/storage-redundancy.md#read-access-geo-redundant-storage) account. Azure replicates the backup files to a [paired data center](../best-practices-availability-paired-regions.md). This geo-replication ensures you can restore a database in case you cannot access the database backup from your primary database region. 
 
@@ -88,9 +88,10 @@ If you downgrade your database from the Standard or Premium service tiers to Bas
 
 If you upgrade your database from the Basic service tier to Standard or Premium, SQL Database keeps existing backups until they are 35 days old. It keeps new backups as they occur for 35 days.
  
-If you delete a database, SQL Database keeps the backups in the same way it would for an online database. For example, if a particular backup is four days old when you delete the database, and the retention period is seven days, SQL Database keeps the backup for three more days. 
+If you delete a database, SQL Database keeps the backups in the same way it would for an online database. For example, suppose you delete a Basic database that has a retention period of seven days. A backup that is four days old when the database is deleted will be saved for three more days.
 
-> [AZURE.IMPORTANT] If you delete the Azure SQL server that hosts SQL Databases, all databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server.
+> [AZURE.IMPORTANT] If you delete the Azure SQL server that hosts SQL Databases, all databases that belong to the server are also deleted and cannot be recove
+> red. You cannot restore a deleted server.
 
 ## Next steps
 
