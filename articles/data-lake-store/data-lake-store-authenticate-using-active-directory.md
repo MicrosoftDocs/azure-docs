@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/14/2016"
+   ms.date="10/15/2016"
    ms.author="nitinme"/>
 
 # Service-to-serivce authentication with Data Lake Store using Azure Active Directory
