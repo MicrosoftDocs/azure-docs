@@ -3,7 +3,7 @@
    description="Use Service Fabric's reverse proxy for communication to microservices from inside and outside the cluster"
    services="service-fabric"
    documentationCenter=".net"
-   authors="BharatNarasimman,vturecek"
+   authors="BharatNarasimman"
    manager="timlt"
    editor="vturecek"/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="07/26/2016"
+   ms.date="10/04/2016"
    ms.author="vturecek"/>
 
 # Service Fabric Reverse Proxy
@@ -144,6 +144,8 @@ Once you have the template for the cluster that you want to deploy(either from t
     ```
 2. Specify the port for each of the nodetype objects in the **Cluster** [Resource type section](../resource-group-authoring-templates.md)
 
+    For apiVersion's prior to '2016-09-01'  the port is identified by the parameter name ***httpApplicationGatewayEndpointPort***
+
     ```json
     {
         "apiVersion": "2016-03-01",
@@ -162,6 +164,28 @@ Once you have the template for the cluster that you want to deploy(either from t
         ...
     }
     ```
+
+    For apiVersion's on or after '2016-09-01' the port is identified by the parameter name ***reverseProxyEndpointPort***
+
+    ```json
+    {
+        "apiVersion": "2016-09-01",
+        "type": "Microsoft.ServiceFabric/clusters",
+        "name": "[parameters('clusterName')]",
+        "location": "[parameters('clusterLocation')]",
+        ...
+       "nodeTypes": [
+          {
+           ...
+           "reverseProxyEndpointPort": "[parameters('SFReverseProxyPort')]",
+           ...
+          },
+        ...
+        ],
+        ...
+    }
+    ```
+
 3. To address the reverse proxy from outside the azure cluster, setup the **azure load balancer rules** for the port specified in step 1.
 
     ```json
@@ -208,6 +232,8 @@ Once you have the template for the cluster that you want to deploy(either from t
     ```
 4. To configure SSL certificates on the port for the Reverse proxy, add the certificate to the httpApplicationGatewayCertificate property in the **Cluster** [Resource type section](../resource-group-authoring-templates.md)
 
+    For apiVersion's prior to '2016-09-01'  the certificate is identified by the parameter name ***httpApplicationGatewayCertificate***
+
     ```json
     {
         "apiVersion": "2016-03-01",
@@ -220,6 +246,28 @@ Once you have the template for the cluster that you want to deploy(either from t
         "properties": {
             ...
             "httpApplicationGatewayCertificate": {
+                "thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
+                "x509StoreName": "[parameters('sfReverseProxyCertificateStoreName')]"
+            },
+            ...
+            "clusterState": "Default",
+        }
+    }
+    ```
+    For apiVersion's on or after '2016-09-01'  the certificate is identified by the parameter name ***reverseProxyCertificate***
+    
+    ```json
+    {
+        "apiVersion": "2016-09-01",
+        "type": "Microsoft.ServiceFabric/clusters",
+        "name": "[parameters('clusterName')]",
+        "location": "[parameters('clusterLocation')]",
+        "dependsOn": [
+            "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
+        ],
+        "properties": {
+            ...
+            "reverseProxyCertificate": {
                 "thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
                 "x509StoreName": "[parameters('sfReverseProxyCertificateStoreName')]"
             },

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/21/2016"
+   ms.date="10/05/2016"
    ms.author="alkohli" />
 
 # Install Update 3 on your StorSimple device

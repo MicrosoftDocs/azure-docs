@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/31/2016"
+	ms.date="10/08/2016"
 	ms.author="micurd;tamram"/>
 
 # How to use Blob Storage from Xamarin
@@ -41,7 +41,7 @@ Follow these steps to create your application:
 
 You should now have an application that allows you to click a button which increments a counter.
 
-> [AZURE.NOTE] The Azure Storage Client Library for Xamarin also works for Xamarin.Forms applications.
+> [AZURE.NOTE] The Azure Storage Client Library for Xamarin currently supports the following project types: Native Shared, Xamarin.Forms Shared, Xamarin.Android, and Xamarin.iOS.
 
 ## Create container and upload blob
 

@@ -36,39 +36,54 @@ Before you begin this tutorial, you must have the following:
 
 ## Create HBase cluster into virtual network
 
-In this section, you will create a Linux-based HBase cluster in HDInsight using [Azure ARM template](../resource-group-template-deploy.md). The Azure ARM template experience is not required for following this tutorial. For other cluster creation methods and understanding the settings, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). For more information about using ARM template to create Hadoop clusters in HDInsight, see [Create Hadoop clusters in HDInsight using ARM templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
+In this section, you will create a Linux-based HBase cluster in HDInsight using an [Azure Resource Manager template](../resource-group-template-deploy.md). The template experience is not required for following this tutorial. For other cluster creation methods and understanding the settings, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). For more information about using a template to create Hadoop clusters in HDInsight, see [Create Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 
-1. Click the following image to open an ARM template in the Azure Portal. The ARM template is located in a public blob container. 
+> [AZURE.NOTE] Some properties have been hard-coded into the template. For example:
+>
+> * __Location__: East US
+> * __Cluster worker node count__: 4
+> * __Default storage account__: &lt;Cluster Name>store
+> * __Virtual network name__: &lt;Cluster Name>-vnet
+> * __Virtual network address space__: 10.0.0.0/16
+> * __Subnet name__: default
+> * __Subnet address range__: 10.0.0.0/24
+>
+> &lt;Cluster Name> will be replaced with the cluster name you provide when using the template.
+
+1. Click the following image to open the template in the Azure Portal. The template is located in a public blob container. 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. From the **Parameters** blade, enter the following:
+
     - **ClusterName**: Enter a name for the Hadoop cluster that you will create.
     - **Cluster login name and password**: The default login name is **admin**.
     - **SSH username and password**: The default username is **sshuser**.  You can rename it. 
-	
-	Some properties have been hard-coded into the template. For example:<br/>
 
-    - Location: East US
-	- Cluster worker node count: 4
-    - Default storage account: &lt;Cluster Name>store
-    - Virtual network name: &lt;Cluster Name>-vnet
-    - Virtual network address space: 10.0.0.0/16
-    - Subnet name: default
-    - Subnet address range: 10.0.0.0/24
+    
 
 3. Click **OK** to save the parameters.
+
 4. From the **Custom deployment** blade, click **Resource group** dropdown box, and then click **New** to create a new resource group.  The resource group is a container that groups the cluster, the dependent storage account and other linked resource.
+
 5. Click **Legal terms**, and then click **Create**.
+
 6. Click **Create**. You will see a new tile titled **Submitting deployment for Template deployment**. It takes about around 20 minutes to create a cluster. Once the cluster is created, you can click the cluster blade in the portal to open it.
 
 After you complete the tutorial, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Hadoop clusters in HDInsight by using the Azure Portal](hdinsight-administer-use-management-portal.md#delete-clusters).
 
 To begin working with your new HBase cluster, you can use the procedures found in [Get started using HBase with Hadoop in HDInsight](hdinsight-hbase-tutorial-get-started.md).
 
-##Connect to the HBase cluster using HBase Java RPC APIs
+## Connect to the HBase cluster using HBase Java RPC APIs
 
-1.	Create an infrastructure as a service (IaaS) virtual machine into the same Azure virtual network and the same subnet. So both the virtual machine and the HBase cluster use the same internal DNS server to resolve host names. To do so, you must choose the **From Gallery** option, and select the virtual network instead of a data center. For instructions, see [Create a Virtual Machine Running Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md). A standard Windows Server 2012 image with a small VM size is sufficient.
+1.	Create an infrastructure as a service (IaaS) virtual machine into the same Azure virtual network and the same subnet. For instructions on creating a new IaaS virutal machine, see [Create a Virtual Machine Running Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md). When following the steps in this document, you must use the following for the Network configuration:
+
+    - __Virtual network__: &lt;Cluster name>-vnet
+    - __Subnet__: default
+
+    > [AZURE.IMPORTANT] Replace &lt;Cluster name> with the name you used when creating the HDInsight cluster in previous steps.
+
+    Using these values will configure the virtual machine to use the same virtual network and subnet as the HDInsight cluster. This will allow them to directly communicate with each other.
 
 2.	When using a Java application to connect to HBase remotely, you must use the fully qualified domain name (FQDN). To determine this, you must get the connection-specific DNS suffix of the HBase cluster. To do that, you can use one of the following methods:
 

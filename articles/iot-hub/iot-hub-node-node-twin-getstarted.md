@@ -18,38 +18,11 @@
 
 # Tutorial: Get started with device twins (preview)
 
-## Introduction
-
-Device twins are JSON documents that store device state information (meta-data, configurations, and conditions). IoT Hub persists a device twin for each device that you connect to IoT Hub.
-
-Use device twins to:
-
-* Store device meta-data from your back end.
-* Report current state information such as available capabilities and conditions (for example, the connectivity method used) from your device app.
-* Synchronize the state of long-running workflows (such as firmware and configuration updates) between device app and back end.
-* Query your device meta-data, configuration, or state.
-
-> [AZURE.NOTE] Device twins are designed for synchronization and for querying device configurations and conditions. Use [device-to-cloud messages][lnk-d2c] for sequences of timestamped events (such as telemetry streams of time-based sensor data) and [cloud-to-device methods][lnk-methods] for interactive control of devices, such as turning on a fan from a user-controlled app.
-
-Device twins are stored in an IoT hub and contain:
-
-* *tags*, device meta-data accessible only by the back end;
-* *desired properties*, JSON objects modifiable by the back end and observable by the device app; and
-* *reported properties*, JSON objects modifiable by the device app and readable by the back end. Tags and properties cannot contain arrays, but objects can be nested.
-
-![][img-twin]
-
-Additionally, the app back end can query device twins based on all the above data.
-Refer to [Understand device twins][lnk-twins] for more information about device twins and to the [IoT Hub query language][lnk-query] reference for querying.
-
-This tutorial shows you how to:
-
-- Create a back-end app that adds *tags* to a device twin, and a simulated device that reports its connectivity channel as a *reported property* on the device twin.
-- Query devices from your back end app using filters on the tags and properties previously created.
+[AZURE.INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
 At the end of this tutorial, you will have two Node.js console applications:
 
-* **AddTagsAndQuery.js**, a Node.js app meant to be run from the app back end, which adds tags and queries device twins.
+* **AddTagsAndQuery.js**, a Node.js app meant to be run from the back end, which adds tags and queries device twins.
 * **TwinSimulatedDevice.js**, a Node.js app which simulates a device that connects to your IoT hub with the device identity created earlier, and reports its connectivity condition.
 
 > [AZURE.NOTE] The article [IoT Hub SDKs][lnk-hub-sdks] provides information about the various SDKs that you can use to build both device and back-end applications.
@@ -64,7 +37,7 @@ To complete this tutorial you need the following:
 
 ## Create the service app
 
-In this section, you create a Node.js console app that adds location meta-data to the twin associated with **myDeviceId**. It then queries the twin collection stored in the hub selecting the devices located in the US, and then the devices that report they are connected using cellular network.
+In this section, you create a Node.js console app that adds location meta-data to the twin associated with **myDeviceId**. It then queries the twins stored in the hub selecting the devices located in the US, and then the ones that reporting a cellular connection.
 
 1. Create a new empty folder called **addtagsandqueryapp**. In the **addtagsandqueryapp** folder, create a new package.json file using the following command at your command-prompt. Accept all the defaults:
 
@@ -155,6 +128,8 @@ In the next section you create a device app that reports the connectivity inform
 
 In this section, you create a Node.js console app that connects to your hub as **myDeviceId**, and then updates its twin's reported properties to contain the information that it is connected using a cellular network.
 
+> [AZURE.NOTE] At this time, device twins are accessible only from devices that connect to IoT Hub using the MQTT protocol. Please refer to the [MQTT support][lnk-devguide-mqtt] article for instructions on how to convert existing device app to use MQTT.
+
 1. Create a new empty folder called **reportconnectivity**. In the **reportconnectivity** folder, create a new package.json file using the following command at your command-prompt. Accept all the defaults:
 
     ```
@@ -226,7 +201,7 @@ In this section, you create a Node.js console app that connects to your hub as *
 ## Next steps
 In this tutorial, you configured a new IoT hub in the portal, and then created a device identity in the hub's identity registry. You added device meta-data as tags from a back-end application, and wrote a simulated device app to report device connectivity information in the device twin. You also learned how to query this information using the IoT Hub SQL-like query language.
 
-Use the follwing resources to learn how to:
+Use the following resources to learn how to:
 
 - send telemetry from devices with the [Get started with IoT Hub][lnk-iothub-getstarted] tutorial,
 - configure devices using twin's desired properties with the [Use desired properties to configure devices][lnk-twin-how-to-configure] tutorial,
@@ -235,7 +210,6 @@ Use the follwing resources to learn how to:
 <!-- images -->
 [1]: media/iot-hub-node-node-twin-getstarted/service1.png
 [3]: media/iot-hub-node-node-twin-getstarted/service2.png
-[img-twin]: media/iot-hub-node-node-twin-getstarted/twin.png
 
 <!-- links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
@@ -256,3 +230,4 @@ Use the follwing resources to learn how to:
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 
 [lnk-methods-tutorial]: iot-hub-c2d-methods.md
+[lnk-devguide-mqtt]: iot-hub-mqtt-support.md

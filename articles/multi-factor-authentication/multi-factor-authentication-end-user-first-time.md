@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/23/2016"
+	ms.date="10/10/2016"
 	ms.author="kgremban"/>
 
 # Set up my account for two-step verification
@@ -102,3 +102,7 @@ If you want to add an account to the mobile app manually, instead of using the Q
 7. Click **Done**.
 
 ## Next steps
+
+- Change your preferred options and [manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md)
+- Set up [app passwords](multi-factor-authentication-end-user-app-passwords.md) for native device apps that don't support two-step verification.
+- Check out the [Microsoft Authenticator app](multi-factor-authentication-microsoft-authenticator.md) for fast, secure authentication even when you don't have cell service.
