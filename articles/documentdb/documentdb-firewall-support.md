@@ -16,7 +16,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="10/14/2016" 
-	ms.author="ankshah"/>
+	ms.author="ankshah; kraman"/>
 
 # DocumentDB firewall support
 
