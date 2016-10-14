@@ -429,13 +429,13 @@ To evaluate an autoscale formula, you must first **enable autoscaling** on the p
 
 * [Evaluate an automatic scaling formula](https://msdn.microsoft.com/library/azure/dn820183.aspx)
 
-    In this REST API request, you specify the pool ID in the URI. The autoscale formula is specified in the *autoScaleFormula* element of the request body. The response of the operation contains any error information that might be related to the formula.
+    In this REST API request, specify the pool ID in the URI, and the autoscale formula in the *autoScaleFormula* element of the request body. The response of the operation contains any error information that might be related to the formula.
 
 In this [Batch .NET][net_api] code snippet, we evaluate a formula prior to applying it to the [CloudPool][net_cloudpool]. If the pool does not have autoscaling enabled, we enable it first.
 
 ```csharp
 // First obtain a reference to an existing pool
-CloudPool pool = batchClient.PoolOperations.GetPool("myBatchPool");
+CloudPool pool = batchClient.PoolOperations.GetPool("myExistingPool");
 
 // If autoscaling isn't already enabled on the pool, enable it.
 // You can't evaluate an autoscale formula on non-autoscale-enabled pool.
@@ -445,7 +445,7 @@ if (pool.AutoScaleEnabled == false)
     // pool. This formula is valid, but won't resize the pool:
     pool.EnableAutoScale(
         autoscaleFormula: $"$TargetDedicated = {pool.CurrentDedicated};",
-        autoscaleEvaluationInterval: TimeSpan.FromMinutes(10));
+        autoscaleEvaluationInterval: TimeSpan.FromMinutes(5));
 
     // Batch limits EnableAutoScale calls to once every 30 seconds.
     // Because we want to apply our new autoscale formula below if it
@@ -460,7 +460,7 @@ if (pool.AutoScaleEnabled == false)
 
 // We must ensure that autoscaling is enabled on the pool prior to
 // evaluating a formula
-if (pool.AutoScaleEnabled.HasValue && pool.AutoScaleEnabled.Value)
+if (pool.AutoScaleEnabled == true)
 {
     // The formula to evaluate - adjusts target number of nodes based on
     // day of week and time of day
