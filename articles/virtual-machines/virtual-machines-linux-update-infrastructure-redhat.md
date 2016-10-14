@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2016"
+   ms.date="10/14/2016"
    ms.author="borisb"/>
 
 # Red Hat Update Infrastructure (RHUI) for on-demand Red Hat Enterprise Linux VMs in Azure
