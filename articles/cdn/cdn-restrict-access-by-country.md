@@ -16,14 +16,15 @@
 	ms.date="10/13/2016"
 	ms.author="casoper"/>
 
-#Restrict access to your content by country
+#Restrict access to your content by country - Verizon
+
 > [AZURE.SELECTOR]
 - [Verizon](cdn-restrict-access-by-country.md)
 - [Akamai Standard](cdn-restrict-access-by-country-akamai.md)
 
-> [AZURE.IMPORTANT] The Verizon and Akamai products provide the same geo-filtering functionality, but the user interface differs. This document describes the interface for **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon**.  For query string caching with **Azure CDN Standard from Akamai**, see [Restrict access to your content by country - Akamai](cdn-restrict-access-by-country-akamai.md).
+> [AZURE.IMPORTANT] The Verizon and Akamai products provide the same geo-filtering functionality, but the user interface differs. This document describes the interface for **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon**. For geo-filtering with **Azure CDN Standard from Akamai**, see [Restrict access to your content by country - Akamai](cdn-restrict-access-by-country-akamai.md).
 
-When a user requests your content, by default, the content is served regardless of where the user made this request from. In some cases, you may want to restrict access to your content by country. This topic explains how to use the **Country Filtering** feature in order to configure the service to allow or block access by country.
+When a user requests your content, by default, the content is served regardless of where the user made this request from. In some cases, you may want to restrict access to your content by country. This topic explains how to use the **Geo-Filtering ** feature in order to configure the service to allow or block access by country.
 
 >[AZURE.NOTE] Once the configuration is set up, it will apply to all **Azure CDN from Verizon** endpoints in this Azure CDN profile.
 
@@ -60,7 +61,7 @@ For example, the rule of blocking /Photos/Strasbourg/ will filter files includin
 
 ##Country codes
 
-The **Country Filtering** feature uses country codes to define the countries from which a request will be allowed or blocked for a secured directory. You will find the country codes in [Azure CDN from Verizon Country Codes](https://msdn.microsoft.com/library/mt761717.aspx). If you specify “EU” (Europe) or "AP" (Asia/Pacific), a subset of IP addresses that originate from any country in that regions will be blocked or allowed.
+The **Geo-Filtering** feature uses country codes to define the countries from which a request will be allowed or blocked for a secured directory. You will find the country codes in [Azure CDN from Verizon Country Codes](https://msdn.microsoft.com/library/mt761717.aspx). If you specify “EU” (Europe) or "AP" (Asia/Pacific), a subset of IP addresses that originate from any country in that regions will be blocked or allowed.
 
 
 ##<a id="considerations"></a>Considerations
