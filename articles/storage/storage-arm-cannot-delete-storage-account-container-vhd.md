@@ -31,7 +31,7 @@ When you try to delete a VHD in an ARM Storage Account, you receive the followin
 
 **Failed to delete blob 'vhds/BlobName.vhd'. Error: There is currently a lease on the blob and no lease ID was specified in the request**
 
-This issue can be caused by a virtual machine (VM) has a lease on the VHD that you are trying to delete.
+This issue can occur because a virtual machine (VM) has a lease on the VHD that you are trying to delete.
 
 ### Scenario 2
 
@@ -39,7 +39,7 @@ When you try to delete a container in an ARM Storage Account, you receive the fo
 
 **Failed to delete storage container 'vhds'. Error: There is currently a lease on the container and no lease ID was specified in the request.**
 
-This issue can be caused by the container contains a VHD that is locked in the lease state.
+This issue can occur because the container contains a VHD that is locked in the lease state.
 
 ### Scenario 3
 
@@ -47,13 +47,13 @@ When you try to delete an ARM Storage Account, you receive the following error m
 
 **Failed to delete storage account 'StorageAccountName'. Error: The storage account cannot be deleted due to its artifacts being in use.**
 
-This issue can be caused by the storage account contains a VHD that is locked in the lease state.
+This issue can occur because a storage account contains a VHD that is in the lease state.
 
 ## Solution
 
 To resolve these issues, you have to locate the VM that is using the VHD. Then, you must detach the VHD from the VM (for data disks) or delete the VM that is using the VHD (for OS disks). This removes the lease from the VHD, and allows it to be deleted.
 
-### Step 1: Locate the VHD that is causing the error and the associated VM
+### Step 1: Identify the VHD that is causing the error and the associated VM
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -61,7 +61,8 @@ To resolve these issues, you have to locate the VM that is using the VHD. Then, 
 
 	![locateVHD1.png](./media/storage-arm-cannot-delete-storage-account-container-vhd/opencontainer.png)
 
-3. Check the properties of each VHD in the container. Locate the VHD that is in the **Leased** state. Then you need to find the VM that is using the VHD. Usually, you can determine which VM holds the VHD by checking name of the VHD:
+3. Check the properties of each VHD in the container. Locate the VHD that is in the **Leased** state. Then, determine which VM is using the VHD. Usually, you can determine which VM holds the VHD by checking name of the VHD:
+
 	 -	OS Disks generally follow this naming rule: VMNameYYYYMMDDHHMMSS.vhd
 
    -	Data Disks generally follow this naming convention: VMName-YYYYMMDD-HHMMSS.vhd
