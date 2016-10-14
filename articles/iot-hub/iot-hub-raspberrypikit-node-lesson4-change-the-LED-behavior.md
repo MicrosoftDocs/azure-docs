@@ -1,5 +1,5 @@
 <properties
- pageTitle="Complimentary reading: Change the on and off behavior of the LED | Microsoft Azure"
+ pageTitle="Complimentary reading - Change the on and off behavior of the LED | Microsoft Azure"
  description="placeholder"
  services="iot-hub"
  documentationCenter=""
