@@ -20,11 +20,11 @@
 
 # DocumentDB firewall support
 
-To secure data stored in an Azure DocumentDB database account, DocumentDB has provided support for a secret based [authorization model](https://msdn.microsoft.com/library/azure/dn783368.aspx) that utilizes a strong Hash-based message authentication code (HMAC). Now, in addition to the secret based authorization model, DocumentDB supports policy driven IP based access control. This model is very similar to the firewall rules of a traditional database system and provides an additional level of security to the DocumentDB database account. With this model, the user can now configure their DocumentDB database account to be accessible only from an approved set of machines and/or cloud services.  Access to DocumentDB resources from these approved set of machines and services still require the caller to present a valid authorization token.
+To secure data stored in an Azure DocumentDB database account, DocumentDB has provided support for a secret based [authorization model](https://msdn.microsoft.com/library/azure/dn783368.aspx) that utilizes a strong Hash-based message authentication code (HMAC). Now, in addition to the secret based authorization model, DocumentDB supports policy driven IP-based access control. This model is very similar to the firewall rules of a traditional database system and provides an additional level of security to the DocumentDB database account. With this model, you can now configure their DocumentDB database account to be accessible only from an approved set of machines and/or cloud services.  Access to DocumentDB resources from these approved sets of machines and services still require the caller to present a valid authorization token.
 
 # How does IP access control for DocumentDB work?
 
-By default, a DocumentDB database account is accessible from public internet as long as the request is accompanied by a valid authorization token. To configure IP policy based access control, the user must provide the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. Once this configuration is applied, all requests originating from machines outside this allowed list will be blocked by the server.  The connection processing flow for the IP based access control is described in the following diagram.
+By default, a DocumentDB database account is accessible from public internet as long as the request is accompanied by a valid authorization token. To configure IP policy-based access control, the user must provide the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. Once this configuration is applied, all requests originating from machines outside this allowed list will be blocked by the server.  The connection processing flow for the IP-based access control is described in the following diagram.
 
 ![Diagram showing the connection process for IP based access control](./media/documentdb-firewall-support/documentdb-firewall-support-flow.png)
 
@@ -32,7 +32,7 @@ By default, a DocumentDB database account is accessible from public internet as 
 
 In Azure, cloud services are a very common way for hosting middle tier service logic using DocumentDB. To enable access to a DocumentDB database account from a cloud service, the public IP address of the cloud service must be added to the allowed list of IP addresses associated with your DocumentDB database account by [contacting Azure support](#configure-ip-policy).  This ensures that all role instances of cloud services have access to your DocumentDB database account. Once enabled, the public IP addresses are displayed in the Azure portal, by clicking **Properties** in the resource menu, as shown in the following screenshot. 
 
-![Diagram showing the connection process for IP based access control](./media/documentdb-firewall-support/documentdb-public-ip-addresses.png)
+![Screenshot showing the public IP address displayed in the Azure portal](./media/documentdb-firewall-support/documentdb-public-ip-addresses.png)
 
 When you scale out your cloud service by adding additional role instance(s), those new instances will automatically have access to the DocumentDB database account since they are part of the same cloud service.
 
@@ -40,9 +40,9 @@ When you scale out your cloud service by adding additional role instance(s), tho
 
 [Virtual machines](https://azure.microsoft.com/services/virtual-machines/) or [virtual machine scale sets](https://azure.microsoft.com/documentation/articles/virtual-machine-scale-sets-overview/) can also be used to host middle tier services using DocumentDB.  To configure the DocumentDB database account to allow access from virtual machines, public IP addresses of virtual machine and/or virtual machine scale set must be configured as one of the allowed IP addresses for your DocumentDB database account by [contacting Azure support](#configure-ip-policy). Once enabled, the IP address is displayed in the Azure portal, by clicking **Properties** in the resource menu, as shown in the following screenshot.
 
-![Diagram showing the connection process for IP based access control](./media/documentdb-firewall-support/documentdb-public-ip-addresses-dns.png)
+![Screenshot showing the public IP addresses displayed in the Azure portal](./media/documentdb-firewall-support/documentdb-public-ip-addresses-dns.png)
 
-When you add additional virtual machine instances to the group, they are automatically provided access to your  DocumentDB database account.
+When you add additional virtual machine instances to the group, they are automatically provided access to your DocumentDB database account.
 
 ## Connecting from the internet
 
@@ -64,9 +64,9 @@ Use the Azure portal to file a request with [Azure Support](https://portal.azure
 	- **Details**: Type "I would like to enable firewall support for my DocumentDB database account."
 	- Click **OK**. 
 
-![Diagram showing the connection process for IP based access control](./media/documentdb-firewall-support/documentdb-firewall-support-request-access.png)
+![Screenshot of the Help + support blades](./media/documentdb-firewall-support/documentdb-firewall-support-request-access.png)
 
-![Diagram showing the connection process for IP based access control](./media/documentdb-firewall-support/documentdb-firewall-support-request-access-ticket.png)
+![Screenshot of the Problem blade](./media/documentdb-firewall-support/documentdb-firewall-support-request-access-ticket.png)
 
 ## Troubleshooting IP access control policy
 
