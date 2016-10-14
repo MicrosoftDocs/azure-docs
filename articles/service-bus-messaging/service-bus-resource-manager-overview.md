@@ -13,12 +13,12 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="07/11/2016"
+    ms.date="10/14/2016"
     ms.author="sethm"/>
 
 # Create Service Bus resources using Azure Resource Manager templates
 
-This article shows how to create and deploy Service Bus and Event Hubs resources using Azure Resource Manager templates, PowerShell, and the Service Bus resource provider.
+This article describes how to create and deploy Service Bus and Event Hubs resources using Azure Resource Manager templates, PowerShell, and the Service Bus resource provider.
 
 Azure Resource Manager templates help you define the resources to deploy for a solution, and to specify parameters and variables that enable you to input values for different environments. The template consists of JSON and expressions which you can use to construct values for your deployment. For detailed information about writing Azure Resource Manager templates, and a discussion of the template format, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). 
 

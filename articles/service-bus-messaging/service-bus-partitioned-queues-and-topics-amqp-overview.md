@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/08/2016" 
+	ms.date="10/14/2016" 
 	ms.author="hillaryc;sethm"/>
 
 # AMQP 1.0 support for Service Bus partitioned queues and topics 
