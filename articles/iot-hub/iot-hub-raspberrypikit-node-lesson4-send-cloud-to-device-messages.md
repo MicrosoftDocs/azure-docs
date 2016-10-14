@@ -10,12 +10,12 @@
 
 <tags
  ms.service="iot-hub"
- ms.devlang=""
+ ms.devlang="multiple"
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date=""
- ms.author=""/>
+ ms.date="09/28/2016" 
+ ms.author="xshi"/>
 
 # 4.1 Get your hands on the sample application
 
