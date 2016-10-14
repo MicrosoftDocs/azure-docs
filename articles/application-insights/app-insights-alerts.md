@@ -48,7 +48,7 @@ To get an email when a metric crosses a threshold, start either from Metrics Exp
 
 *I don't see the Add Alert button.* - Are you using an organizational account? You can set alerts if you have owner or contributor access to this application resource. Take a look at Settings -> Users. [Learn about access control][roles].
 
-> [AZURE.NOTE] In the alerts blade, you'll see that there's already an alert set up: [NRT Proactive Diagnosis](app-insights-nrt-proactive-diagnostics.md). This is an automatic alert that monitors one particular metric, request failure rate. So unless you decide to disable this, you don't need to set your own alert on request failure rate. 
+> [AZURE.NOTE] In the alerts blade, you'll see that there's already an alert set up: [Proactive Diagnostics](app-insights-proactive-failure-diagnostics.md). This is an automatic alert that monitors one particular metric, request failure rate. So unless you decide to disable this, you don't need to set your own alert on request failure rate. 
 
 ## See your alerts
 
