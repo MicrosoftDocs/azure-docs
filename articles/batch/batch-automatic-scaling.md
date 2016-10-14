@@ -515,9 +515,9 @@ To ensure your formula is performing as expected, we recommend you periodically 
 
 In Batch .NET, the [CloudPool.AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscalerun.aspx) property has several properties providing information about the latest automatic scaling run performed on the pool by the Batch service.
 
-  * [AutoScaleRun.Error](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.error.aspx)
-  * [AutoScaleRun.Results](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.results.aspx)
-  * [AutoScaleRun.Timestamp](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.timestamp.aspx)
+* [AutoScaleRun.Timestamp](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.timestamp.aspx)
+* [AutoScaleRun.Results](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.results.aspx)
+* [AutoScaleRun.Error](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.error.aspx)
 
 In the REST API, the [Get information about a pool](https://msdn.microsoft.com/library/dn820165.aspx) request returns information about the pool, which includes the latest automatic scaling run information in [autoScaleRun](https://msdn.microsoft.com/library/dn820165.aspx#bk_autrun).
 
@@ -546,7 +546,7 @@ Error:
 
 ## Example autoscale formulas
 
-Let's take a look at some examples that show just a few ways that formulas can be used to automatically scale compute resources in a pool.
+Let's take a look at a few formulas that show different ways to adjust the amount of compute resources in a pool.
 
 ### Example 1: Time-based adjustment
 
@@ -577,7 +577,7 @@ $tasks = $samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.Ge
 $targetVMs = $tasks > 0? $tasks:max(0, $TargetDedicated/2);
 // The pool size is capped at 20, if target VM value is more than that, set it
 // to 20. This value should be adjusted according to your use case.
-$TargetDedicated = max(0,min($targetVMs,20));
+$TargetDedicated = max(0, min($targetVMs, 20));
 // Set node deallocation mode - keep nodes active only until tasks finish
 $NodeDeallocationOption = taskcompletion;
 ```
