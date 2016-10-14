@@ -24,7 +24,7 @@
 
 Log Analytics is generally available in Azure Government.
 
-### Variations - Differences from public Azure
+### Variations
 
 The following Log Analytics features and solutions are not currently available in Azure Government. This list is updated when the status of features / solutions changes.
 
