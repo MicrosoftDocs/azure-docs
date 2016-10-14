@@ -19,7 +19,7 @@
 
 ## What is Application Gateway
 
-Microsoft Azure Application Gateway provides an Application Delivery Controller (ADC) as a service, providing many layer 7 (http) load balancing capabilities. The Application Gateway applies the routing rules to HTTP traffic, providing layer 7 (HTTP) load balancing. When you create an application gateway, an endpoint (VIP) is associated and used as public IP for ingress network traffic. The Application Gateway routes the HTTP traffic based on its configuration whether it's a virtual machine, cloud service, or an external IP address. Azure provides layer 4 load balancing through Azure load balancer working at the transport level (TCP/UDP) and having all incoming network traffic being load balanced to the Application Gateway service.
+Microsoft Azure Application Gateway provides an Application Delivery Controller (ADC) as a service, providing many layer 7 (http) load balancing capabilities. The Application Gateway applies the routing rules to HTTP traffic, providing layer 7 (HTTP) load balancing. When you create an application gateway, an endpoint (VIP) is associated and used as public IP for ingress network traffic. Traffic is then routed through the multiple instances configured for application gateway to balance out traffic across the instances. The Application Gateway routes the HTTP traffic based on its configuration whether it's a virtual machine, cloud service, or an external IP address.
 
 Application load balancing enables IT administrators and developers to create routing rules for network traffic based on the HTTP protocol.  The Application Gateway service is highly available and metered. For the SLA and pricing, refer to the [SLA](https://azure.microsoft.com/support/legal/sla/) and [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/) pages.
 
@@ -47,6 +47,10 @@ Application Gateway is useful for:
 - Applications that support websocket traffic
 - Protecting web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks.
 
+Application Gateway load balancing as an Azure-managed service allows the provisioning of a layer 7 load balancer behind the Azure software load balancer. Traffic manager can be used to complete the scenario as seen in the following image. Where Traffic Manager provides redirection and availability, load balancer provides in region scalability and availability, and application gateway provides cross region layer 7 load balancing.
+
+![asdasd](./media/application-gateway-introduction/tm-lb-ag-scenario.png)
+
 [AZURE.INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
 ## Gateway sizes and instances
@@ -55,7 +59,7 @@ Application Gateway is currently offered in three sizes: Small, Medium, and Larg
 
 There are currently two skus for Application Gateway: WAF and Standard.
 
-You can create up to 50 application gateways per subscription, and each application gateway can have up to 10 instances each. Each application gateway can consist of 20 http listeners. Application Gateway load balancing as an Azure-managed service allows the provisioning of a layer 7 load balancer behind the Azure software load balancer.
+You can create up to 50 application gateways per subscription, and each application gateway can have up to 10 instances each. Each application gateway can consist of 20 http listeners. For a complete list of application gateway limits visit the [Service Limits](../azure-subscription-service-limits.md#application-gateway) page.
 
 The following table shows an average performance throughput for each application gateway instance:
 
