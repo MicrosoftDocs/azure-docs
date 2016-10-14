@@ -50,7 +50,7 @@ This configuration is not supported in this release.  For more information, see 
 
 ### Can I use NVMe data disks for the Microsoft Azure Stack POC?
 
-While Storage Spaces Direct supports NVMe disks, only supports a subset of the possible drive types and combinations possible for Storage Spaces Direct. 
+While Storage Spaces Direct supports NVMe disks, Azure Stack only supports a subset of the possible drive types and combinations possible for Storage Spaces Direct. 
 
 ### How can I reinstall Azure Stack?
 You can follow the steps in the [redeployment guide](azure-stack-redeploy.md).  
