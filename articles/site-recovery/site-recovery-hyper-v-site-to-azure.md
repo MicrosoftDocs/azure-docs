@@ -482,7 +482,7 @@ This should be chosen when a primary site becomes inaccessible because of an une
 1. Perform planned failover as mentioned [here](site-recovery-failover.md)
 2. In **Settings > Replicated items**, right-click the virtual machine and select **Complete Migration**
 
-    ![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate1.png)
+    ![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 
 2. Click **OK** to complete the migration. You can track progress by clicking on the VM to open its properties, or by using the Complete Migration job in **Settings > Site Recovery jobs**.
 
