@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/13/2016"
-	ms.author="roopalik;garye"/>
+	ms.author="roopalik;garye"/> 
 
 
 # Discover industry-specific solutions in the Cortana Intelligence Gallery
