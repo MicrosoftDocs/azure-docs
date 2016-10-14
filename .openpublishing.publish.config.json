@@ -1,6 +1,7 @@
 {
   "build_entry_point": "docs",
   "need_generate_pdf": false,
+  "need_preview_pull_request": true,
   "need_generate_intellisense": false,
   "docsets_to_publish": [
     {
@@ -20,13 +21,13 @@
     }
   ],
   "notification_subscribers": [],
-  "branches_to_filter": [],
+  "branches_to_filter": ["live", "master"],
   "skip_source_output_uploading": false,
   "dependent_repositories": [
     {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
-      "branch": "master",
+      "branch": "azurerelease",
       "branch_mapping": {}
     }
   ]

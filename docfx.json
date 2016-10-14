@@ -3,33 +3,45 @@
     "content": [
       {
         "files": [
-          "**/*.md"
+          "**/*.md",
+          "**/*.yml"
         ],
-        "exclude": [
+        "exclude": [         
           "**/obj/**",
-          "azure/**",
-          "**/includes/**"
-        ]
+          "**/includes/**",
+          "**/_themes/**",
+          "markdown templates/**"
+        ],
+        "src": null,
+        "dest": null
       }
     ],
     "resource": [
       {
         "files": [
           "**/*.png",
-          "**/*.jpg"
+          "**/*.jpg",
+          "**/*.gif"
         ],
         "exclude": [
           "**/obj/**",
-          "azure/**",
-          "**/includes/**"
-        ]
+          "**/_themes/**",
+          "**/includes/**",
+          "markdown templates/**"
+        ],
+        "src": null,
+        "dest": null
       }
     ],
     "overwrite": [],
     "externalReference": [],
-    "globalMetadata": {},
+    "globalMetadata": {
+      "breadcrumb_path": "/azure/bread/toc.json"
+    },
     "fileMetadata": {},
-    "template": [],
+    "template": [
+      "docs.html"
+    ],
     "dest": "azure"
   }
 }
