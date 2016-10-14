@@ -20,6 +20,8 @@
 
 Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliver Azure services from your organization’s datacenter. Microsoft Azure Stack Technical Preview 2 is being made available through a Proof of Concept (POC). The POC is an environment for learning and demonstrating Azure Stack features. It lets you deploy all required components on a single physical machine to create an environment for evaluating key concepts and capabilities, and validating the extensibility model for APIs.
 
+[AZURE.VIDEO What-is-Microsoft-Azure-Stack]
+
 ## Scope of Azure Stack POC
 
 -   Azure Stack POC must not be used as a production environment and should only be used for testing, evaluation, and demonstration.  
