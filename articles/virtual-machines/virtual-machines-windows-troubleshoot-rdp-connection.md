@@ -93,7 +93,7 @@ After each troubleshooting step, try connecting to your VM again. If you still c
 
 6. **Restart your VM**. This troubleshooting step can correct any underlying issues the VM itself is having.
 
-	Select your VM in the Azure portal and click on the **Overview** tab. Click the **Restart** button:
+	Select your VM in the Azure portal and click the **Overview** tab. Click the **Restart** button:
 
 	![Restart the VM in the Azure portal](./media/virtual-machines-windows-troubleshoot-rdp-connection/restart-vm.png)
 
