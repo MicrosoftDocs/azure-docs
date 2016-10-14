@@ -88,7 +88,7 @@ If you downgrade your database from the Standard or Premium service tiers to Bas
 
 If you upgrade your database from the Basic service tier to Standard or Premium, SQL Database keeps existing backups until they are 35 days old. It keeps new backups as they occur for 35 days.
  
-If you delete a database, SQL Database keeps the backups in the same way it would for an online database. For example, suppose you delete a Basic database that has a retention period of seven days. A backup that is four days old when the database is deleted is saved for three more days.
+If you delete a database, SQL Database keeps the backups in the same way it would for an online database. For example, suppose you delete a Basic database that has a retention period of seven days. A backup that is four days old is saved for three more days.
 
 > [AZURE.IMPORTANT] If you delete the Azure SQL server that hosts SQL Databases, all databases that belong to the server are also deleted and cannot be recove
 > red. You cannot restore a deleted server.
