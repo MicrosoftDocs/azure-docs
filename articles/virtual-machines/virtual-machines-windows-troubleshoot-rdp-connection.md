@@ -53,9 +53,9 @@ After each troubleshooting step, try connecting to your VM again. If you still c
 
 > [AZURE.TIP] If the 'Connect' button in the portal is grayed out and you are not connected to Azure via an [Express Route](../expressroute/expressroute-introduction.md) or [Site-to-Site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) connection, you need to create and assign your VM a public IP address before you can use RDP. You can read more about [public IP addresses in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
 
-1. **Reset your RDP connection**. This troubleshooting step resets the RDP configuration in the event that Remote Connections are disabled, Windows Firewall rules are blocking RDP, etc.
+1. **Reset your RDP connection**. This troubleshooting step resets the RDP configuration when Remote Connections are disabled, Windows Firewall rules are blocking RDP, etc.
 
-	Select your VM in the Azure portal. Scroll down the settings pane to the **Support + Troubleshooting** section near buttom of the list. Click the **Reset password** button. Set the **Mode** to **Reset configuration only** and then click the **Update** button:
+	Select your VM in the Azure portal. Scroll down the settings pane to the **Support + Troubleshooting** section near bottom of the list. Click the **Reset password** button. Set the **Mode** to **Reset configuration only** and then click the **Update** button:
 
 	![Reset the RDP configuration in the Azure portal](./media/virtual-machines-windows-troubleshoot-rdp-connection/reset-rdp.png)
 
@@ -63,7 +63,7 @@ After each troubleshooting step, try connecting to your VM again. If you still c
 
 	Select your VM in the Azure portal. Click the **Network interfaces** from the settings pane.
 
-	![View network interfaces for a VM in Azure portal](./media/virtual-machines-windows-troubleshoot-rdp-connection/select-network-intefaces.png)
+	![View network interfaces for a VM in Azure portal](./media/virtual-machines-windows-troubleshoot-rdp-connection/select-network-interfaces.png)
 
 	Select your network interface from the list (there is typically only one):
 
@@ -77,17 +77,17 @@ After each troubleshooting step, try connecting to your VM again. If you still c
 
 	![Verify RDP NSG rule in the Azure portal](./media/virtual-machines-windows-troubleshoot-rdp-connection/verify-nsg-rules.png)
 
-3. Review your VM's console log or screenshot to correct boot problems. Select **Virtual machines** > *your Windows virtual machine* > **Support + Troubleshooting** > **Boot diagnostics**.
+3. **Review VM console logs**
 
-4. **Check the VM Resource Health**. This troubleshooting step verifies there are no known issues with the Azure platform that may impacting connectivity to the VM.
+4. **Check the VM Resource Health**. This troubleshooting step verifies there are no known issues with the Azure platform that may impact connectivity to the VM.
 
-	Select your VM in the Azure portal. Scroll down the settings pane to the **Support + Troubleshooting** section near buttom of the list. Click the **Resource Health** button. A healthy VM reports as being **Available**:
+	Select your VM in the Azure portal. Scroll down the settings pane to the **Support + Troubleshooting** section near bottom of the list. Click the **Resource Health** button. A healthy VM reports as being **Available**:
 
 	![Check VM resource health in the Azure portal](./media/virtual-machines-windows-troubleshoot-rdp-connection/check-resource-health.png)
 
-5. **Reset user credentials**. This troubleshooting step resets the password on the local administrator that you specify in the event that you are unsure or have forgotten the credentials.
+5. **Reset user credentials**. This troubleshooting step resets the password on the local administrator that you specify when you are unsure or have forgotten the credentials.
 
-	Select your VM in the Azure portal. Scroll down the settings pane to the **Support + Troubleshooting** section near buttom of the list. Click the **Reset password** button. Make sure the **Mode** is set to **Reset password** and then enter your username and a new password. Finally, click the **Update** button:
+	Select your VM in the Azure portal. Scroll down the settings pane to the **Support + Troubleshooting** section near bottom of the list. Click the **Reset password** button. Make sure the **Mode** is set to **Reset password** and then enter your username and a new password. Finally, click the **Update** button:
 
 	![Reset the user credentials in the Azure portal](./media/virtual-machines-windows-troubleshoot-rdp-connection/reset-password.png)
 
@@ -99,7 +99,7 @@ After each troubleshooting step, try connecting to your VM again. If you still c
 
 7. **Redeploy your VM**. This troubleshooting redeploys your VM to another host within Azure to correct any underlying platform or networking issues.
 
-	Select your VM in the Azure portal. Scroll down the settings pane to the **Support + Troubleshooting** section near buttom of the list. Click on the **Redeploy** button, and then click on **Redeploy**:
+	Select your VM in the Azure portal. Scroll down the settings pane to the **Support + Troubleshooting** section near bottom of the list. Click the **Redeploy** button, and then click **Redeploy**:
 
 	![Redeploy the VM in the Azure portal](./media/virtual-machines-windows-troubleshoot-rdp-connection/redeploy-vm.png)
 
@@ -111,11 +111,11 @@ If you are still encountering RDP issues, you can [open a support request](https
 ## Troubleshoot using Azure PowerShell
 If you haven't already, [install and configure the latest Azure PowerShell](../powershell-install-configure.md). The following examples use variables such as `myResourceGroup`, `myVM`, and `myVMAccessExtension`. Replace these variable names and locations with your own values.
 
-> [AZURE.NOTE] You reset the user credentials and the RDP configuration by using the [Set-AzureRmVMAccessExtension](https://msdn.microsoft.com/library/mt619447.aspx) PowerShell command. In the following examples, `myVMAccessExtension` is a name that you specify as part of the process. If you have previously worked with the VMAccessAgent, you can get the name of the existing extension by using `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` to check the properties of the VM. Look under the 'Extensions' section of the output to view the name.
+> [AZURE.NOTE] You reset the user credentials and the RDP configuration by using the [Set-AzureRmVMAccessExtension](https://msdn.microsoft.com/library/mt619447.aspx) PowerShell command. In the following examples, `myVMAccessExtension` is a name that you specify as part of the process. If you have previously worked with the VMAccessAgent, you can get the name of the existing extension by using `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` to check the properties of the VM. To view the name, look under the 'Extensions' section of the output.
 
 After each troubleshooting step, try connecting to your VM again. If you still cannot connect, try the next step.
 
-1. **Reset your RDP connection**. This troubleshooting step resets the RDP configuration in the event that Remote Connections are disabled, Windows Firewall rules are blocking RDP, etc.
+1. **Reset your RDP connection**. This troubleshooting step resets the RDP configuration when Remote Connections are disabled, Windows Firewall rules are blocking RDP, etc.
 
 	The follow example resets the RDP connection on a VM named `myVM` in the `WestUS` location and in the resource group named `myResourceGroup`:
 
@@ -157,7 +157,7 @@ After each troubleshooting step, try connecting to your VM again. If you still c
 	Direction                : Inbound
 	```
 
-3. **Reset user credentials**. This troubleshooting step resets the password on the local administrator that you specify in the event that you are unsure or have forgotten the credentials.
+3. **Reset user credentials**. This troubleshooting step resets the password on the local administrator that you specify when you are unsure or have forgotten the credentials.
 
 	First, specify the username and a new password by assigning credentials to the `$cred` variable as follows:
 
@@ -165,7 +165,7 @@ After each troubleshooting step, try connecting to your VM again. If you still c
 	$cred=Get-Credential
 	```
 
-	Now, update the credentials on your VM. The following examples updates the credentials on a VM named `myVM` in the `WestUS` location and in the resource group named `myResourceGroup`:
+	Now, update the credentials on your VM. The following example updates the credentials on a VM named `myVM` in the `WestUS` location and in the resource group named `myResourceGroup`:
 
 	```powershell
 	Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" `
@@ -176,7 +176,7 @@ After each troubleshooting step, try connecting to your VM again. If you still c
 
 4. **Restart your VM**. This troubleshooting step can correct any underlying issues the VM itself is having.
 
-	The following examples restarts the VM named `myVM` in the resource group named `myResourceGroup`::
+	The following example restarts the VM named `myVM` in the resource group named `myResourceGroup`:
 
 	```powershell
 	Restart-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
@@ -207,7 +207,7 @@ After each troubleshooting step, try reconnecting to the VM.
 	
 4. Verify that your [Cloud Services endpoint allow RDP traffic](../cloud-services/cloud-services-role-enable-remote-desktop.md).
 
-5. Review your VM’s console log or screenshot to correct boot problems. Select **Browse** > **Virtual machines (classic**) > *your VM* > **Settings** > **Boot diagnostics**.
+5. Review your VM’s console log or screenshot. Select **Browse** > **Virtual machines (classic**) > *your VM* > **Settings** > **Boot diagnostics**.
 
 6. Check your VM's Resource Health for any platform issues. Select **Browse** > **Virtual machines (classic)** > *your VM* > **Settings** > **Check Health**.
 
