@@ -42,7 +42,7 @@ Example directory path filter:
 	/                                 
 	/Photos/
 	/Photos/Strasbourg/
-  /photos/Strasbourg/city.png
+  	/photos/Strasbourg/city.png
 
 ##Step 2: Define the action: block or allow
 
