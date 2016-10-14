@@ -165,7 +165,7 @@ You can purchase Microsoft Azure in more than 140 countries around the world, an
 | Uruguay                         | USD           |
 | Uzbekistan                      | USD           |
 | Venezuela                       | USD           |
-| Viet Nam                        | USD           |
+| Vietnam                        | USD           |
 | Virgin Islands, US              | USD           |
 | Yemen                           | USD           |
 | Zambia                          | USD           |

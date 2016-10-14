@@ -20,9 +20,9 @@
 
 # Microsoft Azure new support request File Upload utility guidelines
 
-When you [create a new support request](https://portal.azure.com/#create/Microsoft.Support), the File Upload utility can help you easily upload diagnostic files or any other files that you think are relevant to the incident.  
+When you [create a support request](https://portal.azure.com/#create/Microsoft.Support), the File Upload utility can help you easily upload diagnostic files or any other files that you think are relevant to the incident.  
 
->[AZURE.NOTE] To protect your privacy, please do not include any personal information in your upload.
+>[AZURE.NOTE] To protect your privacy, do not include any personal information in your upload.
 
 Follow these guidelines when you use the File Upload utility:
 

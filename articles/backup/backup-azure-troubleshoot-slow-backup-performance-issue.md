@@ -52,7 +52,7 @@ Here are some performance counters and ranges that can be helpful in diagnosing 
 |Processor--\%Processor Time (all instances)|• Less than 60% consumed = Healthy</br>• 61% to 90% consumed = Monitor or Caution</br>• 91% to 100% consumed = Critical|
 
 
-> [AZURE.NOTE] If you determine that the infrastructure is the culprit, we recommend that you defragment the disks on a regular basis for better performance.
+> [AZURE.NOTE] If you determine that the infrastructure is the culprit, we recommend that you defragment the disks regularly for better performance.
 
 <a id="cause2"></a>
 ## Cause: Another process or antivirus software interfering with Azure Backup
