@@ -31,16 +31,11 @@ Use an Azure Resource Manager (ARM) template to create an Azure function app and
 - You must have successfully completed the previous lessons: [Get started with your Raspberry Pi 3 device](iot-hub-raspberry-pi-lessons.md) and [Create your Azure IoT Hub](iot-hub-raspberry-pi-lessons.md)
 
 ## 3.1.4 Clone the sample code
-To get started, clone the `azure-blink` sample application from Github to your workspace directory (az-iot-samples).
+To get started, run the following command to open the sample project in VS Code:
 
 ```bash
-git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-azure-blink
-```
-
-Run the following command to open the sample project in VS Code:
-
-```bash
-code iot-hub-node-raspberrypi-azure-blink
+cd Lesson3
+code .
 ```
 
 ![Repo Structure](media/iot-hub-raspberry-pi-lessons/lesson3/repo_structure.png)
@@ -48,7 +43,6 @@ code iot-hub-node-raspberrypi-azure-blink
 - `app.js` in the `app` sub-folder is the key source file that contains the code sending a message 20 times to your IoT hub and blinking the LED every time it sends a message.
 - `arm-template.json` is the ARM template containing an Azure function app and a storage account.
 - `arm-template-param.json` file is the configuration file used by the ARM template.
-- `config.json` is the configuration file that contains information required to connect to the board and your IoT hub.
 - `ReceiveDeviceMessages` sub-folder contains Node.js code for the Azure function.
 
 ## 3.1.5 Configure ARM templates and create resources
@@ -56,13 +50,12 @@ Use VS Code to update your ARM template configuration file:
 
 ![ARM template parameters](media/iot-hub-raspberry-pi-lessons/lesson3/arm_para.png)
 
-- Replace **[your IoT Hub name]** with the **{my hub name}** you specified in [Lesson 2](iot-hub-raspberrypikit-node-lesson2-prepare-azure-iot-hub.md)
+- Replace **[your IoT Hub name]** with the **{my hub name}** you specified in [Lesson 2](iot-hub-raspberrypikit-node-lesson2-prepare-azure-iot-hub.md).
 - Replace **[prefix string for new resources]** with any prefix you want. The resource name is globally unique, so this prefix helps you avoid conflict (no dash, no number initial). 
 
-After you finished updating the `arm-template-param.json` file, change directory to `iot-hub-node-raspberrypi-azure-blink` and  run the following command to deploy to Azure:
+After you finished updating the `arm-template-param.json` file, change directory to `Lesson3` and  run the following command to deploy to Azure:
 
 ```bash
-cd iot-hub-node-raspberrypi-azure-blink
 az resource group deployment create --template-file-path arm-template.json --parameters-file-path arm-template-param.json -g iot-sample -n mydeployment
 ```
 

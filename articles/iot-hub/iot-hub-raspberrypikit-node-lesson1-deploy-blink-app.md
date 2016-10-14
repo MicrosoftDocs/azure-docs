@@ -34,7 +34,7 @@ In this section, you will learn:
 - You must have successfully completed the previous sections, [Configure your device](iot-hub-raspberrypikit-node-lesson1-configure-your-device.md) and [Get the tools](iot-hub-raspberrypikit-node-lesson1-get-the-tools-win32.md), in this lesson.
 
 ## 1.3.4 Obtain IP address of your Raspberry Pi
-Open a command prompt (Windows) or a terminal window (OS X / Ubuntu) and run the following command:
+Open a command prompt (Windows) or a terminal window (MacOS / Ubuntu) and run the following command:
 
 ```bash
 devdisco list --eth
@@ -50,18 +50,17 @@ Take a note of the `IP Address` of your Raspberry Pi 3 device. You need this inf
 
 
 ## 1.3.5 Clone the sample code
-To get started, create your workspace directory (az-iot-samples) in your home directory and clone the sample blink application from Github:
+To get started, clone the sample repository from Github:
 
 ```bash
-mkdir az-iot-samples
-cd az-iot-samples
-git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-blink.git
+git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-getting-started.git
 ```
 
 Run the following command to open the sample project in VS Code:
 
 ```bash
-code iot-hub-node-raspberrypi-blink
+cd Lesson1
+code .
 ```
 
 ![Repo structure](media/iot-hub-raspberry-pi-lessons/lesson1/vscode-blink-mac.png)
@@ -72,11 +71,27 @@ code iot-hub-node-raspberrypi-blink
 Now install the libraries and other modules you need for the sample:
 
 ```bash
-cd iot-hub-node-raspberrypi-blink && npm install
+npm install
 ```
 
 ## 1.3.7 Configure the device connection
-Update your device configuration file `config.json` in the sample folder with VS Code so you can deploy the sample application from your host machine:
+Run the following command to generate the device configuration file in the home folder of your host machine.
+
+```bash
+gulp init
+```
+
+For security purposes, the configuration file is in the home folder to prevent, run the following command to open it in Visual Studio Code.
+
+```bash
+// For Windows command prompt
+code %USERPROFILE%\.iot-hub-getting-started\config-raspberrypi.json
+
+// For MacOS or Ubuntu
+code ~/.iot-hub-getting-started/config-raspberrypi.json
+```
+
+Update your device configuration file `config-raspberrypi.json` in the sample folder with VS Code so you can deploy the sample application from your host machine:
 
 ![Config.json](media/iot-hub-raspberry-pi-lessons/lesson1/vscode-config-mac.png)
 
@@ -92,6 +107,7 @@ Install Node.js and NPM on your Pi using gulp so you can run the sample applicat
 ```bash
 gulp install-tools
 ```
+
 ### 1.3.8.2 Deploy and run the sample app
 Deploy the sample application to your Pi and run it:
 
@@ -103,7 +119,7 @@ gulp deploy && gulp run
 You should now see the LED on your Pi blinking every two seconds.  If you don’t see the LED flashing, take a look at the [Troubleshooting](iot-hub-raspberrypikit-node-troubleshooting.md) guide for solutions to common problems.
 ![LED blinking](media/iot-hub-raspberry-pi-lessons/lesson1/led_blinking.jpg)
 
-> [AZURE.NOTE] You can use `Ctrl - C` to terminate the application.
+> [AZURE.NOTE] You can use `Ctrl + C` to terminate the application.
 
 ## 1.3.9 Summary
 You have now installed all of the required tools you need to work with your Raspberry Pi 3 and deployed a simple app to your Pi to blink an LED. Now you can move to the next lesson to deploy, build, and run an application that connects your Pi to Azure IoT Hub to send and receive messages.

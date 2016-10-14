@@ -105,3 +105,26 @@ Monitor the device-to-cloud messages as they are written to your Azure storage.
 *Estimated time to complete: 5 minutes* 
 
 [Go to 'Read messages persisted in Azure Storage'](iot-hub-raspberrypikit-node-lesson3-read-table-storage.md)
+
+
+## Lesson4: Send messages from IoT Hub in the cloud to your device
+
+This lesson demos how to send messages from your Azure IoT hub to your Raspberry Pi 3. The messages control the on and off behavior of the LED that is connected to your Pi. A sample application is prepared for you to achieve this task.
+
+You should have completed Lessons 1, 2 and 3 before you start this lesson.
+
+## Get your hands on the sample application
+
+The sample application runs on your Pi and monitors incoming messages from your IoT hub. It also sends messages to your Pi from your IoT hub to blink the LED.
+
+*Estimated time to complete: 10 minutes* 
+
+[Go to 'Get your hands on the sample application'](iot-hub-raspberrypikit-node-lesson4-send-cloud-to-device-messages.md)
+
+## Complimentary reading: Change the on and off behavior of the LED
+
+Customize the messages to change the LED’s on and off behavior.
+
+*Estimated time to complete: 10 minutes* 
+
+[Go to 'Complimentary reading: Change the on and off behavior of the LED'](iot-hub-raspberrypikit-node-lesson4-change-the-LED-behavior.md)

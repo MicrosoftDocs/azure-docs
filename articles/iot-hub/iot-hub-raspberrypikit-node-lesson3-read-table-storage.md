@@ -29,7 +29,16 @@ Monitor the device-to-cloud messages as they are written to your Azure storage.
 - You must have successfully completed the previous section, Run the Azure blink sample application on your Raspberry Pi 3.
 
 ### 3.3.4 Read new messages from your storage account
-In previous section, you executed the sample application on your Raspberry Pi 3 that sent messages to your Azure IoT hub. The messages sent to IoT hub will be stored into your Azure table storage via your Azure function app. Run the following command to send messages again and read them from your table storage.
+In previous section, you executed the sample application on your Raspberry Pi 3 that sent messages to your Azure IoT hub. The messages sent to IoT hub will be stored into your Azure table storage via your Azure function app. Now you need your Azure storage connection string to read messages from your storage account. Run the following commands to get your `storage name` first and get the full connection string.
+
+```bash
+az storage account list -g iot-sample --query [].name
+az storage account show-connection-string -g iot-sample -n {storage name}
+```
+
+In the `config-raspberrypi.json` file, replace the `[Azure storage connection string]` with the string you get from above command and save the file.
+
+Run the following command to send messages again and read them from your table storage.
 
 ```bash
 gulp run --read-storage
@@ -41,4 +50,4 @@ gulp run --read-storage
 You have now successfully connected your Raspberry Pi 3 device to the cloud and used the Azure blink sample application to send device-to-cloud messages. You also used the Azure function app to persist incoming IoT hub messages to your Azure table storage. Now you can move to the next lesson to send cloud-to-device messages to your Raspberry Pi 3.
 
 ## Next Steps
-Lesson 4: Send cloud-to-device messages. Coming Soon...
+Lesson 4: Send cloud-to-device messages.

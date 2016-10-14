@@ -27,10 +27,10 @@ Configure your Raspberry Pi 3 for first time use and install the Raspbian OS, a 
 ## 1.1.2 What you will learn
 In this section, you will learn:
 
--	How to install Raspbian OS on your Raspberry Pi 3
--	How to power up your Pi using USB cable
--	How to connect your Pi to the network using Ethernet cable or WiFi
--	How to add an LED to the breadboard and connect it to your Pi
+- How to install Raspbian OS on your Raspberry Pi 3
+- How to power up your Pi using USB cable
+- How to connect your Pi to the network using Ethernet cable or WiFi
+- How to add an LED to the breadboard and connect it to your Pi
 
 ## 1.1.3 What you need
 To complete this section, you need the following parts from your Raspberry Pi Starter Kit:
