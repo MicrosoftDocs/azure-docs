@@ -22,11 +22,11 @@
 You can verify your gateway connection in a few different ways. This article will show you how to verify the status of a Resource Manager gateway connection by using the Azure portal and by using PowerShell.
 
 
-## PowerShell
+## Verify using PowerShell
 
 You'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets. For information on installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](../powershell-install-configure.md). For more information about using Resource Manager cmdlets, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
 
-### Log in to your Azure account
+### Step 1: Log in to your Azure account
 
 1. Open your PowerShell console with elevated privileges and connect to your account.
 
@@ -40,13 +40,13 @@ You'll need to install the latest version of the Azure Resource Manager PowerShe
 
 		Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 
-### Verify your connection
+### Step 2: Verify your connection
 
 
 [AZURE.INCLUDE [verify connection powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)] 
 
 
-## Azure portal
+## Verify using the Azure portal
 
 [AZURE.INCLUDE [verify connection portal](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)] 
 
