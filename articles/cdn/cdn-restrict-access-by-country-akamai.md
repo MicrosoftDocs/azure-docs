@@ -3,7 +3,7 @@
 	description="Learn how to restrict access to your Azure CDN content using the Geo-Filtering feature."
 	services="cdn"
 	documentationCenter=""
-	authors="rli"
+	authors="casoper, rli"
 	manager="akucer"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/14/2016"
-	ms.author="rli"/>
+	ms.author="Lichard"/>
 
 #Restrict access to your content by country - Akamai
 
