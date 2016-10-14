@@ -18,7 +18,7 @@
 
 # Microsoft Azure Stack troubleshooting
 
-If you experience issues while deploying or using Microsoft Azure Stack, refer to the following guidance. But first, make sure that your deployment environment complies with all [requirements](azure-stack-deploy.md) and [preparations](azure-stack-run-powershell-script.md). In particular, make sure you comply with the storage configuration requirements.
+This document provides common troubleshooting information for Azure Stack.  Make sure that your deployment environment meets all [requirements](azure-stack-deploy.md) and [preparations](azure-stack-run-powershell-script.md). 
 
 The recommendations for troubleshooting issues that are described in this section are derived from several sources and may or may not resolve your particular issue. Code examples are provided as is and expected results cannot be guaranteed. This section is not comprehensive of all troubleshooting issues for Microsoft Azure Stack, and it is subject to frequent edits and updates as improvements to the product are implemented.
 
@@ -30,7 +30,7 @@ If you are experiencing an issue not documented below, please make sure to check
      - “The term 'C:\WinRM\Start-Logging.ps1' is not recognized”
      - “Invoke-EceAction: Cannot index into a null array” 
 	 - “InvokeEceAction: Cannot bind argument to parameter 'Message' because it is an empty string.”
- - You may see deployment fail at step 60.61.93 with an error "Application with identifier 'URI' not found”. This is due to the way applications are registered in Azure Active Directory.  If you receive this error, continue to [rerun the installation script](azure-stack-rerun-deploy.md) from step 60.61.93 until deployment is complete.
+ - You may see deployment fail at step 60.61.93 with an error "Application with identifier 'URI' not found”. This behavior is due to the way applications are registered in Azure Active Directory.  If you receive this error, continue to [rerun the installation script](azure-stack-rerun-deploy.md) from step 60.61.93 until deployment is complete.
  - You will see that the **Availability Set** resource in the Marketplace shows up under the **virtualMachine-ARM** category – this appearance is only a cosmetic issue.
  - When creating a new virtual machine in the portal, in the **Basics** step, the storage option defaults to SSD.  This setting must be changed to HDD or on the **Size** step of VM deployment, you will not see VM sizes available to select and continue deployment. 
  - You will see AzureRM PowerShell modules are no longer installed by default on the MAS-CON01 VM (in TP1 this was named ClientVM). This behavior is by design, because there is an alternate method to [install these modules and connect](azure-stack-connect-powershell.md).  
@@ -58,7 +58,7 @@ If you experience a failure during installation, the Azure Stack installer allow
 
 ### At the end of the deployment, the PowerShell session is still open and doesn’t show any output
 
-This is probably just the result of the default behavior of a PowerShell command window, when it has been selected. The POC deployment had actually succeeded but the script was paused when selecting the window. You can verify that this is the case by looking for the word "select" in the titlebar of the command window.  Please press the ESC key to unselect it, and the completion message should be shown after it.
+This is probably just the result of the default behavior of a PowerShell command window, when it has been selected. The POC deployment had actually succeeded but the script was paused when selecting the window. You can verify this is the case by looking for the word "select" in the titlebar of the command window.  Please press the ESC key to unselect it, and the completion message should be shown after it.
 
 ## Templates
 
@@ -104,7 +104,7 @@ The following information about Azure Stack installation steps may be useful for
 | 0.21 | (NET) Setup BGP and NAT | Installs BGP and NAT - needed only for One Node. |
 | 0.22 | (NET) Configure NAT and Time Server | Syncs the time server and configures NAT entries. |
 | 40.41 | (CPI) Create guest VMs | Create the management VMs. |
-| 40.42 | (FBI) Set up PowerShell JEA | Setup PowerShell JEA for all roles. |
+| 40.42 | (FBI) Set up PowerShell JEA | Set up PowerShell JEA for all roles. |
 | 40.43 | (FBI) Set up Azure Stack Certification Authority | Installs Azure Stack Certification Authority. |
 | 40.44 | (FBI) Configure Azure Stack Certification Authority | Configures Azure Stack Certification Authority. |
 | 40.45 | (NET) Set up NC on VMs | Installs NC on the guest VMs |
