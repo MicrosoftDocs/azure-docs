@@ -40,7 +40,7 @@ This diagram shows SQL Database running in the US East region. It creates a data
 <!-- 
 First sentence begins with "The <feature> is ..." followed by a definition of the feature. Provide a 1-2 paragraph intro to explain what the feature is, how it works, and the importance of the feature for solving business problems.
 -->
-A SQL database backups include both local database backups and geo-redundant backups. Both of these are created automatically and at no additional charge. You don't need to do anything to make them happen.
+A SQL database backup includes both local database backups and geo-redundant backups. Both of these are created automatically and at no additional charge. You don't need to do anything to make them happen.
 
 For local backups, SQL Database uses SQL Server technology to create [full](https://msdn.microsoft.com/library/ms186289.aspx), [differential](https://msdn.microsoft.com/library/ms175526.aspx ), and [transaction log](https://msdn.microsoft.com/library/ms191429.aspx) backups. The transaction log backups happen every five minutes, which allows you to do a point-in-time restore to the same server that hosts the database. When you restore a database, the service figures out which full, differential, and transaction log backups need to be restored.
 
@@ -90,6 +90,6 @@ If you delete a database, SQL Database keeps the backups in the same way it woul
 
 ## Next steps
 
-Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. To see how database backups into a broader strategy,  see [Business continuity overview](sql-database-business-continuity.md).
+Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. To see how database backups into a broader strategy, see [Business continuity overview](sql-database-business-continuity.md).
 
 
