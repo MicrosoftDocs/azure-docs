@@ -40,7 +40,7 @@ To install the Azure Storage Client 2.4.0 for C++, you can use one of the follow
 
 -   **Windows:** In Visual Studio, click **Tools &gt; NuGet Package Manager &gt; Package Manager Console**. Type the following command into the [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press **ENTER**.
 
-Install-Package wastorage
+	Install-Package wastorage
 
 ## Set up your application to use File storage
 
