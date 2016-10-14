@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/15/2016"
+	ms.date="10/13/2016"
 	ms.author="markgal; jimpark"/>
 
 
@@ -221,6 +221,8 @@ The backup extension is installed by the Backup service whether the VM is runnin
 If you have issues accomplishing some of the tasks in this article, consult the
 [Troubleshooting guidance](backup-azure-vms-troubleshoot.md).
 
+## Pricing
+Azure VM backup will be charged based on Protected Instances model. Learn more on [Backup Pricing](https://azure.microsoft.com/pricing/details/backup/)
 
 ## Questions?
 If you have questions, or if there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).
