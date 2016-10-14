@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="10/05/2016"
+	ms.date="10/14/2016"
 	ms.author="scooxl"/>
 #  Azure Government Management and Security
 ##  Key Vault
@@ -29,7 +29,7 @@ Key Vault is generally available in Azure Government. As in public, there is no 
 ## Log Analytics
 Log Analytics is generally available in Azure Government. 
 
-### Differences from public Azure
+### Variations
 
 The following Log Analytics features and solutions are not currently available in Azure Government. This list is updated when the status of features / solutions changes.
 
