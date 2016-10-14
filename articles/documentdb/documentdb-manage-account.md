@@ -80,8 +80,7 @@ To retrieve your connection string, do the following:
 2. In the resource menu, click **Keys**.
 3. Click the **Copy** button next to the **Primary Connection String** or **Secondary Connection String** box. 
 
-If you are using the connection string in the Migration Tool, append the Database name to the end of the connection string. `AccountEndpoint=< >;AccountKey=< >;Database=< >`.
-
+If you are using the connection string in the [DocumentDB Database Migration Tool](documentdb-import-data.md), append the database name to the end of the connection string. `AccountEndpoint=< >;AccountKey=< >;Database=< >`.
 
 ## <a id="delete"></a> Delete a DocumentDB account
 To remove a DocumentDB account from the Azure Portal that you are no longer using, use the **Delete Account** command on the **DocumentDB account** blade.
