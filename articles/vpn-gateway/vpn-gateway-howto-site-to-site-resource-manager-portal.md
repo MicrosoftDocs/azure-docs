@@ -34,7 +34,7 @@ This article walks you through creating a virtual network and a Site-to-Site VPN
 
 [AZURE.INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] 
 
-The following table shows the currently available deployment models and methods. When an article with configuration steps is available, we link directly to it from this table. 
+The following table shows the currently available deployment models and methods for Site-to-Site configurations. When an article with configuration steps is available, we link directly to it from this table.
 
 [AZURE.INCLUDE [site-to-site table](../../includes/vpn-gateway-table-site-to-site-include.md)] 
 
