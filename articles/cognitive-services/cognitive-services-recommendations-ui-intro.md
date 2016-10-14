@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Building a model with the Recommnendations UI"
+	pageTitle="Building a model with the Recommnendations UI | Microsoft Azure"
 	description="Azure Machine Learning Recommendations - Building a model with the Recommnendations UI"
 	services="cognitive-services"
 	documentationCenter=""
