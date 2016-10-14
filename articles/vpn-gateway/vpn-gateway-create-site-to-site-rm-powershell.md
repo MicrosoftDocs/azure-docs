@@ -33,11 +33,9 @@ This article walks you through creating a virtual network and a Site-to-Site VPN
 
 [AZURE.INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] 
 
-#### Available deployment methods
+The following table shows the currently available deployment models and methods. When an article with configuration steps is available, we link directly to it from this table. 
 
-You can create a Site-to-Site connection for both the Resource Manager and classic deployment models. The following table shows the currently available deployment models and methods. When an article with configuration steps is available, we link directly to it from this table.
-
-[AZURE.INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)] 
+[AZURE.INCLUDE [site-to-site table](../../includes/vpn-gateway-table-site-to-site-include.md)] 
 
 If you want to connect VNets together, but are not creating a connection to an on-premises location, see [Configure a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md).
 

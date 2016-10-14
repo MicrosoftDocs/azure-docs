@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/16/2016"
+   ms.date="10/14/2016"
    ms.author="cherylmc"/>
 
 # Create a VNet with a Site-to-Site connection using the Azure classic portal
@@ -33,9 +33,7 @@ This article walks you through creating a virtual network and a site-to-site VPN
 
 [AZURE.INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] 
 
-#### Available deployment methods
-
-You can create a Site-to-Site connection for both the Resource Manager and classic deployment models. The following table shows the currently available deployment models and methods. When an article with configuration steps is available, we link directly to it from this table. 
+The following table shows the currently available deployment models and methods. When an article with configuration steps is available, we link directly to it from this table. 
 
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)] 
 
