@@ -22,15 +22,15 @@ This document provides common troubleshooting information for Azure Stack.  Make
 
 The recommendations for troubleshooting issues that are described in this section are derived from several sources and may or may not resolve your particular issue. Code examples are provided as is and expected results cannot be guaranteed. This section is not comprehensive of all troubleshooting issues for Microsoft Azure Stack, and it is subject to frequent edits and updates as improvements to the product are implemented.
 
-If you are experiencing an issue not documented below, please make sure to check the [Azure Stack MSDN Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) for further support and additional information.  
+If you are experiencing an issue not documented,  make sure to check the [Azure Stack MSDN Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) for further support and additional information.  
 
 ## Known Issues
 
- - You may see the following non-terminating errors during deployment, which will not affect deployment success:
+ - You may see the following non-terminating errors during deployment, which do affect deployment success:
      - “The term 'C:\WinRM\Start-Logging.ps1' is not recognized”
      - “Invoke-EceAction: Cannot index into a null array” 
 	 - “InvokeEceAction: Cannot bind argument to parameter 'Message' because it is an empty string.”
- - You may see deployment fail at step 60.61.93 with an error "Application with identifier 'URI' not found”. This behavior is due to the way applications are registered in Azure Active Directory.  If you receive this error, continue to [rerun the installation script](azure-stack-rerun-deploy.md) from step 60.61.93 until deployment is complete.
+ - You may see deployment fail at step 60.61.93 with an error "Application with identifier 'URI' not found.” This behavior is due to the way applications are registered in Azure Active Directory.  If you receive this error, continue to [rerun the installation script](azure-stack-rerun-deploy.md) from step 60.61.93 until deployment is complete.
  - You will see that the **Availability Set** resource in the Marketplace shows up under the **virtualMachine-ARM** category – this appearance is only a cosmetic issue.
  - When creating a new virtual machine in the portal, in the **Basics** step, the storage option defaults to SSD.  This setting must be changed to HDD or on the **Size** step of VM deployment, you will not see VM sizes available to select and continue deployment. 
  - You will see AzureRM PowerShell modules are no longer installed by default on the MAS-CON01 VM (in TP1 this was named ClientVM). This behavior is by design, because there is an alternate method to [install these modules and connect](azure-stack-connect-powershell.md).  
@@ -39,7 +39,7 @@ If you are experiencing an issue not documented below, please make sure to check
 	    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Insights 
 
  - You will see export functionality in the portal for Resource Groups, however no text is displayed and available for export.      
- - You can start a deployment of storage resources larger than available quota.  This deployment will fail and the account resources will be suspended.  There are two remediation options available:
+ - You can start a deployment of storage resources larger than available quota.  This deployment fails and the account resources will be suspended.  There are two remediation options available:
      - Service Administrator can increase the quota, though changes will not take effect immediately and commonly take up to an hour to propagate.
      - Service Administrator can create an add-on plan with additional quota that the tenant can then add to the subscription.
  - When using the portal to create VMs on Azure Stack environments with identity in ‘Azure - China’, you will not see VM sizes available to select in the **Size** step of VM deployment and will be unable to continue deployment.
@@ -47,7 +47,7 @@ If you are experiencing an issue not documented below, please make sure to check
  - When you delete a plan, offer, or subscription, VMs may not be deleted.
  - You will see the VM extensions in the marketplace.
  - You cannot deploy a VM from a saved VM image.
- - Tenants may see services which are not included in their subscription.  When tenants attempt to deploy these resources, they will receive an error.  Example:  Tenant subscription only includes storage resources.  Tenant will see option to create other resources like VMs.  In this scenario, when a tenant attempts to deploy a VM, they will receive a message indicating the VM can’t be created. 
+ - Tenants may see services which are not included in their subscription.  When tenants attempt to deploy these resources, they receive an error.  Example:  Tenant subscription only includes storage resources.  Tenant will see option to create other resources like VMs.  In this scenario, when a tenant attempts to deploy a VM, they receive a message indicating the VM can’t be created. 
  - When installing TP2, you should not activate the host OS in the VHD provided where you run the Azure Stack setup script, or you may receive an error messaging stating Windows will expire soon.
 
 
@@ -58,7 +58,7 @@ If you experience a failure during installation, the Azure Stack installer allow
 
 ### At the end of the deployment, the PowerShell session is still open and doesn’t show any output
 
-This is probably just the result of the default behavior of a PowerShell command window, when it has been selected. The POC deployment had actually succeeded but the script was paused when selecting the window. You can verify this is the case by looking for the word "select" in the titlebar of the command window.  Please press the ESC key to unselect it, and the completion message should be shown after it.
+This behavior is probably just the result of the default behavior of a PowerShell command window, when it has been selected. The POC deployment has actually succeeded but the script was paused when selecting the window. You can verify this is the case by looking for the word "select" in the titlebar of the command window.  Press the ESC key to unselect it, and the completion message should be shown after it.
 
 ## Templates
 
@@ -78,9 +78,9 @@ You can also use the Azure Stack templates already provided in the [GitHub repos
 
 As the system comes back up the storage subsystem and RPs need to determine consistency. The time needed depends on the hardware and specs being used, but it may be some time after a reboot of the host for tenant VMs to come back and be recognized.
 
-### I have deleted some virtual machines, but still see the VHD files on disk. Is this expected?
+### I have deleted some virtual machines, but still see the VHD files on disk. Is this behavior expected?
 
-Yes, this is expected. It was designed this way because:
+Yes, this is behavior expected. It was designed this way because:
 
 - When you delete a VM, VHDs are not deleted. Disks are separate resources in the resource group.
 - When a storage account gets deleted, the deletion is visible immediately through Azure Resource Manager (portal, PowerShell) but the disks it may contain are still kept in storage until garbage collection runs.
