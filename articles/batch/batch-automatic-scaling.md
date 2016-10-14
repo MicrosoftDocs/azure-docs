@@ -280,9 +280,9 @@ You can use both **resource** and **task** metrics when you're defining a formul
   </tr>
 </table>
 
-## Build an autoscale formula
+## Write an autoscale formula
 
-You construct an autoscale formula by forming statements that use the above components, then combine those statements into a complete formula. In this section, we'll create an example autoscale formula that can perform some real-world scaling decisions.
+You build an autoscale formula by forming statements that use the above components, then combine those statements into a complete formula. In this section, we'll create an example autoscale formula that can perform some real-world scaling decisions.
 
 First, let's define the requirements for our new autoscale formula. The formula should:
 
@@ -298,7 +298,7 @@ $totalNodes =
     ($CurrentDedicated * 1.1) : $CurrentDedicated;
 ```
 
-To *decrease* the number of nodes during low CPU usage, the next statement in our new formula sets the same `$totalNodes` variable to 90 percent of the current target number of nodes if the average CPU usage in the past 60 minutes was *under* 20 percent. Otherwise, use the current value of `$totalNodes` that we populated in the statement above.
+To *decrease* the number of nodes during low CPU usage, the next statement in our formula sets the same `$totalNodes` variable to 90 percent of the current target number of nodes if the average CPU usage in the past 60 minutes was under 20 percent. Otherwise, use the current value of `$totalNodes` that we populated in the statement above.
 
 ```
 $totalNodes =
@@ -323,8 +323,6 @@ $totalNodes =
     ($CurrentDedicated * 0.9) : $totalNodes;
 $TargetDedicated = min(400, $totalNodes)
 ```
-
->[AZURE.NOTE] An automatic scaling formula is composed of [Batch REST][rest_api] API variables, types, operations, and functions. You use these in formula strings even while you're working with the [Batch .NET][net_api] library.
 
 ## Create an autoscale-enabled pool
 
@@ -386,15 +384,14 @@ When you enable autoscaling on an existing pool, the following applies:
 
 > [AZURE.NOTE] If a value was specified for the *targetDedicated* parameter when the pool was created, it is ignored when the automatic scaling formula is evaluated.
 
-This code snippet enables autoscaling on an existing pool by using the [Batch .NET][net_api] library:
+This C# code snippet uses the [Batch .NET][net_api] library to enable autoscaling on an existing pool:
 
 ```csharp
 // Define the autoscaling formula. This formula sets the target number of nodes
 // to 5 on Mondays, and 1 on every other day of the week
 string myAutoScaleFormula = "$TargetDedicated = (time().weekday == 1 ? 5:1);";
 
-// Set the existing pool's autoscaling formula by calling the
-// BatchClient.PoolOperations.EnableAutoScale method
+// Set the autoscale formula on the existing pool
 myBatchClient.PoolOperations.EnableAutoScale(
 	"myexistingpool",
 	autoscaleFormula: myAutoScaleFormula);
@@ -406,7 +403,7 @@ You use the same "enable autoscale" request to *update* the formula on an existi
 
 ```csharp
 myBatchClient.PoolOperations.EnableAutoScale(
-	"mypmyexistingpool",
+	"myexistingpool",
 	autoscaleFormula: myNewFormula);
 ```
 
@@ -422,16 +419,17 @@ myBatchClient.PoolOperations.EnableAutoScale(
 
 ## Evaluate an autoscale formula
 
-You can evaluate a formula by performing a "test run" of the formula on an existing pool. To evaluate an autoscale formula, you must first **enable autoscaling** on the pool with a **valid formula**.
+You can evaluate a formula before applying it to a pool. Thus, you can perform a "test run" of the formula to see how its statements evaluate before you put the formula into production.
 
-If you want to test a formula on a pool that doesn't yet have autoscaling enabled, you can use the one-line formula `$TargetDedicated = 0` when you first enable autoscaling. Then, use one of the following to evaluate the formula you wish to test:
+To evaluate an autoscale formula, you must first **enable autoscaling** on the pool with a **valid formula**. If you want to test a formula on a pool that doesn't yet have autoscaling enabled, you can use the one-line formula `$TargetDedicated = 0` when you first enable autoscaling. Then, use one of the following to evaluate the formula you want to test:
 
-- [BatchClient.PoolOperations.EvaluateAutoScale](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscale.aspx) or [BatchClient.PoolOperations.EvaluateAutoScaleAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscaleasync.aspx)
+* [BatchClient.PoolOperations.EvaluateAutoScale](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscale.aspx) or [EvaluateAutoScaleAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscaleasync.aspx)
 
-  These .NET methods require the ID of an existing pool and the string that contains the autoscale formula to evaluate. The results of the call are contained in an instance of the [AutoScaleEvaluation](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscaleevaluation.aspx) class.
-- [Evaluate an automatic scaling formula](https://msdn.microsoft.com/library/azure/dn820183.aspx)
+    These Batch .NET methods require the ID of an existing pool and a string containing the autoscale formula to evaluate. The evaluation results are contained in the returned [AutoScaleEvaluation](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscaleevaluation.aspx) instance.
 
-  In this REST API request, you specify the pool ID in the URI. The autoscale formula is specified in the *autoScaleFormula* element of the request body. The response of the operation contains any error information that might be related to the formula.
+* [Evaluate an automatic scaling formula](https://msdn.microsoft.com/library/azure/dn820183.aspx)
+
+    In this REST API request, you specify the pool ID in the URI. The autoscale formula is specified in the *autoScaleFormula* element of the request body. The response of the operation contains any error information that might be related to the formula.
 
 In this [Batch .NET][net_api] code snippet, we evaluate a formula prior to applying it to the [CloudPool][net_cloudpool]. If the pool does not have autoscaling enabled, we enable it first.
 
