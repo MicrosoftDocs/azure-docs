@@ -127,4 +127,4 @@ Customize the messages to change the LED’s on and off behavior.
 
 *Estimated time to complete: 10 minutes* 
 
-[Go to 'Complimentary reading: Change the on and off behavior of the LED'](iot-hub-raspberrypikit-node-lesson4-change-the-LED-behavior.md)
+[Go to 'Complimentary reading: Change the on and off behavior of the LED'](iot-hub-raspberrypikit-node-lesson4-change-led-behavior.md)
