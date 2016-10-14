@@ -90,3 +90,20 @@ To detach the VHD from the VM that is using it (for data disks):
 6.	Determine with certainty that nothing is actively using the data disk.
 7.	Click **Detach** in the Disk details blade.
 8.	The disk should now be detached from the VM, and the VHD should no longer have a lease on it. It may take a few minutes for the lease to be released. To verify that the lease has been released, go to **All resources**> **Storage Account Name** > **Blobs** > **vhds**. In the **Blob properties** pane. The **Lease Status** value should be **Unlocked**.
+
+## What is a lease?
+
+A lease is a lock that can be used to control access to a blob (for example, a VHD). When a blob is leased, only the owners of the lease can access the blob. A lease is important for the following reasons:
+
+-	It prevents data corruption if multiple owners try to write to the same portion of the blob at the same time.
+
+-	It prevents the blob from being deleted if something is actively using it (for example, a VM).
+
+-	It prevents the storage account from being deleted if something is actively using it (for example, a VM).
+
+
+
+## Next steps
+
+- [Delete a storage account](storage-create-storage-account.md#delete-a-storage-account)
+- [How to break the locked lease of blob storage in Microsoft Azure (PowerShell)](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)
