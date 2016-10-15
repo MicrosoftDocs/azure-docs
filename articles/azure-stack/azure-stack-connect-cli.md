@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/26/2016"
+	ms.date="10/14/2016"
 	ms.author="helaw"/>
 
 # Install and configure Azure CLI
