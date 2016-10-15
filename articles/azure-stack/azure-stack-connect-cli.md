@@ -22,7 +22,7 @@ In this document, we guide you through the process of using the Azure command-li
 
 ## Install Azure CLI
 
-  If you’re on Mac or Linux, you can also get the CLI by using the following command:
+If you’re on Mac or Linux, you can get the CLI by using the following command:
   
     `npm install -g azure-cli@0.10.4`.
 
