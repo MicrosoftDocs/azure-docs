@@ -84,9 +84,9 @@ In order to start a runbook when the management solution is installed, you creat
 | parameters | Entity for each parameter required by the runbook. |
 
 
-The job includes the runbook name and any parameter values to be sent to the runbook.  The job must [depend on](operations-management-suite-custom-solutions-creating.md#resources) the runbook that it's starting since the runbook must be created before the job.  You also create dependencies on other jobs for runbooks that should be completed before the current one.
+The job includes the runbook name and any parameter values to be sent to the runbook.  The job must [depend on](operations-management-suite-solutions-creating.md#resources) the runbook that it's starting since the runbook must be created before the job.  You also create dependencies on other jobs for runbooks that should be completed before the current one.
 
-The name of a job resource must contain a GUID which is typically assigned by a parameter.  You can read more about GUID parameters in [Creating solutions in Operations Management Suite (OMS)](operations-management-suite-custom-solutions-creating.md#parameters).  
+The name of a job resource must contain a GUID which is typically assigned by a parameter.  You can read more about GUID parameters in [Creating solutions in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md#parameters).  
 
 Following is an example of a job resource that starts a runbook when the management solution is installed.  One other runbooks must be completed before this one starts, so it has dependencies on the jobs for that runbook.  The details for the job are provided through parameters and variables rather than being specified directly.
 
@@ -352,4 +352,4 @@ Following is a sample of the required elements of a solution to support the modu
 
 ## Next steps
 
-- [Add a view to your solution](operations-management-suite-custom-solutions-resources-views.md) to visualize collected data.
+- [Add a view to your solution](operations-management-suite-solutions-resources-views.md) to visualize collected data.
