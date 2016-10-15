@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Manage pricing and quota for Application Insights" 
-	description="Choose the price plan you need" 
+	pageTitle="Manage pricing and quota for Application Insights | Microsoft Azure" 
+	description="Choose the price plan you need, manage telemetry volumes" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 

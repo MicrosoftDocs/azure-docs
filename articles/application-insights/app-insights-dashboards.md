@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Using the Application Insights portal | Microsoft Azure"
-	description="Metrics, search, dashboards and settings in the Application Insights portal."
+	pageTitle="Dashboards and navigation in the Application Insights portal | Microsoft Azure"
+	description="Create views of your key APM charts and queries."
 	services="application-insights"
     documentationCenter=""
 	authors="alancameronwills"
