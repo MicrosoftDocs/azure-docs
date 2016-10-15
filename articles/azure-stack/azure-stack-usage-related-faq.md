@@ -7,14 +7,14 @@ What meter IDs can I see?
 Currently, usage is reported for the network, storage, and compute
 resource providers.
 
-  **Resource** **provider**   **Meter ID**                            **Meter name**             **Unit**                     **Additional info** 
-  --------------------------- --------------------------------------- -------------------------- ---------------------------- -----------------------------------------
-  **Network **                f114cb19-ea64-40b5-bcd7-aee474b62853    Public IP Address Usage    IP address                    
-  **Storage**                  B4438D5D-453B-4EE1-B42A-DC72E377F1E4   TableCapacity              GB\*hour                     Total capacity consumed by tables
-                              B5C15376-6C94-4FDD-B655-1A69D138ACA3    PageBlobCapacity           GB\*hours                    Total capacity consumed by page blobs 
-                              B03C6AE7-B080-4BFA-84A3-22C800F315C6    QueueCapacity              GB\*hours                    Total capacity consumed by queue 
-                              09F8879E-87E9-4305-A572-4B7BE209F857    BlockBlobCapacity          GB\*hours                    Total capacity consumed by block blobs 
-                              B9FF3CD0-28AA-4762-84BB-FF8FBAEA6A90    TableTransactions          Requests count in 10,000s    Table service requests (in 10,000s) 
+| **Resource provider** | **Meter ID** |**Meter name** | **Unit** | **Additional info** |
+| --------------------------- | --------------------------------------- | -------------------------- | ---------------------------- | ----------------------------------------- |
+| **Network ** | f114cb19-ea64-40b5-bcd7-aee474b62853 | Public IP Address Usage | IP address |                    
+| **Storage**  | B4438D5D-453B-4EE1-B42A-DC72E377F1E4 | TableCapacity | GB\*hours | Total capacity consumed by tables |
+|              | B5C15376-6C94-4FDD-B655-1A69D138ACA3 | PageBlobCapacity | GB\*hours | Total capacity consumed by page blobs |
+|              | B03C6AE7-B080-4BFA-84A3-22C800F315C6 | QueueCapacity  | GB\*hours  | Total capacity consumed by queue |
+| | 09F8879E-87E9-4305-A572-4B7BE209F857 | BlockBlobCapacity | GB\*hours  | Total capacity consumed by block blobs |
+| | B9FF3CD0-28AA-4762-84BB-FF8FBAEA6A90 | TableTransactions  | Requests count in 10,000s   | Table service requests (in 10,000s) |
                               50A1AEAF-8ECA-48A0-8973-A5B3077FEE0D    TableDataTransIn           Ingress data in GB           Table service data ingress in GB 
                               1B8C1DEC-EE42-414B-AA36-6229CF199370    TableDataTransOut          Outgress in GB               Table service data egress in GB 
                               43DAF82B-4618-444A-B994-40C23F7CD438    BlobTransactions           Requests count in 10,000s    Blob service requests (in 10,000s) 
