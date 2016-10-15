@@ -40,11 +40,46 @@ To use the file upload functionality, you must first link an Azure Storage accou
 
 ## Initialize a file upload
 
+IoT Hub has an endpoint specifically for devices to request a SAS URI for storage to upload a file. The device initiates the file upload process by sending a POST to the IoT hub at `{iot hub}.azure-devices.net/devices/{deviceId}/files` with the following JSON body:
+
+```
+{
+    "blobName": "{name of the file for which a SAS URI will be generated}"
+}
+```
+
+IoT Hub returns the following, which the device uses to upload the file:
+
+```
+{
+    "correlationId": "somecorrelationid",
+    "hostname": "contoso.azure-devices.net",
+    "containerName": "testcontainer",
+    "blobName": "test-device1/image.jpg",
+    "sasToken": "1234asdfSAStoken"
+}
+```
+
+### Deprecated: initialize a file upload with a GET
+
+> [AZURE.NOTE] This section describes deprecated functionality for how to receive a SAS URI from IoT Hub. Please use the POST method described above.
+
 IoT Hub has two REST endpoints to support file upload, one to get the SAS URI for storage and the other to notify the IoT hub of a completed upload. The device initiates the file upload process by sending a GET to the IoT hub at `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`. The hub returns a SAS URI specific to the file to be uploaded, and a correlation ID to be used once the upload is completed.
 
 ## Notify IoT Hub of a completed file upload
 
-The device is responsible for uploading the file to storage using the Azure Storage SDKs. Once the upload is completed, the device sends a POST to the IoT hub at `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications/{correlationId}` using the correlation ID received from the initial GET.
+The device is responsible for uploading the file to storage using the Azure Storage SDKs. Once the upload is completed, the device sends a POST to the IoT hub at `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications` with the following JSON body:
+
+```
+{
+    "correlationId": "{correlation ID received from the initial request}",
+    "isSuccess": bool,
+    "statusCode": XXX,
+    "statusDescription": "Description of status"
+}
+```
+
+The value of `isSuccess` is a Boolean representing whether or not the file was uploaded successfully. The status code for `statusCode` is the status for the upload of the file to storage, and the `statusDescription` corresponds to the `statusCode`.
 
 ## Reference
 

@@ -43,7 +43,7 @@ If Status Monitor is installed on your server machines, you get some additional 
 
 ![Extend in Azure](./media/app-insights-asp-net-more/070.png)
 
-To see more or fewer counters, [edit the charts](app-insights-metrics-explorer.md). If the performance counter you want isn't in the available set, you can [add it to the set collected by the performance counter module](app-insights-web-monitor-performance.md#system-performance-counters).
+To see more or fewer counters, [edit the charts](app-insights-metrics-explorer.md). If the performance counter you want isn't in the available set, you can [add it to the set collected by the performance counter module](app-insights-performance-counters.md).
 
 ## If it's an Azure web app ...
 

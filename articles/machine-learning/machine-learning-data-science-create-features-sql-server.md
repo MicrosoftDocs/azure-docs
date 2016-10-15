@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Create features for data in SQL Server using SQL and Python | Microsoft Azure" 
-	description="Process Data from SQL Azure" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="jhubbard" 
+<properties
+	pageTitle="Create features for data in SQL Server using SQL and Python | Microsoft Azure"
+	description="Process Data from SQL Azure"
+	services="machine-learning"
+	documentationCenter=""
+	authors="bradsev"
+	manager="jhubbard"
 	editor="" />
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/19/2016" 
-	ms.author="bradsev;fashah;garye" /> 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/19/2016"
+	ms.author="bradsev;fashah;garye" />
 
 
 # Create features for data in SQL Server using SQL and Python
@@ -35,7 +35,7 @@ This article assumes that you have:
 * Stored your data in SQL Server. If you have not, see [Move data to an Azure SQL Database for Azure Machine Learning](machine-learning-data-science-move-sql-azure.md) for instructions on how to move the data there.
 
 
-##<a name="sql-featuregen"></a>Feature Generation with SQL
+## <a name="sql-featuregen"></a>Feature Generation with SQL
 
 In this section, we describe ways of generating features using SQL:  
 
@@ -44,25 +44,25 @@ In this section, we describe ways of generating features using SQL:
 3. [Rolling out the features from a single column](#sql-featurerollout)
 
 
-> [AZURE.NOTE] Once you generate additional features, you can either add them as columns to the existing table or create a new table with the additional features and primary key, that can be joined with the original table. 
+> [AZURE.NOTE] Once you generate additional features, you can either add them as columns to the existing table or create a new table with the additional features and primary key, that can be joined with the original table.
 
-###<a name="sql-countfeature"></a>Count based Feature Generation
+### <a name="sql-countfeature"></a>Count based Feature Generation
 
 This document demonstrates two ways of generating count features. The first method uses conditional sum and the second method uses the 'where` clause. These can then be joined with the original table (using primary key columns) to have count features alongside the original data.
 
-	select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3> 
+	select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
 
-	select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename> 
-	where <column_name3> = '<some_value>' group by <column_name1>,<column_name2> 
+	select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename>
+	where <column_name3> = '<some_value>' group by <column_name1>,<column_name2>
 
-###<a name="sql-binningfeature"></a>Binning Feature Generation
+### <a name="sql-binningfeature"></a>Binning Feature Generation
 
 The following example shows how to generate binned features by binning (using 5 bins) a numerical column that can be used as a feature instead:
 
 	`SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
-###<a name="sql-featurerollout"></a>Rolling out the features from a single column
+### <a name="sql-featurerollout"></a>Rolling out the features from a single column
 
 In this section, we demonstrate how to roll-out a single column in a table to generate additional features. The example assumes that there is a latitude or longitude column in the table from which you are trying to generate features.
 
@@ -81,7 +81,7 @@ Here is a brief primer on latitude/longitude location data (resourced from stack
 
 The location information can can be featurized as follows, separating out region, location and city information. Note that once can also call a REST end point such as Bing Maps API available at `https://msdn.microsoft.com/library/ff701710.aspx` to get the region/district information.
 
-	select 
+	select
 		<location_columnname>
 		,round(<location_columnname>,0) as l1		
 		,l2=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 1 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),1,1) else '0' end 	
@@ -92,26 +92,26 @@ The location information can can be featurized as follows, separating out region
 		,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end 	
 	from <tablename>
 
-The above location based features can be further used to generate additional count features as described earlier. 
+The above location based features can be further used to generate additional count features as described earlier.
 
 
-> [AZURE.TIP] You can programmatically insert the records using your language of choice. You may need to insert the data in chunks to improve write efficiency [Check out the example of how to do this using pyodbc here](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python). 
+> [AZURE.TIP] You can programmatically insert the records using your language of choice. You may need to insert the data in chunks to improve write efficiency [Check out the example of how to do this using pyodbc here](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
 Another alternative is to insert data in the database using [BCP utility](https://msdn.microsoft.com/library/ms162802.aspx)
 
-###<a name="sql-aml"></a>Connecting to Azure Machine Learning
+### <a name="sql-aml"></a>Connecting to Azure Machine Learning
 
 The newly generated feature can be added as a column to an existing table or stored in a new table and joined with the original table for machine learning. Features can be generated or accessed if already created, using the [Import Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) module in Azure ML as shown below:
 
-![azureml readers](./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png) 
+![azureml readers](./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png)
 
-##<a name="python"></a>Using a programming language like Python
+## <a name="python"></a>Using a programming language like Python
 
 Using Python to generate features when the data is in SQL Server is similar to processing data in Azure blob using Python as documented in [Process Azure Blob data in you data science environment](machine-learning-data-science-process-data-blob.md). The data needs to be loaded from the database into a pandas data frame and then can be processed further. We document the process of connecting to the database and loading the data into the data frame in this section.
 
 The following connection string format can be used to connect to a SQL Server database from Python using pyodbc (replace servername, dbname, username and password with your specific values):
 
 	#Set up the SQL Azure connection
-	import pyodbc	
+	import pyodbc
 	conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
 The [Pandas library](http://pandas.pydata.org/) in Python provides a rich set of data structures and data analysis tools for data manipulation for Python programming. The code below reads the results returned from a SQL Server database into a Pandas data frame:
@@ -120,5 +120,3 @@ The [Pandas library](http://pandas.pydata.org/) in Python provides a rich set of
 	data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
 
 Now you can work with the Pandas data frame as covered in topics [Create features for Azure blob storage data using Panda](machine-learning-data-science-create-features-blob.md).
-
- 
