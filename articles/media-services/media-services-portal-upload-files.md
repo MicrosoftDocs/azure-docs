@@ -30,7 +30,7 @@ In Media Services, you upload your digital files into an asset. The Asset  can c
  
 1. In the [Azuer portal](https://portal.azure.com/), select your Azure Media Services account.
 
-2. On the **Settings** blade, click **Assets**. If you do not see the **Settings** blade, click on the **gear** icon.
+2. On the **Settings** blade, click **Assets**.
 
 	![Upload files](./media/media-services-portal-vod-get-started/media-services-upload.png)
 
