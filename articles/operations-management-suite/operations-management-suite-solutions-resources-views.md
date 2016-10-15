@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Views in Operations Management Suite (OMS) solutions | Microsoft Azure"
-   description="Solutions in Operations Management Suite (OMS) will typically include one or more views to visualize data.  This article describes how to export a view created by the View Designer and include it in a solution. "
+   pageTitle="Views in Operations Management Suite (OMS) management solutions | Microsoft Azure"
+   description="Management solutions in Operations Management Suite (OMS) will typically include one or more views to visualize data.  This article describes how to export a view created by the View Designer and include it in a management solution. "
    services="operations-management-suite"
    documentationCenter=""
    authors="bwren"
@@ -12,25 +12,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
+   ms.date="10/14/2016"
    ms.author="bwren" />
 
-# Views in Operations Management Suite (OMS) solutions (Preview)
+# Views in Operations Management Suite (OMS) management solutions (Preview)
 
->[AZURE.NOTE]This is preliminary documentation for creating solutions in OMS which are currently in preview. Any schema described below is subject to change.    
+>[AZURE.NOTE]This is preliminary documentation for creating management solutions in OMS which are currently in preview. Any schema described below is subject to change.    
 
-[Solutions in Operations Management Suite (OMS)](operations-management-suite-custom-solutions.md) will typically include one or more views to visualize data.  This article describes how to export a view created by the [View Designer](../log-analytics/log-analytics-view-designer.md) and include it in a solution.  
+[Management solutions in Operations Management Suite (OMS)](operations-management-suite-solutions.md) will typically include one or more views to visualize data.  This article describes how to export a view created by the [View Designer](../log-analytics/log-analytics-view-designer.md) and include it in a management solution.  
 
->[AZURE.NOTE]The samples in this article use parameters and variables that are either required or common to solutions  and described in [Solutions in Operations Management Suite (OMS)](operations-management-suite-custom-solutions.md) 
+>[AZURE.NOTE]The samples in this article use parameters and variables that are either required or common to management solutions  and described in [Creating management solutions in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md) 
 
 
 ## Prerequisites
-This article assumes that you're already familiar with how to [create a solution in Operations Management Suite (OMS)](operations-management-suite-custom-solutions-creating.md) and the structure of a solution file.
+This article assumes that you're already familiar with how to [create a management solution](operations-management-suite-solutions-creating.md) and the structure of a solution file.
 
 
 ## Overview
 
-To include a view in a solution, you create a **resource** for it in the [solution file](operations-management-suite-custom-solutions-creating.md).  The JSON that describes the view's detailed configuration is typically complex though and not something that a typical solution author would be able to create manually.  The most common method is to create the view using the [View Designer](../log-analytics/log-analytics-view-designer.md), export it, and then add its detailed configuration to the solution. 
+To include a view in a management solution, you create a **resource** for it in the [solution file](operations-management-suite-solutions-creating.md).  The JSON that describes the view's detailed configuration is typically complex though and not something that a typical solution author would be able to create manually.  The most common method is to create the view using the [View Designer](../log-analytics/log-analytics-view-designer.md), export it, and then add its detailed configuration to the solution. 
 
 The basic steps to add a view to a solution are as follows.  Each step is described in further detail in the sections below.
 
@@ -39,7 +39,7 @@ The basic steps to add a view to a solution are as follows.  Each step is descri
 3. Add the view details.
 
 ## Export the view to a file
-Follow the instructions at [Log Analytics View Designer](../log-analytics/log-analytics-view-designer.md) to export a view to a file.  The exported file will be in JSON format with the same [elements as the solution file](operations-management-suite-custom-solutions.md#creating-a-new-custom-solution).  
+Follow the instructions at [Log Analytics View Designer](../log-analytics/log-analytics-view-designer.md) to export a view to a file.  The exported file will be in JSON format with the same [elements as the solution file](operations-management-suite-solutions-creating.md#management-solution-files).  
 
 The **resources** element of the view file will have a resource with a type of **Microsoft.OperationalInsights/workspaces** that represents the OMS workspace.  This element will have a subelement with a type of **views** that represents the view and contains its detailed configuration.  You will copy the details of this element and then copy it into your solution.
 
@@ -67,7 +67,7 @@ Add the following view resource to the **resources** element of your solution fi
 		}
 	}
 
-Add the following variables to the [variables](operations-management-suite-custom-solutions.md#variables) element of the solution file and replace the values to those for your solution.
+Add the following variables to the [variables](operations-management-suite-solutions-creating.md#variables) element of the solution file and replace the values to those for your solution.
 
 	"LogAnalyticsApiVersion": "2015-11-01-preview",
 	"ViewAuthor": "Your name."
@@ -131,11 +131,11 @@ For example, the following sample shows a simple solution file with a view.  Ell
 					"[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspacename'), '/views/', variables('ViewName'))]"
 				],
 				"properties": {
-					"workspaceResourceId": "[concat(resourceGroup().id, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspacename'))]",
+					"workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]", 
 					"referencedResources": [
-						"[concat(resourceGroup().id, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspacename'), '/views/', variables('ViewName'))]"
 					],
 					"containedResources": [
+						"[resourceId('Microsoft.OperationalInsights/workspaces/views/', parameters('workspaceName'), variables('viewName'))]"
 					]
 				},
 				"plan": {
@@ -173,5 +173,5 @@ For example, the following sample shows a simple solution file with a view.  Ell
 
 ## Next steps
 
-- Learn complete details of creating [solutions in Operations Management Suite (OMS)](operations-management-suite-custom-solutions-creating.md).
-- Include [Automation runbooks in your solution](operations-management-suite-custom-solutions-resources-automation.md).
+- Learn complete details of creating [management solutions](operations-management-suite-solutions-creating.md).
+- Include [Automation runbooks in your management solution](operations-management-suite-solutions-resources-automation.md).

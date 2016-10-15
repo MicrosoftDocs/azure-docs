@@ -12,24 +12,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
+   ms.date="10/14/2016"
    ms.author="bwren" />
 
 # Automation resources in OMS solutions (Preview)
 
->[AZURE.NOTE]This is preliminary documentation for creating solutions in OMS which are currently in preview. The schema described below is subject to change.     
+>[AZURE.NOTE]This is preliminary documentation for creating management solutions in OMS which are currently in preview. Any schema described below is subject to change.   
 
-[Solutions in OMS](operations-management-suite-custom-solutions.md) will typically include runbooks in Azure Automation to automate processes such as collecting and processing monitoring data.  In addition to runbooks, Automation accounts includes assets such as variables and schedules that support the runbooks used in the solution.  This article describes how to include runbooks and their related resources in a solution.
+[Management solutions in OMS](operations-management-suite-solutions.md) will typically include runbooks in Azure Automation to automate processes such as collecting and processing monitoring data.  In addition to runbooks, Automation accounts includes assets such as variables and schedules that support the runbooks used in the solution.  This article describes how to include runbooks and their related resources in a solution.
 
->[AZURE.NOTE]The samples in this article use parameters and variables that are either required or common to solutions  and described in [Solutions in Operations Management Suite (OMS)](operations-management-suite-custom-solutions.md) 
+>[AZURE.NOTE]The samples in this article use parameters and variables that are either required or common to management solutions  and described in [Creating management solutions in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md) 
 
 >[AZURE.NOTE]You can get sample Resource Manager templates for Automation resources from the [QuickStart templates in GitHub](https://github.com/azureautomation/automation-packs/tree/master/101-sample-automation-resource-templates).
 
 ## Prerequisites
-This article assumes that you're already familiar with how to create a [solution in Operations Management Suite (OMS)](operations-management-suite-custom-solutions-creating.md) and the structure of a solution file.
+This article assumes that you're already familiar with how to [create a management solution](operations-management-suite-solutions-creating.md) and the structure of a solution file.
 
 ## Automation account
-All resources in Azure Automation are contained in an [Automation account](../automation/automation-security-overview.md#automation-account-overview).  As described in [OMS workspace and Automation account](operations-management-suite-custom-solutions.md#oms-workspace-and-automation-account) the Automation account isn't included in the solution but must exist before the solution is installed.  If it isn't available, then the solution install will fail.
+All resources in Azure Automation are contained in an [Automation account](../automation/automation-security-overview.md#automation-account-overview).  As described in [OMS workspace and Automation account](operations-management-suite-custom-solutions.md#oms-workspace-and-automation-account) the Automation account isn't included in the management solution but must exist before the solution is installed.  If it isn't available, then the solution install will fail.
 
 The name of their Automation account is in the name of each Automation resource.  This is done in the solution with the **accountName** parameter as in the following example of a runbook resource.
 	
@@ -49,10 +49,13 @@ The name of their Automation account is in the name of each Automation resource.
 
 An example of a runbook resource is below.  In this case, it retrieves the runbook from the [PowerShell Gallery](https://www.powershellgallery.com).
 
-	"name": "[concat(parameters('accountName'), '/MyRunbook'))]",
+	"name": "[concat(parameters('accountName'), '/Start-AzureV2VMs'))]",
 	"type": "Microsoft.Automation/automationAccounts/runbooks",
 	"apiVersion": "[variables('AutomationApiVersion')]",
 	"location": "[parameters('regionId')]",
+	"dependsOn": [
+		"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('startVmsRunbookName'))]"
+	],
 	"tags": { },
 	"properties": {
 		"runbookType": "PowerShell",
@@ -60,20 +63,20 @@ An example of a runbook resource is below.  In this case, it retrieves the runbo
 		"logVerbose": "true",
 		"description": "",
 		"publishContentLink": {
-			"uri": "https://www.powershellgallery.com/packages/Start-AzureV2VMs/1.0/Content/Start-AzureV2VMs.ps1",
-			"version": "1.0.0.0"
+			"uri": "https://www.powershellgallery.com/api/v2/items/psscript/package/Update-ModulesInAutomationToLatestVersion/1.0/Start-AzureV2VMs.ps1",
+			"version": "1.0"
 		}
 	}
 
 ### Starting a runbook
-There are two methods to start a runbook in a solution.
+There are two methods to start a runbook in a management solution.
 
 - To start the runbook when the solution is installed, create a [job resource](#automation-jobs) as described below.
 - To start the runbook on a schedule, create a [schedule resource](#schedules) as described below. 
 
 
 ## Automation jobs
-In order to start a runbook when the solution is installed, you create a **job** resource.  Job resources have a type of **Microsoft.Automation/automationAccounts/jobs** and have the properties in the following table.
+In order to start a runbook when the management solution is installed, you create a **job** resource.  Job resources have a type of **Microsoft.Automation/automationAccounts/jobs** and have the properties in the following table.
 
 | Property | Description |
 |:--|:--|
@@ -85,27 +88,25 @@ The job includes the runbook name and any parameter values to be sent to the run
 
 The name of a job resource must contain a GUID which is typically assigned by a parameter.  You can read more about GUID parameters in [Creating solutions in Operations Management Suite (OMS)](operations-management-suite-custom-solutions-creating.md#parameters).  
 
-Following is an example of a job resource that starts a runbook when the solution is installed.  Two other runbooks must be completed before this one starts, so it has dependencies on the jobs for those runbooks.  The runbook also accepts parameters   
+Following is an example of a job resource that starts a runbook when the management solution is installed.  One other runbooks must be completed before this one starts, so it has dependencies on the jobs for that runbook.  The details for the job are provided through parameters and variables rather than being specified directly.
 
 	{
-		"name": "[concat(parameters('accountName'), '/', parameters('ScheduleReregisterJobIDGuid'))]",
+		"name": "[concat(parameters('accountName'), '/', parameters('startVmsRunbookGuid'))]",
 		"type": "Microsoft.Automation/automationAccounts/jobs",
 		"apiVersion": "[variables('AutomationApiVersion')]",
 		"location": "[parameters('regionId')]",
 		"dependsOn": [
-			"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('ScheduleReRegisterRunbookName'))]",
-			"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/jobs/', parameters('ScheduleCreationGuid'))]",
-			"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/jobs/', parameters('ElasticPoolScheduleCreationGuid'))]"
+			"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('startVmsRunbookName'))]",
+			"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/jobs/', parameters('initialPrepRunbookGuid'))]"
 		],
 		"tags": { },
 		"properties": {
 			"runbook": {
-				"name": "[variables('ScheduleReRegisterRunbookName')]"
+				"name": "[variables('startVmsRunbookName')]"
 			},
 			"parameters": {
-				"targetSubscriptionId": "[subscription().subscriptionId]",
-				"resourcegroup": "[resourceGroup().name]",
-				"automationaccount": "[parameters('accountName')]"
+				"AzureConnectionAssetName": "[variables('AzureConnectionAssetName')]",
+				"ResourceGroupName": "[variables('ResourceGroupName')]"
 			}
 		}
 	}
@@ -127,7 +128,6 @@ An example of a certificate resource is below.
 	"location": "[parameters('regionId')]",
 	"tags": {},
 	"dependsOn": [
-		"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'))]"
 	],
 	"properties": {
 		"base64Value": "MIIC1jCCAA8gAwIAVgIYJY4wXCXH/YAHMtALh7qEFzANAgkqhkiG5w0AAQUFGDAUMRIwEBYDVQQDEwlsA3NhAGevc3QqHhcNMTZwNjI5MHQxMjAsWhcNOjEwNjI5NKWwMDAwWjAURIwEAYDVQQBEwlsA2NhAGhvc3QwggEiMA0GCSqGSIA3DQEAAQUAA4IADwAwggEKAoIAAQDIyzv2A0RUg1/AAryI9W1DGAHAqqGdlFfTkUSDfv+hEZTAwKv0p8daqY6GroT8Du7ctQmrxJsy8JxIpDWxUaWwXtvv1kR9eG9Vs5dw8gqhjtOwgXvkOcFdKdQwA82PkcXoHlo+NlAiiPPgmHSELGvcL1uOgl3v+UFiiD1ro4qYqR0ITNhSlq5v2QJIPnka8FshFyPHhVtjtKfQkc9G/xDePW8dHwAhfi8VYRmVMmJAEOLCAJzRjnsgAfznP8CZ/QUczPF8LuTZ/WA/RaK1/Arj6VAo1VwHFY4AZXAolz7xs2sTuHplVO7FL8X58UvF7nlxq48W1Vu0l8oDi2HjvAgMAAAGjJDAiMAsGA1UdDwREAwIEsDATAgNVHSUEDDAKAggrAgEFNQcDATANAgkqhkiG9w0AAQUFAAOCAQEAk8ak2A5Ug4Iay2v0uXAk95qdAthJQN5qIVA13Qay8p4MG/S5+aXOVz4uMXGt18QjGds1A7Q8KDV4Slnwn95sVgA5EP7akvoGXhgAp8Dm90sac3+aSG4fo1V7Y/FYgAgpEy4C/5mKFD1ATeyyhy3PmF0+ZQRJ7aLDPAXioh98LrzMZr1ijzlAAKfJxzwZhpJamAwjZCYqiNZ54r4C4wA4QgX9sVfQKd5e/gQnUM8gTQIjQ8G2973jqxaVNw9lZnVKW3C8/QyLit20pNoqX2qQedwsqg3WCUcPRUUqZ4NpQeHL/AvKIrt158zAfU903yElAEm2Zr3oOUR4WfYQ==",
@@ -150,7 +150,6 @@ An example of a credential resource is below.
 	"location": "[parameters('regionId')]",
 	"tags": { },
 	"dependsOn": [
-		"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'))]"
 	],
 	"properties": {
 		"userName": "User01",
@@ -176,7 +175,6 @@ An example of a schedule resource is below.
 	"apiVersion": "[variables('AutomationApiVersion')]",
 	"tags": { },
 	"dependsOn": [
-		"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'))]"
 	],
 	"properties": {
 		"description": "Schedule for StartByResourceGroup runbook",
@@ -204,7 +202,6 @@ An example of a variable resource is below.
 	"apiVersion": "[variables('AutomationApiVersion')]",
 	"tags": { },
 	"dependsOn": [
-		"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'))]"
 	],
 	"properties": {
 		"description": "Description for the variable.",
@@ -215,7 +212,7 @@ An example of a variable resource is below.
 
 
 ## Modules
-Your solution does not need to define [global modules](../automation/automation-integration-modules.md) used by your runbooks because they will always be available.  You do need to include a resource for any other module used by your runbooks, and the runbook should depend on the module resource to ensure that it's created before the runbook.
+Your management solution does not need to define [global modules](../automation/automation-integration-modules.md) used by your runbooks because they will always be available.  You do need to include a resource for any other module used by your runbooks, and the runbook should depend on the module resource to ensure that it's created before the runbook.
 
 [Integration modules](../automation/automation-integration-modules.md) have a type of **Microsoft.Automation/automationAccounts/modules** and have the properties in the following table.
 
@@ -230,8 +227,6 @@ An example of a module resource is below.
 		"type": "Microsoft.Automation/automationAccounts/modules",
 		"apiVersion": "[variables('AutomationApiVersion')]",
 		"dependsOn": [
-			"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/jobs/', parameters('ModuleImportGuid'))]",
-			"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/jobs/', parameters('SolutionCleanupJobIDGuid'))]"
 		],
 		"properties": {
 			"contentLink": {
@@ -241,12 +236,10 @@ An example of a module resource is below.
 	}
 
 ### Updating modules
-If you update a solution that includes a runbook that uses a schedule, and the new version of your solution has a new module used by that runbook, then the runbook may use the old version of the module.  The script [Update-ModulesinAutomationToLatestVersion](https://www.powershellgallery.com) will ensure that all of the modules used by runbooks in your solution are the latest version.  You should include this runbook in your solution and create a [job](#automation-jobs) to run it before any other runbooks.  This will ensure that any modules are updated as required before the runbooks are loaded.
+If you update a management solution that includes a runbook that uses a schedule, and the new version of your solution has a new module used by that runbook, then the runbook may use the old version of the module.  You should include the following runbooks in your solution and create a job to run them before any other runbooks.  This will ensure that any modules are updated as required before the runbooks are loaded.
 
-If you have one or more modules defined in you solution, you should add the following to your solution.
-
-- [Runbook resource](#runbooks) for Update-ModulesinAutomationToLatestVersion.
-- [Job resource](#automation-jobs) for each module in your solution.  This resource should depend on the runbook resource.
+- [Update-ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/DisplayScript) will ensure that all of the modules used by runbooks in your solution are the latest version.  
+- [ReRegisterAutomationSchedule-MS-Mgmt](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/DisplayScript) will reregister all of the schedule resources to ensure that the runbooks linked to them with use the latest modules.
 
 
 Following is a sample of the required elements of a solution to support the module update.
@@ -255,7 +248,12 @@ Following is a sample of the required elements of a solution to support the modu
 		"ModuleImportGuid": {
 			"type": "string",
 			"metadata": {
-				"description": "Provide a GUID for module import job",
+				"control": "guid"
+			}
+		},
+		"ReRegisterRunbookGuid": {
+			"type": "string",
+			"metadata": {
 				"control": "guid"
 			}
 		}
@@ -263,8 +261,11 @@ Following is a sample of the required elements of a solution to support the modu
 
 	"variables": {
 		"ModuleImportRunbookName": "Update-ModulesInAutomationToLatestVersion",
-		"ModuleImportRunbookUri": "https://solutionrpstorage.blob.core.windows.net/sqlsolution/Update-ModulesInAutomationToLatestVersion.ps1",
-		"ModuleImportRunbookDescription": "Imports module and also update all Azure dependent modules that is in the same Automation Account"
+		"ModuleImportRunbookUri": "https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/Content/Update-ModulesInAutomationToLatestVersion.ps1",
+		"ModuleImportRunbookDescription": "Imports modules and also updates all Azure dependent modules that are in the same Automation Account.",
+		"ReRegisterSchedulesRunbookName": "Update-ModulesInAutomationToLatestVersion",
+		"ReRegisterSchedulesRunbookUri": "https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/Content/ReRegisterAutomationSchedule-MS-Mgmt.ps1",
+		"ReRegisterSchedulesRunbookDescription": "Reregisters schedules to ensure that they use latest modules."
 	},
 
 	"resources": [
@@ -273,7 +274,6 @@ Following is a sample of the required elements of a solution to support the modu
 			"type": "Microsoft.Automation/automationAccounts/runbooks",
 			"apiVersion": "[variables('AutomationApiVersion')]",
 			"dependsOn": [
-				"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/jobs/', parameters('SolutionCleanupJobIDGuid'))]"
 			],
 			"location": "[parameters('regionId')]",
 			"tags": { },
@@ -306,6 +306,45 @@ Following is a sample of the required elements of a solution to support the modu
 					"AutomationAccountName": "[parameters('accountName')]",
 					"NewModuleName": "AzureRM.Insights"
 				}
+			}
+		},
+	    {
+	      "name": "[concat(parameters('accountName'), '/', variables('ReRegisterSchedulesRunbookName'))]",
+	      "type": "Microsoft.Automation/automationAccounts/runbooks",
+	      "apiVersion": "[variables('AutomationApiVersion')]",
+	      "dependsOn": [
+	      ],
+	      "location": "[parameters('regionId')]",
+	      "tags": { },
+	      "properties": {
+	        "runbookType": "PowerShell",
+	        "logProgress": "true",
+	        "logVerbose": "true",
+	        "description": "[variables('ReRegisterSchedulesRunbookDescription')]",
+	        "publishContentLink": {
+	          "uri": "[variables('ReRegisterSchedulesRunbookUri')]",
+	          "version": "1.0.0.0"
+	        }
+	      }
+	    },
+	    {
+	      "name": "[concat(parameters('accountName'), '/', parameters('reRegisterSchedulesGuid'))]",
+	      "type": "Microsoft.Automation/automationAccounts/jobs",
+	      "apiVersion": "[variables('AutomationApiVersion')]",
+	      "location": "[parameters('regionId')]",
+	      "dependsOn": [
+	        "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('ReRegisterSchedulesRunbookName'))]",
+			"[concat(parameters('accountName'), '/', parameters('ModuleImportGuid'))]"
+	      ],
+	      "tags": { },
+	      "properties": {
+	        "runbook": {
+	          "name": "[variables('ReRegisterSchedulesRunbookName')]"
+	        },
+			"parameters": {
+	          "targetSubscriptionId": "[subscription().subscriptionId]",
+	          "resourcegroup": "[resourceGroup().name]",
+	          "automationaccount": "[parameters('accountName')]"
 			}
 		}
 	]
