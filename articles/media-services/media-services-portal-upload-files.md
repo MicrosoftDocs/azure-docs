@@ -28,7 +28,7 @@
 
 In Media Services, you upload your digital files into an asset. The Asset  can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.) Once the files are uploaded, your content is stored securely in the cloud for further processing and streaming.
  
-1. In the [Azuer portal](https://portal.azure.com/), select your Azure Media Services account.
+1. In the [Azure portal](https://portal.azure.com/), select your Azure Media Services account.
 
 2. On the **Settings** blade, click **Assets**.
 
