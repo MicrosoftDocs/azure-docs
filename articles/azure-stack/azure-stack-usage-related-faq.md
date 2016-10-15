@@ -59,12 +59,12 @@ Currently, you can query *only by Reported Time*.
 What do these Usage API error codes mean?
 -----------------------------------------
 
-  **HTTP status code**   **Error code**                                                     **Description**
-  ---------------------- ------------------------------------------------------------------ ------------------------------------------------------------------------------------------------------------------------------------
-  400/Bad Request        *NoApiVersion*                                                     The *api-version* query parameter is missing.
-  400/Bad Request        *InvalidProperty*                                                  A property is missing or has an invalid value. The message in the error code in the response body identifies the missing property.
-  400/Bad Request        *RequestEndTimeIsInFuture*                                         The value for *ReportedEndTime* is in the future. Values in the future are not allowed for this argument.
-  400/Bad Request        *SubscriberIdIsNotDirectTenant*                                    A provider API call used a subscription ID that is not a valid tenant of the caller.
-  400/Bad Request        *SubscriptionIdMissingInRequest                                *   The subscription ID of the caller is missing.
-  400/Bad Request        *InvalidAggregationGranularity*                                    An invalid aggregation granularity was requested. Valid values are daily and hourly.
-  503                    *ServiceUnavailable*                                               A retryable error occurred because the service is busy or the call is being throttled.
+| **HTTP status code** | **Error code** | **Description** |
+| ---------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| 400/Bad Request        | *NoApiVersion*     | The *api-version* query parameter is missing.
+| 400/Bad Request        | *InvalidProperty*  | A property is missing or has an invalid value. The message in the error code in the response body identifies the missing property.
+| 400/Bad Request        | *RequestEndTimeIsInFuture*  | The value for *ReportedEndTime* is in the future. Values in the future are not allowed for this argument.
+| 400/Bad Request        | *SubscriberIdIsNotDirectTenant*    | A provider API call used a subscription ID that is not a valid tenant of the caller.
+| 400/Bad Request        | *SubscriptionIdMissingInRequest*   | The subscription ID of the caller is missing.
+| 400/Bad Request        | *InvalidAggregationGranularity*   | An invalid aggregation granularity was requested. Valid values are daily and hourly.
+| 503                    | *ServiceUnavailable*   | A retryable error occurred because the service is busy or the call is being throttled.
