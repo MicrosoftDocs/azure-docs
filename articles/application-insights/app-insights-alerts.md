@@ -27,27 +27,27 @@ There are three kinds of alerts:
 * [**Web tests**][availability] tell you when your site is unavailable on the internet, or responding slowly. [Learn more][availability].
 * [**Proactive diagnostics**](app-insights-proactive-diagnostics.md) are configured automatically to notify you about unusual performance patterns.
 
-We'll focus on metric alerts here.
+We focus on metric alerts in this article.
 
 ## Set a Metric alert
 
 Open the Alert rules blade, and then use the add button. 
 
-![In the Alert rules blade, choose Add Alert. Set the your app as the resource to measure, provide a name for the alert, and choose a metric.](./media/app-insights-alerts/01-set-metric.png)
+![In the Alert rules blade, choose Add Alert. Set your app as the resource to measure, provide a name for the alert, and choose a metric.](./media/app-insights-alerts/01-set-metric.png)
 
 * Set the resource before the other properties. **Choose the "(components)" resource** if you want to set alerts on performance or usage metrics.
 * The name that you give to the alert must be unique within the resource group (not just your application).
 * Be careful to note the units in which you're asked to enter the threshold value.
 * If you check the box "Email owners...", alerts will be sent by email to everyone who has access to this resource group. To expand this set of people, add them to the [resource group or subscription](app-insights-resources-roles-access-control.md) (not the resource).
 * If you specify "Additional emails", alerts will be sent to those individuals or groups (whether or not you checked the "email owners..." box). 
-* Set a [webhook address](../azure-portal/insights-webhooks-alerts.md) if you have set up a web app that will respond to alerts. It will be called both when the alert is Activated (that is, triggered) and when it is Resolved. (But note that at present, query parameters are not passed through as webhook properties.)
+* Set a [webhook address](../azure-portal/insights-webhooks-alerts.md) if you have set up a web app that responds to alerts. It will be called both when the alert is Activated (that is, triggered) and when it is Resolved. (But note that at present, query parameters are not passed through as webhook properties.)
 * You can Disable or Enable the alert: see the buttons at the top of the blade.
 
 *I don't see the Add Alert button.* 
 
 - Are you using an organizational account? You can set alerts if you have owner or contributor access to this application resource. Take a look at the Access Control blade. [Learn about access control][roles].
 
-> [AZURE.NOTE] In the alerts blade, you'll see that there's already an alert set up: [Proactive Diagnostics](app-insights-proactive-failure-diagnostics.md). This is an automatic alert that monitors one particular metric, request failure rate. So unless you decide to disable this, you don't need to set your own alert on request failure rate. 
+> [AZURE.NOTE] In the alerts blade, you'll see that there's already an alert set up: [Proactive Diagnostics](app-insights-proactive-failure-diagnostics.md). This is an automatic alert that monitors one particular metric, request failure rate. Unless you decide to disable the proactive alert, you don't need to set your own alert on request failure rate. 
 
 ## See your alerts
 
@@ -67,7 +67,7 @@ The history of state changes is in the Activity Log:
 
 ## How alerts work
 
-* An alert has three states: "Never activated", "Activated", and "Resolved". Activated means the condition you specified was true, when it was last evaluated.
+* An alert has three states: "Never activated", "Activated", and "Resolved." Activated means the condition you specified was true, when it was last evaluated.
 
 * A notification is generated when an alert changes state. (If the alert condition was already true when you created the alert, you might not get a notification until the condition goes false.)
 
@@ -79,9 +79,9 @@ The history of state changes is in the Activity Log:
 
 * The period that you choose specifies the interval over which metrics are aggregated. It doesn't affect how often the alert is evaluated: that depends on the frequency of arrival of metrics.
 
-* If no data arrives for a particular metric for some time, the gap has different effects on alert evaluation and on the charts in metric explorer. In metric explorer, if no data is seen for longer than the chart's sampling interval, the chart will show a value of 0. But an alert based on the same metric will not be re-evaluated, and the alert's state will remain unchanged. 
+* If no data arrives for a particular metric for some time, the gap has different effects on alert evaluation and on the charts in metric explorer. In metric explorer, if no data is seen for longer than the chart's sampling interval, the chart shows a value of 0. But an alert based on the same metric is not be re-evaluated, and the alert's state remains unchanged. 
 
-    When data eventually arrives, the chart will jump back to a non-zero value. The alert will evaluate based on the data available for the period you specified. If the new data point is the only one available in the period, the aggregate will be based just on that.
+    When data eventually arrives, the chart jumps back to a non-zero value. The alert evaluates based on the data available for the period you specified. If the new data point is the only one available in the period, the aggregate is based just on that data point.
 
 * An alert can flicker frequently between alert and healthy states, even if you set a long period. This can happen if the metric value hovers around the threshold. There is no hysteresis in the threshold: the transition to alert happens at the same value as the transition to healthy.
 
@@ -89,13 +89,15 @@ The history of state changes is in the Activity Log:
 
 ## What are good alerts to set?
 
-It depends on your application. To start with, it's best not to set too many metrics. Spend some time looking at your metric charts while your app is running, to get a feel for how it behaves normally. This will help you find ways to improve its performance. Then set up alerts to tell you when the metrics go outside the normal zone. 
+It depends on your application. To start with, it's best not to set too many metrics. Spend some time looking at your metric charts while your app is running, to get a feel for how it behaves normally. This helps you find ways to improve its performance. Then set up alerts to tell you when the metrics go outside the normal zone. 
 
 Popular alerts include:
 
 * [Browser metrics][client], especially Browser **page load times**, are good for web applications. If your page has a lot of scripts, you'll want to look out for **browser exceptions**. In order to get these metrics and alerts, you have to set up [web page monitoring][client].
-* **Server response time** and **Failed requests** for the server side of web applications. As well as setting up alerts, keep an eye on these metrics to see if they vary disproportionately with high request rates: that might indicate that your app is running out of resources.
+* **Server response time** for the server side of web applications. As well as setting up alerts, keep an eye on this metric to see if it varies disproportionately with high request rates: that might indicate that your app is running out of resources. 
 * **Server exceptions** - to see them, you have to do some [additional setup](app-insights-asp-net-exceptions.md).
+
+Don't forget that [proactive failure rate diagnostics](app-insights-proactive-failure-diagnostics.md) automatically monitor the rate at which your app responds to requests with failure codes. 
 
 ## Automation
 

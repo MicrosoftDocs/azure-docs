@@ -162,6 +162,7 @@ Be the first to know if your app has problems. (Don't wait until your users tell
 
 By default, alert notifications are sent to the owner of the Azure subscription. 
 
+![alert email sample](./media/app-insights-asp-net/alert-email.png)
 
 ## Version and release tracking
 
@@ -184,6 +185,8 @@ However, notice that the build version number is generated only by MS Build, not
 
 If you use Visual Studio Team Services, you can [get an annotation marker](app-insights-annotations.md) added to your charts whenever you release a new version.
 
+
+![release annotation sample](./media/app-insights-asp-net/release-annotation.png)
 
 ## Next steps
 
