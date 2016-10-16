@@ -43,6 +43,8 @@ You can set up an Azure Blob Storage indexer using:
 - Azure Search [REST API](https://msdn.microsoft.com/library/azure/dn946891.aspx)
 - Azure Search .NET SDK [version 2.0-preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx) 
 
+> [AZURE.NOTE] Some features (for example, field mappings) are not yet available in the portal, and have to be used programmatically. 
+
 In this article, we'll set up an indexer using the REST API by following three steps: create a data source, create an index, configure the indexer.
 
 ### Step 1: Create a data source
