@@ -36,7 +36,7 @@ Create a Web app with [Azure App Service](https://azure.microsoft.com/services/a
 
 2.  Choose **App Services** &gt; **Add icon** and enter a name, choose your subscription, and create a new resource group to serve as the container for the service.
 
-    Resource groups allow you to manage various aspects of the solution such as billing, deployments and monitoring all as a single group via [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-overview/).
+    Resource groups allow you to manage various aspects of the solution such as billing, deployments and monitoring all as a single group via [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 	![image1][image1]
 
