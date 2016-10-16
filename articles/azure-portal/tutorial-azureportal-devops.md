@@ -327,7 +327,7 @@ This tutorial demonstrated some of the power with the Azure platform by quickly 
 
 ## Next steps 
 
-* Azure Resource Manager is important for enabling DevOps on the Azure platform.  To learn more visit [Azure Resource Manager overview](../resource-group-overview.md).
+* Azure Resource Manager is important for enabling DevOps on the Azure platform.  To learn more visit [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
 * To learn more about Azure App Service deployment visit [Deploy your app to Azure App Service](../app-service-web/web-sites-deploy.md)
 

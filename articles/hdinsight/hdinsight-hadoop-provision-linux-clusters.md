@@ -120,7 +120,7 @@ Each HDInsight cluster is tied to one Azure subscription.
 
 ### Resource group name ###
 
-[Azure Resource Manager](../resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure Resource Group. You can deploy, update, monitor, or delete all of the resources for your application in a single coordinated operation.
+[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure Resource Group. You can deploy, update, monitor, or delete all of the resources for your application in a single coordinated operation.
 
 ### Credentials###
 
