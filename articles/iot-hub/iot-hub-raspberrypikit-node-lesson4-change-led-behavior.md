@@ -86,12 +86,19 @@ Use additional Node.js functions to change the LED’s on and off behavior.
 6. Save all the changes.
 
 ### 4.2.4 Deploy and run the sample application
+Deploy and run the sample application on your Pi by running the following command:
+
+```bash
+gulp
+```
+
+### 4.2.5 Deploy and run the sample application
 
 You should see the LED turned on for two seconds, and then turned off for another two seconds. The last “stop” message stops the sample application from running.
 
 You rock! You’ve successfully customized the messages that are sent to the sample application from your IoT hub.
 
-### 4.2.5 Summary
+### 4.2.6 Summary
 
 This complimentary reading demos how to customize the messages so that the sample application can control the on and off behavior of the LED in a different way.
 
