@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="07/22/2016"
+ms.date="10/11/2016"
 ms.author="larryfr"/>
 
 #Use SSH Tunneling to access Ambari web UI, JobHistory, NameNode, Oozie, and other web UI's

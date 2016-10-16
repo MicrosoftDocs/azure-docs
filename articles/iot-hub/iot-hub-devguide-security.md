@@ -78,7 +78,7 @@ If you use AMQP claims-based-security, the standard specifies how to transmit th
 For SASL PLAIN, the **username** can be:
 
 * `{policyName}@sas.root.{iothubName}` if using hub-level tokens.
-* `{deviceId}` if using device-scoped tokens.
+* `{deviceId}@sas.{iothubname}` if using device-scoped tokens.
 
 In both cases, the password field contains the token, as described in [IoT Hub security tokens][lnk-sas-tokens].
 

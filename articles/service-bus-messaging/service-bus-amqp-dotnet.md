@@ -1,18 +1,18 @@
 <properties 
     pageTitle="Service Bus with .NET and AMQP 1.0 | Microsoft Azure"
     description="Using Service Bus from .NET with AMQP"
-    services="service-bus-messaging,service-bus"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" /> 
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="07/05/2016"
+    ms.date="10/03/2016"
     ms.author="sethm" />
 
 # Using Service Bus from .NET with AMQP 1.0

@@ -1,32 +1,32 @@
 <properties 
 	pageTitle="How to use Service Bus queues in Node.js | Microsoft Azure" 
 	description="Learn how to use Service Bus queues in Azure from a Node.js app." 
-	services="service-bus-messaging" 
+	services="service-bus" 
 	documentationCenter="nodejs" 
 	authors="sethmanheim" 
 	manager="timlt" 
 	editor=""/>
 
 <tags 
-	ms.service="service-bus-messaging" 
+	ms.service="service-bus" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="05/06/2016" 
+	ms.date="10/03/2016" 
 	ms.author="sethm"/>
 
 # How to use Service Bus queues
 
 [AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-This article describes how to use Service Bus queues in Node.js. The samples are written in JavaScript and use the Node.js Azure module. The scenarios covered include **creating queues**, **sending and receiving messages**, and **deleting queues**. For more information on queues, see the [Next steps][] section.
+This article describes how to use Service Bus queues in Node.js. The samples are written in JavaScript and use the Node.js Azure module. The scenarios covered include **creating queues**, **sending and receiving messages**, and **deleting queues**. For more information on queues, see the [Next steps](#next-steps) section.
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## Create a Node.js application
 
-Create a blank Node.js application. For instructions on how to create a Node.js application, see [Create and deploy a Node.js application to an Azure Website][], or [Node.js Cloud Service][] (using Windows PowerShell).
+Create a blank Node.js application. For instructions on how to create a Node.js application, see [Create and deploy a Node.js application to an Azure Website][], or [Node.js Cloud Service][] using Windows PowerShell.
 
 ## Configure your application to use Service Bus
 
@@ -128,7 +128,7 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 
 ## Send messages to a queue
 
-To send a message to a Service Bus queue, your application calls the **sendQueueMessage** method on the **ServiceBusService** object. Messages sent to (and received from) Service Bus queues are **BrokeredMessage** objects, and have a set of standard properties (such as **Label** and **TimeToLive**), a dictionary that is used to hold custom application specific properties, and a body of arbitrary application data. An application can set the body of the message by passing a string as the message. Any required standard properties are populated with default values.
+To send a message to a Service Bus queue, your application calls the **sendQueueMessage** method on the **ServiceBusService** object. Messages sent to (and received from) Service Bus queues are **BrokeredMessage** objects, and have a set of standard properties (such as **Label** and **TimeToLive**), a dictionary that is used to hold custom application-specific properties, and a body of arbitrary application data. An application can set the body of the message by passing a string as the message. Any required standard properties are populated with default values.
 
 The following example demonstrates how to send a test message to the queue named `myqueue` using **sendQueueMessage**:
 

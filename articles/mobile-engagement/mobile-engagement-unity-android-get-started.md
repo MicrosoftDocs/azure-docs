@@ -33,7 +33,7 @@ This tutorial requires the following:
 
 ##<a id="setup-azme"></a>Setup Mobile Engagement for your Android app
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##<a id="connecting-app"></a>Connect your app to the Mobile Engagement backend
 

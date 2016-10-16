@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2016"
+   ms.date="10/14/2016"
    ms.author="ganesr"/>
 
 
@@ -136,6 +136,8 @@ Microsoft will tag prefixes advertised through public peering and Microsoft peer
 | **Europe** |    |  |
 |    | North Europe | 12076:51003 |
 |    | West Europe | 12076:51002 |
+|    | UK South | 12076:51024 |
+|    | UK West | 12076:51025 |
 | **Asia Pacific** |    |   |
 |    | East Asia | 12076:51010 |
 |    | Southeast Asia | 12076:51011 |

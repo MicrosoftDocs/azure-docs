@@ -1,18 +1,18 @@
 <properties 
     pageTitle="Write applications that use Service Bus queues | Microsoft Azure"
     description="How to write a simple queue-based application that uses Service Bus."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" />
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="06/21/2016"
+    ms.date="10/03/2016"
     ms.author="sethm" />
 
 # Create applications that use Service Bus queues
@@ -21,7 +21,7 @@ This topic describes Service Bus queues and shows how to write a simple queue-ba
 
 Consider a scenario from the world of retail in which sales data from individual Point-of-Sale (POS) terminals must be routed to an inventory management system that uses the data to determine when stock has to be replenished. This solution uses Service Bus messaging for the communication between the terminals and the inventory management system, as illustrated in the following figure:
 
-![Service-Bus-Queues-Img1](./media/service-bus-create-queues/IC657161.gif)
+![Service Bus queues image 1](./media/service-bus-create-queues/IC657161.gif)
 
 Each POS terminal reports its sales data by sending messages to the **DataCollectionQueue**. These messages remain in this queue until they are retrieved by the inventory management system. This pattern is often termed *asynchronous messaging*, because the POS terminal does not have to wait for a reply from the inventory management system to continue processing.
 
@@ -37,13 +37,13 @@ With the asynchronous messaging pattern, producers and consumers do not have to 
 
 In many applications system load varies over time, whereas the processing time required for each unit of work is typically constant. Intermediating message producers and consumers with a queue means that the consuming application (the worker) only has to be provisioned to service an average load rather than a peak load. The depth of the queue will grow and contract as the incoming load varies. This directly saves money with regard to the amount of infrastructure required to service the application load.
 
-![Service-Bus-Queues-Img2](./media/service-bus-create-queues/IC657162.gif)
+![Service Bus queues image 2](./media/service-bus-create-queues/IC657162.gif)
 
 ### Load balancing
 
 As the load increases, more worker processes can be added to read from the worker queue. Each message is processed by only one of the worker processes. Furthermore, this pull-based load balancing allows for optimum usage of the worker computers even if the worker computers differ with regard to processing power, as they will pull messages at their own maximum rate. This pattern is often termed the competing consumer pattern.
 
-![Service-Bus-Queues-Img3](./media/service-bus-create-queues/IC657163.gif)
+![Service Bus queues image 3](./media/service-bus-create-queues/IC657163.gif)
 
 ### Loose coupling
 
@@ -57,9 +57,9 @@ The following section shows how to use Service Bus to build this application.
 
 You’ll need an Azure account in order to start working with Service Bus. If you do not already have one, you can sign up for a free account [here](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
-### Create a service namespace
+### Create a namespace
 
-Once you have a subscription, you can [create a new namespace](../service-bus/service-bus-create-namespace-portal.md). Each namespace acts as a scoping container for a set of Service Bus entities. Give your new namespace a unique name across all Service Bus accounts. 
+Once you have a subscription, you can [create a new namespace](service-bus-create-namespace-portal.md). Each namespace acts as a scoping container for a set of Service Bus entities. Give your new namespace a unique name across all Service Bus accounts. 
 
 ### Install the NuGet package
 
@@ -67,7 +67,7 @@ To use the Service Bus namespace, an application must reference the Service Bus
 
 ### Create the queue
 
-Management operations for Service Bus messaging entities (queues and publish/subscribe topics) are performed via the [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) class. Service Bus uses a [Shared Access Signature (SAS)](../service-bus/service-bus-sas-overview.md) based security model. The [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) class represents a security token provider with built-in factory methods returning some well-known token providers. We’ll use a [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) method to hold the SAS credentials. The [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) instance is then constructed with the base address of the Service Bus namespace and the token provider.
+Management operations for Service Bus messaging entities (queues and publish/subscribe topics) are performed via the [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) class. Service Bus uses a [Shared Access Signature (SAS)](service-bus-sas-overview.md) based security model. The [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) class represents a security token provider with built-in factory methods returning some well-known token providers. We’ll use a [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) method to hold the SAS credentials. The [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) instance is then constructed with the base address of the Service Bus namespace and the token provider.
 
 The [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) class provides methods to create, enumerate and delete messaging entities. The code that is shown here shows how the [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) instance is created and used to create the **DataCollectionQueue** queue.
 

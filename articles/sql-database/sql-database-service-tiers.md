@@ -19,7 +19,7 @@
 
 # SQL Database options and performance: Understand what's available in each service tier
 
-[Azure SQL Database](sql-database-technical-overview.md) offers three service tiers with multiple performance levels to handle different workloads. Each performance level provides an increasing set of resources designed to deliver increasingly higher throughput. You can manage each database in its own [service tier](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) with its own performance level. You can also manage multiple databases in an [elastic pool](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) with a shared set of resources. The resources available for standalone databases are expressed in terms of Database Transaction Units (DTUs) and for elastic pools in terms of elastic DTUs or eDTUs. For more on DTUs and eDTUs, see [What is a DTU](sql-database-what-is-a-DTU.md). 
+[Azure SQL Database](sql-database-technical-overview.md) offers three service tiers with multiple performance levels to handle different workloads. Each performance level provides an increasing set of resources designed to deliver increasingly higher throughput. You can manage each database in its own [service tier](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) with its own performance level. You can also manage multiple databases in an [elastic pool](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) with a shared set of resources. The resources available for standalone databases are expressed in terms of Database Transaction Units (DTUs) and for elastic pools in terms of elastic DTUs or eDTUs. For more on DTUs and eDTUs, see [What is a DTU](sql-database-what-is-a-dtu.md). 
 
 In both cases, the service tiers include **Basic**, **Standard**, and **Premium**. Database options in these tiers are similar for standalone databases and elastic pools, but there are additional considerations for elastic pools. This article provides detail of service tiers for standalone databases and elastic pools.
 
@@ -86,4 +86,5 @@ Once you have determined the service tier for your pool, you are ready to determ
 
 ## Additional resources
 
-For information on common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+- [Design patterns for multi-tenant SaaS applications using Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+- [Microsoft Virtual Academy video course on elastic database capabilities in Azure SQL Database](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
