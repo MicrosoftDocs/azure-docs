@@ -67,7 +67,7 @@ If you are deploying a new farm or using an existing farm:
 - Local administrator credentials on any workgroup (non-domain joined) servers on which you intend to deploy the Web Application Proxy role.
 - The machine on which you execute the wizard must be able to connect to any other machines on which you want to install AD FS or Web Application Proxy via Windows Remote Management.
 
-[Configuring SSO with AD FS](./active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs) 
+[Configuring SSO with AD FS](../active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs) 
 
 #### Sign on using an earlier version of AD FS or a third party solution
 
@@ -103,7 +103,7 @@ The Azure AD sign-in page lists out the UPN suffixes defined for the on-premises
 
 Azure AD sign-in page lists the  UPN suffix(s) defined for the on-premises Active Directory and the corresponding custom domain in Azure AD with the current verification status. In custom installation, you can now select the attribute for user principal name on the **Azure AD sign-in** page.
 
-![Azure AD sign-in page](.\media\active-directory-aadconnect-user-signin\custom_azure_sign_in.png)
+![Azure AD sign-in page](./media/active-directory-aadconnect-user-signin/custom_azure_sign_in.png)
 
 You can click on the refresh button to re-fetch the latest status of the custom domains from Azure AD.
 
