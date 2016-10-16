@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="08/16/2016"
+ms.date="10/16/2016"
 ms.author="eugenesh" />
 
 # Indexing Documents in Azure Blob Storage with Azure Search
@@ -146,9 +146,9 @@ In Azure Search, the document key uniquely identifies a document. Every search i
    
 You should carefully consider which extracted field should map to the key field for your index. The candidates are:
 
-- **metadata\_storage\_name** - this might be a convenient candidate, but note that 1) the names might not be unique, as you may have blobs with the same name in different folders, and 2) the name may contain characters that are invalid in document keys, such as dashes. You can deal with invalid characters by enabling the `base64EncodeKeys` option in the indexer properties - if you do this, remember to encode document keys when passing them in API calls such as Lookup. (For example, in .NET you can use the [UrlTokenEncode method](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) for that purpose).
+- **metadata\_storage\_name** - this might be a convenient candidate, but note that 1) the names might not be unique, as you may have blobs with the same name in different folders, and 2) the name may contain characters that are invalid in document keys, such as dashes. You can deal with invalid characters by using the `base64Encode` [field mapping function](search-indexer-field-mappings.md#base64EncodeFunction) - if you do this, remember to encode document keys when passing them in API calls such as Lookup. (For example, in .NET you can use the [UrlTokenEncode method](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) for that purpose).
 
-- **metadata\_storage\_path** - using the full path ensures uniqueness, but the path definitely contains `/` characters that are [invalid in a document key](https://msdn.microsoft.com/library/azure/dn857353.aspx).  As above, you have the option of encoding the keys using the `base64EncodeKeys` option.
+- **metadata\_storage\_path** - using the full path ensures uniqueness, but the path definitely contains `/` characters that are [invalid in a document key](https://msdn.microsoft.com/library/azure/dn857353.aspx).  As above, you have the option of encoding the keys using the `base64Encode` [function](search-indexer-field-mappings.md#base64EncodeFunction).
 
 - If none of the options above work for you, you have the ultimate flexibility of adding a custom metadata property to the blobs. This option does, however, require your blob upload process to add that metadata property to all blobs. Since the key is a required property, all blobs that don't have that property will fail to be indexed.
 
@@ -157,7 +157,7 @@ You should carefully consider which extracted field should map to the key field 
 For this example, let's pick the `metadata_storage_name` field as the document key. Let's also assume your index has a key field named `key` and a field `fileSize` for storing the document size. To wire things up as desired, specify the following field mappings when creating or updating your indexer:
 
 	"fieldMappings" : [
-	  { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key" },
+	  { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
 	  { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
 	]
 
@@ -172,10 +172,9 @@ To bring this all together, here's how you can add field mappings and enable bas
 	  "targetIndexName" : "my-target-index",
 	  "schedule" : { "interval" : "PT2H" },
 	  "fieldMappings" : [
-	    { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key" },
+	    { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
 	    { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
-	  ],
-	  "parameters" : { "base64EncodeKeys": true }
+	  ]
 	}
 
 > [AZURE.NOTE] To learn more about field mappings, see [this article](search-indexer-field-mappings.md).
