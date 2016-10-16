@@ -98,8 +98,8 @@ The Azure AD sign-in page lists out the UPN suffixes defined for the on-premises
 | State | Description | Action Needed |
 |:----|:----|:----|
 |Verified| Azure AD Connect found a matching verified domain in Azure AD. All users for this domain can sign-in using their on-premises credentials| No action is needed |
-|Not Verified| Azure AD Connect could find a matching custom domain in Azure AD but it is not verified. UPN suffix of the users of this domain will be changed to default .onmicrosoft.com suffix after sync if domain is not verified. | Verify the custom domain in Azure AD. [Learn more](./active-directory-add-manage-domain-names.md#verify-the-domain-name-with-azure-ad) |  
-|Not Added| Azure AD Connect could not find a custom domain corresponding to the UPN suffix. UPN suffix of users from this domain will be changed to default .onmicrosoft.com if the domain is not added and verifeid in Azure.| Add and verify a custom domain corresponding to the UPN suffix [Learn More](../active-directory-add-manage-domain-names.md)|
+|Not Verified| Azure AD Connect could find a matching custom domain in Azure AD but it is not verified. UPN suffix of the users of this domain will be changed to default .onmicrosoft.com suffix after sync if domain is not verified. | Verify the custom domain in Azure AD. [Learn more](./active-directory-add-domain.md#verify-the-domain-name-with-azure-ad) |  
+|Not Added| Azure AD Connect could not find a custom domain corresponding to the UPN suffix. UPN suffix of users from this domain will be changed to default .onmicrosoft.com if the domain is not added and verifeid in Azure.| Add and verify a custom domain corresponding to the UPN suffix [Learn More](./active-directory-add-domain.md)|
 
 Azure AD sign-in page lists the  UPN suffix(s) defined for the on-premises Active Directory and the corresponding custom domain in Azure AD with the current verification status. In custom installation, you can now select the attribute for user principal name on the **Azure AD sign-in** page.
 
