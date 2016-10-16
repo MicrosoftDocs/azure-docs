@@ -75,7 +75,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **Montreal** | Cologix+ |
 | **Mumbai** | Tata Communications |
 | **Osaka** | Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
-| **Paris** | Interxion |
+| **Paris** | Interxion, Equinix+ |
 | **Sao Paulo** | Equinix, Telefonica |
 | **Seattle** | Equinix, Level 3 Communications, Megaport |
 | **Silicon Valley** | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
@@ -110,7 +110,7 @@ To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/featu
 
 | **Location**  | **Service Providers** |
 |---------------|-----------------------|
-| **Berlin** | Colt, e-shelter |
+| **Berlin** | Colt+, e-shelter |
 | **Frankfurt** | Colt, Equinix, Interxion |
 
 ## <a name="nonpartners"></a>Connectivity through service providers not listed

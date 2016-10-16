@@ -239,6 +239,6 @@ Among the metrics you can show in metrics explorer are a set of system performan
 ### To display more performance counters
 
 * First, [add a new chart](app-insights-metrics-explorer.md) and see if the counter is in the basic set that we offer.
-* If not, [add the counter to the set collected by the performance counter module](app-insights-web-monitor-performance.md#system-performance-counters).
+* If not, [add the counter to the set collected by the performance counter module](app-insights-performance-counters.md).
 
 
