@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/15/2016"
+   ms.date="10/17/2016"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using Java
@@ -28,6 +28,8 @@
 - [Node.js](data-lake-store-manage-use-nodejs.md)
 
 Learn how to use the Azure Data Lake Store Java SDK to perform basic operations such as create folders, upload and download data files, etc. For more information about Data Lake, see [Azure Data Lake Store](data-lake-store-overview.md).
+
+You can access the Java SDK API docs for Azure Data Lake Store at [Azure Data Lake Store Java API docs](https://azure.github.io/azure-data-lake-store-java/javadoc/).
 
 ## Prerequisites
 
@@ -50,7 +52,7 @@ Azure Active Directory provides other options as well to retrieve a token. You c
 
 ## Create a Java application
 
-The code sample available [here](https://github.com/azure-samples/data-lake-store-java-upload-download-get-started) walks you through the process of creating files in the store, concatenating files, downloading a file, and deleting some files in the store. This section of the article walk you through the main parts of the code.
+The code sample available [on GitHub](https://azure.microsoft.com/en-us/documentation/samples/data-lake-store-java-upload-download-get-started/) walks you through the process of creating files in the store, concatenating files, downloading a file, and deleting some files in the store. This section of the article walk you through the main parts of the code.
 
 1. Create a Maven project using [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) from the command-line or using an IDE. For instructions on how to create a Java project using IntelliJ, see [here](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html). For instructions on how to create a project using Eclipse, see [here](http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm). 
 
@@ -95,14 +97,14 @@ To use the Data Lake Store SDK to obtain token for the Active Directory Web appl
 
 #### Step 2: Create an Azure Data Lake Store client (ADLStoreClient) object
 
-Creating an [ADLStoreClient](https://github.com/AzureAD/azure-activedirectory-library-for-java) object requires you to specify the Data Lake Store account name and the Azure Active Directory token you generated in the last step. Note that the Data Lake Store account name needs to be a fully qualified domain name. For example, replace **FILL-IN-HERE** with something like **mydatalakestore.azuredatalakestore.net**.
+Creating an [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) object requires you to specify the Data Lake Store account name and the Azure Active Directory token you generated in the last step. Note that the Data Lake Store account name needs to be a fully qualified domain name. For example, replace **FILL-IN-HERE** with something like **mydatalakestore.azuredatalakestore.net**.
 
 	private static String accountFQDN = "FILL-IN-HERE";  // full account FQDN, not just the account name
 	ADLStoreClient client = ADLStoreClient.createClient(accountFQDN, token);
 
 ### Step 3: Use the ADLStoreClient to perform file and directory operations
 
-The code below contains example snippets of some common operations. You can look at the full API docs of the ADLStoreClient object to see other operations.
+The code below contains example snippets of some common operations. You can look at the full [Data Lake Store Java SDK API docs](https://azure.github.io/azure-data-lake-store-java/javadoc/) of the **ADLStoreClient** object to see other operations.
  
 Note that files are read from and written into using standard Java streams. This means that you can layer any of the Java streams on top of the Data Lake Store streams to benefit from standard Java functionality (e.g., Print streams for formatted output, or any of the compression or encryption streams for additional functionality on top, etc.).
 
@@ -143,7 +145,7 @@ Note that files are read from and written into using standard Java streams. This
 
 1. To run from within an IDE, locate and press the **Run** button. To run from Maven, use [exec:exec](http://www.mojohaus.org/exec-maven-plugin/exec-mojo.html).
 
-2. To produce a standalone jar that you can run from command-line build the jar with all dependencies included, using the [Maven assembly plugin](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html). The pom.xml in the [example source code on github](https://github.com/asikaria-msft/clientV2-sample/blob/master/pom.xml) has an example of how to do this.
+2. To produce a standalone jar that you can run from command-line build the jar with all dependencies included, using the [Maven assembly plugin](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html). The pom.xml in the [example source code on github](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) has an example of how to do this.
 
 
 ## Next steps
