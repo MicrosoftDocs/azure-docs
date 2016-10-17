@@ -1,4 +1,4 @@
-<properties
+s<properties
 	pageTitle="Azure Government documentation | Microsoft Azure"
 	description="This provides a comparision of features and guidance on developing applications for Azure Government"
 	services="Azure-Government"
@@ -18,7 +18,7 @@
 	ms.author="ryansoc"/>
 
 
-#  Azure Government Database
+#  Azure Government Databases
 
 ##  SQL Database
 
