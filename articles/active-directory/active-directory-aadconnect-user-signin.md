@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -13,14 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/08/2016"
+	ms.date="10/16/2016"
 	ms.author="billmath"/>
 
 
 
 # Azure AD Connect User Sign on options
 
-Azure AD Connect allows your users to sign on to both cloud and on-premises resources using the same passwords.  You can choose from several different ways to enable this.
+Azure AD Connect allows your users to sign on to both cloud and on-premises resources using the same passwords. This article describes key concepts for every identity model to help you choose the identity you want to use for your sign-in to Azure AD.
+
+If you’re already familiar with Azure AD identity model and want to learn more about a specific method, just click below on appropriate topic.
+
+* [Password Sync](#password-synchronization)
+* [Federated SSO (with ADFS)](#federation-using-a-new-or-existing-ad-fs-in-windows-server-2012-r2-farm)
+
 
 ## Choosing a user sign-in method
 For most organizations who just want to enable user sign on to Office 365, SaaS applications and other Azure AD based resources, the default Password synchronization option is recommended.
@@ -62,9 +68,13 @@ If you are deploying a new farm or using an existing farm:
 - Local administrator credentials on any workgroup (non-domain joined) servers on which you intend to deploy the Web Application Proxy role.
 - The machine on which you execute the wizard must be able to connect to any other machines on which you want to install AD FS or Web Application Proxy via Windows Remote Management.
 
+[Configuring SSO with AD FS](./aad-connect/active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs) 
+
 #### Sign on using an earlier version of AD FS or a third party solution
 
 If you have already configured cloud sign on using an earlier version of AD FS (such as AD FS 2.0) or a third party federation provider, you can choose to skip user sign in configuration via Azure AD Connect.  This will enable you to get the latest synchronization and other capabilities of Azure AD Connect while still using your existing solution for sign on.
+
+[Azure AD third-party federation compatibility list](./active-directory-aadconnect-federation-compatibility.md)
 
 ## User sign-in and user principal name (UPN)
 
@@ -86,13 +96,15 @@ Every directory in Azure Active Directory comes with a built-in domain name in t
 Azure AD sign-in experience is dependent on whether Azure AD is able to match the user principal name suffix of a user being synced to one of the custom domains verified in the Azure AD directory. Azure AD Connect provides help while configuring Azure AD sign-in settings, so that user sign-in experience in cloud is similar to the on-premises experience. Azure AD Connect lists the UPN suffixes defined for the domain(s) and tries to match them with a custom domain in Azure AD and helps you with the appropriate action that needs to be taken.
 The Azure AD sign-in page lists out the UPN suffixes defined for the on-premises Active Directory and displays the corresponding status against each suffix. The status values can be one of the below:
 
-* Verified : Azure AD Connect could find a matching verified domain in Azure AD and no action is needed
-* Not verified : Azure AD Connect could find a matching custom domain in Azure AD but it is not verified. User should verify the custom domain in order to ensure that the UPN suffix of the users is not changed to default .onmicrosoft.com suffix after sync.
-* Not added : Azure AD Connect could not find a custom domain corresponding to the UPN suffix. User must add and verify a custom domain corresponding to the UPN suffix in order to ensure that the UPN suffix of the user is not changed to default .onmicrosoft.com suffix after sync.
+| State | Description | Action Needed |
+|:----|:----|:----|
+|Verified| Azure AD Connect found a matching verified domain in Azure AD. All users for this domain can sign-in using their on-premises credentials| No action is needed |
+|Not Verified| Azure AD Connect could find a matching custom domain in Azure AD but it is not verified. UPN suffix of the users of this domain will be changed to default .onmicrosoft.com suffix after sync if domain is not verified. | Verify the custom domain in Azure AD. [Learn more](./active-directory-add-domain.md#verify-the-domain-name-with-azure-ad) |  
+|Not Added| Azure AD Connect could not find a custom domain corresponding to the UPN suffix. UPN suffix of users from this domain will be changed to default .onmicrosoft.com if the domain is not added and verifeid in Azure.| Add and verify a custom domain corresponding to the UPN suffix [Learn More](./active-directory-add-domain.md)|
 
 Azure AD sign-in page lists the  UPN suffix(s) defined for the on-premises Active Directory and the corresponding custom domain in Azure AD with the current verification status. In custom installation, you can now select the attribute for user principal name on the **Azure AD sign-in** page.
 
-![Azure AD sign-in page](.\media\active-directory-aadconnect-user-signin\custom_azure_sign_in.png)
+![Azure AD sign-in page](./media/active-directory-aadconnect-user-signin/custom_azure_sign_in.png)
 
 You can click on the refresh button to re-fetch the latest status of the custom domains from Azure AD.
 

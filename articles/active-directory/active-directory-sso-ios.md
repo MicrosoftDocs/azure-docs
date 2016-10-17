@@ -3,7 +3,7 @@
 	description="How to use the features of the ADAL SDK to enable Single Sign On across your applications. "
 	services="active-directory"
 	documentationCenter=""
-	authors="brandwe"
+	authors="xerners"
 	manager="mbaldwin"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 

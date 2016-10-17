@@ -3,7 +3,7 @@
 	description="How to build a Node.js REST Web API that integrates with Azure AD for authentication."
 	services="active-directory"
 	documentationCenter="nodejs"
-	authors="brandwe"
+	authors="xerners"
 	manager="mbaldwin"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 # Getting Started With WEB-API for Node

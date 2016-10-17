@@ -14,15 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/04/2016"
+   ms.date="09/24/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Authentication to Azure SQL Data Warehouse
 
 > [AZURE.SELECTOR]
-- [Overview](sql-data-warehouse-connect-overview.md)
+- [Security Overview](sql-data-warehouse-overview-manage-security.md)
 - [Authentication](sql-data-warehouse-authentication.md)
-- [Drivers](sql-data-warehouse-connection-strings.md)
+- [Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
+- [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
 To connect to SQL Data Warehouse, you must pass in security credentials for authentication purposes. Upon establishing a connection, certain connection settings are configured as part of establishing your query session.  
 

@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="09/26/2016"
 	ms.author="anwestg"/>
     
 # Web Apps Resource Provider - Known Issues and Troubleshooting
+
+> [AZURE.NOTE] The following information only applies to Azure Stack TP1 deployments.
 
 If you experience issues while deploying or working with Web Apps on Azure Stack please refer to the guidance below.
 

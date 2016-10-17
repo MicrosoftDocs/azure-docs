@@ -3,7 +3,7 @@
 	description="How to build a node.js Express MVC Web App that integrates with Azure AD for sign in."
 	services="active-directory"
 	documentationCenter="nodejs"
-	authors="brandwe"
+	authors="xerners"
 	manager="mbaldwin"
 	editor=""/>
 
@@ -16,7 +16,7 @@
 	ms.date="08/15/2016"
 	ms.author="brandwe"/>
 
-# Web App Sign In & Sign Out with Azure AD
+# NodeJS Web App Sign In & Sign Out with Azure AD
 
 
 Here we'll use Passport to:

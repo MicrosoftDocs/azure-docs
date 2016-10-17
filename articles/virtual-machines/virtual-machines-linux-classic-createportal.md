@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 
 # Create a custom virtual machine running Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] For information about creating a Linux virtual machine using the new Azure portal, see [Create a Linux VM on Azure using the Portal.md](virtual-machines-linux-quick-create-portal.md).
 
 
 
@@ -30,6 +30,3 @@
 
 [AZURE.INCLUDE [virtual-machines-create-linuxvm](../../includes/virtual-machines-create-linuxvm.md)]
 
-## Next steps
-
-You can also [create a custom virtual machine running Windows](virtual-machines-windows-classic-createportal.md) using the classic portal.

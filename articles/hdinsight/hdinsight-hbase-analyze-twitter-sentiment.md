@@ -143,7 +143,7 @@ You need to create an application to get tweets, calculate tweet sentiment score
 1. Open **Visual Studio**, and create a Visual C# console application called **TweetSentimentStreaming**. 
 2. From **Package Manager Console**, run the following commands:
 
-		Install-Package Microsoft.HBase.Client -version 0.4.1.0
+		Install-Package Microsoft.HBase.Client -version 0.4.2.0
 		Install-Package TweetinviAPI -version 1.0.0.0
 
 	These commands install the [HBase .NET SDK](https://www.nuget.org/packages/Microsoft.HBase.Client/) package, which is the client library to access the HBase cluster, and the [Tweetinvi API](https://www.nuget.org/packages/TweetinviAPI/) package, which is used to access the Twitter API.
@@ -234,7 +234,7 @@ You need to create an application to get tweets, calculate tweet sentiment score
 					{
 						RequestOptions options = RequestOptions.GetDefaultOptions();
 						options.RetryPolicy = RetryPolicy.NoRetry;
-						var cellSet = client.GetCellsAsync(HBASETABLENAME, COUNT_ROW_KEY, options).Result;
+						var cellSet = client.GetCellsAsync(HBASETABLENAME, COUNT_ROW_KEY, null, null, options).Result;
 						if (cellSet.rows.Count != 0)
 						{
 							var countCol = cellSet.rows[0].values.Find(cell => Encoding.UTF8.GetString(cell.column) == COUNT_COLUMN_NAME);
@@ -244,9 +244,17 @@ You need to create an application to get tweets, calculate tweet sentiment score
 							}
 						}
 					}
-					catch (Exception ex)
+					catch(Exception ex)
 					{
-						return 0;
+						if (ex.InnerException.Message.Equals("The remote server returned an error: (404) Not Found.", StringComparison.OrdinalIgnoreCase))
+						{
+							return 0;
+						}
+						else
+						{
+							throw ex;
+						}
+						
 					}
 
 					return 0;

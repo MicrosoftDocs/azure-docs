@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="09/19/2016" 
 	ms.author="kipandya"/>
 
 # Securing access to DocumentDB data
@@ -38,6 +38,7 @@ DocumentDB provides first class concepts in order to control access to DocumentD
 	- Permission
 - Application resources
 	- Collection
+	- Offer
 	- Document
 	- Attachment
 	- Stored procedure
@@ -91,7 +92,7 @@ You can use a resource token (by creating DocumentDB users and permissions) when
 
 Likewise, DocumentDB read-only keys provide read access to all resources - except permission resources, of course - within a DocumentDB account and cannot be used to provide more granular access to specific DocumentDB resources.
 
-DocumentDB resource token provide a safe alternative that allows clients to read, write, and delete resources in your DocumentDB account according to the permissions you've granted, and without need for either a master or read only key.
+DocumentDB resource tokens provide a safe alternative that allows clients to read, write, and delete resources in your DocumentDB account according to the permissions you've granted, and without need for either a master or read only key.
 
 Here is a typical design pattern whereby resource tokens may be requested, generated and delivered to clients:
 
@@ -129,7 +130,7 @@ There are two available access levels which may be provided by a permission reso
 > [AZURE.NOTE] In order to run DocumentDB stored procedures the user must have the All permission on the collection in which the stored procedure will be run.
 
 
-The following code snippet shows how to create a permission resource, read the resource token (token) of the permission resource and associate the permissions with the user created above.
+The following code snippet shows how to create a permission resource, read the resource token of the permission resource and associate the permissions with the user created above.
 
     // Create a permission.
     Permission docPermission = new Permission

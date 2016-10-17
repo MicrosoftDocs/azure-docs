@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/12/2016"
+	ms.date="09/29/2016"
 	ms.author="curtand"/>
 
 
 # Create a new group in Azure Active Directory preview
+
+> [AZURE.SELECTOR]
+- [Azure portal](active-directory-groups-create-azure-portal.md)
+- [Azure classic portal](active-directory-accessmanagement-manage-groups.md)
+- [PowerShell](active-directory-accessmanagement-groups-v2-cmdlets.md)
 
 This article explains how to create and populate a new group in the Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md) Use a group to perform management tasks such as assigning licenses or permissions to a number of users or devices at once.
 
@@ -39,7 +44,7 @@ This article explains how to create and populate a new group in the Azure Active
 
 5. On the **Group** blade, add a name and description for the group.
 
-6. To select members to add to the group, select **Assigned** in the **Membership type** box, and then select **Members**. For more information about how to manage the membership of a group dynamically, see [Manage dynamic rules for users in a group](active-directory-groups-dynamic-users-azure-portal.md) or [Manage dynamic rules for devices in a group](active-directory-groups-dynamic-devices-azure-portal.md).
+6. To select members to add to the group, select **Assigned** in the **Membership type** box, and then select **Members**. For more information about how to manage the membership of a group dynamically, see [Using attributes to create advanced rules for group membership](active-directory-groups-dynamic-membership-azure-portal.md).
 
   ![Selecting members to add](./media/active-directory-groups-create-azure-portal/select-members.png)
 

@@ -27,7 +27,7 @@ The following diagram shows the main components of the sample, including the gat
 ![][1]
 
 
-> [AZURE.NOTE] The modules do not pass messages directly to each other. The modules publish messages to an internal message bus that delivers the messages to the other modules using a subscription mechanism as shown in the diagram below. For more information see [Get started with the Gateway SDK][lnk-gw-getstarted].
+> [AZURE.NOTE] The modules do not pass messages directly to each other. The modules publish messages to an internal broker that delivers the messages to the other modules using a subscription mechanism as shown in the diagram below. For more information see [Get started with the Gateway SDK][lnk-gw-getstarted].
 
 ### Protocol ingestion module
 
@@ -39,7 +39,7 @@ This module is the starting point for getting data from devices, through the gat
 
 2.  It places the simulated temperature data into the contents of a message.
 
-3.  It adds a property with a fake MAC address to the message that contains the simulated temperatue data.
+3.  It adds a property with a fake MAC address to the message that contains the simulated temperature data.
 
 4.  It makes the message available to the next module in the chain.
 

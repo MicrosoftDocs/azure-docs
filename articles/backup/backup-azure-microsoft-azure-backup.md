@@ -1,12 +1,12 @@
 <properties
   pageTitle="Preparing your environment to back up workloads using Azure Backup Server | Microsoft Azure"
-  description="Make sure your environment is properly prepared to back up workloads using Azure Backup Server"
+  description="Prepare your environment to use Azure Backup Server to protect or back up workloads."
   services="backup"
   documentationCenter=""
   authors="PVRK"
   manager="shivamg"
   editor=""
-  keywords="azure backup server; backup vault"/>
+  keywords="azure backup server; protect workloads; back up workloads"/>
 
 <tags
   ms.service="backup"
@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="07/20/2016"
+  ms.date="09/27/2016"
   ms.author="jimpark;trinadhk;pullabhk;markgal"/>
 
 # Preparing to back up workloads using Azure Backup Server
@@ -57,7 +57,7 @@ You can deduplicate the DPM storage using Windows Server Deduplication. Learn mo
 
 > [AZURE.NOTE]  You cannot install Azure Backup Server on a machine running as a domain controller.
 
-If you plan to join this server to a domain at some point, it is recommended that the domain-joining activity be done before the Azure Backup Server installation. Moving an existing Azure Backup Server machine to a new domain after deployment is *not supported*.
+You must join Azure Backup Server to a domain. If you plan to move the server to a different domain, it is recommended that you join the server to the new domain before installing Azure Backup Server. Moving an existing Azure Backup Server machine to a new domain after deployment is *not supported*.
 
 ## 2. Recovery Services vault
 
@@ -85,7 +85,7 @@ To create a recovery services vault:
 
 5. Click **Subscription** to see the available list of subscriptions. If you are not sure which subscription to use, use the default (or suggested) subscription. There will be multiple choices only if your organizational account is associated with multiple Azure subscriptions.
 
-6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a new Resource group. For complete information on Resource groups, see [Azure Resource Manager overview](../resource-group-overview.md)
+6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a new Resource group. For complete information on Resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)
 
 7. Click **Location** to select the geographic region for the vault.
 

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/02/2016"
-	ms.author="micurd"/>
+	ms.author="micurd;tamram"/>
 
 # Transfer data with the AzCopy Command-Line Utility
 
@@ -357,7 +357,7 @@ The option `/EntityOperation` indicates how to insert entities into the table. P
 
 Note that you cannot specify option `/PKRS` in the import scenario. Unlike the export scenario, in which you must specify option `/PKRS` to start concurrent operations, AzCopy will by default start concurrent operations when you import a table. The default number of concurrent operations started is equal to the number of core processors; however, you can specify a different number of concurrent with option `/NC`. For more details, type `AzCopy /?:NC` at the command line.
 
-Note that AzCopy only supports importing for JSON, not CSV. AzCopy does not support table imports from user-created JSON and manifest files. Both of these files must come from an AzCopy table export. To avoid errors, please do not modify the exported JSON or manifest file. 
+Note that AzCopy only supports importing for JSON, not CSV. AzCopy does not support table imports from user-created JSON and manifest files. Both of these files must come from an AzCopy table export. To avoid errors, please do not modify the exported JSON or manifest file.
 
 ### Import entities to table using blobs
 

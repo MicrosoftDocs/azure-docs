@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Get started with SQL Data Warehouse Transparent Data Encryption (TDE) TSQL | Microsoft Azure"
-   description="Get started with SQL Data Warehouse Transparent Data Encryption (TDE) TSQL"
+   pageTitle="Transparent Data Encryption in SQL Data Warehouse (T-SQL)| Microsoft Azure"
+   description="Transparent Data Encryption (TDE) in SQL Data Warehouse (T-SQL)"
    services="sql-data-warehouse"
    documentationCenter=""
    authors="ronortloff"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="08/29/2016"
+   ms.date="09/24/2016"
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Get started with Transparent Data Encryption (TDE)
@@ -21,20 +21,17 @@
 
 > [AZURE.SELECTOR]
 - [Security Overview](sql-data-warehouse-overview-manage-security.md)
-- [Threat detection](sql-data-warehouse-security-threat-detection.md)
+- [Authentication](sql-data-warehouse-authentication.md)
 - [Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
 - [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
-- [Auditing Overview](sql-data-warehouse-auditing-overview.md)
-- [Auditing downlevel clients](sql-data-warehouse-auditing-downlevel-clients.md)
 
+## Required Permssions
 
-Azure SQL Data Warehouse transparent Data Encryption (TDE) helps protect against the threat of malicious activity by performing real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application.
+To enable Transparent Data Encryption (TDE), you must be an administrator or a member of the dbmanager role.
 
-TDE encrypts the storage of an entire database by using a symmetric key called the database encryption key. In SQL Database the database encryption key is protected by a built-in server certificate. The built-in server certificate is unique for each SQL Database server. Microsoft automatically rotates these certificates at least every 90 days. The encryption algorithm used by SQL Data Warehouse is AES-256. For a general description of TDE, see [Transparent Data Encryption (TDE)].
+## Enabling Encryption
 
-##Enabling Encryption
-
-To enable TDE for a SQL Data Warehouse, follow the steps below:
+Follow these steps to enable TDE for a SQL Data Warehouse:
 
 1. Connect to the *master* database on the server hosting the database using a login that is an administrator or a member of the **dbmanager** role in the master database
 2. Execute the following statement to encrypt the database.
@@ -43,9 +40,9 @@ To enable TDE for a SQL Data Warehouse, follow the steps below:
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
-##Disabling Encryption
+## Disabling Encryption
 
-To disable TDE for a SQL Data Warehouse, follow the steps below:
+Follow these steps to disable TDE for a SQL Data Warehouse:
 
 1. Connect to the *master* database using a login that is an administrator or a member of the **dbmanager** role in the master database
 2. Execute the following statement to encrypt the database.
@@ -54,9 +51,9 @@ To disable TDE for a SQL Data Warehouse, follow the steps below:
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
-NOTE: A paused SQL Data Warehouse must be resumed before making changes to the TDE settings.
+> [AZURE.NOTE] A paused SQL Data Warehouse must be resumed before making changes to the TDE settings.
 
-##Verifying Encryption
+## Verifying Encryption
 
 To verify encryption status for a SQL Data Warehouse, follow the steps below:
 
@@ -73,7 +70,7 @@ FROM
 
 A result of ```1``` indicates an encrypted database, ```0``` indicates a non-encrypted database.
 
-##Encryption DMVs  
+## Encryption DMVs  
 
 - [sys.databases][] 
 - [sys.dm_pdw_nodes_database_encryption_keys][]

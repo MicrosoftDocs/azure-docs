@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="10/10/2016"
 	ms.author="dastrock"/>
 
 # Secure an MVC web API
@@ -23,7 +23,7 @@ With Azure Active Directory the v2.0 endpoint, you can protect a Web API using [
 > [AZURE.NOTE]
 	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
-In ASP.NET web APIs, you can accomplish this using Microsoft’s OWIN middleware included in .NET Framework 4.5.  Here we’ll use OWIN to build a "To Do List" MVC Web API that allows clients to create and read tasks from a user's To-Do list.  The web API will validate that incoming requests contain a valid access token and reject any requests that do not pass validation on a protected route.
+In ASP.NET web APIs, you can accomplish this using Microsoft’s OWIN middleware included in .NET Framework 4.5.  Here we’ll use OWIN to build a "To Do List" MVC Web API that allows clients to create and read tasks from a user's To-Do list.  The web API will validate that incoming requests contain a valid access token and reject any requests that do not pass validation on a protected route.  This sample was built using Visual Studio 2015.
 
 ## Download
 The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet).  To follow along, you can [download the app's skeleton as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) or clone the skeleton:
@@ -39,14 +39,13 @@ git clone https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
 ```
 
 ## Register an app
-Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
+Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
 
 - Copy down the **Application Id** assigned to your app, you'll need it soon.
 
 This visual studio solution also contains a "TodoListClient", which is a simple WPF app.  The TodoListClient is used to demonstrate how a user signs-in and how a client can issue requests to your Web API.  In this case, both the TodoListClient and the TodoListService are represented by the same app.  To configure the TodoListClient, you should also:
 
 - Add the **Mobile** platform for your app.
-- Copy down the **Redirect URI** from the portal. You must use the default value of `urn:ietf:wg:oauth:2.0:oob`.
 
 
 ## Install OWIN
@@ -146,7 +145,6 @@ Before you can see the Todo List Service in action, you need to configure the To
 
 - In the TodoListClient project, open `App.config` and enter your configuration values in the `<appSettings>` section.
   -	Your `ida:ClientId` Application Id you copied from the portal.
-	- The `ida:RedirectUri` is the **Redirect Uri** from the portal.
 
 Finally, clean, build and run each project!  You now have a .NET MVC Web API that accepts tokens from both personal Microsoft accounts and work or school accounts.  Sign into the TodoListClient, and call your web api to add tasks to the user's To-Do list.
 

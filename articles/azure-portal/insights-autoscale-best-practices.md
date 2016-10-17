@@ -103,15 +103,15 @@ Similarly, when Autoscale switches back to the default profile, it first checks 
 ### Considerations for scaling when multiple rules are configured in a profile
 There are cases where you may have to set multiple rules in a profile. The following set of autoscale rules are used by services use when multiple rules are set.
 
-On *scale out*, Autoscale will run if any rule is met.
-On *scale in*, Autoscale require all rules to be met.
+On *scale out*, Autoscale will run if any rule is met.
+On *scale in*, Autoscale require all rules to be met.
 
-To illustrate, assume that you have the following 4 autoscale rules:
+To illustrate, assume that you have the following 4 autoscale rules:
 
-- If CPU < 30 %, scale in​ by 1
-- If Memory < 50%, scale in by 1​
-- If CPU > 75%, scale ​out by 1
-- If Memory > 75%, scale out by 1​
+- If CPU < 30 %, scale in by 1
+- If Memory < 50%, scale in by 1
+- If CPU > 75%, scale out by 1
+- If Memory > 75%, scale out by 1
 
 Then the follow will occur: 
 

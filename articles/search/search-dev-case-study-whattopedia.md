@@ -4,7 +4,7 @@
 	services="search, sql-database,  storage, web-sites" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="paulettm"/>
+	manager="jhubbard"/>
 
 <tags 
 	ms.service="search" 

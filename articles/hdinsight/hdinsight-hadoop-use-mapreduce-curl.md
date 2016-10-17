@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/12/2016"
+   ms.date="09/27/2016"
    ms.author="larryfr"/>
 
 #Run MapReduce jobs with Hadoop on HDInsight using Curl

@@ -42,7 +42,6 @@ integration services, which makes it easy to build processes and workflows and i
 - Flow is built on top of Logic Apps
 - They have the same workflow designer
 - [Connectors](../connectors/apis-list.md) that work in one can also work in the other
-- Flows can be converted into Logic Apps anytime
 
 Flows empowers any office worker to perform simple integrations (e.g. get SMS for important emails) without going through 
 developers or IT. On the other hand, Logic Apps can enable advanced or mission-critical integrations (e.g. B2B processes) 
@@ -116,16 +115,25 @@ Logic app, you should take advantage of all the improvements in Functions.
 As previously mentioned, which service is best suited to you depends on your situation. 
 
 - For simple business optimization, then use Flow.
-- If your integration scenario is too advanced for Flow, or you need DevOps and Ops capabilities, then use Logic Apps.
+- If your integration scenario is too advanced for Flow, or you need DevOps capabilities and security compliances, then use Logic Apps.
 - If a step in your integration scenario requires highly custom transformation or specialized code, then write a 
 function app, and then trigger a function as an action in your logic app.
 
-You can use a logic app as part of a flow, and you use a flow as part of a logic app. You can also use a function 
-as part of a logic app. The integration between Flow, Logic Apps, and Functions continue to improve overtime. You can 
+You can call a logic app in a flow. You can also call a function in a logic app, and a logic app in a funciton. 
+The integration between Flow, Logic Apps, and Functions continue to improve overtime. You can 
 build something in one service and use it in the other services. Therefore, any investment you make in these three 
 technologies is worthwhile.
 
-## More resources
+## Next Steps
+
+Get started with each of the services by creating your first flow, logic app, function app, or WebJob. Click any of the following links:
+
+- [Get started with Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
+- [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+- [Create your first Azure Function](../azure-functions/functions-create-first-azure-function.md)
+- [Deploy WebJobs using Visual Studio](../app-service-web/websites-dotnet-deploy-webjobs.md)
+
+Or, get more information on these integration services with the following links:
 
 - [Leveraging Azure Functions & Azure App Service for integration scenarios by Christopher Anderson](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
 - [Integrations Made Simple by Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)

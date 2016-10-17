@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="07/20/2016"
+   ms.date="10/10/2016"
    ms.author="iainfou"/>
 
 # Using the Docker VM Extension to deploy your environment
@@ -31,7 +31,7 @@ This article focuses on using Resource Manager templates to deploy the Docker VM
 
 The Azure Docker VM Extension installs and configures the Docker daemon, Docker client, and Docker Compose in your Linux virtual machine. The extension is also used to define and deploy container applications using Docker Compose. You have additional controls over using Docker Machine or creating the Docker host yourself, making it suited for more robust developer or production environments.
 
-Using Azure Resource Manager, you can create and deploy templates that define the entire structure of your environment. Templates allow you to define the Docker hosts, storage, Role-Based Access Controls (RBAC), diagnostics, etc. You can [read more about Resource Manager](../resource-group-overview.md) and templates to better understand some of the benefits. By using Resource Manager templates, you will also be able to reproduce the deployments as needed in the future.
+Using Azure Resource Manager, you can create and deploy templates that define the entire structure of your environment. Templates allow you to define the Docker hosts, storage, Role-Based Access Controls (RBAC), diagnostics, etc. You can [read more about Resource Manager](../azure-resource-manager/resource-group-overview.md) and templates to better understand some of the benefits. By using Resource Manager templates, you are also able to reproduce the deployments as needed in the future.
 
 ## Deploy a template with the Docker VM Extension:
 
@@ -40,27 +40,27 @@ Let's use an existing quick-start template to show how to deploy an Ubuntu VM th
 Deploy the template using the Azure CLI, specifying a name for our new resource group (here `myDockerResourceGroup`) along with the template URI:
 
 ```
-azure group create --name myDockerResourceGroup --location "West US" \
+azure group create --name myResourceGroup --location "West US" \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
-Answer the prompts for naming your storage account, DNS name, username, etc. and then give it a few minutes to finish the deployment. You should see output similar to the following:
+Answer the prompts for naming your storage account, username and password, and DNS name. You should see output similar to the following example:
 
 ```
 info:    Executing command group create
-+ Getting resource group myDockerResourceGroup
-+ Updating resource group myDockerResourceGroup
-info:    Updated resource group myDockerResourceGroup
++ Getting resource group myResourceGroup
++ Updating resource group myResourceGroup
+info:    Updated resource group myResourceGroup
 info:    Supply values for the following parameters
-newStorageAccountName: mydockerstorage
+newStorageAccountName: mystorageaccount
 adminUsername: ops
 adminPassword: P@ssword!
-dnsNameForPublicIP: mydockergroup
+dnsNameForPublicIP: mypublicip
 + Initializing template configurations and parameters
 + Creating a deployment
 info:    Created template deployment "azuredeploy"
-data:    Id:                  /subscriptions/guid/resourceGroups/myDockerResourceGroup
-data:    Name:                myDockerResourceGroup
+data:    Id:                  /subscriptions/guid/resourceGroups/myResourceGroup
+data:    Name:                myResourceGroup
 data:    Location:            westus
 data:    Provisioning State:  Succeeded
 data:    Tags: null
@@ -69,14 +69,57 @@ info:    group create command OK
 
 ```
 
+The Azure CLI returns you to the prompt after only a few seconds, but in the background the template is being deployed in to the resource group you created. Wait a few minutes for the deployment to finish before trying to SSH to the VM.
+
+You can obtain details about the deployment and the DNS name of the VM by using the `azure vm show` command. In the following example, replace `myResourceGroup` with the name you specified in the previous step (the default VM name from the template is `myDockerVM`, so leave that name as-is):
+
+```bash
+azure vm show -g myResourceGroup -n myDockerVM
+info:    Executing command vm show
++ Looking up the VM "myDockerVM"
++ Looking up the NIC "myVMNicD"
++ Looking up the public ip "myPublicIPD"
+data:    Id                              :/subscriptions/guid/resourceGroups/mydockerresourcegroup/providers/Microsoft.Compute/virtualMachines/MyDockerVM
+data:    ProvisioningState               :Succeeded
+data:    Name                            :MyDockerVM
+data:    Location                        :westus
+data:    Type                            :Microsoft.Compute/virtualMachines
+[...]
+data:
+data:    Network Profile:
+data:      Network Interfaces:
+data:        Network Interface #1:
+data:          Primary                   :true
+data:          MAC Address               :00-0D-3A-33-D3-95
+data:          Provisioning State        :Succeeded
+data:          Name                      :myVMNicD
+data:          Location                  :westus
+data:            Public IP address       :13.91.107.235
+data:            FQDN                    :mypublicip.westus.cloudapp.azure.com]
+data:
+data:    Diagnostics Instance View:
+info:    vm show command OK
+```
+
+Near the top of the output, you see the `ProvisioningState` of the VM. When this displays `Succeeded`, the deployment has finished and you can SSH to the VM.
+
+Towards the end of the output, `FQDN` displays the fully qualified domain name based on the DNS name you provided and the location you selected. This FQDN is what you use to SSH to the VM in the remaining steps.
+
+
 ## Deploy your first nginx container
-Once the deployment has finished, SSH to your new Docker host using the DNS name you provided during deployment. Let's try to run an nginx container:
+Once the deployment has finished, SSH to your new Docker host using the DNS name you provided during deployment:
+
+```bash
+ssh ops@mypublicip.westus.cloudapp.azure.com
+```
+
+Let's try to run an nginx container:
 
 ```
 sudo docker run -d -p 80:80 nginx
 ```
 
-You should see output similar to the following:
+You should see output similar to the following example:
 
 ```
 Unable to find image 'nginx:latest' locally
@@ -101,11 +144,11 @@ To see your container in action, open up a web browser and enter the DNS name yo
 
 ![Running ngnix container](./media/virtual-machines-linux-dockerextension/nginxrunning.png)
 
-You may wish to configure the Docker daemon TCP port, security, or deploy containers using Docker Compose. See the [Azure Virtual Machine Extension for Docker GitHub project]( https://github.com/Azure/azure-docker-extension/) for more information.
+You may wish to configure the Docker daemon TCP port, security, or deploy containers using Docker Compose. For more information, see the [Azure Virtual Machine Extension for Docker GitHub project](https://github.com/Azure/azure-docker-extension/).
 
 ## Docker VM Extension JSON template reference
 
-This example used a quick-start template. To deploy the Azure Docker VM Extension with your own Resource Manager templates, add the following:
+This example used a quick-start template. To deploy the Azure Docker VM Extension with your own Resource Manager templates, add the following JSON:
 
 ```
 {
@@ -127,7 +170,7 @@ This example used a quick-start template. To deploy the Azure Docker VM Extensio
 }
 ```
 
-You can find more detailed walkthrough on using Resource Manager templates by reading [Azure Resource Manager overview](../resource-group-overview.md)
+You can find more detailed walkthrough on using Resource Manager templates by reading [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)
 
 ## Next steps
 

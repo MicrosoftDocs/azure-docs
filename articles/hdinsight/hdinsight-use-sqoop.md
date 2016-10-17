@@ -2,7 +2,7 @@
 	pageTitle="Use Hadoop Sqoop in HDInsight | Microsoft Azure"
 	description="Learn how to use Azure PowerShell from a workstation to run Sqoop import and export between an Hadoop cluster and an Azure SQL database."
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -631,7 +631,7 @@ The PowerShell sample performs the following steps:
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 
 [sqldatabase-get-started]: ../sql-database/sql-database-get-started.md
-[sqldatabase-create-configue]: ../sql-database-create-configure.md
+[sqldatabase-create-configue]: ../sql-database/sql-database-get-started.md
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: powershell-install-configure.md

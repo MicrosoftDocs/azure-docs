@@ -13,14 +13,15 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
+   ms.date="10/06/2016"
    ms.author="cherylmc" />
 
 # Configure a Point-to-Site connection to a VNet using PowerShell
 
 > [AZURE.SELECTOR]
-- [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
-- [Portal - Classic](vpn-gateway-point-to-site-create.md)
+- [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Classic - Azure Portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+- [Classic - Classic Portal](vpn-gateway-point-to-site-create.md)
 
 A Point-to-Site (P2S) configuration lets you create a secure connection from an individual client computer to a virtual network. A P2S connection is useful when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network. 
 
@@ -111,7 +112,7 @@ In this section, you log in and declare the values used for this configuration. 
 
 		New-AzureRmResourceGroup -Name $RG -Location $Location
 
-2. Create the subnet configurations for the virtual network, naming them *FrontEnd*, *BackEnd*, and *GatewaySubnet*. These prefixes must be part of the VNet address space declared above.
+2. Create the subnet configurations for the virtual network, naming them *FrontEnd*, *BackEnd*, and *GatewaySubnet*. These prefixes must be part of the VNet address space that you declared.
 
 		$fesub = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName -AddressPrefix $FESubPrefix
 		$besub = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName -AddressPrefix $BESubPrefix
@@ -139,7 +140,7 @@ If you are using an enterprise solution, you can use your existing certificate c
 
 No matter how you obtain the cert, you upload the .cer file for the certificate to Azure, and also generate client certificates to install on the clients that want to connect. You don't install the self-signed certificate directly on the client. You can generate client certificates later, in the [Client Configuration](#cc) section of this article.
 		
-You can add up to 20 trusted certificates to Azure. To get the public key, export the certificate as a Base64-encoded X.509 (.cer) file. One way to export to cer. is to open **certmger.msc**, locate the certificate in the Personal/Certificates. Right click and export without the private key as "Base-64 encoded X.509(.CER)". Make note of the file path where you exported to .cer file. This is a sample of obtaining the Base64 string representation of your certificate. 
+You can add up to 20 trusted certificates to Azure. To get the public key, export the certificate as a Base64-encoded X.509 (.cer) file. One way to export to cer. is to open **certmgr.msc**, locate the certificate in the Personal/Certificates. Right click and export without the private key as "Base-64 encoded X.509(.CER)". Make note of the file path where you exported to .cer file. This is a sample of obtaining the Base64 string representation of your certificate. 
 
 Add the trusted certificate to Azure. You need to use your own .cer file path for this step. Pay particular attention to the $P2SRootCertName = "ARMP2SRootCert.cer" variable that you set in Part 1 of this article. If the name of your certificate is different, adjust the variable accordingly.
     
@@ -172,7 +173,7 @@ Clients connecting to Azure using P2S must have both a client certificate and a 
 
 3. Copy and paste the link that is returned to a web browser to download the package. Then install the package on the client computer.
 
-4. On the client computer, navigate to **Network Settings** and click **VPN**. You will see the connection listed. It will show the name of the virtual network that it will connect to and will look similar to this: 
+4. On the client computer, navigate to **Network Settings** and click **VPN**. You will see the connection listed. It will show the name of the virtual network that it will connect to and looks similar to this example: 
 
 	![VPN client](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "VPN client")
 
@@ -226,7 +227,7 @@ Install a client certificate on each computer that you want to connect to the vi
 
 Certificates are used to authenticate VPN clients for Point-to-Site VPNs. The following steps walk you through adding and removing root certificates. When you add a Base64-encoded X.509 (.cer) file to Azure, you are telling Azure to trust the root certificate that the file represents. 
 
-You can add or remove trusted root certificates by using PowerShell, or in the Azure portal. If you want to do this using the Azure portal, go to your **virtual network gateway > settings > Point-to-site configuration > Root certificates**. The steps below walk you through these tasks using PowerShell. 
+You can add or remove trusted root certificates by using PowerShell, or in the Azure portal. If you want to do this using the Azure portal, go to your **virtual network gateway > settings > Point-to-site configuration > Root certificates**. The following steps walk you through these tasks using PowerShell. 
 
 ### Add a trusted root certificate
 
@@ -234,11 +235,11 @@ You can add up to 20 trusted root certificate .cer files to Azure. Follow the st
 
 1. Create and prepare the new root certificate that you will add to Azure. Export the public key as a Base-64 encoded X.509 (.CER) and open it with a text editor. Then copy only the section shown below. 
  
-	Copy the values, as shown in the following example.
+	Copy the values, as shown in the following example:
 
 	![certificate](./media/vpn-gateway-howto-point-to-site-rm-ps/copycert.png "certificate")
 	
-2. In the example below, specify the certificate name and key information as a variable. Replace the information with your own.
+2. Specify the certificate name and key information as a variable. Replace the information with your own, as shown in the following example:
 
 		$P2SRootCertName2 = "ARMP2SRootCert2.cer"
 		$MyP2SCertPubKeyBase64_2 = "MIIC/zCCAeugAwIBAgIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAMBgxFjAUBgNVBAMTDU15UDJTUm9vdENlcnQwHhcNMTUxMjE5MDI1MTIxWhcNMzkxMjMxMjM1OTU5WjAYMRYwFAYDVQQDEw1NeVAyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjIXoWy8xE/GF1OSIvUaA0bxBjZ1PJfcXkMWsHPzvhWc2esOKrVQtgFgDz4ggAnOUFEkFaszjiHdnXv3mjzE2SpmAVIZPf2/yPWqkoHwkmrp6BpOvNVOpKxaGPOuK8+dql1xcL0eCkt69g4lxy0FGRFkBcSIgVTViS9wjuuS7LPo5+OXgyFkAY3pSDiMzQCkRGNFgw5WGMHRDAiruDQF1ciLNojAQCsDdLnI3pDYsvRW73HZEhmOqRRnJQe6VekvBYKLvnKaxUTKhFIYwuymHBB96nMFdRUKCZIiWRIy8Hc8+sQEsAML2EItAjQv4+fqgYiFdSWqnQCPf/7IZbotgQIDAQABo00wSzBJBgNVHQEEQjBAgBAkuVrWvFsCJAdK5pb/eoCNoRowGDEWMBQGA1UEAxMNTXlQMlNSb290Q2VydIIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAA4IBAQA223veAZEIar9N12ubNH2+HwZASNzDVNqspkPKD97TXfKHlPlIcS43TaYkTz38eVrwI6E0yDk4jAuPaKnPuPYFRj9w540SvY6PdOUwDoEqpIcAVp+b4VYwxPL6oyEQ8wnOYuoAK1hhh20lCbo8h9mMy9ofU+RP6HJ7lTqupLfXdID/XevI8tW6Dm+C/wCeV3EmIlO9KUoblD/e24zlo3YzOtbyXwTIh34T0fO/zQvUuBqZMcIPfM1cDvqcqiEFLWvWKoAnxbzckye2uk1gHO52d8AVL3mGiX8wBJkjc/pMdxrEvvCzJkltBmqxTM6XjDJALuVh16qFlqgTWCIcb7ju"

@@ -72,10 +72,6 @@ Watch the following videos to get started with Data Lake Store.
 
 4. Click **Create**. If you chose to pin the account to the dashboard, you are taken back to the dashboard and you can see the progress of your Data Lake Store account provisioning. Once the Data Lake Store account is provisioned, the account blade shows up.
 
-5. Expand the **Essentials** drop-down to see the information about your Data Lake Store account such as the resource group it is a part of, the location, etc. Click the **Quick Start** icon to see links to other resources related to Data Lake Store.
-
-	![Your Azure Data Lake Store account](./media/data-lake-store-get-started-portal/ADL.Account.QuickStart.png "Your Azure Data Lake account")
-
 ## Assign permissions to the Azure Key Vault
 
 If you used keys from an Azure Key Vault to configure encryption on the Data Lake Store account, you must configure access between the Data Lake Store account and the Azure Key Vault account. Perform the following steps to do so.

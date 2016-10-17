@@ -13,19 +13,10 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="08/29/2016" 
+   ms.date="09/24/2016" 
    ms.author="rortloff;barbkess;sonyama"/>
 
 # SQL Data Warehouse -  Downlevel clients support for auditing and Dynamic Data Masking
-
-> [AZURE.SELECTOR]
-- [Security Overview](sql-data-warehouse-overview-manage-security.md)
-- [Threat detection](sql-data-warehouse-security-threat-detection.md)
-- [Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
-- [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
-- [Auditing Overview](sql-data-warehouse-auditing-overview.md)
-- [Auditing downlevel clients](sql-data-warehouse-auditing-downlevel-clients.md)
-
 
 [Auditing](sql-data-warehouse-auditing-overview.md) works with SQL clients that support TDS redirection.
 

@@ -3,7 +3,7 @@
 	description="This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream using the Azure portal." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
+	authors="anilmur" 
 	manager="erikre" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article"
 	ms.date="09/06/2016"
-	ms.author="juliako"/>
+	ms.author="juliako;juliako"/>
 
 
 #How to perform live streaming using Azure Media Services to create multi-bitrate streams with the Azure portal
@@ -73,7 +73,7 @@ The following are required to complete the tutorial.
 
 - To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. 
 For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
-- A Media Services account. To create a Media Services account, see [Create Account](media-services-create-account.md).
+- A Media Services account. To create a Media Services account, see [Create Account](media-services-portal-create-account.md).
 - A webcam and an encoder that can send a single bitrate live stream.
 
 ##Configure streaming endpoints 
@@ -184,7 +184,7 @@ There are two ways to start event:
 	
 	![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
 	
-	If you left **Publish this event now** checked, the event the PUBLISHING URLs will get created.
+	If you left **Publish this live event now** checked, the event the PUBLISHING URLs will get created.
 	
 	You can press **Start**, whenever you are ready to stream the event.
 

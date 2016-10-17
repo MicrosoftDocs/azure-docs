@@ -13,12 +13,12 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="infrastructure-services"
- ms.date="07/18/2016"
+ ms.date="09/22/2016"
  ms.author="danlep"/>
 
 # Compute benchmark scores for Windows VMs
 
-The following SPECInt benchmark scores show compute performance for Azure's high performance VM lineup running Windows Server. Compute benchmark scores are also available for [Linux VMs](virtual-machines-linux-compute-benchmark-scores.md).
+The following SPECInt benchmark scores show compute performance for Azure's high-performance VM lineup running Windows Server. Compute benchmark scores are also available for [Linux VMs](virtual-machines-linux-compute-benchmark-scores.md).
 
 
 
@@ -59,9 +59,20 @@ Standard_G3, Standard_GS3 | 8 | 1 | Intel Xeon E5-2698B v3 @ 2 GHz | 6 | 242.3 |
 Standard_G4, Standard_GS4 | 16 | 1 | Intel Xeon E5-2698B v3 @ 2 GHz | 15 | 398.9 | 6.0
 Standard_G5, Standard_GS5 | 32 | 2 | Intel Xeon E5-2698B v3 @ 2 GHz | 22 | 762.8 | 3.7
 
+## H-series
+
+Size | vCPUs | NUMA nodes | CPU | Runs | Iterations/sec | StdDev
+------- | ------ | ---- | -------| ---- | ---- | -----
+Standard_H8 | 8 | 1 | Intel Xeon E5-2667 v3 @ 3.2 GHz | 5 | 297.4 | 0.9
+Standard_H16 | 16 | 2 | Intel Xeon E5-2667 v3 @ 3.2 GHz | 5 | 575.8 | 6.8
+Standard_H8m | 8 | 1 | Intel Xeon E5-2667 v3 @ 3.2 GHz | 5 | 297.0 | 1.2
+Standard_H16m | 16 | 2 | Intel Xeon E5-2667 v3 @ 3.2 GHz | 5 | 572.2 | 3.9
+Standard_H16r | 16 | 2 | Intel Xeon E5-2667 v3 @ 3.2 GHz | 5 | 573.2 | 2.9
+Standard_H16mr | 16 | 2 | Intel Xeon E5-2667 v3 @ 3.2 GHz | 7 | 569.6 | 2.8
+
 ## About SPECint
 
-Windows numbers were computed by running [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) on Windows Server. SPECint was run using the base rate option (SPECint_rate2006), with one copy per core. SPECint consists of 12 separate tests, each run three times, taking the median value from each test and weighting them to form a composite score.  Those were then run across multiple VMs to provide the average scores shown.
+Windows numbers were computed by running [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) on Windows Server. SPECint was run using the base rate option (SPECint_rate2006), with one copy per core. SPECint consists of 12 separate tests, each run three times, taking the median value from each test and weighting them to form a composite score. Those tests were then run across multiple VMs to provide the average scores shown.
 
 
 ## Next steps

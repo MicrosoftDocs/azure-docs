@@ -5,7 +5,7 @@
 	documentationCenter="php"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="robmcm"/>
+	ms.author="gusapost;robmcm"/>
 
 
 # How to use table storage from PHP

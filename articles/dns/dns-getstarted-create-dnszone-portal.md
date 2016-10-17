@@ -3,7 +3,7 @@
    description="Learn how to create DNS zones for Azure DNS. This is a Step-by-step guide to create and manage your first DNS and start hosting your DNS domain using the Azure portal."
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
 
 # Create a DNS zone in the Azure portal
 
@@ -29,7 +29,7 @@
 
 This article will walk you through the steps to create a DNS zone by using the Azure portal. You can also create a DNS zone using PowerShell or CLI.
 
-[AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)] 
+[AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
 
 ### About Tags for Azure DNS
@@ -45,16 +45,16 @@ You can add Tags in the Azure portal by using the **Settings** blade for your DN
 1. Sign in to the Azure portal
 
 2. On the Hub menu, click and click **New > Networking >** and then click **DNS zone** to open the DNS zone blade.
- 
+
 	![DNS zone](./media/dns-getstarted-create-dnszone-portal/openzone650.png)
 
-3. On the **DNS zone** blade, click **Create** at the bottom. This will open the **Create DNS zone** blade. 
+3. On the **DNS zone** blade, click **Create** at the bottom. This will open the **Create DNS zone** blade.
 
 	![Create zone](./media/dns-getstarted-create-dnszone-portal/newzone250.png)
 
 4. On the **Create DNS zone** blade, Name your DNS zone. For example, *contoso.com*. See [About DNS Zone Names](#names) in the section above.
 
-5. Next, specify the resource group that you want to use. You can either create a new resource group, or select one that already exists. 
+5. Next, specify the resource group that you want to use. You can either create a new resource group, or select one that already exists.
 
 6. From the **Location** dropdown, specify the location of the resource group. Note that this setting refers to the location of the resource group, not the location for DNS zone. The actual DNS zone resource is automatically "global" and is not something that you can (or need to) specify in the portal.
 
@@ -78,7 +78,7 @@ Creating a DNS zone also creates the following records:
 
 You can view the records from the Azure portal
 
-1. From your **DNS zone** blade, click on **All settings** to open the **Settings blade** for the DNS zone. 
+1. From your **DNS zone** blade, click on **All settings** to open the **Settings blade** for the DNS zone.
 
 	![zone](./media/dns-getstarted-create-dnszone-portal/viewzonens500.png)
 
@@ -115,11 +115,11 @@ If you haven’t yet delegated your domain to use the new zone in Azure DNS, you
 
 ## Delete a DNS zone
 
-You can delete the DNS zone directly from the portal. Before deleting a DNS zone in Azure DNS, you will need to delete all records sets, except for the NS and SOA records at the root of the zone that were created automatically when the zone was created. 
+You can delete the DNS zone directly from the portal. Before deleting a DNS zone in Azure DNS, you will need to delete all records sets, except for the NS and SOA records at the root of the zone that were created automatically when the zone was created.
 
 1. Locate the **DNS zone** blade for the zone you want to delete, then click **Delete** at the top of the blade.
- 
-2. A message will appear letting you know that you must delete all records sets, except the NS and SOA records that were automatically created. If you have deleted your record sets, click **Yes**. Note that when deleting a DNS zone from the portal, the Resource Group that the DNS zone is associated with will not be deleted.  
+
+2. A message will appear letting you know that you must delete all records sets, except the NS and SOA records that were automatically created. If you have deleted your record sets, click **Yes**. Note that when deleting a DNS zone from the portal, the Resource Group that the DNS zone is associated with will not be deleted.
 
 
 ## Next steps

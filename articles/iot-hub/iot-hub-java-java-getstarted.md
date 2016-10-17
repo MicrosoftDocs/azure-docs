@@ -40,7 +40,7 @@ To complete this tutorial, you need the following:
 
 As a final step, make a note of the **Primary key** value, and then click **Messaging**. On the **Messaging** blade, make a note of the **Event Hub-compatible name** and the **Event Hub-compatible endpoint**. You need these three values when you create your **read-d2c-messages** application.
 
-![][6]
+![Azure portal IoT Hub Messaging blade][6]
 
 You have now created your IoT hub, and you have the IoT Hub hostname, IoT Hub connection string, IoT Hub Primary Key, Event Hubs-compatible name, and Event Hubs-compatible endpoint you need to complete this tutorial.
 
@@ -62,7 +62,7 @@ In this section, you create a Java console app that creates a new device identit
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.7</version>
+      <version>1.0.9</version>
     </dependency>
     ```
     
@@ -152,7 +152,7 @@ In this section, you create a Java console app that reads device-to-cloud messag
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.7.1</version> 
+        <version>0.8.2</version> 
     </dependency>
     ```
 
@@ -295,7 +295,7 @@ In this section, you create a Java console app that simulates a device that send
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-device-client</artifactId>
-      <version>1.0.8</version>
+      <version>1.0.14</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -445,7 +445,7 @@ You are now ready to run the applications.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![][7]
+    ![Java IoT Hub service client application to monitor device-to-cloud messages][7]
 
 2. At a command-prompt in the simulated-device folder, run the following command to begin sending telemetry data to your IoT hub:
 
@@ -453,11 +453,11 @@ You are now ready to run the applications.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
 
-    ![][8]
+    ![Java IoT Hub device client application to send device-to-cloud messages][8]
 
 3. The **Usage** tile in the [Azure portal][lnk-portal] shows the number of messages sent to the hub:
 
-    ![][43]
+    ![Azure portal Usage tile showing number of messages sent to IoT Hub][43]
 
 ## Next steps
 
@@ -481,13 +481,13 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
+[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-[lnk-hub-sdks]: iot-hub-sdks-summary.md
+[lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
