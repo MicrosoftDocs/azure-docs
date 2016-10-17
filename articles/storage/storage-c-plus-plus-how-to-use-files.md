@@ -81,7 +81,7 @@ Using the File storage client, you can then obtain a reference to a share.
 
 To create the share, use the **create_if_not_exists** method of the **cloud_file_share** object.
 
-	if (share. create_if_not_exists()) {	
+	if (share.create_if_not_exists()) {	
 		std::wcout << U("New share created") << std::endl;	
 	}
 
