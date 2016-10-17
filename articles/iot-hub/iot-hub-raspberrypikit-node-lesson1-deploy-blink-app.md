@@ -75,13 +75,13 @@ npm install
 ```
 
 ## 1.3.7 Configure the device connection
-Run the following command to generate the device configuration file in the home folder of your host machine.
+Run the following command to generate the device configuration file in a sub-folder (.iot-hub-getting-started) of  the home folder of your host machine.
 
 ```bash
 gulp init
 ```
 
-For security purposes, the configuration file is in the home folder to prevent, run the following command to open it in Visual Studio Code.
+For security purposes, the configuration file is in the home folder to username and password leak, run the following command to open it in Visual Studio Code.
 
 ```bash
 // For Windows command prompt
