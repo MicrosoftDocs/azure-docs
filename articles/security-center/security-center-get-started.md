@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/14/2016"
+   ms.date="10/17/2016"
    ms.author="terrylan"/>
 
 # Azure Security Center quick start guide
@@ -32,7 +32,7 @@ Security Center is accessed from the [Azure portal](https://azure.microsoft.com/
 
 ## Data collection
 
-Security Center collects data from your virtual machines to assess their security state, provide security recommendations, and alert you to threats. When you first access Security Center, data collection is enabled on all virtual machines in your subscription. Data collection is recommended but you can opt-out by turning off data collection in the Security Center policy.
+Security Center collects data from your virtual machines to assess their security state, provide security recommendations, and alert you to threats. When you first access Security Center, data collection is enabled on all virtual machines (VMs) in your subscription. Data collection is recommended but you can opt-out by turning off data collection in the Security Center policy.
 
 Following are steps on how to access and use Security Center's components. In these steps, we show you how to turn off data collection if you choose to opt-out.
 
@@ -55,7 +55,7 @@ You can configure security policies for your Azure subscriptions and resource gr
 
 2. On the **Security policy-Define policy per subscription or resource group** blade, select a subscription.
 3. On the **Security policy** blade, **Data collection** is enabled to automatically collect logs. The monitoring extension is provisioned on all current and new VMs in the subscription. (You can opt-out of data collection by setting **Data collection** to **Off** but this prevents Security Center from providing you with security alerts and recommendations.)
-4. On the **Security policy** blade, select **Choose a storage account per region**. For each region in which you have virtual machines running, you choose the storage account where data collected from those virtual machines is stored. If you do not choose a storage account for each region, it is created for you. The data that's collected is logically isolated from other customers’ data for security reasons.
+4. On the **Security policy** blade, select **Choose a storage account per region**. For each region in which you have VMs running, you choose the storage account where data collected from those VMs is stored. If you do not choose a storage account for each region, it is created for you. The data that's collected is logically isolated from other customers’ data for security reasons.
 
      > [AZURE.NOTE] We recommend that you enable data collection and choose a storage account at the subscription level first.  Security policies can be set at the Azure subscription level and resource group level but configuration of data collection and storage account occurs at the subscription level only.
 
@@ -77,12 +77,11 @@ You can configure security policies for your Azure subscriptions and resource gr
 ##### View the health and security state of your resources via **Resource security health**:
 
 1.	Return to the **Security Center** blade. The **Resources security health** tile contains indicators of the security state for **Virtual machines**, **Networking**, **Data**, and **Applications**.
-2.	Select **Virtual machines** to view more information.
+2.	Select **Virtual machines** to view more information. The **Virtual machines** blade opens and displays a status summary of antimalware programs, system updates, restarts, and OS vulnerabilities of your VMs.
 ![The Resources health tile in Azure Security Center][6]
 
-3.	The **Virtual machines** blade displays a status summary that shows the status of antimalware programs, system updates, restarts, and the baseline rules of your virtual machines.
-4.	Select a recommendation under **VIRTUAL MACHINE RECOMMENDATIONS** to view more information and/or take action to configure necessary controls.
-5.	Select a VM under **Virtual machines** to view additional detail.
+3.	Select a recommendation under **VIRTUAL MACHINE RECOMMENDATIONS** to view more information and/or take action to configure necessary controls.
+4.	Select a VM under **Virtual machines** to view additional detail.
 
 ##### Address **Security alerts**:
 
@@ -98,7 +97,7 @@ You can configure security policies for your Azure subscriptions and resource gr
 2. Select the **Partner solutions** tile. A blade opens displaying a list of your partner solutions connected to Security Center.
 ![Partner solutions][9]
 
-3. Select a partner solution. In this example, lets select the **F5-WAF2** solution.  A blade opens showing you the status of the partner solution and the solution's associated resources. Select **Solution console** to open the partner management experience for this solution.
+3. Select a partner solution. In this example, lets select the **F5-WAF** solution.  A blade opens showing you the status of the partner solution and the solution's associated resources. Select **Solution console** to open the partner management experience for this solution.
 
 ## Next steps
 In this article, you were introduced to the security monitoring and policy management components of Security Center. Now that you're familiar with Security Center, try the following steps:
