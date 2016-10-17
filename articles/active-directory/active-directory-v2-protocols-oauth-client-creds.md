@@ -74,7 +74,7 @@ When you're ready to request permissions from the company's admin, you can redir
 GET https://login.microsoftonline.com/{tenant}/adminconsent?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &state=12345
-&redirect_uri=http://localhost/myapp/permissons
+&redirect_uri=http://localhost/myapp/permissions
 ```
 
 ```

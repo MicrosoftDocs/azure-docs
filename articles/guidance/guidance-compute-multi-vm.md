@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/25/2016"
+   ms.date="10/12/2016"
    ms.author="mwasson"/>
 
 # Running multiple VMs on Azure for scalability and availability 
@@ -481,10 +481,9 @@ To run the script that deploys the solution:
 
 ## Next steps
 
-- Placing several VMs behind a load balancer is a building block for creating multi-tier architectures. For more information, see [Running VMs for an N-tier architecture on Azure][3-tier-blueprint].
+- Placing several VMs behind a load balancer is a building block for creating multi-tier architectures. For more information, see [Running Windows VMs for an N-tier architecture on Azure][n-tier-windows] and [Running Linux VMs for an N-tier architecture on Azure][n-tier-linux]
 
 <!-- Links -->
-[3-tier-blueprint]: guidance-compute-3-tier-vm.md
 [availability set]: ../virtual-machines/virtual-machines-windows-manage-availability.md
 [availability set ch9]: https://channel9.msdn.com/Series/Microsoft-Azure-Fundamentals-Virtual-Machines/08
 [azure-automation]: https://azure.microsoft.com/en-us/documentation/services/automation/
@@ -495,6 +494,8 @@ To run the script that deploys the solution:
 [health-probe-ip]: ../virtual-network/virtual-networks-nsg.md#special-rules
 [load balancer]: ../load-balancer/load-balancer-get-started-internet-arm-cli.md
 [load balancer hashing]: ../load-balancer/load-balancer-overview.md#hash-based-distribution
+[n-tier-linux]: guidance-compute-n-tier-vm-linux.md
+[n-tier-windows]: guidance-compute-n-tier-vm.md
 [naming conventions]: guidance-naming-conventions.md
 [network-security]: ../best-practices-network-security.md
 [nsg]: ../virtual-network/virtual-networks-nsg.md

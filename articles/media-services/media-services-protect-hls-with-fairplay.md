@@ -43,7 +43,7 @@ This topic demonstrates how to use Azure Media Services to dynamically encrypt y
 - The following are required when using AMS to deliver HLS encrypted with FairPlay and to deliver FairPlay licenses.
 
 	- An Azure account. For details, see [Azure Free Trial](/pricing/free-trial/?WT.mc_id=A261C142F).
-	- A Media Services account. To create a Media Services account, see [Create Account](media-services-create-account.md).
+	- A Media Services account. To create a Media Services account, see [Create Account](media-services-portal-create-account.md).
 	- Sign up with [Apple Development Program](https://developer.apple.com/).
 	- Apple requires the content owner to obtain the [deployment package](https://developer.apple.com/contact/fps/). State the request you already implemented KSM (Key Security Module) with Azure Media Services and that you are requesting the final FPS package. There will be instructions in the final FPS package to generate certification and obtain ASK, which you will be using to configure FairPlay. 
 

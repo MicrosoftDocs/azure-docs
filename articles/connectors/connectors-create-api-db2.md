@@ -39,7 +39,7 @@ To learn more about Logic Apps, see [create a logic app](../app-service-logic/ap
 ## Available actions
 The DB2 connector supports the following logic app actions:
 
-- Getables
+- GetTables
 - GetRow
 - GetRows
 - InsertRow
