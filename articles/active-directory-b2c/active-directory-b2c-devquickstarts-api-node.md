@@ -3,7 +3,7 @@
 	description="How to build a Node.js web API that accepts tokens from a B2C tenant"
 	services="active-directory-b2c"
 	documentationCenter=""
-	authors="brandwe"
+	authors="xerners"
 	manager="msmbaldwin"
 	editor=""/>
 
