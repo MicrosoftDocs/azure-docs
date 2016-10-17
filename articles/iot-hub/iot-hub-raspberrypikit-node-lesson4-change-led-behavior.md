@@ -89,9 +89,6 @@ You should successfully complete [4.1 Run a sample application on your Raspberry
     var message = buildCustomMessage(sentMessageCount);
     ``` 
 
-![on and off](media/iot-hub-raspberry-pi-lessons/lesson4/gulp_on_and_off.png)
-
-
 6. Save all the changes.
 
 ### 4.2.5 Deploy and run the sample application
@@ -101,9 +98,9 @@ Deploy and run the sample application on your Pi by running the following comman
 gulp
 ```
 
-### 4.2.6 Deploy and run the sample application
+You should see the LED turned on for two seconds, and then turned off for another two seconds. The last "stop" message stops the sample application from running.
 
-You should see the LED turned on for two seconds, and then turned off for another two seconds. The last “stop” message stops the sample application from running.
+![on and off](media/iot-hub-raspberry-pi-lessons/lesson4/gulp_on_and_off.png)
 
 You rock! You’ve successfully customized the messages that are sent to the sample application from your IoT hub.
 
