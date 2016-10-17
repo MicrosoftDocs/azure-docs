@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/20/2016"
+   ms.date="10/17/2016"
    ms.author="terrylan"/>
 
 # Remediate OS vulnerabilities in Azure Security Center
@@ -24,10 +24,10 @@ Azure Security Center analyzes daily your virtual machine (VM) operating system 
 
 ## Implement the recommendation
 
-1. In the **Recommendations** blade, select **Remediate OS vulnerabilities**. This opens the **Remediate OS vulnerabilities** blade.
+1. In the **Recommendations** blade, select **Remediate OS vulnerabilities**.
 ![Remediate OS vulnerabilities][1]
 
-2. The **Remediate OS vulnerabilities** blade lists your VMs with OS configurations that do not match the recommended configuration rules.  For each VM, the blade identifies:
+  This opens the **Remediate OS vulnerabilities** blade which lists your VMs with OS configurations that do not match the recommended configuration rules.  For each VM, the blade identifies:
 
  - **FAILED RULES** -- The number of rules that the VM's OS configuration failed.
  - **LAST SCAN TIME** -- The date and time that Security Center last scanned the VM’s OS configuration.
@@ -38,11 +38,10 @@ Azure Security Center analyzes daily your virtual machine (VM) operating system 
       - Resolved: The vulnerability was already addressed (when the issue has been resolved, the entry is grayed out)
  - **SEVERITY** -- All vulnerabilities are set to a severity of Low, meaning a vulnerability should be addressed but does not require immediate attention.
 
-   Select a VM. This opens the **Remediate OS vulnerabilities** blade for that VM and displays the rules that have failed.
-
+2. Select a VM. This opens a blade for that VM and displays the rules that have failed.
    ![Configuration rules that have failed][2]
 
-Select a rule. In this example, lets select **Password must meet complexity requirements**. A blade opens describing the failed rule and the impact. Review the details and consider how operating system configurations will be applied.
+3. Select a rule. In this example, lets select **Password must meet complexity requirements**. A blade opens describing the failed rule and the impact. Review the details and consider how operating system configurations will be applied.
 
   ![Description for the failed rule][3]
 
