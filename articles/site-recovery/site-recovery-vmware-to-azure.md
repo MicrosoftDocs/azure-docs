@@ -95,9 +95,9 @@ Here's what you'll need in Azure to deploy this scenario.
 **Azure network** | You'll need an Azure virtual network that Azure VMs will connect to when failover occurs. The Azure virtual network must be in the same region as the Recovery Services vault.
 **Failback from Azure** | You’ll need a temporary process server set up as an Azure VM. You can create this when you’re ready to fail back and delete it after fail back is complete.<br/><br/> To fail back you’ll need a VPN connection (or Azure ExpressRoute) from the Azure network to the on-premises site.
 
-## Configuration server prerequisites
+## Configuration server / Scale out Process prerequisites
 
-You'll set up an on-premises machine as the configuration server.
+You'll set up an on-premises machine as the configuration server/ scale-out process server.
 
 **Prerequisite** | **Details**
 --- | ---
