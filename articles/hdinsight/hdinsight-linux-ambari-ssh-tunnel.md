@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="10/11/2016"
+ms.date="10/17/2016"
 ms.author="larryfr"/>
 
 #Use SSH Tunneling to access Ambari web UI, JobHistory, NameNode, Oozie, and other web UI's
@@ -47,10 +47,6 @@ When using an SSH tunnel for web traffic, you must have the following:
 	> [AZURE.NOTE] If you want to use an SSH client other than `ssh` or PuTTY, please consult the documentation for your client on how to establish an SSH tunnel.
 
 * A web browser that can be configured to use a SOCKS proxy
-
-* __(optional)__: A plugin such as [FoxyProxy](http://getfoxyproxy.org/,) that can apply rules that only route specific requests through the tunnel.
-
-	> [AZURE.WARNING] Without a plugin such as FoxyProxy, all requests made through the browser may be routed through the tunnel. This can result in slower loading of web pages in your browser.
 
 ##<a name="usessh"></a>Create a tunnel using the SSH command
 
@@ -104,7 +100,7 @@ Use the following steps to create an SSH tunnel using PuTTY.
 
 ##Use the tunnel from your browser
 
-> [AZURE.NOTE] The steps in this section use the FireFox browser, as it is freely available for Linux, Unix, Macintosh OS X and Windows systems. Other modern browsers such as Google Chrome, Microsoft Edge, or Apple Safari should work as well; however, the FoxyProxy plugin used in some steps may not be available for all browsers.
+> [AZURE.NOTE] The steps in this section use the FireFox browser, as it is freely available for Linux, Unix, Macintosh OS X and Windows systems. Other modern browsers that support using a SOCKS proxy will work as well.
 
 1. Configure the browser to use **localhost:9876** as a **SOCKS v5** proxy. Here's what the Firefox settings look like. If you used a different port than 9876, change the port to the one you used:
 
@@ -113,55 +109,6 @@ Use the following steps to create an SSH tunnel using PuTTY.
 	> [AZURE.NOTE] Selecting **Remote DNS** will resolve Domain Name System (DNS) requests by using the HDInsight cluster. If this is unselected, DNS will be resolved locally.
 
 2. Verify that traffic is being routed through the tunnel by vising a site such as [http://www.whatismyip.com/](http://www.whatismyip.com/) with the proxy settings enabled and disabled in Firefox. While the settings are enabled, the IP address will be for a machine in the Microsoft Azure datacenter.
-
-###Browser extensions
-
-While configuring the browser to use the tunnel works, you don't usually want to route all traffic over the tunnel. Browser extensions such as [FoxyProxy](http://getfoxyproxy.org/) support pattern matching for URL requests (FoxyProxy Standard or Plus only), so that only requests for specific URLs will be sent over the tunnel.
-
-If you have installed FoxyProxy Standard, use the following steps to configure it to only forward traffic for HDInsight over the tunnel.
-
-1. Open the FoxyProxy extension in your browser. For example, in Firefox, select the FoxyProxy icon next to the address field.
-
-	![foxyproxy icon](./media/hdinsight-linux-ambari-ssh-tunnel/foxyproxy.png)
-
-2. Select **Add New Proxy**, select the **General** tab, and then enter a proxy name of **HDInsightProxy**.
-
-	![foxyproxy general](./media/hdinsight-linux-ambari-ssh-tunnel/foxygeneral.png)
-
-3. Select the **Proxy Details** tab and populate the following fields:
-
-	* **Host or IP Address** - This is localhost, since we are using an SSH tunnel on the local machine.
-
-	* **Port** - This is the port you used for the SSH tunnel.
-
-	* **SOCKS proxy** - Select this to enable the browser to use the tunnel as a proxy.
-
-	* **SOCKS v5** - Select this to set the required version for the proxy.
-
-	![foxyproxy proxy](./media/hdinsight-linux-ambari-ssh-tunnel/foxyproxyproxy.png)
-
-4. Select the **URL Patterns** tab, and then select **Add New Pattern**. Use the following to define the pattern, and then click **OK**:
-
-	* **Pattern Name** - **clusternodes** - This is just a friendly name for the pattern.
-
-	* **URL pattern** - **\*internal.cloudapp.net\*** - This defines a pattern that matches the internal fully qualified domain name of the cluster nodes.
-
-	![foxyproxy pattern](./media/hdinsight-linux-ambari-ssh-tunnel/foxypattern.png)
-
-    Add another pattern, using the following information for the settings:
-
-    * __Pattern Name__ - headnode
-    * __URL pattern__ - \*headnodehost\*
-
-    Select OK to save this pattern.
-
-4. Click **OK** to add the proxy and close **Proxy Settings**.
-
-5. At the top of the FoxyProxy dialog, change **Select Mode** to **Use proxies based on their pre-defined patterns and priorities**, and then click **Close**.
-
-	![foxyproxy select mode](./media/hdinsight-linux-ambari-ssh-tunnel/selectmode.png)
-
-After following these steps, only requests for URLs that contain the string __internal.cloudapp.net__ will be routed over the SSL tunnel.
 
 ##Verify with Ambari web UI
 
