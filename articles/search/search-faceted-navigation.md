@@ -288,7 +288,7 @@ Each range is built using 0 as a starting point, a value from the list as an end
 
 ### Build a filter for facet ranges ###
 
-To filter documents based on a range selected by the user, you can the `"ge"` and `"lt"` filter operators in a two-part expression that defines the endpoints of the range. For example, if the user chooses the range 10-25, the filter would be `$filter=listPrice ge 10 and listPrice lt 25`.
+To filter documents based on a range selected by the user, you can use the `"ge"` and `"lt"` filter operators in a two-part expression that defines the endpoints of the range. For example, if the user chooses the range 10-25, the filter would be `$filter=listPrice ge 10 and listPrice lt 25`.
 
 In the sample application, the filter expression uses **priceFrom** and **priceTo** parameters to set the endpoints. The **BuildFilter** method in **CatalogSearch.cs** contains the filter expression that gives you the documents within a range.
 
