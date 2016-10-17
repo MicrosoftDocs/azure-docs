@@ -389,23 +389,22 @@ To simplify your xml, you can create a wrapper *cmd* file that calls all of your
 
 You may find it annoying though to use `>> "%TEMP%\StartupLog.txt" 2>&1` on the end of each startup task. You can enforce task logging by creating a wrapper that handles logging for you. This wrapper calls the real batch file you want to run. Any output from the target batch file will be redirected to the *Startuplog.txt* file.
 
-The following example shows how to redirect all output from a startup batch file. In this example, the ServerDefinition.csdef file creates a startup task that calls *Startup1.cmd*. *Startup1.cmd* calls *Startup2.cmd*, redirecting all output to **%TEMP%\\StartupLog.txt**.
+The following example shows how to redirect all output from a startup batch file. In this example, the ServerDefinition.csdef file creates a startup task that calls *logwrap.cmd*. *logwrap.cmd* calls *Startup2.cmd*, redirecting all output to **%TEMP%\\StartupLog.txt**.
 
 ServiceDefinition.cmd:
 
 ```xml
 <Startup>
-    <Task commandLine="Startup1.cmd" executionContext="limited" taskType="simple" />
+    <Task commandLine="logwrap.cmd startup2.cmd" executionContext="limited" taskType="simple" />
 </Startup>
 ```
 
-**Startup1.cmd:**
+**logwrap.cmd:**
 
 ```cmd
 @ECHO OFF
 
-REM   logwrap.cmd calls the main startup batch file, Startup2.cmd, redirecting all output
-REM   to the StartupLog.txt log file.
+REM   logwrap.cmd calls passed in batch file, redirecting all output to the StartupLog.txt log file.
 
 ECHO [%date% %time%] == START logwrap.cmd ============================================== >> "%TEMP%\StartupLog.txt" 2>&1
 ECHO [%date% %time%] Running %1 >> "%TEMP%\StartupLog.txt" 2>&1
@@ -463,7 +462,7 @@ Sample output in the **StartupLog.txt** file:
 [Mon 10/17/2016 20:24:46.77] == END logwrap.cmd ================================================ 
 ```
 
->[AZURE.TIP] The **StartupLog.txt** file is located in the *C:\Resources\temp\{role identifier}\RoleTemp* folder.
+>[AZURE.TIP] The **StartupLog.txt** file is located in the *C:\Resources\temp\\{role identifier}\RoleTemp* folder.
 
 ### Set executionContext appropriately for startup tasks
 
