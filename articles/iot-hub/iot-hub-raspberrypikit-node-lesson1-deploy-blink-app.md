@@ -17,13 +17,13 @@
  ms.date="09/28/2016" 
  ms.author="xshi"/>
 
-# 1.3 Create and deploy the blink application
+# 1.3 Build and deploy the blink sample application
 
-## 1.3.1 What you will do
-Clone the sample Node.js application from Github, and gulp to deploy this application to your Raspberry Pi 3 board. This sample application blinks the LED connected to the board every two seconds.
+## 1.3.1 What will you do
 
-## 1.3.2 What you will learn
-In this section, you will learn:
+Clone the sample Node.js application from Github, and use Gulp to deploy the application to your Raspberry Pi 3. This sample application blinks the LED connected to the board every two seconds.
+
+## 1.3.2 What will you learn
 
 - How to use the `device-discover-cli` tool to retrieve networking information about your connected Raspberry Pi 3 device
 - How to deploy and run the sample application on the Pi
