@@ -45,6 +45,7 @@ Download the development tools and the software for the first sample application
 ## 1.2.4 Install the Git and Node.js software
 
 To install Git and Node.js, use the [Homebrew](http://brew.sh) package management utility by following these steps:
+
 1. Install Homebrew. If you've already installed Homebrew, go to step 2.
   1. Press `Cmd + Space` and enter `Terminal` to open a terminal window.
   2. Run the following command:
