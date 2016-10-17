@@ -1,6 +1,6 @@
-<properties
+ <properties
  pageTitle="Get the tools (Windows 7 +) | Microsoft Azure"
- description="Download and install the necessary tools and software for the first sample application for your Pi."
+ description="Download and install the necessary tools and software for the first sample application for your Pi on Windows 7 and later versions."
  services="iot-hub"
  documentationCenter=""
  authors="shizn"
