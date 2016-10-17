@@ -67,7 +67,7 @@ We’re very eager to have your feedback. Please let us know how it helps you, h
 * *So does this replace [metric alerts](app-insights-alerts.md)?
  * No.  We don't commit to detect every behaviour that you might consider abnormal.
 
-## How to investigate issues raised by Proactive Diagnostics
+## How to investigate the issues raised
 
 Open the diagnostic report either from the email or from the anomalies list.
 

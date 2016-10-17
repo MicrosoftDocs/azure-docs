@@ -232,9 +232,11 @@ The following is a list of SDKs and integrations that you can use with Event Hub
 * [Apache Storm spout](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). You can view the [spout source](https://github.com/apache/storm/tree/master/external/storm-eventhubs) on GitHub.
 * [Apache Spark integration](../hdinsight/hdinsight-apache-spark-eventhub-streaming.md)
 
-## Reference
+## Reference topics:
 
-### Message format
+The following reference topics provide you with more information about exchanging messages with IoT Hub.
+
+## Message format
 
 IoT Hub messages comprise:
 
@@ -260,7 +262,7 @@ The following table lists the set of system properties in IoT Hub messages.
 | ConnectionDeviceGenerationId | An ID set by IoT Hub on device-to-cloud messages. It contains the **generationId** (as per [Device identity properties][lnk-device-properties]) of the device that sent the message. |
 | ConnectionAuthMethod | An authentication method set by IoT Hub on device-to-cloud messages. This property contains information about the authentication method used to authenticate the device sending the message. For more information, see [Device to cloud anti-spoofing][lnk-antispoofing].|
 
-### Communication protocols
+## Communication protocols
 
 Iot Hub supports MQTT, [AMQP][lnk-amqp], AMQP over WebSockets, and HTTP/1 protocols for device-side communications. The following table provides the high-level recommendations for your choice of protocol:
 
@@ -280,7 +282,7 @@ Consider the following points when you choose your protocol for device-side comm
 
 > [AZURE.NOTE] When using HTTP/1, each device should poll for cloud-to-device messages every 25 minutes or more. However, during development, it is acceptable to poll more frequently than every 25 minutes.
 
-### Port numbers
+## Port numbers
 
 Devices can communicate with IoT Hub in Azure using various protocols. Typically, the choice of protocol is driven by the specific requirements of the solution. The following table lists the outbound ports that must be open for a device to be able to use a specific protocol:
 
@@ -294,7 +296,7 @@ Devices can communicate with IoT Hub in Azure using various protocols. Typically
 
 Once you have created an IoT hub in an Azure region, the hub keeps the same IP address for the lifetime of that hub. However, to maintain quality of service, if Microsoft moves the IoT hub to a different scale unit then it is assigned a new IP address.
 
-### Notes on MQTT support
+## Notes on MQTT support
 
 IoT Hub implements the MQTT v3.1.1 protocol with the following limitations and specific behavior:
 
@@ -305,7 +307,7 @@ For more information, see [IoT Hub MQTT support][lnk-devguide-mqtt].
 
 As a final consideration, you should review the [Azure IoT protocol gateway][lnk-azure-protocol-gateway] that enables you to deploy a high-performance custom protocol gateway that interfaces directly with IoT Hub. The Azure IoT protocol gateway enables you to customize the device protocol to accommodate brownfield MQTT deployments or other custom protocols. This approach does require, however, that you self-host and operate a custom protocol gateway.
 
-### Additional reference material
+## Additional reference material
 
 Other reference topics in the Developer Guide include:
 

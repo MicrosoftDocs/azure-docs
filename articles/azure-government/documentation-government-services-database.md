@@ -18,7 +18,7 @@
 	ms.author="ryansoc"/>
 
 
-#  Azure Government Database
+#  Azure Government Databases
 
 ##  SQL Database
 
