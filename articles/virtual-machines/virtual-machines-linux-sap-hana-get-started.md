@@ -610,7 +610,7 @@ runs on bare-metal servers : 
 [SAP Note 2178632](https://launchpad.support.sap.com/#/notes/2178632/E)
 
 * Information about Azure Resource Manager :
-[Azure Resource Manager overview](../resource-group-overview.md)
+[Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)
 
 * Information about deploying Linux VMs via templates :
 [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](virtual-machines-linux-cli-deploy-templates.md)
