@@ -46,7 +46,7 @@ To begin installing and configuring MongoDB, [log on to your Windows Server VM](
 
 	![Configure Internet Explorer security settings](./media/virtual-machines-windows-install-mongodb/configure-internet-explorer-security.png)
 
-4. Go to the [MongoDB downloads](http://www.mongodb.org/downloads) page.
+4. Browse to the [MongoDB - Downloads](http://www.mongodb.org/downloads) page (http://www.mongodb.org/downloads).
 
 5. By default, it should select the **Community Server** edition and the latest current stable release for Windows Server 2008 R2 64-bit and later. To download the installer, click **DOWNLOAD (msi)**.
 
