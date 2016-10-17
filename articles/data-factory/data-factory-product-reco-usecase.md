@@ -3,7 +3,7 @@
 	description="Learn about an use case implemented by using Azure Data Factory along with other services." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="sharonlo101" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/01/2016" 
-	ms.author="spelluru"/>
+	ms.author="shlo"/>
 
 # Use Case - Product Recommendations 
 
