@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="05/26/2016" 
+	ms.date="10/17/2016" 
 	ms.author="eugenesh"/>
 
 #Connecting Azure SQL Database to Azure Search using indexers
@@ -248,7 +248,7 @@ Note that the **softDeleteMarkerValue** must be a string – use the string repr
 | bigint | Edm.Int64, Edm.String | |
 | real, float |Edm.Double, Edm.String | |
 | smallmoney, money decimal numeric | Edm.String| Azure Search does not support converting decimal types into Edm.Double because this would lose precision |
-| char, nchar, varchar, nvarchar | Edm.String<br/>Collection(Edm.String)|Transforming a string column into Collection(Edm.String) requires using a preview API version 2015-02-28-Preview. See [this article](search-api-indexers-2015-02-28-Preview.md#CreateIndexer) for details| 
+| char, nchar, varchar, nvarchar | Edm.String<br/>Collection(Edm.String)|A SQL string can be used to populate a Collection(Edm.String) field if the string looks like JSON array of strings: `["red", "white", "blue"]` | 
 |smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String| |
 |uniqueidentifer | Edm.String | |
 |geography | Edm.GeographyPoint | Only geography instances of type POINT with SRID 4326 (which is the default) are supported | | 
