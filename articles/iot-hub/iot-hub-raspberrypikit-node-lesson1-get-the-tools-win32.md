@@ -1,4 +1,4 @@
- <properties
+<properties
  pageTitle="Get the tools (Windows 7 +) | Microsoft Azure"
  description="Download and install the necessary tools and software for the first sample application for your Pi on Windows 7 and later versions."
  services="iot-hub"
@@ -40,7 +40,7 @@ Download the development tools and the software for the first sample application
 - An Internet connection to download the development tools and the software
 - A computer that is running Windows
 
-## 1.2.4 Install the Git and Node.js software
+## 1.2.4 Install Git and Node.js
 
 Click the links below to download and install Git and Node.js LTS for Windows.
 - [Get Git for Windows](https://git-scm.com/download/win/)
