@@ -65,7 +65,7 @@ Deploy and run the sample application on your Pi by running the following comman
 gulp
 ```
 
-The gulp command sequentially runs the install-tools, the deploy, the run and the new send-cloud-to-device-message tasks.
+The gulp command runs the install-tools task first. Then it deploys the sample application to your Pi. Finally, it runs the application on your Pi and a separate task on your host computer to send 20 blink messages to your Pi from your IoT hub.
 
 Once the sample application runs, it stands by for incoming messages from your IoT hub. Meanwhile, the gulp task sends a bunch of “blink” messages from your IoT Hub to your Pi. For each of the blink message received, the sample application calls the blinkLED function to blink the LED.
 

@@ -48,6 +48,7 @@ Use the keyboard shortcut `Ctrl + Alt + T` to open a terminal window and run the
 sudo apt-get update
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get install -y nodejs
+sudo apt-get install git
 ```
 
 ## 1.2.5 Install Node.js development tools
