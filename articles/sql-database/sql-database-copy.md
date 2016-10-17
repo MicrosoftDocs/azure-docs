@@ -3,7 +3,7 @@
 	description="Create a copy of an Azure SQL database"
 	services="sql-database"
 	documentationCenter=""
-	authors="stevestein"
+	authors="nosovsh"
 	manager="jhubbard"
 	editor=""/>
 
@@ -11,7 +11,7 @@
 	ms.service="sql-database"
 	ms.devlang="NA"
 	ms.date="06/16/2016"
-	ms.author="sstein"
+	ms.author="sstein, sashan"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
