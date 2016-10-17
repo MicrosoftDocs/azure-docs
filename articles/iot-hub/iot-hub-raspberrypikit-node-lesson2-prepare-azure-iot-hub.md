@@ -34,7 +34,7 @@ In this section, you will learn
 - Your Mac or PC with Azure CLI installed
 
 ## 2.2.4 Create your Azure IoT Hub
-Azure IoT Hub can help you connect, monitor, and manage millions of IoT assets. To get started, you need to provision you own Azure IoT hub. Then, you create an Azure IoT hub in a new resource group. 
+Azure IoT Hub can help you connect, monitor, and manage millions of IoT assets. To get started, you need to provision your own Azure IoT hub. Then, you create an Azure IoT hub in a new resource group. 
 
 Login to your Azure account with the following command. All of your available subscriptions are listed after a successful login.
 
