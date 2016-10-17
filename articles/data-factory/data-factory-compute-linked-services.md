@@ -3,7 +3,7 @@
 	description="Learn about compute enviornments that you can use in Azure Data Factory pipelines to transform/process data."
 	services="data-factory"
 	documentationCenter=""
-	authors="spelluru"
+	authors="sharonlo101"
 	manager="jhubbard"
 	editor="monicar"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/22/2016"
-	ms.author="spelluru"/>
+	ms.author="shlo"/>
 
 # Compute Linked Services
 
