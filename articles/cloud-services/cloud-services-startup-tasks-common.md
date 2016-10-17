@@ -345,7 +345,7 @@ Any task run can now use the **%ComputeEmulatorRunning%** environment variable t
 
 ## Detect that your task has already run
 
-The role may recycle without a reboot causing your startup tasks to run again. There is flag to indicate a task has already run on the hosting VM. You may have some tasks where it doesn't matter that they run multiple times. However you may run into a situation where you need to prevent a task from running more than once.
+The role may recycle without a reboot causing your startup tasks to run again. There is no flag to indicate that a task has already run on the hosting VM. You may have some tasks where it doesn't matter that they run multiple times. However, you may run into a situation where you need to prevent a task from running more than once.
 
 The simplest way to detect that a task has already run is to create a file in the **%TEMP%** folder when the task is successful and look for it at the start of the task. Here is a sample cmd shell script that does that for you.
 
