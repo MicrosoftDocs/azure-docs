@@ -1,4 +1,4 @@
- <properties
+<properties
  pageTitle="Get the tools (Windows 7 +) | Microsoft Azure"
  description="Download and install the necessary tools and software for the first sample application for your Pi."
  services="iot-hub"
@@ -8,7 +8,7 @@
  tags=""
  keywords=""/>
 
- <tags
+<tags
  ms.service="iot-hub"
  ms.devlang="multiple"
  ms.topic="article"
@@ -53,7 +53,7 @@ Click the links below to download and install Git and Node.js LTS for Windows.
 1. Download Gulp and device-discovery-cli.
   - [Get gulp.js](http://gulpjs.com).
     Gulp is a tool to automate the deployment of the sample code to your Pi.
-  - [Get device-discovery-cli](https://github.com/Azure/device-discovery-cli)
+  - [Get device-discovery-cli](https://github.com/Azure/device-discovery-cli).
     device-discovery-cli is a Node.js utility to retrieve network information about your Pi.
 2. Install these development tools.
   1. Press `Windows + R`, type `cmd` and press Enter to open a command prompt window.
