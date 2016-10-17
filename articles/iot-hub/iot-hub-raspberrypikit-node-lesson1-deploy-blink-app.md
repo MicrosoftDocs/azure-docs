@@ -91,6 +91,7 @@ gulp init
 ```
 
 The device configuration file contains the user credentials you use to log in your Pi. To avoid the leak of user credentials, the device configuration file is generated in the %USERPROFILE%\.iot-hub-getting-started folder on your computer.
+
 2. Open the device configuration file in Visual Studio Code by running the following command:
 
   ```bash
