@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="06/27/2016"
-   ms.author="andkjell;billmath"/>
+   ms.author="billmath"/>
 
 # More details about features in preview
 This topic describes how to use features currently in preview.
