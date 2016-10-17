@@ -23,6 +23,7 @@
 Azure AD Connect allows your users to sign on to both cloud and on-premises resources using the same passwords. This article describes key concepts for every identity model to help you choose the identity you want to use for your sign-in to Azure AD.
 
 If you’re already familiar with Azure AD identity model and want to learn more about a specific method, just click below on appropriate topic.
+
 * [Password Sync](#password-synchronization)
 * [Federated SSO (with ADFS)](#federation-using-a-new-or-existing-ad-fs-in-windows-server-2012-r2-farm)
 
