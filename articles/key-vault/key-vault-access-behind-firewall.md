@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Access Key Vault behind a firewall | Microsoft Azure"
-	description="Learn how to access Key Vault from an application behind a firewall"
+	description="Learn how to access Azure Key Vault from an application behind a firewall"
 	services="key-vault"
 	documentationCenter=""
 	authors="amitbapat"
