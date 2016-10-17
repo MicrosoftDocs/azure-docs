@@ -1,4 +1,4 @@
-<properties
+A<properties
 	pageTitle="Monitor DocumentDB requests and storage | Microsoft Azure"
 	description="Learn how to monitor your DocumentDB account for performance metrics, such as requests and server errors, and usage metrics, such as storage consumption."
 	services="documentdb"
@@ -20,7 +20,7 @@
 
 You can monitor your Azure DocumentDB accounts in the [Azure portal](https://portal.azure.com/). For each DocumentDB account, both performance metrics, such as requests and server errors, and usage metrics, such as storage consumption, are available.
 
-Metrics can be reviewed on the account blade or on the new Metrics blade. 
+Metrics can be reviewed on the Account blade or on the new Metrics blade. 
 
 ## View performance metrics on the Metrics blade
 
