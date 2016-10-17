@@ -70,7 +70,6 @@ code ~/.iot-hub-getting-started/config-raspberrypi.json
 Use the following command to deploy the sample application to your Pi and run it:
 
 ```bash
-npm install
 gulp
 ```
 
