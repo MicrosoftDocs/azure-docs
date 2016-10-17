@@ -19,46 +19,49 @@
 
 # 1.1 Configure your device
 
-## 1.1.1 What you will do
-Configure your Raspberry Pi 3 for first time use and install the Raspbian OS, a free operating system that is optimized for the Raspberry Pi hardware.
+## 1.1.1 What will you do
+Configure your Pi for the first time use and install the Raspbian operating system, a free operating system that is optimized for the Raspberry Pi hardware.
 
-> [AZURE.NOTE] For Windows 10 IoT Core samples, please visit [windowsondevices.com](http://www.windowsondevices.com/)
+> [AZURE.NOTE] For Windows 10 IoT Core samples, visit [windowsondevices.com](http://www.windowsondevices.com/)
 
-## 1.1.2 What you will learn
+## 1.1.2 What will you learn
 In this section, you will learn:
 
-- How to install Raspbian OS on your Raspberry Pi 3
-- How to power up your Pi using USB cable
-- How to connect your Pi to the network using Ethernet cable or WiFi
+- How to install Raspbian on your Pi
+- How to power up your Pi using a USB cable
+- How to connect your Pi to the network using an Ethernet cable or Wi-Fi
 - How to add an LED to the breadboard and connect it to your Pi
 
-## 1.1.3 What you need
-To complete this section, you need the following parts from your Raspberry Pi Starter Kit:
+## 1.1.3 What do you need
+To complete this section, you need the following parts from your Raspberry Pi 3 Starter Kit:
 
-- Raspberry Pi 3 board
-- 16GB SD/MicroSD Memory Card
-- 5V 2A Switching Power Supply with 6' Micro USB Cable
-- Breadboard
+- The Raspberry Pi 3 board
+- The 16GB MicroSD card
+- The 5V 2A power supply with the 6 feet micro USB cable
+- The breadboard
 - Connector wires
-- 1x 560 Ohm Resistor
-- 1x Diffused 10mm LED
-- Ethernet Cable
+- An 560 Ohm resistor
+- An diffused 10mm LED
+- The Ethernet cable
 
 ![Things in your Starter Kit](media/iot-hub-raspberry-pi-lessons/lesson1/starter_kit.jpg)
 
 You also need:
 
-- Access to a wired or wireless connection for the Pi to connect to
-- A desktop machine (Windows, Mac, or Linux) to prepare an SD card with the Raspbian OS
-- An internet connection to download the tools and software
+- A wired or wireless connection for your Pi to connect to
+- A computer running Windows, Mac or Linux. The computer is used to install Raspbian on the MicroSD card.
+- An Internet connection to download the necesary tools and software
 
 
-## 1.1.4 Download Raspbian OS
-Prepare your Raspberry Pi 3 SD card to use the Raspbian OS.
+## 1.1.4 Install Raspbian on the MicroSD card
+Prepare the MicroSD card to write the Raspbian image to.
 
-- [Download](https://downloads.raspberrypi.org/raspbian_latest) the zip file for Raspbian OS and unzip into a folder on your computer or laptop.
-- Visit [etcher.io](https://www.etcher.io) and download and install the Etcher SD card image utility.
-- Run Etcher and select the Raspbian image you unzipped on your computer or laptop.
+1. Download Raspbian
+  1. [Download](https://downloads.raspberrypi.org/raspbian_latest) the zip file for Raspbian.
+  2. Unzip the Raspbian image into a folder on your computer.
+2. Install Raspbian to the MicroSD card
+  1. [Download](https://www.etcher.io) and install the Etcher SD card burner utility.
+  2. Run Etcher and select the Raspbian image you unzipped on your computer o.
 - Select the SD card drive. Note that the software may have already selected the correct drive.
 Finally, click Burn to transfer the Raspbian OS image to the SD card. Once complete, the utility automatically ejects/unmounts the SD card so it's safe to remove it from the computer.
 
