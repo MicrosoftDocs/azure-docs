@@ -1,28 +1,15 @@
 {
   "build_entry_point": "docs",
   "need_generate_pdf": false,
-  "need_preview_pull_request": true,
   "need_generate_intellisense": false,
-  "docsets_to_publish": [
-    {
-      "docset_name": "azure-docs",
-      "build_source_folder": ".",
-      "build_output_subfolder": "azure",
-      "locale": "en-us",
-      "version": 0,
-      "open_to_public_contributors": false,
-      "type_mapping": {
-        "Conceptual": "Content",
-        "ManagedReference": "Content",
-        "RestApi": "Content"
-      },
-      "build_entry_point": "docs",
-      "template_folder": "_themes"
-    }
-  ],
+  "docsets_to_publish": [],
   "notification_subscribers": [],
-  "branches_to_filter": ["live", "master"],
+  "branches_to_filter": [
+    "live",
+    "master"
+  ],
   "skip_source_output_uploading": false,
+  "need_preview_pull_request": true,
   "dependent_repositories": [
     {
       "path_to_root": "_themes",
