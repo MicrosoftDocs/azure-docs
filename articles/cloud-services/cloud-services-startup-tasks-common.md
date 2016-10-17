@@ -21,8 +21,6 @@ This article provides some examples of common startup tasks you may want to perf
 
 See [this article](cloud-services-startup-tasks.md) to understand how startup tasks work, and specifically how to create the entries that define a startup task.
 
-Many of the tasks here use the 
-
 >[AZURE.NOTE] Startup tasks are not applicable to Virtual Machines, only to Cloud Service Web and Worker roles.
 
 
