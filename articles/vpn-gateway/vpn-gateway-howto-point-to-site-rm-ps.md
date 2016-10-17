@@ -140,7 +140,7 @@ If you are using an enterprise solution, you can use your existing certificate c
 
 No matter how you obtain the cert, you upload the .cer file for the certificate to Azure, and also generate client certificates to install on the clients that want to connect. You don't install the self-signed certificate directly on the client. You can generate client certificates later, in the [Client Configuration](#cc) section of this article.
 		
-You can add up to 20 trusted certificates to Azure. To get the public key, export the certificate as a Base64-encoded X.509 (.cer) file. One way to export to cer. is to open **certmger.msc**, locate the certificate in the Personal/Certificates. Right click and export without the private key as "Base-64 encoded X.509(.CER)". Make note of the file path where you exported to .cer file. This is a sample of obtaining the Base64 string representation of your certificate. 
+You can add up to 20 trusted certificates to Azure. To get the public key, export the certificate as a Base64-encoded X.509 (.cer) file. One way to export to cer. is to open **certmgr.msc**, locate the certificate in the Personal/Certificates. Right click and export without the private key as "Base-64 encoded X.509(.CER)". Make note of the file path where you exported to .cer file. This is a sample of obtaining the Base64 string representation of your certificate. 
 
 Add the trusted certificate to Azure. You need to use your own .cer file path for this step. Pay particular attention to the $P2SRootCertName = "ARMP2SRootCert.cer" variable that you set in Part 1 of this article. If the name of your certificate is different, adjust the variable accordingly.
     

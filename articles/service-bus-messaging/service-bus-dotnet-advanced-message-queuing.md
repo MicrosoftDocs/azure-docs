@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="How to use AMQP 1.0 with the .NET Service Bus API | Microsoft Azure" 
 	description="Learn how to use Advanced Message Queuing Protodol (AMQP) 1.0 with the Azure .NET Service Bus API." 
-	services="service-bus-messaging" 
+	services="service-bus" 
 	documentationCenter=".net" 
 	authors="sethmanheim" 
 	manager="timlt" 
 	editor=""/>
 
 <tags 
-	ms.service="service-bus-messaging" 
+	ms.service="service-bus" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/26/2016"
+	ms.date="10/12/2016"
 	ms.author="juliako"/>
 
 # Set up your environment
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-create-account.md)
+- [Portal](media-services-portal-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
 <a id="create_account"></a>
@@ -28,7 +28,7 @@ The following steps describe prerequisites required for developing with Azure Me
 
 ## Create a Media Services account
 
-Use the Azure Classic Portal, the .NET SDK, or the REST API to create an Azure Media Services account.
+Use the Azure portal, the .NET SDK, or the REST API to create an Azure Media Services account.
 
 <a id="setup_dev_env"></a>
 ## Set up the development environment  

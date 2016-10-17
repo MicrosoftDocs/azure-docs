@@ -3,7 +3,7 @@
     description="This article shows you how to use to Azure Search indexer with DocumentDB as a data source."
     services="documentdb"
     documentationCenter=""
-    authors="AndrewHoh"
+    authors="dennyglee"
     manager="jhubbard"
     editor="mimig"/>
 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
     ms.date="07/08/2016"
-    ms.author="anhoh"/>
+    ms.author="denlee"/>
 
 #Connecting DocumentDB with Azure Search using indexers
 

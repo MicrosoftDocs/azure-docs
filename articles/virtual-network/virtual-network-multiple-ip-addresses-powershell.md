@@ -49,7 +49,7 @@ This scenario assumes you have a resource group called *RG1* within which there 
 
 1. Open a PowerShell command prompt and complete the remaining steps in this section within a single PowerShell session. If you don't already have PowerShell installed and configured, complete the steps in the [How to install and configure Azure PowerShell](../powershell-install-configure.md) article.
 
-2. Change the "values" of the following $Variables to the Azure [location](https://azure.microsoft.com/regions) your virtual network is in, the name of your [resource group](../resource-group-overview.md#resource-groups), the VNet within the resource group, the subnet you want to connect the NIC to and the name of the NIC.
+2. Change the "values" of the following $Variables to the Azure [location](https://azure.microsoft.com/regions) your virtual network is in, the name of your [resource group](../azure-resource-manager/resource-group-overview.md#resource-groups), the VNet within the resource group, the subnet you want to connect the NIC to and the name of the NIC.
 
         $Location = "westcentralus"
         $RgName   = "RG1"
