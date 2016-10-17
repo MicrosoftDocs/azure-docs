@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/06/2016"
+	ms.date="10/17/2016"
 	ms.author="jeedes"/>
 
 
@@ -119,13 +119,9 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
     ![Configure Single Sign-On](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_04.png)
 
-4. On the **Configure single sign-on at Wizergos Productivity Software** page, perform the following steps and click **Next**:
+4. On the **Configure single sign-on at Wizergos Productivity Software** page, click **Download certificate**, and then save the file on your computer:
 
 	![Configure Single Sign-On](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_05.png)
-
-    a. Click **Download certificate**, and then save the file on your computer.
-
-    b. Click **Next**.
 
 5. In a different web browser window, sign-on to your Wizergos Productivity Software tenant as an administrator.
 
@@ -141,19 +137,15 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	![Configure Single Sign-On On App side](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_003.png)
 
-	a. Open the downloaded certificate from Azure AD and copy the thumbprint of certificate. Then paste it to the textbox of **Certificate ThumbPrint**.
-
-	![Configure Single Sign-On On App side](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_004.png)
+	a. Click **UPLOAD** button to upload the downloaded certificate from Azure AD. 
 
 	b. In the **Issuer URL** textbox put the value of **Issuer URL** from Azure AD application configuration wizard.
 
-	c. In the **Signle Sign-On URL** textbox put the value of **Single Sign-on Service URL** from Azure AD application configuration wizard.
+	c. In the **Single Sign-On URL** textbox put the value of **Single Sign-on Service URL** from Azure AD application configuration wizard.
 
-	d. In the **Signle Sign-Out URL** textbox put the value of **Single Sign-out Service URL** from Azure AD application configuration wizard.
+	d. In the **Single Sign-Out URL** textbox put the value of **Single Sign-out Service URL** from Azure AD application configuration wizard.
 
 	e. Click **Save** button.
-
-	> [AZURE.NOTE] Please note that the certificate fingerprint should not contain any spaces in-between.
 
 9. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
     
