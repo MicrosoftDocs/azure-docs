@@ -19,7 +19,7 @@
 
 # Get Started with Raspberry Pi 3
 
-In this tutorial, you begin by learning the basics of working with Raspberry Pi 3 with Raspbian. You then learn how to seamlessly connect your devices to the cloud with [Azure IoT Hub](iot-hub-what-is-iot-hub.md). For Windows 10 IoT Core samples, visit [windowsondevices.com](http://www.windowsondevices.com/).
+In this tutorial, you begin by learning the basics of working with Raspberry Pi 3 that running Raspbian. You then learn how to seamlessly connect your devices to the cloud with [Azure IoT Hub](iot-hub-what-is-iot-hub.md). For Windows 10 IoT Core samples, visit [windowsondevices.com](http://www.windowsondevices.com/).
 
 ## Lesson 1: Get started with your Raspberry Pi
 
