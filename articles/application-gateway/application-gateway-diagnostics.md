@@ -179,7 +179,7 @@ You can also connect to your storage account and retrieve the JSON log entries f
 
 Metrics is a feature for certain Azure resources where you can view performance counters in the portal. For Application Gateway, one metric is available at the time of writing this article. This metric is throughput, and can be seen in the portal. Navigate to an application gateway and click **Metrics**.  Select throughput in the **Available metrics** section to view the values. In the following image, you can see an example with the filters that can be used to display the data in different time ranges.
 
-To see a list of the current support metrics, visit [Supported metrics with Azure Monitor](../azure-portal/monitoring-supported-metrics.md)
+To see a list of the current support metrics, visit [Supported metrics with Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
 ![metric view][5]
 
