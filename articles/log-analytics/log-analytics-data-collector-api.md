@@ -154,7 +154,7 @@ If you then submitted the following entry, before the record type was created, L
 ![Sample record 4](media/log-analytics-data-collector-api/record-04.png)
 
 
-## Log Analytics Data Collector API limits
+## Data limits
 There are some constraints around the data posted to the Log Analytics Data collection API.
 
 - Maximum of 30 MB per post to Log Analytics Data Collector API. This is a size limit for a single post. If the data from a single post that exceeds 30 MB, you should split the data up to smaller sized chunks and send them concurrently. 
