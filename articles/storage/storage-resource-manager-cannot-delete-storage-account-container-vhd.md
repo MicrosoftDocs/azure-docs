@@ -63,9 +63,9 @@ To resolve these issues, you have to identify the VHD that is causing the error 
 
 3. Check the properties of each VHD in the container. Locate the VHD that is in the **Leased** state. Then, determine which VM is using the VHD. Usually, you can determine which VM holds the VHD by checking name of the VHD:
 
-	 -	OS Disks generally follow this naming rule: VMNameYYYYMMDDHHMMSS.vhd
+	 OS Disks generally follow this naming rule: VMNameYYYYMMDDHHMMSS.vhd
 
-   -	Data Disks generally follow this naming convention: VMName-YYYYMMDD-HHMMSS.vhd
+   Data Disks generally follow this naming convention: VMName-YYYYMMDD-HHMMSS.vhd
 
 	![locatevm.png](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/locatevm.png)
 
