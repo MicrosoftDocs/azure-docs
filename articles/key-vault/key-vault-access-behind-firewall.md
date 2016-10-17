@@ -16,7 +16,7 @@
 	ms.date="09/13/2016"
 	ms.author="ambapat"/>
 
-# Access Azure Key Vault behind a firewall
+# Access Azure Key Vault behind a firewall#
 ### Q: My key vault client application needs to be behind a firewall. What ports, hosts, or IP addresses should I open to enable access to key vault?
 
 To access a key vault, your key vault client application needs to be able to access multiple endpoints for various functionalities.
@@ -27,11 +27,11 @@ To access a key vault, your key vault client application needs to be able to acc
 
 Depending on your configuration and environment, there are some variations.   
 
-## Ports
+## Ports##
 
 All traffic to a key vault for all three functions (authentication, management, and data plane access) goes over HTTPS: Port 443. However, there will be occasionally HTTP (port 80) traffic for CRL. Clients that support OCSP shouldn't reach CRL, but may occasionally reach [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl).  
 
-## Authentication
+## Authentication##
 
 Key Vault client application will need to access Azure Active Directory endpoints for authentication. The endpoint used depends on the AAD tenant configuration and the type of principal (user principal or service principal) and the type of account, for example, Microsoft Account or Org ID.  
 
@@ -43,7 +43,7 @@ Key Vault client application will need to access Azure Active Directory endpoint
 
 There are other possible complex scenarios. Please refer to [Azure Active Directory Authentication Flow](/documentation/articles/active-directory-authentication-scenarios/), [Integrating Applications with Azure Active Directory](/documentation/articles/active-directory-integrating-applications/) and [Active Directory Authentication Protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx) for additional information.  
 
-## Key Vault Management
+## Key Vault Management##
 
 For Key Vault Management (CRUD and setting access policy), the key vault client application needs to access Azure Resource Manager endpoint.  
 
@@ -52,7 +52,7 @@ For Key Vault Management (CRUD and setting access policy), the key vault client 
 | Key Vault Control Plane operations<br> via Azure Resource Manager | **Global:**<br> management.azure.com:443<br><br> **Azure China:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> management.microsoftazure.de:443 |
 | Azure Active Directory Graph API | **Global:**<br> graph.windows.net:443<br><br> **Azure China:**<br> graph.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> graph.windows.net:443<br><br> **Azure Germany:**<br> graph.cloudapi.de:443 |
 
-## Key Vault operations
+## Key Vault operations##
 
 For all key vault object (keys and secrets) management and cryptographic operations, the key vault client needs to access the key vault endpoint. The endpoint DNS suffix varies depending on the location of your key vault. The key vault endpoint is of the format: <vault-name>.<region-specific-dns-suffix> as described in the table below.  
 
@@ -60,11 +60,10 @@ For all key vault object (keys and secrets) management and cryptographic operati
 |----------------|---------------|
 | Key Vault operations like cryptographic operations on keys; created, read, updated, deleted keys and secrets; set/get tags and other attributes on key vault objects (keys or secrets)     | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Government:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |
 
-## IP Address Ranges
+## IP Address Ranges ##
 
 Key Vault service in turn uses other Azure resources like PaaS infrastructure, hence it's not possible to provide a specific range of IP addresses that key vault service endpoints will have at any given time. However if your firewall only supports IP address ranges then please refer to the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) document. For authentication and identity (Azure Active Directory), your application must be able to connect to the endpoints described in [Authentication and identity Addresses](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
-## Next Steps
+## Next Steps##
 
 - If you have questions about Key Vault, visit the [Azure Key Vault Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
- 
