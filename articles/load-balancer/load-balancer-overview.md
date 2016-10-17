@@ -57,7 +57,7 @@ The following graphic shows the Azure Load Balancer in this model:
 
 #### Template-based deployments through Azure Resource Manager
 
-The load balancer can be managed through Resource Manager-based APIs and tools. To learn more about Resource Manager, see the [Resource Manager overview](../resource-group-overview.md).
+The load balancer can be managed through Resource Manager-based APIs and tools. To learn more about Resource Manager, see the [Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
 ## Load balancer features
 

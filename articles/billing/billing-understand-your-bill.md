@@ -188,7 +188,7 @@ Unit | Unit | Identifies the Unit that the service is charged in. For example, G
 Consumed | Consumed Quantity | Contains the amount of the resource that has been consumed for that day.
 Sub Region | Resource Location | Identifies the datacenter where the resource is running.
 Service | Consumed Service | This column is utilized to track the individual Azure platform service that may not be specifically identified in the Name column. This Service column indicates which specific service the usage pertains.
-N/A | Resource Group | _**New column addition.**_ The resource group in which the deployed resource is running in. Refer to [Azure Resource Manager overview](../resource-group-overview.md)
+N/A | Resource Group | _**New column addition.**_ The resource group in which the deployed resource is running in. Refer to [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)
 Component | Instance ID | The identifier for the running resource. The identifier contains the name you specify for the resource when it was created.
 N/A | Tags | _**New column addition.**_ New resource types in Azure allow you to tag resources. Refer to [Organize your Azure resources with tags](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/)
 Additional Info | Additional Info | Additional metadata related to the service.
