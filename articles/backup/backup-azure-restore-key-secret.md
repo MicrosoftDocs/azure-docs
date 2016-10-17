@@ -89,7 +89,8 @@ The array $rp above, is sorted in reverse order of time with the latest recovery
 PS C:\> $rp1 = Get-AzureRmRecoveryServicesBackupRecoveryPoint -RecoveryPointId $rp[0].RecoveryPointId -Item $backupItem -KeyFileDownloadLocation "C:\Users\downloads"
 ```
 
-**Note:** After this cmdlet runs successfully, a blob file gets generated in the specified folder on the machine where it is run. This blob file represents Key Encrypted Key in encrypted form.
+> [AZURE.NOTE]
+After this cmdlet runs successfully, a blob file gets generated in the specified folder on the machine where it is run. This blob file represents Key Encrypted Key in encrypted form.
 
 Restore key back to the key vault using the following cmdlet. 
 
