@@ -19,7 +19,7 @@
 
 # Secure your cloud and on-premises resources using Azure Multi-Factor Authentication Server with AD FS in Windows Server 2012 R2
 
-If your organization uses Active Directory Federation Services (AD FS) and you want to secure cloud or on-premises resources, you can deploy and configure Azure Multi-Factor Authentication Server to work with AD FS. This configuration triggers two-step verification for high-value endpoints.
+If you use Active Directory Federation Services (AD FS) and want to secure cloud or on-premises resources, you can configure Azure Multi-Factor Authentication Server to work with AD FS. This configuration triggers two-step verification for high-value endpoints.
 
 In this article, we discuss using Azure Multi-Factor Authentication Server with AD FS in Windows Server 2012 R2. For more information, read about how to [secure cloud and on-premises resources by using Azure Multi-Factor Authentication Server with AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md).
 
@@ -34,11 +34,11 @@ Before you begin, be aware of the following information:
 
 - You are not required to install Azure Multi-Factor Authentication Server on your AD FS server. However, you must install the Multi-Factor Authentication adapter for AD FS on a Windows Server 2012 R2 that is running AD FS. You can install the server on a different computer if it is a supported version and you install the AD FS adapter separately on your AD FS federation server. See the following procedures to learn how to install the adapter separately.
 
-- When the Multi-Factor Authentication Server AD FS adapter was designed, it was anticipated that AD FS could pass the name of the relying party to the adapter, which could be used as an application name. However, this turned out not to be the case. If your organization is using text message or mobile app verification methods, the strings defined in Company Settings contain a placeholder, <$*application_name*$>. This placeholder is not automatically replaced when you use the AD FS adapter. We recommend that you remove the placeholder from the appropriate strings when you secure AD FS.
+- When the MFA Server AD FS adapter was designed, it was anticipated that AD FS could pass the name of the relying party to the adapter. Then, the relying party name could be used as an application name. However, this turned out not to be the case. If your organization is using text message or mobile app verification methods, the strings defined in Company Settings contain a placeholder, <$*application_name*$>. This placeholder is not automatically replaced when you use the AD FS adapter. We recommend that you remove the placeholder from the appropriate strings when you secure AD FS.
 
 - The account that you use to sign in must have user rights to create security groups in your Active Directory service.
 
-- The Multi-Factor Authentication AD FS adapter installation wizard creates a security group called PhoneFactor Admins in your instance of Active Directory, then adds the AD FS service account of your federation service to this group. We recommend that you verify on your domain controller that the PhoneFactor Admins group is indeed created and that the AD FS service account is a member of this group. If necessary, manually add the AD FS service account to the PhoneFactor Admins group on your domain controller.
+- The Multi-Factor Authentication AD FS adapter installation wizard creates a security group called PhoneFactor Admins in your instance of Active Directory. It then adds the AD FS service account of your federation service to this group. We recommend that you verify on your domain controller that the PhoneFactor Admins group is indeed created and that the AD FS service account is a member of this group. If necessary, manually add the AD FS service account to the PhoneFactor Admins group on your domain controller.
 
 - For information about installing the Web Service SDK with the user portal, read about [deploying the user portal for Azure Multi-Factor Authentication Server.](multi-factor-authentication-get-started-portal.md)
 
@@ -50,8 +50,8 @@ Before you begin, be aware of the following information:
 3. Select any additional options you'd like to specify for your organization.
 4. Click **Install AD FS Adapter**.
 <center>![Cloud](./media/multi-factor-authentication-get-started-adfs-w2k12/server.png)</center>
-5. If the computer is joined to a domain and the Active Directory configuration for securing communication between the AD FS adapter and the Multi-Factor Authentication service is incomplete, the **Active Directory** window is displayed. Click **Next** to automatically complete this configuration, or select the **Skip automatic Active Directory configuration and configure settings manually** check box, and then click **Next**.
-6. If the computer is not joined to a domain and the local group configuration for securing communication between the AD FS adapter and the Multi-Factor Authentication service is incomplete, the **Local Group** window will be displayed. Click **Next** to automatically complete this configuration, or select the **Skip automatic Local Group configuration and configure settings manually** check box, and then click **Next**.
+5. If the Active Directory window is displayed, that means two things. Your computer is joined to a domain, and the Active Directory configuration for securing communication between the AD FS adapter and the Multi-Factor Authentication service is incomplete. Click **Next** to automatically complete this configuration, or select the **Skip automatic Active Directory configuration and configure settings manually** check box, and then click **Next**.
+6. If the Local Group windows is displayed, that means two things. Your computer is not joined to a domain, and the local group configuration for securing communication between the AD FS adapter and the Multi-Factor Authentication service is incomplete. Click **Next** to automatically complete this configuration, or select the **Skip automatic Local Group configuration and configure settings manually** check box, and then click **Next**.
 7. In the installation wizard, click **Next**. Azure Multi-Factor Authentication Server creates the PhoneFactor Admins group and adds the AD FS service account to the PhoneFactor Admins group.
 <center>![Cloud](./media/multi-factor-authentication-get-started-adfs-w2k12/adapter.png)</center>
 8. On the **Launch Installer** page, click **Next**.
@@ -60,7 +60,7 @@ Before you begin, be aware of the following information:
 11. When the adapter has been installed, you must register it with AD FS. Open Windows PowerShell and run the following command:<br>
     `C:\Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1`
    <center>![Cloud](./media/multi-factor-authentication-get-started-adfs-w2k12/pshell.png)</center>
-12. Edit the global authentication policy in AD FS to use your newly registered adapter. In the AD FS management console, go to the **Authentication Policies** node. In the **Multi-factor Authentication** section, click the **Edit** link next to the **Global Settings** section. In the **Edit Global Authentication Policy** window, select **Multi-Factor Authentication** as an additional authentication method, and then click **OK**. The adapter is registered as WindowsAzureMultiFactorAuthentication. You must restart the AD FS service for the registration to take effect.
+12. To use your newly registered adapter, edit the global authentication policy in AD FS. In the AD FS management console, go to the **Authentication Policies** node. In the **Multi-factor Authentication** section, click the **Edit** link next to the **Global Settings** section. In the **Edit Global Authentication Policy** window, select **Multi-Factor Authentication** as an additional authentication method, and then click **OK**. The adapter is registered as WindowsAzureMultiFactorAuthentication. Restart the AD FS service for the registration to take effect.
 
 <center>![Cloud](./media/multi-factor-authentication-get-started-adfs-w2k12/global.png)</center>
 
@@ -74,7 +74,7 @@ At this point, Multi-Factor Authentication Server is set up to be an additional 
   - Unregister-MultiFactorAuthenticationAdfsAdapter.ps1
   - MultiFactorAuthenticationAdfsAdapter.config
 3. Run the MultiFactorAuthenticationAdfsAdapterSetup64.msi installation file.
-4. In the Multi-Factor Authentication AD FS adapter installer, click **Next** to perform the installation.
+4. In the Multi-Factor Authentication AD FS adapter installer, click **Next** to start the installation.
 5. Click **Close** when the installation is finished.
 
 ## Edit the MultiFactorAuthenticationAdfsAdapter.config file
@@ -101,7 +101,7 @@ If you don't want to use a username and password, follow these steps to configur
 3. Export the public and private keys of the client certificate to a .pfx file.  
 4. Export the public key in Base64 format to a .cer file.  
 5. In Server Manager, verify that the Web Server (IIS)\Web Server\Security\IIS Client Certificate Mapping Authentication feature is installed. If it is not installed, select **Add Roles and Features** to add this feature.  
-6. In IIS Manager, double-click **Configuration Editor** in the website that contains the Web Service SDK virtual directory. It is very important to do this at the website level and not at the virtual directory level.  
+6. In IIS Manager, double-click **Configuration Editor** in the website that contains the Web Service SDK virtual directory. It is important to do this at the website level and not at the virtual directory level.  
 7. Go to the **system.webServer/security/authentication/iisClientCertificateMappingAuthentication** section.  
 8. Set enabled to **true**.  
 9. Set oneToOneCertificateMappingsEnabled to **true**.  
@@ -123,7 +123,7 @@ If you don't want to use a username and password, follow these steps to configur
 25. In the MultiFactorAuthenticationAdfsAdapter.config file, set **WebServiceSdkCertificateThumbprint** to the string copied in the previous step.  
 
 
-Finally, to register the adapter, run the \Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1 script in PowerShell. The adapter is registered as WindowsAzureMultiFactorAuthentication. You must restart the AD FS service for the registration to take effect.
+Finally, to register the adapter, run the \Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1 script in PowerShell. The adapter is registered as WindowsAzureMultiFactorAuthentication. Restart the AD FS service for the registration to take effect.
 
 ## Related topics
 
