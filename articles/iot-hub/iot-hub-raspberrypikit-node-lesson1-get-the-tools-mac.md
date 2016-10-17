@@ -42,7 +42,7 @@ Download the development tools and the software for the first sample application
 - An Internet connection to download the development tools and the software
 - A Mac that is running OS X Yosemite (10.10) or later
 
-## 1.2.4 Install the Git and Node.js software
+## 1.2.4 Install Git and Node.js
 
 To install Git and Node.js, use the [Homebrew](http://brew.sh) package management utility by following these steps:
 
