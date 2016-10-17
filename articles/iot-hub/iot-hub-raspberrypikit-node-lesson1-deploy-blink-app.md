@@ -76,7 +76,7 @@ npm install
 ```
 
 ## 1.3.7 Configure the device connection
-Run the following command to generate the device configuration file in a sub-folder (.iot-hub-getting-started) of  the home folder of your host machine.
+Run the following command to generate the device configuration file in a sub-folder (`.iot-hub-getting-started`) of the home folder of your host machine.
 
 ```bash
 gulp init
@@ -92,7 +92,7 @@ code %USERPROFILE%\.iot-hub-getting-started\config-raspberrypi.json
 code ~/.iot-hub-getting-started/config-raspberrypi.json
 ```
 
-Update your device configuration file `config-raspberrypi.json` in the sample folder with VS Code so you can deploy the sample application from your host machine:
+Update your device configuration file `config-raspberrypi.json` with VS Code so you can deploy the sample application from your host machine:
 
 ![Config.json](media/iot-hub-raspberry-pi-lessons/lesson1/vscode-config-mac.png)
 
