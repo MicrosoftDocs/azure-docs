@@ -194,18 +194,18 @@ Each solution requires a resource entry in the **resources** element that define
 	"type": "Microsoft.OperationsManagement/solutions",
 	"apiVersion": "[variables('LogAnalyticsApiVersion')]",
 	"dependsOn": [
-		"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('MyRunbookName'))]",
-		"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/schedules/', variables('StartRunbookScheduleName'))]",
-		"[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/views/', variables('MyViewName'))]"
+		"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('RunbookName'))]",
+		"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/schedules/', variables('ScheduleName'))]",
+		"[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/views/', variables('ViewName'))]"
 	]
 	"properties": {
-		"workspaceResourceId": "[concat(resourceGroup().id, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspacename'))]",
+		"workspaceResourceId": "[concat(resourceGroup().id, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
 		"referencedResources": [
-			"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/schedules/', variables('StartRunbookScheduleName'))]"
+			"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/schedules/', variables('ScheduleName'))]"
 		],
 		"containedResources": [
-			"[concat(resourceGroup().id, '/providers/Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('RunbookName'))]"
-			"[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/views/', variables('MyViewName'))]"
+			"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('RunbookName'))]",
+			"[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/views/', variables('ViewName'))]"
 		]
 	},
 	"plan": {
