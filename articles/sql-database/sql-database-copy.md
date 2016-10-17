@@ -1,4 +1,4 @@
-a<properties
+<properties
 	pageTitle="Copy an Azure SQL database | Microsoft Azure"
 	description="Create a copy of an Azure SQL database"
 	services="sql-database"
