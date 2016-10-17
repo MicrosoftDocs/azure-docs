@@ -45,7 +45,7 @@ Step-by-step
 
 1.	An email will be sent to you 7 calendar days before the planned maintenance to VMs in a Single-instance configuration. The subscription IDs and names of the affected Single-Instance VMs will be included in the body of the email. 
 
-2.	During those 7 days, you can choose the time your instance reboots by moving your Single-instance VMs by moving them into an availability set in that same region. This change in configuration will result in a reboot, as the Virtual Machine is moving from one physical host, targeted for maintenance, to another physical host that isn’t targeted for maintenance.
+2.	During those 7 days, you can choose the time your instance reboots by moving your Single-instance VMs into an availability set in that same region. This change in configuration will result in a reboot, as the Virtual Machine is moving from one physical host, targeted for maintenance, to another physical host that isn’t targeted for maintenance.
 
 3.	Follow instructions here to add existing VMs into availability sets using the Classic Portal and Azure PowerShell (see Azure PowerShell sample in the note below).
 

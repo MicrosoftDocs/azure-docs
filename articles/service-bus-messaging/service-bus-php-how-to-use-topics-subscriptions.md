@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="10/14/2016" 
 	ms.author="sethm"/>
 
 
@@ -57,7 +57,7 @@ In the following examples, the `require_once` statement will always be shown, bu
 
 ## Set up a Service Bus connection
 
-To instantiate an Azure Service Bus client you must first have a valid connection string in this format:
+To instantiate a Service Bus client you must first have a valid connection string in this format:
 
 ```
 Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]

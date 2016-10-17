@@ -90,9 +90,11 @@ A more complex implementation could include the information from [operations mon
 
 > [AZURE.NOTE] If an IoT solution needs the device connection state solely to determine whether to send cloud-to-device messages, and messages are not broadcast to large sets of devices, a much simpler pattern to consider is to use a short Expiry time. This achieves the same result as maintaining a device connection state registry using the heartbeat pattern, while being significantly more efficient. It is also possible, by requesting message acknowledgements, to be notified by IoT Hub of which devices are able to receive messages and which are not online or are failed.
 
-## Reference
+## Reference topics:
 
-### Device identity properties
+The following reference topics provide you with more information about the devcie identity registry.
+
+## Device identity properties
 
 Device identities are represented as JSON documents with the following properties.
 
@@ -112,7 +114,7 @@ Device identities are represented as JSON documents with the following propertie
 
 > [AZURE.NOTE] Connection state can only represent the IoT Hub view of the status of the connection. Updates to this state may be delayed, depending on network conditions and configurations.
 
-### Additional reference material
+## Additional reference material
 
 Other reference topics in the Developer Guide include:
 
