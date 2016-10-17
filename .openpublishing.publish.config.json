@@ -5,7 +5,7 @@
   "docsets_to_publish": [
     {
       "docset_name": "azure-documents",
-      "build_source_folder": "azure",
+      "build_source_folder": ".",
       "build_output_subfolder": "azure",
       "locale": "en-us",
       "version": 0,
@@ -30,7 +30,7 @@
     {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
-      "branch": "master",
+      "branch": "azurerelease",
       "branch_mapping": {}
     }
   ]
