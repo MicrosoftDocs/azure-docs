@@ -56,7 +56,7 @@ The Data Science VM can be used to evaluate or learn tools such as Microsoft R S
 The Data Science Virtual Machine has many popular data science tools already installed and configured. It also includes tools that make it easy to work with various Azure data and analytics products. You can explore and build predictive models on large-scale data sets using the Microsoft R Server or using SQL Server 2016. A host of other tools from the open source community and from Microsoft are also included, as well as sample code and notebooks. The following table itemizes and compares the main components included in the Windows and Linux editions of the Data Science Virtual Machine.
 
 
-|Windows Edition | Linux Edition |
+|**Windows Edition** | **Linux Edition** |
 |----------------|---------------|
 |Microsoft R Server Developer Edition | Microsoft R Server Developer Edition |
 |Anaconda Python 2.7, 3.5 | Anaconda Python 2.7, 3.5 |
