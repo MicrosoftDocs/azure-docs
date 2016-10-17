@@ -50,6 +50,7 @@ You can grant [permissions](#iot-hub-permissions) in the following ways:
 * **Per-device security credentials**. Each IoT Hub contains a [device identity registry][lnk-identity-registry]. For each device in this registry, you can configure security credentials that grant **DeviceConnect** permissions scoped to the corresponding device endpoints.
 
 For example, in a typical IoT solution:
+
 - The device management component uses the *registryReadWrite* policy.
 - The event processor component uses the *service* policy.
 - The runtime device business logic component uses the *service* policy.
@@ -363,9 +364,11 @@ For a device to connect to your hub, you must still add it to the IoT Hub device
 
 The token service pattern is the recommended way to implement a custom identity registry/authentication scheme with IoT Hub. It is recommended because IoT Hub continues to handle most of the solution traffic. However, there are cases where the custom authentication scheme is so intertwined with the protocol that a service processing all the traffic (*custom gateway*) is required. An example of this is [Transport Layer Security (TLS) and pre-shared keys (PSKs)][lnk-tls-psk]. For more information, see the [protocol gateway][lnk-protocols] topic.
 
-## Reference
+## Reference topics:
 
-### IoT Hub permissions
+The following reference topics provide you with more information about controlling access to your IoT hub.
+
+## IoT Hub permissions
 
 The following table lists the permissions you can use to control access to your IoT hub.
 
@@ -376,7 +379,7 @@ The following table lists the permissions you can use to control access to your 
 | **ServiceConnect**    | Grants access to cloud service-facing communication and monitoring endpoints. For example, it grants permission to back-end cloud services to receive device-to-cloud messages, send cloud-to-device messages, and retrieve the corresponding delivery acknowledgments. |
 | **DeviceConnect**     | Grants access to device-facing communication endpoints. For example, it grants permission to send device-to-cloud messages and receive cloud-to-device messages. This permission is used by devices. |
 
-### Additional reference material
+## Additional reference material
 
 Other reference topics in the Developer Guide include:
 

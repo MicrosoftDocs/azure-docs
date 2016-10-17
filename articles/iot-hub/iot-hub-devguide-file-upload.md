@@ -81,9 +81,11 @@ The device is responsible for uploading the file to storage using the Azure Stor
 
 The value of `isSuccess` is a Boolean representing whether or not the file was uploaded successfully. The status code for `statusCode` is the status for the upload of the file to storage, and the `statusDescription` corresponds to the `statusCode`.
 
-## Reference
+## Reference topics:
 
-### File upload notifications
+The following reference topics provide you with more information about uploading files from a device.
+
+## File upload notifications
 
 When a device uploads a file and notifies IoT Hub of upload completion, the service optionally generates a notification message that contains the name and storage location of the file.
 
@@ -111,7 +113,7 @@ As explained in [Endpoints][lnk-endpoints], IoT Hub delivers file upload notific
 }
 ```
 
-### File upload notification configuration options
+## File upload notification configuration options
 
 Each IoT hub exposes the following configuration options for file upload notifications:
 
@@ -122,7 +124,7 @@ Each IoT hub exposes the following configuration options for file upload notific
 | **fileNotifications.lockDuration** | Lock duration for the file upload notifications queue. | 5 to 300 seconds (minimum 5 seconds). Default: 60 seconds. |
 | **fileNotifications.maxDeliveryCount** | Maximum delivery count for the file upload notification queue. | 1 to 100. Default: 100. |
 
-### Additional reference material
+## Additional reference material
 
 Other reference topics in the Developer Guide include:
 
