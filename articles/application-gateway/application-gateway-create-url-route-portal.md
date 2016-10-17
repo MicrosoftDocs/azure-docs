@@ -27,8 +27,6 @@ URL Path-based routing enables you to associate routes based on the URL path of 
 
 URL-based routing introduces a new rule type to application gateway. Application gateway has two rule types: basic and Path-Based rules. Basic rule type provides round-robin service for the back-end pools while Path-Based rules in addition to round robin distribution, also takes path pattern of the request URL into account while choosing the backend pool.
 
-
-
 ## Scenario
 
 The following scenario goes through creating a Path-based rule in an existing application gateway.
