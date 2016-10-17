@@ -24,10 +24,12 @@ Create your resource group, provision your first Azure IoT Hub, and add your fir
 
 ## 2.2.2 What you will learn
 In this section, you will learn
+
 - How to use Azure CLI to create an Azure IoT Hub
 - How to create a device identity in your Azure IoT Hub
 
 ## 2.2.3 What you need
+
 - Your Azure account
 - Your Mac or PC with Azure CLI installed
 

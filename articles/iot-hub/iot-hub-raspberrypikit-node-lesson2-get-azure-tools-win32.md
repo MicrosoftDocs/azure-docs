@@ -29,10 +29,12 @@ Install Python and Azure Command-Line Interface (Azure CLI). You might need 10 m
 
 ## 2.1.2 What you will learn
 In this section, you will learn:
+
 - How to install Python
 - How to install Azure CLI
 
 ## 2.1.3 What you need
+
 - A Windows PC with Internet connection
 - An active Azure subscription. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/)
 

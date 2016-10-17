@@ -29,6 +29,7 @@ Download the tools and software to build and deploy your first application for t
 
 ## 1.2.2 What you will learn
 In this section, you will learn:
+
 - How to install Git and Node.js
     - [Git](https://git-scm.com) is an open source distributed version control system used to store the sample code for this lesson
     - [Node.js](https://nodejs.org/en/) is a JavaScript runtime with a rich package ecosystem
@@ -36,6 +37,7 @@ In this section, you will learn:
     - [NPM](https://www.npmjs.com) is the package manager for Node.js
 
 ## 1.2.3 What you need
+
 - An internet connection to download the tools and software
 - A Windows PC
 
