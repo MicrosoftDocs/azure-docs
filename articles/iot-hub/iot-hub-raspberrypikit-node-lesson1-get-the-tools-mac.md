@@ -67,7 +67,7 @@ Install gulp and device-discovery-cli by running the following command in the Te
 npm install -g device-discovery-cli gulp
 ```
 
-If you experience issues installing Node.js and these additional tools on OS X, see the [troubleshooting guide](iot-hub-raspberrypikit-node-troubleshooting.md) for solutions to common problems.
+If you experience issues installing Node.js and these additional development tools on OS X, see the [troubleshooting guide](iot-hub-raspberrypikit-node-troubleshooting.md) for solutions to common problems.
 
 ## 1.2.6 Install Visual Studio Code
 
