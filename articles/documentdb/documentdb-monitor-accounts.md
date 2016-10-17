@@ -1,4 +1,4 @@
-A<properties
+<properties
 	pageTitle="Monitor DocumentDB requests and storage | Microsoft Azure"
 	description="Learn how to monitor your DocumentDB account for performance metrics, such as requests and server errors, and usage metrics, such as storage consumption."
 	services="documentdb"
