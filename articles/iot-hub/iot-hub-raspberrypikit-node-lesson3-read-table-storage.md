@@ -36,9 +36,17 @@ az storage account list -g iot-sample --query [].name
 az storage account show-connection-string -g iot-sample -n {storage name}
 ```
 
-In the `config-raspberrypi.json` file, replace the `[Azure storage connection string]` with the string you get from above command and save the file.
+Run the following command to open the configuration file. In the `config-raspberrypi.json` file, replace the `[Azure storage connection string]` with the string you get from above command and save the file.
 
-Run the following command to send messages again and read them from your table storage.
+```bash
+// For Windows command prompt
+code %USERPROFILE%\.iot-hub-getting-started\config-raspberrypi.json
+
+// For MacOS or Ubuntu
+code ~/.iot-hub-getting-started/config-raspberrypi.json
+```
+
+Run the following command to send messages again and read them from your table storage. The logic for reading Azure table storage is in the `azure-table.js`.
 
 ```bash
 gulp run --read-storage
