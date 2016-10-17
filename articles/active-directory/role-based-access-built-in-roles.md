@@ -204,10 +204,10 @@ Can manage DNS zones and records.
 | ------- | ------ |
 | Microsoft.Authorization/\*/read | Read roles and role assignments |
 | Microsoft.Insights/alertRules/\* | Create and manage alert rules |
-| Microsoft.Network/dnsZOnes/\* | Create and manage DNS zones and records |
+| Microsoft.Network/dnsZones/\* | Create and manage DNS zones and records |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Read the health of the resources |
 | Microsoft.Resources/deployments/\* | Create and manage resource group deployments |
-| Microsoft.Resources/subscriptions/resourceGroups/Read | Read resource groups |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Support/\* | Create and manage Support tickets |
 
 
