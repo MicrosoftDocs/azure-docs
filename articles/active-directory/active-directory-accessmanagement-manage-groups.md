@@ -22,7 +22,7 @@
 > [AZURE.SELECTOR]
 - [Azure portal](active-directory-groups-create-azure-portal.md)
 - [Azure classic portal](active-directory-accessmanagement-manage-groups.md)
-- [PowerShell](active-directory-accessmanagement-groups-v2-cmdlets.md)
+- [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 
 
 One of the features of Azure Active Directory (Azure AD) user management is the ability to create groups of users. You use a group to perform management tasks such as assigning licenses or permissions to a number of users at once. You can also use groups to assign access permission to
