@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/14/2016"
+   ms.date="10/17/2016"
    ms.author="bwren" />
 
 # Views in Operations Management Suite (OMS) management solutions (Preview)
@@ -131,11 +131,11 @@ For example, the following sample shows a simple solution file with a view.  Ell
 					"[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspacename'), '/views/', variables('ViewName'))]"
 				],
 				"properties": {
-					"workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]", 
+					"workspaceResourceId": "[concat(resourceGroup().id, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspacename'))]",
 					"referencedResources": [
 					],
 					"containedResources": [
-						"[resourceId('Microsoft.OperationalInsights/workspaces/views/', parameters('workspaceName'), variables('viewName'))]"
+						"[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/views/', variables('ViewName'))]"
 					]
 				},
 				"plan": {

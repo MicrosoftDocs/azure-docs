@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/14/2016"
+   ms.date="10/17/2016"
    ms.author="bwren" />
 
 # Creating management solutions in Operations Management Suite (OMS) (Preview)
@@ -25,14 +25,6 @@ Management solutions extend the functionality of Operations Management Suite (OM
 Management solutions in OMS include multiple resources supporting a particular management scenario.  When planning your solution, you should focus on the scenario that you're trying to achieve and all required resources to support it.  Each solution should be self contained and define each resource that it requires, even if one or more resources are also defined by other solutions.  When a management solution is installed, each resource is created unless it already exists, and you can define what happens to resources when a solution is removed.  
 
 For example, a management solution might include an [Azure Automation runbook](../automation/automation-intro.md) that collects data to the Log Analytics repository using a [schedule](../automation/automation-schedules.md) and a [view](../log-analytics/log-analytics-view-designer.md) that provides various visualizations of the collected data.  The same schedule might be used by another solution.  As the management solution author, you would define all three resources but specify that the runbook and view should be automatically removed when the solution is removed.    You would also define the schedule but specify that it should remain in place if the solution were removed in case it was still in use by the other solution.
-
-## OMS workspace and Automation account
-Management solutions require an [OMS workspace](../log-analytics/log-analytics-manage-access.md) to contain views and an [Automation account](../automation/automation-security-overview.md#automation-account-overview) to contain runbooks and related resources.  These must be available before the resources in the solution are created and should not be defined in the solution itself.  The user will specify a workspace and account when they deploy your solution, but as the author you should consider the following points.
-
-- A management solution can only use one OMS workspace and one Automation account.  It will accept the names for each in the solution's parameters and use them with related resources throughout the solution. 
-- The OMS workspace and Automation account used by a management solution must be linked to one another. An OMS workspace may only be linked to one Automation account, and an Automation account may only be linked to one OMS workspace.
-- To be linked, the OMS workspace and Automation account must be in the same resource group and region.  The exception is an OMS workspace in East US region and and Automation account in East US 2.
-
 
 ## Management solution files
 Management solutions are implemented as [Resource Management templates](../resource-manager-template-walkthrough.md).  The main task in learning how to author management solutions is learning how to [author a template](../resource-group-authoring-templates.md).  This article provides unique details of templates used for solutions and how to define typical solution resources.
@@ -189,6 +181,10 @@ The **resources** element defines the different resources included in your manag
 ### Dependencies
 The **dependsOn** elements specifies a [dependency](../resource-group-define-dependencies.md) on another resource.  When the solution is installed, a resource is not created until all of its dependencies have been created.  For example, your solution might [start a runbook](operations-management-suite-solutions-resources-automation.md#runbooks) when it's installed using a [job resource](operations-management-suite-solutions-resources-automation.md#automation-jobs).  The job resource would be dependent on the runbook resource to make sure that the runbook is created before the job is created.
 
+### OMS workspace and Automation account
+Management solutions require an [OMS workspace](../log-analytics/log-analytics-manage-access.md) to contain views and an [Automation account](../automation/automation-security-overview.md#automation-account-overview) to contain runbooks and related resources.  These must be available before the resources in the solution are created and should not be defined in the solution itself.  The user will [specify a workspace and account](operations-management-suite-solutions.md#oms-workspace-and-automation-account) when they deploy your solution, but as the author you should consider the following points.
+
+
 ## Solution resource
 Each solution requires a resource entry in the **resources** element that defines the solution itself.  This will have a type of **Microsoft.OperationsManagement/solutions** and have the following structure.
 
@@ -203,13 +199,13 @@ Each solution requires a resource entry in the **resources** element that define
 		"[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/views/', variables('MyViewName'))]"
 	]
 	"properties": {
-		"workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('workspacename'))]",
+		"workspaceResourceId": "[concat(resourceGroup().id, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspacename'))]",
 		"referencedResources": [
-			"[resourceId('Microsoft.Automation/automationAccounts/schedules/', parameters('accountName'), variables('ScheduleName'))]"
+			"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/schedules/', variables('StartRunbookScheduleName'))]"
 		],
 		"containedResources": [
-			"[resourceId('Microsoft.Automation/automationAccounts/runbooks/', parameters('accountName'), variables('RunbookName'))]",
-			"[resourceId('Microsoft.OperationalInsights/workspaces/views/', parameters('workspaceName'), variables('ViewName'))]"
+			"[concat(resourceGroup().id, '/providers/Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('RunbookName'))]"
+			"[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/views/', variables('MyViewName'))]"
 		]
 	},
 	"plan": {
