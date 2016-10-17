@@ -147,7 +147,7 @@ After you have prepared the source data, you can start developing a U-SQL script
 
     From the previous screenshot, you can see the job took roughly 1.5 minutes to complete from Submitted to Ended.
     
-    In case the job failed, see [Monitor and troubleshoot Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorials.md).
+    In case the job failed, see [Monitor and troubleshoot Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
 
 7. At the bottom of the **Job Detail** blade, click the job name in **SearchLog-from-Data-Lake.csv**. You can preview, download, rename, and delete the output file.
 
