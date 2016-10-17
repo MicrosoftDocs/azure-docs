@@ -29,24 +29,24 @@ If you need more help at any point in this article, you can contact the Azure ex
 ## Quick troubleshooting steps
 After each troubleshooting step, try reconnecting to the VM:
 
-1. Reset remote access configuration
-2. Check Network Security Group rules
-3. Review VM console logs
-4. Check the VM Resource Health
-5. Reset your VM password
-6. Restart your VM
-7. Redeploy your VM
+1. Reset Remote Desktop configuration.
+2. Check Network Security Group rules / Cloud Services endpoints.
+3. Review VM console logs.
+4. Check the VM Resource Health.
+5. Reset your VM password.
+6. Restart your VM.
+7. Redeploy your VM.
 
 Continue reading if you need more detailed steps and explanations.
 
 
-## Way to troubleshoot RDP issues
-Most of this article is focused on troubleshooting VMs created using the Resource Manager deployment model. You can also find steps on troubleshooting VMs created using the [Classic deployment model](#troubleshoot-vms-created-using-the-classic-deployment-model).
-
+## Ways to troubleshoot RDP issues
 You can troubleshoot VMs created using the Resource Manager deployment model using one of the following methods:
 
 - [Azure portal](#using-the-azure-portal) - great if you need to quickly reset the RDP configuration or user credentials and you don't have the Azure tools installed.
 - [Azure PowerShell](#using-azure-powershell) - if you are comfortable with a PowerShell prompt, quickly reset the RDP configuration or user credentials using the Azure PowerShell cmdlets.
+
+You can also find steps on troubleshooting VMs created using the [Classic deployment model](#troubleshoot-vms-created-using-the-classic-deployment-model).
 
 
 <a id="fix-common-remote-desktop-errors"></a>
@@ -55,7 +55,7 @@ After each troubleshooting step, try connecting to your VM again. If you still c
 
 > [AZURE.TIP] If the **Connect** button for your VM is grayed out in the portal and you are not connected to Azure via an [Express Route](../expressroute/expressroute-introduction.md) or [Site-to-Site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) connection, you need to create and assign your VM a public IP address before you can use RDP. You can read more about [public IP addresses in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
 
-1. **Reset your RDP connection**. This troubleshooting step resets the RDP configuration when Remote Connections are disabled, Windows Firewall rules are blocking RDP, etc.
+1. **Reset your RDP connection**. This troubleshooting step resets the RDP configuration when Remote Connections are disabled or Windows Firewall rules are blocking RDP, for example.
 
 	Select your VM in the Azure portal. Scroll down the settings pane to the **Support + Troubleshooting** section near bottom of the list. Click the **Reset password** button. Set the **Mode** to **Reset configuration only** and then click the **Update** button:
 
@@ -119,7 +119,7 @@ The following examples use variables such as `myResourceGroup`, `myVM`, and `myV
 
 After each troubleshooting step, try connecting to your VM again. If you still cannot connect, try the next step.
 
-1. **Reset your RDP connection**. This troubleshooting step resets the RDP configuration when Remote Connections are disabled, Windows Firewall rules are blocking RDP, etc.
+1. **Reset your RDP connection**. This troubleshooting step resets the RDP configuration when Remote Connections are disabled or Windows Firewall rules are blocking RDP, for example.
 
 	The follow example resets the RDP connection on a VM named `myVM` in the `WestUS` location and in the resource group named `myResourceGroup`:
 
@@ -201,7 +201,7 @@ If you are still encountering RDP issues, you can [open a support request](https
 
 After each troubleshooting step, try reconnecting to the VM.
 
-1. **Reset your RDP connection**. This troubleshooting step resets the RDP configuration when Remote Connections are disabled, Windows Firewall rules are blocking RDP, etc.
+1. **Reset your RDP connection**. This troubleshooting step resets the RDP configuration when Remote Connections are disabled or Windows Firewall rules are blocking RDP, for example.
 
 	Select your VM in the Azure portal. Click the **...More** button, then click **Reset Remote access**:
 
@@ -239,7 +239,7 @@ If you are still encountering RDP issues, you can [open a support request](https
 
 
 ## Troubleshoot specific RDP errors
-You may encounter a specific error when trying to connect to your VM via RDP. The following are the most common error messages:
+You may encounter a specific error message when trying to connect to your VM via RDP. The following are the most common error messages:
 
 - [The remote session was disconnected because there are no Remote Desktop License Servers available to provide a license](virtual-machines-windows-troubleshoot-specific-rdp-errors.md#rdplicense).
 - [Remote Desktop can't find the computer "name"](virtual-machines-windows-troubleshoot-specific-rdp-errors.md#rdpname).
