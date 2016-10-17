@@ -36,7 +36,7 @@ Each Azure Data Lake Analytics account has a default Azure Data Lake Store accou
 
 ### Use Azure Portal
 
-See [Manage Data Lake Analytics using portal](data-lake-analytics-use-portal.md#view-u-sql-catalog)
+See [Manage Data Lake Analytics using portal](data-lake-analytics-manage-use-portal.md#view-u-sql-catalog)
 
 
 ### Use Data Lake Tools for Visual Studio.
@@ -73,11 +73,11 @@ You can use Data Lake Tools for Visual Studio to manage the catalog.  For more i
 - U-SQL & development
     - [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
     - [Use U-SQL window functions for Azure Data Lake Aanlytics jobs](data-lake-analytics-use-window-functions.md)
-    - [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-Analytics-u-sql-user-defined-operators.md)
+    - [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
 - Management
-    - [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-use-portal.md)
-    - [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-use-powershell.md)
+    - [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md)
+    - [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
     - [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 - End-to-end tutorial
