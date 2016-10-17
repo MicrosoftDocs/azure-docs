@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/27/2016" 
+	ms.date="10/17/2016" 
 	ms.author="mimig"/>
 
 # Performance tips for DocumentDB
@@ -60,6 +60,8 @@ So if you're asking "How can I improve my database performance?" consider the fo
         });
 
     Because TCP is only supported in Direct Mode, if Gateway Mode is used, then the HTTPS protocol is always used to communicate with the Gateway and the Protocol value in the ConnectionPolicy is ignored.
+
+    For information on inbound and outbound firewall support, and TCP ports to enable, see [DocumentDB firewall support](documentdb-firewall-support.md).
 
     ![Illustration of the DocumentDB connection policy](./media/documentdb-performance-tips/azure-documentdb-connection-policy.png)
 

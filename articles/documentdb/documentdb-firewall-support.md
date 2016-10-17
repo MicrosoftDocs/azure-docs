@@ -61,7 +61,7 @@ Use the Azure portal to file a request with [Azure Support](https://portal.azure
 	- **Support plan**: Quota Support - Included.
 4. In the **Problem** blade, do the following:
 	- **Severity**: Select C - Minimal impact
-	- **Details**: Type "I would like to enable firewall support for my DocumentDB database account."
+	- **Details**: Copy the following text into the box, and include your account name/s and IP address/es: "I would like to enable firewall support for my DocumentDB database account. Database account: *Include account name/s*. Allowed IP address/Ranges: *Include IP address/range in CIDR format, for example 13.91.6.132, 13.91.6.1/24*."
 	- Click **Next**. 
 5. In the **Contact information** blade, fill in your contact details and click **Create**. 
 
@@ -83,7 +83,7 @@ For security reasons, access via SDK or REST API from machines not on the allowe
 
 ## Outbound firewall support
 
-While most firewalls and routers are configured to allow all outbound traffic, you may need to open specific ports if access is blocked. DocumentDB is accessed on TCP ports 443 and 10250.  Port 443 is for DocumentDB native support and port 10250 is for MongoDB protocol support.  
+While most firewalls and routers are configured to allow all outbound traffic, you may need to open specific port ranges if access is blocked. DocumentDB uses dynamic TCP ports, so you'll need to open the range between 10000 and 20000 if you are receiving a 503 Service Unavailable error.  
 
 ## Next steps
 
