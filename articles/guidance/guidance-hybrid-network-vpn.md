@@ -53,7 +53,7 @@ The following diagram highlights the components in this architecture:
 
 - **N-tier cloud application.** This is the application hosted in Azure. It might include multiple tiers, with multiple subnets connected through Azure load balancers. The traffic in each subnet may be subject to rules defined by using [Azure Network Security Groups (NSGs)][azure-network-security-group]. For more information, see [Getting started with Microsoft Azure security][getting-started-with-azure-security].
 
-    > [AZURE.NOTE] This article describes the cloud application as a single entity. See [Implementing a Multi-tier Architecture on Azure][implementing-a-multi-tier-architecture-on-Azure] for detailed information.
+    > [AZURE.NOTE] This article describes the cloud application as a single entity. See [Running an N-tier architecture on Azure][implementing-a-multi-tier-architecture-on-Azure] for detailed information.
 
 - **[Virtual network (VNet)][azure-virtual-network].** The cloud application and the components for the Azure VPN Gateway reside in the same VNet.
 
@@ -618,7 +618,7 @@ To run the script that deploys the solution:
 
 <!-- links -->
 
-[implementing-a-multi-tier-architecture-on-Azure]: ./guidance-compute-3-tier-vm.md
+[implementing-a-multi-tier-architecture-on-Azure]: ./guidance-compute-n-tier-vm.md
 [resource-manager-overview]: ../resource-group-overview.md
 [arm-templates]: ../resource-group-authoring-templates.md
 [azure-cli]: ../virtual-machines-command-line-tools.md
