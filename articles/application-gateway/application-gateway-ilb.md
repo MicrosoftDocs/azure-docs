@@ -21,7 +21,6 @@
 - [Azure classic steps](application-gateway-ilb.md)
 - [Resource Manager Powershell steps](application-gateway-ilb-arm.md)
 
-
 Application Gateway can be configured with an internet facing virtual IP or with an internal end-point not exposed to the internet, also known as Internal Load Balancer (ILB) endpoint. Configuring the gateway with an ILB is useful for internal line-of-business applications not exposed to internet. It's also useful for services/tiers within a multi-tier application, which sits in a security boundary not exposed to internet, but still require round robin load distribution, session stickiness, or SSL termination. This article walks you through the steps to configure an application gateway with an ILB.
 
 ## Before you begin
