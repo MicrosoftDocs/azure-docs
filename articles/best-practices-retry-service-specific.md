@@ -513,7 +513,7 @@ Service Bus actions can return a range of exceptions, as listed in [Appendix: Me
 
 The exceptions returned from Service Bus expose the **IsTransient** property that indicates if the client should retry the operation. The built-in **RetryExponential** policy relies on the **IsTransient** property in the **MessagingException** class, which is the base class for all Service Bus exceptions. If you create custom implementations of the **RetryPolicy** base class you could use a combination of the exception type and the **IsTransient** property to provide more fine-grained control over retry actions. For example, you could detect a **QuotaExceededException** and take action to drain the queue before retrying sending a message to it.
 
-### Policy configuration (Service bus)
+### Policy configuration
 
 Retry policies are set programmatically, and can be set as a default policy for a **NamespaceManager** and for a **MessagingFactory**, or individually for each messaging client. To set the default retry policy for a messaging session you set the **RetryPolicy** of the **NamespaceManager**.
 
@@ -574,7 +574,7 @@ lastExceptionType="Microsoft.ServiceBus.Messaging.MessagingCommunicationExceptio
 exceptionMessage="The remote name could not be resolved: 'retry-guidance-tests.servicebus.windows.net'.TrackingId:6a26f99c-dc6d-422e-8565-f89fdd0d4fe3,TimeStamp:9/5/2014 10:00:13 PM"
 ```
 
-### Examples (Service bus)
+### Examples
 
 The following code example shows how to set the retry policy for:
 
@@ -684,7 +684,7 @@ Note that the StackExchange.Redis client uses multiplexing through a single conn
 
 The StackExchange.Redis client uses a connection manager class that is configured through a set of options. These options include a **ConnectRetry** property that specifies the number of times a failed connection to the cache will be retried. However, the retry policy in used only for the initial connect action, and it does not wait between retries.
 
-### Policy configuration (Azure Redis Cache)
+### Policy configuration 
 
 Retry policies are configured programmatically by setting the options for the client before connecting to the cache. This can be done by creating an instance of the **ConfigurationOptions** class, populating its properties, and passing it to the **Connect** method.
 
@@ -883,18 +883,12 @@ Azure Search can be used to add powerful and sophisticated search capabilities t
 
 ### Retry mechanism
 
-There is no built-in retry mechanism for Search as the typical usage is though HTTP requests. To implement retries you can use a generic implementation of a REST client, and make decisions on when and if to retry the operation based on the response from the service. For more information, see the section [General REST and retry guidelines](#general-rest-and-retry-guidelines) later in this guidance.
+Retry behavior in the Azure Search SDK is controlled by the `SetRetryPolicy` method on the [SearchServiceClient] and [SearchIndexClient] classes. The default policy retries with exponential backoff when Azure Search returns a 5xx or 408 (Request Timeout) response.
 
-### Retry usage guidance
-
-Consider the following guidelines when using Azure Search:
-
-* Use the status code returned by the service to determine the type of failure. The status codes are defined in [HTTP status codes (Azure Search)](http://msdn.microsoft.com/library/dn798925.aspx). The status code 503 (Service Unavailable) indicates that the service is under heavy load and the request cannot be processed immediately. The appropriate action is to retry the operation only after allowing time for the service to recover. Retrying after too short a delay interval is likely to prolong the unavailability.
-* See the section [General REST and retry guidelines](#general-rest-and-retry-guidelines) later in this guidance for general information about retrying REST operations.
 
 ### More information
 
-* [Azure Search REST API](http://msdn.microsoft.com/library/dn798935.aspx)
+* [Automatic Retries][autorest-retry] in the AutoRest documentation 
 
 ## Azure Active Directory retry guidelines
 
@@ -941,7 +935,7 @@ Consider starting with following settings for retrying operations. These are gen
 | Interactive, UI,<br />or foreground | 2 sec                                        | FixedInterval      | Retry count<br />Retry interval<br />First fast retry                           | 3<br />500 ms<br />true              | Attempt 1 - delay 0 sec<br />Attempt 2 - delay 500 ms<br />Attempt 3 - delay 500 ms                                                     |
 | Background or<br />batch            | 60 sec                                       | ExponentialBackoff | Retry count<br />Min back-off<br />Max back-off<br />Delta back-off<br />First fast retry | 5<br />0 sec<br />60 sec<br />2 sec<br />false | Attempt 1 - delay 0 sec<br />Attempt 2 - delay ~2 sec<br />Attempt 3 - delay ~6 sec<br />Attempt 4 - delay ~14 sec<br />Attempt 5 - delay ~30 sec |
 
-## Examples (Azure Active Directory)
+### Examples 
 
 The following code example shows how you can use the Transient Fault Handling Application Block (Topaz) to define a custom transient error detection strategy suitable for use with the ADAL client. The code creates a new **RetryPolicy** instance based on a custom detection strategy of type **AdalDetectionStrategy**, as defined in the code listing below. Custom detection strategies for Topaz implement the **ITransientErrorDetectionStrategy** interface and return true if a retry should be attempted, or **false** if the failure appears to be non-transient and a retry should not be attempted.
 
@@ -1113,4 +1107,7 @@ For examples of using the Transient Fault Handling Application Block, see the Ex
 
 <!-- links -->
 
+[autorest-retry]: https://github.com/Azure/autorest/blob/master/Documentation/clients-retry.md
 [entlib]: http://msdn.microsoft.com/library/dn440719.aspx
+[SearchIndexClient]: https://msdn.microsoft.com/library/azure/microsoft.azure.search.searchindexclient.aspx
+[SearchServiceClient]: https://msdn.microsoft.com/library/microsoft.azure.search.searchserviceclient.aspx
