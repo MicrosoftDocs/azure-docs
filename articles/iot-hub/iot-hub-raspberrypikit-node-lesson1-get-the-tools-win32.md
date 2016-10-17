@@ -67,7 +67,7 @@ If you experience issues installing Node.js and these additional Node.js develop
 
 ## 1.2.7 Summary
 
-You've installed all the required development tools and software for the first sample application. In the next section, you create, deploy, and run the sample application on your Pi.
+You've installed the required development tools and software for the first sample application. In the next section, you create, deploy, and run the sample application on your Pi.
 
 ## Next Steps
 
