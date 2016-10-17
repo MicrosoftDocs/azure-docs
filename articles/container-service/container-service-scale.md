@@ -24,7 +24,7 @@ You can scale out the number of nodes your Azure Container Service (ACS) has by 
 
 ## About the command
 
-The Azure CLI must be in Azure Resource Manager (arm) mode for you to interact with Azure Containers. You can switch to arm mode by calling `azure config mode arm`. The `acs` command has a child-command named `scale` that does all the scale operations for a container service. You can get help about the various parameters used in the scale command by running `azure acs scale --help`, which outputs something similar to this:
+The Azure CLI must be in Azure Resource Manager mode for you to interact with Azure Containers. You can switch to Resource Manager mode by calling `azure config mode arm`. The `acs` command has a child-command named `scale` that does all the scale operations for a container service. You can get help about the various parameters used in the scale command by running `azure acs scale --help`, which outputs something similar to this:
 
 ```azurecli
 azure acs scale --help
