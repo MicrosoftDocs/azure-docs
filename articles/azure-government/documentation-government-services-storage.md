@@ -18,7 +18,7 @@
 	ms.author="ryansoc"/>
 
 
-#  Azure Government Data and Storage
+#  Azure Government Storage
 
 ##  Azure Storage
 
