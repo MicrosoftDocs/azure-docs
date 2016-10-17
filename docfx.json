@@ -12,6 +12,21 @@
           "**/_themes/**",
           "markdown templates/**"
         ],
+        "src": "articles",
+        "dest": "."
+      },
+      {
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [         
+          "**/obj/**",
+          "**/includes/**",
+          "**/_themes/**",
+          "markdown templates/**",
+          "articles/**"
+        ],
         "src": null,
         "dest": null
       }
@@ -28,6 +43,22 @@
           "**/_themes/**",
           "**/includes/**",
           "markdown templates/**"
+        ],
+        "src": "articles",
+        "dest": "."
+      },
+      {
+        "files": [
+          "**/*.png",
+          "**/*.jpg",
+          "**/*.gif"
+        ],
+        "exclude": [
+          "**/obj/**",
+          "**/_themes/**",
+          "**/includes/**",
+          "markdown templates/**",
+          "articles/**"
         ],
         "src": null,
         "dest": null
