@@ -56,7 +56,7 @@ Variables can also use a [valid Azure XPath value](cloud-services-role-config-xp
 
 ## Configure IIS startup with AppCmd.exe
 
-The [AppCmd.exe](https://technet.microsoft.com/library/jj635852.aspx) command line tool can be used to manage IIS settings at startup on Azure. *AppCmd.exe* provides convenient, command line access to configuration settings for use in startup tasks on Azure. Using *AppCmd.exe*, Website settings can be added, modified, or removed for applications and sites.
+The [AppCmd.exe](https://technet.microsoft.com/library/jj635852.aspx) command-line tool can be used to manage IIS settings at startup on Azure. *AppCmd.exe* provides convenient, command-line access to configuration settings for use in startup tasks on Azure. Using *AppCmd.exe*, Website settings can be added, modified, or removed for applications and sites.
 
 However, there are a few things to watch out for in the use of *AppCmd.exe* as a startup task:
 
@@ -66,7 +66,7 @@ However, there are a few things to watch out for in the use of *AppCmd.exe* as a
 
 It is a good practice to check the **errorlevel** after calling *AppCmd.exe*, which is easy to do if you wrap the call to *AppCmd.exe* with a *.cmd* file. If you detect a known **errorlevel** response, you can ignore it, or pass it back.
 
-The errorlevels returned by *AppCmd.exe* are listed in the winerror.h file, and can also be seen on [MSDN](https://msdn.microsoft.com/library/windows/desktop/ms681382.aspx).
+The errorlevel returned by *AppCmd.exe* are listed in the winerror.h file, and can also be seen on [MSDN](https://msdn.microsoft.com/library/windows/desktop/ms681382.aspx).
 
 ### Example of managing the error level
 
@@ -85,7 +85,7 @@ The relevant sections of the [ServiceDefinition.csdef] file are shown here, whic
 </ServiceDefinition>
 ```
 
-The *Startup.cmd* batch file uses *AppCmd.exe* to add a compression section and a compression entry for JSON to the *Web.config* file. The expected **errorlevel** of 183 is set to zero using the VERIFY.EXE command line program. Unexpected errorlevels are logged to StartupErrorLog.txt.
+The *Startup.cmd* batch file uses *AppCmd.exe* to add a compression section and a compression entry for JSON to the *Web.config* file. The expected **errorlevel** of 183 is set to zero using the VERIFY.EXE command-line program. Unexpected errorlevels are logged to StartupErrorLog.txt.
 
     REM   *** Add a compression section to the Web.config file. ***
     %windir%\system32\inetsrv\appcmd set config /section:urlCompression /doDynamicCompression:True /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
@@ -126,7 +126,7 @@ The *Startup.cmd* batch file uses *AppCmd.exe* to add a compression section and 
 
 In Azure, there are effectively two firewalls. The first firewall controls connections between the virtual machine and the outside world. This firewall is controlled by the [EndPoints] element in the [ServiceDefinition.csdef] file.
 
-The second firewall controls connections between the virtual machine and the processes within that virtual machine. This firewall can be controlled by the `netsh advfirewall firewall` command line tool.
+The second firewall controls connections between the virtual machine and the processes within that virtual machine. This firewall can be controlled by the `netsh advfirewall firewall` command-line tool.
 
 Azure creates firewall rules for the processes started within your roles. For example, when you start a service or program, Azure automatically creates the necessary firewall rules to allow that service to communicate with the Internet. However, if you create a service that is started by a process outside your role (like a COM+ service or a Windows Scheduled Task), you need to manually create a firewall rule to allow access to that service. These firewall rules can be created by using a startup task.
 
@@ -249,7 +249,7 @@ You can use a local storage resource to store files created by your startup task
 
 To create the local storage resource, add a [LocalResources] section to the [ServiceDefinition.csdef] file and then add the [LocalStorage] child element. Give the local storage resource a unique name and an appropriate size for your startup task.
 
-To use a local storage resource in your startup task, you need to create an environment variable to reference the local storage resource location. Then the startup task and the application is able to read and write files to the local storage resource.
+To use a local storage resource in your startup task, you need to create an environment variable to reference the local storage resource location. Then the startup task and the application are able to read and write files to the local storage resource.
 
 The relevant sections of the **ServiceDefinition.csdef** file are shown here:
 
@@ -479,7 +479,7 @@ The [taskType][Task] attribute determines the way the startup task is executed. 
 
 With **simple** startup tasks, you can set the order in which the tasks run by the order in which the tasks are listed in the ServiceDefinition.csdef file. If a **simple** task ends with a non-zero exit code, then the startup procedure stops and the role does not start.
 
-The difference between **background** startup tasks and **foreground** startup tasks is that **foreground** tasks keeps the role running until the **foreground** task ends. This also means that if the **foreground** task hangs or crashes, the role will not recycle until the **foreground** task is forced closed. For this reason, **background** tasks are recommended for asynchronous startup tasks unless you need that feature of the **foreground** task.
+The difference between **background** startup tasks and **foreground** startup tasks is that **foreground** tasks keep the role running until the **foreground** task ends. This also means that if the **foreground** task hangs or crashes, the role will not recycle until the **foreground** task is forced closed. For this reason, **background** tasks are recommended for asynchronous startup tasks unless you need that feature of the **foreground** task.
 
 ### End batch files with EXIT /B 0
 
@@ -487,15 +487,15 @@ The role will only start if the **errorlevel** from each of your simple startup 
 
 A missing `EXIT /B 0` at the end of a startup batch file is a common cause of roles that do not start.
 
->[AZURE.NOTE] I've noticed that nested batch files sometimes hang when using the `/B` parameter. You may want to make sure that this hang problem does not happen if another batch file calls your current batch file, like if you use the [log wrapper](#always-log-startup-activities). You can ommit the `/B` parameter in this case.
+>[AZURE.NOTE] I've noticed that nested batch files sometimes hang when using the `/B` parameter. You may want to make sure that this hang problem does not happen if another batch file calls your current batch file, like if you use the [log wrapper](#always-log-startup-activities). You can omit the `/B` parameter in this case.
 
 ### Expect startup tasks to run more than once
 
-Not all role recycles include a reboot, but all role recycles include running all startup tasks. This means that startup tasks must be able to run multiple times between reboots without any problems. This is discussed [above](#detect-that-your-task-has-already-run).
+Not all role recycles include a reboot, but all role recycles include running all startup tasks. This means that startup tasks must be able to run multiple times between reboots without any problems. This is discussed in the [preceding section](#detect-that-your-task-has-already-run).
 
 ### Use local storage to store files that must be accessed in the role
 
-If you want to copy or create a file during your startup task that is then accessible to your role, then that file must be placed in local storage. See the [section](#create-files-in-local-storage-from-a-startup-task) above.
+If you want to copy or create a file during your startup task that is then accessible to your role, then that file must be placed in local storage. See the [preceding section](#create-files-in-local-storage-from-a-startup-task).
 
 ## Next steps
 
