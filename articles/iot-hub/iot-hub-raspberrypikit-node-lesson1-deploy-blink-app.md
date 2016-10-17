@@ -17,46 +17,50 @@
  ms.date="09/28/2016" 
  ms.author="xshi"/>
 
-# 1.3 Build and deploy the blink sample application
+# 1.3 Create and deploy the sample application that blinks the LED
 
 ## 1.3.1 What will you do
 
-Clone the sample Node.js application from Github, and use Gulp to deploy the application to your Raspberry Pi 3. This sample application blinks the LED connected to the board every two seconds.
+Clone the sample Node.js application from Github, and use the gulp tool to deploy the sample application to your Raspberry Pi 3. The sample application blinks the LED connected to the board every two seconds.
 
 ## 1.3.2 What will you learn
 
-- How to use the `device-discover-cli` tool to retrieve networking information about your connected Raspberry Pi 3 device
-- How to deploy and run the sample application on the Pi
-- How to deploy and debug applications running remotely on your Pi
+- How to use the `device-discover-cli` tool to retrieve networking information about your Pi.
+- How to deploy and run the sample application on your Pi.
+- How to deploy and debug applications running remotely on your Pi.
 
+## 1.3.3 What do you need
 
-## 1.3.3 What you need
-- You must have successfully completed the previous sections, [Configure your device](iot-hub-raspberrypikit-node-lesson1-configure-your-device.md) and [Get the tools](iot-hub-raspberrypikit-node-lesson1-get-the-tools-win32.md), in this lesson.
+You must have successfully completed the follow sections in Lesson 1:
+- [Configure your device](iot-hub-raspberrypikit-node-lesson1-configure-your-device.md)
+- [Get the tools](iot-hub-raspberrypikit-node-lesson1-get-the-tools-win32.md)
 
-## 1.3.4 Obtain IP address of your Raspberry Pi
-Open a command prompt (Windows) or a terminal window (MacOS / Ubuntu) and run the following command:
+## 1.3.4 Obtain the IP address and host name of your Pi
+
+Open a command prompt in Windows or a terminal window in Mac OS or Ubuntu, and then run the following command:
 
 ```bash
 devdisco list --eth
 ```
 
-You should see output similar to the following:
+You should see an output that is similar to the following:
 
 ![device discovery](media/iot-hub-raspberry-pi-lessons/lesson1/device_discovery.png)
 
-Take a note of the `IP Address` of your Raspberry Pi 3 device. You need this information later in this section.
+Take a note of the `IP address` and `host name` of your Pi. You need this information later in this section.
 
-> [AZURE.NOTE] Make sure that your Raspberry Pi 3 device is connected to the same network as your computer. For example, if your computer is connected to your work wireless network, and your Pi is using a wired connection, you may not be able to see it in the devdisco output.
+> [AZURE.NOTE] Make sure that your Pi is connected to the same network as your computer. For example, your computer is connected to a wireless network while your Pi is connected to a wired network. In this case, you may not be able to see the IP address in the devdisco output.
 
+## 1.3.5 Open the sample application
 
-## 1.3.5 Clone the sample code
-To get started, clone the sample repository from Github:
+To open the sample code, follow these steps:
+1. Clone the sample repository from Github by running the following command:
 
 ```bash
 git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-getting-started.git
 ```
 
-Run the following command to open the sample project in VS Code:
+2. Open the sample application in Visual Studio Code by running the following commands:
 
 ```bash
 cd Lesson1
@@ -65,23 +69,27 @@ code .
 
 ![Repo structure](media/iot-hub-raspberry-pi-lessons/lesson1/vscode-blink-mac.png)
 
-`app.js` in the `app` sub-folder is the key source file that contains the code controlling the LED.
+The `app.js` file in the `app` sub-folder is the key source file that contains the code to control the LED.
 
 ### 1.3.6 Install application dependencies
-Now install the libraries and other modules you need for the sample:
+
+Install the libraries and other modules you need for the sample application by running the following command:
 
 ```bash
 npm install
 ```
 
 ## 1.3.7 Configure the device connection
-Run the following command to generate the device configuration file in a sub-folder (.iot-hub-getting-started) of  the home folder of your host machine.
+
+To configure the device connection, follow these steps:
+1. Generate the device configuration file by running the following command.
 
 ```bash
 gulp init
 ```
 
-For security purposes, the configuration file is in the home folder to username and password leak, run the following command to open it in Visual Studio Code.
+The device configuration file contains the user credentials you use to log in your Pi. To avoid the leak of user credentials, the device configuration file is generated in the %USERPROFILE%\.iot-hub-getting-started folder on your computer.
+2. Open the device configuration file in Visual Studio Code by running the following command:
 
 ```bash
 // For Windows command prompt
@@ -91,38 +99,43 @@ code %USERPROFILE%\.iot-hub-getting-started\config-raspberrypi.json
 code ~/.iot-hub-getting-started/config-raspberrypi.json
 ```
 
-Update your device configuration file `config-raspberrypi.json` in the sample folder with VS Code so you can deploy the sample application from your host machine:
+3. Replace the placeholder `[device hostname or IP address]` with the IP address or the host name that you get in section 1.3.4.
 
 ![Config.json](media/iot-hub-raspberry-pi-lessons/lesson1/vscode-config-mac.png)
 
-Replace `[device hostname or IP address]` with the device IP address or hostname you made a note of in the "Obtain IP address of your Raspberry Pi 3 device" step.
+Congratulations! You've successfully created the first sample application for your Pi.
 
-Congratulations! You have successfully created your first Raspberry Pi 3 application.
+## 1.3.8 Deploy and run the sample application
 
-## 1.3.8 Deploy and run the blink sample app
+### 1.3.8.1 Install Node.js and NPM on your Pi
 
-### 1.3.8.1 Install Node on the Raspberry Pi 3
-Install Node.js and NPM on your Pi using gulp so you can run the sample application once it’s deployed:
+Install Node.js and NPM on your Pi by running the following command:
 
 ```bash
 gulp install-tools
 ```
 
+After Node.js and NPM are installed, you can run the sample application once it's deployed.
+
 ### 1.3.8.2 Deploy and run the sample app
-Deploy the sample application to your Pi and run it:
+
+Deploy and run the sample application on by running the following command:
 
 ```bash
 gulp deploy && gulp run
 ```
 
 ### 1.3.8.3 Verify the app works
-You should now see the LED on your Pi blinking every two seconds.  If you don’t see the LED flashing, take a look at the [Troubleshooting](iot-hub-raspberrypikit-node-troubleshooting.md) guide for solutions to common problems.
+
+You should now see the LED on your Pi blinking every two seconds.  If you don’t see the LED blinking, see the [troubleshooting guide](iot-hub-raspberrypikit-node-troubleshooting.md) for solutions to common problems.
 ![LED blinking](media/iot-hub-raspberry-pi-lessons/lesson1/led_blinking.jpg)
 
-> [AZURE.NOTE] You can use `Ctrl + C` to terminate the application.
+> [AZURE.NOTE] Use `Ctrl + C` to terminate the application.
 
 ## 1.3.9 Summary
-You have now installed all of the required tools you need to work with your Raspberry Pi 3 and deployed a simple app to your Pi to blink an LED. Now you can move to the next lesson to deploy, build, and run an application that connects your Pi to Azure IoT Hub to send and receive messages.
+
+You've installed the required tools to work with your Pi and deployed a sample application to your Pi to blink the LED. You are ready to move on to the next lesson to create, deploy, and run another sample application that connects your Pi to Azure IoT Hub to send and receive messages.
 
 ## Next Steps
-You are now ready to start on Lesson 2, beginning with [Get the Azure tools](iot-hub-raspberrypikit-node-lesson2-get-azure-tools-win32.md)
+
+You are now ready to start Lesson 2 that begins with [Get the Azure tools](iot-hub-raspberrypikit-node-lesson2-get-azure-tools-win32.md)
