@@ -59,6 +59,7 @@ git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-getting-star
 Run the following command to open the sample project in VS Code:
 
 ```bash
+cd iot-hub-node-raspberrypi-getting-started
 cd Lesson1
 code .
 ```

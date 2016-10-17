@@ -37,6 +37,7 @@ In this section, you will learn:
     - [NPM](https://www.npmjs.com) is the package manager for Node.js
 
 ## 1.2.3 What you need
+
 - An internet connection to download the tools and software
 - A Mac with OS X Yosemite (10.10) or later
 
