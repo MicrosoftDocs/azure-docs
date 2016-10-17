@@ -33,7 +33,7 @@ Use an Azure Resource Manager (ARM) template to create an Azure function app and
 - You must have successfully completed the previous lessons: [Get started with your Raspberry Pi 3 device](iot-hub-raspberrypikit-getstarted.md) and [Create your Azure IoT Hub](iot-hub-raspberrypikit-getstarted.md)
 
 ## 3.1.4 Clone the sample code
-To get started, run the following command to open the sample project in VS Code:
+To get started, make sure you are in the repo folder `iot-hub-node-raspberrypi-getting-started`, run the following command to open the sample project in VS Code:
 
 ```bash
 cd Lesson3

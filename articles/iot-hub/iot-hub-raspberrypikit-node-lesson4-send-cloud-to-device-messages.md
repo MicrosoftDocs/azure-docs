@@ -17,7 +17,7 @@
  ms.date="09/28/2016" 
  ms.author="xshi"/>
 
-# 4.1 Send cloud-to-device messages
+# 4.1 Run a sample application on your Raspberry Pi to receive cloud to device messages
 
 The sample application in Lesson 4 runs on your Pi and monitors incoming messages from your IoT hub. A new gulp task sends messages to your Pi from your IoT hub to blink the LED.
 
@@ -39,7 +39,7 @@ The sample application in Lesson 4 runs on your Pi and monitors incoming message
 
 ## 4.1.4 Connect the sample application to your IoT hub
 
-1. Open the sample application in Visual Studio Code by running the following commands
+1. Make sure you are in the repo folder `iot-hub-node-raspberrypi-getting-started`. Open the sample application in Visual Studio Code by running the following commands.
 
     ```bash
     cd Lesson4
@@ -55,7 +55,7 @@ The sample application in Lesson 4 runs on your Pi and monitors incoming message
     gulp init
     ```
 
-    If you've completed Lesson3 in this machine, you can see all the configuration is inherited and you might skip to next section. Or you might need the following commands to replace the placeholders in the `config-raspberrypi.json` in your home folder.
+    If you've completed Lesson3 in this machine, you can see all the configuration is inherited and you might skip to next section. Or you might need the following commands to replace the placeholders in the `config-raspberrypi.json` in the sub-folder of your home folder.
 
     - Replace **[device hostname or IP address]** with your Pi’s IP address or hostname that you got from `devdisco list --eth`
     - Replace **[IoT device connection string]** with the device connection string from the command `az iot hub show-connection-string --name {my hub name} --resource-group {resource group name}`.
@@ -72,17 +72,13 @@ gulp
 
 The gulp command runs the install-tools task first. Then it deploys the sample application to your Pi. Finally, it runs the application on your Pi and a separate task on your host computer to send 20 blink messages to your Pi from your IoT hub.
 
-Once the sample application runs, it starts listening messages from your IoT hub. Meanwhile, the gulp task sends a bunch of "blink" messages from your IoT Hub to your Pi. For each of the blink message received, the sample application calls the blinkLED function to blink the LED.
-
-## 4.1.6 Send messages from your IoT hub to your Pi to blink the LED
+Once the sample application runs, it starts listening messages from your IoT hub. Meanwhile, the gulp task sends several of "blink" messages from your IoT Hub to your Pi. For each of the blink message received, the sample application calls the blinkLED function to blink the LED.
 
 You should see the LED blinking every two seconds as the gulp task is sending 20 messages from your IoT hub to your Pi. The last one is a "stop" message which tells the application to stop running.
 
-Congratulation! You’ve successfully achieved the task that the lesson is designed for.
+## 4.1.6 Summary
 
-## 4.1.7 Summary
-
-You’ve learned how to send messages from your IoT hub to your Pi to blink the LED. We provide complimentary reading to show you how to change the on and off behavior of the LED.
+You’ve learned how to send messages from your IoT hub to your Pi to blink the LED. Next section is complimentary reading that shows you how to change the on and off behavior of the LED.
 
 ## Next Steps
 [Complimentary reading: Change the on and off behavior of the LED](iot-hub-raspberrypikit-node-lesson4-change-led-behavior.md)
