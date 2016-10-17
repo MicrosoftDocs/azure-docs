@@ -17,8 +17,7 @@
  ms.date="09/28/2016" 
  ms.author="xshi"/>
 
-# 1.2 Get the tools (Windows 7 +)
- 
+# 1.2 Get the tools (Windows 7 +) 
 > [AZURE.SELECTOR]
 - [Windows 7 +](iot-hub-raspberrypikit-node-lesson1-get-the-tools-win32.md)
 - [Ubuntu 16.04](iot-hub-raspberrypikit-node-lesson1-get-the-tools-ubuntu.md)
@@ -29,7 +28,6 @@
 Download the development tools and the software for the first sample application for your Raspberry Pi 3.
 
 ## 1.2.2 What will you learn
-
 - How to install Git and Node.js
   - [Git](https://git-scm.com) is an open source distributed version control system. The sample code for this lesson is stored on Git.
   - [Node.js](https://nodejs.org/en/) is a JavaScript runtime with a rich package ecosystem.
@@ -69,7 +67,7 @@ Click [Get Visual Studio Code](https://code.visualstudio.com/docs/setup/windows)
 
 ## 1.2.7 Summary
 
-You have installed all the required development tools and software for the first sample application. In the next section, you build, deploy, and run the sample application on your Pi.
+You've installed all the required development tools and software for the first sample application. In the next section, you build, deploy, and run the sample application on your Pi.
 
 ## Next Steps
 
