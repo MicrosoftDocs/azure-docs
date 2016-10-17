@@ -52,7 +52,7 @@ Click the links below to download and install Git and Node.js LTS for Windows.
   - [Get gulp.js](http://gulpjs.com).
     Gulp is a tool to automate the deployment of the sample code to your Pi.
   - [Get device-discovery-cli](https://github.com/Azure/device-discovery-cli).
-    device-discovery-cli is a Node.js utility to retrieve network information about your Pi.
+    `device-discovery-cli` is a Node.js utility to retrieve network information about your Pi.
 2. Install these development tools.
   1. Press `Windows + R`, type `cmd` and press Enter to open a command prompt window.
   2. Run the following command:
@@ -67,7 +67,7 @@ Click [Get Visual Studio Code](https://code.visualstudio.com/docs/setup/windows)
 
 ## 1.2.7 Summary
 
-You've installed all the required development tools and software for the first sample application. In the next section, you build, deploy, and run the sample application on your Pi.
+You've installed all the required development tools and software for the first sample application. In the next section, you create, deploy, and run the sample application on your Pi.
 
 ## Next Steps
 
