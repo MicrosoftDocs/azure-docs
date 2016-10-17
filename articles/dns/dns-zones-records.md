@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="14/10/2016"
+   ms.date="10/17/2016"
    ms.author="jtuliani"/>
 
 # DNS zones and records
@@ -40,7 +40,7 @@ When creating a DNS zone in Azure DNS, the name of the zone must be unique withi
 
 >[AZURE.NOTE] You do not have to own a domain name to create a DNS zone with that domain name in Azure DNS. However, you do need to own the domain to configure the Azure DNS name servers as the correct name servers for the domain name with the domain name registrar.
 
-For more information, see [Delegate a domain to Azure DNS](../articles/dns/dns-domain-delegation.md).
+For more information, see [Delegate a domain to Azure DNS](dns-domain-delegation.md).
 
 ## DNS records
 
