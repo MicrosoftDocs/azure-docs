@@ -54,18 +54,19 @@ Take note of the `IP address` and `host name` of your Pi. You need this informat
 ## 1.3.5 Open the sample application
 
 To open the sample code, follow these steps:
+
 1. Clone the sample repository from Github by running the following command:
 
-```bash
-git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-getting-started.git
-```
+  ```bash
+  git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-getting-started.git
+  ```
 
 2. Open the sample application in Visual Studio Code by running the following commands:
 
-```bash
-cd Lesson1
-code .
-```
+  ```bash
+  cd Lesson1
+  code .
+  ```
 
 ![Repo structure](media/iot-hub-raspberry-pi-lessons/lesson1/vscode-blink-mac.png)
 
@@ -82,6 +83,7 @@ npm install
 ## 1.3.7 Configure the device connection
 
 To configure the device connection, follow these steps:
+
 1. Generate the device configuration file by running the following command.
 
 ```bash
@@ -91,13 +93,13 @@ gulp init
 The device configuration file contains the user credentials you use to log in your Pi. To avoid the leak of user credentials, the device configuration file is generated in the %USERPROFILE%\.iot-hub-getting-started folder on your computer.
 2. Open the device configuration file in Visual Studio Code by running the following command:
 
-```bash
-// For Windows command prompt
-code %USERPROFILE%\.iot-hub-getting-started\config-raspberrypi.json
+  ```bash
+  // For Windows command prompt
+  code %USERPROFILE%\.iot-hub-getting-started\config-raspberrypi.json
 
-// For MacOS or Ubuntu
-code ~/.iot-hub-getting-started/config-raspberrypi.json
-```
+  // For MacOS or Ubuntu
+  code ~/.iot-hub-getting-started/config-raspberrypi.json
+  ```
 
 3. Replace the placeholder `[device hostname or IP address]` with the IP address or the host name that you get in section 1.3.4.
 
