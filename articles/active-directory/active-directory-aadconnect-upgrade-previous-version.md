@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
    ms.date="06/27/2016"
-   ms.author="andkjell"/>
+   ms.author="billmath"/>
 
 # Azure AD Connect: Upgrade from a previous version to the latest
 This topic describes the different methods you can use to upgrade your Azure AD Connect installation to the latest release. We recommendation that you keep current with the releases of Azure AD Connect.
