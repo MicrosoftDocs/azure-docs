@@ -72,7 +72,7 @@ The Data Science Virtual Machine has many popular data science tools already ins
 
 
 
-## How to get started with the Windows Server Data Science VM
+## How to get started with the Windows Data Science VM
 
 - Create an instance of the VM on Windows by navigating to [this page](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) and selecting the green **Create Virtual Machine** button.
 - Sign in to the VM from your remote desktop using the credentials you specified when you created the VM.
