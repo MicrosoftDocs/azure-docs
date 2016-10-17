@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure Portal. To see management topics using other tools, click the tab selector above.
+Learn how to manage Azure Data Lake Analytics accounts, account data sources, users, and jobs using the Azure Portal. To see management topics using other tools, click the tab selector above.
 
 **Prerequisites**
 
