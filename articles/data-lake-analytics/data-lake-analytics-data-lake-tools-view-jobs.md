@@ -112,7 +112,7 @@ Job View contains:
         ![Azure Data Lake Analytics job graph stage details](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-stage-details.png)
 
 
-        - Vertices: Describes the vertices details, like how many vertices in total, how many vertices have been completed, are they failed or still running/waiting, etc.
+        - Vertices: Describes the vertices details, for example, how many vertices in total, how many vertices have been completed, are they failed or still running/waiting, etc.
         - Data read cross/intra pod: Files and data are stored in multiple pods in distributed file system. The value here describes how much data has been read in the same pod or cross pod.
         - Total compute time: The sum of every vertex execution time in the stage, you can consider it as the time it would take if all work in the stage is executed in only one vertex.
         - Data and rows written/read: Indicates how much data or rows have been read/written, or need to be read.
