@@ -47,7 +47,7 @@ You should see an output that is similar to the following:
 
 ![device discovery](media/iot-hub-raspberry-pi-lessons/lesson1/device_discovery.png)
 
-Take a note of the `IP address` and `host name` of your Pi. You need this information later in this section.
+Take note of the `IP address` and `host name` of your Pi. You need this information later in this section.
 
 > [AZURE.NOTE] Make sure that your Pi is connected to the same network as your computer. For example, your computer is connected to a wireless network while your Pi is connected to a wired network. In this case, you may not be able to see the IP address in the devdisco output.
 
