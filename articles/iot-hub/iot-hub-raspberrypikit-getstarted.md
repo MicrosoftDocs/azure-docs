@@ -23,7 +23,7 @@ In this tutorial, you begin by learning the basics of working with Raspberry Pi 
 
 ## Lesson 1: Get started with your Raspberry Pi
 
-![Lesson 1 E2E Diagram](media/iot-hub-raspberry-pi-lessons/lesson1.png)
+![Lesson 1 E2E Diagram](media/iot-hub-raspberry-pi-lessons/e2e-lesson1.png)
 
 In this lesson, you configure your Raspberry Pi 3 device with an operating system, set up your development environment, and deploy an application to the Pi.
 
@@ -52,7 +52,7 @@ Clone the sample Node.js application from Github, and gulp to deploy this applic
 
 ## Lesson 2: Create your IoT hub
 
-![Lesson 2 E2E Diagram](media/iot-hub-raspberry-pi-lessons/lesson2.png)
+![Lesson 2 E2E Diagram](media/iot-hub-raspberry-pi-lessons/e2e-lesson2.png)
 
 In this lesson, you create your free Azure account, provision your Azure IoT hub and create your first device in Azure IoT hub.
 
@@ -77,7 +77,7 @@ Create your resource group, provision your first Azure IoT hub, and add your fir
 
 ## Lesson 3: Send device-to-cloud messages
 
-![Lesson 3 E2E Diagram](media/iot-hub-raspberry-pi-lessons/lesson3.png)
+![Lesson 3 E2E Diagram](media/iot-hub-raspberry-pi-lessons/e2e-lesson3.png)
 
 In this lesson, you send messages from your Pi to your IoT hub. You also create an Azure function app that picks up incoming messages from your IoT hub and writes them to Azure table storage.
 
@@ -108,6 +108,8 @@ Monitor the device-to-cloud messages as they are written to your Azure storage.
 
 
 ## Lesson4: Send cloud-to-device messages
+
+![Lesson 4 E2E Diagram](media/iot-hub-raspberry-pi-lessons/e2e-lesson4.png)
 
 This lesson demos how to send messages from your Azure IoT hub to your Raspberry Pi 3. The messages control the on and off behavior of the LED that is connected to your Pi. A sample application is prepared for you to achieve this task.
 
