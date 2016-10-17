@@ -63,7 +63,7 @@ If you experience issues installing Node.js and these additional Node.js develop
 
 ## 1.2.6 Install Visual Studio Code
 
-Click [Get Visual Studio Code](https://code.visualstudio.com/docs/setup/windows) to download and install Visual Studio Code. Visual Studio Code is a lightweight but powerful source code editor for Windows, Linux and OS X. You use this later in the tutorial to edit the sample application.
+[Download](https://code.visualstudio.com/docs/setup/windows) and install Visual Studio Code. Visual Studio Code is a lightweight but powerful source code editor for Windows, Linux and OS X. You use this later in the tutorial to edit the sample application.
 
 ## 1.2.7 Summary
 
