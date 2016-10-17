@@ -37,11 +37,11 @@ Azure Security Center analyzes daily your virtual machine (VM) operating system 
         - In Progress: The vulnerability is currently being applied, no action is required by you
         - Resolved: The vulnerability was already addressed (when the issue has been resolved, the entry is grayed out)
   - **SEVERITY** -- All vulnerabilities are set to a severity of Low, meaning a vulnerability should be addressed but does not require immediate attention.
-2. Select a VM. A blade for that VM opens and displays the rules that have failed.
+
+Select a VM. A blade for that VM opens and displays the rules that have failed.
    ![Configuration rules that have failed][2]
 
-3. Select a rule. In this example, lets select **Password must meet complexity requirements**. A blade opens describing the failed rule and the impact. Review the details and consider how operating system configurations will be applied.
-
+Select a rule. In this example, lets select **Password must meet complexity requirements**. A blade opens describing the failed rule and the impact. Review the details and consider how operating system configurations will be applied.
   ![Description for the failed rule][3]
 
   Security Center uses Common Configuration Enumeration (CCE) to assign unique identifiers for configuration rules. The following information is provided on this blade:
