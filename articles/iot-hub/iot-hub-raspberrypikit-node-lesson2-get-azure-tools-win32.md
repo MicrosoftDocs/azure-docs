@@ -1,6 +1,6 @@
 <properties
- pageTitle="Get Azure tools (Windows 7+) | Microsoft Azure"
- description="Install Azure Command-Line Interface (Azure CLI). You might need 10 minutes to complete this section."
+ pageTitle="Get Azure tools (Windows 7 +) | Microsoft Azure"
+ description="Install Python and Azure Command-Line Interface (Azure CLI) on Windows 7 and later versions."
  services="iot-hub"
  documentationCenter=""
  authors="shizn"
@@ -17,54 +17,62 @@
  ms.date="09/28/2016" 
  ms.author="xshi"/>
 
-# 2.1 Get Azure tools (Windows 7+)
+# 2.1 Get Azure tools (Windows 7 +)
 
 > [AZURE.SELECTOR]
 - [Windows 7 +](iot-hub-raspberrypikit-node-lesson2-get-azure-tools-win32.md)
 - [Ubuntu 16.04](iot-hub-raspberrypikit-node-lesson2-get-azure-tools-ubuntu.md)
 - [OS X 10.10](iot-hub-raspberrypikit-node-lesson2-get-azure-tools-mac.md)
 
-## 2.1.1 What you will do
-Install Python and Azure Command-Line Interface (Azure CLI). You might need 10 minutes to complete this section.
+## 2.1.1 What will you do
 
-## 2.1.2 What you will learn
-In this section, you will learn:
-- How to install Python
-- How to install Azure CLI
+Install Python and the Azure Command-Line Interface (Azure CLI).
 
-## 2.1.3 What you need
-- A Windows PC with Internet connection
-- An active Azure subscription. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/)
+## 2.1.2 What will you learn
+
+- How to install Python.
+- How to install Azure CLI.
+
+## 2.1.3 What do you need
+
+- A Windows computer with Internet connection
+- An active Azure subscription. If you don't have an Azure account, create a free Azure trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/)
 
 ## 2.1.4 Install Python
-Install Python on your Windows PC. You can choose Python 2.7, 3.4 or 3.5. Here we choose Python 2.7. If you already have installed python on your PC, you can go to section 2.2.5.
+
+Install Python on your Windows computer. You can install Python 2.7, 3.4 or 3.5. This tutorial is based on Python 2.7. If you've already installed Python, go to section 2.1.5.
 
 [Get Python for Windows](https://www.python.org/downloads/)
 
-You also need to add your Python and pip folder (where python.exe and pip.exe are installed; `C:\Python27` and `C:\Python27\Scripts` are the default installation path) to the system `PATH` environment variable. 
+You also need to add the path of the folders where python.exe and pip.exe are installed to the system `PATH` environment variable. By default, python.exe is installed in `C:\Python27` and pip.exe is installed in `C:\Python27\Scripts`.
 
-## 2.1.5 Install the Azure Command-Line Interface (CLI)
+## 2.1.5 Install the Azure CLI
+
 The Azure CLI provides a multiplatform command line experience for Azure, enabling you to work directly from your command line to provision and manage resources.
 
-Run the following from a command prompt using administrator privilege, it might take 5 minutes to install Azure CLI.
+To install Azure CLI, follow these steps:
 
-```bash
-pip install --upgrade azure-cli
-pip install --upgrade azure-cli-iot
-```
+1. Open a command prompt window as an administrator.
+2. Run the following commands:
 
-Try below command to verify installation is successful.
+  ```bash
+  pip install --upgrade azure-cli
+  pip install --upgrade azure-cli-iot
+  ```
+3. Verify the installation by running the following command:
 
-```bash
-az iot -h
-```
+  ```bash
+  az iot -h
+  ```
 
-You should see the following output if installation is successful.
+You see the following output if the installation is successful.
 
 ![az iot -h](media/iot-hub-raspberry-pi-lessons/lesson2/az_iot_help_win.png)
 
 ## 2.1.6 Summary
-You have now installed Azure CLI. Continue to the next section to create your Azure IoT Hub and device identity using the Azure CLI. 
+
+You've installed Azure CLI. Continue to the next section to create your Azure IoT Hub and device identity using the Azure CLI.
 
 ## Next Steps
+
 [2.2 Create your Azure IoT Hub and the register your Raspberry Pi 3 device](iot-hub-raspberrypikit-node-lesson2-prepare-azure-iot-hub.md)
