@@ -51,17 +51,17 @@ Use additional Node.js functions to change the LED’s on and off behavior.
 3. Add the following conditions in the switch-case block of the receiveMessageAndBlink function:
 
     ```javascript
-    case ‘on’:
+    case 'on':
       turnOnLED();
       break;
-    case ‘off’
+    case 'off':
       turnOffLED();
       break;
     ```
 
     Now you’ve configured the sample application to respond to more instructions through messages. The “on” instruction turns on the LED and the “off” instruction turns off the LED.
 
-4. Open the gulpfile.js file, and then add the following code between line 39 and line 40:
+4. Open the gulpfile.js file, and then add a new function in it:
 
     ```javascript
     var buildCustomMessage = function (messageId) {
