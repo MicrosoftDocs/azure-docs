@@ -188,7 +188,7 @@ Unit | Unit | Identifies the Unit that the service is charged in. For example, G
 Consumed | Consumed Quantity | Contains the amount of the resource that has been consumed for that day.
 Sub Region | Resource Location | Identifies the datacenter where the resource is running.
 Service | Consumed Service | This column is utilized to track the individual Azure platform service that may not be specifically identified in the Name column. This Service column indicates which specific service the usage pertains.
-N/A | Resource Group | _**New column addition.**_ The resource group in which the deployed resource is running in. Refer to [Azure Resource Manager overview](resource-group-overview.md)
+N/A | Resource Group | _**New column addition.**_ The resource group in which the deployed resource is running in. Refer to [Azure Resource Manager overview](../resource-group-overview.md)
 Component | Instance ID | The identifier for the running resource. The identifier contains the name you specify for the resource when it was created.
 N/A | Tags | _**New column addition.**_ New resource types in Azure allow you to tag resources. Refer to [Organize your Azure resources with tags](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/)
 Additional Info | Additional Info | Additional metadata related to the service.
@@ -205,7 +205,7 @@ In addition to some new fields and name changes to csv Version 2, there will be 
 
 ![additionalinfo_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
-- **Tags**:  This column contains the user specified resource tags. The tags can be used to group billing records. For example, you can use tags to distribute costs by department using the service. Learn more about [using tags to organize Azure Resources](./resource-group-using-tags.md). Services that support emitting tags are:  
+- **Tags**:  This column contains the user specified resource tags. The tags can be used to group billing records. For example, you can use tags to distribute costs by department using the service. Learn more about [using tags to organize Azure Resources](../resource-group-using-tags.md). Services that support emitting tags are:  
 
     - Virtual Machines
 
@@ -218,13 +218,13 @@ In addition to some new fields and name changes to csv Version 2, there will be 
 
 ## Next steps
 
-- [Set up billing alerts](billing-set-up-alerts.md)
+- [Set up billing alerts](../billing-set-up-alerts.md)
 
-- [Manage your payment methods](billing-how-to-change-credit-card.md)
+- [Manage your payment methods](../billing-how-to-change-credit-card.md)
 
-- [Understand your Azure Marketplace charges](billing-understand-your-azure-marketplace-charges.md)
+- [Understand your Azure Marketplace charges](../billing-understand-your-azure-marketplace-charges.md)
 
-- [Azure Billing and Subscription FAQ ](billing-subscription-faq.md)
+- [Azure Billing and Subscription FAQ ](../billing-subscription-faq.md)
 
 > [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
