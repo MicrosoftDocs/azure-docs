@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="06/27/2016"
-   ms.author="andkjell;billmath"/>
+   ms.author="billmath"/>
 
 # Prerequisites for Azure AD Connect
 This topic describes the pre-requisites and the hardware requirements for Azure AD Connect.

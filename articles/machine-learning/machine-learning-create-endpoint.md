@@ -1,10 +1,10 @@
-<properties 
-	pageTitle="Creating Web service endpoints in Machine Learning | Microsoft Azure" 
-	description="Creating Web service endpoints in Azure Machine Learning" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="hiteshmadan" 
-	manager="padou" 
+<properties
+	pageTitle="Creating Web service endpoints in Machine Learning | Microsoft Azure"
+	description="Creating Web service endpoints in Azure Machine Learning"
+	services="machine-learning"
+	documentationCenter=""
+	authors="hiteshmadan"
+	manager="padou"
 	editor="cgronlun"/>
 
 <tags
@@ -12,7 +12,7 @@
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.workload="tbd" 
+	ms.workload="tbd"
 	ms.date="10/04/2016"
 	ms.author="himad"/>
 
@@ -35,8 +35,8 @@ There are three ways to add an endpoint to a Web service.
 * Through the Azure Machine Learning Web Services portal
 * Though the Azure classic portal
 
-Once the endpoint is created, you can consume it through synchronous APIs, batch APIs, and excel worksheets. In addition to adding endpoints through this UI, you can also use the Endpoint Management APIs to programmatically add endpoints. 
- 
+Once the endpoint is created, you can consume it through synchronous APIs, batch APIs, and excel worksheets. In addition to adding endpoints through this UI, you can also use the Endpoint Management APIs to programmatically add endpoints.
+
  >[AZURE.NOTE] If you have added additional endpoints to the Web service, you cannot delete the default endpoint.
 
 ## Adding an endpoint programmatically
@@ -46,11 +46,9 @@ You can add an endpoint to your Web service programmatically using the [AddEndpo
 ## Adding an endpoint using the Azure Machine Learning Web Services portal
 
 1. In Machine Learning Studio, on the left navigation column, click Web Services.
-2. At the bottom of the Web service dashboard, click **Manage endpoints**.
+2. At the bottom of the Web service dashboard, click **Manage endpoints**. The Azure Machine Learning Web Services portal opens to the endpoints page for the Web service.
 3. Click **New**.
-
-
-4. Type a name and description for the new endpoint. Endpoint names must be 24 character or less in length, and must be made up of lower-case alphabets or numbers. Select the logging level and whether sample data is enabled. For more information on logging, see [Enable logging for Machine Learning Web services](machine-learning-Web-services-logging.md).
+4. Type a name and description for the new endpoint. Endpoint names must be 24 character or less in length, and must be made up of lower-case alphabets or numbers. Select the logging level and whether sample data is enabled. For more information on logging, see [Enable logging for Machine Learning Web services](machine-learning-web-services-logging.md).
 
 ## Adding an endpoint using the Azure classic portal
 
@@ -67,10 +65,10 @@ You can add an endpoint to your Web service programmatically using the [AddEndpo
 
 	![Navigate to endpoint](./media/machine-learning-create-endpoint/figure-3.png)
 
-4. At the bottom of the page, click **Add Endpoint**. Type a name and description, ensure there are no other endpoints with the same name in this Web service. Leave the throttle level with its default value unless you have special requirements. To learn more about throttling, see [Scaling API Endpoints](machine-learning-scaling-Webservice.md).
+4. At the bottom of the page, click **Add Endpoint**. Type a name and description, ensure there are no other endpoints with the same name in this Web service. Leave the throttle level with its default value unless you have special requirements. To learn more about throttling, see [Scaling API Endpoints](machine-learning-scaling-webservice.md).
 
 	![Create endpoint](./media/machine-learning-create-endpoint/figure-4.png)
 
 ## Next Steps
 
-[How to consume a published Azure Machine Learning Web service](machine-learning-consume-Web-services.md). 
+[How to consume a published Azure Machine Learning Web service](machine-learning-consume-web-services.md).

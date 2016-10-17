@@ -13,14 +13,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="07/11/2016"
+    ms.date="10/14/2016"
     ms.author="sethm"/>
 
 # Create Service Bus resources using Azure Resource Manager templates
 
-This article shows how to create and deploy Service Bus and Event Hubs resources using Azure Resource Manager templates, PowerShell, and the Service Bus resource provider.
+This article describes how to create and deploy Service Bus and Event Hubs resources using Azure Resource Manager templates, PowerShell, and the Service Bus resource provider.
 
-Azure Resource Manager templates help you define the resources to deploy for a solution, and to specify parameters and variables that enable you to input values for different environments. The template consists of JSON and expressions which you can use to construct values for your deployment. For detailed information about writing Azure Resource Manager templates, and a discussion of the template format, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). 
+Azure Resource Manager templates help you define the resources to deploy for a solution, and to specify parameters and variables that enable you to input values for different environments. The template consists of JSON and expressions that you can use to construct values for your deployment. For detailed information about writing Azure Resource Manager templates, and a discussion of the template format, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). 
 
 >[AZURE.NOTE] The examples in this article show how to use Azure Resource Manager to create a Service Bus namespace and messaging entity (queue). For other template examples, visit the [Azure Quickstart Templates gallery][] and search for "Service Bus."
 
@@ -222,7 +222,7 @@ New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -Resour
 
 ### Verify the deployment
 
-If the resources are deployed successfully, a summary of the deployment is displyed in the PowerShell window:
+If the resources are deployed successfully, a summary of the deployment is displayed in the PowerShell window:
 
 ```
 DeploymentName    : MyDemoDeployment

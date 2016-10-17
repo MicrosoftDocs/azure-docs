@@ -31,7 +31,7 @@ This tutorial walks you through the steps of using the Azure Media Services .NET
 The following are required to complete the tutorial:
 
 - An Azure account.
-- A Media Services account.	To create a Media Services account, see [How to Create a Media Services Account](media-services-create-account.md).
+- A Media Services account.	To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
 - Set up your dev environment. For more information, see [Set up your environment](media-services-set-up-computer.md).
 - A webcam. For example, [Telestream Wirecast encoder](http://www.telestream.net/wirecast/overview.htm).
 
