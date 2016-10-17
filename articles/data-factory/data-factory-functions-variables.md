@@ -2,7 +2,7 @@
 	pageTitle="Data Factory Functions and System Variables | Microsoft Azure" 
 	description="Provides a list of Azure Data Factory functions and system variables" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="sharonlo101" 
 	manager="jhubbard" 
 	editor="monicar"
 	services="data-factory"
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="10/11/2016" 
-	ms.author="spelluru"/>
+	ms.author="shlo"/>
 
 # Azure Data Factory - Functions and System Variables
 This article provides information about functions and variables supported by Azure Data Factory.

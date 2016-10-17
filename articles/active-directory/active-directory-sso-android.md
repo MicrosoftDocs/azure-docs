@@ -3,7 +3,7 @@
 	description="How to use the features of the ADAL SDK to enable Single Sign On across your applications. "
 	services="active-directory"
 	documentationCenter=""
-	authors="brandwe"
+	authors="xerners"
 	manager="mbaldwin"
 	editor=""/>
 
