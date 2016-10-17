@@ -54,7 +54,7 @@ The Azure CLI provides a multiplatform command line experience for Azure, enabli
 
 To install the latest Azure CLI, follow these steps:
 
-1. Run the following commands in the a Terminal window. It might take 5 minutes to install Azure CLI.
+1. Run the following commands in a Terminal window. It might take 5 minutes to install Azure CLI.
 
   ```bash
   pip install --upgrade azure-cli
