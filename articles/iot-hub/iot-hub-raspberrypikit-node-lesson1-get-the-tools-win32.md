@@ -59,7 +59,7 @@ Click the links below to download and install Git and Node.js LTS for Windows.
     ```bash
     npm install -g device-discovery-cli gulp
     ```
-If you experience issues installing Node.js and these additional Node.js development tools on your computer, click the [troubleshooting guide](iot-hub-raspberrypikit-node-troubleshooting.md).
+If you experience issues installing Node.js and these additional Node.js development tools on your computer, see [troubleshooting guide](iot-hub-raspberrypikit-node-troubleshooting.md) for solutions to common problems.
 
 ## 1.2.6 Install Visual Studio Code
 
