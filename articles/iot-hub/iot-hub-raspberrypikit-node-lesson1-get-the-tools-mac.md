@@ -39,7 +39,7 @@ Download the development tools and the software for the first sample application
 
 ## 1.2.3 What do you need
 
-- An internet connection to download the development tools and the software
+- An Internet connection to download the development tools and the software
 - A Mac that is running OS X Yosemite (10.10) or later
 
 ## 1.2.4 Install the Git and Node.js software
