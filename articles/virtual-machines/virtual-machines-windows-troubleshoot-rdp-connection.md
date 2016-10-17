@@ -39,9 +39,11 @@ After each troubleshooting step, try reconnecting to the VM:
 
 Continue reading if you need more detailed steps and explanations.
 
+> [AZURE.TIP] If the **Connect** button for your VM is grayed out in the portal and you are not connected to Azure via an [Express Route](../expressroute/expressroute-introduction.md) or [Site-to-Site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) connection, you need to create and assign your VM a public IP address before you can use RDP. You can read more about [public IP addresses in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
+
 
 ## Ways to troubleshoot RDP issues
-You can troubleshoot VMs created using the Resource Manager deployment model using one of the following methods:
+You can troubleshoot VMs created using the Resource Manager deployment model by using one of the following methods:
 
 - [Azure portal](#using-the-azure-portal) - great if you need to quickly reset the RDP configuration or user credentials and you don't have the Azure tools installed.
 - [Azure PowerShell](#using-azure-powershell) - if you are comfortable with a PowerShell prompt, quickly reset the RDP configuration or user credentials using the Azure PowerShell cmdlets.
@@ -52,8 +54,6 @@ You can also find steps on troubleshooting VMs created using the [Classic deploy
 <a id="fix-common-remote-desktop-errors"></a>
 ## Troubleshoot using the Azure portal
 After each troubleshooting step, try connecting to your VM again. If you still cannot connect, try the next step.
-
-> [AZURE.TIP] If the **Connect** button for your VM is grayed out in the portal and you are not connected to Azure via an [Express Route](../expressroute/expressroute-introduction.md) or [Site-to-Site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) connection, you need to create and assign your VM a public IP address before you can use RDP. You can read more about [public IP addresses in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
 
 1. **Reset your RDP connection**. This troubleshooting step resets the RDP configuration when Remote Connections are disabled or Windows Firewall rules are blocking RDP, for example.
 
