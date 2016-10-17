@@ -333,8 +333,7 @@ Following is a sample of the required elements of a solution to support the modu
 	      "apiVersion": "[variables('AutomationApiVersion')]",
 	      "location": "[parameters('regionId')]",
 	      "dependsOn": [
-	        "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('ReRegisterSchedulesRunbookName'))]",
-			"[concat(parameters('accountName'), '/', parameters('ModuleImportGuid'))]"
+	        "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('ReRegisterSchedulesRunbookName'))]"
 	      ],
 	      "tags": { },
 	      "properties": {

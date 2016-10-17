@@ -186,7 +186,7 @@ Management solutions require an [OMS workspace](../log-analytics/log-analytics-m
 
 
 ## Solution resource
-Each solution requires a resource entry in the **resources** element that defines the solution itself.  This will have a type of **Microsoft.OperationsManagement/solutions** and have the following structure.
+Each solution requires a resource entry in the **resources** element that defines the solution itself.  This will have a type of **Microsoft.OperationsManagement/solutions**.  Following is an example of a solution resource.  Its different elements are described in the sections below.
 
 	"name": "[concat(variables('SolutionName'), '[ ' ,parameters('workspacename'), ' ]')]",
 	"location": "[parameters('workspaceRegionId')]",
