@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How do I ... in Application Insights" 
+	pageTitle="How do I ... in Application Insights | Microsoft Azure" 
 	description="FAQ in Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -153,7 +153,7 @@ There are several different methods of setting the Application Version property.
 #### Dashboard with metrics from multiple apps
 
 * In [Metric Explorer](app-insights-metrics-explorer.md), customize your chart and save it as a favorite. Pin it to the Azure dashboard.
-* 
+
 
 #### Dashboard with data from other sources and Application Insights
 
@@ -163,10 +163,6 @@ Or
 
 * Use SharePoint as your dashboard, displaying data in SharePoint web parts. [Use continuous export and Stream Analytics to export to SQL](app-insights-code-sample-export-sql-stream-analytics.md).  Use PowerView to examine the database, and create a SharePoint web part for PowerView.
 
-
-### Complex filtering, segmentation and joins
-
-* [Use continuous export and Stream Analytics to export to SQL](app-insights-code-sample-export-sql-stream-analytics.md).  Use PowerView to examine the database.
 
 <a name="search-specific-users"></a>
 ### Filter out anonymous or authenticated users
