@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs in an ARM deployment| Microsoft Azure"
-	description="Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs in an ARM deployment"
+	pageTitle="Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs in a Resource Manager deployment| Microsoft Azure"
+	description="Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs in a Resource Manager deployment"
 	services="storage"
 	documentationCenter=""
 	authors="genlin"
@@ -17,9 +17,9 @@
 	ms.date="10/12/2016"
 	ms.author="genli;dougiman"/>
 
-# Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs in an ARM deployment
+# Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs in a Resource Manager deployment
 
-You might receive errors when you try to delete the Azure storage account, container, or VHD in the [Azure portal](https://portal.azure.com). This article provides troubleshooting guidance to help resolve the issue in an Azure Resource Manager (ARM) deployment.
+You might receive errors when you try to delete the Azure storage account, container, or VHD in the [Azure portal](https://portal.azure.com). This article provides troubleshooting guidance to help resolve the issue in an Azure Resource Manager deployment.
 
 If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and the Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting **Get support** on the [Azure support](https://azure.microsoft.com/support/options/) site.
 
@@ -27,7 +27,7 @@ If your Azure issue is not addressed in this article, visit the Azure forums on 
 
 ### Scenario 1
 
-When you try to delete a VHD in an ARM Storage Account, you receive the following error message:
+When you try to delete a VHD in a storage account in a Resource Manager deployment, you receive the following error message:
 
 **Failed to delete blob 'vhds/BlobName.vhd'. Error: There is currently a lease on the blob and no lease ID was specified in the request**
 
@@ -35,7 +35,7 @@ This issue can occur because a virtual machine (VM) has a lease on the VHD that 
 
 ### Scenario 2
 
-When you try to delete a container in an ARM Storage Account, you receive the following error message:
+When you try to delete a container in a storage account in a Resource Manager deployment, you receive the following error message:
 
 **Failed to delete storage container 'vhds'. Error: There is currently a lease on the container and no lease ID was specified in the request.**
 
@@ -43,7 +43,7 @@ This issue can occur because the container contains a VHD that is locked in the 
 
 ### Scenario 3
 
-When you try to delete an ARM Storage Account, you receive the following error message:
+When you try to delete a storage account in a Resource Manager deployment, you receive the following error message:
 
 **Failed to delete storage account 'StorageAccountName'. Error: The storage account cannot be deleted due to its artifacts being in use.**
 
@@ -59,7 +59,7 @@ To resolve these issues, you have to identify the VHD that is causing the error 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the Hub menu, select **All resources**. Go to the storage account that you want to delete > **Blobs** > **vhds**.
 
-	![locateVHD1.png](./media/storage-arm-cannot-delete-storage-account-container-vhd/opencontainer.png)
+	![locateVHD1.png](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/opencontainer.png)
 
 3. Check the properties of each VHD in the container. Locate the VHD that is in the **Leased** state. Then, determine which VM is using the VHD. Usually, you can determine which VM holds the VHD by checking name of the VHD:
 
@@ -67,7 +67,7 @@ To resolve these issues, you have to identify the VHD that is causing the error 
 
    -	Data Disks generally follow this naming convention: VMName-YYYYMMDD-HHMMSS.vhd
 
-	![locatevm.png](./media/storage-arm-cannot-delete-storage-account-container-vhd/locatevm.png)
+	![locatevm.png](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/locatevm.png)
 
 ### Step 2: Remove the lease from the VHD
 
