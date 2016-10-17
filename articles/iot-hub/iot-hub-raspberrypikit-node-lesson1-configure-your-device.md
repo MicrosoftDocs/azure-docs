@@ -23,7 +23,7 @@
 
 Configure your Pi for the first time use and install the Raspbian operating system, a free operating system that is optimized for the Raspberry Pi hardware.
 
-> [AZURE.NOTE] For Windows 10 IoT Core samples, visit [windowsondevices.com](http://www.windowsondevices.com/)
+> [AZURE.NOTE] For Windows 10 IoT Core samples, visit [windowsondevices.com](http://www.windowsondevices.com/).
 
 ## 1.1.2 What will you learn
 
