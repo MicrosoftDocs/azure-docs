@@ -81,7 +81,7 @@ You should successfully complete [4.1 Run a sample application on your Raspberry
     }
     ```
 
-    ![update gulpfile](media/iot-hub-raspberry-pi-lessons)
+    ![update gulpfile](media/iot-hub-raspberry-pi-lessons/lesson4/updated_gulpfile.png)
 
 5. In the `sendMessage` function, replace the line `var message = buildMessage(sentMessageCount);` with the new line below.
 
