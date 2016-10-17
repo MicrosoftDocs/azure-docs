@@ -37,7 +37,7 @@ Examples of scenarios that fit this profile include:
 
 - Development/test/lab workloads.
 
-> [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This blueprint uses Resource Manager, which Microsoft recommends for new deployments.
+> [AZURE.NOTE] Azure has two different deployment models: [Azure Resource Manager][resource-manager-overview] and classic. This blueprint uses Resource Manager, which Microsoft recommends for new deployments.
 
 ## Architecture diagram
 
@@ -619,7 +619,7 @@ To run the script that deploys the solution:
 <!-- links -->
 
 [implementing-a-multi-tier-architecture-on-Azure]: ./guidance-compute-n-tier-vm.md
-[resource-manager-overview]: ../resource-group-overview.md
+[resource-manager-overview]: ../azure-resource-manager/resource-group-overview.md
 [arm-templates]: ../resource-group-authoring-templates.md
 [azure-cli]: ../virtual-machines-command-line-tools.md
 [azure-portal]: ../azure-portal/resource-group-portal.md
