@@ -109,6 +109,8 @@ Install Node.js and NPM on your Pi using gulp so you can run the sample applicat
 gulp install-tools
 ```
 
+It might take 10 minutes finish this task if this is your first time to run it.
+
 ### 1.3.8.2 Deploy and run the sample app
 Deploy the sample application to your Pi and run it:
 

@@ -55,6 +55,8 @@ Use VS Code to update your ARM template configuration file:
 - Replace **[your IoT Hub name]** with the **{my hub name}** you specified in [Lesson 2](iot-hub-raspberrypikit-node-lesson2-prepare-azure-iot-hub.md).
 - Replace **[prefix string for new resources]** with any prefix you want. The resource name is globally unique, so this prefix helps you avoid conflict (no dash, no number initial). 
 
+> [AZURE.NOTE] You don't need `azure_storage_connection_string` in this section. Remain as it is.
+
 After you finished updating the `arm-template-param.json` file, run the following command to deploy to Azure:
 
 ```bash
