@@ -27,17 +27,16 @@ Azure Security Center analyzes daily your virtual machine (VM) operating system 
 1. In the **Recommendations** blade, select **Remediate OS vulnerabilities**.
 ![Remediate OS vulnerabilities][1]
 
-  The **Remediate OS vulnerabilities** blade opens and lists your VMs with OS configurations that do not match the recommended configuration rules.  For each VM, the blade identifies:
+    The **Remediate OS vulnerabilities** blade opens and lists your VMs with OS configurations that do not match the recommended configuration rules.  For each VM, the blade identifies:
 
- - **FAILED RULES** -- The number of rules that the VM's OS configuration failed.
- - **LAST SCAN TIME** -- The date and time that Security Center last scanned the VM’s OS configuration.
- - **STATE** -- The current state of the vulnerability:
+   - **FAILED RULES** -- The number of rules that the VM's OS configuration failed.
+   - **LAST SCAN TIME** -- The date and time that Security Center last scanned the VM’s OS configuration.
+   - **STATE** -- The current state of the vulnerability:
 
-      - Open: The vulnerability has not been addressed yet
-      - In Progress: The vulnerability is currently being applied, no action is required by you
-      - Resolved: The vulnerability was already addressed (when the issue has been resolved, the entry is grayed out)
- - **SEVERITY** -- All vulnerabilities are set to a severity of Low, meaning a vulnerability should be addressed but does not require immediate attention.
-
+        - Open: The vulnerability has not been addressed yet
+        - In Progress: The vulnerability is currently being applied, no action is required by you
+        - Resolved: The vulnerability was already addressed (when the issue has been resolved, the entry is grayed out)
+  - **SEVERITY** -- All vulnerabilities are set to a severity of Low, meaning a vulnerability should be addressed but does not require immediate attention.
 2. Select a VM. A blade for that VM opens and displays the rules that have failed.
    ![Configuration rules that have failed][2]
 
