@@ -47,7 +47,7 @@ running a job.  You only pay for the time when it is running a job.  For more in
 	- **Name**: Name the Analytics account.
 	- **Data Lake Store**: Each Data Lake Analytics account has a dependent Azure Data Lake Store account. The Data Lake Analytics account and the dependent Data Lake Store account must be located in the same Azure data center. Follow the instruction to create a new Data Lake Store account, or select an existing one.
 	- **Subscription**: Choose the Azure subscription used for the Analytics account.
-	- **Resource Group**. Select an existing Azure Resource Group or create a new one. Azure Resource Manager (ARM) enables you to work with the resources in your application as a group. For more information, see [Azure Resource Manager Overview](resource-group-overview.md). 
+	- **Resource Group**. Select an existing Azure Resource Group or create a new one. Azure Resource Manager (ARM) enables you to work with the resources in your application as a group. For more information, see [Azure Resource Manager Overview](azure-resource-manager/resource-group-overview.md). 
 	- **Location**. Select an Azure data center for the Data Lake Analytics account. 
 
 8. Click **Create**. It takes you to the portal home screen. A new tile is added to the StartBoard with the label showing "Deploying Azure Data Lake Analytics". It takes a few moments to create a Data Lake Analytics account. When the account is created, the portal opens the account on a new blade.
@@ -285,7 +285,7 @@ as a group, referred to as an Azure Resource Group. You can deploy, update, moni
 resources for your application in a single, coordinated operation. You use a template for deployment and that 
 template can work for different environments such as testing, staging and production. You can clarify billing 
 for your organization by viewing the rolled-up costs for the entire group. For more information, see [Azure 
-Resource Manager Overview](../resource-group-overview.md). 
+Resource Manager Overview](../azure-resource-manager/resource-group-overview.md). 
 
 A Data Lake Analytics service can include the following components:
 
