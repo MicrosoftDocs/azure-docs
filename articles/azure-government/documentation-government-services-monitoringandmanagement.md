@@ -20,7 +20,7 @@
 
 #  Azure Government monitoring and management
 
-The monitoring and management features and available solutions in [Microsoft Azure]( https://azure.microsoft.com/en-us/) services and [Azure Government]( https://azure.microsoft.com/en-us/overview/clouds/government/) are not identical.
+The monitoring and management features and available solutions in [Microsoft Azure]( https://azure.microsoft.com/) services and [Azure Government]( https://azure.microsoft.com/overview/clouds/government/) are not identical.
 
 ## Log Analytics
 
