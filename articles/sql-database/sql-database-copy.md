@@ -1,9 +1,9 @@
-<properties
+a<properties
 	pageTitle="Copy an Azure SQL database | Microsoft Azure"
 	description="Create a copy of an Azure SQL database"
 	services="sql-database"
 	documentationCenter=""
-	authors="nosovsh"
+	authors="nosovsa"
 	manager="jhubbard"
 	editor=""/>
 
