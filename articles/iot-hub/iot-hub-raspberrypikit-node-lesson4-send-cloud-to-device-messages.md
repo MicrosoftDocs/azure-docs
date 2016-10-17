@@ -48,6 +48,8 @@ The sample application in Lesson 4 runs on your Pi and monitors incoming message
 
     Notice the `app.js` file in the `app` sub-folder. The `app.js` file is the key source file that enables the application to monitor incoming messages from IoT Hub. The `blinkLED` function blinks the LED.
 
+    ![Repo Structure](media/iot-hub-raspberry-pi-lessons/lesson4/repo_structure.png)
+
 2. Initialize the configuration file with the following commands.
 
     ```bash
@@ -56,6 +58,8 @@ The sample application in Lesson 4 runs on your Pi and monitors incoming message
     ```
 
     If you've completed Lesson3 in this machine, you can see all the configuration is inherited and you might skip to next section. Or you might need the following commands to replace the placeholders in the `config-raspberrypi.json` in the sub-folder of your home folder.
+
+    ![Config](media/iot-hub-raspberry-pi-lessons/lesson4/config_raspberrypi.png)
 
     - Replace **[device hostname or IP address]** with your Pi’s IP address or hostname that you got from `devdisco list --eth`
     - Replace **[IoT device connection string]** with the device connection string from the command `az iot hub show-connection-string --name {my hub name} --resource-group {resource group name}`.
@@ -75,6 +79,8 @@ The gulp command runs the install-tools task first. Then it deploys the sample a
 Once the sample application runs, it starts listening messages from your IoT hub. Meanwhile, the gulp task sends several of "blink" messages from your IoT Hub to your Pi. For each of the blink message received, the sample application calls the blinkLED function to blink the LED.
 
 You should see the LED blinking every two seconds as the gulp task is sending 20 messages from your IoT hub to your Pi. The last one is a "stop" message which tells the application to stop running.
+
+![Gulp](media/iot-hub-raspberry-pi-lessons/lesson4/gulp_blink.png)
 
 ## 4.1.6 Summary
 

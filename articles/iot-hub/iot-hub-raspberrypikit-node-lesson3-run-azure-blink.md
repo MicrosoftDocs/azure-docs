@@ -49,7 +49,7 @@ npm install
 gulp init
 ```
 
-Update your device configuration file `config.json` using VS Code so you can deploy the sample application from your computer:
+Update your device configuration file `config-raspberrypi.json` using VS Code so you can deploy the sample application from your computer:
 
 ```bash
 // For Windows command prompt

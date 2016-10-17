@@ -19,7 +19,7 @@
 
 # Get Started with Raspberry Pi 3
 
-In this tutorial, you begin by learning the basics of working with Raspberry Pi 3 device. You then learn how to seamlessly connect your devices to the cloud with [Azure IoT Hub](iot-hub-what-is-iot-hub.md).
+In this tutorial, you begin by learning the basics of working with Raspberry Pi 3 with Raspbian. You then learn how to seamlessly connect your devices to the cloud with [Azure IoT Hub](iot-hub-what-is-iot-hub.md). For Windows 10 IoT Core samples, visit [windowsondevices.com](http://www.windowsondevices.com/).
 
 ## Lesson 1: Get started with your Raspberry Pi
 
@@ -107,15 +107,15 @@ Monitor the device-to-cloud messages as they are written to your Azure storage.
 [Go to 'Read messages persisted in Azure Storage'](iot-hub-raspberrypikit-node-lesson3-read-table-storage.md)
 
 
-## Lesson4: Send messages from IoT Hub in the cloud to your device
+## Lesson4: Send cloud-to-device messages
 
 This lesson demos how to send messages from your Azure IoT hub to your Raspberry Pi 3. The messages control the on and off behavior of the LED that is connected to your Pi. A sample application is prepared for you to achieve this task.
 
 You should have completed Lessons 1, 2 and 3 before you start this lesson.
 
-## Get your hands on the sample application
+## Run a sample application on your Raspberry Pi to receive cloud to device messages
 
-The sample application runs on your Pi and monitors incoming messages from your IoT hub. It also sends messages to your Pi from your IoT hub to blink the LED.
+The sample application in Lesson 4 runs on your Pi and monitors incoming messages from your IoT hub. A new gulp task sends messages to your Pi from your IoT hub to blink the LED.
 
 *Estimated time to complete: 10 minutes* 
 
@@ -128,3 +128,10 @@ Customize the messages to change the LED’s on and off behavior.
 *Estimated time to complete: 10 minutes* 
 
 [Go to 'Complimentary reading: Change the on and off behavior of the LED'](iot-hub-raspberrypikit-node-lesson4-change-led-behavior.md)
+
+
+## Troubleshooting
+
+If you meet any troubles during the lessons, you seek solutions in this page.
+
+[Go to 'Troubleshooting'](iot-hub-raspberrypikit-node-troubleshooting.md)

@@ -40,7 +40,7 @@ You should successfully complete [4.1 Run a sample application on your Raspberry
     code .
     ```
 
-2. Open the app.js file, and then add the following functions at the end:
+2. Open the `app.js` file, and then add the following functions at the end:
 
     ```javascript
     function turnOnLED() {
@@ -51,6 +51,8 @@ You should successfully complete [4.1 Run a sample application on your Raspberry
       wpi.digitalWrite(CONFIG_PIN, 0);
     }
     ```
+
+    ![update app.js](media/iot-hub-raspberry-pi-lessons/lesson4/updated_app_js.png)
 
 3. Add the following conditions before the defalt one in the switch-case block of the `receiveMessageCallback` function:
 
@@ -79,12 +81,15 @@ You should successfully complete [4.1 Run a sample application on your Raspberry
     }
     ```
 
+    ![update gulpfile](media/iot-hub-raspberry-pi-lessons)
+
 5. In the `sendMessage` function, replace the line `var message = buildMessage(sentMessageCount);` with the new line below.
 
     ```javascript
     var message = buildCustomMessage(sentMessageCount);
     ``` 
 
+![on and off](media/iot-hub-raspberry-pi-lessons/lesson4/gulp_on_and_off.png)
 
 
 6. Save all the changes.
