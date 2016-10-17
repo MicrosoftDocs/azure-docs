@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/13/2016"
+   ms.date="10/17/2016"
    ms.author="jgao"/>
 
 # Use Job Browser and Job View for Azure Data lake Analytics jobs
@@ -111,6 +111,7 @@ Job View contains:
 
         ![Azure Data Lake Analytics job graph stage details](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-stage-details.png)
 
+
         - Vertices: Describes the vertices details, like how many vertices in total, how many vertices have been completed, are they failed or still running/waiting, etc.
         - Data read cross/intra pod: Files and data are stored in multiple pods in distributed file system. The value here describes how much data has been read in the same pod or cross pod.
         - Total compute time: The sum of every vertex execution time in the stage, you can consider it as the time it would take if all work in the stage is executed in only one vertex.
@@ -185,7 +186,7 @@ Job Detail shows the detailed information of the job, including Script, Resource
 
 - Vertex execution view
 
-    It shows vertices execution details. The Job Profile archives every vertex execution log, such as total data read/written, runtime, state, etc. Through this view, you can get more details on how a job ran. For more information, see [Use the Vertex Execution View in Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-view-jobs.md).
+    It shows vertices execution details. The Job Profile archives every vertex execution log, such as total data read/written, runtime, state, etc. Through this view, you can get more details on how a job ran. For more information, see [Use the Vertex Execution View in Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
 
 
 
