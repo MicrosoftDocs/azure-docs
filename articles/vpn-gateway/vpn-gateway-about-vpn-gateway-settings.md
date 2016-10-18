@@ -45,6 +45,8 @@ Example:
 
 [AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
+### Configuring the gateway SKU
+
 **Specifying the gateway SKU in the Azure portal**
 
 If you use the Azure portal to create a Resource Manager virtual network gateway, you can select the gateway SKU by using the dropdown. The options you are presented with correspond to the Gateway type and VPN type that you select.
