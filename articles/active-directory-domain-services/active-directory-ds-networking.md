@@ -95,7 +95,7 @@ An Azure AD Domain Services managed domain can be enabled only within a single c
 Connect Azure virtual networks to use the managed domain in any of the following deployment scenarios:
 
 #### Use the managed domain in more than one Azure classic virtual network
-You can connect other Azure classic virtual networks to the Azure classic virtual network in which you have enabled Azure AD Domain Services. This connection enables you to use the managed domain with your workloads deployed in other virtual networks.
+You can connect other Azure classic virtual networks to the Azure classic virtual network in which you have enabled Azure AD Domain Services. This VPN connection enables you to use the managed domain with your workloads deployed in other virtual networks.
 
 ![Classic virtual network connectivity](./media/active-directory-domain-services-design-guide/classic-vnet-connectivity.png)
 
