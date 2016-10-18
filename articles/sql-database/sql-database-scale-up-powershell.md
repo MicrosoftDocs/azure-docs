@@ -106,4 +106,4 @@ Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -Reso
 
 - [Business Continuity Overview](sql-database-business-continuity.md)
 - [SQL Database documentation](http://azure.microsoft.com/documentation/services/sql-database/)
-- [Azure SQL Database Cmdlets](http://msdn.microsoft.com/library/mt574084https://msdn.microsoft.com/en-us/library/azure/mt619433(v=azure.300\).aspx.aspx)
+- [Azure SQL Database Cmdlets](http://msdn.microsoft.com/library/mt574084https://msdn.microsoft.com/library/azure/mt619433(v=azure.300\).aspx.aspx)
