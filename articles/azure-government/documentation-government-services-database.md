@@ -55,7 +55,7 @@ Service Type|Azure Public|Azure Government
 Cache endpoint|*.redis.cache.windows.net|*.redis.cache.usgovcloudapi.net
 Azure portal|https://portal.azure.com|https://portal.azure.us
 
->[AZURE.NOTE] All of your scripts and code needs to account for the appropriate endpoints and environments. For more information, see [How to connect to Azure Government Cloud or Azure China Cloud](../redis-cache/cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-azure-government-cloud-or-azure-china-cloud).
+>[AZURE.NOTE] All of your scripts and code needs to account for the appropriate endpoints and environments. For more information, see [How to connect to Azure Government Cloud](../redis-cache/cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-azure-government-cloud-or-azure-china-cloud).
 
 
 ### Considerations
