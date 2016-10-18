@@ -219,55 +219,52 @@ If the activity run fails in a pipeline, the dataset produced by the pipeline is
 
 #### Use the PowerShell to debug an error
 1.	Launch **Azure PowerShell**.
-3.	Run **Get-AzureRmDataFactorySlice** command to see the slices and their statuses. You should see a slice with the status: **Failed**.
+3.	Run **Get-AzureRmDataFactorySlice** command to see the slices and their statuses. You should see a slice with the status: **Failed**.		
 
-		Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+			Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
 	
 	For example:
-
-
-		Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
+		
+			Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
 
 	Replace **StartDateTime** with the StartDateTime value you specified for the Set-AzureRmDataFactoryPipelineActivePeriod.
 4. Now, run the **Get-AzureRmDataFactoryRun** cmdlet to get details about activity run for the slice.
 
-		Get-AzureRmDataFactoryRun [-ResourceGroupName] <String> [-
-		DataFactoryName] <String> [-TableName] <String> [-StartDateTime] 
+		Get-AzureRmDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] 
 		<DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
 	
 	For example:
-
 
 		Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
 
 	The value of StartDateTime is the start time for the error/problem slice you noted from the previous step. The date-time should be enclosed in double quotes.
 5. 	You should see the output with details about the error (similar to the following):
 
-		Id                  	: 841b77c9-d56c-48d1-99a3-8c16c3e77d39
-		ResourceGroupName   	: ADF
-		DataFactoryName     	: LogProcessingFactory3
-		TableName           	: EnrichedGameEventsTable
-		ProcessingStartTime 	: 10/10/2014 3:04:52 AM
-		ProcessingEndTime   	: 10/10/2014 3:06:49 AM
-		PercentComplete     	: 0
-		DataSliceStart      	: 5/5/2014 12:00:00 AM
-		DataSliceEnd        	: 5/6/2014 12:00:00 AM
-		Status              	: FailedExecution
-		Timestamp           	: 10/10/2014 3:04:52 AM
-		RetryAttempt        	: 0
-		Properties          	: {}
-		ErrorMessage        	: Pig script failed with exit code '5'. See wasb://		adfjobs@spestore.blob.core.windows.net/PigQuery
-		                        		Jobs/841b77c9-d56c-48d1-99a3-
-					8c16c3e77d39/10_10_2014_03_04_53_277/Status/stderr' for
-					more details.
-		ActivityName        	: PigEnrichLogs
-		PipelineName        	: EnrichGameLogsPipeline
-		Type                	:
+			Id                  	: 841b77c9-d56c-48d1-99a3-8c16c3e77d39
+			ResourceGroupName   	: ADF
+			DataFactoryName     	: LogProcessingFactory3
+			TableName           	: EnrichedGameEventsTable
+			ProcessingStartTime 	: 10/10/2014 3:04:52 AM
+			ProcessingEndTime   	: 10/10/2014 3:06:49 AM
+			PercentComplete     	: 0
+			DataSliceStart      	: 5/5/2014 12:00:00 AM
+			DataSliceEnd        	: 5/6/2014 12:00:00 AM
+			Status              	: FailedExecution
+			Timestamp           	: 10/10/2014 3:04:52 AM
+			RetryAttempt        	: 0
+			Properties          	: {}
+			ErrorMessage        	: Pig script failed with exit code '5'. See wasb://		adfjobs@spestore.blob.core.windows.net/PigQuery
+			                        		Jobs/841b77c9-d56c-48d1-99a3-
+						8c16c3e77d39/10_10_2014_03_04_53_277/Status/stderr' for
+						more details.
+			ActivityName        	: PigEnrichLogs
+			PipelineName        	: EnrichGameLogsPipeline
+			Type                	:
 	
 	
 6. 	You can run **Save-AzureRmDataFactoryLog** cmdlet with Id value you see from the output and download the log files using the **-DownloadLogsoption** for the cmdlet.
 
-	Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
+			Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
 
 
 ## Rerun failures in a pipeline
