@@ -3,7 +3,7 @@
 	description="Describes naming rules for Data Factory entities." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="sharonlo101" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/12/2016" 
-	ms.author="spelluru"/>
+	ms.author="shlo"/>
 
 # Azure Data Factory - Naming Rules 
 The following table provides naming rules for Data Factory artifacts.
