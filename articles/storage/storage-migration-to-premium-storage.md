@@ -35,6 +35,7 @@ You can either migrate VMs from other platforms to Azure Premium Storage or migr
 
 Completing the migration process in its entirety may require additional actions both before and after the steps provided in this guide. Examples include configuring virtual networks or endpoints or making code changes within the application itself which may require some downtime in your application. These actions are unique to each application, and you should complete them along with the steps provided in this guide to make the full transition to Premium Storage as seamless as possible.
 
+
 ## <a name="plan-the-migration-to-premium-storage"></a>Plan for the Migration to Premium Storage
 
 This section ensures that you are ready to follow the migration steps in this article, and helps you to make the best decision on VM and Disk types.
@@ -84,6 +85,7 @@ When creating an Azure VM, you will be asked to configure certain VM settings. R
 ### Optimization
 
 [Azure Premium Storage: Design for High Performance](storage-premium-storage-performance.md) provides guidelines for building high-performance applications using Azure Premium Storage. You can follow the guidelines combined with performance best practices applicable to technologies used by your application.
+
 
 ## <a name="prepare-and-copy-virtual-hard-disks-VHDs-to-premium-storage"></a>Prepare and Copy Virtual Hard Disks (VHDs) to Premium Storage
 
@@ -290,6 +292,7 @@ You can also upload a VHD to your storage account using one of the following mea
 >[AZURE.NOTE] We recommend using Import/Export Service if estimated uploading time is longer than 7 days. You can use [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) to estimate the time from data size and transfer unit.
 >
 > Import/Export can be used to copy to a standard storage account. You will need to copy from standard storage to premium storage account using a tool like AzCopy.
+
 
 ## <a name="create-azure-virtual-machine-using-premium-storage"></a>Create Azure VMs using Premium Storage
 
