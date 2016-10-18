@@ -15,7 +15,7 @@
 	ms.devlang="NA"
 	ms.topic="article"
 	ms.date="06/07/2016"
-	ms.author="jluk"/>
+	ms.author="juluk"/>
 
 # Deploy LAMP Stack on Azure
 This article will walk you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on Azure. You will need an Azure Account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)) and the [Azure CLI](../xplat-cli-install.md) that is [connected to your Azure account](../xplat-cli-connect.md).
