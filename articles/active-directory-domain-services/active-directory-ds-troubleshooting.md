@@ -146,5 +146,11 @@ If one or more users in your Azure AD tenant are unable to sign in to the newly 
 - **Cloud-only accounts**: If the affected user account is a cloud-only user account, ensure that the user has changed their password after you enabled Azure AD Domain Services. This step causes the credential hashes required for Azure AD Domain Services to be generated.
 
 
-### Contact Us
+## Users removed from your Azure AD tenant are not removed from your managed domain
+Azure AD protects you from accidental deletion of user objects. When you delete a user account from your Azure AD tenant, the corresponding user object is moved to the Recycle Bin. When this delete operation is synchronized to your managed domain, it causes the corresponding user account to be marked disabled. This feature helps you recover or undelete the user account later.
+
+To remove the user account fully from your managed domain, delete the user permanently from your Azure AD tenant using the '-RemoveFromRecycleBin' option as described in this [MSDN article](https://msdn.microsoft.com/library/azure/dn194132(v=azure.98).aspx)
+
+
+## Contact Us
 Contact the Azure Active Directory Domain Services product team to [share feedback or for support] (active-directory-ds-contact-us.md).
