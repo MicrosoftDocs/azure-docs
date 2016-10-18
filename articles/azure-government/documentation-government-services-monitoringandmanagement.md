@@ -32,12 +32,11 @@ The following Log Analytics features and solutions are not currently available i
 
 + Solutions that are in preview in Microsoft Azure, including:
   - Network Monitoring solution
-  - Azure Networking Analytics solution
+  - Application Dependency Monitoring solution
   - Office 365 solution
   - Windows 10 Upgrade Analytics solution
-  - Application Dependency Monitoring solution
   - Application Insights solution
-  - Azure Activity Logs solution
+  - Azure Networking Analytics solution
   - Azure Automation Analytics solution
   - Key Vault Analytics solution
 + Solutions and features that require updates to on-premises software, including:
@@ -52,7 +51,6 @@ The following Log Analytics features and solutions are not currently available i
   - Virtual machines to enable the Log Analytics Agent</br>To select virtual machines to enable the Log Analytics Agent, you must use PowerShell or Resource Manager templates.
   - Azure metrics and Azure diagnostics
 + Operations Management Suite mobile applications
-+ Operations Management Suite Linux Agent virtual machine extension
 
 The following Log Analytics features behave differently in Azure Government:
 
