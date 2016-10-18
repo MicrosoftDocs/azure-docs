@@ -62,7 +62,7 @@ For all key vault object (keys and secrets) management and cryptographic operati
 
 ## IP Address Ranges ##
 
-Key Vault service in turn uses other Azure resources like PaaS infrastructure, hence it's not possible to provide a specific range of IP addresses that key vault service endpoints will have at any given time. If your firewall supports only IP address ranges, refer to the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) document. For authentication and identity (Azure Active Directory), your application must be able to connect to the endpoints described in [Authentication and identity Addresses](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+Key Vault service uses other Azure resources like PaaS infrastructure, hence it's not possible to provide a specific range of IP addresses that key vault service endpoints will have at any given time. If your firewall supports only IP address ranges, refer to the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) document. For authentication and identity (Azure Active Directory), your application must be able to connect to the endpoints described in [Authentication and identity Addresses](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
 ## Next Steps ##
 
