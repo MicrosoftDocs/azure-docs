@@ -107,9 +107,9 @@ When Azure AD attempts to soft match two objects, it is possible that two object
 
 #### Example case
 
-a. Admin creates a new mail enabled security group in Office 365 for the Tax department and provides an email address as tax@contoso.com. This assigns the ProxyAddresses attribute for this group with the value of **smtp:tax@contoso.com**
-b. A new user joins Contoso.com and an account is created for the user on premises with the proxyAddress as **smtp:tax@contoso.com**
-c. When Azure AD Connect will sync the new user account, it will get the "ObjectTypeMismatch" error.
+1. Admin creates a new mail enabled security group in Office 365 for the Tax department and provides an email address as tax@contoso.com. This assigns the ProxyAddresses attribute for this group with the value of **smtp:tax@contoso.com**
+2. A new user joins Contoso.com and an account is created for the user on premises with the proxyAddress as **smtp:tax@contoso.com**
+3. When Azure AD Connect will sync the new user account, it will get the "ObjectTypeMismatch" error.
 
 #### How to fix ObjectTypeMismatch error
 The most common reason for the ObjectTypeMismatch error is two objects of different type (User, Group, Contact etc.) have the same value for the ProxyAddresses attribute. In order to fix the ObjectTypeMismatch:
@@ -197,7 +197,6 @@ If a user's UserPrincipalName suffix was updated from bob@**contoso.com** to bob
 
 2. Allow the next sync cycle to attempt synchronization. This time synchronization will be successful and it will update the UserPrincipalName of Bob to bob@fabrikam.com as expected.
 
->[Azure.NOTE] The need to perform this additional step will go away with more updates to Azure AD.
 
 ## LargeObject
 ### Description
