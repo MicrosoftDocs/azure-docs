@@ -26,15 +26,13 @@ After you create a virtual machine (VM), you can scale the VM up or down by chan
 
 ## Resize a Windows VM not in an availability set
 
-To resize a VM not in an availability set, perform the following steps.
-
-1. Run the following PowerShell command. This command lists the VM sizes that are available on the hardware cluster where the VM is hosted.
+List the VM sizes that are available on the hardware cluster where the VM is hosted. 
 
 	```powershell
 	Get-AzureRmVMSize -ResourceGroupName <resource-group-name> -VMName <vm-name> 
 	```
 
-2. If the desired size is listed, run the following commands to resize the VM.
+If the desired size is listed, run the following commands to resize the VM. 
 
 	```powershell
 	$vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -VMName <vmName>
@@ -42,7 +40,7 @@ To resize a VM not in an availability set, perform the following steps.
 	Update-AzureRmVM -VM $vm -ResourceGroupName <resourceGroupName>
 	```
 
-3. Otherwise, if the desired size is not listed, run the following commands to deallocate the VM, resize it, and then restart the VM.
+If the desired size is not listed, run the following commands to deallocate the VM, resize it, and restart the VM.
 
 	```powershell
 	$rgname = "<resourceGroupName>"
@@ -60,13 +58,13 @@ To resize a VM not in an availability set, perform the following steps.
 
 If the new size for a VM in an availability set is not available on the hardware cluster currently hosting the VM, then all VMs in the availability set will need to be deallocated to resize the VM. Additionally it may be required to update the size of other VMs in the availability set after one VM has been resized. To resize a VM in an availability set, perform the following steps.
 
-1. Run the following PowerShell command. This command lists the VM sizes that are available on the hardware cluster where the VM is hosted.
+List the VM sizes that are available on the hardware cluster where the VM is hosted.
 
 	```powershell
 	Get-AzureRmVMSize -ResourceGroupName <resourceGroupName> -VMName <vmName>
 	```
 
-2. If the desired size is listed, run the following commands to resize the VM.
+If the desired size is listed, run the following commands to resize the VM.
 
 	```powershell
 	$vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -VMName <vmName>
@@ -74,9 +72,9 @@ If the new size for a VM in an availability set is not available on the hardware
 	Update-AzureRmVM -VM $vm -ResourceGroupName <resourceGroupName>
 	```
 
-3. Otherwise, if the desired size is not listed, continue with the following steps to deallocate all VMs in the availability set, resize VMs, and restart them.
+If the desired size is not listed, continue with the following steps to deallocate all VMs in the availability set, resize VMs, and restart them.
 
-4.	Run the following commands to stop all VMs in the availability set.
+1.	Stop all VMs in the availability set.
 
 	```powershell
 	$rg = "<resourceGroupName>"
@@ -89,7 +87,7 @@ If the new size for a VM in an availability set is not available on the hardware
 	} 
 	```
               
-5.	Run the following commands to resize and restart the VMs in the availability set.
+2.	Resize and restart the VMs in the availability set.
 
 	```powershell
 	$rg = "<resource-group-name>"
