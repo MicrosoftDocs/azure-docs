@@ -3,7 +3,7 @@
    description="Learn guidance and best practices for using Azure SQL Database to perform disaster recovery drills that will help keep your mission critical business applications resilient to failures and outages." 
    services="sql-database" 
    documentationCenter="" 
-   authors="mihaelablendea" 
+   authors="nosovsh" 
    manager="jhubbard" 
    editor="monicar"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
    ms.date="07/31/2016"
-   ms.author="mihaelab"/>
+   ms.author="sstein; sashan"/>
 
 #Performing Disaster Recovery Drill
 
