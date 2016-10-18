@@ -48,6 +48,8 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     DocumentDB offers a simple and open RESTful programming model over HTTPS. Additionally, it offers an efficient TCP protocol, which is also RESTful in its communication model and is available through the .NET client SDK. Both Direct TCP and HTTPS use SSL for initial authentication and encrypting traffic. For best performance, use the TCP protocol when possible. 
 
+    When using TCP, you'll need to ensure the port range between 10000 and 20000 is open because DocumentDB uses dynamic TCP ports. If these ports are not open and you attempt to use Direct TCP, you will receive a 503 Service Unavailable error. 
+
     The Connectivity Mode is configured during the construction of the DocumentClient instance with the ConnectionPolicy parameter. If Direct Mode is used, the Protocol can also be set within the ConnectionPolicy parameter.
 
         var serviceEndpoint = new Uri("https://contoso.documents.net");
@@ -60,8 +62,6 @@ So if you're asking "How can I improve my database performance?" consider the fo
         });
 
     Because TCP is only supported in Direct Mode, if Gateway Mode is used, then the HTTPS protocol is always used to communicate with the Gateway and the Protocol value in the ConnectionPolicy is ignored.
-
-    For information on inbound and outbound firewall support, and TCP ports to enable, see [DocumentDB firewall support](documentdb-firewall-support.md).
 
     ![Illustration of the DocumentDB connection policy](./media/documentdb-performance-tips/azure-documentdb-connection-policy.png)
 
