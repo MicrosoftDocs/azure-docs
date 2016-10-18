@@ -38,7 +38,7 @@ Azure AD Connect Health for AD FS supports AD FS 2.0 on Windows Server 2008 R2, 
 - Email notifications for critical alerts
 - View trends in performance data, useful for capacity planning of AD FS
 - Usage analytics for AD FS logins with different pivot (apps, users, network location etc), useful in understand how AD FS is getting utilized.
-- Reports for AD FS such as Top 50 users with bad Username/Password attempts
+- Reports for AD FS such as Top 50 users with bad Username/Password attempts with last IP address
 
 The following video will provide an overview of Azure AD Connect Health for AD FS
 

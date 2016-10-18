@@ -90,7 +90,7 @@ The graph provides the following information:
 - The total # of unique users that failed logins on a per-day basis.
 - Client IP address of for last request
 
-![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health-adfs/report2a.png)
+![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health-adfs/report3a.png)
 
 The report provides the following information:
 
