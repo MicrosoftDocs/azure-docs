@@ -59,12 +59,18 @@ The following guidelines help you select a virtual network to use with Azure AD 
 ## Network Security Groups and subnet design
 A [Network Security Group (NSG)](../virtual-network/virtual-networks-nsg.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating an NSG directly to that VM.
 
-> [AZURE.NOTE]
+![Recommended subnet design](./media/active-directory-domain-services-design-guide/vnet-subnet-design.png)
+
+
+### Best practices for choosing a subnet
 - Deploy Azure AD Domain Services to a **separate dedicated subnet** within your Azure virtual network.
-- Do not apply NSG to that dedicated subnet. If you must apply NSGs to the dedicated subnet, ensure you **do not block the ports required to service and manage your domain**.
+
+- Do not apply NSGs to the dedicated subnet for your managed domain. If you must apply NSGs to the dedicated subnet, ensure you **do not block the ports required to service and manage your domain**.
+
+- Do not overly restrict the number of IP addresses available within the dedicated subnet you will use for Azure AD Domain Services. This prevents the service from making two domain controllers available for your managed domain.
+
 - **Do not enable Azure AD Domain Services in the gateway subnet** of your virtual network.
 
-![Recommended subnet design](./media/active-directory-domain-services-design-guide/vnet-subnet-design.png)
 
 > [AZURE.WARNING] When you associate an NSG with a subnet in which Azure AD Domain Services is enabled, you may disrupt Microsoft's ability to service and manage the domain. Additionally, synchronization between your Azure AD tenant and your managed domain is disrupted. **The SLA does not apply to deployments where an NSG has been applied that blocks Azure AD Domain Services from updating and managing your domain.**
 
