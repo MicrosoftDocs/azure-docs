@@ -269,7 +269,7 @@ For resource types that are largely accessed through another resource, you can u
         "properties": {
             "publisher": "Microsoft.Azure.Extensions",
             "type": "CustomScript",
-	    "typeHandlerVersion": "2.0",
+	        "typeHandlerVersion": "2.0",
             "autoUpgradeMinorVersion": true,
             "settings": {
                 "fileUris": [
