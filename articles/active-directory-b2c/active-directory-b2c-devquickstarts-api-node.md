@@ -4,7 +4,7 @@
 	services="active-directory-b2c"
 	documentationCenter=""
 	authors="xerners"
-	manager="msmbaldwin"
+	manager="mbaldwin"
 	editor=""/>
 
 <tags

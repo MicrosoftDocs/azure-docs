@@ -3,8 +3,8 @@
    description="The Azure Active Directory Graph API provides programmatic access to Azure AD through OData REST API endpoints. Applications can use the Graph API to perform create, read, update, and delete (CRUD) operations on directory data and objects."
    services="active-directory"
    documentationCenter="n/a"
-   authors="JimacoMS"
-   manager="msmbaldwin"
+   authors="PatAltimore"
+   manager="mbaldwin"
    editor=""
    tags=""/>
 
@@ -16,7 +16,7 @@
       ms.tgt_pltfrm="na"
       ms.workload="identity"
       ms.date="09/16/2016"
-      ms.author="v-jibran@microsoft.com"/>
+      ms.author="patricka"/>
 
 # Quickstart for the Azure AD Graph API
 
