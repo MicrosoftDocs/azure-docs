@@ -419,7 +419,30 @@ After creating the VNet, you will configure the Resource Manager VNet to use the
 
 In this section, you will create a Linux-based Hadoop cluster in HDInsight using [Azure Resource Manager template](../resource-group-template-deploy.md). The Azure Resource Manager template experience is not required for following this tutorial. For other cluster creation methods and understanding the settings, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). For more information about using Resource Manager template to create Hadoop clusters in HDInsight, see [Create Hadoop clusters in HDInsight using Resource Manager templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 
-**To create an HDInsight cluster**
+**To create a Domain-joined HDInsight cluster using the portal**
+
+1. Sign on to the [Azure portal](https://portal.azure.com).
+2. Click **New**, **Intelligence + analytics**, **HDInsight**.
+3. From the **Basic** blade, enter or select:
+
+	- Cluster Name: Enter a name for the Domain-joined HDInsight cluster.
+	- Subscription: Select a subscription used for creating this cluster.
+	- Cluster Type: Select the tier, the type, and the version. Only Linux is supported for the Domain-joined HDInsight.
+	- Cluster Login Username: Use the default cluster login username or enter a different one.
+	- Cluster Login Password: Enter a password.
+	- Resource Group: Select the Azure resource group that you created earlier in the tutorial.
+	- Location: The location should be automatically popularted based on the resource group location.
+
+4. Click **Next**.
+5. From the **Storage Options** blade, specify an existing Azure storage account or a new storage account.
+6. Click **Next**.
+7. Click the **Edit** next to **Advanced settings**, and specify the virtual network you created earlier.
+8. Click **Next** to save the changes.
+9. Click **Create**.
+
+If you prefer to use an Azure Resource Group template instead of the portal, use the following procedure:
+
+**To create a Domain-joined HDInsight cluster**
 
 1. Click the following image to open a Resource Manager template in the Azure portal. The Resource Manager template is located in a public blob container. 
 
