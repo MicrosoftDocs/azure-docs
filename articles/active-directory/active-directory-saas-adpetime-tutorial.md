@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2016"
+	ms.date="10/17/2016"
 	ms.author="jeedes"/>
 
 
@@ -140,13 +140,51 @@ Before you can configure the SAML assertion, you need to contact your ADP eTime 
 
 5. To get SSO configured for your application, contact your ADP eTime support team and email the attach downloaded metadata file, so that they can be configured for SSO integration.
 
-    > [AZURE.NOTE] After **ADP eTime** team configure the instance, get the **RelayState** value from them and request to Azure AD to configure that for your application instance. You can send this value, your Azure AD tenanat id and application id to Azure AD team on [waadpartners@microsoft.com](mailTo:waadpartners@microsoft.com). After this configuring you can test the integration and it will work. So please note that this is important configuration for this application integration to work.
+    > [AZURE.NOTE] After **ADP eTime** team configure the instance, get the **RelayState** value from them.Follow the below mentioned steps to configure it. After this configuration you can test the integration. So please note that this is important configuration for this application integration to work.
 
-6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+6. Perform the following steps to configure the RelayState value in Azure AD
+	
+	a. Now login into the Azure Management Portal 'https://portal.azure.com' using the admin credentials
+
+	b. Click on **More Services** link in the left navigation pane
+ 	
+	![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_07.png)
+
+	c. Search for Azure Active Directory and Click on the **Azure Active Directory** Link
+	
+	![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_08.png)
+
+	d. You will find all your SaaS applications under the **Enterprise Applications** button.
+
+	![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_09.png)
+
+	e. Now click on **All Applications** link in the next blade
+	
+	![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_10.png)
+
+	f. Search for Lifesize application for which you want to setup the RelayState. 
+	
+	![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_11.png)
+
+	g. Now Click **Single sign-on** link in the blade
+
+	![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_12.png)
+
+	h. You will see the **Show advanced URL settings** check box. Click the check box.
+	
+	![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_13.png)
+	
+	i. This will show the field where you can setup the **RelayState** value. For production the URL will be 'https://fed.adp.com/saml/fedlanding.html?<id>' and for staging environment it will be 'https://fed-stag.adp.com/saml/fedlanding.html?PORTAL'
+
+	![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_14.png)
+
+	j. Save the settings.
+
+7. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 
 	![Azure AD Single Sign-On][10]
 
-7. On the **Single sign-on confirmation** page, click **Complete**.  
+8. On the **Single sign-on confirmation** page, click **Complete**.  
 
 	![Azure AD Single Sign-On][11]
 
