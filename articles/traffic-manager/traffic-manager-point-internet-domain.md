@@ -31,6 +31,6 @@ All traffic requests to *www.contoso.com* get directed to *contoso.trafficmanage
 
 ## Next steps
 
-[Traffic Manager routing methods](traffic-manager-routing-methods.md)
-[Manage Traffic Manager profiles](traffic-manager-manage-profiles.md)
-[Manage Traffic Manager endpoints](traffic-manager-manage-endpoints.md)
+- [Traffic Manager routing methods](traffic-manager-routing-methods.md)
+- [Traffic Manager - Disable, enable or delete a profile](disable-enable-or-delete-a-profile.md)
+- [Traffic Manager - Disable or enable an endpoint](disable-or-enable-an-endpoint.md)
