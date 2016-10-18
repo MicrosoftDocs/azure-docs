@@ -3,7 +3,7 @@
 	description="Reference for resource usage API, which retrieve Azure Stack usage information."
 	services="azure-stack"
 	documentationCenter=""
-	authors="alfredop"
+	authors="AlfredoPizzirani"
 	manager="byronr"
 	editor=""/>
 
