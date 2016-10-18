@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Use the Vertex Execution View in Data Lake Tools for Visual Studio | Azure" 
+   pageTitle="Use the Vertex Execution View in Data Lake Tools for Visual Studio | Microsoft Azure" 
    description="Learn how to use the Vertex Execution View to exam Data Lake Analytics jobs." 
    services="data-lake-analytics" 
    documentationCenter="" 
@@ -61,7 +61,7 @@ After entering the Vertex Execution View, there are three parts:
     - Version Created Time.
     - Process Create Start Time/Process Queued Time/Process Start Time/Process Complete Time: when the vertex process starts creation; when the vertex process starts to queue; when the certain vertex process starts; when the certain vertex is completed.
 
-## See also
+## Next steps
 
 - To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 - To get started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).

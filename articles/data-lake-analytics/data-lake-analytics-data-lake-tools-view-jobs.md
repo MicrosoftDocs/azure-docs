@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Use Job Browser and Job View for Azure Data Lake Analytics jobs | Azure" 
+   pageTitle="Use Job Browser and Job View for Azure Data Lake Analytics jobs | Microsoft Azure" 
    description="Learn how to use Job Browser and Job View for Azure Data Lake Analytics jobs. " 
    services="data-lake-analytics" 
    documentationCenter="" 
@@ -111,7 +111,6 @@ Job View contains:
 
         ![Azure Data Lake Analytics job graph stage details](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-stage-details.png)
 
-
         - Vertices: Describes the vertices details, for example, how many vertices in total, how many vertices have been completed, are they failed or still running/waiting, etc.
         - Data read cross/intra pod: Files and data are stored in multiple pods in distributed file system. The value here describes how much data has been read in the same pod or cross pod.
         - Total compute time: The sum of every vertex execution time in the stage, you can consider it as the time it would take if all work in the stage is executed in only one vertex.
@@ -191,7 +190,7 @@ Job Detail shows the detailed information of the job, including Script, Resource
 
 
 
-## See also
+## Next Steps
 
 - To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 - To get started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
