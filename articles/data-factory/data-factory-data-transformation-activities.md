@@ -4,7 +4,7 @@
 	keywords="data transformation, process data, transform data, transformation activity"
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="sharonlo101" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/23/2016" 
-	ms.author="spelluru"/>
+	ms.author="shlo"/>
 
 # Transform data in Azure Data Factory
 > [AZURE.SELECTOR]
