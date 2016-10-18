@@ -101,22 +101,16 @@ meterID1",
 
 ### Response details
 
-  --------------------------------------------------------------------------------------------------------------------------------
-  **Argument**       **Description**
-  ------------------ -------------------------------------------------------------------------------------------------------------
-  *id*               Unique ID of the usage aggregate
-
-  *name*             Name of the usage aggregate
-
-  *type*             Resource definition
-
-  *subscriptionId*   Subscription identifier of the Azure Stack user
-
-  *usageStartTime*   UTC start time of the usage bucket to which this usage aggregate belongs
-
-  *usageEndTime*     UTC end time of the usage bucket to which this usage aggregate belongs
-
-  *instanceData*     Key-value pairs of instance details (in a new format):
+| ------------------ | ------------------------------------------------------------------------------------------------------------- |
+| **Argument**       | **Description**
+| ------------------ | ------------------------------------------------------------------------------------------------------------- |
+| *id*               | Unique ID of the usage aggregate
+| *name*             | Name of the usage aggregate
+| *type*             | Resource definition
+| *subscriptionId*   | Subscription identifier of the Azure Stack user
+| *usageStartTime*   | UTC start time of the usage bucket to which this usage aggregate belongs
+| *usageEndTime*     | UTC end time of the usage bucket to which this usage aggregate belongs
+| *instanceData*     | Key-value pairs of instance details (in a new format):
 
                      -   *resourceUri*: Fully qualified resource ID, which includes the resource groups and the instance name
 
@@ -124,13 +118,12 @@ meterID1",
 
                      -   *tags*: Resource tags that are specified by the user
 
-                     -   *additionalInfo*: More details about the resource being consumed, for example, OS version or image type
+                     -   *additionalInfo*: More details about the resource being consumed, for example, OS version or image type |
 
 
 
-  *quantity*         Amount of resource consumption that occurred in this time frame
-
-  *meterId*          Unique ID for the resource that was consumed (also called *ResourceID*)
+| *quantity*         Amount of resource consumption that occurred in this time frame
+| *meterId*          Unique ID for the resource that was consumed (also called *ResourceID*)
   --------------------------------------------------------------------------------------------------------------------------------
 
 ### Next steps
