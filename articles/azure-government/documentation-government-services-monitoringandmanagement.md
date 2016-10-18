@@ -20,7 +20,7 @@
 
 #  Azure Government monitoring and management
 
-This article outlines the monitoring and management services variations and considerations that must be to be taken into account in the Azure Government environment.
+This article outlines the monitoring and management services variations and considerations for the Azure Government environment.
 
 ## Log Analytics
 
@@ -57,7 +57,7 @@ The following Log Analytics features and solutions are not currently available i
 The following Log Analytics features behave differently in Azure Government:
 
 + The Windows Agent must be downloaded from the [Log Analytics portal](https://oms.microsoft.us) for Azure Government.
-+ To upload data by using the Data Collector API, you must the use the Azure Government URL, https://*workspaceId*.ods.opinsights.azure.us, where *workspaceId* is the workspace ID from the Operations Management Suite portal.
++ To upload data by using the Data Collector API, you must use the Azure Government URL, https://*workspaceId*.ods.opinsights.azure.us, where *workspaceId* is the workspace ID from the Operations Management Suite portal.
 + To connect your System Center Operations Manager management server to Log Analytics, you need to download and import updated management packs.
   1. Download and save the [updated management packs](http://go.microsoft.com/fwlink/?LinkId=828749).
   2. Unzip the file that you downloaded.
