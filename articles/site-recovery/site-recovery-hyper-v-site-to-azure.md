@@ -21,25 +21,26 @@
 
 > [AZURE.SELECTOR]
 - [Azure Portal](site-recovery-hyper-v-site-to-azure.md)
-- [PowerShell - Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
-- [Classic Portal](site-recovery-hyper-v-site-to-azure-classic.md)
+- [Azure Classic](site-recovery-hyper-v-site-to-azure-classic.md)
+- [PowerShell ARM](site-recovery-deploy-with-powershell-resource-manager.md)
 
 
 
 Welcome to Azure Site Recovery! Use this article if you want to replicate on-premises Hyper-V  virtual machines that **aren't** managed in System Center Virtual Machines Manager (VMM) clouds to Azure. This article describes how to set up replication using Azure Site Recovery in the Azure portal.
 
 > [AZURE.NOTE] Azure has two different [deployment models](../resource-manager-deployment-model.md) for creating and working with resources: Azure Resource Manager (ARM) and classic. Azure also has two portals – the Azure classic portal that supports the classic deployment model, and the Azure portal with support for both deployment models. 
-
+ 
+> Azure Site Recovery supports the recovery and migration of Hyper-V virtual machines to Azure. The steps in this article apply identically while configuring replication to Azure for disaster recovery or for migrating VMs to Azure
 
 Azure Site Recovery in the Azure portal provides a number of new features:
 
-- In the Azure portal the Azure Backup and Azure Site Recovery services are combined into a single Recovery Services vault so that you can set up and manage business continuity and disaster recovery (BCDR) from a single location. A unified dashboard allows you monitor and manage operations across your on-premises sites and the Azure public cloud.
+- In the Azure portal, Azure Backup and Azure Site Recovery services are combined into a single Recovery Services vault so that you can set up and manage business continuity and disaster recovery (BCDR) from a single location. A unified dashboard allows you monitor and manage operations across your on-premises sites and the Azure public cloud.
 - Users with Azure subscriptions provisioned with the Cloud Solution Provider (CSP) program can now manage Site Recovery operations in the Azure portal.
 - Site Recovery in the Azure portal can replicate machines to ARM storage accounts. At failover, Site Recovery creates ARM-based VMs in Azure.
-- Site Recovery  continues to support replication to classic storage accounts, and failover to VMs using the classic model. 
+- Site Recovery continues to support replication to classic storage accounts and failover of VMs using the classic deployment model. 
 
 
-After reading this article post any comments at the bottom in the Disqus comments. Ask technical questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+After reading this article post your feedback at the bottom in the Disqus comments section. Ask technical questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## Overview
@@ -47,17 +48,16 @@ After reading this article post any comments at the bottom in the Disqus comment
 
 Organizations need a BCDR strategy that determines how apps, workloads, and data stay running and available during planned and unplanned downtime, and recover to normal working conditions as soon as possible. Your BCDR strategy will keep business data safe and recoverable, and ensure that workloads are continuously available when disaster occurs.
 
-Site Recovery is an Azure service that contributes to your BCDR strategy by orchestrating replication of on-premises physical servers and virtual machines to the cloud (Azure) or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary location to keep apps and workloads available. You fail back to your primary location when it returns to normal operations. Learn more in [What is Azure Site Recovery?](site-recovery-overview.md)
+Site Recovery is an Azure service that contributes to your BCDR strategy by orchestrating replication of on-premises physical servers and virtual machines to the cloud (Azure) or to a secondary datacenter. When outages occur in your primary location, you can fail over to the secondary location to keep apps and workloads available. You can fail back to your primary location when it returns to normal operations. Learn more in [What is Azure Site Recovery?](site-recovery-overview.md)
 
-This article provides all the information you need to replicate Hyper-V VMs that aren't managed in VMM clouds to Azure. It includes an architectural overview, planning information, and deployment steps for configuring on-premises servers, Azure, a replication policy, and capacity planning. After you've set up the infrastructure you can enable replication on machines you want to protect, and test failover.
+This article provides all the information you need to replicate on-premises Hyper-V  virtual machines that **aren't** managed in System Center Virtual Machines Manager (VMM) clouds to Azure. It includes an architectural overview, planning information, and deployment steps for configuring on-premises servers, Azure, a replication policy, and capacity planning. After you've set up the infrastructure you can enable replication on machines you want to protect, and perform a test failover to validate the set-up. You can also migrate your VMs to Azure by first performing a planned failover and then complete the migration. 
 
 ## Business advantages
 
 - Provides off-site (Azure) failover for business workloads and applications running on Hyper-V virtual machines. 
-- Replicates of Hyper-V VMs using Azure Site Recovery without needing a VMM server.
 - Provides a single Recovery Services console for simple setup and management of replication, failover, and recovery processes.
-- Allow you to easily run failovers from your on-premises infrastructure to Azure, and failback (restore) from Azure to the on-premises site. 
-- You can configure recovery plans with multiple machines so that tiered application workloads fail over together.
+- Allows you to easily run failovers from your on-premises infrastructure to Azure, and fail-back (restore) from Azure to the on-premises site. 
+- You can configure recovery plans with multiple machines, so that tiered application workloads fail over together.
 
 ## Scenario architecture
 
@@ -454,6 +454,39 @@ To run the test failover do the following:
 7. If you [prepared for connections after failover](#prepare-to-connect-to-Azure-VMs-after-failover) you should be able to connect to the Azure VM.
 
 
+## Failover
+
+After initial replication is complete for  your machines, you can invoke failovers as the need arises. Site Recovery supports various types of failovers - Test failover, Planned failover and Unplanned failover. 
+[Learn more](site-recovery-failover.md) about different types of failovers and detailed descriptions of when and how to perform each of them.
+
+> [AZURE.NOTE] If your intent is to migrate virtual machines to Azure, we strongly recommend that you use a [Planned Failover operation](site-recovery-failover.md#run-a-planned-failover-primary-to-secondary) to migrate the virtual machines to Azure. Once the migrated application is validated in Azure using test failover, use the steps mentioned under [Complete Migration](#Complete-migration-of-your-virtual-machines-to-Azure) to complete the migration of your virtual machines. You do not need to perform a Commit or Delete. Complete Migration completes the migration, removes the protection for the virtual machine and stops Azure Site Recovery billing for the machine. 
+
+
+###Run an Unplanned Failover
+
+This should be chosen when a primary site becomes inaccessible because of an unexpected incident, such as a power outage or virus attack. This procedure describes how to run an 'unplanned failover' for a recovery plan. Alternatively you can run the failover for a single virtual machine on the Virtual Machines tab. Before you start, make sure all the virtual machines you want to fail over have completed initial replication. 
+
+1. Select **Recovery Plans > recoveryplan_name**. 
+2. On the Recovery plan blade, Click **Unplanned Failover**.
+3. On the **unplanned Failover** page, choose the source and target locations.
+4. Select **Shut down virtual machines and synchronize the latest data** to specify that Site Recovery should try to shut down the protected virtual machines and synchronize the data so that the latest version of the data will be failed over. 
+5. After the failover, the virtual machines are in a commit pending state.  Click **Commit** to commit the failover. 
+  
+[Learn more](site-recovery-failover.md#run-an-unplanned-failover)
+
+## Complete migration of your virtual machines to Azure
+
+
+>[AZURE.NOTE] The following steps apply only if you are migrating virtual machines to Azure
+
+1. Perform planned failover as mentioned [here](site-recovery-failover.md)
+2. In **Settings > Replicated items**, right-click the virtual machine and select **Complete Migration**
+
+    ![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
+
+2. Click **OK** to complete the migration. You can track progress by clicking on the VM to open its properties, or by using the Complete Migration job in **Settings > Site Recovery jobs**.
+
+
 ## Monitor your deployment
 
 Here's how you can monitor the configuration settings, status, and health for your Site Recovery deployment:
@@ -465,10 +498,3 @@ Here's how you can monitor the configuration settings, status, and health for yo
 2. In the **Health** tile you can monitor site servers that are experiencing issue, and the events raised by Site Recovery in the last 24 hours.
 3. You can manage and monitor replication in the **Replicated Items**, **Recovery Plans**, and **Site Recovery Jobs** tiles. You can drill into jobs in **Settings** -> **Jobs** -> **Site Recovery Jobs**.
 
-
-
-
-
-## Next steps
-
-After your deployment is set up and running, [learn more](site-recovery-failover.md) about different types of failover.

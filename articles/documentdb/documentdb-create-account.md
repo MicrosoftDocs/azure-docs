@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/12/2016"
+	ms.date="10/17/2016"
 	ms.author="mimig"/>
 
 # How to create a DocumentDB NoSQL account using the Azure portal
@@ -33,7 +33,7 @@ You can create a DocumentDB account using either the Azure portal, Azure Resourc
 Are you new to DocumentDB? Watch [this](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) four-minute video by Scott Hanselman to see how to complete the most common tasks in the online portal.
 
 1.	Sign in to the [Azure portal](https://portal.azure.com/).
-2.	In the Jumpbar, click **New**, click **Data + Storage**, and then click **DocumentDB (NoSQL)**.
+2.	In the Jumpbar, click **New**, click **Databases**, and then click **DocumentDB (NoSQL)**. 
 
 	![Screen shot of the Azure portal, highlighting More Services, and DocumentDB (NoSQL)](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-1.png)  
 
@@ -73,16 +73,16 @@ Are you new to DocumentDB? Watch [this](https://azure.microsoft.com/documentatio
 
 ## Next steps
 
-Now that you have a DocumentDB account, the next step is to create a DocumentDB database. 
+Now that you have a DocumentDB account, the next step is to create a DocumentDB collection and database. 
 
-You can create a new database by using one of the following:
+You can create a new collection and database by using one of the following:
 
-- The Azure portal, as described in [Create a DocumentDB database using the Azure portal](documentdb-create-database.md).
+- The Azure portal, as described in [Create a DocumentDB collection using the Azure portal](documentdb-create-collection.md).
 - The all-inclusive tutorials, which include sample data: [.NET](documentdb-get-started.md), [.NET MVC](documentdb-dotnet-application.md), [Java](documentdb-java-application.md), [Node.js](documentdb-nodejs-application.md), or [Python](documentdb-python-application.md).
 - The [.NET](documentdb-dotnet-samples.md#database-examples), [Node.js](documentdb-nodejs-samples.md#database-examples), or [Python](documentdb-python-samples.md#database-examples) sample code available in GitHub.
 - The [.NET](documentdb-sdk-dotnet.md), [Node.js](documentdb-sdk-node.md), [Java](documentdb-sdk-java.md), [Python](documentdb-sdk-python.md), and [REST](https://msdn.microsoft.com/library/azure/mt489072.aspx) SDKs.
 
-After creating your database, you need to [add one or more collections](documentdb-create-collection.md) to the database, then [add documents](documentdb-view-json-document-explorer.md) to the collections.
+After creating your database and collection, you need to [add documents](documentdb-view-json-document-explorer.md) to the collections.
 
 After you have documents in a collection, you can use [DocumentDB SQL](documentdb-sql-query.md) to [execute queries](documentdb-sql-query.md#executing-queries) against your documents. You can execute queries by using the [Query Explorer](documentdb-query-collections-query-explorer.md) in the portal, the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), or one of the [SDKs](documentdb-sdk-dotnet.md).
 
