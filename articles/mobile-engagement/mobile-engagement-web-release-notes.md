@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="web"
 	ms.devlang="js"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="10/18/2016"
 	ms.author="piyushjo" />
 
 
 #Azure Mobile Engagement Web SDK release notes
+
+##Release 2.0.2 (10/18/2016)
+
+-   Fixed crash on private browsing (safari).
+-   Fixed crash on browsers with cookies disabled.
 
 ##Release 2.0.1 (6/10/2016)
 
