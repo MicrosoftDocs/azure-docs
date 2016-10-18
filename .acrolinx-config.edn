@@ -1,4 +1,4 @@
-{:allowed-branch-names ["master" "acrolinx-test" "release-azure-stack-tp2" "release-government" "release-ignite-2016" "release-managed-storage"]
+{:allowed-branch-names ["acrolinx-test"]
  :allowed-filename-matches ["articles" "includes"]
 
  :template-header
