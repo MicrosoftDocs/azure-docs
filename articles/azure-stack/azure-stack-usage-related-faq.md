@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="provider-resource-api"
+	ms.topic="article"
 	ms.date="10/18/2016"
 	ms.author="alfredop"/>
 
