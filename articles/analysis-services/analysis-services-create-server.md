@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create an Analysis Services in Azure"
-   description="Learn how to create an Analysis Services instance in Azure."
+   pageTitle="Create an Analysis Services server in Azure"
+   description="Learn how to create an Analysis Services server instance in Azure."
    services="analysis-services"
    documentationCenter=""
    authors="minewiskan"
