@@ -27,12 +27,21 @@ Pick the troubleshooting steps that correspond to the error message you encounte
 
 |**Error Message**|**Resolution**|
 |---|:---|
+|*The name contoso100.com is already in use on this network. Specify a name that is not in use.*|[Domain name conflict in the virtual network](active-directory-ds-troubleshooting.md#domain-name-conflict)
 |*Domain Services could not be enabled in this Azure AD tenant. The service does not have adequate permissions to the application called 'Azure AD Domain Services Sync'. Delete the application called 'Azure AD Domain Services Sync' and then try to enable Domain Services for your Azure AD tenant.*|[Domain Services does not have adequate permissions to the Azure AD Domain Services Sync application](active-directory-ds-troubleshooting.md#inadequate-permissions)|
 |*Domain Services could not be enabled in this Azure AD tenant. The Domain Services application in your Azure AD tenant does not have the required permissions to enable Domain Services. Delete the application with the application identifier d87dcbc6-a371-462e-88e3-28ad15ec4e64 and then try to enable Domain Services for your Azure AD tenant.*|[The Domain Services application is not configured properly in your tenant](active-directory-ds-troubleshooting.md#invalid-configuration)|
 
 
-### Domain Name conflict.
-- Ensure that you do not have an existing domain with the same domain name available on that virtual network. For instance, assume you have a domain called 'contoso.com' already available on the selected virtual network. Later, you try to enable an Azure AD Domain Services managed domain with the same domain name (that is, 'contoso.com') on that virtual network. You encounter a failure when trying to enable Azure AD Domain Services. This failure is due to name conflicts for the domain name on that virtual network. In this situation, you must use a different name to set up your Azure AD Domain Services managed domain. Alternately, you can de-provision the existing domain and then proceed to enable Azure AD Domain Services.
+### Domain Name conflict
+**Error message:**
+
+*The name contoso100.com is already in use on this network. Specify a name that is not in use.*
+
+**Remediation:**
+
+Ensure that you do not have an existing domain with the same domain name available on that virtual network. For instance, assume you have a domain called 'contoso.com' already available on the selected virtual network. Later, you try to enable an Azure AD Domain Services managed domain with the same domain name (that is, 'contoso.com') on that virtual network. You encounter a failure when trying to enable Azure AD Domain Services.
+
+This failure is due to name conflicts for the domain name on that virtual network. In this situation, you must use a different name to set up your Azure AD Domain Services managed domain. Alternately, you can de-provision the existing domain and then proceed to enable Azure AD Domain Services.
 
 
 ### Inadequate permissions
