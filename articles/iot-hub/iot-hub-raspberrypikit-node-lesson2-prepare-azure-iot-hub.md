@@ -97,7 +97,7 @@ az iot device create --device-id myraspberrypi --hub {my hub name} --resource-gr
 
 ## 2.2.6 Summary
 
-You've created an Azure IoT hub and registered your Pi with a device identity in your Azure IoT hub. You're ready to move on to the next lesson to learn how to send messages from your IoT hub to your Pi.
+You've created an Azure IoT hub and registered your Pi with a device identity in your Azure IoT hub. You're ready to move on to the next lesson to learn how to send messages from your Pi to your IoT hub.
 
 ## Next Steps
 
