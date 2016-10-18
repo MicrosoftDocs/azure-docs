@@ -26,7 +26,7 @@ App Service plan that your app belongs to.
 - [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Increase the number of VM instances that run your app.
 You can scale out to as many as 20 instances, depending on your pricing tier. [App Service Environments](../app-service/app-service-app-service-environments-readme.md)
 in **Premium** tier will further increase your scale-out count to 50 instances. For more information about scaling out, see
-[Scale instance count manually or automatically](../azure-portal/insights-how-to-scale.md). There you will find out how
+[Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md). There you will find out how
 to use autoscaling, which is to scale instance count automatically based on predefined rules and schedules.
 
 The scale settings take only seconds to apply and affect all apps in your [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).

@@ -1,14 +1,14 @@
 <properties 
     pageTitle="Service Bus transactions | Microsoft Azure" 
     description="Overview of Azure Service Bus atomic transactions and send via" 
-    services="service-bus-messaging" 
+    services="service-bus" 
     documentationCenter=".net" 
     authors="sethmanheim" 
     manager="timlt" 
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/15/2016"
+   ms.date="10/08/2016"
    ms.author="magoedte;bwren"/>
 
 # Starting a runbook in Azure Automation
@@ -26,12 +26,20 @@ The following table will help you determine the method to start a runbook in Azu
 | [Azure Automation API](https://msdn.microsoft.com/library/azure/mt662285.aspx) | <li>Most flexible method but also most complex.<br> <li>Call from any custom code that can make HTTP requests.<br> <li>Request authenticated with certificate, or Oauth user principal / service principal.<br> <li>Provide simple and complex parameter values.<br> <li>Track job state.                                                                          |
 | [Webhooks](automation-webhooks.md)                                            | <li>Start runbook from single HTTP request.<br> <li>Authenticated with security token in URL.<br> <li>Client cannot override parameter values specified when webhook created. Runbook can define single parameter that is populated with the HTTP request details.<br> <li>No ability to track job state through webhook URL.                                      |
 | [Respond to Azure Alert](../log-analytics/log-analytics-alerts.md)               | <li>Start a runbook in response to Azure alert.<br> <li>Configure webhook for runbook and link to alert.<br> <li>Authenticated with security token in URL.<br> <li>Currently supports alert on Metrics only.                                                                                                                                                       |
-| [Schedule](automation-scheduling-a-runbook.md)                                | <li>Automatically start runbook on hourly, daily, or weekly schedule.<br> <li>Manipulate schedule through Azure portal, PowerShell cmdlets, or Azure API.<br> <li>Provide parameter values to be used with schedule.                                                                                                                                               |
+| [Schedule](automation-schedules.md)                                | <li>Automatically start runbook on hourly, daily, or weekly schedule.<br> <li>Manipulate schedule through Azure portal, PowerShell cmdlets, or Azure API.<br> <li>Provide parameter values to be used with schedule.                                                                                                                                               |
 | [From Another Runbook](automation-child-runbooks.md)                          | <li>Use a runbook as an activity in another runbook.<br> <li>Useful for functionality used by multiple runbooks.<br> <li>Provide parameter values to child runbook and use output in parent runbook.                                                                                                                                                               |
 
 The following image illustrates detailed step-by-step process in the life cycle of a runbook. It includes different ways a runbook is started in Azure Automation, components required for Hybrid Runbook Worker to execute Azure Automation runbooks and interactions between different components. To learn about executing Automation runbooks in your datacenter, refer to [hybrid runbook workers](automation-hybrid-runbook-worker.md)
 
 ![Runbook Architecture](media/automation-starting-runbook/runbooks-architecture.png)
+
+## Starting a runbook with the Azure portal
+
+1.	In the Azure portal, select **Automation** and then then click the name of an automation account.
+2.	Select the **Runbooks** tab.
+3.	Select a runbook, and then click **Start**.
+4.	If the runbook has parameters, you will be prompted to provide values with a text box for each parameter. See [Runbook Parameters](#Runbook-parameters) below for further details on parameters.
+5.	Either select **View Job** next to the **Starting** runbook message or select the **Jobs** tab for the runbook to view the runbook job’s status.
 
 ## Starting a runbook with the Azure portal
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/19/2016" 
+	ms.date="10/12/2016" 
 	ms.author="cenkdin;juliako"/>
 
 #Live streaming with on-premise encoders that create multi-bitrate streams
@@ -65,7 +65,7 @@ The following steps describe tasks involved in creating common live streaming ap
 
 3. Create a program. 
 
-	When using the Azure Classic Portal, creating a program also creates an asset. 
+	When using the Azure portal, creating a program also creates an asset. 
 
 	When using .NET SDK or REST you need to create an asset and specify to use this asset when creating a Program. 
 1. Publish the asset associated with the program.   
@@ -167,7 +167,7 @@ You can get the preview URL when you create the channel. To get the URL, the cha
 
 Once the Channel starts ingesting data, you can preview your stream.
 
-Note that currently the preview stream can only be delivered in Fragmented MP4 (Smooth Streaming) format regardless of the specified input type. You can use the [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) player to test the Smooth Stream. You can also use a player hosted in the Azure Classic Portal to view your stream.
+Note that currently the preview stream can only be delivered in Fragmented MP4 (Smooth Streaming) format regardless of the specified input type. You can use the [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) player to test the Smooth Stream. You can also use a player hosted in the Azure portal to view your stream.
 
 
 ####Allowed IP Addresses

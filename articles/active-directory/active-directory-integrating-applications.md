@@ -3,7 +3,7 @@
    description="Details on how to add, update, or remove an application in Azure Active Directory (Azure AD)."
    services="active-directory"
    documentationCenter=""
-   authors="msmbaldwin"
+   authors="bryanla"
    manager="mbaldwin"
    editor="mbaldwin" />
 <tags
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/25/2016"
+   ms.date="10/11/2016"
    ms.author="mbaldwin;bryanla" />
 
 # Integrating applications with Azure Active Directory
@@ -344,10 +344,12 @@ In order to remove a multi-tenant application’s access to your directory (afte
 
 ## Next steps
 
-- See the [Branding Guidelines for Integrated Apps](active-directory-branding-guidelines.md)
+- See the [Branding Guidelines for Integrated Apps](active-directory-branding-guidelines.md) for tips on visual guidance for your app.
 
-- Learn about [Application Objects and Service Principal Objects](active-directory-application-objects.md)
+- For more details on the relationship between an application's Application and Service Principal object(s), see [Application Objects and Service Principal Objects](active-directory-application-objects.md).
 
-- Understand the [Azure Active Directory application manifest](active-directory-application-manifest.md)
+- To learn more about the role the app manifest plays, see [Understanding the Azure Active Directory application manifest](active-directory-application-manifest.md)
 
-- Visit the [Active Directory developer's guide](active-directory-developers-guide.md)
+- See the [Azure AD developer glossary](active-directory-dev-glossary.md) for definitions of some of the core Azure Active Directory (AD) developer concepts.
+
+- Visit the [Active Directory developer's guide](active-directory-developers-guide.md) for an overview of all developer related content.

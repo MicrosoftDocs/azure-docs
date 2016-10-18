@@ -52,15 +52,20 @@ Custom probes allow you to have a more granular control over the health monitori
 
 ### Custom health probe settings
 
+The following table provides definitions for the properties of a custom health probe.
+
 |Probe property| Description|
 |---|---|
 | Name | Name of the probe. This name is used to refer to the probe in back-end HTTP settings. |
-| Protocol | Protocol used to send the probe. HTTP or HTTPS are valid protocols. |
-| Host |  Host name to send the probe. |
-| Path | Relative path of the probe. The valid path starts from '/'. The probe is sent to \<protocol\>://\<host\>:\<port\>\<path\> |
+| Protocol | Protocol used to send the probe. The probe will use the protocol defined in the back-end HTTP settings |
+| Host |  Host name to send the probe. Applicable only when multi-site is configured on Application Gateway, otherwise use '127.0.0.1'. This is different from VM host name. |
+| Path | Relative path of the probe. The valid path starts from '/'. |
 | Interval | Probe interval in seconds. This is the time interval between two consecutive probes.|
 | Time-out | Probe time-out in seconds. The probe is marked as failed if a valid response is not received within this time-out period. |
 | Unhealthy threshold | Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
+
+> [AZURE.IMPORTANT] If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe.
+For reference a custom probe is sent to \<protocol\>://\<host\>:\<port\>\<path\>.
 
 ## Next steps
 

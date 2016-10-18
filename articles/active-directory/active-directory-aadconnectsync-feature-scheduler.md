@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="08/04/2016"
-   ms.author="andkjell"/>
+   ms.author="billmath"/>
 
 # Azure AD Connect sync: Scheduler
 This topic describes the built-in scheduler in Azure AD Connect sync (a.k.a. sync engine).
