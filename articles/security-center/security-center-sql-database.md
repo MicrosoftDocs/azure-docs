@@ -27,7 +27,7 @@ This article shows how Security Center can help you secure your databases in Azu
 Security Center helps you safeguard data in SQL Database by providing visibility into the security of all your servers and databases. With Security Center, you can:
 
 - Define policies for SQL Database encryption and auditing.
--  the security of SQL Database resources across all your subscriptions.
+- Monitor the security of SQL Database resources across all your subscriptions.
 - Quickly identify and remediate security issues.
 - Integrate alerts from [Azure SQL Database threat detection](../sql-database/sql-database-threat-detection-get-started.md).
 
@@ -70,9 +70,9 @@ After you set a security policy, Security Center analyzes the security state of 
 
 | Recommendation | Description |
 | ----- | ----- |
-| [Enable Auditing and Threat detection on SQL servers](security-center-enable-auditing-on-sql-servers.md) | Recommends that you turn on auditing and threat detection for SQL Database servers (SQL Database service only. Doesn't include Microsoft SQL Server running on your virtual machines). |
-| [Enable Auditing and Threat detection on SQL databases](security-center-enable-auditing-on-sql-databases.md) | Recommends that you turn on auditing and threat detection for SQL Database databases (SQL Database service only. Doesn't include Microsoft SQL Server running on your virtual machines). |
-| [Enable Transparent Data Encryption](security-center-enable-transparent-data-encryption.md) | Recommends that you enable encryption for SQL databases (SQL Database service only). |
+| [Enable Auditing and Threat detection on SQL servers](security-center-enable-auditing-on-sql-servers.md) | Recommends that you turn on auditing and threat detection for SQL Database servers. (SQL Database service only. Doesn't include Microsoft SQL Server running on your virtual machines.) |
+| [Enable Auditing and Threat detection on SQL databases](security-center-enable-auditing-on-sql-databases.md) | Recommends that you turn on auditing and threat detection for SQL Database databases. (SQL Database service only. Doesn't include Microsoft SQL Server running on your virtual machines.) |
+| [Enable Transparent Data Encryption](security-center-enable-transparent-data-encryption.md) | Recommends that you enable encryption for SQL databases. (SQL Database service only.) |
 
 To see recommendations for your Azure resources, select the **Recommendations** tile on the Security Center blade. On the **Recommendations** blade, select a recommendation to see details. In this example, let’s select **Enable Auditing & Threat detection on SQL servers**.
 
