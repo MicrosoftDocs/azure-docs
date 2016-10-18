@@ -61,7 +61,7 @@ These are controls that you can use to enforce a conditional access policy:
 
 ## Applications
 
-You can enforce a conditional access policy at the application level. Set access levels for applications and services in the cloud or on-premises. Policy is applied directly to the website or service. The policy is enforced for access to the browser, and to applications that access the service. For a list of services that you can apply policy to, see.
+You can enforce a conditional access policy at the application level. Set access levels for applications and services in the cloud or on-premises. Policy is applied directly to the website or service. The policy is enforced for access to the browser, and to applications that access the service.
 
 
 ## Device-based conditional access
