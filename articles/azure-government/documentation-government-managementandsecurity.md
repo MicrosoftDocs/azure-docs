@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="10/14/2016"
+	ms.date="10/19/2016"
 	ms.author="scooxl"/>
 #  Azure Government Management and Security
 ##  Key Vault
@@ -43,12 +43,8 @@ The following Log Analytics features and solutions are not currently available i
   - Azure Activity Logs
   - Azure Automation Analytics
   - Key Vault Analytics
-+ Solutions and features that require Azure Automation, including:
-  - Update Management
-  - Change Management
-  - Alerts that trigger an Azure Automation runbook
 + Solutions and features that require updates to on-premises software, including
-  - Integration with System Center Operations Manager 2016
+  - Integration with System Center Operations Manager 2016 (earlier versions are supported)
   - Computers Groups from System Center Configuration Manager
   - Surface Hub solution
 + Features that are in preview in public Azure, including
