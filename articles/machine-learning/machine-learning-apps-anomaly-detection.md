@@ -10,7 +10,7 @@
 <tags 
 	ms.service="machine-learning" 
 	ms.devlang="na" 
-	ms.topic="reference" 
+	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="multiple" 
 	ms.date="10/11/2016" 
