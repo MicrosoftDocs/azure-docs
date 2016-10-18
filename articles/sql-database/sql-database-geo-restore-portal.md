@@ -21,10 +21,10 @@
 
 
 > [AZURE.SELECTOR]
-- [Overview](sql-database-recovery-using-backups.md)
+- [Overview](sql-database-recovery-using-backups.md#geo-restore)
 - [Geo-Restore: PowerShell](sql-database-geo-restore-powershell.md)
 
-This article shows you how to restore your database from an [automatic backup](sql-database-automated-backups.md) into a new server using Geo-Restore using the Azure portal.
+This article shows you how to restore your database from an [automatic backup](sql-database-automated-backups.md) into a new server with [Geo-Restore](sql-database-recovery-using-backups/.md#geo-restore) using the Azure portal.
 
 ## Select a database to restore
 
