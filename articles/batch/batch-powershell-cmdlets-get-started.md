@@ -151,28 +151,28 @@ Application packages provide a simplified way to deploy applications to the comp
 
 **Create** an application:
 
-    New-AzureRmBatchApplication -AccountName MyBatchAccount -ResourceGroupName MyBatchResourceGroup -ApplicationId MyBatchApplication
+    New-AzureRmBatchApplication -AccountName "MyBatchAccount" -ResourceGroupName "MyBatchResourceGroup" -ApplicationId "MyBatchApplication"
 
 **Add** an application package:
 
-    New-AzureRmBatchApplicationPackage -AccountName MyBatchAccount -ResourceGroupName MyBatchResourceGroup -ApplicationId MyBatchApplication -ApplicationVersion 1.0 -Format zip -FilePath package001.zip
+    New-AzureRmBatchApplicationPackage -AccountName "MyBatchAccount" -ResourceGroupName "MyBatchResourceGroup" -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0" -Format zip -FilePath package001.zip
 
 Set the **default version** for the application:
 
-    Set-AzureRmBatchApplication -AccountName MyBatchAccount -ResourceGroupName MyBatchResourceGroup -ApplicationId MyBatchApplication -DefaultVersion 1.0
+    Set-AzureRmBatchApplication -AccountName "MyBatchAccount" -ResourceGroupName "MyBatchResourceGroup" -ApplicationId "MyBatchApplication" -DefaultVersion "1.0"
 
 **List** an application's packages
 
-    $packages = Get-AzureRmBatchApplication -AccountName MyBatchAccount -ResourceGroupName MyBatchResourceGroup -ApplicationId MyBatchApplication
-    $packages.ApplicationPackages
+    $application = Get-AzureRmBatchApplication -AccountName "MyBatchAccount" -ResourceGroupName "MyBatchResourceGroup" -ApplicationId "MyBatchApplication"
+    $application.ApplicationPackages
 
 **Delete** an application package
 
-    Remove-AzureRmBatchApplicationPackage -AccountName MyBatchAccount -ResourceGroupName MyBatchResourceGroup -ApplicationId MyBatchApplication -ApplicationVersion 1.0
+    Remove-AzureRmBatchApplicationPackage -AccountName "MyBatchAccount" -ResourceGroupName "MyBatchResourceGroup" -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0"
 
 **Delete** an application
 
-    Remove-AzureRmBatchApplication -AccountName MyBatchAccount -ResourceGroupName MyBatchResourceGroup -ApplicationId MyBatchApplication
+    Remove-AzureRmBatchApplication -AccountName "MyBatchAccount" -ResourceGroupName "MyBatchResourceGroup" -ApplicationId "MyBatchApplication"
 
 >[AZURE.NOTE] You must delete all of an application's application package versions before you delete the application. You will receive a 'Conflict' error if you try to delete an application that currently has application packages.
 
@@ -188,7 +188,7 @@ Specify the `-ApplicationPackageReference` option when creating a pool to deploy
 
 Now create the pool, and specify the package reference object as the argument to the `ApplicationPackageReferences` option:
 
-    New-AzureBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -AutoScaleFormula '$TargetDedicated=1;' -BatchContext $context -ApplicationPackageReferences $appPackageReference
+    New-AzureBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 
 You can find more information on application packages in [Application deployment with Azure Batch application packages](batch-application-packages.md).
 
