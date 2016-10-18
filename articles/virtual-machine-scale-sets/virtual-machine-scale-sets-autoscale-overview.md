@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/27/2016"
+	ms.date="10/18/2016"
 	ms.author="davidmu"/>
 
 # Automatic scaling and virtual machine scale sets
@@ -23,7 +23,7 @@ Automatic scaling of virtual machines in a scale set is the creation or deletion
 
 Automatic scaling is an automated process that helps ease management overhead. By reducing overhead, you don't need to continually monitor system performance or decide how to manage resources. Scaling is an elastic process. More resources can be added as the load increases, but as demand decreases resources can be removed to minimize costs and maintain performance levels.
 
-Set up automatic scaling on a scale set by using an Azure Resource Manager template, by using Azure PowerShell, or by using Azure CLI.
+Set up automatic scaling on a scale set by using an Azure Resource Manager template, Azure PowerShell, Azure CLI, or the Azure portal.
 
 ## Set up scaling by using Resource Manager templates
 
@@ -203,6 +203,10 @@ To see examples of using PowerShell to set up autoscaling, look at [Azure Insigh
 ## Set up scaling using Azure CLI
 
 To see examples of using Azure CLI to set up autoscaling, look at [Azure Insights Cross-platform CLI quick start samples](../azure-portal/insights-cli-samples.md).
+
+## Set up scaling using the Azure portal
+
+To see an example of using the Azure portal to set up autoscaling, look at [Create a Virtual Machine Scale Set using the Azure portal](virtual-machine-scale-sets-portal-create.md).
 
 ## Investigate scaling actions
 
