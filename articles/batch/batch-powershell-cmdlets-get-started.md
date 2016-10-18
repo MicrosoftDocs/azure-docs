@@ -31,9 +31,9 @@ This article is based on cmdlets in Azure PowerShell version 3.0.0. We recommend
 
     `Login-AzureRmAccount`
 
-* **Register with the Batch provider namespace** - Before working with your Batch accounts, you have to register with the Batch provider namespace. This operation only needs to be performed **once per subscription**. Run the following cmdlet:
+* **Register with the Batch provider namespace**. This operation only needs to be performed **once per subscription**.
 
-        Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch
+    `Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch`
 
 ## Manage Batch accounts and keys
 
