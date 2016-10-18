@@ -1,3 +1,21 @@
+<properties
+	pageTitle="Customer Billing And Chargeback In Azure Stack | Microsoft Azure"
+	description="Learn how to retrieve resource usage information from Azure Stack."
+	services="azure-stack"
+	documentationCenter=""
+	authors="AlfredoPizzirani"
+	manager="byronr"
+	editor=""/>
+
+<tags
+	ms.service="azure-stack"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="provider-resource-api"
+	ms.date="10/18/2016"
+	ms.author="alfredop"/>
+
 # Customer billing and chargeback in Azure Stack
 
 Now that you’re using Azure Stack, it’s a good idea to think about how
