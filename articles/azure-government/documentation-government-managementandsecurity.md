@@ -44,7 +44,7 @@ The following Log Analytics features and solutions are not currently available i
   - Azure Automation Analytics
   - Key Vault Analytics
 + Solutions and features that require updates to on-premises software, including
-  - Integration with System Center Operations Manager 2016 (earlier versions are supported)
+  - Integration with System Center Operations Manager 2016 (earlier versions of Operations Manager are supported)
   - Computers Groups from System Center Configuration Manager
   - Surface Hub solution
 + Features that are in preview in public Azure, including
