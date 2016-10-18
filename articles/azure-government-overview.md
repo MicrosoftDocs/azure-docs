@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="azure-government" 
-   ms.date="10/218/2016"
+   ms.date="10/18/2016"
    ms.author="ryansoc"/>
 
 # Welcome to Azure Government
