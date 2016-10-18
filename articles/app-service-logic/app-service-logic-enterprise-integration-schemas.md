@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Overview of schemas and the Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure"
+	pageTitle="Overview of schemas and the Enterprise Integration Pack | Microsoft Azure"
 	description="Learn how to use schemas with the Enterprise Integration Pack and logic apps"
 	services="logic-apps"
 	documentationCenter=".net,nodejs,java"
@@ -22,7 +22,7 @@
 ## Why use a schema?
 Use schemas to confirm that XML documents you receive are valid, with the expected data in a predefined format.
 
-## How to add a schema
+## Add a schema
 From the Azure portal:  
 
 1. Select **More Services**.  
@@ -36,7 +36,7 @@ From the Azure portal:
 4. Select the **Schemas** tile.  
 ![Screenshot of IEP Integration Account, with "Schemas" highlighted](./media/app-service-logic-enterprise-integration-schemas/schema-11.png)  
 
-### To add a schema file less than 2 MB  
+### Add a schema file less than 2 MB  
 
 1. In the **Schemas** blade that opens (from the preceding steps), select **Add**.  
 ![Screenshot of Schemas blade, with "Add" button highlighted](./media/app-service-logic-enterprise-integration-schemas/schema-21.png)  
@@ -44,7 +44,7 @@ From the Azure portal:
 2. Enter a name for your schema. Then, to upload the schema file, select the folder icon next to the **Schema** text box. After the upload process is completed, select **OK**.    
 ![Screenshot of "Add Schema", with "Small file" highlighted](./media/app-service-logic-enterprise-integration-schemas/schema-31.png)  
 
-### To add a schema file larger than 2 MB (up to a maximum of 8 MB)  
+### Add a schema file larger than 2 MB (up to a maximum of 8 MB)  
 
 The process for this depends on the blob container access level: **Public** or **No anonymous access**. To determine this access level, in **Azure Storage Explorer**, under **Blob Containers**, select the blob container you want. Select **Security**, and select the **Access Level** tab.
 
@@ -72,10 +72,10 @@ The process for this depends on the blob container access level: **Public** or *
 3. In the **Schemas** blade of the EIP Integration Account, you should now see the newly added schema.  
 ![Screenshot of EIP Integration Account, with "Schemas" and the new schema highlighted](./media/app-service-logic-enterprise-integration-schemas/schema-41.png)
 
-## How to use schemas
+## Use schemas
 Schemas are used to validate messages that are exchanged in a B2B scenario.  
 
-## How to edit schemas
+## Edit schemas
 1. Select the **Schemas** tile.  
 2. Select the schema you wish to edit from the **Schemas** blade that opens up.
 3. On the **Schemas** blade, select **Edit**.  
@@ -85,7 +85,7 @@ Schemas are used to validate messages that are exchanged in a B2B scenario.
 ![Screenshot of file picker](./media/app-service-logic-enterprise-integration-schemas/edit-31.png)  
 6. You receive a notification that indicates the upload was successful.  
 
-## How to delete schemas
+## Delete schemas
 1. Select the **Schemas** tile.  
 2. Select the schema you wish to delete from the **Schemas** blade that opens up.  
 3. On the **Schemas** blade, select **Delete**.
