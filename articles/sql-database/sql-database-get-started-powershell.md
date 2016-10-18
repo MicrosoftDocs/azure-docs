@@ -1,4 +1,4 @@
-https://msdn.microsoft.com/en-us/library/azure/mt603644(v=azure.300).aspx<properties
+<properties
     pageTitle="New SQL Database setup with PowerShell | Microsoft Azure"
     description="Learn now to create a SQL database with PowerShell. Common database setup tasks can be managed through PowerShell cmdlets."
     keywords="create new sql database,database setup"
