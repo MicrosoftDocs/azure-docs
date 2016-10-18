@@ -1,3 +1,4 @@
+
 <properties
 	pageTitle="Azure Government Services | Microsoft Azure"
 	description="Provides and overview of the available services in Azure Government"
@@ -23,6 +24,7 @@
 ##  Principles for Securing Customer Data in Azure Government
 
 Azure Government provides a range of features and services that you can use to build cloud solutions to meet your regulated/controlled data needs. A compliant customer solution is nothing more than the effective implementation of out-of-the-box Azure Government capabilities, coupled with a solid data security practice.
+
 When you host a solution in Azure Government, Microsoft handles many of these requirements at the cloud infrastructure level.
 
 The following diagram shows the Azure defense-in-depth model. For example, Microsoft provides basic cloud infrastructure DDOS, along with customer capabilities such as security appliances for customer-specific application DDOS needs.
@@ -112,7 +114,6 @@ For Azure operations personnel, the following access principles apply:
 - Access is through defined interfaces that have specific functionality.
 - Access is just-in-time (JIT), and is granted only on a per-incident basis or for a specific maintenance event, and always for a limited duration.
 - Access is rule-based, with defined roles that are only assigned the permissions required for troubleshooting.
-- Support actions are observed by a second party.
 
 Screening standards include the validation of US citizenship of all Microsoft support and operational staff before access is granted to Azure Government-hosted systems. Support personnel who need to transfer data use the secure capabilities within Azure Government. Secure data transfer requires a separate set of authentication credentials to gain access. For example, to access system metadata, operations personnel use specific web-based internal management tools, read-only APIs, and JIT elevation.
 
