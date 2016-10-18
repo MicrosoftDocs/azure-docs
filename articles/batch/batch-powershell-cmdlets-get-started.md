@@ -13,14 +13,13 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="10/18/2016"
+   ms.date="10/19/2016"
    ms.author="marsma"/>
 
 # Get started with Azure Batch PowerShell cmdlets
 With the Azure Batch PowerShell cmdlets, you can perform and script many of the same tasks you carry out with the Batch APIs, the Azure portal, and the Azure Command-Line Interface (CLI). This is a quick introduction to the cmdlets you can use to manage your Batch accounts and work with your Batch resources such as pools, jobs, and tasks. This article is based on cmdlets in Azure PowerShell version 1.6.0.
 
 For a complete list of Batch cmdlets and detailed cmdlet syntax, see the [Azure Batch cmdlet reference](https://msdn.microsoft.com/library/azure/mt125957.aspx).
-
 
 ## Prerequisites
 
@@ -34,19 +33,15 @@ For a complete list of Batch cmdlets and detailed cmdlet syntax, see the [Azure 
 
         Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch
 
-
 ## Manage Batch accounts and keys
 
 ### Create a Batch account
 
 **New-AzureRmBatchAccount** creates a new Batch account in a specified resource group. If you don't already have a resource group, create one by running the [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt603739.aspx) cmdlet, specifying one of the Azure regions in the **Location** parameter, such as "Central US". For example:
 
-
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
-
 Then, create a new Batch account account in the resource group, specifying a name for the account in <*account_name*> and the location and name of your resource group. Creating the Batch account can take some time to complete. For example:
-
 
     New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
 
@@ -61,19 +56,15 @@ Then, create a new Batch account account in the resource group, specifying a nam
 
     $Account.SecondaryAccountKey
 
-
 ### Generate a new access key
 **New-AzureRmBatchAccountKey** generates a new primary or secondary account key for an Azure Batch account. For example, to generate a new primary key for your Batch account, type:
 
-
     New-AzureRmBatchAccountKey -AccountName <account_name> -KeyType Primary
-
 
 > [AZURE.NOTE] To generate a new secondary key, specify "Secondary" for the **KeyType** parameter. You have to regenerate the primary and secondary keys separately.
 
 ### Delete a Batch account
 **Remove-AzureRmBatchAccount** deletes a Batch account. For example:
-
 
     Remove-AzureRmBatchAccount -AccountName <account_name>
 
@@ -89,8 +80,6 @@ You pass the BatchAccountContext object into cmdlets that use the **BatchContext
 
 > [AZURE.NOTE] By default, the account's primary key is used for authentication, but you can explicitly select the key to use by changing your BatchAccountContext object’s **KeyInUse** property: `$context.KeyInUse = "Secondary"`.
 
-
-
 ## Create and modify Batch resources
 Use cmdlets such as **New-AzureBatchPool**, **New-AzureBatchJob**, and **New-AzureBatchTask** to create resources under a Batch account. There are corresponding **Get-** and **Set-** cmdlets to update the properties of existing resources, and  **Remove-** cmdlets to remove resources under a Batch account.
 
@@ -102,7 +91,6 @@ When creating or updating a Batch pool, you select a cloud service configuration
 
 When you run **New-AzureBatchPool**, pass the operating system settings in a PSCloudServiceConfiguration or PSVirtualMachineConfiguration object. For example, the following cmdlet creates a new Batch pool with size Small compute nodes in the cloud service configuration, imaged with the latest operating system version of family 3 (Windows Server 2012). Here, the **CloudServiceConfiguration** parameter specifies the *$configuration* variable as the PSCloudServiceConfiguration object. The **BatchContext** parameter specifies a previously defined variable *$context* as the BatchAccountContext object.
 
-
     $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(4,"*")
 
     New-AzureBatchPool -Id "AutoScalePool" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
@@ -113,11 +101,9 @@ The target number of compute nodes in the new pool is determined by an autoscali
 
 Use cmdlets such as **Get-AzureBatchPool**, **Get-AzureBatchJob**, and **Get-AzureBatchTask** to query for entities created under a Batch account.
 
-
 ### Query for data
 
 As an example, use **Get-AzureBatchPools** to find your pools. By default this queries for all pools under your account, assuming you already stored the BatchAccountContext object in *$context*:
-
 
     Get-AzureBatchPool -BatchContext $context
 
@@ -125,11 +111,9 @@ As an example, use **Get-AzureBatchPools** to find your pools. By default this q
 
 You can supply an OData filter using the **Filter** parameter to find only the objects you’re interested in. For example, you can find all pools with ids starting with “myPool”:
 
-
     $filter = "startswith(id,'myPool')"
 
     Get-AzureBatchPool -Filter $filter -BatchContext $context
-
 
 This method is not as flexible as using “Where-Object” in a local pipeline. However, the query gets sent to the Batch service directly so that all filtering happens on the server side, saving Internet bandwidth.
 
@@ -137,29 +121,29 @@ This method is not as flexible as using “Where-Object” in a local pipeline. 
 
 An alternative to an OData filter is to use the **Id** parameter. To query for a specific pool with id "myPool":
 
-
     Get-AzureBatchPool -Id "myPool" -BatchContext $context
 
-
 The **Id** parameter supports only full-id search, not wildcards or OData-style filters.
-
-
 
 ### Use the MaxCount parameter
 
 By default, each cmdlet returns a maximum of 1000 objects. If you reach this limit, either refine your filter to bring back fewer objects, or explicitly set a maximum using the **MaxCount** parameter. For example:
 
-
     Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 
 To remove the upper bound, set **MaxCount** to 0 or less.
 
-### Use the pipeline
+### Use the PowerShell pipeline
 
-Batch cmdlets can leverage the PowerShell pipeline to send data between cmdlets. This has the same effect as specifying a parameter but makes listing multiple entities easier. For example, the following finds all tasks under your account:
+Batch cmdlets can leverage the PowerShell pipeline to send data between cmdlets. This has the same effect as specifying a parameter, but makes working with multiple entities easier.
 
+For example, find and display all tasks under your account:
 
     Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context
+
+Restart (reboot) every compute node in a pool:
+
+    Get-AzureBatchComputeNode -PoolId "myPool" -BatchContext $context | Restart-AzureBatchComputeNode -BatchContext $context
 
 ## Application package management
 
@@ -198,11 +182,9 @@ You can specify one or more application packages for deployment when you create 
 
 Specify the `-ApplicationPackageReference` option when creating a pool to deploy an application package to the pool's nodes as they join the pool. First, create a **PSApplicationPackageReference** object, and configure it with the application Id and package version you want to deploy to the pool's compute nodes:
 
-```
-$appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference
-$appPackageReference.ApplicationId = "MyBatchApplication"
-$appPackageReference.Version = "1.0"
-```
+    $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference
+    $appPackageReference.ApplicationId = "MyBatchApplication"
+    $appPackageReference.Version = "1.0"
 
 Now create the pool, and specify the package reference object as the argument to the `ApplicationPackageReferences` option:
 
