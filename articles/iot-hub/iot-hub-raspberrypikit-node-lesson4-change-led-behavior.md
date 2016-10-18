@@ -48,20 +48,20 @@ Use additional Node.js functions to change the LED’s on and off behavior.
     }
     ```
 
-3. Add the following conditions in the switch-case block of the receiveMessageAndBlink function:
+3. Add the following conditions before the defalt one in the switch-case block of the `receiveMessageCallback` function:
 
     ```javascript
-    case ‘on’:
+    case 'on':
       turnOnLED();
       break;
-    case ‘off’
+    case 'off':
       turnOffLED();
       break;
     ```
 
     Now you’ve configured the sample application to respond to more instructions through messages. The “on” instruction turns on the LED and the “off” instruction turns off the LED.
 
-4. Open the gulpfile.js file, and then add the following code between line 39 and line 40:
+4. Open the gulpfile.js file, and then add a new function before the function `sendMessage`:
 
     ```javascript
     var buildCustomMessage = function (messageId) {
@@ -79,26 +79,23 @@ Use additional Node.js functions to change the LED’s on and off behavior.
 
     ```javascript
     var message = buildCustomMessage(sentMessageCount);
-    ``` 
-
-
+    ```
 
 6. Save all the changes.
 
 ### 4.2.4 Deploy and run the sample application
+
 Deploy and run the sample application on your Pi by running the following command:
 
 ```bash
 gulp
 ```
 
-### 4.2.5 Deploy and run the sample application
-
 You should see the LED turned on for two seconds, and then turned off for another two seconds. The last “stop” message stops the sample application from running.
 
-You rock! You’ve successfully customized the messages that are sent to the sample application from your IoT hub.
+Congratulations! You’ve successfully customized the messages that are sent to the Pi from your IoT hub.
 
-### 4.2.6 Summary
+### 4.2.5 Summary
 
 This complimentary reading demos how to customize the messages so that the sample application can control the on and off behavior of the LED in a different way.
 
