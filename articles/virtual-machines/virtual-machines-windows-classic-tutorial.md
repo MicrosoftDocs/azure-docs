@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create a VM running Windows in the classic portal | Microsoft Azure"
+	pageTitle="Create a VM in the classic portal | Microsoft Azure"
 	description="Create a Windows virtual machine in the Azure classic portal."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/27/2016"
+	ms.date="10/18/2016"
 	ms.author="cynthn"/>
 
 # Create a virtual machine running Windows in the Azure classic portal
@@ -46,6 +46,8 @@ Here's a walkthrough of this tutorial.
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
 ## Next steps
+
+- Learn how to [create a VM using the Resource Manager deployment model](virtual-machines-windows-hero-tutorial.md) in the new Azure portal. 
 
 - Log on to the virtual machine. For instructions, see [Log on to a virtual machine running Windows Server](virtual-machines-windows-classic-connect-logon.md).
 
