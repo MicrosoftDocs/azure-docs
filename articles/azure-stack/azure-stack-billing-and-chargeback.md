@@ -78,7 +78,7 @@ PowerShell calls the Resource Usage APIs.
 
 ## Next steps
 
-[Provider Resource Usage API](azure-stack-provider-resource-usage-api.md)
+[Provider Resource Usage API](azure-stack-provider-resource-api.md)
 
 [Tenant Resource Usage API](azure-stack-tenant-resource-usage-api.md)
 
