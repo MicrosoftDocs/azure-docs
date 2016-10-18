@@ -30,7 +30,7 @@ By default, a DocumentDB database account is accessible from public internet as 
 
 ## Connections from cloud services
 
-In Azure, cloud services are a very common way for hosting middle tier service logic using DocumentDB. To enable access to a DocumentDB database account from a cloud service, the public IP address of the cloud service must be added to the allowed list of IP addresses associated with your DocumentDB database account by [contacting Azure support](#configure-ip-policy).  This ensures that all role instances of cloud services have access to your DocumentDB database account. You can retrieve IP addresses for other cloud services in the Azure portal, as shown in the following screenshot. 
+In Azure, cloud services are a very common way for hosting middle tier service logic using DocumentDB. To enable access to a DocumentDB database account from a cloud service, the public IP address of the cloud service must be added to the allowed list of IP addresses associated with your DocumentDB database account by [contacting Azure support](#configure-ip-policy).  This ensures that all role instances of cloud services have access to your DocumentDB database account. You can retrieve IP addresses for your cloud services in the Azure portal, as shown in the following screenshot. 
 
 ![Screenshot showing the public IP address for a cloud service displayed in the Azure portal](./media/documentdb-firewall-support/documentdb-public-ip-addresses.png)
 
@@ -65,7 +65,7 @@ Use the Azure portal to file a request with [Azure Support](https://portal.azure
 	- Click **Next**. 
 5. In the **Contact information** blade, fill in your contact details and click **Create**. 
 
-Once your request is received, IP access control should be enabled within 24 hours. You will be notified with the request is complete.
+Once your request is received, IP access control should be enabled within 24 hours. You will be notified once the request is complete.
 
 ![Screenshot of the Help + support blades](./media/documentdb-firewall-support/documentdb-firewall-support-request-access.png)
 
