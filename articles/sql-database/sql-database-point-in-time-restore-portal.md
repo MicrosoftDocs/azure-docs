@@ -26,9 +26,9 @@
 
 This article shows you how to restore your database to an earlier point in time from [SQL Database automated backups](sql-database-automated-backups.md) using the Azure portal.
 
-## Select a database to restore to a previous point in time
+## Restore a SQL database to a previous point in time
 
-To restore a database in the Azure portal, do the following steps:
+Select a database to restore in the Azure portal:
 
 1.	Open the [Azure portal](https://portal.azure.com).
 2.  On the left side of the screen, select **More services** > **SQL databases**.
