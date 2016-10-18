@@ -38,22 +38,22 @@ for the requested time frame. There is no request body.
 This usage API is a Provider API, so the caller must be assigned an
 Owner, Contributor, or Reader role in the provider’s subscription.
 
-  **Method**   **Request URI**
-  ------------ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  GET          https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&subscriberId={sub1.1}&api-version=2015-06-01-preview&continuationToken={token-value}
+| **Method**  | **Request URI** |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|  GET        | https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&subscriberId={sub1.1}&api-version=2015-06-01-preview&continuationToken={token-value} |
 
 ### Arguments
 
-  **Argument**               **Description**
-  -------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  *armendpoint*              Azure Resource Manager endpoint of your Azure Stack environment.
-  *subId*                    Subscription ID of the user who is making the call.
-  *reportedStartTime*        Start time of the query. The value for *DateTime* should be in UTC and at the beginning of the hour, for example, 13:00. For daily aggregation, set this value to UTC midnight. The format is *escaped* ISO 8601, for example, 2015-06-16T18%3a53%3a11%2b00%3a00Z, where colon is escaped to %3a and plus is escaped to %2b so that it is URI friendly.
-  *reportedEndTime*          End time of the query. The constraints that apply to *reportedStartTime* also apply to this argument. The value for *reportedEndTime* cannot be in the future.
-  *aggregationGranularity*   Optional parameter that has two discrete potential values: daily and hourly. As the values suggest, one returns the data in daily granularity, and the other is an hourly resolution. The daily option is the default.
-  *subscriberId*             Subscription ID. To get filtered data, the subscription ID of a direct tenant of the provider is required. If no subscription ID parameter is specified, the call returns usage data for all the provider’s direct tenants.
-  *api-version*              Version of the protocol that is used to make this request. You must use 2015-06-01-preview.
-  *continuationToken*        Token retrieved from the last call to the Usage API provider. This is needed when a response is greater than 1,000 lines. This is the bookmark for progress. If not present, the data is retrieved from the beginning of the day or hour, based on the granularity passed in.
+| **Argument**              | **Description** |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| *armendpoint*             | Azure Resource Manager endpoint of your Azure Stack environment. |
+| *subId*                   | Subscription ID of the user who is making the call. |
+| *reportedStartTime*       | Start time of the query. The value for *DateTime* should be in UTC and at the beginning of the hour, for example, 13:00. For daily aggregation, set this value to UTC midnight. The format is *escaped* ISO 8601, for example, 2015-06-16T18%3a53%3a11%2b00%3a00Z, where colon is escaped to %3a and plus is escaped to %2b so that it is URI friendly. |
+| *reportedEndTime*         | End time of the query. The constraints that apply to *reportedStartTime* also apply to this argument. The value for *reportedEndTime* cannot be in the future. |
+| *aggregationGranularity*  | Optional parameter that has two discrete potential values: daily and hourly. As the values suggest, one returns the data in daily granularity, and the other is an hourly resolution. The daily option is the default. |
+| *subscriberId*            | Subscription ID. To get filtered data, the subscription ID of a direct tenant of the provider is required. If no subscription ID parameter is specified, the call returns usage data for all the provider’s direct tenants. |
+| *api-version*             | Version of the protocol that is used to make this request. You must use 2015-06-01-preview. |
+| *continuationToken*       | Token retrieved from the last call to the Usage API provider. This is needed when a response is greater than 1,000 lines. This is the bookmark for progress. If not present, the data is retrieved from the beginning of the day or hour, based on the granularity passed in. |
 
 
 
