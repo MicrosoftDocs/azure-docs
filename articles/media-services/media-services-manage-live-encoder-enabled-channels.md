@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="17/12/2016"
+	ms.date="10/17/2016"
 	ms.author="juliako;anilmur"/>
 
 #Live streaming using Azure Media Services to create multi-bitrate streams
