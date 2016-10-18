@@ -13,12 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/02/2016"
+   ms.date="10/19/2016"
    ms.author="nitinme"/>
 
 # Use Distcp to copy data between Azure Storage Blobs and Data Lake Store
 
 > [AZURE.SELECTOR]
+- [Using Azure Data Factory](data-lake-store-copy-data-azure-data-factory.md)
 - [Using DistCp](data-lake-store-copy-data-wasb-distcp.md)
 - [Using AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 

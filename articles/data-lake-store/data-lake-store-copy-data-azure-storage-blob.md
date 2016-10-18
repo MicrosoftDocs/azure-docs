@@ -13,12 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/05/2016"
+   ms.date="10/19/2016"
    ms.author="nitinme"/>
 
-# Copy data from Azure Storage Blobs to Data Lake Store
+# Use AdlCopy to copy data from Azure Storage Blobs to Data Lake Store
 
 > [AZURE.SELECTOR]
+- [Using Azure Data Factory](data-lake-store-copy-data-azure-data-factory.md)
 - [Using DistCp](data-lake-store-copy-data-wasb-distcp.md)
 - [Using AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 
