@@ -3,7 +3,7 @@
    description="An index of Azure Active Directory code samples, organized by scenario."
    services="active-directory"
    documentationCenter="dev-center-name"
-   authors="msmbaldwin"
+   authors="priyamohanram"
    manager="mbaldwin"
    editor=""/>
 
