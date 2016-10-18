@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="provider-resource-api"
+	ms.topic="article"
 	ms.date="10/18/2016"
 	ms.author="alfredop"/>
 
@@ -103,4 +103,4 @@ GET
 
 ### Next steps
 
-[Usage-related FAQ](usage-related-faq.md)
+[Usage-related FAQ](azure-stack-usage-related-faq.md)
