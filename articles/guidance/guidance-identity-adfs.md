@@ -605,7 +605,7 @@ To run the script that deploys the solution:
 
 	- `Prepare`, which performs all the above tasks. **This is the recommended option if you are building an entirely new deployment and you don't have an existing on-premises infrastructure.**
 
-	>[AZURE.NOTE]. You can also run the script with a `<mode>` parameter of `Workload` to create the web, business, and data tier VMs and network. This setup is not included as part of the `Prepare` mode.
+	>[AZURE.NOTE] You can also run the script with a `<mode>` parameter of `Workload` to create the web, business, and data tier VMs and network. This setup is not included as part of the `Prepare` mode.
 
 	If you use the `Prepare` option, the script takes several hours to complete, and finishes with the message *Preparation is completed. Please install certificate to all ADFS and proxy VMs.*
 
