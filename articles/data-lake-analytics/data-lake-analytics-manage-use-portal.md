@@ -197,7 +197,7 @@ For information on creating Azure Active Directory users and security groups, Se
 <!-- ################################ -->
 ## Manage jobs
 
-You must have a Data Lake Analytics account before you can ran any U-SQL jobs.  For more information, see [Manage Data Lake Analytics accounts](#manage-data-lake-analytics-accounts).
+You must have a Data Lake Analytics account before you can run any U-SQL jobs.  For more information, see [Manage Data Lake Analytics accounts](#manage-data-lake-analytics-accounts).
 
 <a name="create-job"></a>**To create a job**
 
