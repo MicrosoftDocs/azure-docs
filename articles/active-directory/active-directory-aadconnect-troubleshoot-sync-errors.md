@@ -19,12 +19,12 @@
 # Troubleshooting Errors during synchronization
 Errors could occur when identity data is synchronized from Windows Server Active Directory (AD DS) to Azure Active Directory (Azure AD). This article provides an overview of different types of sync errors, some of the possible scenarios that cause those errors and potential ways to fix the errors. This article includes the common error types and may not cover all the possible errors.
 
- This article assumes the reader is familiar with the underlying [design concepts of Azure AD and Azure AD  Connect](active-directory-aadconnect-design-concepts.md).
+ This article assumes the reader is familiar with the underlying [design concepts of Azure AD and Azure AD Connect](active-directory-aadconnect-design-concepts.md).
 
-With the latest version of Azure AD Connect \(August 2016 or higher\) , a report of Synchronization Errors is available in the [Azure Portal](https://aka.ms/aadconnecthealth) with all the relevant data as part of Azure AD Connect Health for sync. This specific capability does not require Azure AD Premium.
+With the latest version of Azure AD Connect \(August 2016 or higher\), a report of Synchronization Errors is available in the [Azure Portal](https://aka.ms/aadconnecthealth) as part of Azure AD Connect Health for sync. 
 
 
->[AZURE.NOTE] Starting September 1, 2016 [Azure Active Directory Duplicate Attribute Resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) feature will be enabled by default for all the *new* Azure Active Directory Tenants. This feature will be automatically enabled for existing tenants in the upcoming months.
+>[AZURE.NOTE] Starting September 1, 2016 [Azure Active Directory Duplicate Attribute Resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)feature will be enabled by default for all the *new* Azure Active Directory Tenants. This feature will be automatically enabled for existing tenants in the upcoming months.
 
 Azure AD Connect performs 3 types of operations from the directories it keeps in sync: Import, Synchronization and Export. Errors can take place in all the operations. This article mainly focuses on errors during Export to Azure AD.
 
@@ -38,7 +38,7 @@ Errors during Export to Azure AD indicate that the operation \(add, update, dele
 #### InvalidSoftMatch
 ##### Description
 - When Azure AD Connect \(sync engine\) instructs Azure Active Directory to add or update objects, Azure AD matches the incoming object using the **sourceAnchor** attribute to the **immutableId** attribute of objects in Azure AD. This match is called a **Hard Match**.
-- When Azure AD **does not find** any object that matches the **immutableId** attribute with the **sourceAnchor** attribute of the incoming object, before provisioning a new object, it falls back to use the ProxyAddresses and UserPrincipalName attributes to find a match. This match is called a **Soft Match**. The Soft Match is designed to match objects already present in Azure AD (that are sourced in Azure AD) with the new objects being added/updated during synchronization that represent the same entity (users, groups etc.) on premises.
+- When Azure AD **does not find** any object that matches the **immutableId** attribute with the **sourceAnchor** attribute of the incoming object, before provisioning a new object, it falls back to use the ProxyAddresses and UserPrincipalName attributes to find a match. This match is called a **Soft Match**. The Soft Match is designed to match objects already present in Azure AD (that are sourced in Azure AD) with the new objects being added/updated during synchronization that represent the same entity (users, groups) on premises.
 - **InvalidSoftMatch** error occurs when the hard match does not find any matching object **AND** soft match finds a matching object but that object has a different value of *immutableId* than the incoming object's *SourceAnchor*, suggesting that the matching object was synchronized with another object from on premises Active Directory.
 
 In other words, in order for the soft match to work, the object to be soft-matched with should not have any value for the *immutableId*. If any object with *immutableId* set with a value is failing the hard-match but satisfying the soft-match criteria, the operation would result in an InvalidSoftMatch synchronization error.
@@ -49,7 +49,7 @@ Azure Active Directory schema does not allow two or more objects to have the sam
 - onPremisesSecurityIdentifier
 - ObjectId
 
->[AZURE.NOTE] [Azure AD Attribute Duplicate Attribute Resiliency](active-directory-aadconnectsync-duplicate-attribute-resiliency.md) feature is also being rolled out as the default behavior of Azure Active Directory.  This will reduce the number of synchronization errors seen by Azure AD Connect (as well as other sync clients) by making Azure AD more resilient in the way it handles  duplicated ProxyAddresses and UserPrincipalName attributes present in on premises AD environments. This feature does not fix the duplication errors. So the data still needs to be fixed. But it allows provisioning of new objects which are otherwise blocked from being provisioned due to duplicated values in Azure AD. This will also reduce the number of synchronization errors returned to the synchronization client.
+>[AZURE.NOTE] [Azure AD Attribute Duplicate Attribute Resiliency](active-directory-aadconnectsync-duplicate-attribute-resiliency.md) feature is also being rolled out as the default behavior of Azure Active Directory.  This will reduce the number of synchronization errors seen by Azure AD Connect (as well as other sync clients) by making Azure AD more resilient in the way it handles duplicated ProxyAddresses and UserPrincipalName attributes present in on premises AD environments. This feature does not fix the duplication errors. So the data still needs to be fixed. But it allows provisioning of new objects which are otherwise blocked from being provisioned due to duplicated values in Azure AD. This will also reduce the number of synchronization errors returned to the synchronization client.
 If this feature is enabled for your Tenant, you will not see the InvalidSoftMatch synchronization errors seen during provisioning of new objects.
 
 
@@ -58,14 +58,14 @@ If this feature is enabled for your Tenant, you will not see the InvalidSoftMatc
 2. Two or more objects with the same value of userPrincipalName exists in on premises Active Directory. Only one is getting provisioned in Azure AD.
 3. An object was added in the on premises Active Directory with the same value of ProxyAddresses attribute as that of an existing object in Azure Active Directory. The object added on premises is not getting provisioned in Azure Active Directory.
 4. An object was added in on premises Active Directory with the same value of userPrincipalName attribute as that of an account in Azure Active Directory. The object is not getting provisioned in Azure Active Directory.
-5. A synced account was moved from Forest A to Forest B. Azure AD Connect (sync engine) was using ObjectGUID attribute to compute the SourceAnchor. After the forest move the value of the SourceAnchor is different. The new object (from Forest B) is failing to sync with the existing object in Azure AD.
-6. A synced object got accidently deleted from on premises Active Directory and a new object was created in Active Directory for the same entity (such as user) without deleting the account in Azure Active Directory. The new account fails to sync with the existing Azure AD object.
+5. A synced account was moved from Forest A to Forest B. Azure AD Connect (sync engine) was using ObjectGUID attribute to compute the SourceAnchor. After the forest move, the value of the SourceAnchor is different. The new object (from Forest B) is failing to sync with the existing object in Azure AD.
+6. A synced object got accidentally deleted from on premises Active Directory and a new object was created in Active Directory for the same entity (such as user) without deleting the account in Azure Active Directory. The new account fails to sync with the existing Azure AD object.
 7. Azure AD Connect was uninstalled and re-installed. During the re-installation, a different attribute was chosen as the SourceAnchor. All the objects that had previously synced stopped syncing with InvalidSoftMatch error.
 
 #### How to fix InvalidSoftMatch error
 The most common reason for the InvalidSoftMatch error is two objects with different SourceAnchor \(immutableId\) have the same value for the ProxyAddresses and/or UserPrincipalName attributes, which are used during the soft-match process on Azure AD. In order to fix the Invalid Soft Match
 
-1.  Identify the duplicated Proxyaddresses, userPrincipalName or other attribute value that's causing the error. Also identify which two \(or more\) objects are involved in the conflict. The report generated by [Azure AD Connect Health for sync](https://aka.ms/aadchsyncerrors) can help you identify the two objects.
+1.  Identify the duplicated proxyAddresses, userPrincipalName or other attribute value that's causing the error. Also identify which two \(or more\) objects are involved in the conflict. The report generated by [Azure AD Connect Health for sync](https://aka.ms/aadchsyncerrors) can help you identify the two objects.
 2. Identify which object should continue to have the duplicated value and which object should not.
 3. Remove the duplicated value from the object that should NOT have that value. Note that you should make the change in the directory where the object is sourced from. In some cases, you may need to delete one of the objects in conflict.
 4. If you made the change in the on premises AD, let Azure AD Connect sync the change.
@@ -83,7 +83,7 @@ Note that Sync error report within Azure AD Connect Health for sync is updated e
     - smtp:bobs@contoso.com
     - smtp:bob.smith@contoso.com
     - **smtp:bob@contoso.com**
-5.  A new user, **Bob Taylor**, is added to the on premises Active Directory after an hiring event.
+5.  A new user, **Bob Taylor**, is added to the on premises Active Directory.
 6. Bob Taylor's **UserPrincipalName** is set as **bobt@contoso.com**.
 7. **"abcdefghijkl0123456789==""** is the **sourceAnchor** calculated by Azure AD Connect using Bob Taylor's **objectGUID** from on premises Active Directory. Bob Taylor's object has NOT synced to Azure Active Directory yet.
 8. Bob Taylor has the following values for the proxyAddresses attribute
@@ -92,7 +92,7 @@ Note that Sync error report within Azure AD Connect Health for sync is updated e
     - **smtp:bob@contoso.com**
 9. During sync, Azure AD Connect will recognize the addition of Bob Taylor in on premises Active Directory and ask Azure AD to make the same change.
 10. Azure AD will first perform hard match. That is, it will search if there is any object with the immutableId equal to "abcdefghijkl0123456789==". Hard Match will fail as no other object in Azure AD will have that immutableId.
-11. Azure AD will then attempt to soft-match Bob Taylor. That is, it will search if there is any object with proxyAddresses equal to the three values, including smpt:bob@contoso.com
+11. Azure AD will then attempt to soft-match Bob Taylor. That is, it will search if there is any object with proxyAddresses equal to the three values, including smtp:bob@contoso.com
 12. Azure AD will find Bob Smith's object to match the soft-match criteria. But this object has the value of immutableId = "abcdefghijklmnopqrstuv==". which indicates this object was synced from another object from on premises Active Directory. Thus, Azure AD cannot soft-match these objects and will result in an **InvalidSoftMatch** sync error.
 
 #### Related Articles
@@ -103,12 +103,12 @@ Note that Sync error report within Azure AD Connect Health for sync is updated e
 When Azure AD attempts to soft match two objects, it is possible that two objects of different "object type" (such as User, Group, Contact etc.) have the same values for the attributes used to perform the soft match. As duplication of these attributes is not permitted in Azure AD, the operation can result in "ObjectTypeMismatch" synchronization error.
 
 #### Example Scenarios for ObjectTypeMismatch error
-- A mail enabled security group is created in Office 365. Admin adds a new user or contact in on premises AD (that's not synchronized to Azure AD yet) with the same  value for the ProxyAddresses attribute as that of the Office 365 group.
+- A mail enabled security group is created in Office 365. Admin adds a new user or contact in on premises AD (that's not synchronized to Azure AD yet) with the same value for the ProxyAddresses attribute as that of the Office 365 group.
 
 
 #### How to fix ObjectTypeMismatch error
 The most common reason for the ObjectTypeMismatch error is two objects of different type (User, Group, Contact etc.) have the same value for the ProxyAddresses attribute. In order to fix the ObjectTypeMismatch:
-1.  Identify the duplicated Proxyaddresses (or other attribute) value that's causing the error. Also identify which two \(or more\) objects are involved in the conflict. The report generated by [Azure AD Connect Health for sync](https://aka.ms/aadchsyncerrors) can help you identify the two objects.
+1.  Identify the duplicated proxyAddresses (or other attribute) value that's causing the error. Also identify which two \(or more\) objects are involved in the conflict. The report generated by [Azure AD Connect Health for sync](https://aka.ms/aadchsyncerrors) can help you identify the two objects.
 2. Identify which object should continue to have the duplicated value and which object should not.
 3. Remove the duplicated value from the object that should NOT have that value. Note that you should make the change in the directory where the object is sourced from. In some cases, you may need to delete one of the objects in conflict.
 4. If you made the change in the on premises AD, let Azure AD Connect sync the change. Sync error report within Azure AD Connect Health for sync gets updated every 30 minutes and includes the errors from the latest synchronization attempt.
@@ -130,9 +130,9 @@ If Azure AD Connect attempts to add a new object or update an existing object wi
 #### Possible Scenarios:
 1. Duplicate value is assigned to an already synced object, which conflicts with another synced object.
 
-#### How to fix  error
+#### How to fix AttributeValueMustBeUnique error
 The most common reason for the AttributeValueMustBeUnique error is two objects with different SourceAnchor \(immutableId\) have the same value for the ProxyAddresses and/or UserPrincipalName attributes. In order to fix AttributeValueMustBeUnique error
-1.  Identify the duplicated Proxyaddresses, userPrincipalName or other attribute value that's causing the error. Also identify which two \(or more\) objects are involved in the conflict. The report generated by [Azure AD Connect Health for sync](https://aka.ms/aadchsyncerrors) can help you identify the two objects.
+1.  Identify the duplicated proxyAddresses, userPrincipalName or other attribute value that's causing the error. Also identify which two \(or more\) objects are involved in the conflict. The report generated by [Azure AD Connect Health for sync](https://aka.ms/aadchsyncerrors) can help you identify the two objects.
 2. Identify which object should continue to have the duplicated value and which object should not.
 3. Remove the duplicated value from the object that should NOT have that value. Note that you should make the change in the directory where the object is sourced from. In some cases, you may need to delete one of the objects in conflict.
 4. If you made the change in the on premises AD, let Azure AD Connect sync the change for the error to get fixed.
@@ -148,8 +148,8 @@ The most common reason for the AttributeValueMustBeUnique error is two objects w
 4. A new user, **Bob Taylor**, is added to the on premises Active Directory.
 5. Bob Taylor's **UserPrincipalName** is set as **bobt@contoso.com**.
 6. **Bob Taylor** has the following values for the **ProxyAddresses** attribute
-	i. smtp:bobt@contoso.com
-	ii. smtp:bob.taylor@contoso.com
+    i. smtp:bobt@contoso.com
+    ii. smtp:bob.taylor@contoso.com
 7. Bob Taylor's object is synchronized with Azure AD successfully.
 8. Admin decided to update Bob Taylor's **ProxyAddresses** attribute with the following value:
 	i. **smtp:bob@contoso.com**
@@ -178,7 +178,7 @@ a. Ensure that the userPrincipalName attribute has supported characters and requ
 This is a very specific case that results in a **"DataValidationFailed"** sync error when the suffix of a user's UserPrincipalName is changed from one federated domain to another federated domain.
 
 #### Scenarios
-For a synchronized users, the UserPrincipalName suffix was changed from one federated domain to another federated domain on premises. For example, *UserPrincipalName = bob@contoso.com* was changed to *UserPrincipalName = bob@fabrikam.com*.
+For a synchronized user, the UserPrincipalName suffix was changed from one federated domain to another federated domain on premises. For example, *UserPrincipalName = bob@contoso.com* was changed to *UserPrincipalName = bob@fabrikam.com*.
 
 #### How to fix
 If a user's UserPrincipalName suffix was updated from bob@**contoso.com** to bob@**fabrikam.com**, where both **contoso.com** and **fabrikam.com** are **federated domains**, then follow the below steps to fix the sync error
