@@ -36,8 +36,8 @@ The following table summarizes the retry features for the Azure services describ
 | **[SQL Database with ADO.NET](#sql-database-using-ado-net-retry-guidelines)**         | Topaz*                                  | Declarative and programmatic | Single statements or blocks of code              | Custom                 |
 | **[Service Bus](#service-bus-retry-guidelines)**                       | Native in client                        | Programmatic                 | Namespace Manager, Messaging Factory, and Client | ETW                    |
 | **[Cache](#cache-redis-retry-guidelines)**                             | Native in client                        | Programmatic                 | Client                                           | TextWriter             |
-| **[DocumentDB](#documentdb-pre-release-retry-guidelines)**                        | Native in service                       | Non-configurable             | Global                                           | TraceSource            |
-| **[Azure Search](#search-retry-guidelines)**                            | Native in client | Programmatic | Client                                  | Custom                 |
+| **[DocumentDB](#documentdb-retry-guidelines)**                        | Native in service                       | Non-configurable             | Global                                           | TraceSource            |
+| **[Azure Search](#search-retry-guidelines)**                            | Native in client | Programmatic | Client                                  | ETW or Custom                 |
 | **[Active Directory](#azure-active-directory-retry-guidelines)**                  | Topaz* (with custom detection strategy) | Declarative and programmatic | Blocks of code                                   | Custom                 |
 
 *Topaz in the friendly name for the Transient Fault Handling Application Block that is included in [Enterprise Library 6.0][entlib]. You can use a custom detection strategy with Topaz for most types of services, as described in this guidance. Default strategies for Topaz are shown in the section [Transient Fault Handling Application Block (Topaz) strategies](#transient-fault-handling-application-block-topaz-strategies) at the end of this guidance. Note that the block is now an open-sourced framework and is not directly supported by Microsoft.
@@ -854,28 +854,53 @@ DocumentDB is a fully-managed document database-as-a-service with rich query and
 
 ### Retry mechanism
 
-The pre-release version of the DocumentDB client includes an internal and non-configurable retry mechanism (this may change in subsequent releases). The default settings for this vary depending on the context of its use. Some operations use an exponential back-off strategy with hard-coded parameters. Others specify only how many retries should be attempted, and use the retry delay in the [DocumentClientException](http://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx) instance that is returned from the service. A delay of five seconds is used if no delay is specified.
+The `DocumentClient` class automatically retries failed attempts. To set the number of retries and the maximum wait time, configure [ConnectionPolicy.RetryOptions]. Exceptions that the client raises are either beyond the retry policy or are not transient errors. 
+ 
+If DocumentDB throttles the client, it returns an HTTP 429 error. Check the status code in the `DocumentClientException`. 
+
 
 ### Policy configuration 
 
-None. All of the classes used to implement retries are internal. The retry parameters are either constants or are set using parameters to the class constructors.
+The following table shows the default settings for the `RetryOptions` class.
 
-The following table shows the default settings for the built-in retry policy.
+| Setting                             | Default value | Description |
+|-------------------------------------|---------------|-------------|
+| MaxRetryAttemptsOnThrottledRequests | 9             | The maximum number of retries if the request fails because DocumentDB applied rate limiting on the client.           |
+| MaxRetryWaitTimeInSeconds           | 30            | The maximum retry time in seconds. |
 
-| **Context**            | **Settings**                                      | **Values** | **How it works**                                                                                                                                               |
-|------------------------|---------------------------------------------------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| RetryPolicy (internal) | MaxRetryAttemptsOnQuery<br /><br />MaxRetryAttemptsOnRequest | 3<br /><br />0        | The number of retry attempts for document queries. This value cannot be changed.<br />The number of retry attempts for other requests. This value cannot be changed. |
 
-### Retry usage guidance
+### Example
 
-Consider the following guidelines when using DocumentDB:
-
-* You cannot change the default retry policy.
-* See [TBD] for more information about the default settings.
+```csharp
+DocumentClient client = new DocumentClient(new Uri(endpoint), authKey); ;
+var options = client.ConnectionPolicy.RetryOptions;
+options.MaxRetryAttemptsOnThrottledRequests = 5;
+options.MaxRetryWaitTimeInSeconds = 15;
+```
 
 ### Telemetry
 
 Retry attempts are logged as unstructured trace messages through a .NET **TraceSource**. You must configure a **TraceListener** to capture the events and write them to a suitable destination log.
+
+For example, if you add the following to your App.config file, traces will be generated in a text file in the same location as the executable:
+
+```
+<configuration>
+  <system.diagnostics>
+    <switches>
+      <add name="SourceSwitch" value="Verbose"/>
+    </switches>
+    <sources>
+      <source name="DocDBTrace" switchName="SourceSwitch" switchType="System.Diagnostics.SourceSwitch" >
+        <listeners>
+          <add name="MyTextListener" type="System.Diagnostics.TextWriterTraceListener" traceOutputOptions="DateTime,ProcessId,ThreadId" initializeData="DocumentDBTrace.txt"></add>
+        </listeners>
+      </source>
+    </sources>
+  </system.diagnostics>
+</configuration>
+```
+
 
 ## Azure Search retry guidelines
 
@@ -885,6 +910,9 @@ Azure Search can be used to add powerful and sophisticated search capabilities t
 
 Retry behavior in the Azure Search SDK is controlled by the `SetRetryPolicy` method on the [SearchServiceClient] and [SearchIndexClient] classes. The default policy retries with exponential backoff when Azure Search returns a 5xx or 408 (Request Timeout) response.
 
+### Telemetry
+
+Trace with ETW or by registering a custom trace provider. For more information, see [Tracing][autorest-tracing] in the AutoRest documentation.
 
 ### More information
 
@@ -1108,6 +1136,8 @@ For examples of using the Transient Fault Handling Application Block, see the Ex
 <!-- links -->
 
 [autorest-retry]: https://github.com/Azure/autorest/blob/master/Documentation/clients-retry.md
+[autorest-tracing]: https://github.com/Azure/autorest/blob/master/Documentation/clients-tracing.md
+[ConnectionPolicy.RetryOptions]: https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.retryoptions.aspx
 [entlib]: http://msdn.microsoft.com/library/dn440719.aspx
 [SearchIndexClient]: https://msdn.microsoft.com/library/azure/microsoft.azure.search.searchindexclient.aspx
 [SearchServiceClient]: https://msdn.microsoft.com/library/microsoft.azure.search.searchserviceclient.aspx
