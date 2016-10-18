@@ -427,7 +427,7 @@ In this implementation example, both CloseAsync and Abort simply stop the web se
 
 ## Start the web server
 
-You're now ready to create and return an instance of OwinCommunicationListener to start the web server. Back in the Service class (Service.cs), override the `CreateServiceInstanceListeners()` method:
+You're now ready to create and return an instance of OwinCommunicationListener to start the web server. Back in the Service class (WebService.cs), override the `CreateServiceInstanceListeners()` method:
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
