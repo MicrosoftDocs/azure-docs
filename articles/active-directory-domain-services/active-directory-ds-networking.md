@@ -67,7 +67,7 @@ A [Network Security Group (NSG)](../virtual-network/virtual-networks-nsg.md) con
 
 - Do not apply NSGs to the dedicated subnet for your managed domain. If you must apply NSGs to the dedicated subnet, ensure you **do not block the ports required to service and manage your domain**.
 
-- Do not overly restrict the number of IP addresses available within the dedicated subnet you will use for Azure AD Domain Services. This prevents the service from making two domain controllers available for your managed domain.
+- Do not overly restrict the number of IP addresses available within the dedicated subnet for your managed domain. This restriction prevents the service from making two domain controllers available for your managed domain.
 
 - **Do not enable Azure AD Domain Services in the gateway subnet** of your virtual network.
 
