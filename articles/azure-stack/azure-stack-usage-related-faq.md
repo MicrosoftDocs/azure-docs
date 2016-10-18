@@ -1,8 +1,24 @@
-Usage-related FAQs
-==================
+<properties
+	pageTitle="Usage-related FAQs | Microsoft Azure"
+	description="List of Azure Stack meters, comparison to Azure usage API, Usage Time and Reported Time, error codes."
+	services="azure-stack"
+	documentationCenter=""
+	authors="AlfredoPizzirani"
+	manager="byronr"
+	editor=""/>
 
-What meter IDs can I see?
--------------------------
+<tags
+	ms.service="azure-stack"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="provider-resource-api"
+	ms.date="10/18/2016"
+	ms.author="alfredop"/>
+
+# Usage-related FAQs
+
+## What meter IDs can I see?
 
 Currently, usage is reported for the network, storage, and compute
 resource providers.
@@ -25,10 +41,9 @@ resource providers.
 | | DD0A10BA-A5D6-4CB6-88C0-7D585CEF9FC2   | QueueDataTransOut         | Outgress in GB  | Queue service data egress in GB 
 | **Compute** | 6DAB500F-A4FD-49C4-956D-229BB9C8C793 | VM Size Hours | Virtual machine size |
 
-#### 
 
-How do the Azure Stack Usage APIs compare to the [Azure Usage API](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (currently in public preview)?
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## How do the Azure Stack Usage APIs compare to the [Azure Usage API](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (currently in public preview)?
 
 -   The Tenant Usage API is consistent with the Azure API, with one
     exception: the *showDetails* flag currently is not supported in
@@ -40,8 +55,7 @@ How do the Azure Stack Usage APIs compare to the [Azure Usage API](https://msdn.
     API](https://msdn.microsoft.com/en-us/library/azure/mt219004.aspx)
     that is available in Azure is not available in Azure Stack.
 
-What is the difference between Usage Time and Reported Time?
-------------------------------------------------------------
+## What is the difference between Usage Time and Reported Time?
 
 Usage data reports have two main time values:
 
@@ -56,8 +70,7 @@ in any environment.
 
 Currently, you can query *only by Reported Time*.
 
-What do these Usage API error codes mean?
------------------------------------------
+## What do these Usage API error codes mean?
 
 | **HTTP status code** | **Error code** | **Description** |
 | ---------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
