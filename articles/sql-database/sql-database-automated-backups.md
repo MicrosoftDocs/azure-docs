@@ -162,6 +162,40 @@ If you delete a database, SQL Database keeps the backups in the same way it woul
 
 If you delete the Azure SQL server that hosts SQL Databases, all databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server.
 
+<!-------------------
+OPTIONAL section
+## Best practices 
+--------------------->
+
+<!-------------------
+OPTIONAL section
+## General remarks
+--------------------->
+
+<!-------------------
+OPTIONAL section
+## Limitations and restrictions
+--------------------->
+
+<!-------------------
+OPTIONAL section
+## Metadata
+--------------------->
+
+<!-------------------
+OPTIONAL section
+## Performance
+--------------------->
+
+<!-------------------
+OPTIONAL section
+## Permissions
+--------------------->
+
+<!-------------------
+OPTIONAL section
+## Security
+--------------------->
 
 <!-------------------
 GUIDELINES for Next Steps
