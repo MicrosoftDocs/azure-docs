@@ -21,10 +21,10 @@ Errors could occur when identity data is synchronized from Windows Server Active
 
  This article assumes the reader is familiar with the underlying [design concepts of Azure AD and Azure AD Connect](active-directory-aadconnect-design-concepts.md).
 
-With the latest version of Azure AD Connect \(August 2016 or higher\), a report of Synchronization Errors is available in the [Azure Portal](https://aka.ms/aadconnecthealth) as part of Azure AD Connect Health for sync. 
+With the latest version of Azure AD Connect \(August 2016 or higher\), a report of Synchronization Errors is available in the [Azure Portal](https://aka.ms/aadconnecthealth) as part of Azure AD Connect Health for sync.
 
 
->[AZURE.NOTE] Starting September 1, 2016 [Azure Active Directory Duplicate Attribute Resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)feature will be enabled by default for all the *new* Azure Active Directory Tenants. This feature will be automatically enabled for existing tenants in the upcoming months.
+Starting September 1, 2016 [Azure Active Directory Duplicate Attribute Resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) feature will be enabled by default for all the *new* Azure Active Directory Tenants. This feature will be automatically enabled for existing tenants in the upcoming months.
 
 Azure AD Connect performs 3 types of operations from the directories it keeps in sync: Import, Synchronization and Export. Errors can take place in all the operations. This article mainly focuses on errors during Export to Azure AD.
 

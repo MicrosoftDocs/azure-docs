@@ -28,19 +28,19 @@ Future updates to Azure AD Connect Health will include additional monitoring and
 
 ## Why use Azure AD Connect Health
 
-Integrating your on-premises directories with Azure AD makes your users more productive by providing a common identity for accessing both cloud and on-premises resources. However, with this integration comes the challenges of ensuring that this environment is healthy so that users can reliably access resources both on-premises and in cloud from any device. Azure AD Connect Health provides an easy cloud based approach to monitor and gain insights into your on-premises identity infrastructure that is used to access Office 365 or other Azure AD applications. It is as simple as installing an agent on each of your on-premises identity servers.
+Integrating your on-premises directories with Azure AD makes your users more productive by providing a common identity for accessing both cloud and on-premises resources. However, with this integration comes the challenges of ensuring that this environment is healthy so that users can reliably access resources both on-premises and in cloud from any device. Azure AD Connect Health provides an easy cloud-based approach to monitor and gain insights into your on-premises identity infrastructure that is used to access Office 365 or other Azure AD applications. It is as simple as installing an agent on each of your on-premises identity servers.
 
 ## [Azure AD Connect Health for AD FS](active-directory-aadconnect-health-adfs.md)
 
-Azure AD Connect Health for AD FS supports AD FS 2.0 on Windows Server 2008 R2, AD FS in Windows Server 2012 and Windows Server 2012R2. This also includes AD FS Proxy or Web Application Proxy servers that provide authentication support for extranet access. With a very easy and low cost installation of the health agent, Azure AD Connect Health for AD FS provides the following set of key capabilities:
+Azure AD Connect Health for AD FS supports AD FS 2.0 on Windows Server 2008 R2, AD FS in Windows Server 2012 and Windows Server 2012R2. It also supports monitoring the AD FS Proxy or Web Application Proxy servers that provide authentication support for extranet access. With an easy and low-cost installation of the health agent, Azure AD Connect Health for AD FS provides the following set of key capabilities:
 
 - Monitoring with alerts to know when AD FS and AD FS Proxy servers are not healthy
 - Email notifications for critical alerts
 - View trends in performance data, useful for capacity planning of AD FS
-- Usage analytics for AD FS logins with different pivot (apps, users, network location etc), useful in understand how AD FS is getting utilized.
+- Usage analytics for AD FS logins with different pivot (apps, users, network location etc.) useful in understand how AD FS is getting utilized.
 - Reports for AD FS such as Top 50 users with bad Username/Password attempts with last IP address
 
-The following video will provide an overview of Azure AD Connect Health for AD FS
+The following video provides an overview of Azure AD Connect Health for AD FS
 
 >[AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
 
@@ -50,24 +50,24 @@ Azure AD Connect Health for Sync monitors and provides information on the synchr
 
 - Monitoring with alerts to know when Azure AD Connect servers aka the Sync Engine is not healthy
 - Email notifications for critical alerts
-- Sync operational insights including latency charts for Sync Operations and trends in sync operations such as adds, updates, deletes.
+- Sync operational insights including latency charts for Sync Operations and trends in different operations such as adds, updates, deletes.
 - Quick glance information about sync properties, last successful export to Azure AD
 - Reports about object level synchronization errors \(does not require Azure AD Premium\)
 
-The following video will provide an overview of Azure AD Connect Health for sync
+The following video provides an overview of Azure AD Connect Health for sync
 
 >[AZURE.VIDEO azure-active-directory-connect-health-monitoring-the-sync-engine]
 
 ## [Azure AD Connect Health for AD DS (preview)](active-directory-aadconnect-health-adds.md)
 
-Azure AD Connect Health for AD DS provides monitoring for Domain Controllers installed on Windows Server 2008 R2, Windows Server 2012 and Windows Server 2012 R2. An easy and low cost health agent installation, enables you to monitor your on-premises AD DS environment straight from the cloud. Azure AD Connect Health for AD DS provides the following set of key capabilities:
+Azure AD Connect Health for AD DS provides monitoring for Domain Controllers installed on Windows Server 2008 R2, Windows Server 2012, and Windows Server 2012 R2. An easy and low-cost health agent installation, enables you to monitor your on-premises AD DS environment straight from the cloud. Azure AD Connect Health for AD DS provides the following set of key capabilities:
 
 - Monitoring alerts to detect when domain controllers are unhealthy, along with email notifications for critical alerts.
-- Domain Controllers dashboard which provides a quick view into the health and operational status of your domain controllers.
+- Domain Controllers dashboard, which provides a quick view into the health and operational status of your domain controllers.
 - Replication Status dashboard with latest replication information, along with links to troubleshooting guides when errors are detected.
 - Quick anywhere access to performance data graphs of popular performance counters, necessary for troubleshooting and monitoring purposes.
 
-The following video will provide an overview of Azure AD Connect Health for AD DS
+The following video provides an overview of Azure AD Connect Health for AD DS
 
 >[AZURE.VIDEO azure-ad-connect-health-monitors-on-premises-ad-domain-services]
 

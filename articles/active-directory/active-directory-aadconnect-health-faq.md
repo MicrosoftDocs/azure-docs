@@ -56,8 +56,7 @@ For example, on Windows Server 2008 R2 the installation of .Net 4.5 Framework re
 
 **Q: Does Azure AD Connect Health Services work through a pass-through http proxy?**
 
-Yes.  For on going operations, you can configure the Health Agent to forward outbound http requests using an HTTP Proxy. See [Configure Azure AD Connect Health Agents to use HTTP Proxy](active-directory-aadconnect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy) for more information.
-
+Yes.  For on going operations, you can configure the Health Agent to forward outbound http requests using an HTTP Proxy. For more information, See [Configure Azure AD Connect Health Agents to use HTTP Proxy.](active-directory-aadconnect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy)
 If you need to configure a proxy during Agent registration, you may need to modify your Internet Explorer Proxy settings beforehand.
 1. Open Internet Explorer -> Settings -> Internet Options -> Connections -> LAN Settings.
 2. Select Use a Proxy Server for your LAN.
@@ -82,7 +81,7 @@ Monitoring of AD DS is supported while installed on the following OS Versions:
 
 **Q: Do I need to enable auditing on my AD FS Application Proxy Servers or my Web Application Proxy Servers?**
 
-No, auditing does not need to be enabled on the Web Application Proxy (WAP) Servers. It only needs to be enabled on the AD FS servers.
+No, auditing does not need to be enabled on the Web Application Proxy (WAP) Servers. Enable it on the AD FS servers.
 
 
 **Q: How do Azure AD Connect Health Alerts get resolved?**
@@ -94,13 +93,15 @@ Azure AD Connect Health Alerts get resolved on a success condition. Azure AD Con
 
 **Q: What firewall ports do I need to open for the Azure AD Connect Health Agent to work?**
 
-You will need to have TCP/UDP ports 443 and 5671 open for the Azure AD Connect Health Agent to be able to communicate with the Azure AD Health service endpoints.
+You need to have TCP/UDP ports 443 and 5671 open for the Azure AD Connect Health Agent to be able to communicate with the Azure AD Health service endpoints.
 
 
 **Q: Why do I see two servers with the same name in the Azure AD Connect Health Portal?**
 
-When you remove an agent from a server, the server is not automatically removed from the Azure AD Connect Portal automatically.  So, if you manually removed an agent from a server or removed the server itself, you will need to manually delete the server entry from the Azure AD Connect Health portal.  For more information go to [delete a server or service instance.](active-directory-aadconnect-health-operations.md#delete-a-server-or-service-instance)
-Also, if you re-imaged a server or created a new server with the same details(such as machine name), but did not remove the server from the Azure AD Connect Health portal and then installed the agent on the new server, you may now see two entries for the server.  In this case, you should delete the entry belonging to the older server manually.  The data with this entry will usually be out-of-date.
+When you remove an agent from a server, the server is not automatically removed from the Azure AD Connect Portal.  If you manually removed an agent from a server or removed the server itself, you need to manually delete the server entry from the Azure AD Connect Health portal. For more information, go to [delete a server or service instance.](active-directory-aadconnect-health-operations.md#delete-a-server-or-service-instance)
+
+If you reimaged a server or created a new server with the same details(such as machine name) and  did not remove the already registered server from the Azure AD Connect Health portal, installed the agent on the new server, you may see two entries with the same name.  
+In this case, you should delete the entry belonging to the older server manually. The data for this server should be out-of-date.
 
 ## Related links
 
