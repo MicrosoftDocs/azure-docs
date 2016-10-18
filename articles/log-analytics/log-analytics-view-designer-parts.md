@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/27/2016"
+	ms.date="10/17/2016"
 	ms.author="bwren"/>
 
 # Log Analytics View Designer visualization part reference
@@ -59,7 +59,8 @@ Displays a list of log search queries.  The user can click on each query to disp
 
 ## Number & list part
 
-Header has a single number showing count of records from a log search query.  List displays the top ten results from a query with horizontal bars indicating the relative value of a numeric column.
+Header has a single number showing count of records from a log search query.  List displays the top ten results from a query with optional horizontal bars indicating the relative value of a numeric column or sparklines visualizing the value of a numeric column over time.
+
 
 ![List of queries view](media/log-analytics-view-designer/view-number-list.png)
 
@@ -75,12 +76,19 @@ Header has a single number showing count of records from a log search query.  Li
 | Query | Query to run for the header.  The count of the number of records returned by the query will be displayed. |
 | **List** |
 | Query | Query to run for the list.  The first two properties for the first ten records in the results will be displayed.  The first property should be a text value and the second property a numeric value.  Bars are automatically created based on the relative value of the numeric column.<br><br>Use the Sort command in the query to sort the records in the list.  The user can click See all to run the query and return all records. |
-| Color | Color of the bars. |
+| Hide graph | Select to disable the graph to the right of the numeric column. |
+| Enable sparklines | Select to display sparklines instead of horizontal lines. |
+| Color | Color of the bars or sparklines. |
 | Name & Value Separator | Single character delimiter if you want to parse the text property into multiple values.  If you specify a delimiter, you can provide names for each field separated by the same delimiter in the Name box.<br><br>For example, consider a property called location that included values such as *Redmond-Building 41* and *Bellevue-Building12*.  You could specify – for the Name & Value Separator and *City-Building* for the Name.  This would parse each value into two properties called *City* and *Building*. |
-| Navigation query | Query to run when the user selects an item in the list.  Use {selected item} to include the syntax for item that the user selected. <br><br>For example, if the query has a column called Computer and the navigation query is {selected item}, a query such as Computer=”MyComputer” would be run when the user selected a computer.  If the navigation query is Type=Event {selected item} then the query Type=Event Computer=”MyComputer” would be run. |
+| Navigation query | Query to run when the user selects an item in the list.  Use {selected item} to include the syntax for item that the user selected. <br><br>For example, if the query has a column called Computer and the navigation query is {selected item}, a query such as Computer="MyComputer" would be run when the user selected a computer.  If the navigation query is Type=Event {selected item} then the query Type=Event Computer=”MyComputer” would be run. |
 | **List** | **> Column Titles** |
 | Name | Text to display at the top of the first column of the list. |
 | Value | Text to display at the top of the second column of the list. |
+| **List** | **> Thresholds** |
+| Enable Thresholds | Select to display a color icon to the left of each value indicating its health relative to specified thresholds. |
+| Name | Name to identify the threshold value. |
+| Threshold | Value for the threshold.  The health color for each list item is set to the color of the highest threshold value exceeded by the item's value.  There is one Default threshold that is the color if no threshold values are exceeded. |
+| Color | Color for the threshold value. |
 
 ## Two Numbers & list part
 
@@ -128,7 +136,7 @@ Header displays a single number summarized from a value column in a log query.  
 | Title | Text to display at the top of the header.
 | Subtitle | Text to display under the Title at the top of the header.
 | **Donut** |
-| Query | Query to run for the donut.  The first property should be a text value and the second property a numeric value. | 
+| Query | Query to run for the donut.  The first property should be a text value and the second property a numeric value. |
 | **Donut** |  **> Center** |
 | Text | Text to display under the value inside the donut. |
 | Operation | The operation to perform on the value property to summarize to a single value.<br><br>- Sum: Add the values of all records.<br>- Percentage: Percentage of the records returned by the values in **Result values used in center operation** to the total records in the query. |
@@ -264,11 +272,11 @@ Header displays a line chart with multiple series from a log query over time.  L
 | Name | Text to display at the top of the first column of the list. |
 | Value | Text to display at the top of the second column of the list. |
 
-## Line chart & sparklines part
+## Stack of line charts
 
-Header displays a line chart with multiple series from a log query over time.  List displays the top ten results from a query with sparkline visualizing the value of a numeric column over the selected timeframe.
+Displays three separate line charts with multiple series from a log query over time.
 
-![Line chart & sparklines](media/log-analytics-view-designer/view-line-chart-sparklines.png)
+![Stack of line charts](media/log-analytics-view-designer/view-stack-line-charts.png)
 
 | Setting | Description |
 |:--|:--|
@@ -276,24 +284,43 @@ Header displays a line chart with multiple series from a log query over time.  L
 | Group Title | Text to display at the top of the tile. |
 | New Group | Select to create a new group in the view starting at the current view. |
 | Icon | Image file to display next to the result in the header. |
-| Use Icon | Select to have the icon display. |
-| **Header** |
-| Title | Text to display at the top of the header. |
-| Subtitle | Text to display under the Title at the top of the header. |
-| **Line Chart** |
+| **Chart** | **> Header** |
+| Title | Text to display at the top of the chart. |
+| Subtitle | Text to display under the Title at the top of the chart. |
+| **Chart** | **Line Chart** |
 | Query | Query to run for the line chart.  The first property should be a text value and the second property a numeric value.  This is typically a query that uses the **measure** keyword to summarize results.  If the query uses the **interval** keyword then the X-Axis of the chart will use this time interval.  If the query does not include the **interval** keyword then hourly intervals are used for the X-Axis. |
-| **Line Chart** | **> Y Axis** |
+| **Chart** | **> Y Axis** |
 | Use Logarithmic Scale | Select to use a logarithmic scale for the Y-Axis. |
 | Units | Specify the units for the values returned by the query.  This information is used to display labels on the chart indicating the value types and optionally for converting the values.  The Unit Type specifies the category of the unit and defines the Current Unit Type values that are available.  If you select a value in Convert to then the numeric values are converted from the Current Unit type to the Convert to type. |
 | Custom Label | Text to display for the Y Axis next to the label for the unit type.  If no label is specified, then only the unit type is displayed. |
-| **List** |
-| Query | Query to run for the list.  The count of the number of records returned by the query will be displayed. |
-| Operation | The operation to perform on each property in the list to calculate the values for the sparkline.<br><br>- Last Sample: Last value for the series over the time interval.<br>- Max: Maximum value for the series over the time interval.<br>- Min: Minimum value for the series over the time interval.<br>- Sum: Sum of values for the series over the time interval.<br>- Summary: Uses the same measure command as the query in the header. |
-| Navigation query | Query to run when the user selects an item in the list.  Use *{selected item}* to include the syntax for item that the user selected.<br><br>For example, if the query has a column called *Computer* and the navigation query is *{selected item}*, a query such as *Computer="MyComputer"* would be run when the user selected a computer.  If the navigation query is *Type=Event {selected item}* then the query *Type=Event Computer="MyComputer"* would be run. |
-| **List** | **> Column Titles** |
-| Name | Text to display at the top of the first column of the list. |
-| Value | Text to display at the top of the second column of the list. |
 
+## Common settings
+The following sections describe settings common to several visualization parts.
+
+### Thresholds
+Thresholds allow you to display a colored icon next to each item in a list giving you a quick visual indicator of items that exceed a particular value or fall within a particular range.  For example, you could display a green icon for items with an acceptable value, yellow if the value is within a range that indicates a warning, and red if it exceeds an error value.
+
+When you enable thresholds for a part, you must specify one or more thresholds.  If the value of an item is greater than a threshold value and lower than the next threshold value, then that color is used.  If the item is greater than then highest threshold value, then that color is set.
+
+Each threshold set has one threshold with a value of **Default**.  This is the color set if no other values are exceeded.
+
+
+| Setting | Description |
+|:--|:--|
+| Enable Thresholds | Select to display a color icon to the left of each value indicating its health relative to specified thresholds. |
+| Name | Name to identify the threshold value. |
+| Threshold | Value for the threshold.  The health color for each list item is set to the color of the highest threshold value exceeded by the item's value.  There is one Default threshold that is the color if no threshold values are exceeded. |
+| Color | Color for the threshold value. |
+
+### Name & Value Separator 
+Single character delimiter if you want to parse the text property from a list query into multiple values.  If you specify a delimiter, you can provide names for each field separated by the same delimiter in the Name box.
+
+For example, consider a property called *Location* that included values such as *Redmond-Building 41* and *Bellevue-Building12*.  You could specify – for the Name & Value Separator and *City-Building* for the Name.  This would parse each value into two properties called *City* and *Building*. 
+
+### Navigation query
+Query to run when the user selects an item in the list.  Use *{selected item}* to include the syntax for item that the user selected.
+
+For example, if the query has a column called *Computer* and the navigation query is *{selected item}*, a query such as *Computer="MyComputer"* would be run when the user selected a computer.  If the navigation query is *Type=Event {selected item}* then the query *Type=Event Computer="MyComputer"* would be run.
 
 ## Next steps
 
