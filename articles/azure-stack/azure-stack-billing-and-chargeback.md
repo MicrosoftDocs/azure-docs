@@ -30,7 +30,7 @@ can access this data and export it to a billing system by using a
 billing adapter, or export it to a business intelligence tool like
 Microsoft Power BI.
 
-![](media/image1.png){width="6.5in" height="1.582638888888889in"}
+![](media/azure-stack-billing-and-chargeback/image1.png){width="6.5in" height="1.582638888888889in"}
 
 ## What usage information can I find, and how?
 
@@ -74,7 +74,7 @@ PowerShell calls the Resource Usage APIs.
     beyond the first 1,000. For more information about usage data, see
     the [Resource Usage API reference](azure-stack-provider-resource-api.md).
 
-    ![](media/image2.png){width="6.5in"
+    ![](media/azure-stack-billing-and-chargeback/image2.png){width="6.5in"
     height="3.5256944444444445in"}
 
 ## Next steps
