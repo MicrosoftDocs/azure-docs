@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/14/2016"
+    ms.date="10/18/2016"
     ms.author="jimpark; markgal;genli"/>
 
 # Azure VM Backup fails: Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out
