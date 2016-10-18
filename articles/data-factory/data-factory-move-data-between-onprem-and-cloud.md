@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/12/2016" 
+	ms.date="10/18/2016" 
 	ms.author="jingwang"/>
 
 # Move data between on-premises sources and the cloud with Data Management Gateway
@@ -82,7 +82,7 @@ In this step, you use the Azure portal to create an Azure Data Factory instance 
 
 	>[AZURE.NOTE] You must be an administrator on the local computer to install and configure the Data Management Gateway successfully. You can add additional users to the **Data Management Gateway Users** local Windows group. The members of this group can use the Data Management Gateway Configuration Manager tool to configure the gateway. 
 
-5. Wait for a couple of minutes or wait until you see the following notification message.
+5. Wait for a couple of minutes or wait until you see the following notification message:
 
 	![Gateway installation successful](./media/data-factory-move-data-between-onprem-and-cloud/gateway-install-success.png) 
 6. Launch **Data Management Gateway Configuration Manager** application on your computer. In the **Search** window, type **Data Management Gateway** to access this utility. You can also find the executable **ConfigManager.exe** in the folder: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared** 
@@ -104,7 +104,7 @@ In this step, you use the Azure portal to create an Azure Data Factory instance 
 	You can also do the following actions on the **Settings** tab: 
 	- View or export the certificate being used by the gateway.
 	- Change the HTTPS endpoint used by the gateway.	
-	- Set a HTTP proxy to be used by the gateway.	 
+	- Set an HTTP proxy to be used by the gateway.	 
 9. (optional) Switch to the **Diagnostics** tab, check the **Enable verbose logging** option if you want to enable verbose logging that you can use to troubleshoot any issues with the gateway. The logging information can be found in **Event Viewer** under **Applications and Services Logs** -> **Data Management Gateway** node. 
 
 	![Diagnostics tab](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
@@ -136,10 +136,10 @@ In this step, you create two linked services: **AzureStorageLinkedService** and 
 		3. Click **Encrypt** button on the toolbar. This downloads and launches the Credentials Manager application.
 		
 			![Credentials Manager application](./media/data-factory-move-data-between-onprem-and-cloud/credentials-manager-application.png)
-		5. In the **Setting Credentials** dialog box, specifiy authentication type, user name, and password, and click **OK**. If the connection is successful, the encyrpted credentials are stored in the JSON and the dialob box closes. 
+		5. In the **Setting Credentials** dialog box, specify authentication type, user name, and password, and click **OK**. If the connection is successful, the encrypted credentials are stored in the JSON and the dialog box closes. 
 		6. Close the empty browser tab that launched the dialog box if it is not automatically closed and get back to the tab with the Azure portal. 
   
-			On the gateway machine, these  credentials are **encrypted** by using a certificate that the Data Factory service owns. If you want to use the certificate that is associated with the Data Management Gateway instead, see [Set credentials securely](#set-credentials-and-security).    
+			On the gateway machine, these credentials are **encrypted** by using a certificate that the Data Factory service owns. If you want to use the certificate that is associated with the Data Management Gateway instead, see [Set credentials securely](#set-credentials-and-security).    
 	1.	Click **Deploy** on the command bar to deploy the SQL Server linked service. You should see the linked service in the tree view. 
 		
 		![SQL Server linked service in the tree view](./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png)	
