@@ -14,10 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/20/2016"
+	ms.date="10/18/2016"
 	ms.author="minet;genli;robinsh"/>
 
 # Troubleshoot deleting Azure storage accounts, containers, or VHDs
+
+[AZURE.INCLUDE storage-selector-cannot-delete-storage-account-container-vhd]
 
 ## Summary
 You might receive errors when you try to delete the Azure storage account, container, or VHD in the [Azure portal](https://portal.azure.com/) or the [Azure classic portal](https://manage.windowsazure.com/). The issues can be caused by the following circumstances:
