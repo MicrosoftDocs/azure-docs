@@ -21,7 +21,7 @@
 
 ## 2.0.2 (10/18/2016)
 
--   Fixed crash on private browsing (safari).
+-   Fixed crash on private browsing (Safari).
 -   Fixed crash on browsers with cookies disabled.
 
 ## 2.0.1 (6/10/2016)
