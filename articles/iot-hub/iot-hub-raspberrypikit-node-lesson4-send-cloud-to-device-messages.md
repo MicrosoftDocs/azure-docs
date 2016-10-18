@@ -57,7 +57,7 @@ In this section, you deploy a sample application on your Raspberry Pi 3. The sam
   gulp init
   ```
 
-  If you've completed Lesson 3 on this computer, all the configurations are inherited so you can skip to the 4.1.5. If you completed Lesson 3 on a different computer, you need the replace the placeholders in the `config-raspberrypi.json` file by running the correpsonding commands as below. The `config-raspberrypi.json` file is in the sub-folder of your home folder.
+  If you've completed Lesson 3 on this computer, all the configurations are inherited so you can skip to the 4.1.5. If you completed Lesson 3 on a different computer, you need the replace the placeholders in the `config-raspberrypi.json` file by running the corresponding commands as below. The `config-raspberrypi.json` file is in the sub-folder of your home folder.
 
   ![Config](media/iot-hub-raspberry-pi-lessons/lesson4/config_raspberrypi.png)
 

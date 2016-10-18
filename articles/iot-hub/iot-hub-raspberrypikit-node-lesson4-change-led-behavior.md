@@ -48,7 +48,7 @@ Use additional Node.js functions to change the LED’s on and off behavior.
     }
     ```
 
-3. Add the following conditions before the defalt one in the switch-case block of the `receiveMessageCallback` function:
+3. Add the following conditions before the default condition in the switch-case block of the `receiveMessageCallback` function:
 
     ```javascript
     case 'on':
