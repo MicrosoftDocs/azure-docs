@@ -38,7 +38,6 @@ In the limits below, a new table has been added to reflect any differences in li
 <!-- -->
 As a result, you may find it useful to consider deciding what your Azure Resource Group quotas need to be for your workload in any one region, and request that amount in each region into which you are considering deployment. See [troubleshooting deployment issues](./resource-manager-common-deployment-errors.md) for more help discovering your current quotas for specific regions.
 
-
 ## Service-specific limits
 
 - [Active Directory](#active-directory-limits)
