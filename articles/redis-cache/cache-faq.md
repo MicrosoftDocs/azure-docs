@@ -178,7 +178,7 @@ Azure Redis Cache pricing is [here](https://azure.microsoft.com/pricing/details/
 
 ## Can I use Azure Redis Cache with Azure Government Cloud or Azure China Cloud?
 
-Yes, Azure Redis Cache is available in both Azure Government Cloud and Azure China Cloud. Note that the URLs for accessing and managing Azure Redis Cache are different in Azure Government Cloud and Azure China Cloud compared with Azure Public Cloud. For more information on considerations when using Azure Redis Cache with Azure Government Cloud and Azure China Cloud, see [Azure Government Data and Storage - Azure Redis Cache](../azure-government/documentation-government-services-database.md#azure-redis-cache) and [Azure China Cloud - Azure Redis Cache](https://www.azure.cn/documentation/services/redis-cache/).
+Yes, Azure Redis Cache is available in both Azure Government Cloud and Azure China Cloud. Note that the URLs for accessing and managing Azure Redis Cache are different in Azure Government Cloud and Azure China Cloud compared with Azure Public Cloud. For more information on considerations when using Azure Redis Cache with Azure Government Cloud and Azure China Cloud, see [Azure Government Databases - Azure Redis Cache](../azure-government/documentation-government-services-database.md#azure-redis-cache) and [Azure China Cloud - Azure Redis Cache](https://www.azure.cn/documentation/services/redis-cache/).
 
 For information on using Azure Redis Cache with PowerShell in Azure Government Cloud and Azure China Cloud, see [How to connect to Azure Government Cloud or Azure China Cloud](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-azure-government-cloud-or-azure-china-cloud).
 
