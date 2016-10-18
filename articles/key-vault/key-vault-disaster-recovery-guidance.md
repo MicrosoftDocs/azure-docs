@@ -19,7 +19,7 @@
 
 # Azure Key Vault availability and redundancy
 
-Azure Key Vault features multiple layers of redundancy to make sure that your keys and secrets remain available to your application even if individual components of the service fail. 
+Azure Key Vault features multiple layers of redundancy to make sure that your keys and secrets remain available to your application even if individual components of the service fail.
 
 The contents of your key vault are replicated within the region as well as to a secondary region at least 150 miles away but within the same geography. This maintains high durability of your keys and secrets.
 
