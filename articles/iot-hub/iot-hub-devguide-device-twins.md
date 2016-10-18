@@ -25,7 +25,7 @@
 * the structure of the device twin: *tags*, *desired* and *reported properties*, and
 * the operations that device apps and back ends can perform on device twins.
 
-> [AZURE.NOTE] Currently, device twins are accessible only from devices that connect to IoT Hub using the MQTT protocol.
+> [AZURE.NOTE] At this time, device twins are accessible only from devices that connect to IoT Hub using the MQTT protocol. Please refer to the [MQTT support][lnk-devguide-mqtt] article for instructions on how to convert existing device app to use MQTT.
 
 ### When to use
 
@@ -136,7 +136,7 @@ In the above example, the `telemetryConfig` desired and reported properties are 
 
 In many cases twins are used to synchronize long-running operations such as firmware updates. Refer to [Use desired properties to configure devices][lnk-twin-properties] for more information on how to use properties to synchronize and track long running operations across devices.
 
-## Back end operations
+## Back-end operations
 
 The back end operates on the twin using the following atomic operations, exposed through HTTP:
 
@@ -176,22 +176,24 @@ The [Azure IoT device SDKs][lnk-sdks] make it easy to use the above operations f
 
 > [AZURE.NOTE] Currently, device twins are accessible only from devices that connect to IoT Hub using the MQTT protocol.
 
-## Reference
+## Reference topics:
 
-### Tags and properties format
+The following reference topics provide you with more information about controlling access to your IoT hub.
+
+## Tags and properties format
 
 Tags, desired and reported properties are JSON objects with the following restrictions:
 
 * All keys in JSON objects are case-sensitive 128-char UNICODE strings. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `'.'`, `' '`, and `'$'`.
 * All values in JSON object can be of the following JSON types: boolean, number, string, object. Arrays are not allowed.
 
-### Twin size
+## Twin size
 
 IoT Hub enforces an 8KB size limitation on the values of `tags`, `properties/desired`, and `properties/reported`, excluding read-only elements.
 The size is computed by counting all characters excluding UNICODE control characters (segments C0 and C1) and space `' '` when it appears outside of a string constant.
 IoT Hub will reject with error all operations that would increase the size of those documents above the limit.
 
-### Twin metadata
+## Twin metadata
 
 IoT Hub maintains the timestamp of the last update for each JSON object in desired and reported properties. The timestamps are in UTC and encoded in the [ISO8601] format `YYYY-MM-DDTHH:MM:SS.mmmZ`.
 For example:
@@ -241,7 +243,7 @@ For example:
 
 This information is kept at every level (not just the leaves of the JSON structure) to preserve updates that remove object keys.
 
-### Optimistic concurrency
+## Optimistic concurrency
 
 Tags, desired and reported properties all support optimistic concurrency.
 Tags have an etag, as per [RFC7232], that represents the tag's JSON representation. You can use this in conditional update operations from the back end to ensure consistency.
@@ -250,7 +252,7 @@ Desired and reported properties do not have etags, but have a `$version` value t
 
 Versions are also useful when an observing agent (such as, the device app observing the desired properties) has to reconcile races between the result of a retrieve operation and an update notification. The section [Device reconnection flow][lnk-reconnection] provides more information.
 
-### Device reconnection flow
+## Device reconnection flow
 
 IoT Hub does not preserve desired properties update notifications for disconnected devices. It follows that a device that is connecting must retrieve the full desired properties document, in addition to subscribing for update notifications. Given the possibility of races between update notifications and full retrieval, the following flow must be ensured:
 
@@ -262,7 +264,7 @@ The device app can ignore all notifications with `$version` less or equal than t
 
 > [AZURE.NOTE] This logic is already implemented in the [Azure IoT device SDKs][lnk-sdks]. This description is useful only if the device app cannot use any of Azure IoT device SDKs and must program the MQTT interface directly.
 
-### Additional reference material
+## Additional reference material
 
 Other reference topics in the Developer Guide include:
 

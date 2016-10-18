@@ -3,7 +3,7 @@
 	description="Find examples for DocumentDB's protocol support for MongoDB." 
 	keywords="mongodb examples"
 	services="documentdb" 
-	authors="mimig1" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="mimig"/>
+	ms.author="anhoh"/>
 
 # DocumentDB protocol support for MongoDB examples
 To use these examples, you must:
@@ -170,7 +170,6 @@ You can use the [Create a web app in Azure that connects to MongoDB running on a
 
 ## Next steps
 
-- Read about the DocumentDB with protocol support for MongoDB [preview development guidelines](documentdb-mongodb-guidelines.md).
 - Learn how to [use MongoChef](documentdb-mongodb-mongochef.md) with a DocumentDB account with protocol support for MongoDB.
 
  

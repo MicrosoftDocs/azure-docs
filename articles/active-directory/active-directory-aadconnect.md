@@ -4,7 +4,7 @@
     keywords="introduction to Azure AD Connect, Azure AD Connect overview, what is Azure AD Connect, install active directory"
 	services="active-directory"
 	documentationCenter=""
-	authors="andkjell"
+	authors="billmath"
 	manager="femila"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/30/2016"
-	ms.author="andkjell;billmath"/>
+	ms.date="10/04/2016"
+	ms.author="billmath"/>
 
 # Integrating your on-premises identities with Azure Active Directory
 

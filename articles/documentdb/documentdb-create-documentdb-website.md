@@ -2,7 +2,7 @@
 	pageTitle="Deploy DocumentDB and Azure App Service Web Apps using an Azure Resource Manager Template | Microsoft Azure" 
 	description="Learn how to deploy a DocumentDB account, Azure App Service Web Apps, and a sample web application using an Azure Resource Manager template." 
 	services="documentdb, app-service\web" 
-	authors="mimig1" 
+	authors="h0n" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/02/2016" 
-	ms.author="mimig"/>
+	ms.author="hawong"/>
 
 # Deploy DocumentDB and Azure App Service Web Apps using an Azure Resource Manager Template
 

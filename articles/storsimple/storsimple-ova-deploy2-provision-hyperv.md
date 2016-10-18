@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/14/2016"
+   ms.date="10/11/2016"
    ms.author="alkohli"/>
 
 # Deploy StorSimple Virtual Array - Provision a Virtual Array in Hyper-V
@@ -168,7 +168,7 @@ Perform the following steps to provision a device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image17.png)
 
-1.  On the **Configure Disk** page, select the option **Create a new blank virtual hard disk** and specify the size as **500 GB** (or more). Click **Next**.
+1.  On the **Configure Disk** page, select the option **Create a new blank virtual hard disk** and specify the size as **500 GB** (or more). While 500 GB is the minimum requirement, you can always provision a larger disk. Note that you cannot expand or shrink the disk once provisioned. For more information on the size of disk to provision, review the sizing section in the [best practices](storsimple-ova-best-practices.md#configuration-best-practices) document. Click **Next**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image18.png)
 
