@@ -144,13 +144,13 @@ Before you can configure the SAML assertion, you need to contact your ADP eTime 
 
 6. To configure the RelayState value in Azure AD, perform the following steps: 
 	
-	a. Login to the [Azure Management Portal](https://portal.azure.com) using the admin credentials.
+	a. Logon to the [Azure Management Portal](https://portal.azure.com) as administrator.
 
 	b. In the left navigation pane, click **More Services**. 
  	
 	![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_07.png)
 
-	c. In the search textbos, type **Azure Active Directory**,  and then click the related link.
+	c. In the **Search** textbox, type **Azure Active Directory**, and then click the related link.
 	
 	![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_08.png)
 
@@ -162,7 +162,7 @@ Before you can configure the SAML assertion, you need to contact your ADP eTime 
 	
 	![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_10.png)
 
-	f. In the search textbox, type **ADP eTime**, and then click the related link. 
+	f. In the **Search** textbox, type **ADP eTime**, and then click the related link. 
 	
 	![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_11.png)
 
@@ -170,11 +170,11 @@ Before you can configure the SAML assertion, you need to contact your ADP eTime 
 
 	![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_12.png)
 
-	h. Se;ect **Show advanced URL settings**.
+	h. Select **Show advanced URL settings**.
 	
 	![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_13.png)
 	
-	i. This shows the field where you can configure the **RelayState** value:
+	i. In the **Relay State** textbox, type a value using the following patterns:
     
     - Production environment: `https://fed.adp.com/saml/fedlanding.html?<id>` 
     - Staging environment: `https://fed-stag.adp.com/saml/fedlanding.html?PORTAL`
