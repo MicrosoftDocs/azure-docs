@@ -1,10 +1,10 @@
 <properties
    pageTitle="The 5 data science questions - Data Science for Beginners | Microsoft Azure"
    description="Get a quick introduction to data science from Data Science for Beginners, five short videos that start with The 5 Questions Data Science Answers."
-   keywords="doing data science,introduction to data science,data science for beginners, types of questions,data science questions, data science algorithms"
+   keywords="doing data science,data science beginners,data science for beginners, types of questions,data science questions, data science video"
    services="machine-learning"
    documentationCenter="na"
-   authors="brohrer-ms"
+   authors="cjgronlund"
    manager="jhubbard"
    editor="cjgronlund"/>
 
@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/13/2016"
-   ms.author="cgronlun;brohrer;garye"/>
+   ms.date="10/18/2016"
+   ms.author="cgronlun;garye"/>
 
 # Data Science for Beginners video 1: The 5 questions data science answers
 
-Get a quick introduction to data science from *Data Science for Beginners* in five short videos. This video series is helpful if you're interested in doing data science - or work with people who do data science - and you want to start with some basic concepts.
+Get a quick introduction to data science from *Data Science for Beginners* in five short videos. These videos are helpful if you're interested in doing data science - or work with data scientists - and you want a basic understanding.
 
-This first video is about the kinds of questions that data science can answer. Data science predicts answers to questions using a number or category. To get the most out of the series, watch them in order. [Go to the list of videos](#other-videos-in-this-series)
+This first video is about the kinds of questions that data science can answer. To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-series-the-5-questions-data-science-answers]
 

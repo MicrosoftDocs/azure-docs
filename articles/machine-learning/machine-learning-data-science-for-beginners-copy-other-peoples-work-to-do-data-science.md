@@ -1,10 +1,10 @@
 <properties
    pageTitle="Copy others' work to do data science - experiment example | Microsoft Azure"
    description="Trade secret of data science: Get others to do your work for you. See examples in Cortana Analytics Gallery such as a clustering algorithm example."
-   keywords="data science examples,algorithm example,experiment example,machine learning example,clustering algorithm"
+   keywords="data science examples,machine learning example,clustering algorithm"
    services="machine-learning"
    documentationCenter="na"
-   authors="brohrer-ms"
+   authors="cjgronlund"
    manager="jhubbard"
    editor="cjgronlund"/>
 
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2016"
-   ms.author="cgronlun;brohrer;garye"/>
+   ms.date="10/18/2016"
+   ms.author="cgronlun;garye"/>
 
 # Copy other people's work to do data science
 
