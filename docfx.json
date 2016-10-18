@@ -41,7 +41,6 @@
         "exclude": [
           "**/obj/**",
           "**/_themes/**",
-          "**/includes/**",
           "markdown templates/**"
         ],
         "src": "articles",
@@ -56,7 +55,6 @@
         "exclude": [
           "**/obj/**",
           "**/_themes/**",
-          "**/includes/**",
           "markdown templates/**",
           "articles/**"
         ],
