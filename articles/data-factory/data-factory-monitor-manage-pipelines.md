@@ -22,7 +22,7 @@
 - [Using Azure portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
 - [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
 
-The Data Factory service provides reliable and complete view of your storage, processing, and data movement services. The service provides you a monitoring dashboard helps that you can use to perform the following: 
+The Data Factory service provides reliable and complete view of your storage, processing, and data movement services. The service provides you a monitoring dashboard helps that you can use to perform the following tasks: 
 
 - Quickly assess end-to-end data pipeline health.
 - Identify issues, and take corrective action if needed. 
@@ -33,7 +33,7 @@ The Data Factory service provides reliable and complete view of your storage, pr
 This article describes how to monitor, manage, and debug your pipelines. It also provides information on how to create alerts and get notified on failures.
 
 ## Understand pipelines and activity states
-Using the Azure portal, you can do the following: 
+Using the Azure portal, you can:
 
 - View your data factory as a diagram
 - View activities in a pipeline
@@ -164,8 +164,7 @@ Once you deploy a data factory and the pipelines have a valid active period, the
 
 ![State diagram](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
 
-The dataset state transition flow in data factory involves the following:
-Waiting-> In-Progress/In-Progress (Validating) -> Ready/Failed
+The dataset state transition flow in data factory: Waiting-> In-Progress/In-Progress (Validating) -> Ready/Failed
 
 The slices start in a **Waiting** state for pre-conditions to be met before executing. Then, the activity starts executing and the slice goes in **In-Progress** state. The activity execution may succeed or fail. The slice is marked as **Ready**’ or **Failed** based on the result of the execution. 
 
@@ -182,7 +181,7 @@ For example: in the following screen shot, an issue has been identified with the
 
 ![Pipeline to be suspended](./media/data-factory-monitor-manage-pipelines/pipeline-to-be-suspended.png)
 
-To suspend a pipeline, run the following PowerShell command.
+To suspend a pipeline, run the following PowerShell command:
 
 	Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
@@ -190,7 +189,7 @@ For example:
 
 	Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
 
-Once the issue has been fixed with the **PartitionProductsUsagePipeline**, the suspended pipeline can be resumed by running the following PowerShell command.
+Once the issue has been fixed with the **PartitionProductsUsagePipeline**, the suspended pipeline can be resumed by running the following PowerShell command:
 
 	Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
@@ -513,14 +512,14 @@ Click **Data Factory metrics** blade:
 On the **Metric** blade, click **+ Add alert** on the toolbar. 
 ![Data factory metric blade - add alert](./media/data-factory-monitor-manage-pipelines/add-alert.png)
 
-On the **Add an alert rule** page, do the following steps and click **OK**.
+On the **Add an alert rule** page, do the following steps, and click **OK**.
  
 - Enter a name for the alert (example: failed alert).
 - Enter a description for the alert (example: send an email when a failure occurs).
 - Select a metric (failed runs vs. successful runs).
 - Specify a condition and a threshold value.   
 - Specify the period. 
-- Specify whether an email should be send to owners, contributors, and readers.
+- Specify whether an email should be sent to owners, contributors, and readers.
 - and more. 
 
 ![Data factory metric blade - add alert](./media/data-factory-monitor-manage-pipelines/add-an-alert-rule.png)
