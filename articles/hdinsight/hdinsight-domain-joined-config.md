@@ -510,7 +510,5 @@ To test the connection between the two VNets, you will ping one of the cluster n
 
 ## Next steps:
 
-- [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md)
-- [Configure Domain-joined HDInsight clusters using Azure PowerShel](hdinsight-domain-joined-config-powershell.md)
-
-
+- For configuring Hive policies and run Hive queries, see [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md).
+- For running Hive queries using SSH on Domain-joined HDInsight clusters, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-domain-joined-hdinsight-cluster).
