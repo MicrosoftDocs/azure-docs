@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/02/2016"
+   ms.date="10/18/2016"
    ms.author="rickbyh"/>
 
 # Azure SQL Database security guidelines and limitations
@@ -52,8 +52,7 @@ When managing logins and users in SQL Database, there are restrictions.
 
 - You must be connected to the **master** database when executing the ``CREATE/ALTER/DROP DATABASE`` statements. - The database user in the master database corresponding to the server-level principal login cannot be altered or dropped. 
 - US-English is the default language of the server-level principal login.
-- To access the **master** database, every login must be mapped to a user account in the **master** database. The **master** database does not support contained database users.
-- Only the server-level principal login and the members of the **dbmanager** database role in the **master** database have permission to execute the ``CREATE DATABASE`` and ``DROP DATABASE`` statements.
+- Only the administrators (server-level principal login or Azure AD administrator) and the members of the **dbmanager** database role in the **master** database have permission to execute the ``CREATE DATABASE`` and ``DROP DATABASE`` statements.
 - You must be connected to the master database when executing the ``CREATE/ALTER/DROP LOGIN`` statements. However using logins is discouraged. Use contained database users instead.
 - To connect to a user database you must provide the name of the database in the connection string.
 - Only the server-level principal login and the members of the **loginmanager** database role in the **master** database have permission to execute the ``CREATE LOGIN``, ``ALTER LOGIN``, and ``DROP LOGIN`` statements.
