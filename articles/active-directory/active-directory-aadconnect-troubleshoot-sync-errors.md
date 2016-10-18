@@ -72,8 +72,7 @@ The most common reason for the InvalidSoftMatch error is two objects with differ
 
 Note that Sync error report within Azure AD Connect Health for sync is updated every 30 minutes and includes the errors from the latest synchronization attempt.
 
->[AZURE.NOTE] ImmutableId, by definition, should not change in the lifetime of the object. If Azure AD Connect was not configured with some of the scenarios in mind from the above list, you could end up in a situation where Azure AD Connect calculates a different value of the SourceAnchor for the AD object that represents the same entity (same user/group/contact etc) that has an existing Azure AD Object that you wish to continue using. Microsoft is working on making it easy for admins to fix these synchronization errors in such cases. Stay tuned for future updates of Azure AD Connect that enable this capability.
-
+>[AZURE.NOTE] ImmutableId, by definition, should not change in the lifetime of the object. If Azure AD Connect was not configured with some of the scenarios in mind from the above list, you could end up in a situation where Azure AD Connect calculates a different value of the SourceAnchor for the AD object that represents the same entity (same user/group/contact etc) that has an existing Azure AD Object that you wish to continue using.
 
 #### Example case:
 1. **Bob Smith** is a synced user in Azure Active Directory from on premises Active Directory of *contoso.com*
@@ -96,7 +95,7 @@ Note that Sync error report within Azure AD Connect Health for sync is updated e
 12. Azure AD will find Bob Smith's object to match the soft-match criteria. But this object has the value of immutableId = "abcdefghijklmnopqrstuv==". which indicates this object was synced from another object from on premises Active Directory. Thus, Azure AD cannot soft-match these objects and will result in an **InvalidSoftMatch** sync error.
 
 #### Related Articles
-- https://support.microsoft.com/en-us/kb/2647098
+- [Duplicate or invalid attributes prevent directory synchronization in Office 365]https://support.microsoft.com/en-us/kb/2647098)
 
 ### ObjectTypeMismatch
 #### Description
