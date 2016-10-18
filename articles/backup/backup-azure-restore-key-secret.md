@@ -108,7 +108,8 @@ PS C:\> $rp1.KeyAndSecretDetails.SecretUrl
 https://contosokeyvault.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/20aaae9eaa99996d89d99a29990d999a
 ```
 
-**Note:** The text before vault.azure.net represents original key vault name. The text after secrets/ represents secret name. 
+> [AZURE.NOTE]
+The text before vault.azure.net represents original key vault name. The text after secrets/ represents secret name. 
 
 Get the secret name and value from the output of the cmdlet run above, in case you want to use the same secret name. In other cases, $secretname below should be updated to use the new secret name. 
 
@@ -124,7 +125,8 @@ Set tags for the secret, in case VM needs to be restored as well. For the tag Di
 PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKeyFileName' = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA.BEK';'DiskEncryptionKeyEncryptionKeyURL' = 'https://contosokeyvault.vault.azure.net:443/keys/KeyName/84daaac999949999030bf99aaa5a9f9';'MachineName' = 'vm-name'}
 ```
 
-**Note:** Value for DiskEncryptionKeyFileName is same as secret name obtained above. Value for DiskEncryptionKeyEncryptionKeyURL can be obtained from key vault after restoring the keys back and using [Get-AzureKeyVaultKey](https://msdn.microsoft.com/library/dn868053.aspx) cmdlet	
+> [AZURE.NOTE]
+Value for DiskEncryptionKeyFileName is same as secret name obtained above. Value for DiskEncryptionKeyEncryptionKeyURL can be obtained from key vault after restoring the keys back and using [Get-AzureKeyVaultKey](https://msdn.microsoft.com/library/dn868053.aspx) cmdlet	
 
 Set the secret back to the key vault
 
