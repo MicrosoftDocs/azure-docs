@@ -28,7 +28,7 @@ Start here for all the details about how to integrate Azure Mobile Engagement in
 
 ## Release notes
 
-### Release 2.0.2 (10/18/2016)
+### 2.0.2 (10/18/2016)
 
 -   Fixed crash on private browsing (safari).
 -   Fixed crash on browsers with cookies disabled.
