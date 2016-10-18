@@ -110,11 +110,7 @@ meterID1",
 | *subscriptionId*   | Subscription identifier of the Azure Stack user
 | *usageStartTime*   | UTC start time of the usage bucket to which this usage aggregate belongs
 | *usageEndTime*     | UTC end time of the usage bucket to which this usage aggregate belongs
-| *instanceData*     | Key-value pairs of instance details (in a new format):
-                     - *resourceUri*: Fully qualified resource ID, which includes the resource groups and the instance name
-                     -   *location*: Region in which this service was run
-                     -   *tags*: Resource tags that are specified by the user
-                     -   *additionalInfo*: More details about the resource being consumed, for example, OS version or image type |
+| *instanceData*     | Key-value pairs of instance details (in a new format):<br> *resourceUri*: Fully qualified resource ID, which includes the resource groups and the instance name <br> *location*: Region in which this service was run <br> *tags*: Resource tags that are specified by the user <br> *additionalInfo*: More details about the resource being consumed, for example, OS version or image type |
 | *quantity*         | Amount of resource consumption that occurred in this time frame |
 | *meterId*          | Unique ID for the resource that was consumed (also called *ResourceID*) |
 
