@@ -25,7 +25,7 @@ Use schemas to confirm that XML documents you receive are valid, with the expect
 ## Add a schema
 From the Azure portal:  
 
-1. Select **More Services**.  
+1. Select **More services**.  
 ![Screenshot of Azure portal, with "More services" highlighted](./media/app-service-logic-enterprise-integration-overview/overview-11.png)    
 
 2. In the filter search box, enter **integration**, and select **Integration Accounts** from the results list.     
