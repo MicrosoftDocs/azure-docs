@@ -74,13 +74,13 @@ The device connection string is used to connect the Pi to your IoT hub. The IoT 
 
 3. Make the following replacements in the `config-raspberrypi.json` file:
 
-  - Replace **[device hostname or IP address]** with the device IP address or hostname you got from `device-discovery-cli`. If you specified a hostname or an IP address value in Lesson 1, use the value accordingly.
+  - Replace **[device hostname or IP address]** with the device IP address or hostname you got from `device-discovery-cli` or with the value inherited from what you configured in Lesson 1.
   - Replace **[IoT device connection string]** with the `device connection string` you obtained.
   - Replace **[IoT hub connection string]** with the `iot hub connection string` you obtained.
 
 You update the `config-raspberrypi.json` file so that you can deploy the sample application from your computer.
 
-## 3.2.6 Deploy and run the sample appplication
+## 3.2.6 Deploy and run the sample application
 
 Deploy and run the sample application on your Pi by running the following command:
 
