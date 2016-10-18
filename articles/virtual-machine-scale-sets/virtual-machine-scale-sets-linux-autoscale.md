@@ -517,7 +517,7 @@ Because you are charged for resources used in Azure, it is always a good practic
 
 ## Next steps
 
-- Find examples of Azure Insights monitoring features in [Azure Insights Cross-platform CLI quick start samples](../azure-portal/insights-cli-samples.md)
-- Learn about notification features in [Use autoscale actions to send email and webhook alert notifications in Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) 
-- Learn how to [Use audit logs to send email and webhook alert notifications in Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md)
+- Find examples of Azure Insights monitoring features in [Azure Insights Cross-platform CLI quick start samples](../monitoring-and-diagnostics/insights-cli-samples.md)
+- Learn about notification features in [Use autoscale actions to send email and webhook alert notifications in Azure Insights](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) 
+- Learn how to [Use audit logs to send email and webhook alert notifications in Azure Insights](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 - Check out the [Autoscale a VM Scale Set running a Ubuntu/Apache/PHP app](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) template that sets up a LAMP stack to exercise the automatic scaling functionality of Virtual Machine Scale Sets.
