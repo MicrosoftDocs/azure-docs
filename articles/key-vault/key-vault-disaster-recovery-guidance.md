@@ -30,7 +30,7 @@ In the rare event that an entire Azure region is unavailable, the requests that 
 There are a few caveats that you should be aware of:
 
 * In the event of a region failover, it may take a few minutes for the service to fail over. Requests that are made during this time may fail until the failover completes.
-* After a failover is complete, your key vault is in read-only mode. Requests that are supported in this mode are:
+* After a failover is complete, your key vault is in read-only mode. Requests that are supported in this mode are: 
  * List key vaults
  * Get properties of key vaults
  * List secrets
