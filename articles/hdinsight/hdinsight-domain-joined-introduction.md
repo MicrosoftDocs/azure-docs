@@ -48,13 +48,13 @@ Along with protecting the HDInsight cluster resources from unauthorized users, a
 
 ### Encryption
 
-Protecting data is important for meeting organizational security and compliance requirements, and along with restricting access to data from unauthorized employees, it should also be secured by encrypting it. Both the data stores for HDInsight clusters, Azure Storage Blob, and Azure Data Lake Storage support transparent server-side [encryption of data](../storage/storage-service-encryption/) at rest. Secure HDInsight clusters will seamlessly work with this server side encryption of data at rest capability.
+Protecting data is important for meeting organizational security and compliance requirements, and along with restricting access to data from unauthorized employees, it should also be secured by encrypting it. Both the data stores for HDInsight clusters, Azure Storage Blob, and Azure Data Lake Storage support transparent server-side [encryption of data](../storage/storage-service-encryption.md) at rest. Secure HDInsight clusters will seamlessly work with this server side encryption of data at rest capability.
 
 
 ## Configure Domain-joined HDInsight clusters
 
-See [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-setup.md).
-See [Configure Domain-joined HDInsight clusters using Azure PowerShell](hdinsight-domain-joined-setup-powershell.md).
+See [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-config.md).
+See [Configure Domain-joined HDInsight clusters using Azure PowerShell](hdinsight-domain-joined-config-powershell.md).
 
 ## Run Hive jobs using Domain-joined HDInsight clusters 
 
