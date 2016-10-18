@@ -44,7 +44,7 @@ subscriptions. Individual tenants can retrieve only their own
 information.
 
 Usage records have information about storage, network, and compute
-usage. For a list of meters, see (link to FAQ article).
+usage. For a list of meters, see [this article](azure-stack-usage-related-faq.md).
 
 ## Retrieve usage information
 
@@ -72,7 +72,7 @@ PowerShell calls the Resource Usage APIs.
     following example. PowerShell returns 1,000 lines of usage per call.
     You can use the *continuation* argument to retrieve sets of lines
     beyond the first 1,000. For more information about usage data, see
-    article.
+    the [Resource Usage API reference](azure-stack-provider-resource-api.md).
 
     ![](media/image2.png){width="6.5in"
     height="3.5256944444444445in"}
