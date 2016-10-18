@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter="n/a"
    authors="JimacoMS"
-   manager="msmbaldwin"
+   manager="mbaldwin"
    editor=""
    tags=""/>
 
