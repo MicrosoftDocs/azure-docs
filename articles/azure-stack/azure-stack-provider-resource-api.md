@@ -111,7 +111,7 @@ meterID1",
 | *usageStartTime*   | UTC start time of the usage bucket to which this usage aggregate belongs
 | *usageEndTime*     | UTC end time of the usage bucket to which this usage aggregate belongs
 | *instanceData*     | Key-value pairs of instance details (in a new format):
-                     -   *resourceUri*: Fully qualified resource ID, which includes the resource groups and the instance name
+ - *resourceUri*: Fully qualified resource ID, which includes the resource groups and the instance name
                      -   *location*: Region in which this service was run
                      -   *tags*: Resource tags that are specified by the user
                      -   *additionalInfo*: More details about the resource being consumed, for example, OS version or image type |
