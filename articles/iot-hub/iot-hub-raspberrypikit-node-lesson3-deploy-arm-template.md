@@ -19,6 +19,8 @@
 
 # 3.1 Create an Azure function app and a storage account to process and store IoT hub messages
 
+[Azure Functions](../../articles/azure-functions/functions-overview.md) is a solution for easily running small pieces of code, called “functions”, in the cloud. An Azure function app hosts the execution of your functions in Azure.
+
 ## 3.1.1 What will you do
 
 Use an Azure Resource Manager (ARM) template to create an Azure function app and a storage account. The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure table storage.
@@ -27,7 +29,6 @@ Use an Azure Resource Manager (ARM) template to create an Azure function app and
 
 - How to use [Azure Resource Manager](../../articles/resource-group-overview.md) to deploy Azure resources.
 - How to use an Azure function app to process IoT hub messages and write them to a table in Azure table storage.
-- [Azure Functions](../../articles/azure-functions/functions-overview.md) is a solution for easily running small pieces of code, called “functions”, in the cloud. An Azure function app hosts the execution of your functions in Azure.
 
 ## 3.1.3 What do you need
 
@@ -44,7 +45,7 @@ code .
 
 ![Repo Structure](media/iot-hub-raspberry-pi-lessons/lesson3/repo_structure.png)
 
-- The `app.js` file in the `app` sub-folder is the key source file that contains the code to send a message 20 times to your IoT hub to blink the LED for each message it sends.
+- The `app.js` file in the `app` sub-folder is the key source file that contains the code to send a message 20 times to your IoT hub and blink the LED for each message it sends.
 - The `arm-template.json` file is the ARM template that contains an Azure function app and a storage account.
 - The `arm-template-param.json` file is the configuration file used by the ARM template.
 - The `ReceiveDeviceMessages` sub-folder contains the Node.js code for the Azure function.
