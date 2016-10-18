@@ -26,8 +26,6 @@ Azure IoT Hub provides you with:
 * Reliable device-to-cloud and cloud-to-device hyper-scale messaging.
 * Easy device connectivity with device libraries for the most popular languages and platforms.
 
-## Next steps
-
 This IoT Hub developer guide includes the following articles:
 
 - [Send and receive messages with IoT Hub][devguide-messaging] describes the messaging features (device-to-cloud and cloud-to-device) that IoT Hub exposes. The article also includes information about topics such as message formats, and the supported communications protocols and the port numbers they use.
