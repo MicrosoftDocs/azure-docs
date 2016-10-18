@@ -28,10 +28,10 @@ This article shows you how to restore your database to an earlier point in time 
 
 ## Select a database to restore to a previous point in time
 
-To restore a database in the Azure Portal do the following:
+To restore a database in the Azure portal, do the following steps:
 
 1.	Open the [Azure portal](https://portal.azure.com).
-2.  On the left side of the screen select **More services** > **SQL databases**.
+2.  On the left side of the screen, select **More services** > **SQL databases**.
 3.  Click the database you want to restore.
 4.  At the top of your database's page, select **Restore**:
 
@@ -47,7 +47,7 @@ To restore a database in the Azure Portal do the following:
 
     ![Restore an Azure SQL database](./media/sql-database-point-in-time-restore-portal/notification-icon.png)
 
-2. The Restoring SQL database page opens with information about the status of the restore, you can click the line-item for more details:
+2. The Restoring SQL database page opens with information about the status of the restore. You can click the line-item for more details:
 
     ![Restore an Azure SQL database](./media/sql-database-point-in-time-restore-portal/inprogress.png)
 
