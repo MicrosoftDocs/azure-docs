@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="provider-resource-api"
+	ms.topic="article"
 	ms.date="10/18/2016"
 	ms.author="alfredop"/>
 
@@ -115,6 +115,6 @@ meterID1",
 
 ### Next steps
 
-[Tenant resource usage API reference](tenant-resource-usage-api.md)
+[Tenant resource usage API reference](azure-stack-tenant-resource-usage-api.md)
 
-[Usage-related FAQ](usage-related-faq.md)
+[Usage-related FAQ](azure-stack-usage-related-faq.md)
