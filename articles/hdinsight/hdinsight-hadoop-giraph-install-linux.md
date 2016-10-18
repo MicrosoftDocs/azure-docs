@@ -61,8 +61,8 @@ This section provides instructions on how to use the sample script while creatin
 	* __NAME__: Enter a friendly name for the script action.
 	* __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 	* __HEAD__: Check this option
-	* __WORKER__: Check this option
-	* __ZOOKEEPER__: Check this option to install on the Zookeeper node.
+	* __WORKER__: Leave this unchecked
+	* __ZOOKEEPER__: Leave this unchecked
 	* __PARAMETERS__: Leave this field blank
 
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.

@@ -198,11 +198,11 @@ After a cooldown period of five minutes, if the average number of threads on the
 
 ## Set up scaling using Azure PowerShell
 
-To see examples of using PowerShell to set up autoscaling, look at [Azure Insights PowerShell quick start samples](../azure-portal/insights-powershell-samples.md).
+To see examples of using PowerShell to set up autoscaling, look at [Azure Insights PowerShell quick start samples](../monitoring-and-diagnostics/insights-powershell-samples.md).
 
 ## Set up scaling using Azure CLI
 
-To see examples of using Azure CLI to set up autoscaling, look at [Azure Insights Cross-platform CLI quick start samples](../azure-portal/insights-cli-samples.md).
+To see examples of using Azure CLI to set up autoscaling, look at [Azure Insights Cross-platform CLI quick start samples](../monitoring-and-diagnostics/insights-cli-samples.md).
 
 ## Investigate scaling actions
 
@@ -219,7 +219,7 @@ subscriptions > {your subscription} > resourceGroups > {your resource group} > p
 ## Next Steps
 
 - Look at [Automatically scale machines in a Virtual Machine Scale Set](virtual-machine-scale-sets-windows-autoscale.md) to see an example of how to create a scale set with automatic scaling configured.
-- Find examples of Azure Insights monitoring features in [Azure Insights PowerShell quick start samples](../azure-portal/insights-powershell-samples.md)
-- Learn about notification features in [Use autoscale actions to send email and webhook alert notifications in Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md).
-- Learn about how to [Use audit logs to send email and webhook alert notifications in Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md)
+- Find examples of Azure Insights monitoring features in [Azure Insights PowerShell quick start samples](../monitoring-and-diagnostics/insights-powershell-samples.md)
+- Learn about notification features in [Use autoscale actions to send email and webhook alert notifications in Azure Insights](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md).
+- Learn about how to [Use audit logs to send email and webhook alert notifications in Azure Insights](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 - Learn about [advanced autoscale scenarios](./virtual-machine-scale-sets-advanced-autoscale.md).
