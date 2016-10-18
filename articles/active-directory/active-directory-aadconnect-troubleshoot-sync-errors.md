@@ -34,9 +34,9 @@ Errors during Export to Azure AD indicate that the operation \(add, update, dele
 
 ![Export Errors Overview](.\media\active-directory-aadconnect-troubleshoot-sync-errors\Export_Errors_Overview_01.png)
 
-### Data Mismatch Errors
-#### InvalidSoftMatch
-##### Description
+## Data Mismatch Errors
+### InvalidSoftMatch
+#### Description
 - When Azure AD Connect \(sync engine\) instructs Azure Active Directory to add or update objects, Azure AD matches the incoming object using the **sourceAnchor** attribute to the **immutableId** attribute of objects in Azure AD. This match is called a **Hard Match**.
 - When Azure AD **does not find** any object that matches the **immutableId** attribute with the **sourceAnchor** attribute of the incoming object, before provisioning a new object, it falls back to use the ProxyAddresses and UserPrincipalName attributes to find a match. This match is called a **Soft Match**. The Soft Match is designed to match objects already present in Azure AD (that are sourced in Azure AD) with the new objects being added/updated during synchronization that represent the same entity (users, groups) on premises.
 - **InvalidSoftMatch** error occurs when the hard match does not find any matching object **AND** soft match finds a matching object but that object has a different value of *immutableId* than the incoming object's *SourceAnchor*, suggesting that the matching object was synchronized with another object from on premises Active Directory.
@@ -124,7 +124,6 @@ c. When Azure AD Connect will sync the new user account, it will get the "Object
 Azure Active Directory schema does not allow two or more objects to have the same value of the following attributes. That is each object in Azure AD is forced to have a unique value of these attributes at a given instance.  
 - ProxyAddresses
 - UserPrincipalName
--
 
 If Azure AD Connect attempts to add a new object or update an existing object with a value for the above attributes that is already assigned to another object in Azure Active Directory, the operation will result in "AttributeValueMustBeUnique" sync error.
 #### Possible Scenarios:

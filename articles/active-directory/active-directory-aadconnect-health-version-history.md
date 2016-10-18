@@ -22,14 +22,14 @@ The Azure Active Directory team regularly updates Azure AD Connect Health with n
 
 ## October 2016
 **Agent Update:**
-- Azure AD Connect Health agent for AD FS (version 2.6.408.0)
-    - Improvements in detecting client IP addresses in authentication requests
-	- Bug fixes related to Alerts
+- Azure AD Connect Health agent for AD FS \(version 2.6.408.0\)
+    1. Improvements in detecting client IP addresses in authentication requests
+	2. Bug Fixes related to Alerts
 - Azure AD Connect Health agent for AD DS (version 2.6.408.0)
-    - Bug fixes related to Alerts.
+    1. Bug fixes related to Alerts.
 - Azure AD Connect Health agent for Sync (version 2.6.353.0) released with Azure AD Connect version 1.1.281.0
-    - Provide the required data for the Synchronization Error Reports
-	- Bug fixes related to Alerts
+    1. Provide the required data for the Synchronization Error Reports
+	2. Bug fixes related to Alerts
 
 **New preview features:**
 - Synchronization Error Reports for Azure AD Connect
