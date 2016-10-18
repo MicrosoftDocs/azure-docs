@@ -1,4 +1,4 @@
-|**Deployment model/method**| **Azure Portal** | **Classic Portal** | **PowerShell**|
+|**Deployment Model/Method**| **Azure Portal** | **Classic Portal** | **PowerShell**|
 |---|---|---|---|
 |**Resource Manager** | [Article](vpn-gateway-howto-site-to-site-resource-manager-portal.md)|Not Supported |[Article](..articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) |
 |**Classic** |Supported**| [Article*](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md)|[Article+](..articles/vpn-gateway/vpn-gateway-multi-site.md) |
