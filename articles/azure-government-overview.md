@@ -20,11 +20,14 @@
 
 ## Overview
 
-Microsoft Azure Government delivers a cloud platform built upon the [foundational principles of security, privacy & control, compliance, and transparency](http://azure.com/gov). Public Sector entities receive a physically isolated instance of Microsoft Azure that employs world-class security and compliance services critical to U.S. government for all systems and applications built on its architecture. These services include FedRAMP and DoD compliance certifications, CJIS state-level agreements, the ability to issue HIPAA Business Associate Agreements, and support for IRS 1075. Operated by screened U.S. persons, Azure Government supports multiple hybrid scenarios for building and deploying solutions on-premises or in the cloud. Public Sector entities can also take advantage of the instant scalability and guaranteed uptime of a hyper-scale cloud service.
+Microsoft Azure Government delivers a cloud platform built upon the [foundational principles of security, privacy & control, compliance, and transparency](http://azure.com/gov). Public Sector entities receive a physically isolated instance of Microsoft Azure that employs world-class security and [compliance services](https://azure.microsoft.com/support/trust-center/compliance/) critical to U.S. government for all systems and applications built on its architecture. These services include FedRAMP and DoD compliance certifications, CJIS state-level agreements, the ability to issue HIPAA Business Associate Agreements, and support for IRS 1075. Operated by screened U.S. persons, Azure Government supports multiple hybrid scenarios for building and deploying solutions on-premises or in the cloud. Public Sector entities can also take advantage of the instant scalability and guaranteed uptime of a hyper-scale cloud service.
 
 Azure Government includes the core components of Infrastructure-as-a-Service (IaaS), Platform-as-a-Service (PaaS), and Software-as-a-Service (SaaS).  This includes infrastructure, network, storage, data management, identity management and many other services.
 
-Azure Government supports a majority of the same great features that public Azure customers have leveraged like Geo-Synchronous data replication and auto scaling. Please see the [regions page](https://azure.microsoft.com/regions/#services) for the most up to date services that are generally available.
+Azure Government supports a majority of the same great features that public Azure customers have leveraged like Geo-Synchronous data replication and auto scaling. 
+
+- Please see the [regions page](https://azure.microsoft.com/regions/#services) for the most up to date services that are generally available.
+- [Sign up for a trial](https://azuregov.microsoft.com/trial/azuregovtrial)
 
 U.S. government organizations interested in cloud services can be confident that Azure Government provides enormous scale and rigorous security practices to meet their evolving needs.
 
