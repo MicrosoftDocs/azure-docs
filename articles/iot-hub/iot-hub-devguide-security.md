@@ -134,9 +134,7 @@ These are the expected values:
 
 **Note on prefix**: The URI prefix is computed by segment and not by character. For example `/a/b` is a prefix for `/a/b/c` but not for `/a/bc`.
 
-The following is a Node.js function that computes the token from the inputs `resourceUri, signingKey, policyName, expiresInMins`. The next sections detail how to initialize the different inputs for the different token use cases.
-
-    var crypto = require('crypto');
+The following Node.js snippet shows a function called **generateSasToken** that computes the token from the inputs `resourceUri, signingKey, policyName, expiresInMins`. The next sections detail how to initialize the different inputs for the different token use cases.
 
     var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
         resourceUri = encodeURIComponent(resourceUri.toLowerCase()).toLowerCase();
@@ -146,23 +144,20 @@ The following is a Node.js function that computes the token from the inputs `res
         expires = Math.ceil(expires);
         var toSign = resourceUri + '\n' + expires;
 
-        // using crypto
-        var decodedPassword = new Buffer(signingKey, 'base64').toString('binary');
-        const hmac = crypto.createHmac('sha256', decodedPassword);
+        // Use crypto
+        var hmac = crypto.createHmac('sha256', new Buffer(signingKey, 'base64'));
         hmac.update(toSign);
-        var base64signature = hmac.digest('base64');
-        var base64UriEncoded = encodeURIComponent(base64signature);
+        var base64UriEncoded = encodeURIComponent(hmac.digest('base64'));
 
-        // construct autorization string
+        // Construct autorization string
         var token = "SharedAccessSignature sr=" + resourceUri + "&sig="
         + base64UriEncoded + "&se=" + expires;
         if (policyName) token += "&skn="+policyName;
-        // console.log("signature:" + token);
         return token;
     };
- 
- As a comparison, the equivalent Python code is:
- 
+
+As a comparison, the equivalent Python code to generate a security token is:
+
     from base64 import b64encode, b64decode
     from hashlib import sha256
     from hmac import HMAC
