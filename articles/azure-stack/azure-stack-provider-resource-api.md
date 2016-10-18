@@ -21,8 +21,8 @@
 The term provider applies to the service administrator and to any
 delegated providers. Service admins and delegated providers can use the
 Provider Usage API to view the usage of their direct tenants. For
-example, P0 can call the Provider API to get usage information on P1 and
-P2, and P1 can call for usage information on P3 and P4.
+example, P0 can call the Provider API to get usage information on P1's and
+P2's direct usage, and P1 can call for usage information on P3 and P4.
 
 ![](media/image1.png){width="1.4902952755905512in"
 height="1.6417913385826772in"}
@@ -85,9 +85,9 @@ meterID1",
 
 "usageEndTime": "2015-03-04T00:00:00+00:00",
 
-> "instanceData":"{\\"Microsoft.Resources\\":{\\"resourceUri\\":\\"resourceUri1\\",\\"location\\
->
-> ":\\"Alaska\\",\\"tags\\":null,\\"additionalInfo\\":null}}",
+"instanceData":"{\\"Microsoft.Resources\\":{\\"resourceUri\\":\\"resourceUri1\\",\\"location\\
+
+":\\"Alaska\\",\\"tags\\":null,\\"additionalInfo\\":null}}",
 
 "quantity":2.4000000000,
 
