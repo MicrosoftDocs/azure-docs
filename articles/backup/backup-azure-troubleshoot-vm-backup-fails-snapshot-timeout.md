@@ -26,7 +26,7 @@ After registering and scheduling a Virtual Machine (VM) for Azure Backup, the Az
 
 ## Symptom
 
-Microsoft Azure Backup for infrastructure as a service (IaaS) VM fails and returns the following error message in the job error details in the [Azure portal](https://portal.azure.com/).
+Microsoft Azure Backup for infrastructure as a service (IaaS) VM fails and returns the following error message in the job error details in the [Azure portal](https://portal.azure.com/):
 
 **Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out.**
 
