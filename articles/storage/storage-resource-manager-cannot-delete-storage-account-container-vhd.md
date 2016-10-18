@@ -19,6 +19,8 @@
 
 # Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs in a Resource Manager deployment
 
+[AZURE.INCLUDE [storage-selector-cannot-delete-storage-account-container-vhd](../../includes/storage-selector-cannot-delete-storage-account-container-vhd.md)]
+
 You might receive errors when you try to delete the Azure storage account, container, or VHD in the [Azure portal](https://portal.azure.com). This article provides troubleshooting guidance to help resolve the issue in an Azure Resource Manager deployment.
 
 If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and the Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting **Get support** on the [Azure support](https://azure.microsoft.com/support/options/) site.

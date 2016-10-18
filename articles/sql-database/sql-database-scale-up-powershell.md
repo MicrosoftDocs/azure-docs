@@ -53,7 +53,7 @@ The duration of the entire scale-up process depends on both the size and service
 
 ## Change the service tier and performance level of your SQL database
 
-Run the **Set-AzureRmSqlDatabase** cmdlet and set the **-RequestedServiceObjectiveName** to the performance level of the desired pricing tier; for example *S0*, *S1*, *S2*, *S3*, *P1*, *P2*, ...
+Run the [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433(v=azure.300\).aspx) cmdlet and set the **-RequestedServiceObjectiveName** to the performance level of the desired pricing tier; for example *S0*, *S1*, *S2*, *S3*, *P1*, *P2*, ...
 
 ```
 $ResourceGroupName = "resourceGroupName"
@@ -106,4 +106,4 @@ Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -Reso
 
 - [Business Continuity Overview](sql-database-business-continuity.md)
 - [SQL Database documentation](http://azure.microsoft.com/documentation/services/sql-database/)
-- [Azure SQL Database Cmdlets](http://msdn.microsoft.com/library/mt574084.aspx)
+- [Azure SQL Database Cmdlets](http://msdn.microsoft.com/library/azure/mt574084https://msdn.microsoft.com/library/azure/mt619433(v=azure.300\).aspx.aspx)
