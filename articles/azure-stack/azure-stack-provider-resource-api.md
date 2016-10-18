@@ -1,3 +1,21 @@
+<properties
+	pageTitle="Provider Resource Usage API | Microsoft Azure"
+	description="Reference for resource usage API, which retrieve Azure Stack usage information."
+	services="azure-stack"
+	documentationCenter=""
+	authors="alfredop"
+	manager="byronr"
+	editor=""/>
+
+<tags
+	ms.service="azure-stack"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="provider-resource-api"
+	ms.date="10/18/2016"
+	ms.author="alfredop"/>
+
 # Provider Resource Usage API
 
 The term provider applies to the service administrator and to any
