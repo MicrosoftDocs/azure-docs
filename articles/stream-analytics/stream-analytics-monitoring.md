@@ -66,7 +66,7 @@ You can set rules that can notify you by email in case the job crosses a defined
 
 ## Customizing Monitoring in the Azure Portal ##
 
-You can adjust the type of chart, metrics shown, and time range in the Edit Chart settings. For details, see [How to Customize Monitoring](../azure-portal/insights-how-to-customize-monitoring.md).
+You can adjust the type of chart, metrics shown, and time range in the Edit Chart settings. For details, see [How to Customize Monitoring](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
   ![Azure Portal Query Monitor Time Scale](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 
