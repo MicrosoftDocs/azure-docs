@@ -17,7 +17,6 @@
 	ms.author="alfredop"/>
 
 # Tenant Resource Usage API
-=========================
 
 A tenant can use the Tenant API to view the tenant’s own resource usage
 data. This API is consistent with the Azure Usage API (currently in
@@ -26,41 +25,30 @@ private preview).
 You can use the Windows PowerShell cmdlet **Get-UsageAggregates** to get
 usage data like in Azure.
 
-API call
---------
+## API call
 
 ### Request
 
 The request gets consumption details for the requested subscriptions and
 for the requested time frame. There is no request body.
 
-  **Method**   **Request URI**
-  ------------ ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  GET          https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version=2015-06-01-preview&continuationToken={token-value}
+| **Method**  | **Request URI** |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| GET         | https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version=2015-06-01-preview&continuationToken={token-value} |
 
 ### Arguments
 
-  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  **Argument**               **Description**
-  -------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  *Armendpoint*              Azure Resource Manager endpoint of your Azure Stack environment.
+| **Argument**             | **Description** |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| *Armendpoint*             | Azure Resource Manager endpoint of your Azure Stack environment. |
 
-  *subId*                    Subscription ID of the user who is making the call.
-
-                             Note: You can use this API only to query for a single subscription’s usage. Providers can use the Provider Resource Usage API to query usage for all tenants.
-
-  *reportedStartTime*        Start time of the query. The value for *DateTime* should be in UTC and at the beginning of the hour, for example, 13:00. For daily aggregation, set this value to UTC midnight. The format is *escaped* ISO 8601, for example, 2015-06-16T18%3a53%3a11%2b00%3a00Z, where colon is escaped to %3a and plus is escaped to %2b so that it is URI friendly.
-
-  *reportedEndTime*          End time of the query. The constraints that apply to *reportedStartTime* also apply to this argument. The value for *reportedEndTime* cannot be in the future.
-
-  *aggregationGranularity*   Optional parameter that has two discrete potential values: daily and hourly. As the values suggest, one returns the data in daily granularity, and the other is an hourly resolution. The daily option is the default.
-
-  *subscriberId*             Subscription ID. To get filtered data, the subscription ID of a direct tenant of the provider is required. If no subscription ID parameter is specified, the call returns usage data for all the provider’s direct tenants.
-
-  *api-version*              Version of the protocol that is used to make this request. You must use 2015-06-01-preview.
-
-  *continuationToken*        Token retrieved from the last call to the Usage API provider. This is needed when a response is greater than 1,000 lines. This is the bookmark for progress. If not present, the data is retrieved from the beginning of the day or hour, based on the granularity passed in.
-  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| *subId*                   | Subscription ID of the user who is making the call. Note: You can use this API only to query for a single subscription’s usage. Providers can use the Provider Resource Usage API to query usage for all tenants. |
+| *reportedStartTime*       | Start time of the query. The value for *DateTime* should be in UTC and at the beginning of the hour, for example, 13:00. For daily aggregation, set this value to UTC midnight. The format is *escaped* ISO 8601, for example, 2015-06-16T18%3a53%3a11%2b00%3a00Z, where colon is escaped to %3a and plus is escaped to %2b so that it is URI friendly. |
+| *reportedEndTime*         | End time of the query. The constraints that apply to *reportedStartTime* also apply to this argument. The value for *reportedEndTime* cannot be in the future. |
+| *aggregationGranularity*  | Optional parameter that has two discrete potential values: daily and hourly. As the values suggest, one returns the data in daily granularity, and the other is an hourly resolution. The daily option is the default. |
+| *subscriberId*            | Subscription ID. To get filtered data, the subscription ID of a direct tenant of the provider is required. If no subscription ID parameter is specified, the call returns usage data for all the provider’s direct tenants. |
+| *api-version*             | Version of the protocol that is used to make this request. You must use 2015-06-01-preview. |
+| *continuationToken*       | Token retrieved from the last call to the Usage API provider. This is needed when a response is greater than 1,000 lines. This is the bookmark for progress. If not present, the data is retrieved from the beginning of the day or hour, based on the granularity passed in. |
 
 ### Response
 
@@ -88,7 +76,7 @@ GET
 
 "usageEndTime": "2015-03-04T00:00:00+00:00",
 
-> "instanceData":"{\\"Microsoft.Resources\\":{\\"resourceUri\\":\\"resourceUri1\\",\\"location\\":\\"Alaska\\",\\"tags\\":null,\\"additionalInfo\\":null}}",
+"instanceData":"{\\"Microsoft.Resources\\":{\\"resourceUri\\":\\"resourceUri1\\",\\"location\\":\\"Alaska\\",\\"tags\\":null,\\"additionalInfo\\":null}}",
 
 "quantity":2.4000000000,
 
@@ -102,22 +90,15 @@ GET
 
 ### Response details
 
-  --------------------------------------------------------------------------------------------------------------------------------
-  **Argument**       **Description**
-  ------------------ -------------------------------------------------------------------------------------------------------------
-  *id*               Unique ID of the usage aggregate
-
-  *name*             Name of the usage aggregate
-
-  *type*             Resource definition
-
-  *subscriptionId*   Subscription identifier of the Azure user
-
-  *usageStartTime*   UTC start time of the usage bucket to which this usage aggregate belongs
-
-  *usageEndTime*     UTC end time of the usage bucket to which this usage aggregate belongs
-
-  *instanceData*     Key-value pairs of instance details (in a new format):
+| **Argument**      | **Description** |
+| ------------------ | ------------------------------------------------------------------------------------------------------------- |
+| *id*              | Unique ID of the usage aggregate |
+| *name*            | Name of the usage aggregate |
+| *type*            | Resource definition |
+| *subscriptionId*  | Subscription identifier of the Azure user |
+| *usageStartTime*  | UTC start time of the usage bucket to which this usage aggregate belongs |
+| *usageEndTime*    | UTC end time of the usage bucket to which this usage aggregate belongs |
+| *instanceData*    | Key-value pairs of instance details (in a new format):
 
                      -   *resourceUri*: Fully qualified resource ID, including resource groups and instance name
 
@@ -129,7 +110,6 @@ GET
 
 
 
-  *quantity*         Amount of resource consumption that occurred in this time frame
+| *quantity*        | Amount of resource consumption that occurred in this time frame |
+| *meterId*         | Unique ID for the resource that was consumed (also called *ResourceID*) |
 
-  *meterId*          Unique ID for the resource that was consumed (also called *ResourceID*)
-  --------------------------------------------------------------------------------------------------------------------------------
