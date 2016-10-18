@@ -17,7 +17,6 @@ Max number of files in a file share|Only limit is the 5 TB total capacity of the
 Max 8 KB IOPS per share|1000
 Max number of files in a file share|Only limit is the 5 TB total capacity of the file share
 Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account|Only limit is the 500 TB storage account capacity
-Max number of shared access signatures (SAS) per account, container, blob, file share, file, table, or queue|Unlimited
 Max number of stored access policies per container, file share, table, or queue|5
 Total Request Rate (assuming 1KB object size) per storage account|Up to 20,000 IOPS, entities per second, or messages per second
 Target throughput for single blob|Up to 60 MB per second, or up to 500 requests per second
