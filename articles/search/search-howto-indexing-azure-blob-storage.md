@@ -39,7 +39,7 @@ The blob indexer can extract text from the following document formats:
 
 You can set up an Azure Blob Storage indexer using:
 
-- Azure portal
+- [Azure portal](https://ms.portal.azure.com)
 - Azure Search [REST API](https://msdn.microsoft.com/library/azure/dn946891.aspx)
 - Azure Search .NET SDK [version 2.0-preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx) 
 
@@ -191,11 +191,13 @@ When you set up a blob indexer to run on a schedule, it re-indexes only the chan
 
 > [AZURE.NOTE] You don't have to specify a change detection policy – incremental indexing is enabled for you automatically.
 
-To indicate that certain documents must be removed from the index, consider using a soft delete strategy. Instead of deleting the corresponding blobs, add a custom metadata property to indicate that they're deleted, and set up a soft deletion detection policy on the data source.
+To support deleting documents, use a "soft delete" approach. If you delete the blobs outright, corresponding documents will not be removed from the search index. Instead, use the following steps:  
 
-> [AZURE.WARNING] If you simply delete the blobs without using a deletion detection policy, corresponding documents will not be removed from the search index.
+1. Add a custom metadata property to the blob to indicate to Azure Search that it is logically deleted
+2. Configure a soft deletion detection policy on the data source
+3. Once the indexer has processed the blob (as shown by the indexer status API), you can physically delete the blob
 
-For example, the policy shown below considers a blob to be deleted if it has a metadata property `IsDeleted` with the value `true`:
+For example, the following policy considers a blob to be deleted if it has a metadata property `IsDeleted` with the value `true`:
 
 	PUT https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
 	Content-Type: application/json
