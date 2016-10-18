@@ -50,6 +50,21 @@ When you create a virtual machine (VM) in the Azure portal using the Resource Ma
 
 - [Create a Fully Qualified Domain Name in the Azure portal](virtual-machines-linux-portal-create-fqdn.md)
 
+## Virtual NICs
+
+A network interface (NIC) is the interconnection between a Virtual Machine (VM) and the underlying software network. This article explains what a network interface is and how it's used in the Azure Resource Manager deployment model.
+
+- [Virtual Network Interfaces Overview](../virtual-networks/virtual-network-network-interface-overview.md)
+
+- []
+
+## Virtual Network Gateways
+
+A virtual network gateway is used to send network traffic between Azure virtual networks and on-premises locations and also between virtual networks within Azure (VNet-to-VNet). When you configure a VPN gateway, you must create and configure a virtual network gateway and a virtual network gateway connection.
+
+- [About VPN Gateway](../virtual-networks/vpn-gateway-about-vpngateways.md)
+
+
 ## Internal Load Balancing
 
 An Azure load balancer is a Layer-4 (TCP, UDP) load balancer. The load balancer provides high availability by distributing incoming traffic among healthy service instances in cloud services or virtual machines in a load balancer set. Azure Load Balancer can also present those services on multiple ports, multiple IP addresses, or both.
