@@ -63,10 +63,10 @@ The process for this depends on the blob container access level: **Public** or *
   * Upload the schema to storage.  
   ![Screenshot of Storage Account](./media/app-service-logic-enterprise-integration-schemas/blob-3.png)
 
-  * Generate a Shared Access Signature for the schema.  
-  ![Screenshot of Storage Account, with "Shared Access Signatures" tab highlighted](./media/app-service-logic-enterprise-integration-schemas/blob-2.png)
+  * Generate a shared access signature for the schema.  
+  ![Screenshot of Storage Account, with shared access signatures tab highlighted](./media/app-service-logic-enterprise-integration-schemas/blob-2.png)
 
-  * In **Add Schema**, select **Large file**, and provide the Shared Access Signature URI in the **Content URI** text box.  
+  * In **Add Schema**, select **Large file**, and provide the shared access signature URI in the **Content URI** text box.  
   ![Screenshot of Schemas, with "Add" button and "Large file" highlighted](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)  
 
 3. In the **Schemas** blade of the EIP Integration Account, you should now see the newly added schema.  
