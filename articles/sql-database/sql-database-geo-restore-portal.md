@@ -24,7 +24,7 @@
 - [Overview](sql-database-recovery-using-backups.md)
 - [Geo-Restore: PowerShell](sql-database-geo-restore-powershell.md)
 
-This article shows you how to restore your database from an [automatic backup](sql-database-automated-backups.md) into a new server using Geo-Restore using the Azure Portal.
+This article shows you how to restore your database from an [automatic backup](sql-database-automated-backups.md) into a new server using Geo-Restore using the Azure portal.
 
 ## Select a database to restore
 
@@ -39,7 +39,7 @@ To restore a database in the Azure portal, do the following steps:
   
     ![Restore an Azure SQL database](./media/sql-database-geo-restore-portal/geo-restore.png)
 
-You can monitor the status of the restore operation by clicking the notification icon in the upper right of the page. 
+Monitor the status of the restore operation by clicking the notification icon in the upper right of the page. 
 
 
 ## Next steps
