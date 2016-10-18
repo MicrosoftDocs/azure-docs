@@ -33,6 +33,7 @@ The following diagram shows the Azure defense-in-depth model. For example, Micro
 This page outlines the foundational principles for securing your Services and applications, providing guidance and best practices on how to apply these principles; in other words, how customers should make smart use of Azure Government to meet the obligations and responsibilities that are required for a solution that handles ITAR information.
 
  The overarching principles for securing customer data are:
+
 - Protecting data using encryption
 - Managing secrets
 - Isolation to restrict data access
@@ -83,6 +84,7 @@ Isolation is all about using boundaries, segmentation, and containers to limit d
 
 ### <a name="Overview"></a>Environment Isolation
 The Azure Government environment is a physical instance that is separate from the rest of Microsoft's network. This is achieved through a series of physical and logical controls that include the following:
+
 - Securing of physical barriers using biometric devices and cameras.
 - Use of specific credentials and multifactor authentication by Microsoft personnel requiring logical access to the production environment.
 - All service infrastructure for Azure Government is located within the United States.
@@ -110,6 +112,7 @@ National Agency Check with Law and Credit (NACLC) (every five years) | Adds fing
 <a href="https://www.microsoft.com/en-us/TrustCenter/Compliance/CJISCriminal"> Criminal Justice Information Services (CJIS) </a> | CJIS is a state, local and FBI government screening which processes fingerprint records and validates criminal histories on operational staff who could be provided access to critical criminal justice information (CJI) data.  Each state does their own background check and subsequent approval of all employees with potential access to CJI.|
 
 For Azure operations personnel, the following access principles apply:
+
 - Duties are clearly defined, with separate responsibilities for requesting, approving and deploying changes.
 - Access is through defined interfaces that have specific functionality.
 - Access is just-in-time (JIT), and is granted only on a per-incident basis or for a specific maintenance event, and always for a limited duration.
