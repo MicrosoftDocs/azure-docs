@@ -83,4 +83,4 @@ For security reasons, access via SDK or REST API from machines not on the allowe
 
 ## Next steps
 
-For information about network related performance tips, see [Performance tips](performancetips.md).
+For information about network related performance tips, see [Performance tips](documentdb-performance-tips.md).
