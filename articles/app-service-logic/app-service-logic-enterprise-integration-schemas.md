@@ -1,3 +1,4 @@
+
 <properties
 	pageTitle="Overview of schemas and the Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure"
 	description="Learn how to use schemas with the Enterprise Integration Pack and logic apps"
@@ -46,6 +47,7 @@ From the Azure portal:
 ### To add a schema file larger than 2 MB (up to a maximum of 8 MB)  
 
 The process for this depends on the blob container access level: **Public** or **No anonymous access**. To determine this access level, in **Azure Storage Explorer**, under **Blob Containers**, select the blob container you want. Select **Security**, and select the **Access Level** tab.
+
 1. If blob security access level is **Public**, follow these steps.  
   ![Screenshot of Azure Storage Explorer, with "Blob Containers", "Security", and "Public" highlighted](./media/app-service-logic-enterprise-integration-schemas/blob-public.png)  
 
