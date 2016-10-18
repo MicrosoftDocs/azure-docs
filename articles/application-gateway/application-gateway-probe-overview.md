@@ -21,7 +21,7 @@
 
 # Application Gateway health monitoring overview
 
-Azure Application Gateway by default monitors the health of all resources in its back-end pool and automatically removes any resource considered unhealthy from the pool. Application Gateway continues to monitor the unhealthy instances and adds them back to the healthy back-end pool once they become available and respond to health probes.
+Azure Application Gateway by default monitors the health of all resources in its back-end pool and automatically removes any resource considered unhealthy from the pool. Application Gateway continues to monitor the unhealthy instances and adds them back to the healthy back-end pool once they become available and respond to health probes. Application gateway sends the health probes with the same port that is defined in the back-end HTTP settings. This ensures that the probe is testing the same port that customers would be using to connect to the backend.
 
 ![application gateway probe example][1]
 
@@ -44,6 +44,8 @@ If the default probe check fails for server A, the application gateway removes i
 | Time-out  | 30 | Probe time-out in seconds |
 | Unhealthy threshold | 3 | Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
+> [AZURE.NOTE] The port will always be the same port as the back-end HTTP settings.
+
 The default probe looks only at http://127.0.0.1:\<port\> to determine health status. If you need to configure the health probe to go to a custom URL or modify any other settings, you must use custom probes as described in the following steps.
 
 ## Custom health probe
@@ -65,7 +67,7 @@ The following table provides definitions for the properties of a custom health p
 | Unhealthy threshold | Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
 > [AZURE.IMPORTANT] If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe.
-For reference a custom probe is sent to \<protocol\>://\<host\>:\<port\>\<path\>.
+For reference a custom probe is sent to \<protocol\>://\<host\>:\<port\>\<path\>. The port used will be the same port as defined in the back-end HTTP settings.
 
 ## Next steps
 
