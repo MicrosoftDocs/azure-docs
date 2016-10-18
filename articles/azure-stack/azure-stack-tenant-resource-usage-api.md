@@ -97,7 +97,7 @@ GET
 | *subscriptionId*  | Subscription identifier of the Azure user |
 | *usageStartTime*  | UTC start time of the usage bucket to which this usage aggregate belongs |
 | *usageEndTime*    | UTC end time of the usage bucket to which this usage aggregate belongs |
-| *instanceData*    | Key-value pairs of instance details (in a new format):<br>  *resourceUri*: Fully qualified resource ID, including resource groups and instance name <br>  *location*: Region in which this service was run <br>  *tags*: Resource tags that the user specifies <br> -   *additionalInfo*: More details about the resource being consumed, for example, OS version or image type
+| *instanceData*    | Key-value pairs of instance details (in a new format):<br>  *resourceUri*: Fully qualified resource ID, including resource groups and instance name <br>  *location*: Region in which this service was run <br>  *tags*: Resource tags that the user specifies <br>  *additionalInfo*: More details about the resource being consumed, for example, OS version or image type |
 
 
 
