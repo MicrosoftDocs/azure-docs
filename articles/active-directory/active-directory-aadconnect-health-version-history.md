@@ -18,9 +18,7 @@
 
 # Azure AD Connect Health: Version Release History
 
-The Azure Active Directory team regularly updates Azure AD Connect Health with new features and functionality.
-
-This article is designed to help you keep track of the versions that have been released.
+The Azure Active Directory team regularly updates Azure AD Connect Health with new features and functionality. This article lists the versions and features that have been released.
 
 ## October 2016
 **Agent Update:**
