@@ -105,6 +105,8 @@ There are also some small differences in the behavior of the Service Bus .NET AP
 
 -   `MessageReceiver.Receive(TimeSpan.Zero)` is implemented as `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`.
 
+-   Completing messages by lock tokens can only be done by the message receivers that initially received the messages.
+
 ## Controlling AMQP protocol settings
 
 The .NET APIs expose several settings to control the behavior of the AMQP protocol:
