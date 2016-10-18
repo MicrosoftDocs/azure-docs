@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="09/08/2016"
 	ms.author="iainfou"/>
 
 # Infrastructure naming guidelines
@@ -31,7 +31,7 @@ Decisions:
 
 Tasks:
 
-- Define the affixes that to use across your resources to maintain consistency.
+- Define the affixes to use across your resources to maintain consistency.
 - Define storage account names given the requirement for them to be globally unique.
 - Document the naming convention to be used and distribute to all parties involved to ensure consistency across deployments.
 

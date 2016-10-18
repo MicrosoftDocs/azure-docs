@@ -2,7 +2,7 @@
 	pageTitle="Create non-interactive authentication .NET HDInsight applciations | Microsoft Azure"
 	description="Learn how to create non-interactive authentication .NET HDInsight applications."
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"

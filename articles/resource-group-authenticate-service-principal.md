@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="09/07/2016"
+   ms.date="09/12/2016"
    ms.author="tomfitz"/>
 
 # Use Azure PowerShell to create a service principal to access resources
@@ -173,17 +173,14 @@ The version of PowerShell available with Windows 10 and Windows Server 2016 Tech
 
         $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
        
-- If you **do not have Windows 10 or Windows Server 2016 Technical Preview**, you need to install or download the [Public Key Infrastructure PowerShell module](https://pspki.codeplex.com/releases/view/625365) from Codeplex. If you downloaded the .zip file, extract its contents and import the cmdlet you need.
+- If you **do not have Windows 10 or Windows Server 2016 Technical Preview**, you need to download the [Self-signed certificate generator](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) from Microsoft Script Center. Extract its contents and import the cmdlet you need.
      
         # Only run if you could not use New-SelfSignedCertificate
         Import-Module -Name c:\ExtractedModule\New-SelfSignedCertificateEx.ps1
     
-     Then, generate the certificate and retrieve it from the certificate store.
+     Then, generate the certificate.
     
-        New-SelfSignedCertificateEx -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
-        $cert = Get-ChildItem -Path cert:\CurrentUser\My\* -DnsName exampleapp
-
-     If you have created multiple certificates with the same DNS name, the Get-ChildItem cmdlet returns all those certificates. In that case, you must specify the particular certificate you wish to use, such as `$cert[0]`.
+        $cert = New-SelfSignedCertificateEx -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
 
 You have your certificate and can proceed with creating your AD app.
 

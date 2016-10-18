@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/01/2016"
+   ms.date="10/11/2016"
    ms.author="mbaldwin"/>
 
 
@@ -76,7 +76,7 @@ These articles describe how to perform specific tasks by using Azure Active Dire
 - [Understand the branding guidelines for the sign-in and app acquisition buttons in your client application](active-directory-branding-guidelines.md)
 - [Preview: How to build apps that sign users in with both personal & work or school accounts](active-directory-appmodel-v2-overview.md)
 - [Preview: How to build apps that sign up & sign in consumers](../active-directory-b2c/active-directory-b2c-overview.md)
-
+- [Preview: Configuring token lifetimes in Azure AD](active-directory-configurable-token-lifetimes.md) using PowerShell. See [Policy operations](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) and the [Policy entity](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity) for details on configuring via the Azure AD Graph API.
 
 ## Reference
 
@@ -92,7 +92,7 @@ These articles provide a foundation reference for REST and authentication librar
 
 - [Azure Active Directory samples](https://github.com/azure-samples?query=active-directory): The easiest way to navigate the list of samples is by using the [index of code samples](active-directory-code-samples.md).
 
-- [ADAL for .NET](https://msdn.microsoft.com/library/azure/mt417579.aspx): Documentation for the .NET authentication library.
+- [Active Directory Authentication Library (ADAL) for .NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) - Reference documentation is available for both [the latest major version](https://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory) and the [the previous major version](https://docs.microsoft.com/active-directory/adal/v2/microsoft.identitymodel.clients.activedirectory).
 
 ### Graph API
 

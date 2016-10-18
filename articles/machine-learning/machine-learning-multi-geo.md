@@ -4,7 +4,7 @@
    services="machine-learning"
    documentationCenter=""
    authors="tedway"
-   manager="paulettm"
+   manager="jhubbard"
    editor="rmca14"
    tags=""/>
 

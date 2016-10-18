@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="09/13/2016"
    ms.author="rogardle"/>
 
 # Deploy an Azure Container Service cluster
@@ -115,8 +115,6 @@ Create an Azure resource group and Container Service cluster with the following 
 > [AZURE.NOTE] When you run this command, the shell will prompt you for deployment parameter values.
 
 ```bash
-# sample deployment
-
 azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri TEMPLATE_URI
 ```
 
@@ -125,18 +123,14 @@ azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri 
 This version of the command requires you to define parameters interactively. If you want to provide parameters, such as a JSON-formatted string, you can do so by using the `-p` switch. For example:
 
  ```bash
- # sample deployment
-
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -p '{ "param1": "value1" … }'
- ```
+```
 
 Alternatively, you can provide a JSON-formatted parameters file by using the `-e` switch:
 
- ```bash
- # sample deployment
-
+```bash
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -e PATH/FILE.JSON
- ```
+```
 
 To see an example parameters file named `azuredeploy.parameters.json`, look for it with the Azure Container Service templates in GitHub.
 
@@ -170,10 +164,8 @@ New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
 After you create a resource group, you can create your cluster with the following command. The URI of the desired template will be specified for the `-TemplateUri` parameter. When you run this command, PowerShell will prompt you for deployment parameter values.
 
 ```powershell
-# sample deployment
-
 New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
- ```
+```
 
 ### Provide template parameters
 
@@ -182,8 +174,6 @@ If you're familiar with PowerShell, you know that you can cycle through the avai
 Below is the full command, with parameters included. You can provide your own values for the names of the resources.
 
 ```powershell
-# sample deployment
-
 New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-TemplateURI TEMPLATE_URI -adminuser value1 -adminpassword value2 ....
 ```
 

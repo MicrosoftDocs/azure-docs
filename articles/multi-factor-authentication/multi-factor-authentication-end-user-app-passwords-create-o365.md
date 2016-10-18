@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Create app passwords in the Office 365 portal for Azure Multi-Factor Authentication" 
-	description="This page shows users how they can create additional app passwords in the Office 365 portal." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenp" 
+<properties
+	pageTitle="Create app passwords in the Office 365 portal for Azure Multi-Factor Authentication"
+	description="This page shows users how they can create additional app passwords in the Office 365 portal."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Create or delete app passwords in the Office 365 portal for Azure Multi-Factor Authentication
 
@@ -67,8 +67,3 @@ If you use multi-factor authentication with Office 365 you will want to create a
 
 <li>You will get a pop-up asking you to confirm the deletion.</li>
 <li>Click **Yes**.</li>
-
-
-
- 
- 

@@ -521,7 +521,9 @@ Then, click **Upload** to upload the certificate. You should now see your upload
 If you use **SNI SSL** bindings only, skip this section. Multiple **SNI SSL** 
 bindings can work together on the existing shared IP address assigned to your app. However, if you create an 
 **IP based SSL** binding, App Service creates a dedicated IP address for the binding because the 
-**IP based SSL** requires one. Because of this dedicated IP address, you will need to configure your app
+**IP based SSL** requires one. Only one dedicated IP address can be created, therefore only one **IP based SSL** binding may be added.
+
+Because of this dedicated IP address, you will need to configure your app
 further if:
 
 - You [used an A record to map your custom domain](web-sites-custom-domain-name.md#a) to your Azure app, and

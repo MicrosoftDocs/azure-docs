@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="How to perform live streaming using Azure Media Services to create multi-bitrate streams with .NET" 
+	pageTitle="How to perform live streaming using Azure Media Services to create multi-bitrate streams with .NET  | Microsoft Azure" 
 	description="This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream using .NET SDK." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
+	authors="anilmur" 
 	manager="erikre" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="10/12/2016"
+	ms.author="juliako;anilmur"/>
 
 
 #How to perform live streaming using Azure Media Services to create multi-bitrate streams with .NET
@@ -25,7 +25,7 @@
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 >[AZURE.NOTE]
-> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](/pricing/free-trial/?WT.mc_id=A261C142F). 
+> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](/pricing/free-trial/?WT.mc_id=A261C142F).
 
 ##Overview
 
@@ -42,17 +42,17 @@ The following steps describe tasks involved in creating common live streaming ap
 
 1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS). For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-	This step could also be performed after you create your Channel.
+This step could also be performed after you create your Channel.
 
 1. Create and start a Channel.
 
 1. Retrieve the Channel ingest URL.
 
-	The ingest URL is used by the live encoder to send the stream to the Channel.
+The ingest URL is used by the live encoder to send the stream to the Channel.
 
 1. Retrieve the Channel preview URL.
 
-	Use this URL to verify that your channel is properly receiving the live stream.
+Use this URL to verify that your channel is properly receiving the live stream.
 
 2. Create an asset.
 3. If you want for the asset to be dynamically encrypted during playback, do the following:
@@ -62,7 +62,7 @@ The following steps describe tasks involved in creating common live streaming ap
 3. Create a program and specify to use the asset that you created.
 1. Publish the asset associated with the program by creating an OnDemand locator.
 
-	Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
+Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
 
 1. Start the program when you are ready to start streaming and archiving.
 2. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
@@ -89,10 +89,10 @@ The topic shows how to do the following:
 
 The following are required to complete the tutorial.
 
-- To complete this tutorial, you need an Azure account. 
-	
-	If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](/pricing/free-trial/?WT.mc_id=A261C142F). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features, such as the Web Apps feature in Azure App Service.
-- A Media Services account. To create a Media Services account, see [Create Account](media-services-create-account.md).
+- To complete this tutorial, you need an Azure account.
+
+If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](/pricing/free-trial/?WT.mc_id=A261C142F). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features, such as the Web Apps feature in Azure App Service.
+- A Media Services account. To create a Media Services account, see [Create Account](media-services-portal-create-account.md).
 - Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express) or later versions.
 - You must use Media Services .NET SDK version 3.2.0.0 or newer.
 - A webcam and an encoder that can send a single bitrate live stream.
@@ -115,7 +115,7 @@ Get and run a sample from [here](https://azure.microsoft.com/documentation/sampl
 ##Connect to Media Services
 As a best practice, you should use an app.config file to store the Media Services name and account key.
 
->[AZURE.NOTE]To find the Name and Key values, go to the Azure Classic Portal, select your Media Service account, and click on the “MANAGE KEYS” icon on the bottom of the portal window. Clicking on the icon next to each text box copies the value to the system clipboard.
+>[AZURE.NOTE]To find the Name and Key values, go to the Azure portal and select your account. The Settings window appears on the right. In the Settings window, select Keys. Clicking on the icon next to each text box copies the value to the system clipboard.
 
 Add the appSettings section to the app.config file, and set the values for your Media Services account name and account key.
 
@@ -518,7 +518,9 @@ Add the appSettings section to the app.config file, and set the values for your 
 	}	
 
 
-##Next steps: Media Services learning paths
+##Next step
+
+Review Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

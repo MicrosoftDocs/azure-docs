@@ -13,12 +13,68 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="05/20/2016"
+   ms.date="09/21/2016"
    ms.author="maroche"/>
 
 # What's new in Azure Data Catalog
 
 Updates to **Azure Data Catalog** are released on a regular basis. Not every release will include new user-facing features, as some releases are focused on back-end service capabilities. This page will highlight new user-facing capabilities added to the Azure Data Catalog service.
+
+
+
+## What's new for the week of September 16, 2016 release
+
+As of the week of September 16, 2016, the following capabilities have been added to Azure Data Catalog:
+
+- Support for IBM DB2 data sources. Users can now register and discover DB2 databases, tables, and views.
+- Support for Azure DocumentDB data sources. Users can now register and discover DocumentDB databases and collections.
+- Support for customizing the catalog name in the Data Catalog portal. Catalog administrators can now provide text that will be displayed in the portal title, such as the organization name.
+
+## What's new for the week of August 26, 2016 release
+
+As of the week of August 26, 2016, the following capabilities have been added to Azure Data Catalog:
+
+- Enhancements for registration of SQL Server Master Data Services (MDS) data sources. Users can now include previews and data profiles when registering MDS entities using the Data Catalog data source registration tool.
+- Support for admin-defined organizational saved searches. When saving a search in the Data Catalog portal, Data Catalog administrators can now choose to save searches for personal use or for all catalog users. Organizational saved searches are shared with all catalog users, and can provide standardized starting points for data source discovery.
+
+## What's new for the week of August 5, 2016 release
+
+As of the week of August 5, 2016, the following capabilities have been added to Azure Data Catalog:
+
+- Updates to the properties view in the Data Catalog portal. All data asset properties are now displayed and managed in a single, resizable pane to provide a more consistent and discoverable experience.
+
+## What's new for the week of July 29, 2016 release
+
+As of the week of July 29, 2016, the following capabilities have been added to Azure Data Catalog:
+
+- Support for SQL Server Master Data Services (MDS) data sources. Users can now register and discover MDS models and entities.
+
+## What's new for the week of July 22, 2016 release
+
+As of the week of July 22, 2016, the following capabilities have been added to Azure Data Catalog:
+
+- Support for SQL Server stored procedures. Users can now register and discover stored procedure objects in SQL Server data sources.
+- Support for additional languages in the Azure Data Catalog portal and the data source registration tool, for a total of 18 supported languages. The Azure Data Catalog user experience will be localized based on the language preferences set in Windows or in the user’s web browser.
+
+## What's new for the week of July 8, 2016 release
+
+As of the week of July 8, 2016, the following capabilities have been added to Azure Data Catalog:
+
+- Updates and refinement for the Data Catalog portal home page, including performance improvements and a streamlined user experience.
+
+## What's new for the week of June 24, 2016 release
+
+As of the week of June 24, 2016, the following capabilities have been added to Azure Data Catalog:
+
+- Support for resizing columns in the list view when discovering data assets in the Data Catalog portal. Users can now resize individual columns to more easily read lengthy asset metadata such as tags and descriptions.
+- Power Query for Excel has been added to the "Open in" menu in the Data Catalog portal. Users can now open supported data sources in Excel 2016 or in Excel 2010 and Excel 2013 with the [Power Query for Excel](https://support.office.com/article/Introduction-to-Microsoft-Power-Query-for-Excel-6E92E2F4-2079-4E1F-BAD5-89F6269CD605) add-in installed.
+
+
+## What's new for the week of June 17, 2016 release
+
+As of the week of June 17, 2016, the following capabilities have been added to Azure Data Catalog:
+
+- Support for Azure Table Storage data sources. Users can now register and discover Table objects in Azure Storage data sources.
 
 ## What's new for the week of May 20, 2016 release
 

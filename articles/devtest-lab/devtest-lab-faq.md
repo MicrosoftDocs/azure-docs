@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2016"
+	ms.date="09/13/2016"
 	ms.author="tarcher"/>
 
 # Azure DevTest Labs FAQ
@@ -45,6 +45,7 @@ This article answers some of the most common questions about Azure DevTest Labs.
 - [How do I move my existing Azure VMs into my Azure DevTest Labs lab?](#how-do-i-move-my-existing-azure-vms-into-my-azure-devtest-labs-lab) 
 - [Can I attach multiple disks to my VMs?](#can-i-attach-multiple-disks-to-my-vms) 
 - [How do I automate the process of uploading VHD files to create custom images?](#how-do-i-automate-the-process-of-uploading-vhd-files-to-create-custom-images) 
+- [How can I automate the process of deleting all the VMs in my lab?](#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab)
  
 ## Artifacts 
  
@@ -56,6 +57,8 @@ This article answers some of the most common questions about Azure DevTest Labs.
 - [Why are my VMs created in different resource groups with arbitrary names? Can I rename or modify these resource groups?](#why-are-my-vms-created-in-different-resource-groups-with-arbitrary-names-can-i-rename-or-modify-these-resource-groups) 
 - [How many labs can I create under the same subscription?](#how-many-labs-can-i-create-under-the-same-subscription)
 - [How many VMs can I create per lab?](#how-many-vms-can-i-create-per-lab)
+- [How do I share a direct link to my lab?](#how-do-i-share-a-direct-link-to-my-lab)
+- [What is a Microsoft account?](#what-is-a-microsoft-account)
  
 ## Troubleshooting 
  
@@ -107,7 +110,7 @@ Since scopes are hierarchical, when a user has permissions at a certain scope, t
 ### How do I create a role to allow users to perform a specific task?
 A comprehensive article about how to create custom roles and assign permissions to that role can be found here. Here is an example of a script that creates the role "DevTest Labs Advanced User", which has permission to start and stop all VMs in the lab:
  
-	$policyRoleDef = (Get-AzureRmRoleDefinition "DevTest Labs User") 
+	$policyRoleDef = Get-AzureRmRoleDefinition "DevTest Labs User" 
 	$policyRoleDef.Actions.Remove('Microsoft.DevTestLab/Environments/*') 
 	$policyRoleDef.Id = $null 
 	$policyRoleDef.Name = "DevTest Labs Advance User" 
@@ -116,7 +119,7 @@ A comprehensive article about how to create custom roles and assign permissions 
 	$policyRoleDef.AssignableScopes.Add("subscriptions/<subscription Id>") 
 	$policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/virtualMachines/Start/action") 
 	$policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/virtualMachines/Stop/action") 
-	$policyRoleDef = (New-AzureRmRoleDefinition -Role $policyRoleDef)  
+	$policyRoleDef = New-AzureRmRoleDefinition -Role $policyRoleDef  
  
 ### Does Azure DevTest Labs integrate with my CI/CD toolchain? 
 If you are using VSTS, there is an [Azure DevTest Labs Tasks extension](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) that allows you to automate your release pipeline in Azure DevTest Labs. Some of the uses of this extension include:
@@ -168,11 +171,48 @@ To find the destination storage account associated with your lab, follow these s
 1. Look for uploads in the list. If none exists, return to Step #4 and try another storage account.
 1. Use the **URL** as your destination in your AzCopy command.
 
+
+### How can I automate the process of deleting all the VMs in my lab?
+
+In addition to deleting VMs from your lab in the Azure portal, you can delete all of the VMs in your lab using a PowerShell script. In the following example, simply modify the parameter values under the **Values to change** comment. You can retrieve the `subscriptionId`, `labResourceGroup`, and `labName` values from the lab blade in the Azure portal. 
+
+
+	# Delete all the VMs in a lab
+	
+	# Values to change
+	$subscriptionId = "<Enter Azure subscription ID here>"
+	$labResourceGroup = "<Enter lab's resource group here>"
+	$labName = "<Enter lab name here>"
+
+	# Login to your Azure account
+	Login-AzureRmAccount
+	
+	# Select the Azure subscription that contains the lab. This step is optional
+	# if you have only one subscription.
+	Select-AzureRmSubscription -SubscriptionId $subscriptionId
+	
+	# Get the lab that contains the VMs to delete.
+	$lab = Get-AzureRmResource -ResourceId ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
+	
+	# Get the VMs from that lab.
+	$labVMs = Get-AzureRmResource | Where-Object { 
+	          $_.ResourceType -eq 'microsoft.devtestlab/labs/virtualmachines' -and
+	          $_.ResourceName -like "$($lab.ResourceName)/*"}
+	
+	# Delete the VMs.
+	foreach($labVM in $labVMs)
+	{
+	    Remove-AzureRmResource -ResourceId $labVM.ResourceId -Force
+	}
+
+
+
+
 ### What are artifacts? 
 Artifacts are customizable elements that can be used to deploy your latest bits or your dev tools onto a VM. They are attached to your VM during creation with a few simple clicks, and once the VM is provisioned, the artifacts deploy and configure your VM. There are various pre-existing artifacts in our [public Github repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), but you can also easily [author your own artifacts](devtest-lab-artifact-author.md). 
 
 ### How do I create a lab from an Azure Resource Manager template? 
-We have a [Github repository of lab Azure Resource Manager templates](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates). Each of these templates has a link that you can click to deploy the Azure DevTest Labs lab under your own Azure subscription. 
+We have provided a [Github repository of lab Azure Resource Manager templates](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) that you can deploy as-is or modify to create custom templates for your labs. Each of these templates has a link that you can click to deploy the lab as-is under your own Azure subscription, or you can customize the template and [deploy using PowerShell or Azure CLI](../resource-group-template-deploy.md).
  
 ### Why are my VMs created in different resource groups with arbitrary names? Can I rename or modify these resource groups? 
 Resource groups are created this way in order for Azure DevTest Labs to manage the user permissions and access to virtual machines. While you can move the VM to another resource group with your desired name, doing so is not recommended. We are working on improving this experience to allow more flexibility.   
@@ -182,6 +222,21 @@ There is no specific limit on the number of labs that can be created per subscri
  
 ### How many VMs can I create per lab? 
 There is no specific limit on the number of VMs that can be created per lab. However, currently the lab supports only about 40 VMs running at the same time in standard storage, and 25 VMs running concurrently in premium storage. We are currently working on increasing these limits. 
+
+### How do I share a direct link to my lab?
+
+To share a direct link to your lab users you can perform the following procedure.
+
+1. Browse to the lab in the Azure portal.
+2. Copy the lab URL from your browser and share it with your lab users. 
+
+>[AZURE.NOTE] If your lab users are external users with a [MSA account](#what-is-a-microsoft-account) and they don’t belong to your company’s Active directory, they may receive an error when navigating to the provided link. If they receive an error, instruct them to click their name in the upper-right corner of the Azure portal and select the directory where the lab exists from the **Directory** section of the menu.
+
+### What is a Microsoft account?
+
+A Microsoft account is what you use for almost everything you do with Microsoft devices and services. It’s an email address and password that you use to sign in to Skype, Outlook.com, OneDrive, Windows Phone, and Xbox LIVE – and it means your files, photos, contacts and settings can follow you to any device. 
+
+>[AZURE.NOTE] Microsoft account used to be called "Windows Live ID".
  
 ### My artifact failed during VM creation. How do I troubleshoot it? 
 Refer to the blog post [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs) - written by one of our MVPs - to learn how to obtain logs regarding your failed artifact. 

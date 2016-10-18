@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2016"
+   ms.date="09/21/2016"
    ms.author="terrylan"/>
 
 # Azure Security Center frequently asked questions (FAQ)
@@ -121,10 +121,10 @@ If you need to:
 ### Which Azure resources are monitored by Azure Security Center?
 Azure Security Center monitors the following Azure resources:
 
-- Virtual machines (including Cloud Services)
+- Virtual machines (VMs) (including [Cloud Services](../cloud-services/cloud-services-choose-me.md))
 - Azure Virtual Networks
 - Azure SQL service
-- Partner solutions integrated with your Azure subscription such as a web application firewall
+- Partner solutions integrated with your Azure subscription such as a web application firewall on VMs and on [App Service Environment](../app-service/app-service-app-service-environments-readme.md)
 
 ## Virtual Machines
 

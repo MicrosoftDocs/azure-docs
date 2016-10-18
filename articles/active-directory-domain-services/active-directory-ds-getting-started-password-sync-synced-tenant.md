@@ -13,30 +13,29 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/07/2016"
+	ms.date="09/20/2016"
 	ms.author="maheshu"/>
 
-# Azure AD Domain Services *(Preview)* - Enable password synchronization to Azure AD Domain Services
+# Enable password synchronization to Azure AD Domain Services
+In preceding tasks, you enabled Azure AD Domain Services for your Azure AD tenant. The next task is to enable synchronization of passwords to Azure AD Domain Services. Once credential synchronization is set up, users can sign in to the managed domain using their corporate credentials.
 
-## Task 5: Enable password synchronization to AAD Domain Services for a synced Azure AD tenant
-Once you have enabled Azure AD Domain Services for your Azure AD directory, the next task is to enable synchronization of passwords to Azure AD Domain Services. After you do so, users can sign in to the domain using their corporate credentials.
-
-The steps involved are different based on whether your organization has a cloud-only Azure AD directory or is set to synchronize with your on-premises directory using Azure AD Connect.
+The steps involved are different based on whether your organization has a cloud-only Azure AD tenant or is set to synchronize with your on-premises directory using Azure AD Connect.
 
 <br>
 
 > [AZURE.SELECTOR]
-- [Cloud-only Azure AD directory](active-directory-ds-getting-started-password-sync.md)
-- [Synced Azure AD directory](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+- [Cloud-only Azure AD tenant](active-directory-ds-getting-started-password-sync.md)
+- [Synced Azure AD tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
 <br>
 
-### Synced tenants - Enable synchronization of NTLM and Kerberos credential hashes to Azure AD
+
+## Task 5: Enable password synchronization to AAD Domain Services for a synced Azure AD tenant
 A synced Azure AD tenant is set to synchronize with your organization's on-premises directory using Azure AD Connect. Azure AD Connect does not synchronize NTLM and Kerberos credential hashes to Azure AD by default. To use Azure AD Domain Services, you need to configure Azure AD Connect to synchronize credential hashes required for NTLM and Kerberos authentication. The following steps enable synchronization of the required credential hashes to your Azure AD tenant.
 
-#### Install or update Azure AD Connect
 
-You need to install the latest recommended release of Azure AD Connect on a domain joined computer. If you have an existing instance of Azure AD Connect setup, you need to update it to use the latest version of Azure AD Connect. To avoid known issues/bugs that may have already been fixed, ensure you always use the latest version of Azure AD Connect.
+### Install or update Azure AD Connect
+Install the latest recommended release of Azure AD Connect on a domain joined computer. If you have an existing instance of Azure AD Connect setup, you need to update it to use the latest version of Azure AD Connect. To avoid known issues/bugs that may have already been fixed, ensure you always use the latest version of Azure AD Connect.
 
 **[Download Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
 
@@ -47,8 +46,7 @@ Recommended version: **1.1.281.0** - published on September 7, 2016.
 Installation instructions for Azure AD Connect are available in the following article - [Getting started with Azure AD Connect](../active-directory/active-directory-aadconnect.md)
 
 
-#### Force full password synchronization to Azure AD
-
+### Enable synchronization of NTLM and Kerberos credential hashes to Azure AD
 Execute the following PowerShell script on each AD forest, to force full password synchronization, and enable all on-premises users’ credential hashes to sync to your Azure AD tenant. This script enables the credential hashes required for NTLM/Kerberos authentication to be synchronized to your Azure AD tenant.
 
 ```

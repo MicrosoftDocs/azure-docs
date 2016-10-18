@@ -121,7 +121,7 @@ azure network lb rule create -g TestRG -l TestLB -n WebRule -p tcp -f 80 -b 80 \
 Create the load balancer health probe:
 
 ```bash
-azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "http" -f healthprobe.aspx -i 15 -c 4
+azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "tcp" -i 15 -c 4
 ```
 
 Verify the load balancer, IP pools, and NAT rules by using the JSON parser:
@@ -788,7 +788,7 @@ info:    network lb rule create command OK
 A health probe periodically checks on the VMs that are behind our load balancer to make sure they're operating and responding to requests as defined. If not, they're removed from operation to ensure that users aren't being directed to them. You can define custom checks for the health probe, along with intervals and timeout values. For more information about health probes, see [Load Balancer probes](../load-balancer/load-balancer-custom-probe-overview.md).
 
 ```bash
-azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "http" -f healthprobe.aspx -i 15 -c 4
+azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "tcp" -i 15 -c 4
 ```
 
 Output:
@@ -800,7 +800,7 @@ warn:    Using default probe port: 80
 + Updating load balancer "TestLB"
 data:    Name                            : HealthProbe
 data:    Provisioning state              : Succeeded
-data:    Protocol                        : Http
+data:    Protocol                        : Tcp
 data:    Port                            : 80
 data:    Interval in seconds             : 15
 data:    Number of probes                : 4
@@ -928,14 +928,13 @@ Output:
   "probes": [
     {
       "etag": "W/\"62a7c8e7-859c-48d3-8e76-5e078c5e4a02\"",
-      "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/probes/HealthProbe",
-      "protocol": "Http",
-      "port": 80,
-      "intervalInSeconds": 15,
-      "numberOfProbes": 4,
-      "requestPath": "healthprobe.aspx",
+      "name": "HealthProbe",
       "provisioningState": "Succeeded",
-      "name": "HealthProbe"
+      "numberOfProbes": 4,
+      "intervalInSeconds": 15,
+      "port": 80,
+      "protocol": "Tcp",
+      "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/probes/HealthProbe"
     }
   ]
 }
@@ -1090,7 +1089,7 @@ We selected an image by using the command `azure vm image list westeurope canoni
 This next step is familiar to anyone who has already created an ssh rsa public and private key pair on Linux or Mac by using **ssh-keygen -t rsa -b 2048**. If you do not have any certificate key pairs in your `~/.ssh` directory, you can create them:
 
 - Automatically, by using the `azure vm create --generate-ssh-keys` option.
-- Manually, by using [the instructions to create them youself](virtual-machines-linux-mac-create-ssh-keys.md).
+- Manually, by using [the instructions to create them yourself](virtual-machines-linux-mac-create-ssh-keys.md).
 
 Alternatively, you can use the --admin-password method to authenticate your SSH connections after the VM is created. This method is typically less secure.
 

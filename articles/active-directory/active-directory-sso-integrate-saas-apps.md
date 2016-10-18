@@ -14,10 +14,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="07/20/2016"
+    ms.date="09/30/2016"
     ms.author="curtand"/>
 
 # Integrate Azure Active Directory single sign-on with SaaS apps  
+
+> [AZURE.SELECTOR]
+- [Azure portal](active-directory-enterprise-apps-manage-sso.md)
+- [Azure classic portal](active-directory-sso-integrate-saas-apps.md)
 
 [AZURE.INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
 

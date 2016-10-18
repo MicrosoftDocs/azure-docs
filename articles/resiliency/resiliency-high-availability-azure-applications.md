@@ -70,7 +70,7 @@ Consider asynchronous communication between loosely coupled services to increase
 
 A variation of this uses Azure Storage (blobs, tables, queues) or Service Bus queues as a failover location for failed database calls. For example, a synchronous call within an application to another service (such as Azure SQL Database) fails repeatedly. You might be able to serialize that data into durable storage. At some later point when the service or database is back online, the application can re-submit the request from storage. The difference in this model is that the intermediate location is not a constant part of the application workflow. It is used only in failure scenarios.
 
-In both scenarios, asynchronous communication and intermediate storage prevent a downed back-end service from bringing down the entire application. Queues serve as a logical intermediary. For more guidance on choosing the correct queuing service, see [Azure queues and Azure Service Bus queues--compared and contrasted](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
+In both scenarios, asynchronous communication and intermediate storage prevent a downed back-end service from bringing down the entire application. Queues serve as a logical intermediary. For more guidance on choosing the correct queuing service, see [Azure queues and Azure Service Bus queues--compared and contrasted](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
 
 ###Fault detection and retry logic
 

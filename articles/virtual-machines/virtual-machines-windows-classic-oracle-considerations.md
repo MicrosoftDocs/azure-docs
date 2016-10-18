@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="vm-windows"
 ms.workload="infrastructure-services"
-ms.date="05/17/2016"
+ms.date="09/06/2016"
 ms.author="rclaus" />
 
 #Miscellaneous considerations for Oracle virtual machine images
@@ -54,7 +54,7 @@ Consider two different approaches for attaching multiple disks based on whether 
 
 When using Oracle Database in Azure virtual machines, you are responsible for implementing a high availability and disaster recovery solution to avoid any downtime. You are also responsible for backing up your own data and application.
 
-High availability and disaster recovery for Oracle Database Enterprise Edition (without RAC) on Azure can be achieved using [Data Guard, Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html), or [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate), with two databases in two separate virtual machines. Both virtual machines should be in the same [cloud service](virtual-machines-linux-classic-connect-vms.md) and the same [virtual network](https://azure.microsoft.com/documentation/services/virtual-network/) to ensure they can access each other over the private persistent IP address.  Additionally, we recommend to place the virtual machines in the same [availability set](virtual-machines-windows-manage-availability.md) to allow Azure to place them into separate fault domains and upgrade domains. Note that only virtual machines in the same cloud service can participate in the same availability set. Each virtual machine must have at least 2 GB of memory and 5 GB of disk space.
+High availability and disaster recovery for Oracle Database Enterprise Edition (without RAC) on Azure can be achieved using [Data Guard, Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html), or [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate), with two databases in two separate virtual machines. Both virtual machines should be in the same [cloud service](virtual-machines-linux-classic-connect-vms.md) and the same [virtual network](https://azure.microsoft.com/documentation/services/virtual-network/) to ensure they can access each other over the private persistent IP address.  Additionally, we recommend placing the virtual machines in the same [availability set](virtual-machines-windows-manage-availability.md) to allow Azure to place them into separate fault domains and upgrade domains. Only virtual machines in the same cloud service can participate in the same availability set. Each virtual machine must have at least 2 GB of memory and 5 GB of disk space.
 
 With Oracle Data Guard, high availability can be achieved with a primary database in one virtual machine, a secondary (standby) database in another virtual machine, and one-way replication set up between them. The result is read access to the copy of the database. With Oracle GoldenGate, you can configure bi-directional replication between the two databases. To learn how to set up a high-availability solution for your databases using these tools, see [Active Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) and [GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) documentation at the Oracle website. If you need read-write access to the copy of the database, you can use [Oracle Active Data Guard](http://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
 
@@ -62,11 +62,11 @@ With Oracle Data Guard, high availability can be achieved with a primary databas
 
 -  **Clustering is supported on Enterprise Edition only.** You are licensed to use WebLogic clustering only when using the Enterprise Edition of WebLogic Server. Do not use clustering with WebLogic Server Standard Edition.
 
--  **Connection timeouts:** If your application relies on connections to public endpoints of another Azure cloud service (for example, a database tier service), Azure might close these open connections after 4 minutes of inactivity. This might affect features and applications relying on connection pools, because connections that are inactive for more than that limit might no longer remain valid. If this affects your application, consider enabling "keep-alive" logic on your connection pools.
+-  **Connection timeouts:** If your application relies on connections to public endpoints of another Azure cloud service (for example, a database tier service), Azure might close these open connections after four minutes of inactivity. This might affect features and applications relying on connection pools, because connections that are inactive for more than that limit might no longer remain valid. If this affects your application, consider enabling "keep-alive" logic on your connection pools.
 
-	Note that if an endpoint is *internal* to your Azure cloud service deployment (such as a standalone database virtual machine within the *same* cloud service as your WebLogic virtual machines), then the connection is direct and does not rely on the Azure load balancer, and therefore is not subject to a connection timeout.
+	If an endpoint is *internal* to your Azure cloud service deployment (such as a standalone database virtual machine within the *same* cloud service as your WebLogic virtual machines), then the connection is direct and does not rely on the Azure load balancer, and therefore is not subject to a connection timeout.
 
--  **UDP multicast is not supported.** Azure supports UDP unicasting, but neither multicasting nor broadcasting is supported. WebLogic Server is able to rely on Azure UDP unicast capabilities. For best results relying on UDP unicast, we recommend that the WebLogic cluster size be kept static, or be kept with no more than 10 managed servers included in the cluster.
+-  **UDP multicast is not supported.** Azure supports UDP unicasting, but not multicasting or broadcasting. WebLogic Server is able to rely on Azure UDP unicast capabilities. For best results relying on UDP unicast, we recommend that the WebLogic cluster size be kept static, or be kept with no more than 10 managed servers included in the cluster.
 
 -  **WebLogic Server expects public and private ports to be the same for T3 access (for example, when using Enterprise JavaBeans).** Consider a multi-tier scenario where a service layer (EJB) application is running on a WebLogic Server cluster consisting of two or more managed servers, in a cloud service named **SLWLS**. The client tier is in a different cloud service, running a simple Java program trying to call EJB in the service layer. Because it is necessary to load balance the service layer, a public load-balanced endpoint needs to be created for the Virtual Machines in the WebLogic Server cluster. If the private port that you specify for that endpoint is different from the public port (for example, 7006:7008), an error such as the following occurs:
 
@@ -74,7 +74,7 @@ With Oracle Data Guard, high availability can be achieved with a primary databas
 
 		Bootstrap to: example.cloudapp.net/138.91.142.178:7006' over: 't3' got an error or timed out]
 
-	This is because for any remote T3 access, WebLogic Server expects the load balancer port and the WebLogic managed server port to be the same. In the above case, the client is accessing port 7006 (the load balancer port) and the managed server is listening on 7008 (the private port). Note that this restriction is applicable only for T3 access, not HTTP.
+	This is because for any remote T3 access, WebLogic Server expects the load balancer port and the WebLogic managed server port to be the same. In the above case, the client is accessing port 7006 (the load balancer port) and the managed server is listening on 7008 (the private port). This restriction is applicable only for T3 access, not HTTP.
 
 	To avoid this issue, use one of the following workarounds:
 
@@ -86,7 +86,7 @@ With Oracle Data Guard, high availability can be achieved with a primary databas
 
 For related information, see KB article **860340.1** at <http://support.oracle.com>.
 
--  **Dynamic clustering and load balancing limitations.** Suppose you want to use a dynamic cluster in WebLogic Server and expose it through a single, public load-balanced endpoint in Azure. This can be done as long as you use a fixed port number for each of the managed servers (not dynamically assigned from a range) and do not start more managed servers than there are machines the administrator is tracking (that is, no more than one managed server per virtual machine). If your configuration results in more WebLogic servers being started than there are virtual machines (that is, where multiple WebLogic Server instances will share the same virtual machine), then it will not be possible for more than one of those instances of WebLogic Server servers to bind to a given port number – the others on that virtual machine will fail.
+-  **Dynamic clustering and load balancing limitations.** Suppose you want to use a dynamic cluster in WebLogic Server and expose it through a single, public load-balanced endpoint in Azure. This can be done as long as you use a fixed port number for each of the managed servers (not dynamically assigned from a range) and do not start more managed servers than there are machines the administrator is tracking (that is, no more than one managed server per virtual machine). If your configuration results in more WebLogic servers being started than there are virtual machines (that is, where multiple WebLogic Server instances share the same virtual machine), then it is not possible for more than one of those instances of WebLogic Server servers to bind to a given port number – the others on that virtual machine will fail.
 
 	On the other hand, if you configure the admin server to automatically assign unique port numbers to its managed servers, then load balancing is not possible because Azure does not support mapping from a single public port to multiple private ports, as would be required for this configuration.
 
@@ -94,9 +94,9 @@ For related information, see KB article **860340.1** at <http://support.oracle.c
 
 ##Oracle JDK virtual machine images
 
--  **JDK 6 and 7 latest updates.** While we recommend to use the latest public, supported version of Java (currently Java 8), Azure also makes JDK 6 and 7 images available. This is intended for legacy applications that are not yet ready to be upgraded to JDK 8. While updates to previous JDK images might no longer be available to the general public, given the Microsoft partnership with Oracle, the JDK 6 and 7 images provided by Azure are intended to contain a more recent non-public update that is normally offered by Oracle to only a select group of Oracle’s supported customers. New versions of the JDK images will be made available over time with updated releases of JDK 6 and 7.
+-  **JDK 6 and 7 latest updates.** While we recommend using the latest public, supported version of Java (currently Java 8), Azure also makes JDK 6 and 7 images available. This is intended for legacy applications that are not yet ready to be upgraded to JDK 8. While updates to previous JDK images might no longer be available to the general public, given the Microsoft partnership with Oracle, the JDK 6 and 7 images provided by Azure are intended to contain a more recent non-public update that is normally offered by Oracle to only a select group of Oracle’s supported customers. New versions of the JDK images will be made available over time with updated releases of JDK 6 and 7.
 
-	Note that the JDK available in this JDK 6 and 7 images, and the virtual machines and images derived from them, can only be used within Azure.
+	The JDK available in this JDK 6 and 7 images, and the virtual machines and images derived from them, can only be used within Azure.
 
 -  **64-bit JDK.** The Oracle WebLogic Server virtual machine images and the Oracle JDK virtual machine images provided by Azure contain the 64-bit versions of both Windows Server and the JDK.
 

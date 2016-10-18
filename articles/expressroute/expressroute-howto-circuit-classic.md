@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/29/2016"
-   ms.author="ganesr"/>
+   ms.date="10/10/2016"
+   ms.author="ganesr;cherylmc"/>
 
 # Create and modify an ExpressRoute circuit
 
@@ -32,15 +32,34 @@ This article walks you through the steps to create an Azure ExpressRoute circuit
 
 ## Before you begin
 
-- You need the latest version of the Azure PowerShell modules. You can download the latest PowerShell modules from the PowerShell section of the [Azure Downloads page](https://azure.microsoft.com/downloads/). Follow the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules.
+### 1. Review the prerequisites and workflow articles
 
-- Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
+Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.  
+
+
+### 2. Install the latest versions of the Azure PowerShell modules 
+
+Follow the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules.
+
+### 3. Log in to your Azure account and select a subscription
+
+1. Run the following cmdlet using an elevated Windows PowerShell prompt:
+
+		Add-AzureAccount
+2. In the sign-in screen that appears, sign in to your account.
+
+3. Get a list of your subscriptions.
+
+		Get-AzureSubscription
+4. Select the subscription that you want to use.
+	
+		Select-AzureSubscription -SubscriptionName "mysubscriptionname"
 
 ## Create and provision an ExpressRoute circuit
 
 ### 1. Import the PowerShell modules for ExpressRoute
 
- You must import the Azure and ExpressRoute modules into the PowerShell session in order to start using the ExpressRoute cmdlets. To do this, run the following commands:  
+ If you have not already done so, you must import the Azure and ExpressRoute modules into the PowerShell session in order to start using the ExpressRoute cmdlets. You import the modules from the location that they were installed to on your local computer. Depending on the method you used to install the modules, the location may be different than the following example shows. Modify the example if necessary.  
 
 	Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
 	Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
@@ -271,7 +290,7 @@ You can disable the ExpressRoute premium add-on for your existing circuit by usi
 
 ### To update the ExpressRoute circuit bandwidth
 
-Check the [ExpressRoute FAQ](expressroute-faqs.md) for supported bandwidth options for your provider. You can pick any size that is greater than the size of your existing circuit.
+Check the [ExpressRoute FAQ](expressroute-faqs.md) for supported bandwidth options for your provider. You can pick any size that is greater than the size of your existing circuit as long as the physical port (on which your circuit is created) allows.
 
 >[AZURE.IMPORTANT] You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth will require you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
 
@@ -289,6 +308,17 @@ After you decide what size you need, you can use the following command to resize
 	Status                           : Enabled
 
 Your circuit will have been sized up on the Microsoft side. You must contact your connectivity provider to update configurations on their side to match this change. Note that we will start billing you for the updated bandwidth option from this point on.
+
+If you see the following error when increasing the circuit bandwidth, it means there is no sufficient bandwidth left on the physical port where your existing circuit is created. You have to delete this circuit and create a new circuit of the size you need. 
+
+	Set-AzureDedicatedCircuitProperties : InvalidOperation : Insufficient bandwidth available to perform this circuit
+	update operation
+	At line:1 char:1
+	+ Set-AzureDedicatedCircuitProperties -ServiceKey ********************* ...
+	+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	    + CategoryInfo          : CloseError: (:) [Set-AzureDedicatedCircuitProperties], CloudException
+	    + FullyQualifiedErrorId : Microsoft.WindowsAzure.Commands.ExpressRoute.SetAzureDedicatedCircuitPropertiesCommand
+	
 
 ## Deprovisioning and deleting an ExpressRoute circuit
 

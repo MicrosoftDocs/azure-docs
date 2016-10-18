@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="mumian"
-   manager="paulettm"
+   manager="jhubbard"
    tags="azure-portal"
    editor="cgronlun"/>
 

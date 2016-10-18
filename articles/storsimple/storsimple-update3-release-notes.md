@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/06/2016"
+   ms.date="10/14/2016"
    ms.author="alkohli" />
 
 # StorSimple 8000 Series Update 3 release notes  
@@ -40,8 +40,6 @@ The following key improvements and bug fixes have been made in Update 3.
 - **Automated space reclamation changes** – Starting Update 3, the space reclamation algorithms run on the standby controller of the system resulting in faster execution. For more information on the ports that are required to work with space reclamation, refer to the [StorSimple networking requirements](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
 - **Performance enhancements** – Update 3 has improved read-write performance to the cloud.
-
-- **Support for new workloads** – Update 3 has enabled deployment of new workloads such as the use of a StorSimple as a backup target, and also for video surveillance.
 
 - **Migration-related improvements** – In this release, several bug fixes and improvements were done for the Migration feature from 5000/7000 series devices to 8000 series devices. For more information on how to use the migration feature, go to [Migration from 5000/7000 series device to 8000 series device](https://www.microsoft.com/en-us/download/details.aspx?id=47322). 
 
@@ -90,6 +88,7 @@ The following table provides a summary of known issues in this release.
 | 19 |Locally pinned volumes | If you cancel a restore job or if a restore fails and then a controller failover occurs, an additional restore job appears on the **Jobs** page. | This behavior can occur if your restore job has only locally pinned volumes or a mix of locally pinned and tiered volumes. If the restore job includes only tiered volumes, then this behavior will not occur. No user intervention is required. | Yes | No |
 | 20 |Locally pinned volumes | If you try to convert a tiered volume (created and cloned with Update 1.2 or earlier) to a locally pinned volume and your device is running out of space or there is a cloud outage, then the clone(s) can be corrupted.| This problem occurs only with volumes that were created and cloned with pre-Update 2.1 software. This should be an infrequent scenario.|
 | 21 | Volume conversion | Do not update the ACRs attached to a volume while a volume conversion is in progress (tiered to locally pinned or vice versa). Updating the ACRs could result in data corruption. | If needed, update the ACRs prior to the volume conversion and do not make any further ACR updates while the conversion is in progress. |
+| 22 | Updates | When applying Update 3, the **Maintenance** page in the Azure classic portal will display the following message related to Update 2 - "StorSimple 8000 series Update 2 includes the ability  for Microsoft to proactively collect log information from your device when we detect potential problems". This is misleading as it indicates that the device is being updated to Update 2. After the device is succeesfully updated to Update 3, this message will disappear. | This behavior will be fixed in a future release. | Yes | No |
 
 
 ## Controller and firmware updates in Update 3

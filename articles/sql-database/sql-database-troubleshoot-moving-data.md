@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="09/13/2016"
 	ms.author="v-shysun"/>
 
 # Move databases between servers, between subscriptions, and in and out of Azure

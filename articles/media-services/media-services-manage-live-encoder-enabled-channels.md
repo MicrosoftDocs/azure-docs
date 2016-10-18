@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Live streaming using Azure Media Services to create multi-bitrate streams" 
+	pageTitle="Live streaming using Azure Media Services to create multi-bitrate streams | Microsoft Azure" 
 	description="This topic describes how to set up a Channel that receives a single bitrate live stream from an on-premises encoder and then performs live encoding to adaptive bitrate stream with Media Services. The stream can then be delivered to client playback applications through one or more Streaming Endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Stream, MPEG DASH, HDS." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
+	authors="anilmur" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="10/12/2016"
+	ms.author="juliako;anilmur"/>
 
 #Live streaming using Azure Media Services to create multi-bitrate streams
 
@@ -41,10 +41,10 @@ Starting with the Media Services 2.10 release, when you create a Channel, you ca
 
 ##Billing Implications
 
-A live encoding channel begins billing as soon as it's state transitions to "Running" via the API.   You can also view the state in the Azure Classic Portal, or in the Azure Media Services Explorer tool (http://aka.ms/amse).
+A live encoding channel begins billing as soon as it's state transitions to "Running" via the API.   You can also view the state in the Azure portal, or in the Azure Media Services Explorer tool (http://aka.ms/amse).
 
-The following table shows how Channel states map to billing states in the API and Azure Classic Portal. Note that the states are slightly different between the API and Portal UX. As soon as a channel is in the "Running" state via the API, or in the "Ready" or "Streaming" state in the Azure Classic Portal, billing will be active.
-To stop the Channel from billing you further, you have to Stop the Channel via the API or in the Azure Classic Portal.
+The following table shows how Channel states map to billing states in the API and Azure portal. Note that the states are slightly different between the API and Portal UX. As soon as a channel is in the "Running" state via the API, or in the "Ready" or "Streaming" state in the Azure Classic Portal, billing will be active.
+To stop the Channel from billing you further, you have to Stop the Channel via the API or in the Azure portal.
 You are responsible for stopping your channels when you are done with the live encoding channel.  Failure to stop an encoding channel will result in continued billing.
 
 ###<a id="states"></a>Channel states and how they map to the billing mode 
@@ -460,7 +460,9 @@ Choose **Portal**, **.NET**, **REST API** to see how to create and manage channe
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 
-##Media Services learning paths
+##Next step
+
+Review Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -471,7 +473,7 @@ Choose **Portal**, **.NET**, **REST API** to see how to create and manage channe
 
 ##Related topics
 
-[Delivering Live Streaming Events with Azure Media Services](media-services-live-streaming-workflow.md)
+[Delivering Live Streaming Events with Azure Media Services](media-services-overview.md)
 
 [Media Services Concepts](media-services-concepts.md)
 

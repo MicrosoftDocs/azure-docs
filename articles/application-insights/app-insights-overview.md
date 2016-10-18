@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/18/2016" 
+	ms.date="10/15/2016" 
 	ms.author="awills"/>
  
 # Application Insights - introduction
@@ -286,11 +286,11 @@ Application Insights offers three types of alert, which are delivered by email.
 
 ### Proactive diagnostics 
 
-[Proactive diagnostics](app-insights-nrt-proactive-diagnostics.md)** is automatically set up - you don't have to configure it. Provided your site has enough traffic, you'll get an email if there's a rise in failed requests that is unusual for the time of day or request rate. The alert contains diagnostic information. 
+[Proactive diagnostics](app-insights-proactive-failure-diagnostics.md) is automatically set up - you don't have to configure it. Provided your site has enough traffic, you'll get an email if there's a rise in failed requests that is unusual for the time of day or request rate. The alert contains diagnostic information. 
 
 Here's a sample alert. 
 
-![Sample Intelligent Alert showing cluster analysis around failure](./media/app-insights-nrt-proactive-diagnostics/010.png)
+![Sample Intelligent Alert showing cluster analysis around failure](./media/app-insights-overview/proactive-alert.png)
 
 A second type of proactive detection discovers correlations between failures and factors such as location, client OS, or browser type.
 
@@ -347,11 +347,11 @@ Get started at development time with:
  * [Troubleshooting][qna]
  * [MSDN Forum](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
-* Suggestions:
+ * [Get developer support](app-insights-get-dev-support.md)
+* Your suggestions:
  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 * Blog:
  * [Application Insights blog](https://azure.microsoft.com/blog/tag/application-insights)
-
 
 
 
