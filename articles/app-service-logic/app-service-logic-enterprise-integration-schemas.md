@@ -1,4 +1,3 @@
-
 <properties
 	pageTitle="Overview of schemas and the Enterprise Integration Pack | Microsoft Azure"
 	description="Learn how to use schemas with the Enterprise Integration Pack and logic apps"
@@ -75,17 +74,17 @@ The process for this depends on the blob container access level: **Public** or *
 
 ## Edit schemas
 1. Select the **Schemas** tile.  
-2. Select the schema you wish to edit from the **Schemas** blade that opens up.
+2. Select the schema you want to edit from the **Schemas** blade that opens up.
 3. On the **Schemas** blade, select **Edit**.  
 ![Screenshot of Schemas blade](./media/app-service-logic-enterprise-integration-schemas/edit-12.png)    
-4. Select the schema file you wish to edit by using the file picker dialog box that opens up.
+4. Select the schema file you want to edit by using the file picker dialog box that opens up.
 5. Select **Open** in the file picker.  
 ![Screenshot of file picker](./media/app-service-logic-enterprise-integration-schemas/edit-31.png)  
 6. You receive a notification that indicates the upload was successful.  
 
 ## Delete schemas
 1. Select the **Schemas** tile.  
-2. Select the schema you wish to delete from the **Schemas** blade that opens up.  
+2. Select the schema you want to delete from the **Schemas** blade that opens up.  
 3. On the **Schemas** blade, select **Delete**.
 ![Screenshot of Schemas blade](./media/app-service-logic-enterprise-integration-schemas/delete-12.png)  
 
