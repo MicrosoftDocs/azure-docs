@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/02/2016"
+   ms.date="10/18/2016"
    ms.author="yurid"/>
 
 # Monitoring and responding to security alerts in Operations Management Suite Security and Audit Solution
@@ -74,6 +74,8 @@ As described in the beginning of this section, this information can be very usef
 The **threat intelligence map** will help you to identify the current locations around the globe that have malicious traffic. There are orange (incoming) and red (outgoing) arrows in this map that identify the traffic direction, if you click in one of these arrows, it will show the type of threat and the traffic direction as shown below:
 
 ![threat intel map](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig5.png)
+
+> [AZURE.NOTE] You can see a demonstration on how to use this capability during an incident response process by watching the presentation [Mitigate datacenter security threats with guided investigation using Operations Management Suite](https://myignite.microsoft.com/videos/5000) delivered at Microsoft Ignite.
 
 ## See also
 

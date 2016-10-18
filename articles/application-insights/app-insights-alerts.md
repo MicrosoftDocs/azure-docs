@@ -40,7 +40,7 @@ Open the Alert rules blade, and then use the add button.
 * Be careful to note the units in which you're asked to enter the threshold value.
 * If you check the box "Email owners...", alerts will be sent by email to everyone who has access to this resource group. To expand this set of people, add them to the [resource group or subscription](app-insights-resources-roles-access-control.md) (not the resource).
 * If you specify "Additional emails", alerts will be sent to those individuals or groups (whether or not you checked the "email owners..." box). 
-* Set a [webhook address](../azure-portal/insights-webhooks-alerts.md) if you have set up a web app that responds to alerts. It will be called both when the alert is Activated (that is, triggered) and when it is Resolved. (But note that at present, query parameters are not passed through as webhook properties.)
+* Set a [webhook address](../monitoring-and-diagnostics/insights-webhooks-alerts.md) if you have set up a web app that responds to alerts. It will be called both when the alert is Activated (that is, triggered) and when it is Resolved. (But note that at present, query parameters are not passed through as webhook properties.)
 * You can Disable or Enable the alert: see the buttons at the top of the blade.
 
 *I don't see the Add Alert button.* 
@@ -102,7 +102,7 @@ Don't forget that [proactive failure rate diagnostics](app-insights-proactive-fa
 ## Automation
 
 * [Use PowerShell to automate setting up alerts](app-insights-powershell-alerts.md)
-* [Use webhooks to automate responding to alerts](../azure-portal/insights-webhooks-alerts.md)
+* [Use webhooks to automate responding to alerts](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 
 ## See also
 
