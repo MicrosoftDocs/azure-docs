@@ -50,15 +50,16 @@ The following table can help you decide the best connectivity option for your so
 
 For more information about gateway SKUs, see [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
-[AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)] 
+#### Aggregate throughput by SKU by VPN type
 
-<br>
 The following table shows the gateway types and the estimated aggregate throughput. The estimated aggregate throughput may be a deciding factor for your design.
 Pricing does differ between gateway SKUs. For information about pricing, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/). This table applies to both the Resource Manager and classic deployment models.
 
 [AZURE.INCLUDE [vpn-gateway-table-gwtype-aggtput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)] 
 
+#### Supported configurations by SKU and VPN type
 
+[AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)] 
 
 ### <a name="wf"></a>Workflow
 
