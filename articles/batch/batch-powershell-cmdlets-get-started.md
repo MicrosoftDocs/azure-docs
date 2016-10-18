@@ -3,7 +3,7 @@
    description="Get a quick introduction to the Azure PowerShell cmdlets you can use to manage the Azure Batch service"
    services="batch"
    documentationCenter=""
-   authors="dlepow"
+   authors="mmacy"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="07/28/2016"
-   ms.author="danlep"/>
+   ms.date="10/18/2016"
+   ms.author="marsma"/>
 
 # Get started with Azure Batch PowerShell cmdlets
 With the Azure Batch PowerShell cmdlets, you can perform and script many of the same tasks you carry out with the Batch APIs, the Azure portal, and the Azure Command-Line Interface (CLI). This is a quick introduction to the cmdlets you can use to manage your Batch accounts and work with your Batch resources such as pools, jobs, and tasks. This article is based on cmdlets in Azure PowerShell version 1.6.0.
@@ -103,7 +103,7 @@ When creating or updating a Batch pool, you select a cloud service configuration
 When you run **New-AzureBatchPool**, pass the operating system settings in a PSCloudServiceConfiguration or PSVirtualMachineConfiguration object. For example, the following cmdlet creates a new Batch pool with size Small compute nodes in the cloud service configuration, imaged with the latest operating system version of family 3 (Windows Server 2012). Here, the **CloudServiceConfiguration** parameter specifies the *$configuration* variable as the PSCloudServiceConfiguration object. The **BatchContext** parameter specifies a previously defined variable *$context* as the BatchAccountContext object.
 
 
-    $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(3,"*")
+    $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(4,"*")
 
     New-AzureBatchPool -Id "AutoScalePool" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
 
@@ -163,9 +163,7 @@ Batch cmdlets can leverage the PowerShell pipeline to send data between cmdlets.
 
 ## Application package management
 
-Application packages provide a simplified way to deploy applications to the compute nodes in your pools. With the Batch PowerShell cmdlets, you can upload application packages, manage package versions, and delete packages.
-
-To create a new application and add a package version:
+Application packages provide a simplified way to deploy applications to the compute nodes in your pools. With the Batch PowerShell cmdlets, you can upload and manage application packages in your Batch account, and deploy package versions to compute nodes.
 
 **Create** an application:
 
@@ -198,7 +196,7 @@ Set the **default version** for the application:
 
 You can specify one or more application packages for deployment when you create a new pool. When you specify a package at pool creation time, it is deployed to each node as the node joins pool. Packages are also deployed when a node is rebooted or reimaged.
 
-Specify the `-ApplicationPackageReference` option when creating a pool to deploy an application package to the pool's nodes as they join the pool. First, create a PSApplicationPackageReference object, and configure it with the application Id and package version you want to deploy to the pool's compute nodes:
+Specify the `-ApplicationPackageReference` option when creating a pool to deploy an application package to the pool's nodes as they join the pool. First, create a **PSApplicationPackageReference** object, and configure it with the application Id and package version you want to deploy to the pool's compute nodes:
 
 ```
 $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference
@@ -206,7 +204,7 @@ $appPackageReference.ApplicationId = "MyBatchApplication"
 $appPackageReference.Version = "1.0"
 ```
 
-Now create the pool, and specify the package reference object as the value to the `ApplicationPackageReferences` argument:
+Now create the pool, and specify the package reference object as the argument to the `ApplicationPackageReferences` option:
 
     New-AzureBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -AutoScaleFormula '$TargetDedicated=1;' -BatchContext $context -ApplicationPackageReferences $appPackageReference
 
@@ -216,19 +214,27 @@ You can find more information on application packages in [Application deployment
 
 ### Update a pool's application packages
 
-To update the applications assigned to an existing pool, issue the `azure batch pool set` command with the `--app-package-ref` option:
+To update the applications assigned to an existing pool, first create a PSApplicationPackageReference object with the desired properties (application Id and package version):
 
-    azure batch pool set --pool-id "pool001" --app-package-ref "MyTaskApplication2"
+    $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference
+    $appPackageReference.ApplicationId = "MyBatchApplication"
+    $appPackageReference.Version = "2.0"
 
-To deploy the new application package to compute nodes already in an existing pool, you must restart or reimage those nodes:
+Next, get the pool from Batch, clear out any existing packages, add our new package reference, and update the Batch service with the new pool settings:
 
-    azure batch node reboot --pool-id "pool001" --node-id "tvm-3105992504_1-20160930t164509z"
+    $pool = Get-AzureBatchPool -BatchContext $context -Id "PoolWithAppPackage"
+    $pool.ApplicationPackageReferences.Clear()
+    $pool.ApplicationPackageReferences.Add($appPackageReference)
+    Set-AzureBatchPool -BatchContext $context -Pool $pool
 
->[AZURE.TIP] You can obtain a list of the nodes in a pool, along with their node ids, with `azure batch node list`.
+You've now updated the pool's properties in the Batch service. To actually deploy the new application package to compute nodes in the pool, however, you must restart or reimage those nodes. You can restart every node in a pool with this command:
 
-Keep in mind that you must already have configured the application with a default version prior to deployment (`azure batch application set [options] --default-version <version-id>`).
+    Get-AzureBatchComputeNode -PoolId "PoolWithAppPackage" -BatchContext $context | Restart-AzureBatchComputeNode -BatchContext $context
+
+>[AZURE.TIP] You can deploy multiple application packages to the compute nodes in a pool. You can omit the `$pool.ApplicationPackageReferences.Clear()` line above if you'd like add an application package instead of replacing all packages that might already be deployed.
 
 ## Next steps
+
 * For detailed cmdlet syntax and examples, see [Azure Batch cmdlet reference](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 
-* See [Query the Batch service efficiently](batch-efficient-list-queries.md) for more about reducing the number of items and the type of information that is returned for queries to Batch.
+* For more information about applications and application packages in Batch, see [Application deployment with Azure Batch application packages](batch-application-packages.md).
