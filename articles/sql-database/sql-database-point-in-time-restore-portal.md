@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Restore an Azure SQL Database to a previous point in time (Azure portal) | Microsoft Azure"
-	description="Restore an Azure SQL Database to a previous point in time."
+	pageTitle="Restore an Azure SQL database to a previous point in time (Azure portal) | Microsoft Azure"
+	description="Restore an Azure SQL database to a previous point in time."
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
