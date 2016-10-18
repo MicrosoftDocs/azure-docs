@@ -322,10 +322,10 @@ Microsoft Azure is certified for the following SAP products, with full support f
 
 SAP Product | Guest OS | RDBMS | Virtual Machine Types 
 ---------- | ------------ | ------------- | ------------- 
-SAP Business Suite Software | Windows, SUSE Linux Enterprise | SQL Server, Oracle, DB2, SAP ASE | A5 to A11, D11 to D14, DS11 to DS14, GS1 to GS5 
-SAP Business All-in-One | Windows, SUSE Linux Enterprise | SQL Server, Oracle, DB2, SAP ASE | A5 to A11, D11 to D14, DS11 to DS14, GS1 to GS5 
+SAP Business Suite Software | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux | SQL Server, Oracle, DB2, SAP ASE | A5 to A11, D11 to D14, DS11 to DS14, GS1 to GS5 
+SAP Business All-in-One | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux | SQL Server, Oracle, DB2, SAP ASE | A5 to A11, D11 to D14, DS11 to DS14, GS1 to GS5 
 SAP BusinessObjects BI | Windows | N/A | A5 to A11, D11 to D14, DS11 to DS14, GS1 to GS5 
-SAP NetWeaver | Windows, SUSE Linux Enterprise | SQL Server, Oracle, DB2, SAP ASE | A5 to A11, D11 to D14, DS11 to DS14, GS1 to GS5 
+SAP NetWeaver | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux | SQL Server, Oracle, DB2, SAP ASE | A5 to A11, D11 to D14, DS11 to DS14, GS1 to GS5 
 
 
 

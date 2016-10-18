@@ -183,7 +183,7 @@ The previous example uses an existing quick-start template. You can also deploy 
 }
 ```
 
-You can find more detailed walkthrough on using Resource Manager templates by reading [Azure Resource Manager overview](../resource-group-overview.md)
+You can find more detailed walkthrough on using Resource Manager templates by reading [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)
 
 
 ## Next steps

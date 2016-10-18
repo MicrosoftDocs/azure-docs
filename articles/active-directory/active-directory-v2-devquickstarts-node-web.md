@@ -3,7 +3,7 @@
 	description="How to build a Node JS web app that signs users in with both personal Microsoft Account and work or school accounts."
 	services="active-directory"
 	documentationCenter="nodejs"
-	authors="brandwe"
+	authors="xerners"
 	manager="mbaldwin"
 	editor=""/>
 
@@ -40,7 +40,7 @@ The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQ
 The completed application is provided at the end of this tutorial as well.
 
 ## 1. Register an App
-Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
+Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
 
 - Copy down the **Application Id** assigned to your app, you'll need it soon.
 - Add the **Web** platform for your app.
