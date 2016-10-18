@@ -28,9 +28,9 @@ When properly planned and secured, cloud services can deliver powerful new capab
 
 From the device to the cloud, Microsoft puts privacy and security of information first, all while increasing productivity for officers in the field and throughout the department. Combining highly secure, mobile devices with anytime, anywhere access to the cloud means that JPS agencies can contribute to ongoing investigations, analyze data, manage evidence, and help protect citizens from threats.
 
-Other cloud providers treat Criminal Justice Information Systems (CJIS) compliance as a checkbox rather than a commitment. At Microsoft, we are committed to providing solutions that meet the applicable CJIS controls today and in the future. In addition, we extend our commitment to Justice and Public Safety thru to our <a href="http://news.microsoft.com/presskits/dcu/#sm.0000eqdq0pxj4ex3u272bevclb0uc#KwSv0iLdMkJerFly.97"> Digital Crimes Center </a>, <a href="https://channel9.msdn.com/Blogs/Taste-of-Premier/Satya-Nadella-on-Cybersecurity"> Cyber Security Operations Center </a>, and <a href="https://enterprise.microsoft.com/en-us/industries/government/public-safety/"> World-wide Justice and Public Safety organization </a>. 
+Other cloud providers treat Criminal Justice Information Systems (CJIS) compliance as a checkbox rather than a commitment. At Microsoft, we are committed to providing solutions that meet the applicable CJIS controls today and in the future. In addition, we extend our commitment to Justice and Public Safety thru to our<a href="http://news.microsoft.com/presskits/dcu/#sm.0000eqdq0pxj4ex3u272bevclb0uc#KwSv0iLdMkJerFly.97"> Digital Crimes Center</a>, <a href="https://channel9.msdn.com/Blogs/Taste-of-Premier/Satya-Nadella-on-Cybersecurity"> Cyber Security Operations Center</a>, and<a href="https://enterprise.microsoft.com/en-us/industries/government/public-safety/"> World-wide Justice and Public Safety organization </a>. 
 
-Next Steps:
+## Next steps:
 
 <a href="https://www.microsoft.com/en-us/TrustCenter/Compliance/itar"> Microsoft Trust Center - ITAR web page </a>
 
