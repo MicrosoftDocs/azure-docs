@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="femila"
+	manager="samueld"
 	editor="curtand"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2016"
+	ms.date="10/18/2016"
 	ms.author="vakarand"/>
 
 
@@ -75,7 +75,7 @@ No. A mechanism for specifying arbitrary username/password for Basic Authenticat
 
 **Q: What version of AD DS are supported by Azure AD Connect Health for AD DS?**
 
-Monitoring of AD DS is supported while installed on the following OS Versions: 
+Monitoring of AD DS is supported while installed on the following OS Versions:
 
 - Windows Server 2008 R2
 - Windows Server 2012
@@ -115,5 +115,5 @@ Also, if you re-imaged a server or created a new server with the same details(su
 * [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
 * [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
 * [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
-* [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md) 
+* [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)

@@ -4,8 +4,8 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="karavar"
-	manager="femila"
-	editor="karavar"/>
+	manager="samueld"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory"
@@ -13,20 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/14/2016"
+	ms.date="10/18/2016"
 	ms.author="vakarand"/>
 
 # Monitor your on-premises identity infrastructure and synchronization services in the cloud
 
-Azure AD Connect Health helps you monitor and gain insight into your on-premises identity infrastructure and the synchronization services.  It enables you to maintain a reliable connection to Office 365 and Microsoft Online Services by providing monitoring capabilities for your key identity components such as AD FS Servers, Azure AD Connect servers (aka Sync Engine), Active Directory Domain Controllers etc. It also makes the key data points about these components easily accessible, making it easy to get usage and other important insights.
+Azure AD Connect Health helps you monitor and gain insight into your on-premises identity infrastructure and the synchronization services.  It enables you to maintain a reliable connection to Office 365 and Microsoft Online Services by providing monitoring capabilities for your key identity components such as AD FS Servers, Azure AD Connect servers (aka Sync Engine), Active Directory Domain Controllers etc. It also makes the key data points about these components easily accessible, making it easy to get usage and other important insights to take informed decisions.
 
 The information is presented to you in the [Azure AD Connect Health Portal](https://aka.ms/aadconnecthealth). Using the Azure AD Connect Health portal you can view alerts, performance monitoring, usage analytics and much more. Azure AD Connect Health enables the single lens of health for your key identity components, all at one place.
 
 ![What is Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnecthealth2.png)
 
 Future updates to Azure AD Connect Health will include additional monitoring and insight into additional identity components. Thus providing you a single dash board through the lens of identity, enabling you to have an even more robust, healthy, and integrated environment that your users can take advantage of to increase their ability to get things done.
-
-<!-- <center>![What is Azure AD Connect Health](./media/active-directory-aadconnect-health/logo1.png)</center> -->
 
 ## Why use Azure AD Connect Health
 
@@ -54,6 +52,7 @@ Azure AD Connect Health for Sync monitors and provides information on the synchr
 - Email notifications for critical alerts
 - Sync operational insights including latency charts for Sync Operations and trends in sync operations such as adds, updates, deletes.
 - Quick glance information about sync properties, last successful export to Azure AD
+- Reports about object level synchronization errors \(does not require Azure AD Premium\)
 
 The following video will provide an overview of Azure AD Connect Health for sync
 
@@ -61,7 +60,7 @@ The following video will provide an overview of Azure AD Connect Health for sync
 
 ## [Azure AD Connect Health for AD DS (preview)](active-directory-aadconnect-health-adds.md)
 
-Azure AD Connect Health for AD DS provides monitoring for Domain Controllers installed on Windows Server 2008 R2, Windows Server 2012 and Windows Server 2012 R2. An easy and low cost health agent installation, enables you to monitor your on-premises AD DS environenment straight from the cloud. Azure AD Connect Health for AD DS provides the following set of key capabilities:
+Azure AD Connect Health for AD DS provides monitoring for Domain Controllers installed on Windows Server 2008 R2, Windows Server 2012 and Windows Server 2012 R2. An easy and low cost health agent installation, enables you to monitor your on-premises AD DS environment straight from the cloud. Azure AD Connect Health for AD DS provides the following set of key capabilities:
 
 - Monitoring alerts to detect when domain controllers are unhealthy, along with email notifications for critical alerts.
 - Domain Controllers dashboard which provides a quick view into the health and operational status of your domain controllers.
@@ -105,7 +104,7 @@ The Azure AD Connect Health portal allows you to view alerts, performance monito
 - **Active Directory Federation Services** – this represents all of the AD FS services that Azure AD Connect Health is currently monitoring. By selecting one of the instances, a blade will open with information about that services instance.  This information includes an overview, properties, alerts, monitoring, and usage analytics. Read more about the capabilities [here.](active-directory-aadconnect-health-adfs.md)
 
 - **Azure Active Directory Connect (Sync)** – this represents your Azure AD Connect servers that Azure AD Connect Health is currently monitoring. By selecting the entry, a blade will open with information about your Azure AD Connect servers. Read more about the capabilities [here.](active-directory-aadconnect-health-sync.md)
- 
+
 - **Active Directory Domain Services** – this represents all of the AD DS forests that Azure AD Connect Health is currently monitoring. By selecting one of the forests, a blade will open with information about that forest.  This information includes an overview of essential information, Domain Controllers dashboard, Replication Status dashboard, alerts and monitoring. Read more about the capabilities [here.](active-directory-aadconnect-health-adds.md)
 
 - **Configure** – this allows you to turn the following on or off:
