@@ -1,4 +1,3 @@
-
 <properties
 	pageTitle="Azure Government Services | Microsoft Azure"
 	description="Provides and overview of the available services in Azure Government"
@@ -15,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="10/04/2016"
+	ms.date="10/18/2016"
 	ms.author="ryansoc" />
 
 
@@ -33,7 +32,7 @@ The following diagram shows the Azure defense-in-depth model. For example, Micro
 
 This page outlines the foundational principles for securing your Services and applications, providing guidance and best practices on how to apply these principles; in other words, how customers should make smart use of Azure Government to meet the obligations and responsibilities that are required for a solution that handles ITAR information.
 
-The overarching principles for securing customer data are:
+ The overarching principles for securing customer data are:
 - Protecting data using encryption
 - Managing secrets
 - Isolation to restrict data access
@@ -64,7 +63,7 @@ The basic encryption available for connectivity to Azure Government supports Tra
 - IaaS VMs: Use Azure Disk Encryption. Turn on Storage Service Encryption to encrypt the VHD files that are used to back up those disks in Azure Storage, but this only encrypts newly written data. This means that, if you create a VM and then enable Storage Service Encryption on the storage account that holds the VHD file, only the changes will be encrypted, not the original VHD file.
 - Client-Side Encryption: This is the most secure method for encrypting your data, because it encrypts it before transit, and encrypts the data at rest. However, it does require that you add code to your applications using storage, which you might not want to do. In those cases, you can use HTTPs for your data in transit, and Storage Service Encryption to encrypt the data at rest. Client-Side Encryption also involves more load on the client—you have to account for this in your scalability plans, especially if you are encrypting and transferring a lot of data.
 
-For more information on the encryption options in Azure see the [Storage Security Guide](/storage-security-guide).
+ For more information on the encryption options in Azure see the [Storage Security Guide](/storage-security-guide).
 
 ##  Protecting Customer Data by Managing Secrets
 
@@ -76,7 +75,7 @@ Secure key management is essential for protecting data in the cloud. Customers s
 - Application code and templates should only contain URI references to the secrets (which means the actual secrets are not in code, configuration or source code repositories). This prevents key phishing attacks on internal or external repos, such as harvest-bots in GitHub.
 - Utilize strong RBAC controls within Key Vault. If a trusted operator leaves the company or transfers to a new group within the company, they should be prevented from being able to access the secrets.
 
-For additional information please see [Key Vault for Azure Government](/azure-government/azure-government-tech-keyvault)
+<a href="https://azure.microsoft.com/documentation/services/key-vault">Azure Key Vault public documentation. </a>
 
 ##  Isolation to Restrict Data Access
 
