@@ -20,7 +20,7 @@
 # Learn about schemas and the Enterprise Integration Pack  
 
 ## Why use a schema?
-Use schemas to confirm that XML documents you receive are valid, with the expected data in a predefined format.
+Use schemas to confirm that XML documents you receive are valid, with the expected data in a predefined format. Schemas are used to validate messages that are exchanged in a B2B scenario.
 
 ## Add a schema
 From the Azure portal:  
@@ -71,9 +71,7 @@ The process for this depends on the blob container access level: **Public** or *
 
 3. In the **Schemas** blade of the EIP Integration Account, you should now see the newly added schema.  
 ![Screenshot of EIP Integration Account, with "Schemas" and the new schema highlighted](./media/app-service-logic-enterprise-integration-schemas/schema-41.png)
-
-## Use schemas
-Schemas are used to validate messages that are exchanged in a B2B scenario.  
+  
 
 ## Edit schemas
 1. Select the **Schemas** tile.  
