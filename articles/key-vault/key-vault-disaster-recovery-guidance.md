@@ -27,7 +27,7 @@ If individual components within the key vault service fail, alternate components
 
 In the rare event that an entire Azure region is unavailable, the requests that you make of Azure Key Vault in that region are automatically routed (*failed over*) to a secondary region. When the primary region is available again, requests are routed back (*failed back*) to the primary region. Again, you do not need to take any action because this will happen automatically.
 
-There are a few caveats that you should be aware of: 
+There are a few caveats that you should be aware of:
 
 * In the event of a region failover, it may take a few minutes for the service to fail over. Requests that are made during this time may fail until the failover completes.
 * After a failover is complete, your key vault is in read-only mode. Requests that are supported in this mode are:
