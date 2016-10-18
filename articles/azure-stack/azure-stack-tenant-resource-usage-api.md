@@ -112,3 +112,6 @@ GET
 | *quantity*        | Amount of resource consumption that occurred in this time frame |
 | *meterId*         | Unique ID for the resource that was consumed (also called *ResourceID*) |
 
+### Next steps
+
+[Usage-related FAQ](usage-related-faq.md)
