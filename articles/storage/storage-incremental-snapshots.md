@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/20/2016"
-	ms.author="aungoo;tamram"/>
+	ms.date="10/18/2016"
+	ms.author="aungoo"/>
 
 
 # Back up Azure virtual machine disks with incremental snapshots
