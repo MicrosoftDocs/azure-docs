@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
-	manager="msmbaldwin"
+	manager="mbaldwin"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2016"
+	ms.date="09/30/2016"
 	ms.author="dastrock"/>
 
 # v2.0 Protocols - OpenID Connect
@@ -29,6 +29,41 @@ OpenID Connect is an authentication protocol built on top of OAuth 2.0 that can 
 The most basic sign-in flow contains the following steps - each of them is described in detail below.
 
 ![OpenId Connect Swimlanes](../media/active-directory-v2-flows/convergence_scenarios_webapp.png)
+
+## Fetch the OpenID Connect metadata document
+OpenID Connect describes a metadata document that contains most of the information required for an app to perform sign-in.  This includes information such as the URLs to use, the location of the service's public signing keys, and so on.  For the v2.0 endpoint, the OpenID Connect metadata document you should use is:
+
+```
+https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
+```
+
+Where the `{tenant}` can take one of four different values:
+
+| Value | Description |
+| ----------------------- | ------------------------------- |
+| `common` | Allows users with both personal Microsoft accounts and work/school accounts from Azure Active Directory to sign into the application. |
+| `organizations` | Allows only users with work/school accounts from Azure Active Directory to sign into the application. |
+| `consumers` | Allows only users with personal Microsoft accounts (MSA) to sign into the application. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` | Allows only users with work/school accounts from a particular Azure Active Directory tenant to sign into the application.  Either the friendly domain name of the Azure AD tenant or the tenant's guid identifier can be used.  |
+
+The metadata is a simple json document, a snippet of which is provided below.  Its contents are fully described in the [OpenID Connect specification](https://openid.net).
+
+```
+{
+  "authorization_endpoint": "https:\/\/login.microsoftonline.com\/common\/oauth2\/v2.0\/authorize",
+  "token_endpoint": "https:\/\/login.microsoftonline.com\/common\/oauth2\/v2.0\/token",
+  "token_endpoint_auth_methods_supported": [
+    "client_secret_post",
+    "private_key_jwt"
+  ],
+  "jwks_uri": "https:\/\/login.microsoftonline.com\/common\/discovery\/v2.0\/keys",
+  
+  ...
+  
+}
+```
+
+Typically, you would use this metadata document to configure an OpenID Connect library or SDK; the library would use the metadata to do its work.  However, if you're not using a pre-build OpenID Connect library, you can follow the steps in the remainder of this article to perform sign-in in a web app using the v2.0 endpoint. 
 
 ## Send the sign-in request
 When your web app needs to authenticate the user, it can direct the user to the `/authorize` endpoint.  This request is similar to the first leg of the [OAuth 2.0 Authorization Code Flow](active-directory-v2-protocols-oauth-code.md), with a few important distinctions:
@@ -56,7 +91,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter | | Description |
 | ----------------------- | ------------------------------- | --------------- |
 | tenant | required | The `{tenant}` value in the path of the request can be used to control who can sign into the application.  The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers.  For more detail, see [protocol basics](active-directory-v2-protocols.md#endpoints). |
-| client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) assigned your app. |
+| client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) assigned your app. |
 | response_type | required | Must include `id_token` for OpenID Connect sign-in.  It may also include other response_types, such as `code`. |
 | redirect_uri | recommended | The redirect_uri of your app, where authentication responses can be sent and received by your app.  It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded. |
 | scope | required | A space-separated list of scopes.  For OpenID Connect, it must include the scope `openid`, which translates to the "Sign you in" permission in the consent UI.  You may also include other scopes in this request for requesting consent. |

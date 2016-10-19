@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="07/27/2016"
+   	ms.date="10/11/2016"
    	ms.author="larryfr"/>
 
 #Create Linux-based clusters in HDInsight using cURL and the Azure REST API

@@ -1,6 +1,6 @@
 <properties
  pageTitle="Add burst nodes to an HPC Pack cluster | Microsoft Azure"
- description="Learn how to expand the HPC Pack cluster capacity on-demand by adding worker role instances running in a cloud service"
+ description="Learn how to expand an HPC Pack cluster in Azure on-demand by adding worker role instances running in a cloud service"
  services="virtual-machines-windows"
  documentationCenter=""
  authors="dlepow"
@@ -13,31 +13,28 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="07/15/2016"
+ ms.date="10/14/2016"
  ms.author="danlep"/>
 
 # Add on-demand "burst" nodes to an HPC Pack cluster in Azure
 
 
 
-This article shows you how to add Azure "burst" nodes (worker role instances
-running in a cloud service) as compute resources to an
-existing HPC Pack head node in Azure. With burst node, you scale up or scale down the compute capacity of the HPC cluster in Azure on-demand, without maintaining a set of preconfigured compute node VMs.
+If you set up a [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) cluster in Azure, you might want a way to quickly scale the cluster capacity up or down, without maintaining a set of preconfigured compute node VMs. This article shows you how to add on-demand "burst" nodes (worker role instances
+running in a cloud service) as compute resources to a
+ head node in Azure. 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ![Burst nodes][burst]
 
 The steps in this article help you add Azure nodes quickly to a
-cloud-based HPC Pack head node VM for a test or proof-ofconcept deployment. The procedure is essentially the
-same as the one to “burst to Azure” to add cloud compute capacity to an
+cloud-based HPC Pack head node VM for a test or proof-of-concept deployment. The high-level steps are the same as the steps to “burst to Azure” to add cloud compute capacity to an
 on-premises HPC Pack cluster. For a tutorial, see [Set up a hybrid compute cluster with Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). For
 detailed guidance and considerations for production deployments, see
 [Burst to Azure with Microsoft HPC
 Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
-For considerations to use a compute-intensive instance size for the burst nodes, see
-[About H-series and compute-intensive A-series VMs](virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
 ## Prerequisites
 
@@ -112,6 +109,9 @@ Deployments of Azure Nodes with Microsoft HPC
 Pack](http://technet.microsoft.com/library/jj159097.aspx).
 
 ## Next steps
+
+* To use a compute-intensive instance size for the burst nodes, see the considerations in 
+[About H-series and compute-intensive A-series VMs](virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
 * If you want to
 automatically grow or shrink the Azure computing resources according to

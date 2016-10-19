@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="jwillis;tamram"/>
+	ms.date="10/18/2016"
+	ms.author="tamram"/>
 
 # Create a blob snapshot
 

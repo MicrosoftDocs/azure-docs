@@ -3,7 +3,7 @@
 	description="Learn how to process data by running MapReduce programs on an Azure HDInsight cluster from an Azure data factory." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="sharonlo101" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/12/2016" 
-	ms.author="spelluru"/>
+	ms.author="shlo"/>
 
 # Invoke MapReduce Programs from Data Factory
 > [AZURE.SELECTOR]

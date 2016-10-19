@@ -36,7 +36,7 @@ In nearly all OAuth & OpenID Connect flows, there are four parties involved in t
 
 
 ## App Registration
-Every app that uses the v2.0 endpoint will need to be registered at [apps.dev.microsoft.com](https://apps.dev.microsoft.com) before it can interact using OAuth or OpenID Connect.  The app registration process will collect & assign a few values to your app:
+Every app that uses the v2.0 endpoint will need to be registered at [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) before it can interact using OAuth or OpenID Connect.  The app registration process will collect & assign a few values to your app:
 
 - An **Application Id** that uniquely identifies your app
 - A **Redirect URI** or **Package Identifier** that can be used to direct responses back to your app

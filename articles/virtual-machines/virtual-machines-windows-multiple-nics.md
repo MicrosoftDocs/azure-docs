@@ -19,7 +19,7 @@
 # Creating a VM with multiple NICs
 You can create a virtual machine (VM) in Azure that has multiple virtual network interfaces (NICs) attached to it. A common scenario would be to have different subnets for front-end and back-end connectivity, or a network dedicated to a monitoring or backup solution. This article provides quick commands to create a VM with multiple NICs attached to it. For detailed information, including how to create multiple NICs within your own PowerShell scripts, read more about [deploying multi-NIC VMs](../virtual-network/virtual-network-deploy-multinic-arm-ps.md). Different [VM sizes](virtual-machines-windows-sizes.md) support a varying number of NICs, so size your VM accordingly.
 
->[AZURE.WARNING] You must attach multiple NICs when you create a VM - you cannot add NICs to an existing VM. You can [create a new VM based on the original virtual disk(s)](virtual-machines-windows-specialized-image.md) and create multiple NICs as you deploy the VM.
+>[AZURE.WARNING] You must attach multiple NICs when you create a VM - you cannot add NICs to an existing VM. You can [create a new VM based on the original virtual disk(s)](virtual-machines-windows-vhd-copy.md) and create multiple NICs as you deploy the VM.
 
 ## Create core resources
 Make sure that you have the [latest Azure PowerShell installed and configured](../powershell-install-configure.md).
@@ -107,7 +107,7 @@ New-AzureRmVM -VM $vmConfig -ResourceGroupName TestRG -Location WestUS
 ```
 
 ## Creating multiple NICs using Resource Manager templates
-Azure Resource Manager templates use declarative JSON files to define your environment. You can read an [overview of Azure Resource Manager](../resource-group-overview.md). Resource Manager templates provide a way to create multiple instances of a resource during deployment, such as creating multiple NICs. You use *copy* to specify the number of instances to create:
+Azure Resource Manager templates use declarative JSON files to define your environment. You can read an [overview of Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Resource Manager templates provide a way to create multiple instances of a resource during deployment, such as creating multiple NICs. You use *copy* to specify the number of instances to create:
 
 ```bash
 "copy": {
