@@ -57,7 +57,7 @@ You can also:
 ## Access metrics via the portal
 Following is a quick walkthrough of how to create a metric chart by using the Azure portal.
 
-### View metrics after creating a resource
+### To view metrics after creating a resource
 1. Open the Azure portal.
 2. Create a new App Service website.
 3. After you create a website, go to the **Overview** blade of the web site.
@@ -65,7 +65,7 @@ Following is a quick walkthrough of how to create a metric chart by using the Az
 
  ![Metrics on a resource in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview1.png)
 
-### Access all metrics in a single place
+### To access all metrics in a single place
 1. Open the Azure portal.
 2. Navigate to the new **Monitor** tab, and then and select the **Metrics** option underneath it.
 3. Select your subscription, resource group, and the name of the resource from the drop-down list.
