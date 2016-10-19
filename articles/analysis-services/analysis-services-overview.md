@@ -35,12 +35,12 @@ When creating data models for Azure Analysis Services, you use the same tools as
 
 ![Data sources](./media/analysis-services-overview/aas-overview-data-sources.png)
 
-Analysis Services supports [connecting to data](analysis-services-connect.md) from about any data source on-premises in your organization or in the cloud. Combine data from both on-premises and cloud data sources for a hybrid BI solution.
+Analysis Services supports connecting to data from about any data source on-premises in your organization or in the cloud. Combine data from both on-premises and cloud data sources for a hybrid BI solution.
 
 Because your Azure Analysis Services server is in the cloud, connecting to cloud data sources is seamless. When connecting to on-premises data sources, the [On-premises data gateway](analysis-services-gateway.md) ensures fast, secure connections with your Analysis Services server in the cloud.  
 
 ## Explore your data from anywhere
-Connect and [get data](analysis-services-connect.md) from your servers from about anywhere. Azure Analysis Services supports connecting from on-premises applications and browser based tools.
+Connect and [get data](analysis-services-connect.md) from your servers from about anywhere. Azure Analysis Services supports connecting from Power BI Desktop, Excel, custom apps, and browser based tools.
 
 ![Data visualizations](./media/analysis-services-overview/aas-overview-visualization.png)
 
@@ -48,11 +48,11 @@ Connect and [get data](analysis-services-connect.md) from your servers from abou
 ## Secure
 
 #### User authentication
-User authentication for Azure Analysis services is handled by [Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md). When attempting to login to an Azure Analysis Services database, users  login with an organization account identity with access to the database they are trying to access. These user identities must be members of the default Azure subscriptions where the Azure Analysis Services server resides. [Directory integration](https://technet.microsoft.com/library/jj573653.aspx) between AAD and an on-premises Active Directory is a great way to get your on-premises users access to an Azure Analysis Services database, but isn't required for all scenarios.
+User authentication for Azure Analysis services is handled by [Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md). When attempting to login to an Azure Analysis Services database, users  login with an organization account identity with access to the database they are trying to access. These user identities must be members of the default Azure Active Directory for the subscription where the Azure Analysis Services server resides. [Directory integration](https://technet.microsoft.com/library/jj573653.aspx) between AAD and an on-premises Active Directory is a great way to get your on-premises users access to an Azure Analysis Services database, but isn't required for all scenarios.
 
 Users login with the user principal name (UPN) of their account and their password. When synchronized with an on-premises Active Directory, the user’s UPN is often their organizational email address.
 
-Permissions for managing the Azure Analysis Services server resource is handled by assigning users to roles within you Azure subscription. By default, subscription administrators have owner permissions to the server. Additional users can be added by using the Azure management portal or through Azure Resource Manager (ARM) templates.
+Permissions for managing the Azure Analysis Services server resource is handled by assigning users to roles within you Azure subscription. By default, subscription administrators have owner permissions to the server resource in Azure. Additional users can be added by using the Azure management portal or through Azure Resource Manager (ARM) templates.
 
 #### Data security
 Azure Analysis Services utilizes Azure Blob storage to persist storage and metadata for Analysis Services databases. Data files within Blob are encrypted using Azure Blob Server Side Encryption (SSE). When using Direct Query mode, only metadata is stored; the actual data is accessed from the data source at query time.
