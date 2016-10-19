@@ -30,7 +30,7 @@ When you connect to Linux virtual machines (VMs) in Azure, you can use secure sh
 
 **SSH** &#8212; or [secure shell](https://en.wikipedia.org/wiki/Secure_Shell) &#8212; is an encrypted connection protocol that allows secure logins over unsecured connections. It is the default connection protocol for Linux VMs hosted in Azure. 
 
-You log in to your Linux VM through the use of public and private keys:
+You log in to your Linux VM by using public and private keys:
 
 - The **public key** is placed on your Linux VM, or any other service you use with public-key cryptography.
 - The **private key** is what you present to your Linux VM when you log in, to verify your credentials.
@@ -44,7 +44,7 @@ You connect to and manage Linux VMs in Azure using an **ssh** client. Windows co
 - [MobaXterm](http://mobaxterm.mobatek.net/)
 - [Cygwin](https://cygwin.com/)
 
-> [AZURE.NOTE] The latest Windows 10 Anniversary Update includes Bash for Windows. This allows you to run the Windows Subsytem for Linux and access utilities such as an SSH client. Bash for Windows is still under development, and is considered a beta release. For more information about Bash for Windows, see [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about).
+> [AZURE.NOTE] The latest Windows 10 Anniversary Update includes Bash for Windows. This feature allows you to run the Windows Subsystem for Linux and access utilities such as an SSH client. Bash for Windows is still under development, and is considered a beta release. For more information about Bash for Windows, see [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about).
 
 
 ## Which key files do you need to create?
@@ -54,121 +54,113 @@ Azure requires at least 2048-bit, **ssh-rsa** format public and private keys. If
 Here are the deployment scenarios, and the types of files you use in each:
 
 1. **ssh-rsa** keys are required for any deployment using the [Azure portal](https://portal.azure.com), and Resource Manager deployments using the [Azure CLI](../xplat-cli-install.md).
-    - This is usually all most people need.
+    - These keys is usually all most people need.
 2. `.pem` file is required to create VMs using the [Classic portal](https://manage.windowsazure.com). These keys are also supported in Classic deployments that use the [Azure CLI](../xplat-cli-install.md).
     - You only need to create these additional keys and certificates if you are managing resources created using the Classic deployment model.
 
 
-## Get ssh-keygen and openssl on Windows ##
+## Install Git for Windows ##
 
-The preceding section listed several utilities that include an `ssh-keygen` and `openssl` for Windows. A couple of examples are listed below:
+The preceding section listed several utilities that include an `ssh-keygen` and `openssl` for Windows. The following example details how to install Git for Windows, though you can choose whichever package you prefer:
 
-###Use Git for Windows###
+1. Download and install **Git for Windows** from the following location: [https://git-for-windows.github.io/](https://git-for-windows.github.io/).
+    - Accept the default options during the install process unless you specifically need to change change them.
+2. Run Git Bash from the **Start Menu** > **All Apps** > **Git** > **Git Bash**. The console looks similar to the following example:
 
-1.	Download and install Git for Windows from the following location: [https://git-for-windows.github.io/](https://git-for-windows.github.io/)
-2.	Run Git Bash from the Start Menu > All Apps > Git Shell
+    ![Git for Windows Bash shell](./media/virtual-machines-linux-ssh-from-windows/git-bash-window.png)
 
-> [AZURE.NOTE] You may encounter the following error when running the `openssl` commands above:
-
-        Unable to load config info from /usr/local/ssl/openssl.cnf
-
-The easiest way to resolve this is to set the `OPENSSL_CONF` environment variable. The process for setting this variable will vary depending on the shell that you have configured in Github:
-
-**Powershell:**
-
-        $Env:OPENSSL_CONF="$Env:GITHUB_GIT\ssl\openssl.cnf"
-
-**CMD:**
-
-        set OPENSSL_CONF=%GITHUB_GIT%\ssl\openssl.cnf
-
-**Git Bash:**
-
-        export OPENSSL_CONF=$GITHUB_GIT/ssl/openssl.cnf
-	
-
-###Use Cygwin###
-
-1.	Download and install Cygwin from the following location: [http://cygwin.com/](http://cygwin.com/)
-2.	Ensure that the OpenSSL package and all of its dependencies are installed.
-3.	Run `cygwin`
 
 ## Create a Private Key##
 
-1.	Follow one of the set of instructions above to be able to run `openssl.exe`
-2.	Type in the following command:
+1. In your **Git Bash** window, use `openssl.exe` to create a private key. The following example creates a key named `myPrivateKey` and certificate named `myCert.pem`:
 
-  ```
-  openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
-  ```
-3.	Your screen should look like the following:
+    ```bash
+    openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 \
+        -keyout myPrivateKey.key -out myCert.pem
+    ```
 
-  ```
-  $ openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
-  Generating a 2048 bit RSA private key
-  .......................................+++
-  .......................+++
-  writing new private key to 'myPrivateKey.key'
-  -----
-  You are about to be asked to enter information that will be incorporated
-  into your certificate request.
-  What you are about to enter is what is called a Distinguished Name or a DN.
-  There are quite a few fields but you can leave some blank
-  For some fields there will be a default value,
-  If you enter '.', the field will be left blank.
-  -----
-  Country Name (2 letter code) [AU]:
-  ```
+2. The output looks similar to the following:
 
-4.	Answer the questions that are asked.
-5.	It would have created two files: `myPrivateKey.key` and `myCert.pem`.
-6.	If you are going to use the API directly, and not use the Management Portal, convert the `myCert.pem` to `myCert.cer` (DER encoded X509 certificate) using the following command:
+    ```bash
+    Generating a 2048 bit RSA private key
+    .......................................+++
+    .......................+++
+    writing new private key to 'myPrivateKey.key'
+    -----
+    You are about to be asked to enter information that will be incorporated
+    into your certificate request.
+    What you are about to enter is what is called a Distinguished Name or a DN.
+    There are quite a few fields but you can leave some blank
+    For some fields there will be a default value,
+    If you enter '.', the field will be left blank.
+    -----
+    Country Name (2 letter code) [AU]:
+    ```
 
-  ```
-  openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
-  ```
+3. Answer the prompts for country name, location, organization name, etc.
+
+5. Your new private key and certificate are created in your current working directory. To verify, use the `ls` command to list the contents of your directory:
+
+    ```bash
+    ls
+    ```
+
+6. If you also need to manage Classic resources, convert the `myCert.pem` to `myCert.cer` (DER encoded X509 certificate). This is an optional step, only for those needing to specifically manage older Classic resources. Convert the certificate using the following command:
+
+    ```bash
+    openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
+    ```
 
 ## Create a PPK for Putty ##
 
-1. Download and install Puttygen from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+PuTTY is a common SSH client for Windows. The following example creates an additional private key specifically for PuTTY to use, a PuTTY Private Key (PPK). You can use an SSH client other PuTTY if preferred. If you do not wish to use PuTTY, skip this section.
 
-2. Puttygen may not be able to read the private key that was created earlier (`myPrivateKey.key`). Run the following command to translate it into an RSA private key that Puttygen can understand:
+1. Download and run PuTTYgen from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
-		# openssl rsa -in ./myPrivateKey.key -out myPrivateKey_rsa
-		# chmod 600 ./myPrivateKey_rsa
+2. PuTTYgen may not be able to read the private key that was created earlier (`myPrivateKey.key`). You need to translate it into an RSA private key that PuTTYgen can understand. The following example creates a key named `myPrivateKey_rsa` from the existing key named `myPrivateKey` (that you created in the previous section):
 
-	The command above should produce a new private key called myPrivateKey_rsa.
+    ```bash
+    openssl rsa -in ./myPrivateKey.key -out myPrivateKey_rsa
+    ```
 
-3. Run `puttygen.exe`
+    For security best practices, you should also set permissions on your private key so that only you can read it:
 
-4. Click the menu: File > Load a Private Key
+    ```bash
+    chmod 600 myPrivateKey_rsa
+    ```
 
-5. Find your private key, which we named `myPrivateKey_rsa` above. You will need to change the file filter to show **All Files (\*.\*)**
+4. Click the menu: **File** > **Load a Private Key**
 
-6. Click **Open**. You will receive a prompt which should look like this:
+5. Locate your private key (`myPrivateKey_rsa` in the previous example). The default directory when you start **Git Bash** is `C:\Users\<username>`. Change the file filter to show **All Files (\*.\*)**:
 
-	![linuxgoodforeignkey](./media/virtual-machines-linux-ssh-from-windows/linuxgoodforeignkey.png)
+    ![Load existing private key in to PuTTYgen](./media/virtual-machines-linux-ssh-from-windows/load-private-key.png)
 
-7. Click **OK**
+6. Click **Open**. A prompt indicates the key has been successfully imported:
 
-8. Click **Save Private Key**, which is highlighted in the screenshot below:
+    ![Successfully imported key to PuTTYgen](./media/virtual-machines-linux-ssh-from-windows/successfully-imported-key.png)
 
-	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-windows/linuxputtygenprivatekey.png)
+7. Click **OK**.
 
-9. Save the file as a PPK
+8. Click **Save private Key**. A prompt will ask if you wish to continue without entering a passphrase for your key. A passphrase is like a password attached to your private key. Even if someone were to obtain your private key, they still would not be able to authenticate using it without also knowing the passphrase. 
+
+    If you wish to enter a passphrase, click **No**, enter a passphrase in the main PuTTYgen window, and then click **Save private key** again. Otherwise, click **Yes** to continue without providing the optional passphrase: 
+
+    ![Save PuTTY Private Key file](./media/virtual-machines-linux-ssh-from-windows/save-ppk-file.png)
+
+9. Enter a name and location to save your PPK file.
 
 
 ## Use Putty to Connect to a Linux Machine ##
 
-1.	Download and install putty from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
-2.	Run putty.exe
-3.	Fill in the host name using the IP from the Management Portal:
+1. Download and run putty from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
-	![linuxputtyconfig](./media/virtual-machines-linux-ssh-from-windows/linuxputtyconfig.png)
+2. Fill in the host name or IP address of your VM from the Azure portal:
 
-4.	Before selecting **Open**, click the Connection > SSH > Auth tab to choose your private key. See the screenshot below for the field to fill in:
+    ![Open new PuTTY connection]](./media/virtual-machines-linux-ssh-from-windows/putty-new-connection.png)
 
-	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-windows/linuxputtyprivatekey.png)
+3. Before selecting **Open**, click the Connection > SSH > Auth tab to choose your private key. See the screenshot below for the field to fill in:
 
-5.	Click **Open** to connect to your virtual machine
+    ![Select your PuTTY Private Key for authentication](./media/virtual-machines-linux-ssh-from-windows/putty-auth-dialog.png)
+
+4. Click **Open** to connect to your virtual machine
  
