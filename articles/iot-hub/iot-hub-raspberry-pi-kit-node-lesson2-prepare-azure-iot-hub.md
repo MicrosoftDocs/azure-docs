@@ -25,7 +25,7 @@
 - Create your Azure IoT hub in the resource group.
 - Add your Raspberry Pi 3 to the Azure IoT hub using the Azure CLI.
 
-When you use the Azure CLI to add your Pi to your IoT hub, the service generates a key for your Pi to authenticate with the service. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberrypikit-node-troubleshooting.md).
+When you use the Azure CLI to add your Pi to your IoT hub, the service generates a key for your Pi to authenticate with the service. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## 2.2.2 What you will learn
 

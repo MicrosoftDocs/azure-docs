@@ -23,7 +23,7 @@
 
 ## 3.1.1 What will you do
 
-Use an Azure Resource Manager template to create an Azure function app and a storage account. The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure table storage. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberrypikit-node-troubleshooting.md).
+Use an Azure Resource Manager template to create an Azure function app and a storage account. The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure table storage. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## 3.1.2 What will you learn
 
