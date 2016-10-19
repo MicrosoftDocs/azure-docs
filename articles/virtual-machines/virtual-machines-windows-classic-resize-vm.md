@@ -24,7 +24,7 @@ This article shows you how to resize a Windows VM, created in the classic deploy
 
 When considering the ability to resize a VM, there are two concepts which control the range of sizes available to resize the virtual machine. The first concept is the region in which your VM is deployed. The list of VM sizes available in region is under the Services tab of the Azure Regions web page. The second concept is the physical hardware currently hosting your VM. The physical servers hosting VMs are grouped together in clusters of common physical hardware. The method of changing a VM size differs depending on if the desired new VM size is supported by the hardware cluster currently hosting the VM.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] You can also [resize a VM created in the Resource Manager deployment model](virtual-machines-windows-resize-vm.md).
 
 
 ## Add your account
@@ -43,15 +43,15 @@ To resize a VM to a size available in the hardware cluster hosting the VM, perfo
 
 1. Run the following PowerShell command to list the VM sizes available in the hardware cluster hosting the cloud service which contains the VM.
 
-```powershell
-Get-AzureService | where {$_.ServiceName -eq "<cloudServiceName>"}
-```
+	```powershell
+	Get-AzureService | where {$_.ServiceName -eq "<cloudServiceName>"}
+	```
 
 2. Run the following commands to resize the VM.
 
-```powershell
-Get-AzureVM -ServiceName <cloudServiceName> -Name <vmName> | Set-AzureVMSize -InstanceSize <newVMSize> | Update-AzureVM
-```
+	```powershell
+	Get-AzureVM -ServiceName <cloudServiceName> -Name <vmName> | Set-AzureVMSize -InstanceSize <newVMSize> | Update-AzureVM
+	```
 
 ## Resize on a new hardware cluster
 
@@ -59,9 +59,9 @@ To resize a VM to a size not available in the hardware cluster hosting the VM, t
 
 1. Run the following PowerShell command to list the VM sizes available in the region. 
 
-```powershell
-Get-AzureLocation | where {$_.Name -eq "<locationName>"}
-```
+	```powershell
+	Get-AzureLocation | where {$_.Name -eq "<locationName>"}
+	```
 
 2. Make note of all configuration settings for each VM in the cloud service which contains the VM to be resized. 
 3. Delete all VMs in the cloud service selecting the option to retain the disks for each VM.
@@ -69,3 +69,8 @@ Get-AzureLocation | where {$_.Name -eq "<locationName>"}
 5. Recreate all other VMs which were in the cloud service using a VM size available in the hardware cluster now hosting the cloud service.
 
 A sample script for deleting and recreating a cloud service using a new VM size can be found [here](https://github.com/Azure/azure-vm-scripts). 
+
+
+## Next Steps
+
+- [Resize a VM created in the Resource Manager deployment model](virtual-machines-windows-resize-vm.md).
