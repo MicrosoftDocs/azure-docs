@@ -39,7 +39,7 @@ To get the most out of the series, watch them all. [Go to the list of videos](#o
 
 ## Transcript: Ask a question you can answer with data
 
-Welcome to the third video in the series "Data Science for Beginners".  
+Welcome to the third video in the series "Data Science for Beginners."  
 
 In this one, you'll get some tips for formulating a question you can answer with data.
 

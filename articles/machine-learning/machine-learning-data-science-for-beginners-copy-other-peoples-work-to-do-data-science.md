@@ -39,7 +39,7 @@ To get the most out of the series, watch them all. [Go to the list of videos](#o
 
 ## Transcript: Copy other people's work to do data science
 
-Welcome to the fifth video in the series “Data Science for Beginners”.
+Welcome to the fifth video in the series “Data Science for Beginners.”
 
 In this one, you’ll discover a place to find examples that you can borrow from as a starting point for your own work. You might get the most out of this video if you first watch the earlier videos in this series.
 
@@ -57,7 +57,7 @@ You can find the gallery at [aka.ms/CortanaIntelligenceGallery]( http://aka.ms/C
 
 If you click **Experiments** at the top, you'll see a number of the most recent and popular experiments in the gallery. You can search through the rest of experiments by clicking **Browse All** at the top of the screen, and there you can enter search terms and choose search filters.
 
-## Find and use a clustering example
+## Find and use a clustering algorithm example
 
 So, for instance, let's say you want to see an example of how clustering works, so you search for **"clustering"** experiments.
 
@@ -77,7 +77,7 @@ Notice the link that says **Open in Studio**.
 
 I can click on that and it takes me right to **Azure Machine Learning Studio**. It creates a copy of the experiment and puts it in my own workspace. This includes the contributor's dataset, all the processing that they did, all of the algorithms that they used, and how they saved out the results.
 
-![Gallery experiment open in Machine Learning Studio](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cluster-experiment-open-in-studio.png)
+![Open a Gallery experiment in Machine Learning Studio - clustering algorithm example](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cluster-experiment-open-in-studio.png)
 
 And now I have a starting point. I can swap out their data for my own and do my own tweaking of the model. This gives me a running start, and it lets me build on the work of people who really know what they’re doing.
 
@@ -85,7 +85,7 @@ And now I have a starting point. I can swap out their data for my own and do my 
 
 There are other experiments in the [Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery) that were contributed specifically to provide how-to examples for people new to data science. For instance, there's an experiment in the gallery that demonstrates how to handle missing values ([Methods for handling missing values](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). It walks you through 15 different ways of substituting empty values, and talks about the benefits of each method and when to use it.
 
-![Gallery experiment open in Machine Learning Studio](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
+![Gallery experiment open in Machine Learning Studio - methods for missing values](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
 [Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery) is a place to find working experiments that you can use as a starting point for your own solutions.
 
