@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="fryu;robinsh"/>
+	ms.author="robinsh"/>
 
 # Enabling Azure Storage metrics and viewing metrics data
 

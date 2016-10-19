@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="cbrooks;tamram"/>
+	ms.date="10/18/2016"
+	ms.author="tamram"/>
 
 
 # Shared Access Signatures, Part 2: Create and use a SAS with Blob storage

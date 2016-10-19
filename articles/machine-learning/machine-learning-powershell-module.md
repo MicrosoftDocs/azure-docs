@@ -1,6 +1,6 @@
 <properties
 	pageTitle="PowerShell module for Machine Learning | Microsoft Azure"
-	description="The PowerShell module for Azure Machine Learning is available in public preview mode. Use PowerShell to create and manage workspaces, experiments, web serivces, and more."
+	description="The PowerShell module for Azure Machine Learning is available in public preview mode. Use PowerShell to create and manage workspaces, experiments, web services, and more."
 	keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques,data science experiment"
 	services="machine-learning"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="08/05/2016"
 	ms.author="garye;haining"/>
 
