@@ -53,7 +53,7 @@ You use [gulp.js](http://gulpjs.com) to automate the deployment of the sample ap
 Press `Windows + R`, type `cmd` and press Enter to open a command prompt window. Install `gulp` and `device-discovery-cli` by running the following command:
 
 ```bash
-sudo npm install -g device-discovery-cli gulp
+npm install -g device-discovery-cli gulp
 ```
     
 If you experience issues installing Node.js and these additional Node.js development tools on your computer, see [troubleshooting guide](iot-hub-raspberrypikit-node-troubleshooting.md) for solutions to common problems.

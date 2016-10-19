@@ -116,3 +116,39 @@ When installing pip, permission error will be thrown when there are legacy packa
 2. List packages create by root: `ls -l | grep root`
 3. Uninstall packages from step2: `sudo rm -rf {package name}`
 4. Reinstall Python.
+
+## Azure IoT hub issues
+
+If you've successfully provisioned Azure IoT hub with `azure-cli`, but you also need a tool to manage devices connecting to your IoT hub. You can try the following tools.
+
+### Device Explorer
+
+[Device Explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) runs on your Windows local machine and connects to your IoT hub in Azure. It communicates with the following [IoT Hub endpoints](iot-hub-devguide.md).
+
+- *Device identity management* to provision and manage devices registtered with your IoT hub.
+- *Receive device-to-cloud* to enable you to monitor messages sent from your device to your IoT hub.
+- *Send cloud-to-device* to enable you to send messages to your devices from your IoT hub.
+
+### IoT hub Explorer
+
+[IoT hub Explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md) is a sample multiplatform CLI tool to manage device clients using the Azure IoT Hub service SDK. The tool enables you to manage the devices in the identity register, monitor device-to-cloud messages, and send cloud-to-device commands.
+
+To install the latest (pre-release) version of the iothub-explorer tool, run the following command in your command-line environment:
+
+```
+npm install -g iothub-explorer@latest
+```
+
+You can use the following command to get additional help about all the iothub-explorer commands and their parameters:
+
+```bash
+iothub-explorer help
+```
+
+### Use Azure Portal to manage your resouces
+
+In all these lessons, a full CLI experience is provided to create and manage all your Azure resouces. You also need use the [Microsoft Azure portal](../azure-portal-overview.md) to help provision and manage your Azure resources.
+
+## Azure storage issues
+
+[Microsoft Azure Storage Explorer (Preview)](http://storageexplorer.com) is a standalone app from Microsoft that allows you to easily work with Azure Storage data on Windows, macOS and Linux.
