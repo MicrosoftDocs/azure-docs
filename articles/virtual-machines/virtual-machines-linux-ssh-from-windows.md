@@ -115,7 +115,7 @@ The preceding section listed several utilities that include an `ssh-keygen` and 
 
 ## Create a private key for PuTTY ##
 
-PuTTY is a common SSH client for Windows. You are free to use any SSH client that you wish. In order to use PuTTY, you create an additional type of key - a PuTTY Private Key (PPK). If you do not wish to use PuTTY, skip this section.
+PuTTY is a common SSH client for Windows. You are free to use any SSH client that you wish. To use PuTTY, you need to create an additional type of key - a PuTTY Private Key (PPK). If you do not wish to use PuTTY, skip this section.
 
 The following example creates this additional private key specifically for PuTTY to use:
 
@@ -166,7 +166,7 @@ The following example creates this additional private key specifically for PuTTY
 
 ## Use Putty to Connect to a Linux Machine
 
-Again, PuTTY is a common SSH client for Windows. You are free to use any SSH client that you wish. The following steps detail how to use your private key to authenticate with your Azure VM using SSH. The steps are similar in other SSH key clients in terms of needing to load your private key in order to authenticate the SSH connection.
+Again, PuTTY is a common SSH client for Windows. You are free to use any SSH client that you wish. The following steps detail how to use your private key to authenticate with your Azure VM using SSH. The steps are similar in other SSH key clients in terms of needing to load your private key to authenticate the SSH connection.
 
 1. Download and run putty from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
