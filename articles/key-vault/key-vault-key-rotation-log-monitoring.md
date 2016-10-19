@@ -60,7 +60,7 @@ $secretvalue = ConvertTo-SecureString <storageAccountKey> -AsPlainText -Force
 
 Set-AzureKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
 ```
-Next you will get the URI for the secret you created. This is used in a later step when you are calling the key vault to retrieve your secret. Run the following PowerShell command and make note of the ID value, which is the secret URI:
+Next you will get the URI for the secret you created. This is used in a later step when you are calling the key vault to retrieve your secret. Run the following PowerShell command and make note of the ID value, which is the secret URI: 
 
 ```powershell
 Get-AzureKeyVaultSecret –VaultName <vaultName>
