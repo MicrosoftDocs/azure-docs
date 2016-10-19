@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Set up alerts for queries in Stream Analytics | Microsoft Azure" 
-	description="Understanding Stream Analytics Alerting" 
+<properties
+	pageTitle="Set up alerts for queries in Stream Analytics | Microsoft Azure"
+	description="Understanding Stream Analytics Alerting"
 	keywords="set up alerts"
-	services="stream-analytics" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="jhubbard" 
+	services="stream-analytics"
+	documentationCenter=""
+	authors="jeffstokes72"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="09/26/2016" 
-	ms.author="jeffstok"/> 
+<tags
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-services"
+	ms.date="09/26/2016"
+	ms.author="jeffstok"/>
 
 
 # Set up alerts for Azure Stream Analytics jobs
@@ -72,7 +72,7 @@ When you select Metrics you'll choose a condition and threshold Value for the me
 
   ![Azure portal select metric](./media/stream-analytics-set-up-alerts/07-stream-analytics-set-up-alerts.png)  
 
-For more detail on configuring alerts in the Azure portal, see [Receive alert notifications](../azure-portal/insights-receive-alert-notifications.md).  
+For more detail on configuring alerts in the Azure portal, see [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).  
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)

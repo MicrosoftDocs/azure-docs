@@ -4,7 +4,7 @@
     services=""    
     documentationCenter=""     
     authors="MandiOhlinger"    
-    manager="erikre"    
+    manager="anneta"    
     editor="" 
     tags="connectors" />
 
@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="07/26/2016"
+ms.date="10/18/2016"
 ms.author="mandia"/>
 
 # Get started with the Office 365 Outlook connector 
