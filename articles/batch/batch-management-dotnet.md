@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Account management with Batch Management .NET | Microsoft Azure"
-	description="Create, delete, and modify Azure Batch accounts in your applications with the Batch Management .NET library."
+	pageTitle="Account resource management with Batch Management .NET | Microsoft Azure"
+	description="Create, delete, and modify Azure Batch account resources with the Batch Management .NET library."
 	services="batch"
 	documentationCenter=".net"
 	authors="mmacy"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="08/03/2016"
+	ms.date="10/19/2016"
 	ms.author="marsma"/>
 
 # Manage Azure Batch accounts and quotas with Batch Management .NET
@@ -209,7 +209,7 @@ Before deleting the newly created Batch account and resource group, you can insp
 [resman_api]: https://msdn.microsoft.com/library/azure/mt418626.aspx
 [resman_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx
 [resman_subclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.subscriptions.subscriptionclient.aspx
-[resman_overview]: ../resource-group-overview.md
+[resman_overview]: ../azure-resource-manager/resource-group-overview.md
 
 [1]: ./media/batch-management-dotnet/portal-01.png
 [2]: ./media/batch-management-dotnet/portal-02.png
