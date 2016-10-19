@@ -17,7 +17,7 @@
  ms.date="09/28/2016" 
  ms.author="xshi"/>
 
-# 3.3 Read messages stored in Azure Storage
+# 3.3 Read messages persisted in Azure Storage
 
 ## 3.3.1 What will you do
 
@@ -25,7 +25,7 @@ Monitor the device-to-cloud messages that are sent from your Raspberry Pi 3 to y
 
 ## 3.3.2 What will you learn
 
-- How to use the gulp read-message task to read messages stored in your Azure Table storage.
+- How to use the gulp read-message task to read messages persisted in your Azure Table storage.
 
 ### 3.3.3 What do you need
 

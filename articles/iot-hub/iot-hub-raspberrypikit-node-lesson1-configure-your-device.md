@@ -19,13 +19,13 @@
 
 # 1.1 Configure your device
 
-## 1.1.1 What will you do
+## 1.1.1 What you will do
 
 Configure your Pi for the first time use and install the Raspbian operating system, a free operating system that is optimized for the Raspberry Pi hardware.
 
 > [AZURE.NOTE] For Windows 10 IoT Core samples, visit [windowsondevices.com](http://www.windowsondevices.com/).
 
-## 1.1.2 What will you learn
+## 1.1.2 What you will learn
 
 In this section, you will learn:
 
@@ -34,7 +34,7 @@ In this section, you will learn:
 - How to connect your Pi to the network using an Ethernet cable or Wi-Fi
 - How to add an LED to the breadboard and connect it to your Pi
 
-## 1.1.3 What do you need
+## 1.1.3 What you need
 
 To complete this section, you need the following parts from your Raspberry Pi 3 Starter Kit:
 
@@ -114,7 +114,7 @@ Congratulation! You've successfully configured your Pi.
 
 ## 1.1.8 Summary
 
-In this module, you’ve learned how to configure your Pi by installing Raspbian, connecting your Pi to a network and connecting an LED to your Pi. Note that the LED doesn't yet light up. In the next module, you install the necessary tools and software in preparation for running a sample application on your Pi.
+In this section, you’ve learned how to configure your Pi by installing Raspbian, connecting your Pi to a network and connecting an LED to your Pi. Note that the LED doesn't yet light up. In the next section, you install the necessary tools and software in preparation for running a sample application on your Pi.
 
 ![Hardware is ready](media/iot-hub-raspberry-pi-lessons/lesson1/hardware_ready.jpg)
 
