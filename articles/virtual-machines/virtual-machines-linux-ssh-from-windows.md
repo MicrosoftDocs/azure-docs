@@ -117,7 +117,7 @@ PuTTY is a common SSH client for Windows. The following example creates an addit
 
 1. Download and run PuTTYgen from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
-2. PuTTYgen may not be able to read the private key that was created earlier (`myPrivateKey.key`). Conver the key into an RSA private key that PuTTYgen can understand. The following example creates a key named `myPrivateKey_rsa` from the existing key named `myPrivateKey` (that you created in the previous section):
+2. PuTTYgen may not be able to read the private key that was created earlier (`myPrivateKey.key`). Convert the key into an RSA private key that PuTTYgen can understand. The following example creates a key named `myPrivateKey_rsa` from the existing key named `myPrivateKey` (that you created in the previous section):
 
     ```bash
     openssl rsa -in ./myPrivateKey.key -out myPrivateKey_rsa
@@ -141,7 +141,7 @@ PuTTY is a common SSH client for Windows. The following example creates an addit
 
 7. Click **OK**.
 
-8. Click **Save private Key**. A prompt asks if you wish to continue without entering a passphrase for your key. A passphrase is like a password attached to your private key. Even if someone were to obtain your private key, they still would not be able to authenticate using it unless they also know the passphrase. 
+8. Click **Save private Key**. A prompt asks if you wish to continue without entering a passphrase for your key. A passphrase is like a password attached to your private key. Even if someone were to obtain your private key, they still would not be able to authenticate using just the key. They would also need the passphrase. 
 
     If you wish to enter a passphrase, click **No**, enter a passphrase in the main PuTTYgen window, and then click **Save private key** again. Otherwise, click **Yes** to continue without providing the optional passphrase: 
 
