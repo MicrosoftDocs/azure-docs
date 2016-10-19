@@ -64,7 +64,7 @@ For non-compute resources, you can enable Diagnostic Logs in the Azure portal af
 3.	Under **Logs**, select which **Log Categories** you would like to collect or stream.
 4.	Click **Save**.
 
-### Enable Diagnostic Logs programmatically
+### Enable Diagnostic Logs via PowerShell
 To enable Diagnostic Logs via the Azure PowerShell Cmdlets, use the following commands.
 
 To enable storage of Diagnostic Logs in a Storage Account, use this command:
@@ -89,6 +89,7 @@ You can obtain your Log Analytics workspace ID in the Azure portal.
 
 You can combine these parameters to enable multiple output options.
 
+### Enable Diagnostic Logs via CLI
 To enable Diagnostic Logs via the Azure CLI, use the following commands:
 
 To enable storage of Diagnostic Logs in a Storage Account, use this command:
@@ -113,6 +114,7 @@ You can obtain your Log Analytics workspace ID in the Azure portal.
 
 You can combine these parameters to enable multiple output options.
 
+### Enable Diagnostic Logs via REST API
 To change Diagnostic Settings using the Insights REST API, see [this document](https://msdn.microsoft.com/library/azure/dn931931.aspx).
 
 ## Manage Diagnostic Settings in the portal
