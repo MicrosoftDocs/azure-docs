@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Copy others' work to do data science - experiment example | Microsoft Azure"
+   pageTitle="Copy others' data science work - machine learning example | Microsoft Azure"
    description="Trade secret of data science: Get others to do your work for you. See examples in Cortana Analytics Gallery such as a clustering algorithm example."
    keywords="data science examples,machine learning example,clustering algorithm"
    services="machine-learning"
@@ -14,16 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/18/2016"
+   ms.date="10/20/2016"
    ms.author="cgronlun;garye"/>
 
 # Copy other people's work to do data science
 
 ## Video 5: Data Science for Beginners series
 
-One of the trade secrets of data science is getting other people to do your work for you. Find a clustering algorithm example to use for your own experiment.
+One of the trade secrets of data science is getting other people to do your work for you. Find a clustering algorithm example to use for your own machine learning experiment.
 
-To get the most out of the series, watch them in order. [Go to the list of videos](#other-videos-in-this-series)
+To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science]
 

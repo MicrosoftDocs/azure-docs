@@ -4,7 +4,7 @@
    keywords="data evaluation,relevant data,evaluate data,prepare data,data criteria,data ready"
    services="machine-learning"
    documentationCenter="na"
-   authors="brohrer-ms"
+   authors="cjgronlund"
    manager="jhubbard"
    editor="cjgronlund"/>
 
@@ -14,17 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2016"
-   ms.author="cgronlun;brohrer;garye"/>
+   ms.date="10/20/2016"
+   ms.author="cgronlun;garye"/>
 
 
 # Is your data ready for data science?
 
 ## Video 2: Data Science for Beginners series
 
-Learn about evaluating your data to make sure it meets basic criteria to be ready for data science.
+Learn how to evaluate your data to make sure it meets basic criteria to be ready for data science.
 
-To get the most out of the series, watch them in order. [Go to the list of videos](#other-videos-in-this-series)
+To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-series-is-your-data-ready-for-data-science]
 
@@ -116,5 +116,5 @@ Be sure to check out the other 4 videos in *Data Science for Beginners* from Mic
 
 ## Next steps
 
-  * [Try your first data science experiment with Azure Machine Learning](machine-learning-create-experiment.md)
+  * [Try a first data science experiment with Machine Learning Studio](machine-learning-create-experiment.md)
   * [Get an introduction to Machine Learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)
