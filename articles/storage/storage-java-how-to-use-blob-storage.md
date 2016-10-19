@@ -3,8 +3,8 @@
 	description="Store unstructured data in the cloud with Azure Blob storage (object storage)."
 	services="storage"
 	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
+	authors="tamram"
+	manager="carmonm"
 	editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="08/11/2016"
-	ms.author="jwillis;robmcm"/>
+	ms.date="10/18/2016"
+	ms.author="tamram"/>
 
 # How to use Blob storage from Java
 

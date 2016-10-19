@@ -2,7 +2,7 @@
    pageTitle="Azure AD Token Reference | Microsoft Azure"
    description="A guide for understanding and evaluating the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Azure Active Directory (AAD)"
    documentationCenter="na"
-   authors="msmbaldwin"
+   authors="bryanla"
    services="active-directory"
    manager="mbaldwin"
    editor=""/>
