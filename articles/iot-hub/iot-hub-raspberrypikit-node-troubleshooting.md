@@ -149,7 +149,7 @@ iothub-explorer help
 
 ### Use Azure Portal to manage your resouces
 
-In all these lessons, a full CLI experience is provided to create and manage all your Azure resouces. You also need use the [Microsoft Azure portal](../azure-portal-overview.md) to help provision and manage your Azure resources.
+In all these lessons, a full CLI experience is provided to create and manage all your Azure resouces. You might also want use the [Microsoft Azure portal](../azure-portal-overview.md) to help provision, manage and debug your Azure resources.
 
 ## Azure storage issues
 
