@@ -87,7 +87,7 @@ Virtual Private Network connections allow you to connect from a client outside o
     Connect-AzureStackVpn -Password $Password
     ```
 
->[AZURE.NOTE] During execution, you are prompted to trust the Azure Stack host.  You are also prompted to install a certificate, which appears behind the Powershell session window.
+    >[AZURE.NOTE] During execution, you are prompted to trust the Azure Stack host.  You are also prompted to install a certificate, which appears behind the Powershell session window.
 
 4.  Test connecting to the Azure Stack portal by navigating to *https://portal.azurestack.local* using an Internet browser.  
 
