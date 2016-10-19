@@ -10,8 +10,9 @@
           "**/obj/**",
           "**/includes/**",
           "**/_themes/**",
-          "markdown templates/**"
-          "contributor-guide/**"
+          "markdown templates/**",
+          "contributor-guide/**",
+          "CONTRIBUTING.md"
         ],
         "src": "articles",
         "dest": "."
@@ -26,7 +27,8 @@
           "**/includes/**",
           "**/_themes/**",
           "markdown templates/**",
-          "contributor-guide/**"
+          "contributor-guide/**",
+          "CONTRIBUTING.md",
           "articles/**"
         ],
         "src": null,
@@ -43,8 +45,9 @@
         "exclude": [
           "**/obj/**",
           "**/_themes/**",
-          "markdown templates/**"
-          "contributor-guide/**"
+          "markdown templates/**",
+          "contributor-guide/**",
+          "CONTRIBUTING.md"
         ],
         "src": "articles",
         "dest": "."
@@ -59,7 +62,8 @@
           "**/obj/**",
           "**/_themes/**",
           "markdown templates/**",
-          "contributor-guide/**"
+          "contributor-guide/**",
+          "CONTRIBUTING.md",
           "articles/**"
         ],
         "src": null,
