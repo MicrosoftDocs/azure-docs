@@ -419,7 +419,7 @@ The assumptions are:
 
 The automation script is provided below. Replace text with your information and update the script to match with your specific scenario.
 
-[AZURE.NOTE] Using the existing script does not preserve the network configuration of your source VM. You will need to re-config the networking settings on your migrated VMs.
+>[AZURE.NOTE] Using the existing script does not preserve the network configuration of your source VM. You will need to re-config the networking settings on your migrated VMs.
 
     <#
     .Synopsis
