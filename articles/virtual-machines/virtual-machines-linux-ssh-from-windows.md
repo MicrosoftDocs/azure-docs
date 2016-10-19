@@ -28,7 +28,7 @@ When you connect to Linux virtual machines (VMs) in Azure, you can use secure sh
 
 ## Overview of SSH keys
 
-SSH is an encrypted connection protocol that allows secure logins over unsecured connections. It is the default connection protocol for Linux VMs hosted in Azure. Although SSH itself provides an encrypted connection, using passwords with SSH connections still leaves the VM vulnerable to brute-force attacks or guessing of passwords. A more secure, and preferred, method of connecting to a VM using SSH is through the use crytographic keys, also known as SSH keys.
+SSH is an encrypted connection protocol that allows secure logins over unsecured connections. It is the default connection protocol for Linux VMs hosted in Azure. Although SSH itself provides an encrypted connection, using passwords with SSH connections still leaves the VM vulnerable to brute-force attacks or guessing of passwords. A more secure, and preferred, method of connecting to a VM using SSH is through the use cryptographic keys, also known as SSH keys.
 
 You can securely log in to your Linux VM by using public and private keys:
 
@@ -145,11 +145,11 @@ The following example creates this additional private key specifically for PuTTY
 
 6. Click **OK** to close the prompt.
 
-7. The public key is displayed at the top of the **PuTTYgen** window. You copy and paste this key in to the Azure portal or Azure Resource Manager template when you create a Linux VM. You can also click **Save public key** to save a copy to your computer:
+7. The public key is displayed at the top of the **PuTTYgen** window. You copy and paste this key into the Azure portal or Azure Resource Manager template when you create a Linux VM. You can also click **Save public key** to save a copy to your computer:
 
     ![Save PuTTY public key file](./media/virtual-machines-linux-ssh-from-windows/save-public-key.png)
 
-    The following example shows how you would copy and paste this public key in to the Azure portal when you create a Linux VM. The public key is typically stored in `~/.ssh/authorized_keys` on your new VM.
+    The following example shows how you would copy and paste this public key into the Azure portal when you create a Linux VM. The public key is typically stored in `~/.ssh/authorized_keys` on your new VM.
 
     ![Use public key when you create a VM in the Azure portal](./media/virtual-machines-linux-ssh-from-windows/use-public-key-azure-portal.png)
 
@@ -166,7 +166,7 @@ The following example creates this additional private key specifically for PuTTY
 
 ## Use Putty to Connect to a Linux Machine
 
-Again, PuTTY is a common SSH client for Windows. You are free to use any SSH client that you wish. The following steps detail how to use your private key to authenciate with your Azure VM using SSH. The steps are similar in other SSH key clients in terms of needing to load your private key in order to authenticate the SSH connection.
+Again, PuTTY is a common SSH client for Windows. You are free to use any SSH client that you wish. The following steps detail how to use your private key to authenticate with your Azure VM using SSH. The steps are similar in other SSH key clients in terms of needing to load your private key in order to authenticate the SSH connection.
 
 1. Download and run putty from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
