@@ -19,11 +19,12 @@
 
 # Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell
 
-These steps show you how to use Azure PowerShell commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model. These steps follow a fill-in-the-blanks approach for migrating your custom environment. Take the commands and substitute your own values for the variables (the lines that begin with "$").
+These steps show you how to use Azure PowerShell commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model. 
 
 If you want, you can also migrate resources by using the [Azure Command Line Interface (Azure CLI)](virtual-machines-linux-cli-migration-classic-resource-manager.md).
 
-For background on supported migration scenarios, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md). For detailed guidance and a migration walkthrough, see [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md).
+- For background on supported migration scenarios, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md). 
+- For detailed guidance and a migration walkthrough, see [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md).
 
 ## Step 1: Plan for migration
 
@@ -32,17 +33,18 @@ Here are a few best practices that we recommend as you evaluate migrating IaaS r
 - Read through the [supported and unsupported features and configurations](virtual-machines-windows-migration-classic-resource-manager.md). If you have virtual machines that use unsupported configurations or features, we recommend that you wait for the configuration/feature support to be announced. Alternatively, if it suits your needs, remove that feature or move out of that configuration to enable migration.
 -	If you have automated scripts that deploy your infrastructure and applications today, try to create a similar test setup by using those scripts for migration. Alternatively, you can set up sample environments by using the Azure portal.
 
->[AZURE.IMPORTANT]Virtual network gateways (site-to-site, Azure ExpressRoute, application gateway, point-to-site) are not currently supported for migration from classic to Resource Manager. To migrate a classic virtual network with a gateway, first remove the gateway before running a Commit operation to move the network. (You can run a Prepare step without deleting the gateway.) Then, after you complete the migration, reconnect the gateway in Azure Resource Manager.
+>[AZURE.IMPORTANT]Virtual network gateways (site-to-site, Azure ExpressRoute, application gateway, point-to-site) are not currently supported for migration from classic to Resource Manager. To migrate a classic virtual network with a gateway, remove the gateway before running a Commit operation to move the network (you can run the Prepare step without deleting the gateway). After you complete the migration, reconnect the gateway in Azure Resource Manager.
 
 ## Step 2: Install the latest version of Azure PowerShell
 
-There are two main options to install Azure PowerShell: [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) and [Web Platform Installer (WebPI)](http://aka.ms/webpi-azps). WebPI receives monthly updates. PowerShell Gallery receives updates on a continuous basis. This article is based on Azure PowerShell version 2.1.0.
+There are two main options to install Azure PowerShell: [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) or [Web Platform Installer (WebPI)](http://aka.ms/webpi-azps). WebPI receives monthly updates. PowerShell Gallery receives updates on a continuous basis. This article is based on Azure PowerShell version 2.1.0.
 
 For installation instructions, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
+<br>
 ## Step 3: Set your subscription and sign up for migration
 
-First, start a PowerShell prompt. For migration scenarios, you need to set up your environment for both classic and Resource Manager.
+First, start a PowerShell prompt. For migration, you need to set up your environment for both classic and Resource Manager.
 
 Sign in to your account for the Resource Manager model.
 
@@ -81,6 +83,8 @@ Get the available subscriptions by using the following command:
 Set your Azure subscription for the current session. This example sets the default subscription to **My Azure Subscription**. Replace the example subscription name with your own. 
 
 	Select-AzureSubscription –SubscriptionName "My Azure Subscription"
+
+<br>
 
 ## Step 4: Make sure you have enough Azure Resource Manager Virtual Machine cores in the Azure region of your current deployment or VNET
 
@@ -144,7 +148,7 @@ This example sets the VM name to **myVM**. Replace the example name with your ow
 
 	$vmName = "myVM"
 	$vm = Get-AzureVM -ServiceName $serviceName -Name $vmName
-	$migrationState = $vm.VM.MigrationState
+	$vm.VM.MigrationState
 
 Check the configuration for the prepared resources by using either PowerShell or the Azure portal. If you are not ready for migration and you want to go back to the old state, use the following command:
 
