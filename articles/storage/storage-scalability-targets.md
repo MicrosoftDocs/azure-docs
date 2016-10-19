@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="storage"
 	ms.date="08/03/2016"
-	ms.author="jahogg;robinsh" />
+	ms.author="robinsh" />
 
 # Azure Storage Scalability and Performance Targets
 
