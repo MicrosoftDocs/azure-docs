@@ -21,7 +21,7 @@
 
 ## 1.1.1 What you will do
 
-Configure your Pi for the first time use and install the Raspbian operating system, a free operating system that is optimized for the Raspberry Pi hardware. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberrypikit-node-troubleshooting.md).
+Configure your Pi for the first time use and install the Raspbian operating system, a free operating system that is optimized for the Raspberry Pi hardware. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## 1.1.2 What you will learn
 
@@ -118,4 +118,4 @@ In this section, you’ve learned how to configure your Pi by installing Raspbia
 
 ## Next Steps
 
-[1.2 Get the tools](iot-hub-raspberrypikit-node-lesson1-get-the-tools-win32.md)
+[1.2 Get the tools](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)

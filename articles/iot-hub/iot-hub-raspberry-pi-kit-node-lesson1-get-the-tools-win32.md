@@ -19,13 +19,13 @@
 
 # 1.2 Get the tools (Windows 7 +) 
 > [AZURE.SELECTOR]
-- [Windows 7 +](iot-hub-raspberrypikit-node-lesson1-get-the-tools-win32.md)
-- [Ubuntu 16.04](iot-hub-raspberrypikit-node-lesson1-get-the-tools-ubuntu.md)
-- [macOS 10.10](iot-hub-raspberrypikit-node-lesson1-get-the-tools-mac.md)
+- [Windows 7 +](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
+- [Ubuntu 16.04](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md)
+- [macOS 10.10](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
 
 ## 1.2.1 What you will do
 
-Download the development tools and the software for the first sample application for your Raspberry Pi 3. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberrypikit-node-troubleshooting.md).
+Download the development tools and the software for the first sample application for your Raspberry Pi 3. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## 1.2.2 What you will learn
 - How to install Git and Node.js
@@ -56,7 +56,7 @@ Press `Windows + R`, type `cmd` and press Enter to open a command prompt window.
 npm install -g device-discovery-cli gulp
 ```
     
-If you experience issues installing Node.js and these additional Node.js development tools on your computer, see [troubleshooting guide](iot-hub-raspberrypikit-node-troubleshooting.md) for solutions to common problems.
+If you experience issues installing Node.js and these additional Node.js development tools on your computer, see [troubleshooting guide](iot-hub-raspberry-pi-kit-node-troubleshooting.md) for solutions to common problems.
 
 ## 1.2.6 Install Visual Studio Code
 
@@ -68,4 +68,4 @@ You've installed the required development tools and software for the first sampl
 
 ## Next Steps
 
-[1.3 Create and deploy the blink sample application](iot-hub-raspberrypikit-node-lesson1-deploy-blink-app.md)
+[1.3 Create and deploy the blink sample application](iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md)

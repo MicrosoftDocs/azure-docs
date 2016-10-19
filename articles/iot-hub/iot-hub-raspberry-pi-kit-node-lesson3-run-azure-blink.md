@@ -21,7 +21,7 @@
 
 ## 3.2.1 What you will do
 
-Deploy and run a sample application on your Raspberry Pi 3 that sends messages to your IoT hub. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberrypikit-node-troubleshooting.md).
+Deploy and run a sample application on your Raspberry Pi 3 that sends messages to your IoT hub. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## 3.2.2 What you will learn
 
@@ -29,7 +29,7 @@ Deploy and run a sample application on your Raspberry Pi 3 that sends messages t
 
 ## 3.2.3 What you need
 
-- You must have successfully completed the previous section in this lesson: [Create an Azure function app and a storage account to process and store IoT hub messages](iot-hub-raspberrypikit-node-lesson3-deploy-arm-template.md).
+- You must have successfully completed the previous section in this lesson: [Create an Azure function app and a storage account to process and store IoT hub messages](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md).
 
 ## 3.2.4 Get your IoT hub and device connection strings
 
@@ -88,7 +88,7 @@ Deploy and run the sample application on your Pi by running the following comman
 gulp
 ```
 
-> [AZURE.NOTE] The default gulp task runs `install-tools`, `deploy` and `run` tasks sequentially. In [Lesson 1](iot-hub-raspberrypikit-node-lesson1-deploy-blink-app.md), you ran these tasks one after another separately.
+> [AZURE.NOTE] The default gulp task runs `install-tools`, `deploy` and `run` tasks sequentially. In [Lesson 1](iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md), you ran these tasks one after another separately.
 
 ## 3.2.7 Verify the sample application works
 
@@ -102,4 +102,4 @@ You've deployed and run the new blink sample application on your Pi to send devi
 
 ## Next Steps
 
-[3.3 Read messages persisted in Azure Storage](iot-hub-raspberrypikit-node-lesson3-read-table-storage.md)
+[3.3 Read messages persisted in Azure Storage](iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md)

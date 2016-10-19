@@ -33,8 +33,8 @@ Clone the sample Node.js application from Github, and use the gulp tool to deplo
 
 You must have successfully completed the follow sections in Lesson 1:
 
-- [Configure your device](iot-hub-raspberrypikit-node-lesson1-configure-your-device.md)
-- [Get the tools](iot-hub-raspberrypikit-node-lesson1-get-the-tools-win32.md)
+- [Configure your device](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
+- [Get the tools](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
 
 ## 1.3.4 Obtain the IP address and host name of your Pi
 
@@ -132,7 +132,7 @@ gulp deploy && gulp run
 
 ### 1.3.8.3 Verify the app works
 
-You should now see the LED on your Pi blinking every two seconds.  If you don’t see the LED blinking, see the [troubleshooting guide](iot-hub-raspberrypikit-node-troubleshooting.md) for solutions to common problems.
+You should now see the LED on your Pi blinking every two seconds.  If you don’t see the LED blinking, see the [troubleshooting guide](iot-hub-raspberry-pi-kit-node-troubleshooting.md) for solutions to common problems.
 ![LED blinking](media/iot-hub-raspberry-pi-lessons/lesson1/led_blinking.jpg)
 
 > [AZURE.NOTE] Use `Ctrl + C` to terminate the application.
@@ -143,4 +143,4 @@ You've installed the required tools to work with your Pi and deployed a sample a
 
 ## Next Steps
 
-You are now ready to start Lesson 2 that begins with [Get the Azure tools](iot-hub-raspberrypikit-node-lesson2-get-azure-tools-win32.md)
+You are now ready to start Lesson 2 that begins with [Get the Azure tools](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md)

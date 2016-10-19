@@ -21,7 +21,7 @@
 
 ## 4.2.1 What you will do
 
-Customize the messages to change the LED’s on and off behavior. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberrypikit-node-troubleshooting.md).
+Customize the messages to change the LED’s on and off behavior. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## 4.2.2 What you will learn
 
@@ -29,7 +29,7 @@ Use additional Node.js functions to change the LED’s on and off behavior.
 
 ## 4.2.3 What you need
 
-You should successfully complete [4.1 Run a sample application on your Raspberry Pi to receive cloud to device messages](iot-hub-raspberrypikit-node-lesson4-send-cloud-to-device-messages.md)
+You should successfully complete [4.1 Run a sample application on your Raspberry Pi to receive cloud to device messages](iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md)
 
 ## 4.2.4 Add Node.js functions
 

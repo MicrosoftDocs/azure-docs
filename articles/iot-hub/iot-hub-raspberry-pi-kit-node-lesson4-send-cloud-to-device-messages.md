@@ -19,7 +19,7 @@
 
 # 4.1 Run the sample application to receive cloud-to-device messages
 
-In this section, you deploy a sample application on your Raspberry Pi 3. The sample application monitors incoming messages from your IoT hub. You also run a gulp task on your computer to send messages to your Pi from your IoT hub. Upon receiving the messages, the sample application blinks the LED. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberrypikit-node-troubleshooting.md).
+In this section, you deploy a sample application on your Raspberry Pi 3. The sample application monitors incoming messages from your IoT hub. You also run a gulp task on your computer to send messages to your Pi from your IoT hub. Upon receiving the messages, the sample application blinks the LED. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## 4.1.1 What you will do
 
@@ -34,8 +34,8 @@ In this section, you deploy a sample application on your Raspberry Pi 3. The sam
 
 ## 4.1.3 What do you need
 
-- A Raspberry Pi 3 that is set up for use. To learn how to set up your Pi, see [Lesson 1: Get started with your Raspberry Pi 3 device](iot-hub-raspberrypikit-getstarted.md)
-- An IoT hub that is created in your Azure subscription. To learn how to create your Azure IoT Hub, see [Lesson 2: Create your Azure IoT Hub](iot-hub-raspberrypikit-getstarted.md)
+- A Raspberry Pi 3 that is set up for use. To learn how to set up your Pi, see [Lesson 1: Get started with your Raspberry Pi 3 device](iot-hub-raspberry-pi-kit-node-get-started.md)
+- An IoT hub that is created in your Azure subscription. To learn how to create your Azure IoT Hub, see [Lesson 2: Create your Azure IoT Hub](iot-hub-raspberry-pi-kit-node-get-started.md)
 
 ## 4.1.4 Connect the sample application to your IoT hub
 
@@ -87,4 +87,4 @@ You’ve successfully sent messages from your IoT hub to your Pi to blink the LE
 
 ## Next Steps
 
-[Complimentary reading: Change the on and off behavior of the LED](iot-hub-raspberrypikit-node-lesson4-change-led-behavior.md)
+[Complimentary reading: Change the on and off behavior of the LED](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)

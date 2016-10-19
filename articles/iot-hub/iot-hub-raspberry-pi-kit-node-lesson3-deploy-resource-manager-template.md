@@ -32,7 +32,7 @@ Use an Azure Resource Manager template to create an Azure function app and a sto
 
 ## 3.1.3 What do you need
 
-- You must have successfully completed the previous lessons: [Get started with your Raspberry Pi 3](iot-hub-raspberrypikit-getstarted.md) and [Create your Azure IoT hub](iot-hub-raspberrypikit-getstarted.md).
+- You must have successfully completed the previous lessons: [Get started with your Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-get-started.md) and [Create your Azure IoT hub](iot-hub-raspberry-pi-kit-node-get-started.md).
 
 ## 3.1.4 Open the sample app
 
@@ -56,7 +56,7 @@ Update the `arm-template-param.json` file in Visual Studio Code.
 
 ![Azure Resource Manager template parameters](media/iot-hub-raspberry-pi-lessons/lesson3/arm_para.png)
 
-- Replace **[your IoT Hub name]** with **{my hub name}** that you specified in [Lesson 2](iot-hub-raspberrypikit-node-lesson2-prepare-azure-iot-hub.md).
+- Replace **[your IoT Hub name]** with **{my hub name}** that you specified in [Lesson 2](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md).
 - Replace **[prefix string for new resources]** with any prefix you want. The prefix ensures that the resource name is globally unique to avoid conflict. Do not use dash or number initial in the prefix.
 
 > [AZURE.NOTE] You don't need `azure_storage_connection_string` in this section. Keep it as is.
@@ -75,5 +75,5 @@ You've created your Azure function app to process IoT hub messages and an Azure 
 
 ## Next Steps
 
-[3.2 Run sample application to send device-to-cloud messages on your Raspberry Pi 3](iot-hub-raspberrypikit-node-lesson3-run-azure-blink.md)
+[3.2 Run sample application to send device-to-cloud messages on your Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)
 

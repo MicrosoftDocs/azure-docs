@@ -21,7 +21,7 @@
 
 ## 3.3.1 What will you do
 
-Monitor the device-to-cloud messages that are sent from your Raspberry Pi 3 to your IoT hub as the messages are written to your Azure Table storage. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberrypikit-node-troubleshooting.md).
+Monitor the device-to-cloud messages that are sent from your Raspberry Pi 3 to your IoT hub as the messages are written to your Azure Table storage. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## 3.3.2 What will you learn
 
@@ -29,7 +29,7 @@ Monitor the device-to-cloud messages that are sent from your Raspberry Pi 3 to y
 
 ### 3.3.3 What do you need
 
-- You must have successfully completed the previous section [Run the Azure blink sample application on your Raspberry Pi 3](iot-hub-raspberrypikit-node-lesson3-run-azure-blink.md).
+- You must have successfully completed the previous section [Run the Azure blink sample application on your Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md).
 
 ### 3.3.4 Read new messages from your storage account
 
@@ -74,4 +74,4 @@ You've successfully connected your Pi to your IoT hub in the cloud and used the 
 
 ## Next Steps
 
-[Lesson 4: Send cloud-to-device messages](iot-hub-raspberrypikit-node-lesson4-send-cloud-to-device-messages.md)
+[Lesson 4: Send cloud-to-device messages](iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md)
