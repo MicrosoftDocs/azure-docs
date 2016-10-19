@@ -26,7 +26,7 @@ After you create a virtual machine (VM), you can scale the VM up or down by chan
 
 ## Resize a Windows VM not in an availability set
 
-1/ List the VM sizes that are available on the hardware cluster where the VM is hosted. 
+1. List the VM sizes that are available on the hardware cluster where the VM is hosted. 
 
 	```powershell
 	Get-AzureRmVMSize -ResourceGroupName <resource-group-name> -VMName <vm-name> 
