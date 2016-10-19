@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/13/2016"
+   ms.date="10/19/2016"
    ms.author="jgao"/>
 
 # Get started with Azure Data Lake Analytics using REST APIs
@@ -32,15 +32,71 @@ Learn how to use WebHDFS REST APIs and Data Lake Analytics REST APIs to manage D
 
 ## Authenticate with Azure Active Directory
 
-See [Authenticate using Azure Active Directory](,./data-lake-store/data-lake-store-get-started-rest-api.md#how-do-i-authenticate-using-azure-active-directory).
+There are two methods for authenticating with Azure Active Directory.
 
+### End-user authentication (interactive)
+
+Using this method, application prompts the user to log in and all the operations are performed in the context of the user. 
+
+Follow these steps for interactive authentication:
+
+1. Through your application, redirect the user to the following URL:
+
+		https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<CLIENT-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
+
+	>[AZURE.NOTE] \<REDIRECT-URI> needs to be encoded for use in a URL. So, for https://localhost, use `https%3A%2F%2Flocalhost`)
+
+	For the purpose of this tutorial, you can replace the placeholder values in the URL above and paste it in a web browser's address bar. You will be redirected to authenticate using your Azure login. Once you succesfully log in, the response is displayed in the browser's address bar. The response will be in the following format:
+		
+		http://localhost/?code=<AUTHORIZATION-CODE>&session_state=<GUID>
+
+2. Capture the authorization code from the response. For this tutorial, you can copy the authorization code from the address bar of the web browser and pass it in the POST request to the token endpoint, as shown below:
+
+		curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token \
+        -F redirect_uri=<REDIRECT-URI> \
+        -F grant_type=authorization_code \
+        -F resource=https://management.core.windows.net/ \
+        -F client_id=<CLIENT-ID> \
+        -F code=<AUTHORIZATION-CODE>
+
+	>[AZURE.NOTE] In this case, the \<REDIRECT-URI> need not be encoded.
+
+3. The response is a JSON object that contains an access token (e.g., `"access_token": "<ACCESS_TOKEN>"`) and a refresh token (e.g., `"refresh_token": "<REFRESH_TOKEN>"`). Your application uses the access token when accessing Azure Data Lake Store and the refresh token to get another access token when an access token expires.
+
+		{"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","expires_on":"1461865782","not_before":	"1461861882","resource":"https://management.core.windows.net/","access_token":"<REDACTED>","refresh_token":"<REDACTED>","id_token":"<REDACTED>"}
+
+4.  When the access token expires, you can request a new access token using the refresh token, as shown below:
+
+		 curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
+      		-F grant_type=refresh_token \
+      		-F resource=https://management.core.windows.net/ \
+      		-F client_id=<CLIENT-ID> \
+      		-F refresh_token=<REFRESH-TOKEN>
+ 
+For more information on interactive user authentication, see [Authorization code grant flow](https://msdn.microsoft.com/library/azure/dn645542.aspx).
+
+### Service-to-service authentication (non-interactive)
+
+Using this method, application provides its own credentials to perform the operations. For this, you must issue a POST request like the one shown below: 
+
+	curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
+      -F grant_type=client_credentials \
+      -F resource=https://management.core.windows.net/ \
+      -F client_id=<CLIENT-ID> \
+      -F client_secret=<AUTH-KEY>
+
+The output of this request will include an authorization token (denoted by `access-token` in the output below) that you will subsequently pass with your REST API calls. Save this authentication token in a text file; you will need this later in this article.
+
+	{"token_type":"Bearer","expires_in":"3599","expires_on":"1458245447","not_before":"1458241547","resource":"https://management.core.windows.net/","access_token":"<REDACTED>"}
+
+This article uses the **non-interactive** approach. For more information on non-interactive (service-to-service calls), see [Service to service calls using credentials](https://msdn.microsoft.com/library/azure/dn645543.aspx).
 ## Create a Data Lake Analytics account
 
 You must create an Azure Resource group, and a Data Lake Store account before you can create a Data Lake Analytics account.  See [Create a Data Lake Store account](../data-lake-store/data-lake-store-get-started-rest-api.md#create-a-data-lake-store-account).
 
 The following Curl command shows how to create an account:
 
-	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/<AzureSubscriptionID>/resourceGroups/<AzureResourceGroupName>/providers/Microsoft.DataLakeAnalytics/accounts/<NewAzureDataLakeAnalyticsAccountName>?api-version=2015-10-01-preview -d@"C:\tutorials\adla\CreateDataLakeAnalyticsAccountRequest.json"
+	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/<AzureSubscriptionID>/resourceGroups/<AzureResourceGroupName>/providers/Microsoft.DataLakeAnalytics/accounts/<NewAzureDataLakeAnalyticsAccountName>?api-version=2016-11-01 -d@"C:\tutorials\adla\CreateDataLakeAnalyticsAccountRequest.json"
 
 Replace \<`REDACTED`\> with the authorization token, \<`AzureSubscriptionID`\> with your subscription ID, \<`AzureResourceGroupName`\> with an existing Azure Resource Group name, and \<`NewAzureDataLakeAnalyticsAccountName`\> with a new Data Lake Analytics Account name. The request payload for this command is contained in the **CreateDatalakeAnalyticsAccountRequest.json** file that is provided for the `-d` parameter above. The contents of the input.json file resemble the following:
 
@@ -63,7 +119,7 @@ Replace \<`REDACTED`\> with the authorization token, \<`AzureSubscriptionID`\> w
 
 The following Curl command shows how to list accounts in a subscription:
 
-	curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/<AzureSubscriptionID>/providers/Microsoft.DataLakeAnalytics/Accounts?api-version=2015-10-01-preview
+	curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/<AzureSubscriptionID>/providers/Microsoft.DataLakeAnalytics/Accounts?api-version=2016-11-01
 
 Replace \<`REDACTED`\> with the authorization token, \<`AzureSubscriptionID`\> with your subscription ID. The output is similar to:
 
@@ -139,7 +195,7 @@ Replace \<`REDACTED`\> with the authorization token, \<`AzureSubscriptionID`\> w
 
 The following Curl command shows how to list Data Lake Stores of an account:
 
-	curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/<AzureSubscriptionID>/resourceGroups/<AzureResourceGroupName>/providers/Microsoft.DataLakeAnalytics/accounts/<DataLakeAnalyticsAccountName>/DataLakeStoreAccounts/?api-version=2015-10-01-preview
+	curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/<AzureSubscriptionID>/resourceGroups/<AzureResourceGroupName>/providers/Microsoft.DataLakeAnalytics/accounts/<DataLakeAnalyticsAccountName>/DataLakeStoreAccounts/?api-version=2016-11-01
 
 Replace \<`REDACTED`\> with the authorization token, \<`AzureSubscriptionID`\> with your subscription ID, \<`AzureResourceGroupName`\> with an existing Azure Resource Group name, and \<`DataLakeAnalyticsAccountName`\> with the name of an existing Data Lake Analytics Account. The output is similar to:
 
@@ -218,7 +274,7 @@ The output is similar to:
 
 The following Curl command shows how to list U-SQL jobs:
 
-	curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/Jobs?api-version=2015-10-01-preview 
+	curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/Jobs?api-version=2016-11-01 
 
 Replace \<`REDACTED`\> with the authorization token, and \<`DataLakeAnalyticsAccountName`\> with the name of an existing Data Lake Analytics Account. 
 
@@ -275,7 +331,7 @@ The output is similar to:
 
 The following Curl command shows how to get the databases from the catalog:
 
-	curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/catalog/usql/databases?api-version=2015-10-01-preview
+	curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/catalog/usql/databases?api-version=2016-11-01
 
 The output is similar to:
 
