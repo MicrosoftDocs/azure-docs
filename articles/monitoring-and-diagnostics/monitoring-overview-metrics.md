@@ -32,8 +32,8 @@ Metrics are a valuable source of telemetry and enable you to do the following:
 - **Track the performance** of your resource (such as a VM, website, or logic app) by plotting its metrics on a portal chart and pinning that chart to a dashboard.
 - **Get notified of an issue** that impacts the performance of your resource when a metric crosses a certain threshold.
 - **Configure automated actions**, such as autoscaling a resource or firing a runbook when a metric crosses a certain threshold.
-- **Perform advanced analytics** or reporting on performance or usage trends of your resource(s).
-- **Archive** the performance or health history of your resource **for compliance/auditing** purposes.
+- **Perform advanced analytics** or reporting on performance or usage trends of your resource.
+- **Archive** the performance or health history of your resource **for compliance or auditing** purposes.
 
 ##  What are the characteristics of metrics?
 Metrics have the following characteristics:
@@ -45,7 +45,7 @@ Metrics have the following characteristics:
 You can also:
 
 - Easily discover, access, and **view all metrics** via the Azure portal when you select a resource and plot the metrics on a chart.
-- Configure a metric **alert rule that sends a notification or takes automated action** when the metric crosses the threshold that you have set. Autoscale is a special automated action that enables you to scale out your resource to meet incoming requests or load on your web site or compute resources. You can configure an Autoscale setting rule to scale in or out based on a metric crossing a threshold.
+- Configure a metric **alert rule that sends a notification or takes automated action** when the metric crosses the threshold that you have set. Autoscale is a special automated action that enables you to scale out your resource to meet incoming requests or loads on your web site or computing resources. You can configure an Autoscale setting rule to scale in or out based on a metric crossing a threshold.
 - **Archive** metrics for longer or use them for offline reporting. You can route your metrics to Azure Blob storage when you configure diagnostic settings for your resource.
 - **Stream** metrics to an Event Hub, enabling you to then route them to Azure Stream Analytics or to custom apps for near-real time analysis. You can do this by using diagnostic settings.
 - **Route** all metrics to Log Analytics (OMS) to unlock instant analytics, search, and custom alerting on metrics data from your resources.
@@ -88,7 +88,7 @@ Azure Metrics can be accessed via the Azure Monitor APIs. There are two APIs tha
 For a more detailed walkthrough using the Azure Monitor REST APIs, see [Azure Monitor REST API walkthrough](monitoring-rest-api-walkthrough.md).
 
 ## Export metrics
-You can go to the **Diagnostics settings** blade under the **Monitor** tab and view the export options for metrics. You can select metrics (and diagnostic logs) to be routed to Blob storage, Azure Event Hubs or to OMS for use-cases that were mentioned previously in this article.
+You can go to the **Diagnostics settings** blade under the **Monitor** tab and view the export options for metrics. You can select metrics (and diagnostic logs) to be routed to Blob storage, Azure Event Hubs, or to OMS for use-cases that were mentioned previously in this article.
 
  ![Export options for metrics in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview3.png)
 
@@ -98,12 +98,12 @@ You can configure this via Resource Manager templates, [PowerShell](insights-pow
 To receive notifications or take automated actions on metric data, you can configure alert rules or Autoscale settings.
 
 ### Configure alert rules
-You can configure alert rules on metrics. These alert rules can check if a metric has crossed a certain threshold. They can then notify you via email or fire a webhook that can be used to execute any custom script. You can also use the webhook to configure third-party product integrations.
+You can configure alert rules on metrics. These alert rules can check if a metric has crossed a certain threshold. They can then notify you via email or fire a webhook that can be used to run any custom script. You can also use the webhook to configure third-party product integrations.
 
  ![Metrics and alert rules in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
 ### Autoscale your Azure resources
-Some Azure resources support the scaling out or in of multiple instances to handle your workloads. Autoscale applies to App Services (Web apps), virtual machine scale sets, and classic Cloud Services. You can configure Autoscale rules to scale out or in when a certain metric that impacts your workload crosses a threshold that you specify. For more information, see [Overview of autoscaling](monitoring-overview-autoscale.md).
+Some Azure resources support the scaling out or in of multiple instances to handle your workloads. Autoscale applies to App Services (Web Apps), virtual machine scale sets, and classic Azure Cloud Services. You can configure Autoscale rules to scale out or in when a certain metric that impacts your workload crosses a threshold that you specify. For more information, see [Overview of autoscaling](monitoring-overview-autoscale.md).
 
  ![Metrics and Autoscale in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview5.png)
 
