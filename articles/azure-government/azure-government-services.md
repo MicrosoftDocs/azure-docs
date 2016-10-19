@@ -1,4 +1,4 @@
-/a <properties
+<properties
 	pageTitle="Azure Government Services | Microsoft Azure"
 	description="Provides and overview of the available services in Azure Government"
 	services="Azure-Government"
