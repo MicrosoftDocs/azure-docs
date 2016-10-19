@@ -49,9 +49,6 @@ The encryption of data at rest applies to the protection of customer content hel
 
 Azure Storage Service Encryption is enabled at the storage account level, resulting in block blobs and page blobs being automatically encrypted when written to Azure Storage. When you read the data from Azure Storage, it will be decrypted by the storage service before being returned. Use this to secure your data without having to modify or add code to any applications.
 
-### <a name="Overview"></a>Azure Disk Encryption
-Use Azure Disk Encryption to encrypt the OS disks and data disks used by an Azure Virtual Machine. Integration with Azure Key Vault gives you control and helps you manage disk encryption keys.
-
 ### <a name="Overview"></a>Client-Side Encryption
 Client-Side Encryption is built into the Java and the .NET storage client libraries, which can utilize Azure Key Vault APIs, making this straightforward to implement. Use Azure Key Vault to obtain access to the secrets in Azure Key Vault for specific individuals using Azure Active Directory.
 
@@ -64,7 +61,7 @@ The basic encryption available for connectivity to Azure Government supports Tra
 - IaaS VMs: Use Azure Disk Encryption. Turn on Storage Service Encryption to encrypt the VHD files that are used to back up those disks in Azure Storage, but this only encrypts newly written data. This means that, if you create a VM and then enable Storage Service Encryption on the storage account that holds the VHD file, only the changes will be encrypted, not the original VHD file.
 - Client-Side Encryption: This is the most secure method for encrypting your data, because it encrypts it before transit, and encrypts the data at rest. However, it does require that you add code to your applications using storage, which you might not want to do. In those cases, you can use HTTPs for your data in transit, and Storage Service Encryption to encrypt the data at rest. Client-Side Encryption also involves more load on the client—you have to account for this in your scalability plans, especially if you are encrypting and transferring a lot of data.
 
- For more information on the encryption options in Azure see the [Storage Security Guide](/storage-security-guide).
+For more information on the encryption options in Azure see the [Storage Security Guide](/storage-security-guide).
 
 ##  Protecting Customer Data by Managing Secrets
 
@@ -76,7 +73,7 @@ Secure key management is essential for protecting data in the cloud. Customers s
 - Application code and templates should only contain URI references to the secrets (which means the actual secrets are not in code, configuration or source code repositories). This prevents key phishing attacks on internal or external repos, such as harvest-bots in GitHub.
 - Utilize strong RBAC controls within Key Vault. If a trusted operator leaves the company or transfers to a new group within the company, they should be prevented from being able to access the secrets.
 
-<a href="https://azure.microsoft.com/documentation/services/key-vault">Azure Key Vault public documentation. </a>
+For more information <a href="https://azure.microsoft.com/documentation/services/key-vault">Azure Key Vault public documentation. </a>
 
 ##  Isolation to Restrict Data Access
 
