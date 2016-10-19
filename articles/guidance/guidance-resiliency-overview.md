@@ -169,7 +169,11 @@ The calculated SLA number is a useful baseline, but it doesn't tell the whole st
 
 ## Designing for resiliency
 
-Here is a high-level approach for designing a resilient application:
+During the design phase, you should perform a failure mode analysis (FMA). The goal of an FMA is to identify possible failure points, and then to define how the application will respond to those failures.
+
+For more information about 
+
+
 
 1.	For each workload, identify possible failure points.
 
