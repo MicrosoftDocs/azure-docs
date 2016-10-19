@@ -17,7 +17,7 @@
  ms.date="09/28/2016"
  ms.author="xshi"/>
 
-# 2.2 Create your Azure IoT hub and register your Raspberry Pi 3
+# 2.2 Create your IoT hub and register your Raspberry Pi 3
 
 ## 2.2.1 What you will do
 

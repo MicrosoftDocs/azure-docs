@@ -17,7 +17,7 @@
  ms.date="09/28/2016" 
  ms.author="xshi"/>
 
-# 4.1 Send device-to-cloud messages
+# 4.1 Run the sample application to receive cloud-to-device messages
 
 In this section, you deploy a sample application on your Raspberry Pi 3. The sample application monitors incoming messages from your IoT hub. You also run a gulp task on your computer to send messages to your Pi from your IoT hub. Upon receiving the messages, the sample application blinks the LED. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberrypikit-node-troubleshooting.md).
 

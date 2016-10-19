@@ -17,7 +17,7 @@
  ms.date="09/28/2016"
  ms.author="xshi"/>
 
-# 3.1 Create an Azure function app and a storage account to process and store IoT hub messages
+# 3.1 Create an Azure function app and storage account
 
 [Azure Functions](../../articles/azure-functions/functions-overview.md) is a solution for easily running small pieces of code, called "functions", in the cloud. An Azure function app hosts the execution of your functions in Azure.
 

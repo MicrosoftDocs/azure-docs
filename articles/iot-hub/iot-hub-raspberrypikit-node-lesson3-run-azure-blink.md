@@ -17,7 +17,7 @@
  ms.date="09/28/2016"
  ms.author="xshi"/>
 
-# 3.2 Run sample application to send device-to-cloud messages on your Raspberry Pi 3
+# 3.2 Run sample application to send device-to-cloud messages
 
 ## 3.2.1 What you will do
 

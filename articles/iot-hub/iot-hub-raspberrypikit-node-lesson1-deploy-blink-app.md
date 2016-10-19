@@ -17,7 +17,7 @@
  ms.date="09/28/2016" 
  ms.author="xshi"/>
 
-# 1.3 Create and deploy the sample application that blinks the LED
+# 1.3 Create and deploy the blink application
 
 ## 1.3.1 What you will do
 
