@@ -42,21 +42,21 @@ This page outlines the foundational principles for securing your Services and ap
 
 Mitigating risk and meeting regulatory obligations are driving the increasing focus and importance of data encryption. Use an effective encryption implementation to enhance current network and application security measures—and decrease the overall risk of your cloud environment.
 
-#### <a name="Overview"></a>Encryption at rest
+<a name="Overview"></a>Encryption at rest
 The encryption of data at rest applies to the protection of customer content held in disk storage. There are several ways this might happen:
 
-#### <a name="Overview"></a>Storage Service Encryption
+<a name="Overview"></a>Storage Service Encryption
 
 Azure Storage Service Encryption is enabled at the storage account level, resulting in block blobs and page blobs being automatically encrypted when written to Azure Storage. When you read the data from Azure Storage, it will be decrypted by the storage service before being returned. Use this to secure your data without having to modify or add code to any applications.
 
-#### <a name="Overview"></a>Client-Side Encryption
+<a name="Overview"></a>Client-Side Encryption
 Client-Side Encryption is built into the Java and the .NET storage client libraries, which can utilize Azure Key Vault APIs, making this straightforward to implement. Use Azure Key Vault to obtain access to the secrets in Azure Key Vault for specific individuals using Azure Active Directory.
 
-#### <a name="Overview"></a>Encryption in transit
+<a name="Overview"></a>Encryption in transit
 
 The basic encryption available for connectivity to Azure Government supports Transport Level Security (TLS) 1.2 protocol, and X.509 certificates. Federal Information Processing Standard (FIPS) 140-2 Level 1 cryptographic algorithms are also used for infrastructure network connections between Azure Government datacenters.  Windows Server 2012 R2, and Windows 8-plus VMs, and Azure File Shares can use SMB 3.0 for encryption between the VM and the file share. Use Client-Side Encryption to encrypt the data before it is transferred into storage in a client application, and to decrypt the data after it is transferred out of storage.
 
-#### <a name="Overview"></a>Best practices for Encryption
+<a name="Overview"></a>Best practices for Encryption
 
 - IaaS VMs: Use Azure Disk Encryption. Turn on Storage Service Encryption to encrypt the VHD files that are used to back up those disks in Azure Storage, but this only encrypts newly written data. This means that, if you create a VM and then enable Storage Service Encryption on the storage account that holds the VHD file, only the changes will be encrypted, not the original VHD file.
 - Client-Side Encryption: This is the most secure method for encrypting your data, because it encrypts it before transit, and encrypts the data at rest. However, it does require that you add code to your applications using storage, which you might not want to do. In those cases, you can use HTTPs for your data in transit, and Storage Service Encryption to encrypt the data at rest. Client-Side Encryption also involves more load on the client—you have to account for this in your scalability plans, especially if you are encrypting and transferring a lot of data.
@@ -67,7 +67,7 @@ For more information on the encryption options in Azure see the<a href="https://
 
 Secure key management is essential for protecting data in the cloud. Customers should strive to simplify key management and maintain control of keys used by cloud applications and services to encrypt data.
 
-#### <a name="Overview"></a>Best Practices for Managing Secrets
+<a name="Overview"></a>Best Practices for Managing Secrets
 
 - Use Key Vault to minimize the risks of secrets being exposed through hard-coded configuration files, scripts, or in source code. Azure Key Vault encrypts keys (such as the encryption keys for Azure Disk Encryption) and secrets (such as passwords), by storing them in FIPS 140-2 Level 2 validated hardware security modules (HSMs). For added assurance, you can import or generate keys in these HSMs.
 - Application code and templates should only contain URI references to the secrets (which means the actual secrets are not in code, configuration or source code repositories). This prevents key phishing attacks on internal or external repos, such as harvest-bots in GitHub.
@@ -79,14 +79,14 @@ For more information <a href="https://azure.microsoft.com/documentation/services
 
 Isolation is all about using boundaries, segmentation, and containers to limit data access to only authorized users, services, and applications. For example, the separation between tenants is an essential security mechanism for multitenant cloud platforms such as Microsoft Azure. Logical isolation helps prevent one tenant from interfering with the operations of any other tenant.
 
-#### <a name="Overview"></a>Environment Isolation
+<a name="Overview"></a>Environment Isolation
 The Azure Government environment is a physical instance that is separate from the rest of Microsoft's network. This is achieved through a series of physical and logical controls that include the following:
 
 - Securing of physical barriers using biometric devices and cameras.
 - Use of specific credentials and multifactor authentication by Microsoft personnel requiring logical access to the production environment.
 - All service infrastructure for Azure Government is located within the United States.
 
-##### <a name="Overview"></a>Per-Customer Isolation
+<a name="Overview"></a>Per-Customer Isolation
 Azure implements network access control and segregation through VLAN isolation, ACLs, load balancers and IP filters
 
 Customers can further isolate their resources across subscriptions, resource groups, virtual networks, and subnets.
