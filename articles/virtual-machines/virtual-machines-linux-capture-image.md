@@ -14,15 +14,15 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/18/2016"
+	ms.date="10/19/2016"
 	ms.author="danlep"/>
 
 
 # Capture a Linux virtual machine running on Azure
 
-Follow the steps in this article to capture and generalize your own Azure virtual machine (VM) running Linux. When you generalize the VM, you remove personal account information and prepare the VM to be used as an image, similar to the Linux images available in the Azure Marketplace. You can use the image to replicate a VM with its current state and software, to save you time creating several similar VMs.
+Follow the steps in this article to generalize and capture your own Linux virtual machine (VM) in the Azure Resource Manager deployment model. When you generalize the VM, you remove personal account information and prepare the VM to be used as an image. You then capture a generalized virtual hard disk (VHD) image for the OS, VHD images for any attached data disks, and an [Azure Resource Manager template](../resource-group-overview.md) (a JavaScript Object Notation, or JSON, file) to help you with new deployments. 
 
-At a high level, you capture a generalized virtual hard disk (VHD) image for the OS, VHD images for any attached data disks, and an [Azure Resource Manager template](../resource-group-overview.md) (a JavaScript Object Notation, or JSON, file). Then, set up network resources for any new VM you want to create based on the image, and use the template to deploy it.
+When you want to create VMs using the image, set up network resources for each new VM, and use the template to deploy it from the stored VHD images. In this way, you can replicate a VM with its current state and software, similar to the way you use images in the Azure Marketplace.
 
 If you want to create Azure VMs from a VHD image you set up on-premises, see [Upload and create a Linux VM from custom disk image](virtual-machines-linux-upload-vhd.md).
 
@@ -70,11 +70,11 @@ Use the Azure CLI to generalize and capture the VM. In the following examples, r
 
 	`azure vm generalize -g MyResourceGroup -n myVM`
 
-9. Now run the **azure vm capture** command to capture the image. In the following example, the image VHDs are captured with names beginning with **MyVHDNamePrefix**, and the **-t** option specifies a path to the template **MyTemplateFile.json**. 
+9. Now run the **azure vm capture** command to capture the VM. In the following example, the image VHDs are captured with names beginning with **MyVHDNamePrefix**, and the **-t** option specifies a path to the template **MyTemplateFile.json**. 
 
 	`azure vm capture MyResourceGroup MyResourceGroup MyVHDNamePrefix -t MyTemplateFile.json`
 
-	>[AZURE.NOTE]The image VHD files get created by default in the same storage account that the original VM used. (The VHDs for any new VMs you create from the image will be stored in the same account.) 
+	>[AZURE.NOTE]The image VHD files get created by default in the same storage account that the original VM used. The VHDs for any new VMs you create from the image must be stored in the same account. 
 
 6. To find the location of a captured image, open the JSON template in a text editor. In the **storageProfile**, find the **uri** of the **image** located in the **system** container. For example, the uri of the OS disk image is similar to `https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
 
@@ -85,76 +85,78 @@ Now use the image with a template to create a Linux VM. These steps show you how
 
 To use the template, you first need to set up a virtual network and NIC for your new VM. We recommend you create a new resource group for these resources in the location where your VM image is stored. Run commands similar to the following, substituting names for your resources and an appropriate Azure location ("centralus" in these commands):
 
-	azure group create <your-new-resource-group-name> -l "centralus"
+	azure group create MyResourceGroup1 -l "centralus"
 
-	azure network vnet create <your-new-resource-group-name> <your-vnet-name> -l "centralus"
+	azure network vnet create MyResourceGroup1 myVnet -l "centralus"
 
-	azure network vnet subnet create <your-new-resource-group-name> <your-vnet-name> <your-subnet-name>
+	azure network vnet subnet create MyResourceGroup1 myVnet mySubnet
 
-	azure network public-ip create <your-new-resource-group-name> <your-ip-name> -l "centralus"
+	azure network public-ip create MyResourceGroup1 myIP -l "centralus"
 
-	azure network nic create <your-new-resource-group-name> <your-nic-name> -k <your-subnetname> -m <your-vnet-name> -p <your-ip-name> -l "centralus"
+	azure network nic create MyResourceGroup1 myNic -k mySubnet -m myVnet -p myIP -l "centralus"
 
-To deploy a VM from the image by using the JSON you saved during capture, you'll need the Id of the NIC. Obtain it by running the following command.
+### Get the Id of the NIC
 
-	azure network nic show <your-new-resource-group-name> <your-nic-name>
+To deploy a VM from the image by using the JSON you saved during capture, you need the Id of the NIC. Obtain it by running the following command.
+
+	azure network nic show MyResourceGroup1 myNic
 
 The **Id** in the output is a string similar to the following.
 
-	/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/<your-new-resource-group-name>/providers/Microsoft.Network/networkInterfaces/<your-nic-name>
+	/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup1/providers/Microsoft.Network/networkInterfaces/myNic
 
 
 
 ### Create a new deployment
-Now run the following command to create your VM from the captured VM image and the template JSON file you saved.
+Now run the following command to create your VM from the captured VM image. Use the **-f** parameter to specify the path to the template JSON file you saved.
 
-	azure group deployment create <your-new-resource-group-name> <your-new-deployment-name> -f <path-to-your-template-file-name.json>
+	azure group deployment create MyResourceGroup1 MyDeployment -f MyTemplateFile.json
 
-You are prompted to supply a new VM name, the admin user name and password, and the Id of the NIC you created previously.
+In the command output, you are prompted to supply a new VM name, the admin user name and password, and the Id of the NIC you created previously.
 
 	info:    Executing command group deployment create
 	info:    Supply values for the following parameters
-	vmName: mynewvm
-	adminUserName: myadminuser
+	vmName: myNewVM
+	adminUserName: myAdminuser
 	adminPassword: ********
-	networkInterfaceId: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resource Groups/mynewrg/providers/Microsoft.Network/networkInterfaces/mynewnic
+	networkInterfaceId: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resource Groups/MyResourceGroup1/providers/Microsoft.Network/networkInterfaces/myNic
 
-You will see output similar to the following for a successful deployment.
+You see output similar to the following for a successful deployment.
 
 	+ Initializing template configurations and parameters
 	+ Creating a deployment
-	info:    Created template deployment "dlnewdeploy"
+	info:    Created template deployment xxxxxxx
 	+ Waiting for deployment to complete
-	data:    DeploymentName     : mynewdeploy
-	data:    ResourceGroupName  : mynewrg
+	data:    DeploymentName     : MyDeployment
+	data:    ResourceGroupName  : MyResourceGroup1
 	data:    ProvisioningState  : Succeeded
-	data:    Timestamp          : 2015-10-29T16:35:47.3419991Z
+	data:    Timestamp          : xxxxxxx
 	data:    Mode               : Incremental
 	data:    Name                Type          Value
 
 
 	data:    ------------------  ------------  -------------------------------------
 
-	data:    vmName              String        mynewvm
+	data:    vmName              String        myNewVM
 
 
 	data:    vmSize              String        Standard_D1
 
 
-	data:    adminUserName       String        myadminuser
+	data:    adminUserName       String        myAdminuser
 
 
 	data:    adminPassword       SecureString  undefined
 
 
-	data:    networkInterfaceId  String        /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/mynewrg/providers/Microsoft.Network/networkInterfaces/mynewnic
+	data:    networkInterfaceId  String        /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup1/providers/Microsoft.Network/networkInterfaces/myNic
 	info:    group deployment create command OK
 
 ### Verify the deployment
 
 Now SSH to the virtual machine you created to verify the deployment and start using the new VM. To connect via SSH, find the IP address of the VM you created by running the following command:
 
-	azure network public-ip show <your-new-resource-group-name> <your-ip-name>
+	azure network public-ip show MyResourceGroup1 myIP
 
 The public IP address is listed in the command output. By default you connect to the Linux VM by SSH on port 22.
 
@@ -172,22 +174,22 @@ To use the captured image and template, follow these steps (detailed in the prec
 
 ### Use a quickstart template
 
-If you want the network set up automatically when you create a VM from the image, use the [101-vm-from-user-image template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) from GitHub. This template creates a VM from your custom image and the necessary virtual network, public IP address, and NIC resources. For a walkthrough of using the template in the Azure portal, see [How to create a virtual machine from a custom image using a Resource Manager template](http://codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-an-arm-template/).
+If you want the network set up automatically when you create a VM from the image, you can specify those resources in the template. For example, see the [101-vm-from-user-image template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) from GitHub. This template creates a VM from your custom image and the necessary virtual network, public IP address, and NIC resources. For a walkthrough of using the template in the Azure portal, see [How to create a virtual machine from a custom image using a Resource Manager template](http://codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-an-arm-template/).
 
 ### Use the azure vm create command
 
-You'll generally want to use a Resource Manager template to create a VM from the image. However, you can create the VM _imperatively_ by using the **azure vm create** command with the **-Q** (**--image-urn**) parameter. If you use this method, you also pass the **-d** (**--os-disk-vhd**) parameter to specify the location of the OS .vhd file for the new VM. This must be in the vhds container of the storage account where the image VHD file is stored. The command copies the VHD for the new VM automatically to the vhds container.
+Ususally it's easiest to use a Resource Manager template to create a VM from the image. However, you can create the VM _imperatively_ by using the **azure vm create** command with the **-Q** (**--image-urn**) parameter. If you use this method, you also pass the **-d** (**--os-disk-vhd**) parameter to specify the location of the OS .vhd file for the new VM. This must be in the vhds container of the storage account where the image VHD file is stored. The command copies the VHD for the new VM automatically to the **vhds** container.
 
 Before running **azure vm create** with the image, do the following:
 
 1.	Create a resource group, or identify an existing resource group for the deployment.
 
-2.	Create a public IP address resource and a NIC resource for the new VM. For steps to create a virtual network, public IP address, and NIC by using the CLI, see earlier in this article. (**azure vm create** can also create a NIC, but you will need to pass additional parameters for a virtual network and subnet.)
+2.	Create a public IP address resource and a NIC resource for the new VM. For steps to create a virtual network, public IP address, and NIC by using the CLI, see earlier in this article. (**azure vm create** can also create a NIC, but you need to pass additional parameters for a virtual network and subnet.)
 
 
-Then run a command similar to the following, passing URIs to both the new OS VHD file and the existing image.
+Then run a command similar to the following, passing URIs to both the new OS VHD file and the existing image. In this example, a size Standard_A1 VM is created in the East US region.
 
-	azure vm create <your-resource-group-name> <your-new-vm-name> eastus Linux -d "https://xxxxxxxxxxxxxx.blob.core.windows.net/vhds/<your-new-VM-prefix>.vhd" -Q "https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/<your-image-prefix>-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd" -z Standard_A1 -u <your-admin-name> -p <your-admin-password> -f <your-nic-name>
+	azure vm create MyResourceGroup1 myNewVM eastus Linux -d "https://xxxxxxxxxxxxxx.blob.core.windows.net/vhds/MyNewVHDNamePrefix.vhd" -Q "https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd" -z Standard_A1 -u myAdminname -p myPassword -f myNIC
 
 For additional command options, run `azure help vm create`.
 
