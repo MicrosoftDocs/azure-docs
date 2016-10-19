@@ -47,26 +47,26 @@ From the Azure portal:
 
 The process for this depends on the blob container access level: **Public** or **No anonymous access**. To determine this access level, in **Azure Storage Explorer**, under **Blob Containers**, select the blob container you want. Select **Security**, and select the **Access Level** tab.
 
-1. If blob security access level is **Public**, follow these steps.  
+1. If the blob security access level is **Public**, follow these steps.  
   ![Screenshot of Azure Storage Explorer, with "Blob Containers", "Security", and "Public" highlighted](./media/app-service-logic-enterprise-integration-schemas/blob-public.png)  
 
   * Upload the schema to storage, and copy the URI.  
-  ![Screenshot of Storage Account, with URI highlighted](./media/app-service-logic-enterprise-integration-schemas/schema-blob.png)  
+  ![Screenshot of storage account, with URI highlighted](./media/app-service-logic-enterprise-integration-schemas/schema-blob.png)  
 
   * In **Add Schema**, select **Large file**, and provide the URI in the **Content URI** text box.  
-  ![Screenshot of Schemas, with "Add" button and "Large file" highlighted](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)  
+  ![Screenshot of schemas, with "Add" button and "Large file" highlighted](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)  
 
-2. If blob security access level is **No anonymous access**, follow these steps.  
+2. If the blob security access level is **No anonymous access**, follow these steps.  
   ![Screenshot of Azure Storage Explorer, with "Blob Containers", "Security", and "No anonymous access" highlighted](./media/app-service-logic-enterprise-integration-schemas/blob-1.png)  
 
   * Upload the schema to storage.  
-  ![Screenshot of Storage Account](./media/app-service-logic-enterprise-integration-schemas/blob-3.png)
+  ![Screenshot of storage account](./media/app-service-logic-enterprise-integration-schemas/blob-3.png)
 
   * Generate a shared access signature for the schema.  
-  ![Screenshot of Storage Account, with shared access signatures tab highlighted](./media/app-service-logic-enterprise-integration-schemas/blob-2.png)
+  ![Screenshot of storage sccount, with shared access signatures tab highlighted](./media/app-service-logic-enterprise-integration-schemas/blob-2.png)
 
   * In **Add Schema**, select **Large file**, and provide the shared access signature URI in the **Content URI** text box.  
-  ![Screenshot of Schemas, with "Add" button and "Large file" highlighted](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)  
+  ![Screenshot of schemas, with "Add" button and "Large file" highlighted](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)  
 
 3. In the **Schemas** blade of the EIP Integration Account, you should now see the newly added schema.  
 ![Screenshot of EIP Integration Account, with "Schemas" and the new schema highlighted](./media/app-service-logic-enterprise-integration-schemas/schema-41.png)
@@ -74,17 +74,17 @@ The process for this depends on the blob container access level: **Public** or *
 
 ## Edit schemas
 1. Select the **Schemas** tile.  
-2. Select the schema you want to edit from the **Schemas** blade that opens up.
+2. Select the schema you want to edit from the **Schemas** blade that opens.
 3. On the **Schemas** blade, select **Edit**.  
 ![Screenshot of Schemas blade](./media/app-service-logic-enterprise-integration-schemas/edit-12.png)    
-4. Select the schema file you want to edit by using the file picker dialog box that opens up.
+4. Select the schema file you want to edit by using the file picker dialog box that opens.
 5. Select **Open** in the file picker.  
 ![Screenshot of file picker](./media/app-service-logic-enterprise-integration-schemas/edit-31.png)  
 6. You receive a notification that indicates the upload was successful.  
 
 ## Delete schemas
 1. Select the **Schemas** tile.  
-2. Select the schema you want to delete from the **Schemas** blade that opens up.  
+2. Select the schema you want to delete from the **Schemas** blade that opens.  
 3. On the **Schemas** blade, select **Delete**.
 ![Screenshot of Schemas blade](./media/app-service-logic-enterprise-integration-schemas/delete-12.png)  
 
