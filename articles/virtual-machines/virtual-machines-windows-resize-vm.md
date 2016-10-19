@@ -91,7 +91,7 @@ If the new size for a VM in an availability set is not available on the hardware
 
 	```powershell
 	$rg = "<resourceGroupName>"
-	$newSize = "<new-VM-Size>"
+	$newSize = "<newVmSize>"
 	$as = Get-AzureRmAvailabilitySet -ResourceGroupName $rg
 	$vmIds = $as.VirtualMachinesReferences
 	foreach ($vmId in $vmIDs){
