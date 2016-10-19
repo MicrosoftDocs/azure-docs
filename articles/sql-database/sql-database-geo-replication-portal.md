@@ -49,7 +49,7 @@ After the secondary is created and seeded, data will begin replicating from the 
 ### Add secondary
 
 1. In the [Azure portal](http://portal.azure.com), browse to the database that you want to set up for Geo-Replication.
-2. On the SQL database page, select **Geo-Replication**, and then select the region to create a secondary database. You can select any region other than the region hosting the primary database, but the [paired region](../articles/best-practices-availability-paired-regions.md) is recommended.
+2. On the SQL database page, select **Geo-Replication**, and then select the region to create a secondary database. You can select any region other than the region hosting the primary database, but the [paired region](../best-practices-availability-paired-regions.md) is recommended.
 
     ![configure Geo-Replication](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
 
