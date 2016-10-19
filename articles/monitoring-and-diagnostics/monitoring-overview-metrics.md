@@ -1,4 +1,4 @@
-<properties
+task<properties
 	pageTitle="Overview of metrics in Microsoft Azure | Microsoft Azure"
 	description="Overview of metrics and their uses in Microsoft Azure"
 	authors="kamathashwin"
@@ -19,7 +19,6 @@
 # Overview of metrics in Microsoft Azure
 
 This article describes what metrics are in Microsoft Azure, their benefits, and how to start using them.  
-
 ## What are metrics?
 
 Azure Monitor enables you to consume telemetry to gain visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data are the metrics (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting.
@@ -27,12 +26,11 @@ Azure Monitor enables you to consume telemetry to gain visibility into the perfo
 
 ## What can you do with metrics?
 
-Metrics are a valuable source of telemetry and enable you to do the following:
+Metrics are a valuable source of telemetry and enable you to do the following tasks:
 
 - **Track the performance** of your resource (such as a VM, website, or logic app) by plotting its metrics on a portal chart and pinning that chart to a dashboard.
 - **Get notified of an issue** that impacts the performance of your resource when a metric crosses a certain threshold.
-- **Configure automated actions**, such as autoscaling a resource or firing a runbook when a metric crosses a certain threshold.
-- **Perform advanced analytics** or reporting on performance or usage trends of your resource.
+- **Configure automated actions**, such as autoscaling a resource or firing a runbook when a metric crosses a certain threshold.- **Perform advanced analytics** or reporting on performance or usage trends of your resource.
 - **Archive** the performance or health history of your resource **for compliance or auditing** purposes.
 
 ##  What are the characteristics of metrics?
@@ -59,7 +57,7 @@ Following is a quick walkthrough of how to create a metric chart by using the Az
 
 ### To view metrics after creating a resource
 1. Open the Azure portal.
-2. Create a new App Service website.
+2. Create a ne App Service website.
 3. After you create a website, go to the **Overview** blade of the web site.
 4. You can view new metrics as a **Monitoring** tile. You can then edit the tile and select more metrics.
 
