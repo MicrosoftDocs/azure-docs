@@ -1,5 +1,5 @@
 <properties
- pageTitle="Send messages from IoT Hub to your device | Microsoft Azure"
+ pageTitle="Run the sample application to receive cloud-to-device messages | Microsoft Azure"
  description="The sample application in Lesson 4 runs on your Pi and monitors incoming messages from your IoT hub. A new gulp task sends messages to your Pi from your IoT hub to blink the LED."
  services="iot-hub"
  documentationCenter=""

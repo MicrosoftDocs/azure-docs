@@ -72,7 +72,7 @@ Create your resource group, provision your first Azure IoT hub, and add your fir
 
 *Estimated time to complete: 10 minutes* 
 
-[Go to 'Prepare your Azure IoT hub and the register your Raspberry Pi 3 device'](iot-hub-raspberrypikit-node-lesson2-prepare-azure-iot-hub.md)
+[Go to 'Create your IoT hub and register your Raspberry Pi 3'](iot-hub-raspberrypikit-node-lesson2-prepare-azure-iot-hub.md)
 
 
 ## Lesson 3: Send device-to-cloud messages
@@ -89,7 +89,7 @@ Use an Azure Resource Manager (ARM) template to create an Azure function app and
 
 *Estimated time to complete: 10 minutes* 
 
-[Go to 'Create an Azure function app and a storage account to process and store IoT hub messages'](iot-hub-raspberrypikit-node-lesson3-deploy-arm-template.md)
+[Go to 'Create an Azure function app and storage account'](iot-hub-raspberrypikit-node-lesson3-deploy-arm-template.md)
 
 ### Run sample application to send device-to-cloud messages
 
@@ -97,7 +97,7 @@ Deploy and run a sample application to your Raspberry Pi 3 device that sends mes
 
 *Estimated time to complete: 10 minutes* 
 
-[Go to 'Run the Azure blink sample application on your Raspberry Pi 3'](iot-hub-raspberrypikit-node-lesson3-run-azure-blink.md)
+[Go to 'Run sample application to send device-to-cloud messages'](iot-hub-raspberrypikit-node-lesson3-run-azure-blink.md)
 
 ### Read messages persisted in Azure Storage
 Monitor the device-to-cloud messages as they are written to your Azure storage.
@@ -107,7 +107,7 @@ Monitor the device-to-cloud messages as they are written to your Azure storage.
 [Go to 'Read messages persisted in Azure Storage'](iot-hub-raspberrypikit-node-lesson3-read-table-storage.md)
 
 
-## Lesson4: Send cloud-to-device messages
+## Lesson 4: Send cloud-to-device messages
 
 ![Lesson 4 E2E Diagram](media/iot-hub-raspberry-pi-lessons/e2e-lesson4.png)
 
@@ -121,15 +121,15 @@ The sample application in Lesson 4 runs on your Pi and monitors incoming message
 
 *Estimated time to complete: 10 minutes* 
 
-[Go to 'Get your hands on the sample application'](iot-hub-raspberrypikit-node-lesson4-send-cloud-to-device-messages.md)
+[Go to 'Run the sample application to receive cloud-to-device messages'](iot-hub-raspberrypikit-node-lesson4-send-cloud-to-device-messages.md)
 
-### Complimentary reading: Change the on and off behavior of the LED
+### Optional section: Change the on and off behavior of the LED
 
 Customize the messages to change the LED’s on and off behavior.
 
 *Estimated time to complete: 10 minutes* 
 
-[Go to 'Complimentary reading: Change the on and off behavior of the LED'](iot-hub-raspberrypikit-node-lesson4-change-led-behavior.md)
+[Go to 'Optional section: Change the on and off behavior of the LED'](iot-hub-raspberrypikit-node-lesson4-change-led-behavior.md)
 
 
 ## Troubleshooting

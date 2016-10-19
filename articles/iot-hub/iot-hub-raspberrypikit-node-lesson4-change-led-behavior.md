@@ -1,5 +1,5 @@
 <properties
- pageTitle="Complimentary reading - Change the on and off behavior of the LED | Microsoft Azure"
+ pageTitle="Optional section - Change the on and off behavior of the LED | Microsoft Azure"
  description="Customize the messages to change the LED’s on and off behavior."
  services="iot-hub"
  documentationCenter=""
@@ -17,7 +17,7 @@
  ms.date="09/28/2016" 
  ms.author="xshi"/>
 
-# 4.2 Complimentary reading: Change the on and off behavior of the LED
+# 4.2 Optional section: Change the on and off behavior of the LED
 
 ## 4.2.1 What you will do
 

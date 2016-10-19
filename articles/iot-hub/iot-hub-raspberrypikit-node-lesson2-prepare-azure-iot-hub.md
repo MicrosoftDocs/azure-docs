@@ -1,5 +1,5 @@
 <properties
- pageTitle="Create an Azure IoT hub and register your Raspberry Pi 3 | Microsoft Azure"
+ pageTitle="Create your IoT hub and register your Raspberry Pi 3 | Microsoft Azure"
  description="Create a resource group, create an Azure IoT hub, and register your Pi in the Azure IoT hub using the Azure CLI."
  services="iot-hub"
  documentationCenter=""
