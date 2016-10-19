@@ -1,6 +1,6 @@
 <properties
- pageTitle="Get Azure tools (Mac macOS 10.10) | Microsoft Azure"
- description="Install Python and Azure Command-Line Interface (Azure CLI) on Mac macOS."
+ pageTitle="Get Azure tools (macOS 10.10) | Microsoft Azure"
+ description="Install Python and Azure Command-Line Interface (Azure CLI) on macOS."
  services="iot-hub"
  documentationCenter=""
  authors="shizn"
@@ -17,7 +17,7 @@
  ms.date="09/28/2016" 
  ms.author="xshi"/>
 
-# 2.1 Get Azure tools (Mac macOS 10.10)
+# 2.1 Get Azure tools (macOS 10.10)
 
 > [AZURE.SELECTOR]
 - [Windows 7 +](iot-hub-raspberrypikit-node-lesson2-get-azure-tools-win32.md)
@@ -40,7 +40,7 @@ Install the Azure Command-Line Interface (Azure CLI). If you meet any problems, 
 
 ## 2.1.4 Install Python
 
-Although Mac macOS comes with Python 2.7 out of the box, it is recommended to install Python through Homebrew. See [Installing Python on Mac macOS](http://docs.python-guide.org/en/latest/starting/install/osx/).
+Although macOS comes with Python 2.7 out of the box, it is recommended to install Python through Homebrew. See [Installing Python on macOS](http://docs.python-guide.org/en/latest/starting/install/osx/).
 
 Install Python and pip by running the following command:
 

@@ -1,6 +1,6 @@
 <properties
  pageTitle="Get the tools (macOS 10.10) | Microsoft Azure"
- description="Download and install the necessary tools and software for the first sample application for your Pi on Mac macOS."
+ description="Download and install the necessary tools and software for the first sample application for your Pi on macOS."
  services="iot-hub"
  documentationCenter=""
  authors="shizn"
