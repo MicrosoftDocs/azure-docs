@@ -109,9 +109,11 @@ if ($sp -ne $null)
     Write-Information "Deleted the Azure AD Domain Services Sync service principal."
 }
 ```
+<br>
 
 ### Microsoft Graph disabled
 **Error message:**
+
 Domain Services could not be enabled in this Azure AD tenant. The Microsoft Azure AD application is disabled in your Azure AD tenant. Enable the application with the application identifier 00000002-0000-0000-c000-000000000000 and then try to enable Domain Services for your Azure AD tenant.
 
 **Remediation:**
