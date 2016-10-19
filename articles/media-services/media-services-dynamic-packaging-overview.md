@@ -59,7 +59,7 @@ To prepare your asset for dynamic streaming you have two options:
 
 1. Upload pre-enocded MP4 files.
 
->[AZURE.NOTE] This opiton is not recommended.
+	>[AZURE.NOTE] This opiton is not recommended.
 
 2. [Validate your pre-encoded files](media-services-static-packaging.md#validating-adaptive-bitrate-mp4s-encoded-with-external-encoders).
 3. [Stream your content](media-services-deliver-content-overview.md).

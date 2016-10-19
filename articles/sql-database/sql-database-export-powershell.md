@@ -54,7 +54,7 @@ To complete this article, you need the following:
 
 ## Export your database
 
-The [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/mt707796.aspx) cmdlet submits an export database request to the service. Depending on the size of your database, the export operation may take some time to complete.
+The [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azure/mt707796(v=azure.300\).aspx) cmdlet submits an export database request to the service. Depending on the size of your database, the export operation may take some time to complete.
 
 > [AZURE.IMPORTANT] To guarantee a transactionally consistent BACPAC file, you should first [create a copy of your database](sql-database-copy-powershell.md), and then export the database copy.
 
@@ -66,7 +66,7 @@ The [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/mt707796.a
 
 ## Monitor the progress of the export operation
 
-After running **New-AzureRmSqlDatabaseExport**, you can check the status of the request by running [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/mt707794.aspx). Running this immediately after the request usually returns **Status : InProgress**. When you see **Status : Succeeded** the export is complete.
+After running [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azure/mt603644(v=azure.300\).aspx), you can check the status of the request by running [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/azure/mt707794(v=azure.300\).aspx). Running this immediately after the request usually returns **Status : InProgress**. When you see **Status : Succeeded** the export is complete.
 
 
     Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
@@ -123,5 +123,5 @@ Replace the following `VARIABLE-VALUES` with values for your specific Azure reso
 
 ## Additional resources
 
-- [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/mt707796.aspx)
-- [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/mt707794.aspx)
+- [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azure/mt707796(v=azure.300\).aspx)
+- [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/azure/mt707794(v=azure.300\).aspx)

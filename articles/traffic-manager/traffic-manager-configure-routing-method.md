@@ -13,9 +13,9 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="10/11/2016"
-    ms.author="sewhee"
-/>
+   ms.date="10/18/2016"
+   ms.author="sewhee" />
+<!-- repub for nofollow -->
 
 # Configure Traffic Manager routing methods
 
@@ -80,6 +80,5 @@ The Performance traffic routing method allows you to direct traffic to the endpo
 * [Traffic Manager routing methods](traffic-manager-routing-methods.md)
 * [Testing Traffic Manager Settings](traffic-manager-testing-settings.md)
 * [Point a company Internet domain to a Traffic Manager domain](traffic-manager-point-internet-domain.md)
-* [Traffic Manager - Disable or enable an endpoint](disable-or-enable-an-endpoint.md)
-* [Traffic Manager - Disable, enable, or delete a profile](disable-enable-or-delete-a-profile.md)
+* [Manage Traffic Manager endpoints](traffic-manager-manage-endpoints.md)
 * [Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)

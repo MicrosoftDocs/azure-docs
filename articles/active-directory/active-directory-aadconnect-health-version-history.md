@@ -1,27 +1,41 @@
-<properties 
-	pageTitle="Azure AD Connect Health Version History" 
-	description="This document describes the releases for Azure AD Connect Health and what has been included in those releases." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="femila" 
+<properties
+	pageTitle="Azure AD Connect Health Version History"
+	description="This document describes the releases for Azure AD Connect Health and what has been included in those releases."
+	services="active-directory"
+	documentationCenter=""
+	authors="karavar"
+	manager="samueld"
 	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/08/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/18/2016"
+	ms.author="vakarand"/>
 
 # Azure AD Connect Health: Version Release History
 
-The Azure Active Directory team regularly updates Azure AD Connect Health with new features and functionality. 
+The Azure Active Directory team regularly updates Azure AD Connect Health with new features and functionality. This article lists the versions and features that have been released.
 
-This article is designed to help you keep track of the versions that have been released.
+## October 2016
+**Agent Update:**
+- Azure AD Connect Health agent for AD FS \(version 2.6.408.0\)
+    1. Improvements in detecting client IP addresses in authentication requests
+	2. Bug Fixes related to Alerts
+- Azure AD Connect Health agent for AD DS (version 2.6.408.0)
+    1. Bug fixes related to Alerts.
+- Azure AD Connect Health agent for Sync (version 2.6.353.0) released with Azure AD Connect version 1.1.281.0
+    1. Provide the required data for the Synchronization Error Reports
+	2. Bug fixes related to Alerts
 
+**New preview features:**
+- Synchronization Error Reports for Azure AD Connect
+
+**New features:**
+- Azure AD Connect Health for AD FS - IP address field is available in the report about top 50 users with bad username/password.
 
 ## July 2016
 
@@ -57,22 +71,22 @@ This article is designed to help you keep track of the versions that have been r
 
 **Fixed issues:**
 
-- Bug fixes for errors seen during agent registrations. 
+- Bug fixes for errors seen during agent registrations.
 
 ## September 2015
 
 **New features:**
 
-- Wrong Username password report for AD FS 
-- Support to configure Unauthenticated HTTP Proxy 
+- Wrong Username password report for AD FS
+- Support to configure Unauthenticated HTTP Proxy
 - Support to configure agent on Server core
-- Improvements to Alerts for AD FS 
-- Improvements in Azure AD Connect Health Agent for AD FS for connectivity and data upload. 
+- Improvements to Alerts for AD FS
+- Improvements in Azure AD Connect Health Agent for AD FS for connectivity and data upload.
 
 
 **Fixed issues:**
 
-- Bug fixes in Usage Insights for AD FS Error types. 
+- Bug fixes in Usage Insights for AD FS Error types.
 
 
 ## June 2015
@@ -81,9 +95,9 @@ This article is designed to help you keep track of the versions that have been r
 
 **New features:**
 
-- Alerts for monitoring AD FS and AD FS Proxy servers with email notifications. 
-- Easy access to AD FS topology and patterns in AD FS Performance Counters. 
-- Trend in successful token requests on AD FS servers grouped by Applications, Authentication Methods, Request Network Location etc. 
+- Alerts for monitoring AD FS and AD FS Proxy servers with email notifications.
+- Easy access to AD FS topology and patterns in AD FS Performance Counters.
+- Trend in successful token requests on AD FS servers grouped by Applications, Authentication Methods, Request Network Location etc.
 - Trends in failed request on AD FS servers grouped by Applications, Error Types etc.
 - Simpler Agent Deployment using Azure AD Global Admin credentials.  
 
