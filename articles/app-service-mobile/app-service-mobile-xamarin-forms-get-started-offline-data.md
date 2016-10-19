@@ -151,7 +151,7 @@ triggers a preceding context push. When refreshing, adding, and completing items
 call.
 
 In the provided code, all records in the remote TodoItem table are queried, but it is also possible to filter records by passing a
-query id and query to **PushAsync**. For more information, see the section *Incremental Sync* in [Offline Data Sync in Azure Mobile Apps].
+query id and query to **PushAsync**. For more information, see the section *Incremental Sync* in [Offline Data Sync in Azure Mobile Apps][2].
 
 ## Run the client app
 
