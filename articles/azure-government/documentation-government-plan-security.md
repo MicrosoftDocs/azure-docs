@@ -97,7 +97,7 @@ The recently announced FedRAMP High and Department of Defense (DoD) Impact Level
 
 We are now screening all our operators at National Agency Check with Law and Credit (NACLC) as defined in section 5.6.2.2 of the DoD Cloud Computing Security Requirements Guide (SRG):
 
->[Azure.Note] The minimum background investigation required for CSP personnel having access to Level 4 and 5 information based on a “noncritical-sensitive” (e.g., DoD’s ADP-2) is a National Agency Check with Law and Credit (NACLC) (for “noncritical-sensitive” contractors), or a Moderate Risk Background Investigation (MBI) for a “moderate risk” position designation.
+>[AZURE.NOTE] The minimum background investigation required for CSP personnel having access to Level 4 and 5 information based on a “noncritical-sensitive” (e.g., DoD’s ADP-2) is a National Agency Check with Law and Credit (NACLC) (for “noncritical-sensitive” contractors), or a Moderate Risk Background Investigation (MBI) for a “moderate risk” position designation.
 
 The following table summarizes our current screening for Azure Government operators:
 
