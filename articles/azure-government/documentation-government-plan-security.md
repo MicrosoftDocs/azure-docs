@@ -119,7 +119,7 @@ Screening standards include the validation of US citizenship of all Microsoft su
 
 ## Next steps
 
-For more information on isolation in Microsoft Azure see the [Isolation section of the Azure Security Guide](/storage/azure-security-getting-started/#isolation.md).
+For more information on isolation in Microsoft Azure see the [Storage Security Guide](/storage-security-guide.md).
 
 For supplemental information and updates please subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
