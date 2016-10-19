@@ -54,7 +54,7 @@ Azure requires at least 2048-bit, **ssh-rsa** format public and private keys. If
 Here are the deployment scenarios, and the types of files you use in each:
 
 1. **ssh-rsa** keys are required for any deployment using the [Azure portal](https://portal.azure.com), and Resource Manager deployments using the [Azure CLI](../xplat-cli-install.md).
-    - These keys is usually all most people need.
+    - These keys are usually all most people need.
 2. `.pem` file is required to create VMs using the [Classic portal](https://manage.windowsazure.com). These keys are also supported in Classic deployments that use the [Azure CLI](../xplat-cli-install.md).
     - You only need to create these additional keys and certificates if you are managing resources created using the Classic deployment model.
 
@@ -64,7 +64,7 @@ Here are the deployment scenarios, and the types of files you use in each:
 The preceding section listed several utilities that include an `ssh-keygen` and `openssl` for Windows. The following example details how to install Git for Windows, though you can choose whichever package you prefer:
 
 1. Download and install **Git for Windows** from the following location: [https://git-for-windows.github.io/](https://git-for-windows.github.io/).
-    - Accept the default options during the install process unless you specifically need to change change them.
+    - Accept the default options during the install process unless you specifically need to change them.
 2. Run Git Bash from the **Start Menu** > **All Apps** > **Git** > **Git Bash**. The console looks similar to the following example:
 
     ![Git for Windows Bash shell](./media/virtual-machines-linux-ssh-from-windows/git-bash-window.png)
@@ -79,7 +79,7 @@ The preceding section listed several utilities that include an `ssh-keygen` and 
         -keyout myPrivateKey.key -out myCert.pem
     ```
 
-2. The output looks similar to the following:
+2. The output looks similar to the following example:
 
     ```bash
     Generating a 2048 bit RSA private key
@@ -105,7 +105,7 @@ The preceding section listed several utilities that include an `ssh-keygen` and 
     ls
     ```
 
-6. If you also need to manage Classic resources, convert the `myCert.pem` to `myCert.cer` (DER encoded X509 certificate). This is an optional step, only for those needing to specifically manage older Classic resources. Convert the certificate using the following command:
+6. If you also need to manage Classic resources, convert the `myCert.pem` to `myCert.cer` (DER encoded X509 certificate). This optional step is only if you need to specifically manage older Classic resources. Convert the certificate using the following command:
 
     ```bash
     openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
@@ -117,7 +117,7 @@ PuTTY is a common SSH client for Windows. The following example creates an addit
 
 1. Download and run PuTTYgen from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
-2. PuTTYgen may not be able to read the private key that was created earlier (`myPrivateKey.key`). You need to translate it into an RSA private key that PuTTYgen can understand. The following example creates a key named `myPrivateKey_rsa` from the existing key named `myPrivateKey` (that you created in the previous section):
+2. PuTTYgen may not be able to read the private key that was created earlier (`myPrivateKey.key`). Conver the key into an RSA private key that PuTTYgen can understand. The following example creates a key named `myPrivateKey_rsa` from the existing key named `myPrivateKey` (that you created in the previous section):
 
     ```bash
     openssl rsa -in ./myPrivateKey.key -out myPrivateKey_rsa
@@ -133,7 +133,7 @@ PuTTY is a common SSH client for Windows. The following example creates an addit
 
 5. Locate your private key (`myPrivateKey_rsa` in the previous example). The default directory when you start **Git Bash** is `C:\Users\<username>`. Change the file filter to show **All Files (\*.\*)**:
 
-    ![Load existing private key in to PuTTYgen](./media/virtual-machines-linux-ssh-from-windows/load-private-key.png)
+    ![Load the existing private key into PuTTYgen](./media/virtual-machines-linux-ssh-from-windows/load-private-key.png)
 
 6. Click **Open**. A prompt indicates the key has been successfully imported:
 
@@ -141,7 +141,7 @@ PuTTY is a common SSH client for Windows. The following example creates an addit
 
 7. Click **OK**.
 
-8. Click **Save private Key**. A prompt will ask if you wish to continue without entering a passphrase for your key. A passphrase is like a password attached to your private key. Even if someone were to obtain your private key, they still would not be able to authenticate using it without also knowing the passphrase. 
+8. Click **Save private Key**. A prompt asks if you wish to continue without entering a passphrase for your key. A passphrase is like a password attached to your private key. Even if someone were to obtain your private key, they still would not be able to authenticate using it unless they also know the passphrase. 
 
     If you wish to enter a passphrase, click **No**, enter a passphrase in the main PuTTYgen window, and then click **Save private key** again. Otherwise, click **Yes** to continue without providing the optional passphrase: 
 
@@ -158,7 +158,7 @@ PuTTY is a common SSH client for Windows. The following example creates an addit
 
     ![Open new PuTTY connection]](./media/virtual-machines-linux-ssh-from-windows/putty-new-connection.png)
 
-3. Before selecting **Open**, click the Connection > SSH > Auth tab to choose your private key. See the screenshot below for the field to fill in:
+3. Before selecting **Open**, click **Connection** > **SSH** > **Auth** tab. Browse to and select your private key:
 
     ![Select your PuTTY Private Key for authentication](./media/virtual-machines-linux-ssh-from-windows/putty-auth-dialog.png)
 
