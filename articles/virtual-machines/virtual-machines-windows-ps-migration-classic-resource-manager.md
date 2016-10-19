@@ -118,7 +118,8 @@ Prepare the virtual machines in the cloud service for migration. You have two op
 
 	First, validate if you can migrate the cloud service using the following commands:
 
-		$validate = Move-AzureService -Validate -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
+		$validate = Move-AzureService -Validate -ServiceName $serviceName `
+			-DeploymentName $deploymentName -CreateNewVirtualNetwork
 		$validate.ValidationMessages
 
 	The preceding command displays any warnings and errors that block migration. If validation is successful, then you can move on to the **Prepare** step:
