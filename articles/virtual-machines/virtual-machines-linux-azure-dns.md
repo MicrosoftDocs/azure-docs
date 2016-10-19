@@ -7,12 +7,12 @@
    manager="timlt"
    editor="tysonn" />
 <tags 
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-linux"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/06/2016"
+   ms.date="10/19/2016"
    ms.author="rclaus" />
 
 # DNS Name Resolution Options for Linux VMs in Azure
