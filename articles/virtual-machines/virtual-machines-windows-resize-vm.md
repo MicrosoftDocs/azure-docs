@@ -29,7 +29,7 @@ After you create a virtual machine (VM), you can scale the VM up or down by chan
 1. List the VM sizes that are available on the hardware cluster where the VM is hosted. 
 
 	```powershell
-	Get-AzureRmVMSize -ResourceGroupName <resource-group-name> -VMName <vm-name> 
+	Get-AzureRmVMSize -ResourceGroupName <resourceGroupName> -VMName <vmName> 
 	```
 
 2. If the desired size is listed, run the following commands to resize the VM. If the desired size is not listed, go on to step 3.
