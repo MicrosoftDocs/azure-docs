@@ -11,6 +11,7 @@
           "**/includes/**",
           "**/_themes/**",
           "markdown templates/**"
+          "contributor-guide/**"
         ],
         "src": "articles",
         "dest": "."
@@ -25,6 +26,7 @@
           "**/includes/**",
           "**/_themes/**",
           "markdown templates/**",
+          "contributor-guide/**"
           "articles/**"
         ],
         "src": null,
@@ -42,6 +44,7 @@
           "**/obj/**",
           "**/_themes/**",
           "markdown templates/**"
+          "contributor-guide/**"
         ],
         "src": "articles",
         "dest": "."
@@ -56,6 +59,7 @@
           "**/obj/**",
           "**/_themes/**",
           "markdown templates/**",
+          "contributor-guide/**"
           "articles/**"
         ],
         "src": null,
