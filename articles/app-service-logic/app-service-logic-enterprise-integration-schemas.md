@@ -50,22 +50,22 @@ The process for this depends on the blob container access level: **Public** or *
 1. If the blob security access level is **Public**, follow these steps.  
   ![Screenshot of Azure Storage Explorer, with "Blob Containers", "Security", and "Public" highlighted](./media/app-service-logic-enterprise-integration-schemas/blob-public.png)  
 
-  * Upload the schema to storage, and copy the URI.  
+  a. Upload the schema to storage, and copy the URI.  
   ![Screenshot of storage account, with URI highlighted](./media/app-service-logic-enterprise-integration-schemas/schema-blob.png)  
 
-  * In **Add Schema**, select **Large file**, and provide the URI in the **Content URI** text box.  
+  b. In **Add Schema**, select **Large file**, and provide the URI in the **Content URI** text box.  
   ![Screenshot of schemas, with "Add" button and "Large file" highlighted](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)  
 
 2. If the blob security access level is **No anonymous access**, follow these steps.  
   ![Screenshot of Azure Storage Explorer, with "Blob Containers", "Security", and "No anonymous access" highlighted](./media/app-service-logic-enterprise-integration-schemas/blob-1.png)  
 
-  * Upload the schema to storage.  
+  a. Upload the schema to storage.  
   ![Screenshot of storage account](./media/app-service-logic-enterprise-integration-schemas/blob-3.png)
 
-  * Generate a shared access signature for the schema.  
+  b. Generate a shared access signature for the schema.  
   ![Screenshot of storage sccount, with shared access signatures tab highlighted](./media/app-service-logic-enterprise-integration-schemas/blob-2.png)
 
-  * In **Add Schema**, select **Large file**, and provide the shared access signature URI in the **Content URI** text box.  
+  c. In **Add Schema**, select **Large file**, and provide the shared access signature URI in the **Content URI** text box.  
   ![Screenshot of schemas, with "Add" button and "Large file" highlighted](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)  
 
 3. In the **Schemas** blade of the EIP Integration Account, you should now see the newly added schema.  
