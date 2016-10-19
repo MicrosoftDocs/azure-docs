@@ -267,8 +267,10 @@ For resource types that are largely accessed through another resource, you can u
 1. When adding a password to a **customScriptExtension**, use the **commandToExecute** property in protectedSettings.
 
         "properties": {
-            "publisher": "Microsoft.OSTCExtensions",
-            "type": "CustomScriptForLinux",
+            "publisher": "Microsoft.Azure.Extensions",
+            "type": "CustomScript",
+	        "typeHandlerVersion": "2.0",
+            "autoUpgradeMinorVersion": true,
             "settings": {
                 "fileUris": [
                     "[concat(variables('template').assets, '/lamp-app/install_lamp.sh')]"
