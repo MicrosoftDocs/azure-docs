@@ -22,9 +22,9 @@
 This document describes the retraining process for the following scenario:
 
 * You have a training experiment and a predictive experiment that you have deployed as an operationalized web service.
-* You have new data, and you want your predictive web service to use the new data to perform it's scoring.
+* You have new data that you want your predictive web service to use to perform its scoring.
 
-Starting with your existing web service and experiments, you need to:
+Starting with your existing web service and experiments, you need to follow these steps:
 
 1. Update the model.
 	1. Modify your training experiment to allow for web service inputs and outputs.
@@ -41,13 +41,13 @@ Starting with your existing web service and experiments, you need to:
 
 ## Deploy the training experiment
 
-To deploy the training experiment as a retraining web service, you must add web service inputs and outputs to the model. By connecting a *Web Service Output* module to the experiment's *[Train Model][train-model]* module, you enable the training experiment to produce a new trained model that you can use in your predictive experiment. If you have an Evaluate Model module, you can also attach web service output to get the evaluation results as output.
+To deploy the training experiment as a retraining web service, you must add web service inputs and outputs to the model. By connecting a *Web Service Output* module to the experiment's *[Train Model][train-model]* module, you enable the training experiment to produce a new trained model that you can use in your predictive experiment. If you have an *Evaluate Model* module, you can also attach web service output to get the evaluation results as output.
 
 To update your training experiment:
 
 1. Connect a *Web Service Input* module to your data input (for example, a *Clean Missing Data* module). Typically, you want to ensure that your input data is processed in the same way as your original training data.
-2. Connect a *Web Service Output* module to the output of your **Train Model** module.
-3. If you have an Evaluate Model module and you want to output the evaluation results, connect a *Web Service Output* module to the output of your **Evaluate Model** module.
+2. Connect a *Web Service Output* module to the output of your *Train Model* module.
+3. If you have an *Evaluate Model* module and you want to output the evaluation results, connect a *Web Service Output* module to the output of your *Evaluate Model* module.
 
 Run your experiment.
 
@@ -59,15 +59,15 @@ After running your experiment, the resulting workflow should be similar to the f
 
 ![Resulting workflow after run.][4]
 
-## Retrain the model with new data using BES
+## Retrain the model with new data by using BES
 
-For this example, we're using C# to create the retraining application. You can also use the Python or R sample code to accomplish this task.
+For this example, we're using C# to create the retraining application. You can also use Python or R sample code to accomplish this task.
 
 To call the retraining APIs:
 
 1. Create a C# console application in Visual Studio (**New** > **Project** > **Windows Desktop** > **Console Application**).
 2.	Sign in to the Machine Learning Web Service portal.
-3.	Click the web service that you are working with.
+3.	Click the web service that you're working with.
 2.	Click **Consume**.
 3.	At the bottom of the Consume page, in the **Sample Code** section, click **Batch**.
 5.	Copy the sample C# code for batch execution and paste it into the Program.cs file. Make sure that the namespace remains intact.
@@ -90,7 +90,7 @@ In the **Basic consumption info** section of the **Consume** page, locate the pr
 
 The BES sample code uploads a file from a local drive (for example, "C:\temp\CensusIpnput.csv") to Azure Storage, processes it, and writes the results back to Azure Storage.  
 
-To update the Azure Storage information, you must retrieve the Storage account name, key, and container information for your Storage account from the Azure classic portal, and then update corresponding values in the code.
+To update the Azure Storage information, you must retrieve the Storage account name, key, and container information for your Storage account from the Azure classic portal, and then update the corresponding values in the code.
 
 1. Sign in to the Azure classic portal.
 1. In the left navigation column, click **Storage**.
@@ -118,14 +118,12 @@ When you specify the output location in the Request Payload, the extension of th
             new AzureBlobDataReference()
             {
                 ConnectionString = storageConnectionString,
-                RelativeLocation = string.Format("{0}/output1results.ilearner", StorageContainerName) /*Replace this with the location you would like to use for your output file, and valid file extension (usually .csv for scoring results, or .ilearner for trained models)*/
+                RelativeLocation = string.Format("{0}/output1results.ilearner", StorageContainerName) /*Replace this with the location you want to use for your output file and a valid file extension (usually .csv for scoring results or .ilearner for trained models)*/
             }
         },
 
-
+The following is an example of retraining output.
 ![Retraining output][6]
-
-Diagram 3: Retraining output.
 
 ## Evaluate the retraining results
 
