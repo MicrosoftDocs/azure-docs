@@ -50,6 +50,7 @@ You can grant [permissions](#iot-hub-permissions) in the following ways:
 * **Per-device security credentials**. Each IoT Hub contains a [device identity registry][lnk-identity-registry]. For each device in this registry, you can configure security credentials that grant **DeviceConnect** permissions scoped to the corresponding device endpoints.
 
 For example, in a typical IoT solution:
+
 - The device management component uses the *registryReadWrite* policy.
 - The event processor component uses the *service* policy.
 - The runtime device business logic component uses the *service* policy.
@@ -133,9 +134,7 @@ These are the expected values:
 
 **Note on prefix**: The URI prefix is computed by segment and not by character. For example `/a/b` is a prefix for `/a/b/c` but not for `/a/bc`.
 
-The following is a Node.js function that computes the token from the inputs `resourceUri, signingKey, policyName, expiresInMins`. The next sections detail how to initialize the different inputs for the different token use cases.
-
-    var crypto = require('crypto');
+The following Node.js snippet shows a function called **generateSasToken** that computes the token from the inputs `resourceUri, signingKey, policyName, expiresInMins`. The next sections detail how to initialize the different inputs for the different token use cases.
 
     var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
         resourceUri = encodeURIComponent(resourceUri.toLowerCase()).toLowerCase();
@@ -145,23 +144,20 @@ The following is a Node.js function that computes the token from the inputs `res
         expires = Math.ceil(expires);
         var toSign = resourceUri + '\n' + expires;
 
-        // using crypto
-        var decodedPassword = new Buffer(signingKey, 'base64').toString('binary');
-        const hmac = crypto.createHmac('sha256', decodedPassword);
+        // Use crypto
+        var hmac = crypto.createHmac('sha256', new Buffer(signingKey, 'base64'));
         hmac.update(toSign);
-        var base64signature = hmac.digest('base64');
-        var base64UriEncoded = encodeURIComponent(base64signature);
+        var base64UriEncoded = encodeURIComponent(hmac.digest('base64'));
 
-        // construct autorization string
+        // Construct autorization string
         var token = "SharedAccessSignature sr=" + resourceUri + "&sig="
         + base64UriEncoded + "&se=" + expires;
         if (policyName) token += "&skn="+policyName;
-        // console.log("signature:" + token);
         return token;
     };
- 
- As a comparison, the equivalent Python code is:
- 
+
+As a comparison, the equivalent Python code to generate a security token is:
+
     from base64 import b64encode, b64decode
     from hashlib import sha256
     from hmac import HMAC
@@ -363,9 +359,11 @@ For a device to connect to your hub, you must still add it to the IoT Hub device
 
 The token service pattern is the recommended way to implement a custom identity registry/authentication scheme with IoT Hub. It is recommended because IoT Hub continues to handle most of the solution traffic. However, there are cases where the custom authentication scheme is so intertwined with the protocol that a service processing all the traffic (*custom gateway*) is required. An example of this is [Transport Layer Security (TLS) and pre-shared keys (PSKs)][lnk-tls-psk]. For more information, see the [protocol gateway][lnk-protocols] topic.
 
-## Reference
+## Reference topics:
 
-### IoT Hub permissions
+The following reference topics provide you with more information about controlling access to your IoT hub.
+
+## IoT Hub permissions
 
 The following table lists the permissions you can use to control access to your IoT hub.
 
@@ -376,7 +374,7 @@ The following table lists the permissions you can use to control access to your 
 | **ServiceConnect**    | Grants access to cloud service-facing communication and monitoring endpoints. For example, it grants permission to back-end cloud services to receive device-to-cloud messages, send cloud-to-device messages, and retrieve the corresponding delivery acknowledgments. |
 | **DeviceConnect**     | Grants access to device-facing communication endpoints. For example, it grants permission to send device-to-cloud messages and receive cloud-to-device messages. This permission is used by devices. |
 
-### Additional reference material
+## Additional reference material
 
 Other reference topics in the Developer Guide include:
 
