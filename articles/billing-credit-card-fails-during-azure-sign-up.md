@@ -28,7 +28,7 @@ If your debit card or credit card is declined or not accepted when you sign up f
 - **The card is inactive or blocked.** Contact your bank and make sure that the card is active and not blocked.
 - **You're trying to activate a second free trial.** The Azure Free Trial offer is limited to one free trial activation per user. If you already activated a free trial with this credit card or had an Azure subscription that was linked to this credit card, you can’t activate a free trial. Use another Azure plan from [Microsoft Azure Offer Details](https://azure.microsoft.com/support/legal/offer-details/). 
  
-After you update your payment information, you can try signing up again.
+After you update your payment information, try signing up again.
 
 ## Business that doesn't want to pay by card? Set up invoicing
 
