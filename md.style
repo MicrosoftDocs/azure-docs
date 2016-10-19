@@ -2,6 +2,7 @@
    "tagRules": [
       {
          "tagNames": [ "H1", "H2", "H3", "H4", "H5", "H6", "IFRAME", "SCRIPT", "STYLE", "IMAGE" ],
+         "relation": "In",
          "behavior": "Warning",
          "messageFormatter": "One or more of the HTML elements you included in this article are not allowed. Replace the HTML items with markdown.",
          "customValidatorContractName": null,
