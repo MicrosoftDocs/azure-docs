@@ -26,7 +26,6 @@
 
 ## 2.1.1 What you will do
 
-<<<<<<< HEAD
 Install Python and the Azure Command-Line Interface (Azure CLI).
 
 ## 2.1.2 What you will learn

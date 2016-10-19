@@ -27,7 +27,7 @@ Use an Azure Resource Manager (ARM) template to create an Azure function app and
 
 ## 3.1.2 What will you learn
 
-- How to use [Azure Resource Manager](../../articles/resource-group-overview.md) to deploy Azure resources.
+- How to use [Azure Resource Manager](../../articles/azure-resource-manager/resource-group-overview.md) to deploy Azure resources.
 - How to use an Azure function app to process IoT hub messages and write them to a table in Azure table storage.
 
 ## 3.1.3 What do you need
