@@ -354,7 +354,7 @@ In this step, you use the Azure portal to monitor what’s going on in an Azure 
 7. Now, In the **Datasets** blade, click **OutputBlobTable**.
 
 	![OputputBlobTable slices](./media/data-factory-move-data-between-onprem-and-cloud/OutputBlobTableSlicesBlade.png)
-9. Click any data slice from the list and you should see the **Data Slice** blade.
+9. Click any data slice from the list and you should see the **Data Slice** blade. You see activity runs for the slice. You see only one activity run usually.  
 
 	![Data Slice Blade](./media/data-factory-move-data-between-onprem-and-cloud/DataSlice.png)
 
