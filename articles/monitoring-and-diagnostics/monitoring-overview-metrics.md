@@ -23,7 +23,6 @@ This article describes what metrics are in Microsoft Azure, their benefits, and 
 
 Azure Monitor enables you to consume telemetry to gain visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data are the metrics (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting.
 
-
 ## What can you do with metrics?
 
 Metrics are a valuable source of telemetry and enable you to do the following tasks:
@@ -57,7 +56,7 @@ Following is a quick walkthrough of how to create a metric chart by using the Az
 
 ### To view metrics after creating a resource
 1. Open the Azure portal.
-2. Create a ne App Service website.
+2. Create an App Service website.
 3. After you create a website, go to the **Overview** blade of the web site.
 4. You can view new metrics as a **Monitoring** tile. You can then edit the tile and select more metrics.
 
@@ -68,7 +67,7 @@ Following is a quick walkthrough of how to create a metric chart by using the Az
 2. Navigate to the new **Monitor** tab, and then and select the **Metrics** option underneath it.
 3. Select your subscription, resource group, and the name of the resource from the drop-down list.
 4. View the available metrics list. Then select the metric you are interested in and plot it.
-6. You can pin it to the dashboard by clicking on the pin on the upper-right corner.
+6. You can pin it to the dashboard by clicking the pin on the upper-right corner.
 
  ![Access all metrics in a single place in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview2.png)
 
