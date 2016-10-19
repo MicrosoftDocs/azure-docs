@@ -119,8 +119,8 @@ Like the virtual machine's resource health information, this blade provides a su
 The networking status breakdown section lists potential security issues and offers [recommendations](security-center-network-recommendations.md). Possible issues can include:
 
 - Next-Generation Firewall (NGFW) not installed
-- Network Security Groups on subnets not enabled
-- Network Security Groups on virtual machines not enabled
+- Network security groups on subnets not enabled
+- Network security groups on virtual machines not enabled
 - Restrict external access through public external endpoint
 - Healthy Internet facing endpoints
 
@@ -128,9 +128,9 @@ When you click a recommendation, a new blade opens with more details about the r
 
 ![Restrict endpoint](./media/security-center-monitoring/security-center-monitoring-fig9-ga.png)
 
-In this example, the **Configure Missing Network Security Groups for Subnets** blade has a list of subnets and virtual machines that are missing Network Security Group protection. If you click the subnet to which you want to apply the Network Security Group, another blade opens.
+In this example, the **Configure Missing Network Security Groups for Subnets** blade has a list of subnets and virtual machines that are missing network security group protection. If you click the subnet to which you want to apply the network security group, another blade opens.
 
-In the **Choose network security group** blade, you can select the most appropriate Network Security Group for the subnet, or you can create a new Network Security Group.
+In the **Choose network security group** blade, you can select the most appropriate network security group for the subnet, or you can create a new network security group.
 
 #### Internet facing endpoints section
 
@@ -138,7 +138,8 @@ In the **Internet facing endpoints** section, you can see the virtual machines t
 
 ![Internet facing endpoint](./media/security-center-monitoring/security-center-monitoring-fig10-ga.png)
 
-This table has the endpoint name that represents the virtual machine, the Internet facing IP address, and the current severity status of the Network Security Group and the NGFW. The table is sorted by severity:
+This table has the endpoint name that represents the virtual machine, the Internet facing IP address, and the current severity status of the network security group and the NGFW. The table is sorted by severity:
+
 - Red (on top): High priority and should be addressed immediately
 - Orange: Medium priority and should be addressed as soon as possible
 - Green (last one): Healthy state
@@ -155,7 +156,7 @@ This table is sorted (virtual machines and subnets) by severity:
 - Orange: Medium priority and should be addressed as soon as possible
 - Green (last one): Healthy state
 
-In this topology view, the first level has [Virtual Networks](../virtual-network/virtual-networks-overview.md), [Virtual Network Gateways](../vpn-gateway/vpn-gateway-site-to-site-create.md), and [Virtual Networks (classic)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). The second level has subnets, and the third level has the virtual machines that belong to those subnets. The right column has the current status of the Network Security Group for those resources, as shown in the following example:
+In this topology view, the first level has [Virtual Networks](../virtual-network/virtual-networks-overview.md), [Virtual Network Gateways](../vpn-gateway/vpn-gateway-site-to-site-create.md), and [Virtual Networks (classic)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). The second level has subnets, and the third level has the virtual machines that belong to those subnets. The right column has the current status of the network security group for those resources, as shown in the following example:
 
 ![Network tree](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
 
