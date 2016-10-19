@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/12/2016"
-	ms.author="jutang;tamram"/>
+	ms.author="tamram"/>
 
 # Azure Storage replication
 
