@@ -1,19 +1,20 @@
-<properties 
+<properties
    pageTitle="Configure Performance traffic routing method | Microsoft Azure"
    description="This article will help you configure performance traffic routing method in Traffic Manager"
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="traffic-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.date="10/18/2016"
+   ms.author="sewhee" />
+<!-- repub for nofollow -->
 
 # Configure Performance traffic routing method
 
@@ -47,4 +48,4 @@ In order to route traffic for cloud services and websites (endpoints) that are l
 [Traffic Manager - Disable, enable or delete a profile](disable-enable-or-delete-a-profile.md)
 
 [Traffic Manager - Disable or enable an endpoint](disable-or-enable-an-endpoint.md)
- 
+

@@ -14,9 +14,9 @@
 
 4. In the project dashboard, under **Mobile APIs**, click **Google Cloud Messaging**, then on the next page click **Enable API** and accept the terms of service. 
 
-	![](./media/mobile-services-enable-google-cloud-messaging/enable-GCM.png)
+	![Enabling GCM](./media/mobile-services-enable-google-cloud-messaging/enable-GCM.png)
 
-	![](./media/mobile-services-enable-google-cloud-messaging/enable-gcm-2.png) 
+	![Enabling GCM](./media/mobile-services-enable-google-cloud-messaging/enable-gcm-2.png) 
 
 5. In the project dashboard, Click **Credentials** > **Create Credential** > **API Key**. 
 

@@ -3,7 +3,7 @@
 	description="Learn how to use Azure App Service Mobile Apps to authenticate users of your Universal Windows Platform (UWP) app using a variety of identity providers, including: AAD, Google, Facebook, Twitter, and Microsoft."
 	services="app-service\mobile"
 	documentationCenter="windows"
-	authors="ggailey777"
+	authors="adrianhall"
 	manager="erikre"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/14/2016"
-	ms.author="glenga"/>
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>
 
 # Add authentication to your Windows app
 
@@ -122,10 +122,10 @@ The previous example showed a standard sign-in, which requires the client to con
 
 Now that you completed this basic authentication tutorial, consider continuing on to one of the following tutorials:
 
-+ [Add push notifications to your Windows app](app-service-mobile-windows-store-dotnet-get-started-push.md)  
++ [Add push notifications to your app](app-service-mobile-windows-store-dotnet-get-started-push.md)  
   Learn how to add push notifications support to your app and configure your Mobile App backend to use Azure Notification Hubs to send push notifications.
 
-+ [Enable offline sync for your Windows app](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
++ [Enable offline sync for your app](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
   Learn how to add offline support your app using an Mobile App backend. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
 
 

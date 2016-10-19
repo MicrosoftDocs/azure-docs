@@ -306,6 +306,10 @@ In this example, two routing tables are created, one each for the front-end and 
 2. Virtual network traffic with a Next Hop defined as firewall; this overrides the default rule that allows local virtual network traffic to route directly.
 3. All remaining traffic (0/0) with a Next Hop defined as the firewall.
 
+>[AZURE.TIP] Not having the local subnet entry in the UDR will break local subnet communications. 
+> - In our example, 10.0.1.0/24 pointing to VNETLocal is critical as otherwise, packet leaving the Web Server (10.0.1.4) destined to another local server (for example) 10.0.1.25 will fail as they will be sent over to the NVA, which will send it to the subnet, and the subnet will re-send it to the NVA and so on.
+> - Chances of a routing loop are typically higher on multi-nic appliances that are directly connected to each subnet they are communicating with, which is often of traditional, on-premises, appliances. 
+
 Once the routing tables are created, they are bound to their subnets. The front-end subnet routing table, once created and bound to the subnet, would look like this:
 
         Effective routes : 
@@ -315,12 +319,9 @@ Once the routing tables are created, they are bound to their subnets. The front-
 		 {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
->[AZURE.NOTE] There are certain restrictions when using UDR with ExpressRoute due to the complexity of dynamic routing used in the Azure virtual gateway:
+>[AZURE.NOTE] UDR can now be applied to the gateway subnet on which the ExpressRoute circuit is connected.
 >
->- UDR should not be applied to the gateway subnet on which the ExpressRoute linked Azure virtual gateway is connected.
-> - The ExpressRoute linked Azure virtual gateway cannot be the NextHop device for other UDR bound subnets.
->
->Examples of how to enable your perimeter network with ExpressRoute or site-to-site networking are shown in examples 3 and 4.
+> Examples of how to enable your perimeter network with ExpressRoute or site-to-site networking are shown in examples 3 and 4.
 
 
 #### IP Forwarding description

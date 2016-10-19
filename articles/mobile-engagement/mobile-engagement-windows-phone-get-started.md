@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 # Get started with Azure Mobile Engagement for Windows Phone Silverlight apps
@@ -34,7 +34,7 @@ This tutorial requires the following:
 
 ##<a id="setup-azme"></a>Setup Mobile Engagement for your Windows Phone app
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##<a id="connecting-app"></a>Connect your app to the Mobile Engagement backend
 

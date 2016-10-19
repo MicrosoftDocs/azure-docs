@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/12/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Android SDK Integration for Azure Mobile Engagement
@@ -24,7 +24,7 @@
 - [iOS](mobile-engagement-ios-sdk-overview.md)
 - [Android](mobile-engagement-android-sdk-overview.md)
 
-This document describes all the integration and configuration options available for Azure Mobile Engagement Android SDK. 
+This document describes all the integration and configuration options available for Azure Mobile Engagement Android SDK.
 
 ## Prerequisites
 
@@ -52,23 +52,13 @@ You can add these features:
 
 ## Release notes
 
-### 4.2.2 (05/17/2016)
+### 4.2.3 (08/10/2016)
 
-- Stability improvements.
+ - No more WIFI lock.
+ - Fix a deadlock when calling getDeviceId before init (bug introduced in 4.2.0).
 
-### 4.2.1 (05/10/2016)
-
-- Security: disable web view local file access.
-- Security: remove `EngagementPreferenceActivity` class that extends obsolete and unsecure `PreferenceActivity` class.
-- Security: reach activities are now documented to use `exported="false"`, this flag can also be used in previous SDK versions.
-
-### 4.2.0 (03/11/2016)
-
-- The SDK is now licensed under MIT.
-- Allow specifying a custom device identifier at SDK initialization time.
-
-For all versions, please see the [complete release notes](mobile-engagement-android-release-notes.md).
+For all versions, see the [complete release notes](mobile-engagement-android-release-notes.md).
 
 ## Upgrade procedures
 
-If you already have integrated an older version of our SDK into your application please consult [Upgrade Procedures](mobile-engagement-android-upgrade-procedure.md).
+If you already have integrated an older version of our SDK into your application, consult [Upgrade Procedures](mobile-engagement-android-upgrade-procedure.md).

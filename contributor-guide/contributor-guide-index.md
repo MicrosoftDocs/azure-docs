@@ -33,6 +33,10 @@
 
 - [Pull request etiquette and best practices for Microsoft contributors](contributor-guide-pull-request-etiquette.md)
 
+- [Quality criteria for pull request review](contributor-guide-pr-criteria.md)
+
+- [Pull request comment automation](contributor-guide-pull-request-comments.md)
+
 
 ##Authoring articles: markdown
 

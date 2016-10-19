@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="09/15/2016" 
 	ms.author="anhoh"/>
 
 # DocumentDB hierarchical resource model and concepts
@@ -119,7 +119,7 @@ Each resource also has a system generated hierarchical resource identifier (also
 The DocumentDB REST APIs support addressing of resources and routing of requests by both the id and the _rid properties.
 
 ## Database accounts
-You can provision one or more DocumentDB database accounts using your Azure subscription. Each Standard tier database account will be given a minimum capacity of one S1 collection.
+You can provision one or more DocumentDB database accounts using your Azure subscription.
 
 You can [create and manage DocumentDB database accounts](documentdb-create-account.md) via the Azure Portal at [http://portal.azure.com/](https://portal.azure.com/). Creating and managing a database account requires administrative access and can only be performed under your Azure subscription. 
 
@@ -304,7 +304,7 @@ Execution of a stored procedure is done by issuing an HTTP POST against an exist
 	    });
 
 ### Unregistering a stored procedure
-Un-registering a stored procedure is simply done by issuing an HTTP DELETE against an existing stored procedure resource.   
+Unregistering a stored procedure is simply done by issuing an HTTP DELETE against an existing stored procedure resource.   
 
 	client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)
 	    .then(function (response) {
@@ -346,7 +346,7 @@ Execution of a trigger is done by specifying the name of an existing trigger at 
 	    });
 
 ### Unregistering a pre-trigger
-Un-registering a trigger is simply done via issuing an HTTP DELETE against an existing trigger resource.  
+Unregistering a trigger is simply done via issuing an HTTP DELETE against an existing trigger resource.  
 
 	client.deleteTriggerAsync(createdPreTrigger._self);
 	    .then(function(response) {
@@ -383,7 +383,7 @@ A UDF can be specified as part of the SQL query and is used as a way to extend t
 	    });
 
 ### Unregistering a UDF 
-Un-registering a UDF is simply done by issuing an HTTP DELETE against an existing UDF resource.  
+Unregistering a UDF is simply done by issuing an HTTP DELETE against an existing UDF resource.  
 
 	client.deleteUserDefinedFunctionAsync(createdUdf._self)
 	    .then(function(response) {
@@ -392,7 +392,7 @@ Un-registering a UDF is simply done by issuing an HTTP DELETE against an existin
 	        console.log("Error");
 	    });
 
-Although the snippets above showed the registration (POST), un-registration (PUT), read/list (GET) and execution (POST) via the [DocumentDB JavaScript SDK](https://github.com/Azure/azure-documentdb-js), you can also use the [REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) or other [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). 
+Although the snippets above showed the registration (POST), unregistration (PUT), read/list (GET) and execution (POST) via the [DocumentDB JavaScript SDK](https://github.com/Azure/azure-documentdb-js), you can also use the [REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) or other [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). 
 
 ## Documents
 You can insert, replace, delete, read, enumerate and query arbitrary JSON documents in a collection. DocumentDB does not mandate any schema and does not require secondary indexes in order to support querying over documents in a collection.   
@@ -412,7 +412,7 @@ Consider a social reading application which uses DocumentDB to store ink annotat
 -	An application may store each user’s metadata as a distinct document -- e.g. Joe’s metadata for book1 is stored in a document referenced by /colls/joe/docs/book1. 
 -	Attachments pointing to the content pages of a given book of a user are stored under the corresponding document e.g. /colls/joe/docs/book1/chapter1, /colls/joe/docs/book1/chapter2 etc. 
 
-Note that the examples use friendly ids to convey the resource hierarchy. Resources are accessed via the REST APIs through unique resource ids. 
+Note that the examples listed above use friendly ids to convey the resource hierarchy. Resources are accessed via the REST APIs through unique resource ids. 
 
 For the media that is managed by DocumentDB, the _media property of the attachment will reference the media by its URI. DocumentDB will ensure to garbage collect the media when all of the outstanding references are dropped. DocumentDB automatically generates the attachment when you upload the new media and populates the _media to point to the newly added media. If you choose to store the media in a remote blob store managed by you (e.g. OneDrive, Azure Storage, DropBox etc), you can still use attachments to reference the media. In this case, you will create the attachment yourself and populate its _media property.   
 

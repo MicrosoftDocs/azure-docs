@@ -3,8 +3,8 @@
  description="Scheduler High-Availability and Reliability"
  services="scheduler"
  documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
+ authors="derek1ee"
+ manager="kevinlam1"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -12,8 +12,8 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="03/09/2016"
- ms.author="krisragh"/>
+ ms.date="08/16/2016"
+ ms.author="deli"/>
 
 
 # Scheduler High-Availability and Reliability

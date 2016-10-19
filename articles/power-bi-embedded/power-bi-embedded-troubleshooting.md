@@ -3,8 +3,8 @@
    description="Microsoft Power BI Embedded Preview troubleshooting"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
-   manager="NA"
+   authors="guyinacube"
+   manager="erikre"
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="04/25/2016"
-   ms.author="derrickv"/>
+   ms.date="10/04/2016"
+   ms.author="asaxton"/>
 
 # Microsoft Power BI Embedded Preview troubleshooting
 This article provides answers for how  to troubleshoot **Power BI Embedded**.

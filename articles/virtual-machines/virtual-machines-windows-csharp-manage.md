@@ -14,19 +14,21 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/17/2016"
+	ms.date="09/27/2016"
 	ms.author="davidmu"/>
 
 # Manage Azure Virtual Machines using Azure Resource Manager and C#  
 
+The tasks in this article show you how to manage virtual machines, such as starting, stopping, and updating. A virtual machine must exist in a resource group to complete the tasks in this article.
+
 To complete the tasks in this article, you need:
 
-- [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx).
+- [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [An authentication token](../resource-group-authenticate-service-principal.md)
 
 ## Create a Visual Studio project and install packages
 
-NuGet packages are the easiest ways to install the libraries that you need to finish the tasks in this article. You must install the Azure Active Directory Authentication Library and the Computer Resource Provider Library. To get these libraries in Visual Studio, do this:
+NuGet packages are the easiest ways to install the libraries that you need to finish the tasks in this article. The libraries that you install for this article are the Azure Active Directory Authentication Library and the Compute Resource Provider Library. Complete these steps to get the libraries in Visual Studio:
 
 1. Click **File** > **New** > **Project**.
 
@@ -42,7 +44,7 @@ Now you're ready to start using the libraries to manage your virtual machines.
 
 ## Set up the project
 
-Now that the Azure Active Directory application is created and the authentication library is installed, you format the application information into credentials that are used to authenticate requests to Azure Resource Manager.
+Now that the application is created and the libraries are installed, you create a token using the application information. This token is used to authenticate requests to Azure Resource Manager.
 
 1. Open the Program.cs file for the project that you created, and then add these using statements to the top of the file:
 
@@ -52,39 +54,34 @@ Now that the Azure Active Directory application is created and the authenticatio
         using Microsoft.Azure.Management.Compute.Models;
         using Microsoft.Rest;
         
-2. Add variables to the Main method of the Program class to specify the names of the resources that you want to manage, the location of the resources, such as "Central US", and your subscription identifier:
+2. Add variables to the Main method of the Program class to specify the name of the resource group, and the name of the virtual machine, and your subscription identifier:
 
         var groupName = "resource group name";
         var vmName = "virtual machine name";  
-        var location = "location name";
         var subscriptionId = "subsciption id";
 
-    Replace all of the variable values with the names and identifier that you want to use. You can find the subscription identifier by running Get-AzureRmSubscription.
+    You can find the subscription identifier by running Get-AzureRmSubscription.
     
-3. Add this method to the Program class to get the token that is needed to create the credentials.
+3. To get the token that is needed to create the credentials, add this method to the Program class:
 
-	    private static string GetAuthorizationHeader()
+	    private static async Task<AuthenticationResult> GetAccessTokenAsync()
 	    {
-          ClientCredential cc = new ClientCredential("{application-id}", "{password}");
+          var cc = new ClientCredential("{client-id}", "{client-secret}");
           var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
-          var result = context.AcquireTokenAsync("https://management.azure.com/", cc);
-
-          if (result == null)
+          var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
+          if (token == null)
           {
-            throw new InvalidOperationException("Failed to obtain the JWT token");
+            throw new InvalidOperationException("Could not get the token");
           }
-
-          string token = result.Result.AccessToken;
-
           return token;
         }
 	
-    Replace {application-id} with the application identifier that you recorded earlier, {password} with the password that you chose for the AD application, and {tenant-id} with the tenant identifier for your subscription.
+    Replace {client-id} with the identifier of the Azure Active Directory application, {client-secret} with the access key of the AD application, and {tenant-id} with the tenant identifier for your subscription. You can find the tenant id by running Get-AzureRmSubscription. You can find the access key by using the Azure portal.
     
-4. Add this code to the Main method in Program.cs to create the credentials:
+4. To create the credentials, add this code to the Main method in Program.cs:
 
-        var token = GetAuthorizationHeader();
-        var credential = new TokenCredentials(token);
+        var token = GetAccessTokenAsync();
+        var credential = new TokenCredentials(token.Result.AccessToken);
 
 5. Save the Program.cs file.
 
@@ -92,7 +89,7 @@ Now that the Azure Active Directory application is created and the authenticatio
 
 1. Add this method to the Program class in the project that you previously created:
 
-        public static void GetVirtualMachine(
+        public static async void GetVirtualMachineAsync(
           TokenCredentials credential, 
           string groupName, 
           string vmName, 
@@ -100,9 +97,9 @@ Now that the Azure Active Directory application is created and the authenticatio
         {
           Console.WriteLine("Getting information about the virtual machine...");
 
-          var computeManagementClient = new ComputeManagementClient(credential);
-          computeManagementClient.SubscriptionId = subscriptionId;
-          var vmResult = computeManagementClient.VirtualMachines.Get(
+          var computeManagementClient = new ComputeManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          var vmResult = await computeManagementClient.VirtualMachines.GetAsync(
             groupName, 
             vmName, 
             InstanceViewTypes.InstanceView);
@@ -174,11 +171,12 @@ Now that the Azure Active Directory application is created and the authenticatio
             Console.WriteLine("  level: " + istat.Level);
             Console.WriteLine("  displayStatus: " + istat.DisplayStatus);
           }
+          
         }
 
-2. Add this code to the Main method to call the method that you just added:
+2. To call the method that you just added, add this code to the Main method:
 
-        GetVirtualMachine(
+        GetVirtualMachineAsync(
           credential,
           groupName,
           vmName,
@@ -190,7 +188,7 @@ Now that the Azure Active Directory application is created and the authenticatio
 
 4. Click **Start** in Visual Studio, and then sign in to Azure AD using the same username and password that you use with your subscription.
 
-	When you run this method you should see something like this:
+	When you run this method, you should see something like this example:
     
         Getting information about the virtual machine...
         hardwareProfile
@@ -253,67 +251,33 @@ Now that the Azure Active Directory application is created and the authenticatio
               level: Info
               displayStatus: VM running
 
-## Start a virtual machine
-
-1. Comment out any code that you previously added to the Main method, except the code to get the credentials.
-
-2. Add this method to the Program class:
-
-        public static void StartVirtualMachine(
-          TokenCredentials credential, 
-          string groupName, 
-          string vmName, 
-          string subscriptionId)
-        {
-          Console.WriteLine("Starting the virtual machine...");
-          var computeManagementClient = new ComputeManagementClient(credential);
-          computeManagementClient.SubscriptionId = subscriptionId;
-          computeManagementClient.VirtualMachines.Start(groupName, vmName);
-        }
-
-3. Add this code to the Main method to call the method that you just added:
-
-        StartVirtualMachine(
-          credential,
-          groupName,
-          vmName,
-          subscriptionId);
-        Console.WriteLine("\nPress enter to continue...");
-        Console.ReadLine();
-
-4. Save the Program.cs file.
-
-5. Click **Start** in Visual Studio, and then sign in to Azure AD using the same username and password that you use with your subscription.
-
-	You should see the status of the virtual machine change to Running.
-
 ## Stop a virtual machine
 
-You can stop a virtual machine in two ways. You can stop a virtual machine and keep all of its settings, but continue to be charged for it, or you can stop a virtual machine and deallocate it, which also deallocates all resources associated with it and ends billing for the virtual machine.
+You can stop a virtual machine in two ways. You can stop a virtual machine and keep all its settings, but continue to be charged for it, or you can stop a virtual machine and deallocate it. When a virtual machine is deallocated, all resources associated with it are also deallocated and billing ends for it.
 
 1. Comment out any code that you previously added to the Main method, except the code to get the credentials.
 
 2. Add this method to the Program class:
 
-        public static void StopVirtualMachine(
+        public static async void StopVirtualMachineAsync(
           TokenCredentials credential, 
           string groupName, 
           string vmName, 
           string subscriptionId)
         {
           Console.WriteLine("Stopping the virtual machine...");
-          var computeManagementClient = new ComputeManagementClient(credential);
-          computeManagementClient.SubscriptionId = subscriptionId;
-          computeManagementClient.VirtualMachines.PowerOff(groupName, vmName);
+          var computeManagementClient = new ComputeManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          await computeManagementClient.VirtualMachines.PowerOffAsync(groupName, vmName);
         }
 
-	If you want to deallocate the virtual machine, change the PowerOff call to this:
+	If you want to deallocate the virtual machine, change the PowerOff call to this code:
 
         computeManagementClient.VirtualMachines.Deallocate(groupName, vmName);
 
-3. Add this code to the Main method to call the method that you just added:
+3. To call the method that you just added, add this code to the Main method:
 
-        StopVirtualMachine(
+        StopVirtualMachineAsync(
           credential,
           groupName,
           vmName,
@@ -327,27 +291,147 @@ You can stop a virtual machine in two ways. You can stop a virtual machine and k
 
     You should see the status of the virtual machine change to Stopped. If you ran the method calling Deallocate, the status is Stopped (deallocated).
 
+## Start a virtual machine
+
+1. Comment out any code that you previously added to the Main method, except the code to get the credentials.
+
+2. Add this method to the Program class:
+
+        public static async void StartVirtualMachineAsync(
+          TokenCredentials credential, 
+          string groupName, 
+          string vmName, 
+          string subscriptionId)
+        {
+          Console.WriteLine("Starting the virtual machine...");
+          var computeManagementClient = new ComputeManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          await computeManagementClient.VirtualMachines.StartAsync(groupName, vmName);
+        }
+
+3. To call the method that you just added, add this code to the Main method:
+
+        StartVirtualMachineAsync(
+          credential,
+          groupName,
+          vmName,
+          subscriptionId);
+        Console.WriteLine("\nPress enter to continue...");
+        Console.ReadLine();
+
+4. Save the Program.cs file.
+
+5. Click **Start** in Visual Studio, and then sign in to Azure AD using the same username and password that you use with your subscription.
+
+	You should see the status of the virtual machine change to Running.
+
 ## Restart a running virtual machine
 
 1. Comment out any code that you previously added to the Main method, except the code to get the credentials.
 
 2. Add this method to the Program class:
 
-        public static void RestartVirtualMachine(
+        public static async void RestartVirtualMachineAsync(
           TokenCredentials credential,
           string groupName,
           string vmName,
           string subscriptionId)
         {
           Console.WriteLine("Restarting the virtual machine...");
-          var computeManagementClient = new ComputeManagementClient(credential);
-          computeManagementClient.SubscriptionId = subscriptionId;
-          computeManagementClient.VirtualMachines.Restart(groupName, vmName);
+          var computeManagementClient = new ComputeManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          await computeManagementClient.VirtualMachines.RestartAsync(groupName, vmName);
         }
 
-3. Add this code to the Main method to call the method that you just added:
+3. To call the method that you just added, add this code to the Main method:
 
-        RestartVirtualMachine(
+        RestartVirtualMachineAsync(
+          credential,
+          groupName,
+          vmName,
+          subscriptionId);
+        Console.WriteLine("\nPress enter to continue...");
+        Console.ReadLine();
+
+4. Save the Program.cs file.
+
+5. Click **Start** in Visual Studio, and then sign in to Azure AD using the same username and password that you use with your subscription.
+
+## Resize a virtual machine
+
+This example shows you how to change the size of a running virtual machine.
+
+1. Comment out any code that you previously added to the Main method, except the code to get the credentials.
+
+2. Add this method to the Program class:
+
+        public static async void UpdateVirtualMachineAsync(
+          TokenCredentials credential, 
+          string groupName, 
+          string vmName, 
+          string subscriptionId)
+        {
+          Console.WriteLine("Updating the virtual machine...");
+          var computeManagementClient = new ComputeManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          var vmResult = await computeManagementClient.VirtualMachines.GetAsync(groupName, vmName);
+          vmResult.HardwareProfile.VmSize = "Standard_A1";
+          await computeManagementClient.VirtualMachines.CreateOrUpdateAsync(groupName, vmName, vmResult);
+        }
+
+3. To call the method that you just added, add this code to the Main method:
+
+        UpdateVirtualMachineAsync(
+          credential,
+          groupName,
+          vmName,
+          subscriptionId);
+        Console.WriteLine("\nPress enter to continue...");
+        Console.ReadLine();
+
+4. Save the Program.cs file.
+
+5. Click **Start** in Visual Studio, and then sign in to Azure AD using the same username and password that you use with your subscription.
+
+    You should see the size of the virtual machine change to Standard_A1.
+
+## Add a data disk to a virtual machine
+
+This example shows you how to add a data disk to a running virtual machine.
+
+1. Comment out any code that you previously added to the Main method, except the code to get the credentials.
+
+2. Add this method to the Program class:
+
+        public static async void AddDataDiskAsync(
+          TokenCredentials credential, 
+          string groupName, 
+          string vmName, 
+          string subscriptionId)
+        {
+          Console.WriteLine("Adding the disk to the virtual machine...");
+          var computeManagementClient = new ComputeManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          var vmResult = await computeManagementClient.VirtualMachines.GetAsync(groupName, vmName);
+          vmResult.StorageProfile.DataDisks.Add(
+            new DataDisk
+              {
+                Lun = 0,
+                Name = "mydatadisk1",
+                Vhd = new VirtualHardDisk
+                  {
+                    Uri = "https://mystorage1.blob.core.windows.net/vhds/mydatadisk1.vhd"
+                  },
+                CreateOption = DiskCreateOptionTypes.Empty,
+                DiskSizeGB = 2,
+                Caching = CachingTypes.ReadWrite
+              });
+          await computeManagementClient.VirtualMachines.CreateOrUpdateAsync(groupName, vmName, vmResult);
+        }
+
+3. To call the method that you just added, add this code to the Main method:
+
+        AddDataDiskAsync(
           credential,
           groupName,
           vmName,
@@ -365,21 +449,21 @@ You can stop a virtual machine in two ways. You can stop a virtual machine and k
 
 2. Add this method to the Program class:
 
-        public static void DeleteVirtualMachine(
+        public static async void DeleteVirtualMachineAsync(
           TokenCredentials credential, 
           string groupName, 
           string vmName, 
           string subscriptionId)
         {
           Console.WriteLine("Deleting the virtual machine...");
-          var computeManagementClient = new ComputeManagementClient(credential);
-          computeManagementClient.SubscriptionId = subscriptionId;
-          computeManagementClient.VirtualMachines.Delete(groupName, vmName);
+          var computeManagementClient = new ComputeManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          await computeManagementClient.VirtualMachines.DeleteAsync(groupName, vmName);
         }
 
-3. Add this code to the Main method to call the method that you just added:
+3. To call the method that you just added, add this code to the Main method:
 
-        DeleteVirtualMachine(
+        DeleteVirtualMachineAsync(
           credential,
           groupName,
           vmName,
@@ -391,44 +475,6 @@ You can stop a virtual machine in two ways. You can stop a virtual machine and k
 
 5. Click **Start** in Visual Studio, and then sign in to Azure AD using the same username and password that you use with your subscription.
 
-## Update a virtual machine
-
-This example shows you how to change the size of a running virtual machine.
-
-1. Comment out any code that you previously added to the Main method, except the code to get the credentials.
-
-2. Add this method to the Program class:
-
-        public static void UpdateVirtualMachine(
-          TokenCredentials credential, 
-          string groupName, 
-          string vmName, 
-          string subscriptionId)
-        {
-          Console.WriteLine("Updating the virtual machine...");
-          var computeManagementClient = new ComputeManagementClient(credential);
-          computeManagementClient.SubscriptionId = subscriptionId;
-          var vmResult = computeManagementClient.VirtualMachines.Get(groupName, vmName);
-          vmResult.HardwareProfile.VmSize = "Standard_A1";
-          computeManagementClient.VirtualMachines.CreateOrUpdate(groupName, vmName, vmResult);
-        }
-
-3. Add this code to the Main method to call the method that you just added:
-
-        UpdateVirtualMachine(
-          credential,
-          groupName,
-          vmName,
-          subscriptionId);
-        Console.WriteLine("\nPress enter to continue...");
-        Console.ReadLine();
-
-4. Save the Program.cs file.
-
-5. Click **Start** in Visual Studio, and then sign in to Azure AD using the same username and password that you use with your subscription.
-
-    You should see the size of the virtual machine change to Standard_A1
-    
 ## Next Steps
 
-If there were issues with a deployment, you might take a look at [Troubleshooting resource group deployments with Azure Portal](../resource-manager-troubleshoot-deployments-portal.md)
+If there were issues with a deployment, you might look at [Troubleshooting resource group deployments with Azure portal](../resource-manager-troubleshoot-deployments-portal.md)

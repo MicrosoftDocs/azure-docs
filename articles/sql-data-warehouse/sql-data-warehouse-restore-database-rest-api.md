@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Restore a database in Azure SQL Data Warehouse (REST API) | Microsoft Azure"
-   description="REST API tasks for restoring a live, deleted, or inaccessible database in Azure SQL Data Warehouse."
+   pageTitle="Restore an Azure SQL Data Warehouse (REST API) | Microsoft Azure"
+   description="REST API tasks for restoring an Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="elfisher"
+   authors="Lakshmi1812"
    manager="barbkess"
    editor=""/>
 
@@ -13,30 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/04/2016"
-   ms.author="elfish;barbkess;sonyama"/>
+   ms.date="09/21/2016"
+   ms.author="lakshmir;barbkess;sonyama"/>
 
-# Restore a database in Azure SQL Data Warehouse (REST API)
+# Restore an Azure SQL Data Warehouse (REST API)
 
 > [AZURE.SELECTOR]
-- [Overview](sql-data-warehouse-restore-database-overview.md)
-- [Portal](sql-data-warehouse-restore-database-portal.md)
-- [PowerShell](sql-data-warehouse-restore-database-powershell.md)
-- [REST](sql-data-warehouse-manage-restore-database-rest-api.md)
+- [Overview][]
+- [Portal][]
+- [PowerShell][]
+- [REST][]
 
-REST API tasks for restoring a live, deleted, or inaccessible database in Azure SQL Data Warehouse. 
-
-Tasks in this topic:
-
-- Restore a live database
-- Restore a deleted database
-- Restore an inaccessible database from a different Azure geographical region
+In this article you will learn how to restore an Azure SQL Data Warehouse using the REST API.
 
 ## Before you begin
 
-**Verify your SQL Database DTU capacity.** Since SQL Data Warehouse restores to a new database on your logical SQL server, it is important to make sure the SQL server you are restoring to has enough DTU capacity for the new database. See this blog post for more information on [how to view and increase DTU quota][].
+**Verify your DTU capacity.** Each SQL Data Warehouse is hosted by a SQL server (e.g. myserver.database.windows.net) which has a default DTU quota.  Before you can restore a SQL Data Warehouse, verify that the your SQL server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change][].
 
-## Restore a live database
+## Restore an active or paused database
 
 To restore a database:
 
@@ -44,37 +38,18 @@ To restore a database:
 2. Begin your restore by using the [Create database restore request][] operation.
 3. Track the status of your restore by using the [Database operation status][] operation.
 
->[AZURE.NOTE] After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
+>[AZURE.NOTE] After the restore has completed, you can configure your recovered database by following [Configure your database after recovery][].
 
 ## Restore a deleted database
 
-To restore a deleted database
+To restore a deleted database:
 
 1.	List all of your restorable deleted databases by using the [List restorable dropped databases][] operation.
 2.	Get the details for the deleted database you want to restore by using the [Get restorable dropped database][] operation.
 3.	Begin your restore by using the [Create database restore request][] operation.
 4.	Track the status of your restore by using the [Database operation status][] operation.
 
->[AZURE.NOTE] After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
-
-## Restore from an Azure geographical region
-
-To perform a geo-restore:
-
-1. Get your list of recoverable databases using the [List Recoverable Databases][] operation.
-2. Get the database you want to recover using the [Get Recoverable Database][] operation.
-3. Create the recovery request using the [Create Database Recovery Request][] operation.
-4. Track the status of the recovery using the [Database Operation Status][] operation.
-
-### Configure your database after performing a geo-restore
-This is a checklist to help get your recovered database production ready.
-
-1. **Update Connection Strings**: Verify connection strings of your client tools are pointing to the newly recovered database.
-2. **Modify Firewall Rules**: Verify the firewall rules on the target server and make sure connections from your client computers or Azure to the server and the newly recovered database are enabled.
-3. **Verify Server Logins and Database Users**: Verify if all the logins used by your application exist on the server which is hosting your recovered database. Re-create the missing logins and grant them appropriate permissions on the recovered database. 
-4. **Enable Auditing**: If auditing is required to access your database, you need to enable Auditing after the database recovery.
-
-The recovered database will be TDE-enabled if the source database is TDE-enabled.
+>[AZURE.NOTE] To configure your database after the restore has completed, see [Configure your database after recovery][]. 
 
 
 ## Next steps
@@ -83,9 +58,14 @@ To learn about the business continuity features of Azure SQL Database editions, 
 <!--Image references-->
 
 <!--Article references-->
-[Azure SQL Database business continuity overview]: sql-database-business-continuity.md
-[Finalize a recovered database]: sql-database-recovered-finalize.md
-[How to install and configure Azure PowerShell]: powershell-install-configure.md
+[Azure SQL Database business continuity overview]: ./sql-database-business-continuity.md
+[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
+[Configure your database after recovery]: ./sql-database-disaster-recovery.md#configure-your-database-after-recovery
+[How to install and configure Azure PowerShell]: ./powershell-install-configure.md
+[Overview]: ./sql-data-warehouse-restore-database-overview.md
+[Portal]: ./sql-data-warehouse-restore-database-portal.md
+[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
+[REST]: ./sql-data-warehouse-restore-database-rest-api.md
 
 <!--MSDN references-->
 [Create database restore request]: https://msdn.microsoft.com/library/azure/dn509571.aspx
@@ -93,9 +73,6 @@ To learn about the business continuity features of Azure SQL Database editions, 
 [Get restorable dropped database]: https://msdn.microsoft.com/library/azure/dn509574.aspx
 [List restorable dropped databases]: https://msdn.microsoft.com/library/azure/dn509562.aspx
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
-
-<!--Blog references-->
-[how to view and increase DTU quota]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
 
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.com/

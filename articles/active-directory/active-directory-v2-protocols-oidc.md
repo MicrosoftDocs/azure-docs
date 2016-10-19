@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
-	manager="msmbaldwin"
+	manager="mbaldwin"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/30/2016"
 	ms.author="dastrock"/>
 
 # v2.0 Protocols - OpenID Connect
@@ -22,13 +22,48 @@ OpenID Connect is an authentication protocol built on top of OAuth 2.0 that can 
 
 > [AZURE.NOTE]
 	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
-    
+
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) extends the OAuth 2.0*authorization* protocol for use as an *authentication* protocol, which allows you to perform single sign-on using OAuth.  It introduces the concept of an `id_token`, which is a security token that allows the client to verify the identity of the user and obtain basic profile information about the user.  Because it extends OAuth 2.0, it also enables apps to securely acquire **access_tokens** which can be used to access resources that are secured by an [authorization server](active-directory-v2-protocols.md#the-basics).  OpenID Connect is our recommendation if you are building a [web application](active-directory-v2-flows.md#web-apps) that is hosted on a server and accessed via a browser.
 
 ## Protocol Diagram - Sign In
 The most basic sign-in flow contains the following steps - each of them is described in detail below.
 
 ![OpenId Connect Swimlanes](../media/active-directory-v2-flows/convergence_scenarios_webapp.png)
+
+## Fetch the OpenID Connect metadata document
+OpenID Connect describes a metadata document that contains most of the information required for an app to perform sign-in.  This includes information such as the URLs to use, the location of the service's public signing keys, and so on.  For the v2.0 endpoint, the OpenID Connect metadata document you should use is:
+
+```
+https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
+```
+
+Where the `{tenant}` can take one of four different values:
+
+| Value | Description |
+| ----------------------- | ------------------------------- |
+| `common` | Allows users with both personal Microsoft accounts and work/school accounts from Azure Active Directory to sign into the application. |
+| `organizations` | Allows only users with work/school accounts from Azure Active Directory to sign into the application. |
+| `consumers` | Allows only users with personal Microsoft accounts (MSA) to sign into the application. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` | Allows only users with work/school accounts from a particular Azure Active Directory tenant to sign into the application.  Either the friendly domain name of the Azure AD tenant or the tenant's guid identifier can be used.  |
+
+The metadata is a simple json document, a snippet of which is provided below.  Its contents are fully described in the [OpenID Connect specification](https://openid.net).
+
+```
+{
+  "authorization_endpoint": "https:\/\/login.microsoftonline.com\/common\/oauth2\/v2.0\/authorize",
+  "token_endpoint": "https:\/\/login.microsoftonline.com\/common\/oauth2\/v2.0\/token",
+  "token_endpoint_auth_methods_supported": [
+    "client_secret_post",
+    "private_key_jwt"
+  ],
+  "jwks_uri": "https:\/\/login.microsoftonline.com\/common\/discovery\/v2.0\/keys",
+  
+  ...
+  
+}
+```
+
+Typically, you would use this metadata document to configure an OpenID Connect library or SDK; the library would use the metadata to do its work.  However, if you're not using a pre-build OpenID Connect library, you can follow the steps in the remainder of this article to perform sign-in in a web app using the v2.0 endpoint. 
 
 ## Send the sign-in request
 When your web app needs to authenticate the user, it can direct the user to the `/authorize` endpoint.  This request is similar to the first leg of the [OAuth 2.0 Authorization Code Flow](active-directory-v2-protocols-oauth-code.md), with a few important distinctions:
@@ -56,7 +91,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter | | Description |
 | ----------------------- | ------------------------------- | --------------- |
 | tenant | required | The `{tenant}` value in the path of the request can be used to control who can sign into the application.  The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers.  For more detail, see [protocol basics](active-directory-v2-protocols.md#endpoints). |
-| client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) assigned your app. |
+| client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) assigned your app. |
 | response_type | required | Must include `id_token` for OpenID Connect sign-in.  It may also include other response_types, such as `code`. |
 | redirect_uri | recommended | The redirect_uri of your app, where authentication responses can be sent and received by your app.  It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded. |
 | scope | required | A space-separated list of scopes.  For OpenID Connect, it must include the scope `openid`, which translates to the "Sign you in" permission in the consent UI.  You may also include other scopes in this request for requesting consent. |
@@ -101,6 +136,20 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 | ----------------------- | ------------------------------- |
 | error | An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
 | error_description | A specific error message that can help a developer identify the root cause of an authentication error.  |
+
+#### Error codes for authorization endpoint errors
+
+The following table describes the various error codes that can be returned in the `error` parameter of the error response.
+
+| Error Code | Description | Client Action |
+|------------|-------------|---------------|
+| invalid_request | Protocol error, such as a missing required parameter. | Fix and resubmit the request. This is a development error is typically caught during initial testing.|
+| unauthorized_client | The client application is not permitted to request an authorization code. | This usually occurs when the client application is not registered in Azure AD or is not added to the user's Azure AD tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
+| access_denied | Resource owner denied consent | The client application can notify the user that it cannot proceed unless the user consents. |
+| unsupported_response_type | The authorization server does not support the response type in the request. | Fix and resubmit the request. This is a development error is typically caught during initial testing.|
+|server_error | The server encountered an unexpected error. | Retry the request. These errors can result from temporary conditions. The client application might explain to the user that its response is delayed due a temporary error. |
+| temporarily_unavailable | The server is temporarily too busy to handle the request. | Retry the request. The client application might explain to the user that its response is delayed due a temporary condition. |
+| invalid_resource |The target resource is invalid because it does not exist, Azure AD cannot find it, or it is not correctly configured.| This indicates the resource, if it exists, has not been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
 
 ## Validate the id_token
 Just receiving an id_token is not sufficient to authenticate the user; you must validate the id_token's signature and verify the claims in the token per your app's requirements.  The v2.0 endpoint uses [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid.
@@ -156,7 +205,7 @@ To acquire access tokens, you'll need to slightly modify the sign in request fro
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e		// Your registered Application Id
-&response_type=id_token+code
+&response_type=id_token%20code
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F 	  // Your registered Redirect Uri, url encoded
 &response_mode=form_post						      // 'query', 'form_post', or 'fragment'
 &scope=openid%20                                      // Include both 'openid' and scopes your app needs  
@@ -167,9 +216,9 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 ```
 
 > [AZURE.TIP] Click the link below to execute this request! After signing in, your browser should be redirected to `https://localhost/myapp/` with an `id_token` and a `code` in the address bar.  Note that this request uses `response_mode=query` (for tutorial purposes only).  It is recommended to use `response_mode=form_post`.
-    <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token+code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
+    <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-By including permission scopes in the request and using `response_type=code+id_token`, the v2.0 endpoint will ensure that the user has consented to the permissions indicated in the `scope` query parameter, and return your app an authorization code to exchange for an access token.
+By including permission scopes in the request and using `response_type=id_token code`, the v2.0 endpoint will ensure that the user has consented to the permissions indicated in the `scope` query parameter, and return your app an authorization code to exchange for an access token.
 
 #### Successful response
 A successful response using `response_mode=form_post` looks like:
@@ -203,5 +252,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 | ----------------------- | ------------------------------- |
 | error | An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
 | error_description | A specific error message that can help a developer identify the root cause of an authentication error.  |
+
+For a description of the possible error codes and their recommended client action, please see [Error codes for authorization endpoint errors](#error-codes-for-authorization-endpoint-errors).
 
 Once you've gotten an authorization `code` and an `id_token`, you can sign the user in and get access tokens on their behalf.  To sign the user in, you must validate the `id_token` exactly as described [above](#validating-the-id-token).  To get access tokens, you can follow the steps described in our [OAuth protocol documentation](active-directory-v2-protocols-oauth-code.md#request-an-access-token).

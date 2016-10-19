@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/11/2016"
+	ms.date="10/10/2016"
 	ms.author="banders"/>
 
 
@@ -53,8 +53,9 @@ Here's a look at the process:
 
 1. Go to the [Operations Management Suite](http://microsoft.com/oms) website and click **Try for free**. Sign in with your Microsoft account such as Outlook.com, or with an organizational account provided by your company or educational institution to use with Office 365 or other Microsoft services.
 2. Provide a unique workspace name. A workspace is a logical container where your management data is stored. It provides you a way to partition data between different teams in your organization, as the data is exclusive to its workspace. Specify an email address and the region where you want to have your data stored.  
-    ![create workspace and link subscription](./media/log-analytics-get-started/oms-onboard-create-workspace-link.png)
-3. Next, you can create a new Azure subscription or link to an existing Azure subscription. If you would like to proceed using the Free Trial, click **Not Now**.
+    ![create workspace and link subscription](./media/log-analytics-get-started/oms-onboard-create-workspace-link01.png)
+3. Next, you can create a new Azure subscription or link to an existing Azure subscription. If you would like to proceed using the Free Trial, click **Not Now**.  
+  ![create workspace and link subscription](./media/log-analytics-get-started/oms-onboard-create-workspace-link02.png)
 
 You're ready to get started with the Operations Management Suite portal.
 
@@ -84,30 +85,40 @@ To choose solutions and connect the servers that you want to manage, click the *
 
 ![get started](./media/log-analytics-get-started/oms-onboard-get-started.png)  
 
-- **Add Solutions** - Select the solutions you would like to use and then click **Add selected Solutions**.  
-    ![solutions](./media/log-analytics-get-started/oms-onboard-solutions.png)
-- **Connect a data source** - Choose how you would like to connect to your server environment to gather data:
+1. **Add Solutions** - View your installed solutions.  
+    ![solutions](./media/log-analytics-get-started/oms-onboard-solutions.png)  
+    Click **Visit the Gallery** to add more solutions.  
+    ![solutions](./media/log-analytics-get-started/oms-onboard-solutions02.png)  
+    Select a solution and then click **Add**.
+2. **Connect a source** - Choose how you would like to connect to your server environment to gather data:
     - Connect any Windows Server or client directly by installing an agent.
-    - Use System Center Operations Manager to attach your management groups or your entire Operations Manager deployment.
+    - Connect Linux servers with the OMS Agent for Linux.
     - Use an Azure storage account configured with the Windows or Linux Azure diagnostic VM extension.
-        ![data sources](./media/log-analytics-get-started/oms-onboard-data-sources.png)    
-- **Add logs** Configure at least one data source to populate your data and then select **Save**. For event logs, you can specify the type of messages including error, warning, and information to monitor.    
+    - Use System Center Operations Manager to attach your management groups or your entire Operations Manager deployment.
+    - Enable Windows Telemetry to use Upgrade Analytics.
+        ![connected sources](./media/log-analytics-get-started/oms-onboard-data-sources.png)    
 
-    ![logs](./media/log-analytics-get-started/oms-onboard-logs.png)    
+3. **Gather data** Configure at least one data source to populate data to your workspace. When done, click **Save**.    
+
+    ![gather data](./media/log-analytics-get-started/oms-onboard-logs.png)    
 
 
 ## Optionally, connect servers directly to the Operations Management Suite by installing an agent
-1. Click the **Settings** tile, click the **Connected Sources** tab, and then click **Download Windows Agent** for the architecture of the computer where you want to install. You can only install the agent on Windows Server 2008 SP 1 or later or on Windows 7 SP1 or later.
+
+The following example shows you how to install a Windows agent.
+
+1. Click the **Settings** tile, click the **Connected Sources** tab, click a tab for the source type you want to add, and either download an agent or learn about how to enable an agent. For example, click **Download Windows Agent (64-bit)**. For Windows agents, you can only install the agent on Windows Server 2008 SP 1 or later or on Windows 7 SP1 or later.
 2. Install the agent on one or more servers. You can install agents one-by-one, or using a more automated method with a [custom script](log-analytics-windows-agents.md), or you can use an existing software distribution solution that you might have.
-3. After you agree to the license agreement and you choose your installation folder, select **Connect the agent to Microsoft Azure Operational Insights**. (OMS was previously called Operational Insights).  
+3. After you agree to the license agreement and you choose your installation folder, select **Connect the agent to Azure Log Analytics (OMS)**.   
     ![agent setup](./media/log-analytics-get-started/oms-onboard-agent.png)
 
 4. On the next page, you are asked for your Workspace ID and Workspace Key. Your Workspace ID and key are displayed on the screen where you downloaded the agent file.  
-    ![agent keys](./media/log-analytics-get-started/oms-onboard-mma-keys.png)
+    ![agent keys](./media/log-analytics-get-started/oms-onboard-mma-keys.png)  
+
     ![attach servers](./media/log-analytics-get-started/oms-onboard-key.png)
 5. During installation, you can click **Advanced** to optionally set up your proxy server and provide authentication information. Click the **Next** button to return to the workspace information screen.
 6. Click **Next** to validate your Workspace ID and Key. If any errors are found, you can click **Back** to make corrections. When your Workspace ID and Key are validated, click **Install** to complete the agent installation.
-7. Log back in to the Operations Management Suite portal, and click the **Settings** tile on the Overview page. A green check mark icon will appear when the agents communicate with the Operations Management Suite service. Initially, this takes about 5-10 minutes.
+7. In Control Panel, click Microsoft Monitoring Agent > Azure Log Analytics (OMS) tab. A green check mark icon will appear when the agents communicate with the Operations Management Suite service. Initially, this takes about 5-10 minutes.
 
 >[AZURE.NOTE] The capacity management and configuration assessment solutions are not currently supported by servers connected directly to the Operations Management Suite.
 

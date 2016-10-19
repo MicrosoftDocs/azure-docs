@@ -28,7 +28,7 @@ some of them.
 The configuration file is named `ApplicationInsights.config` or `ApplicationInsights.xml`, depending on the type of your
 application. It is automatically added to your project when you [install most versions of the SDK][start]. It is also added to a web app 
 by [Status Monitor on an IIS server][redfield], or when you select the Appplication Insights 
-[extension for an Azure website or VM][azure].
+[extension for an Azure website or VM](app-insights-azure-web-apps.md).
 
 There isn't an equivalent file to control the [SDK in a web page][client].
 
@@ -44,7 +44,7 @@ There's a node in the configuration file for each module. To disable a module, d
 
 ### Dependency Tracking
 
-[Dependency tracking](app-insights-dependencies.md) collects telemetry about calls your app makes to databases and external services and databases. To allow this module to work in an IIS server, you need to [install Status Monitor][redfield]. To use it in Azure web apps or VMs, [select the Application Insights extension][azure].
+[Dependency tracking](app-insights-dependencies.md) collects telemetry about calls your app makes to databases and external services and databases. To allow this module to work in an IIS server, you need to [install Status Monitor][redfield]. To use it in Azure web apps or VMs, [select the Application Insights extension](app-insights-azure-web-apps.md).
 
 You can also write your own dependency tracking code using the [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency).
 
@@ -54,7 +54,7 @@ You can also write your own dependency tracking code using the [TrackDependency 
 
 ### Performance collector
 
-[Collects system performance counters](app-insights-web-monitor-performance.md#system-performance-counters) such as CPU, memory and network load from IIS installations. You can specify which counters to collect, including performance counters you have set up yourself.
+[Collects system performance counters](app-insights-performance-counters.md) such as CPU, memory and network load from IIS installations. You can specify which counters to collect, including performance counters you have set up yourself.
 
 * `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule`
 * [Microsoft.ApplicationInsights.PerfCounterCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet package.
@@ -290,7 +290,6 @@ To get a new key, [create a new resource in the Application Insights portal][new
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
-[azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md

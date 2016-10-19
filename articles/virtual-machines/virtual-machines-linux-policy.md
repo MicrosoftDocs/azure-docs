@@ -3,8 +3,8 @@
 	description="How to apply a policy to an Azure Resource Manager Linux Virtual Machine"
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="singhkay"
-	manager="drewm"
+	authors="singhkays"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="08/03/2016"
 	ms.author="guybo"/>
 
 # Vertical autoscale with Virtual Machine Scale sets
@@ -37,21 +37,14 @@ You can set up vertical scaling to be triggered based on metric based alerts fro
 3. Add a webhook to your runbook.
 4. Add an alert to your VM Scale Set using a webhook notification.
 
-> [AZURE.NOTE] Vertical autoscaling can only take place within certain ranges of VM sizes. You can choose to scale between the following pairs of sizes:
+> [AZURE.NOTE] Vertical autoscaling can only take place within certain ranges of VM sizes. Compare the specifications of each size before deciding to scale from one to another (higher number does not always indicate bigger VM size). You can choose to scale between the following pairs of sizes:
 
 >| VM sizes scaling pair |   |
 |---|---|
-|  Basic_A0 |  Basic_A4 |
-|  Standard_A0 | Standard_A4 |
-|  Standard_A5 | Standard_A7  |
-|  Standard_A8 | Standard_A9  |
-|  Standard_A10 |  Standard_A11 |
-|  Standard_D1 |  Standard_D4 |
-|  Standard_D11 | Standard_D14  |
-|  Standard_DS1 |  Standard_DS4 |
-|  Standard_DS11 | Standard_DS14  |
-|  Standard_D1v2 |  Standard_D5v2 |
-|  Standard_D11v2 |  Standard_D14v2 |
+|  Standard_A0 | Standard_A11 |
+|  Standard_D1 |  Standard_D14 |
+|  Standard_DS1 |  Standard_DS14 |
+|  Standard_D1v2 |  Standard_D15v2 |
 |  Standard_G1 |  Standard_G5 |
 |  Standard_GS1 |  Standard_GS5 |
 
@@ -86,7 +79,7 @@ Once you've imported the runbooks you'll need to add a webhook to the runbook so
 ## Add an alert to your VM Scale Set
 
 Below is a PowerShell script which shows how to add an alert to a VM Scale Set. Refer to the following article to get the name of the metric to fire the alert on:
-[Azure Insights autoscaling common metrics](../azure-portal/insights-autoscale-common-metrics.md).
+[Azure Insights autoscaling common metrics](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md).
 
 ```
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail user@contoso.com
@@ -118,8 +111,8 @@ Add-AzureRmMetricAlertRule  -Name  $alertName `
 
 For more information on how to create alerts refer to the following articles:
 
-* [Azure Insights PowerShell quick start samples](../azure-portal/insights-powershell-samples.md)
-* [Azure Insights Cross-platform CLI quick start samples](../azure-portal/insights-cli-samples.md)
+* [Azure Insights PowerShell quick start samples](../monitoring-and-diagnostics/insights-powershell-samples.md)
+* [Azure Insights Cross-platform CLI quick start samples](../monitoring-and-diagnostics/insights-cli-samples.md)
 
 ## Summary
 

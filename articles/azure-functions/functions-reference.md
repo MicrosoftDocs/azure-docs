@@ -24,23 +24,10 @@ Azure Functions share a few core technical concepts and components, regardless o
 
 This article assumes that you've already read the [Azure Functions overview](functions-overview.md) and are familiar with [WebJobs SDK concepts such as triggers, bindings, and the JobHost runtime](../app-service-web/websites-dotnet-webjobs-sdk.md). Azure Functions is based on the WebJobs SDK. 
 
-## function
 
-A *function* is the primary concept in Azure Functions. You write code for a function in a language of your choice and save the code file(s) and a configuration file in the same folder. Configuration is in JSON, and the file is named `function.json`. A variety of languages are supported, and each one has a slightly different experience optimized to work best for that language. Sample folder structure:
+## Function code
 
-```
-mynodefunction
-| - function.json
-| - index.js
-| - node_modules
-| | - ... packages ...
-| - package.json
-mycsharpfunction
-| - function.json
-| - run.csx
-```
-
-## function.json and bindings
+A *function* is the primary concept in Azure Functions. You write code for a function in a language of your choice and save the code file(s) and a configuration file in the same folder. Configuration is in JSON, and the file is named `function.json`. A variety of languages are supported, and each one has a slightly different experience optimized to work best for that language. 
 
 The `function.json` file contains configuration specific to a function, including its bindings. The runtime reads this file to determine which events to trigger off of, which data to include when calling the function, and where to send data passed along from the function itself. 
 
@@ -69,35 +56,21 @@ The `bindings` property is where you configure both triggers and bindings. Each 
 |`direction`|'in', 'out'| Indicates whether the binding is for receiving data into the function or sending data from the function.
 | `name` | string | The name that will be used for the bound data in the function. For C# this will be an argument name; for JavaScript it will be the key in a key/value list.
 
+## Function app
+
+A function app is comprised of one or more individual functions that are managed together by Azure App Service. All of the functions in a function app share the same pricing plan, continuous deployment and runtime version. Functions written in multiple languages can all share the same function app. Think of a function app as a way to organize and collectively manage your functions. 
+
 ## Runtime (script host and web host)
 
-The runtime, otherwise known as the script host, is the underlying WebJobs SDK host which listens for events, gathers and sends data, and ultimately runs your code. 
+The runtime, or script host, is the underlying WebJobs SDK host which listens for events, gathers and sends data, and ultimately runs your code. 
 
 To facilitate HTTP triggers, there is also a web host which is designed to sit in front of the script host in production scenarios. This helps to isolate the script host from the front end traffic managed by the web host.
 
 ## Folder Structure
 
-A script host points to a folder that contains a configuration file and one or more functions.
+[AZURE.INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-```
-parentFolder (for example, wwwroot in a function app)
- | - host.json
- | - mynodefunction
- | | - function.json
- | | - index.js
- | | - node_modules
- | | | - ... packages ...
- | | - package.json
- | - mycsharpfunction
- | | - function.json
- | | - run.csx
-```
-
-The *host.json* file contains some script host specific configuration and sits in the parent folder. For information on settings that are available, see [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) in the WebJobs.Script repository wiki.
-
-Each function has a folder that contains code file(s), *function.json*, and other dependencies.
-
-When setting up a project for deploying functions to a function app in Azure App Service, you can treat this folder structure as your site code. You can use existing tools like continuous integration and deployment, or custom deployment scripts for doing deploy time package installation or code transpilation.
+When setting-up a project for deploying functions to a function app in Azure App Service, you can treat this folder structure as your site code. You can use existing tools like continuous integration and deployment, or custom deployment scripts for doing deploy time package installation or code transpilation.
 
 ## <a id="fileupdate"></a> How to update function app files
 
@@ -105,21 +78,19 @@ The function editor built into the Azure portal lets you update the *function.js
 
 Function apps are built on App Service, so all of the [deployment options available to standard web apps](../app-service-web/web-sites-deploy.md) are available for function apps as well. Here are some methods you can use to upload or update function app files. 
 
-#### To use Visual Studio Online (Monaco)
+#### To use App Service Editor
 
 1. In the Azure Functions portal, click **Function app settings**.
 
 2. In the **Advanced Settings** section, click **Go to App Service Settings**.
 
-3. Click **Tools**.
+3. Click **App Service Editor** in App Menu Nav under **DEVELOPMENT TOOLS**.
 
-4. Under **Develop**, click **Visual Studio Online**.
+4.  click **Go**.
 
-5. Turn it **On** if it is not already enabled, and click **Go**.
+	After App Service Editor loads, you'll see the *host.json* file and function folders under *wwwroot*. 
 
-	After Visual Studio Online loads, you'll see the *host.json* file and function folders under *wwwroot*. 
-
-6. Open files to edit them, or drag and drop from your development machine to upload files.
+5. Open files to edit them, or drag and drop from your development machine to upload files.
 
 #### To use the function app's SCM (Kudu) endpoint
 
@@ -137,9 +108,13 @@ Function apps are built on App Service, so all of the [deployment options availa
 
 2. When you're connected to the function app site, copy an updated *host.json* file to `/site/wwwroot` or copy function files to `/site/wwwroot/<function_name>`.
 
+#### To use continuous deployment
+
+Follow the instructions in the topic [Continuous deployment for Azure Functions](functions-continuous-deployment.md).
+
 ## Parallel execution
 
-When multiple triggering events occur faster than a single-threaded function runtime can process them, the runtime may invoke the function multiple times in parallel.  If a function app is using the [Dynamic Service Plan](functions-scale.md#dynamic-service-plan), the function app could scale out automatically up to 10 concurrent instances.  Each instance of the function app, whether the app runs on the Dynamic Service Plan or a regular [App Service Plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), might process concurrent function invocations in parallel using multiple threads.  The maximum number of concurrent function invocations in each function app instance varies based on the memory size of the function app.
+When multiple triggering events occur faster than a single-threaded function runtime can process them, the runtime may invoke the function multiple times in parallel.  If a function app is using the [Dynamic Service Plan](functions-scale.md#dynamic-service-plan), the function app could scale out automatically.  Each instance of the function app, whether the app runs on the Dynamic Service Plan or a regular [App Service Plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), might process concurrent function invocations in parallel using multiple threads.  The maximum number of concurrent function invocations in each function app instance varies based on the memory size of the function app. 
 
 ## Azure Functions Pulse  
 
@@ -170,6 +145,7 @@ Here is a table of all supported bindings.
 For more information, see the following resources:
 
 * [Azure Functions C# developer reference](functions-reference-csharp.md)
+* [Azure Functions F# developer reference](functions-reference-fsharp.md)
 * [Azure Functions NodeJS developer reference](functions-reference-node.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)
 * [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) on the Azure App Service team blog. A history of how Azure Functions was developed.

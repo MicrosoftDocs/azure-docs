@@ -1,6 +1,6 @@
 <properties
 pageTitle="Indexing JSON blobs with Azure Search blob indexer"
-description="Learn how to index JSON blobs with Azure Search"
+description="Indexing JSON blobs with Azure Search blob indexer"
 services="search"
 documentationCenter=""
 authors="chaosrealm"
@@ -12,10 +12,14 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="04/20/2016"
+ms.date="07/26/2016"
 ms.author="eugenesh" />
 
 # Indexing JSON blobs with Azure Search blob indexer 
+
+This article shows how to configure Azure Search blob indexer to extract structured content from blobs that contain JSON.
+
+## Scenarios
 
 By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage.md) parses JSON blobs as a single chunk of text. Often, you want preserve the structure of your JSON documents. For example, given the JSON document 
 
@@ -27,25 +31,33 @@ By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage
 	    }
 	}
 
-you might want to parse it into "text", "datePublished", and "tags" fields in your search index.
+you might want to parse it into an Azure Search document with "text", "datePublished", and "tags" fields.
 
-This article shows how to configure Azure Search blob indexer for JSON parsing. Happy indexing! 
+Alternatively, when your blobs contain an **array of JSON objects**, you may want each element of the array to become a separate Azure Search document. For example, given a blob with this JSON:  
+
+	[
+		{ "id" : "1", "text" : "example 1" },
+		{ "id" : "2", "text" : "example 2" },
+		{ "id" : "3", "text" : "example 3" }
+	]
+
+you can populate your Azure Search index with 3 separate documents, each with "id" and "text" fields. 
 
 > [AZURE.IMPORTANT] This functionality is currently in preview. It is available only in the REST API using version **2015-02-28-Preview**. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments. 
 
 ## Setting up JSON indexing
 
-To index JSON blobs, use the blob indexer in "JSON parsing" mode. Enable the `useJsonParser` configuration setting in the indexer definition's `parameters` property: 
+To index JSON blobs, set the `parsingMode` configuration parameter to `json` (to index each blob as a single document) or `jsonArray` (if your blobs contain a JSON array): 
 
 	{
 	  "name" : "my-json-indexer",
 	  ... other indexer properties
-	  "parameters" : { "configuration" : { "useJsonParser" : true } }
+	  "parameters" : { "configuration" : { "parsingMode" : "json" | "jsonArray" } }
 	}
 
 If needed, use **field mappings** to pick the properties of the source JSON document used to populate your target search index.  This is described in detail below. 
 
-> [AZURE.IMPORTANT] When you use JSON parsing mode, Azure Search assumes that all blobs in your data source will be JSON. If you need to support a mix of JSON and non-JSON blobs in the same data source, please let us know on [our UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
+> [AZURE.IMPORTANT] When you use `json` or `jsonArray` parsing mode, Azure Search assumes that all blobs in your data source will be JSON. If you need to support a mix of JSON and non-JSON blobs in the same data source, please let us know on [our UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
 
 ## Using field mappings to build search documents 
 
@@ -85,7 +97,28 @@ If your JSON documents only contain simple top-level properties, you may not nee
        "tags" : [ "search", "storage", "howto" ]    
  	}
 
-> [AZURE.NOTE] Azure Search currently only supports parsing one JSON blob into one search document. If your blobs contain JSON arrays that you'd like to parse into multiple search documents, please vote for [this UserVoice suggestion](https://feedback.azure.com/forums/263029-azure-search/suggestions/13431384-parse-blob-containing-a-json-array-into-multiple-d) to help us prioritize this work. 
+## Indexing nested JSON arrays
+
+What if you wish to index an array of JSON objects, but that array is nested somewhere within the document? You can pick which property contains the array using the `documentRoot` configuration property. For example, if your blobs look like this: 
+
+	{ 
+		"level1" : {
+			"level2" : [
+				{ "id" : "1", "text" : "Use the documentRoot property" }, 
+				{ "id" : "2", "text" : "to pluck the array you want to index" },
+				{ "id" : "3", "text" : "even if it's nested inside the document" }  
+			]
+		}
+	} 
+
+use this configuration to index the array contained in the "level2" property: 
+
+	{
+		"name" : "my-json-array-indexer",
+		... other indexer properties
+		"parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
+	}
+
 
 ## Request examples
 

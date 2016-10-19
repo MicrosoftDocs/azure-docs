@@ -13,11 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="09/24/2016"
    ms.author="lodipalm;sonyama;barbkess"/>
 
 
 # Get started with threat detection
+
+> [AZURE.SELECTOR]
+- [Auditing](sql-data-warehouse-auditing-overview.md)
+- [Threat detection](sql-data-warehouse-security-threat-detection.md)
 
 ## Overview
 

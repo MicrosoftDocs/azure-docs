@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/01/2016" 
+	ms.date="07/30/2016" 
 	ms.author="tarcher"/>
 
 # Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler
@@ -35,15 +35,15 @@ This article covers the CPU Sampling method of profiling, which can be done loca
 
 First, there are a few Visual Studio configuration options that might be helpful when profiling. To make sense of the profiling reports, you'll need symbols (.pdb files) for your application and also symbols for system libraries. You'll want to make sure that you reference the available symbol servers. To do this, on the **Tools** menu in Visual Studio, choose **Options**, then choose **Debugging**, then **Symbols**. Make sure that Microsoft Symbol Servers is listed under **Symbol file (.pdb) locations**.  You can also reference http://referencesource.microsoft.com/symbols, which might have additional symbol files.
 
-![][4]
+![Symbol options][4]
 
 If desired, you can simplify the reports that the profiler generates by setting Just My Code. With Just My Code enabled, function call stacks are simplified so that calls entirely internal to libraries and the .NET Framework are hidden from the reports. On the **Tools** menu, choose **Options**. Then expand the **Performance Tools** node, and choose **General**. Select the checkbox for **Enable Just My Code for profiler reports**.
 
-![][17]
+![Just My Code options][17]
 
 You can use these instructions with an existing project or with a new project.  If you create a new project to try the techniques described below, choose a C# **Azure Cloud Service** project, and select a **Web Role** and a **Worker Role**.
 
-![][5]
+![Azure Cloud Service project roles][5]
 
 For example purposes, add some code to your project that takes
 a lot of time and demonstrates some obvious performance problem. For example, add the following code to a worker role project:
@@ -82,11 +82,11 @@ Instead of profiling the application by starting it from the Visual Studio 2010 
 
 To attach the profiler to a process, on the **Analyze** menu, choose **Profiler** and **Attach/Detach**.
 
-![][6]
+![Attach profile option][6]
 
 For a worker role, find the WaWorkerHost.exe process.
 
-![][7]
+![WaWorkerHost process][7]
 
 If your project folder is on a network drive, the profiler will ask you to provide another location to save the profiling reports.
 
@@ -100,17 +100,17 @@ log in the Compute Emulator UI to know what process to connect to.
 
 To view the log, start the Compute Emulator UI.
 
-![][8]
+![Start the Compute Emulator UI][8]
 
 Open the worker role log console window in the Compute Emulator UI by clicking on the console window's title bar. You can see the process ID in the log.
 
-![][9]
+![View process ID][9]
 
 One you've attached, perform the steps in your application's UI (if needed) to reproduce the scenario.
 
 When you want to stop profiling, choose the **Stop Profiling** link.
 
-![][10]
+![Stop Profiling option][10]
 
 ## 3: View performance reports
 
@@ -119,7 +119,7 @@ The performance report for your application is displayed.
 At this point, the profiler stops executing, saves data in a .vsp file, and displays a report
 that shows an analysis of this data.
 
-![][11]
+![Profiler report][11]
 
 
 If you see String.wstrcpy in the Hot Path, click on Just My Code to change the view to show user code only.  If you see String.Concat, try pressing the Show All Code button.
@@ -127,11 +127,11 @@ If you see String.wstrcpy in the Hot Path, click on Just My Code to change the v
 You should see the Concatenate method and String.Concat taking up a large portion
 of the execution time.
 
-![][12]
+![Analysis of report][12]
 
 If you added the string concatenation code in this article, you should see a warning in the Task List for this. You may also see a warning that there is an excessive amount of garbage collection, which is due to the number of strings that are created and disposed.
 
-![][14]
+![Performance warnings][14]
 
 ## 4: Make changes and compare performance
 
@@ -150,11 +150,11 @@ You can also compare the performance before and after a code change.  Stop the r
 
 Do another performance run, and then compare the performance. In the Performance Explorer, if the runs are in the same session, you can just select both reports, open the shortcut menu, and choose **Compare Performance Reports**. If you want to compare with a run in another performance session, open the **Analyze** menu, and choose **Compare Performance Reports**. Specify both files in the dialog box that appears.
 
-![][15]
+![Compare performance reports option][15]
 
 The reports highlight differences between the two runs.
 
-![][16]
+![Comparison report][16]
 
 Congratulations! You've gotten started with the profiler.
 

@@ -3,7 +3,7 @@
 	description="Learn how to use Mobile Apps to authenticate users of your Xamarin Android app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="mattchenderson"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
-	ms.author="mahender"/>
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>
 
 # Add authentication to your Xamarin.Android app
 
@@ -106,4 +106,3 @@ The app is updated to require users to tap the **Sign in** button and authentica
 
 <!-- URLs. -->
 [Create a Xamarin.Android app]: app-service-mobile-xamarin-android-get-started.md
-

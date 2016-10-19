@@ -1,4 +1,4 @@
-* [Scale Azure App Service](../articles/app-service/app-service-scale.md)
+* [Scale Azure App Service](../articles/app-service-web/web-sites-scale.md)
 	* Understanding Redundancy and Reliability
 	* StateFULL vs StateLESS applications
 		* [Configuring your Stateless app](/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)

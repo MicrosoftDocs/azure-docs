@@ -3,7 +3,7 @@
 	description="Follow this tutorial to get started using Azure Event Hubs; sending events in C# and receiving them in an Apache Storm cluster."
 	services="event-hubs"
 	documentationCenter=""
-	authors="fsautomata"
+	authors="jtaubensee"
 	manager="timlt"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="05/13/2016"
-	ms.author="sethm"/>
+	ms.date="09/06/2016"
+	ms.author="jotaub;sethm"/>
 
 # Get started with Event Hubs
 
@@ -30,7 +30,7 @@ In this tutorial, you will learn how to ingest messages into an Event Hub using 
 
 In order to complete this tutorial you will need the following:
 
-+ Microsoft Visual Studio Express 2013 for Windows
++ [Microsoft Visual Studio](http://visualstudio.com)
 
 + A Java development environment configured to run [Maven](http://maven.apache.org/). For this tutorial, we will assume [Eclipse](https://www.eclipse.org/)
 
@@ -59,16 +59,13 @@ Now that you've built a working application that creates an Event Hub and sends 
 
 - A complete [sample application that uses Event Hubs][].
 - The [Scale out Event Processing with Event Hubs][] sample.
-- A [queued messaging solution][] using Service Bus queues.
 
 <!-- Images. -->
 [22]: ./media/event-hubs-csharp-storm-getstarted/receive-storm1.png
 
 <!-- Links -->
 [Azure classic portal]: https://manage.windowsazure.com/
-[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Event Hubs overview]: event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[queued messaging solution]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  

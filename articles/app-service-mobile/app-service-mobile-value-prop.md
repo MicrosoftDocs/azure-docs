@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="adrianhall"
-	manager="dwrede"
+	manager="yochayk"
 	editor=""/>
 
 <tags
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
-	ms.author="krisagh"/>
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>
 
-# <a name="getting-started"> </a>What are Mobile Apps?
+# <a name="getting-started"> </a>What is Mobile Apps?
 
-Azure App Service is a fully managed Platform as a Service (PaaS) offering for professional developers
+Azure App Service is a fully managed [Platform as a Service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) offering for professional developers
 that brings a rich set of capabilities to web, mobile and integration scenarios. *Mobile Apps* in
 *Azure App Service* offer a highly scalable, globally available mobile application development platform
 for Enterprise Developers and System Integrators that brings a rich set of capabilities to mobile developers.
@@ -51,7 +51,7 @@ The following features are important to cloud-enabled mobile development:
   Discover more about our [authentication features].
 
 - **Data Access** - Azure Mobile Apps provides a mobile-friendly OData v3 data source linked to SQL Azure or
-  an on-premise SQL Server.  This service can be based on Entity Framework, allowing you to easily integrate
+  an on-premises SQL Server.  This service can be based on Entity Framework, allowing you to easily integrate
   with other NoSQL and SQL data providers, including [Azure Table Storage], MongoDB, [DocumentDB] and SaaS API
   providers like Office 365 and Salesforce.com.
 - **Offline Sync** - Our Client SDKs make it easy for you to build robust and responsive mobile applications
@@ -88,7 +88,7 @@ The following platform features are generally useful for mobile production sites
 
   Discover more about [deployment options].
 
-- **Virtual Networking** - App Service can connect to on-premise resources using virtual network, ExpressRoute or hybrid
+- **Virtual Networking** - App Service can connect to on-premises resources using virtual network, ExpressRoute or hybrid
   connections.
 
   Discover more about [hybrid connections], [virtual networks], and [ExpressRoute].
@@ -121,7 +121,7 @@ For more information on the Azure App Service platform, see [Azure App Service].
 [DocumentDB]: ../documentdb/documentdb-get-started.md
 [authentication features]: ./app-service-mobile-auth.md
 [data features]: ./app-service-mobile-offline-data-sync.md
-[push notification features]: ../notification-hubs/notification-hubs-overview.md
+[push notification features]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [iOS]: ./app-service-mobile-ios-how-to-use-client-library.md
 [Android]: ./app-service-mobile-android-how-to-use-client-library.md
 [Windows]: ./app-service-mobile-dotnet-how-to-use-client-library.md
@@ -133,6 +133,6 @@ For more information on the Azure App Service platform, see [Azure App Service].
 [deployment options]: ../app-service-web/web-sites-deploy.md
 [hybrid connections]: ../app-service-web/web-sites-hybrid-connection-get-started.md
 [virtual networks]: ../app-service-web/web-sites-integrate-with-vnet.md
-[ExpressRoute]: ../app-service/app-service-app-service-environment-network-configuration-expressroute.md
+[ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
 [App Service Environments]: ../app-service-web/app-service-app-service-environment-intro.md
 [learning map]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/

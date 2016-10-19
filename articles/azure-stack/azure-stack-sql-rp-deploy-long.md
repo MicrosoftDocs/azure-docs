@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="09/26/2016"
 	ms.author="dumagar"/>
 
 # Deploy the SQL Server Resource Provider Adapter on Azure Stack
+
+> [AZURE.NOTE] The following information only applies to Azure Stack TP1 deployments.
 
 Use this article to follow the detailed steps for setting up the SQL Server Resource Provider Adapter on the Azure Stack proof of concept (POC). See [use SQL databases on Azure Stack](azure-stack-sql-rp-deploy-short.md) to understand resource provider capabilities and architecture.
 
@@ -32,7 +34,7 @@ Before you deploy the resource provider, you need to:
 
 You can skip this step if you downloaded the Azure Stack bits after 2/23/2016 because the default base Windows Server 2012 R2 image includes .NET 3.5 framework in this download and later.
 
-If you downloaded before 2/23/2016, you need to create a Windows Server 2012 R2 Datacenter VHD with .NET 3.5 image and set is as the default image in the Platform Image repository. For more information, see [Create an image of Windows Server 2012R2 including .NET 3.5](azure-stack-add-image-pir.md#create-an-image-of-windowsserver2012r2-including-&#046;net-3&#046;5).
+If you downloaded before 2/23/2016, you need to create a Windows Server 2012 R2 Datacenter VHD with .NET 3.5 image and set is as the default image in the Platform Image repository.
 
 ### Turn off IE enhanced security and enable cookies
 
@@ -78,13 +80,15 @@ To deploy a resource provider, you run the PowerShell Integrated Scripting Envir
 
 1. Connect the Azure Stack POC remote desktop to clientVm.AzureStack.Local and sign in as azurestack\\azurestackuser.
 
-2. [Download the SQLRP binaries](http://aka.ms/massqlrprfrsh) file and extract it to D:\\SQLRP.
+2. [Download the SQLRP binaries](http://aka.ms/massqlrprfrsh) file. You may need to remove the Internet download security block by right-clicking on the file, selecting **Properties** and from the **General** tab, tick **Unblock**, **OK**. This should prevent 'Could not load file or assembly' exceptions related to DeploymentTelemetry.dll and the subsequent Trace-Deployment exceptions.
 
-3. Run the D:\\SQLRP\\Bootstrap.cmd file as an administrator (azurestack\\administrator).
+3. Extract the files to D:\\SQLRP.
+
+4. Run the D:\\SQLRP\\Bootstrap.cmd file as an administrator (azurestack\\administrator).
 
 	This opens the Bootstrap.ps1 file in the PowerShell ISE.
 
-4. When the PowerShell ISE window completes loading, click the play button or press F5.
+5. When the PowerShell ISE window completes loading, click the play button or press F5.
 
 	![](./media/azure-stack-sql-rp-deploy-long/1strun.png)
 

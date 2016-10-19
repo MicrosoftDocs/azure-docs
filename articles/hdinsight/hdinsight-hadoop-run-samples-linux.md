@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
     tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="09/27/2016"
 	ms.author="larryfr"/>
 
 
@@ -24,7 +24,7 @@
 
 [AZURE.INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-Linux-based HDInsight clusters provide a set of MapReduce samples that can be used to familiarize yourself with running Hadoop MapReduce jobs. In this document, you will learn about the available samples and walk through running a few of them.
+Linux-based HDInsight clusters provide a set of MapReduce samples that can be used to familiarize yourself with running Hadoop MapReduce jobs. In this document, you learn about the available samples and walk through running a few of them.
 
 ##Prerequisites
 
@@ -47,7 +47,7 @@ Linux-based HDInsight clusters provide a set of MapReduce samples that can be us
 - **aggregatewordcount**: An Aggregate based map/reduce program that counts the words in the input files
 - **aggregatewordhist**: An Aggregate based map/reduce program that computes the histogram of the words in the input files
 - **bbp**: A map/reduce program that uses Bailey-Borwein-Plouffe to compute exact digits of Pi
-- **dbcount**: An example job that count the pageview counts from a database
+- **dbcount**: An example job that counts the pageview logs stored in a a database
 - **distbbp**: A map/reduce program that uses a BBP-type formula to compute exact bits of Pi
 - **grep**: A map/reduce program that counts the matches of a regex in the input
 - **join**: A job that effects a join over sorted, equally partitioned datasets
@@ -83,7 +83,7 @@ Linux-based HDInsight clusters provide a set of MapReduce samples that can be us
 
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
 
-    This will generate the list of sample from the previous section of this document.
+    This generates the list of sample from the previous section of this document.
 
 3. Use the following command to get help on a specific sample. In this case, the **wordcount** sample:
 
@@ -93,15 +93,15 @@ Linux-based HDInsight clusters provide a set of MapReduce samples that can be us
 
         Usage: wordcount <in> [<in>...] <out>
 
-    This indicates that you can provide several input paths for the source documents, and the final path is where the output (count of words in the source documents,) will be located.
+    This indicates that you can provide several input paths for the source documents. The final path is where the output (count of words in the source documents,) is stored.
 
 4. Use the following to count all words in the Notebooks of Leonardo Da Vinci, which are provided as sample data with your cluster:
 
     	yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
 
-    Input for this job is read from **wasb:///example/data/gutenberg/davinci.txt**.
+    Input for this job is read from **wasbs:///example/data/gutenberg/davinci.txt**.
 
-    Output for this example will be stored in **wasb:///example/data/davinciwordcount**.
+    Output for this example is stored in **wasbs:///example/data/davinciwordcount**.
 
     > [AZURE.NOTE] As noted in the help for the wordcount sample, you could also specify multiple input files. For example, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` would count words in both davinci.txt and ulysses.txt.
 
@@ -109,16 +109,16 @@ Linux-based HDInsight clusters provide a set of MapReduce samples that can be us
 
         hdfs dfs -cat /example/data/davinciwordcount/*
 
-    This will concatenate all the output files produced by the job, and display them. For this basic example there is only one file, however if there were more this command would iterate over all of them.
+    This concatenates all the output files produced by the job, and display them. For this basic example there is only one file, however if there were more this command would iterate over all of them.
 
-    You will see output similar to the following from this command:
+    The output is similar to the following:
 
         zum     1
         zur     1
         zwanzig 1
         zweite  1
 
-    Each line represents a word and how many times it occured in the input data.
+    Each line represents a word and how many times it occurred in the input data.
 
 ## Sudoku
 
@@ -132,7 +132,7 @@ The Sudoku example has somewhat unhelpful usage instructions; "Include a puzzle 
 
 - Cells are separated by a space
 
-Now, there's a certain way to construct Sudoku puzzles in that you can't repeat a number in a column or row. Thankfully there's an example on the HDInsight cluster that is properly constructed. It is located at **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta** and contains the following:
+There is a certain way to construct Sudoku puzzles; you can't repeat a number in a column or row. There's an example on the HDInsight cluster that is properly constructed. It is located at **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta** and contains the following:
 
     8 5 ? 3 9 ? ? ? ?
     ? ? 2 ? ? ? ? ? ?
@@ -196,11 +196,11 @@ This sample uses three sets of MapReduce programs:
 
 Use the following steps to generate data, sort, and then validate the output:
 
-1. Generate 10GB of data, which will be stored to the HDInsight cluster's default storage at **wasb:///example/data/10GB-sort-input**:
+1. Generate 10GB of data, which will be stored to the HDInsight cluster's default storage at **wasbs:///example/data/10GB-sort-input**:
 
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
 
-	The `-Dmapred.map.tasks` tells Hadoop how many map tasks to use for this job. The final two parameters instruct the job to create 10GB worth of data and to store it at **wasb:///example/data/10GB-sort-input**.
+	The `-Dmapred.map.tasks` tells Hadoop how many map tasks to use for this job. The final two parameters instruct the job to create 10GB worth of data and to store it at **wasbs:///example/data/10GB-sort-input**.
 
 2. Use the following command to sort the data:
 

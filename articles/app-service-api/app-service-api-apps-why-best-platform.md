@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/03/2016" 
-	ms.author="tdykstra"/>
+	ms.date="08/23/2016" 
+	ms.author="rachelap"/>
 
 # API Apps overview
 
