@@ -66,11 +66,11 @@ For ease of use, this getting started guide provides a sample data file, which w
 
 4. Check the box to place your job on your dashboard and then click **CREATE**.
 
-	![job creation in progress](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.jpg)
+	![job creation in progress](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
 
 5. You should see a 'Deployment started...' displayed in the top right of your browser window. Soon it will change to a completed window as shown below.
 
-	![job creation in progress](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.jpg)
+	![job creation in progress](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
 ### Create an Azure Stream Analytics query
 
@@ -108,7 +108,7 @@ Let’s try to filter the results based on a condition. We would like to show re
 
 ![Filtering a data stream](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-08.png)
 
-Note that the case-sensitive query compares a string value. Click the **Rerun** button to execute the query. The query should return 389 rows out of 1860 events.
+Note that the case-sensitive query compares a string value. Click the **Test** gear again to execute the query. The query should return 389 rows out of 1860 events.
 
 ![Second output results from query test](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-09.png)
 
