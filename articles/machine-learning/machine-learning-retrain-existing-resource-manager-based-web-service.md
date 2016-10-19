@@ -57,7 +57,7 @@ At the bottom of the experiment canvas, click **Set Up Web Service**, and then s
 
 After running your experiment, the resulting workflow should be similar to the following:
 
-![Resulting workflow after run.][4]
+![Resulting workflow after run][4]
 
 ## Retrain the model with new data by using BES
 
@@ -122,7 +122,7 @@ When you specify the output location in the Request Payload, the extension of th
             }
         },
 
-The following is an example of retraining output.
+The following is an example of retraining output:
 ![Retraining output][6]
 
 ## Evaluate the retraining results
