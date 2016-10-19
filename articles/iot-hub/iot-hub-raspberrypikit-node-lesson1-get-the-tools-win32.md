@@ -25,7 +25,7 @@
 
 ## 1.2.1 What you will do
 
-Download the development tools and the software for the first sample application for your Raspberry Pi 3.
+Download the development tools and the software for the first sample application for your Raspberry Pi 3. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberrypikit-node-troubleshooting.md).
 
 ## 1.2.2 What you will learn
 - How to install Git and Node.js

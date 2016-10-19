@@ -21,7 +21,7 @@
 
 ## 3.2.1 What you will do
 
-Deploy and run a sample application on your Raspberry Pi 3 that sends messages to your IoT hub.
+Deploy and run a sample application on your Raspberry Pi 3 that sends messages to your IoT hub. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberrypikit-node-troubleshooting.md).
 
 ## 3.2.2 What you will learn
 

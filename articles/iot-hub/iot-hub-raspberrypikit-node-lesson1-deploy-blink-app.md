@@ -21,7 +21,7 @@
 
 ## 1.3.1 What you will do
 
-Clone the sample Node.js application from Github, and use the gulp tool to deploy the sample application to your Raspberry Pi 3. The sample application blinks the LED connected to the board every two seconds.
+Clone the sample Node.js application from Github, and use the gulp tool to deploy the sample application to your Raspberry Pi 3. The sample application blinks the LED connected to the board every two seconds. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberrypikit-node-troubleshooting.md).
 
 ## 1.3.2 What you will learn
 

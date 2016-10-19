@@ -21,7 +21,7 @@
 
 ## 4.2.1 What you will do
 
-Customize the messages to change the LED’s on and off behavior.
+Customize the messages to change the LED’s on and off behavior. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberrypikit-node-troubleshooting.md).
 
 ## 4.2.2 What you will learn
 

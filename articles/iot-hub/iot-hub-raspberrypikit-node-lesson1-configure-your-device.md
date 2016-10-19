@@ -21,9 +21,7 @@
 
 ## 1.1.1 What you will do
 
-Configure your Pi for the first time use and install the Raspbian operating system, a free operating system that is optimized for the Raspberry Pi hardware.
-
-> [AZURE.NOTE] For Windows 10 IoT Core samples, visit [windowsondevices.com](http://www.windowsondevices.com/).
+Configure your Pi for the first time use and install the Raspbian operating system, a free operating system that is optimized for the Raspberry Pi hardware. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberrypikit-node-troubleshooting.md).
 
 ## 1.1.2 What you will learn
 
@@ -80,7 +78,7 @@ Power on your Pi by using the micro USB cable and the power supply.
 
 ![Power on](media/iot-hub-raspberry-pi-lessons/lesson1/micro_usb_power_on.jpg)
 
-> [AZURE.NOTE] It is important to use a power supply that is at least 2A to make sure that your Raspberry is fed with enough power to work correctly.
+> [AZURE.NOTE] It is important to use the power supply in the kit that is at least 2A to make sure that your Raspberry is fed with enough power to work correctly.
 
 ## 1.1.6 Connect your Raspberry Pi 3 to the network
 

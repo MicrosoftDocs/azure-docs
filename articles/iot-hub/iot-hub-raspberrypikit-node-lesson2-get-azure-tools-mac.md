@@ -26,7 +26,7 @@
 
 ## 2.1.1 What you will do
 
-Install the Azure Command-Line Interface (Azure CLI).
+Install the Azure Command-Line Interface (Azure CLI). If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberrypikit-node-troubleshooting.md).
 
 ## 2.1.2 What you will learn
 
