@@ -28,10 +28,7 @@ See [Data Lake Tools for Visual Studio prerequisites](data-lake-analytics-data-l
 
 ## Open the Job Browser
 
-The Job Browser is accessible via **Server Explorer>Azure>Data Lake Analytics>Jobs** in Visual Studio.  Using the browser, you can access the query store of a Data Lake Analytics account. The following screenshot shows the Job Browser. On the left is the Query Store, which shows basic information about jobs. On the right is the Job View, which provides the detailed information about a job.
-
-![Data Lake Tools Visual Studio Job Browser](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-open-job-browser.png)
-
+The Job Browser is accessible via **Server Explorer>Azure>Data Lake Analytics>Jobs** in Visual Studio.  Using the browser, you can access the query store of a Data Lake Analytics account. Job Browser shows Query Store in the left which shows basic information about jobs, and Job View on the right which provides the detailed information about a job.
 
 ## Job View
 
