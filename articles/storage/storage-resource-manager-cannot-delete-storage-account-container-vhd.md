@@ -53,7 +53,7 @@ This problem can occur because the storage account contains a VHD that is in the
 
 ## Solution
 
-To resolve these problems, you have to identify the VHD that is causing the error and the associated VM. Then, you must detach the VHD from the VM (for data disks) or delete the VM that is using the VHD (for OS disks). This removes the lease from the VHD and allows it to be deleted.
+To resolve these problems, you must identify the VHD that is causing the error and the associated VM. Then, detach the VHD from the VM (for data disks) or delete the VM that is using the VHD (for OS disks). This removes the lease from the VHD and allows it to be deleted.
 
 ### Step 1: Identify the problem VHD and the associated VM
 
