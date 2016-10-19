@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2016"
+	ms.date="10/19/2016"
 	ms.author="cynthn"/>
 
 # Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell
@@ -52,9 +52,9 @@ Get the available subscriptions by using the following command:
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Set your Azure subscription for the current session. Replace everything within the quotes, including the < and > characters, with the correct name.
+Set your Azure subscription for the current session. This example sets the default subscription name to **My Azure Subscription**. Replace the example subscription name with your own. 
 
-	Select-AzureRmSubscription –SubscriptionName "<subscription name>"
+	Select-AzureRmSubscription –SubscriptionName "My Azure Subscription"
 
 >[AZURE.NOTE] Registration is a one-time step, but you must do it once before attempting migration. Without registering, you see the following error message: 
 
@@ -78,16 +78,18 @@ Get the available subscriptions by using the following command:
 
 	Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Set your Azure subscription for the current session. Replace everything within the quotes, including the < and > characters, with the correct name.
+Set your Azure subscription for the current session. This example sets the default subscription to **My Azure Subscription**. Replace the example subscription name with your own. 
 
-	Select-AzureSubscription –SubscriptionName "<subscription name>"
+	Select-AzureSubscription –SubscriptionName "My Azure Subscription"
 
 ## Step 4: Make sure you have enough Azure Resource Manager Virtual Machine cores in the Azure region of your current deployment or VNET
 
-You can use the following PowerShell command to check the current number of cores you have in Azure Resource Manager. To learn more about core quotas, see [Limits and the Azure Resource Manager](../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager).
+You can use the following PowerShell command to check the current number of cores you have in Azure Resource Manager. To learn more about core quotas, see [Limits and the Azure Resource Manager](../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager). 
+
+This example checks the availability in the **West US** region. Replace the example region name with your own. 
 
 ```
-Get-AzureRmVMUsage -Location "<Your VNET or Deployment's Azure region"
+Get-AzureRmVMUsage -Location "West US"
 ```
 
 ## Step 5: Run commands to migrate your IaaS resources
@@ -100,9 +102,9 @@ Get the list of cloud services by using the following command, and then pick the
 
 	Get-AzureService | ft Servicename
 
-Get the deployment name for the cloud service by using the following commands:
+Get the deployment name for the cloud service. In this example, the service name is **My Service**. Replace the example service name with your own service name. 
 
-	$serviceName = "<service name>"
+	$serviceName = "My Service"
 	$deployment = Get-AzureDeployment -ServiceName $serviceName
 	$deploymentName = $deployment.DeploymentName
 
@@ -115,15 +117,17 @@ Prepare the virtual machines in the cloud service for migration. You have two op
 		$validate = Move-AzureService -Validate -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
 		$validate.ValidationMessages
 
-	The preceding command displays any warnings and errors that block migration. If validation is successful, then you can proceed with the following Prepare step:
+	The preceding command displays any warnings and errors that block migration. If validation is successful, then you can move on to the **Prepare** step:
 
 		Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
 
 * **Option 2. Migrate to an existing virtual network in the Resource Manager deployment model**
 
-		$existingVnetRGName = "<Existing VNET's Resource Group Name>"
-		$vnetName = "<Virtual Network Name>"
-		$subnetName = "<Subnet name>"
+This example sets the resource group name to **myResourceGroup**, the virtual network name to **myVirtualNetwork** and the subnet name to **mySubNet**. Replace the names in the example with the names of your own resources.
+
+		$existingVnetRGName = "myResourceGroup"
+		$vnetName = "myVirtualNetwork"
+		$subnetName = "mySubNet"
 
 	First, validate if you can migrate the cloud service using the following command:
 
@@ -136,7 +140,9 @@ Prepare the virtual machines in the cloud service for migration. You have two op
 
 After the Prepare operation succeeds with either of the preceding options, query the migration state of the VMs. Ensure that they are in the `Prepared` state.
 
-	$vmName = "<vm-name>"
+This example sets the VM name to **myVM**. Replace the example name with your own VM name.
+
+	$vmName = "myVM"
 	$vm = Get-AzureVM -ServiceName $serviceName -Name $vmName
 	$migrationState = $vm.VM.MigrationState
 
@@ -150,9 +156,11 @@ If the prepared configuration looks good, you can move forward and commit the re
 
 ### Migrate virtual machines in a virtual network
 
-To migrate virtual machines in a virtual network, you migrate the network. The virtual machines automatically migrate with the network. Pick the virtual network that you want to migrate.  
+To migrate virtual machines in a virtual network, you migrate the network. The virtual machines automatically migrate with the network. Pick the virtual network that you want to migrate. 
 
-	$vnetName = "<Virtual Network Name>"
+This example sets the virtual network name to **myVnet**. Replace the example virtual network name with your own. 
+
+	$vnetName = "myVnet"
 
 >[AZURE.NOTE] If the virtual network contains web or worker roles, or VMs with unsupported configurations, you get a validation error message.
 
@@ -176,9 +184,9 @@ If the prepared configuration looks good, you can move forward and commit the re
 
 Once you're done migrating the virtual machines, we recommend you migrate the storage accounts.
 
-Prepare each storage account for migration by using the following command:
+Prepare each storage account for migration by using the following command. In this example, the storage account name is **myStorageAccount**. Replace the example name with the name of your own storage account. 
 
-	$storageAccountName = "<storage account name>"
+	$storageAccountName = "myStorageAccount"
 	Move-AzureStorageAccount -Prepare -StorageAccountName $storageAccountName
 
 Check the configuration for the prepared storage account by using either Azure PowerShell or the Azure portal. If you are not ready for migration and you want to go back to the old state, use the following command:
