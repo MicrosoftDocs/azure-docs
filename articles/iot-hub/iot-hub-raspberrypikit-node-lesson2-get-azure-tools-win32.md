@@ -56,8 +56,7 @@ To install Azure CLI, follow these steps:
 2. Run the following commands:
 
   ```bash
-  pip install --upgrade azure-cli
-  pip install --upgrade azure-cli-iot
+  pip install azure-cli-core==0.1.0b7 azure-cli-vm==0.1.0b7 azure-cli-storage==0.1.0b7 azure-cli-role==0.1.0b7 azure-cli-resource==0.1.0b7 azure-cli-profile==0.1.0b7 azure-cli-network==0.1.0b7 azure-cli-iot==0.1.0b7 azure-cli-feedback==0.1.0b7 azure-cli-configure==0.1.0b7 azure-cli-component==0.1.0b7 azure-cli==0.1.0b7
   ```
 3. Verify the installation by running the following command:
 
