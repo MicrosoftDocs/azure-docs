@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/10/2016"
+	ms.date="10/18/2016"
 	ms.author="davidmu"/>
 
 # Create a Windows virtual machine scale set using Azure PowerShell
@@ -35,32 +35,9 @@ Create the resources that are needed for your new scale set.
 
 A virtual machine scale set must be contained in a resource group.
 
-1. Get a list of available locations and the services that are supported:
+1. Get a list of available locations where you can place resources:
 
-        Get-AzureLocation | Sort Name | Select Name, AvailableServices
-
-    You should see something like this example:
-
-        Name                AvailableServices
-        ----                -----------------
-        Australia East      {Compute, Storage, PersistentVMRole, HighMemory}
-        Australia Southeast {Compute, Storage, PersistentVMRole, HighMemory}
-        Brazil South        {Compute, Storage, PersistentVMRole, HighMemory}
-        Central India       {Compute, Storage, PersistentVMRole, HighMemory}
-        Central US          {Compute, Storage, PersistentVMRole, HighMemory}
-        East Asia           {Compute, Storage, PersistentVMRole, HighMemory}
-        East US             {Compute, Storage, PersistentVMRole, HighMemory}
-        East US 2           {Compute, Storage, PersistentVMRole, HighMemory}
-        Japan East          {Compute, Storage, PersistentVMRole, HighMemory}
-        Japan West          {Compute, Storage, PersistentVMRole, HighMemory}
-        North Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-        North Europe        {Compute, Storage, PersistentVMRole, HighMemory}
-        South Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-        South India         {Compute, Storage, PersistentVMRole, HighMemory}
-        Southeast Asia      {Compute, Storage, PersistentVMRole, HighMemory}
-        West Europe         {Compute, Storage, PersistentVMRole, HighMemory}
-        West India          {Compute, Storage, PersistentVMRole, HighMemory}
-        West US             {Compute, Storage, PersistentVMRole, HighMemory}
+        Get-AzureLocation | Sort Name | Select Name
 
 2. Pick a location that works best for you, replace the value of **$locName** with that location name, and then create the variable:
 
@@ -147,42 +124,6 @@ A virtual network is required for the virtual machines in the scale set.
 4. Create the virtual network:
     
         $vnet = New-AzureRmVirtualNetwork -Name $netName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-
-### Public IP address
-
-Before a network interface can be created, you need to create a public IP address.
-
-1. Replace the value of **$domName** with the domain name label that you want to use with your public IP address and then create the variable:  
-
-        $domName = "domain name label"
-        
-    The label can contain only letters, numbers, and hyphens, and the last character must be a letter or number.
-    
-2. Test whether the name is unique:
-    
-        Test-AzureRmDnsAvailability -DomainQualifiedName $domName -Location $locName
-
-    If the answer is **True**, your proposed name is unique.
-
-3. Replace the value of **$pipName** with the name that you want to use for the public IP address and then create the variable. 
-
-        $pipName = "public ip address name"
-        
-4. Create the public IP address:
-    
-        $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic -DomainNameLabel $domName
-
-### Network interface
-
-Now that you have the public IP address, you can create the network interface.
-
-1. Replace the value of **$nicName** with the name that you want to use for the network interface and then create the variable: 
-
-        $nicName = "network interface name"
-        
-2. Create the network interface:
-    
-        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
 ### Configuration of the scale set
 
