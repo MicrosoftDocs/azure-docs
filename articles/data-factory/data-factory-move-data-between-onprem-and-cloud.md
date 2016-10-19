@@ -128,9 +128,7 @@ In this step, you create two linked services: **AzureStorageLinkedService** and 
 	![New SQL Server linked service](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png) 
 3.	In the **JSON editor** on the right, do the following steps: 
 	1. For the **gatewayName**, specify **adftutorialgateway**.	
-	2. In the **connectionString**, do the following steps:
-	
-		![SQL Server JSON](./media/data-factory-move-data-between-onprem-and-cloud/sqlserver-json.png) 
+	2. In the **connectionString**, do the following steps:	
 		1. For **servername**, enter the name of the server that hosts the SQL Server database.
 		2. For **databasename**, enter the name of the database.
 		3. Click **Encrypt** button on the toolbar. This downloads and launches the Credentials Manager application.
@@ -352,7 +350,7 @@ In this step, you use the Azure portal to monitor what’s going on in an Azure 
 
 	![EmpOnPremSQLTable slices](./media/data-factory-move-data-between-onprem-and-cloud/OnPremSQLTableSlicesBlade.png)
 
-6. Notice that all the data slices up are in **Ready** state because the pipeline duration (start time to end time) is in the past. It is also because you have inserted the data in the SQL Server database and it is there all the time. Confirm that no slices show up in the **Problem slices** section at the bottom. To view all the slices, click **... (ellipsis)** at the bottom of the list of slices. 
+6. Notice that all the data slices up are in **Ready** state because the pipeline duration (start time to end time) is in the past. It is also because you have inserted the data in the SQL Server database and it is there all the time. Confirm that no slices show up in the **Problem slices** section at the bottom. To view all the slices, click **See More** at the bottom of the list of slices. 
 7. Now, In the **Datasets** blade, click **OutputBlobTable**.
 
 	![OputputBlobTable slices](./media/data-factory-move-data-between-onprem-and-cloud/OutputBlobTableSlicesBlade.png)
