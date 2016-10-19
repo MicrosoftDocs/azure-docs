@@ -25,7 +25,7 @@ Azure Government is continually expanding the services that are available.  Thes
 - Considerations: Government-specific implementation details to ensure data stays within your compliance boundary.
 Everything else you need to know about these services can be found in their general documentation.
 
-For the most current list of services, see the [Products by Region] <a href="https://azure.microsoft.com/regions/services/"> Products by Region.</a> 
+For the most current list of services, see the [Products by Region] (https://azure.microsoft.com/regions/services/). 
 
 ## Compute
 
