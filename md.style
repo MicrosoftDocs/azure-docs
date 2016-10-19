@@ -3,9 +3,9 @@
       {
          "tagNames": [ "H1", "H2", "H3", "H4", "H5", "H6", "IFRAME", "SCRIPT", "STYLE", "IMAGE" ],
          "behavior": "Warning",
-         "messageFormatter": "Please use the markdown notation to code your headings. Replace the HTML heading tags with the correct number of pound signs (H1 = #, H2 = ##, and so on)",
+         "messageFormatter": "One or more of the HTML elements you included in this article are not allowed. Replace the HTML items with markdown.",
          "customValidatorContractName": null,
          "openingTagOnly": false
-      },
-
+      }
+  ]
 }
