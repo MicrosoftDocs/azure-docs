@@ -111,16 +111,16 @@ Job View contains:
 
         ![Azure Data Lake Analytics job graph stage details](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-stage-details.png)
 
-        * Vertices: Describes the vertices details, for example, how many vertices in total, how many vertices have been completed, are they failed or still running/waiting, etc.
-        * Data read cross/intra pod: Files and data are stored in multiple pods in distributed file system. The value here describes how much data has been read in the same pod or cross pod.
-        * Total compute time: The sum of every vertex execution time in the stage, you can consider it as the time it would take if all work in the stage is executed in only one vertex.
-        * Data and rows written/read: Indicates how much data or rows have been read/written, or need to be read.
-        * Vertex read failures: Describes how many vertices are failed while read data.
-        * Vertex duplicate discards: If a vertex runs too slow, the system may schedule multiple vertices to run the same piece of work. Reductant vertices will be discarded once one of the vertices complete successfully. Vertex duplicate discards records the number of vertices that are discarded as duplications in the stage.
-        * Vertex revocations: The vertex was succeeded, but get rerun later due to some reasons. For example, if downstream vertex loses intermediate input data, it will ask the upstream vertex to rerun.
-        * Vertex schedule executions: The total time that the vertices have been scheduled.
-        * Min/Average/Max Vertex data read: The minimum/average/maximum of every vertex read data.
-        * Duration: The wall clock time a stage takes, you need to load profile to see this value.
+    - Vertices: Describes the vertices details, for example, how many vertices in total, how many vertices have been completed, are they failed or still running/waiting, etc.
+    - Data read cross/intra pod: Files and data are stored in multiple pods in distributed file system. The value here describes how much data has been read in the same pod or cross pod.
+    - Total compute time: The sum of every vertex execution time in the stage, you can consider it as the time it would take if all work in the stage is executed in only one vertex.
+    - Data and rows written/read: Indicates how much data or rows have been read/written, or need to be read.
+    - Vertex read failures: Describes how many vertices are failed while read data.
+    - Vertex duplicate discards: If a vertex runs too slow, the system may schedule multiple vertices to run the same piece of work. Reductant vertices will be discarded once one of the vertices complete successfully. Vertex duplicate discards records the number of vertices that are discarded as duplications in the stage.
+    - Vertex revocations: The vertex was succeeded, but get rerun later due to some reasons. For example, if downstream vertex loses intermediate input data, it will ask the upstream vertex to rerun.
+    - Vertex schedule executions: The total time that the vertices have been scheduled.
+    - Min/Average/Max Vertex data read: The minimum/average/maximum of every vertex read data.
+    - Duration: The wall clock time a stage takes, you need to load profile to see this value.
 
     - Job Playback
 
