@@ -1,6 +1,6 @@
 <properties
    pageTitle="Predict an answer with a simple model - regression model | Microsoft Azure"
-   description="How to create a simple model to predict the price of a diamond in Data Science for Beginners video 4. Includes a basic linear regression with target data."                                  
+   description="How to create a simple regression model to predict a price in Data Science for Beginners video 4. Includes a linear regression with target data."                                  
    keywords="create a model,simple model,price prediction,simple regression model"
    services="machine-learning"
    documentationCenter="na"
