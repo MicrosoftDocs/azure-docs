@@ -129,6 +129,8 @@ If you've successfully provisioned Azure IoT hub with `azure-cli`, but you also 
 - *Receive device-to-cloud* to enable you to monitor messages sent from your device to your IoT hub.
 - *Send cloud-to-device* to enable you to send messages to your devices from your IoT hub.
 
+You need to configure your `IoT hub connection string` within this tool to use all the capabilities above.
+
 ### IoT hub Explorer
 
 [IoT hub Explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md) is a sample multiplatform CLI tool to manage device clients using the Azure IoT Hub service SDK. The tool enables you to manage the devices in the identity register, monitor device-to-cloud messages, and send cloud-to-device commands.
@@ -151,4 +153,4 @@ In all these lessons, a full CLI experience is provided to create and manage all
 
 ## Azure storage issues
 
-[Microsoft Azure Storage Explorer (Preview)](http://storageexplorer.com) is a standalone app from Microsoft that allows you to easily work with Azure Storage data on Windows, macOS and Linux.
+[Microsoft Azure Storage Explorer (Preview)](http://storageexplorer.com) is a standalone app from Microsoft that allows you to easily work with Azure Storage data on Windows, macOS and Linux. This tool allows you to connect to you table and see the data in it.
