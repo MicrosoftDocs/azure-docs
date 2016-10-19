@@ -26,13 +26,13 @@ After you create a virtual machine (VM), you can scale the VM up or down by chan
 
 ## Resize a Windows VM not in an availability set
 
-List the VM sizes that are available on the hardware cluster where the VM is hosted. 
+1/ List the VM sizes that are available on the hardware cluster where the VM is hosted. 
 
 	```powershell
 	Get-AzureRmVMSize -ResourceGroupName <resource-group-name> -VMName <vm-name> 
 	```
 
-If the desired size is listed, run the following commands to resize the VM. 
+2. If the desired size is listed, run the following commands to resize the VM. If the desired size is not listed, go on to step 3.
 
 	```powershell
 	$vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -VMName <vmName>
@@ -40,7 +40,7 @@ If the desired size is listed, run the following commands to resize the VM.
 	Update-AzureRmVM -VM $vm -ResourceGroupName <resourceGroupName>
 	```
 
-If the desired size is not listed, run the following commands to deallocate the VM, resize it, and restart the VM.
+3. If the desired size is not listed, run the following commands to deallocate the VM, resize it, and restart the VM.
 
 	```powershell
 	$rgname = "<resourceGroupName>"
