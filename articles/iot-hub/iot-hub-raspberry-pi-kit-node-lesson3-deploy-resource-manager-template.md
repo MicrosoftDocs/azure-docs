@@ -23,7 +23,7 @@
 
 ## 3.1.1 What will you do
 
-Use an Azure Resource Manager (ARM) template to create an Azure function app and a storage account. The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure table storage. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberrypikit-node-troubleshooting.md).
+Use an Azure Resource Manager template to create an Azure function app and a storage account. The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure table storage. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberrypikit-node-troubleshooting.md).
 
 ## 3.1.2 What will you learn
 
@@ -46,15 +46,15 @@ code .
 ![Repo Structure](media/iot-hub-raspberry-pi-lessons/lesson3/repo_structure.png)
 
 - The `app.js` file in the `app` sub-folder is the key source file that contains the code to send a message 20 times to your IoT hub and blink the LED for each message it sends.
-- The `arm-template.json` file is the ARM template that contains an Azure function app and a storage account.
-- The `arm-template-param.json` file is the configuration file used by the ARM template.
+- The `arm-template.json` file is the Azure Resource Manager template that contains an Azure function app and a storage account.
+- The `arm-template-param.json` file is the configuration file used by the Azure Resource Manager template.
 - The `ReceiveDeviceMessages` sub-folder contains the Node.js code for the Azure function.
 
-## 3.1.5 Configure ARM templates and create resources in Azure
+## 3.1.5 Configure Azure Resource Manager templates and create resources in Azure
 
 Update the `arm-template-param.json` file in Visual Studio Code.
 
-![ARM template parameters](media/iot-hub-raspberry-pi-lessons/lesson3/arm_para.png)
+![Azure Resource Manager template parameters](media/iot-hub-raspberry-pi-lessons/lesson3/arm_para.png)
 
 - Replace **[your IoT Hub name]** with **{my hub name}** that you specified in [Lesson 2](iot-hub-raspberrypikit-node-lesson2-prepare-azure-iot-hub.md).
 - Replace **[prefix string for new resources]** with any prefix you want. The prefix ensures that the resource name is globally unique to avoid conflict. Do not use dash or number initial in the prefix.
