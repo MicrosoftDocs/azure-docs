@@ -24,11 +24,12 @@
 - [Ubuntu 16.04](iot-hub-raspberrypikit-node-lesson1-get-the-tools-ubuntu.md)
 - [OS X 10.10](iot-hub-raspberrypikit-node-lesson1-get-the-tools-mac.md)
 
-## 1.2.1 What will you do
+## 1.2.1 What you will do
 
 Download the development tools and the software for the first sample application for your Raspberry Pi 3.
 
-## 1.2.2 What will you learn
+## 1.2.2 What you will learn
+In this section, you will learn:
 
 - How to install Git and Node.js
     - [Git](https://git-scm.com) is an open source distributed version control system. The sample application for this lesson is stored on Git.
@@ -37,7 +38,7 @@ Download the development tools and the software for the first sample application
   - The minimum required version of Node.js is 4.5 LTS.
   - [NPM](https://www.npmjs.com) is one of the package managers for Node.js.
 
-## 1.2.3 What do you need
+## 1.2.3 What you need
 
 - An Internet connection to download the development tools and the software
 - A Mac that is running OS X Yosemite (10.10) or later
@@ -59,9 +60,9 @@ To install Git and Node.js, use the [Homebrew](http://brew.sh) package managemen
 
 ## 1.2.5 Install additional Node.js development tools
 
-You use [gulp.js](http://gulpjs.com) to automate the deployment of the sample application to your Pi. You also use the [device-discovery-cli](https://github.com/Azure/device-discovery-cli) Node.js utility to retrieve network information about your Pi.
+You use [gulp.js](http://gulpjs.com) to automate the deployment of the sample application to your Pi. You also use the [device-discovery-cli](https://github.com/Azure/device-discovery-cli) to retrieve network information about your IoT devices.
 
-Install gulp and device-discovery-cli by running the following command in the Terminal window:
+Install `gulp` and `device-discovery-cli` by running the following command in the Terminal window:
 
 ```bash
 npm install -g device-discovery-cli gulp
@@ -71,7 +72,7 @@ If you experience issues installing Node.js and these additional development too
 
 ## 1.2.6 Install Visual Studio Code
 
-[Download](https://code.visualstudio.com/docs/setup/osx) and install Visual Studio Code. Visual Studio Code is a lightweight but powerful source code editor for Windows, Linux and OS X. You use this later in the tutorial to edit the sample application.
+[Download](https://code.visualstudio.com/docs/setup/osx) and install Visual Studio Code. Visual Studio Code is a lightweight but powerful source code editor for Windows, Linux and OS X. You use this later in the tutorial to edit the sample codes.
 
 ## 1.2.7 Summary
 

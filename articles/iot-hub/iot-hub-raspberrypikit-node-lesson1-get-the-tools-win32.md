@@ -23,11 +23,11 @@
 - [Ubuntu 16.04](iot-hub-raspberrypikit-node-lesson1-get-the-tools-ubuntu.md)
 - [OS X 10.10](iot-hub-raspberrypikit-node-lesson1-get-the-tools-mac.md)
 
-## 1.2.1 What will you do
+## 1.2.1 What you will do
 
 Download the development tools and the software for the first sample application for your Raspberry Pi 3.
 
-## 1.2.2 What will you learn
+## 1.2.2 What you will learn
 - How to install Git and Node.js
   - [Git](https://git-scm.com) is an open source distributed version control system. The sample application for this lesson is stored on Git.
   - [Node.js](https://nodejs.org/en/) is a JavaScript runtime with a rich package ecosystem.
@@ -35,7 +35,7 @@ Download the development tools and the software for the first sample application
   - The minimum version requirement of Node.js is 4.5 LTS.
   - [NPM](https://www.npmjs.com) is one of the package managers for Node.js.
 
-## 1.2.3 What do you need
+## 1.2.3 What you need
 
 - An Internet connection to download the development tools and the software
 - A computer that is running Windows
@@ -48,24 +48,19 @@ Click the links below to download and install Git and Node.js LTS for Windows.
 
 ## 1.2.5 Install additional Node.js development tools
 
-1. Download Gulp and device-discovery-cli.
-  - [Get gulp.js](http://gulpjs.com).
-    Gulp is a tool to automate the deployment of the sample application to your Pi.
-  - [Get device-discovery-cli](https://github.com/Azure/device-discovery-cli).
-    `device-discovery-cli` is a Node.js utility to retrieve network information about your Pi.
-2. Install these development tools.
-  1. Press `Windows + R`, type `cmd` and press Enter to open a command prompt window.
-  2. Run the following command:
-  
-    ```bash
-    npm install -g device-discovery-cli gulp
-    ```
+You use [gulp.js](http://gulpjs.com) to automate the deployment of the sample application to your Pi. You also use the [device-discovery-cli](https://github.com/Azure/device-discovery-cli) to retrieve network information about your IoT devices.
+
+Press `Windows + R`, type `cmd` and press Enter to open a command prompt window. Install `gulp` and `device-discovery-cli` by running the following command:
+
+```bash
+sudo npm install -g device-discovery-cli gulp
+```
     
 If you experience issues installing Node.js and these additional Node.js development tools on your computer, see [troubleshooting guide](iot-hub-raspberrypikit-node-troubleshooting.md) for solutions to common problems.
 
 ## 1.2.6 Install Visual Studio Code
 
-[Download](https://code.visualstudio.com/docs/setup/windows) and install Visual Studio Code. Visual Studio Code is a lightweight but powerful source code editor for Windows, Linux and OS X. You use this later in the tutorial to edit the sample application.
+[Download](https://code.visualstudio.com/docs/setup/windows) and install Visual Studio Code. Visual Studio Code is a lightweight but powerful source code editor for Windows, Linux and OS X. You use this later in the tutorial to edit the sample codes.
 
 ## 1.2.7 Summary
 

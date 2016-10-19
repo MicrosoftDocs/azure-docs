@@ -24,16 +24,16 @@
 - [Ubuntu 16.04](iot-hub-raspberrypikit-node-lesson2-get-azure-tools-ubuntu.md)
 - [OS X 10.10](iot-hub-raspberrypikit-node-lesson2-get-azure-tools-mac.md)
 
-## 2.1.1 What will you do
+## 2.1.1 What you will do
 
 Install the Azure Command-Line Interface (Azure CLI).
 
-## 2.1.2 What will you learn
+## 2.1.2 What you will learn
 
 - How to install Azure CLI.
 - How to add IoT subgroup of Azure CLI.
 
-## 2.1.3 What do you need
+## 2.1.3 What you need
 
 - A Ubuntu computer with Internet connection
 - An active Azure subscription. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/)

@@ -1,6 +1,6 @@
 <properties
  pageTitle="Complimentary reading - Change the on and off behavior of the LED | Microsoft Azure"
- description="placeholder"
+ description="Customize the messages to change the LED’s on and off behavior."
  services="iot-hub"
  documentationCenter=""
  authors="shizn"
@@ -19,15 +19,19 @@
 
 # 4.2 Complimentary reading: Change the on and off behavior of the LED
 
-## 4.2.1 What will you do
+## 4.2.1 What you will do
 
 Customize the messages to change the LED’s on and off behavior.
 
-## 4.2.2 What will you learn
+## 4.2.2 What you will learn
 
 Use additional Node.js functions to change the LED’s on and off behavior.
 
-## 4.2.3 Add Node.js functions
+## 4.2.3 What you need
+
+You should successfully complete [4.1 Run a sample application on your Raspberry Pi to receive cloud to device messages](iot-hub-raspberrypikit-node-lesson4-send-cloud-to-device-messages.md)
+
+## 4.2.4 Add Node.js functions
 
 1. Open the sample application in Visual Studio code by running the following commands:
 
@@ -36,7 +40,7 @@ Use additional Node.js functions to change the LED’s on and off behavior.
     code .
     ```
 
-2. Open the app.js file, and then add the following functions at the end:
+2. Open the `app.js` file, and then add the following functions at the end:
 
     ```javascript
     function turnOnLED() {
@@ -48,7 +52,9 @@ Use additional Node.js functions to change the LED’s on and off behavior.
     }
     ```
 
-3. Add the following conditions before the default condition in the switch-case block of the `receiveMessageCallback` function:
+    ![update app.js](media/iot-hub-raspberry-pi-lessons/lesson4/updated_app_js.png)
+
+3. Add the following conditions before the defalt one in the switch-case block of the `receiveMessageCallback` function:
 
     ```javascript
     case 'on':
@@ -59,7 +65,7 @@ Use additional Node.js functions to change the LED’s on and off behavior.
       break;
     ```
 
-    Now you’ve configured the sample application to respond to more instructions through messages. The “on” instruction turns on the LED and the “off” instruction turns off the LED.
+    Now you’ve configured the sample application to respond to more instructions through messages. The "on" instruction turns on the LED and the "off" instruction turns off the LED.
 
 4. Open the gulpfile.js file, and then add a new function before the function `sendMessage`:
 
@@ -75,6 +81,8 @@ Use additional Node.js functions to change the LED’s on and off behavior.
     }
     ```
 
+    ![update gulpfile](media/iot-hub-raspberry-pi-lessons/lesson4/updated_gulpfile.png)
+
 5. In the `sendMessage` function, replace the line `var message = buildMessage(sentMessageCount);` with the new line below.
 
     ```javascript
@@ -83,7 +91,7 @@ Use additional Node.js functions to change the LED’s on and off behavior.
 
 6. Save all the changes.
 
-### 4.2.4 Deploy and run the sample application
+### 4.2.5 Deploy and run the sample application
 
 Deploy and run the sample application on your Pi by running the following command:
 
@@ -91,12 +99,14 @@ Deploy and run the sample application on your Pi by running the following comman
 gulp
 ```
 
-You should see the LED turned on for two seconds, and then turned off for another two seconds. The last “stop” message stops the sample application from running.
+You should see the LED turned on for two seconds, and then turned off for another two seconds. The last "stop" message stops the sample application from running.
+
+![on and off](media/iot-hub-raspberry-pi-lessons/lesson4/gulp_on_and_off.png)
 
 Congratulations! You’ve successfully customized the messages that are sent to the Pi from your IoT hub.
 
-### 4.2.5 Summary
+### 4.2.7 Summary
 
 This complimentary reading demos how to customize the messages so that the sample application can control the on and off behavior of the LED in a different way.
 
-In the next lesson, you will learn how to gather data from real sensors and use Azure Machine Learning to do further analysis of the data. (Coming Soon...)
+More Lessons are coming soon...

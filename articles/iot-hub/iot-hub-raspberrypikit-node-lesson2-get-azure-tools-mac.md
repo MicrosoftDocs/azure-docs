@@ -24,16 +24,16 @@
 - [Ubuntu 16.04](iot-hub-raspberrypikit-node-lesson2-get-azure-tools-ubuntu.md)
 - [OS X 10.10](iot-hub-raspberrypikit-node-lesson2-get-azure-tools-mac.md)
 
-## 2.1.1 What will you do
+## 2.1.1 What you will do
 
 Install the Azure Command-Line Interface (Azure CLI).
 
-## 2.1.2 What will you learn
+## 2.1.2 What you will learn
 
 - How to install Azure CLI.
 - How to add the IoT subgroup of Azure CLI.
 
-## 2.1.3 What do you need
+## 2.1.3 What you need
 
 - A Mac with Internet connection
 - An active Azure subscription. If you don't have an Azure account, create a free Azure trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/)
@@ -60,11 +60,13 @@ To install the latest Azure CLI, follow these steps:
   pip install --upgrade azure-cli
   pip install --upgrade azure-cli-iot
   ```
+
 2. Verify installation by running the following command:
 
   ```bash
   az iot -h
   ```
+  
 You should see the following output if the installation is successful.
 
 ![az iot -h](media/iot-hub-raspberry-pi-lessons/lesson2/az_iot_help_osx.png)

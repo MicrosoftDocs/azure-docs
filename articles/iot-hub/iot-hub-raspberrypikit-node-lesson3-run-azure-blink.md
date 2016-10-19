@@ -17,17 +17,17 @@
  ms.date="09/28/2016"
  ms.author="xshi"/>
 
-# 3.2 Run the blink sample application on your Raspberry Pi 3
+# 3.2 Run sample application to send device-to-cloud messages on your Raspberry Pi 3
 
-## 3.2.1 What will you do
+## 3.2.1 What you will do
 
 Deploy and run a sample application on your Raspberry Pi 3 that sends messages to your IoT hub.
 
-## 3.2.2 What will you learn
+## 3.2.2 What you will learn
 
 - How to use the gulp tool to deploy and run the sample Node.js application on your Pi.
 
-## 3.2.3 What do you need
+## 3.2.3 What you need
 
 - You must have successfully completed the previous section in this lesson: [Create an Azure function app and a storage account to process and store IoT hub messages](iot-hub-raspberrypikit-node-lesson3-deploy-arm-template.md).
 
@@ -98,7 +98,7 @@ You should see the LED that is connected to your Pi blinking every two seconds. 
 
 ## 3.2.8 Summary
 
-You've deployed and run the blink sample application on your Pi to send device-to-cloud messages to your IoT hub. You can move to the next section to monitor your messages as they are written to the storage account.
+You've deployed and run the new blink sample application on your Pi to send device-to-cloud messages to your IoT hub. You can move to the next section to monitor your messages as they are written to the storage account.
 
 ## Next Steps
 

@@ -19,7 +19,7 @@
 
 # 3.1 Create an Azure function app and a storage account to process and store IoT hub messages
 
-[Azure Functions](../../articles/azure-functions/functions-overview.md) is a solution for easily running small pieces of code, called "functions", in the cloud. An Azure function app hosts the execution of your functions in Azure.
+[Azure Functions](../../articles/azure-functions/functions-overview.md) is a solution for easily running small pieces of code, called “functions”, in the cloud. An Azure function app hosts the execution of your functions in Azure.
 
 ## 3.1.1 What will you do
 
@@ -71,9 +71,8 @@ It takes about 5 minutes to create these resources. While the resource creation 
 
 ## 3.1.6 Summary
 
-You've created your Azure function app to process IoT hub messages and an Azure storage account to store these messages. You can move on to the next section to deploy and run the sample to send device-to-cloud messages on your Pi.
+You've created your Azure function app to process IoT hub messages and an Azure storage account to store these messages. You can move on to the next section to deploy and run the Azure blink sample application on your Pi.
 
 ## Next Steps
 
-[3.2 Run sample application to send device-to-cloud messages on your Raspberry Pi 3](iot-hub-raspberrypikit-node-lesson3-run-azure-blink.md)
-
+[3.2 Run the Azure blink sample application on your Raspberry Pi 3](iot-hub-raspberrypikit-node-lesson3-run-azure-blink.md)

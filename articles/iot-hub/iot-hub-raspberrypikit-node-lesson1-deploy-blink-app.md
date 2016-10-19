@@ -19,19 +19,20 @@
 
 # 1.3 Create and deploy the sample application that blinks the LED
 
-## 1.3.1 What will you do
+## 1.3.1 What you will do
 
 Clone the sample Node.js application from Github, and use the gulp tool to deploy the sample application to your Raspberry Pi 3. The sample application blinks the LED connected to the board every two seconds.
 
-## 1.3.2 What will you learn
+## 1.3.2 What you will learn
 
 - How to use the `device-discover-cli` tool to retrieve networking information about your Pi.
 - How to deploy and run the sample application on your Pi.
 - How to deploy and debug applications running remotely on your Pi.
 
-## 1.3.3 What do you need
+## 1.3.3 What you need
 
 You must have successfully completed the follow sections in Lesson 1:
+
 - [Configure your device](iot-hub-raspberrypikit-node-lesson1-configure-your-device.md)
 - [Get the tools](iot-hub-raspberrypikit-node-lesson1-get-the-tools-win32.md)
 
@@ -47,11 +48,11 @@ You should see an output that is similar to the following:
 
 ![device discovery](media/iot-hub-raspberry-pi-lessons/lesson1/device_discovery.png)
 
-Take note of the `IP address` and `host name` of your Pi. You need this information later in this section.
+Take note of the `IP address` and `hostname` of your Pi. You need this information later in this section.
 
-> [AZURE.NOTE] Make sure that your Pi is connected to the same network as your computer. For example, your computer is connected to a wireless network while your Pi is connected to a wired network. In this case, you may not be able to see the IP address in the devdisco output.
+> [AZURE.NOTE] Make sure that your Pi is connected to the same network as your computer. For example, if your computer is connected to a wireless network while your Pi is connected to a wired network, you may not be able to see the IP address in the devdisco output.
 
-## 1.3.5 Open the sample application
+## 1.3.5 Clone the sample application
 
 To open the sample code, follow these steps:
 
@@ -64,6 +65,7 @@ To open the sample code, follow these steps:
 2. Open the sample application in Visual Studio Code by running the following commands:
 
   ```bash
+  cd iot-hub-node-raspberrypi-getting-started
   cd Lesson1
   code .
   ```
@@ -90,7 +92,7 @@ To configure the device connection, follow these steps:
   gulp init
   ```
 
-  The device configuration file contains the user credentials you use to log in your Pi. To avoid the leak of user credentials, the device configuration file is generated in the %USERPROFILE%\.iot-hub-getting-started folder on your computer.
+  The device configuration file contains the user credentials you use to log in your Pi. To avoid the leak of user credentials, the device configuration file is generated in the sub-folder `.iot-hub-getting-started` of the home folder on your computer.
 
 2. Open the device configuration file in Visual Studio Code by running the following command:
 
@@ -118,7 +120,7 @@ Install Node.js and NPM on your Pi by running the following command:
 gulp install-tools
 ```
 
-After Node.js and NPM are installed, you can run the sample application once it's deployed.
+It might take 10 minutes to finish this task if this is your first time to run it.
 
 ### 1.3.8.2 Deploy and run the sample app
 
