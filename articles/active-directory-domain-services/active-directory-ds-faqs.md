@@ -70,14 +70,12 @@ Yes. Users that belong to the 'AAD DC Administrators' group are granted 'DNS Adm
 #### Is Azure AD Domain Services a paid service?
 Yes. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/active-directory-ds/).
 
-#### Do I need Azure AD Premium to use Azure AD Domain Services?
-No. Azure AD Domain Services are available for all editions of Azure Active Directory including Free, Basic and Premium. Usage of your Azure AD Domain Services managed domain is billed on an hourly basis.
-
 #### Is there a free trial for the service?
 This service is included in the free trial for Azure. You can sign up for a [free one-month trial of Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 #### Can I get Azure AD Domain Services as part of Enterprise Mobility Suite (EMS)?
-No, Azure AD Domain Services is a pay-as-you-go Azure service and is not part of EMS. Azure AD Domain Services is available for all SKUs of Azure AD (Free, Basic, and Premium) and are billed on an hourly basis depending on usage.
+#### Do I need Azure AD Premium to use Azure AD Domain Services?
+No. Azure AD Domain Services is a pay-as-you-go Azure service and is not part of EMS. Azure AD Domain Services are available for all editions of Azure AD (Free, Basic, and, Premium) and are billed on an hourly basis, depending on usage.
 
 #### What Azure regions is the service available in?
 Refer to the [Azure Services by region](https://azure.microsoft.com/regions/#services/) page to see a list of the Azure regions where Azure AD Domain Services is available.
