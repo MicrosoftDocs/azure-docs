@@ -1,3 +1,4 @@
+
 task<properties
 	pageTitle="Overview of metrics in Microsoft Azure | Microsoft Azure"
 	description="Overview of metrics and their uses in Microsoft Azure"
@@ -29,7 +30,8 @@ Metrics are a valuable source of telemetry and enable you to do the following ta
 
 - **Track the performance** of your resource (such as a VM, website, or logic app) by plotting its metrics on a portal chart and pinning that chart to a dashboard.
 - **Get notified of an issue** that impacts the performance of your resource when a metric crosses a certain threshold.
-- **Configure automated actions**, such as autoscaling a resource or firing a runbook when a metric crosses a certain threshold.- **Perform advanced analytics** or reporting on performance or usage trends of your resource.
+- **Configure automated actions**, such as autoscaling a resource or firing a runbook when a metric crosses a certain threshold.
+- **Perform advanced analytics** or reporting on performance or usage trends of your resource.
 - **Archive** the performance or health history of your resource **for compliance or auditing** purposes.
 
 ##  What are the characteristics of metrics?
