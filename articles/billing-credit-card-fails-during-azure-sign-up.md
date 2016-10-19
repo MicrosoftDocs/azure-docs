@@ -20,7 +20,7 @@
 
 # If your credit or debit card is declined at sign up
 
-> [AZURE.NOTE] If you are trying to change or remove an exisiting card, learn how to [manage your payment information](billing-how-to-change-credit-card.md).
+> [AZURE.NOTE] If you are trying to change or remove an existing card, learn how to [manage your payment information](billing-how-to-change-credit-card.md).
 
 > If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
