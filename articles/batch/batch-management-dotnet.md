@@ -28,15 +28,15 @@ You can lower maintenance overhead in your Azure Batch applications by using the
 - **Create and delete Batch accounts** within any region. If, as an independent software vendor (ISV) for example, you provide a service for your clients in which each is assigned a separate Batch account for billing purposes, you can add account creation and deletion capabilities to your customer portal.
 - **Retrieve and regenerate account keys** programmatically for any of your Batch accounts. This can help you comply with security policies that enforce periodic rollover or expiry of account keys. When you have several Batch accounts in various Azure regions, automation of this rollover process increases your solution's efficiency.
 - **Check account quotas** and take the trial-and-error guesswork out of determining which Batch accounts have what limits. By checking your account quotas before starting jobs, creating pools, or adding compute nodes, you can proactively adjust where or when these compute resources are created. You can determine which accounts require quota increases before allocating additional resources in those accounts.
-- **Combine features of other Azure services** for a full-featured management experience--by leveraging Batch Management .NET, [Azure Active Directory][aad_about], and the [Azure Resource Manager][resman_overview] together in the same application. By using these features and their APIs, you can provide a frictionless authentication experience, the ability to create and delete resource groups, and the capabilities that are described above for an end-to-end management solution.
+- **Combine features of other Azure services** for a full-featured management experience--by using Batch Management .NET, [Azure Active Directory][aad_about], and the [Azure Resource Manager][resman_overview] together in the same application. By using these features and their APIs, you can provide a frictionless authentication experience, the ability to create and delete resource groups, and the capabilities that are described above for an end-to-end management solution.
 
-> [AZURE.NOTE] While this article focuses on the programmatic management of your Batch accounts, keys, and quotas, you can perform many of these activities by using the [Azure portal][azure_portal]. See [Create an Azure Batch account using the Azure portal](batch-account-create-portal.md) and [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for more information.
+> [AZURE.NOTE] While this article focuses on the programmatic management of your Batch accounts, keys, and quotas, you can perform many of these activities by using the [Azure portal][azure_portal]. For more information, see [Create an Azure Batch account using the Azure portal](batch-account-create-portal.md) and [Quotas and limits for the Azure Batch service](batch-quota-limit.md).
 
 ## Create and delete Batch accounts
 
 As mentioned, one of the primary features of the Batch Management API is to create and delete Batch accounts in an Azure region. To do so, use [BatchManagementClient.Account.CreateAsync][net_create] and [DeleteAsync][net_delete], or their synchronous counterparts.
 
-The following code snippet creates an account, obtains the newly created account from the Batch service, and then deletes it. In this and the other snippets in this article, `batchManagementClient` is a fully initialized instance of [BatchManagementClient][net_mgmt_client].
+The following code snippet creates an account, obtains the newly created account from the Batch service, and then deletes it. In this snippet and the others in this article, `batchManagementClient` is a fully initialized instance of [BatchManagementClient][net_mgmt_client].
 
 ```csharp
 // Create a new Batch account
@@ -82,7 +82,7 @@ BatchAccountRegenerateKeyResponse newKeys =
 
 ## Check Azure subscription and Batch account quotas
 
-Azure subscriptions and the individual Azure services like Batch all have default quotas that limit the number of certain entities within them. For the default quotas for Azure subscriptions, see [Azure subscription and service limits, quotas, and constraints](./../azure-subscription-service-limits.md). For the default quotas of the Batch service, see [Quotas and limits for the Azure Batch service](batch-quota-limit.md). By using the Batch Management .NET library, you can check these quotas within your applications. This enables you to make allocation decisions before you add accounts or compute resources like pools and compute nodes.
+Azure subscriptions and the individual Azure services like Batch all have default quotas that limit the number of certain entities within them. For the default quotas for Azure subscriptions, see [Azure subscription and service limits, quotas, and constraints](./../azure-subscription-service-limits.md). For the default quotas of the Batch service, see [Quotas and limits for the Azure Batch service](batch-quota-limit.md). By using the Batch Management .NET library, you can check these quotas in your applications. This enables you to make allocation decisions before you add accounts or compute resources like pools and compute nodes.
 
 ### Check an Azure subscription for Batch account quotas
 
@@ -138,7 +138,7 @@ When you work with the Batch Management .NET library, you typically also use [Az
 
 ### Azure Active Directory
 
-Azure itself uses Azure AD for the authentication of its customers, service administrators, and organizational users. In the context of Batch Management .NET, you will use it to authenticate a subscription administrator or coadminstrator. This will then allow the management library to query the Batch service and perform the operations that are described in this article.
+Azure itself uses Azure AD for the authentication of its customers, service administrators, and organizational users. In the context of Batch Management .NET, you use Azure AD to authenticate a subscription administrator or co-administrator. This allows the management library to query the Batch service and perform the operations described in this article.
 
 In the sample project discussed below, the Azure [Active Directory Authentication Library][aad_adal] (ADAL) is used to prompt the user for their Microsoft credentials. When service administrator or coadministrator credentials are supplied, the application can query Azure for a list of subscriptions--and can create and delete both resource groups and Batch accounts.
 
@@ -148,9 +148,9 @@ When you create Batch accounts with the Batch Management .NET library, you will 
 
 ## Sample project on GitHub
 
-Check out the [AccountManagment][acct_mgmt_sample] sample project on GitHub to see the Batch Management .NET library in action. This console application shows the creation and usage of [BatchManagementClient][net_mgmt_client] and [ResourceManagementClient][resman_client]. It also demonstrates the usage of the Azure [Active Directory Authentication Library][aad_adal] (ADAL), which is required by both clients.
+To see Batch Management .NET in action, check out the [AccountManagment][acct_mgmt_sample] sample project on GitHub. This console application shows the creation and usage of [BatchManagementClient][net_mgmt_client] and [ResourceManagementClient][resman_client]. It also demonstrates the usage of the Azure [Active Directory Authentication Library][aad_adal] (ADAL), which is required by both clients.
 
-To run the sample application successfully, you must first register it with Azure AD by using the Azure portal. Follow the steps in the [Adding an Application](../active-directory/active-directory-integrating-applications.md#adding-an-application) section in [Integrating applications with Azure Active Directory][aad_integrate] to register the sample application within your own account's Default Directory. Be sure to select **Native Client Application** for the type of application, and you may specify any valid URI (such as `http://myaccountmanagementsample`) for the **Redirect URI**--it does not need to be a real endpoint.
+To run the sample application successfully, you must first register it with Azure AD by using the Azure portal. Follow the steps in the [Adding an Application](../active-directory/active-directory-integrating-applications.md#adding-an-application) section in [Integrating applications with Azure Active Directory][aad_integrate] to register the sample application within your own account's Default Directory. Be sure to select **Native Client Application** for the type of application, and you can specify any valid URI (such as `http://myaccountmanagementsample`) for the **Redirect URI**--it does not need to be a real endpoint.
 
 After adding your application, delegate the **Access Azure Service Management as organization** permission to the *Windows Azure Service Management API* application in the application's settings in the portal:
 
@@ -164,13 +164,13 @@ Once you've added the application as described above, update `Program.cs` in the
 
 The [AccountManagment][acct_mgmt_sample] sample application demonstrates the following operations:
 
-1. Acquire a security token from Azure AD by using [ADAL][aad_adal]. If the user is not already signed in, they will be prompted for their Azure credentials.
-2. By using the security token that was obtained from Azure AD, create [SubscriptionClient][resman_subclient] to query Azure for a list of subscriptions that are associated with the account. This allows the user to select one subscription if multiple are found.
-3. Create a new credentials object that is associated with the selected subscription.
-4. Create [ResourceManagementClient][resman_client] by using the new credentials.
-5. Use [ResourceManagementClient][resman_client] to create a new resource group.
-6. Use [BatchManagementClient][net_mgmt_client] to perform a several Batch account operations:
-  - Create a new Batch account within the newly created resource group.
+1. Acquire a security token from Azure AD by using [ADAL][aad_adal]. If the user is not already signed in, they are prompted for their Azure credentials.
+2. By using the security token obtained from Azure AD, create a [SubscriptionClient][resman_subclient] to query Azure for a list of subscriptions associated with the account. This allows selection of a subscription if multiple are found.
+3. Create a credentials object associated with the selected subscription.
+4. Create [ResourceManagementClient][resman_client] by using the credentials.
+5. Use [ResourceManagementClient][resman_client] to create a resource group.
+6. Use [BatchManagementClient][net_mgmt_client] to perform several Batch account operations:
+  - Create a Batch account in the new resource group.
   - Get the newly created account from the Batch service.
   - Print the account keys for the new account.
   - Regenerate a new primary key for the account.
