@@ -82,7 +82,7 @@ The graphic shows how these components interact.
 
 ![architecture](./media/site-recovery-vmware-to-azure/v2a-architecture-henry.png)
 
-**Figure 1: VMware/physical to Azure** 
+**Figure 1: VMware/physical to Azure**
 
 ## Azure prerequisites
 
@@ -231,7 +231,7 @@ Set up the configuration server and register it in the Recovery Services vault. 
 
 	![Before you start](./media/site-recovery-vmware-to-azure/combined-wiz1.png)
 
-3. In **Third-Party Software License** click **I Accept** to download and install MySQL. 
+3. In **Third-Party Software License** click **I Accept** to download and install MySQL.
 
 	![Third=party software](./media/site-recovery-vmware-to-azure/combined-wiz105.PNG)
 
@@ -356,7 +356,7 @@ Verify you have a storage account for replication, and an Azure network to which
 
 	- If you want to create a storage account using the classic model you'll do that in the Azure portal. [Learn more](../storage/storage-create-storage-account-classic-portal.md)
 	- If you’re using a premium storage account for replicated data you'll need to set up an additional standard storage account to store replication logs that capture ongoing changes to on-premises data.
-	
+
 	> [AZURE.NOTE] Protection to premium storage accounts in Central India and South India is currently not supported.
 
 4.	Select an Azure network. If you haven't created a network and you want to do that using ARM click **+Network** to do that inline. On the **Create virtual network** blade specify a network name, address range, subnet details, subscription, and location. The network should be in the same location as the Recovery Services vault.
@@ -438,7 +438,7 @@ This table describes a scenario in which:
 8 vCPUs (2 sockets * 4 cores @ 2.5GHz), 16 GB memory | 4 vCPUs (2 sockets * 2 cores @ 2.5GHz), 8 GB memory | 300 GB | 250 GB or less | Replicate 85 or less machines.
 8 vCPUs (2 sockets * 4 cores @ 2.5GHz), 16 GB memory | 8 vCPUs (2 sockets * 4 cores @ 2.5GHz), 12 GB memory | 600 GB | 250 GB to 1 TB | Replicate between 85-150 machines.
 12 vCPUs (2 sockets * 6 cores @ 2.5GHz), 18 GB memory | 12 vCPUs (2 sockets * 6 cores @ 2.5GHz) 24 GB memory | 1 TB | 1 TB to 2 TB | Replicate between 150-225 machines.
- 
+
 
 The way in which you scale your servers will depend on your preference for a scale up or scale out model.  You scale up by deploying a few high-end configuration and process servers, or scale out by deploying more servers with less resources. For example: if you need to protect 220 machines you could do either of the following:
 
@@ -455,7 +455,7 @@ You can use the capacity planner tool to calculate the bandwidth you need for re
 - **Influence bandwidth**: You can influence the bandwidth used for replication using a couple of registry keys:
 	- The **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\UploadThreadsPerVM** registry value specifies the number of threads that are used for data transfer (initial or delta replication) of a disk. A higher value increases the network bandwidth used for replication.
 	- The **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DownloadThreadsPerVM** specifies the number of threads used for data transfer during failback.
- 
+
 #### Throttle bandwidth
 
 1. Open the Microsoft Azure Backup MMC snap-in on the machine acting as the process server. By default a shortcut for Microsoft Azure Backup is available on the desktop or in C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.
@@ -492,7 +492,7 @@ Make sure that machines you want to replicate are prepared for Mobility service 
 The first step in enabling protection for virtual machines and physical servers is to install the Mobility service. You can do this in a couple of ways:
 
 - **Process server push**: When you enable replication on a machine, push and install the Mobility service component from the process server. Note that push installation won't occur if machines are already running an up-todate version of the component.
-- **Enterprise push**: Automatically install the component using your enterprise push process such as WSUS or System Center Configuration Manager or [Azure Automation and Desired State configuration](./site-recovery-automate-mobility-service-install). Set up the configuration server before you do this.
+- **Enterprise push**: Automatically install the component using your enterprise push process such as WSUS or System Center Configuration Manager or [Azure Automation and Desired State configuration](./site-recovery-automate-mobility-service-install.md). Set up the configuration server before you do this.
 - **Manual installation**: Install the component manually on each machine that you want to replicate. Set up the configuration server before you do this.
 
 
@@ -538,7 +538,7 @@ Here's how to prepare Windows machines so that the Mobility service can be autom
 		![Linux](./media/site-recovery-vmware-to-azure/mobility2.png)
 
 
-### Install the Mobility service manually
+### Install the Mobility Service manually
 
 The installers are available on the Configuration server in **C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository**.
 
@@ -550,7 +550,7 @@ SUSE Linux Enterprise Server 11 SP3 (64 bit only) | Microsoft-ASR_UA_9.*.0.0_SLE
 Oracle Enterprise Linux 6.4, 6.5 (64 bit only) | Microsoft-ASR_UA_9.*.0.0_OL6-64_*release.tar.gz
 
 
-#### Install on a Windows server using the Graphical User Interface
+#### Install Mobility Service on a Windows Server
 
 
 1. Download and run the relevant installer.
@@ -565,25 +565,29 @@ Oracle Enterprise Linux 6.4, 6.5 (64 bit only) | Microsoft-ASR_UA_9.*.0.0_OL6-64
 4. In **Install Location** leave the default setting and click **Next** to begin installation.
 5. In **Installation Progress** monitor installation and restart the machine if prompted. After installing the service it can take around 15 minutes for status to update in the portal.
 
-#### Install on a Windows server using the Command prompt
+#### Install Mobility Service on a Windows server using the Command prompt
 
 1. Copy the installer to a local folder (say C:\Temp) on the server that you want to protect. The installer can be found on the Configuration Server under the **[Install Location]\home\svsystems\pushinstallsvc\repository**. The package for Windows Operating Systems will have a name similar to Microsoft-ASR_UA_9.3.0.0_Windows_GA_17thAug2016_release.exe
 2. **Rename** this file to MobilitySvcInstaller.exe
-3. Run the following command to extract the MSI installer
-    cd C:\Temp
-	MobilitySvcInstaller.exe /q /xC:\Temp\Extracted
-	cd Extracted
-	UnifiedAgent.exe /Role "Agent" /CSEndpoint "IP Address of CS" /PassphraseFilePath <Full path to the passphrase file>
+3. Run the following command to extract the MSI installer </br>
 
-#####Full Commandline Syntax
+		C:\> cd C:\Temp
+		C:\Temp> MobilitySvcInstaller.exe /q /xC:\Temp\Extracted
+		C:\Temp> cd Extracted
+		C:\Temp\Extracted> UnifiedAgent.exe /Role "Agent" /CSEndpoint "IP Address of Configuration Server" /PassphraseFilePath <Full path to the passphrase file>
 
-	UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <Installation Directory>] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>] [/LogFilePath <Log File Path>]
+#####Full Command-line Syntax
 
-#####Parameters
-- /Role: Mandatory. Specifies whether the Mobility service should be installed. Input values Agent|MasterTarget
-- /InstallLocation: Mandatory. Specifies where to install the service.
-- /PassphraseFilePath: Mandatory. The configuration server passphrase.
-- /LogFilePath: Mandatory. Location where the installation log files should be created.
+	UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <Installation Directory>] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>] [/LogFilePath <Log File Path>]<br/>
+
+**Parameters**
+
+- **/Role:** Mandatory. Specifies whether the Mobility service should be installed. Input values Agent|MasterTarget
+- **/InstallLocation:** Mandatory. Specifies where to install the service.
+- **/PassphraseFilePath:** Mandatory. The configuration server passphrase.
+- **/LogFilePath:** Mandatory. Location where the installation log files should be created.
+
+
 
 #### Uninstall Mobility service manually
 
@@ -594,7 +598,7 @@ The command to uninstall the Mobility Service using command line is
 	MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1}
 
 
-#### Install on a Linux server using commandline
+#### Install Mobility Service on a Linux server using command-line
 
 1. Copy the appropriate tar archive based on the table above to the Linux machine you want to replicate.
 2. Open a shell program and extract the zipped tar archive to a local path by running: `tar -xvzf Microsoft-ASR_UA_8.5.0.0*`
