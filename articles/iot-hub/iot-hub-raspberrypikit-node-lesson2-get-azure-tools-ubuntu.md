@@ -22,7 +22,7 @@
 > [AZURE.SELECTOR]
 - [Windows 7 +](iot-hub-raspberrypikit-node-lesson2-get-azure-tools-win32.md)
 - [Ubuntu 16.04](iot-hub-raspberrypikit-node-lesson2-get-azure-tools-ubuntu.md)
-- [OS X 10.10](iot-hub-raspberrypikit-node-lesson2-get-azure-tools-mac.md)
+- [macOS 10.10](iot-hub-raspberrypikit-node-lesson2-get-azure-tools-mac.md)
 
 ## 2.1.1 What you will do
 

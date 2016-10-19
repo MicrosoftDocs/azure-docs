@@ -38,7 +38,7 @@ You must have successfully completed the follow sections in Lesson 1:
 
 ## 1.3.4 Obtain the IP address and host name of your Pi
 
-Open a command prompt in Windows or a terminal window in Mac OS X or Ubuntu, and then run the following command:
+Open a command prompt in Windows or a terminal window in Mac macOS or Ubuntu, and then run the following command:
 
 ```bash
 devdisco list --eth

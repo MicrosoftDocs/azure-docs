@@ -1,6 +1,6 @@
 <properties
- pageTitle="Get the tools (Mac OS X 10.10) | Microsoft Azure"
- description="Download and install the necessary tools and software for the first sample application for your Pi on Mac OS X."
+ pageTitle="Get the tools (Mac macOS 10.10) | Microsoft Azure"
+ description="Download and install the necessary tools and software for the first sample application for your Pi on Mac macOS."
  services="iot-hub"
  documentationCenter=""
  authors="shizn"
@@ -17,12 +17,12 @@
  ms.date="09/28/2016" 
  ms.author="xshi"/>
 
-# 1.2 Get the tools (Mac OS X 10.10)
+# 1.2 Get the tools (Mac macOS 10.10)
 
 > [AZURE.SELECTOR]
 - [Windows 7 +](iot-hub-raspberrypikit-node-lesson1-get-the-tools-win32.md)
 - [Ubuntu 16.04](iot-hub-raspberrypikit-node-lesson1-get-the-tools-ubuntu.md)
-- [OS X 10.10](iot-hub-raspberrypikit-node-lesson1-get-the-tools-mac.md)
+- [macOS 10.10](iot-hub-raspberrypikit-node-lesson1-get-the-tools-mac.md)
 
 ## 1.2.1 What you will do
 
@@ -41,7 +41,7 @@ In this section, you will learn:
 ## 1.2.3 What you need
 
 - An Internet connection to download the development tools and the software
-- A Mac that is running OS X Yosemite (10.10) or later
+- A Mac that is running macOS Yosemite (10.10) or later
 
 ## 1.2.4 Install Git and Node.js
 
@@ -68,11 +68,11 @@ Install `gulp` and `device-discovery-cli` by running the following command in th
 npm install -g device-discovery-cli gulp
 ```
 
-If you experience issues installing Node.js and these additional development tools on OS X, see the [troubleshooting guide](iot-hub-raspberrypikit-node-troubleshooting.md) for solutions to common problems.
+If you experience issues installing Node.js and these additional development tools on macOS, see the [troubleshooting guide](iot-hub-raspberrypikit-node-troubleshooting.md) for solutions to common problems.
 
 ## 1.2.6 Install Visual Studio Code
 
-[Download](https://code.visualstudio.com/docs/setup/osx) and install Visual Studio Code. Visual Studio Code is a lightweight but powerful source code editor for Windows, Linux and OS X. You use this later in the tutorial to edit the sample codes.
+[Download](https://code.visualstudio.com/docs/setup/osx) and install Visual Studio Code. Visual Studio Code is a lightweight but powerful source code editor for Windows, Linux and macOS. You use this later in the tutorial to edit the sample codes.
 
 ## 1.2.7 Summary
 

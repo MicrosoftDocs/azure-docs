@@ -22,7 +22,7 @@
 > [AZURE.SELECTOR]
 - [Windows 7 +](iot-hub-raspberrypikit-node-lesson1-get-the-tools-win32.md)
 - [Ubuntu 16.04](iot-hub-raspberrypikit-node-lesson1-get-the-tools-ubuntu.md)
-- [OS X 10.10](iot-hub-raspberrypikit-node-lesson1-get-the-tools-mac.md)
+- [macOS 10.10](iot-hub-raspberrypikit-node-lesson1-get-the-tools-mac.md)
 
 ## 1.2.1 What you will do
 
@@ -69,7 +69,7 @@ If you experience issues installing Node.js and these additional development too
 
 ## 1.2.6 Install Visual Studio Code
 
-[Download](https://code.visualstudio.com/docs/setup/linux) and install Visual Studio Code. Visual Studio Code is a lightweight but powerful source code editor for Windows, Linux and OS X. You use this later in the tutorial to edit the sample codes.
+[Download](https://code.visualstudio.com/docs/setup/linux) and install Visual Studio Code. Visual Studio Code is a lightweight but powerful source code editor for Windows, Linux and macOS. You use this later in the tutorial to edit the sample codes.
 
 ## 1.2.7 Summary
 
