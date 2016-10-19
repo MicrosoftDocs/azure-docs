@@ -44,7 +44,7 @@ You connect to and manage Linux VMs in Azure using an **ssh** client. Windows co
 - [MobaXterm](http://mobaxterm.mobatek.net/)
 - [Cygwin](https://cygwin.com/)
 
-> [AZURE.INFO] The latest Windows 10 Anniversary Update includes Bash for Windows. This feature allows you to run the Windows Subsystem for Linux and access utilities such as an SSH client. Bash for Windows is still under development, and is considered a beta release. For more information about Bash for Windows, see [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about).
+> [AZURE.NOTE] The latest Windows 10 Anniversary Update includes Bash for Windows. This feature allows you to run the Windows Subsystem for Linux and access utilities such as an SSH client. Bash for Windows is still under development, and is considered a beta release. For more information about Bash for Windows, see [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about).
 
 
 ## Which key files do you need to create?
@@ -172,7 +172,7 @@ Again, PuTTY is a common SSH client for Windows. You are free to use any SSH cli
 
 2. Fill in the host name or IP address of your VM from the Azure portal:
 
-    ![Open new PuTTY connection]](./media/virtual-machines-linux-ssh-from-windows/putty-new-connection.png)
+    ![Open new PuTTY connection](./media/virtual-machines-linux-ssh-from-windows/putty-new-connection.png)
 
 3. Before selecting **Open**, click **Connection** > **SSH** > **Auth** tab. Browse to and select your private key:
 
