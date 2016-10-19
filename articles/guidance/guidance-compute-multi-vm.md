@@ -33,7 +33,7 @@ This article builds on [Running a Single VM on Azure][single vm]. The recommenda
 
 VMs in Azure require supporting networking and storage resources.
 
-> The Visio used for generating this architecture diagram is available for download [here][visio-download].
+> The Visio template used for generating this architecture diagram is available for download at the [Microsoft download center][visio-download].
 
 ![[0]][0]
 
@@ -45,11 +45,11 @@ The architecture has the following components:
 
 - **Azure Load Balancer.** The [load balancer] distributes incoming Internet requests to the VM instances in an availability set. The load balancer includes some related resources:
 
-    - **Public IP address.** A public IP address is needed for the load balancer to receive Internet traffic.
+  - **Public IP address.** A public IP address is needed for the load balancer to receive Internet traffic.
 
-    - **Front-end configuration.** Associates the public IP address with the load balancer.
+  - **Front-end configuration.** Associates the public IP address with the load balancer.
 
-    - **Back-end address pool.** Contains the network interfaces (NICs) for the VMs that will receive the incoming traffic.
+  - **Back-end address pool.** Contains the network interfaces (NICs) for the VMs that will receive the incoming traffic.
 
 - **Load balancer rules** are used to distribute network traffic among all the VMs in the back-end address pool. 
 
@@ -137,7 +137,7 @@ The reference architecture can be deployed either with Windows or Linux VMs by f
 
 1. Click the button below.
 
-	<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-multi-vm%2Fazuredeploy.json" target="_blank">
+  <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-multi-vm%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/></a>
 
 2. Once the link has opened in the Azure portal, you must enter values for some of the settings: 
@@ -164,6 +164,7 @@ Placing several VMs behind a load balancer is a building block for creating mult
 [azure-automation]: https://azure.microsoft.com/en-us/documentation/services/automation/
 [azure-cli]: ../virtual-machines-command-line-tools.md
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
+[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm
 [health probe log]: ../load-balancer/load-balancer-monitor-log.md
 [health probes]: ../load-balancer/load-balancer-overview.md#service-monitoring
 [health-probe-ip]: ../virtual-network/virtual-networks-nsg.md#special-rules
@@ -174,7 +175,7 @@ Placing several VMs behind a load balancer is a building block for creating mult
 [naming conventions]: guidance-naming-conventions.md
 [network-security]: ../best-practices-network-security.md
 [nsg]: ../virtual-network/virtual-networks-nsg.md
-[resource-manager-overview]: ../resource-group-overview.md 
+[resource-manager-overview]: ../azure-resource-manager/resource-group-overview.md 
 [Runbook Gallery]: ../automation/automation-runbook-gallery.md#runbooks-in-runbook-gallery
 [single vm]: guidance-compute-single-vm.md
 [subscription-limits]: ../azure-subscription-service-limits.md
