@@ -1,7 +1,7 @@
  <properties
-	pageTitle="What is Hadoop in the cloud? Introduction to HDInsight | Microsoft Azure"
-	description="What is Hadoop in the cloud and how is it managed in Microsoft Azure HDInsight? An introduction to Hadoop components and big data analysis."
-	keywords="big data analysis,introduction to hadoop,what is hadoop,hadoop in the cloud,hadoop technology stack,hadoop ecosystem"
+	pageTitle="Intro to Hadoop - What is Hadoop in HDInsight? | Microsoft Azure"
+	description="Get an introduction to Hadoop, distributed big data processing and analysis, and the components of the Hadoop ecosystem in the cloud on HDInsight."
+	keywords="big data analysis,introduction to hadoop,what is hadoop,hadoop technology stack,hadoop ecosystem"
 	services="hdinsight"
 	documentationCenter=""
 	authors="cjgronlund"
@@ -14,29 +14,29 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/21/2016"
+   ms.date="10/21/2016"
    ms.author="cgronlun"/>
 
 
-# What is Hadoop in the cloud? An introduction to the Hadoop ecosystem in HDInsight
+# An introduction to the Hadoop ecosystem in Azure HDInsight
 
-Get an introduction to Hadoop, its ecosystem, and big data in Azure HDInsight: What is Hadoop in HDInsight and what are the Hadoop components, common terminology, and scenarios for big data analysis? Also, learn about Hadoop tutorials, documentation, and resources for using Hadoop the cloud in HDInsight.
+ This article provides an introduction to Hadoop on Azure HDInsight, its ecosystem, and big data. Learn about the Hadoop components, common terminology, and scenarios for big data analysis.
 
 ## What is Hadoop in HDInsight?
 
-Azure HDInsight uses the **Hortonworks Data Platform (HDP)** Hadoop distribution. HDInsight deploys and provisions managed Apache Hadoop clusters in the cloud, providing a software framework designed to process, analyze, and report on big data with high reliability and availability.  
+Hadoop refers to an ecosystem of open-source software that is a framework for distributed processing, storing, and analysis of big data sets on clusters of computers. First was the open-source project Apache Hadoop, then came related technologies including Apache Hive, Apache HBase, Apache Spark, and others that are generally included in the Hadoop technology stack. See [Overview of the Hadoop ecosystem in HDInsight](#overview) below for details.
 
-Hadoop often refers to the entire Hadoop ecosystem of components, which includes Apache HBase, Apache Spark, and Apache Storm, as well as other technologies under the Hadoop umbrella. See [Overview of the Hadoop ecosystem in HDInsight](#overview) below for details.
+Azure HDInsight makes the Hadoop components from the **Hortonworks Data Platform (HDP)** distribution available in the cloud, and deploys and provisions managed clusters with high reliability and availability.  
 
 ## What is big data?
 
 Big data describes any large body of digital information, from the text in a Twitter feed, to the sensor information from industrial equipment, to information about customer browsing and purchases on a website. Big data can be historical (meaning stored data) or real-time (meaning streamed directly from the source). Big data is being collected in ever-escalating volumes, at increasingly higher velocities, and in an expanding variety formats.
 
-For big data to provide actionable intelligence or insight, not only must you collect relevant data and ask the right questions, but also the data must be accessible, cleaned, analyzed, and then presented in a useful way. That's where big data analysis on Hadoop in HDInsight can help.
+For big data to provide actionable intelligence or insight, not only must you collect relevant data and ask the right questions, but you must also make sure the data is accessible, cleaned, analyzed, and then presented in a useful way. That's where big data analysis on Hadoop in HDInsight can help.
 
 ## <a name="overview"></a>Overview of the Hadoop ecosystem in HDInsight
 
-HDInsight is a cloud implementation on Microsoft Azure of the rapidly expanding Apache Hadoop technology stack that is the go-to solution for big data analysis. It includes implementations of Apache Spark, HBase, Storm, Pig, Hive, Sqoop, Oozie, Ambari, and so on. HDInsight also integrates with business intelligence (BI) tools such as Power BI, Excel, SQL Server Analysis Services, and SQL Server Reporting Services.
+HDInsight is a cloud distribution on Microsoft Azure of the rapidly expanding Apache Hadoop technology stack for big data analysis. It includes implementations of Apache Spark, HBase, Storm, Pig, Hive, Sqoop, Oozie, Ambari, and so on. HDInsight also integrates with business intelligence (BI) tools such as Power BI, Excel, SQL Server Analysis Services, and SQL Server Reporting Services.
 
 ### Hadoop, HBase, Spark, Storm, and customized clusters
 
