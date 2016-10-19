@@ -158,7 +158,7 @@ This table is sorted (virtual machines and subnets) by severity:
 
 In this topology view, the first level has [virtual networks](../virtual-network/virtual-networks-overview.md), [virtual network gateways](../vpn-gateway/vpn-gateway-site-to-site-create.md), and [virtual networks (classic)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). The second level has subnets, and the third level has the virtual machines that belong to those subnets. The right column has the current status of the network security group for those resources, as shown in the following example:
 
-![Status of the network security group in Networking topology section ](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
+![Status of the network security group in Networking topology section](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
 
 The bottom part of this blade has the recommendations for this virtual machine, which is similar to what is described previously. You can click a recommendation to learn more or apply the needed security control or configuration.
 
@@ -183,7 +183,7 @@ When you click the database to address this recommendation, the **Auditing & Thr
 
 ![Auditing & Threat detection blade](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
 
-To enable auditing, simply select **ON** under the **Auditing** option.
+To enable auditing, select **ON** under the **Auditing** option.
 
 ### Monitor applications
 
