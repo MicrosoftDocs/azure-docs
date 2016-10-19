@@ -17,20 +17,21 @@
  ms.date="09/28/2016" 
  ms.author="xshi"/>
 
-# 4.1 Run a sample application on your Raspberry Pi to receive cloud to device messages
+<<<<<<< HEAD
+# 4.1 Send device-to-cloud messages
 
-The sample application in Lesson 4 runs on your Pi and monitors incoming messages from your IoT hub. A new gulp task sends messages to your Pi from your IoT hub to blink the LED.
+In this section, you deploy a sample application on your Raspberry Pi 3. The sample application monitors incoming messages from your IoT hub. You also run a gulp task on your computer to send messages to your Pi from your IoT hub. Upon receiving the messages, the sample application blinks the LED.
 
-## 4.1.1 What will you do
+## 4.1.1 What you will do
 
-- Connect the sample application to your IoT hub
-- Deploy and run the sample application
-- Send messages from your IoT hub to your Pi to blink the LED
+- Connect the sample application to your IoT hub.
+- Deploy and run the sample application.
+- Send messages from your IoT hub to your Pi to blink the LED.
 
 ## 4.1.2 What you will learn
 
-- What configuration is required in the client application that monitors incoming messages from your IoT hub.
-- A new gulp task to send cloud-to-device messages. 
+- How to monitor incoming messages from your IoT hub.
+- How to send cloud-to-device messages from your IoT hub to your Pi. 
 
 ## 4.1.3 What do you need
 
@@ -46,25 +47,24 @@ The sample application in Lesson 4 runs on your Pi and monitors incoming message
     code .
     ```
 
-    Notice the `app.js` file in the `app` sub-folder. The `app.js` file is the key source file that enables the application to monitor incoming messages from IoT Hub. The `blinkLED` function blinks the LED.
+    Notice the `app.js` file in the `app` sub-folder. The `app.js` file is the key source file that contains the code to monitor incoming messages from IoT Hub. The `blinkLED` function blinks the LED.
 
     ![Repo Structure](media/iot-hub-raspberry-pi-lessons/lesson4/repo_structure.png)
 
 2. Initialize the configuration file with the following commands.
 
-    ```bash
-    npm install
-    gulp init
-    ```
+  ```bash
+  npm install
+  gulp init
+  ```
 
-    If you've completed Lesson3 in this machine, you can see all the configuration is inherited and you might skip to next section. Or you might need the following commands to replace the placeholders in the `config-raspberrypi.json` in the sub-folder of your home folder.
+  If you've completed Lesson 3 on this computer, all the configurations are inherited so you can skip to the 4.1.5. If you completed Lesson 3 on a different computer, you need the replace the placeholders in the `config-raspberrypi.json` file by running the corresponding commands as below. The `config-raspberrypi.json` file is in the sub-folder of your home folder.
 
-    ![Config](media/iot-hub-raspberry-pi-lessons/lesson4/config_raspberrypi.png)
+  ![Config](media/iot-hub-raspberry-pi-lessons/lesson4/config_raspberrypi.png)
 
-    - Replace **[device hostname or IP address]** with your Pi’s IP address or hostname that you got from `devdisco list --eth`
-    - Replace **[IoT device connection string]** with the device connection string from the command `az iot hub show-connection-string --name {my hub name} --resource-group {resource group name}`.
-    - Replace **[IoT hub connection string]** with the IoT hub connection string from the command `az iot device show-connection-string --hub {my hub name} --device-id {device id} --resource-group {resource group name}`.
-
+  - Replace **[device hostname or IP address]** with your Pi’s IP address or hostname that you get by running the command `devdisco list --eth`
+  - Replace **[IoT device connection string]** with the device connection string that you get by running the command `az iot hub show-connection-string --name {my hub name} --resource-group {resource group name}`.
+  - Replace **[IoT hub connection string]** with the IoT hub connection string that you get by running the command `az iot device show-connection-string --hub {my hub name} --device-id {device id} --resource-group {resource group name}`.
 
 ## 4.1.5 Deploy and run the sample application
 
@@ -84,7 +84,8 @@ You should see the LED blinking every two seconds as the gulp task is sending 20
 
 ## 4.1.6 Summary
 
-You’ve learned how to send messages from your IoT hub to your Pi to blink the LED. Next section is complimentary reading that shows you how to change the on and off behavior of the LED.
+You’ve successfully sent messages from your IoT hub to your Pi to blink the LED. Next section is complimentary reading that shows you how to change the on and off behavior of the LED.
 
 ## Next Steps
+
 [Complimentary reading: Change the on and off behavior of the LED](iot-hub-raspberrypikit-node-lesson4-change-led-behavior.md)

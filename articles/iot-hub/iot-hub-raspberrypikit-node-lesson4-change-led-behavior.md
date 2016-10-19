@@ -19,11 +19,11 @@
 
 # 4.2 Complimentary reading: Change the on and off behavior of the LED
 
-## 4.2.1 What will you do
+## 4.2.1 What you will do
 
 Customize the messages to change the LED’s on and off behavior.
 
-## 4.2.2 What will you learn
+## 4.2.2 What you will learn
 
 Use additional Node.js functions to change the LED’s on and off behavior.
 
@@ -87,11 +87,12 @@ You should successfully complete [4.1 Run a sample application on your Raspberry
 
     ```javascript
     var message = buildCustomMessage(sentMessageCount);
-    ``` 
+    ```
 
 6. Save all the changes.
 
 ### 4.2.5 Deploy and run the sample application
+
 Deploy and run the sample application on your Pi by running the following command:
 
 ```bash
@@ -102,10 +103,10 @@ You should see the LED turned on for two seconds, and then turned off for anothe
 
 ![on and off](media/iot-hub-raspberry-pi-lessons/lesson4/gulp_on_and_off.png)
 
-You rock! You’ve successfully customized the messages that are sent to the sample application from your IoT hub.
+Congratulations! You’ve successfully customized the messages that are sent to the Pi from your IoT hub.
 
 ### 4.2.7 Summary
 
 This complimentary reading demos how to customize the messages so that the sample application can control the on and off behavior of the LED in a different way.
 
-In the next lesson, you will learn how to gather data from real sensors and use Azure Machine Learning to do further analysis of the data. (Coming Soon...)
+More Lessons are coming soon...
