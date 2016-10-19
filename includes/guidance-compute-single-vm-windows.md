@@ -172,7 +172,7 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/virtual-machines/virtual-machines-windows-about-disks-vhds.md
 [disk-encryption]: ../articles/security/azure-security-disk-encryption.md
-[enable-monitoring]: ../articles/azure-portal/insights-how-to-use-diagnostics.md
+[enable-monitoring]: ../articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-windows-portal-create-fqdn.md
 [group-policy]: https://technet.microsoft.com/en-us/library/dn595129.aspx
 [log-collector]: https://azure.microsoft.com/en-us/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
@@ -192,7 +192,7 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [Resize-VHD]: https://technet.microsoft.com/en-us/library/hh848535.aspx
 [Resize virtual machines]: https://azure.microsoft.com/en-us/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md
-[resource-manager-overview]: ../articles/resource-group-overview.md
+[resource-manager-overview]: ../articles/azure-resource-manager/resource-group-overview.md
 [security-center]: https://azure.microsoft.com/en-us/services/security-center/
 [select-vm-image]: ../articles/virtual-machines/virtual-machines-windows-cli-ps-findimage.md
 [services-by-region]: https://azure.microsoft.com/en-us/regions/#services

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/18/2016"
+	ms.date="10/19/2016"
 	ms.author="maheshu"/>
 
 # Azure AD Domain Services - Troubleshooting guide
@@ -109,9 +109,11 @@ if ($sp -ne $null)
     Write-Information "Deleted the Azure AD Domain Services Sync service principal."
 }
 ```
+<br>
 
 ### Microsoft Graph disabled
 **Error message:**
+
 Domain Services could not be enabled in this Azure AD tenant. The Microsoft Azure AD application is disabled in your Azure AD tenant. Enable the application with the application identifier 00000002-0000-0000-c000-000000000000 and then try to enable Domain Services for your Azure AD tenant.
 
 **Remediation:**
@@ -149,7 +151,7 @@ If one or more users in your Azure AD tenant are unable to sign in to the newly 
 ## Users removed from your Azure AD tenant are not removed from your managed domain
 Azure AD protects you from accidental deletion of user objects. When you delete a user account from your Azure AD tenant, the corresponding user object is moved to the Recycle Bin. When this delete operation is synchronized to your managed domain, it causes the corresponding user account to be marked disabled. This feature helps you recover or undelete the user account later.
 
-To remove the user account fully from your managed domain, delete the user permanently from your Azure AD tenant using the '-RemoveFromRecycleBin' option as described in this [MSDN article](https://msdn.microsoft.com/library/azure/dn194132(v=azure.98).aspx)
+To remove the user account fully from your managed domain, delete the user permanently from your Azure AD tenant. Use the Remove-MsolUser PowerShell cmdlet with the '-RemoveFromRecycleBin' option, as described in this [MSDN article](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 
 
 ## Contact Us

@@ -12,8 +12,8 @@
       ms.tgt_pltfrm="na"
       ms.devlang="na"
       ms.topic="article"
-      ms.date="02/29/2016"
-      ms.author="minet;robinsh" />
+      ms.date="10/18/2016"
+      ms.author="minet" />
 
 
 # How to use Azure File Storage with Linux

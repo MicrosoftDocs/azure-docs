@@ -3,8 +3,8 @@
 	description="Store structured data in the cloud using Azure Table storage, a NoSQL data store."
 	services="storage"
 	documentationCenter="ruby"
-	authors="rmcmurray"
-	manager="wpickett"
+	authors="tamram"
+	manager="carmonm"
 	editor=""/>
 <tags
 	ms.service="storage"
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="08/11/2016"
-	ms.author="gusapost;robmcm"/>
+	ms.date="10/18/2016"
+	ms.author="tamram"/>
 
 
 # How to use Azure Table Storage from Ruby
