@@ -29,7 +29,7 @@ For more information about how to apply recommendations, read [Implementing secu
 
 On the **Resources security health** tile, you can monitor the security state of your resources. In the following example, you can see that a number of issues have high and medium severity and require attention. The security policies that are enabled will impact the types of controls that are monitored.
 
-![Resources health](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
+![Resources security health tile](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
 
 If Security Center identifies a vulnerability that needs to be addressed, such as a virtual machine that has missing security updates or a subnet without a [network security group](../virtual-network/virtual-networks-nsg.md), it will be listed here.
 
@@ -47,7 +47,7 @@ In each section, you can select an individual option to see more details about t
 #### Monitoring recommendations
 This section shows the total number of virtual machines that were initialized for data collection and their current statuses. After all virtual machines have data collection initialized, they will be ready to receive Security Center security policies. When you click this entry, the **Data collection installation status** blade opens, and you can see the names of the virtual machines and the current status of data collection in the **INSTALLATION STATUS** column as shown in the following screenshot.
 
-![Initialization status](./media/security-center-monitoring/security-center-monitoring-fig3-ga.png)
+![Initialization status of virtual machines](./media/security-center-monitoring/security-center-monitoring-fig3-ga.png)
 
 
 #### Virtual machine recommendations
@@ -59,7 +59,7 @@ This section has a set of [recommendations for each virtual machine](security-ce
 
 Each recommendation has a set of actions that you can perform after you click it. For example, if you click **Missing system updates**, the **Missing system updates** blade opens. It lists the virtual machines that are missing patches and the severity of the missing update as shown in the following screenshot.
 
-![Missing system updates](./media/security-center-monitoring/security-center-monitoring-fig5-ga.png)
+![Missing system updates for virtual machines](./media/security-center-monitoring/security-center-monitoring-fig5-ga.png)
 
 The **Missing system updates** blade shows a table with the following information:
 
@@ -77,14 +77,14 @@ The **Missing system updates** blade shows a table with the following informatio
 
 To view the recommendation details, click the name of the virtual machine. A new blade for that virtual machine opens with the list of updates as shown in the following screenshot.
 
-![Missing system updates per virtual machine](./media/security-center-monitoring/security-center-monitoring-fig6-ga.png)
+![Missing system updates for a specific virtual machine](./media/security-center-monitoring/security-center-monitoring-fig6-ga.png)
 
 > [AZURE.NOTE] The security recommendations here are the same as those in the **Recommendations** blade. See the [Implementing security recommendations in Azure Security Center](security-center-recommendations.md) article for more information about how to resolve recommendations. This is applicable not only for virtual machines but also for all resources that are available in the **Resource Health** tile.
 
 #### Virtual machines section
 The virtual machines section gives you an overview of all virtual machines and recommendations. Each column represents one set of recommendations as shown in the following screenshot:
 
-![Virtual machines](./media/security-center-monitoring/security-center-monitoring-fig7-ga.png)
+![Overview of all virtual machines and recommendations](./media/security-center-monitoring/security-center-monitoring-fig7-ga.png)
 
 The icon that appears under each recommendation helps you to quickly identify the virtual machines that need attention and the type of recommendation.
 
@@ -97,20 +97,20 @@ This blade has the security details for the virtual machine. At the bottom of th
 #### Cloud services (Preview) section
 Health status for cloud services is included in the virtual machine's **Security Health** tile. A recommendation is created when the operating system version is out of date as shown in the following screenshot:
 
-![Cloud Services](./media/security-center-monitoring/security-center-monitoring-fig8-new2.png)
+![Health status for cloud services](./media/security-center-monitoring/security-center-monitoring-fig8-new2.png)
 
 You have to follow the steps in the recommendation to update the operating system version. For example, if you click the red alert in the WebRole1 (runs Windows Server with your web app automatically deployed to IIS) or WorkerRole1 (runs Windows Server with your web app automatically deployed to IIS) rows, a new blade opens with more details about this recommendation as shown in the following screenshot:
 
-![Cloud Service Details](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
+![Cloud service details](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
 To see a more prescriptive explanation about this recommendation, click **Update OS version** under the **DESCRIPTION** column. The **Update OS version (Preview)** blade opens with more details.
 
-![Cloud Services Recommendations](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
+![Cloud services recommendations](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 
 ### Monitor virtual networks
 When you click **Networking** in the **Resources security health** tile, the **Networking** blade opens with more details as shown in the following screenshot:
 
-![Networking](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
+![Networking blade](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
 #### Networking recommendations
 
@@ -126,7 +126,7 @@ The networking status breakdown section lists potential security issues and offe
 
 When you click a recommendation, a new blade opens with more details about the recommendation as shown in the following example.
 
-![Restrict endpoint](./media/security-center-monitoring/security-center-monitoring-fig9-ga.png)
+![Details for a recommendation in the Networking blade](./media/security-center-monitoring/security-center-monitoring-fig9-ga.png)
 
 In this example, the **Configure Missing Network Security Groups for Subnets** blade has a list of subnets and virtual machines that are missing network security group protection. If you click the subnet to which you want to apply the network security group, another blade opens.
 
@@ -136,7 +136,7 @@ In the **Choose network security group** blade, you can select the most appropri
 
 In the **Internet facing endpoints** section, you can see the virtual machines that are currently configured with an Internet facing endpoint and its current status.
 
-![Internet facing endpoint](./media/security-center-monitoring/security-center-monitoring-fig10-ga.png)
+![Virtual machines configured with Internet facing endpoint and status](./media/security-center-monitoring/security-center-monitoring-fig10-ga.png)
 
 This table has the endpoint name that represents the virtual machine, the Internet facing IP address, and the current severity status of the network security group and the NGFW. The table is sorted by severity:
 
@@ -148,7 +148,7 @@ This table has the endpoint name that represents the virtual machine, the Intern
 
 The **Networking topology** section has a hierarchical view of the resources as shown in the following screenshot:
 
-![Networking topology](./media/security-center-monitoring/security-center-monitoring-fig121-new4.png)
+![Hierarchical view of resources in Networking topology section](./media/security-center-monitoring/security-center-monitoring-fig121-new4.png)
 
 This table is sorted (virtual machines and subnets) by severity:
 
@@ -156,20 +156,20 @@ This table is sorted (virtual machines and subnets) by severity:
 - Orange: Medium priority and should be addressed as soon as possible
 - Green (last one): Healthy state
 
-In this topology view, the first level has [Virtual Networks](../virtual-network/virtual-networks-overview.md), [Virtual Network Gateways](../vpn-gateway/vpn-gateway-site-to-site-create.md), and [Virtual Networks (classic)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). The second level has subnets, and the third level has the virtual machines that belong to those subnets. The right column has the current status of the network security group for those resources, as shown in the following example:
+In this topology view, the first level has [virtual networks](../virtual-network/virtual-networks-overview.md), [virtual network gateways](../vpn-gateway/vpn-gateway-site-to-site-create.md), and [virtual networks (classic)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). The second level has subnets, and the third level has the virtual machines that belong to those subnets. The right column has the current status of the network security group for those resources, as shown in the following example:
 
-![Network tree](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
+![Status of the network security group in Networking topology section ](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
 
 The bottom part of this blade has the recommendations for this virtual machine, which is similar to what is described previously. You can click a recommendation to learn more or apply the needed security control or configuration.
 
 ### Monitor data
 When you click **Data** in the **Resources security health** tile, the **SQL** blade opens with recommendations for issues such as auditing and transparent data encryption not being enabled. It also has [recommendations](security-center-sql-service-recommendations.md) for the general health state of the database.
 
-![SQL Resource Health](./media/security-center-monitoring/security-center-monitoring-fig13-ga.png)
+![SQL resource health](./media/security-center-monitoring/security-center-monitoring-fig13-ga.png)
 
 You can click any recommendation and get more details about further action to resolve an issue. The following example shows the expansion of the **Database Auditing not enabled** recommendation.
 
-![SQL Resource Health](./media/security-center-monitoring/security-center-monitoring-fig14-ga.png)
+![Details about a SQL recommendation](./media/security-center-monitoring/security-center-monitoring-fig14-ga.png)
 
 The **Enable Auditing on SQL databases** blade has the following information:
 
@@ -181,7 +181,7 @@ The **Enable Auditing on SQL databases** blade has the following information:
 
 When you click the database to address this recommendation, the **Auditing & Threat detection** blade opens as shown in the following screenshot.
 
-![SQL Resource Health](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
+![Auditing & Threat detection blade](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
 
 To enable auditing, simply select **ON** under the **Auditing** option.
 
@@ -193,11 +193,11 @@ If your Azure workload has applications located in [resource manager virtual mac
 
 Just like you did with the other recommendations, you can click a recommendation to see more details about the issue and how to remediate. The example shown in the following figure is an application that was identified as an unsecure web application. When you select the application that was considered not secure, another blade opens with the following option available:
 
-![Apps](./media/security-center-monitoring/security-center-monitoring-fig17-ga.png)
+![Details about an app that's not secure](./media/security-center-monitoring/security-center-monitoring-fig17-ga.png)
 
 This blade will have a list of all recommendations for this application. When you click the **Add a web application firewall** recommendation, the **Add a Web Application Firewall** blade opens with options for you to install a web application firewall (WAF) from a partner as shown in the following screenshot.
 
-![Add WAF](./media/security-center-monitoring/security-center-monitoring-fig18-ga.png)
+![Add Web Application Firewall dialog box](./media/security-center-monitoring/security-center-monitoring-fig18-ga.png)
 
 ## See also
 In this article, you learned how to use monitoring capabilities in Azure Security Center. To learn more about Azure Security Center, see the following:
