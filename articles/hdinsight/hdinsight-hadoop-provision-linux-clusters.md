@@ -70,15 +70,15 @@ The following table lists the default VM sizes for HDInsight:
 - Brazil South and Japan West only (no v2 sizes here):
 
 	|Cluster type                     |	Hadoop      | HBase       |	Storm      | Spark                                          |R Server|
-	|---------------------------------|-------------|-------------|------------|------------------------------------------------|
+	|---------------------------------|-------------|-------------|------------|------------------------------------------------|--------|
 	|Head – Default VM size           |	D3	        | D3          |	A3         | D12                                            | D12|
 	|Head – Recommended VM sizes      |	D3, D4, D12	| D3, D4, D12 | A3, A4, A5 | D12, D13, D14                                  | D12, D13, D14|
-	|Worker – Default VM size         |	D3          | D3          |	D3         | Windows: D12; Linux: D4                        |	Windows: D12; Linux: D4|
+	|Worker – Default VM size         |	D3          | D3          |	D3         | Windows: D12; Linux: D4                        | Windows: D12; Linux: D4|
 	|Worker – Recommended VM sizes    |	D3, D4, D12 | D3, D4, D12 | D3, D4, D12| Windows: D12, D13, D14;Linux: D4, D12, D13, D14| Windows: D12, D13, D14;Linux: D4, D12, D13, D14|
 	|Zookeeper – Default VM size      |	            | A2          |	A2	       |                                                | |
 	|Zookeeper – Recommended VM sizes |		        | A2, A3, A4  | A2, A3, A4 |                                                | |
 	|Edge – Default VM sizes          |             |             |            |                                                | Windows: D12; Linux: D4 |
-	|Edge – Recommended VM sizes      |             |             |            |                                                |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+	|Edge – Recommended VM sizes      |             |             |            |                                                | Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
 
 Note that Head is known as *Nimbus* for the Storm cluster type. Worker is known as *Region* for the HBase cluster type and as *Supervisor* for the Storm cluster type.
 
