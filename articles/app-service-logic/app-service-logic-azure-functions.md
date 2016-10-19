@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="09/01/2016"
+   ms.date="10/18/2016"
    ms.author="jehollan"/>
 
 # Using Azure Functions with Logic Apps
 
 You can run custom snippets of C# or node.js by using Azure Functions from within a logic app.  [Azure Functions](../azure-functions/functions-overview.md) offers server-free computing in Microsoft Azure. This is useful for performing the following tasks:
 
-* Formatting the value of an action (for example, converting from DateTime to a date string)
+* Advanced formatting or compute of fields within a Logic App
 * Performing calculations within a workflow
 * Extending the functionality of Logic Apps with functions that are supported in C# or node.js
 
 ## Create a function for Logic Apps
 
-We recommend that you create a new function in the Azure Functions portal by using the **Generic Webhook - Node** or **Generic Webhook - C#** templates. This auto-populates a template that accepts `application/json` from a logic app. Functions that use these templates are automatically discovered and listed in the Logic Apps designer under **Azure Functions in my region.**
+We recommend that you create a new function in the Azure Functions portal by using the **Generic Webhook - Node** or **Generic Webhook - C#** templates. This auto-populates a template that accepts `application/json` from a logic app.  If you select the **Integrate** tab in Azure Functions it should have **Mode** set to **Webhook** and **Webhook type** of **Generic JSON**.  Functions that use these templates are automatically discovered and listed in the Logic Apps designer under **Azure Functions in my region.**
 
 Webhook functions accept a request and pass it into the method via a `data` variable. You can access the properties of your payload by using dot notation like `data.foo`.  For example, a simple JavaScript function that converts a DateTime value into a date string looks like the following example:
 

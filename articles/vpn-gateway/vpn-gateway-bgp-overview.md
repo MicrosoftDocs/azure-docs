@@ -11,7 +11,7 @@
 <tags
    ms.service="vpn-gateway"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/16/2016"
