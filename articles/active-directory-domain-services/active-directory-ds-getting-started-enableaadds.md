@@ -49,7 +49,7 @@ In this task, you enable Azure AD Domain Services for your directory. Perform th
 
    - The list contains all domains that have been configured for your Azure AD directory – including verified as well as unverified domains that you configure in the ‘Domains’ tab.
 
-   - Additionally, you can also add a custom domain name to this list by typing it in. In this example, we have typed in a custom domain name 'contoso100.com'
+   - Additionally, you can also type a custom domain name. In this example, we have typed in a custom domain name 'contoso100.com'.
 
      > [AZURE.WARNING] Ensure that the domain prefix of the domain name you specify (for example, 'contoso100' in the 'contoso100.com' domain name) is fewer than 15 characters. You cannot create an Azure AD Domain Services domain with a domain prefix longer than 15 characters.
 
@@ -83,11 +83,11 @@ In this task, you enable Azure AD Domain Services for your directory. Perform th
 
     ![Domain Services enabled - first IP provisioned](./media/active-directory-domain-services-getting-started/domain-services-enabled-firstdc-available.png)
 
-13. When high availability is operational for your domain, you see two IP addresses displayed on the page. These are the IP addresses at which Azure AD Domain Services is available on your selected virtual network. Note down the IP addresses so you can update the DNS settings for your virtual network. This step enables virtual machines on the virtual network to connect to the domain for operations such as domain join.
+13. When high availability is operational for your domain, you see two IP addresses displayed on the page. Your managed domain is available on your selected virtual network at these two IP addresses. Note down the IP addresses so you can update the DNS settings for your virtual network. This step enables virtual machines on the virtual network to connect to the domain for operations such as domain join.
 
     ![Domain Services enabled - both IPs provisioned](./media/active-directory-domain-services-getting-started/domain-services-enabled-bothdcs-available.png)
 
-> [AZURE.NOTE] Depending on the size of your Azure AD tenant (number of users, groups etc.), it takes a while for the contents of the tenant to be available in Azure AD Domain Services. This synchronization process happens in the background. For large tenants with tens of thousands of objects, it may take a day or two for all users, group memberships, and credentials to be available in Azure AD Domain Services.
+> [AZURE.NOTE] Depending on the size of your Azure AD tenant (number of users, groups etc.), synchronization to your managed domain takes a while. This synchronization process happens in the background. For large tenants with tens of thousands of objects, it may take a day or two for all users, group memberships, and credentials to be synchronized.
 
 <br>
 
