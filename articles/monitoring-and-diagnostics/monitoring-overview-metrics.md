@@ -35,17 +35,17 @@ Metrics are a valuable source of telemetry and enable you to do the following:
 - **Perform advanced analytics** or reporting on performance or usage trends of your resource(s).
 - **Archive** the performance or health history of your resource **for compliance/auditing** purposes.
 
-##  Metrics characteristics
+##  What are the characteristics of metrics?
 Metrics have the following characteristics:
 
-- All metrics have **1-minute frequency**. You receive a metric value every minute from your resource, giving you near real-time visibility into the state and health of your resource.
+- All metrics have **one-minute frequency**. You receive a metric value every minute from your resource, giving you near real-time visibility into the state and health of your resource.
 - Metrics are **available out-of-the-box. This means you don't need to opt in** or set up additional diagnostics.
 - You can access **30 days of history** for each metric. You can quickly look at the recent and monthly trends in the performance or health of your resource.
 
 You can also:
 
 - Easily discover, access, and **view all metrics** via the Azure portal when you select a resource and plot the metrics on a chart.
-- Configure a metric **alert rule that sends a notification or takes automated action** when the metric crosses the threshold that you have set. Autoscale is a special automated action that enables you to scale out your resource to meet  incoming requests or load on your web site or compute resources. You can configure an Autoscale setting rule to scale in or out based on a metric crossing a threshold.
+- Configure a metric **alert rule that sends a notification or takes automated action** when the metric crosses the threshold that you have set. Autoscale is a special automated action that enables you to scale out your resource to meet incoming requests or load on your web site or compute resources. You can configure an Autoscale setting rule to scale in or out based on a metric crossing a threshold.
 - **Archive** metrics for longer or use them for offline reporting. You can route your metrics to Azure Blob storage when you configure diagnostic settings for your resource.
 - **Stream** metrics to an Event Hub, enabling you to then route them to Azure Stream Analytics or to custom apps for near-real time analysis. You can do this by using diagnostic settings.
 - **Route** all metrics to Log Analytics (OMS) to unlock instant analytics, search, and custom alerting on metrics data from your resources.
@@ -59,7 +59,7 @@ Following is a quick walkthrough of how to create a metric chart by using the Az
 
 ### View metrics after creating a resource
 1. Open the Azure portal.
-2. Create a new App Service - Web Site.
+2. Create a new App Service website.
 3. After you create a website, go to the **Overview** blade of the web site.
 4. You can view new metrics as a **Monitoring** tile. You can then edit the tile and select more metrics.
 
@@ -75,7 +75,7 @@ Following is a quick walkthrough of how to create a metric chart by using the Az
  ![Access all metrics in a single place in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview2.png)
 
 
->[AZURE.NOTE] You can access host-level metrics from VMs (Azure Resource Manager based) and virtual machine scale sets without any additional diagnostic setup. These new host-level metrics are available for Windows and Linux instances. These metrics are not to be confused with the Guest-OS-level metrics that you have access to when you turn on Azure Diagnostics on your VMs or virtual machine scale sets. To learn more about configuring Azure Diagnostics, see [What is Microsoft Azure Diagnostics](../azure-diagnostics.md).
+>[AZURE.NOTE] You can access host-level metrics from VMs (Azure Resource Manager-based) and virtual machine scale sets without any additional diagnostic setup. These new host-level metrics are available for Windows and Linux instances. These metrics are not to be confused with the Guest-OS-level metrics that you have access to when you turn on Azure Diagnostics on your VMs or virtual machine scale sets. To learn more about configuring Diagnostics, see [What is Microsoft Azure Diagnostics](../azure-diagnostics.md).
 
 ## Access metrics via the REST API
 Azure Metrics can be accessed via the Azure Monitor APIs. There are two APIs that help you discover and access metrics:
@@ -95,34 +95,34 @@ You can go to the **Diagnostics settings** blade under the **Monitor** tab and v
 You can configure this via Resource Manager templates, [PowerShell](insights-powershell-samples.md), [Azure CLI](insights-cli-samples.md), or [REST APIs](https://msdn.microsoft.com/library/dn931943.aspx).
 
 ## Take action on metrics
-To receive notifications or take automated actions on metric data, you can configure Alert rules or Autoscale settings.
+To receive notifications or take automated actions on metric data, you can configure alert rules or Autoscale settings.
 
 ### Configure alert rules
-You can configure alert rules on metrics. These alert rules can check if a metric has crossed a certain threshold. They can then notify you via email or fire a webhook that can  be used to execute any custom script. You can also use the webhook to configure third-party product integrations.
+You can configure alert rules on metrics. These alert rules can check if a metric has crossed a certain threshold. They can then notify you via email or fire a webhook that can be used to execute any custom script. You can also use the webhook to configure third-party product integrations.
 
  ![Metrics and alert rules in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
 ### Autoscale your Azure resources
-Some Azure resources support multiple instances to scale out or in to handle your workloads. Autoscale applies to App Services (Web apps), virtual machine scale sets, and classic Cloud Services. You can configure autoscale rules to scale out or in when a certain metric that impacts your workload crosses a threshold that you specify. For more information, see [Overview of autoscaling](monitoring-overview-autoscale.md).
+Some Azure resources support the scaling out or in of multiple instances to handle your workloads. Autoscale applies to App Services (Web apps), virtual machine scale sets, and classic Cloud Services. You can configure Autoscale rules to scale out or in when a certain metric that impacts your workload crosses a threshold that you specify. For more information, see [Overview of autoscaling](monitoring-overview-autoscale.md).
 
- ![Metrics and autoscale in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview5.png)
+ ![Metrics and Autoscale in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview5.png)
 
 ## Learn about supported services and metrics
 Azure Monitor is a new metrics infrastructure. It provides support for the following Azure services in the Azure portal and the new version of the Azure Monitor API:
 
-- VMs (Azure Resource Manager based)
+- VMs (Azure Resource Manager-based)
 - Virtual machine scale sets
 - Batch
 - Event Hub namespace
 - Service Bus namespace (premium SKU only)
-- SQL (version 12)
+- SQL Database (version 12)
 - Elastic SQL Pool
-- Web Sites
-- Web Server Farms
+- Websites
+- Web server farms
 - Logic Apps
-- IoT Hubs
+- IoT hubs
 - Redis Cache
-- Networking: Application Gateways
+- Networking: Application gateways
 - Search
 
 You can view a detailed list of all the supported services and their metrics at [Azure Monitor metrics--supported metrics per resource type](monitoring-supported-metrics.md).
