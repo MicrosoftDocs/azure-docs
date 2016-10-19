@@ -37,7 +37,7 @@ Ensure that you meet the following prerequisites:
 
 ## Step 1: Remove the Azure Linux agent
 
-First, run the `waagent` command with the `deprovision` parameter on the Linux VM. This command deletes files and data to make the VM ready for generalizing. For details, see the [Azure Linux Agent user guide](virtual-machines-linux-agent-user-guide.md).
+First, run the **waagent** command with the **deprovision** parameter on the Linux VM. This command deletes files and data to make the VM ready for generalizing. For details, see the [Azure Linux Agent user guide](virtual-machines-linux-agent-user-guide.md).
 
 1. Connect to your Linux VM using an SSH client.
 
@@ -54,7 +54,7 @@ First, run the `waagent` command with the `deprovision` parameter on the Linux V
 	
 ## Step 2: Capture the VM
 
-Use the Azure CLI to generalize and capture the VM. In the following examples, replace example parameter names with your own values. Example parameter names include `myResourceGroup`, `myVnet`, and `myVM`.
+Use the Azure CLI to generalize and capture the VM. In the following examples, replace example parameter names with your own values. Example parameter names include **myResourceGroup**, **myVnet**, and **myVM**.
 
 5. From your local computer, open the Azure CLI and  [login to your Azure subscription](../xplat-cli-connect.md). 
 
@@ -70,13 +70,13 @@ Use the Azure CLI to generalize and capture the VM. In the following examples, r
 
 	`azure vm generalize -g MyResourceGroup -n myVM`
 
-9. Now run the `azure vm capture` command to capture the image. In the following example, the image VHDs are captured with names beginning with `MyVHDNamePrefix`, and the `-t` option specifies a path to the template `MyTemplateFile.json`. 
+9. Now run the **azure vm capture** command to capture the image. In the following example, the image VHDs are captured with names beginning with **MyVHDNamePrefix**, and the **-t** option specifies a path to the template **MyTemplateFile.json**. 
 
 	`azure vm capture MyResourceGroup MyResourceGroup MyVHDNamePrefix -t MyTemplateFile.json`
 
 	>[AZURE.NOTE]The image VHD files get created by default in the same storage account that the original VM used. (The VHDs for any new VMs you create from the image will be stored in the same account.) 
 
-6. To find the location of a captured image, open the JSON file template. In the **storageProfile**, find the **uri** of the **image** located in the **system** container. For example, the uri of the OS disk image is similar to `https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
+6. To find the location of a captured image, open the JSON template in a text editor. In the **storageProfile**, find the **uri** of the **image** located in the **system** container. For example, the uri of the OS disk image is similar to `https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
 
 ## Step 3: Create a VM from the captured image
 Now use the image with a template to create a Linux VM. These steps show you how to use the Azure CLI and the JSON file template you created with the `azure vm capture` command to create the VM in a new virtual network.
