@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Use SSH keys with Windows for Linux VMs | Microsoft Azure" 
-        description="Learn how to generate and use SSH keys on a Windows computer to connect to a Linux virtual machine on Azure." 
+    description="Learn how to generate and use SSH keys on a Windows computer to connect to a Linux virtual machine on Azure." 
 	services="virtual-machines-linux" 
 	documentationCenter="" 
 	authors="squillace" 
@@ -23,28 +23,28 @@
 - [Windows](virtual-machines-linux-ssh-from-windows.md)
 - [Linux/Mac](virtual-machines-linux-mac-create-ssh-keys.md)
 
-When you connect to Linux virtual machines (VMs) in Azure, you can use secure shell (SSH) keys to authenticate yourself rather than a username and password. Public-key cryptography provides a more secure way to log in to your Linux VM in Azure than Azure. Passwords are vulnerable to brute-force attacks, especially on Internet-facing VMs such as web servers. This article provides an overview of cryptographic keys and how to generate the appropriate keys on a Windows computer.
+When you connect to Linux virtual machines (VMs) in Azure, you can use secure shell (SSH) keys to authenticate yourself rather than a username and password. [Public-key cryptography](https://wikipedia.org/wiki/Public-key_cryptography) provides a more secure way to log in to your Linux VM in Azure than Azure. Passwords are vulnerable to brute-force attacks, especially on Internet-facing VMs such as web servers. This article provides an overview of SSH keys and how to generate the appropriate keys on a Windows computer.
 
 
 ## Overview of SSH keys
 
-**SSH** &#8212; or [secure shell](https://en.wikipedia.org/wiki/Secure_Shell) &#8212; is an encrypted connection protocol that allows secure logins over unsecured connections. It is the default connection protocol for Linux VMs hosted in Azure. 
+SSH is an encrypted connection protocol that allows secure logins over unsecured connections. It is the default connection protocol for Linux VMs hosted in Azure. Although SSH itself provides an encrypted connection, using passwords with SSH connections still leaves the VM vulnerable to brute-force attacks or guessing of passwords. A more secure, and preferred, method of connecting to a VM using SSH is through the use crytographic keys, also known as SSH keys.
 
-You log in to your Linux VM by using public and private keys:
+You can securely log in to your Linux VM by using public and private keys:
 
-- The **public key** is placed on your Linux VM, or any other service you use with public-key cryptography.
+- The **public key** is placed on your Linux VM, or any other service that you wish to use with public-key cryptography.
 - The **private key** is what you present to your Linux VM when you log in, to verify your credentials.
 
-For a more detail overview of public-key cryptography, see [need reference]().
+For a more detailed overview, see [public-key cryptography](https://wikipedia.org/wiki/Public-key_cryptography).
 
-You connect to and manage Linux VMs in Azure using an **ssh** client. Windows computers do not typically have an **ssh** client installed. Common Windows clients you can install include:
+You connect to and manage Linux VMs in Azure using an **ssh** client. Windows computers do not typically have an **ssh** client installed. Common Windows clients you can install are included in the following packages:
 
-- [puTTY and puTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
-- [Git For Windows](https://git-for-windows.github.io/), which comes with the environment and tools
+- [puTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
+- [Git For Windows](https://git-for-windows.github.io/)
 - [MobaXterm](http://mobaxterm.mobatek.net/)
 - [Cygwin](https://cygwin.com/)
 
-> [AZURE.NOTE] The latest Windows 10 Anniversary Update includes Bash for Windows. This feature allows you to run the Windows Subsystem for Linux and access utilities such as an SSH client. Bash for Windows is still under development, and is considered a beta release. For more information about Bash for Windows, see [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about).
+> [AZURE.INFO] The latest Windows 10 Anniversary Update includes Bash for Windows. This feature allows you to run the Windows Subsystem for Linux and access utilities such as an SSH client. Bash for Windows is still under development, and is considered a beta release. For more information about Bash for Windows, see [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about).
 
 
 ## Which key files do you need to create?
@@ -59,18 +59,18 @@ Here are the deployment scenarios, and the types of files you use in each:
     - You only need to create these additional keys and certificates if you are managing resources created using the Classic deployment model.
 
 
-## Install Git for Windows ##
+## Install Git for Windows
 
 The preceding section listed several utilities that include an `ssh-keygen` and `openssl` for Windows. The following example details how to install Git for Windows, though you can choose whichever package you prefer:
 
 1. Download and install **Git for Windows** from the following location: [https://git-for-windows.github.io/](https://git-for-windows.github.io/).
     - Accept the default options during the install process unless you specifically need to change them.
-2. Run Git Bash from the **Start Menu** > **All Apps** > **Git** > **Git Bash**. The console looks similar to the following example:
+2. Run **Git Bash** from the **Start Menu** > **Git** > **Git Bash**. The console looks similar to the following example:
 
     ![Git for Windows Bash shell](./media/virtual-machines-linux-ssh-from-windows/git-bash-window.png)
 
 
-## Create a Private Key##
+## Create a private key using Git for Windows
 
 1. In your **Git Bash** window, use `openssl.exe` to create a private key. The following example creates a key named `myPrivateKey` and certificate named `myCert.pem`:
 
@@ -79,7 +79,7 @@ The preceding section listed several utilities that include an `ssh-keygen` and 
         -keyout myPrivateKey.key -out myCert.pem
     ```
 
-2. The output looks similar to the following example:
+    The output looks similar to the following example:
 
     ```bash
     Generating a 2048 bit RSA private key
@@ -97,60 +97,76 @@ The preceding section listed several utilities that include an `ssh-keygen` and 
     Country Name (2 letter code) [AU]:
     ```
 
-3. Answer the prompts for country name, location, organization name, etc.
+2. Answer the prompts for country name, location, organization name, etc.
 
-5. Your new private key and certificate are created in your current working directory. To verify, use the `ls` command to list the contents of your directory:
+3. Your new private key and certificate are created in your current working directory. For security best practices, you should also set permissions on your private key so that only you can access it:
 
     ```bash
-    ls
+    chmod 0600 myPrivateKey
     ```
 
-6. If you also need to manage Classic resources, convert the `myCert.pem` to `myCert.cer` (DER encoded X509 certificate). This optional step is only if you need to specifically manage older Classic resources. Convert the certificate using the following command:
+4. If you also need to manage Classic resources, convert the `myCert.pem` to `myCert.cer` (DER encoded X509 certificate). Perform this optional step only if you need to specifically manage older Classic resources. 
+
+    Convert the certificate using the following command:
 
     ```bash
     openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
     ```
 
-## Create a PPK for Putty ##
+## Create a private key for PuTTY ##
 
-PuTTY is a common SSH client for Windows. The following example creates an additional private key specifically for PuTTY to use, a PuTTY Private Key (PPK). You can use an SSH client other PuTTY if preferred. If you do not wish to use PuTTY, skip this section.
+PuTTY is a common SSH client for Windows. You are free to use any SSH client that you wish. In order to use PuTTY, you create an additional type of key - a PuTTY Private Key (PPK). If you do not wish to use PuTTY, skip this section.
 
-1. Download and run PuTTYgen from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+The following example creates this additional private key specifically for PuTTY to use:
 
-2. PuTTYgen may not be able to read the private key that was created earlier (`myPrivateKey.key`). Convert the key into an RSA private key that PuTTYgen can understand. The following example creates a key named `myPrivateKey_rsa` from the existing key named `myPrivateKey` (that you created in the previous section):
+1. PuTTYgen may not be able to read the private key that you created in the previous section. Use **Git Bash** to convert the key into an RSA private key that PuTTYgen can understand. The following example creates a key named `myPrivateKey_rsa` from the existing key named `myPrivateKey`:
 
     ```bash
     openssl rsa -in ./myPrivateKey.key -out myPrivateKey_rsa
     ```
 
-    For security best practices, you should also set permissions on your private key so that only you can read it:
+    For security best practices, you should also set permissions on your private key so that only you can access it:
 
     ```bash
-    chmod 600 myPrivateKey_rsa
+    chmod 0600 myPrivateKey_rsa
     ```
 
-4. Click the menu: **File** > **Load a Private Key**
+2. Download and run PuTTYgen from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
-5. Locate your private key (`myPrivateKey_rsa` in the previous example). The default directory when you start **Git Bash** is `C:\Users\<username>`. Change the file filter to show **All Files (\*.\*)**:
+3. Click the menu: **File** > **Load a Private Key**
+
+4. Locate your private key (`myPrivateKey_rsa` in the previous example). The default directory when you start **Git Bash** is `C:\Users\<username>`. Change the file filter to show **All Files (\*.\*)**:
 
     ![Load the existing private key into PuTTYgen](./media/virtual-machines-linux-ssh-from-windows/load-private-key.png)
 
-6. Click **Open**. A prompt indicates the key has been successfully imported:
+5. Click **Open**. A prompt indicates that the key has been successfully imported:
 
     ![Successfully imported key to PuTTYgen](./media/virtual-machines-linux-ssh-from-windows/successfully-imported-key.png)
 
-7. Click **OK**.
+6. Click **OK** to close the prompt.
 
-8. Click **Save private Key**. A prompt asks if you wish to continue without entering a passphrase for your key. A passphrase is like a password attached to your private key. Even if someone were to obtain your private key, they still would not be able to authenticate using just the key. They would also need the passphrase. 
+7. The public key is displayed at the top of the **PuTTYgen** window. You copy and paste this key in to the Azure portal or Azure Resource Manager template when you create a Linux VM. You can also click **Save public key** to save a copy to your computer:
 
-    If you wish to enter a passphrase, click **No**, enter a passphrase in the main PuTTYgen window, and then click **Save private key** again. Otherwise, click **Yes** to continue without providing the optional passphrase: 
+    ![Save PuTTY public key file](./media/virtual-machines-linux-ssh-from-windows/save-public-key.png)
+
+    The following example shows how you would copy and paste this public key in to the Azure portal when you create a Linux VM. The public key is typically stored in `~/.ssh/authorized_keys` on your new VM.
+
+    ![Use public key when you create a VM in the Azure portal](./media/virtual-machines-linux-ssh-from-windows/use-public-key-azure-portal.png)
+
+7. Back in **PuTTYgen**, Click **Save private Key**:
 
     ![Save PuTTY Private Key file](./media/virtual-machines-linux-ssh-from-windows/save-ppk-file.png)
 
-9. Enter a name and location to save your PPK file.
+    A prompt asks if you wish to continue without entering a passphrase for your key. A passphrase is like a password attached to your private key. Even if someone were to obtain your private key, they still would not be able to authenticate using just the key. They would also need the passphrase. 
+
+    If you wish to enter a passphrase, click **No**, enter a passphrase in the main PuTTYgen window, and then click **Save private key** again. Otherwise, click **Yes** to continue without providing the optional passphrase.
+
+8. Enter a name and location to save your PPK file.
 
 
-## Use Putty to Connect to a Linux Machine ##
+## Use Putty to Connect to a Linux Machine
+
+Again, PuTTY is a common SSH client for Windows. You are free to use any SSH client that you wish. The following steps detail how to use your private key to authenciate with your Azure VM using SSH. The steps are similar in other SSH key clients in terms of needing to load your private key in order to authenticate the SSH connection.
 
 1. Download and run putty from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
