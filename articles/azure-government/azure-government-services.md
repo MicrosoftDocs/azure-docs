@@ -22,7 +22,7 @@
 
 Azure Government is continually expanding the services that are available.  These services are deployed using the same code that is used in Azure Public.  This section documents two key types of information:
 
-- **Variations:** Variations due to features that have not been deployed yet or properties (for examp, URLs) that are unique to the government environment.  
+- **Variations:** Variations due to features that have not been deployed yet or properties (for example, URLs) that are unique to the government environment.  
 - **Considerations:** Government-specific implementation details to ensure data stays within your compliance boundary.
 
 Everything else you need to know about these services can be found in their general documentation.
