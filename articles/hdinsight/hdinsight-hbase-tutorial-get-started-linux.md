@@ -43,7 +43,7 @@ Before you begin this HBase tutorial, you must have the following:
 
 ## Create HBase cluster
 
-The following procedure use an Azure Resource Manager template to create a verion 3.4 Linux-based HBase cluster and the dependent default Azure Storage account. To understand the parameters used in the procedure and other cluster creation methods, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+The following procedure uses an Azure Resource Manager template to create a version 3.4 Linux-based HBase cluster and the dependent default Azure Storage account. To understand the parameters used in the procedure and other cluster creation methods, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Click the following image to open the template in the Azure portal. The template is located in a public blob container. 
 
@@ -74,11 +74,11 @@ You can use SSH to connect to HBase clusters and then use HBase Shell to create 
 
 For most people, data appears in the tabular format:
 
-![hdinsight hbase tabular data][img-hbase-sample-data-tabular]
+![HDInsight HBase tabular data][img-hbase-sample-data-tabular]
 
 In HBase which is an implementation of BigTable, the same data looks like:
 
-![hdinsight hbase bigtable data][img-hbase-sample-data-bigtable]
+![HDInsight HBase bigtable data][img-hbase-sample-data-bigtable]
 
 It will make more sense after you finish the next procedure.  
 
@@ -89,7 +89,7 @@ It will make more sense after you finish the next procedure.
 
 		hbase shell
 
-4. Create an HBase with two column families:
+4. Create an HBase with two-column families:
 
 		create 'Contacts', 'Personal', 'Office'
 		list
@@ -259,7 +259,7 @@ SSH can also be used to tunnel local requests, such as web requests, to the HDIn
 	- **Dynamic** - Enables dynamic SOCKS proxy routing.
 7. Click **Add** to add the settings.
 8. Click **Open** at the bottom of the dialog to open an SSH connection.
-9. When prompted, log in to the server using a SSH account. This will establish an SSH session and enable the tunnel.
+9. When prompted, log in to the server using an SSH account. This will establish an SSH session and enable the tunnel.
 
 **To find the FQDN of the zookeepers using Ambari**
 
@@ -279,7 +279,7 @@ SSH can also be used to tunnel local requests, such as web requests, to the HDIn
 6. Enter the following values:
 
 	- **Socks Host**: localhost
-	- **Port**: Use the same port you configured in the Putty SSH tunnelling.  For example, 9876.
+	- **Port**: Use the same port you configured in the Putty SSH tunneling.  For example, 9876.
 	- **SOCKS v5**: (selected)
 	- **Remote DNS**: (selected)
 7. Click **OK** to save the changes.
@@ -295,7 +295,7 @@ To avoid inconsistencies, we recommend that you disable the HBase tables before 
 
 ## Next steps
 
-In this HBase tutorial for HDInsight, you learned how to create an HBase cluster and how to create tables and view the data in those tables from the HBase shell. You also learned how use a Hive query on data in HBase tables and how to use the HBase C# REST APIs to create an HBase table and retrieve data from the table.
+In this HBase tutorial for HDInsight, you learned how to create an HBase cluster and how to create tables and view the data in those tables from the HBase shell. You also learned how touse a Hive query on data in HBase tables and how to use the HBase C# REST APIs to create an HBase table and retrieve data from the table.
 
 To learn more, see:
 
