@@ -3,9 +3,9 @@
 	description="A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module." 
 	services="cloud-services, storage" 
 	documentationCenter="nodejs" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor=""/>
+	authors="tamram" 
+	manager="carmonm" 
+	editor="tysonn"/>
 
 <tags 
 	ms.service="storage" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="08/11/2016" 
+	ms.date="10/18/2016" 
 	ms.author="robmcm"/>
 
 # Node.js Web Application using Storage
