@@ -113,7 +113,7 @@ meterID1",
 | *quantity*         | Amount of resource consumption that occurred in this time frame |
 | *meterId*          | Unique ID for the resource that was consumed (also called *ResourceID*) |
 
-### Next steps
+## Next steps
 
 [Tenant resource usage API reference](azure-stack-tenant-resource-usage-api.md)
 
