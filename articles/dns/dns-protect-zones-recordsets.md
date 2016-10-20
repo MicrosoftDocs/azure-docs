@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="20/10/2016"
+   ms.date="10/20/2016"
    ms.author="jtuliani"/>
 
 # How to protect DNS zones and records
@@ -186,4 +186,4 @@ The following PowerShell command creates a DoNotDelete lock against the SOA reco
 
 - For more information about working with RBAC, see [Get started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md). 
 - For more information about working with resource locks, see [Lock resources with Azure Resource Manager](../resource-group-lock-resources.md).
-- For further information about securing your Azure resources, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md).
+- For further information about securing your Azure resources, see [Security considerations for Azure Resource Manager](../best-practices-resource-manager-security.md).
