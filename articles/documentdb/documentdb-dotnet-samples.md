@@ -3,7 +3,7 @@
 	description="Find C# .NET NoSQL examples on github for common tasks in DocumentDB, including CRUD operations for JSON documents in NoSQL databases." 
 	keywords="NoSQL example"
 	services="documentdb" 
-	authors="AndrewHoh" 
+	authors="rnagpal" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=".net"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/21/2016" 
-	ms.author="anhoh"/>
+	ms.author="rnagpal"/>
 
 
 # DocumentDB .NET examples

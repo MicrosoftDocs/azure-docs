@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="micurd;tamram"/>
+	ms.date="10/18/2016"
+	ms.author="tamram"/>
 	
 # How to use Azure Storage in Windows Store apps
 

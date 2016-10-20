@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/26/2016"
+	ms.date="10/13/2016"
 	ms.author="markvi"/>
 
 
@@ -125,11 +125,15 @@ For Windows 10 and Windows Server 2016 computers, Azure AD Connect associates th
 - `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid` - containing the computer primary SID, corresponding to the value of the objectSid attribute of the computer account on-premises. 
 - `http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid` - containing the appropriate value that allows Azure AD to trust the token issued from AD FS or the on-premises STS. This is important on a multi-forest Active Directory configuration where computers may be joined to a different forest than the one that connects to Azure AD where the AD FS or on-premises STS is. For the AD FS case the value should be `http://<domain-name>/adfs/services/trust/` where “\<domain-name\>” is the validated domain name in Azure AD. 
 
-To create these rules manually, in AD FS you can use the following PowerShell script on session connected to your server. Please note that the first line needs to be replaced with the validated domain name in Azure AD for your organization. 
+To create these rules manually, in AD FS you can use the following PowerShell script on session connected to your server. Please note that the first line needs to be replaced with the validated domain name in Azure AD for your organization.
+
+> [AZURE.NOTE] ONLY use the first three rules if your environment on-premises is a single forest. If your computers are in a different forest than the one synchronizing with Azure AD or if the you use alternate names to the ones in the synchronization configuration you must also include the remaining rules.
 
 > [AZURE.NOTE] If you don’t have AD FS as your on-premises federation server, follow the instructions of your vendor to create the appropriate rules to issue these claims. 
 
 	$validatedDomain = "example.com"      # Replace example.com with your validated domain name in Azure AD 
+	
+	$multiForestRulesRequired = $FALSE    # Replace to true if multi-forest or using names that differ from sync' config
 
 	$rule1 = '@RuleName = "Issue object GUID" 
 
@@ -153,6 +157,9 @@ To create these rules manually, in AD FS you can use the following PowerShell sc
 
       => issue(claim = c2);' 
 
+	if ($multiForestRulesRequired)
+	{
+	
 	$rule4 = '@RuleName = "Issue AccountType with the value User when it’s not a computer account" 
 
       NOT EXISTS([Type == "http://schemas.microsoft.com/ws/2012/01/accounttype", Value == "DJ"]) 
@@ -171,7 +178,9 @@ To create these rules manually, in AD FS you can use the following PowerShell sc
 
       c1:[Type == "http://schemas.microsoft.com/ws/2012/01/accounttype", Value == "DJ"] 
 
-      => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = "http://$validatedDomain/adfs/services/trust/");' 
+      => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = "http://'+$validatedDomain+'/adfs/services/trust/");' 
+
+	}
 
 	$existingRules = (Get-ADFSRelyingPartyTrust -Identifier urn:federation:MicrosoftOnline).IssuanceTransformRules 
 

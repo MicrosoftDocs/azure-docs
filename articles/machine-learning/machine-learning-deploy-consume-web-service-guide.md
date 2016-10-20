@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2016"
+	ms.date="10/12/2016"
 	ms.author="v-donglo"/>
 
 # Azure Machine Learning Web Services: Deployment and consumption
@@ -70,7 +70,7 @@ Here's an example:
             "key": "YourStorageAccountKey"
 	},
     "CommitmentPlan": {
-        "id": "subscriptions/YouSubscriptionID/resourceGroups/YourResourceGroupID/Microsoft.MachineLearning/commitmentPlans/YourPlanName"
+        "id": "subscriptions/YouSubscriptionID/resourceGroups/YourResourceGroupID/providers/Microsoft.MachineLearning/commitmentPlans/YourPlanName"
     }
 
 See the following articles and sample code for additional details:

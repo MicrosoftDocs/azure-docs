@@ -4,24 +4,21 @@
 	services="Azure-Government"
 	cloud="gov" 
 	documentationCenter=""
-	authors="ryansoc"
+	authors="scooxl"
 	manager="zakramer"
 	editor=""/>
-
 <tags
 	ms.service="multiple"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="10/11/2016"
-	ms.author="ryansoc"/>
-
-
+	ms.date="10/14/2016"
+	ms.author="scooxl"/>
 #  Azure Government Management and Security
-
 ##  Key Vault
-
+For details on this service and how to use it, see the <a href="https://azure.microsoft.com/documentation/services/key-vault">Azure Key Vault public documentation. </a>
+### Data Considerations
 The following information identifies the Azure Government boundary for Azure Key Vault:
 
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
@@ -29,14 +26,10 @@ The following information identifies the Azure Government boundary for Azure Key
 | All data encrypted with an Azure Key Vault key may contain Regulated/controlled data. | Azure Key Vault metadata is not permitted to contain export controlled data. This metadata includes all configuration data entered when creating and maintaining your Key Vault.  Do not enter Regulated/controlled data into the following fields: Resource group names, Key Vault names, Subscription name |
 
 Key Vault is generally available in Azure Government. As in public, there is no extension, so Key Vault is available through PowerShell and CLI only.
-
-For more information, see the [Azure Key Vault public documentation](/key-vault-get-started).
-
 ## Log Analytics
-
 Log Analytics is generally available in Azure Government. 
 
-### Differences from public Azure
+### Variations
 
 The following Log Analytics features and solutions are not currently available in Azure Government. This list is updated when the status of features / solutions changes.
 
@@ -66,7 +59,6 @@ The following Log Analytics features and solutions are not currently available i
   - Azure metrics and Azure diagnostics
 + OMS Mobile applications
 + OMS Linux Agent VM Extension
-+ Usage data
 
 The following Log Analytics features have different behavior in Azure Government:
 

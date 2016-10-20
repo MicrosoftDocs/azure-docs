@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Restore a deleted Azure SQL database (Azure Portal) | Microsoft Azure"
-	description="Restore a deleted Azure SQL database (Azure Portal)."
+	pageTitle="Restore a deleted Azure SQL database (Azure portal) | Microsoft Azure"
+	description="Restore a deleted Azure SQL database (Azure portal)."
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="07/09/2016"
+	ms.date="10/12/2016"
 	ms.author="sstein"
 	ms.workload="NA"
 	ms.topic="article"
@@ -21,19 +21,19 @@
 
 > [AZURE.SELECTOR]
 - [Overview](sql-database-recovery-using-backups.md)
-- [Deleted database restore: PowerShell](sql-database-restore-deleted-database-powershell.md)
+- [**Restore Deleted DB: Portal**](sql-database-restore-deleted-database-portal.md)
+- [Restore Deleted DB: PowerShell](sql-database-restore-deleted-database-powershell.md)
 
 ## Select the database to restore 
 
-To restore a database in the Azure Portal do the following:
+To restore a deleted database in the Azure portal:
 
-1.	Open the [Azure Portal](https://portal.azure.com).
-2.  On the left side of the screen select **BROWSE** > **SQL servers**.
-3.  Navigate to the server with the deleted database you want to restore and select the server
+1.	In the [Azure portal](https://portal.azure.com), click **More services** > **SQL servers**.
+3.  Select the server that contained the database you want to restore.
 4.  Scroll down to the **operations** section of your server blade and select **Deleted databases**:
 	![Restore an Azure SQL database](./media/sql-database-restore-deleted-database-portal/restore-deleted-trashbin.png)
-5.  Select the deleted database you want to restore.
-6.  Specify a database name, and click Ok:
+5.  Select the database you want to restore.
+6.  Specify a database name, and click **OK**:
 
     ![Restore an Azure SQL database](./media/sql-database-restore-deleted-database-portal/restore-deleted.png)
 

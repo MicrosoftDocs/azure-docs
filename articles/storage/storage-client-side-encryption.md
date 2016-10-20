@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="lakasa;robinsh"/>
+	ms.author="robinsh"/>
 
 
 # Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage

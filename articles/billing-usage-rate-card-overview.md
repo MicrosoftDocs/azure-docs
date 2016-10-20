@@ -76,5 +76,5 @@ Here are some of the scenarios that are made possible with the combination of th
 + If you would like to dive right into the sample code, check out our Microsoft Azure Billing API Code Samples on [Azure Code Samples](https://azure.microsoft.com/documentation/samples/?term=billing).
 
 ## Learn more
-+ See the [Azure Resource Manager Overview](resource-group-overview.md) article to learn more about the Azure Resource Manager.
++ See the [Azure Resource Manager Overview](azure-resource-manager/resource-group-overview.md) article to learn more about the Azure Resource Manager.
 + For additional information on the suite of tools necessary to help in gaining an understanding of cloud spend, please refer to  Gartner article [Market Guide for IT Financial Management (ITFM) Tools](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).

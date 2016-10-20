@@ -3,7 +3,7 @@
    description="A complete list of Microsoft Azure documentation articles for Windows virtual machines in the classic deployment model"
    services="virtual-machines-windows"
    documentationCenter=""
-   authors="dlepow"
+   authors="cynthn"
    manager="timlt"
    tags="azure-service-management"
    editor=""/>
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="08/05/2016"
-   ms.author="danlep"/>
+   ms.author="cynthn"/>
 
 # Technical articles for Windows VMs in the classic deployment model
 

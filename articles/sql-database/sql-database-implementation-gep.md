@@ -3,7 +3,7 @@
    description="Learn about how GEP uses SQL Database to reach more global customers and achieve greater efficiency"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
