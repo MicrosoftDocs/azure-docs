@@ -32,6 +32,8 @@ The following Automation features are not currently available in Azure Governmen
 
 + Creation of a Service Principle credential for authentication
 
+For more information, see [Automation public documentation](../automation.md).
+
 ## Log Analytics
 
 Log Analytics is generally available in Azure Government.
