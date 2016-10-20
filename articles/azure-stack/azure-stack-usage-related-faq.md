@@ -16,7 +16,7 @@
 	ms.date="10/18/2016"
 	ms.author="alfredop"/>
 
-# Usage-related FAQs
+# Azure Stack Usage API FAQs
 This article answers some frequently asked questions about the Azure Stack Usage API.
 
 ## What meter IDs can I see?
