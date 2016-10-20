@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/26/2016"
+   ms.date="10/20/2016"
    ms.author="gwallace"/>
 
 # Configure Web Application Firewall on a new or existing Application Gateway

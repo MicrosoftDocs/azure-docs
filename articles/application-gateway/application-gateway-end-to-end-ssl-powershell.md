@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="10/11/2016"
+    ms.date="10/20/2016"
     ms.author="gwallace"/>
 
 # Configure SSL Policy and end to end SSL with Application Gateway using PowerShell
