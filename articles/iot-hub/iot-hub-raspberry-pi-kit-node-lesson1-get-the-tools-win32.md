@@ -52,7 +52,7 @@ Click the links below to download and install Git and Node.js LTS for Windows.
 
 You use [gulp.js](http://gulpjs.com) to automate the deployment of the sample application to your Pi. You also use the [device-discovery-cli](https://github.com/Azure/device-discovery-cli) to retrieve network information about your IoT devices.
 
-Press `Windows + R`, type `cmd` and press Enter to open a command prompt window. Install `gulp` and `device-discovery-cli` by running the following command:
+Start a command prompt as an administrator. Install `gulp` and `device-discovery-cli` by running the following command:
 
 ```bash
 npm install -g device-discovery-cli gulp

@@ -67,7 +67,7 @@ You use [gulp.js](http://gulpjs.com) to automate the deployment of the sample ap
 Install `gulp` and `device-discovery-cli` by running the following command in the Terminal window:
 
 ```bash
-npm install -g device-discovery-cli gulp
+sudo npm install -g device-discovery-cli gulp
 ```
 
 If you experience issues installing Node.js and these additional development tools on macOS, see the [troubleshooting guide](iot-hub-raspberry-pi-kit-node-troubleshooting.md) for solutions to common problems.
