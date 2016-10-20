@@ -35,9 +35,14 @@ You can securely log in to your Linux VM by using public and private keys:
 - The **public key** is placed on your Linux VM, or any other service that you wish to use with public-key cryptography.
 - The **private key** is what you present to your Linux VM when you log in, to verify your identity.
 
+These public and private keys can be used on multiple VMs and services. You do not need a pair of keys for each VM or service you wish to access. 
+
 For a more detailed overview, see [public-key cryptography](https://wikipedia.org/wiki/Public-key_cryptography).
 
-If you do not wish to use SSH keys, you can still log in to your Linux VMs using a password. If your VM is not exposed to the Internet, using passwords may be sufficient. You still need to manage your passwords for each Linux VM and maintain healthy password policies and practices, such as minimum password length and regularly updating them.
+If you do not wish to use SSH keys, you can still log in to your Linux VMs using a password. If your VM is not exposed to the Internet, using passwords may be sufficient. However, you still need to manage your passwords for each Linux VM and maintain healthy password policies and practices, such as minimum password length and regularly updating them. The use of SSH keys reduces the complexity of managing individual credentials across multiple VMs.
+
+
+### Windows SSH clients
 
 You connect to and manage Linux VMs in Azure using an **ssh** client. Windows computers do not typically have an **ssh** client installed. Common Windows clients you can install are included in the following packages:
 
