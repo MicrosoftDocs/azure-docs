@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/19/2016"
+	ms.date="10/20/2016"
 	ms.author="bwren"/>
 
 # Log Analytics View Designer visualization part reference
@@ -143,8 +143,8 @@ Header displays a single number summarized from a value column in a log query.  
 | **Additional options** | **> Colors** |
 | Color 1<br>Color 2<br>Color 3 | Select the color for the each of the values displayed in the donut. |
 | **Additional options** | **> Advanced Color Mapping** |
-| Field value | XXX |
-| Color | XXX |
+| Field value | Type the name of a field to display it as a different color if it is included in the donut. |
+| Color | Select the color for the unique field. |
 | **List** |
 | Query | Query to run for the list.  The count of the number of records returned by the query will be displayed. |
 | Hide graph | Select to disable the graph to the right of the numeric column. |
