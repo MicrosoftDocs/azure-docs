@@ -38,11 +38,11 @@ To complete this section, you need the following parts from your Raspberry Pi 3 
 
 - The Raspberry Pi 3 board
 - The 16GB MicroSD card
-- The 5V 2A power supply with the 6 feet micro USB cable
+- The 5V 2A power supply with the six foot micro USB cable
 - The breadboard
 - Connector wires
-- An 560 Ohm resistor
-- An diffused 10mm LED
+- A 560 Ohm resistor
+- A diffused 10mm LED
 - The Ethernet cable
 
 ![Things in your Starter Kit](media/iot-hub-raspberry-pi-lessons/lesson1/starter_kit.jpg)
@@ -50,8 +50,8 @@ To complete this section, you need the following parts from your Raspberry Pi 3 
 You also need:
 
 - A wired or wireless connection for your Pi to connect to
-- A computer running Windows, Mac or Linux. The computer is used to install Raspbian on the MicroSD card.
-- An Internet connection to download the necesary tools and software
+- A computer running Windows, Mac, or Linux. The computer is used to install Raspbian on the MicroSD card.
+- An Internet connection to download the necessary tools and software
 
 ## 1.1.4 Install Raspbian on the MicroSD card
 
@@ -92,13 +92,13 @@ Use the Ethernet cable to connect your Pi to your wired network. The two LEDs on
 
 ### 1.1.6.2	Connect to a wireless network
 
-Follow the [instructions](https://www.raspberrypi.org/learning/software-guide/wifi/) from the Raspberry Pi Foundation to connect your Pi to your wireless network. This requires you to first connect a monitor and a keyboard to your Pi.
+Follow the [instructions](https://www.raspberrypi.org/learning/software-guide/wifi/) from the Raspberry Pi Foundation to connect your Pi to your wireless network. These instructions require you to first connect a monitor and a keyboard to your Pi.
 
 ## 1.1.7 Connect the LED to your Pi
 
-To complete this task, use the [breadboard](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard), the connector wires, the LED and the resistor. You connect them to the [general-purpose input/output](https://www.raspberrypi.org/documentation/usage/gpio/) (GPIO) ports of your Pi. 
+To complete this task, use the [breadboard](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard), the connector wires, the LED, and the resistor. You connect them to the [general-purpose input/output](https://www.raspberrypi.org/documentation/usage/gpio/) (GPIO) ports of your Pi. 
 
-![Breadboard, LED and Resistor](media/iot-hub-raspberry-pi-lessons/lesson1/breadboard_led_resistor.jpg)
+![Breadboard, LED, and Resistor](media/iot-hub-raspberry-pi-lessons/lesson1/breadboard_led_resistor.jpg)
 
 1. Connect the shorter leg of the LED to **GPIO GND (Pin 6)**.
 2. Connect the longer leg of the LED to one leg of the resistor.
@@ -112,7 +112,7 @@ Congratulation! You've successfully configured your Pi.
 
 ## 1.1.8 Summary
 
-In this section, you’ve learned how to configure your Pi by installing Raspbian, connecting your Pi to a network and connecting an LED to your Pi. Note that the LED doesn't yet light up. In the next section, you install the necessary tools and software in preparation for running a sample application on your Pi.
+In this section, you’ve learned how to configure your Pi by installing Raspbian, connecting your Pi to a network, and connecting an LED to your Pi. Note that the LED doesn't yet light up. In the next section, you install the necessary tools and software in preparation for running a sample application on your Pi.
 
 ![Hardware is ready](media/iot-hub-raspberry-pi-lessons/lesson1/hardware_ready.jpg)
 

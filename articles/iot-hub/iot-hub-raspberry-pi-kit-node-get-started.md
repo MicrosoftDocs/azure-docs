@@ -29,7 +29,7 @@ In this lesson, you configure your Raspberry Pi 3 device with an operating syste
 
 ### Configure your device
 
-Configure your Raspberry Pi 3 for first time use and install the Raspbian OS, a free operating system that is optimized for the Raspberry Pi hardware.
+Configure your Raspberry Pi 3 for first-time use and install the Raspbian OS, a free operating system that is optimized for the Raspberry Pi hardware.
 
 *Estimated time to complete: 30 minutes* 
 
@@ -56,7 +56,7 @@ Clone the sample Node.js application from Github, and gulp to deploy this applic
 
 In this lesson, you create your free Azure account, provision your Azure IoT hub and create your first device in Azure IoT hub.
 
-You should complete Lesson 1 before you start this lesson.
+Complete Lesson 1 before you start this lesson.
 
 ### Get the Azure tools
 
@@ -81,11 +81,11 @@ Create your resource group, provision your first Azure IoT hub, and add your fir
 
 In this lesson, you send messages from your Pi to your IoT hub. You also create an Azure function app that picks up incoming messages from your IoT hub and writes them to Azure table storage.
 
-You should complete Lessons 1 and 2 before you start this lesson.
+Complete Lessons 1 and 2 before you start this lesson.
 
 ### Create an Azure function app and storage account
 
-Use an Azure Resource Manager (ARM) template to create an Azure function app and a storage account.
+Use an Azure Resource Manager template to create an Azure function app and a storage account.
 
 *Estimated time to complete: 10 minutes* 
 
@@ -113,7 +113,7 @@ Monitor the device-to-cloud messages as they are written to your Azure storage.
 
 This lesson demos how to send messages from your Azure IoT hub to your Raspberry Pi 3. The messages control the on and off behavior of the LED that is connected to your Pi. A sample application is prepared for you to achieve this task.
 
-You should have completed Lessons 1, 2 and 3 before you start this lesson.
+Complete Lessons 1, 2 and 3 before you start this lesson.
 
 ### Run the sample application to receive cloud-to-device messages
 

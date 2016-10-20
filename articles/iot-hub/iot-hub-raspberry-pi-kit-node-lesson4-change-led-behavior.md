@@ -29,7 +29,7 @@ Use additional Node.js functions to change the LED’s on and off behavior.
 
 ## 4.2.3 What you need
 
-You should successfully complete [4.1 Run a sample application on your Raspberry Pi to receive cloud to device messages](iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md)
+You must have successfully completed [4.1 Run a sample application on your Raspberry Pi to receive cloud to device messages](iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md).
 
 ## 4.2.4 Add Node.js functions
 
@@ -54,7 +54,7 @@ You should successfully complete [4.1 Run a sample application on your Raspberry
 
     ![update app.js](media/iot-hub-raspberry-pi-lessons/lesson4/updated_app_js.png)
 
-3. Add the following conditions before the defalt one in the switch-case block of the `receiveMessageCallback` function:
+3. Add the following conditions before the default one in the switch-case block of the `receiveMessageCallback` function:
 
     ```javascript
     case 'on':
@@ -83,7 +83,7 @@ You should successfully complete [4.1 Run a sample application on your Raspberry
 
     ![update gulpfile](media/iot-hub-raspberry-pi-lessons/lesson4/updated_gulpfile.png)
 
-5. In the `sendMessage` function, replace the line `var message = buildMessage(sentMessageCount);` with the new line below.
+5. In the `sendMessage` function, replace the line `var message = buildMessage(sentMessageCount);` with the new line shown in the following snippet:
 
     ```javascript
     var message = buildCustomMessage(sentMessageCount);

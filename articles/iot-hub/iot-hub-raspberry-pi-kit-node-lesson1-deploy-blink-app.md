@@ -50,7 +50,7 @@ You should see an output that is similar to the following:
 
 Take note of the `IP address` and `hostname` of your Pi. You need this information later in this section.
 
-> [AZURE.NOTE] Make sure that your Pi is connected to the same network as your computer. For example, if your computer is connected to a wireless network while your Pi is connected to a wired network, you may not be able to see the IP address in the devdisco output.
+> [AZURE.NOTE] Make sure that your Pi is connected to the same network as your computer. For example, if your computer is connected to a wireless network while your Pi is connected to a wired network, you may not see the IP address in the devdisco output.
 
 ## 1.3.5 Clone the sample application
 
@@ -72,7 +72,7 @@ To open the sample code, follow these steps:
 
 ![Repo structure](media/iot-hub-raspberry-pi-lessons/lesson1/vscode-blink-mac.png)
 
-The `app.js` file in the `app` sub-folder is the key source file that contains the code to control the LED.
+The `app.js` file in the `app` subfolder is the key source file that contains the code to control the LED.
 
 ### 1.3.6 Install application dependencies
 
@@ -86,13 +86,13 @@ npm install
 
 To configure the device connection, follow these steps:
 
-1. Generate the device configuration file by running the following command.
+1. Generate the device configuration file by running the following command:
 
   ```bash
   gulp init
   ```
 
-  The configuration file contains `config-raspberrypi.json` the user credentials you use to log in your Pi. To avoid the leak of user credentials, the configuration file is generated in the sub-folder `.iot-hub-getting-started` of the home folder on your computer.
+  The configuration file contains `config-raspberrypi.json` the user credentials you use to log in your Pi. To avoid the leak of user credentials, the configuration file is generated in the subfolder `.iot-hub-getting-started` of the home folder on your computer.
 
 2. Open the device configuration file in Visual Studio Code by running the following command:
 
@@ -120,7 +120,7 @@ Install Node.js and NPM on your Pi by running the following command:
 gulp install-tools
 ```
 
-It might take 10 minutes to finish this task if this is your first time to run it.
+It might take ten minutes to complete the first time you run this task.
 
 ### 1.3.8.2 Deploy and run the sample app
 
@@ -139,7 +139,7 @@ You should now see the LED on your Pi blinking every two seconds.  If you don’
 
 ## 1.3.9 Summary
 
-You've installed the required tools to work with your Pi and deployed a sample application to your Pi to blink the LED. You are ready to move on to the next lesson to create, deploy, and run another sample application that connects your Pi to Azure IoT Hub to send and receive messages.
+You've installed the required tools to work with your Pi and deployed a sample application to your Pi to blink the LED. You can now move on to the next lesson to create, deploy, and run another sample application that connects your Pi to Azure IoT Hub to send and receive messages.
 
 ## Next Steps
 

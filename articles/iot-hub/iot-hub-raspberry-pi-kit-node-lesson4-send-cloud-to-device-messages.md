@@ -39,25 +39,25 @@ In this section, you deploy a sample application on your Raspberry Pi 3. The sam
 
 ## 4.1.4 Connect the sample application to your IoT hub
 
-1. Make sure you are in the repo folder `iot-hub-node-raspberrypi-getting-started`. Open the sample application in Visual Studio Code by running the following commands.
+1. Make sure you are in the repo folder `iot-hub-node-raspberrypi-getting-started`. Open the sample application in Visual Studio Code by running the following commands:
 
     ```bash
     cd Lesson4
     code .
     ```
 
-    Notice the `app.js` file in the `app` sub-folder. The `app.js` file is the key source file that contains the code to monitor incoming messages from IoT Hub. The `blinkLED` function blinks the LED.
+    Notice the `app.js` file in the `app` subfolder. The `app.js` file is the key source file that contains the code to monitor incoming messages from IoT Hub. The `blinkLED` function blinks the LED.
 
     ![Repo Structure](media/iot-hub-raspberry-pi-lessons/lesson4/repo_structure.png)
 
-2. Initialize the configuration file with the following commands.
+2. Initialize the configuration file with the following commands:
 
   ```bash
   npm install
   gulp init
   ```
 
-  If you've completed Lesson 3 on this computer, all the configurations are inherited so you can skip to the 4.1.5. If you completed Lesson 3 on a different computer, you need the replace the placeholders in the `config-raspberrypi.json` file by running the corresponding commands as below. The `config-raspberrypi.json` file is in the sub-folder of your home folder.
+  If you've completed Lesson 3 on this computer, all the configurations are inherited so you can skip to step 4.1.5. If you completed Lesson 3 on a different computer, you need to replace the placeholders in the `config-raspberrypi.json` file. The `config-raspberrypi.json` file is in the subfolder of your home folder.
 
   ![Config](media/iot-hub-raspberry-pi-lessons/lesson4/config_raspberrypi.png)
 
@@ -77,7 +77,7 @@ The gulp command runs the install-tools task first. Then it deploys the sample a
 
 Once the sample application runs, it starts listening messages from your IoT hub. Meanwhile, the gulp task sends several of "blink" messages from your IoT Hub to your Pi. For each of the blink message received, the sample application calls the blinkLED function to blink the LED.
 
-You should see the LED blinking every two seconds as the gulp task is sending 20 messages from your IoT hub to your Pi. The last one is a "stop" message which tells the application to stop running.
+You should see the LED blinking every two seconds as the gulp task is sending 20 messages from your IoT hub to your Pi. The last one is a "stop" message that tells the application to stop running.
 
 ![Gulp](media/iot-hub-raspberry-pi-lessons/lesson4/gulp_blink.png)
 
@@ -87,4 +87,4 @@ You’ve successfully sent messages from your IoT hub to your Pi to blink the LE
 
 ## Next Steps
 
-[Complimentary reading: Change the on and off behavior of the LED](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
+[Complementary reading: Change the on and off behavior of the LED](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)

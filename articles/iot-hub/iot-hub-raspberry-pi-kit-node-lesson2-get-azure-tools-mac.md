@@ -50,11 +50,11 @@ brew install python
 
 ## 2.1.5 Install the Azure CLI
 
-The Azure CLI provides a multiplatform command line experience for Azure, enabling you to work directly from your command line to provision and manage resources. 
+The Azure CLI provides a multiplatform command-line experience for Azure, enabling you to work directly from your command line to provision and manage resources. 
 
 To install the latest Azure CLI, follow these steps:
 
-1. Run the following commands in a Terminal window. It might take 5 minutes to install Azure CLI.
+1. Run the following commands in a Terminal window. It might take five minutes to install Azure CLI.
 
   ```bash
   pip install azure-cli-core==0.1.0b7 azure-cli-vm==0.1.0b7 azure-cli-storage==0.1.0b7 azure-cli-role==0.1.0b7 azure-cli-resource==0.1.0b7 azure-cli-profile==0.1.0b7 azure-cli-network==0.1.0b7 azure-cli-iot==0.1.0b7 azure-cli-feedback==0.1.0b7 azure-cli-configure==0.1.0b7 azure-cli-component==0.1.0b7 azure-cli==0.1.0b7

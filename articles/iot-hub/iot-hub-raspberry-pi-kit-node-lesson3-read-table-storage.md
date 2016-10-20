@@ -66,7 +66,7 @@ To read messages stored in your Azure Table storage, follow these steps:
 
    The logic for reading from Azure table storage is in the `azure-table.js` file.
 
-![glup run --read-storage](media/iot-hub-raspberry-pi-lessons/lesson3/gulp_read_message.png)
+![gulp run --read-storage](media/iot-hub-raspberry-pi-lessons/lesson3/gulp_read_message.png)
 
 ### 3.3.5 Summary
 

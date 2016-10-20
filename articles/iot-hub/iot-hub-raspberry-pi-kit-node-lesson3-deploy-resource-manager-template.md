@@ -45,10 +45,10 @@ code .
 
 ![Repo Structure](media/iot-hub-raspberry-pi-lessons/lesson3/repo_structure.png)
 
-- The `app.js` file in the `app` sub-folder is the key source file that contains the code to send a message 20 times to your IoT hub and blink the LED for each message it sends.
+- The `app.js` file in the `app` subfolder is the key source file. This source file contains the code to send a message 20 times to your IoT hub and blink the LED for each message it sends.
 - The `arm-template.json` file is the Azure Resource Manager template that contains an Azure function app and a storage account.
 - The `arm-template-param.json` file is the configuration file used by the Azure Resource Manager template.
-- The `ReceiveDeviceMessages` sub-folder contains the Node.js code for the Azure function.
+- The `ReceiveDeviceMessages` subfolder contains the Node.js code for the Azure function.
 
 ## 3.1.5 Configure Azure Resource Manager templates and create resources in Azure
 
@@ -67,7 +67,7 @@ After you update the `arm-template-param.json` file, deploy the resources to Azu
 az resource group deployment create --template-file-path arm-template.json --parameters-file-path arm-template-param.json -g iot-sample -n mydeployment
 ```
 
-It takes about 5 minutes to create these resources. While the resource creation is in progress, you can move on to the next section.
+It takes about five minutes to create these resources. While the resource creation is in progress, you can move on to the next section.
 
 ## 3.1.6 Summary
 
