@@ -106,7 +106,7 @@ This example sends a notification for a [template registration](../notification-
 
 ## Azure Notification Hub code example for a C# queue trigger
 
-#### APNS Native notification example
+#### APNS native notification example
 
 This example shows how to use types defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) to send a native APNS notification. 
 
@@ -135,7 +135,7 @@ This example shows how to use types defined in the [Microsoft Azure Notification
 	    await notification.AddAsync(new AppleNotification(apnsNotificationPayload));	    
 	}
 
-#### GCM Native notification example
+#### GCM native notification example
 
 This example shows how to use types defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) to send a native GCM notification. 
 
@@ -164,7 +164,7 @@ This example shows how to use types defined in the [Microsoft Azure Notification
 	    await notification.AddAsync(new GcmNotification(gcmNotificationPayload));	    
 	}
 
-#### WNS Native notification example
+#### WNS native notification example
 
 This example shows how to use types defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) to send a native WNS toast notification. 
 
