@@ -121,7 +121,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
     a. In the **Identifier URL** textbox, type the URL used by your users to sign-on to your Reward Gateway application using the following pattern: 
    
-    |     |
+    | Identifier URL |
     | --- |
     | `https://<company name>.rewardgateway.com/` |
     | `https://<company name>.rewardgateway.co.uk/` |
@@ -130,9 +130,9 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 
 	
-	b. In the **Reply URL** textbox, type the URL using the following format 
+	b. In the **Reply URL** textbox, type the URL using the following pattern: 
 		
-    |     |
+    | Reply URL |
     | --- |
     | `https://<company name>.rewardgateway.com/Authentication/EndLogin?idp=<Unique Id>` |
     | `https://<company name>.rewardgateway.co.uk/Authentication/EndLogin?idp=<Unique Id>` |
