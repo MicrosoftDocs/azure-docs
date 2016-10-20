@@ -30,7 +30,7 @@ can access this data and export it to a billing system by using a
 billing adapter, or export it to a business intelligence tool like
 Microsoft Power BI.
 
-![](media/azure-stack-billing-and-chargeback/image1.png)
+![Conceptual model of a billing adapter connecting Azure Stack to a Billing application](media/azure-stack-billing-and-chargeback/image1.png)
 
 ## What usage information can I find, and how?
 
