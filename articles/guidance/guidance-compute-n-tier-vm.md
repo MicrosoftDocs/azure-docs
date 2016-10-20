@@ -164,7 +164,7 @@ A deployment for a reference architecture that implements these recommendations 
 The reference architecture can be deployed by following the directions below: 
 
 1. Click the button below.  
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-n-tier-sql%2FvirtualNetwork.azuredeploy.json)
+[![1]][2]
 
 2. Once the link has opened in the Azure portal, enter the follow values: 
   - The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-ntier-sql-network-rg` in the text box.
@@ -176,7 +176,7 @@ The reference architecture can be deployed by following the directions below:
 3. Check Azure portal notification for a message the deployment is complete.
 
 4. Click the button below.  
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-n-tier-sql%2Fworkload.azuredeploy.json)
+[![1]][3]
 
 5. Once the link has opened in the Azure portal, enter the follow values: 
   - The **Resource group** name is already defined in the parameter file, so select **Use Existing** and enter `ra-ntier-sql-workload-rg` in the text box.
@@ -188,7 +188,7 @@ The reference architecture can be deployed by following the directions below:
 6. Check Azure portal notification for a message the deployment is complete.
 
 7. Click the button below.  
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-n-tier-sql%2Fsecurity.azuredeploy.json)
+[![1]][4]
 
 8. Once the link has opened in the Azure portal, enter the follow values: 
   - The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-ntier-sql-network-rg` in the text box.
@@ -267,3 +267,7 @@ To achieve high availability for this reference architecture, we recommend [depl
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [0]: ./media/blueprints/compute-n-tier.png "N-tier architecture using Microsoft Azure"
+[1]: http://azuredeploy.net/deploybutton.png "Deploy To Azure"
+[2]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-n-tier-sql%2FvirtualNetwork.azuredeploy.json
+[3]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-n-tier-sql%2Fworkload.azuredeploy.json
+[4]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-n-tier-sql%2Fsecurity.azuredeploy.json
