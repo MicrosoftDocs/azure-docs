@@ -20,12 +20,12 @@
 
 # Conditional access in Azure Active Directory   
 
-The control capabilities in Azure Active Directory conditional access offer simple ways to help secure resources in the cloud and on-premises. Conditional access policies like multi-factor authentication can help protect against the risk of stolen and phished credentials. Other conditional access policies can help keep your organization's data safe. For example, in addition to requiring credentials, you might have a policy that only devices that are enrolled in a mobile device management system like Microsoft Intune can access your organization's sensitive services.
+The control capabilities in Azure Active Directory (Azure AD) conditional access offer simple ways to help secure resources in the cloud and on-premises. Conditional access policies like multi-factor authentication can help protect against the risk of stolen and phished credentials. Other conditional access policies can help keep your organization's data safe. For example, in addition to requiring credentials, you might have a policy that only devices that are enrolled in a mobile device management system like Microsoft Intune can access your organization's sensitive services.
 
 
 ## Prerequisites
 
-Azure Active Directory conditional access is a feature of [Azure Active Directory Premium](http://www.microsoft.com/identity). Each user who accesses an application that has conditional access policies applied must have an Azure Active Directory (Azure AD) Premium license. You can learn more about license requirements in [Unlicensed user report](https://aka.ms/utc5ix).
+Azure AD conditional access is a feature of [Azure Active Directory Premium](http://www.microsoft.com/identity). Each user who accesses an application that has conditional access policies applied must have an Azure AD Premium license. You can learn more about license requirements in [Unlicensed user report](https://aka.ms/utc5ix).
 
 
 ## How is conditional access control enforced?  
@@ -61,7 +61,7 @@ These are controls that you can use to enforce a conditional access policy:
 
 ## Applications
 
-You can enforce a conditional access policy at the application level. Set access levels for applications and services in the cloud or on-premises. Policy is applied directly to the website or service. The policy is enforced for access to the browser, and to applications that access the service.
+You can enforce a conditional access policy at the application level. Set access levels for applications and services in the cloud or on-premises. The policy is applied directly to the website or service. The policy is enforced for access to the browser, and to applications that access the service.
 
 
 ## Device-based conditional access
@@ -73,14 +73,14 @@ You can restrict access to applications from devices that are registered with Az
 
 You can set policies based on these requirements:
 
-- **Domain-joined devices**. Set a policy to restrict access to devices that are joined to an on-premises Active Directory domain, and which also are registered with Azure AD. This policy applies to Windows desktops, laptops, and enterprise tablets.
+- **Domain-joined devices**. Set a policy to restrict access to devices that are joined to an on-premises Active Directory domain, and that also are registered with Azure AD. This policy applies to Windows desktops, laptops, and enterprise tablets.
 For more information about how to set up automatic registration of domain-joined devices with Azure AD, see [Set up automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
 
 - **Compliant devices**. Set a policy to restrict access to devices that are marked **compliant** in the management system directory. This policy ensures that only devices that meet security policies such as enforcing file encryption on a device are allowed access. You can use this policy to restrict access from the following devices:
 
-    - **Windows domain-joined devices**. Managed by System Center Configuration Manager (in the current branch) deployed in a hybrid configuration
-    - **Windows 10 Mobile work or personal devices**. Managed by Intune or by a supported third-party mobile device management system
-    - **iOS and Android devices**. Managed by Intune
+    - **Windows domain-joined devices**. Managed by System Center Configuration Manager (in the current branch) deployed in a hybrid configuration.
+    - **Windows 10 Mobile work or personal devices**. Managed by Intune or by a supported third-party mobile device management system.
+    - **iOS and Android devices**. Managed by Intune.
 
 
 Users who access applications that are protected by a device-based, certification authority policy must access the application from a device that meets this policy's requirements. Access is denied if attempted on a device that doesn’t meet policy requirements.
