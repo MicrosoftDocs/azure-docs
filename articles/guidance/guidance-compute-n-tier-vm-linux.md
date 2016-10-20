@@ -147,7 +147,7 @@ Simplify management of the entire system by using centralized administration too
 A deployment for a reference architecture that implements these recommendations is available on [Github][github-folder]. This reference architecture includes a web tier, business tier, and a data tier.
 
 1. Click the button below.  
-[![1]][2]
+[[1]][2]
 
 2. Once the link has opened in the Azure portal, enter the follow values: 
   - The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-ntier-sql-network-rg` in the text box.

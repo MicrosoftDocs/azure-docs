@@ -164,7 +164,7 @@ A deployment for a reference architecture that implements these recommendations 
 The reference architecture can be deployed by following the directions below: 
 
 1. Click the button below.  
-[![1]][2]
+[[1]][2]
 
 2. Once the link has opened in the Azure portal, enter the follow values: 
   - The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-ntier-sql-network-rg` in the text box.
@@ -176,7 +176,7 @@ The reference architecture can be deployed by following the directions below:
 3. Check Azure portal notification for a message the deployment is complete.
 
 4. Click the button below.  
-[![1]][3]
+[[1]][3]
 
 5. Once the link has opened in the Azure portal, enter the follow values: 
   - The **Resource group** name is already defined in the parameter file, so select **Use Existing** and enter `ra-ntier-sql-workload-rg` in the text box.
@@ -188,7 +188,7 @@ The reference architecture can be deployed by following the directions below:
 6. Check Azure portal notification for a message the deployment is complete.
 
 7. Click the button below.  
-[![1]][4]
+[[1]][4]
 
 8. Once the link has opened in the Azure portal, enter the follow values: 
   - The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-ntier-sql-network-rg` in the text box.
