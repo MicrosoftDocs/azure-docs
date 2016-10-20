@@ -38,7 +38,13 @@ With a Remote Desktop connection, a single concurrent user can work with the por
 ## Connect with VPN
 Virtual Private Network connections let multiple concurrent users connect from clients outside of the Azure Stack infrastructure. You can use the portal to manage resources and install tools on your local client.
 
-1.  Download the Azure Stack Tools scripts.  These support files can be downloaded by either browsing to the [GitHub repository](https://github.com/Azure/AzureStack-Tools), or running the following Windows PowerShell script as an administrator:
+1.  Install the AzureRM module by using the following commend:
+   
+    ```PowerShell
+    Install-Module -Name AzureRm -RequiredVersion 1.2.6 -Scope CurrentUser
+    ```   
+   
+2. Run the following Windows PowerShell script as an administrator:
     
 	>[AZURE.NOTE]  The following steps require PowerShell 5.0.  To check your version, run $PSVersionTable.PSVersion and compare the "Major" version.  
 
