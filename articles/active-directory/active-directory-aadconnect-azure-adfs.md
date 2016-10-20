@@ -279,8 +279,9 @@ Overall, you need the following rules to efficiently secure your internal subnet
 |Rule|Description|Flow|
 |:----|:----|:------:|
 |AllowHTTPSFromDMZ| Allow the HTTPS communication from DMZ | Inbound |
-|DenyAllFromDMZ| This rule will block all traffic from DMZ to internal subnet. The rule AllowHTTPSFromDMZ already takes care of ensuring that HTTPS communication goes through and anything else is blocked by this rule | Inbound |
 |DenyInternetOutbound| No access to internet | Outbound |
+
+(![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsg_int.png))
 
 [comment]: <> (![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png))
 [comment]: <> (![INT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
@@ -289,10 +290,10 @@ Overall, you need the following rules to efficiently secure your internal subnet
 
 |Rule|Description|Flow|
 |:----|:----|:------:|
-|AllowHttpsFromVirtualNetwork| Allow HTTPS from virtual network | Inbound |
-|AllowHTTPSInternet| Allow HTTPS from internet to the DMZ | Inbound|
-|DenyingressexceptHTTPS| Block anything other than HTTPS from internet | Inbound |
-|DenyOutToInternet|	Anything except HTTPS to internet is blocked | Outbound |
+|AllowHTTPSFromInternet| Allow HTTPS from internet to the DMZ | Inbound|
+|DenyInternetOutbound|	Anything except HTTPS to internet is blocked | Outbound |
+
+(![EXT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsg_dmz.png))
 
 [comment]: <> (![EXT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png))
 [comment]: <> (![EXT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
