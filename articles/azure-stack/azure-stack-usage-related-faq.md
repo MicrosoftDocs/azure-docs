@@ -17,6 +17,7 @@
 	ms.author="alfredop"/>
 
 # Usage-related FAQs
+This article answers some frequently asked questions about the Azure Stack Usage API.
 
 ## What meter IDs can I see?
 
