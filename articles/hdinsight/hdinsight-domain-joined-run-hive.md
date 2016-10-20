@@ -14,10 +14,10 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/18/2016"
+   	ms.date="10/20/2016"
    	ms.author="jgao"/>
 
-# Configure Hive policies in Domain-joined HDInsight
+# Configure Hive policies in Domain-joined HDInsight (Preview)
 
 Learn how to configure Apache Ranger policies for Hive. In this article, you create two Ranger policies to restrict access to the hivesampletable. The hivesampletable comes with HDInsight clusters. After you have configured the policies, you use Excel and ODBC driver to connect to Hive tables in HDInsight.
 

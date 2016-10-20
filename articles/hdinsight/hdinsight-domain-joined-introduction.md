@@ -14,18 +14,20 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/11/2016"
+   	ms.date="10/20/2016"
    	ms.author="jgao"/>
 
 # Introduce Domain-joined HDInsight clusters (Preview)
 
-Azure HDInsight until today supported only a single user local admin. This works great for smaller application teams or departments. As Hadoop based workloads gained more popularity in the enterprise sector, the need for enterprise grade capabilities like active directory based authentication, multi-user support, and role based access control became increasingly important. Using Domain-joined HDInsight clusters, you can create an HDInsight cluster joined to an Active Directory domain, configure a list of employees from the enterprise who can authenticate through Azure Active Directory to log on to HDInsight cluster. Anyone outside the enterprise cannot log on or access the HDInsight cluster. The enterprise admin can configure role based access control for HiveServer2 security using [Apache Ranger](http://hortonworks.com/apache/ranger/), thus restricting access to data to only as much as needed. Finally, the admin can audit the data access by employees, and any changes done to access control policies, thus achieving a high degree of governance of their corporate resources.
+Azure HDInsight until today supported only a single user local admin. This worked great for smaller application teams or departments. As Hadoop based workloads gained more popularity in the enterprise sector, the need for enterprise grade capabilities like active directory based authentication, multi-user support, and role based access control became increasingly important. Using Domain-joined HDInsight clusters, you can create an HDInsight cluster joined to an Active Directory domain, configure a list of employees from the enterprise who can authenticate through Azure Active Directory to log on to HDInsight cluster. Anyone outside the enterprise cannot log on or access the HDInsight cluster. The enterprise admin can configure role based access control for Hive security using [Apache Ranger](http://hortonworks.com/apache/ranger/), thus restricting access to data to only as much as needed. Finally, the admin can audit the data access by employees, and any changes done to access control policies, thus achieving a high degree of governance of their corporate resources.
 
-[AZURE.NOTE]> the new features described in this preview are available only on Linux-based HDInsight clusters for HiveServer2 workload. The other workloads, such as HBase, Spark, Storm and Kafka, will be enabled in future releases. 
+[AZURE.NOTE]> The new features described in this preview are available only on Linux-based HDInsight clusters for Hive workload. The other workloads, such as HBase, Spark, Storm and Kafka, will be enabled in future releases. 
 
 ## Benefits
 
 Enterprise Security contains four big pillars – Perimeter Security, Authentication, Authorization, and Encryption.
+
+![Domain Joined HDInsight clusters benefits pillars](./media/hdinsight-domain-joined-introduction/hdinsight-domain-joined-four-pillars.png).
 
 ### Perimeter Security
 
@@ -33,13 +35,11 @@ Perimeter security in HDInsight is achieved using virtual networks and Gateway s
 
 ### Authentication
 
-With this public preview, an enterprise admin can provision a Domain-joined HDInsight cluster, in a [virtual network](https://azure.microsoft.com/services/virtual-network/). The nodes of the HDInsight cluster will be joined to the domain managed by the enterprise. This is achieved through use of [Azure Active Directory Domain Services](https://technet.microsoft.com/library/cc770946(v=ws.10).aspx). The HDInsight cluster can be configured with either Azure Storage Blob or Azure Data Lake Storage as the data stores for HDFS. All the nodes in the cluster are joined to a domain that the enterprise manages. With this setup, the enterprise employees can log on to the cluster nodes using their domain credentials. They can also use their domain credentials to authenticate with other approved endpoints like Hue, Ambari Views, ODBC tools, PowerShell and REST APIs to interact with the cluster. The admin has full control over limiting the number of users interacting with the cluster via these endpoints.
+With this public preview, an enterprise admin can provision a Domain-joined HDInsight cluster, in a [virtual network](https://azure.microsoft.com/services/virtual-network/). The nodes of the HDInsight cluster will be joined to the domain managed by the enterprise. This is achieved through use of [Azure Active Directory Domain Services](https://technet.microsoft.com/library/cc770946.aspx). All the nodes in the cluster are joined to a domain that the enterprise manages. With this setup, the enterprise employees can log on to the cluster nodes using their domain credentials. They can also use their domain credentials to authenticate with other approved endpoints like Hue, Ambari Views, ODBC, JDBC, PowerShell and REST APIs to interact with the cluster. The admin has full control over limiting the number of users interacting with the cluster via these endpoints.
 
 ### Authorization
 
-A best practice followed by most enterprises is that not every employee has access to all enterprise resources. Likewise, with this release, the admin can define role based access control policies for the cluster resources. For example, the admin can configure Apache Ranger to set access control policies
-
-for the HiveServer2. This functionality ensures that employees will be able to access only as much data as they need to be successful in their jobs. SSH access to the cluster is also restricted only to the administrator.
+A best practice followed by most enterprises is that not every employee has access to all enterprise resources. Likewise, with this release, the admin can define role based access control policies for the cluster resources. For example, the admin can configure [Apache Ranger](http://hortonworks.com/apache/ranger/) to set access control policies for Hive. This functionality ensures that employees will be able to access only as much data as they need to be successful in their jobs. SSH access to the cluster is also restricted only to the administrator.
 
 
 ### Auditing
@@ -64,15 +64,15 @@ See [Run a Hive job using Domain-joined HDInsight clusters](hdinsight-domain-joi
 
 An HDInsight cluster that is not domain-joined has two user accounts that are created during the cluster creation:
 
-- **Ambari admin**: This account is also known as *Hadoop user* or *HTTP user*. This account can be used to logon to Ambari at https://<clustername>.azurehdinsight.net. It can also be used to run queries on Ambari views, execute jobs via external tools (i.e. PowerShell, Templeton, Visual Studio), and authenticate with the Hive ODBC driver and BI tools (i.e. Excel, PowerBI, or Tableau).
+- **Ambari admin**: This account is also known as *Hadoop user* or *HTTP user*. This account can be used to logon to Ambari at https://&lt;clustername>.azurehdinsight.net. It can also be used to run queries on Ambari views, execute jobs via external tools (i.e. PowerShell, Templeton, Visual Studio), and authenticate with the Hive ODBC driver and BI tools (i.e. Excel, PowerBI, or Tableau).
 
 - **SSH user**:  This account can be used with SSH, and execute sudo commands. It has root privileges to the Linux VMs.
 
 A domain-joined HDInsight cluster has three new users in addition to Ambari Admin and SSH user.
 
-- Ranger admin:  This accout is the local Apache Ranger admin account. It is not an active directory domain user. This account can be used to setup policies and make other users admins or delegated admins (so that those users can manage policies). By default, the username is -admin- and the password is the same as the Ambari admin password. The password can be updated from the Settings page in Ranger.
+- **Ranger admin**:  This account is the local Apache Ranger admin account. It is not an active directory domain user. This account can be used to setup policies and make other users admins or delegated admins (so that those users can manage policies). By default, the username is *admin* and the password is the same as the Ambari admin password. The password can be updated from the Settings page in Ranger.
 
-- Cluster admin domain user: This account is an active directory domain user designated as the Hadoop cluster admin including Ambari and Ranger. You must provide this user’s credentials during cluster creation. This user has the following privileges:
+- **Cluster admin domain user**: This account is an active directory domain user designated as the Hadoop cluster admin including Ambari and Ranger. You must provide this user’s credentials during cluster creation. This user has the following privileges:
 
 	- Join machines to the domain and place them within the OU that you specify during cluster creation.
 	- Create service principals within the OU that you specify during cluster creation. 
@@ -82,7 +82,7 @@ A domain-joined HDInsight cluster has three new users in addition to Ambari Admi
 
 	There are some end points within the cluster (for example, Templeton) which are not managed by Ranger, and hence are not secure. These end points are locked down for all users except the cluster admin domain user. 
 
-- Regular users: During cluster creation, you can provide multiple active directory groups. The users in these groups will be synced to Ranger and Ambari. These users are domain users and will have access to only Ranger-managed endpoints (for example, Hiveserver2). All the RBAC policies and auditing will be applicable to these users.
+- **Regular **: During cluster creation, you can provide multiple active directory groups. The users in these groups will be synced to Ranger and Ambari. These users are domain users and will have access to only Ranger-managed endpoints (for example, Hiveserver2). All the RBAC policies and auditing will be applicable to these users.
 
 ## Next steps
 
