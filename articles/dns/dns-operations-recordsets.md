@@ -4,7 +4,7 @@
    services="dns"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carmon"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Manage DNS records and record sets by using PowerShell
@@ -45,9 +45,9 @@ To retrieve an existing record set, use `Get-AzureRmDnsRecordSet`. Specify the r
 
 	$rs = Get-AzureRmDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
-As with `New-AzureRmDnsRecordSet`, the record name must be a relative name, meaining it must exclude the zone name.
+As with `New-AzureRmDnsRecordSet`, the record name must be a relative name, meaning it must exclude the zone name.
 
-You can specify the zone can by using either the zone name and resource group name, or by using a zone object:
+You can specify the zone by using either the zone name and resource group name, or by using a zone object:
 
 	$zone = Get-AzureRmDnsZone -Name contoso.com -ResouceGroupName MyAzureResourceGroup
 	$rs = Get-AzureRmDnsRecordSet -Name www –RecordType A -Zone $zone
@@ -151,7 +151,7 @@ In this example, we add two additional MX records to the existing record set:
 
 ## Remove a record from an existing record set
 
-Records can be removed from a record set by using `Remove-AzureRmDnsRecordConfig`. Note that the record that's being removed must be an exact match with an existing record across all parameters. Changes must be committed by using `Set-AzureRmDnsRecordSet`.
+Records can be removed from a record set by using `Remove-AzureRmDnsRecordConfig`. The record that's being removed must be an exact match with an existing record across all parameters. Changes must be committed by using `Set-AzureRmDnsRecordSet`.
 
 Removing the last record from a record set does not delete the record set. See [Delete a record set](#delete-a-record-set) below for more information.
 

@@ -8,19 +8,22 @@ If you have not already added your web app as a Traffic Manager endpoint, you mu
 
 1. In your browser, open the [Azure Portal](https://portal.azure.com).
 
-1. In the **Web Apps** tab, click the name of your web app, select **Settings**, and then select **Custom domains and SSL**
+1. In the **Web Apps** tab, click the name of your web app, select **Settings**, and then select **Custom domains**
 
 	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-1. In the **Custom domains and SSL** blade, click **Bring external domains**.
-
-	![](./media/custom-dns-web-site/dncmntask-cname-7.png)
-
-1. Use the **DOMAIN NAMES** text boxes to enter the Traffic Manager domain name to associate with this web app.
+1. In the **Custom domains** blade, click **Add hostname**.
+	
+1. Use the **Hostname** text boxes to enter the Traffic Manager domain name to associate with this web app.
 
 	![](./media/custom-dns-web-site/dncmntask-cname-8.png)
 
-1. Click **Save** to save the domain name configuration.
+1. Click **Validate** to save the domain name configuration.
+
+7.  Upon clicking **Validate** Azure will kick off Domain Verification workflow. This will check for Domain ownership as well as Hostname availability and report success or detailed error with prescriptive guidence on how to fix the error.    
+
+8.  Upon successful validation **Add hostname** button will become active and you will be able to the assign hostname. Now navigate to your custom domain name in a browser. You should
+now see your app running using your custom domain name. 
 
 	Once configuration has completed, the custom domain name will be listed in the **domain names** section of your web app.
 

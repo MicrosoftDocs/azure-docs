@@ -668,4 +668,4 @@ In many cases, batch processes can generate reports according to a defined sched
 - [How to use Service Bus queues](./service-bus/service-bus-dotnet-get-started-with-queues.md)
 - [SQL Server business intelligence in Azure Virtual Machines](./virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md)
 - [Receive alert notifications](./azure-portal/insights-receive-alert-notifications.md) and [Track service health](./azure-portal/insights-service-health.md)
-- [Application Insights](./application-insights/app-insights-get-started.md)
+- [Application Insights](./application-insights/app-insights-overview.md)

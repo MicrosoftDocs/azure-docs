@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/22/2016"
+   ms.date="09/07/2016"
    ms.author="larryfr"/>
 
 # Deploy and manage Apache Storm topologies on Linux-based HDInsight
@@ -62,11 +62,11 @@ In this document, learn the basics of managing and monitoring Storm topologies r
 
 You can programmatically deploy a topology to Storm on HDInsight by communicating with the Nimbus service hosted in your cluster. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) provides an example Java application that demonstrates how to deploy and start a topology through the Nimbus service.
 
-##Monitor and manage using the storm command
+## Monitor and manage using the storm command
 
 The `storm` utility allows you to work with running topologies from the command line. The following is a list of commonly used commands. Use `storm -h` for a full list of commands.
 
-###List topologies
+### List topologies
 
 Use the following command to list all running topologies:
 
@@ -78,7 +78,7 @@ This will return information similar to the following:
     -------------------------------------------------------------------
     WordCount            ACTIVE     29         2            263
 
-###Deactivate and reactivate
+### Deactivate and reactivate
 
 Deactivating a topology pauses it until it is killed or reactivated. Use the following to deactivate and reactivate:
 
@@ -86,13 +86,13 @@ Deactivating a topology pauses it until it is killed or reactivated. Use the fol
     
     storm Activate TOPOLOGYNAME
 
-###Kill a running topology
+### Kill a running topology
 
 Storm topologies, once started, will continue running until stopped. To stop a topology, use the following command:
 
     storm stop TOPOLOGYNAME
 
-###Rebalance
+### Rebalance
 
 Rebalancing a topology allows the system to revise the parallelism of the topology. For example, if you have resized the cluster to add more notes, rebalancing will allow a running topology to make use of the new nodes.
 
@@ -100,7 +100,7 @@ Rebalancing a topology allows the system to revise the parallelism of the topolo
 
     storm rebalance TOPOLOGYNAME
 
-##Monitor and manage using the Storm UI
+## Monitor and manage using the Storm UI
 
 The Storm UI provides a web interface for working with running topologies, and is included on your HDInsight cluster. To view the Storm UI, use a web browser to open __https://CLUSTERNAME.azurehdinsight.net/stormui__, where __CLUSTERNAME__ is the name of your cluster.
 

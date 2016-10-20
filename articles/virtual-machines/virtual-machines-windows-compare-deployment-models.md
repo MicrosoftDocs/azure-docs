@@ -3,9 +3,9 @@
    description="Conceptual overview of the Compute, Network, and Storage Resource Providers (CRP, NRP, and SRP) for Windows applications in Azure Resource Manager deployment model"
    services="virtual-machines-windows"
    documentationCenter=""
-   authors="mahthi"
+   authors="tfitzmac"
    manager="timlt"
-   editor=""
+   editor="tysonn"
    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
@@ -14,8 +14,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
-   ms.author="mahthi"/>
+   ms.date="08/19/2015"
+   ms.author="tomfitz"/>
 
 # Azure Compute, Network, and Storage Providers for Windows applications under Azure Resource Manager deployment model
 

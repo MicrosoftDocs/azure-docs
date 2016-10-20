@@ -168,7 +168,7 @@ It returns something like this:
     ---------  -------------------  ----------  ------------
                               True          OK  OK
 
-## Update a virtual machine
+## Resize a virtual machine
 
 This example shows how to update the size of the virtual machine.
         

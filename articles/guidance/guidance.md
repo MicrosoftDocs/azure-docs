@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/29/2016"
+   ms.date="08/17/2016"
    ms.author="christb"/>
 
 # Azure Guidance
@@ -30,7 +30,7 @@ These lists are a quick reference for reviewing the fundamental aspects of avail
 
 - [Availability Checklist][AvailabilityChecklist] 
 
-    A summary of recommended practices for ensuring resiliency and availability.
+    A summary of recommended practices for ensuring availability.
 
 - [Scalability Checklist][ScalabilityChecklist]
 
@@ -50,11 +50,11 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
 - [API security guidance](https://github.com/mspnp/azure-guidance/blob/master/API-security.md) 
 
-    A discussion of authentication and authorization concerns (e.g., token types, authorization protocols, authorization flows and threat mitigation).
+    A discussion of authentication and authorization concerns (for example, token types, authorization protocols, authorization flows, and threat mitigation).
 
 - [Autoscaling guidance][AutoscalingGuidance] 
 
-    A summary of considerations for taking advantage of the elasticity of cloud-hosted environments without the need for manual intervention.
+    A summary of considerations for scaling solutions without the need for manual intervention.
 
 - [Background Jobs guidance][BackgroundJobsGuidance] 
 
@@ -74,11 +74,15 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
 - [Monitoring and Diagnostics guidance][MonitoringandDiagnosticsGuidance] 
 
-    Guidance on how to track the way in which users utilize your system, trace resource utilization, and generally monitor the health and performance of your system.
+    Guidance on tracking how your users utilize your system, trace resource utilization, and generally monitor the health and performance of your system.
 
 - [Recommended naming conventions][naming-conventions] 
 
     Recommended naming conventions for Azure resources.
+
+- [Resiliency guidance][ResiliencyOvervew]
+
+     How to build applications on the Azure platform that can recover from failures and continue to function. Describes a structure approach for achieving resiliency, from design and implementation, to deployment and operations.
 
 - [Retry General guidance][RetryGeneralGuidance] 
 
@@ -92,54 +96,34 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
 - [Running Elasticsearch on Azure][elasticsearch] 
     
-    Elasticsearch is a highly scalable open-source search engine and database. It is suitable for situations that require fast analysis and discovery of information held in big datasets. This guidance looks at some key aspects to consider when designing an Elasticsearch cluster.
+    Elasticsearch is a highly scalable open-source search engine and database. It is suitable for situations that require fast analysis and discovery of information held in large datasets. This guidance looks at some key aspects to consider when designing an Elasticsearch cluster.
 
 - [Identity management for multitenant applications][identity-multitenant] 
     
-    Multitenancy is an architecture where multiple tenants share the same app but are isolated from one another. This guidance will show you how to manage user identities in a multitenant application, using [Azure Active Directory][AzureAD] to handle sign-in and authentication.
+    Multitenancy is an architecture where multiple tenants share an application but are isolated from one another. This guidance shows you how to manage user identities in a multitenant application, using [Azure Active Directory][AzureAD] to handle sign-in and authentication.
     
 - [Developing big data solutions](https://msdn.microsoft.com/library/dn749874.aspx)
 
-    This guide explores the use of HDInsight in a range of use cases and scenarios such as iterative exploration, as a data warehouse, for ETL processes, and integration into existing BI systems. It also includes guidance on understanding the concepts of big data, planning and designing big data solutions, and implementing these solutions.
+    This guide explores the use of HDInsight for scenarios such as iterative exploration, as a data warehouse, for ETL processes, and integration into existing BI systems. It also includes guidance on understanding the concepts of big data, planning and designing big data solutions, and implementing these solutions.
     
 ## Patterns
 
 - [Cloud Design Patterns: Prescriptive Architecture Guidance for Cloud Applications](https://msdn.microsoft.com/library/dn568099.aspx)
 
-    Cloud Design Patterns is a library of design patterns and related guidance topics. It articulates the benefit of applying patterns by showing how each piece can fit into the big picture of cloud application architectures.
+    Cloud Design Patterns is a library of design patterns and related guidance topics. It articulates the benefit of applying patterns by showing how each piece can fit into cloud application architectures.
     
 - [Optimizing Performance for Cloud Applications](https://github.com/mspnp/performance-optimization)
 
-    This guidance is an exploration of common anti-patterns that impede apps from scaling under load. It includes samples demonstratraing 8 anti-patterns as well as a [performance analysis primer](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md) and a guide for [assessing performance against key metrics](https://github.com/mspnp/performance-optimization/blob/master/Assessing-System-Performance-Against-KPI.md).
+    This guidance is an exploration of common anti-patterns that impede apps from scaling under load. It includes samples demonstrating eight anti-patterns and a [performance analysis primer](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md) and a guide for [assessing performance against key metrics](https://github.com/mspnp/performance-optimization/blob/master/Assessing-System-Performance-Against-KPI.md).
 
-## Under development
+## Reference Architectures
 
-We're creating a new set of guidance we're calling _reference architectures_. Each reference architecture offers recommended practices and prescriptive steps for infrastructure-oriented scenarios. We're actively developing these reference architectures, and some are available for preview. We're very intereseted in your feedback.
+Our reference architectures are arranged by scenario.
+Each individual architecture offers recommended practices and prescriptive steps, and an executable component that embodies the recommendations.
 
-Running virtual machines on Azure:
+The current library of reference architectures is available at [http://aka.ms/architecture](http://aka.ms/architecture).
 
-- [Running a Windows VM on Azure][ref-arch-single-vm-windows]
-- [Running a Linux VM on Azure][ref-arch-single-vm-linux]
-- [Running multiple VMs for scalability and availability][ref-arch-multi-vm]
-- [Running VMs for an N-tier architecture][ref-arch-3-tier]
-- [Adding reliability to an N-tier architecture (Windows)][ref-arch-n-tier-windows]
-- [Adding reliability to an N-tier architecture (Linux)][ref-arch-n-tier-linux]
-- [Running VMs in multiple regions for high availability (Windows)][ref-arch-multi-dc-windows]
-- [Running VMs in multiple regions for high availability (Linux)][ref-arch-multi-dc-linux]
 
-Hybrid network architectures:
-
-- [Implementing a hybrid network architecture with Azure and on-premises VPN](guidance-hybrid-network-vpn.md)
-- [Implementing a hybrid network architecture with Azure ExpressRoute](guidance-hybrid-network-expressroute.md)
-- [Implementing a highly available hybrid network architecture](guidance-hybrid-network-expressroute-vpn-failover.md)
-- [Implementing a DMZ between Azure and your on-premises datacenter](guidance-iaas-ra-secure-vnet-hybrid.md)
-- [Implementing a DMZ between Azure and the Internet](guidance-iaas-ra-secure-vnet-dmz.md)
-
-Web applications (PaaS):
-
-- [Basic web application](guidance-web-apps-basic.md)
-- [Improving scalability in a web application](guidance-web-apps-scalability.md)
-- [Web application with high availability](guidance-web-apps-multi-region.md)
 
 [AzureAD]: https://azure.microsoft.com/documentation/services/active-directory/
 
@@ -153,6 +137,7 @@ Web applications (PaaS):
 [CachingGuidance]: ../best-practices-caching.md
 [DataPartitioningGuidance]: ../best-practices-data-partitioning.md
 [MonitoringandDiagnosticsGuidance]: ../best-practices-monitoring.md
+[ResiliencyOvervew]: guidance-resiliency-overview.md
 [RetryGeneralGuidance]: ../best-practices-retry-general.md
 [RetryServiceSpecificGuidance]: ../best-practices-retry-service-specific.md
 [RetryPolicies]: Retry-Policies.md

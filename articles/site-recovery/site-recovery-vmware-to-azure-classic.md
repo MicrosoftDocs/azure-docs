@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/12/2016"
 	ms.author="raynew"/>
 
 # Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery
@@ -61,6 +61,20 @@ The enhanced deployment is a major update. Here's a summary of the improvements 
 - If you replicate VMware virtual machines that are managed by a vCenter server, Site Recovery can discover those VMs automatically. If machines are on a ESXi host Site Recovery discovers VMs on the host.
 - Run easy failovers from your on-premises infrastructure to Azure, and failback (restore) from Azure to VMware VM servers in the on-premises site.
 - Configure recovery plans that group together application workloads that are tiered across multiple machines. You can fail over those plans, and Site Recovery provides multi-VM consistency so that machines running the same workloads can be recovered together to a consistent data point.
+
+
+## Supported Operating Systems
+
+### Windows(64 bit only)
+- Windows Server 2008 R2 SP1+
+- Windows Server 2012
+- Windows Server 2012 R2
+
+### Linux (64 bit only)
+- Red Hat Enterprise Linux 6.7, 7.1, 7.2
+- CentOS 6.5, 6.6, 6.7, 7.0, 7.1, 7.2
+- Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3)
+- SUSE Linux Enterprise Server 11 SP3
 
 ## Scenario architecture
 
@@ -223,6 +237,8 @@ Set up an Azure network so that Azure VMs will be connected to a network after f
 2. You would need to add VPN/ExpressRoute to the network if you need to do failback. VPN/ExpressRoute can be added to the network even after failover.
 
 [Read more](../virtual-network/virtual-networks-overview.md) about Azure networks.
+
+> [AZURE.NOTE] [Migration of networks](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for networks used for deploying Site Recovery.
 
 ## Step 3: Install the VMware components
 
@@ -518,6 +534,14 @@ Where:
 - /PassphraseFilePath: Mandatory. Specifies the configuration server passphrase.
 - /LogFilePath: Mandatory. Specifies log setup files location
 
+#### Uninstall Mobility service manually
+
+Mobility Service can be uninstalled using the Add Remove Program from Control Panel or using command line.
+
+The command to uninstall the Mobility Service using command line is
+
+	MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1}
+
 #### Modify the IP address of the management server
 
 After running the wizard you can modify the IP address of the management server as follows:
@@ -580,7 +604,7 @@ Add machines to a protection group:
 
 4. In **Specify Target Resources** select the storage account you're using for replication and select whether the settings should be used for all workloads. Note that premium storage accounts aren't currently supported.
 
-	>[AZURE.NOTE] We do not support the move of Storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.
+	>[AZURE.NOTE] 1.We do not support the move of Storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.                           2.[Migration of storage accounts](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
 
 	![Enable protection](./media/site-recovery-vmware-to-azure-classic/enable-protection3.png)
 

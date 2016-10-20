@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="08/08/2016"
+	ms.date="08/25/2016"
 	ms.author="markvi"/>
 
 
@@ -83,7 +83,7 @@ For more information on how to setup automatic registration of domain joined dev
 
 - **Compliant devices** - You can set a policy to restrict access to devices that are marked **compliant** in the directory by the management system. This policy ensures that only devices that meet security policies such as enforcing file encryption on a device are allowed access. This policy can be used to restrict access from the following devices:
 
-    - **Windows domain joined devices** that are managed by System Center Configuration Manager 2016 deployed in a hybrid configuration.
+    - **Windows domain joined devices** that are managed by System Center Configuration Manager (current branch) deployed in a hybrid configuration.
 
     - **Windows 10 mobile work or personal devices** that are managed by Microsoft Intune or a supported 3rd party Mobile Device Management (MDM) system.
 
@@ -106,11 +106,13 @@ The following content map lists documents that you need to refer to learn more a
 - [What kind of applications are supported](active-directory-conditional-access-supported-apps.md)
 
 
-### Device policies
+### Device-based conditional access
 
 - [How to set Device-based Conditional Access policy for access control to Azure Active Directory connected applications](active-directory-conditional-access-policy-connected-applications.md)
 
 - [How to setup automatic registration of Windows domain joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
+
+- [User remediation when accessing Azure AD device-based conditional access protected applications](active-directory-conditional-access-device-remediation.md) 
 
 - [Help protect your data requiring Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)
 

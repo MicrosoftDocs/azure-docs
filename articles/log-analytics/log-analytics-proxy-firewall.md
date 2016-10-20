@@ -13,11 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2016"
+	ms.date="08/23/2016"
 	ms.author="banders;magoedte"/>
 
 # Configure proxy and firewall settings in Log Analytics
-
 
 Actions needed to configure proxy and firewall settings for Log Analytics in OMS differ when you use Operations Manager and its agents versus Microsoft Monitoring Agents that connect directly to servers. Review the following sections for the type of agent that you use.
 
@@ -118,7 +117,7 @@ Here's a list of OMS and Operations Manager console resources and ports.<br>
 |\*.live.com|Port 80 and 443|
 |\*.microsoft.com|Port 80 and 443|
 |\*.microsoftonline.com|Port 80 and 443|
-|\*.mmms.microsoft.com|Port 80 and 443|
+|\*.mms.microsoft.com|Port 80 and 443|
 |login.windows.net|Port 80 and 443|
 <br>
 

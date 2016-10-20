@@ -31,7 +31,7 @@ Now that you have added an action to get a lead, you may want to do something in
 - Select the **Office 365 Outlook - Send an email** list item. If you haven't already created a *connection* to your Office 365 account, you will be prompted to enter your Office 365 credentials to create it now. After you are done, the **Send an email** control opens.        
 ![Salesforce action image 7](./media/connectors-create-api-salesforce/action-7.png)  
 - Enter the email address that you'd like to send email to in the **To** control.
--  In the **Subject** control, enter *New Lead created - * then select the *Company* token. This will display the *company* field from the new lead created in Salesforce.  
+-  In the **Subject** control, enter *New Lead created* - then select the *Company* token. This will display the *company* field from the new lead created in Salesforce.  
 -  In the **body** control, you can select any of the tokens from the new lead object and you can also enter whatever text you would like to display in the body of the email. Here's an example:  
 ![Salesforce action image 8](./media/connectors-create-api-salesforce/action-8.png)   
 - Save your workflow.  

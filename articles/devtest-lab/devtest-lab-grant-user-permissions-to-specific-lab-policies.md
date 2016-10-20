@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Grant user permissions to specific lab policies
@@ -80,6 +80,8 @@ In the previous example, the **AllowedVmSizesInLab** policy is used. You can use
 - MaxVmsAllowedPerLab
 - AllowedVmSizesInLab
 - LabVmsShutdown
+
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Next steps
 

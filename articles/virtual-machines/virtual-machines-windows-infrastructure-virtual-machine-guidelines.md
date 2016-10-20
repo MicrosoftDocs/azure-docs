@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2016"
+	ms.date="09/08/2016"
 	ms.author="iainfou"/>
 
 # Virtual machines guidelines
@@ -31,7 +31,7 @@ Decisions:
 
 Tasks:
 
-- Define the workloads for your application and the resources the VM will require.
+- Define the workloads for your application and the resources the VMs require.
 - Align the resource demands for each VM with the appropriate VM size and storage type.
 - Define your resource groups for the different tiers and components of your infrastructure.
 - Define your VM naming convention.
@@ -39,11 +39,11 @@ Tasks:
 
 ## Virtual machines
 
-One of the main components within your Azure environment will likely be VMs. This is where you will run your applications, databases, authentication services, etc.
+One of the main components within your Azure environment is likely VMs. This is where you run your applications, databases, authentication services, etc.
 
-It is important to understand the [different VM sizes](virtual-machines-windows-sizes.md) in order to correctly size your environment from a performance and cost perspective. If your VMs do not have an adequate amount of CPU cores or memory, performance of your application will suffer regardless of how well it is designed and developed. Review the suggested workloads for each VM series as a starting point as you decide which size VM to use for each component in your infrastructure. You can [change the size of a VM](https://azure.microsoft.com/blog/resize-virtual-machines/) after deployment.
+It is important to understand the [different VM sizes](virtual-machines-windows-sizes.md) to correctly size your environment from a performance and cost perspective. If your VMs do not have enough CPU cores or memory, performance of your application suffers regardless of how well it is designed and developed. Review the suggested workloads for each VM series as a starting point as you decide which size VM to use for each component in your infrastructure. You can [change the size of a VM](https://azure.microsoft.com/blog/resize-virtual-machines/) after deployment.
 
-Storage plays a key role in VM performance. You can use Standard storage that use regular spinning disks, or Premium storage for high I/O workloads and peak performance that use SSD disks. As with the VM size, there are cost considerations when it comes to selecting the storage medium. You can read the [storage infrastructure guidelines article](virtual-machines-windows-infrastructure-storage-solutions-guidelines.md) to understand how to design appropriate storage for optimum performance of your VMs.
+Storage plays a key role in VM performance. You can use Standard storage, that uses regular spinning disks, or Premium storage for high I/O workloads and peak performance, that uses SSD disks. As with the VM size, there are cost considerations to selecting the storage medium. You can read the [storage infrastructure guidelines article](virtual-machines-windows-infrastructure-storage-solutions-guidelines.md) to understand how to design appropriate storage for optimum performance of your VMs.
 
 
 ## Resource groups
@@ -51,7 +51,7 @@ Components such as VMs are logically grouped together for ease of management and
 
 
 ## Templates 
-You can build templates, defined by declarative JSON files, to create your VMs. Templates will typically also build out the required storage, networking, network interfaces, IP addressing, etc. along with the VMs themselves. You can use templates to create consistent, reproducible environments for development and testing purposes to easily replicate production environments and vice versa. You can read more about [building and using templates](../resource-group-overview.md#template-deployment) to understand how you can use them for creating and deploying your VMs.
+You can build templates, defined by declarative JSON files, to create your VMs. Templates typically also build the required storage, networking, network interfaces, IP addressing, etc. along with the VMs themselves. You use templates to create consistent, reproducible environments for development and testing purposes to easily replicate production environments and vice versa. You can read more about [building and using templates](../resource-group-overview.md#template-deployment) to understand how you can use them for creating and deploying your VMs.
 
 
 ## Next steps

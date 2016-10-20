@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/29/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Deploy and manage a StorSimple virtual device in Azure
@@ -80,7 +80,7 @@ The StorSimple virtual device is a software-only version of StorSimple that runs
 
 #### Differences from the physical device
 
-The following table shows some key differences between the StorSimple virtual device and the  StorSimple physical device.
+The following table shows some key differences between the StorSimple virtual device and the StorSimple physical device.
 
 |                             | Physical device                                          | Virtual device                                                                            |
 |-----------------------------|----------------------------------------------------------|-------------------------------------------------------------------------------------------|
@@ -250,7 +250,7 @@ When you look at the Management Console, the virtual device status is **Running*
 If you decide that you just want to start over with your virtual device, simply deactivate and delete it and then create a new one. Just like when your physical device is reset, your new virtual device will not have any updates installed; therefore, make sure to check for updates before using it.
 
 
-## Failover to the virtual device
+## Fail over to the virtual device
 
 Disaster recovery (DR) is one of the key scenarios that the StorSimple virtual device was designed for. In this scenario, the physical StorSimple device or entire datacenter might not be available. Fortunately, you can use a virtual device to restore operations in an alternate location. During DR, the volume containers from the source device change ownership and are transferred to the virtual device. The prerequisites for DR are that the virtual device has been created and configured, all the volumes within the volume container have been taken offline, and the volume container has an associated cloud snapshot.
 

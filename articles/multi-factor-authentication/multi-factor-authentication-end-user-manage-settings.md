@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2016" 
+	ms.date="08/22/2016" 
 	ms.author="billmath"/>
 
 # Having trouble with Azure Multi-Factor Authentication
@@ -30,7 +30,7 @@ The following information is provided to help you with some of the common issues
 - [I have a new phone and need to change my phone number](#i-have-a-new-phone-and-need-to-change-my-phone-number)
 - [I am not receiving a code on my phone](#i-am-not-receiving-a-code-or-a-call-on-my-phone)
 - [App passwords are not working](#app-passwords-are-not-working)
-- [How do I clean up Azure Authenticator from my old device and move to a new one?](#how-do-i-clean-up-azure-authenticator-from-my-old-device-and-move-to-a-new-one)
+- [How do I clean up Microsoft Authenticator from my old device and move to a new one?](#how-do-i-clean-up-microsoft-authenticator-from-my-old-device-and-move-to-a-new-one)
 - [I didn't find an answer to my problem](#i-didnt-find-an-answer-to-my-problem)
 
 ##Correlation ID Errors
@@ -158,7 +158,7 @@ First, you need to ensure the following:
 - If you selected to receive verification codes by text message to your mobile phone, make sure your service plan and device supports text message delivery. Your delivery speed and availability may vary by location and service provider. Also make sure that you have an adequate cell signal when trying to receive these codes.
 - If you chose to receive a verification via the mobile app, ensure that you have a significant cell signal.  Also remember that delivery speed and availability may vary by location and service provider. 
 
-If you have a smartphone, we recommend you use the [Azure Authenticator app](multi-factor-authentication-azure-authenticator.md).
+If you have a smartphone, we recommend you use the Microsoft Authenticator app which is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 You can switch between receiving your verification codes via text messages through the mobile app by choosing **Use a different verification option** when you sign-in. 
 
@@ -173,8 +173,8 @@ If you previously configured a backup phone, it is recommended that you try agai
 ##App passwords are not working
 First, make sure that you have entered the app password correctly.  If it is still not working try signing-in and [create a new app password](multi-factor-authentication-end-user-app-passwords.md).  If this does not work, contact your administrator and have them [delete your existing app passwords](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords) and then create a new one and use that one.
 
-##How do I clean up Azure Authenticator from my old device and move to a new one?
-When you uninstall the app from your device or reflash the device, it does not remove the activation on the back end. You should use the steps outlined in [moving to a new device.](multi-factor-authentication-azure-authenticator.md#how-to-move-to-the-new-azure-authenticator-app).
+##How do I clean up Microsoft Authenticator from my old device and move to a new one?
+When you uninstall the app from your device or reflash the device, it does not remove the activation on the back end. You should use the steps outlined in [moving to a new device.](multi-factor-authentication-microsoft-authenticator.md#how-to-move-to-the-new-microsoft-authenticator-app).
 
 ##I didn't find an answer to my problem
 If didn't find an answer to your problem on this page, you can post a question on the [Azure AD Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD), [Search the Microsoft Knowledge Base (KB)](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport) or [contact support](https://support.microsoft.com/en-us).

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2016" 
+	ms.date="08/30/2016" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
@@ -78,6 +78,7 @@ The services that currently do not support moving a resource are:
 - Application Gateway
 - Application Insights
 - Express Route
+- Recovery Services vault - also do not move the Compute, Network, and Storage resources associated with the Recovery Services vault.
 - Virtual Machines Scale Sets
 - Virtual Networks (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 - VPN Gateway

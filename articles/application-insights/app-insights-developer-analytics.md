@@ -71,6 +71,14 @@ For each component of your application - mobile or web or desktop - the steps ar
 3. For device apps:
  * Upload a debug build to HockeyApp. From there you can distribute it to a team of test users. Whenever you upload subsequent builds, the team will be notified.
  * When you set up your continuous build service, create a release definition that uses the plug-in step to upload to HockeyApp.
+
+### Analytics and Export for HockeyApp telemetry
+
+You can investigate HockeyApp custom and log telemetry using the Analytics and Continuous Export features of Application Insights by [setting up a bridge](app-insights-hockeyapp-bridge-app.md).
+
+
+
+## Next steps
  
 Here are the detailed instructions for different types of app:
 

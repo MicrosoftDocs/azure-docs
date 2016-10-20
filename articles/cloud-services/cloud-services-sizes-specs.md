@@ -143,6 +143,7 @@ For large databases, SharePoint server farms, and high-throughput applications
 | Standard_D12_v2 | 4         | 28 GB   | High          | 200 GB   |
 | Standard_D13_v2 | 8         | 56 GB   | High          | 400 GB   |
 | Standard_D14_v2 | 16        | 112 GB  | Very High     | 800 GB   |
+| Standard_D15_v2 | 20        | 140 GB  | Very High     | 1,000 GB |
 
 ## Configure sizes for Cloud Services
 

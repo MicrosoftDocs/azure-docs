@@ -12,7 +12,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="tbd"
-    ms.date="04/15/2016"
+    ms.date="08/16/2016"
     ms.author="sethm" />
 
 # Event Hubs programming guide
@@ -23,7 +23,7 @@ This topic describes programming with Azure Event Hubs using the Azure .NET SDK.
 
 Sending events to an Event Hub is accomplished either using HTTP POST or via an AMQP 1.0 connection. The choice of which to use when depends on the specific scenario being addressed. AMQP 1.0 connections are metered as brokered connections in Service Bus and are more appropriate in scenarios with frequent higher message volumes and lower latency requirements, as they provide a persistent messaging channel.
 
-Event Hubs are created and managed using the [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) class. When using the .NET managed APIs, the primary constructs for publishing data to Event Hubs are the [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) and [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) classes. [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) provides the AMQP communication channel over which events are sent to the Event Hub. The [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) class represents an event and is used to publish messages to an Event Hub. This class includes the body, some metadata, and header information about the event. Other properties are added to the [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) object as it passes through an Event Hub.
+You create and manage Event Hubs using the [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) class. When using the .NET managed APIs, the primary constructs for publishing data to Event Hubs are the [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) and [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) classes. [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) provides the AMQP communication channel over which events are sent to the Event Hub. The [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) class represents an event, and is used to publish messages to an Event Hub. This class includes the body, some metadata, and header information about the event. Other properties are added to the [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) object as it passes through an Event Hub.
 
 ## Get started
 
@@ -172,7 +172,7 @@ The [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.serv
 
 ## Publisher revocation
 
-In addition to the advanced runtime features of [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx), Event Hubs enables publisher revocation in order to block specific publishers from sending event to an Event Hub. These features are particularly useful if a publisher token has been compromised, or a software update is causing them to behave inappropriately. In these situations, the publisher's identity, which is part of their SAS token, can be blocked from publishing events.
+In addition to the advanced run-time features of [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx), Event Hubs enables publisher revocation in order to block specific publishers from sending event to an Event Hub. These features are particularly useful if a publisher token has been compromised, or a software update is causing them to behave inappropriately. In these situations, the publisher's identity, which is part of their SAS token, can be blocked from publishing events.
 
 For more information about publisher revocation and how to send to Event Hubs as a publisher, see the [Service Bus Event Hubs Large Scale Secure Publishing](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab) sample.
 

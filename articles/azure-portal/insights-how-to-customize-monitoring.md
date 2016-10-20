@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Monitor service metrics in Microsoft Azure | Microsoft Azure"
+	pageTitle="Overview of Metrics in Microsoft Azure | Microsoft Azure"
 	description="Learn how to customize monitoring charts in Azure."
 	authors="rboucher"
 	manager=""
@@ -16,7 +16,7 @@
 	ms.date="09/08/2015"
 	ms.author="robb"/>
 
-# Monitor service metrics
+# Overview of Metrics in Microsoft Azure
 
 All Azure services track key metrics that allow you to monitor the health, performance, availability and usage of your services. You can view these metrics in the Azure portal, and you can also use the [REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx) or [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) to access the full set of metrics programmatically.
 
@@ -74,6 +74,6 @@ Like with metrics, you can use the [REST API](https://msdn.microsoft.com/library
 * [Receive alert notifications](insights-receive-alert-notifications.md) whenever a metric crosses a threshold.
 * [Enable monitoring and diagnostics](insights-how-to-use-diagnostics.md) to collect detailed high-frequency metrics on your service.
 * [Scale instance count automatically](insights-how-to-scale.md) to make sure your service is available and responsive.
-* [Monitor application performance](insights-perf-analytics.md) if you want to understand exactly how your code is performing in the cloud.
+* [Monitor application performance](../application-insights/app-insights-azure-web-apps.md) if you want to understand exactly how your code is performing in the cloud.
 * Use [Application Insights for JavaScript apps and web pages](../application-insights/app-insights-web-track-usage.md) to get client analytics about the browsers that visit a web page.
 * [Monitor availability and responsiveness of any web page](../application-insights/app-insights-monitor-web-app-availability.md) with Application Insights so you can find out if your page is down.

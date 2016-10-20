@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/21/2016"
 	ms.author="DouglasL"/>
 
 
@@ -60,8 +60,8 @@ This topic lists every topic that applies directly to the **SQL Server Stretch D
 
 | &nbsp; | Title | Description |
 | --: | :-- | :-- |
-| 12 | [Enable Transparent Data Encryption (TDE) for SQL Server Stretch Database on Azure](sql-server-stretch-database-encryption-tde.md) | Enable Transparent Data Encryption (TDE) for SQL Server Stretch Database on Azure |
-| 13 | [Enable Transparent Data Encryption (TDE) for SQL Server Stretch Database on Azure](sql-server-stretch-database-tde-tsql.md) | Enable Transparent Data Encryption (TDE) for SQL Server Stretch Database on Azure TSQL |
+| 12 | [Enable Transparent Data Encryption (TDE) for Stretch Database on Azure](sql-server-stretch-database-encryption-tde.md) | Enable Transparent Data Encryption (TDE) for SQL Server Stretch Database on Azure |
+| 13 | [Enable Transparent Data Encryption (TDE) for Stretch Database on Azure (Transact-SQL)](sql-server-stretch-database-tde-tsql.md) | Enable Transparent Data Encryption (TDE) for SQL Server Stretch Database on Azure TSQL |
 
 
 

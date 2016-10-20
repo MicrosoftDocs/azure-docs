@@ -614,7 +614,7 @@ To run the script that deploys the solution:
 [azure-vm-diagnostics]: https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/
 [application-insights]: ../application-insights/app-insights-overview-usage.md
 [forced-tunnelling]: https://azure.microsoft.com/documentation/articles/vpn-gateway-about-forced-tunneling/
-[getting-started-with-azure-security]: ./../azure-security-getting-started.md
+[getting-started-with-azure-security]: ./../security/azure-security-getting-started.md
 [vpn-appliances]: ../vpn-gateway/vpn-gateway-about-vpn-devices.md
 [installing-ad]: ../active-directory/active-directory-install-replica-active-directory-domain-controller.md
 [deploying-ad]: https://msdn.microsoft.com/library/azure/jj156090.aspx

@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2016"
+	ms.date="09/07/2016"
 	ms.author="awills"/>
 
 # Monitor availability and responsiveness of any web site
 
-After you've deployed your web application to any host, you can set up web tests to monitor its availability and responsiveness. [Visual Studio Application Insights](app-insights-overview.md) sends web requests at regular intervals from points around the world, and can alert you if your application responds slowly or not at all.
+After you've deployed your web app or web site to any server, you can set up web tests to monitor its availability and responsiveness. [Visual Studio Application Insights](app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It alerts you if your application doesn't respond, or responds slowly.
 
 ![Web test example](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
@@ -25,32 +25,29 @@ You can set up web tests for any HTTP or HTTPS endpoint that is accessible from 
 
 There are two types of web test:
 
-* [URL ping test](#set-up-a-url-ping-test): a simple test that you can create in the Azure portal.
+* [URL ping test](#create): a simple test that you can create in the Azure portal.
 * [Multi-step web test](#multi-step-web-tests): which you create in Visual Studio Ultimate or Visual Studio Enterprise and upload to the portal.
 
 You can create up to 10 web tests per application resource.
 
+## <a name="create"></a>1. Create a resource for your test reports
 
-## Set up a URL ping test
-
-### <a name="create"></a>1. Create a new resource?
-
-Skip this step if you've already [set up an Application Insights resource][start] for this application, and you want to see the availability data in the same place.
+Skip this step if you've already [set up an Application Insights resource][start] for this application, and you want to see the availability reports in the same place.
 
 Sign up to [Microsoft Azure](http://azure.com), go to the [Azure portal](https://portal.azure.com), and create an Application Insights resource.
 
 ![New > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
-The Overview blade for the new resource opens. To find this at any time in the [Azure portal](https://portal.azure.com), click **Browse**.
+Click **All resources** to open the Overview blade for the new resource.
 
-### <a name="setup"></a>2. Create a web test
+## <a name="setup"></a>2. Create a URL ping test
 
 In your Application Insights resource, look for the Availability tile. Click it to open the Web tests blade for your application, and add a web test.
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
 - **The URL** must be visible from the public internet. It can include a query string&#151;so, for example, you can exercise your database a little. If the URL resolves to a redirect, we follow it up to 10 redirects.
-- **Parse dependent requests**: Images, scripts, style files, and other resources of the page are requested as part of the test. The test fails if all these resources cannot be successfully downloaded within the timeout for the whole test.
+- **Parse dependent requests**: Images, scripts, style files, and other resources of the page are requested as part of the test, and the recorded response time includes these times. The test fails if all these resources cannot be successfully downloaded within the timeout for the whole test.
 - **Enable retries**:  When the test fails, it is retried after a short interval. A failure is reported only if three successive attempts fail. Subsequent tests are then performed at the usual test frequency. Retry is temporarily suspended until the next success. This rule is applied independently at each test location. (We recommend this setting. On average, about 80% of failures disappear on retry.)
 - **Test frequency**: Sets how often the test is run from each test location. With a frequency of five minutes and five test locations, your site is tested on average every minute.
 - **Test locations** are the places from where our servers send web requests to your URL. Choose more than one so that you can distinguish problems in your website from network issues. You can select up to 16 locations.
@@ -68,14 +65,14 @@ In your Application Insights resource, look for the Availability tile. Click it 
 
     You can set up a [webhook](../azure-portal/insights-webhooks-alerts.md) that is called when an alert is raised. (But note that, at present, query parameters are not passed through as Properties.)
 
-#### Test more URLs
+### Test more URLs
 
 Add more tests. For example, as well as testing your home page, you can make sure your database is running by testing the URL for a search.
 
 
-### <a name="monitor"></a>3. View availability reports
+## <a name="monitor"></a>3. See your web test results
 
-After 1-2 minutes, click **Refresh** on the availability/web tests blade. (It doesn't refresh automatically.)
+After 1-2 minutes, results appear in the 
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
@@ -83,15 +80,8 @@ Click any bar on the summary chart for a more detailed view of that time period.
 
 These charts combine results for all the web tests of this application.
 
-#### Components of your web page
 
-Images, style sheets, scripts, and other static components of the web page you're testing are requested as part of the test.  
-
-The recorded response time is the time taken for all the components to complete loading.
-
-If any component fails to load, the test is marked failed.
-
-## <a name="failures"></a>If you see failures...
+## <a name="failures"></a>If you see failures
 
 Click a red dot.
 

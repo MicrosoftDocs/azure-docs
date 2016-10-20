@@ -3,7 +3,7 @@
    description="This articles will help you understand how Azure Traffic Manager works"
    services="traffic-manager"
    documentationCenter=""
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/07/2016"
-   ms.author="jonatul"/>
+   ms.author="sewhee"/>
 
 # How Traffic Manager works
 

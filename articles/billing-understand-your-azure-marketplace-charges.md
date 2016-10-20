@@ -15,11 +15,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="08/17/2016"
 	ms.author="cjiang"/>
 
 # Understand your Azure Marketplace charges
 This article provides you an overview of how to understand charges related to your Marketplace orders. A few things to keep in mind while reviewing your bill are the different pricing types (Base Only, Usage Only and Base + Usage). Please note that each Marketplace order you place will have its own monthly billing cycle. These topics will be covered in detail below.
+
+> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
 ## Review your Marketplace bill
 Once you log in the [Azure Accounts Portal](https://account.windowsazure.com/subscriptions/) you can review and download current and past bills.
@@ -98,3 +100,5 @@ To view actual charges, follow these steps:
 2. Identify the order you would like to review and click **Details** to view a breakdown of your charges which will include subtotal, tax and total charges.
 
     ![Order details](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
+
+> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

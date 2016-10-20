@@ -51,7 +51,7 @@ As long as you (the admin) assign Office 365 ProPlus licenses to your users, the
 
 ## Which Office applications can I use with Office 365 and Azure RemoteApp?
 
-You can use your Office 365 ProPlus subscription to share Office 2013 and Office 2016 (after it's released). Azure RemoteApp doesn't support earlier versions of Office.
+You can use your Office 365 ProPlus subscription to share Office 2013. Azure RemoteApp doesn't support earlier versions of Office.
 
 ## What about Visio Pro or Project Pro?
 

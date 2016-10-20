@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Create a lab in Azure DevTest Labs
@@ -45,6 +45,8 @@ To create a lab, you will need:
     1. Select **Create**.
 
     ![Create a lab blade](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
+
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Next steps
 

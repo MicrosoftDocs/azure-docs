@@ -66,7 +66,7 @@ The following steps will guide you through creating a basic ASP.NET 5 app that w
     > [AZURE.NOTE] If you're using the Docker Beta, omit the -Machine argument
     > 
     > ```
-    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release -Machine mydockerhost
+    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release 
     > ```  
 
 
@@ -79,7 +79,7 @@ The following steps will guide you through creating a basic ASP.NET 5 app that w
     > [AZURE.NOTE] If you're using the Docker Beta, omit the -Machine argument
     > 
     > ```
-    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release -Machine mydockerhost
+    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release 
     > ```
 
 	Once docker completes, you should see results similar to the following:

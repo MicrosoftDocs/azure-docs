@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/22/2016"
+	ms.date="08/30/2016"
 	ms.author="swkrish"/>
 
 
@@ -39,11 +39,14 @@ You can also access the blade by clicking **Browse** and then **Azure AD B2C** i
 2. Click **+Add** at the top of the blade.
 3. Enter a **Name** for the application that will describe your application to consumers. For example, you could enter "Contoso B2C app".
 4. If you are writing a web-based application, toggle the **Include web app / web API** switch to **Yes**. The **Reply URLs** are endpoints where Azure AD B2C will return any tokens that your application requests. For example, enter `https://localhost:44321/`. If your web application will also be calling some web API secured by Azure AD B2C, you'll want to create an **Application Secret** as well by clicking the **Generate Key** button.
+
+    > [AZURE.NOTE] An **Application Secret** is an important security credential, and should be secured appropriately.
+
 5. If you are writing a mobile application, toggle the **Include native client** switch to **Yes**. Copy down the default **Redirect URI** that is automatically created for you.
 6. Click **Create** to register your application.
 7. Click the application that you just created and copy down the globally unique **Application Client ID** that you'll use later in your code.
 
-> [AZURE.NOTE] An **Application Secret** is an important security credential, and should be secured appropriately.
+> [AZURE.IMPORTANT] Applications created in the B2C features blade have to managed in the same location. If you edit B2C applications using PowerShell or another portal, they become unsupported and will likely not work with Azure AD B2C.
 
 ## Build a Quick Start Application
 
