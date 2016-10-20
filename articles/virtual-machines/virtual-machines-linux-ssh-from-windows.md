@@ -173,7 +173,7 @@ The following example creates this additional private key specifically for PuTTY
 8. Enter a name and location to save your PPK file.
 
 
-## Use Putty to Connect to a Linux Machine
+## Use Putty to SSH to a Linux Machine
 
 Again, PuTTY is a common SSH client for Windows. You are free to use any SSH client that you wish. The following steps detail how to use your private key to authenticate with your Azure VM using SSH. The steps are similar in other SSH key clients in terms of needing to load your private key to authenticate the SSH connection.
 
