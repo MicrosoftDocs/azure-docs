@@ -1,178 +1,204 @@
-<properties 
-   pageTitle="Traffic Manager endpoint monitoring and failover | Microsoft Azure"
-   description="This article will help you understand how Traffic Manager uses endpoint monitoring and automatic endpoint failover to enable Azure customers to deploy high-availability applications"
-   services="traffic-manager"
-   documentationCenter=""
-   authors="jtuliani"
-   manager="carmonm"
-   editor="tysonn" />
-<tags 
-   ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/04/2016"
-   ms.author="jtuliani" />
+<properties
+    pageTitle="Traffic Manager endpoint monitoring and failover | Microsoft Azure"
+    description="This article can help you understand how Traffic Manager uses endpoint monitoring and automatic endpoint failover to help Azure customers deploy high-availability applications"
+    services="traffic-manager"
+    documentationCenter=""
+    authors="sdwheeler"
+    manager="carmonm"
+    editor=""
+/>
+<tags
+    ms.service="traffic-manager"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="infrastructure-services"
+    ms.date="10/11/2016"
+    ms.author="sewhee"
+/>
 
 # Traffic Manager endpoint monitoring and failover
 
-Azure Traffic Manager includes built-in endpoint monitoring and automatic endpoint failover.  This enables you to deliver high availability applications that are resilient to endpoint failure, including Azure region failures.
+Azure Traffic Manager includes built-in endpoint monitoring and automatic endpoint failover. This feature helps you deliver high-availability applications that are resilient to endpoint failure, including Azure region failures.
 
-It does this by making regular requests to each endpoint and verifying the response.  If an endpoint fails to provide a valid response, it is marked as ‘Degraded’ and is no longer included in DNS responses which instead return an alternative, available endpoint.  End user traffic is thus directed away from failing endpoints and towards those which are available.
 
-Endpoint health checks continue for ‘Degraded’ endpoints so they can be brought back into rotation automatically once they return to health.
-
-## Configuring endpoint monitoring
+## Configure endpoint monitoring
 
 To configure endpoint monitoring, you must specify the following settings on your Traffic Manager profile:
 
-- **Protocol** – Choose HTTP or HTTPS. It’s important to note that HTTPS monitoring does not verify whether your SSL certificate is valid, it only checks that certificate is present.
-- **Port** – Choose the port used for the request. Standard HTTP and HTTPS ports are among the choices.
-- **Path** – Give the relative path and the name of the web page or file that the monitoring health check will attempt to access. Note that a forward slash "/" is a valid entry for the relative path and implies that the file is in the root directory (default).
+- **Protocol**. Choose HTTP or HTTPS. It's important to note that HTTPS monitoring does not verify whether your SSL certificate is valid--it only checks that the certificate is present.
+- **Port**. Choose the port used for the request.
+- **Path**. Give the relative path and the name of the webpage or file that the monitoring accesses. A forward slash (/) is a valid entry for the relative path. This value implies that the file is in the root directory (default).
 
-To check the health of each endpoint, Traffic Manager will make a GET request to the endpoint using the protocol, port and relative path given.
+To check the health of each endpoint, Traffic Manager makes a GET request to the endpoint using the protocol, port, and relative path given.
 
-A common practice is to implement a custom page within your application, e.g. ‘/health.aspx’, and to configure this page as the Traffic Manager endpoint monitoring path.  Within that page, you can perform any necessary application-specific checks, such as checking the availability of a back-end database, before returning either HTTP 200 (if the service is healthy) or a different status code otherwise.
+A common practice is to implement a custom page within your application, for example, /health.aspx. Using this path for monitoring, you can perform application-specific checks, such as checking performance counters or verifying database availability. Based on these custom checks, the page returns an appropriate HTTP status code.
 
-Endpoint monitoring settings are configured at the Traffic Manager profile level, not per endpoint.  Therefore, the same settings are used to check the health of all endpoints.  If you need to use different monitoring settings for different endpoints, this can be achieved using [nested Traffic Manager profiles](traffic-manager-nested-profiles.md#example-5-per-endpoint-monitoring-settings).
+All endpoints in a Traffic Manager profile share monitoring settings. If you need to use different monitoring settings for different endpoints, you can create [nested Traffic Manager profiles](traffic-manager-nested-profiles.md#example-5-per-endpoint-monitoring-settings).
 
 ## Endpoint and profile status
 
-Traffic Manager profiles and endpoints can be enabled and disabled by the user.  Changes to status can also happen as a result of  endpoint health checks.  The following parameters describe the behavior in detail.
+You can enable and disable Traffic Manager profiles and endpoints. However, a change in endpoint status also might occur as a result of Traffic Manager automated settings and processes.
 
 ### Endpoint status
 
-Endpoint Status is a user-controlled setting, allowing an individual endpoint to be easily enabled or disabled.  This does not affect the status of the underlying service (which may still be running), rather, it controls the availability of this endpoint from a Traffic Manager perspective.  When an endpoint is disabled, it is not checked for health and will not be returned in a DNS response.
+You can enable or disable a specific endpoint. The underlying service, which might still be healthy, is unaffected. Changing the endpoint status controls the availability of the endpoint in the Traffic Manager profile. When an endpoint status is disabled, Traffic Manager does not check its health and the endpoint is not included in a DNS response.
 
 ### Profile status
 
-Profile Status is a user-controlled setting, allowing the profile to be easily enabled or disabled.  Whilst the Endpoint Status affects a single endpoint, the Profile Status affects the entire profile, including all endpoints. When disabled, endpoints are not checked for health and no endpoints are returned in DNS response (DNS queries receive 'NXDOMAIN' responses instead).
+Using the profile status setting, you can enable or disable a specific profile. While endpoint status affects a single endpoint, profile status affects the entire profile, including all endpoints. When you disable a profile, the endpoints are not checked for health and no endpoints are included in a DNS response. An [NXDOMAIN](https://tools.ietf.org/html/rfc2308) response code is returned for the DNS query.
 
 ### Endpoint monitor status
 
-Endpoint Monitor Status is a Traffic Manager-generated setting, it cannot be set by the user.  It shows the current status of endpoint, reflecting the ongoing endpoint monitoring and also other information such as the Endpoint Status.  The possible values of the Endpoint Monitor Status are shown in the following table.  (For details of how the Endpoint Monitor Status is calculated for nested endpoints, see [nested Traffic Manager profiles](traffic-manager-nested-profiles.md).)
+Endpoint monitor status is a Traffic Manager-generated value that shows the status of the endpoint. You cannot change this setting manually. The endpoint monitor status is a combination of the results of endpoint monitoring and the configured endpoint status. The possible values of endpoint monitor status are shown in the following table:
 
-|Profile status|Endpoint status|Endpoint Monitor status (API and Portal)|Notes|
+|Profile status|Endpoint status|Endpoint monitor status|Notes|
 |---|---|---|---|
-|Disabled|Enabled|Inactive|The profile has been disabled by the user.  Whilst the Endpoint Status can still be 'Enabled', the Profile Status takes precedence.  Endpoints in Disabled profiles are not monitored. No endpoint is returned in DNS responses (an 'NXDOMAIN' response is given instead).|
-|&lt;any&gt;|Disabled|Disabled|The endpoint has been disabled by the user.  Disabled endpoints are not monitored. They are not available for inclusion in DNS responses, and hence do not receive traffic.|
-|Enabled|Enabled|Online|Endpoint is monitored and is healthy.  It is available for inclusion in DNS responses and hence can receive traffic.|
-|Enabled|Enabled|Degraded|Endpoint monitoring health checks are failing.  The endpoint is not available for inclusion in DNS responses, and hence does not receive traffic.|
-|Enabled|Enabled|CheckingEndpoint|Endpoint is monitored but the results of the first probe have not yet been received. This is a temporary state when you’ve just added a new endpoint to the profile, or have just enabled an endpoint or profile.  Endpoints in this state are available for inclusion in DNS responses, and hence can receive traffic.|
-|Enabled|Enabled|Stopped|The Cloud Service or Web App which the endpoint points to is not running.  Check the Cloud Service or Web App settings. Stopped endpoints are not monitored. They are not available for inclusion in DNS responses, and hence do not receive traffic.|
+|Disabled|Enabled|Inactive|The profile has been disabled. Although the endpoint status is Enabled, the profile status (Disabled) takes precedence. Endpoints in disabled profiles are not monitored. An NXDOMAIN response code is returned for the DNS query.|
+|&lt;any&gt;|Disabled|Disabled|The endpoint has been disabled. Disabled endpoints are not monitored. The endpoint is not included in DNS responses, therefore, it does not receive traffic.|
+|Enabled|Enabled|Online|The endpoint is monitored and is healthy. It is included in DNS responses and can receive traffic.|
+|Enabled|Enabled|Degraded|Endpoint monitoring health checks are failing. The endpoint is not included in DNS responses and does not receive traffic.|
+|Enabled|Enabled|CheckingEndpoint|The endpoint is monitored, but the results of the first probe have not been received yet. CheckingEndpoint is a temporary state that usually occurs immediately after adding or enabling an endpoint in the profile. An endpoint in this state is included in DNS responses and can receive traffic.|
+|Enabled|Enabled|Stopped|The cloud service or web app that the endpoint points to is not running. Check the cloud service or web app settings. An endpoint with a Stopped status is not monitored. It is not included in DNS responses and does not receive traffic.|
 
-### Profile Monitor Status
+For details about how endpoint monitor status is calculated for nested endpoints, see [nested Traffic Manager profiles](traffic-manager-nested-profiles.md).
 
-Profile Monitor Status is a combination of the endpoint monitor status for all endpoints in the profile, and your configured profile status.  The possible values are described in the following table:
+### Profile monitor status
 
-|Profile status (as configured)|Endpoint Monitor status|Profile Monitor status (API and Portal)|Notes|
+The profile monitor status is a combination of the configured profile status and the endpoint monitor status values for all endpoints. The possible values are described in the following table:
+
+|Profile status (as configured)|Endpoint monitor status|Profile monitor status|Notes|
 |---|---|---|---|
-|Disabled|&lt;any&gt; or a profile with no defined endpoints.|Disabled|The profile has been disabled by the user.|
-|Enabled|The status of at least one endpoint is “Degraded”.|Degraded|This is a flag that customer action is required.  Review the individual endpoint status values to determine which endpoints require further attention.|
-|Enabled|The status of at least one endpoint is “Online”. No endpoints are “Degraded”.|Online|The service is accepting traffic and customer action is not required.|
-|Enabled|The status of at least one endpoint is “CheckingEndpoint”. No endpoints are “Online” or “Degraded”.|CheckingEndpoints|Transition state. This typically occurs when a profile has just been created or enabled and the endpoint health is being checked for the first time.|
-|Enabled|The status of all endpoints defined in the profile is either “Disabled” or “Stopped”, or the profile has no defined endpoints.|Inactive|No endpoints are active, but the profile is still enabled.|
+|Disabled|&lt;any&gt; or a profile with no defined endpoints.|Disabled|The profile has been disabled.|
+|Enabled|The status of at least one endpoint is Degraded.|Degraded|Review the individual endpoint status values to determine which endpoints require further attention.|
+|Enabled|The status of at least one endpoint is Online. No endpoints have a Degraded status.|Online|The service is accepting traffic. No further action is required.|
+|Enabled|The status of at least one endpoint is CheckingEndpoint. No endpoints are in Online or Degraded status.|CheckingEndpoints|This transition state occurs when a profile if created or enabled. The endpoint health is being checked for the first time.|
+|Enabled|The statuses of all endpoints in the profile are either Disabled or Stopped, or the profile has no defined endpoints.|Inactive|No endpoints are active, but the profile is still Enabled.|
 
-## Endpoint failover and fail-back
+## Endpoint failover and recovery
 
-Consider the scenario in which a Traffic Manager endpoint that was previously healthy fails, this failure is detected by Traffic Manager and the endpoint taken out of rotation.  Later, the endpoint recovers, this is also detected by Traffic Manager and the endpoint brought back into rotation.
+Traffic Manager periodically checks the health of every endpoint, including unhealthy endpoints. Traffic Manager detects when an endpoint becomes healthy and brings it back into rotation.
 
->[AZURE.NOTE] Traffic Manager only considers an endpoint to be Online if the return message is a 200 OK. If any of the following occur, it will count this as a failed check:
+>[AZURE.NOTE] Traffic Manager only considers an endpoint to be online if the return message is 200 OK. An endpoint is unhealthy when any of the following events occur:
 
 >- A non-200 response is received (including a different 2xx code, or a 301/302 redirect)
 >- Request for client authentication
 >- Timeout (the timeout threshold is 10 seconds)
 >- Unable to connect
 
->More details about troubleshooting failed checks see [Troubleshooting degraded status on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
+>For more information about troubleshooting failed checks, see [Troubleshooting Degraded status on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
 
-The following timeline describes in detail the sequence of steps that occurs.
+The following timeline is a detailed description of the monitoring process.
 
 ![Traffic Manager endpoint failover and failback sequence](./media/traffic-manager-monitoring/timeline.png)
 
-1. **GET** – The Traffic Manager monitoring system performs a GET on the path and file you specified in the monitoring settings.  This is repeated for each endpoint.
-2. **200 OK** – The monitoring system expects an HTTP 200 OK message to be returned within 10 seconds. When it receives this response, it understands that the service is available.
-3. **30 seconds between checks** – The endpoint health check will be repeated every 30 seconds.
-4. **Service unavailable** – The service becomes unavailable. Traffic Manager will not know until the next health check.
-5. **Attempts to access monitoring file (4 tries)** – The monitoring system performs a GET, but does not receive a response within the timeout period of 10 seconds (alternatively, a non-200 response may be received). It then performs three more tries at 30 second intervals. If one of the tries is successful, then the number of tries is reset.
-6. **Marked degraded** – After the fourth failure in a row, the monitoring system will mark the unavailable endpoint as Degraded. 
-7. **Traffic is diverted to other endpoints** – The Traffic Manager DNS name servers are updated and the endpoint will no longer be returned by Traffic Manager in response to DNS queries.  New connections will therefore be directed to other, available endpoints.  However, previous DNS responses that include this endpoint may still be cached by recursive DNS servers and DNS clients, causing some clients to try to connect to this endpoint. As these caches expire, clients will make new DNS queries and be directed to different endpoints. The cache duration is controlled by the TTL setting in the Traffic Manager profile, for example 30 seconds. 
-8. **Health checks continue** - Traffic Manager continues to check the health of the endpoint whilst it is in the Degraded state.  This is so that it can detect when the endpoint returns to health.
-9. **Service comes back online** – The service becomes available.  The endpoint remains Degraded in Traffic Manager until the monitoring system performs its next health check.
-10. **Traffic to service resumes** - Traffic Manager sends a GET and receives a 200 OK, indicating that the service has returned to a healthy state.  The Traffic Manager name servers are updated once again, and begin to hand out the service’s DNS name in DNS responses. Traffic will return to the endpoint once again as cached DNS responses returning other endpoints expire, and as existing connections to other endpoints are terminated.
+1. **GET**. For each endpoint, the Traffic Manager monitoring system performs a GET request on the path and file specified in the monitoring settings.
+2. **200 OK**. The monitoring system expects an HTTP 200 OK message to be returned within 10 seconds. When it receives this response, it recognizes that the service is available.
+3. **30 seconds between checks**. The endpoint health check is repeated every 30 seconds.
+4. **Service unavailable**. The service becomes unavailable. Traffic Manager will not know until the next health check.
+5. **Attempts to access monitoring file (four tries)**. The monitoring system performs a GET request, but does not receive a response within the timeout period of 10 seconds (alternatively, a non-200 response may be received). It then tries three more times, at 30-second intervals. If one of the tries is successful, then the number of tries is reset.
+6. **Status set to Degraded**. After a fourth consecutive failure, the monitoring system marks the unavailable endpoint status as Degraded.
+7. **Traffic is diverted to other endpoints**. The Traffic Manager DNS name servers are updated and Traffic Manager no longer returns the endpoint in response to DNS queries. New connections are directed to other, available endpoints. However, previous DNS responses that include this endpoint may still be cached by recursive DNS servers and DNS clients. Clients continue to use the endpoint until the DNS cache expires. As the DNS cache expires, clients make new DNS queries and are directed to different endpoints. The cache duration is controlled by the TTL setting in the Traffic Manager profile, for example, 30 seconds.
+8. **Health checks continue**. Traffic Manager continues to check the health of the endpoint while it has a Degraded status. Traffic Manager detects when the endpoint returns to health.
+9. **Service comes back online**. The service becomes available. The endpoint retains its Degraded status in Traffic Manager until the monitoring system performs its next health check.
+10. **Traffic to service resumes**. Traffic Manager sends a GET request and receives a 200 OK status response. The service has returned to a healthy state. The Traffic Manager name servers are updated, and they begin to hand out the service's DNS name in DNS responses. Traffic returns to the endpoint as cached DNS responses that return other endpoints expire, and as existing connections to other endpoints are terminated.
 
->[AZURE.NOTE] Since Traffic Manager works at the DNS level, it is unable to influence existing connections to any endpoint.  When directing traffic between endpoints (either by changing profile settings, or during failover or failback), Traffic Manager will direct new connections to available endpoints.  However, other endpoints may continue to receive traffic via existing connections until those sessions are terminated.  To enable traffic to drain from existing connections, applications should limit the session duration used with each endpoint.
+>[AZURE.NOTE] Because Traffic Manager works at the DNS level, it cannot influence existing connections to any endpoint. When it directs traffic between endpoints (either by changed profile settings, or during failover or failback), Traffic Manager directs new connections to available endpoints. However, other endpoints might continue to receive traffic via existing connections until those sessions are terminated. To enable traffic to drain from existing connections, applications should limit the session duration used with each endpoint.
 
-## Degraded endpoints
+## Traffic-routing methods
 
-When an endpoint is degraded, it is no longer returned in response to DNS queries (for an exception to this rule, see the Note below).  Instead an alternative endpoint is chosen and returned.  The choice of alternative endpoint depends on the configured traffic-routing method:
+When an endpoint has a Degraded status, it is no longer returned in response to DNS queries. Instead, an alternative endpoint is chosen and returned. The traffic-routing method configured in the profile determines how the alternative endpoint is chosen.
 
-- **Priority** – Endpoints form a prioritized list.  The first available endpoint on the list is always returned.  If it becomes Degraded, then the next available endpoint is returned.
-- **Weighted** – Any of the available endpoints may be returned, chosen at random based on their assigned weights and the weights of the other available endpoints.  If an endpoint becomes degraded, an endpoint is chosen from the remaining pool of available endpoints.
-- **Performance** – The endpoint ‘closest’ to the end user is returned (excluding disabled/stopped endpoints).  If that endpoint is unavailable, the endpoint returned is chosen at random from all the other available endpoints.  (This is to help avoid a cascading failure that could potentially occur if the next-closest endpoint becomes overloaded.  Alternative failover plans for Performance traffic-routing can be configured using [nested Traffic Manager profiles](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).)
+- **Priority**. Endpoints form a prioritized list. The first available endpoint on the list is always returned. If an endpoint status is Degraded, then the next available endpoint is returned.
+- **Weighted**. Any available endpoint is chosen at random based on their assigned weights and the weights of the other available endpoints.
+- **Performance**. The endpoint closest to the end user is returned. If that endpoint is unavailable, an endpoint is randomly chosen from all the other available endpoints. Choosing a random endpoint avoids a cascading failure that can occur when the next-closest endpoint becomes overloaded. You can configure alternative failover plans for performance traffic-routing by using [nested Traffic Manager profiles](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 
-For more information see [Traffic Manager traffic-routing methods](traffic-manager-routing-methods.md).
+For more information, see [Traffic Manager traffic-routing methods](traffic-manager-routing-methods.md).
 
->[AZURE.NOTE] What happens if all Traffic Manager endpoints (excluding ‘Disabled’ or ‘Stopped’ endpoints) are failing their health checks, and marked as ‘Degraded’?
+>[AZURE.NOTE] One exception to normal traffic-routing behavior occurs when all eligible endpoints have a degraded status. Traffic Manager makes a "best effort" attempt and *responds as if all the Degraded status endpoints actually are in an online state*. This behavior is preferable to the alternative, which would be to not return any endpoint in the DNS response. Disabled or Stopped endpoints are not monitored, therefore, they are not considered eligible for traffic.
 
->This most commonly occurs due to an error in the configuration of the service (such as an ACL blocking the Traffic Manager health checks), or an error in configuration of the Traffic Manager profile (such as an incorrect monitoring path).
+>This condition is commonly caused by improper configuration of the service, such as:
 
->In this case, Traffic Manager makes a ‘best effort’ and *responds as if all the degraded endpoints are actually ‘Online’*.  This is preferable to the alternative, which would be not to return any endpoint in the DNS response.
+>    - An access control list [ACL] blocking the Traffic Manager health checks
+>    - An improper configuration of the monitoring path in the Traffic manager profile
 
->A consequence of this behavior is that when the Traffic Manager health checks are not configured correctly, it may seem from the traffic routing as though Traffic Manager is working properly.  However, endpoint failover will not happen if an endpoint fails, impacting overall application availability.  To ensure this does not occur, it is important to ensure that the profile shows an 'Online' rather than 'Degraded' state.  An 'Online' state shows that the Traffic Manager health checks are working as expected.
+>The consequence of this behavior is that if Traffic Manager health checks are not configured correctly, it might appear from the traffic routing as though Traffic Manager *is* working properly. However, in this case, endpoint failover cannot happen which affects overall application availability. It is important to check that the profile shows an Online status, not a Degraded status. An Online status indicates that the Traffic Manager health checks are working as expected.
 
-For more details about troubleshooting failed health checks see [Troubleshooting degraded status on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md)
- 
+For more information about troubleshooting failed health checks, see [Troubleshooting Degraded status on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
+
 ## FAQ
 
-### Is Traffic Manager itself resilient to Azure region failures?
+### Is Traffic Manager resilient to Azure region failures?
 
-By providing built-in health checks and automatic failover between regions, Azure Traffic Manager is a key component for delivering highly available applications in Azure, including applications which are resilient to a region-wide Azure outage.
+Traffic Manager is a key component of the delivery of highly available applications in Azure.
+To deliver high availability, Traffic Manager must have an exceptionally high level of availability and be resilient to regional failure.
 
-As such, we recognise that Traffic Manager itself must offer an exceptionally high level of availability, including resilience to regional failure.
+By design, Traffic Manager components are resilient to a complete failure of any Azure region. This resilience applies to all Traffic Manager components: the DNS name servers, the API, the storage layer, and the endpoint monitoring service.
 
-Whilst some parts of Traffic Manager run in Azure, these are distributed across regions and have been designed to be resilient to a complete failure of any Azure region.  This resilience applies to all Traffic Manager components: the DNS name servers, the API, the storage layer, and the endpoint monitoring service.
+In the unlikely event of an outage of an entire Azure region, Traffic Manager is expected to continue to function normally. Applications deployed in multiple Azure regions can rely on Traffic Manager to direct traffic to an available instance of their application.
 
-Therefore, even in the unlikely event of a total outage of an entire Azure region, Traffic Manager should continue to function as normal and customers with applications deployed in multiple Azure regions can rely on Traffic Manager to direct traffic to an available instance of their application.
+### How does the choice of resource group location affect Traffic Manager?
 
-### How does the choice of Resource Group location affect Traffic Manager?
+Traffic Manager is a single, global service. It is not regional. The choice of resource group location makes no difference to Traffic Manager profiles deployed in that resource group.
 
-Traffic Manager is a single global service.  It is not regional.  The choice of resource group location makes no difference to Traffic Manager profiles deployed in that resource group.
-
-Azure Resource Manager requires that all resource groups specify a ‘location’, which determines the default location for resources deployed in that resource group.  You will be asked for this location if you create a new resource group when creating a Traffic Manager profile via the Azure Portal.
-
-All Traffic Manager profiles use “global” as their location.  Since this is the only value accepted, it is not exposed in the Azure Portal, PowerShell or CLI experiences.  This overrides the resource group default.
+Azure Resource Manager requires all resource groups to specify a location, which determines the default location for resources deployed in that resource group. When you create a Traffic Manager profile, it is created in a resource group. All Traffic Manager profiles use **global** as their location, overriding the resource group default.
 
 ### How do I determine the current health of each endpoint?
 
-The current monitoring status of each endpoint, and the overall profile, is displayed in the Azure management portal.  This information is also available via the Traffic Manager [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlets](https://msdn.microsoft.com/library/mt125941.aspx), and [cross-platform Azure CLI](../xplat-cli-install.md).
+The current monitoring status of each endpoint, in addition to the overall profile, is displayed in the Azure portal. This information also is available via the Traffic Monitor [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlets](https://msdn.microsoft.com/library/mt125941.aspx), and [cross-platform Azure CLI](../xplat-cli-install.md).
 
-At present, it is not possible to view historical information about past endpoint health, nor is it possible to configure alerts on changes to endpoint health.
+Azure does not provide historical information about past endpoint health or the ability to raise alerts about changes to endpoint health.
 
 ### Can I monitor HTTPS endpoints?
 
-Yes.  Traffic Manager supports probing over HTTPS.  Simply configure ‘HTTPS’ as the protocol in the monitoring configuration.
-Note that:
+Yes. Traffic Manager supports probing over HTTPS. Configure **HTTPS** as the protocol in the monitoring configuration.
 
-- The server-side certificate is not validated
+Traffic manager cannot provide any certificate validation, including:
+
+- Server-side certificates are not validated
 - SNI server-side certificates are not supported
 - Client certificates are not supported
 
-### What ‘Host’ header is used for endpoint health checks?
+### What host header do endpoint health checks use?
 
-The ‘host’ header used in HTTP/S health checks is the DNS name associated with each endpoint. This is exposed as the endpoint ‘target’ in the Azure Portal, [PowerShell cmdlets](https://msdn.microsoft.com/library/mt125941.aspx), [cross-platform Azure CLI](../xplat-cli-install.md), and [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx).
+Traffic Manager uses host headers in HTTP and HTTPS health checks. The host header used by Traffic Manager is the name of the endpoint target configured in the profile. The value used in the host header cannot be specified separately from the target property.
 
-This value is part of the endpoint configuration.  The value used in the Host header cannot be specified separately from the ‘target’ property.
+### What are the IP addresses from which the health checks originate?
+
+The following list contains the IP addresses from which Traffic Manager health checks can originate. You may use this list to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
+
+- 40.68.30.66
+- 40.68.31.178
+- 137.135.80.149
+- 137.135.82.249
+- 23.96.236.252
+- 65.52.217.19
+- 40.87.147.10
+- 40.87.151.34
+- 13.75.124.254
+- 13.75.127.63
+- 52.172.155.168
+- 52.172.158.37
+- 104.215.91.84
+- 13.75.153.124
+- 13.84.222.37
+- 23.101.191.199
+- 23.96.213.12
+- 137.135.46.163
+- 137.135.47.215
+- 191.232.208.52
+- 191.232.214.62
+- 13.75.152.253
+- 104.41.187.209
+- 104.41.190.203
 
 
 ## Next steps
 
-Learn [how Traffic Manager works](traffic-manager-how-traffic-manager-works.md).
+Learn [how Traffic Manager works](traffic-manager-how-traffic-manager-works.md)
 
-Learn more about the [traffic-routing methods](traffic-manager-routing-methods.md) supported by Traffic Manager.
+Learn more about the [traffic-routing methods](traffic-manager-routing-methods.md) supported by Traffic Manager
 
-Learn how to [create a Traffic Manager profile](traffic-manager-manage-profiles.md).
+Learn how to [create a Traffic Manager profile](traffic-manager-manage-profiles.md)
 
-[Troubleshoot 'Degraded' status](traffic-manager-troubleshooting-degraded.md) on a Traffic Manager endpoint.
- 
+[Troubleshoot Degraded status](traffic-manager-troubleshooting-degraded.md) on a Traffic Manager endpoint

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="07/21/2016"
 	ms.author="ricksal"/>
 
 # Upload images to Azure Storage from an Android  device

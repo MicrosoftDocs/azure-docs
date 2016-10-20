@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2016" 
+	ms.date="07/29/2016" 
 	ms.author="mimig"/>
 
 # Introducing DocumentDB - A NoSQL Database for Microsoft Azure 
 
-Not sure if DocumentDB is right for your application or data? Want to learn about how JSON data is stored and accessed in DocumentDB? If so, this introductory whitepaper by David Chappell is a good place to start. It discusses how you can benefit from the flexibility that schema-free JSON data provides, enabling you to handle changes to data structure effortlessly. 
+> [AZURE.NOTE] This whitepaper was last updated in 2015 and has not yet been updated to account for updates to DocumentDB such as [global distribution of data](documentdb-distribute-data-globally.md) and [partitioned collections](documentdb-partition-data.md). For a current introduction to DocumentDB, see [Introduction to DocumentDB: A NoSQL JSON Database](documentdb-introduction.md).
+
+Not sure if DocumentDB is right for your application or data? Want to learn about how JSON data is stored and accessed in Azure DocumentDB? If so, this introductory whitepaper by David Chappell is a good place to start. It discusses how you can benefit from the flexibility that schema-free JSON data provides, enabling you to handle changes to data structure effortlessly. 
 
 The whitepaper also walks you through the following:
 

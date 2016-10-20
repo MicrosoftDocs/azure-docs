@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="06/01/2016"
+	ms.date="08/15/2016"
 	ms.author="tarcher" />
 
 # Debugging an Azure cloud service or virtual machine in Visual Studio

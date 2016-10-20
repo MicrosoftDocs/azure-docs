@@ -2,19 +2,19 @@
 	pageTitle="MyDriving Azure IoT example: Build it | Microsoft Azure"
 	description="Build an app that's a comprehensive demonstration of how to architect an IoT system by using Microsoft Azure, including Stream Analytics, Machine Learning, and Event Hubs."
 	services=""
-    documentationCenter=""
-    suite="iot-suite"
-	authors="alancameronwills"
+    documentationCenter=".net"
+    suite=""
+	authors="harikmenon"
 	manager="douge"/>
 
 <tags
-	ms.service="iot-suite"
+	ms.service="multiple"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
+	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="03/25/2016"
-	ms.author="awills"/>
+	ms.author="harikm"/>
 
 
 # Build and deploy the MyDriving solution to your environment
@@ -79,7 +79,7 @@ Install:
 
 -   [Azure Service Fabric SDK](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric). Required to build the [microservice](../service-fabric/service-fabric-get-started.md) extension.
 
-Also, make sure that you have the right Visual Studio extensions. Check that under **Tools**, you see **Android, iOS, Xamarin…**. If not, open Control Panel, and then select **Programs and Features** > **Microsoft** > **Visual Studio 2015** > **Modify**. Under **Cross-Platform development**, select **C\#/.Net (Xamarin)**. While you're there, check that **GitHub** is installed.
+Also, make sure that you have the right Visual Studio extensions. Check that under **Tools**, you see **Android, iOS, Xamarin…**. If not, open Control Panel, and then select **Programs and Features** > **Microsoft** > **Visual Studio 2015** > **Modify**. Under **Cross-Platform development**, select **C\#/.Net (Xamarin)**. While you're there, check that **Git for Windows** is installed.
 
 ### Mac development machine
 
@@ -235,7 +235,7 @@ To perform an automatic deployment of Azure services and Team Services build ser
 
 Microsoft Azure provides a wealth of different services that you can use to build cloud applications. Although many can be used individually (such as App Service/Web Apps), they're at their best when they're interconnected to form an integrated system like that we use in MyDriving.
 
-It's possible to create and interconnect Azure services manually, but it's much quicker and more reliable to use Azure Resource Manager templates. [Resource Manager](../resource-group-overview.md) automates the deployment of a solution's resources and making the interconnections between them.
+It's possible to create and interconnect Azure services manually, but it's much quicker and more reliable to use Azure Resource Manager templates. [Resource Manager](../azure-resource-manager/resource-group-overview.md) automates the deployment of a solution's resources and making the interconnections between them.
 
 You'll find the template for the MyDriving system in the GitHub repository under [scripts/ARM](https://github.com/Azure-Samples/MyDriving/tree/master/scripts/ARM). It provides a comprehensive and concise view of how the different services in our architecture are interconnected. We explain all these in detail in the [MyDriving Reference Guide](http://aka.ms/mydrivingdocs), but you can learn a lot just by reading through the template itself.
 
@@ -428,7 +428,7 @@ We assume:
 | [HockeyApp](http://hockeyapp.net/pricing/) <br/> Distribution of beta apps, plus collection of feedback, usage, and crash data                                                                                                                                      | Two free apps for new users.<br/> $30/month thereafter.  | $0    |
 | [Xamarin](https://store.xamarin.com/)<br/> Code on a uniform platform for multiple devices | Free trial. <br/>$25/month thereafter.| $0    |
 | [SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) for Azure App Service| Basic tier; single database model. | $5             |
-| [Service Fabric](../service-fabric/services/service-fabric.md) (optional)  | Run a local cluster. | $0             |
+| [Service Fabric](https://azure.microsoft.com/pricing/details/service-fabric/) (optional)  | Run a local cluster. | $0             |
 | [Power BI](https://powerbi.microsoft.com/pricing/)<br/> Versatile displays and investigation of streamed and static data| Free tier: 1 GB, 10,000 rows/hour, daily refresh. <br/> $10/user/month for [higher limits](https://powerbi.microsoft.com/documentation/powerbi-power-bi-pro-content-what-is-it/), more connection options, collaboration.    | $0             |
 | [Storage](https://azure.microsoft.com/pricing/details/storage/)   | L (locally redundant) &lt; 100 G $0.024/GB.  | $3             |
 | [Data Factory](https://azure.microsoft.com/pricing/details/data-factory/)                                                                                                                       | $0.60 per activity \* (8 - 5 FOC).| $2             |
@@ -439,7 +439,7 @@ We assume:
 
 For more information, see:
 
--   Summary of [Azure service quotas and limits](../azure-subscription-service-limits/#iot-hub-limits)
+-   Summary of [Azure service quotas and limits](../azure-subscription-service-limits.md#iot-hub-limits)
 
 -   Azure [pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 

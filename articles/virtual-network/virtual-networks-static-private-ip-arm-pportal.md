@@ -3,7 +3,7 @@
    description="Understanding private IPs (DIPs) and how to manage them in ARM mode using the Azure portal"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/04/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # How to set a static private IP address in the Azure portal
 
@@ -93,6 +93,6 @@ To remove the static private IP address from the VM created above, follow the st
 
 ## Next steps
 
-- Learn about [reserved public IP](../virtual-networks-reserved-public-ip) addresses.
-- Learn about [instance-level public IP (ILPIP)](../virtual-networks-instance-level-public-ip) addresses.
+- Learn about [reserved public IP](virtual-networks-reserved-public-ip.md) addresses.
+- Learn about [instance-level public IP (ILPIP)](virtual-networks-instance-level-public-ip.md) addresses.
 - Consult the [Reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx).

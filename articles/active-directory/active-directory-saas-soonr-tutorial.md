@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="10/14/2016"
 	ms.author="jeedes"/>
 
 
@@ -46,7 +46,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 - If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## Scenario Description
+## Scenario description
 The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
 The scenario outlined in this tutorial consists of two main building blocks:
 
@@ -100,7 +100,7 @@ To configure and test Azure AD single sign-on with Soonr Workplace, you need to 
 5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD Single Sign-On
+### Configuring Azure AD single sign-on
 
 The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Soonr Workplace application.
 
@@ -121,7 +121,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 	![Configure Single Sign-On](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_04.png) 
 
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Soonr Workplace application using the following pattern: **“https://\<server-name\>.soonr.com/singlesignon/saml/SSO”**.
+    a. In the **Sign On URL** textbox, type the URL used by users, to sign-on to your  application using the following pattern: `https://<server-name>.soonr.com/singlesignon/saml/SSO`.
 
     b. Click **Next**.
 
@@ -131,12 +131,15 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
     a. Click **Download metadata**, and then save the file on your computer.
 
-    b. Click **Next**.
+	b. The **Issuer URL**
+
+    C. The **SAML SSO URL**
+
+	D. The **Single sign-out service URL**
 
 
-5. To get SSO configured for your application, contact your Soonr Workplace support team and email the attach downloaded metadata file. Also please do provide the Issuer URL, SAML SSO URL and Sign Out URL so that they can be configured for SSO integration.
-
-
+5. To configure Single Sign On at the Soonr Workplace, please reach out to Sooner team <a href="https://na01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fsoonr.com%2FAWPHelp%2FContent%2F0_HOME%2FSupport_for_End_Clients.htm&data=01%7C01%7Cv-saikra%40microsoft.com%7Ccbb4367ab09b4dacaac408d3eebe3f42%7C72f988bf86f141af91ab2d7cd011db47%7C1&sdata=FB92qtE6m%2Fd8yox7AnL2f1h%2FGXwSkma9x9H8Pz0955M%3D&reserved=0/">here</a>.
+   
 6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 
 	![Azure AD Single Sign-On][10]
@@ -208,11 +211,7 @@ The objective of this section is to create a test user in the Azure classic port
 
 ### Creating a Soonr Workplace test user
 
-The objective of this section is to create a user called Britta Simon in Soonr Workplace. Please work with Soonr Workplace support team to add the users in the Soonr Workplace account. 
-
-
-> [AZURE.NOTE] If you need to create an user manually, you need to 
-> contact the Soonr Workplace support team.
+ The objective of this section is to create a user called Britta Simon in Soonr Workplace. Please work with Soonr support team to create a user in the platform. You can raise the support ticket with Soonr from <a href="https://na01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fsoonr.com%2FAWPHelp%2FContent%2F0_HOME%2FSupport_for_End_Clients.htm&data=01%7C01%7Cv-saikra%40microsoft.com%7Ccbb4367ab09b4dacaac408d3eebe3f42%7C72f988bf86f141af91ab2d7cd011db47%7C1&sdata=FB92qtE6m%2Fd8yox7AnL2f1h%2FGXwSkma9x9H8Pz0955M%3D&reserved=0/">here</a>.
 
 
 ### Assigning the Azure AD test user
@@ -243,13 +242,13 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 
 
 
-### Testing Single Sign-On
+### Testing single sign-on
 
 The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  
 When you click the Soonr Workplace tile in the Access Panel, you should get automatically signed-on to your Soonr Workplace application.
 
 
-## Additional Resources
+## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)

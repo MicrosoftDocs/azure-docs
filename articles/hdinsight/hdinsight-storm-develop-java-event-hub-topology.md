@@ -4,7 +4,7 @@
    services="hdinsight,notification hubs"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/18/2016"
+   ms.date="10/11/2016"
    ms.author="larryfr"/>
 
 # Process events from Azure Event Hubs with Storm on HDInsight (Java)
@@ -30,7 +30,7 @@ In this tutorial, you will learn how to use the Event Hubs spout and bolt to rea
 
     - A [Windows-based Storm on HDInsight cluster](hdinsight-apache-storm-tutorial-get-started.md): Select this if you want to use PowerShell to work with the cluster from a Windows client
 
-    > [AZURE.NOTE] The steps in this document are based on using a Storm on HDInsight cluster 3.3 or higher. These clusters provide Storm 0.10.0, and Hadoop 2.7, which reduce the number of steps required to get this example working.
+    > [AZURE.NOTE] The steps in this document are based on using a Storm on HDInsight cluster 3.3 or 3.4. These clusters provide Storm 0.10.0, and Hadoop 2.7, which reduce the number of steps required to get this example working.
     >
     > For a version of this example that works with Storm 0.9.3 on HDInsight 3.2, see the [Storm v0.9.3](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub/tree/Storm_v0.9.3) branch of the example repository.
 
@@ -390,7 +390,7 @@ The jar created by this project contains two topologies; __com.microsoft.example
 
 7. On the __Query Console__, select __Hive Editor__ and replace the default `select * from hivesampletable` with the following:
 
-        create external table devicedata (deviceid string, devicevalue int) row format delimited fields terminated by ',' stored as textfile location 'wasb:///devicedata/';
+        create external table devicedata (deviceid string, devicevalue int) row format delimited fields terminated by ',' stored as textfile location 'wasbs:///devicedata/';
         select * from devicedata limit 10;
 
     Click __Select__ to run the query. This will return 10 rows from the data written to Azure Storage (WASB) by the EventHubReader. Once the query completes, you should see data similar to the following:

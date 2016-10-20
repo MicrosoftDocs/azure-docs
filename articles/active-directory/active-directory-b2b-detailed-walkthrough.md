@@ -40,7 +40,7 @@ After invitations are sent out to partner users, we can configure them in Azure 
 4. Alice receives the following email.  
 ![Invitation email for Alice](./media/active-directory-b2b-detailed-walkthrough/AliceEmail.png)
 
-5. Alice clicks the link, and se is prompted to accept the invitation and to sign in using her work credentials. If Alice is not in the Azure AD directory, Alice is prompted to sign up.  
+5. Alice clicks the link, and she is prompted to accept the invitation and to sign in using her work credentials. If Alice is not in the Azure AD directory, Alice is prompted to sign up.  
 ![Sign up after invitation for Alice](./media/active-directory-b2b-detailed-walkthrough/AliceSignUp.png)
 
 6. Alice is redirected to the App Access Panel, empty until she is granted access to apps.  

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
-	ms.author="andkjell"/>
+	ms.date="09/07/2016"
+	ms.author="billmath"/>
 
 
 # Azure AD Connect sync: Synchronization Service Manager

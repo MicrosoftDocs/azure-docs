@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Create a DocumentDB database collection | Microsoft Azure" 
-	description="Learn how to create JSON document collections using the online service portal for Azure DocumentDB, a cloud based NoSQL document database. Get a free trial today." 
+	pageTitle="Create a DocumentDB database and collection | Microsoft Azure" 
+	description="Learn how to create NoSQL databases and JSON document collections using the online service portal for Azure DocumentDB, a cloud based document database. Get a free trial today." 
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -13,48 +13,52 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="10/17/2016" 
 	ms.author="mimig"/>
 
-# How to create a DocumentDB collection using the Azure portal
+# How to create a DocumentDB collection and database using the Azure portal
 
-To use Microsoft Azure DocumentDB, you must have a [DocumentDB account](documentdb-create-account.md), a [database](documentdb-create-database.md), a collection, and documents. This topic describes how to create a DocumentDB collection in the Azure portal. 
+To use Microsoft Azure DocumentDB, you must have a [DocumentDB account](documentdb-create-account.md), a database, a collection, and documents. This topic describes how to create a DocumentDB collection in the Azure portal. 
 
 Not sure what a collection is? See [What is a DocumentDB collection?](#what-is-a-documentdb-collection)
 
-1.  In the [Azure portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB Accounts**. If **DocumentDB Accounts** is not visible, click **Browse** and then click **DocumentDB Accounts**.
+1.  In the [Azure portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB (NoSQL)**, and then in the **DocumentDB (NoSQL)** blade, select the account in which to add a collection. If you don't have any accounts listed, you'll need to [create a DocumentDB account](documentdb-create-account.md).
 
     ![Screen shot highlighting the DocumentDB Accounts in the Jumpbar, the account in the DocumentDB Accounts blade, and the database in the DocumentDB account blade, in the Databases lens](./media/documentdb-create-collection/docdb-database-creation-1-2.png)
+    
+    If **DocumentDB (NoSQL)** is not visible in the Jumpbar, click **More Services** and then click **DocumentDB (NoSQL)**. If you don't have any accounts listed, you'll need to [create a DocumentDB account](documentdb-create-account.md).
 
-2.  In the **DocumentDB Accounts** blade, select the account in which to add a collection. If you don't have any accounts listed, you'll need to [create a DocumentDB account](documentdb-create-account.md).
-
-3. In the **DocumentDB account** blade for the selected account, scroll down to the **Databases** lens, and then select the database in which to add a collection.
+2. In the **DocumentDB account** blade for the selected account, click **Add Collection**.
 
     ![Screen shot highlighting the DocumentDB Accounts in the Jumpbar, the account in the DocumentDB Accounts blade, and the database in the DocumentDB account blade, in the Databases lens](./media/documentdb-create-collection/docdb-database-creation-3.png)
 
-4. In the **Database** blade, click **Add collections**.
-
-	![Screen shot highlighting the Add Collection button on the Database blade, the settings on the Add Collection blade, and the OK button - Azure portal for DocumentDB - Cloud based database creator for NoSQL JSON databases](./media/documentdb-create-collection/docdb-collection-creation-4.png)
-
-5. In the **Add Collection** blade, in the **ID** box, enter the ID for your new collection. Collection names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space. When the name is validated, a green check mark appears in the ID box.
+3. In the **Add Collection** blade, in the **ID** box, enter the ID for your new collection. Collection names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space. When the name is validated, a green check mark appears in the ID box.
 
 	![Screen shot highlighting the Add Collection button on the Database blade, the settings on the Add Collection blade, and the OK button - Azure portal for DocumentDB - Cloud based database creator for NoSQL JSON databases](./media/documentdb-create-collection/docdb-collection-creation-5-8.png)
 
-6. If you are going to create a collection with a single partition, click the arrow to select a pricing tier, then click View All, then select a performance level for the collection. For more information about the performance levels available, see [Performance levels in DocumentDB](documentdb-performance-levels.md). Each collection you create is a billable entity.
+4. By default, **Pricing Tier** is set to **Standard** so that you can customize the throughput and storage for your collection. For more information about the pricing tier, see [Performance levels in DocumentDB](documentdb-performance-levels.md).  
 
-	If you are going to create a partitioned collection, skip to step 7 as you do not need to select a pricing tier.  
+5. Select a **Partitioning mode** for the collection, either **Single Partition** or **Partitioned**. 
 
-7. Select a **Partitioning mode** for the collection, either **Single Partition** or **Partitioned**. A single partition has a reserved storage capacity of 10GB, and can have throughput levels from 400-10,000 request units/second. A partitioned collection can scale to handle 250GB of storage over multiple partitions, and can have throughput levels from 10,100-250,000 request units/second. For information about requesting increases to these default allocations after creating a collection, see [Request increased DocumentDB account limits](documentdb-increase-limits.md).
+    A **single partition** has a reserved storage capacity of 10GB, and can have throughput levels from 400-10,000 request units/second (RU/s). One RU corresponds to the throughput of a read of a 1KB document. For more information about request units, see [Request units](documentdb-request-units.md). 
 
-8. Select the **Throughput** for the partitioned collection. One Request Unit (RU) corresponds to the throughput of a read of a 1KB document. For more information about request units, see [Request units](documentdb-request-units.md). 
+    A **partitioned collection** can scale to handle an unlimited amount of storage over multiple partitions, and can have throughput levels starting at 10,100 RU/s. In the portal, the largest storage you can reserve is 250 GB, and the most throughput you can reserve is 250,000 RU/s. To increase either quota, file a request as described in [Request increased DocumentDB account quotas](documentdb-increase-limits.md). For more informaiton about partitioned collections, see [Single Partition and Partitioned Collections](documentdb-partition-data.md#single-partition-and-partitioned-collections).
 
-9. If you are creating a partitioned collection, select the **Partition Key** for the collection. Selecting the correct partition key is important in creating a performant collection. For more information on selecting a partition key, see [Partitioning data in DocumentDB](documentdb-partition-data.md).
+    By default, the throughput for a new single partition collection is set to 1000 RU/s with a storage capacity of 10 GB. For a partitioned collection, the collection throughput is set to 10100 RU/s with a storage capacity of 250 GB. You can change the throughput and storage for the collection after the collection is created. 
 
-10. Click **OK** at the bottom of the screen to create the new collection. 
+6. If you are creating a partitioned collection, select the **Partition Key** for the collection. Selecting the correct partition key is important in creating a performant collection. For more information on selecting a partition key, see [Designing for partitioning](documentdb-partition-data.md#designing-for-partitioning).
 
-11. The new collection now appears in the **Collections** lens on the **Database** blade.
+7. In the **Database** blade, either create a new database or use an existing one. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space. To validate the name, click outside the text box. When the name is validated, a green check mark appears in the box.
+
+8. Click **OK** at the bottom of the screen to create the new collection. 
+
+9. The new collection now appears in the **Collections** lens on the **Overview** blade.
  
 	![Screen shot of the new collection in the Database blade - Azure portal for DocumentDB - Cloud based database creator for NoSQL JSON databases](./media/documentdb-create-collection/docdb-collection-creation-9.png)
+
+10. **Optional:** To modify the throughput of collection in the portal, click **Scale** on the Resource menu. 
+
+	![Screen shot of the resource menu, with Scale selected](./media/documentdb-create-collection/docdb-collection-creation-scale.png)
 
 ## What is a DocumentDB collection? 
 

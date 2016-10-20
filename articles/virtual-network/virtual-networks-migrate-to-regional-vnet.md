@@ -3,7 +3,7 @@
    description="Learn how to migrate from affinity groups to regional vnets"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # How to migrate from Affinity Groups to a Regional Virtual Network (VNet)
 
@@ -47,7 +47,7 @@ VNets that are currently associated with affinity groups are enabled for migrati
 
 1. Save your changes and [import](virtual-networks-using-network-configuration-file.md) the network configuration to Azure.
 
->[AZURE.INFO] This migration does NOT cause any downtime to your services.
+>[AZURE.NOTE] This migration does NOT cause any downtime to your services.
 
 ## Affinity groups and VMs
 

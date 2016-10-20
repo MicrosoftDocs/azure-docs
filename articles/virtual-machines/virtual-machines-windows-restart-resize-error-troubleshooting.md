@@ -14,14 +14,10 @@
    ms.tgt_pltfrm="vm-windows"
    ms.devlang="na"
    ms.workload="required"
-   ms.date="05/12/2016"
+   ms.date="09/09/2016"
    ms.author="delhan"/>
 
 # Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure
-
-> [AZURE.SELECTOR]
-- [Classic](../articles/virtual-machines/virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-- [Resource Manager](../articles/virtual-machines/virtual-machines-windows-restart-resize-error-troubleshooting.md)
 
 When you try to start a stopped Azure Virtual Machine (VM), or resize an existing Azure VM, the common error you encounter is an allocation failure. This error results when the cluster or region either does not have resources available or cannot support the requested VM size.
 
@@ -73,3 +69,7 @@ The request to resize the VM has to be attempted at the original cluster that ho
 
   2. After all the VMs stop, resize the desired VM to a larger size.
   3. Select the resized VM and click **Start**, and then start each of the stopped VMs.
+
+## Next steps
+
+If you encounter issues when you create a new Windows VM in Azure, see [Troubleshoot deployment issues with creating a new Windows virtual machine in Azure](../virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md).

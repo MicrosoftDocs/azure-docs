@@ -13,7 +13,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="04/18/2016"
+ ms.date="07/22/2016"
  ms.author="danlep"/>
 
 # Manage the number and availability of compute nodes in an HPC Pack cluster in Azure
@@ -24,7 +24,7 @@ cluster. To do these tasks, run Azure PowerShell scripts that are
 installed on the head node VM. These scripts help you control the number
 and availability of your HPC Pack cluster resources so you can control costs.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 ## Prerequisites
@@ -72,7 +72,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 
     3. The image must be a private image in the User category, not a public Azure VM image.
 
-* **Quantity**- Number of compute node VMs to be added.
+* **Quantity** - Number of compute node VMs to be added.
 
 * **InstanceSize** - Size of the compute node VMs.
 

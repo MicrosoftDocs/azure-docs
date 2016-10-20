@@ -3,8 +3,8 @@
 	description="You’ll define the data protection strategy for your hybrid identity solution to meet the business requirements that you defined."
 	documentationCenter=""
 	services="active-directory"
-	authors="yuridio"
-	manager="stevenpo"
+	authors="billmath"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-	ms.date="04/28/2016"
-	ms.author="yuridio"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 
 # Define data protection strategy for your hybrid identity solution

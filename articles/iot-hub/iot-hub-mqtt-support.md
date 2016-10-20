@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
+ ms.date="10/05/2016"
  ms.author="dobett"/>
 
 # IoT Hub MQTT support
@@ -22,11 +22,11 @@ IoT Hub enables devices to communicate with the IoT Hub device endpoints using t
 
 ## Connecting to IoT Hub
 
-A device can connect to an IoT hub using the MQTT protocol either by using the libraries in the [Microsoft Azure IoT SDKs][lnk-device-sdks] or by using the MQTT protocol directly.
+A device can use the MQTT protocol to connect to an IoT hub either by using the libraries in the [Microsoft Azure IoT SDKs][lnk-device-sdks] or by using the MQTT protocol directly.
 
 ## Using the device client SDKs
 
-[Device client SDKs][lnk-device-sdks] that support the MQTT protocol are available for Java, Node.js, C and C#. The device client SDKs use the standard IoT Hub connection string to establish a connection to an IoT hub. To use the MQTT protocol, the client protocol parameter must be set to **MQTT**. By default, the device client SDKs connect to an IoT Hub with the **CleanSession** flag set to **0** and use **QoS 1** for message exchange with the IoT hub.
+[Device client SDKs][lnk-device-sdks] that support the MQTT protocol are available for Java, Node.js, C, and C#. The device client SDKs use the standard IoT Hub connection string to establish a connection to an IoT hub. To use the MQTT protocol, the client protocol parameter must be set to **MQTT**. By default, the device client SDKs connect to an IoT Hub with the **CleanSession** flag set to **0** and use **QoS 1** for message exchange with the IoT hub.
 
 When a device is connected to an IoT hub, the device client SDKs provide methods that enable the device to send messages to and receive messages from an IoT hub.
 
@@ -38,17 +38,27 @@ The following table contains links to code samples for each supported language a
 | [Java][lnk-sample-java]    | IotHubClientProtocol.MQTT |
 | [C][lnk-sample-c]          | MQTT_Protocol             |
 | [C#][lnk-sample-csharp]    | TransportType.Mqtt        |
+| [Python][lnk-sample-python] | IoTHubTransportProvider.MQTT |
+
+### Migrate a device app from AMQP to MQTT
+If you are using the [device client SDKs][lnk-device-sdks], switching from using AMQP to MQTT requires changing the protocol parameter in the client initialization as stated above.
+
+When doing so, make sure to check the following items:
+
+* AMQP returns errors for many conditions, while MQTT terminates the connection. As a result your exception handling logic might require some changes.
+* MQTT does not support the *reject* operations when receiving [C2D messages][lnk-messaging]. If your back end needs to receive a response from the device app, consider using [direct methods][lnk-methods].
+* At this time, MQTT is not available over WebSockets.
 
 ## Using the MQTT protocol directly
 
 If a device cannot use the device client SDKs, it can still connect to the public device endpoints using the MQTT protocol. In the **CONNECT** packet the device should use the following values:
 
-- For the **ClientId** field use the **deviceId**. 
-- For the **Username** field use `{iothubhostname}/{device_id}`, where {iothubhostname} is the full CName of the IoT hub.
+- For the **ClientId** field, use the **deviceId**. 
+- For the **Username** field, use `{iothubhostname}/{device_id}`, where {iothubhostname} is the full CName of the IoT hub.
 
     For example, if the name of your IoT hub is **contoso.azure-devices.net** and if the name of your device is **MyDevice01**, the full **Username** field should contain `contoso.azure-devices.net/MyDevice01`.
 
-- For the **Password** field use a SAS token. The format of the SAS token is the same as for both the HTTP and AMQP protocols:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`.
+- For the **Password** field, use a SAS token. The format of the SAS token is the same as for both the HTTP and AMQP protocols:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`.
 
     For more information about how to generate SAS tokens, see the device section of [Using IoT Hub security tokens][lnk-sas-tokens].
     
@@ -59,10 +69,10 @@ If a device cannot use the device client SDKs, it can still connect to the publi
     3. On **SASTokenForm**, select your device in the **DeviceID** drop down. Set your **TTL**.
     4. Click **Generate** to create your token.
     
-    The SAS token that's generated looks like this:
+    The SAS token that's generated has this structure:
     `HostName={your hub name}.azure-devices.net;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2fdevices%2fMyDevice01&sig=vSgHBMUG.....Ntg%3d&se=1456481802`.
 
-    The part of this to use as in the **Password** field to connect using MQTT is:
+    The part of this token to use as the **Password** field to connect using MQTT is:
     `SharedAccessSignature sr={your hub name}.azure-devices.net%2fdevices%2fyDevice01&sig=vSgHBMUG.....Ntg%3d&se=1456481802g%3d&se=1456481802`.
 
 For MQTT connect and disconnect packets, IoT Hub issues an event on the **Operations Monitoring** channel.
@@ -75,30 +85,50 @@ After making a successful connection, a device can send messages to IoT Hub usin
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
 ```
 
-> [AZURE.NOTE] This is the same encoding as that used for query strings in the HTTP protocol.
+> [AZURE.NOTE] This `{property_bag}` element uses the same encoding as for query strings in the HTTP protocol.
 
 The device client application can also use `devices/{device_id}/messages/events/{property_bag}` as the **Will topic name** to define *Will messages* to be forwarded as a telemetry message.
 
 ### Receiving messages
 
-To receive messages from IoT Hub a device should subscribe using `devices/{device_id}/messages/devicebound/#”` as a **Topic Filter**. IoT Hub delivers messages with the **Topic Name** `devices/{device_id}/messages/devicebound/`, or `devices/{device_id}/messages/devicebound/{property_bag}` if there are any message properties. `{property_bag}` contains url-encoded key/value pairs of message properties. Only application properties and user-settable system properties (such as **messageId** or **correlationId**) are included in the property bag. System property names have the prefix **$**, application properties use the original property name with no prefix.
+To receive messages from IoT Hub, a device should subscribe using `devices/{device_id}/messages/devicebound/#”` as a **Topic Filter**. IoT Hub delivers messages with the **Topic Name** `devices/{device_id}/messages/devicebound/`, or `devices/{device_id}/messages/devicebound/{property_bag}` if there are any message properties. `{property_bag}` contains url-encoded key/value pairs of message properties. Only application properties and user-settable system properties (such as **messageId** or **correlationId**) are included in the property bag. System property names have the prefix **$**, application properties use the original property name with no prefix.
 
 ## Next steps
 
-For additional information about MQTT support with the IoT Device SDKs, see [Notes on MQTT support][lnk-mqtt-devguide] in the Azure IoT Hub developer guide.
-
-To learn more about using the device client SDKs to communicate with IoT Hub, see [Get started with Azure IoT Hub][lnk-iot-get-stated].
+For more information, see [Notes on MQTT support][lnk-mqtt-devguide] in the Azure IoT Hub developer guide.
 
 To learn more about the MQTT protocol, see the [MQTT documentation][lnk-mqtt-docs].
 
+To learn more about planning your IoT Hub deployment, see:
+
+- [Supported devices][lnk-devices]
+- [Support additional protocols][lnk-protocols]
+- [Compare with Event Hubs][lnk-compare]
+- [Scaling, HA, and DR][lnk-scaling]
+
+To further explore the capabilities of IoT Hub, see:
+
+- [Developer guide][lnk-devguide]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
+
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [lnk-mqtt-org]: http://mqtt.org/
-[lnk-iot-get-stated]: iot-hub-csharp-csharp-getstarted.md
 [lnk-mqtt-docs]: http://mqtt.org/documentation
 [lnk-sample-node]: https://github.com/Azure/azure-iot-sdks/blob/develop/node/device/samples/simple_sample_device.js
 [lnk-sample-java]: https://github.com/Azure/azure-iot-sdks/blob/develop/java/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
 [lnk-sample-c]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
+[lnk-sample-python]: https://github.com/Azure/azure-iot-sdks/tree/master/python/device/samples
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/readme.md
-[lnk-sas-tokens]: iot-hub-sas-tokens.md#using-sas-tokens-as-a-device
-[lnk-mqtt-devguide]: iot-hub-devguide.md#mqtt-support
+[lnk-sas-tokens]: iot-hub-devguide-security.md#using-sas-tokens-as-a-device
+[lnk-mqtt-devguide]: iot-hub-devguide-messaging.md#notes-on-mqtt-support
+
+[lnk-devices]: iot-hub-tested-configurations.md
+[lnk-protocols]: iot-hub-protocol-gateway.md
+[lnk-compare]: iot-hub-compare-event-hubs.md
+[lnk-scaling]: iot-hub-scaling.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+
+[lnk-methods]: iot-hub-devguide-direct-methods.md
+[lnk-messaging]: iot-hub-devguide-messaging.md

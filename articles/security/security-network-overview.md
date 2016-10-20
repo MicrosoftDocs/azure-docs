@@ -4,7 +4,7 @@
    services="security"
    documentationCenter="na"
    authors="TomShinder"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor="TomSh"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="08/09/2016"
    ms.author="terrylan"/>
 
 # Azure Network Security Overview
@@ -83,7 +83,7 @@ For example, your security requirements might include:
 
 - Authentication and authorization prior to allowing access to your application
 - Intrusion detection and intrusion response
-- Application layer inspection for high level protocols
+- Application layer inspection for high-level protocols
 - URL filtering
 - Network level antivirus and antimalware
 - Anti-bot protection
@@ -105,7 +105,7 @@ Azure networking supports the following secure remote access scenarios:
 ### Connect Individual Workstations to an Azure Virtual Network
 There may be times when you want to enable individual developers or operations personnel to manage virtual machines and services in Azure. For example, you need access to a virtual machine on an Azure Virtual Network and your security policy does not allow RDP or SSH remote access to individual virtual machines. In this case, you can use a point-to-site VPN connection.
 
-The point-to-site VPN connection uses the [SSTP VPN](https://technet.microsoft.com/library/cc731352.aspx) protocol to enable you to setup a private and secure connection between the user and the Azure Virtual Network. Once the VPN connection is established, the user will be able to RDP or SSH over the VPN link into any virtual machine on the Azure Virtual Network (assuming that the user can authenticate and is authorized).
+The point-to-site VPN connection uses the [SSTP VPN](https://technet.microsoft.com/library/cc731352.aspx) protocol to enable you to set up a private and secure connection between the user and the Azure Virtual Network. Once the VPN connection is established, the user will be able to RDP or SSH over the VPN link into any virtual machine on the Azure Virtual Network (assuming that the user can authenticate and is authorized).
 
 Learn more:
 
@@ -136,7 +136,7 @@ Learn more:
 ### Connect Azure Virtual Networks to Each Other
 It is possible for you to use many Azure Virtual Networks for your deployments. There are many reasons why you might do this. One of the reasons might be to simplify management; another might be for security reasons. Regardless of the motivation or rationale for putting resources on different Azure Virtual Networks, there may be times when you want resources on each of the networks to connect with one another.
 
-One option would be for services on one Azure Virtual Network to connect to services on another Azure Virtual Network by “looping back” through the Internet. The connection would start on one Azure Virtual Network, go through the Internet, and then come back to the destination Azure Virtual Network. This option exposes the connection to the security issues inherent to any Internet based communication.
+One option would be for services on one Azure Virtual Network to connect to services on another Azure Virtual Network by “looping back” through the Internet. The connection would start on one Azure Virtual Network, go through the Internet, and then come back to the destination Azure Virtual Network. This option exposes the connection to the security issues inherent to any Internet-based communication.
 
 A better option might be to create an Azure Virtual Network-to-Azure Virtual Network site-to-site VPN. This Azure Virtual Network-to-Azure Virtual Network site-to-site VPN uses the same [IPsec tunnel mode](https://technet.microsoft.com/library/cc786385.aspx) protocol as the cross-premises site-to-site VPN connection mentioned above.
 
@@ -180,7 +180,7 @@ You can gain the benefits of network level load balancing in Azure by using the 
 - Support for any application layer protocol
 - Load balances to Azure virtual machines and cloud services role instances
 - Can be used for both Internet-facing (external load balancing) and non-Internet facing (internal load balancing) applications and virtual machines
-- Endpoint monitoring, which is used to determine if any of the services behind the load balancer has become unavailable
+- Endpoint monitoring, which is used to determine if any of the services behind the load balancer have become unavailable
 
 Learn more:
 
@@ -217,7 +217,7 @@ Name resolution is a critical function for all services you host in Azure. From 
 There are two types of name resolution you need to address:
 
 - Internal name resolution – internal name resolution is used by services on your Azure Virtual Networks, your on-premises networks, or both. Names used for internal name resolution are not accessible over the Internet. For optimal security, it’s important that your internal name resolution scheme is not accessible to external users.
-- External name resolution – external name resolution is used by people and devices outside of your on-premises and Azure Virtual Networks. These are the names that are visible to the Internet and are used to direct connection to your cloud based services.
+- External name resolution – external name resolution is used by people and devices outside of your on-premises and Azure Virtual Networks. These are the names that are visible to the Internet and are used to direct connection to your cloud-based services.
 
 For internal name resolution, you have two options:
 

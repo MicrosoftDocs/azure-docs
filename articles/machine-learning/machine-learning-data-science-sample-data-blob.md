@@ -4,7 +4,7 @@
 	services="machine-learning,storage" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
-	ms.author="sunliangms;fashah;garye;bradsev" /> 
+	ms.date="09/19/2016" 
+	ms.author="fashah;garye;bradsev" /> 
 
 #<a name="heading"></a>Sample data in Azure blob storage
 
@@ -28,13 +28,13 @@ The **menu** below links to topics that describe how to sample data from various
 
 [AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
-This sampling task is a step in the [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+This sampling task is a step in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 
 ## Download and down-sample data
 1. Download the data from Azure blob storage using the blob service from the following sample Python code: 
 
-	    from azure.storage.blob import BlobService
+    	from azure.storage.blob import BlobService
     	import tables
     	
 		STORAGEACCOUNTNAME= <storage_account_name>
@@ -54,12 +54,12 @@ This sampling task is a step in the [Cortana Analytics Process (CAP)](https://az
 
 		import pandas as pd
 
-	    #directly ready from file on disk
+		#directly ready from file on disk
     	dataframe_blobdata = pd.read_csv(LOCALFILE)
 
 3. Down-sample the data using the `numpy`'s `random.choice` as follows:
 
-	    # A 1 percent sample
+    	# A 1 percent sample
     	sample_ratio = 0.01 
     	sample_size = np.round(dataframe_blobdata.shape[0] * sample_ratio)
     	sample_rows = np.random.choice(dataframe_blobdata.index.values, sample_size)

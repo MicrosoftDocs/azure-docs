@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/10/2016"
-	ms.author="mandia"/>
+	ms.date="10/18/2016"
+	ms.author="ccompy"/>
 
 
 # Hybrid Connections overview

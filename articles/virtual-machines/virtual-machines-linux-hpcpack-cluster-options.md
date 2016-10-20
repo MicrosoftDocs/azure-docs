@@ -13,16 +13,14 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="04/29/2016"
+ ms.date="09/26/2016"
  ms.author="danlep"/>
 
-# Options to create and manage a high performance computing (HPC) cluster in Azure with Microsoft HPC Pack
+# Options with HPC Pack to create and manage an HPC cluster in Azure for Linux workloads
 
 [AZURE.INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
 
 This article focuses on options to use HPC Pack to run Linux workloads. There are also options for running [Windows HPC workloads with HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md).
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Run an HPC Pack cluster in Azure VMs
 
@@ -31,18 +29,12 @@ This article focuses on options to use HPC Pack to run Linux workloads. There ar
 
 * (Marketplace) [HPC Pack cluster for Linux workloads](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/)
 
-* (Quickstart) [Create an HPC cluster with Linux compute nodes](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
-
-
-### Azure VM images
-
-* [HPC Pack on Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)
-
+* (Quickstart) [Create an HPC cluster with Linux compute nodes](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster-linux-cn)
 
 
 ### PowerShell deployment script
 
-* [Create an HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md)
+* [Create a Linux HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md)
 
 ### Tutorials
 
@@ -57,6 +49,8 @@ This article focuses on options to use HPC Pack to run Linux workloads. There ar
 ### Cluster management
 
 * [Submit jobs to an HPC Pack cluster in Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
+
+* [Job management in HPC Pack](https://technet.microsoft.com/library/jj899585.aspx)
 
 
 ## Create RDMA clusters for MPI workloads

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="08/30/2016"
    ms.author="amanbha"/>
 
 
@@ -34,7 +34,7 @@ When an actor is activated, the following occurs:
 When an actor is deactivated, the following occurs:
 
 - When an actor is not used for some period of time, it is removed from the Active Actors table.
-- The `OnDeactivateAsync` method (which can be overridden in the actor implementation) is called. This clears all the timers for the actor.
+- The `OnDeactivateAsync` method (which can be overridden in the actor implementation) is called. This clears all the timers for the actor. Actor operations like state changes should not be called from this method.
 
 > [AZURE.TIP] The Fabric Actors runtime emits some [events related to actor activation and deactivation](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events). They are useful in diagnostics and performance monitoring.
 
@@ -104,7 +104,7 @@ ActorId actorToDelete = new ActorId(id);
 
 IActorService myActorServiceProxy = ActorServiceProxy.Create(
     new Uri("fabric:/MyApp/MyService"), actorToDelete);
-            
+
 await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
 ```
 
@@ -125,6 +125,6 @@ Note that an actor cannot call delete on itself from one of its actor methods be
  - [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
  - [Sample code](https://github.com/Azure/servicefabric-samples)
 
- 
+
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png

@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="powershell" 
-	ms.date="05/23/2016" 
+	ms.date="08/15/2016" 
 	ms.author="seasa"/>
 
 # Manage your Azure Search service with PowerShell
@@ -29,7 +29,7 @@ These commands parallel the management options available in the [Azure Search Ma
 ## Prerequisites
  
 - You must have Azure PowerShell 1.0 or greater. For instructions, see [Install and configure Azure PowerShell](../powershell-install-configure.md).
-- You must be logged into your Azure subscription in PowerShell as described below.
+- You must be logged in to your Azure subscription in PowerShell as described below.
 
 First, you must login to Azure with this command:
 
@@ -130,9 +130,9 @@ To specify the subscription, run the following command. In the following example
 	
 Now that your service is created, you can take the next steps: build an [index](search-what-is-an-index.md), [query an index](search-query-overview.md), and finally create and manage your own search application that uses Azure Search.
 
-- [Create an Azure Search index in the Azure Portal](search-create-index-portal.md)
+- [Create an Azure Search index in the Azure portal](search-create-index-portal.md)
 
-- [Query an Azure Search index using Search Explorer in the Azure Portal](search-explorer.md)
+- [Query an Azure Search index using Search Explorer in the Azure portal](search-explorer.md)
 
 - [Setup an indexer to load data from other services](search-indexer-overview.md)
 

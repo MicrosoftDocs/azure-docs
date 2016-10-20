@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/09/2016"
+	ms.date="06/22/2016"
 	ms.author="ninarn"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -31,14 +31,14 @@ You can use the Azure portal to monitor and manage an elastic database pool and 
 
 The graphic below shows an example elastic pool. The view includes:
 
-*  Charts for monitoring resource usage of both the elastic pool and the databases contained in the pool. 
-*  The **Configure** pool button to make changes to the elastic pool. 
+*  Charts for monitoring resource usage of both the elastic pool and the databases contained in the pool.
+*  The **Configure** pool button to make changes to the elastic pool.
 *  The **Create database** button which creates a new database and adds it to the current elastic pool.
-*  Elastic jobs which help you manage large numbers of databases by running Transact SQL scripts against all databases in a list. 
+*  Elastic jobs which help you manage large numbers of databases by running Transact SQL scripts against all databases in a list.
 
 ![Pool view][2]
 
-To work through the steps in this article, you'll need a SQL server in Azure with at least one database and an elastic pool. If you do not have an elastic pool, see [create a pool](sql-database-elastic-pool-create-portal.md); if you don't have a database, see the [SQL database tutorial](sql-database-get-started.md). 
+To work through the steps in this article, you'll need a SQL server in Azure with at least one database and an elastic pool. If you do not have an elastic pool, see [create a pool](sql-database-elastic-pool-create-portal.md); if you don't have a database, see the [SQL database tutorial](sql-database-get-started.md).
 
 ## Elastic pool monitoring
 
@@ -55,13 +55,15 @@ You can go to a particular pool to see its resource utilization. By default, the
 
 ### To customize the chart display
 
-You can edit the chart and the metric blade to display other metrics such as CPU percentage, data IO percentage, and log IO percentage used. 
- 
+You can edit the chart and the metric blade to display other metrics such as CPU percentage, data IO percentage, and log IO percentage used.
+
 2. On the metric blade, click **Edit**.
 
 	![Click edit][6]
 
-- In the **Edit Chart** blade, select a new time range (past hour, today, or past week), or click **custom** to select any date range in the last two weeks. Select the chart type (bar or line), then select the resources to monitor. 
+- In the **Edit Chart** blade, select a new time range (past hour, today, or past week), or click **custom** to select any date range in the last two weeks. Select the chart type (bar or line), then select the resources to monitor.
+
+> Note: Only metrics with the same unit of measure can be displayed in the chart at the same time. For example, if you select "eDTU percentage" then you will only be able to select other metrics with percentage as the unit of measure.
 
 	![Click edit](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
 
@@ -70,7 +72,7 @@ You can edit the chart and the metric blade to display other metrics such as CPU
 
 ## Elastic database monitoring
 
-Individual databases can also be monitored for potential trouble. 
+Individual databases can also be monitored for potential trouble.
 
 1. Under **Elastic Database Monitoring**, there is a chart that displays metrics for five databases. By default, the chart displays the top 5 databases in the pool by average eDTU usage in the past hour. Click the chart.
 
@@ -99,11 +101,13 @@ Individual databases can also be monitored for potential trouble.
 In the database list in the **Database Resource Utilization** blade, you can find particular databases by looking through the pages in the list or by typing in the name of a database. Use the checkbox to select the database.
 
 ![Search for databases to monitor][7]
-  
+
 
 ## Add an alert to a pool resource
 
 You can add rules to resources that send email to people or alert strings to URL endpoints when the resource hits a utilization threshold that you set up.
+
+> [AZURE.IMPORTANT]Resource utilization monitoring for Elastic Pools has a lag of at least 20 minutes. Setting alerts of less than 30 minutes for Elastic Pools is not currently supported. Any alerts set for Elastic Pools with a period (parameter called “-WindowSize” in PowerShell API) of less than 30 minutes may not be triggered. Please make sure that any alerts you define for Elastic Pools use a period (WindowSize) of 30 minutes or more.
 
 **To add an alert to any resource:**
 
@@ -128,9 +132,9 @@ You can add or remove databases from an existing pool. The databases can be in o
 
 2. In the **Configure pool** blade, click **Add to pool**.
 
-	![Clic Add to pool](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
+	![Click Add to pool](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
 
-	
+
 3. In the **Add databases** blade, select the database or databases to add to the pool. Then click **Select**.
 
 	![Select databases to add](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
@@ -154,7 +158,7 @@ You can add or remove databases from an existing pool. The databases can be in o
     ![databases listing](./media/sql-database-elastic-pool-manage-portal/click-remove.png)
 
     The **Configure pool** blade now lists the database you selected to be removed with its status set to **Pending**.
-    
+
     ![preview database addition and removal](./media/sql-database-elastic-pool-manage-portal/pending-removal.png)
 
 3. In the **Configure pool blade**, click **Save**.
