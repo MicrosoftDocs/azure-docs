@@ -67,7 +67,7 @@ Example function.json:
 
 ## Azure Notification Hub connection string setup
 
-To use a Notification hub output binding you must configure the connection string for the hub. You can do this on the *Integrate* tab by simply selecting your notification hub or creating a new one. 
+To use a Notification hub output binding, you must configure the connection string for the hub. You can do this on the *Integrate* tab by selecting your notification hub or creating a new one. 
 
 You can also manually add a connection string for an existing hub by adding a connection string for the *DefaultFullSharedAccessSignature* to your notification hub. This connection string provides your function access permission to send notification messages. The *DefaultFullSharedAccessSignature* connection string value can be accessed from the **keys** button in the main blade of your notification hub resource in the Azure portal. To manually add a connection string for your hub, use the following steps: 
 
@@ -229,7 +229,7 @@ This example sends a notification for a [template registration](../notification-
 
 #### Asynchronous template example
 
-If you are using asynchronous code, you won't be able use out parameters. In this case use `IAsyncCollector` to return your template notification. The following is an asynchronous example of the code above. 
+If you are using asynchronous code, you won't be able use out parameters. In this case use `IAsyncCollector` to return your template notification. The following code is an asynchronous example of the code above. 
 
 	using System;
 	using System.Threading.Tasks;
