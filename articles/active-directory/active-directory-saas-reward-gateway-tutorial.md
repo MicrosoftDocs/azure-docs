@@ -120,18 +120,25 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 	![Configure Single Sign-On](./media/active-directory-saas-reward-gateway-tutorial/tutorial_rewardgateway_04.png) 
 
     a. In the **Identifier URL** textbox, type the URL used by your users to sign-on to your Reward Gateway application using the following pattern: 
+   
+    |     |
+    | --- |
+    | `https://<company name>.rewardgateway.com/` |
+    | `https://<company name>.rewardgateway.co.uk/` |
+    | `https://<company name>.rewardgateway.co.nz/` |
+    | `https://<company name>.rewardgateway.com.au/` |
 
-	- `https://<company name>.rewardgateway.com/` 
-	- 	`https://<company name>.rewardgateway.co.uk/` 
-	-  	`https://<company name>.rewardgateway.co.nz/`
-	- 	`https://<company name>.rewardgateway.com.au/`
+
 	
 	b. In the **Reply URL** textbox, type the URL using the following format 
 		
-	- `https://<company name>.rewardgateway.com/Authentication/EndLogin?idp=<Unique Id>` 
-	- `https://<company name>.rewardgateway.co.uk/Authentication/EndLogin?idp=<Unique Id>` 
-	- `https://<company name>.rewardgateway.co.nz/Authentication/EndLogin?idp=<Unique Id>` 
-	- `https://<company name>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>`
+    |     |
+    | --- |
+    | `https://<company name>.rewardgateway.com/Authentication/EndLogin?idp=<Unique Id>` |
+    | `https://<company name>.rewardgateway.co.uk/Authentication/EndLogin?idp=<Unique Id>` |
+    | `https://<company name>.rewardgateway.co.nz/Authentication/EndLogin?idp=<Unique Id>` |
+    | `https://<company name>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>` |
+
 
 	c. click **Next**
  
