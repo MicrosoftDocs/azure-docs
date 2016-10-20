@@ -138,7 +138,7 @@ Prepare the virtual machines in the cloud service for migration. You have two op
 
 	First, validate if you can migrate the cloud service using the following commands:
 
-	```powershell
+		```powershell
 		$validate = Move-AzureService -Validate -ServiceName $serviceName `
 			-DeploymentName $deploymentName -CreateNewVirtualNetwork
 		$validate.ValidationMessages
@@ -146,9 +146,9 @@ Prepare the virtual machines in the cloud service for migration. You have two op
 
 	The preceding command displays any warnings and errors that block migration. If validation is successful, then you can move on to the **Prepare** step:
 
-	```powershell
+		```powershell
 		Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
-```
+		```
 
 * **Option 2. Migrate to an existing virtual network in the Resource Manager deployment model**
 
