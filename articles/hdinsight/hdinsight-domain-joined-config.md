@@ -53,7 +53,7 @@ This tutorial provides the steps for configuring a domain-joined HDInsight clust
 - Familiarize yourself with [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) its [pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/) structure.
 - Ensure that your subscription is whitelisted for this public preview. You can do so by sending an email to hdipreview@microsoft.com with your subscription ID.
 - [Azure PowerShell](../powershell-install-configure.md) on a Windows workstation. Most of the steps use the Azure portal or Azure classic portal. Only a few steps in this tutorial require Azure PowerShell. Azure PowerShell can only be installed on Windows workstations currently.
-- A SSL certificate that is signed by a signing authority for your domain. The certificate is required by configuring LDAP. Self-signed certificates cannot be used. If you can't create an SSL certificate, please contact hdipreview@microsoft.com. 
+- An SSL certificate that is signed by a signing authority for your domain. The certificate is required by configuring LDAP. Self-signed certificates cannot be used. If you can't create an SSL certificate, please contact hdipreview@microsoft.com. 
 
 
 ## Procedures
@@ -63,7 +63,7 @@ This tutorial provides the steps for configuring a domain-joined HDInsight clust
 3. Add a VM to the classic VNet for creating organizational unit. 
 4. Create an organizational unit for Azure AD DS.
 5. Create an HDInsight VNet in the Azure resource management mode.
-6. Setup Reverse DNS zoones for the Azure AD DS.
+6. Setup Reverse DNS zones for the Azure AD DS.
 6. Peer the two VNets.
 7. Create an HDInsight cluster.
 
@@ -175,7 +175,7 @@ For more information, see [Azure AD Domain Services (Preview) - Enable Azure AD 
 
 **To configure LDAPS for the Azure AD**
 
-1. Get a SSL certificate that is signed by a signing authority for your domain. If you can't create an SSL certificate, please contact hdipreview@microsoft.com. Self-signed certificates can't be used.
+1. Get an SSL certificate that is signed by a signing authority for your domain. If you can't create an SSL certificate, please contact hdipreview@microsoft.com. Self-signed certificates can't be used.
 1. From the [Azure classic portal](https://manage.windowsazure.com), click **Active Directory** > **contosoaaddirectory**. 
 3. Click **Configure** from the top menu.
 4. Scroll to **domain services**.

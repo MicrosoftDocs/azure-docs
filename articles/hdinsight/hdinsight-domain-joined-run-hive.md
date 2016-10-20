@@ -32,8 +32,6 @@ Learn how to configure Apache Ranger policies for Hive. In this article, you cre
 
 **To connect to Ranger Admin UI**
 
-[jgao: Ranger doesn't work in IE/Edge.]
-
 1. From a browser, connect to Ranger Admin UI. The URL is https://&lt;ClusterName>.azurehdinsight.net/Ranger/. 
 
 	>[AZURE.NOTE] Ranger uses different credentials than Hadoop cluster. To prevent browsers using cached Hadoop credentials, use new inprivate browser window to connect to the Ranger Admin UI.
@@ -52,8 +50,6 @@ In [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-setup.md
 In this section, you will create two Ranger policies for accessing hivesampletable. You give select permission on different set of columns. Both users were created in [Configure Domain-joined HDInsight clusters](hive-domain-joined-config.md#create-and-cofigure-an-aad).  In the next section, you will test the two policies in Excel.
 
 **To create Ranger policies**
-
-[jgao: Intelisent is not working. Nitya has logged the issue.]
 
 1. Open Ranger Admin UI. See [Connect to Apache Ranger Admin UI](#connect-to-apache-ranager-admin-ui).
 2. Click **&lt;ClusterName>_hive**, under **Hive**. You shall see two pre-configure policies.
@@ -120,7 +116,7 @@ In the last section, you have configured two policies.  hiveuser1 has the select
 
 		SELECT * FROM "HIVE"."default"."hivesampletable"
 
-	By the Ranger policies you defined,  hiveuser1 has select permission on all the columns.  So this query works with hiveuser1's credentials, but this query doesn't not work with hiveuser2's credentials.
+	By the Ranger policies you defined,  hiveuser1 has select permission on all the columns.  So this query works with hiveuser1's credentials, but this query does not not work with hiveuser2's credentials.
 
 	![Connection Properties][img-hdi-simbahiveodbc-excel-connectionproperties]
 
