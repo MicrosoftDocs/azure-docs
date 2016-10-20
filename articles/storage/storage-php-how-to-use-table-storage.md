@@ -3,23 +3,25 @@
 	description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table."
 	services="storage"
 	documentationCenter="php"
-	authors="allclark"
-	manager="douge"
-	editor=""/>
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
-	ms.devlang="PHP"
+	ms.devlang="php"
 	ms.topic="article"
-	ms.date="06/01/2016"
-	ms.author="allclark;yaqiyang"/>
+	ms.date="10/18/2016"
+	ms.author="tamram"/>
 
 
 # How to use table storage from PHP
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Overview
 

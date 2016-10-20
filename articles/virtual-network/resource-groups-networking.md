@@ -3,7 +3,7 @@
    description="Learn about the new Network Resource Provider in Azure Resource Manager"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Network Resource Provider
 An underpinning need in today’s business success, is the ability to build and manage large scale network aware applications in an agile, flexible, secure and repeatable way. Azure Resource Manager (ARM) enables you to create such applications, as a single collection of resources in resource groups. Such resources are managed through various resource providers under ARM.
@@ -262,4 +262,4 @@ You can deploy services to Azure from a template by using PowerShell, AzureCLI, 
 
 [Compute Resource Provider](../virtual-machines/virtual-machines-windows-compare-deployment-models.md)
 
-[Azure Resource Manager Overview](../resource-group-overview.md)
+[Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md)

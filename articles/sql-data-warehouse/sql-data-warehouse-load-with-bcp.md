@@ -3,7 +3,7 @@
    description="Learn what bcp is and how to use it for data warehousing scenarios."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="lodipalm"
+   authors="twounder"
    manager="barbkess"
    editor=""/>
 
@@ -13,15 +13,16 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/21/2016"
+   ms.date="10/10/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
 # Load data with bcp
 
 > [AZURE.SELECTOR]
-- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
+- [Redgate](sql-data-warehouse-load-with-redgate.md)  
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
+- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
 
@@ -75,7 +76,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
->[AZURE.NOTE] See [Table Design][] or [CREATE TABLE syntax][] for more information about creating a table on SQL Data Warehouse and the  options available in the WITH clause.
+>[AZURE.NOTE] See [Table Overview][] or [CREATE TABLE syntax][] for more information about creating a table on SQL Data Warehouse and the  options available in the WITH clause.
 
 ### Step 2: Create a source data file
 
@@ -179,10 +180,10 @@ For more development tips, see [SQL Data Warehouse development overview][].
 
 <!--Article references-->
 
-[Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
-[Table Design]: sql-data-warehouse-develop-table-design.md
-[Statistics]: sql-data-warehouse-develop-statistics.md
+[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
+[Table Overview]: ./sql-data-warehouse-tables-overview.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx

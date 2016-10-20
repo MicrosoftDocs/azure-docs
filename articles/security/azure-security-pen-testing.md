@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
-   ms.author="terrylan"/>
+   ms.date="08/09/2016"
+   ms.author="yurid"/>
 
 # Pen Testing
 
@@ -23,11 +23,11 @@ One of the great things about using Microsoft Azure for application testing and 
 This is great – but you still need to make sure you perform your normal security due diligence. One of the things you need to do is penetration test the applications you deploy in Azure.
 
 You might already know that Microsoft performs [penetration testing of our Azure environment](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e). This helps us improve our platform and guides our actions in terms of improving security controls, introducing new security controls, and improving our security processes.
- 
+
 We don’t pen test your application for you, but we do understand that you will want and need to perform pen testing on your own applications. That’s a good thing, because when you enhance the security of your applications, you help make the entire Azure ecosystem more secure.
 
 When you pen test your applications, it might look like an attack to us. We [continuously monitor](http://blogs.msdn.com/b/azuresecurity/archive/2015/07/05/best-practices-to-protect-your-azure-deployment-against-cloud-drive-by-attacks.aspx) for attack patterns and will initiate an incident response process if we need to. It doesn’t help you and it doesn’t help us if we trigger an incident response due to your own due diligence pen testing.
- 
+
 What to do?
 
 When you’re ready to pen test your Azure-hosted applications, you need to let us know. Once we know that you’re going to be performing specific tests, we won’t inadvertently shut you down (such as blocking the IP address that you’re testing from), as long as your tests conform to the Azure pen testing terms and conditions.

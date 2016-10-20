@@ -3,9 +3,9 @@
 	description="Learn how to use the Azure file service to upload, download, list, and delete files. Samples written in Java."
 	services="storage"
 	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor="" />
+	authors="robinsh"
+	manager="carmonm"
+	editor="tysonn" />
 
 <tags
 	ms.service="storage"
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/04/2016"
-	ms.author="robmcm"/>
+	ms.date="08/11/2016"
+	ms.author="robinsh"/>
 
 # How to use File Storage from Java
 
 [AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-files.md)]
 
 ## Overview
 

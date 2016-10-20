@@ -4,7 +4,7 @@
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Manage Azure Data Lake Analytics using Azure PowerShell
@@ -149,7 +149,7 @@ Delete Data Lake Analytics account will not delete the dependent Data Lake Stora
 
 Data Lake Analytics currently supports the following data sources:
 
-- [Azure Data Lake Storage](data-lake-storage-overview.md)
+- [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
 - [Azure Storage](storage-introduction.md)
 
 When you create an Analytics account, you must designate an Azure Data Lake Storage account to be the default 
@@ -323,7 +323,7 @@ as a group, referred to as an Azure Resource Group. You can deploy, update, moni
 resources for your application in a single, coordinated operation. You use a template for deployment and that 
 template can work for different environments such as testing, staging and production. You can clarify billing 
 for your organization by viewing the rolled-up costs for the entire group. For more information, see [Azure 
-Resource Manager Overview](../resource-group-overview.md). 
+Resource Manager Overview](../azure-resource-manager/resource-group-overview.md). 
 
 A Data Lake Analytics service can include the following components:
 
@@ -346,7 +346,7 @@ The ARM group however can be located in a different data center.
 - [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md)
 - [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-##Apendix A - Data Lake Analytics ARM template
+##Appendix A - Data Lake Analytics ARM template
 
 The following ARM template can be used to deploy a Data Lake Analytics account and its dependent Data Lake Store account.  Save it as a json file, and then use PowerShell script to call the template. For more information, see
 [Deploy an application with Azure Resource Manager template](../resource-group-template-deploy.md#deploy-with-powershell) and [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).

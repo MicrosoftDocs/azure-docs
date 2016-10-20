@@ -4,7 +4,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/06/2016"
 	ms.author="luisca"/>
 
 #  Collecting Data to Train your Model #
@@ -21,6 +21,9 @@
 The Recommendations API learns from your past transactions to find what items should be recommended to a particular user.
 
 After you have created a model, you will need to provide two piece of information before you can do any training: a catalog file, and usage data.
+
+>   If you have not done so already, we encourage you to complete the [quick start guide](cognitive-services-recommendations-quick-start.md).
+
 
 ## Catalog Data ##
 
@@ -37,15 +40,15 @@ The catalog data should follow the following format:
 
 Without features:
 
-    AAA-04294,OfficeLangPack 2013 32/64 E34 Online DwnLd,Office
-    AAA-04303,OfficeLangPack 2013 32/64 ET Online DwnLd,Office
-    C9F-00168,KRUSELL Kiruna Flip Cover for Nokia Lumia 635 - Camel,Accessories
+    AAA04294,Office Language Pack Online DwnLd,Office
+    AAA04303,Minecraft Download Game,Games
+    C9F00168,Kiruna Flip Cover,Accessories
 
 With features:
 
-    AAA-04294,OfficeLangPack 2013 32/64 E34 Online DwnLd,Office, softwaretype=productivity, compatibility=Windows
-    BAB-04303,Minecraft DwnLd,Games, softwaretype=gaming, compatibility=iOS, agegroup=all
-    C9F-00168,Flip Cover for Lumia 635,Accessories, compatibility=Lumia, hardwaretype=mobile
+    AAA04294,Office Language Pack Online DwnLd,Office,, softwaretype=productivity, compatibility=Windows
+    BAB04303,Minecraft DwnLd,Games, softwaretype=gaming,, compatibility=iOS, agegroup=all
+    C9F00168,Kiruna Flip Cover,Accessories, compatibility=lumia,, hardwaretype=mobile
 
 #### Format details
 
@@ -78,10 +81,35 @@ That said, if the engine knows information about that violin (i.e. It's a musica
 
 Features are imported as part of the catalog data, and then their rank (or the importance of the feature in the model) is associated when a rank build is done. Feature rank can change according to the pattern of usage data and type of items. But for consistent usage/items, the rank should have only small fluctuations. The rank of features is a non-negative number. The number 0 means that the feature was not ranked (happens if you invoke this API prior to the completion of the first rank build). The date at which the rank was attributed is called the score freshness.
 
+
+###Features are Categorical
+
+This means that you should create features that resemble a category. For instance, price=9.34 is not a categorical feature. On the other hand, a feature like priceRange=Under5Dollars is a categorical feature. Another common mistake is to use the name of the item as a feature. This would cause the name of an item to be unique so it would not describe a category. Make sure the features represent categories of items.
+
+
+###How many/which features should I use?
+
+
+Ultimately the Recommendations build supports building a model with up to 20 features. You could assign more than 20 features to the items in your catalog, but you are expected to do a ranking build and pick only the features that rank high. (A feature with a rank of 2.0 or more is a really good feature to use!). 
+
+
+###When are features actually used?
+
+Features are used by the model when there is not enough transaction data to provide recommendations on transaction information alone. So features will have the greatest impact on “cold items” – items with few transactions. If all your items have sufficient transaction information you may not need to enrich your model with features.
+
+
+###Using product features
+
 To use features as part of your build you need to:
+
 1. Make sure your catalog has features when you upload it.
+
 2. Trigger a ranking build. This will do the analysis on the importance/rank of the features.
+
 3. Trigger a recommendations build, setting the following build parameters: Set useFeaturesInModel to true, allowColdItemPlacement to true, and modelingFeatureList should be set to the comma separated list of features that you want to use to enhance your model. See [Recommendations build type parameters](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d0) for more information.
+
+
+
 
 
 ## Usage Data ##
@@ -90,6 +118,7 @@ A usage file contains information about how those items are used, or the transac
 #### Usage Format details
 A usage file is a CSV (comma separated value) file where each row in a usage file represents an interaction between a user and an item. Each row is formatted as follows:<br>
 `<User Id>,<Item Id>,<Time>,[<Event>]`
+
 
 
 | Name  | Mandatory | Type | Description

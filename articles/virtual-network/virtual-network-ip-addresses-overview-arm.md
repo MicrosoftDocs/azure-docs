@@ -3,7 +3,7 @@
    description="Learn about public and private IP addressing in Azure Resource Manager"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager" />
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/27/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # IP addresses in Azure
 You can assign IP addresses to Azure resources to communicate with other Azure resources, your on-premises network, and the Internet. There are two types of IP addresses you can use in Azure:
@@ -129,7 +129,7 @@ The limits imposed on IP addressing are indicated in the full set of [limits for
 
 ## Pricing
 
-In most cases, public IP addresses are free. There is a nominal charge to use additional and/or static public IP addresses. Make sure you understand the [pricing structure for public IPs](https://azure.microsoft.com/pricing/details/ip-addresses/).
+Public IP addresses may have a nominal charge. To learn more about IP address pricing in Azure, review the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page.
 
 ## Next steps
 - [Deploy a VM with a static public IP using the Azure portal](virtual-network-deploy-static-pip-arm-portal.md)

@@ -4,7 +4,7 @@
    services="virtual-machines-linux"
    documentationCenter="na"
    authors="mikewasson"
-   manager="roshar"
+   manager="timlt"
    editor=""
    tags=""/>
 

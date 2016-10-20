@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Get started with Azure Queue storage using .NET | Microsoft Azure"
-	description="Send and receive messages asynchronously between application components using Azure Queue storage. Get started with simple Queue storage operations, including creating and deleting queues and adding, reading, and deleting queue messages."
+	description="Azure Queues provide reliable, asynchronous messaging between application components. Cloud messaging enables your application components to scale independently."
 	services="storage"
 	documentationCenter=".net"
 	authors="robinsh"
@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/07/2016"
-	ms.author="gusapost"/>
+	ms.date="10/12/2016"
+	ms.author="robinsh"/>
 
 # Get started with Azure Queue storage using .NET
 
 [AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Overview
 
-Azure Queue storage is a service that provides messaging queues in the cloud. In designing applications for scale, application components are often decoupled, so that they can scale independently.  Queue storage provides a reliable messaging solution for asynchronous communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process work flows.
+Azure Queue storage provides cloud messaging between application components. In designing applications for scale, application components are often decoupled, so that they can scale independently. Queue storage delivers asynchronous messaging for communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process work flows.
 
 ### About this tutorial
 
@@ -50,7 +52,7 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 
 Add the following `using` statements to the top of the `program.cs` file:
 
-	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+	using Microsoft.Azure; // Namespace for CloudConfigurationManager
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 
@@ -305,7 +307,7 @@ to learn about more complex storage tasks.
 - View more feature guides to learn about additional options for storing data in Azure.
     - [Get started with Azure Table storage using .NET](storage-dotnet-how-to-use-tables.md) to store structured data.
     - [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md) to store unstructured data.
-    - [How to use Azure SQL Database in .NET applications](sql-database-dotnet-how-to-use.md) to store relational data.
+    - [Connect to SQL Database by using .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md) to store relational data.
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409

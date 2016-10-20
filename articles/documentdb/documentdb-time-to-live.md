@@ -21,7 +21,7 @@
 
 Applications can produce and store vast amounts of data. Some of this data, like machine generated event data, logs, and user session information is only useful for a finite period of time. Once the data becomes surplus to the needs of the application it is safe to purge this data and reduce the storage needs of an application.
 
-With “time to live” or TTL, Microsoft Azure DocumentDB provides the ability to have documents automatically purged from the system after a period of time. The default time to live can be set at the collection level, and overridden on a per-document basis. Once TTL is set, either as a collection default or at a document level, DocumentDB will automatically remove documents that exist after that period of time, in seconds, since they were last modified.
+With “time to live” or TTL, Microsoft Azure DocumentDB provides the ability to have documents automatically purged from the database after a period of time. The default time to live can be set at the collection level, and overridden on a per-document basis. Once TTL is set, either as a collection default or at a document level, DocumentDB will automatically remove documents that exist after that period of time, in seconds, since they were last modified.
 
 Time to live in DocumentDB uses an offset against when the document was last modified. To do this it uses the _ts field which exists on every document. The _ts field is a unix-style epoch timestamp representing the date and time. The _ts field is updated every time a document is modified. 
 

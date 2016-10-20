@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/07/2016"
+   ms.date="10/04/2016"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using Azure PowerShell
@@ -33,17 +33,17 @@ Learn how to use Azure PowerShell to create an Azure Data Lake Store account and
 
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-- **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
+* **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
+* **Azure PowerShell 1.0 or greater**. See [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
-##Install Azure PowerShell 1.0 or greater
+## Authentication
 
-See the Prerequisite section of [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md#prerequisites).
+This article uses a simpler authentication approach with Data Lake Store where you are prompted to enter your Azure account credentials. The access level to Data Lake Store account and file system is then governed by the access level of the logged in user. However, there are other approaches as well to authenticate with Data Lake Store, which are **end-user authentication** or **service-to-service authentication**. For instructions and more information on how to authenticate, see [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
 ## Create an Azure Data Lake Store account
 
-1. From your desktop, open a new Azure PowerShell window, and enter the following snippet to log in to your Azure account, set the subscription, and register the Data Lake Store provider. When prompted to log in, make sure you log in as one of the subscription admininistrators/owner:
+1. From your desktop, open a new Windows PowerShell window, and enter the following snippet to log in to your Azure account, set the subscription, and register the Data Lake Store provider. When prompted to log in, make sure you log in as one of the subscription admininistrators/owner:
 
         # Log in to your Azure account
 		Login-AzureRmAccount

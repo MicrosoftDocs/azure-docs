@@ -13,11 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/30/2016"
+   ms.date="09/06/2016"
    ms.author="toddabel"/>
 
 
 # Monitor and diagnose services in a local machine development setup
+
+
+> [AZURE.SELECTOR]
+- [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+- [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
+
 Monitoring, detecting, diagnosing, and troubleshooting allow for services to continue with minimal disruption to the user experience. While monitoring and diagnostics are critical in an actual deployed production environment, the efficacy will depend on adopting a similar model during development of services to ensure they work when you move to a real-world setup. Service Fabric makes it easy for service developers to implement diagnostics that can seamlessly work across both single-machine local development setups and real-world production cluster setups.
 
 ## The benefits of Event Tracing for Windows

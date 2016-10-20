@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/15/2015"
+	ms.date="07/21/2016"
 	ms.author="mahender"/>
 
 # Authenticate your app with Active Directory Authentication Library Single Sign-On

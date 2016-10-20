@@ -3,17 +3,18 @@
    description="This article will help disable or enable your Traffic Manager profile endpoints."
    services="traffic-manager"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="traffic-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.date="10/18/2016"
+   ms.author="sewhee" />
+<!-- repub for nofollow -->
 
 # Disable or Enable a Traffic Manager Endpoint
 
@@ -24,7 +25,7 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 ## To disable an endpoint
 
 1. On the Traffic Manager pane in the Azure classic portal, locate the Traffic Manager profile that contains the endpoint settings that you want to modify, and then click the arrow to the right of the profile name. This will open the settings page for the profile.
-1. At the top of the page, click **Endpoints** to view the endpoints that are included in your configuration. 
+1. At the top of the page, click **Endpoints** to view the endpoints that are included in your configuration.
 1. Click the endpoint that you want to disable, and then click **Disable** at the bottom of the page.
 1. Traffic will stop flowing to the endpoint based on the DNS Time-to-Live (TTL) configured for the Traffic Manager domain name. You can change the TTL from the Configuration page of the Traffic Manager profile.
 

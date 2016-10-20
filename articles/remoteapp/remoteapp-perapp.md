@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/31/2016"
+   ms.date="08/15/2016"
    ms.author="piotrci"/>
 
 # Publish applications to individual users in an Azure RemoteApp collection (Preview)
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
 This article explains how to publish applications to individual users in an Azure RemoteApp collection. This is new functionality in Azure RemoteApp, currently in “private preview” and available only to select early adopters for evaluation purposes.
 

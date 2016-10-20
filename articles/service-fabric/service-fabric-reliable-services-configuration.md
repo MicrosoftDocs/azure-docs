@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/30/2016"
+   ms.date="10/18/2016"
    ms.author="sumukhs"/>
 
 # Configure Stateful reliable services
@@ -87,15 +87,19 @@ ReplicatorConfig
 ### Configuration names
 |Name|Unit|Default value|Remarks|
 |----|----|-------------|-------|
-|BatchAcknowledgementInterval|Seconds|0.05|Time period for which the replicator at the secondary waits after receiving an operation before sending back an acknowledgement to the primary. Any other acknowledgements to be sent for operations processed within this interval are sent as one response.|
+|BatchAcknowledgementInterval|Seconds|0.015|Time period for which the replicator at the secondary waits after receiving an operation before sending back an acknowledgement to the primary. Any other acknowledgements to be sent for operations processed within this interval are sent as one response.|
 |ReplicatorEndpoint|N/A|No default--required parameter|IP address and port that the primary/secondary replicator will use to communicate with other replicators in the replica set. This should reference a TCP resource endpoint in the service manifest. Refer to [Service manifest resources](service-fabric-service-manifest-resources.md) to read more about defining endpoint resources in a service manifest. |
 |MaxPrimaryReplicationQueueSize|Number of operations|8192|Maximum number of operations in the primary queue. An operation is freed up after the primary replicator receives an acknowledgement from all the secondary replicators. This value must be greater than 64 and a power of 2.|
 |MaxSecondaryReplicationQueueSize|Number of operations|16384|Maximum number of operations in the secondary queue. An operation is freed up after making its state highly available through persistence. This value must be greater than 64 and a power of 2.|
 |CheckpointThresholdInMB|MB|50|Amount of log file space after which the state is checkpointed.|
 |MaxRecordSizeInKB|KB|1024|Largest record size that the replicator may write in the log. This value must be a multiple of 4 and greater than 16.|
+|MinLogSizeInMB|MB|0 (system determined)|Minimum size of the transactional log. The log will not be allowed to truncate to a size below this setting. 0 indicates that the replicator will determine the minimum log size. Increasing this value increases the possibility of doing partial copies and incremental backups since chances of relevant log records being truncated is lowered.|
+|TruncationThresholdFactor|Factor|2|Determines at what size of the log, truncation will be triggered. Truncation threshold is determined by MinLogSizeInMB multiplied by TruncationThresholdFactor. TruncationThresholdFactor must be greater than 1. MinLogSizeInMB * TruncationThresholdFactor must be less than MaxStreamSizeInMB.|
+|ThrottlingThresholdFactor|Factor|4|Determines at what size of the log, the replica will start being throttled. Throttling threshold (in MB) is determined by Max((MinLogSizeInMB * ThrottlingThresholdFactor),(CheckpointThresholdInMB * ThrottlingThresholdFactor)). Throttling threshold (in MB) must be greater than truncation threshold (in MB). Truncation threshold (in MB) must be less than MaxStreamSizeInMB.|
+|MaxAccumulatedBackupLogSizeInMB|MB|800|Max accumulated size (in MB) of backup logs in a given backup log chain. An incremental backup requests will fail if the incremental backup would generate a backup log that would cause the accumulated backup logs since the relevant full backup to be larger than this size. In such cases, user is required to take a full backup.|
 |SharedLogId|GUID|""|Specifies a unique GUID to use for identifying the shared log file used with this replica. Typically, services should not use this setting. However, if SharedLogId is specified, then SharedLogPath must also be specified.|
 |SharedLogPath|Fully qualified path name|""|Specifies the fully qualified path where the shared log file for this replica will be created. Typically, services should not use this setting. However, if SharedLogPath is specified, then SharedLogId must also be specified.|
-
+|SlowApiMonitoringDuration|Seconds|300|Sets the monitoring interval for managed API calls. Example: user provided backup callback function. After the interval has passed, a warning health report will be sent to the Health Manager.|
 
 ### Sample configuration via code
 ```csharp

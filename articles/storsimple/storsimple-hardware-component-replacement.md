@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/25/2016"
+   ms.date="10/11/2016"
    ms.author="alkohli" />
 
 # StorSimple hardware component replacement
@@ -76,7 +76,7 @@ The primary enclosure and the EBOD enclosure differ in their I/O modules. Additi
 |Components|# Present|Plug-in module?| Replacement procedure
 |:---------|:--------|:--------------|:---------------------|
 |Chassis|1|No| [Replace the chassis on your StorSimple device](storsimple-chassis-replacement.md) |
-|EBOD controllers|2|Yes| [Replace an EBOD controller on your StorSimple device](storsimple-EBOD-controller-replacement.md) |
+|EBOD controllers|2|Yes| [Replace an EBOD controller on your StorSimple device](storsimple-ebod-controller-replacement.md) |
 |580W Power and Cooling Modules (PCMs)|2|Yes| [Replace a Power and Cooling Module on your StorSimple device](storsimple-power-cooling-module-replacement.md) |
 |Disk drives|12|Yes| [Replace a disk drive on your StorSimple device](storsimple-disk-drive-replacement.md) |
 
@@ -86,7 +86,7 @@ The plug-in modules on the device are highlighted in the following front and rea
 
 ![Frontplane of device with disk drives](./media/storsimple-hardware-component-replacement/IC741028.png)
 
-**Figure 1**  Front of the device
+**Figure 1** Front of the device
 
 |Label|Description|
 |:----|:----------|
@@ -96,7 +96,7 @@ Both the primary enclosure and the EBOD enclosure have drive carrier modules. Th
 
 ![Backplane of device primary enclosure modules](./media/storsimple-hardware-component-replacement/IC740994.png)
 
-**Figure 2**  Back of the primary enclosure
+**Figure 2** Back of the primary enclosure
 
 |Label|Description|
 |:----|:----------|
@@ -107,7 +107,7 @@ Both the primary enclosure and the EBOD enclosure have drive carrier modules. Th
 
 ![Backplane of device EBOD enclosure plug-in modules](./media/storsimple-hardware-component-replacement/IC769599.png)
 
-**Figure 3**  Back of the EBOD enclosure
+**Figure 3** Back of the EBOD enclosure
 
 |Label|Description|
 |:----|:----------|

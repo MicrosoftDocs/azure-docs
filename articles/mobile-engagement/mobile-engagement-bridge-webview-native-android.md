@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Bridge Android WebView with native Mobile Engagement Android SDK

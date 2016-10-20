@@ -1,21 +1,21 @@
-<properties 
+<properties
    pageTitle="Create an internal load balancer using the Azure CLI in the classic deployment model | Microsoft Azure"
    description="Learn how to create an internal load balancer using the Azure CLI in the classic deployment model"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="carolz"
+   authors="sdwheeler"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"
 />
-<tags  
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Get started creating an internal load balancer (classic) using the Azure CLI
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](load-balancer-get-started-ilb-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Learn how to [perform these steps using the Resource Manager model](load-balancer-get-started-ilb-arm-cli.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -53,18 +53,18 @@ This guide shows how to create an internal load balancer based on the scenario a
 		info:    New mode is asm
 
 
-## Create endpoint and load balancer set 
+## Create endpoint and load balancer set
 
 The scenario assumes the virtual machines "DB1" and "DB2" in a cloud service called "mytestcloud". Both virtual machines are using a virtual network called my "testvnet" with subnet "subnet-1".
 
 This guide will create an internal load balancer set using port 1433 as private port and 1433 as local port.
 
-This is a common scenario where you have SQL virtual machines on the back end using an internal load balancer to guarantee the database servers won't be exposed directly using a public IP address. 
+This is a common scenario where you have SQL virtual machines on the back end using an internal load balancer to guarantee the database servers won't be exposed directly using a public IP address.
 
 
-### Step 1 
+### Step 1
 
-Create an internal load balancer set using `azure network service internal-load-balancer add`. 
+Create an internal load balancer set using `azure network service internal-load-balancer add`.
 
 	 azure service internal-load-balancer add -r mytestcloud -n ilbset -t subnet-1 -a 192.168.2.7
 
@@ -75,9 +75,9 @@ Parameters used:
 **-t** - subnet name ( same subnet by the virtual machines you will add to the internal load balancer)<BR>
 **-a** - (optional) add a static private IP address<BR>
 
-Check out `azure service internal-load-balancer --help` for more information. 
- 
-You can check the internal load balancer properties using the command `azure service internal-load-balancer list` *cloud service name*. 
+Check out `azure service internal-load-balancer --help` for more information.
+
+You can check the internal load balancer properties using the command `azure service internal-load-balancer list` *cloud service name*.
 
 Here follows an example of the output:
 
@@ -90,7 +90,7 @@ Here follows an example of the output:
 	info:    service internal-load-balancer list command OK
 
 
-## Step 2 
+## Step 2
 
 You configure the internal load balancer set when you add the first endpoint. You will associate the endpoint, virtual machine and probe port to the internal load balancer set in this step.
 
@@ -106,11 +106,11 @@ Parameters used:
 **-i** - internal load balancer name <BR>
 
 
-## Step 3 
+## Step 3
 
 Verify the load balancer configuration using `azure vm show` *virtual machine name*
 
-	azure vm show DB1 
+	azure vm show DB1
 
 The output will be:
 
@@ -140,7 +140,7 @@ The output will be:
 	data:    Network Endpoints 0 name "PowerShell"
 	data:    Network Endpoints 0 port 5986
 	data:    Network Endpoints 0 protocol "tcp"
-	data:    Network Endpoints 0 virtualIPAddress "137.116.64.107"	
+	data:    Network Endpoints 0 virtualIPAddress "137.116.64.107"
 	data:    Network Endpoints 0 enableDirectServerReturn false
 	data:    Network Endpoints 1 localPort 3389
 	data:    Network Endpoints 1 name "Remote Desktop"
@@ -166,19 +166,19 @@ The output will be:
 
 You can create a remote desktop endpoint to forward network traffic from a public port to a local port for a specific virtual machine using `azure vm endpoint create`.
 
-	azure vm endpoint create web1 54580 -k 3389 
+	azure vm endpoint create web1 54580 -k 3389
 
 
 ## Remove virtual machine from load balancer
 
-You can remove a virtual machine from an internal load balancer set by deleting the associated endpoint. Once the endpoint is removed, the virtual machine won't belong to the load balancer set anymore. 
+You can remove a virtual machine from an internal load balancer set by deleting the associated endpoint. Once the endpoint is removed, the virtual machine won't belong to the load balancer set anymore.
 
  Using the example above, you can remove the endpoint created for virtual machine "DB1" from internal load balancer "ilbset" by using the command `azure vm endpoint delete`.
 
 	azure vm endpoint delete DB1 tcp-1433-1433
 
 
-Check out `azure vm endpoint --help` for more information. 
+Check out `azure vm endpoint --help` for more information.
 
 
 ## Next steps

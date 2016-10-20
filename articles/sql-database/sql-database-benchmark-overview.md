@@ -3,7 +3,7 @@
 	description="This topic describes the Azure SQL Database Benchmark used in measuring the performance of Azure SQL Database."
 	services="sql-database"
 	documentationCenter="na"
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor="monicar" />
 
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="04/04/2016"
+	ms.date="06/21/2016"
 	ms.author="carlrab" />
 
 # Azure SQL Database benchmark overview

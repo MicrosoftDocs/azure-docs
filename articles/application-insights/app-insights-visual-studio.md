@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/25/2016" 
+	ms.date="06/21/2016" 
 	ms.author="awills"/>
 
 
@@ -65,7 +65,11 @@ If you have [set up exception monitoring](app-insights-asp-net-exceptions.md), e
 Click an exception to get a stack trace. If the code of the app is open in Visual Studio, you can click through from the stack trace to the relevant line of the code.
 
 
-![](./media/app-insights-visual-studio/17.png)
+![Exception stack trace](./media/app-insights-visual-studio/17.png)
+
+In addition, in the Code Lens line above each method, you'll see a count of the exceptions logged by Application Insights in the past 24h.
+
+![Exception stack trace](./media/app-insights-visual-studio/21.png)
 
 
 ## Local monitoring
@@ -84,17 +88,17 @@ It's also useful if you have some [custom telemetry](app-insights-api-custom-eve
  * In the Search window's Settings, there's an option to search local diagnostics even if your app sends telemetry to the portal.
  * To stop telemetry being sent to the portal, comment out the line `<instrumentationkey>...` from ApplicationInsights.config. When you're ready to send telemetry to the portal again, uncomment it.
 
+## Trends
 
+Trends is a tool for visualizing how your app behaves over time. 
 
+Choose **Explore Telemetry Trends** from the Application Insights toolbar button or Application Insights Search window. Choose one of five common queries to get started. You can analyze different datasets based on telemetry types, time ranges, and other properties. 
 
+To find anomalies in your data, choose one of the anomaly options under the "View Type" dropdown. The filtering options at the bottom of the window make it easy to hone in on specific subsets of your telemetry.
 
-## To upgrade to future SDK versions
+![Trends](./media/app-insights-visual-studio/51.png)
 
-To upgrade to a [new release of the SDK](app-insights-release-notes-dotnet.md), open NuGet package manager again and filter on installed packages. Select Microsoft.ApplicationInsights.Web and choose Upgrade.
-
-If you made any customizations to ApplicationInsights.config, save a copy of it before you upgrade, and afterwards merge your changes into the new version.
-
-
+[More about Trends](app-insights-visual-studio-trends.md).
 
 ## What's next?
 

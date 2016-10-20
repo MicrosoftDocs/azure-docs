@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 
@@ -64,7 +64,7 @@ The client library currently supports encryption of whole blobs only. Specifical
 
 During encryption, the client library will generate a random Initialization Vector (IV) of 16 bytes, together with a random content encryption key (CEK) of 32 bytes, and perform envelope encryption of the blob data using this information. The wrapped CEK and some additional encryption metadata are then stored as blob metadata along with the encrypted blob on the service.
 
-> [AZURE.WARNING] If you are editing or uploading your own metadata for the blob, you need to ensure that this metadata is preserved. If you upload new metadata without this metadata, the wrapped CEK, IV and other metadata will be lost and the blob content will never be retrievable again.
+> [AZURE.WARNING] If you are editing or uploading your own metadata for the blob, you need to ensure that this metadata is preserved. If you upload new metadata without this metadata, the wrapped CEK, IV, and other metadata will be lost and the blob content will never be retrievable again.
 
 Downloading an encrypted blob involves retrieving the content of the entire blob using the **DownloadTo***/**BlobReadStream** convenience methods. The wrapped CEK is unwrapped and used together with the IV (stored as blob metadata in this case) to return the decrypted data to the users.
 
@@ -93,7 +93,7 @@ Table data encryption works as follows:
 1. Users specify the properties to be encrypted.
 2. The client library generates a random Initialization Vector (IV) of 16 bytes along with a random content encryption key (CEK) of 32 bytes for every entity, and performs envelope encryption on the individual properties to be encrypted by deriving a new IV per property. The encrypted property is stored as binary data.
 3. The wrapped CEK and some additional encryption metadata are then stored as two additional reserved properties. The first reserved property (_ClientEncryptionMetadata1) is a string property that holds the information about IV, version, and wrapped key. The second reserved property (_ClientEncryptionMetadata2) is a binary property that holds the information about the properties that are encrypted. The information in this second property (_ClientEncryptionMetadata2) is itself encrypted.
-4. Due to these additional reserved properties required for encryption, users may now have only 250 custom properties instead of 252. The total size of the entity must be less than 1MB.
+4. Due to these additional reserved properties required for encryption, users may now have only 250 custom properties instead of 252. The total size of the entity must be less than 1 MB.
 
 Note that only string properties can be encrypted. If other types of properties are to be encrypted, they must be converted to strings. The encrypted strings are stored on the service as binary properties, and they are converted back to strings after decryption.
 
@@ -105,7 +105,7 @@ In batch operations, the same KEK will be used across all the rows in that batch
 
 ### Queries
 
-To perform query operations, you must specify a key resolver that is able to resolve all the keys in the result set. If an entity contained in the query result cannot be resolved to a provider, the client library will throw an error. For any query that performs server side projections, the client library will add the special encryption metadata properties (_ClientEncryptionMetadata1 and _ClientEncryptionMetadata2) by default to the selected columns.
+To perform query operations, you must specify a key resolver that is able to resolve all the keys in the result set. If an entity contained in the query result cannot be resolved to a provider, the client library will throw an error. For any query that performs server-side projections, the client library will add the special encryption metadata properties (_ClientEncryptionMetadata1 and _ClientEncryptionMetadata2) by default to the selected columns.
 
 ## Azure Key Vault
 

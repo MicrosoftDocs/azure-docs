@@ -10,11 +10,11 @@
 
 <tags 
 	ms.service="sql-database" 
-	ms.workload="data-management" 
+	ms.workload="drivers"
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016" 
+	ms.date="08/17/2016"
 	ms.author="annemill"/>
 
 
@@ -37,13 +37,13 @@ When your client program uses ADO.NET 4.5 to connect and query with SQL Database
 3. SQL Database sends its response back to the middleware, which forwards the response to ADO.NET to port 1433.
 
 
-**Terminology:** We describe the preceding sequence by saying that ADO.NET interacts with SQL Database by using the *proxy route*. If no middleware were involved we would say the *direct route* was used.
+**Terminology:** We describe the preceding sequence by saying that ADO.NET interacts with SQL Database by using the *proxy route*. If no middleware were involved, we would say the *direct route* was used.
 
 
 ## V12 of SQL Database: Outside vs inside
 
 
-For connections to V12 we must ask whether your client program runs *outside* or *inside* the Azure cloud boundary. The subsections discusses two common scenarios.
+For connections to V12, we must ask whether your client program runs *outside* or *inside* the Azure cloud boundary. The subsections discuss two common scenarios.
 
 
 #### *Outside:* Client runs on your desktop computer
@@ -112,7 +112,7 @@ The client connection differences between SQL Database V11 and V12 are highlight
 - [TDS protocol version list](http://www.freetds.org/userguide/tdshistory.htm)
 
 
-- [Connecting to SQL Database: Links, Best Practices and Design Guidelines](sql-database-connect-central-recommendations.md)
+- [SQL Database Development Overview](sql-database-develop-overview.md)
 
 
 - [Azure SQL Database firewall](sql-database-firewall-configure.md)

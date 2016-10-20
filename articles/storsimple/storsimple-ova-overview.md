@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/01/2016"
+   ms.date="10/06/2016"
    ms.author="alkohli" />
 
 # Introduction to the StorSimple Virtual Array
 
 ## Overview
 
-Welcome to the Microsoft Azure StorSimple Virtual Array, an integrated storage solution that manages storage tasks between an on-premises virtual device running in a hypervisor and Microsoft Azure cloud storage. The Virtual Array (also known as the StorSimple on-premises virtual device) is an efficient, cost-effective, and easily manageable file server or iSCSI server solution that eliminates many of the issues and expenses associated with enterprise storage and data protection. The Virtual Array is particularly well-suited for remote office/branch office scenarios.
+Welcome to the Microsoft Azure StorSimple Virtual Array, an integrated storage solution that manages storage tasks between an on-premises virtual device running in a hypervisor and Microsoft Azure cloud storage. The Virtual Array (also known as the StorSimple on-premises virtual device) is an efficient, cost-effective, and easily manageable file server or iSCSI server solution that eliminates many of the issues and expenses associated with enterprise storage and data protection. The Virtual Array is particularly well-suited for remote office/branch office (ROBO) scenarios.
 
 This overview focuses on the Virtual Array. 
 
@@ -45,7 +45,8 @@ The following table summarizes the important features of the Virtual Array.
 | Performance | Varies depending on underlying infrastructure |
 | Data mobility | Can restore to the same device or do item-level recovery (file server) |
 | Storage tiers | Local hypervisor storage and cloud |
-| Share or volume size |Tiered: up to 20 TB; locally pinned: up to 2 TB |
+| Share size |Tiered: up to 20 TB; locally pinned: up to 2 TB |
+| Volume size |Tiered: up to 5 TB; locally pinned: up to 500 GB |
 | Snapshots | Crash consistent |
 | Item-level recovery | Yes; users can restore from shares |
 
@@ -57,11 +58,20 @@ The following table describes some of the key benefits that the Virtual Array so
 
 | Feature | Benefit |
 |---------|---------|
-| Transparent integration | The Virtual Array supports the iSCSI or the SMB protocol. This ensures that data stored in the cloud, at the datacenter, or on remote servers appears to be stored at a single location.|
-| Reduced storage costs | With StorSimple, you provision sufficient local storage to meet current demands. As storage needs grow, StorSimple tiers data to cost-effective cloud storage. In the cloud, it uses deduplication and compression to further reduce storage requirements and expense.|
-| Simplified storage management | StorSimple provides centralized management in the cloud. You can use the web-based tools to configure and manage data stored on the Virtual Array, on a remote server, and in the cloud.| 
-| Improved disaster recovery and compliance | StorSimple does not require extended recovery time. Instead, it restores metadata immediately and stored data as it is needed. This means normal operations can continue with minimal disruption.|
+| Transparent integration | The Virtual Array supports the iSCSI or the SMB protocol. The data movement between the local tier and the cloud tier is seamless and transparent to the user.|
+| Reduced storage costs | With StorSimple, you provision sufficient local storage to meet current demands for the most used hot data. As storage needs grow, StorSimple tiers cold data into cost-effective cloud storage. The data is deduplicated and compressed before sending to the cloud to further reduce storage requirements and expense.|
+| Simplified storage management | StorSimple provides centralized management in the cloud using StorSimple Manager to manage multiple devices.| 
+| Improved disaster recovery and compliance | StorSimple facilitates faster disaster recovery by restoring the metadata immediately and restoring the data as needed. This means normal operations can continue with minimal disruption.|
 | Data mobility | Data tiered to the cloud can be accessed from other sites for recovery and migration purposes. Note that you can restore data only to the original Virtual Array. However, you use disaster recovery features to restore the entire Virtual Array to another Virtual Array.|
+
+## StorSimple workload summary
+
+A summary of the supported StorSimple workloads is tabulated below.
+
+| Scenario                | Workload              | Supported |  Restrictions                                  | Version              |
+|-------------------------|-----------------------|-----------|------------------------------------------------|----------------------|
+| ROBO collaboration      | File sharing          | Yes       | See [maximum limits for file server](storsimple-ova-limits.md). <br>See [system requirements for supported SMB versions](storsimple-ova-system-requirements.md).   | All versions      |
+
 
 ## Workflows
 

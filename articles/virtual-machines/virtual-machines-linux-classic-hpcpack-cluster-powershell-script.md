@@ -1,6 +1,6 @@
 <properties
    pageTitle="PowerShell script to deploy Linux HPC cluster | Microsoft Azure"
-   description="Run a PowerShell script to deploy a Linux HPC Pack cluster in Azure infrastructure services"
+   description="Run a PowerShell script to deploy a Linux HPC Pack cluster in Azure virtual machines"
    services="virtual-machines-linux"
    documentationCenter=""
    authors="dlepow"
@@ -13,33 +13,29 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="big-compute"
-   ms.date="04/05/2016"
+   ms.date="07/07/2016"
    ms.author="danlep"/>
 
 # Create a Linux high performance computing (HPC) cluster with the HPC Pack IaaS deployment script
 
-Run the HPC Pack IaaS deployment PowerShell script on a client
-computer to deploy a complete HPC cluster for Linux workloads in Azure infrastructure
-services (IaaS). If you want to deploy an HPC Pack cluster in Azure for Windows workloads, see [Create a Windows HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
+Run the HPC Pack IaaS deployment PowerShell script to deploy a complete HPC cluster for Linux workloads in Azure virtual machines. The cluster consists of an Active Directory-joined head node running Windows Server and Microsoft HPC Pack, and compute nodes that run one of the Linux distributions supported by HPC Pack. If you want to deploy an HPC Pack cluster in Azure for Windows workloads, see [Create a Windows HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md). You can also use an Azure Resource Manager template to deploy an HPC Pack cluster. For an example, see [Create an HPC cluster with Linux compute nodes](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 [AZURE.INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 
-## Example configuration files
+## Example configuration file
 
-### Example 1
-
-The following configuration file creates a new domain forest
+The following configuration file creates a new domain controller and domain forest
 and deploys an HPC Pack cluster which has 1 head node with local
-databases and 20 Linux compute nodes. All the cloud services are created
+databases and 10 Linux compute nodes. All the cloud services are created
 directly in the East Asia location. The Linux compute nodes are created
-in 4 cloud services and 4 storage accounts (i.e. _MyLnxCN-0001_ to
-_MyLnxCN-0005_ in _MyLnxCNService01_ and _mylnxstorage01_, _MyLnxCN-0006_ to
-_MyLnxCN-0010_ in _MyLnxCNService02_ and _mylnxstorage02_, _MyLnxCN-0011_ to
-_MyLnxCN-0015_ in _MyLnxCNService03_ and _mylnxstorage03_, and _MyLnxCN-0016_ to
-_MyLnxCN-0020_ in _MyLnxCNService04_ and _mylnxstorage04_). The compute nodes
-are created from an OpenLogic CentOS version 7.0 Linux image.
+in 2 cloud services and 2 storage accounts (i.e. _MyLnxCN-0001_ to
+_MyLnxCN-0005_ in _MyLnxCNService01_ and _mylnxstorage01_, and _MyLnxCN-0006_ to
+_MyLnxCN-0010_ in _MyLnxCNService02_ and _mylnxstorage02_). The compute nodes
+are created from an OpenLogic CentOS version 7.0 Linux image. 
+
+Substitute your own values for your subscription name and the account and service names.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -76,12 +72,8 @@ are created from an OpenLogic CentOS version 7.0 Linux image.
     <MaxNodeCountPerService>5</MaxNodeCountPerService>
     <StorageAccountNamePattern>mylnxstorage%01%</StorageAccountNamePattern>
     <VMSize>Medium</VMSize>
-    <NodeCount>20</NodeCount>
+    <NodeCount>10</NodeCount>
     <ImageName>5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20150325 </ImageName>
-    <SSHKeyPairForRoot>
-      <PfxFile>d:\mytestcert1.pfx</PfxFile>
-      <Password>MyPsw!!2</Password>
-    </SSHKeyPairForRoot>
   </LinuxComputeNodes>
 </IaaSClusterConfig>
 ```
@@ -106,6 +98,8 @@ forwarder DNS server doesn’t resolve properly.
     
 ## Next steps
 
-* For tutorials that use the script to create a cluster and run a Linux HPC workload, see [Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md) or [Run OpenFOAM with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md).
-
-* You can also use an Azure Resource Manager template to deploy an HPC Pack cluster. For an example, see [Create an HPC cluster with Linux compute nodes](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/).
+* See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md) for information about supported Linux distributions, moving data, and submitting jobs to an HPC Pack cluster with Linux compute nodes.
+* For tutorials that use the script to create a cluster and run a Linux HPC workload, see:
+    * [Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md)
+    * [Run OpenFOAM with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
+    * [Run STAR-CCM+ with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-classic-hpcpack-cluster-starccm.md)

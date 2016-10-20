@@ -191,9 +191,9 @@ Be sure to create the resource group if it is not created, before you create the
 
 #### 2. Create the TestVNet1 to Site5 connection
 
-In this step, you will create the connection from TestVNet1 to Site5. You must specify "-EnableBGP True" to enable BGP for this connection. As discussed earlier, it is possible to have both BGP and non-BGP connections for the same Azure VPN Gateway. Unless BGP is enabled in the connection property, Azure will not enable BGP for this connection even though BGP parameters are already configured on both gateways.
+In this step, you will create the connection from TestVNet1 to Site5. You must specify "-EnableBGP $True" to enable BGP for this connection. As discussed earlier, it is possible to have both BGP and non-BGP connections for the same Azure VPN Gateway. Unless BGP is enabled in the connection property, Azure will not enable BGP for this connection even though BGP parameters are already configured on both gateways.
 
-	New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP True
+	New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
 
 
 The example below lists the parameters you will enter into the BGP configuration section on your on-premises VPN device for this exercise:
@@ -220,7 +220,7 @@ The instructions below continue from the previous steps listed above. You must c
 
 It is important to make sure that the IP address space of the new virtual network, TestVNet2, does not overlap with any of your VNet ranges.
 
-In this example, the virtual networks belong to the same subscription. You can setup VNet-to-VNet connections between different subscriptions; please refer to [Configure a VNet-to-VNet connection](./vpn-gateway-vnet-vnet-rm-ps.md) to learn more details. Make sure you add the "-EnableBgp True" when creating the connections to enable BGP.
+In this example, the virtual networks belong to the same subscription. You can setup VNet-to-VNet connections between different subscriptions; please refer to [Configure a VNet-to-VNet connection](./vpn-gateway-vnet-vnet-rm-ps.md) to learn more details. Make sure you add the "-EnableBgp $True" when creating the connections to enable BGP.
 
 #### 1. Declare your variables
 
@@ -284,9 +284,9 @@ Make sure you login and connect to Subscription 1.
 
 In this step, you will create the connection from TestVNet1 to TestVNet2, and the connection from TestVNet2 to TestVNet1.
 
-	New-AzureRmVirtualNetworkGatewayConnection -Name $Connection12 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet2gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3' -EnableBgp True
+	New-AzureRmVirtualNetworkGatewayConnection -Name $Connection12 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet2gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3' -EnableBgp $True
 
-	New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupName $RG2 -VirtualNetworkGateway1 $vnet2gw -VirtualNetworkGateway2 $vnet1gw -Location $Location2 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3' -EnableBgp True
+	New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupName $RG2 -VirtualNetworkGateway1 $vnet2gw -VirtualNetworkGateway2 $vnet1gw -Location $Location2 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3' -EnableBgp $True
 
 >[AZURE.IMPORTANT] Be sure to enable BGP for BOTH connections.
 

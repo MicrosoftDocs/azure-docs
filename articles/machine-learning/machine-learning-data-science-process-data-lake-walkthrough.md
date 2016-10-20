@@ -3,8 +3,8 @@
 	description="How to use Azure Data Lake to do data exploration and binary classification tasks on a dataset."  
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,wguo123"
-	manager="paulettm"
+	authors="bradsev"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
-	ms.author="bradsev;weig;gopitk"/>
+	ms.date="09/19/2016"
+	ms.author="bradsev;weig"/>
 
 
 # Scalable Data Science in Azure Data Lake: An end-to-end Walkthrough
 
-This walkthrough shows how to use Azure Data Lake to do data exploration and binary classification tasks on a sample of the NYC taxi trip and fare dataset to predict whether or not a tip will be paid by a fare. It walks you through the steps of the [Data Science Process](http://aka.ms/datascienceprocess), end-to-end, from data acquisition to model training, and then to the deployment of a web service that publishes the model.
+This walkthrough shows how to use Azure Data Lake to do data exploration and binary classification tasks on a sample of the NYC taxi trip and fare dataset to predict whether or not a tip will be paid by a fare. It walks you through the steps of the [Team Data Science Process](http://aka.ms/datascienceprocess), end-to-end, from data acquisition to model training, and then to the deployment of a web service that publishes the model.
 
 
 ### Azure Data Lake Analytics
@@ -76,25 +76,25 @@ To prepare the data science environment for this walkthrough, create the followi
 - Azure Machine Learning Studio account
 - Azure Data Lake Tools for Visual Studio (Recommended)
 
-This section provides instructions on how to create each of these resources. If you choose to use Hive tables with Azure Machine Learning, instead of Python, to build a model, you will also need to provision an HDInsight (Hadoop) cluster. This alternative procedure in described in the appropriate section below.
-
+This section provides instructions on how to create each of these resources. If you choose to use Hive tables with Azure Machine Learning, instead of Python, to build a model,you will also need to provision an HDInsight (Hadoop) cluster. This alternative procedure in described in the appropriate section below.
+<br/>
 >AZURE.NOTE The **Azure Data Lake Store** can be created either separately or when you create the **Azure Data Lake Analytics** as the default storage. Instructions are referenced for creating each of these resources separately below, but the Data Lake storage account need not be created separately.
-
+<br/>
 ### Create an Azure Data Lake Store
 
-Create an ADLS from the [Azure Portal](http://ms.portal.azure.com). For details, see [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Be sure to set up the Cluster AAD Identity in the **DataSource** blade of the **Optional Configuration** blade described there. 
+Create an ADLS from the [Azure Portal](http://portal.azure.com). For details, see [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Be sure to set up the Cluster AAD Identity in the **DataSource** blade of the **Optional Configuration** blade described there. 
 
  ![3](./media/machine-learning-data-science-process-data-lake-walkthrough/3-create-ADLS.PNG)
 
 
 ### Create an Azure Data Lake Analytics account
-Create an ADLA account from the [Azure Portal](http://ms.portal.azure.com). For details, see [Tutorial: get started with Azure Data Lake Analytics using Azure Portal](../data-lake-analytics/data-lake-analytics-get-started-portal.md). 
+Create an ADLA account from the [Azure Portal](http://portal.azure.com). For details, see [Tutorial: get started with Azure Data Lake Analytics using Azure Portal](../data-lake-analytics/data-lake-analytics-get-started-portal.md). 
 
  ![4](./media/machine-learning-data-science-process-data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 
 ### Create an Azure Blob storage account
-Create an Azure Blob storage account from the [Azure Portal](http://ms.portal.azure.com). For details, see the Create a storage account section in [About Azure storage accounts](../storage/storage-create-storage-account.md).
+Create an Azure Blob storage account from the [Azure Portal](http://portal.azure.com). For details, see the Create a storage account section in [About Azure storage accounts](../storage/storage-create-storage-account.md).
 	
  ![5](./media/machine-learning-data-science-process-data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
@@ -640,7 +640,7 @@ Azure Machine Learning Studio can read data directly from Azure Data Lake Store 
 
 ### Create an HDInsight Linux Cluster
 
-Create an HDInsight Cluster (Linux) from the [Azure Portal](http://ms.portal.azure.com).For details, see the **Create an HDInsight cluster with access to Azure Data Lake Store** section in [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Create an HDInsight Cluster (Linux) from the [Azure Portal](http://portal.azure.com).For details, see the **Create an HDInsight cluster with access to Azure Data Lake Store** section in [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
  ![18](./media/machine-learning-data-science-process-data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
@@ -735,10 +735,10 @@ By completing this walkthrough you have created a data science environment for b
 ## What's next?
 
 The learning path for the
-[Cortana Analytics Process (CAP)](http://aka.ms/datascienceprocess) provides links to topics describing each step in the advanced analytics process. There are a series of walkthroughs linked off of the **Full Data Science Process in Action** node that showcase how to use resources and services in the Cortana suite various predictive analytics scenarios:
+[Team Data Science Process (TDSP)](http://aka.ms/datascienceprocess) provides links to topics describing each step in the advanced analytics process. There are a series of walkthroughs itemized on the [Team Data Science Process walkthroughs](data-science-process-walkthroughs.md) page that showcase how to use resources and services in various predictive analytics scenarios:
 
-- [The Cortana Analytics Process in action: using SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
-- [The Cortana Analytics Process in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md)
-- [The Cortana Analytics Process in action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
-- [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md)
+- [The Team Data Science Process in action: using SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
+- [The Team Data Science Process in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md)
+- [The Team Data Science Process: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
+- [Overview of the Data Science Process using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md)
 

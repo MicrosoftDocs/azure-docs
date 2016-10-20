@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter=""
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor="mollybos"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/07/2016" 
+	ms.date="07/21/2016" 
 	ms.author="wesmc;ricksal"/>
 
 # Troubleshoot the Mobile Services .NET Backend
@@ -36,7 +36,7 @@ Developing with Mobile Services is usually easy and painless, but even then thin
 
 When developing apps with Mobile Services, you usually take advantage of the Mobile Services client SDK for the platform you are using (Windows Store, iOS, Android, etc). However some times it is helpful to drop down to the HTTP level and observe the raw calls as they happen on the network. This approach is particularly useful when debugging connectivity and serialization issues. With the Mobile Services .NET backend you can use this approach in combination with Visual Studio local and remote debugging (more on that in the next section) to get a complete idea of the the path a HTTP call makes before it invokes your service code.
 
-You can use any HTTP debugger to send and inspect HTTP traffic. [Fiddler](http://www.telerik.com/fiddler) is a popular tool commonly used by developers for this purpose. To make developers' lives easier, Mobile Services bundles a web-based HTTP debugger (also referred to as the "test client) right with your mobile service, reducing the need for external tooling. When hosting your mobile service locally, it will be available at a URI similar to [http://localhost:59233](http://localhost:59233) and when hosting in the cloud, the URI will be of the form [http://todo-list.azure-mobile.net](http://todo-list.azure-mobile.net). The following steps work the same way regardless of where the service is hosted:
+You can use any HTTP debugger to send and inspect HTTP traffic. [Fiddler](http://www.telerik.com/fiddler) is a popular tool commonly used by developers for this purpose. To make developers' lives easier, Mobile Services bundles a web-based HTTP debugger (also referred to as the "test client) right with your mobile service, reducing the need for external tooling. When hosting your mobile service locally, it will be available at a URI similar to `http://localhost:59233` and when hosting in the cloud, the URI will be of the form `http://todo-list.azure-mobile.net`. The following steps work the same way regardless of where the service is hosted:
 
 1. Start with a Mobile Services server project open in **Visual Studio 2013 Update 2** or later. If you don't have one handy, you can create one by selecting **File**, **New**, **Project**, then selecting the **Cloud** node and then the **Microsoft Azure Mobile Services** template.
 2. Hit **F5**, which will build and run the project. On the start page, select **try it out**.
@@ -74,7 +74,7 @@ One of the key features of the .NET backend is the ability to debug the service 
 
     ![Configure symbol loading][SymbolLoading]
 
-3. Select the **Symbols** node on the left and add a reference to the [SymbolSource] server using the URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public). Symbols for the Mobile Services .NET backend are made available there with every new release.
+3. Select the **Symbols** node on the left and add a reference to the [SymbolSource] server using the URI `http://srv.symbolsource.org/pdb/Public`. Symbols for the Mobile Services .NET backend are made available there with every new release.
 
     ![Configure symbol server][SymbolServer]
 
@@ -162,4 +162,4 @@ Migrations can be complex and require that the database state be kept in sync wi
 
 
 <!-- Links -->
-[SymbolSource]:http://symbolsource.org
+[SymbolSource]:http://www.symbolsource.org/Public

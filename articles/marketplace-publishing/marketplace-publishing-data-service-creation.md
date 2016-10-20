@@ -13,11 +13,14 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="01/28/2016"
+      ms.date="08/26/2016"
       ms.author="hascipio; avikova" />
 
 # Data Service Publishing Guide for the Azure Marketplace
-After completing the step 1, [Account Creation and Registration][link-acct-creation], we guided you through the [General Non-Technical](marketplace-publishing-pre-requisites.md) and [Technical Requirements](marketplace-publishing-data-service-creation-prerequisites.md) of a Data Service offer on Azure Marketplace. Now we will walk you through the steps for creating a Data Service offer on the [Publishing Portal][link-pubportal] for the Azure Marketplace.
+
+>[AZURE.IMPORTANT] **At this time we are no longer onboarding any new Data Service publishers. New dataservices will not get approved for listing.** If you have a SaaS business application you would like to publish on AppSource you can find more information [here](https://appsource.microsoft.com/partners). If you have an IaaS applications or developer service you would like to publish on Azure Marketplace you can find more information [here](https://azure.microsoft.com/marketplace/programs/certified/).
+
+After completing the step 1, [Account Creation and Registration](marketplace-publishing-accounts-creation-registration.md), we guided you through the [General Non-Technical](marketplace-publishing-pre-requisites.md) and [Technical Requirements](marketplace-publishing-data-service-creation-prerequisites.md) of a Data Service offer on Azure Marketplace. Now we will walk you through the steps for creating a Data Service offer on the [Publishing Portal][link-pubportal] for the Azure Marketplace.
 
 ## 1.	Login to the Publishing Portal.
 
@@ -144,5 +147,4 @@ Now that you've created your Data Service offer, please ensure that you complete
 - If you are interested in reviewing examples, read this article [Data Service OData Mapping Examples](marketplace-publishing-data-service-creation-odata-mapping-examples.md) to see sample code and understand code syntax and context.
 
 
-[link-acct-creation]:marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]:https://publish.windowsazure.com

@@ -13,10 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="08/26/2016"
    ms.author="hascipio; avikova" />
 
 # Technical Pre-requisites for creating a Data Service offer for the Azure Marketplace
+
+>[AZURE.IMPORTANT] **At this time we are no longer onboarding any new Data Service publishers. New dataservices will not get approved for listing.** If you have a SaaS business application you would like to publish on AppSource you can find more information [here](https://appsource.microsoft.com/partners). If you have an IaaS applications or developer service you would like to publish on Azure Marketplace you can find more information [here](https://azure.microsoft.com/marketplace/programs/certified/).
+
 Read the process thoroughly before beginning and understand where and why each step is performed. As much as possible, you should prepare your company information and other data, download necessary tools, and/or create technical components before beginning the offer creation process.
 
 You should have the following items ready before beginning the process:

@@ -20,7 +20,7 @@
 
 [Return to the Security Boundary Best Practices Page][HOME]
 
-This example will create a simple DMZ with four windows servers and Network Security Groups. It will also walk through each of the relevant commands to provide a deeper understanding of each step. There is a also a Traffic Scenario section to provide a in-depth step-by-step how traffic proceeds through the layers of defense in the DMZ. Finally, in the references section is the complete code and instruction to build this environment to test and experiment with various scenarios. 
+This example will create a simple DMZ with four windows servers and Network Security Groups. It will also walk through each of the relevant commands to provide a deeper understanding of each step. There is also a Traffic Scenario section to provide an in-depth step-by-step how traffic proceeds through the layers of defense in the DMZ. Finally, in the references section is the complete code and instruction to build this environment to test and experiment with various scenarios. 
 
 ![Inbound DMZ with NSG][1]
 
@@ -66,7 +66,7 @@ With these rules bound to each subnet, if a HTTP request was inbound from the In
 
 There is a default outbound rule that allows traffic out to the internet. For this example, we’re allowing outbound traffic and not modifying any outbound rules. To lock down traffic in both directions, User Defined Routing is required, this is explored in “Example 3” below.
 
-Each rule is discussed in more detail as follows (Note; any item in the below list in beginning with a dollar sign (e.g.: $NSGName) is a user defined variable from the script in the reference section of this document):
+Each rule is discussed in more detail as follows (**Note**: any item in the below list in beginning with a dollar sign (e.g.: $NSGName) is a user defined variable from the script in the reference section of this document):
 
 1. First a Network Security Group must be built to hold the rules:
 
@@ -97,7 +97,7 @@ Each rule is discussed in more detail as follows (Note; any item in the below li
 	    	-DestinationPortRange '3389' `
 	    	-Protocol *
 
-4.	This rule allows inbound internet traffic to hit the web server. This doesn’t change the routing behavior; it only allows traffic destine for IIS01 to pass. Thus if traffic from the Internet had the web server as its destination this rule would allow it and stop processing further rules. (In the rule at priority 140 all other inbound internet traffic is blocked). If you're only processing HTTP traffic, this rule could be further restricted to only allow Destination Port 80.
+4.	This rule allows inbound internet traffic to hit the web server. This doesn’t change the routing behavior; it only allows traffic destined for IIS01 to pass. Thus if traffic from the Internet had the web server as its destination this rule would allow it and stop processing further rules. (In the rule at priority 140 all other inbound internet traffic is blocked). If you're only processing HTTP traffic, this rule could be further restricted to only allow Destination Port 80.
 
 		Get-AzureNetworkSecurityGroup -Name $NSGName | `
 		    Set-AzureNetworkSecurityRule -Name "Enable Internet to $VMName[0]" `

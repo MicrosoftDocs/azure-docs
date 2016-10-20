@@ -3,7 +3,7 @@
    description="How to create host records for Azure DNS.Setting up record sets and records using PowerShell"
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
-   ms.author="cherylmc"/>
+   ms.date="08/16/2016"
+   ms.author="sewhee"/>
 
 
 
@@ -83,7 +83,7 @@ In this example, you specify the zone by using the zone name and resource group 
 
 ### 3. Add a record
 
-To use the newly created "www" record set, you need to add records to it. You can add IPv4 *A* records to the "www" record set by using the folllowing example. This example relies on the variable *$rs* that you set in the previous step.
+To use the newly created "www" record set, you need to add records to it. You can add IPv4 *A* records to the "www" record set by using the following example. This example relies on the variable *$rs* that you set in the previous step.
 
 Adding records to a record set by using `Add-AzureRmDnsRecordConfig` is an offline operation. Only the local variable *$rs* is updated.
 
@@ -115,7 +115,7 @@ You can retrieve the record set from Azure DNS by using `Get-AzureRmDnsRecordSet
 	Tags              : {}
 
 
-You can also use the nslookup tool or other DNS tools to query the new record set.  
+You can also use the nslookup tool or other DNS tools to query the new record set.
 
 If you have not yet delegated the domain to the Azure DNS name servers, you need to explicitly specify the name, server, and address for your zone.
 

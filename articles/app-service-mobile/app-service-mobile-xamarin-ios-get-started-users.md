@@ -3,7 +3,7 @@
 	description="Learn how to use Mobile Apps to authenticate users of your Xamarin iOS app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="mattchenderson"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
-	ms.author="mahender"/>
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>
 
 # Add authentication to your Xamarin.iOS app
 
@@ -108,4 +108,3 @@ In this section, you will modify the app to display a login screen before displa
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Create a Xamarin.iOS app]: app-service-mobile-xamarin-ios-get-started.md
-

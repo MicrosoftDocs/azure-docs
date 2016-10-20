@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="Manage Azure Data Lake Stores using Azure SDK for Node.js | Microsoft Azure"
-   description="Learn how to manage Data Lake Store accounts, and the file system." 
+   pageTitle="Get started with Azure Data Lake Stores using Azure SDK for Node.js | Microsoft Azure"
+   description="Learn how to use Node.js to work with Data Lake Store accounts and the file system." 
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/21/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
-# Manage Azure Data Lake Store using Azure SDK for Node.js
+# Get started with Azure Data Lake Store using Azure SDK for Node.js
 
 > [AZURE.SELECTOR]
 - [Portal](data-lake-store-get-started-portal.md)
@@ -28,18 +28,19 @@
 - [Node.js](data-lake-store-manage-use-nodejs.md)
 
 
-The Azure SDK for Node.js can be used for managing Azure Data Lake store accounts as well as file system operations.
-
-Right now it supports:
+Learn how to use the Azure SDK for Node.js to create an Azure Data Lake Store account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Store, see [Overview of Data Lake Store](data-lake-store-overview.md). Currently, the SDK supports
 
   *  **Node.js version: 0.10.0 or higher**
   *  **REST API version for Account: 2015-10-01-preview**
   *  **REST API version for FileSystem: 2015-10-01-preview**
 
-## Features
+## Prerequisites
 
-- Account management: create, get, list, update, and delete.
-- File system management: create, get, upload, append, download, read, delete, list.
+Before you begin this article, you must have the following:
+
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+
+- **Create an Azure Active Directory Application**. You use the Azure AD application to authenticate the Data Lake Store application with Azure AD. There are different approaches to authenticate with Azure AD, which are **end-user authentication** or **service-to-service authentication**. For instructions and more information on how to authenticate, see [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
 ## How to Install
 
@@ -49,6 +50,10 @@ npm install azure-arm-datalake-store
 
 ## Authenticate using Azure Active Directory
 
+The snippets below show two separate ways of authenticating with Data Lake Store using Azure AD. For a detailed discussion on various methods to use for authentication with Data Lake Store, see [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
+
+The snippet below also requires inputs like Azure AD domain name, client ID for an Azure AD app, etc. All these details can be retrieved from an Azure AD application that you must created, the details of which are also included in link above.
+
  ```javascript
  var msrestAzure = require('ms-rest-azure');
  //user authentication
@@ -57,12 +62,12 @@ npm install azure-arm-datalake-store
  var credentials = new msRestAzure.ApplicationTokenCredentials('your-client-id', 'your-domain', 'your-secret');
  ```
 
-## Create the Data Lake Analytics Clients
+## Create the Data Lake Store Clients
 
 ```javascript
 var adlsManagement = require("azure-arm-datalake-store");
-var acccountClient = new adlsManagement.DataLakeStoreAccountClient(credentials, 'your-subscription-id');
-var filesystemClient = new adlsManagement.DataLakeStoreFileSystemClient(credentials, 'azuredatalakestore.net');
+var acccountClient = new adlsManagement.DataLakeStoreAccountClient(credentials, "your-subscription-id");
+var filesystemClient = new adlsManagement.DataLakeStoreFileSystemClient(credentials);
 ```
 
 ## Create a Data Lake Store Account
@@ -111,7 +116,7 @@ var options = {
   streamContents: new Buffer('some string content')
 }
 
-filesystemClient.filesystem.listFileStatus(accountName, fileToCreate, options, function (err, result, request, response) {
+filesystemClient.fileSystem.listFileStatus(accountName, fileToCreate, options, function (err, result, request, response) {
   if (err) {
     console.log(err);
   } else {
@@ -127,7 +132,7 @@ filesystemClient.filesystem.listFileStatus(accountName, fileToCreate, options, f
 var util = require('util');
 var accountName = 'testadlsacct';
 var pathToEnumerate = '/myfolder';
-filesystemClient.filesystem.listFileStatus(accountName, pathToEnumerate, function (err, result, request, response) {
+filesystemClient.fileSystem.listFileStatus(accountName, pathToEnumerate, function (err, result, request, response) {
   if (err) {
     console.log(err);
   } else {
@@ -139,4 +144,4 @@ filesystemClient.filesystem.listFileStatus(accountName, pathToEnumerate, functio
 ## See also
 
 - [Microsoft Azure SDK for Node.js](https://github.com/azure/azure-sdk-for-node)
-- [Microsoft Azure SDK for Node.js - Data Lake Analytics Management](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
+- [Microsoft Azure SDK for Node.js - Data Lake Analytics Management](https://www.npmjs.com/package/azure-arm-datalake-analytics)

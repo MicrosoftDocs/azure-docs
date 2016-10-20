@@ -3,7 +3,7 @@
    description="Learn how to create and configure vms with multiple nics"
    services="virtual-network, virtual-machines"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-service-management,azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Create a VM with multiple NICs
 
@@ -25,60 +25,13 @@ You can create virtual machines (VMs) in Azure and attach multiple network inter
 
 The figure above shows a VM with three NICs, each connected to a different subnet.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
 
 - Internet-facing VIP (classic deployments) is only supported on the "default" NIC. There is only one VIP to the IP of the default NIC.
 - At this time, Instance Level Public IP (LPIP) addresses (classic deployments) are not supported for multi NIC VMs.
 - The order of the NICs from inside the VM will be random, and could also change across Azure infrastructure updates. However, the IP addresses, and the corresponding ethernet MAC addresses will remain the same. For example, assume **Eth1** has IP address 10.1.0.100 and MAC address 00-0D-3A-B0-39-0D; after an Azure infrastructure update and reboot, it could be changed to **Eth2**, but the IP and MAC pairing will remain the same. When a restart is customer-initiated, the NIC order will remain the same.
 - The address for each NIC on each VM must be located in a subnet, multiple NICs on a single VM can each be assigned addresses that are in the same subnet.
-- The VM size determines the number of NICS that you can create for a VM. The table below lists the numbers of NICs corresponding to the size of the VMs:
-
-|VM Size (Standard SKUs)|NICs (max allowed per VM)|
-|---|---|
-|All Basic Sizes|1|
-|A0\extra small|1|
-|A1\small|1|
-|A2\medium|1|
-|A3\large|2|
-|A4\extra large|4|
-|A5|1|
-|A6|2|
-|A7|4|
-|A8|2|
-|A9|4|
-|A10|2|
-|A11|4|
-|D1|1|
-|D2|2|
-|D3|4|
-|D4|8|
-|D11|2|
-|D12|4|
-|D13|8|
-|D14|8|
-|DS1|1|
-|DS2|2|
-|DS3|4|
-|DS4|8|
-|DS11|2|
-|DS12|4|
-|DS13|8|
-|DS14|8|
-|D1_v2|1|
-|D2_v2|2|
-|D3_v2|4|
-|D4_v2|8|
-|D5_v2|8|
-|D11_v2|2|
-|D12_v2|4|
-|D13_v2|8|
-|D14_v2|8|
-|G1|1|
-|G2|2|
-|G3|4|
-|G4|8|
-|G5|8|
-|All Other Sizes|1|
+- The VM size determines the number of NICS that you can create for a VM. Reference the [Windows Server](../virtual-machines/virtual-machines-windows-sizes.md) and [Linux](../virtual-machines/virtual-machines-linux-sizes.md) VM sizes articles to determine how many NICS each VM size supports. 
 
 ## Network Security Groups (NSGs)
 In a Resource Manager deployment, any NIC on a VM may be associated with a Network Security Group (NSG), including any NICs on a VM that has multiple NICs enabled. If a NIC is assigned an address within a subnet where the subnet is associated with an NSG, then the rules in the subnet’s NSG also apply to that NIC. In addition to associating subnets with NSGs, you can also associate a NIC with an NSG.
@@ -120,7 +73,7 @@ You need the following prerequisites before trying to run the PowerShell command
 
 - An Azure subscription.
 - A configured virtual network. See [Virtual Network Overview](virtual-networks-overview.md) for more information about VNets.
-- The latest version of Azure PowerShell downloaded and installed. See [How to install and configure Azure PowerShell](../install-configure-powershell).
+- The latest version of Azure PowerShell downloaded and installed. See [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 To create a VM with multiple NICs, follow the steps below:
 

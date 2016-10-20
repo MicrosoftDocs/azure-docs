@@ -239,7 +239,7 @@ After you've created some ads while running in the cloud, you'll view the WebJob
 
 7. In the [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) drop-down list choose **Create new App Service plan**. Enter a name for the App Service plan, such as ContosoAdsPlan.
 
-8. In the [Resource group](../resource-group-overview.md) drop-down list choose **Create new resource group**.
+8. In the [Resource group](../azure-resource-manager/resource-group-overview.md) drop-down list choose **Create new resource group**.
 
 9. Enter a name for the resource group, such as ContosoAdsGroup.
 
@@ -602,10 +602,10 @@ Then it gets a reference to the *images* blob container, creates the container i
 		        });
 		}
 
-Similar code gets a reference to the *blobnamerequest* queue and creates a new queue. In this case no permissions change is needed. The [ResolveBlobName](#resolveblobname) section later in the tutorial explains why the queue that the web application writes to is used just for getting blob names and not for generating thumbnails.
+Similar code gets a reference to the *thumbnailrequest* queue and creates a new queue. In this case no permissions change is needed. 
 
 		CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-		var imagesQueue = queueClient.GetQueueReference("blobnamerequest");
+		var imagesQueue = queueClient.GetQueueReference("thumbnailrequest");
 		imagesQueue.CreateIfNotExists();
 
 ### ContosoAdsWeb - _Layout.cshtml

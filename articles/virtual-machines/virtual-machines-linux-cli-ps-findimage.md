@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Navigate and select Linux VM images | Microsoft Azure"
+   pageTitle="Select Linux VM images with the Azure  CLI | Microsoft Azure"
    description="Learn how to determine the publisher, offer, and SKU for images when creating a Linux virtual machine with the Resource Manager deployment model."
    services="virtual-machines-linux"
    documentationCenter=""
@@ -15,10 +15,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="06/06/2016"
+   ms.date="08/23/2016"
    ms.author="rasquill"/>
 
-# Navigate and select Linux virtual machine images in Azure with CLI or Powershell
+# Select Linux VM images with the Azure CLI
 
 This topic describes how to find publishers, offers, skus, and versions for each location into which you might deploy. To give an example, some commonly used Linux VM images are:
 

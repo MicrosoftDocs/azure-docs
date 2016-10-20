@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple Virtual Array Update 0.1 release notes| Microsoft Azure"
-   description="Describes critical open issues and resolutions for the StorSimple Virtual Array running Update 0.1."
+   pageTitle="StorSimple Virtual Array Updates release notes| Microsoft Azure"
+   description="Describes critical open issues and resolutions for the StorSimple Virtual Array running Update 0.2 and 0.1."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,18 +12,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/27/2016"
+   ms.date="06/16/2016"
    ms.author="alkohli" />
 
-# StorSimple Virtual Array Update 0.1 release notes
+# StorSimple Virtual Array Update 0.2 and 0.1 release notes
 
 ## Overview
 
-The following release notes identify the critical open issues and the resolved issues for the Microsoft Azure StorSimple Virtual Array Update 0.1 release. (Microsoft Azure StorSimple Virtual Array is also known as the StorSimple on-premises virtual device or the StorSimple virtual device.) This release corresponds to the software version **10.0.10279.0**. 
+The following release notes identify the critical open issues and the resolved issues for Microsoft Azure StorSimple Virtual Array updates. (Microsoft Azure StorSimple Virtual Array is also known as the StorSimple on-premises virtual device or the StorSimple virtual device.) 
 
-The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your StorSimple virtual device, carefully review the information contained in the release notes. 
+The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your StorSimple virtual device, carefully review the information contained in the release notes.
 
-> [AZURE.NOTE] Update 0.1 is a disruptive update and will restart your device. If IO are in progress, the device will incur downtime.
+Update 0.2 corresponds to the software version **10.0.10280.0**; Update 0.1 is version **10.0.10279.0**. The sections below list the changes for each update. 
+
+> [AZURE.NOTE] Updates are disruptive and will restart your device. If I/O are in progress, the device will incur downtime.
+
+## Issues fixed in the Update 0.2
+Update 0.2 includes all changes from Update 0.1 in addition to the fix described in the following table:
+
+Feature                              | Issue                                                                                                                                                                                                                                                                                                                           |
+--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+Updates                                 | In the last release, updates weren't detected automatically in the Azure classic portal, so you had to use the local Web UI to install updates. This issue is fixed in this release. After installing Update 0.2, you can install future updates using the Azure classic portal.                       
 
 ## What's new in the Update 0.1
 
@@ -81,4 +90,4 @@ The following table provides a summary of known issues for the StorSimple Virtua
 
 ## Next step
 
-[Install Update 0.1](storsimple-ova-install-update-01.md) on your StorSimple Virtual Array.
+[Install Updates](storsimple-ova-install-update-01.md) on your StorSimple Virtual Array.

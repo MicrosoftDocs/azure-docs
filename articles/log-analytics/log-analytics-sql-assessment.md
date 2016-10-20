@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/11/2016"
 	ms.author="banders"/>
 
 # Optimize your environment with the SQL Assessment solution in Log Analytics

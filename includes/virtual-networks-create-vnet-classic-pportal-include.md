@@ -11,7 +11,7 @@ To create a classic VNet based on the scenario above, follow the steps below.
 
 	![Address space blade](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure2.png)
 
-4. Click **Resource Group** and select a resource group to add the VNet to, or click **Create new resource group** to add the VNet to a new resource group. The figure below shows the resource group settings for a new resource group called **TestRG**. For more information about resource groups, visit [Azure Resource Manager Overview](../articles/virtual-network/resource-group-overview.md/#resource-groups).
+4. Click **Resource Group** and select a resource group to add the VNet to, or click **Create new resource group** to add the VNet to a new resource group. The figure below shows the resource group settings for a new resource group called **TestRG**. For more information about resource groups, visit [Azure Resource Manager Overview](../articles/virtual-network/resource-group-overview.md#resource-groups).
 
 	![Create resource group blade](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure3.png)
 

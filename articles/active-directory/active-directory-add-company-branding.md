@@ -3,8 +3,8 @@
 	description="Learn how to add a company branding to the Azure sign-in page and the access panel page"
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
+	authors="curtand"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/16/2016" 
-	ms.author="MarkVi"/>
+	ms.date="09/30/2016"
+	ms.author="curtand"/>
 
 # Add company branding to your sign-in and Access Panel pages
 
@@ -29,7 +29,7 @@ This topic explains how you can customize the sign-in page and the access panel 
 
 > [AZURE.NOTE]
 >
-- Company branding is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
+- Company branding is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory, or are an Office 365 user. For more information, see [Azure Active Directory editions](active-directory-editions.md).
 - Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 
@@ -46,9 +46,7 @@ When you visit a service with non-tenant specific URLs (e.g.: https://mail.offic
 
 > [AZURE.NOTE]
 >
-
 - Your domain name must appear as “Active” in the **Active Directory** > **Directory** > **Domains** section of the Azure classic portal where you have configured branding.
-
 - Sign-in page branding doesn’t carry over to the consumer sign in page of Microsoft. If you sign in with a personal Microsoft account, you may see a branded list of user tiles rendered by Azure AD, but the branding of your organization does not apply to the Microsoft account sign-in page.
 
 
@@ -88,14 +86,33 @@ You can customize the following elements on the sign-in page:
 
 ![][5]
 
- Page element  | Location on the page
-	------------- | -------------
-Banner Logo | Shown at the top-right of the page. Replaces the logo the destination site you are signing in to displays (For example. Office 365 or Azure).
-Large Illustration / Background Color | Shown at the left of the page. Replaces the image the destination site you are signing in to displays. The Background Color may be shown in place of the Large Illustration on low bandwidth connections, or on narrow screens.
-Sign-in Page Text | Shown above the page footer when you need to convey helpful information before a sign-in with a work or school account. For example, you may want to include the phone number to your help desk, or a legal statement.
+
+
+| Page element  | Location on the page |
+|:--            | ---                  |
+|Banner Logo    | Shown at the top-right of the page. Replaces the logo the destination site you are signing in to displays (For example. Office 365 or Azure).|
+|Large Illustration / Background Color | Shown at the left of the page. Replaces the image the destination site you are signing in to displays. The Background Color may be shown in place of the Large Illustration on low bandwidth connections, or on narrow screens.|
+|Keep me signed-in | Shown under the Password textbox. |
+|Sign-in Page Text | Shown above the page footer when you need to convey helpful information before a sign-in with a work or school account. For example, you may want to include the phone number to your help desk, or a legal statement.|
+
 
 > [AZURE.NOTE]
 All elements are optional. For example, if you specify a Banner Logo but no Large Illustration, the sign-in page shows your logo and the illustration for the destination site (that is, the Office 365 California highway image).
+
+
+On your sign-in page, the **Keep me signed in** checkbox allows a user to remain signed in when they close and re-open their browser. It does not effect session lifetime. You can hide the checkbox on the Azure Active Directory sign-in page.
+
+Whether the checkbox is displayed depends on the setting of **Hide KMSI**.
+
+![][9]
+
+
+To hide the checkbox, configure this setting to **Hidden**. 
+
+> [AZURE.NOTE] Some features of SharePoint Online and Office 2010 depend on users being able to check this box. If you configure this setting to hidden, your users may see additional and unexpected prompts to sign-in.
+
+
+
 
 You can also localize all elements on this page. Once you’ve configured a “default” set of customization elements, you can configure more versions for different locales. You can also mix and match various elements. For example, you can:
 
@@ -107,7 +124,7 @@ You can also localize all elements on this page. Once you’ve configured a “d
 
 ## Access panel page customization
 
-The Access Panel page is essentially a portal page for quick access to the cloud apps you have been granted access to by your administrator. On this page, your apps appear as clickable application tiles. 
+The Access Panel page is essentially a portal page for quick access to the cloud apps you have been granted access to by your administrator. On this page, your apps appear as clickable application tiles.
 
 
 The following screenshot shows an example of an access panel page after customization.
@@ -118,14 +135,14 @@ The following screenshot shows an example of an access panel page after customiz
 
 You can configure one default set of customizable elements per directory in the Azure classic portal. After the defaults have been saved, an administrator can add localized versions of each element, for different languages / locales. All customizable elements are optional.
 
-For example, if you configure a default Banner Logo but no Large Illustration, the sign-in page displays your logo in the upper-right corner. However the default illustration of the site is displayed. 
+For example, if you configure a default Banner Logo but no Large Illustration, the sign-in page displays your logo in the upper-right corner. However the default illustration of the site is displayed.
 
 Imagine the following configuration:
 
-- A default Banner Logo and Sign-In Page Text in English 
-- A language-specific sign in Page Text for German 
+- A default Banner Logo and Sign-In Page Text in English
+- A language-specific sign in Page Text for German
 
-If your language preference is German, you get the default Banner Logo but the German text. 
+If your language preference is German, you get the default Banner Logo but the German text.
 
 While you could technically configure a different set for each language supported by Azure AD, we recommend that you keep the number of variations low, for maintenance and performance reasons.
 
@@ -180,8 +197,8 @@ We recommend that you experiment with a test tenant before making changes in you
 
 **To verify whether your branding has been applied:**
 
-1. Open an InPrivate or Incognito browser session. 
-2. Visit https://outlook.com/contoso.com, replacing contoso.com with the domain you’ve customized. 
+1. Open an InPrivate or Incognito browser session.
+2. Visit https://outlook.com/contoso.com, replacing contoso.com with the domain you’ve customized.
 
 This also works with domains that look like contoso.onmicrosoft.com.
 
@@ -221,3 +238,4 @@ Sign-in Page Background Color | The sign-in page background color is used in the
 [6]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedleft.png
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
+[9]: ./media/active-directory-add-company-branding/hidekmsi.png

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="05/09/2016"
+	ms.date="08/08/2016"
 	ms.author="sstein"/>
 
 
@@ -25,7 +25,7 @@
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
-SQL Database V12 is the latest version so upgrading to SQL Database V12 is recommended.
+SQL Database V12 is the latest version so upgrading existing servers to SQL Database V12 is recommended.
 SQL Database V12 has many [advantages over the previous version](sql-database-v12-whats-new.md) including:
 
 - Increased compatibility with SQL Server.
@@ -38,7 +38,7 @@ During the process of upgrading to V12 you will upgrade any Web and Business dat
 
 In addition, migrating to an [elastic database pool](sql-database-elastic-pool.md) can be more cost effective than upgrading to individual performance levels (pricing tiers) for single databases. Pools also simplify database management because you only need to manage the performance settings for the pool rather than separately managing the performance levels of individual databases. If you have databases on multiple servers consider moving them into the same server and taking advantage of putting them into a pool. You can easily [auto-migrate databases from V11 servers directly into elastic database pools using PowerShell](sql-database-upgrade-server-powershell.md). You can also use the portal to migrate V11 databases into a pool but in the portal you must already have a V12 server to create a pool. Directions are provided later in this article to create the pool after the server upgrade if you have [databases that can benefit from a pool](sql-database-elastic-pool-guidance.md).
 
-Note that your databases will remain online and continue to work throughout the upgrade operation. At the time of the actual transition to the new performance level temporary dropping of the connections to the database can happen for a very small duration that is typically around 90 seconds but can be as much as 5 minutes. If your application has [transient fault handling for connection terminations](sql-database-connect-central-recommendations.md) then it is sufficient to protect against dropped connections at the end of the upgrade.
+Note that your databases will remain online and continue to work throughout the upgrade operation. At the time of the actual transition to the new performance level temporary dropping of the connections to the database can happen for a very small duration that is typically around 90 seconds but can be as much as 5 minutes. If your application has [transient fault handling for connection terminations](sql-database-connectivity-issues.md) then it is sufficient to protect against dropped connections at the end of the upgrade.
 
 Upgrading to SQL Database V12 cannot be undone. After an upgrade the server cannot be reverted to V11.
 
@@ -54,10 +54,12 @@ After upgrading to V12, [service tier recommendations](sql-database-service-tier
 
 ## Start the upgrade
 
-1. In the [Azure portal](https://portal.azure.com/) browse to the server you want to upgrade by selecting **BROWSE ALL** > **SQL servers**, and selecting the desired server.
-2. Select **Latest SQL database update**, then select **Upgrade this server**.
+1. In the [Azure portal](https://portal.azure.com/) browse to the server you want to upgrade by selecting **BROWSE** > **SQL servers**, and selecting the v2.0 server you want to upgrade.
+2. Select **Latest SQL Database Update**, then select **Upgrade this server**.
 
       ![upgrade server][1]
+
+3. Upgrading a server to the latest SQL Database Update is permanent and irreversible. To confirm the upgrade, type the name of your server and click **OK**.
 
 ## Upgrade all Web and Business databases
 
@@ -115,7 +117,7 @@ Follow the directions in the [Create an elastic database pool](sql-database-elas
 
 After upgrading, actively monitor the database to ensure applications are running at the desired performance, and then optimize settings as required.
 
-In addition to monitoring individual databases, you can monitor elastic database pools [Monitor, manage, and size an elastic database pool with the Azure portal](sql-database-elastic-pool-manage-portal.md) or with [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools).
+In addition to monitoring individual databases, you can monitor elastic database pools [Monitor, manage, and size an elastic database pool with the Azure portal](sql-database-elastic-pool-manage-portal.md) or with [PowerShell](sql-database-elastic-pool-manage-powershell.md).
 
 
 **Resource consumption data:** For Basic, Standard, and Premium databases resource consumption data is available through the [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV in the user database. This DMV provides near real time resource consumption information at 15 second granularity for the previous hour of operation. The DTU percentage consumption for an interval is computed as the maximum percentage consumption of the CPU, IO and log dimensions. Here is a query to compute the average DTU percentage consumption over the last hour:
@@ -140,13 +142,13 @@ Additional monitoring information:
 
 **Alerts:** Set up 'Alerts' in the Azure portal to notify you when the DTU consumption for an upgraded database approaches certain high level. Database alerts can be setup in the Azure portal for various performance metrics like DTU, CPU, IO, and Log. Browse to your database and select **Alert rules** in the **Settings** blade.
 
-For example, you can set up an email alert on “DTU Percentage” if the average DTU percentage value exceeds 75% over the last 5 minutes. Refer to [Receive alert notifications](../azure-portal/insights-receive-alert-notifications.md) to learn more about how to configure alert notifications.
+For example, you can set up an email alert on “DTU Percentage” if the average DTU percentage value exceeds 75% over the last 5 minutes. Refer to [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) to learn more about how to configure alert notifications.
 
 
 
 
 
-## Next Steps
+## Next steps
 
 - [Check for pool recommendations and create a pool](sql-database-elastic-pool-create-portal.md).
 - [Change the service tier and performance level of your database](sql-database-scale-up.md).

@@ -3,7 +3,7 @@
    description="Guidelines and recommendations for using PolyBase in SQL Data Warehouse scenarios."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="happynicolle"
+   authors="ckarst"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/18/2016"
-   ms.author="nicw;barbkess;sonyama"/>
+   ms.date="06/30/2016"
+   ms.author="cakarst;barbkess;sonyama"/>
 
 
 # Guide for using PolyBase in SQL Data Warehouse
@@ -180,9 +180,7 @@ To learn more about moving data to SQL Data Warehouse, see the [data migration o
 <!--Article references-->
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
 [Load data with PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
-[solution partners]: ./sql-data-warehouse-solution-partners.md
-[development overview]: ./sql-data-warehouse-overview-develop.md
-[Statistics]: ./sql-data-warehouse-develop-statistics.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
 [data migration overview]: ./sql-data-warehouse-overview-migrate.md
 
 <!--MSDN references-->

@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN - Controlling caching behavior of requests with query strings"
-	description="CDN query string caching controls how files are to be cached when they contain query strings."
+	pageTitle="Controlling Azure CDN caching behavior of requests with query strings | Microsoft Azure"
+	description="Azure CDN query string caching controls how files are to be cached when they contain query strings."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 #Controlling caching behavior of CDN requests with query strings

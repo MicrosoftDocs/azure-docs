@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Microsoft Azure new support request File Upload utility guidelines | Microsoft Azure"
 	description="Describes the guidelines when using Microsoft Azure new support request File Upload utility"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="mbaldwin"
-	editor="v-jesits"
+	editor=""
+	tags="billing"
 	/>
 
 <tags
@@ -14,14 +15,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/20/2016"
+	ms.date="10/13/2016"
 	ms.author="genli"/>
 
 # Microsoft Azure new support request File Upload utility guidelines
 
-When you [create a new support request](https://ms.portal.azure.com/#create/Microsoft.Support), the File Upload utility can help you easily upload diagnostic files or any other files that you think are relevant to the incident.  
+When you [create a support request](https://portal.azure.com/#create/Microsoft.Support), the File Upload utility can help you easily upload diagnostic files or any other files that you think are relevant to the incident.  
 
->[AZURE.NOTE] To protect your privacy, please do not include any personal information in your upload.
+>[AZURE.NOTE] To protect your privacy, do not include any personal information in your upload.
 
 Follow these guidelines when you use the File Upload utility:
 
@@ -30,7 +31,7 @@ Follow these guidelines when you use the File Upload utility:
 - You can’t upload more than one file.
 - Files can’t be larger than 4 MB.
 
-## Table of file name extensions
+## Table of the allowed file name extensions
 
 | 0-9, A-C    | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|

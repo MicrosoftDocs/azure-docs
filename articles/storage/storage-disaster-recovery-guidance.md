@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 
@@ -25,9 +25,9 @@ At Microsoft, we work hard to make sure our services are always available. Somet
 
 It is critical for every customer to prepare their own disaster recovery plan. The effort to recover from a storage outage typically involves both operations personnel and automated procedures in order to reactivate your applications in a functioning state. Please refer to the Azure documentation below to build your own disaster recovery plan:
 
--   [Disaster Recovery and High Availability for Azure Applications](https://msdn.microsoft.com/library/azure/dn251004.aspx)
+-   [Disaster recovery and high availability for Azure applications](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
 
--   [Azure Business Continuity Technical Guidance](https://msdn.microsoft.com/library/azure/hh873027.aspx)
+-   [Azure resiliency technical guidance](../resiliency/resiliency-technical-guidance.md)
 
 -   [Azure Site Recovery service](https://azure.microsoft.com/services/site-recovery/)
 
@@ -61,7 +61,7 @@ A couple of points regarding the storage geo-failover experience:
 
 -   Storage geo-failover will only be triggered by the Azure Storage team – there is no customer action required.
 
--   Your existing storage service endpoints for blobs, tables, queues, and files will remain the same after the failover; the DNS entry will need to be be updated to switch from the primary region to the secondary region.
+-   Your existing storage service endpoints for blobs, tables, queues, and files will remain the same after the failover; the DNS entry will need to be updated to switch from the primary region to the secondary region.
 
 -   Before and during the geo-failover, you won’t have write access to your storage account due to the impact of the disaster but you can still read from the secondary if your storage account has been configured as RA-GRS.
 
@@ -72,9 +72,9 @@ For more details on the infrastructure of Azure Storage geo replication, please 
 
 ##Best Practices for protecting your data
 
-There are some recommended approaches to back up your the storage data on a regular basis.
+There are some recommended approaches to back up your storage data on a regular basis.
 
--   VM Disks – Use the [Azure Backup service](https://azure.microsoft.com/services/backup/)  to back up the VM disks used by your Azure virtual machines.
+-   VM Disks – Use the [Azure Backup service](https://azure.microsoft.com/services/backup/) to back up the VM disks used by your Azure virtual machines.
 
 -   Block blobs –Create a [snapshot](https://msdn.microsoft.com/library/azure/hh488361.aspx) of each block blob, or copy the blobs to another storage account in another region using [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), or the [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
 

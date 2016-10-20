@@ -3,9 +3,9 @@
 	description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js."
 	services="storage"
 	documentationCenter="nodejs"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor=""/>
+	authors="robinsh"
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/08/2016"
-	ms.author="micurd"/>
+	ms.date="08/11/2016"
+	ms.author="robinsh"/>
 
 
 # How to use Queue storage from Node.js
 
 [AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Overview
 

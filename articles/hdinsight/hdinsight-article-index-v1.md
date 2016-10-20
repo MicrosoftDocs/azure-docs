@@ -13,7 +13,7 @@
    ms.topic="index-page"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/17/2015"
+   ms.date="10/17/2016"
    ms.author="cjgronlund"/>
 
 # HDInsight article index for the Azure Classic Portal
@@ -59,7 +59,7 @@ For a complete set of articles about using Linux and Linux clusters, go to the [
 * [Process and analyze JSON documents using Hive](hdinsight-using-json-in-hive.md)
 * [Use Python with Hive and Pig](hdinsight-python.md)
 * [Optimize Hive queries for Hadoop](hdinsight-hadoop-optimize-hive-query.md)
-* [Run Pig jobs using the .NET SDK for Hadoop](hdinsight-hadoop-use-pig-dotnet-sdk-v1.md )
+* [Run Pig jobs using the .NET SDK for Hadoop](hdinsight-hadoop-use-pig-dotnet-sdk.md )
 * [Use C# user-defined functions with Hive and Pig streaming](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 
 ## HBase: NoSQL database
@@ -105,14 +105,14 @@ For articles about using native Apache Spark clusters in the Azure Portal, go to
 
 * [Extend HDInsight capabilities with Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md)
 * [Install and use Spark on Hadoop clusters](hdinsight-hadoop-spark-install.md)
-* [Use Giraph on HDInsight clusters to process large-scale graphs](hdinsight-hadoop-giraph-install-v1.md)
-* [Install and use Solr on Hadoop clusters](hdinsight-hadoop-solr-install-v1.md)
+* [Use Giraph on HDInsight clusters to process large-scale graphs](hdinsight-hadoop-giraph-install-linux.md)
+* [Install and use Solr on Hadoop clusters](hdinsight-hadoop-solr-install-linux.md)
 
 ## Operations
 
-* [Provision clusters on Windows](hdinsight-provision-clusters-v1.md)
+* [Provision clusters on Windows](hdinsight-provision-clusters.md)
 * [Provision HBase clusters on Azure Virtual Network](hdinsight-hbase-provision-vnet.md)
-* [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-v1.md)
+* [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md)
 * [Availability and reliability of Hadoop clusters in HDInsight](hdinsight-high-availability.md)
 
 ## Reference

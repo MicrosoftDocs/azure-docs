@@ -3,8 +3,8 @@
  description="Azure Scheduler allows you to declaratively describe actions to run in the cloud. It then schedules and runs those actions automatically."
  services="scheduler"
  documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
+ authors="derek1ee"
+ manager="kevinlam1"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -12,8 +12,8 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="03/09/2016"
- ms.author="krisragh"/>
+ ms.date="08/18/2016"
+ ms.author="deli"/>
 
 # What is Azure Scheduler?
 

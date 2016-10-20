@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/26/2016"
+   ms.date="10/05/2016"
    ms.author="dobett"/>
 
 
@@ -43,7 +43,7 @@
     HostName={your IoT Hub hostname};DeviceId={your device id};SharedAccessKey={your device key}
     ```
 
-    If your IoT Hub hostname is **contoso** and your device id is **mydevice**, your connection string will look like this:
+    If your IoT Hub hostname is **contoso** and your device id is **mydevice**, your connection string looks like:
 
     ```
     var connectionString = "HostName=contoso.azure-devices.net;DeviceId=mydevice;SharedAccessKey=2s ... =="
@@ -52,12 +52,11 @@
 5. Save the file. Run the following commands at a command prompt in the folder that contains these files to install the necessary packages and then run the sample application:
 
     ```
-    npm install
+    npm install --save
     node remote_monitoring.js
     ```
 
 [AZURE.INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
 [lnk-github-repo]: https://github.com/azure/azure-iot-sdks
-[lnk-node-installers]: https://nodejs.org/download/
 [lnk-github-prepare]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md

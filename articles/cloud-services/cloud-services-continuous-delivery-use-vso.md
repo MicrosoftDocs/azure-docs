@@ -3,7 +3,7 @@
 	description="Learn how to configure your Visual Studio Team Services team projects to automatically build and deploy to the Web App feature in Azure App Service or cloud services."
 	services="cloud-services"
 	documentationCenter=".net"
-	authors="TomArcher"
+	authors="mlearned"
 	manager="douge"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/08/2016"
-	ms.author="tarcher"/>
+	ms.date="07/06/2016"
+	ms.author="mlearned"/>
 
 # Continuous delivery to Azure using Visual Studio Team Services
 
@@ -269,7 +269,8 @@ This step applies only to web apps, not cloud services. To put a quality gate on
 	![][50]
 
 ## Next steps
-For more about unit testing in Visual Studio Team Services, see [Run unit tests in your build](http://go.microsoft.com/fwlink/p/?LinkId=510474). If you're using Git, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and [Continuous deployment using GIT in Azure App Service](../app-service-web/web-sites-publish-source-control.md).  For more information about Visual Studio Team Services, see [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
+For more about unit testing in Visual Studio Team Services, see [Run unit tests in your build](http://go.microsoft.com/fwlink/p/?LinkId=510474). If you're using Git, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and 
+[Continuous deployment to Azure App Service](../app-service-web/app-service-continuous-deployment.md).  For more information about Visual Studio Team Services, see [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso/tfs1.png

@@ -3,9 +3,9 @@
 	description="Store structured data in the cloud using Azure Table storage, a NoSQL data store."
 	services="storage"
 	documentationCenter="nodejs"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor=""/>
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,14 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/29/2016"
-	ms.author="micurd"/>
+	ms.date="08/11/2016"
+	ms.author="tamram"/>
 
 
 # How to use Azure Table storage from Node.js
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Overview
 

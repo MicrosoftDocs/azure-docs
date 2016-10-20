@@ -3,7 +3,7 @@
 	description="Learn about the DocumentDB Query Explorer, a SQL query editor in the Azure portal for writing SQL queries and running them against a NoSQL DocumentDB collection."
 	keywords="writing sql queries, sql query editor"
 	services="documentdb"
-	authors="AndrewHoh"
+	authors="kirillg"
 	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
@@ -14,22 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
-	ms.author="anhoh"/>
+	ms.date="08/30/2016"
+	ms.author="kirillg"/>
 
 # Write, edit, and run SQL queries for DocumentDB using Query Explorer 
 
 This article provides an overview of the [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) Query Explorer, an Azure portal tool that enables you to write, edit, and run SQL queries against a [DocumentDB collection](documentdb-create-collection.md).
 
-1. In the Azure Portal, in the Jumpbar, click **DocumentDB Accounts**. If **DocumentDB Accounts** is not visible, click **Browse** and then click **DocumentDB Accounts**.
+1. In the Azure portal, in the Jumpbar, click **DocumentDB (NoSQL)**. If **DocumentDB (NoSQL)** is not visible, click **More Services** and then click **DocumentDB (NoSQL)**.
 
-2. At the top of the **DocumentDB account** blade, click **Query Explorer**. 
+2. In the resource menu, click **Query Explorer**. 
 
 	![Screenshot of the Azure portal with Query Explorer highlighted](./media/documentdb-query-collections-query-explorer/queryexplorercommand.png)
 
-    >[AZURE.NOTE] Query Explorer also appears on the database and collection blades.
-
-3. In the **Query Explorer** blade, select the **Databases** and **Collections** to query from the drop down lists, and enter the query to run. 
+3. In the **Query Explorer** blade, select the **Databases** and **Collections** to query from the drop down lists, and type the query to run. 
 
     The **Databases** and **Collections** drop-down lists are pre-populated depending on the context in which you launch Query Explorer. 
 
