@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows-sql-server"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2016"
+   ms.date="10/20/2016"
    ms.author="MikeRayMSFT"/>
 
-# Configure one or more Always On Availability Group Listeners - Resource Manger 
+# Configure one or more Always On Availability Group Listeners - Resource Manager 
 
 This topic shows how to do two things:
 

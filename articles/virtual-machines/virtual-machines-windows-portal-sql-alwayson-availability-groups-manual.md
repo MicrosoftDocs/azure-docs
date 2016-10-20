@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="09/22/2016"
+	ms.date="10/20/2016"
 	ms.author="MikeRayMSFT" />
 
 # Configure Always On availability group in Azure VM manually - Resource Manager
@@ -38,7 +38,7 @@ In this tutorial, you create the following elements:
 
 - A 3-node WSFC cluster with the Node Majority quorum model
 
-- An internal load balancer to provide an IP address to the availability groups
+- An internal load balancer with one or more IP addresses to support one or more availability group listeners
 
 - An availability group with two synchronous-commit replicas of an availability database
 
@@ -47,6 +47,8 @@ The figure below is a graphical representation of the solution.
 ![Architecture for AG in Azure Resource Manager](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/00-EndstateSampleNoELB.png)
 
 This is one possible configuration. You can modify it for for your requirements. For example, you can reduce the number of virtual machines by using a domain controller as the quorum file share witness. This would reduce the number of VMs for a two-replica availability group. This method reduces the VM count by one from the solution.
+
+This tutorial creates a single availability group with one IP address for the listener. You can also create multiple availability groups with an IP address and listener for each. Each IP address uses the same load balancer. To configure multiple IP addresses on a load balancer, use PowerShell. For more information see [Configure one or more Always On Availability Group Listeners - Resource Manager](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md).
 
 Completing this tutorial takes a few hours because you must build and configure several Azure virtual machines. You can also automatically build this entire solution. In the Azure Portal, there is a gallery setup for Always On availability groups with a listener. The gallery setup configures everything you need for availability groups automatically. For more information, see [Portal - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md). 
 
@@ -772,7 +774,7 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 In order to connect to the availability group directly, you need to configure a load balancer. The load balancer directs client traffic to the VM that is bound to the listener IP address and on the probe port. This tutorial use an internal load balancer, or ILB. The ILB allows traffic from within the same virtual network to connect to SQL Server. Applications that need to connect to SQL Server over the internet require an internet facing - or external - load balancer. For more information, see [Azure Load Balancer overview](../load-balancer/load-balancer-overview.md).
 
->[AZURE.NOTE] Currently the Azure Portal only allows you to use a specific frontend port once on a load balancer. To use the same port for all listeners, use PowerShell to attach the listener IP addresses to the load balancer. For instructions, see [Create availability group listener and load balancer | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md). 
+>[AZURE.NOTE] This tutorial shows how to create a single listener - with one ILB  IP address. To create one or more listeners using one or mor eIP addresses, see [Create availability group listener and load balancer | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md). 
 
 ### Create the load balancer in Azure
 
