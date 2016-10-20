@@ -41,7 +41,7 @@ For application scaling:
 - Customers can scale their web apps up and down by changing the tier in their App Service Plan.
 - Customers can scale out their applications out and run their app across multiple instances within the confines of their SKU.
 
-For Kudu, some of the basic functionality will work with the following:
+For Kudu, some of the basic functionality works with the following:
 
 - Environments
 - Deployments
@@ -51,7 +51,7 @@ For Kudu, some of the basic functionality will work with the following:
 
 The Azure portal shows only features that currently work for App Service on Linux and hides the rest. As we enable more features, you will see them reflected on the portal.
 
-Some features, such as VNET integration, Azure Active Directory/third-party authentication, or Kudu site extensions don't currently work. But as we get these working we will update our documentation and blog about the changes.
+Some features, such as VNET integration, Azure Active Directory/third-party authentication, or Kudu site extensions don't currently work. But as we get these working, we will update our documentation and blog about the changes.
 
 This public preview is currently only available in the following regions:
 
@@ -59,11 +59,11 @@ This public preview is currently only available in the following regions:
 -	Western Europe
 -	Southeast Asia
 
-Web Apps on Linux is only supported in the Dedicated app service plans and does not have a Free or Shared tier. Also, app service plans for regular and Linux web apps are mutually exclusive, so you cannot create a Linux web app in a non-Linux app service plan.
+Web Apps on Linux is only supported in the Dedicated app service plans and does not have a Free or Shared tier. Also, App Service plans for regular and Linux web apps are mutually exclusive, so you cannot create a Linux web app in a non-Linux app service plan.
 
 Web Apps on Linux must be created in a resource group that does not contain non-Linux web apps in the same region.
 
-Due to the lack of overlapped recycling of the web apps, customers should expect a small downtime in the event that a web app gets restarted.
+Due to the lack of overlapped recycling of the web apps, customers should expect a small downtime if a web app gets restarted.
 
 ## Next steps ##
 

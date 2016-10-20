@@ -28,9 +28,9 @@ You can use this to do one of the following tasks:
 -	Specify the startup script for your Node.js app (for example: /bin/server.js).
 -	Specify the PM2 configuration file to use for your Node.js app (for example: /foo/process.json).
 
- >[AZURE.NOTE] If you want your Node.js processes to restart automatically when certain files are modified, use the PM2 configuration. Otherwise, your application won't restart when it receives change notifications when your application code changes.
+ >[AZURE.NOTE] If you want your Node.js processes to restart automatically when certain files are modified, use the PM2 configuration. Otherwise, your application won't restart when it receives change notifications (for example, when your application code changes).
 
-You can check the Node.js [process file documentation](http://pm2.keymetrics.io/docs/usage/application-declaration/) for all the options, but following is a sample of what you can use as your process.json file.
+You can check the Node.js [process file documentation](http://pm2.keymetrics.io/docs/usage/application-declaration/) for all the options, but following is a sample of what you can use as your process.json file:
 
 		{
 		  "name"        : "worker",

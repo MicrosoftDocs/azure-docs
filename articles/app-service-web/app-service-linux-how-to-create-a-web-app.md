@@ -24,7 +24,7 @@ You can start creating your Web App on Linux from the [Azure portal](https://por
 
 ![Start creating a web app on the Azure portal][1]
 
-Once you select the following option, the **Create blade** opens as shown in the following image.
+Next, the **Create blade** opens as shown in the following image.
 
 ![The Create blade][2]
 
