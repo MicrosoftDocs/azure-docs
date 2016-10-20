@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="10/20/2016"
+	ms.date="10/21/2016"
 	ms.author="scooxl"/>
 #  Azure Government Management and Security
 
