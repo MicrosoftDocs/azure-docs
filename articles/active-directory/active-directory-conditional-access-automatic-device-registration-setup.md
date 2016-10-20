@@ -131,6 +131,9 @@ To create these rules manually, in AD FS, use the following PowerShell script in
 
       => issue(Type = "http://schemas.microsoft.com/ws/2012/01/accounttype", Value = "DJ");'
 
+> [AZURE.NOTE] ONLY use the first three rules if your environment on-premises is a single forest. If your computers are in a different forest than the one synchronizing with Azure AD or if the you use alternate names to the ones in the synchronization configuration you must also include the remaining rules.
+>>>>>>> 05abad1feeb7f0ca35bcfe4bcc4442e4b3c7c2dd
+
 	$rule3 = '@RuleName = "Pass through primary SID"
 
       c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] &&
