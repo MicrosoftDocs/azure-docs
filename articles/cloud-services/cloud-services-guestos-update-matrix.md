@@ -4,7 +4,7 @@
    services="cloud-services" 
    documentationCenter="na" 
    authors="raiye" 
-   manager="markkie" 
+   manager="timlt" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="10/05/2016"
+   ms.date="10/18/2016"
    ms.author="raiye"/>
 
 # Azure Guest OS releases and SDK compatibility matrix

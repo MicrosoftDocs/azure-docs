@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/08/2016"
-	ms.author="cbrooks;robinsh"/>
+	ms.author="robinsh"/>
 
 #Azure Storage security guide
 
@@ -419,7 +419,7 @@ Azure:
 
 -   Standard [A, D and G series IaaS VMs](https://azure.microsoft.com/pricing/details/virtual-machines/)
 
--   Enable encryption on IaaS VMs created using [Azure Resource Manager](../resource-group-overview.md) model
+-   Enable encryption on IaaS VMs created using [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) model
 
 -   All Azure public [regions](https://azure.microsoft.com/regions/)
 

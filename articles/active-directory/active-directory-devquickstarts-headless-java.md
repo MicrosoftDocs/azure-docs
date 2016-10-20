@@ -3,7 +3,7 @@
 	description="How to build a Java command line app that signs users in to access an API."
 	services="active-directory"
 	documentationCenter="java"
-	authors="brandwe"
+	authors="xerners"
 	manager="mbaldwin"
 	editor=""/>
 

@@ -75,7 +75,7 @@ Subscriptions help providers organize access and use of cloud resources and serv
 
 ## Azure Resource Manager
 
-By using Azure Resource Manager, you can work with your infrastructure resources in bulk, instead of individually. It’s a single access point that you can use to deploy, manage, and monitor your solution components, such as virtual machines, storage accounts, web apps, and databases. For full information and guidance, see the [Azure Resource Manager overview](../resource-group-overview.md).
+By using Azure Resource Manager, you can work with your infrastructure resources in bulk, instead of individually. It’s a single access point that you can use to deploy, manage, and monitor your solution components, such as virtual machines, storage accounts, web apps, and databases. For full information and guidance, see the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
 ### Resource groups
 

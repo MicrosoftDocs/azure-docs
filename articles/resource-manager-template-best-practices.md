@@ -243,7 +243,7 @@ For resource types that are largely accessed through another resource, you can u
 1. Assign publicIPAddresses to a virtual machine only when required for an application. To connect for debug, management or administrative purposes, use either inboundNatRules, virtualNetworkGateways or a jumpbox.
 
      For more information about connecting to virtual machines, see:
-     - [Running VMs for an N-tier architecture on Azure](./guidance/guidance-compute-3-tier-vm.md)
+     - [Running VMs for an N-tier architecture on Azure](./guidance/guidance-compute-n-tier-vm.md)
      - [Setting up WinRM access for Virtual Machines in Azure Resource Manager](./virtual-machines/virtual-machines-windows-winrm.md)
      - [Allow external access to your VM using the Azure Portal](./virtual-machines/virtual-machines-windows-nsg-quickstart-portal.md)
      - [Allow external access to your VM using PowerShell](./virtual-machines/virtual-machines-windows-nsg-quickstart-powershell.md)
@@ -267,8 +267,10 @@ For resource types that are largely accessed through another resource, you can u
 1. When adding a password to a **customScriptExtension**, use the **commandToExecute** property in protectedSettings.
 
         "properties": {
-            "publisher": "Microsoft.OSTCExtensions",
-            "type": "CustomScriptForLinux",
+            "publisher": "Microsoft.Azure.Extensions",
+            "type": "CustomScript",
+	        "typeHandlerVersion": "2.0",
+            "autoUpgradeMinorVersion": true,
             "settings": {
                 "fileUris": [
                     "[concat(variables('template').assets, '/lamp-app/install_lamp.sh')]"

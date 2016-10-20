@@ -39,7 +39,7 @@ To create a MySQL database in the Azure portal, do the following:
 	- **Database Name**: Type a uniquely identifiable name
 	- **Subscription**: Choose the subscription to use
 	- **Database Type**: Select **Shared** for low-cost or free tiers, or **Dedicated** to get dedicated resources. 
-	- **Resource group**: Add the MySQL database to an existing [resource group](../resource-group-overview.md) or put it in a new one. Resources in the same group
+	- **Resource group**: Add the MySQL database to an existing [resource group](../azure-resource-manager/resource-group-overview.md) or put it in a new one. Resources in the same group
 	can be easily managed together.
 	- **Location**: Select a location close to you. When adding to an existing resource group, you're locked to the resource group's location.
 	- **Pricing Tier**: Click **Pricing Tier**, then select a pricing option (**Mercury** tier is free), and then click **Select**. 

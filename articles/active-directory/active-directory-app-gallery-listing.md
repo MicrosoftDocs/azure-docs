@@ -3,7 +3,7 @@
    description="How to list an application that supports single sign-on in the Azure Active Directory gallery | Microsoft Azure"
    services="active-directory"
    documentationCenter="dev-center-name"
-   authors="msmbaldwin"
+   authors="bryanla"
    manager="mbaldwin"
    editor=""/>
 

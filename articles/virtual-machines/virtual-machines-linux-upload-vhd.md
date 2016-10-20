@@ -115,7 +115,7 @@ Also see the **[Linux Installation Notes](virtual-machines-linux-create-upload-g
 
 
 ## Create a resource group
-Resource groups logically bring together all the Azure resources to support your virtual machines, such as the virtual networking and storage. Read more about [Azure resource groups here](../resource-group-overview.md). Before uploading your custom disk image and creating VMs, you first need to create a resource group. 
+Resource groups logically bring together all the Azure resources to support your virtual machines, such as the virtual networking and storage. Read more about [Azure resource groups here](../azure-resource-manager/resource-group-overview.md). Before uploading your custom disk image and creating VMs, you first need to create a resource group. 
 
 The following example creates a resource group named `myResourceGroup` in the `WestUS` location:
 
@@ -194,7 +194,7 @@ azure vm create myVM -l "WestUS" --resource-group myResourceGroup \
 You still need to specify, or answer prompts for, all the additional parameters required by the `azure vm create` command such as virtual network, public IP address, username, and SSH keys. Read more about the [available CLI Resource Manager parameters](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines).
 
 ### Create a VM using a JSON template
-Azure Resource Manager templates are JavaScript Object Notation (JSON) files that define the environment you wish to build. The templates are broken down in to different resource providers such as compute or network. You can use existing templates or write your own. Read more about [using Resource Manager and templates](../resource-group-overview.md).
+Azure Resource Manager templates are JavaScript Object Notation (JSON) files that define the environment you wish to build. The templates are broken down in to different resource providers such as compute or network. You can use existing templates or write your own. Read more about [using Resource Manager and templates](../azure-resource-manager/resource-group-overview.md).
 
 Within the `Microsoft.Compute/virtualMachines` provider of your template, you have a `storageProfile` node that contains the configuration details for your VM. The two main parameters to edit are the `image` and `vhd` URIs that point to your custom disk image and your new VM's virtual disk. The following shows an example of the JSON for using a custom disk image:
 
@@ -232,4 +232,4 @@ azure group deployment create --resource-group myResourceGroup
 
 
 ## Next steps
-After you have prepared and uploaded your custom virtual disk, you can read more about [using Resource Manager and templates](../resource-group-overview.md). You may also want to [add a data disk](virtual-machines-linux-add-disk.md) to your new VMs. If you have applications running on your VMs that you need to access, be sure to [open ports and endpoints](virtual-machines-linux-nsg-quickstart.md).
+After you have prepared and uploaded your custom virtual disk, you can read more about [using Resource Manager and templates](../azure-resource-manager/resource-group-overview.md). You may also want to [add a data disk](virtual-machines-linux-add-disk.md) to your new VMs. If you have applications running on your VMs that you need to access, be sure to [open ports and endpoints](virtual-machines-linux-nsg-quickstart.md).
