@@ -28,7 +28,7 @@ Automation is generally available in Azure Government.
 
 ### Variations
 
-The following Automation features are not currently available in Azure Government. This list is updated when the status of features/solutions changes.
+The following Automation features are not currently available in Azure Government.
 
 + Creation of a Service Principle credential for authentication
 
@@ -38,7 +38,7 @@ Log Analytics is generally available in Azure Government.
 
 ### Variations
 
-The following Log Analytics features and solutions are not currently available in Azure Government. This list is updated when the status of features/solutions changes.
+The following Log Analytics features and solutions are not currently available in Azure Government.
 
 + Solutions that are in preview in Microsoft Azure, including:
   - Network Monitoring solution
