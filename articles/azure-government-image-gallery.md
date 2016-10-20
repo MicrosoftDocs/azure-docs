@@ -14,18 +14,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="azure-government"
-   ms.date="06/01/2016"
+   ms.date="10/20/2016"
    ms.author="brendalee"/>
 
 
-#  Microsoft Azure Government Image Gallery
+#  Azure Government Marketplace Images
 
-<p> The Microsoft Azure Government image gallery is a similar experience to public Azure portal.  Customers can choose to deploy pre-built images from Microsoft and our partners, or upload their own VHDs.  This provides flexibility to deploy your own standardized images if needed.
+<p> The Microsoft Azure Government Marketplace is a similar experience to public Azure portal.  Customers can choose to deploy pre-built images from Microsoft and our partners, or upload their own VHDs.  This provides flexibility to deploy your own standardized images if needed.
 
-The below provides a list of available images within the Azure Government image gallery.  Some of the prebuilt images do include pay as you go licensing for specific software.  Please review <a href="http://azure.microsoft.com/pricing/details/virtual-machines/">Virtual Machine Pricing</a> page for more guidance and work with your Microsoft account team or reseller for Azure Government specific pricing.
+The below provides a list of available images within the Azure Government Marketplace.  Some of the prebuilt images do include pay as you go licensing for specific software.  Please review <a href="http://azure.microsoft.com/pricing/details/virtual-machines/">Virtual Machine Pricing</a> page for more guidance and work with your Microsoft account team or reseller for Azure Government specific pricing.
 
+## Azure Government Marketplace Images
 
-## Azure Government Image list
+### All the images below are available via the new Azure Resource Manager
+
+Publisher|Image Name|XXXXXX|OS|
+---|---|---|---|---
+
+### All the images below are available via classic resource provider.
 
 Publisher|Image Name|Description|OS|Disk Size
 ---|---|---|---|---
