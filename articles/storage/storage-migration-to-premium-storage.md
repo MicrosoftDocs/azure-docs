@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/21/2016"
-    ms.author="aungoo"/>
+    ms.date="10/20/2016"
+    ms.author="yuemlu"/>
 
 
 # Migrating to Azure Premium Storage
