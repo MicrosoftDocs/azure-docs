@@ -24,7 +24,7 @@ Provider Usage API to view the usage of their direct tenants. For
 example, P0 can call the Provider API to get usage information on P1's and
 P2's direct usage, and P1 can call for usage information on P3 and P4.
 
-![](media/azure-stack-provider-resource-api/image1.png)
+![Conceptual model of provider hierarchy](media/azure-stack-provider-resource-api/image1.png)
 
 
 ## API call reference
