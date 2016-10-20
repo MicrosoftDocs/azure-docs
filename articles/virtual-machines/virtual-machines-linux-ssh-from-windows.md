@@ -42,12 +42,12 @@ For a more detailed overview, see [public-key cryptography](https://wikipedia.or
 If you do not wish to use SSH keys, you can still log in to your Linux VMs using a password. If your VM is not exposed to the Internet, using passwords may be sufficient. However, you still need to manage your passwords for each Linux VM and maintain healthy password policies and practices, such as minimum password length and regularly updating them. The use of SSH keys reduces the complexity of managing individual credentials across multiple VMs.
 
 
-### Windows SSH clients
+## Windows packages and SSH clients
 
-You connect to and manage Linux VMs in Azure using an **ssh** client. Windows computers do not typically have an **ssh** client installed. Common Windows clients you can install are included in the following packages:
+You connect to and manage Linux VMs in Azure using an **ssh** client. Windows computers do not typically have an **ssh** client installed. Common Windows SSH clients you can install are included in the following packages:
 
-- [puTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
 - [Git For Windows](https://git-for-windows.github.io/)
+- [puTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
 - [MobaXterm](http://mobaxterm.mobatek.net/)
 - [Cygwin](https://cygwin.com/)
 
@@ -68,7 +68,7 @@ Here are the deployment scenarios, and the types of files you use in each:
 
 ## Install Git for Windows
 
-The preceding section listed several utilities that include an `ssh-keygen` and `openssl` for Windows. The following example details how to install **Git for Windows**, though you can choose whichever package you prefer. **Git for Windows** gives you access to some additional open-source software ([OSS](https://en.wikipedia.org/wiki/Open-source_software)) tools and utilities that may be useful as you work with Linux VMs.
+The preceding section listed several packages that include the `openssl` tool for Windows. This tool is needed to create public and private keys. The following examples detail how to install and use **Git for Windows**, though you can choose whichever package you prefer. **Git for Windows** gives you access to some additional open-source software ([OSS](https://en.wikipedia.org/wiki/Open-source_software)) tools and utilities that may be useful as you work with Linux VMs.
 
 1. Download and install **Git for Windows** from the following location: [https://git-for-windows.github.io/](https://git-for-windows.github.io/).
 
@@ -79,7 +79,7 @@ The preceding section listed several utilities that include an `ssh-keygen` and 
     ![Git for Windows Bash shell](./media/virtual-machines-linux-ssh-from-windows/git-bash-window.png)
 
 
-## Create a private key using Git for Windows
+## Create a private key
 
 1. In your **Git Bash** window, use `openssl.exe` to create a private key. The following example creates a key named `myPrivateKey` and certificate named `myCert.pem`:
 
@@ -122,7 +122,7 @@ The preceding section listed several utilities that include an `ssh-keygen` and 
     openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
     ```
 
-## Create a private key for PuTTY ##
+## Create a private key for PuTTY
 
 PuTTY is a common SSH client for Windows. You are free to use any SSH client that you wish. To use PuTTY, you need to create an additional type of key - a PuTTY Private Key (PPK). If you do not wish to use PuTTY, skip this section.
 
