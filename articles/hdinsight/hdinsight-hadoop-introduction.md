@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/20/2016"
+   ms.date="10/21/2016"
    ms.author="cgronlun"/>
 
 
