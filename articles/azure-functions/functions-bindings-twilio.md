@@ -61,31 +61,38 @@ Example function.json:
 
 #### Synchronous
 
-This synchronous example uses an out parameter to send a text to a site admin when a new user requests access to a secured site.
+This synchronous example code for an Azure Storage queue trigger uses an out parameter to send a text message to a customer who placed an order.
 
 	#r "Newtonsoft.Json"
 	#r "Twilio.Api"
+
+	using System;
+	using Newtonsoft.Json;
+	using Twilio;
 
 	public static void Run(string myQueueItem, out SMSMessage message,  TraceWriter log)
 	{
 	    log.Info($"C# Queue trigger function processed: {myQueueItem}");
 	
-		// In this example the queue item is a new user to be processed in the form of a JSON string with 
-		// a "name" value.
-	    dynamic user = JsonConvert.DeserializeObject(myQueueItem);
-	    string msg = "A new user wants to be added - " + user.name;
+		// In this example the queue item is a JSON string representing an order that contains the name of a 
+		// customer and a mobile number to send text updates to.
+	    dynamic order = JsonConvert.DeserializeObject(myQueueItem);
+	    string msg = "Hello " + order.name + ", thank you for your order.";
 	
-		// Even if you want to use a hard coded message in the body value of the binding, you must at least 
+		// Even if you want to use a hard coded message and number in the binding, you must at least 
         // initialize the SMSMessage variable.
 	    message = new SMSMessage();
 
-		// A dynamic message can be set instead of the body in the output binding...
+		// A dynamic message can be set instead of the body in the output binding. In this example, we use 
+		// the order information to personalize a text message to the mobile number provided for
+		// order status updates.
 	    message.Body = msg;
+		message.To = order.mobileNumber;
 	}
 
 #### Asynchronous
 
-This asynchronous example uses an sends a text to a site admin when a new user requests access to a secured site.
+This asynchronous example code for an Azure Storage queue trigger sends a text message to a site admin whenever a new user requests access to a secured site.
 
 	#r "Newtonsoft.Json"
 	#r "Twilio.Api"
@@ -98,14 +105,20 @@ This asynchronous example uses an sends a text to a site admin when a new user r
 	{
 	    log.Info($"C# Queue trigger function processed: {myQueueItem}");
 
-		// In this example the queue item is a new user to be processed in the form of a JSON string with 
-		// a "name" value.
+		// In this example the queue item is a JSON string representing an order that contains the name of a 
+		// customer and a mobile number to send text updates to.
+	    dynamic order = JsonConvert.DeserializeObject(myQueueItem);
+	    string msg = "Hello " + order.name + ", thank you for your order.";
 	
-	    dynamic user = JsonConvert.DeserializeObject(myQueueItem);
-	    string msg = "A new user wants access to your site - " + user.name;
-	
+		// Even if you want to use a hard coded message and number in the binding, you must at least 
+        // initialize the SMSMessage variable.
 	    SMSMessage smsText = new SMSMessage();
+
+		// A dynamic message can be set instead of the body in the output binding. In this example, we use 
+		// the order information to personalize a text message to the mobile number provided for
+		// order status updates.
 	    smsText.Body = msg;
+		smsText.To = order.mobileNumber;
 	    
 	    await message.AddAsync(smsText);
 	}
@@ -118,17 +131,20 @@ This asynchronous example uses an sends a text to a site admin when a new user r
 	module.exports = function (context, myQueueItem) {
 	    context.log('Node.js queue trigger function processed work item', myQueueItem);
 	
-		// In this example the queue item is a new user to be processed in the form of a JSON string with 
-		// a "name" value.
-
-	    var msg = "A new user has requested site access - " + myQueueItem.name;
+		// In this example the queue item is a JSON string representing an order that contains the name of a 
+		// customer and a mobile number to send text updates to.
+	    var msg = "Hello " + myQueueItem.name + ", thank you for your order.";
 	
-	    // If you want to use the body value set on the binding, only initialize the message...
+		// Even if you want to use a hard coded message and number in the binding, you must at least 
+        // initialize the message binding.
 	    context.bindings.message = {};
 	
-	    // If you want to set the message dynamically, set the body in the message...
+		// A dynamic message can be set instead of the body in the output binding. In this example, we use 
+		// the order information to personalize a text message to the mobile number provided for
+		// order status updates.
 	    context.bindings.message = {
-	        body : msg
+	        body : msg,
+	        to : myQueueItem.mobileNumber
 	    };
 	
 	    context.done();
