@@ -4,7 +4,7 @@
    services="backup"
    documentationCenter=""
    authors="genlin"
-   manager="jwhit"
+   manager="cfreeman"
    editor=""/>
 
 <tags

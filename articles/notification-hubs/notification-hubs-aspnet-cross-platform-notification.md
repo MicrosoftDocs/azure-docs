@@ -49,7 +49,7 @@ Complete the following steps to send cross-platform notifications using template
                 registration = new AppleTemplateRegistrationDescription(deviceUpdate.Handle, alertTemplate);
                 break;
             case "gcm":
-                var messageTemplate = "{\"data\":{\"msg\":\"$(message)\"}}";
+                var messageTemplate = "{\"data\":{\"message\":\"$(message)\"}}";
                 registration = new GcmTemplateRegistrationDescription(deviceUpdate.Handle, messageTemplate);
                 break;
             default:
