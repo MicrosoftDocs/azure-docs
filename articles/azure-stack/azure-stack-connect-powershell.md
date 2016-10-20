@@ -38,7 +38,7 @@ In this guide, we walk through the steps for connecting to Azure Stack with Powe
 	    Get-Command -Module AzureRM.AzureStackAdmin
 
 ## Connect to Azure Stack
-A module is available for download which handles configuring the PowerShell connection to Azure Stack for you.  Visit [Azure Stack Tools](http://aka.ms/ConnectToAzureStackPS) for the module and additional steps. 
+A module is available for download that handles configuring the PowerShell connection to Azure Stack for you.  Visit [Azure Stack Tools](http://aka.ms/ConnectToAzureStackPS) for the module and additional steps. 
 
 ## Retrieve a list of subscriptions
 In this section, you verify PowerShell cmdlets are running against Azure Stack by retrieving and selecting a subscription for use.
