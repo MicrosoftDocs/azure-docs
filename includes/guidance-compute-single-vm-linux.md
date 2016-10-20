@@ -48,8 +48,6 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 - For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid-state drives (SSDs). Cost is based on the size of the provisioned disk. IOPS and throughput (that is, data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). 
 
-- One storage account can support 1 to 20 VMs.
-
 - Add one or more data disks. When you create a VHD, it is unformatted. Log in to the VM to format the disk. The data disks show as `/dev/sdc`, `/dev/sdd`, and so on. You can run `lsblk` to list the block devices, including the disks. To use a data disk, create a partition and file system, and mount the disk. For example:
 
     ```bat
@@ -64,7 +62,7 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
     sudo mount /dev/sdc1 /data1
     ```
 
-- If you have many of data disks, be aware of the total I/O limits of the storage account. For more information, see [Virtual Machine Disk Limits][vm-disk-limits].
+- Be aware of the total I/O limits of the storage account. For more information, see [Scalability targets for virtual machine disks][storage-scalability] and [Azure Premium Storage: Design for High Performance][premium-storage].
 
 - When you add a data disk, a logical unit number (LUN) ID is assigned to the disk. Optionally, you can specify the LUN ID &mdash; for example, if you're replacing a disk and want to retain the same LUN ID, or you have an app that looks for a specific LUN ID. However, remember that LUN IDs must be unique for each disk.
 
@@ -202,14 +200,12 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [ssh-linux]: ../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
+[storage-scalability]: ../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks
 [virtual-machine-sizes]: ../articles/virtual-machines/virtual-machines-linux-sizes.md
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
-[arm-templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm
-[azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
-[components]: #Solution-components
 [blocks]: https://github.com/mspnp/template-building-blocks
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Single Linux VM architecture in Azure"
 
