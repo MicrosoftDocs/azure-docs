@@ -273,7 +273,7 @@ The [MultiInstanceTasks][github_mpi] code sample on GitHub demonstrates how to u
 
 >[AZURE.TIP] You can download [Visual Studio Community][visual_studio] for free if you do not have Visual Studio.
 
-Output from `MultiInstanceTask.exe` is similar to the following:
+Output from `MultiInstanceTasks.exe` is similar to the following:
 
 ```
 Creating pool [MultiInstanceSamplePool]...
