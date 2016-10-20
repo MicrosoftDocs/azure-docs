@@ -23,7 +23,7 @@
 - [Resource Manager](backup-azure-manage-windows-server.md)
 - [Classic](backup-azure-manage-windows-server-classic.md)
 
-In this article you'll find an overview of the backup management tasks available through the Azure management portal and the Microsoft Azure Backup agent.
+In this article you'll find an overview of the backup management tasks available through the Azure portal and the Microsoft Azure Backup agent.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
@@ -64,7 +64,7 @@ From the top of the Dashboard:
 | Alert Level  | Alerts sent |
 | ------------- | ------------- |
 | Critical | Backup failure, recovery failure  |
-| Warning  | Backup completed with warnings (when less than hundred files are not backed up due to corruption issues and more than a million of files are successfully backed up)  |
+| Warning  | Backup completed with warnings (when fewer than one hundred files are not backed up due to corruption issues, and more than one million files are successfully backed up)  |
 | Informational  | None  |
 ## Manage Backup alerts
 Click the **Backup Alerts** tile to open the **Backup Alerts** blade and manage alerts.
@@ -82,7 +82,7 @@ From the Backup Alerts blade, you:
 
 - Choose the appropriate information to include with your alerts.
 
-    ![Choose colunms](./media/backup-azure-manage-windows-server/choose-alerts-colunms.png)
+    ![Choose columns](./media/backup-azure-manage-windows-server/choose-alerts-colunms.png)
 
 - Filter alerts for severity, status and start/end times.
 
@@ -119,7 +119,7 @@ The Backup Items blade opens with the filter set to File-Folder where you see ea
 
 ![Backup items](./media/backup-azure-manage-windows-server/backup-item-list.png)
 
-If you click a specific backup items from the list, you see the essential details for that item.
+If you select a specific backup item from the list, you see the essential details for that item.
 
 >[AZURE.NOTE] From the **Settings** blade, you manage files and folders by selecting **Protected Items > Backup Items** and then selecting **File-Folders** from the drop down menu.
 
@@ -219,15 +219,15 @@ To enable throttling:
 
 1. In the **Backup agent**, click **Change Properties**.
 
-2. Select the **Enable internet bandwidth usage throttling for backup operations** checktile.
+2. On the **Throttling tab, select **Enable internet bandwidth usage throttling for backup operations**.
 
     ![Network throttling](./media/backup-azure-manage-windows-server/throttling-dialog.png)
 
-3. Once you have enabled throttling, specify the allowed bandwidth for backup data transfer during **Work hours** and **Non-work hours**.
+    Once you have enabled throttling, specify the allowed bandwidth for backup data transfer during **Work hours** and **Non-work hours**.
 
     The bandwidth values begin at 512 kilobytes per second (Kbps) and can go up to 1023 megabytes per second (Mbps). You can also designate the start and finish for **Work hours**, and which days of the week are considered Work days. The time outside of the designated Work hours is considered to be non-work hours.
 
-4. Click **OK**.
+3. Click **OK**.
 
 ## Manage exclusion settings
 
@@ -288,7 +288,7 @@ A3. Below are the cases when the notification will not be sent in order to reduc
 
    - If notifications are configured hourly and an alert is raised and resolved within the hour
    - Job is canceled.
-   - Second backup job failed becuase original backup job is in progress.
+   - Second backup job failed because original backup job is in progress.
 
 ## Troubleshooting Monitoring Issues
 
