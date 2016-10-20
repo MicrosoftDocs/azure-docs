@@ -83,8 +83,8 @@ You should see the LED blinking every two seconds as the gulp task is sending 20
 
 ## 4.1.6 Summary
 
-You’ve successfully sent messages from your IoT hub to your Pi to blink the LED. Next section is complementary reading that shows you how to change the on and off behavior of the LED.
+You’ve successfully sent messages from your IoT hub to your Pi to blink the LED. Next section is optional section that shows you how to change the on and off behavior of the LED.
 
 ## Next Steps
 
-[Complementary reading: Change the on and off behavior of the LED](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
+[Optional section: Change the on and off behavior of the LED](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)

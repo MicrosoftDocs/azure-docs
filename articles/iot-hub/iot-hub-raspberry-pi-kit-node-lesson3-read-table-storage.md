@@ -44,7 +44,7 @@ To read messages stored in your Azure Table storage, follow these steps:
     az storage account show-connection-string -g iot-sample -n {storage name}
     ```
 
-    The first command retrieves the `storage name` that is used in the second command to get the connection string. 
+    The first command retrieves the `storage name` that is used in the second command to get the connection string. `iot-sample` is the default value of `{resource group name}` if you didn't change the value in Lesson 2.
 
 2. Open the configuration file `config-raspberrypi.json` file in Visual Studio Code by running the following command:
 

@@ -38,7 +38,7 @@ The device connection string is used to connect the Pi to your IoT hub. The IoT 
 - Get the IoT hub connection string by running the following Azure CLI command:
 
 ```bash
-az iot hub show-connection-string --name {my hub name} --resource-group {resource group name}
+az iot hub show-connection-string --name {my hub name} --resource-group iot-sample
 ```
 
 `{my hub name}` is the name that you specified in Lesson 2. Use `iot-sample` as the value of `{resource group name}` if you didn't change the value in Lesson 2.
@@ -46,10 +46,10 @@ az iot hub show-connection-string --name {my hub name} --resource-group {resourc
 - Get the device connection string by running the following command:
 
 ```bash
-az iot device show-connection-string --hub {my hub name} --device-id {device id} --resource-group {resource group name}
+az iot device show-connection-string --hub {my hub name} --device-id myraspberrypi --resource-group iot-sample
 ```
 
-`{my hub name}` and `{resource group name}` take the same value as the ones used with the preceding command. Use `myraspberrypi` as the value of `{device id}` if you didn't change the value in Lesson 2.
+// `{my hub name}` takes the same value as the one used with the preceding command. Use `iot-sample` as the value of `{resource group name}` and use `myraspberrypi` as the value of `{device id}` if you didn't change the value in Lesson 2.
 
 ## 3.2.5 Configure the device connection
 

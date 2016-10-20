@@ -107,5 +107,5 @@ Congratulations! You’ve successfully customized the messages that are sent to 
 
 ### 4.2.7 Summary
 
-This complementary reading demos how to customize the messages so that the sample application can control the on and off behavior of the LED in a different way.
+This optional section demos how to customize the messages so that the sample application can control the on and off behavior of the LED in a different way.
 
