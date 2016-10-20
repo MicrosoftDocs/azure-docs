@@ -24,9 +24,9 @@
 
 ## What is Hadoop on HDInsight?
 
-Hadoop refers to an ecosystem of open-source software that is a framework for distributed processing, storing, and analysis of big data sets on clusters of computers. Apache Hadoop was the original open-source project for big data processing. Development of related technologies followed, including Apache Hive, Apache HBase, Apache Spark, and others that are considered part of the Hadoop technology stack. See [Overview of the Hadoop ecosystem in HDInsight](#overview) below for details.
+Hadoop refers to an ecosystem of open-source software that is a framework for distributed processing, storing, and analysis of big data sets on clusters of computers. Azure HDInsight makes the Hadoop components from the **Hortonworks Data Platform (HDP)** distribution available in the cloud, and deploys and provisions managed clusters with high reliability and availability.  
 
-Azure HDInsight makes the Hadoop components from the **Hortonworks Data Platform (HDP)** distribution available in the cloud, and deploys and provisions managed clusters with high reliability and availability.  
+Apache Hadoop was the original open-source project for big data processing. Following was the development of related software and utilities considered part of the Hadoop technology stack, including Apache Hive, Apache HBase, Apache Spark, and many others. See [Overview of the Hadoop ecosystem in HDInsight](#overview) for details.
 
 ## What is big data?
 
