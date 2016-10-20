@@ -25,11 +25,13 @@ In this document, you will learn how to create a basic C# Storm topology that tr
 
 ## Prerequisites
 
--	Visual Studio and the HDInsight tools for Visual Studio: See [Get started using the HDInsight tools for Visual Studio](../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md) for installation information.
+- Visual Studio and the HDInsight tools for Visual Studio: See [Get started using the HDInsight tools for Visual Studio](../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md) for installation information.
 
--	Apache Storm on HDInsight cluster (Windows-based). This runs the Storm topology, which processes incoming data and stores it to HBase.
+- Apache Storm on HDInsight cluster (Windows-based). This runs the Storm topology, which processes incoming data and stores it to HBase.
 
--	Apache HBase on HDInsight cluster (Linux or Windows-based). This is the data store for this example.
+    > [AZURE.IMPORTANT] While SCP.NET topologies are supported on Linux-based Storm clusters created after 10/20/2016, the HBase SDK for .NET package available as of 10/20/2016 does not work correctly on Linux.
+
+- Apache HBase on HDInsight cluster (Linux or Windows-based). This is the data store for this example.
 
 ## Architecture
 

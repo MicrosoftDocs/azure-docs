@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/14/2016"
+   ms.date="10/19/2016"
    ms.author="larryfr"/>
 
 # Develop C# topologies for Apache Storm on HDInsight using Hadoop tools for Visual Studio
@@ -23,13 +23,13 @@ Learn how to create a C# Storm topology by using the HDInsight tools for Visual 
 
 You will also learn how to create hybrid topologies that use C# and Java components.
 
-> [AZURE.NOTE] While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to either a Linux or Windows-based HDInsight cluster.
+> [AZURE.IMPORTANT] While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to either a Linux or Windows-based HDInsight cluster. Only Linux-based clusters created after 10/20/2016 support SCP.NET topologies.
 >
 > To use a C# topology with a Linux-based cluster, you must update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or higher. The version of the package must also match the major version of Storm installed on HDInsight. For example, Storm on HDInsight versions 3.3 and 3.4 use Storm version 0.10.x, while HDInsight 3.5 uses Storm 1.0.x.
 > 
 > C# topologies on Linux-based clusters must use .NET 4.5, and use Mono to run on the HDInsight cluster. Most things will work, however you should check the [Mono Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
 
-##Prerequisites
+## Prerequisites
 
 -	One of the following versions of Visual Studio
 
@@ -47,7 +47,7 @@ You will also learn how to create hybrid topologies that use C# and Java compone
 
 -	Apache Storm on HDInsight cluster: See [Getting started with Apache Storm on HDInsight](hdinsight-apache-storm-tutorial-get-started.md) for steps to create a cluster.
 
-##Templates
+## Templates
 
 The HDInsight Tools for Visual Studio provide the following templates::
 
@@ -68,7 +68,7 @@ The HDInsight Tools for Visual Studio provide the following templates::
 
 In the steps in this document, you will use the basic Storm Application project type to create a new topology.
 
-##Create a C# topology
+## Create a C# topology
 
 1.	If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see [Get started using HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
@@ -92,7 +92,7 @@ In the steps in this document, you will use the basic Storm Application project 
 
 In the next sections, you will modify this project into a basic WordCount application.
 
-###Implement the spout
+### Implement the spout
 
 1.	Open **Spout.cs**. Spouts are used to read data in a topology from an external source. The main components for a spout are:
 
@@ -162,7 +162,7 @@ In the next sections, you will modify this project into a basic WordCount applic
     
     Take a moment to read through the comments to understand what this code does.
 
-###Implement the bolts
+### Implement the bolts
 
 1.	Delete the existing **Bolt.cs** file from the project.
 
@@ -276,7 +276,7 @@ In the next sections, you will modify this project into a basic WordCount applic
 
 	Take a moment to read through the comments to understand what this code does.
 
-###Define the topology
+### Define the topology
 
 Spouts and bolts are arranged in a graph, which defines how the data flows between components. For this topology, the graph is as follows:
 
@@ -345,7 +345,7 @@ Open **Program.cs**. The important method is **ITopologyBuilder**, which is used
 
 Take a moment to read through the comments to understand what this code does.
 
-##Submit the topology
+## Submit the topology
 
 1.	In **Solution Explorer**, right-click the project, and select **Submit to Storm on HDInsight**.
 
@@ -363,7 +363,7 @@ Take a moment to read through the comments to understand what this code does.
 
 	> [AZURE.NOTE] Storm topologies continue to run until they are deactivated, or the cluster is deleted.
 
-##Transactional topology
+## Transactional topology
 
 The previous topology is non-transactional. The components within the topology do not implement any functionality for replaying messages if processing fails by a component in the topology. For an example transactional topology, create a new project and select **Storm Sample** as the project type.
 
@@ -383,7 +383,7 @@ Transactional topologies implement the following to support replay of data:
 
 As demonstrated in the **Storm Sample** project, whether a component is transactional can be set at run time, based on configuration.
 
-##Hybrid topology
+## Hybrid topology
 
 HDInsight tools for Visual Studio can also be used to create hybrid topologies, where some components are C# and others are Java.
 
@@ -411,7 +411,7 @@ Consider the following when creating and submitting a hybrid topology:
 
 -	When submitting the topology to the server, you must use the **Additional configurations** option to specify the **Java File paths**. The path specified should be the directory that contains the JAR files that contain your Java classes.
 
-###Azure Event Hubs
+### Azure Event Hubs
 
 SCP.Net version 0.9.4.203 introduces a new class and method specifically for working with the Event Hub Spout (a Java spout that reads from Event Hub.) When creating a topology that uses this spout, use the following methods:
 
@@ -421,7 +421,40 @@ SCP.Net version 0.9.4.203 introduces a new class and method specifically for wor
 
 > [AZURE.NOTE] While these make it easier to work with the Event Hub Spout than other Java components, you must still use the CustomizedInteropJSONSerializer to serialize data produced by the spout.
 
-##How to update SCP.NET
+## <a id="configurationmanager></a>Using ConfigurationManager
+
+Don't use ConfigurationManager to retreive configuration values from bolt and spout components; this will lead to a null pointer exception. Instead, the configuration for your project is passed into the Storm topology as a key/value pair in the topology context. Each component that relies on configuration values must retrieve them from the context during initialization.
+
+The following code demonstrates how to retrieve these values:
+
+    public class MyComponent : ISCPBolt
+    {
+        // To hold configuration information loaded from context
+        Configuration configuration;
+        ...
+        public MyComponent(Context ctx, Dictionary<string, Object> parms)
+        {
+            // Save a copy of the context for this component instance
+            this.ctx = ctx;
+            // If it exists, load the configuration for the component
+            if(parms.ContainsKey(Constants.USER_CONFIG))
+            {
+                this.configuration = parms[Constants.USER_CONFIG] as System.Configuration.Configuration;
+            }
+            // Retrieve the value of "Foo" from configuration
+            var foo = this.configuration.AppSettings.Settings["Foo"].Value;
+        }
+        ...
+    }
+
+If you use a `Get` method to return an instance of your component, you must ensure that it passes both the `Context` and `Dictionary<string, Object>` parameters to the constructor. The following example is a basic `Get` method that properly passes these values:
+
+    public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
+    {
+        return new MyComponent(ctx, parms);
+    }
+
+## How to update SCP.NET
 
 Recent releases of SCP.NET support package upgrade through NuGet. When a new update is available, you will receive an upgrade notification. To manually check for an upgrade, perform these steps:
 
@@ -434,27 +467,15 @@ Recent releases of SCP.NET support package upgrade through NuGet. When a new upd
 > 1. In **Solution Explorer**, right-click the project and select **Manage NuGet Packages**.
 > 2. Using the **Search** field, search for, and then add, **Microsoft.SCP.Net.SDK** to the project.
 
-##Troubleshooting
+## Troubleshooting
 
 ### Null pointer exceptions
 
-When using a C# topology with a Linux-based HDInsight cluster, components that use ConfigurationManager to read configuration settings at runtime may return null pointer exceptions. This happens because the configuration for the loaded domain is not from the assembly that contains your project.
+When using a C# topology with a Linux-based HDInsight cluster, bolt and spout components that use ConfigurationManager to read configuration settings at runtime may return null pointer exceptions. This happens because the configuration for the loaded domain is not from the assembly that contains your project.
 
 The configuration for your project is passed into the Storm topology as a key/value pair in the topology context, and can be retrieved from the dictionary object that is passed to your components when they are initialized.
 
-The following example demonstrates loading the configuration values from the topology context:
-
-    public myComponent (Context ctx, Dictionary<string, Object> parms)
-        {
-            // Save a copy of the context for this component instance
-            this.ctx = ctx;
-            // If it exists, load the configuration for the component
-            if(params.ContainsKey(Constants.USER_CONFIG))
-            {
-                this.configuration = parms[Constants.USER_CONFIG] as System.Configuration.Configuration;
-            }
-            ...
-        }
+The following example demonstrates loading the configuration values from the topology context, see the [ConfigurationManager](#configurationmanager) section of this document.
 
 ### System.TypeLoadException
 
@@ -594,7 +615,7 @@ Although testing a basic word count application locally is pretty trivial, the r
 
 > [AZURE.NOTE] Be sure to set the **Project type** back to **Class Library** before deploying to a Storm on HDInsight cluster.
 
-###Log information
+### Log information
 
 You can easily log information from your topology components by using `Context.Logger`. For example, the following will create an informational log entry:
 
@@ -604,7 +625,7 @@ Logged information can be viewed from the **Hadoop Service Log**, which is found
 
 > [AZURE.NOTE] The logs are stored in the Azure Storage account that is used by your cluster. If this is a different subscription than the one you are logged in to with Visual Studio, you need to log in to the subscription that contains the storage account to view this information.
 
-###View error information
+### View error information
 
 To view errors that have occurred in a running topology, use the following steps:
 
@@ -616,7 +637,7 @@ To view errors that have occurred in a running topology, use the following steps
 
 4.	To obtain more information, select a **Port** from the **Executors** section of the page to see the Storm worker log for the last few minutes.
 
-##Next steps
+## Next steps
 
 Now that you have learned how to develop and deploy Storm topologies from the HDInsight tools for Visual Studio, learn how to [Process events from Azure Event Hub with Storm on HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md).
 
