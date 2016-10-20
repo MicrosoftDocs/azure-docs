@@ -16,6 +16,20 @@
 	ms.date="10/20/2016"
 	ms.author="scooxl"/>
 #  Azure Government Management and Security
+
+## Automation
+
+Automation is generally available in Azure Government.
+
+### Variations
+
+The following Automation features are not currently available in Azure Government.
+
++ Creation of a Service Principle credential for authentication
+
+For more information, see [Automation public documentation](../automation/automation-intro.md).
+
+
 ##  Key Vault
 For details on this service and how to use it, see the <a href="https://azure.microsoft.com/documentation/services/key-vault">Azure Key Vault public documentation. </a>
 ### Data Considerations
