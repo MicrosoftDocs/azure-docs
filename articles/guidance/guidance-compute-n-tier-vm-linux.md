@@ -147,7 +147,7 @@ Simplify management of the entire system by using centralized administration too
 A deployment for a reference architecture that implements these recommendations is available on [Github][github-folder]. This reference architecture includes a web tier, business tier, and a data tier.
 
 1. Click the button below.  
-[[1]][2]
+[!["Deploy To Azure"][1]][2]
 
 2. Once the link has opened in the Azure portal, enter the follow values: 
   - The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-ntier-sql-network-rg` in the text box.
@@ -201,7 +201,7 @@ To achieve high availability for this reference architecture, we recommend [depl
 [Zabbix]: http://www.zabbix.com/
 [Icinga]: http://www.icinga.org/
 [0]: ./media/blueprints/compute-n-tier-linux.png "N-tier architecture using Microsoft Azure"
-[1]: http://azuredeploy.net/deploybutton.png "Deploy To Azure"
+[1]: http://azuredeploy.net/deploybutton.png 
 [2]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-n-tier%2Fazuredeploy.json
 
 
