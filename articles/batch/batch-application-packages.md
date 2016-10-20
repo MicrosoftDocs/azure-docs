@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="10/10/2016"
+	ms.date="10/21/2016"
 	ms.author="marsma" />
 
 # Application deployment with Azure Batch application packages
