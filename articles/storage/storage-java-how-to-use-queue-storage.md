@@ -3,8 +3,8 @@
 	description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Java."
 	services="storage"
 	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
+	authors="robinsh"
+	manager="carmonm"
 	editor="tysonn"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="cbrooks;robmcm"/>
+	ms.author="robinsh"/>
 
 # How to use Queue storage from Java
 

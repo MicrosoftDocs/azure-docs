@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/11/2016"
+	ms.date="10/17/2016"
 	ms.author="bwren"/>
 
 
@@ -152,6 +152,15 @@ But, if you then made this next submission, Log Analytics would create the new p
 If you then submitted the following entry, before the record type was created, Log Analytics would create a record with three properties, **number_s**, **boolean_s**, and **string_s**. In this entry, each of the initial values is formatted as a string:
 
 ![Sample record 4](media/log-analytics-data-collector-api/record-04.png)
+
+
+## Data limits
+There are some constraints around the data posted to the Log Analytics Data collection API.
+
+- Maximum of 30 MB per post to Log Analytics Data Collector API. This is a size limit for a single post. If the data from a single post that exceeds 30 MB, you should split the data up to smaller sized chunks and send them concurrently. 
+- Maximum of 32 KB limit for field values. If the field value is greater than 32 KB, the data will be truncated. 
+- Recommended maximum number of fields for a given type is 50. This is a practical limit from a usability and search experience perspective.  
+
 
 ## Return codes
 

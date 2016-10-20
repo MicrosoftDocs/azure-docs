@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="06/27/2016" 
+	ms.date="10/17/2016" 
 	ms.author="liamca"/>
 
 # Azure Search performance and optimization considerations

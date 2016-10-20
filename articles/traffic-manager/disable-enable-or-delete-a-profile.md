@@ -6,14 +6,15 @@
    authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="traffic-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"   
-   ms.date="06/10/2016"
+   ms.workload="infrastructure-services"
+   ms.date="10/18/2016"
    ms.author="sewhee" />
+<!-- repub for nofollow -->
 
 # Disable, Enable, or Delete a Profile
 
@@ -38,7 +39,7 @@ You can disable an existing Traffic Manager profile so that it will not refer us
 
 
 1. Ensure that the DNS resource record on your Internet DNS server no longer uses a CNAME resource record that points to the domain name of your Traffic Manager profile.
-1. Select the profile that you want to delete. To select the profile, on the Traffic Manager page, highlight the profile by 
+1. Select the profile that you want to delete. To select the profile, on the Traffic Manager page, highlight the profile by
 1. clicking the column next to the profile. Do not click the name of the profile or the arrow next to the name, as this will take you to the settings page for the profile.
 1. After selecting the profile, click Delete at the bottom of the page.
 
