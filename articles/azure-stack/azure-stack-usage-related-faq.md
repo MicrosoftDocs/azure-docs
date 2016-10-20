@@ -81,4 +81,11 @@ Currently, you can query *only by Reported Time*.
 | 400/Bad Request        | *SubscriberIdIsNotDirectTenant*    | A provider API call used a subscription ID that is not a valid tenant of the caller.
 | 400/Bad Request        | *SubscriptionIdMissingInRequest*   | The subscription ID of the caller is missing.
 | 400/Bad Request        | *InvalidAggregationGranularity*   | An invalid aggregation granularity was requested. Valid values are daily and hourly.
-| 503                    | *ServiceUnavailable*   | A retryable error occurred because the service is busy or the call is being throttled.
+| 503                    | *ServiceUnavailable*   | A retryable error occurred because the service is busy or the call is being throttled. |
+
+## Next Steps
+[Customer billing and chargeback in Azure Stack](azure-stack-billing-and-chargeback.md)
+
+[Provider Resource Usage API](azure-stack-provider-resource-api.md)
+
+[Tenant Resource Usage API](azure-stack-tenant-resource-usage-api.md)
