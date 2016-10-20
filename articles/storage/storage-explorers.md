@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2016"
-	ms.author="micurd;tamram"/>
+	ms.date="10/18/2016"
+	ms.author="micurd"/>
 
 # Azure Storage Client Tools
 
