@@ -17,17 +17,13 @@
 	ms.author="erikje"/>
 
 # Connect to Azure Stack
-After completing the installation of Azure Stack, you must connect to deploy and manage resources.  This guide provides connectivity options and steps for connecting to your Azure Stack POC.
+To manage resources, you must connect to the Azure Stack POC machine. You can use either of the following connection options:
 
-## Connectivity options
-Much like public cloud resources have different connectivity options, Azure Stack resources have similar options even though they reside on your local network.  This document walks through two approaches for connecting to Azure Stack.  Each of the following options has advantages and disadvantages, and you are not limited using one single method.
-
- - Virtual Private Network (VPN) connection allows multiple users to connect from a client outside of the Azure Stack infrastructure but does require configuration.
- - Remote Desktop allows you to connect to a client VM running on Azure Stack.
-
+ - Remote Desktop: lets a single concurrent user quickly connect.
+ - Virtual Private Network (VPN):  lets multiple concurrent users connect from a client outside of the Azure Stack infrastructure (requires configuration).
 
 ## Remote Desktop
-Remote Desktop connects you to a VM running on Azure Stack where you can install tools, work within the portal, and perform administrative actions.  This option is limited to a single user at a time, which makes it a good option if you are the only person evaluating Azure Stack services. To connect with Remote Desktop, use the following steps:
+With a Remote Desktop connection, a single concurrent user can install tools, work with the portal, and perform administrative actions. To connect with Remote Desktop, use the following steps:
 
 1.  Log in to the Azure Stack POC physical machine.
 
