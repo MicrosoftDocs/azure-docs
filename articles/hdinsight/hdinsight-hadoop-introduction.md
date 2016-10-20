@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/21/2016"
+   ms.date="10/20/2016"
    ms.author="cgronlun"/>
 
 
@@ -24,7 +24,7 @@
 
 ## What is Hadoop in HDInsight?
 
-Hadoop refers to an ecosystem of open-source software that is a framework for distributed processing, storing, and analysis of big data sets on clusters of computers. First was the open-source project Apache Hadoop, then came related technologies including Apache Hive, Apache HBase, Apache Spark, and others that are generally included in the Hadoop technology stack. See [Overview of the Hadoop ecosystem in HDInsight](#overview) below for details.
+Hadoop refers to an ecosystem of open-source software that is a framework for distributed processing, storing, and analysis of big data sets on clusters of computers. Apache Hadoop was the original open-source project for big data processing. Development of related technologies followed, including Apache Hive, Apache HBase, Apache Spark, and others that are considered part of the Hadoop technology stack. See [Overview of the Hadoop ecosystem in HDInsight](#overview) below for details.
 
 Azure HDInsight makes the Hadoop components from the **Hortonworks Data Platform (HDP)** distribution available in the cloud, and deploys and provisions managed clusters with high reliability and availability.  
 
@@ -32,7 +32,7 @@ Azure HDInsight makes the Hadoop components from the **Hortonworks Data Platform
 
 Big data describes any large body of digital information, from the text in a Twitter feed, to the sensor information from industrial equipment, to information about customer browsing and purchases on a website. Big data can be historical (meaning stored data) or real-time (meaning streamed directly from the source). Big data is being collected in ever-escalating volumes, at increasingly higher velocities, and in an expanding variety formats.
 
-For big data to provide actionable intelligence or insight, not only must you collect relevant data and ask the right questions, but you must also make sure the data is accessible, cleaned, analyzed, and then presented in a useful way. That's where big data analysis on Hadoop in HDInsight can help.
+For big data to provide actionable intelligence or insight, you must collect relevant data and ask the right questions. You must also make sure the data is accessible, cleaned, analyzed, and then presented in a useful way. That's where big data analysis on Hadoop in HDInsight can help.
 
 ## <a name="overview"></a>Overview of the Hadoop ecosystem in HDInsight
 
@@ -42,13 +42,13 @@ HDInsight is a cloud distribution on Microsoft Azure of the rapidly expanding Ap
 
 HDInsight provides cluster configurations for Apache Hadoop, Spark, HBase, or Storm. Or, you can [customize clusters with script actions](hdinsight-hadoop-customize-cluster-linux.md).
 
-* **Hadoop** (the "Query" workload): Provides reliable data storage with [HDFS](#hdfs), and a simple [MapReduce](#mapreduce) programming model to process and analyze data in parallel.
+* **Hadoop**: Provides reliable data storage with [HDFS](#hdfs), and a simple [MapReduce](#mapreduce) programming model to process and analyze data in parallel.
 
 * **<a target="_blank" href="http://spark.apache.org/">Apache Spark</a>**: A parallel processing framework that supports in-memory processing to boost the performance of big-data analysis applications, Spark works for SQL, streaming data, and machine learning. See [Overview: What is Apache Spark in HDInsight?](hdinsight-apache-spark-overview.md)
 
-* **<a target="_blank" href="http://hbase.apache.org/">HBase</a>** (the "NoSQL" workload): A NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semi-structured data - potentially billions of rows times millions of columns. See [Overview of HBase on HDInsight](hdinsight-hbase-overview.md).
+* **<a target="_blank" href="http://hbase.apache.org/">HBase</a>**: A NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semi-structured data - potentially billions of rows times millions of columns. See [Overview of HBase on HDInsight](hdinsight-hbase-overview.md).
 
-* **<a  target="_blank" href="https://storm.incubator.apache.org/">Apache Storm</a>** (the "Stream" workload): A distributed, real-time computation system for processing large streams of data fast. Storm is offered as a managed cluster in HDInsight. See [Analyze real-time sensor data using Storm and Hadoop](hdinsight-storm-sensor-data-analysis.md).
+* **<a  target="_blank" href="https://storm.incubator.apache.org/">Apache Storm</a>**: A distributed, real-time computation system for processing large streams of data fast. Storm is offered as a managed cluster in HDInsight. See [Analyze real-time sensor data using Storm and Hadoop](hdinsight-storm-sensor-data-analysis.md).
 
 ### Example customization scripts
 
@@ -67,7 +67,7 @@ The following example scripts are provided by the HDInsight team:
 For information on developing your own Script Actions, see [Script Action development with HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 
-## What are the Hadoop components and utilties?
+## What are the Hadoop components and utilities?
 
 The following components and utilities are included on HDInsight clusters.
 
@@ -77,7 +77,7 @@ The following components and utilities are included on HDInsight clusters.
 
 * **[Hive & HCatalog](#hive)**: Structured Query Language (SQL)-like querying, and a table and storage management layer.
 
-* **[Mahout](#mahout)**: Machine learning.
+* **[Mahout](#mahout)**: For scalable machine learning applications.
 
 * **[MapReduce](#mapreduce)**: Legacy framework for Hadoop distributed processing and resource management. See [YARN](#yarn), the next-generation resource framework.
 
