@@ -49,7 +49,7 @@ az iot hub show-connection-string --name {my hub name} --resource-group iot-samp
 az iot device show-connection-string --hub {my hub name} --device-id myraspberrypi --resource-group iot-sample
 ```
 
-// `{my hub name}` takes the same value as the one used with the preceding command. Use `iot-sample` as the value of `{resource group name}` and use `myraspberrypi` as the value of `{device id}` if you didn't change the value in Lesson 2.
+`{my hub name}` takes the same value as the one used with the preceding command. Use `iot-sample` as the value of `{resource group name}` and use `myraspberrypi` as the value of `{device id}` if you didn't change the value in Lesson 2.
 
 ## 3.2.5 Configure the device connection
 

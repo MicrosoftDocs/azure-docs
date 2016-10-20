@@ -52,18 +52,18 @@ In this section, you deploy a sample application on your Raspberry Pi 3. The sam
 
 2. Initialize the configuration file with the following commands:
 
-  ```bash
-  npm install
-  gulp init
-  ```
+    ```bash
+    npm install
+    gulp init
+    ```
 
-  If you've completed Lesson 3 on this computer, all the configurations are inherited so you can skip to step 4.1.5. If you completed Lesson 3 on a different computer, you need to replace the placeholders in the `config-raspberrypi.json` file. The `config-raspberrypi.json` file is in the subfolder of your home folder.
+    If you've completed Lesson 3 on this computer, all the configurations are inherited so you can skip to step 4.1.5. If you completed Lesson 3 on a different computer, you need to replace the placeholders in the `config-raspberrypi.json` file. The `config-raspberrypi.json` file is in the subfolder of your home folder.
 
-  ![Config](media/iot-hub-raspberry-pi-lessons/lesson4/config_raspberrypi.png)
+    ![Config](media/iot-hub-raspberry-pi-lessons/lesson4/config_raspberrypi.png)
 
-  - Replace **[device hostname or IP address]** with your Pi’s IP address or hostname that you get by running the command `devdisco list --eth`
-  - Replace **[IoT device connection string]** with the device connection string that you get by running the command `az iot hub show-connection-string --name {my hub name} --resource-group {resource group name}`.
-  - Replace **[IoT hub connection string]** with the IoT hub connection string that you get by running the command `az iot device show-connection-string --hub {my hub name} --device-id {device id} --resource-group {resource group name}`.
+- Replace **[device hostname or IP address]** with your Pi’s IP address or hostname that you get by running the command `devdisco list --eth`
+- Replace **[IoT device connection string]** with the device connection string that you get by running the command `az iot hub show-connection-string --name {my hub name} --resource-group {resource group name}`.
+- Replace **[IoT hub connection string]** with the IoT hub connection string that you get by running the command `az iot device show-connection-string --hub {my hub name} --device-id {device id} --resource-group {resource group name}`.
 
 ## 4.1.5 Deploy and run the sample application
 
