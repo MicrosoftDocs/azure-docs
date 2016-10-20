@@ -48,41 +48,57 @@ First, start a PowerShell prompt. For migration, you need to set up your environ
 
 Sign in to your account for the Resource Manager model.
 
+```powershell
 	Login-AzureRmAccount
+```
 
 Get the available subscriptions by using the following command:
 
+```powershell
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
+```
 
 Set your Azure subscription for the current session. This example sets the default subscription name to **My Azure Subscription**. Replace the example subscription name with your own. 
 
+```powershell
 	Select-AzureRmSubscription –SubscriptionName "My Azure Subscription"
+```
 
 >[AZURE.NOTE] Registration is a one-time step, but you must do it once before attempting migration. Without registering, you see the following error message: 
 
 >	*BadRequest : Subscription is not registered for migration.* 
 
 Register with the migration resource provider by using the following command:
-	
+
+```powershell
 	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+```
 
 Please wait five minutes for the registration to finish. You can check the status of the approval by using the following command:
 
+```powershell
 	Get-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+```
 
 Make sure that RegistrationState is `Registered` before you proceed. 
 
 Now sign in to your account for the classic model.
 
+```powershell
 	Add-AzureAccount
+```
 
 Get the available subscriptions by using the following command:
 
+```powershell
 	Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
+```
 
 Set your Azure subscription for the current session. This example sets the default subscription to **My Azure Subscription**. Replace the example subscription name with your own. 
 
+```powershell
 	Select-AzureSubscription –SubscriptionName "My Azure Subscription"
+```
 
 <br>
 
@@ -92,7 +108,7 @@ You can use the following PowerShell command to check the current number of core
 
 This example checks the availability in the **West US** region. Replace the example region name with your own. 
 
-```
+```powershell
 Get-AzureRmVMUsage -Location "West US"
 ```
 
@@ -104,13 +120,17 @@ Get-AzureRmVMUsage -Location "West US"
 
 Get the list of cloud services by using the following command, and then pick the cloud service that you want to migrate. If the VMs in the cloud service are in a virtual network or if they have web or worker roles, the command returns an error message.
 
+```powershell
 	Get-AzureService | ft Servicename
+```
 
 Get the deployment name for the cloud service. In this example, the service name is **My Service**. Replace the example service name with your own service name. 
 
+```powershell
 	$serviceName = "My Service"
 	$deployment = Get-AzureDeployment -ServiceName $serviceName
 	$deploymentName = $deployment.DeploymentName
+```
 
 Prepare the virtual machines in the cloud service for migration. You have two options to choose from.
 
@@ -118,13 +138,17 @@ Prepare the virtual machines in the cloud service for migration. You have two op
 
 	First, validate if you can migrate the cloud service using the following commands:
 
+	```powershell
 		$validate = Move-AzureService -Validate -ServiceName $serviceName `
 			-DeploymentName $deploymentName -CreateNewVirtualNetwork
 		$validate.ValidationMessages
+		```
 
 	The preceding command displays any warnings and errors that block migration. If validation is successful, then you can move on to the **Prepare** step:
 
+	```powershell
 		Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
+```
 
 * **Option 2. Migrate to an existing virtual network in the Resource Manager deployment model**
 
