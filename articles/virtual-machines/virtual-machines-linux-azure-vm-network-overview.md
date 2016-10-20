@@ -56,7 +56,11 @@ A network interface (NIC) is the interconnection between a Virtual Machine (VM) 
 
 - [Virtual Network Interfaces Overview](../virtual-networks/virtual-network-network-interface-overview.md)
 
-- []
+## Virtual NICs and DNS labeling
+
+If you have a server that you need to be persistent, but that server is treated as cattle and is torn down and deployed frequently, you will want to use DNS labeling on your NIC to persist the name on the VNET.  With the following walk-through you will setup a persistently named NIC with a static IP.
+
+- [Create a complete Linux environment by using the Azure CLI](virtual-machines-linux-create-cli-complete.md)
 
 ## Virtual Network Gateways
 
