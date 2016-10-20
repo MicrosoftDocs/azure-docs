@@ -28,8 +28,44 @@ The below provides a list of available images within the Azure Government Market
 
 ### All the images below are available via the new Azure Resource Manager
 
-Publisher|Image Name|XXXXXX|OS|
----|---|---|---|---
+Publisher|Image Name|
+---|---|
+Esri | ArcGIS 10.4.1 for Server
+Barracuda Networks, Inc. | Barracuda NextGen Control Center (BYOL)
+Barracuda Networks, Inc. | Barracuda NextGen Firewall F-Series (BYOL)
+Microsoft | BizTalk Server 2016 Community Technology Preview 2
+Microsoft | {BYOL} SQL Server 2012 SP3 Enterprise on Windows Server 2012 R2
+Microsoft | {BYOL} SQL Server 2012 SP3 Standard on Windows Server 2012 R2
+Microsoft | {BYOL} SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2
+Microsoft | {BYOL} SQL Server 2014 SP1 Standard on Windows Server 2012 R2
+Microsoft | {BYOL} SQL Server 2016 RTM Enterprise on Windows Server 2012 R2
+Microsoft | {BYOL} SQL Server 2016 RTM Standard on Windows Server 2012 R2
+OpenLogic | CentOS-based 6.7
+OpenLogic | CentOS-based 6.8
+OpenLogic | CentOS-based 7.2
+CoreOS | CoreOS Linux (Stable)
+F5 Networks | F5 BIG-IP ADC+SEC BEST – BYOL
+F5 Networks | F5 BIG-IP ADC BETTER – BYOL
+F5 Networks | F5 BIG-IP ADC GOOD (LTM) - BYOL
+Bitnami | Moodle
+Citrix | NetScaler VPX Bring Your Own License
+SUSE | openSUSE Leap 42.1
+Red Hat | Red Hat Enterprise Linux 6.8
+Red Hat | Red Hat Enterprise Linux 7.2
+Microsoft | SQL Server 2012 SP3 Enterprise on Windows Server 2012 R2
+Microsoft | SQL Server 2012 SP3 Standard on Windows Server 2012 R2
+Microsoft | SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2
+Microsoft | SQL Server 2014 SP1 Standard on Windows Server 2012 R2
+Microsoft | SQL Server 2016 RTM Enterprise on Windows Server 2012 R2
+Microsoft | SQL Server 2016 RTM Standard on Windows Server 2012 R2
+SUSE | SLES 11 SP4
+SUSE | SLES 12 SP1
+Microsoft | Windows Server 2012 R2 Datacenter
+Barracuda Networks, Inc. | Barracuda Web Application Firewall (WAF) - BYOL
+Microsoft | Windows Server 2008 R2 SP1
+Microsoft | Windows Server 2012 Datacenter
+Microsoft | Windows Server 2012 R2 Datacenter
+
 
 ### All the images below are available via classic resource provider.
 
