@@ -17,9 +17,9 @@
 	ms.author="erikje"/>
 
 # Connect to Azure Stack
-To manage resources, you must connect to the Azure Stack POC machine. You can use either of the following connection options:
+To manage resources, you must connect to the Azure Stack POC computer. You can use either of the following connection options:
 
- - Remote Desktop: lets a single concurrent user quickly connect.
+ - Remote Desktop: lets a single concurrent user quickly connect from the POC computer.
  - Virtual Private Network (VPN):  lets multiple concurrent users connect from clients outside of the Azure Stack infrastructure (requires configuration).
 
 ## Connect with Remote Desktop
@@ -93,7 +93,7 @@ Virtual Private Network connections let multiple concurrent users connect from c
 
     ![Image of the network connect menu in Windows 10](media/azure-stack-connect-azure-stack/image1.png)
 
->[AZURE.NOTE] This VPN connection does not provide connectivity to VMs or other resources.  For information on connectivity to resources, see [One Node VPN Connection](azure-stack-create-vpn-connection-one-node-tp2.md)
+>[AZURE.NOTE] This VPN connection does not provide connectivity to VMs or other resources. For information on connectivity to resources, see [One Node VPN Connection](azure-stack-create-vpn-connection-one-node-tp2.md)
 
 
 ## Next steps
