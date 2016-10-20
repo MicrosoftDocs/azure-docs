@@ -193,7 +193,7 @@ To achieve high availability for this reference architecture, we recommend [depl
 [private-ip-space]: https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces
 [public IP address]: ../virtual-network/virtual-network-ip-addresses-overview-arm.md
 [puppet]: https://puppetlabs.com/blog/managing-azure-virtual-machines-puppet
-[resource-manager-overview]: ../resource-group-overview.md
+[resource-manager-overview]: ../azure-resource-manager/resource-group-overview.md
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines
 [vnet faq]: ../virtual-network/virtual-networks-faq.md
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx

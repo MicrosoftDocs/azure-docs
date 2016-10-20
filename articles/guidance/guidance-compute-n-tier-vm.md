@@ -236,7 +236,7 @@ To achieve high availability for this reference architecture, we recommend [depl
 [private-ip-space]: https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces
 [public IP address]: ../virtual-network/virtual-network-ip-addresses-overview-arm.md
 [puppet]: https://puppetlabs.com/blog/managing-azure-virtual-machines-puppet
-[resource-manager-overview]: ../resource-group-overview.md
+[resource-manager-overview]: ../azure-resource-manager/resource-group-overview.md
 [sql-alwayson]: https://msdn.microsoft.com/en-us/library/hh510230.aspx
 [sql-alwayson-force-failover]: https://msdn.microsoft.com/en-us/library/ff877957.aspx
 [sql-alwayson-getting-started]: https://msdn.microsoft.com/en-us/library/gg509118.aspx
