@@ -36,7 +36,7 @@ In this section, you will learn:
   - [Git](https://git-scm.com) is an open source distributed version control system. The sample application for this lesson is stored on Git.
   - [Node.js](https://nodejs.org/en/) is a JavaScript runtime with a rich package ecosystem.
 - How to use NPM to install additional Node.js development tools.
-  -The minimum required version of Node.js is 4.5 LTS.
+  - The minimum required version of Node.js is 4.5 LTS.
   - [NPM](https://www.npmjs.com) is one of the package managers for Node.js
 
 ## 1.2.3 What do you need
@@ -44,7 +44,7 @@ In this section, you will learn:
 - An Internet connection to download the development tools and the software
 - A computer that is running Ubuntu 16.04 or later 
 
-## 1.2.4 Install Git, Node.js and NPM
+## 1.2.4 Install Git, Node.js, and NPM
 
 Use the keyboard shortcut `Ctrl + Alt + T` to open a Terminal window and run the following commands:
 
@@ -69,7 +69,7 @@ If you experience issues installing Node.js and these additional development too
 
 ## 1.2.6 Install Visual Studio Code
 
-[Download](https://code.visualstudio.com/docs/setup/linux) and install Visual Studio Code. Visual Studio Code is a lightweight but powerful source code editor for Windows, Linux and macOS. You use this later in the tutorial to edit the sample codes.
+[Download](https://code.visualstudio.com/docs/setup/linux) and install Visual Studio Code. Visual Studio Code is a lightweight but powerful source code editor for Windows, Linux, and macOS. You use this editor later in the tutorial to edit the sample code.
 
 ## 1.2.7 Summary
 

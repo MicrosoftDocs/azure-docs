@@ -48,7 +48,7 @@ You also need to add the path of the folders where python.exe and pip.exe are in
 
 ## 2.1.5 Install the Azure CLI
 
-The Azure CLI provides a multiplatform command line experience for Azure, enabling you to work directly from your command line to provision and manage resources.
+The Azure CLI provides a multiplatform command-line experience for Azure, enabling you to work directly from your command line to provision and manage resources.
 
 To install Azure CLI, follow these steps:
 

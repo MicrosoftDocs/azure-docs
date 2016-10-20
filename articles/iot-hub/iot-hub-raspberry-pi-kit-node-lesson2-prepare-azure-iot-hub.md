@@ -41,13 +41,13 @@ When you use the Azure CLI to add your Pi to your IoT hub, the service generates
 
 Azure IoT Hub helps you connect, monitor, and manage millions of IoT assets. To create your Azure IoT hub, follow these steps:
 
-1. Login to your Azure account by running the following command:
+1. Log in to your Azure account by running the following command:
 
 ```bash
 az login
 ```
 
-All of your available subscriptions are listed after a successful login.
+All your available subscriptions are listed after a successful login.
 
 2. Register the provider by running the following command:
 
@@ -57,7 +57,7 @@ az resource provider register -n "Microsoft.Devices"
 
 You must register the provider before you can deploy the Azure resource that the provider provides.
 
-> [AZURE.NOTE] Most providers are registered automatically by the Azure portal or the Azure CLI you are using, but not all. For more information about the provider, see [resource manager common deployment errors](../resource-manager-common-deployment-errors.md)
+> [AZURE.NOTE] Most providers are registered automatically by the Azure portal or the Azure CLI you are using, but not all. For more information about the provider, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](../resource-manager-common-deployment-errors.md)
 
 3. Set the default subscription that you want to use by running the following command:
 
