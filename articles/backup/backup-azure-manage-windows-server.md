@@ -3,8 +3,8 @@
 	description="Use this tutorial to learn how to manage Azure recovery services vaults and servers."
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
-	manager="jwhit"
+	authors="markgalioto"
+	manager="cfreeman"
 	editor="tysonn"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/19/2016"
+	ms.date="10/19/2016"
 	ms.author="jimpark; markgal"/>
 
 
@@ -284,20 +284,24 @@ A.2 An alert is raised within 20 mins of the Azure backup failure.
 
 **Q3. Is there a case where an email won’t be sent if notifications are configured?**
 
-A3. Below are the cases when the notification will not be sent in order to reduce the alert noise: 
+A3. Below are the cases when the notification will not be sent in order to reduce the alert noise:
 
    - If notifications are configured hourly and an alert is raised and resolved within the hour
    - Job is canceled.
-   - Second backup job failed becuase original backup job is in progress. 
+   - Second backup job failed becuase original backup job is in progress.
 
-## Troubleshooting Monitoring Issues<br>
-#### Issue: Jobs and alerts from Azure backup agent does not appear on the portal.
-##### Troubleshooting steps:
-"OBRecoveryServicesManagementAgent" is used to send the data of the jobs and alerts to the Azure backup service. Open the task manager and view if the "OBRecoveryServicesManagementAgent" process is running.
-At times this process would have been struck or shutdown. If the process is not running, browse the list of services from control panel, start or restart "Microsoft Azure Recovery Services Management Agent".
-For further information, browse the logs at
-"Azure backup agent installation folder"\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*.
-<b>Ex:</b> C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog
+## Troubleshooting Monitoring Issues
+
+**Issue:** Jobs and/or alerts from the Azure Backup agent do not appear in the portal.
+
+**Troubleshooting steps:** The process, ```OBRecoveryServicesManagementAgent```, sends the job and alert data to the Azure Backup service. Occasionally this process can become stuck or shutdown.
+
+1. To verify the process is not running, open **Task Manager** and check if the ```OBRecoveryServicesManagementAgent``` process is running.
+
+2. Assuming that the process is not running, open **Control Panel** and browse the list of services. Start or restart **Microsoft Azure Recovery Services Management Agent**.
+
+    For further information, browse the logs at:<br/>
+`<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*`. For example:<br/> `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`.
 
 ## Next steps
 - [Restore Windows Server or Windows Client from Azure](backup-azure-restore-windows-server.md)
