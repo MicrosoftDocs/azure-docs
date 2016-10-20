@@ -39,9 +39,9 @@ Once you have created the app, you can change the application stack from the app
 
 ## Deploy your web app
 
-Choosing **deployment options** from the management portal gives you the option to use local a Git or GitHub repository to deploy your application. The rest of the instructions are similar to those for a a non-Linux web app and you can follow the instructions in either our [local Git deployment](./app-service-deploy-local-git.md) or our [continuous deployment](./app-service-continuous-deployment.md) article for GitHub.
+Choosing **deployment options** from the management portal gives you the option to use local a Git or GitHub repository to deploy your application. The rest of the instructions are similar to those for a a non-Linux web app, and you can follow these instructions in either our [local Git deployment](./app-service-deploy-local-git.md) or our [continuous deployment](./app-service-continuous-deployment.md) article for GitHub.
 
-You can also use FTP to upload your application to your site. You can get the FTP endpoint for your web app from the diagnostics logs section as shown in the image below.
+You can also use FTP to upload your application to your site. You can get the FTP endpoint for your web app from the diagnostics logs section as shown in the following image.
 
 ![Diagnostics logs][4]
 
