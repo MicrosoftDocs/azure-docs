@@ -23,17 +23,17 @@
 - [Windows](virtual-machines-linux-ssh-from-windows.md)
 - [Linux/Mac](virtual-machines-linux-mac-create-ssh-keys.md)
 
-When you connect to Linux virtual machines (VMs) in Azure, you can use secure shell (SSH) keys to authenticate yourself rather than a username and password. [Public-key cryptography](https://wikipedia.org/wiki/Public-key_cryptography) provides a more secure way to log in to your Linux VM in Azure than Azure. Passwords are vulnerable to brute-force attacks, especially on Internet-facing VMs such as web servers. This article provides an overview of SSH keys and how to generate the appropriate keys on a Windows computer.
+When you connect to Linux virtual machines (VMs) in Azure, you can use secure shell (SSH) keys to authenticate yourself rather than a username and password. [Public-key cryptography](https://wikipedia.org/wiki/Public-key_cryptography) provides a more secure way to log in to your Linux VM in Azure. Passwords are vulnerable to brute-force attacks, especially on Internet-facing VMs such as web servers. This article provides an overview of SSH keys and how to generate the appropriate keys on a Windows computer.
 
 
-## Overview of SSH keys
+## Overview of SSH and keys
 
 SSH is an encrypted connection protocol that allows secure logins over unsecured connections. It is the default connection protocol for Linux VMs hosted in Azure. Although SSH itself provides an encrypted connection, using passwords with SSH connections still leaves the VM vulnerable to brute-force attacks or guessing of passwords. A more secure, and preferred, method of connecting to a VM using SSH is through the use cryptographic keys, also known as SSH keys.
 
 You can securely log in to your Linux VM by using public and private keys:
 
 - The **public key** is placed on your Linux VM, or any other service that you wish to use with public-key cryptography.
-- The **private key** is what you present to your Linux VM when you log in, to verify your credentials.
+- The **private key** is what you present to your Linux VM when you log in, to verify your identity.
 
 For a more detailed overview, see [public-key cryptography](https://wikipedia.org/wiki/Public-key_cryptography).
 
