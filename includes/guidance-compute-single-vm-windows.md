@@ -1,8 +1,8 @@
-This article outlines a set of proven practices for running a Windows virtual machine (VM) on Azure, paying attention to scalability, availability, manageability, and security. 
+This article outlines a set of proven practices for running a Windows virtual machine (VM) on Azure, paying attention to scalability, availability, manageability, and security.
 
 > [AZURE.NOTE] Azure has two different deployment models: [Azure Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
 
-We don't recommend using a single VM for production workloads, because there is no up-time service level agreement (SLA) for single VMs on Azure. To get the SLA, you must deploy multiple VMs in an [availability set][availability-set]. For more information, see [Running multiple Windows VMs on Azure][multi-vm]. 
+We don't recommend using a single VM for production workloads, because there is no up-time service level agreement (SLA) for single VMs on Azure. To get the SLA, you must deploy multiple VMs in an [availability set][availability-set]. For more information, see [Running multiple Windows VMs on Azure][multi-vm].
 
 ## Architecture diagram
 
@@ -27,7 +27,7 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 - **Network interface (NIC)**. The NIC enables the VM to communicate with the virtual network.
 
 - **Network security group (NSG)**. The [NSG][nsg] is used to allow/deny network traffic to the subnet. You can associate an NSG with an individual NIC or with a subnet. If you associate it with a subnet, the NSG rules apply to all VMs in that subnet.
- 
+
 - **Diagnostics.** Diagnostic logging is crucial for managing and troubleshooting the VM.
 
 ## Recommendations
@@ -46,7 +46,7 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 ### Disk and storage recommendations
 
-- For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid state drives (SSDs). Cost is based on the size of the provisioned disk. IOPS and throughput also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). 
+- For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid state drives (SSDs). Cost is based on the size of the provisioned disk. IOPS and throughput also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput).
 
 - Add one or more data disks. When you create a new VHD, it is unformatted. Log into the VM to format the disk.
 
@@ -70,7 +70,7 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 ## Scalability considerations
 
-- You can scale a VM up or down by [changing the VM size][vm-resize]. 
+- You can scale a VM up or down by [changing the VM size][vm-resize].
 
 - To scale out horizontally, put two or more VMs into an availability set behind a load balancer. For details, see [Running multiple Windows VMs on Azure][multi-vm].
 
@@ -108,11 +108,11 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 - **Deleting a VM.** If you delete a VM, the VHDs are not deleted. That means you can safely delete the VM without losing data. However, you will still be charged for storage. To delete the VHD, delete the file from [blob storage][blob-storage].
 
-  To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as the VM. 
+  To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as the VM.
 
 ## Security considerations
 
-- Use [Azure Security Center][security-center] to get a central view of the security state of your Azure resources. Security Center monitors potential security issues such as system updates, antimalware, and provides a comprehensive picture of the security health of your deployment. 
+- Use [Azure Security Center][security-center] to get a central view of the security state of your Azure resources. Security Center monitors potential security issues such as system updates, antimalware, and provides a comprehensive picture of the security health of your deployment.
 
     - Security Center is configured per Azure subscription. Enable security data collection as described in [Use Security Center].
 
@@ -134,7 +134,7 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 - Use [audit logs][audit-logs] to see provisioning actions and other VM events.
 
-- Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks. 
+- Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks.
 
 ## Solution deployment
 
@@ -152,7 +152,7 @@ This reference architecture uses a single resource group that you can deploy by 
 
 ### Customize the deployment
 
-If you need to change the deployment to match your needs, follow the instructions in the [guidance-single-vm][readme] page. 
+If you need to change the deployment to match your needs, follow the instructions in the [guidance-single-vm][readme] page.
 
 ## Next steps
 
