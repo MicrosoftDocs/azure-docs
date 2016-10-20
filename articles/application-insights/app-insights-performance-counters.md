@@ -108,18 +108,18 @@ You can search and display performance counter reports in [Analytics](app-insigh
 
 The **performanceCounters** schema exposes the `category`, `counter` name, and `instance` name of each performance counter.  In the telemetry for each application, you’ll see only the counters for that application. For example, to see what counters are available: 
 
-![Performance counters in Application Insights analytics](./media/app-insights-analytics-tour/analytics-performance-counters.png)
+![Performance counters in Application Insights analytics](./media/app-insights-performance-counters/analytics-performance-counters.png)
 
 ('Instance' here refers to the performance counter instance,  not the role or server machine instance. The performance counter instance name typically segments counters such as processor time by the name of the process or application.)
 
 To get a chart of available memory over the recent period: 
 
-![Memory timechart in Application Insights analytics](./media/app-insights-analytics-tour/analytics-available-memory.png)
+![Memory timechart in Application Insights analytics](./media/app-insights-performance-counters/analytics-available-memory.png)
 
 
 Like other telemetry, **performanceCounters** also has a column `cloud_RoleInstance` that indicates the identity of the host server instance on which your app is running. For example, to compare the performance of your app on the different machines: 
 
-![Performance segmented by role instance in Application Insights analytics](./media/app-insights-analytics-tour/analytics-metrics-role-instance.png)
+![Performance segmented by role instance in Application Insights analytics](./media/app-insights-performance-counters/analytics-metrics-role-instance.png)
 
 
 ## ASP.NET and Application Insights counts

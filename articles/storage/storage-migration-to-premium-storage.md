@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="09/21/2016"
-    ms.author="aungoo;robinsh"/>
+    ms.author="aungoo"/>
 
 
 # Migrating to Azure Premium Storage

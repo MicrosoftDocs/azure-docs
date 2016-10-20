@@ -146,7 +146,7 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
-[lnk-azure-rm-overview]: ../resource-group-overview.md
+[lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 [lnk-powershell-arm]: ../powershell-azure-resource-manager.md
 
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md

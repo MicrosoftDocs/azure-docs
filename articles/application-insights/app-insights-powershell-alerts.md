@@ -1,31 +1,31 @@
-<properties 
-	pageTitle="Use Powershell to set alerts in Application Insights" 
-	description="Automate configuration of Application Insights to get emails about metric changes." 
-	services="application-insights" 
+<properties
+	pageTitle="Use Powershell to set alerts in Application Insights"
+	description="Automate configuration of Application Insights to get emails about metric changes."
+	services="application-insights"
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/19/2016" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/19/2016"
 	ms.author="awills"/>
- 
+
 # Use PowerShell to set alerts in Application Insights
 
-You can automate the configuration of [alerts](app-insights-alerts.md) in [Visual Studio Application Insights](app-insights-overview.md). 
+You can automate the configuration of [alerts](app-insights-alerts.md) in [Visual Studio Application Insights](app-insights-overview.md).
 
-In addition, you can [set webhooks to automate your response to an alert](../azure-portal/insights-webhooks-alerts.md).
+In addition, you can [set webhooks to automate your response to an alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 
 ## One-time setup
 
 If you haven't used PowerShell with your Azure subscription before:
 
-Install the Azure Powershell module on the machine where you want to run the scripts. 
+Install the Azure Powershell module on the machine where you want to run the scripts.
 
  * Install [Microsoft Web Platform Installer (v5 or higher)](http://www.microsoft.com/web/downloads/platform.aspx).
  * Use it to install Microsoft Azure Powershell
@@ -120,7 +120,7 @@ Metric name | Screen name | Description
 `remoteDependencyFailed.durationMetric.count`|Dependency failures|Count of failed calls made by the server application to external resources.
 `request.duration`|Server response time|Time between receiving an HTTP request and finishing sending the response.
 `request.rate`|Request rate|Rate of all requests to the application per second.
-`requestFailed.count`|Failed requests|Count of HTTP requests that resulted in a response code >= 400 
+`requestFailed.count`|Failed requests|Count of HTTP requests that resulted in a response code >= 400
 `view.count`|Page views|Count of client user requests for a web page. Synthetic traffic is filtered out.
 {your custom metric name}|{Your metric name}|Your metric value reported by [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric) or in the [measurements parameter of a tracking call](app-insights-api-custom-events-metrics.md#properties).
 
@@ -135,7 +135,7 @@ request,<br/>requestFailed|[Server request](app-insights-configuration-with-appl
 
 ## Webhooks
 
-You can [automate your response to an alert](../azure-portal/insights-webhooks-alerts.md). Azure will call a web address of your choice when an alert is raised. 
+You can [automate your response to an alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Azure will call a web address of your choice when an alert is raised.
 
 ## See also
 
@@ -143,7 +143,4 @@ You can [automate your response to an alert](../azure-portal/insights-webhooks-a
 * [Script to configure Application Insights](app-insights-powershell-script-create-resource.md)
 * [Create Application Insights and web test resources from templates](app-insights-powershell.md)
 * [Automate coupling Microsoft Azure Diagnostics to Application Insights](app-insights-powershell-azure-diagnostics.md)
-* [Automate your response to an alert](../azure-portal/insights-webhooks-alerts.md)
-
-
- 
+* [Automate your response to an alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md)

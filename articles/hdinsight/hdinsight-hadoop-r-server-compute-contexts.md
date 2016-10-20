@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="07/21/2016"
+   ms.date="10/18/2016"
    ms.author="jeffstok"
 />
 
