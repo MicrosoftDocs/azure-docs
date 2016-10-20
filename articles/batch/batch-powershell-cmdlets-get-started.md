@@ -25,7 +25,7 @@ This article is based on cmdlets in Azure PowerShell version 3.0.0. We recommend
 
 ## Prerequisites
 
-You must perform the following operations to use Azure PowerShell to manage your Batch resources.
+Perform the following operations to use Azure PowerShell to manage your Batch resources.
 
 * [Install and configure Azure PowerShell](../powershell-install-configure.md)
 
@@ -41,11 +41,11 @@ You must perform the following operations to use Azure PowerShell to manage your
 
 ### Create a Batch account
 
-**New-AzureRmBatchAccount** creates a new Batch account in a specified resource group. If you don't already have a resource group, create one by running the [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt603739.aspx) cmdlet, specifying one of the Azure regions in the **Location** parameter, such as "Central US". For example:
+**New-AzureRmBatchAccount** creates a Batch account in a specified resource group. If you don't already have a resource group, create one by running the [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt603739.aspx) cmdlet. Specify one of the Azure regions in the **Location** parameter, such as "Central US". For example:
 
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
-Then, create a new Batch account account in the resource group, specifying a name for the account in <*account_name*> and the location and name of your resource group. Creating the Batch account can take some time to complete. For example:
+Then, create a Batch account in the resource group, specifying a name for the account in <*account_name*> and the location and name of your resource group. Creating the Batch account can take some time to complete. For example:
 
     New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
 
@@ -182,7 +182,7 @@ Set the **default version** for the application:
 
 ### Deploy an application package
 
-You can specify one or more application packages for deployment when you create a new pool. When you specify a package at pool creation time, it is deployed to each node as the node joins pool. Packages are also deployed when a node is rebooted or reimaged.
+You can specify one or more application packages for deployment when you create a pool. When you specify a package at pool creation time, it is deployed to each node as the node joins pool. Packages are also deployed when a node is rebooted or reimaged.
 
 Specify the `-ApplicationPackageReference` option when creating a pool to deploy an application package to the pool's nodes as they join the pool. First, create a **PSApplicationPackageReference** object, and configure it with the application Id and package version you want to deploy to the pool's compute nodes:
 
@@ -217,7 +217,7 @@ You've now updated the pool's properties in the Batch service. To actually deplo
 
     Get-AzureBatchComputeNode -PoolId "PoolWithAppPackage" -BatchContext $context | Restart-AzureBatchComputeNode -BatchContext $context
 
->[AZURE.TIP] You can deploy multiple application packages to the compute nodes in a pool. You can omit the `$pool.ApplicationPackageReferences.Clear()` line above if you'd like add an application package instead of replacing all packages that might already be deployed.
+>[AZURE.TIP] You can deploy multiple application packages to the compute nodes in a pool. If you'd like to *add* an application package instead of replacing the currently deployed packages, omit the `$pool.ApplicationPackageReferences.Clear()` line.
 
 ## Next steps
 
