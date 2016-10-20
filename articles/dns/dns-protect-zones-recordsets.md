@@ -182,7 +182,7 @@ The following PowerShell command creates a DoNotDelete lock against the SOA reco
 	# Protect against zone delete with DoNotDelete lock on the record set
 	New-AzureRmResourceLock -LockLevel DoNotDelete -LockName <lock name> -ResourceName <zone name>/@ -ResourceType Microsoft.Network/DNSZones/SOA -ResourceGroupName <resource group name> 
 
-## Next Steps
+## Next steps
 
 - For more information about working with RBAC, see [Get started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md). 
 - For more information about working with resource locks, see [Lock resources with Azure Resource Manager](../resource-group-lock-resources.md).
