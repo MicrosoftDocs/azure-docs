@@ -14,13 +14,23 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="10/19/2016"
+	ms.date="10/20/2016"
 	ms.author="ryansoc"/>
 
 
 #  Azure Government monitoring and management
 
 This article outlines the monitoring and management services variations and considerations for the Azure Government environment.
+
+## Automation
+
+Automation is generally available in Azure Government.
+
+### Variations
+
+The following Automation features are not currently available in Azure Government. This list is updated when the status of features/solutions changes.
+
++ Creation of a Service Principle credential for authentication
 
 ## Log Analytics
 
