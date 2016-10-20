@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="10/19/2016"
+   ms.date="10/20/2016"
    ms.author="marsma"/>
 
 # Get started with Azure Batch PowerShell cmdlets
@@ -24,6 +24,8 @@ For a complete list of Batch cmdlets and detailed cmdlet syntax, see the [Azure 
 This article is based on cmdlets in Azure PowerShell version 3.0.0. We recommend that you update your Azure PowerShell frequently to take advantage of service updates and enhancements.
 
 ## Prerequisites
+
+You must perform the following operations to use Azure PowerShell to manage your Batch resources.
 
 * [Install and configure Azure PowerShell](../powershell-install-configure.md)
 
@@ -45,14 +47,14 @@ This article is based on cmdlets in Azure PowerShell version 3.0.0. We recommend
 
 Then, create a new Batch account account in the resource group, specifying a name for the account in <*account_name*> and the location and name of your resource group. Creating the Batch account can take some time to complete. For example:
 
-    New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
+    New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
 
 > [AZURE.NOTE] The Batch account name must be unique to the Azure region for the resource group, contain between 3 and 24 characters, and use lowercase letters and numbers only.
 
 ### Get account access keys
 **Get-AzureRmBatchAccountKeys** shows the access keys associated with an Azure Batch account. For example, run the following to get the primary and secondary keys of the account you created.
 
-    $Account = Get-AzureRmBatchAccountKeys –AccountName <accountname>
+    $Account = Get-AzureRmBatchAccountKeys –AccountName <account_name>
 
     $Account.PrimaryAccountKey
 
@@ -153,28 +155,28 @@ Application packages provide a simplified way to deploy applications to the comp
 
 **Create** an application:
 
-    New-AzureRmBatchApplication -AccountName "MyBatchAccount" -ResourceGroupName "MyBatchResourceGroup" -ApplicationId "MyBatchApplication"
+    New-AzureRmBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
 
 **Add** an application package:
 
-    New-AzureRmBatchApplicationPackage -AccountName "MyBatchAccount" -ResourceGroupName "MyBatchResourceGroup" -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0" -Format zip -FilePath package001.zip
+    New-AzureRmBatchApplicationPackage -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0" -Format zip -FilePath package001.zip
 
 Set the **default version** for the application:
 
-    Set-AzureRmBatchApplication -AccountName "MyBatchAccount" -ResourceGroupName "MyBatchResourceGroup" -ApplicationId "MyBatchApplication" -DefaultVersion "1.0"
+    Set-AzureRmBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -DefaultVersion "1.0"
 
 **List** an application's packages
 
-    $application = Get-AzureRmBatchApplication -AccountName "MyBatchAccount" -ResourceGroupName "MyBatchResourceGroup" -ApplicationId "MyBatchApplication"
+    $application = Get-AzureRmBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
     $application.ApplicationPackages
 
 **Delete** an application package
 
-    Remove-AzureRmBatchApplicationPackage -AccountName "MyBatchAccount" -ResourceGroupName "MyBatchResourceGroup" -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0"
+    Remove-AzureRmBatchApplicationPackage -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0"
 
 **Delete** an application
 
-    Remove-AzureRmBatchApplication -AccountName "MyBatchAccount" -ResourceGroupName "MyBatchResourceGroup" -ApplicationId "MyBatchApplication"
+    Remove-AzureRmBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
 
 >[AZURE.NOTE] You must delete all of an application's application package versions before you delete the application. You will receive a 'Conflict' error if you try to delete an application that currently has application packages.
 
