@@ -39,34 +39,34 @@ To read messages stored in your Azure Table storage, follow these steps:
 
 1. Get the connection string by running the following commands:
 
-  ```bash
-  az storage account list -g iot-sample --query [].name
-  az storage account show-connection-string -g iot-sample -n {storage name}
-  ```
+    ```bash
+    az storage account list -g iot-sample --query [].name
+    az storage account show-connection-string -g iot-sample -n {storage name}
+    ```
 
-  The first command retrieves the `storage name` that is used in the second command to get the connection string. 
+    The first command retrieves the `storage name` that is used in the second command to get the connection string. 
 
 2. Open the configuration file `config-raspberrypi.json` file in Visual Studio Code by running the following command:
 
-  ```bash
-  // For Windows command prompt
-  code %USERPROFILE%\.iot-hub-getting-started\config-raspberrypi.json
+    ```bash
+    # For Windows command prompt
+    code %USERPROFILE%\.iot-hub-getting-started\config-raspberrypi.json
 
-  // For MacOS or Ubuntu
-  code ~/.iot-hub-getting-started/config-raspberrypi.json
-  ```
+    # For MacOS or Ubuntu
+    code ~/.iot-hub-getting-started/config-raspberrypi.json
+    ```
 
 3. Replace `[Azure storage connection string]` with the connection string you got in step 1.
 4. Save the `config-raspberrypi.json` file.
 5. Send messages again and read them from your Azure Table storage by running the following command:
 
-  ```bash
-  gulp run --read-storage
-  ```
+    ```bash
+    gulp run --read-storage
+    ```
 
-   The logic for reading from Azure table storage is in the `azure-table.js` file.
+    The logic for reading from Azure table storage is in the `azure-table.js` file.
 
-![gulp run --read-storage](media/iot-hub-raspberry-pi-lessons/lesson3/gulp_read_message.png)
+    ![gulp run --read-storage](media/iot-hub-raspberry-pi-lessons/lesson3/gulp_read_message.png)
 
 ## 3.3.5 Summary
 

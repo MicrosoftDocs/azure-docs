@@ -43,43 +43,43 @@ Azure IoT Hub helps you connect, monitor, and manage millions of IoT assets. To 
 
 1. Log in to your Azure account by running the following command:
 
-```bash
-az login
-```
+    ```bash
+    az login
+    ```
 
-All your available subscriptions are listed after a successful login.
+    All your available subscriptions are listed after a successful login.
 
 2. Register the provider by running the following command:
 
-```bash
-az resource provider register -n "Microsoft.Devices"
-```
+    ```bash
+    az resource provider register -n "Microsoft.Devices"
+    ```
 
-You must register the provider before you can deploy the Azure resource that the provider provides.
+    You must register the provider before you can deploy the Azure resource that the provider provides.
 
-> [AZURE.NOTE] Most providers are registered automatically by the Azure portal or the Azure CLI you are using, but not all. For more information about the provider, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](../resource-manager-common-deployment-errors.md)
+    > [AZURE.NOTE] Most providers are registered automatically by the Azure portal or the Azure CLI you are using, but not all. For more information about the provider, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](../resource-manager-common-deployment-errors.md)
 
 3. Set the default subscription that you want to use by running the following command:
 
-```bash
-az account set -n {subscription id or name}
-```
+    ```bash
+    az account set -n {subscription id or name}
+    ```
 
-The subscription ID or name can be found in the output of `az login`.
+    The subscription ID or name can be found in the output of `az login`.
 
 4. Create a resource group named iot-sample in the West US region by running the following command:
 
-```bash
-az resource group create --name iot-sample --location westus
-```
+    ```bash
+    az resource group create --name iot-sample --location westus
+    ```
 
 5. Create an IoT hub in the iot-sample resource group by running the following command:
 
-```bash
-az iot hub create --name {my hub name} --resource-group iot-sample
-```
+    ```bash
+    az iot hub create --name {my hub name} --resource-group iot-sample
+    ```
 
-The default edition of the IoT hub you create is **F1**, which is **free**. For more information, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
+    The default edition of the IoT hub you create is **F1**, which is **free**. For more information, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 > [AZURE.NOTE] The name of your IoT hub must be globally unique.
 >

@@ -1,5 +1,5 @@
 <properties
- pageTitle="Get the tools (macOS 10.10) | Microsoft Azure"
+ pageTitle="Get the tools (MacOS 10.10) | Microsoft Azure"
  description="Download and install the necessary tools and software for the first sample application for your Pi on macOS."
  services="iot-hub"
  documentationCenter=""
@@ -17,12 +17,12 @@
  ms.date="10/21/2016"
  ms.author="xshi"/>
 
-# 1.2 Get the tools (macOS 10.10)
+# 1.2 Get the tools (MacOS 10.10)
 
 > [AZURE.SELECTOR]
 - [Windows 7 +](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
 - [Ubuntu 16.04](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md)
-- [macOS 10.10](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
+- [MacOS 10.10](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
 
 ## 1.2.1 What you will do
 
@@ -50,13 +50,15 @@ To install Git and Node.js, use the [Homebrew](http://brew.sh) package managemen
 1. Install Homebrew. If you've already installed Homebrew, go to step 2.
   1. Press `Cmd + Space` and enter `Terminal` to open a terminal window.
   2. Run the following command:
+
     ```bash
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     ```
 2. Install Git and Node.js by running the following command:
-  ```bash
-  brew install node git
-  ```
+
+    ```bash
+    brew install node git
+    ```
 
 ## 1.2.5 Install additional Node.js development tools
 

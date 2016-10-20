@@ -37,40 +37,40 @@ The device connection string is used to connect the Pi to your IoT hub. The IoT 
 
 - Get the IoT hub connection string by running the following Azure CLI command:
 
-  ```bash
-  az iot hub show-connection-string --name {my hub name} --resource-group {resource group name}
-  ```
+```bash
+az iot hub show-connection-string --name {my hub name} --resource-group {resource group name}
+```
 
-  `{my hub name}` is the name that you specified in Lesson 2. Use `iot-sample` as the value of `{resource group name}` if you didn't change the value in Lesson 2.
+`{my hub name}` is the name that you specified in Lesson 2. Use `iot-sample` as the value of `{resource group name}` if you didn't change the value in Lesson 2.
 
 - Get the device connection string by running the following command:
 
-  ```bash
-  az iot device show-connection-string --hub {my hub name} --device-id {device id} --resource-group {resource group name}
-  ```
+```bash
+az iot device show-connection-string --hub {my hub name} --device-id {device id} --resource-group {resource group name}
+```
 
-  `{my hub name}` and `{resource group name}` take the same value as the ones used with the preceding command. Use `myraspberrypi` as the value of `{device id}` if you didn't change the value in Lesson 2.
+`{my hub name}` and `{resource group name}` take the same value as the ones used with the preceding command. Use `myraspberrypi` as the value of `{device id}` if you didn't change the value in Lesson 2.
 
 ## 3.2.5 Configure the device connection
 
 1. Initialize the configuration file by running the following commands:
 
-  ```bash
-  npm install
-  gulp init
-  ```
+    ```bash
+    npm install
+    gulp init
+    ```
 
 2. Open the device configuration file `config-raspberrypi.json` in Visual Studio Code by running the following command:
 
-  ```bash
-  // For Windows command prompt
-  code %USERPROFILE%\.iot-hub-getting-started\config-raspberrypi.json
+    ```bash
+    # For Windows command prompt
+    code %USERPROFILE%\.iot-hub-getting-started\config-raspberrypi.json
   
-  // For MacOS or Ubuntu
-  code ~/.iot-hub-getting-started/config-raspberrypi.json
-  ```
+    # For MacOS or Ubuntu
+    code ~/.iot-hub-getting-started/config-raspberrypi.json
+    ```
 
-  ![config.json](media/iot-hub-raspberry-pi-lessons/lesson3/config.png)
+    ![config.json](media/iot-hub-raspberry-pi-lessons/lesson3/config.png)
 
 3. Make the following replacements in the `config-raspberrypi.json` file:
 

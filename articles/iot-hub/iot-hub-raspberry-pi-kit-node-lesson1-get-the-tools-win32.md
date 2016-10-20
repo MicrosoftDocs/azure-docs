@@ -18,10 +18,11 @@
  ms.author="xshi"/>
 
 # 1.2 Get the tools (Windows 7 +) 
+
 > [AZURE.SELECTOR]
 - [Windows 7 +](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
 - [Ubuntu 16.04](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md)
-- [macOS 10.10](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
+- [MacOS 10.10](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
 
 ## 1.2.1 What you will do
 
@@ -43,6 +44,7 @@ Download the development tools and the software for the first sample application
 ## 1.2.4 Install Git and Node.js
 
 Click the links below to download and install Git and Node.js LTS for Windows.
+
 - [Get Git for Windows](https://git-scm.com/download/win/)
 - [Get Node.js LTS for Windows](https://nodejs.org/en/)
 
