@@ -26,7 +26,7 @@ This article explains how to configure and use Twilio bindings with Azure Functi
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
-Azure Functions supports Twilio output bindings to enable your functions to send SMS text messages with a very few lines of code and a [Twilio](https://www.twilio.com/) account. 
+Azure Functions supports Twilio output bindings to enable your functions to send SMS text messages with a few lines of code and a [Twilio](https://www.twilio.com/) account. 
  
 
 ## function.json for Azure Notification Hub output binding
@@ -37,8 +37,8 @@ The function.json file provides the following properties:
 - `type` : must be set to *"twilioSms"*.
 - `accountSid` : This value must be set to the name of an App Setting that holds your Twilio Account Sid.
 - `authToken` : This value must be set to the name of an App Setting that holds your Twilio authentication token.
-- `to` : This value is set to the phone number that the SMS text will be sent to.
-- `from` : This value is set to the phone number that the SMS text will be sent from.
+- `to` : This value is set to the phone number that the SMS text is sent to.
+- `from` : This value is set to the phone number that the SMS text is sent from.
 - `direction` : must be set to *"out"*.
 - `body` : This value can be used to hard code the SMS text message if you don't need to set it dynamically in the code for your function. 
 
