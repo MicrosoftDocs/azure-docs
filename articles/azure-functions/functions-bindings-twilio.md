@@ -92,7 +92,7 @@ This synchronous example code for an Azure Storage queue trigger uses an out par
 
 #### Asynchronous
 
-This asynchronous example code for an Azure Storage queue trigger sends a text message to a site admin whenever a new user requests access to a secured site.
+This asynchronous example code for an Azure Storage queue trigger sends a text message to a customer who placed an order.
 
 	#r "Newtonsoft.Json"
 	#r "Twilio.Api"
@@ -126,7 +126,7 @@ This asynchronous example code for an Azure Storage queue trigger sends a text m
 
 ## Example Node.js queue trigger with Twilio output binding
 
-
+This Node.js example sends a text message to a customer who placed an order.
 
 	module.exports = function (context, myQueueItem) {
 	    context.log('Node.js queue trigger function processed work item', myQueueItem);
