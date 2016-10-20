@@ -162,7 +162,7 @@ A deployment for a reference architecture that implements these recommendations 
 
 ## Next steps
 
-To achieve high availability for this reference architecture, we recommend [deploying to multiple regions][multi-dc]..
+To achieve high availability for this reference architecture, we recommend [deploying to multiple regions][multi-dc].
 
 <!-- links -->
 
@@ -201,7 +201,7 @@ To achieve high availability for this reference architecture, we recommend [depl
 [Zabbix]: http://www.zabbix.com/
 [Icinga]: http://www.icinga.org/
 [0]: ./media/blueprints/compute-n-tier-linux.png "N-tier architecture using Microsoft Azure"
-[1]: http://azuredeploy.net/deploybutton.png 
+[1]: ./media/blueprints/deploybutton.png 
 [2]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-n-tier%2Fazuredeploy.json
 
 
