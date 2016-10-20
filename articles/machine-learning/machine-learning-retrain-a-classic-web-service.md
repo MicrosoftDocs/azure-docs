@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2016"
+	ms.date="10/12/2016"
 	ms.author="v-donglo"/>
 
 # Retrain a Classic Web service
 
 The Predictive Web Service you deployed is the default scoring endpoint. Default endpoints are kept in sync with the original training and scoring experiments, and therefore the trained model for the default endpoint cannot be replaced. To retrain the Web service, you must add a new endpoint to the Web service. 
+
+>[AZURE.NOTE] The steps in this walkthrough assumes that you have created the Web service using the steps found in [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically.md).
+
 
 ## Add a new Endpoint
  
@@ -114,10 +117,10 @@ The *apiKey* and the *endpointUrl* for the call can be obtained from endpoint da
 
 The value of the *Name* parameter in *Resources* should match the Resource Name of the saved Trained Model in the Predictive Experiment. To get the Resource Name:
 
-1.	Sign in to the [Azure Classic portal](https://manage.windowsazure.com).
-2.	In the left menu, click ** Machine Learning**.
+1.	Sign in to the [classic Azure portal](https://manage.windowsazure.com).
+2.	In the left menu, click **Machine Learning**.
 3.	Under Name, click your workspace and then click **Web Services**.
-4.	Under Name, click Census Model [predictive exp.].
+4.	Under Name, click **Census Model [predictive exp.]**.
 5.	Click the new endpoint you added.
 6.	On the endpoint dashboard, click **Update Resource**.
 7.	On the Update Resource API Documentation page for the web service, you can find the **Resource Name** under **Updatable Resources**.

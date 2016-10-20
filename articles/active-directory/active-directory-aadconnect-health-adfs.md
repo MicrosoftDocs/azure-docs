@@ -5,8 +5,8 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="karavar"
-	manager="femila"
-	editor="karavar"/>
+	manager="samueld"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory"
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/30/2016"
+	ms.date="10/18/2016"
 	ms.author="vakarand"/>
 
 # Using Azure AD Connect Health with AD FS
-The following documentation is specific to monitoring your AD FS infrastructure with Azure AD Connect Health. For information on monitoring Azure AD Connect (Sync) with Azure AD Connect Health, see [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md). Additionally, for information on monitoring Active Directory Domain Services with Azure AD Connect Health, see [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md). 
+The following documentation is specific to monitoring your AD FS infrastructure with Azure AD Connect Health. For information on monitoring Azure AD Connect (Sync) with Azure AD Connect Health, see [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md). Additionally, for information on monitoring Active Directory Domain Services with Azure AD Connect Health, see [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md).
 
 ## Alerts for AD FS
-The Azure AD Connect Health Alerts section provides you the list of active alerts. Each alert includes relevant information, resolution steps, and links to related documentation. 
+The Azure AD Connect Health Alerts section provides you the list of active alerts. Each alert includes relevant information, resolution steps, and links to related documentation.
 
 You can double-click an active or resolved alert, to open a new blade with additional information, steps you can take to resolve the alert, and links to relevant documentation. You can also view historical data on alerts that were resolved in the past.
 
@@ -81,14 +81,16 @@ Within this report you have easy access to the following pieces of information:
 - Total # of failed requests with wrong username/password in the last 30 days
 - Average # of users that failed with a bad username/password login per day.
 
+
 Clicking this part takes you to the main report blade that provides additional details. This blade includes a graph with trending information to help establish a baseline about requests with wrong username or password. Additionally, it provides the list of top 50 users with the number of failed attempts.
 
 The graph provides the following information:
 
 - The total # of failed logins due to a bad username/password on a per-day basis.
 - The total # of unique users that failed logins on a per-day basis.
+- Client IP address of for last request
 
-![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health-adfs/report2a.png)
+![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health-adfs/report3a.png)
 
 The report provides the following information:
 
@@ -97,6 +99,7 @@ The report provides the following information:
 |User ID| Shows the user ID that was used. This value is what the user typed, which in some cases is the wrong user ID being used.|
 |Failed Attempts| Shows the total # of failed attempts for that specific user ID. The table is sorted with the most number of failed attempts in descending order.|
 |Last Failure| Shows the time stamp when the last failure occurred.
+|Last Failure IP | Shows the Client IP address from the latest bad request.|
 
 
 

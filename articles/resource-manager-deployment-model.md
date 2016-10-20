@@ -20,7 +20,7 @@
 
 In this topic, you learn about Azure Resource Manager and classic deployment models, the state of your resources, and why your resources were deployed with one or the other. The Resource Manager deployment model contains important differences from the classic deployment model, and the two models are not completely compatible with each other. To simplify the deployment and management of resources, Microsoft recommends that you use Resource Manager for new resources, and, if possible, redeploy existing resources through Resource Manager.
 
-If you are new to Resource Manager, you may want to first review the terminology defined in the [Azure Resource Manager overview](resource-group-overview.md).
+If you are new to Resource Manager, you may want to first review the terminology defined in the [Azure Resource Manager overview](azure-resource-manager/resource-group-overview.md).
 
 ## History of the deployment models
 

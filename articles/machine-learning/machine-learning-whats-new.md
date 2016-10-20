@@ -28,7 +28,7 @@
 
 ### The July 2016 release of Microsoft Azure Machine Learning updates provide the following features:
 
-* Web services are now managed as Azure resources managed through [Azure Resource Manager](../resource-group-overview.md) interfaces, allowing for the following enhancements:
+* Web services are now managed as Azure resources managed through [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) interfaces, allowing for the following enhancements:
 	* There are new [REST APIs](https://msdn.microsoft.com/library/azure/Dn950030.aspx) to deploy and manage your Resource Manager based Web services.
 	* There is a new [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/) portal that provides one place to manage all aspects of your Web service.
 * Incorporates a new subscription-based, multi-region web service deployment model using Resource Manager based APIs leveraging the Resource Manager Resource Provider for Web Services.

@@ -34,7 +34,6 @@ The timeout divided by the probe frequency value is equal to SuccessFailCount wh
 
 The probe configuration of all load-balanced instances for an endpoint (that is, a load-balanced set) must be the same. This means you cannot have a different probe configuration for each role instance or virtual machine in the same hosted service for a particular endpoint combination. For example, each instance must have identical local ports and timeouts.
 
-
 >[AZURE.IMPORTANT] A Load Balancer probe uses the IP address 168.63.129.16. This public IP address facilitates communication to internal platform resources for the bring-your-own-IP Azure Virtual Network scenario. The virtual public IP address 168.63.129.16 is used in all regions and will not change. We recommend that you allow this IP address in any local firewall policies. It should not be considered a security risk because only the internal Azure platform can source a message from that address. If you do not do this, there will be unexpected behavior in a variety of scenarios like configuring the same IP address range of 168.63.129.16 and having duplicated IP addresses.
 
 ## Learn about the types of probes
@@ -62,9 +61,8 @@ This can be useful if you want to implement your own logic to remove instances f
 ### What makes an HTTP custom probe mark an instance as unhealthy?
 
 - The HTTP application returns an HTTP response code other than 200 (for example, 403, 404, or 500). This is a positive acknowledgment that the application instance should be taken out of service right away.
-
-. The HTTP server does not respond at all after the timeout period. Depending on the timeout value that is set, this might mean that multiple probe requests go unanswered before the probe gets marked as not running (that is, before SuccessFailCount probes are sent).
-- 	The server closes the connection via a TCP reset.
+- The HTTP server does not respond at all after the timeout period. Depending on the timeout value that is set, this might mean that multiple probe requests go unanswered before the probe gets marked as not running (that is, before SuccessFailCount probes are sent).
+- The server closes the connection via a TCP reset.
 
 ### TCP custom probe
 

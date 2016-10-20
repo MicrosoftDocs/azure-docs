@@ -3,7 +3,7 @@
 	description="This article will show you how to create an iOS 'to-do list' app that calls a Node.js web API by using OAuth 2.0 bearer tokens using a third party library"
 	services="active-directory-b2c"
 	documentationCenter="ios"
-	authors="brandwe"
+	authors="xerners"
 	manager="mbaldwin"
 	editor=""/>
 

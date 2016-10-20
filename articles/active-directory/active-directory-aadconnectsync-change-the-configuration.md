@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/31/2016"
-	ms.author="andkjell"/>
+	ms.author="billmath"/>
 
 
 # Azure AD Connect sync: How to make a change to the default configuration

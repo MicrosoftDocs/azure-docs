@@ -4,8 +4,8 @@
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="anneta" 
+	editor=""/>
 
 <tags 
 	ms.service="logic-apps" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2016" 
+	ms.date="10/18/2016" 
 	ms.author="mandia"/>
 
 # Connect to on-premises connectors using the Hybrid Connection Manager

@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="08/08/2016"
+	ms.date="10/17/2016"
 	ms.author="heidist"/>
 
 # Indexers in Azure Search

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/24/2016"
+   ms.date="10/18/2016"
    ms.author="mcoskun"/>
 
 # Reliable Services notifications
@@ -219,6 +219,7 @@ Here are some things to keep in mind:
 
 ## Next steps
 
+- [Reliable Collections](service-fabric-work-with-reliable-collections.md)
 - [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
 - [Reliable Services backup and restore (disaster recovery)](service-fabric-reliable-services-backup-restore.md)
 - [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
