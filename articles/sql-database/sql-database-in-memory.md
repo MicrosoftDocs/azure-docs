@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/29/2016"
+	ms.date="10/19/2016"
 	ms.author="jodebrui"/>
 
 
@@ -78,8 +78,7 @@ Preview:
 Considerations while the In-Memory features are in Preview are described [later in this topic](#preview_considerations_for_in_memory).
 
 
-> [AZURE.NOTE] These in-Preview features are available only for [*Premium*](sql-database-service-tiers.md) Azure SQL databases, not for databases on the Standard or Basic service tier.
-
+> [AZURE.NOTE] These preview features are available only for [*Premium*](sql-database-service-tiers.md) databases not in elastic pools, and not available for any Basic or Standard databases.  Support for Premium databases in elastic pools is coming soon. 
 
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>

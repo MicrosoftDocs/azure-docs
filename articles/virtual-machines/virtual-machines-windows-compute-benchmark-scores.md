@@ -3,7 +3,7 @@
  description="Compare SPECint compute benchmark scores for Azure VMs running Windows Server"
  services="virtual-machines-windows"
  documentationCenter=""
- authors="dlepow"
+ authors="cynthn"
  manager="timlt"
  editor=""
  tags="azure-resource-manager,azure-service-management"/>
@@ -14,7 +14,7 @@ ms.service="virtual-machines-windows"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="infrastructure-services"
  ms.date="09/22/2016"
- ms.author="danlep"/>
+ ms.author="cynthn"/>
 
 # Compute benchmark scores for Windows VMs
 

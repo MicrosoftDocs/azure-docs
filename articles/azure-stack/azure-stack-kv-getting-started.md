@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/26/2016"
+	ms.date="10/18/2016"
 	ms.author="ricardom"/>
 
 
 # Getting started with Key Vault
 
-This section describes the steps to create a vault, manage keys and secrets as well as authorize users or applications to invoke operations in the vault in Azure Stack. The following steps assume a tenant subscription exists and KeyVault service is registered within that subscription. All the example commands are based on the KeyVaul cmdlets available as part of the Azure PowerShell SDK.
+This section describes the steps to create a vault, manage keys and secrets as well as authorize users or applications to invoke operations in the vault in Azure Stack. The following steps assume a tenant subscription exists and KeyVault service is registered within that subscription. All the example commands are based on the KeyVault cmdlets available as part of the Azure PowerShell SDK.
 
 ## Enabling the tenant subscription for Vault operations 
 
