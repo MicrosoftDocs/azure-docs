@@ -28,7 +28,7 @@ You can use this to do one of the following tasks:
 -	Specify the startup script for your Node.js app (for example: /bin/server.js).
 -	Specify the PM2 configuration file to use for your Node.js app (for example: /foo/process.json).
 
- >[AZURE.NOTE] If you want your Node processes to automatically restart when certain files are modified, use the PM2 configuration. Otherwise your application won't restart when it receives change notifications from processes like continuous deployment when your application code changes.
+ >[AZURE.NOTE] If you want your Node.js processes to restart automatically when certain files are modified, use the PM2 configuration. Otherwise, your application won't restart when it receives change notifications when your application code changes.
 
 You can check the Node.js [process file documentation](http://pm2.keymetrics.io/docs/usage/application-declaration/) for all the options, but following is a sample of what you can use as your process.json file.
 
@@ -50,7 +50,7 @@ Important things to note in this configuration are:
 
 -	The "script" property specifies your application's start script.
 -	The "instances" property specifies how many instances of the node process to launch. If you are running your application on larger VMs that have multiple cores, it's a good idea to maximize your resources by setting a higher value here.
--	The "watch" array specifies all files for whose change you want to restart your node processes.
+-	The "watch" array specifies all files that you want to restart the node process for when they change.
 -	For the "watch_options", you currently need to specify "usePolling" as true because of the way your application content is mounted.
 
 
