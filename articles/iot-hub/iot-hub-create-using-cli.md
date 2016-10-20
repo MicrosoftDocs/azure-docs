@@ -107,7 +107,6 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-status]: https://azure.microsoft.com/status/
 [lnk-CLI-install]: ../xplat-cli-install.md
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
-[lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-CLI-arm]: ../xplat-cli-azure-resource-manager.md
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
