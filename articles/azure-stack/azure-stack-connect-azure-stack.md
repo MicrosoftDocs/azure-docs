@@ -20,10 +20,10 @@
 To manage resources, you must connect to the Azure Stack POC machine. You can use either of the following connection options:
 
  - Remote Desktop: lets a single concurrent user quickly connect.
- - Virtual Private Network (VPN):  lets multiple concurrent users connect from a client outside of the Azure Stack infrastructure (requires configuration).
+ - Virtual Private Network (VPN):  lets multiple concurrent users connect from clients outside of the Azure Stack infrastructure (requires configuration).
 
-## Remote Desktop
-With a Remote Desktop connection, a single concurrent user can install tools, work with the portal, and perform administrative actions. To connect with Remote Desktop, use the following steps:
+## Connect with Remote Desktop
+With a Remote Desktop connection, a single concurrent user work with the portal and perform administrative actions. You can also install tools on the MAS-CON01 virtual machine.
 
 1.  Log in to the Azure Stack POC physical machine.
 
@@ -35,12 +35,12 @@ With a Remote Desktop connection, a single concurrent user can install tools, wo
 
 4.  Log in using the Azure Active Directory credentials specified during installation.
 
-## VPN
-Virtual Private Network connections allow you to connect from a client outside of the Azure Stack infrastructure.  The advantages to this option are that you can use the same management and development tools from your local client, and the ability to support multiple simultaneous users. To connect to Azure Stack with a VPN, follow these steps:
+## Connect with VPN
+Virtual Private Network connections let multiple concurrent users connect from clients outside of the Azure Stack infrastructure. You can work with the portal and perform administrative actions. You can install tools on your local client.
 
 1.  Download the Azure Stack Tools scripts.  These support files can be downloaded by either browsing to the [GitHub repository](https://github.com/Azure/AzureStack-Tools), or running the following Windows PowerShell script as an administrator:
     
-	>[AZURE.NOTE]  The following steps require Windows Management Framework (WMF) 5.0.  You can check for your version by executing $PSVersionTable.PSVersion and comparing the "Major" version.  
+	>[AZURE.NOTE]  The following steps require PowerShell 5.0.  To check your version, run $PSVersionTable.PSVersion and compare the "Major" version.  
 
     ```PowerShell
        
@@ -54,14 +54,14 @@ Virtual Private Network connections allow you to connect from a client outside o
        cd AzureStack-Tools-master
     ````
 
-2.  After you have downloaded the tools, and in the same Windows PowerShell session, navigate to the **Connect** folder, and import the AzureStack.Connect.psm1 module:
+2.  In the same PowerShell session, navigate to the **Connect** folder, and import the AzureStack.Connect.psm1 module:
 
     ```PowerShell
     cd Connect
     import-module .\AzureStack.Connect.psm1
     ```
 
-3.  To create and then connect the Azure Stack VPN connection, run the following Windows PowerShell.  Before running, populate the admin password and Azure Stack host address fields. 
+3.  To create the Azure Stack VPN connection, run the following Windows PowerShell. Before running, populate the admin password and Azure Stack host address fields. 
     
     ```PowerShell
     #Change the IP Address below to match your Azure Stack host
@@ -83,11 +83,13 @@ Virtual Private Network connections allow you to connect from a client outside o
     Connect-AzureStackVpn -Password $Password
     ```
 
-    >[AZURE.NOTE] During execution, you are prompted to trust the Azure Stack host.  You are also prompted to install a certificate, which appears behind the Powershell session window.
+4. When prompted, trust the Azure Stack host.
 
-4.  Test connecting to the Azure Stack portal by navigating to *https://portal.azurestack.local* using an Internet browser.  
+5. When prompted, install a certificate (the prompt appears behind the Powershell session window).
 
-5.  You can also view and manage the status of your Azure Stack connection by viewing the network connections on your client:
+6. To test the portal connection, in an Internet browser, navigate to *https://portal.azurestack.local*.
+
+7. To review and manage the Azure Stack connection, use **Networks** on your client:
 
     ![Image of the network connect menu in Windows 10](media/azure-stack-connect-azure-stack/image1.png)
 
