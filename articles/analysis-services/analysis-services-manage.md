@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Manage Analysis Services"
+   pageTitle="Manage Azure Analysis Services | Microsoft Azure"
    description="Learn how to manage an Analysis Services server in Azure."
    services="analysis-services"
    documentationCenter=""
@@ -28,7 +28,7 @@ The [Azure portal](http://portal.azure.com/) is where you can create and delete 
 ## SQL Server Management Studio
 Connecting to your server in Azure is just like connecting to a server instance in your own organization. From SSMS, you can perform many of the same tasks such as process data or create a processing script, manage roles, and use PowerShell.
 
-![Get server name in Azure](./media/analysis-services-manage/aas-manage-ssms.png)
+![SQL Server Management Studio](./media/analysis-services-manage/aas-manage-ssms.png)
 
  One of the bigger differences is the authentication you use to connect to your server. To connect to your Azure Analysis Services server, you need to select **Active Directory Password Authentication**.
 
@@ -53,7 +53,7 @@ Since managing your server in Azure by using SSMS is much the same as managing a
 You can use **Analysis Services Admins** in the control blade for your server in Azure portal or SSMS to manage server administrators. Analysis Services Admins are database server administrators with  rights for common database administration tasks such as adding and removing databases and managing users. By default, the user that creates the server in Azure portal is automatically added as an Analysis Services Admin. You should also know:
 -   Windows Live ID is not a supported identity type for Azure Analysis Services.  
 -   Analysis Services Admins must be valid Azure Active Directory users.
--   If creating an Azure Analysis Services server via Azure Resource Manager (ARM) templates, Analysis Services Admins takes a JSON array of users that should be added as admins.
+-   If creating an Azure Analysis Services server via Azure Resource Manager  templates, Analysis Services Admins takes a JSON array of users that should be added as admins.
 
 Analysis Services Admins can be different from Azure resource administrators, which can manage resources for Azure subscriptions. This maintains compatibility with existing XMLA and TSML manage behaviors in Analysis Services and to allow you to segregate duties between Azure resource management and Analysis Services database management.
 

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Create an Analysis Services server in Azure"
+   pageTitle="Create an Analysis Services server in Azure | Microsoft Azure"
    description="Learn how to create an Analysis Services server instance in Azure."
    services="analysis-services"
    documentationCenter=""
@@ -17,6 +17,7 @@
    ms.author="owend"/>
 
 # Create an Analysis Services server
+This article walks you through creating a new Analysis Services server resource in your Azure subscription.
 
 ## Before you begin
 To get started, you need:
@@ -50,7 +51,7 @@ To get started, you need:
 
 Create usually takes under a minute; often just a few seconds. If you selected **Add to Portal**, navigate to your portal to see your new server. Or, navigate to **More services** > **Analysis Services** to see if your server is ready. If it doesn't appear refresh the list.
 
- ![Create server](./media/analysis-services-create-server/aas-create-server-dashboard.png)
+ ![Dashboard](./media/analysis-services-create-server/aas-create-server-dashboard.png)
 
 
 ## Next steps

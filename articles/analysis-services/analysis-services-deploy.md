@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Deploy to Azure Analysis Services"
+   pageTitle="Deploy to Azure Analysis Services | Microsoft Azure"
    description="Learn how to deploy a tabular model to an Azure Analysis Services server."
    services="analysis-services"
    documentationCenter=""

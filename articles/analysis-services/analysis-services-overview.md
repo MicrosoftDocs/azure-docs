@@ -1,5 +1,5 @@
 <properties
-   pageTitle="What is Azure Analysis Services"
+   pageTitle="What is Azure Analysis Services | Microsoft Azure"
    description="Get the big picture of Analysis Services in Azure."
    services="analysis-services"
    documentationCenter=""
@@ -27,15 +27,15 @@ Built on the proven analytical engine in Microsoft SQL Server Analysis Services,
 Azure Analysis Services is compatible with the same SQL Server 2016 Analysis Services Enterprise Edition you already know. Azure Analysis Services supports tabular models at the 1200 compatibility level. DirectQuery, partitions, row-level security, bi-directional relationships, and translations are all supported.
 
 ## Use the tools you already know
-![Data sources](./media/analysis-services-overview/aas-overview-dev-tools.png)
+![BI developer tools](./media/analysis-services-overview/aas-overview-dev-tools.png)
 
-When creating data models for Azure Analysis Services, you use the same tools as for SQL Server Analysis Services. Author and deploy tabular models by using the latest versions of [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) or by using [Azure Powershell](../powershell-install-configure.md) and [Azure Resource Manager (ARM)](../azure-resource-manager/resource-group-overview.md) templates in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+When creating data models for Azure Analysis Services, you use the same tools as for SQL Server Analysis Services. Author and deploy tabular models by using the latest versions of [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) or by using [Azure Powershell](../powershell-install-configure.md) and [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) templates in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
 ## Connect to any data source
 
 ![Data sources](./media/analysis-services-overview/aas-overview-data-sources.png)
 
-Analysis Services supports connecting to data from about any data source on-premises in your organization or in the cloud. Combine data from both on-premises and cloud data sources for a hybrid BI solution.
+Azure Analysis Services supports connecting to data from about any data source on-premises in your organization or in the cloud. Combine data from both on-premises and cloud data sources for a hybrid BI solution.
 
 Because your Azure Analysis Services server is in the cloud, connecting to cloud data sources is seamless. When connecting to on-premises data sources, the [On-premises data gateway](analysis-services-gateway.md) ensures fast, secure connections with your Analysis Services server in the cloud.  
 
@@ -52,7 +52,7 @@ User authentication for Azure Analysis services is handled by [Azure Active Dire
 
 Users login with the user principal name (UPN) of their account and their password. When synchronized with an on-premises Active Directory, the user’s UPN is often their organizational email address.
 
-Permissions for managing the Azure Analysis Services server resource is handled by assigning users to roles within you Azure subscription. By default, subscription administrators have owner permissions to the server resource in Azure. Additional users can be added by using the Azure management portal or through Azure Resource Manager (ARM) templates.
+Permissions for managing the Azure Analysis Services server resource is handled by assigning users to roles within you Azure subscription. By default, subscription administrators have owner permissions to the server resource in Azure. Additional users can be added by using the Azure management portal or through Azure Resource Manager.
 
 #### Data security
 Azure Analysis Services utilizes Azure Blob storage to persist storage and metadata for Analysis Services databases. Data files within Blob are encrypted using Azure Blob Server Side Encryption (SSE). When using Direct Query mode, only metadata is stored; the actual data is accessed from the data source at query time.

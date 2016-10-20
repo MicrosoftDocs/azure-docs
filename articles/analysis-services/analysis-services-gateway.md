@@ -1,5 +1,5 @@
 <properties
-   pageTitle="On-premises data gateway"
+   pageTitle="On-premises data gateway | Microsoft Azure"
    description="An On-premises gateway is necessary if your Analysis Services server in Azure will connect to on-premises data sources."
    services="analysis-services"
    documentationCenter=""
@@ -78,7 +78,7 @@ For preview, the gateway supports connections between your Azure Analysis Servic
 ## How it works
 The gateway runs as a Windows service, **On-premises data gateway**, on a computer in your organization's network. The gateway you install for use with Azure Analysis Services is based on the same gateway used for other services like Power BI, but with some differences in how it's configured.
 
-![gateway-how-it-works](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
+![How it works](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
 Queries and data flow work like this:
 
