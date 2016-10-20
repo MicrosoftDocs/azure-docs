@@ -281,10 +281,8 @@ Creating job [MultiInstanceSampleJob]...
 Adding task [MultiInstanceSampleTask] to job [MultiInstanceSampleJob]...
 Awaiting task completion, timeout in 00:30:00...
 
-Main task [MultiInstanceSampleTask] is in state [Completed] and ran on compute node [tvm-769611554_1-20161006t202813z]:
+Main task [MultiInstanceSampleTask] is in state [Completed] and ran on compute node [tvm-1219235766_1-20161017t162002z]:
 ---- stdout.txt ----
-Executing coordination command
-Executing application command
 Rank 2 received string "Hello world" from Rank 0
 Rank 1 received string "Hello world" from Rank 0
 
@@ -295,22 +293,17 @@ Main task completed, waiting 00:00:10 for subtasks to complete...
 ---- Subtask information ----
 subtask: 1
         exit code: 0
-        node: tvm-769611554_3-20161006t202813z:
-        stdout.txt: Executing coordination command
-
+        node: tvm-1219235766_3-20161017t162002z
+        stdout.txt:
         stderr.txt:
 subtask: 2
         exit code: 0
-        node: tvm-769611554_2-20161006t202813z:
-        stdout.txt: Executing coordination command
-
+        node: tvm-1219235766_2-20161017t162002z
+        stdout.txt:
         stderr.txt:
 
-Sample end: 10/6/2016 13:48:33
-Elapsed time: 00:22:15.5710324
-
-Delete job? [yes] no:
-Delete pool? [yes] no:
+Delete job? [yes] no: yes
+Delete pool? [yes] no: yes
 
 Sample complete, hit ENTER to exit...
 ```
