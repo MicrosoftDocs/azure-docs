@@ -36,7 +36,7 @@ With a Remote Desktop connection, a single concurrent user can work with the por
 4.  Log in using the Azure Active Directory credentials specified during installation.
 
 ## Connect with VPN
-Virtual Private Network connections let multiple concurrent users connect from clients outside of the Azure Stack infrastructure. You can use the portal to manage resources and install tools on your local client.
+Virtual Private Network connections let multiple concurrent users connect from clients outside of the Azure Stack infrastructure. You can use the portal to manage resoures. You can also install tools, such as Visual Studio and PowerShell, on your local client.
 
 1.  Install the AzureRM module by using the following command:
    
