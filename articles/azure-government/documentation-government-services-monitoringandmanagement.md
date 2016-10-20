@@ -32,7 +32,7 @@ The following Automation features are not currently available in Azure Governmen
 
 + Creation of a Service Principle credential for authentication
 
-For more information, see [Automation public documentation](../automation.md).
+For more information, see [Automation public documentation](../automation/automation-intro.md).
 
 ## Log Analytics
 
