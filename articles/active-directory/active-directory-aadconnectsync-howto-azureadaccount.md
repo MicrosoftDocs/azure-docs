@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/01/2016"
-	ms.author="andkjell"/>
+	ms.author="billmath"/>
 
 # Azure AD Connect sync: How to manage the Azure AD service account
 The service account used by the Azure AD Connector is supposed to be service free. If you need to reset its credentials, then this topic is for you. For example, if a Global Administrator has by mistake reset the password on the service account using PowerShell.

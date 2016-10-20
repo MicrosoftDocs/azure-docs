@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/19/2016"
+   ms.date="10/20/2016"
    ms.author="larryfr"/>
 
 # Develop C# topologies for Apache Storm on HDInsight using Hadoop tools for Visual Studio
@@ -286,7 +286,7 @@ Sentences are emitted from the spout, which are distributed to instances of the 
 
 Because word count is held locally in the Counter instance, we want to make sure that specific words flow to the same Counter bolt instance, so we have only one instance keeping track of a specific word. But for the Splitter bolt, it really doesn't matter which bolt receives which sentence, so we simply want to load balance sentences across those instances.
 
-Open **Program.cs**. The important method is **ITopologyBuilder**, which is used to define the topology that is submitted to Storm. Replace the contents of **ITopologyBuilder** with the following code to implement the topology described previously:
+Open **Program.cs**. The important method is **GetTopologyBuilder**, which is used to define the topology that is submitted to Storm. Replace the contents of **GetTopologyBuilder** with the following code to implement the topology described previously:
 
         // Create a new topology named 'WordCount'
         TopologyBuilder topologyBuilder = new TopologyBuilder("WordCount" + DateTime.Now.ToString("yyyyMMddHHmmss"));

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/26/2016"
-   ms.author="carlrab"/>
+   ms.date="10/14/2016"
+   ms.author="carlrab;barbkess"/>
 
 
 
@@ -25,21 +25,17 @@
 
 # Learn about SQL Database backups
 
-<!-- Introduction
 
-1. Sentence #1 begins with "Learn about ..." and gives the scope of what the article will cover.
-2. Sentence #2 explains the key capability or selling point of the feature.
-3. Sentence #3 begins with "Use this feature to ..." and gives a common use case.
+Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. SQL Database automatically creates a local database backup every five minutes and uses Azure read-access geo-redundant storage (RA-GRS) to provide geo-redundancy. Use local database backups to [restore a database to a point in time](sql-database-point-in-time-restore-portal.md) on the same server. Use geo-redundant backups to [restore the database to a different geographical region](sql-database-geo-restore-portal.md).  
 
--->
 
-SQL Database creates a local database backup every five minutes and uses Azure read-access geo-redundant storage (RA-GRS) to copy some of the database backups to another geographical region. These backups happen **automatically and with no additional charge**. Use local database backups to [restore a database to a point in time](sql-database-point-in-time-restore-portal.md) on the same server. Use geo-redundant backups to [restore the database to a different geographical region](sql-database-geo-restore-portal.md).  
+<!-- 
 
->[AZURE.NOTE] Both local and geo-redundant backups happen automatically. You don't need to do anything to make them happen and there is no additional charge. 
-
-In the following diagram, SQL Database is running in the US East region. It creates a database backup every five minutes, which it stores locally to Azure Read Access Geo-redundant Storage (RA-GRS). Azure copies the database backups to a paired data center in the US West region.
+This diagram shows SQL Database running in the US East region. It creates a database backup every five minutes, which it stores locally to Azure Read Access Geo-redundant Storage (RA-GRS). Azure uses geo-replication to copy the database backups to a paired data center in the US West region.
 
 ![geo-restore](./media/sql-database-geo-restore/geo-restore-1.png)
+
+-->
 
 <!--## What is <feature>?" -->
 
@@ -48,11 +44,11 @@ In the following diagram, SQL Database is running in the US East region. It crea
 <!-- 
 First sentence begins with "The <feature> is ..." followed by a definition of the feature. Provide a 1-2 paragraph intro to explain what the feature is, how it works, and the importance of the feature for solving business problems.
 -->
-A SQL database backup is a file that stores information about the state of the database at a specific point-in-time. SQL Database uses SQL Server technology to create local [full](https://msdn.microsoft.com/library/ms186289.aspx), [differential](https://msdn.microsoft.com/library/ms175526.aspx ), and [transaction log](https://msdn.microsoft.com/library/ms191429.aspx) backups. The transaction log backups happen every five minutes, which allows you to do a point-in-time restore to the same server that hosts the database. When you restore a database, the service figures out which full, differential, and transaction log backups need to be restored.
+A SQL database backup includes both local database backups and geo-redundant backups. These backups are created automatically and at no additional charge. You don't need to do anything to make them happen.
 
->[AZURE.NOTE] SQL Database creates both local database backups and geo-redundant backups automatically. You don't need to do anything to make them happen. There is no additional charge.
+For local backups, SQL Database uses SQL Server technology to create [full](https://msdn.microsoft.com/library/ms186289.aspx), [differential](https://msdn.microsoft.com/library/ms175526.aspx ), and [transaction log](https://msdn.microsoft.com/library/ms191429.aspx) backups. The transaction log backups happen every five minutes, which allows you to do a point-in-time restore to the same server that hosts the database. When you restore a database, the service figures out which full, differential, and transaction log backups need to be restored.
 
-Use a database backup to:
+Use a local database backup to:
 
 - Restore a database to a point-in-time within the retention period. With a database backup you can restore a database to a point-in-time, restore a deleted database to the time it was deleted, or restore a database to another geographical region. To perform a restore, see [restore a database from a database backup](sql-database-recovery-using-backups.md).
 
@@ -60,9 +56,11 @@ Use a database backup to:
 
 - Archive a database backup beyond the backup retention period. To perform an archive, [export a SQL database to a BACPAC](sql-database-export.md) file. You can then archive the BACPAC to long-term storage and store it beyond your retention period. Or, use the BACPAC to transfer a copy of your database to SQL Server, either on-premises or in an Azure virtual machine (VM).
 
-## Backups have geographical redundancy
+For geo-redundant backups, SQL Database uses [Azure Storage replication](../storage/storage-redundancy.md). SQL Database stores local database backup files in a [Read-Access Geo-Redundant Storage (RA-GRS)](../storage/storage-redundancy.md#read-access-geo-redundant-storage) account. Azure replicates the backup files to a [paired data center](../best-practices-availability-paired-regions.md). 
 
-SQL Database uses [Azure Storage replication](../storage/storage-redundancy.md) to back sup your database to a different geographical location. To provide geo-redundant storage, SQL Database stores local database backup files in a [Read-Access Geo-Redundant Storage (RA-GRS)](../storage/storage-redundancy.md#read-access-geo-redundant-storage) account. Azure replicates the backup files to a [paired data center](../best-practices-availability-paired-regions.md). This geo-replication ensures you can restore a database in case you cannot access the database backup from your primary database region. 
+Use a geo-redundant backup to:
+
+- Restore a database to a different geographical region in case you cannot access the database backup from your primary database region. 
 
 >[AZURE.NOTE] In Azure storage, the term *replication* refers to copying files from one location to another. SQL's *database replication* refers to keeping to multiple secondary databases synchronized with a primary database. 
 
@@ -73,7 +71,9 @@ SQL Database provides up to 200% of your maximum provisioned database storage as
 
 ## How often do backups happen?
 
-Full database backups are taken every week, differential database backups are taken hourly, and transaction log backups are taken every five minutes. The first full backup is scheduled immediately after a database is created. It usually completes within 30 minutes, but it can take longer when the database is of a significant size. For example, the initial backup can take longer on a restored database or a database copy. After the first full backup, all further backups are scheduled automatically and managed silently in the background. The exact timing of full and [differential](https://msdn.microsoft.com/library/ms175526.aspx) database backups is determined as it balances the overall system workload. 
+For local database backups, full database backups happen weekly, differential database backups happen hourly, and transaction log backups happen every five minutes. The first full backup is scheduled immediately after a database is created. It usually completes within 30 minutes, but it can take longer when the database is of a significant size. For example, the initial backup can take longer on a restored database or a database copy. After the first full backup, all further backups are scheduled automatically and managed silently in the background. The exact timing of full and [differential](https://msdn.microsoft.com/library/ms175526.aspx) database backups is determined as it balances the overall system workload. 
+
+For geo-redundant backups, full and differential backups are copied according to the Azure Storage replication schedule.
 
 ## How long do you keep my backups?
 
@@ -90,11 +90,10 @@ If you upgrade your database from the Basic service tier to Standard or Premium,
  
 If you delete a database, SQL Database keeps the backups in the same way it would for an online database. For example, suppose you delete a Basic database that has a retention period of seven days. A backup that is four days old is saved for three more days.
 
-> [AZURE.IMPORTANT] If you delete the Azure SQL server that hosts SQL Databases, all databases that belong to the server are also deleted and cannot be recove
-> red. You cannot restore a deleted server.
+> [AZURE.IMPORTANT] If you delete the Azure SQL server that hosts SQL Databases, all databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server.
 
 ## Next steps
 
-Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. To see how database backups can fit into your business strategy, see [Business continuity overview](sql-database-business-continuity.md).
+Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. To see how database backups into a broader strategy, see [Business continuity overview](sql-database-business-continuity.md).
 
 

@@ -13,7 +13,7 @@
     ms.workload="identity"
 	ms.topic="article"
     ms.date="06/27/2016"
-    ms.author="andkjell"/>
+    ms.author="billmath"/>
 
 # Topologies for Azure AD Connect
 

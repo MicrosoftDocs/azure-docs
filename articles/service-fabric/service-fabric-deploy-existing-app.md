@@ -27,7 +27,7 @@ In this article, we cover the steps to package a guest executable and deploy it 
 
 There are several advantages that come with running a guest executable in a Service Fabric cluster:
 
-- High availability. Applications that run in Service Fabric are mode highly available. Service Fabric ensures that instances of an application are running.
+- High availability. Applications that run in Service Fabric are made highly available. Service Fabric ensures that instances of an application are running.
 - Health monitoring. Service Fabric health monitoring detects if an application is running and provides diagnostics information if there is a failure.   
 - Application lifecycle management. Besides providing upgrades with no downtime, Service Fabric provides automatic rollback to the previous version if there is a bad health event reported during an upgrade.    
 - Density. You can run multiple applications in a cluster, which eliminates the need for each application to run on its own hardware.
