@@ -1,5 +1,5 @@
  <properties
-	pageTitle="Intro to Hadoop - What is Hadoop in HDInsight? | Microsoft Azure"
+	pageTitle="Intro to Hadoop - What is Hadoop on HDInsight? | Microsoft Azure"
 	description="Get an introduction to Hadoop, distributed big data processing and analysis, and the components of the Hadoop ecosystem in the cloud on HDInsight."
 	keywords="big data analysis,introduction to hadoop,what is hadoop,hadoop technology stack,hadoop ecosystem"
 	services="hdinsight"
@@ -18,11 +18,11 @@
    ms.author="cgronlun"/>
 
 
-# An introduction to the Hadoop ecosystem in Azure HDInsight
+# An introduction to the Hadoop ecosystem on Azure HDInsight
 
  This article provides an introduction to Hadoop on Azure HDInsight, its ecosystem, and big data. Learn about the Hadoop components, common terminology, and scenarios for big data analysis.
 
-## What is Hadoop in HDInsight?
+## What is Hadoop on HDInsight?
 
 Hadoop refers to an ecosystem of open-source software that is a framework for distributed processing, storing, and analysis of big data sets on clusters of computers. Apache Hadoop was the original open-source project for big data processing. Development of related technologies followed, including Apache Hive, Apache HBase, Apache Spark, and others that are considered part of the Hadoop technology stack. See [Overview of the Hadoop ecosystem in HDInsight](#overview) below for details.
 
