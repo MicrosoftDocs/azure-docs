@@ -28,20 +28,20 @@ The following table describes the different types of tiles available in the View
 
 | View Type | Description |
 |:--|:--|
-| [List of queries](#list-of-queries-part) | Displays a list of log search queries.  The user can click on each query to display its results.  The view will include a single query by default, and you can click **+ Query** to add additional queries. |
-| [Number & list](#number-amp-list-part) | Header has a single number showing count of records from a log search query.  List displays the top ten results from a query with horizontal bars indicating the relative value of a numeric column. |
-| [Two numbers & list](#two-numbers-amp-list-part) | Header has two numbers showing count of records from separate log search queries.  List displays the top ten results from a query with horizontal bars indicating the relative value of a numeric column. |
+| [List of queries](#list-of-queries-part) | Displays a list of log search queries.  The user can click on each query to display its results.  |
+| [Number & list](#number-amp-list-part) | Header has a single number showing count of records from a log search query.  List displays the top ten results from a query with a graph indicating the relative value of a numeric column or its change over time. |
+| [Two numbers & list](#two-numbers-amp-list-part) | Header has two numbers showing count of records from separate log search queries.  List displays the top ten results from a query with a graph indicating the relative value of a numeric column or its change over time. |
 | [Donut & list](#donut-amp-list-part) | Header displays a single number summarized from a value column in a log query.  The donut graphically displays results of the top three records. |
-| [Two timelines & list](#two-timelines-amp-list-part) | Header displays the results of two log queries over time as column charts with a callout displaying a single number summarized from a value column in a log query.  List displays the top ten results from a query with horizontal bars indicating the relative value of a numeric column. |   
+| [Two timelines & list](#two-timelines-amp-list-part) | Header displays the results of two log queries over time as column charts with a callout displaying a single number summarized from a value column in a log query.  List displays the top ten results from a query with a graph indicating the relative value of a numeric column or its change over time. |   
 | [Information](#information-part) | Header displays static text and an optional link.  List displays one or more items with static text and title. |
-| [Line chart, callout, & list](#line-chart-callout-amp-list-part) | Header displays a line chart with multiple series from a log query over time and a callout with a summarized value.  List displays the top ten results from a query with horizontal bars indicating the relative value of a numeric column. |
-| [Line chart & list](#line-chart-amp-list-part) | Header displays a line chart with multiple series from a log query over time.  List displays the top ten results from a query with horizontal bars indicating the relative value of a numeric column. |
-| [Line chart & sparkline](#line-chart-amp-sparklines-part) | Header displays a line chart with multiple series from a log query over time.  List displays the top ten results from a query with sparkline visualizing the value of a numeric column over the selected timeframe. |
+| [Line chart, callout, & list](#line-chart-callout-amp-list-part) | Header displays a line chart with multiple series from a log query over time and a callout with a summarized value.  List displays the top ten results from a query with a graph indicating the relative value of a numeric column or its change over time. |
+| [Line chart & list](#line-chart-amp-list-part) | Header displays a line chart with multiple series from a log query over time.  List displays the top ten results from a query with a graph indicating the relative value of a numeric column or its change over time. |
+| [Stack of line charts part](#stack-of-line-charts-part) | Displays three separate line charts with multiple series from a log query over time. |
 
 
 ## List of queries part
 
-Displays a list of log search queries.  The user can click on each query to display its results.  
+Displays a list of log search queries.  The user can click on each query to display its results.  The view will include a single query by default, and you can click **+ Query** to add additional queries.
 
 ![List of queries view](media/log-analytics-view-designer/view-list-queries.png)
 
@@ -59,7 +59,7 @@ Displays a list of log search queries.  The user can click on each query to disp
 
 ## Number & list part
 
-Header has a single number showing count of records from a log search query.  List displays the top ten results from a query with optional horizontal bars indicating the relative value of a numeric column or sparklines visualizing the value of a numeric column over time.
+Header has a single number showing count of records from a log search query.  List displays the top ten results from a query with a graph indicating the relative value of a numeric column or its change over time.
 
 
 ![List of queries view](media/log-analytics-view-designer/view-number-list.png)
@@ -90,7 +90,7 @@ Header has a single number showing count of records from a log search query.  Li
 
 ## Two Numbers & list part
 
-Header has two numbers showing count of records from separate log search queries.  List displays the top ten results from a query with horizontal bars indicating the relative value of a numeric column.
+Header has two numbers showing count of records from separate log search queries.  List displays the top ten results from a query with a graph indicating the relative value of a numeric column or its change over time.
 
 ![Two Numbers & list view](media/log-analytics-view-designer/view-two-numbers-list.png)
 
@@ -161,7 +161,7 @@ Header displays a single number summarized from a value column in a log query.  
 
 ## Two timelines & list part
 
-Header displays the results of two log queries over time as column charts with a callout displaying a single number summarized from a value column in a log query.  List displays the top ten results from a query with horizontal bars indicating the relative value of a numeric column.   
+Header displays the results of two log queries over time as column charts with a callout displaying a single number summarized from a value column in a log query.  List displays the top ten results from a query with a graph indicating the relative value of a numeric column or its change over time.
 
 ![Two timelines & list view](media/log-analytics-view-designer/view-two-timelines-list.png)
 
@@ -215,7 +215,7 @@ Header displays static text and an optional link.  List displays one or more ite
 
 ## Line chart, callout, & list part
 
-Header displays a line chart with multiple series from a log query over time and a callout with a summarized value.  List displays the top ten results from a query with horizontal bars indicating the relative value of a numeric column
+Header displays a line chart with multiple series from a log query over time and a callout with a summarized value.  List displays the top ten results from a query with a graph indicating the relative value of a numeric column or its change over time.
 
 ![Line chart, callout, & list view](media/log-analytics-view-designer/view-line-chart-callout-list.png)
 
@@ -255,7 +255,7 @@ Header displays a line chart with multiple series from a log query over time and
 
 ## Line chart & list part
 
-Header displays a line chart with multiple series from a log query over time.  List displays the top ten results from a query with horizontal bars indicating the relative value of a numeric column.
+Header displays a line chart with multiple series from a log query over time.  List displays the top ten results from a query with a graph indicating the relative value of a numeric column or its change over time.
 
 ![Line chart & list view](media/log-analytics-view-designer/view-line-chart-callout-list.png)
 
@@ -289,7 +289,7 @@ Header displays a line chart with multiple series from a log query over time.  L
 | **List** | **> Thresholds** |
 | Enable Thresholds | Select to enable thresholds.  See [Common Settings](#thresholds) for details. |
 
-## Stack of line charts
+## Stack of line charts part
 
 Displays three separate line charts with multiple series from a log query over time.
 
