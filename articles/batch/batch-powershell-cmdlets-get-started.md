@@ -168,6 +168,7 @@ Set the **default version** for the application:
 **List** an application's packages
 
     $application = Get-AzureRmBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
+
     $application.ApplicationPackages
 
 **Delete** an application package
@@ -187,7 +188,9 @@ You can specify one or more application packages for deployment when you create 
 Specify the `-ApplicationPackageReference` option when creating a pool to deploy an application package to the pool's nodes as they join the pool. First, create a **PSApplicationPackageReference** object, and configure it with the application Id and package version you want to deploy to the pool's compute nodes:
 
     $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference
+
     $appPackageReference.ApplicationId = "MyBatchApplication"
+
     $appPackageReference.Version = "1.0"
 
 Now create the pool, and specify the package reference object as the argument to the `ApplicationPackageReferences` option:
@@ -203,21 +206,26 @@ You can find more information on application packages in [Application deployment
 To update the applications assigned to an existing pool, first create a PSApplicationPackageReference object with the desired properties (application Id and package version):
 
     $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference
+
     $appPackageReference.ApplicationId = "MyBatchApplication"
+
     $appPackageReference.Version = "2.0"
 
 Next, get the pool from Batch, clear out any existing packages, add our new package reference, and update the Batch service with the new pool settings:
 
     $pool = Get-AzureBatchPool -BatchContext $context -Id "PoolWithAppPackage"
+
     $pool.ApplicationPackageReferences.Clear()
+
     $pool.ApplicationPackageReferences.Add($appPackageReference)
+
     Set-AzureBatchPool -BatchContext $context -Pool $pool
 
 You've now updated the pool's properties in the Batch service. To actually deploy the new application package to compute nodes in the pool, however, you must restart or reimage those nodes. You can restart every node in a pool with this command:
 
     Get-AzureBatchComputeNode -PoolId "PoolWithAppPackage" -BatchContext $context | Restart-AzureBatchComputeNode -BatchContext $context
 
->[AZURE.TIP] You can deploy multiple application packages to the compute nodes in a pool. If you'd like to *add* an application package instead of replacing the currently deployed packages, omit the `$pool.ApplicationPackageReferences.Clear()` line.
+>[AZURE.TIP] You can deploy multiple application packages to the compute nodes in a pool. If you'd like to *add* an application package instead of replacing the currently deployed packages, omit the `$pool.ApplicationPackageReferences.Clear()` line above.
 
 ## Next steps
 
