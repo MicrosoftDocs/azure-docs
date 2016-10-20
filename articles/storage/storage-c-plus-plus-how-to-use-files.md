@@ -13,7 +13,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/10/2016"
-	ms.author="seguler;robinsh" />
+	ms.author="seguler" />
 
 # How to use File Storage from C++
 
