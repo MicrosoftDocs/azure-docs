@@ -4,7 +4,7 @@
  services="iot-hub"
  documentationCenter=""
  authors="shizn"
- manager="timlt"
+ manager="yjianfeng"
  tags=""
  keywords=""/>
 
@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="09/28/2016" 
+ ms.date="10/21/2016"
  ms.author="xshi"/>
 
 # 1.2 Get the tools (macOS 10.10)
