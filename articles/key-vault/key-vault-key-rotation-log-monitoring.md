@@ -21,11 +21,11 @@
 
 After creating your key vault, you will be able to start using that vault to store your keys and secrets. Your applications no longer need to persist your keys or secrets, but rather will request them from the key vault as needed. This allows you to update keys and secrets without impacting the behavior of your application, which opens up a breadth of possibilities around your key and secret management.
 
-This article walks through an example of using Azure Key Vault to store a secret, in this case an Azure Storage Account key that is accessed by an application. It will also demonstrate implementation of a scheduled rotation of that storage account key. Finally, it will walk through a demonstration of how to monitor the key vault audit logs and raise alerts when unexpected requests are made.
+This article walks through an example of using Azure Key Vault to store a secret, in this case an Azure Storage Account key that is accessed by an application. It will also demonstrate implementation of a schedul ed rotation of that storage account key. Finally, it will walk through a demonstration of how to monitor the key vault audit logs and raise alerts when unexpected requests are made.
 
 > \[AZURE.NOTE\] This tutorial is not intended to explain in detail the initial setup of your key vault. For this information, see [Get started with Azure Key Vault](key-vault-get-started.md). Or, for Cross-Platform Command-Line Interface instructions, see [this equivalent tutorial](key-vault-manage-with-cli.md).
 
-## Set up Key Vault
+## Set up Key Vault 
 
 To enable an application to retrieve a secret from Key Vault, you must first create the secret and upload it to your vault. This can be accomplished by starting an Azure PowerShell session and signing in to your Azure account with the following command:
 
