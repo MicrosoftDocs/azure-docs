@@ -94,7 +94,8 @@ Install the updates as follows:
 ### Azure Site Recovery Scout 8.0.1 Update 4
 Scout Update 4 is a cumulative update. It has all the fixes of update1 till update3 and following new bug fixes and enhancements.
 
-**New platform support** <br>
+**New platform support** 
+
 - Support has been added for vCenter/vSphere 6.0, 6.1 and 6.2
 - Support has been added for following Linux operating systems
 	- Red Hat Enterprise Linux (RHEL)7.0, 7.1 and 7.2 
@@ -102,9 +103,9 @@ Scout Update 4 is a cumulative update. It has all the fixes of update1 till upda
 	- Red Hat Enterprise Linux (RHEL) 6.8
 	- CentOS 6.8
 
->[AZURE.NOTE]:
+>[AZURE.NOTE]
 >
-> RHEL/CentOS 7 64 bit  **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** is packaged with base **InMage_Scout_Standard_8.0.1 GA.zip**. Download Scout GA package from portal as mentioned i [step1](#Step 1: Create a vault).
+> RHEL/CentOS 7 64 bit  **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** is packaged with base Scout GA package **InMage_Scout_Standard_8.0.1 GA.zip**. Download Scout GA package from portal as mentioned i [step1](#Step 1: Create a vault).
 
 **Bug fixes and enhancements** 
 
@@ -126,9 +127,9 @@ Scout Update 4 is a cumulative update. It has all the fixes of update1 till upda
 	- Provides capacity and free space details for all the protected devices.
 	- Provides Scout driver state on source server. 
 	
->[AZURE.NOTE]: 
+>[AZURE.NOTE] 
 >
->- InMage_Scout_Standard_8.0.1_GA.zip base package now has updated CX base installer **InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**  and Windows Master Target  base installer **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**. For all new installation use new CX and Windows Master Target GA bits.
+>- **InMage_Scout_Standard_8.0.1_GA.zip** base package now has updated CX base installer **InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**  and Windows Master Target  base installer **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**. For all new installation use new CX and Windows Master Target GA bits.
 >- Update 4 can be directly applied on 8.0.1 GA.
 >- The configuration server and RX updates can’t be rolled back after they're applied on the system.
 
