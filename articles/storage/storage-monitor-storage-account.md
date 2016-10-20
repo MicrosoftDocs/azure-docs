@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="fryu;robinsh"/>
+	ms.author="robinsh"/>
 
 # Monitor a storage account in the Azure Portal
 

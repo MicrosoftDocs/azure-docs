@@ -58,7 +58,7 @@ We recommend that you install the [latest](http://aka.ms/azurebackup_agent) Azur
 Yes, the vault credentials expire after 48 hours. If the file expires, log in to the Azure portal and download the vault credentials files from your vault. 
 
 ## Is there any limit on the number of vaults that can be created in each Azure subscription? <br/>
-Yes. As of August 2016, you can create 25 vaults(each for backup vault and Recovery Services Vault) per subscription. If you need more vaults, then create a new subscription.
+Yes. As of September 2016, you can create 25 backup vaults per subscription. You can create upto 25 Recovery Services vaults per each supported region of Azure backup per subscription. If you need more vaults, then create a new subscription.
 
 ## Are there any limits on the number of servers/machines that can be registered against each vault? <br/>
 Yes, you can register up to 50 machines per vault. For Azure IaaS virtual machines, limit is 200 VMs per vault. If you need to register more machines, create a new vault.

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="08/01/2016"
+	ms.date="10/17/2016"
 	ms.author="spelluru"/>
 
 # Tutorial: Build your Azure first data factory using Microsoft Visual Studio
@@ -274,10 +274,13 @@ When you publish the solution in the next step, the **partitionweblogs.hql** fil
 	1. select **Create New Data Factory** option.
 	2. Enter a unique **name** for the data factory. For example: **FirstDataFactoryUsingVS09152016**. The name must be globally unique.  
 	
+	
 		> [AZURE.IMPORTANT] If you receive the error **Data factory name “FirstDataFactoryUsingVS” is not available** when publishing, change the name (for example, yournameFirstDataFactoryUsingVS). See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
 	3. Select the right subscription for the **Subscription** field.
 	 
+	 
 		> [AZURE.IMPORTANT] If you do not see any subscription, ensure that you logged in using an account that is an admin or co-admin of the subscription.  
+		
 	4. Select the **resource group** for the data factory to be created. 
 	5. Select the **region** for the data factory. 
 	6. Click **Next** to switch to the **Publish Items** page. (Press **TAB** to move out of the Name field to if the **Next** button is disabled.) 
@@ -332,7 +335,8 @@ Important points to note:
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. When processing is done, you see the slice in **Ready** state.
-	>[AZURE.IMPORTANT] Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes). Therefore, expect the pipeline to take **approximately 30 minutes** to process the slice.  
+
+	> [AZURE.IMPORTANT] Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes). Therefore, expect the pipeline to take **approximately 30 minutes** to process the slice.  
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)	
 	

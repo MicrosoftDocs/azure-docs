@@ -64,7 +64,7 @@ administrator or a co-administrator for the associated subscription.
 
 6. Select the **Subscription** that the storage account will be used with.
 
-7. Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](resource-group-overview.md#resource-groups).
+7. Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](azure-resource-manager/resource-group-overview.md#resource-groups).
 
 8. Select a location for your storage account.
 

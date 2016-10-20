@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/25/2016"
+   ms.date="10/11/2016"
    ms.author="skwan;bryanla"/>
 
 # How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern

@@ -3,7 +3,7 @@
 	description="Learn about the DocumentDB Query Explorer, a SQL query editor in the Azure portal for writing SQL queries and running them against a NoSQL DocumentDB collection."
 	keywords="writing sql queries, sql query editor"
 	services="documentdb"
-	authors="AndrewHoh"
+	authors="kirillg"
 	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/30/2016"
-	ms.author="anhoh"/>
+	ms.author="kirillg"/>
 
 # Write, edit, and run SQL queries for DocumentDB using Query Explorer 
 

@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/02/2016"
+   ms.date="10/18/2016"
    ms.author="yurid"/>
 
 # Monitoring resources in Operations Management Suite Security and Audit Solution

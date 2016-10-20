@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Service Bus relay overview | Microsoft Azure"
 	description="Overview of Service Bus relay."
-	services="service-bus-relay"
+	services="service-bus"
 	documentationCenter=".net"
 	authors="sethmanheim"
 	manager="timlt"
 	editor=""/>
 
 <tags
-	ms.service="service-bus-relay"
+	ms.service="service-bus"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
@@ -33,7 +33,7 @@ You initiate the connection between your on-premise service and the relay servic
 
 For details about the Service Bus relay, see the following topics.
 
-- [Azure Service Bus Architectural Overview](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-- [How to use the Service Bus Relay service](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
+- [Azure Service Bus Architectural Overview](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
+- [How to use the Service Bus Relay service](service-bus-dotnet-how-to-use-relay.md)
 
  
