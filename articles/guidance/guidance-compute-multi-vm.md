@@ -137,8 +137,7 @@ The reference architecture can be deployed either with Windows or Linux VMs by f
 
 1. Click the button below.
 
-  <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-multi-vm%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/></a>
+  <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-multi-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
 2. Once the link has opened in the Azure portal, you must enter values for some of the settings: 
     - The **Resource group** name is already defined in the parameter file, so select **Use Existing** and enter `ra-multi-vm-rg` in the text box.
