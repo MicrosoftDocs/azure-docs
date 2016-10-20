@@ -50,12 +50,12 @@ In the portal, follow these steps to access Security Center:
 
 You can configure security policies for your Azure subscriptions and resource groups. Let's configure a security policy for your subscription:
 
-1. Select the **Policy** tile on the **Security Center** blade.
+1. On the **Security Center** blade, select the **Policy** tile.
 ![Security policy][3]
 
 2. On the **Security policy - Define policy per subscription or resource group** blade, select a subscription.
 3. On the **Security policy** blade, **Data collection** is enabled to automatically collect logs. The monitoring extension is provisioned on all current and new VMs in the subscription. (You can opt out of data collection by setting **Data collection** to **Off**, but this prevents Security Center from giving you security alerts and recommendations.)
-4. On the **Security policy** blade, select **Choose a storage account per region**. For each region in which you have VMs running, you choose the storage account where data collected from those VMs is stored. If you do not choose a storage account for each region, it is created for you. The data that's collected is logically isolated from other customers’ data for security reasons.
+4. On the **Security policy** blade, select **Choose a storage account per region**. For each region in which you have VMs running, you choose the storage account where data collected from those VMs is stored. If you do not choose a storage account for each region, it is created for you. The data that's collected is logically isolated from other customers' data for security reasons.
 
      > [AZURE.NOTE] We recommend that you enable data collection and choose a storage account at the subscription level first. Security policies can be set at the Azure subscription level and resource group level, but configuration of data collection and storage account occurs at the subscription level only.
 
@@ -100,7 +100,7 @@ You can configure security policies for your Azure subscriptions and resource gr
 3. Select a partner solution. In this example, let's select the **F5-WAF** solution.  A blade opens and shows you the status of the partner solution and the solution's associated resources. Select **Solution console** to open the partner management experience for this solution.
 
 ## Next steps
-In this article, you were introduced to the security monitoring and policy management components of Security Center. Now that you're familiar with Security Center, try the following steps:
+This article introduced you to the security monitoring and policy management components of Security Center. Now that you're familiar with Security Center, try the following steps:
 
 - Configure a security policy for your Azure subscription. To learn more, see [Setting security policies in Azure Security Center](security-center-policies.md).
 - Use the recommendations in Security Center to help you protect your Azure resources. To learn more, see [Managing security recommendations in Azure Security Center](security-center-recommendations.md).
