@@ -22,7 +22,7 @@
 
 ## Setting Up an Azure Account for Media Services
 
-To set up your Media Services account, use the Azure Classic Portal. See the topic [How to Create a Media Services Account](media-services-create-account.md). After creating your account in the Azure Classic Portal, you are ready to set up your computer for Media Services development.
+To set up your Media Services account, use the Azure Classic Portal. See the topic [How to Create a Media Services Account](media-services-portal-create-account.md). After creating your account in the Azure Classic Portal, you are ready to set up your computer for Media Services development.
 
 ## Setting up for Media Services development
 

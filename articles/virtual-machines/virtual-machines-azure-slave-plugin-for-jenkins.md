@@ -339,5 +339,5 @@ For additional information about the Azure Slave Plugin for Jenkins, see the [Az
 [jenkins-build-now]: ./media/virtual-machines-azure-slave-plugin-for-jenkins/jenkins-build-now.png
 [jenkins-image-configuration]: ./media/virtual-machines-azure-slave-plugin-for-jenkins/jenkins-image-configuration.png
 [jenkins-save-template]: ./media/virtual-machines-azure-slave-plugin-for-jenkins/jenkins-save-template.png
-[windows-image-capture]: ./virtual-machines-windows-capture-image.md
+[windows-image-capture]: ./virtual-machines-windows-classic-capture-image.md
 [linux-image-capture]: ./virtual-machines-linux-capture-image.md
