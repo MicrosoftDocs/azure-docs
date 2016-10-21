@@ -4,8 +4,8 @@
 	services="Azure-Government"
 	cloud="gov"
 	documentationCenter=""
-	authors="ryansoc"
-	manager="zakramer"
+	authors="vybavar"
+	manager="asimm"
 	editor=""/>
 
 <tags	ms.service="multiple"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
 	ms.date="10/20/2016"
-	ms.author="VybavaRamadoss"/>
+	ms.author="vybavar"/>
 
 
 # Azure Government Marketplace
@@ -59,7 +59,7 @@ You will be prompted to enter a whitelisted subscription which has access to the
 Once the offer is successfully staged, you can test your image by logging in to [https://portal.azure.us](https://portal.azure.us) using your Azure Government Trial account.
 
 ### Step 8
-Once you have validated your image using the trial subscription. you can make the Offer available live by clicking on Publish and requsting approval to go to production. 
+Once you have validated your image using the trial subscription, you can make the Offer available live by clicking on Publish and requsting approval to go to production. 
 
 ## Next steps
 
