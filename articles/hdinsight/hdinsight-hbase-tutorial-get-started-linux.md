@@ -166,7 +166,7 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
 		WITH SERDEPROPERTIES ('hbase.columns.mapping' = ':key,Personal:Name,Personal:Phone,Office:Phone,Office:Address')
 		TBLPROPERTIES ('hbase.table.name' = 'Contacts');
 
-2. Run the following HiveQL script . The Hive query queries the data in the HBase table:
+2. Run the following HiveQL script to query the data in the HBase table:
 
      	SELECT count(*) FROM hbasecontacts;
 
@@ -197,7 +197,7 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
 		curl -u <UserName>:<Password> \
 		-G https://<ClusterName>.azurehdinsight.net/hbaserest/
 
-3. Use the following command to create a new HBase table wit two column families:
+3. Use the following command to create a new HBase table with two column families:
 
 		curl -u <UserName>:<Password> \
 		-X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" \
