@@ -78,7 +78,7 @@ These articles describe how to perform specific tasks by using Azure Active Dire
 - [Preview: How to build apps that sign up & sign in consumers](../active-directory-b2c/active-directory-b2c-overview.md)
 - [Preview: Configuring token lifetimes in Azure AD](active-directory-configurable-token-lifetimes.md) using PowerShell. See [Policy operations](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) and the [Policy entity](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity) for details on configuring via the Azure AD Graph API.
 
-### Windows Server on-premises development
+#### Windows Server on-premises development
 - [Active Directory Federation Services (AD FS) walkthroughs](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/ad-fs-development)
 
 ## Reference
