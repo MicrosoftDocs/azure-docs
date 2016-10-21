@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
 	ms.date="10/20/2016"
-	ms.author="ryansoc"/>
+	ms.author="VybavaRamadoss"/>
 
 
 # Azure Government Marketplace
@@ -25,9 +25,9 @@ For on available images, see [Azure Government Marketplace Images](../azure-gove
 For details on this service and how to use it, see [Marketplace public documentation](https://azure.microsoft.com/marketplace/?source=datamarket).
 
 ### Variations
-The Marketplace Service is available to the Azure Government with ISV provided images. These images have the following attributes.
+The Marketplace Service is available to the Azure Government with 3rd party ISV partner provided images. These images have the following attributes.
 
-- Only Bring Your Own License (BYOL) SKUs are available. You cannot access any images that require purchase transaction through Azure Marketplace
+- Only Bring Your Own License (BYOL) images are available. You cannot access any images that require purchase transaction through Azure Marketplace
 - Only a subset of images is currently available as compared to the public marketplace. You can find the list of available images [here](../azure-government-image-gallery.md) 
 
 The provisioning experience in the Azure portal is similar to the Marketplace experience on public Azure. The provisioning flow is detailed in the [Partners](#Partners) section.
@@ -45,7 +45,7 @@ The ISV provides a list of certifications as part of the product description to 
 ![alt text](./media/government-manage-marketplace-service.png)
 
 #### Step 3
-Choose an ISV product\image
+Choose an product\image
 
 ![alt text](./media/government-manage-marketplace-image.png)
 
@@ -65,8 +65,6 @@ Observe pricing
 Complete all steps and click Ok to start the provisioning process
 
 ## Partners
-
->[AZURE.NOTE] If you are interested in making your product available to the Azure Government customers, reach out to the Azure Global Ecosystem Team. <Need alias>
 
 ### Publish your Image on Azure Government 
  
