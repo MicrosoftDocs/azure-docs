@@ -104,17 +104,17 @@ To create the virtual network:
 
 2.  Search for **virtual network**.
 
-      ![Search Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/04-findvirtualnetwork.png)
+       ![Search Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/04-findvirtualnetwork.png)
 
 3.  Click **Virtual network**.
 
 4.  In the **Virtual network** blade, click the **Resource Manager** deployment model and click **Create**.
 
-       ![Create Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/05-createvirtualnetwork.png)
+        ![Create Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/05-createvirtualnetwork.png)
 
 5.  Configure the virtual network on the **Create virtual network** blade. 
 
-      The following table shows the settings for the virtual network.
+       The following table shows the settings for the virtual network.
     | **Field**                | Value                                    |
     | ------------------------ | ---------------------------------------- |
     | **Name**                 | autoHAVNET                               |
@@ -124,11 +124,11 @@ To create the virtual network:
     | **Subscription**         | Specify the subscription that you intend to use. If you only have one subscription, this may be blank. |
     | **Location**             | Specify the Azure location.              |
 
-      Your address space and subnet address range may be different from the table. Depending on your subscription, Azure will specifies an available address space and corresponding subnet address range. If no sufficient address space is available, use a different subscription. 
+       Your address space and subnet address range may be different from the table. Depending on your subscription, Azure will specifies an available address space and corresponding subnet address range. If no sufficient address space is available, use a different subscription. 
 
 6.  Click **Create**
 
-     ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/06-configurevirtualnetwork.png)
+      ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/06-configurevirtualnetwork.png)
 
 
 Azure returns you to the portal dashboard and notifies you when the new network is created.
@@ -259,7 +259,7 @@ In the following steps, configure the **ad-primary-dc** machine as a domain cont
 
 6. Select the **Active Directory Domain Services** and **DNS Server** roles. When prompted, add any additional features required by these roles.
 
-   >[AZURE.NOTE] Windows warns you that there is no static IP address. If you are testing the configuration, click continue. For production scenarios, set the IP address to static in the Azure portal or [use PowerShell to set the static IP address of the domain controller machine](./virtual-network/virtual-networks-reserved-private-ip.md).
+   >[AZURE.NOTE] Windows warns you that there is no static IP address. If you are testing the configuration, click continue. For production scenarios, set the IP address to static in the Azure portal or [use PowerShell to set the static IP address of the domain controller machine](../virtual-network/virtual-networks-reserved-private-ip.md).
 
    ![Add Roles Dialog](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784624.png)
 
