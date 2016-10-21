@@ -48,7 +48,7 @@ Resource Manager provides a new way to deploy and manage your solutions. If you 
 
 Resource Manager provides a consistent management layer for the tasks you perform through Azure PowerShell, Azure CLI, Azure portal, REST API, and development tools. All the tools use a common set of operations. You use the tools that work best for you, and can use them interchangeably without confusion. 
 
-The following image shows how all the tools interact with the same Azure Resource Manager API. The API passes requests to the Resource Manager service which authenticates and authorizes the requests. Resource Manager then routes the requests to the appropriate resource providers.
+The following image shows how all the tools interact with the same Azure Resource Manager API. The API passes requests to the Resource Manager service, which authenticates and authorizes the requests. Resource Manager then routes the requests to the appropriate resource providers.
 
 ![Resource Manager request model](./media/resource-group-overview/consistent-management-layer.png)
 
@@ -126,7 +126,7 @@ Resource Manager processes the template like any other request (see the image fo
       }
 	  ]
 
-It converts the definition to the following REST API operation which is sent to the Microsoft.Storage resource provider:
+It converts the definition to the following REST API operation, which is sent to the Microsoft.Storage resource provider:
 
     PUT
     https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2016-01-01
@@ -143,13 +143,13 @@ It converts the definition to the following REST API operation which is sent to 
 
 How you define templates and resource groups is entirely up to you and how you want to manage your solution. For example, you can deploy your three tier application through a single template to a single resource group.
 
-![3 tier template](./media/resource-group-overview/3-tier-template.png)
+![three tier template](./media/resource-group-overview/3-tier-template.png)
 
-But, you do not have to define your entire infrastructure in a single template. Often, it makes sense to divide your deployment requirements into a set of targeted, purpose-specific templates. You can easily reuse these templates for different solutions. To deploy a particular solution, you create a master template that links all the required templates. The following image shows how to deploy a 3 tier solution through a parent template that includes 3 nested templates.
+But, you do not have to define your entire infrastructure in a single template. Often, it makes sense to divide your deployment requirements into a set of targeted, purpose-specific templates. You can easily reuse these templates for different solutions. To deploy a particular solution, you create a master template that links all the required templates. The following image shows how to deploy a three tier solution through a parent template that includes three nested templates.
 
 ![nested tier template](./media/resource-group-overview/nested-tiers-template.png)
 
-If you envision your tiers having separate lifecycles, you can deploy your 3 tiers to separate resource groups. Notice the resources can still be linked to resources in other resource groups.
+If you envision your tiers having separate lifecycles, you can deploy your three tiers to separate resource groups. Notice the resources can still be linked to resources in other resource groups.
 
 ![tier template](./media/resource-group-overview/tier-templates.png)
 
@@ -191,7 +191,7 @@ The following example shows a tag applied to a virtual machine.
       }
     ]
 
-To retrieve all of the resources with a tag value, use the following PowerShell cmdlet:
+To retrieve all the resources with a tag value, use the following PowerShell cmdlet:
 
     Find-AzureRmResource -TagName costCenter -TagValue Finance
 
@@ -212,7 +212,7 @@ There are two main concepts to understand when working with role-based access co
 - Role definitions - describe a set of permissions and can be used in many assignments.
 - Role assignments - associate a definition with an identity (user or group) for a particular scope (subscription, resource group, or resource). The assignment is inherited by lower scopes.
 
-You can add users to pre-defined platform and resource-specific roles. For example, you can take advantage of the pre-defined role called Reader that permits users to view resources but not change them. You add users in your organization that need this type of access to the Reader role and apply the role to the subscription, resource group or resource.
+You can add users to pre-defined platform and resource-specific roles. For example, you can take advantage of the pre-defined role called Reader that permits users to view resources but not change them. You add users in your organization that need this type of access to the Reader role and apply the role to the subscription, resource group, or resource.
 
 Azure provides the following four platform roles:
 
