@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Move data from FTP server | Azure Data Factory" 
+	pageTitle="Move data from FTP server | Microsoft Azure" 
 	description="Learn about how to move data from an FTP server using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -302,3 +302,7 @@ Properties available in the typeProperties section of the activity on the other 
 ## Performance and Tuning  
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
 
+## Next Steps
+See the following articles: 
+
+- [Copy Activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions for creating a pipeline with a Copy Activity. 
