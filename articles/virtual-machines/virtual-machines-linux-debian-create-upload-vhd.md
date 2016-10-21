@@ -41,8 +41,8 @@ There are tools available for generating Debian VHDs for Azure, such as the [azu
 	# sudo apt-get update
 	# sudo apt-get install git qemu-utils mbr kpartx debootstrap
 
-	# sudo apt-get install python3-pip
-	# sudo pip3 install azure-storage azure-servicemanagement-legacy pytest pyyaml
+	# sudo apt-get install python3-pip python3-dateutil python3-cryptography
+	# sudo pip3 install azure-storage azure-servicemanagement-legacy azure-common pytest pyyaml
 	# git clone https://github.com/credativ/azure-manage.git
 	# cd azure-manage
 	# sudo pip3 install .
@@ -60,7 +60,7 @@ There are tools available for generating Debian VHDs for Azure, such as the [azu
 
 4. Edit the `/etc/default/grub` file and modify the **GRUB_CMDLINE_LINUX** parameter as follows to include additional kernel parameters for Azure.
 
-        GRUB_CMDLINE_LINUX="console=tty0 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=30"
+        GRUB_CMDLINE_LINUX="console=tty0 console=ttyS0,115200 earlyprintk=ttyS0,115200 rootdelay=30"
 
 5. Rebuild the grub and run:
 

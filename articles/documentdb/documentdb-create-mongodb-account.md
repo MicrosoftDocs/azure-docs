@@ -2,7 +2,7 @@
 	pageTitle="Create a DocumentDB account with protocol support for MongoDB | Microsoft Azure" 
 	description="Learn how to create a DocumentDB account with protocol support for MongoDB, now available for preview." 
 	services="documentdb" 
-	authors="mimig1" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/23/2016" 
-	ms.author="mimig"/>
+	ms.date="10/20/2016" 
+	ms.author="anhoh"/>
 
 # How to create a DocumentDB account with protocol support for MongoDB using the Azure portal
 
@@ -55,19 +55,21 @@ To create a DocumentDB account with protocol support for MongoDB, perform the fo
 	- In **Resource Group**, select or create a resource group for the account.  By default, an existing Resource group under the Azure subscription will be chosen.  You may, however, choose to select to create a new resource group to which you would like to add the account. For more information, see [Using the Azure portal to manage your Azure resources](resource-group-portal.md).
 
 	- Use **Location** to specify the geographic location in which to host the account.
-   
-	- Check **Pin to dashboard** 
+	
+	- Optional: Check **Pin to dashboard**. If pinned to dashboard, follow **Step 8** below to view your new account's left-hand navigation.
 
-7.	Once the new account options are configured, click **Create**.  It can take a few minutes to create the account.  To check the status, you can monitor the progress on the Startboard.  
+7.	Once the new account options are configured, click **Create**.  It can take a few minutes to create the account.  If pinned to the dashboard, you can monitor the provisioning progress on the Startboard.  
 	![Screen shot of the Creating tile on the Startboard - Online database creator](./media/documentdb-create-mongodb-account/create-nosql-db-databases-json-tutorial-3.png)  
 
-	Or, you can monitor your progress from the Notifications hub.  
+	If not pinned to the dashboard, you can monitor your progress from the Notifications hub.  
 
 	![Create databases quickly - Screen shot of the Notifications hub, showing that the DocumentDB account is being created](./media/documentdb-create-mongodb-account/create-nosql-db-databases-json-tutorial-4.png)  
 
 	![Screen shot of the Notifications hub, showing that the DocumentDB account was created successfully and deployed to a resource group - Online database creator notification](./media/documentdb-create-mongodb-account/create-nosql-db-databases-json-tutorial-5.png)
 
-8.	After the account is created, it is ready for use with the default settings. 
+8.	To access your new account, click **DocumentDB (NoSQL)** on the left-hand menu. In your list of regular DocumentDB and DocumentDB with Mongo protocol support accounts, click on your new account's name.
+
+9.	It is now ready for use with the default settings. 
 
 	![Screen shot of the default account blade](./media/documentdb-create-mongodb-account/defaultaccountblades.png)
 	

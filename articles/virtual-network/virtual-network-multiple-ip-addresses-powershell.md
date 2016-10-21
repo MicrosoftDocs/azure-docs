@@ -49,7 +49,7 @@ This scenario assumes you have a resource group called *RG1* within which there 
 
 1. Open a PowerShell command prompt and complete the remaining steps in this section within a single PowerShell session. If you don't already have PowerShell installed and configured, complete the steps in the [How to install and configure Azure PowerShell](../powershell-install-configure.md) article.
 
-2. Change the "values" of the following $Variables to the Azure [location](https://azure.microsoft.com/regions) your virtual network is in, the name of your [resource group](../resource-group-overview.md#resource-groups), the VNet within the resource group, the subnet you want to connect the NIC to and the name of the NIC.
+2. Change the "values" of the following $Variables to the Azure [location](https://azure.microsoft.com/regions) your virtual network is in, the name of your [resource group](../azure-resource-manager/resource-group-overview.md#resource-groups), the VNet within the resource group, the subnet you want to connect the NIC to and the name of the NIC.
 
         $Location = "westcentralus"
         $RgName   = "RG1"
@@ -236,17 +236,17 @@ Complete the following steps to add additional IP addresses to an existing NIC:
 
 2. Change the "values" of the following $Variables to the name of the NIC you want to add IP addresses to and the resource group and location the NIC exists in:
 
-		$NicName     = "RG1-VM1-NI1"
-		$NicRgName   = "RG1"
-		$NicLocation = "westus"
+		$NicName     = "RG1-VM1-NIC1"
+		$RgName   = "RG1"
+		$NicLocation = "westcentralus"
 
-	If you don't know the name of the NIC you want to change, enter the following commands, then change the values of the previous varaiables:
+	If you don't know the name of the NIC you want to change, enter the following commands, then change the values of the previous variables:
 
 		Get-AzureRmNetworkInterface | Format-Table Name, ResourceGroupName, Location
 
-3. Create a variable and set it to the NIC by typing the following command:
+3. Create a variable and set it to the existing NIC by typing the following command:
 
-		$nic = Get-AzureRmNetworkInterface -Name $NicName -ResourceGroupName $NicRgName
+		$nic = Get-AzureRmNetworkInterface -Name $NicName -ResourceGroupName $RgName
 
 4. Retrieve the subnet ID the NIC is connected to by completing [step 3](#subnet) of the Create a VM with multiple IP addresses section of this article.
 

@@ -53,7 +53,7 @@ Watch the following videos to get started with Data Lake Store.
 	![Create a new Azure Data Lake Store account](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Create a new Azure Data Lake account")
 
 	- **Subscription**. Select the subscription under which you want to create a new Data Lake Store account.
-	- **Resource Group**. Select an existing resource group, or click **Create a resource group** to create one. A resource group is a container that holds related resources for an application. For more information, see [Resource Groups in Azure](resource-group-overview.md#resource-groups).
+	- **Resource Group**. Select an existing resource group, or click **Create a resource group** to create one. A resource group is a container that holds related resources for an application. For more information, see [Resource Groups in Azure](azure-resource-manager/resource-group-overview.md#resource-groups).
 	- **Location**: Select a location where you want to create the Data Lake Store account.
 
 4. Select **Pin to Startboard** if you want the Data Lake Store account to be accessible from the Startboard.

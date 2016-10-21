@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="AMQP 1.0 support for Service Bus partitioned queues and topics | Microsoft Azure" 
 	description="Learn about using the Advanced Message Queuing Protocol (AMQP) 1.0 with Service Bus partitioned queues and topics." 
-	services="service-bus-messaging" 
+	services="service-bus" 
 	documentationCenter=".net" 
 	authors="hillaryc" 
 	manager="timlt" 
 	editor=""/>
 
 <tags 
-	ms.service="service-bus-messaging" 
+	ms.service="service-bus" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/08/2016" 
+	ms.date="10/14/2016" 
 	ms.author="hillaryc;sethm"/>
 
 # AMQP 1.0 support for Service Bus partitioned queues and topics 
@@ -22,7 +22,7 @@ Azure Service Bus now supports the Advanced Message Queuing Protocol (**AMQP**) 
 
 **AMQP** is an open-standard message queuing protocol that enables you to develop cross-platform applications using different programming languages. For general information about AMQP support in Service Bus, see [AMQP 1.0 support in Service Bus](service-bus-amqp-overview.md).
 
-**Partitioned queues and topics**, also known as *partitioned entities*, offer higher availability, reliability and throughput over conventional non-partitioned queues and topics. For more information about partitioned entities, see [Partitioned Messaging Entities](service-bus-partitioning.md).
+**Partitioned queues and topics**, also known as *partitioned entities*, offer higher availability, reliability, and throughput than conventional non-partitioned queues and topics. For more information about partitioned entities, see [Partitioned Messaging Entities](service-bus-partitioning.md).
 
 The addition of AMQP 1.0 as a protocol for communicating with partitioned queues and topics enables you to build interoperable applications that can take advantage of the higher availability, reliability, and throughout offered by Service Bus partitioned entities.
 

@@ -22,7 +22,7 @@
 
 ## Introduction
 
-You can use Azure Command Line Interface is a to create and manage Azure IoT hubs programmatically. This article shows you how to use a Azure CLI to create an IoT hub.
+You can use Azure Command Line Interface to create and manage Azure IoT hubs programmatically. This article shows you how to use the Azure CLI to create an IoT Hub.
 
 To complete this tutorial you need the following:
 
@@ -43,7 +43,7 @@ To complete this tutorial you need the following:
 ```
     azure login
 ```
-That will provide in command line the web browser and the code to authenticate.
+Use the suggested web browser and code to authenticate.
 
 2. If you have multiple Azure subscriptions, connecting to Azure will grant access to all subscriptions associated with your credentials. You can view the subscriptions, as well as which one is the default, using the command
 ```
@@ -107,7 +107,6 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-status]: https://azure.microsoft.com/status/
 [lnk-CLI-install]: ../xplat-cli-install.md
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
-[lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-CLI-arm]: ../xplat-cli-azure-resource-manager.md
 
 [lnk-sdks]: iot-hub-devguide-sdks.md

@@ -79,7 +79,7 @@ Here's a short video which shows how an Azure customer can use Cloudyn for Azure
 
 ## Learn More
 + To learn more about Microsoft Azure Enterprise Agreement (EA) offers, please visit [Licensing Azure for the Enterprise] (https://azure.microsoft.com/pricing/enterprise-agreement/)
-+ See the [Azure Resource Manager Overview](resource-group-overview.md) article to learn more about the Azure Resource Manager.
++ See the [Azure Resource Manager Overview](azure-resource-manager/resource-group-overview.md) article to learn more about the Azure Resource Manager.
 + For additional information on the suite of tools necessary to help in gaining an understanding of cloud spend, please refer to  Gartner article [Market Guide for IT Financial Management (ITFM) Tools](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
 
 <!--Image references-->

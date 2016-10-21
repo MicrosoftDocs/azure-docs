@@ -355,6 +355,9 @@ Here's what happens when network mapping begins:
 - If you modify an existing mapping with a new network, replica virtual machines will be connected using the new settings.
 - If the target network has multiple subnets and one of those subnets has the same name as subnet on which the source virtual machine is located, then the replica virtual machine will be connected to that target subnet after failover. If there’s no target subnet with a matching name, the virtual machine will be connected to the first subnet in the network.
 
+### Configure Storage mapping
+By default when you replicate a virtual machine on a source Hyper-V host server to a target Hyper-V host server, replicated data is stored in the default location that’s indicated for the target Hyper-V host in Hyper-V Manager. For more control over where replicated data is stored, you can configure storage mapping<br/><br/> To configure storage mapping, you need to set up storage classifications on the source and target VMM servers before you begin deployment. Currently Storage mapping through new Azure portal is not supported. However, it can be enabled via Powershell.[Learn more](site-recovery-vmm-to-vmm-powershell-resource-manager.md#step-6-configure-storage-mapping).
+
 ## Step 5: Capacity planning
 
 Now that you have your basic infrastructure set up you can think about capacity planning and figure out whether you need additional resources.
