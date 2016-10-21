@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2016" 
+	ms.date="10/20/2016" 
 	ms.author="spelluru"/>
 
 # Move data from an FTP server using Azure Data Factory
@@ -36,11 +36,11 @@ This sample shows how to copy data from an FTP server to an Azure Blob Storage. 
  
 The sample has the following data factory entities:
 
-1.	A linked service of type [FtpServer](#ftp-linked-service-properties).
-2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
-3.	An input [dataset](data-factory-create-datasets.md) of type [FileShare](#fileshare-dataset-type-properties).
-4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4.	A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [FileSystemSource](#ftp-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+- A linked service of type [FtpServer](#ftp-linked-service-properties).
+- A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+- An input [dataset](data-factory-create-datasets.md) of type [FileShare](#fileshare-dataset-type-properties).
+- An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+- A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [FileSystemSource](#ftp-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 The sample copies data from an FTP server to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples. 
 
