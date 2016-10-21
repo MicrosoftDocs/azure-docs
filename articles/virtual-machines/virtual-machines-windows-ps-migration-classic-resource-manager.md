@@ -154,34 +154,46 @@ Prepare the virtual machines in the cloud service for migration. You have two op
 
 This example sets the resource group name to **myResourceGroup**, the virtual network name to **myVirtualNetwork** and the subnet name to **mySubNet**. Replace the names in the example with the names of your own resources.
 
+		```powershell
 		$existingVnetRGName = "myResourceGroup"
 		$vnetName = "myVirtualNetwork"
 		$subnetName = "mySubNet"
+		```
 
 	First, validate if you can migrate the cloud service using the following command:
 
+		```powershell
 		$validate = Move-AzureService -Validate -ServiceName $serviceName -DeploymentName $deploymentName -UseExistingVirtualNetwork -VirtualNetworkResourceGroupName $existingVnetRGName -VirtualNetworkName $vnetName -SubnetName $subnetName
 		$validate.ValidationMessages
+		```
 
 	The preceding command displays any warnings and errors that block migration. If validation is successful, then you can proceed with the following Prepare step:
 
+		```powershell
 		Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName -UseExistingVirtualNetwork -VirtualNetworkResourceGroupName $existingVnetRGName -VirtualNetworkName $vnetName -SubnetName $subnetName
-
+		```
+		
 After the Prepare operation succeeds with either of the preceding options, query the migration state of the VMs. Ensure that they are in the `Prepared` state.
 
 This example sets the VM name to **myVM**. Replace the example name with your own VM name.
 
+	```powershell
 	$vmName = "myVM"
 	$vm = Get-AzureVM -ServiceName $serviceName -Name $vmName
 	$vm.VM.MigrationState
+	```
 
 Check the configuration for the prepared resources by using either PowerShell or the Azure portal. If you are not ready for migration and you want to go back to the old state, use the following command:
 
+```powershell
 	Move-AzureService -Abort -ServiceName $serviceName -DeploymentName $deploymentName
+```
 
 If the prepared configuration looks good, you can move forward and commit the resources by using the following command:
 
+```powershell
 	Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
+```
 
 ### Migrate virtual machines in a virtual network
 
@@ -189,25 +201,35 @@ To migrate virtual machines in a virtual network, you migrate the network. The v
 
 This example sets the virtual network name to **myVnet**. Replace the example virtual network name with your own. 
 
+```powershell
 	$vnetName = "myVnet"
+```
 
 >[AZURE.NOTE] If the virtual network contains web or worker roles, or VMs with unsupported configurations, you get a validation error message.
 
 First, validate if you can migrate the virtual network by using the following command:
 
+```powershell
 	Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
+```
 
 The preceding command displays any warnings and errors that block migration. If validation is successful, then you can proceed with the following Prepare step:
-	
+
+```powershell
 	Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
+```
 
 Check the configuration for the prepared virtual machines by using either Azure PowerShell or the Azure portal. If you are not ready for migration and you want to go back to the old state, use the following command:
 
+```powershell
 	Move-AzureVirtualNetwork -Abort -VirtualNetworkName $vnetName
+```
 
 If the prepared configuration looks good, you can move forward and commit the resources by using the following command:
 
+```powershell
 	Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
+```
 
 ### Migrate a storage account
 
@@ -215,19 +237,25 @@ Once you're done migrating the virtual machines, we recommend you migrate the st
 
 Prepare each storage account for migration by using the following command. In this example, the storage account name is **myStorageAccount**. Replace the example name with the name of your own storage account. 
 
+```powershell
 	$storageAccountName = "myStorageAccount"
 	Move-AzureStorageAccount -Prepare -StorageAccountName $storageAccountName
+```
 
 Check the configuration for the prepared storage account by using either Azure PowerShell or the Azure portal. If you are not ready for migration and you want to go back to the old state, use the following command:
 
+```powershell
 	Move-AzureStorageAccount -Abort -StorageAccountName $storageAccountName
+```
 
 If the prepared configuration looks good, you can move forward and commit the resources by using the following command:
 
+```powershell
 	Move-AzureStorageAccount -Commit -StorageAccountName $storageAccountName
+```
 
 ## Next steps
 
 - For more information about migration, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md).
-- To migrate additional network resources to Resource Manager using Azure PowerShell, use similar steps with **Move-AzureNetworkSecurityGroup**, **Move-AzureReservedIP**, and **Move-AzureRouteTable**.
+- To migrate additional network resources to Resource Manager using Azure PowerShell, use similar steps with [Move-AzureNetworkSecurityGroup](https://msdn.microsoft.com/library/mt786729.aspx), [Move-AzureReservedIP](https://msdn.microsoft.com/library/mt786752.aspx), and [Move-AzureRouteTable](https://msdn.microsoft.com/library/mt786718.aspx).
 - For open-source scripts you can use to migrate Azure resources from classic to Resource Manager, see [Community tools for migration to Azure Resource Manager migration](virtual-machines-windows-migration-scripts.md)
