@@ -4,7 +4,7 @@
 	services="Azure-Government"
 	cloud="gov"
 	documentationCenter=""
-	authors="vybavar"
+	authors="VybavaRamadoss"
 	manager="asimm"
 	editor=""/>
 
