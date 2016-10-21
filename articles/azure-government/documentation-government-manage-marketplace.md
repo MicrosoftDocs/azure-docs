@@ -44,7 +44,7 @@ Browse through different products to find the right one.
 
 The ISVs provides a list of certificates as part of the product description to help you make the right choice. The certification information is provided by the ISV.
 
-![alt text](./media/government-manage-marketplace-service.PNG)
+![alt text](./media/government-manage-marketplace-service.png)
 
 #### Step 3
 Choose an ISV product\image
