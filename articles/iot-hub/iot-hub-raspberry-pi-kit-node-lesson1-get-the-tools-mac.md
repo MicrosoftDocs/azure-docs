@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="09/28/2016" 
+ ms.date="10/21/2016"
  ms.author="xshi"/>
 
 # 1.2 Get the tools (macOS 10.10)
@@ -50,13 +50,15 @@ To install Git and Node.js, use the [Homebrew](http://brew.sh) package managemen
 1. Install Homebrew. If you've already installed Homebrew, go to step 2.
   1. Press `Cmd + Space` and enter `Terminal` to open a terminal window.
   2. Run the following command:
+
     ```bash
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     ```
 2. Install Git and Node.js by running the following command:
-  ```bash
-  brew install node git
-  ```
+
+    ```bash
+    brew install node git
+    ```
 
 ## 1.2.5 Install additional Node.js development tools
 
@@ -65,7 +67,7 @@ You use [gulp.js](http://gulpjs.com) to automate the deployment of the sample ap
 Install `gulp` and `device-discovery-cli` by running the following command in the Terminal window:
 
 ```bash
-npm install -g device-discovery-cli gulp
+sudo npm install -g device-discovery-cli gulp
 ```
 
 If you experience issues installing Node.js and these additional development tools on macOS, see the [troubleshooting guide](iot-hub-raspberry-pi-kit-node-troubleshooting.md) for solutions to common problems.
