@@ -14,15 +14,15 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="09/28/2016" 
+ ms.date="10/21/2016"
  ms.author="xshi"/>
 
 # 2.1 Get Azure tools (Ubuntu 16.04)
 
 > [AZURE.SELECTOR]
-- [Windows 7 +](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
-- [Ubuntu 16.04](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md)
-- [macOS 10.10](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
+- [Windows 7 +](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md)
+- [Ubuntu 16.04](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-ubuntu.md)
+- [macOS 10.10](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md)
 
 ## 2.1.1 What you will do
 
@@ -46,19 +46,20 @@ To install the latest Azure CLI, follow these steps:
 
 1. Run the following commands in a Terminal window. It might take five minutes to install Azure CLI.
 
-  ```bash
-  sudo apt-get update
-  sudo apt-get install -y libssl-dev libffi-dev
-  sudo apt-get install -y python-dev
-  sudo apt-get install -y build-essential
-  sudo apt-get install -y python-pip
-  sudo pip install azure-cli-core==0.1.0b7 azure-cli-vm==0.1.0b7 azure-cli-storage==0.1.0b7 azure-cli-role==0.1.0b7 azure-cli-resource==0.1.0b7 azure-cli-profile==0.1.0b7 azure-cli-network==0.1.0b7 azure-cli-iot==0.1.0b7 azure-cli-feedback==0.1.0b7 azure-cli-configure==0.1.0b7 azure-cli-component==0.1.0b7 azure-cli==0.1.0b7
-  ```
+    ```bash
+    sudo apt-get update
+    sudo apt-get install -y libssl-dev libffi-dev
+    sudo apt-get install -y python-dev
+    sudo apt-get install -y build-essential
+    sudo apt-get install -y python-pip
+    sudo pip install azure-cli-core==0.1.0b7 azure-cli-vm==0.1.0b7 azure-cli-storage==0.1.0b7 azure-cli-role==0.1.0b7 azure-cli-resource==0.1.0b7 azure-cli-profile==0.1.0b7 azure-cli-network==0.1.0b7 azure-cli-iot==0.1.0b7 azure-cli-feedback==0.1.0b7 azure-cli-configure==0.1.0b7 azure-cli-component==0.1.0b7 azure-cli==0.1.0b7
+    ```
+
 2. Verify the installation by running the following command:
 
-  ```bash
-  az iot -h
-  ```
+    ```bash
+    az iot -h
+    ```
 
 You should see the following output if the installation is successful.
 
@@ -70,4 +71,4 @@ You've installed Azure CLI. Continue to the next section to create your Azure Io
 
 ## Next Steps
 
-[2.2 Create your Azure IoT Hub and the register your Raspberry Pi 3 device](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
+[2.2 Create your IoT hub and register your Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
