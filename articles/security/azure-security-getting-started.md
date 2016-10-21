@@ -16,11 +16,11 @@
    ms.date="05/19/2016"
    ms.author="yuridio"/>
 
-# Getting started with Microsoft Azure security 
+# Getting started with Microsoft Azure security
 
 When you build or migrate IT assets to a cloud provider, you are relying on that organization’s abilities to protect your applications and data with the services and the controls they provide to manage the security of your cloud-based assets.
 
-Azure’s infrastructure is designed from the facility to applications for hosting millions of customers simultaneously, and providing a trustworthy foundation upon which businesses can meet their security needs. In addition, Azure provides you with a wide array of configurable security options and the ability to control them so that you can customize security to meet the unique requirements for your deployments.
+Azure’s infrastructure is designed from the facility to applications for hosting millions of customers simultaneously, and providing a trustworthy foundation upon which businesses can meet their security needs. In addition, Azure provides you with a wide array of configurable security options and the ability to control them so that you can customize security to meet the unique requirements of your deployments.
 
 In this overview article on Azure security, we’ll look at:
 
@@ -33,7 +33,7 @@ In this overview article on Azure security, we’ll look at:
 
 Controlling access to IT infrastructure, data, and applications is critical. Microsoft Azure delivers these capabilities by services such as Azure Active Directory, Azure Storage, and support for numerous standards and APIs.
 
-[Azure Active Directory](../active-directory/active-directory-whatis.md) (Azure AD) is an identity repository and engine that provides authentication, authorization, and access control for an organization's users, groups, and objects. Azure AD also offers developers an effective way to integrate identity management in their applications. Industry-standard protocols such as [SAML 2.0](https://en.wikipedia.org/wiki/SAML_2.0), [WS-Federation](https://msdn.microsoft.com/library/bb498017.aspx), and [OpenID Connect](http://openid.net/connect/) make sign-in possible on a variety of platforms such as .NET, Java, Node.js, and PHP.
+[Azure Active Directory](../active-directory/active-directory-whatis.md) (Azure AD) is an identity repository and engine that provides authentication, authorization, and access control for an organization's users, groups, and objects. Azure AD also offers developers an effective way to integrate identity management in their applications. Industry-standard protocols such as [SAML 2.0](https://en.wikipedia.org/wiki/SAML_2.0), [WS-Federation](https://msdn.microsoft.com/library/bb498017.aspx), and [OpenID Connect](http://openid.net/connect/) make sign-in possible on platforms such as .NET, Java, Node.js, and PHP.
 
 The REST-based Graph API enables developers to read and write to the directory from any platform. Through support for [OAuth 2.0](http://oauth.net/2/), developers can build mobile and web applications that integrate with Microsoft and third-party web APIs, and build their own secure web APIs. Open-source client libraries are available for .Net, Windows Store, iOS, and Android, with additional libraries under development.
 
@@ -51,7 +51,7 @@ Some other capabilities for identity and access management include:
 
 -   [Azure Multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md) is the multi-factor authentication service that requires users to verify sign-ins using a mobile app, phone call, or text message. It can be used with Azure AD to secure on-premises resources with the Azure MFA Server, and also with custom applications and directories using the SDK.
 
--   [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) lets you join Azure virtual machines to a domain without deploying domain controllers. Users can sign in to these virtual machines with their corporate Active Directory credentials and administer domain-joined virtual machines using Group Policy to enforce security baselines on all of your Azure virtual machines.
+-   [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) lets you join Azure virtual machines to a domain without deploying domain controllers. You can sign in to these virtual machines with your corporate Active Directory credentials and administer domain-joined virtual machines by using Group Policy to enforce security baselines on all your Azure virtual machines.
 
 -   [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) provides a highly available global-identity management service for consumer-facing applications that scales to hundreds of millions of identities. It can be integrated across mobile and web platforms. Your consumers can sign in to all your applications through customizable experiences by using their existing social accounts or by creating new credentials.
 
@@ -59,13 +59,13 @@ Some other capabilities for identity and access management include:
 
 Microsoft employs the principles of Separation of Duties and [Least Privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) throughout Azure operations. Access to data by Azure support personnel requires your explicit permission and is granted on a “just-in-time” basis that is logged and audited, then revoked after completion of the engagement.
 
-Azure also provides multiple capabilities for protecting data in transit and at rest, including encryption for data, files, applications, services, communications, and drives. You have the option to encrypt information before placing it in Azure, as well as storing keys in your on-premises datacenters.
+Azure also provides multiple capabilities for protecting data in transit and at rest. This includes encryption for data, files, applications, services, communications, and drives. You can encrypt information before placing it in Azure, and also store keys in your on-premises datacenters.
 
 ![Microsoft Antimalware in Azure](./media/azure-security-getting-started/sec-azgsfig1.PNG)
 
 ### Azure encryption technologies
 
-You can gather details on administrative access to your subscription environment by using [Azure AD Reporting](../active-directory/active-directory-reporting-audit-events.md). You have the option to configure [BitLocker Drive Encryption](https://technet.microsoft.com/library/cc732774.aspx) on VHDs containing sensitive information in Azure.
+You can gather details on administrative access to your subscription environment by using [Azure AD Reporting](../active-directory/active-directory-reporting-audit-events.md). You can configure [BitLocker Drive Encryption](https://technet.microsoft.com/library/cc732774.aspx) on VHDs containing sensitive information in Azure.
 
 Other capabilities in Azure that will assist you to keep your data secure include:
 
@@ -79,7 +79,7 @@ Other capabilities in Azure that will assist you to keep your data secure includ
 
 -   Storage Account Keys, Shared Access Signatures, management certificates, and other keys are unique to each Azure tenant.
 
--   Azure [StorSimple](http://www.microsoft.com/server-cloud/products/storsimple/overview.aspx) hybrid storage encrypts data via a 128-bit public/private key pair prior to uploading it to Azure Storage.
+-   Azure [StorSimple](http://www.microsoft.com/server-cloud/products/storsimple/overview.aspx) hybrid storage encrypts data via a 128-bit public/private key pair before uploading it to Azure Storage.
 
 -   Azure supports and uses numerous encryption mechanisms, including SSL/TLS, IPsec, and AES, depending on the data types, containers, and transports.
 
@@ -95,7 +95,7 @@ Azure’s Hypervisor acts like a micro-kernel and passes all hardware access req
 
 ### How Azure implements virtualization
 
-Azure uses a hypervisor firewall (packet filter), which is implemented in the hypervisor and configured by a fabric controller agent. This helps protect tenants from unauthorized access. By default, when a virtual machine is created, all traffic is blocked and then the fabric controller agent configures the packet filter to add *rules and exceptions* to allow authorized traffic.
+Azure uses a hypervisor firewall (packet filter), which is implemented in the hypervisor and configured by a fabric controller agent. This helps protect tenants from unauthorized access. By default, all traffic is blocked when a virtual machine is created, and then the fabric controller agent configures the packet filter to add *rules and exceptions* to allow authorized traffic.
 
 There are two categories of rules that are programmed here:
 
@@ -107,7 +107,7 @@ There are two categories of rules that are programmed here:
 
 Another important cloud security requirement is separation to prevent unauthorized and unintentional transfer of information between deployments in a shared multi-tenant architecture.
 
-Azure implements [network access control](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/) and segregation through VLAN isolation, ACLs, load balancers and IP filters. It restricts external traffic inbound to ports and protocols on your virtual machines that you define. Azure implements network filtering to prevent spoofed traffic and restrict incoming and outgoing traffic to trusted platform components. Traffic flow policies are implemented on boundary protection devices that deny traffic by default.
+Azure implements [network access control](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/) and segregation through VLAN isolation, ACLs, load balancers, and IP filters. It restricts external traffic inbound to ports and protocols on your virtual machines that you define. Azure implements network filtering to prevent spoofed traffic and restrict incoming and outgoing traffic to trusted platform components. Traffic flow policies are implemented on boundary protection devices that deny traffic by default.
 
 ![Microsoft Antimalware in Azure](./media/azure-security-getting-started/sec-azgsfig3.PNG)
 
@@ -147,13 +147,13 @@ The IP filter helps prevent guest virtual machines from:
 
 - Sending or receiving inappropriate broadcast traffic.
 
-You can place your virtual machines onto [Azure virtual networks](https://azure.microsoft.com/documentation/services/virtual-network/). These virtual networks are similar to the networks you configure in on-premises environments, where they are typically associated with a virtual switch. Virtual machines connected to the same virtual network can communicate with one another without additional configuration. You also have the option to configure different subnets within your virtual network.
+You can place your virtual machines onto [Azure virtual networks](https://azure.microsoft.com/documentation/services/virtual-network/). These virtual networks are similar to the networks you configure in on-premises environments, where they are typically associated with a virtual switch. Virtual machines connected to the same virtual network can communicate with one another without additional configuration. You can also configure different subnets within your virtual network.
 
 You can use the following Azure Virtual Network technologies to help secure communications on your virtual network:
 
 -   [**Network Security Groups (NSG)**](../virtual-network/virtual-networks-nsg.md). You can use an NSG to control traffic to one or more virtual machine instances in your virtual network. An NSG contains access control rules that allow or deny traffic based on traffic direction, protocol, source address and port, and destination address and port.
 
--   [**User-defined routing**](../virtual-network/virtual-networks-udr-overview.md). You can control the routing of packets through a virtual appliance by creating user-defined routes that specify the next hop for packets flowing to a specific subnet to go a your virtual network security appliance.
+-   [**User-defined routing**](../virtual-network/virtual-networks-udr-overview.md). You can control the routing of packets through a virtual appliance by creating user-defined routes that specify the next hop for packets flowing to a specific subnet to go to a virtual network security appliance.
 
 -   [**IP forwarding**](../virtual-network/virtual-networks-udr-overview.md). A virtual network security appliance must be able to receive incoming traffic that is not addressed to itself. To allow a virtual machine to receive traffic addressed to other destinations, you enable IP forwarding for the virtual machine.
 
@@ -167,17 +167,17 @@ You can use the following Azure Virtual Network technologies to help secure comm
 
 Azure implements packet-filtering firewalls on all host and guest virtual machines by default. Windows OS images from the Azure Gallery also have Windows Firewall enabled by default. Load balancers at the perimeter of Azure’s public-facing networks control communications based on IP ACLs managed by customer administrators.
 
-If Azure moves a customer’s data as part of normal operations or during a disaster, it does so over private, encrypted communications channels. Other capabilities leveraged by Azure to use in virtual networks and firewalls are:
+If Azure moves a customer’s data as part of normal operations or during a disaster, it does so over private, encrypted communications channels. Other capabilities employed by Azure to use in virtual networks and firewalls are:
 
 -   **Native host firewall**: Azure Service Fabric and Azure Storage run on a native OS that has no hypervisor. Hence the windows firewall is configured with the previous two sets of rules. Storage runs native to optimize performance.
 
 -   **Host firewall**: The host firewall is to protect the host operating system that runs the hypervisor. The rules are programmed to allow only the Service Fabric controller and jump boxes to talk to the host OS on a specific port. The other exceptions are to allow DHCP response and DNS Replies. Azure uses a machine configuration file that has the template of firewall rules for the host OS. The host itself is protected from external attack by a Windows firewall configured to permit communication only from known, authenticated sources.
 
--   **Guest firewall**: Replicates the rules in the virtual machine Switch packet filter but programmed in different software (i.e. the Windows Firewall piece of the guest OS). The guest virtual machine firewall can be configured to restrict communications to or from the guest virtual machine, even if the communication is permitted by configurations at the host IP Filter. For example, you may choose to use the guest virtual machine firewall to restrict communication between two of your VNets that have been configured to connect to one another.
+-   **Guest firewall**: Replicates the rules in the virtual machine Switch packet filter but programmed in different software (such as the Windows Firewall piece of the guest OS). The guest virtual machine firewall can be configured to restrict communications to or from the guest virtual machine, even if the communication is permitted by configurations at the host IP Filter. For example, you may choose to use the guest virtual machine firewall to restrict communication between two of your VNets that have been configured to connect to one another.
 
 -   **Storage firewall (FW)**: The firewall on the storage front end filters traffic to be only on ports 80/443 and other necessary utility ports. The firewall on the storage back end restricts communications to come only from storage front-end servers.
 
--   **Virtual Network Gateway**: The [Azure Virtual Network Gateway](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) serves as the cross-premises gateway connecting your workloads in Azure Virtual Network to your on premises sites. It is required to connect to on-premises sites through [IPsec site-to-site VPN tunnels](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), or through [ExpressRoute](../expressroute/expressroute-introduction.md) circuits. For IPsec/IKE VPN tunnels, the gateways perform IKE handshakes and establish the IPsec S2S VPN tunnels between the Virtual Networks and on-premises sites. Virtual network gateways also terminate [point-to-site VPNs](../vpn-gateway/vpn-gateway-point-to-site-create.md).
+-   **Virtual Network Gateway**: The [Azure Virtual Network Gateway](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) serves as the cross-premises gateway connecting your workloads in Azure Virtual Network to your on-premises sites. It is required to connect to on-premises sites through [IPsec site-to-site VPN tunnels](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), or through [ExpressRoute](../expressroute/expressroute-introduction.md) circuits. For IPsec/IKE VPN tunnels, the gateways perform IKE handshakes and establish the IPsec S2S VPN tunnels between the Virtual Networks and on-premises sites. Virtual network gateways also terminate [point-to-site VPNs](../vpn-gateway/vpn-gateway-point-to-site-create.md).
 
 ## Secure remote access
 
@@ -185,7 +185,7 @@ Data stored in the cloud must have sufficient safeguards enabled to prevent expl
 
 Built-in cryptographic technology enables you to encrypt communications within and between deployments, between Azure regions, and from Azure to on-premises datacenters. Administrator access to virtual machines through [remote desktop sessions](../virtual-machines/virtual-machines-windows-classic-connect-logon.md), [remote Windows PowerShell](http://blogs.technet.com/b/heyscriptingguy/archive/2013/09/07/weekend-scripter-remoting-the-cloud-with-windows-azure-and-powershell.aspx), and the Azure portal is always encrypted.
 
-To securely extend your on-premises datacenter to the cloud, Azure provides both [site-to-site VPN](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) and [point-to-site VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md), as well as dedicated links with [ExpressRoute](../expressroute/expressroute-introduction.md) (connections to Azure Virtual Networks over VPN are encrypted).
+To securely extend your on-premises datacenter to the cloud, Azure provides both [site-to-site VPN](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) and [point-to-site VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md), plus dedicated links with [ExpressRoute](../expressroute/expressroute-introduction.md) (connections to Azure Virtual Networks over VPN are encrypted).
 
 ### How Azure implements secure remote access
 
@@ -225,7 +225,7 @@ Azure has security controls in place to implement threat mitigation and also to 
 
 -   Microsoft maintains continuous monitoring across servers, networks, and applications to detect threats and prevent exploits. Automated alerts notify administrators of anomalous behaviors, allowing them to take corrective action on both internal and external threats.
 
--   You have the option to deploy third-party security solutions within your subscriptions, such as web application firewalls from [Barracuda](https://techlib.barracuda.com/ng54/deployonazure).
+-   You can deploy third-party security solutions within your subscriptions, such as web application firewalls from [Barracuda](https://techlib.barracuda.com/ng54/deployonazure).
 
 -   Microsoft’s approach to penetration testing includes “[Red-Teaming](http://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf),” which involves Microsoft security professionals attacking (non-customer) live production systems in Azure to test defenses against real-world, advanced persistent threats.
 
