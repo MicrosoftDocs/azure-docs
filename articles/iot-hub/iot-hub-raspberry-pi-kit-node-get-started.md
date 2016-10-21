@@ -4,7 +4,7 @@
  services="iot-hub"
  documentationCenter=""
  authors="shizn"
- manager="yjianfeng"
+ manager="timlt"
  tags=""
  keywords=""/>
 
