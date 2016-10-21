@@ -133,7 +133,7 @@ A deployment for a reference architecture that implements these recommendations 
 
 The reference architecture can be deployed either with Windows or Linux VMs by following the directions below: 
 
-1. 1. Right click the button below and select either "Open link in new tab" or "Open link in new window":  
+1. Right click the button below and select either "Open link in new tab" or "Open link in new window":  
 [![Deploy to Azure](./media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-multi-vm%2Fazuredeploy.json)
 
 2. Once the link has opened in the Azure portal, you must enter values for some of the settings: 
