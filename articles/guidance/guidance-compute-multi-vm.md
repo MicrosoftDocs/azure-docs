@@ -31,7 +31,7 @@ This article builds on [Running a Single VM on Azure][single vm]. The recommenda
 
 VMs in Azure require supporting networking and storage resources.
 
-> A Visio document that includes this architecture diagram is available for download at the [Microsoft download center][visio-download]. This diagram is on the "Compute - multi VM page.
+> A Visio document that includes this architecture diagram is available for download at the [Microsoft download center][visio-download]. This diagram is on the "Compute - multi VM page".
 
 ![[0]][0]
 
@@ -146,7 +146,7 @@ The reference architecture can be deployed either with Windows or Linux VMs by f
 
 3. Wait for the deployment to complete.
 
-4. The parameter files include a hard-coded administrator user name and password, and it is highly recommended that you immediately change both. Click on the VM named `ra-multi-vm1` in the Azure Portal. Then, click on **Reset password** in the **Support + troubleshooting** blade. Select **Reset password** in the **Mode** dropdown box, then select a new **User name** and **Password**. Click the **Update** button to persist the new user name and password. Repeat for the VM named `ra-multi-vm2`.
+4. The parameter files include a hard-coded administrator user name and password, and it is strongly recommended that you immediately change both. Click on the VM named `ra-multi-vm1` in the Azure Portal. Then, click on **Reset password** in the **Support + troubleshooting** blade. Select **Reset password** in the **Mode** dropdown box, then select a new **User name** and **Password**. Click the **Update** button to persist the new user name and password. Repeat for the VM named `ra-multi-vm2`.
 
 For information on additional ways to deploy this reference architecture, see the readme file in the [guidance-single-vm][github-folder] Github folder. 
 
