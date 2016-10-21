@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2016" 
+	ms.date="10/21/2016" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
@@ -132,13 +132,11 @@ To accomplish this move, perform two separate move operations in the following s
 1. Move the **web-a** to **plan-group**
 2. Move **web-a** and **plan-a** to **combined-group**.
 
-Currently, if your web app includes an SSL certificate that you purchased externally and uploaded to the app, you must delete the certificate before moving the web app. For example, you can perform the following steps:
+You can move an App Service Certificate to a new resource group or subscription without any issues. However, if your web app includes an SSL certificate that you purchased externally and uploaded to the app, you must delete the certificate before moving the web app. For example, you can perform the following steps:
 
 1. Delete the uploaded certificate from the web app
 2. Move the web app
 3. Upload the certificate to the web app
-
-If your web app uses an App Service Certificate, you can move the web app and certificate to a new resource group without issue. To move an App Service Certificate to a new subscription, contact Azure support.
 
 ## Recovery Services limitations
 
