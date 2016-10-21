@@ -2,7 +2,7 @@ This article outlines a set of proven practices for running a Linux virtual mach
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
 
-We don't recommend using a single VM for production workloads, because there is no up-time service level agreement (SLA) for single VMs on Azure. To get the SLA, you must deploy multiple VMs in an [availability set][availability-set]. For more information, see [Running multiple VMs on Azure][multi-vm]. 
+We don't recommend using a single VM for production workloads, because there is no up-time service level agreement (SLA) for single VMs on Azure. To get the SLA, you must deploy multiple VMs in an [availability set][availability-set]. For more information, see [Running multiple VMs on Azure][multi-vm].
 
 ## Architecture diagram
 
@@ -27,7 +27,7 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 - **Network interface (NIC)**. The NIC enables the VM to communicate with the virtual network.
 
 - **Network security group (NSG)**. The [NSG][nsg] is used to allow/deny network traffic to the subnet. You can associate an NSG with an individual NIC or with a subnet. If you associate it with a subnet, the NSG rules apply to all VMs in that subnet.
- 
+
 - **Diagnostics.** Diagnostic logging is crucial for managing and troubleshooting the VM.
 
 ## Recommendations
@@ -46,25 +46,23 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 ### Disk and storage recommendations
 
-- For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid-state drives (SSDs). Cost is based on the size of the provisioned disk. IOPS and throughput (that is, data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). 
-
-- One storage account can support 1 to 20 VMs.
+- For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid-state drives (SSDs). Cost is based on the size of the provisioned disk. IOPS and throughput (that is, data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput).
 
 - Add one or more data disks. When you create a VHD, it is unformatted. Log in to the VM to format the disk. The data disks show as `/dev/sdc`, `/dev/sdd`, and so on. You can run `lsblk` to list the block devices, including the disks. To use a data disk, create a partition and file system, and mount the disk. For example:
 
     ```bat
     # Create a partition.
     sudo fdisk /dev/sdc     # Enter 'n' to partition, 'w' to write the change.     
-    
+
     # Create a file system.
     sudo mkfs -t ext3 /dev/sdc1
-    
+
     # Mount the drive.
     sudo mkdir /data1
     sudo mount /dev/sdc1 /data1
     ```
 
-- If you have many of data disks, be aware of the total I/O limits of the storage account. For more information, see [Virtual Machine Disk Limits][vm-disk-limits].
+- Be aware of the total I/O limits of the storage account. For more information, see [Scalability targets for virtual machine disks][storage-scalability] and [Azure Premium Storage: Design for High Performance][premium-storage].
 
 - When you add a data disk, a logical unit number (LUN) ID is assigned to the disk. Optionally, you can specify the LUN ID &mdash; for example, if you're replacing a disk and want to retain the same LUN ID, or you have an app that looks for a specific LUN ID. However, remember that LUN IDs must be unique for each disk.
 
@@ -87,7 +85,7 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 ## Scalability considerations
 
-- You can scale a VM up or down by [changing the VM size][vm-resize]. 
+- You can scale a VM up or down by [changing the VM size][vm-resize].
 
 - To scale out horizontally, put two or more VMs into an availability set behind a load balancer. For details, see [Running multiple VMs on Azure][multi-vm].
 
@@ -127,20 +125,20 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 - **Deleting a VM.** If you delete a VM, the VHDs are not deleted. That means you can safely delete the VM without losing data. However, you will still be charged for storage. To delete the VHD, delete the file from [blob storage][blob-storage].
 
-  To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as the VM. 
+  To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as the VM.
 
 ## Security considerations
 
 - Automate OS updates by using the [OSPatching] VM extension. Install this extension when you provision the VM. You can specify how often to install patches and whether to reboot after patching.
 
-- Use [role-based access control][rbac] (RBAC) to control access to the Azure resources that you deploy. RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some roles are specific to particular Azure resource types. For example, the Virtual Machine Contributor role can restart or deallocate a VM, reset the administrator password, create a VM, and so forth. Other [built-in RBAC roles][rbac-roles] that might be useful for this reference architecture include [DevTest Labs User][rbac-devtest] and [Network Contributor][rbac-network]. 
+- Use [role-based access control][rbac] (RBAC) to control access to the Azure resources that you deploy. RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some roles are specific to particular Azure resource types. For example, the Virtual Machine Contributor role can restart or deallocate a VM, reset the administrator password, create a VM, and so forth. Other [built-in RBAC roles][rbac-roles] that might be useful for this reference architecture include [DevTest Labs User][rbac-devtest] and [Network Contributor][rbac-network].
 - A user can be assigned to multiple roles, and you can create custom roles for even more fine-grained permissions.
 
     > [AZURE.NOTE] RBAC does not limit the actions that a user logged to a VM can perform. Those permissions are determined by the account type on the guest OS.   
 
 - Use [audit logs][audit-logs] to see provisioning actions and other VM events.
 
-- Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks. 
+- Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks.
 
 ## Solution deployment
 
@@ -158,7 +156,7 @@ This reference architecture uses a single resource group that you can deploy by 
 
 ### Customize the deployment
 
-If you need to change the deployment to match your needs, follow the instructions in the [guidance-single-vm][readme] page. 
+If you need to change the deployment to match your needs, follow the instructions in the [guidance-single-vm][readme] page.
 
 ## Next steps
 
@@ -202,14 +200,11 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [ssh-linux]: ../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
+[storage-scalability]: ../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks
 [virtual-machine-sizes]: ../articles/virtual-machines/virtual-machines-linux-sizes.md
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
-[arm-templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm
-[azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
-[components]: #Solution-components
 [blocks]: https://github.com/mspnp/template-building-blocks
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Single Linux VM architecture in Azure"
-

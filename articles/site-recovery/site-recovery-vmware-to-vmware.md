@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2016"
+	ms.date="10/20/2016"
 	ms.author="nisoneji"/>
 
 
@@ -31,22 +31,20 @@ InMage Scout in Azure Site Recovery provides real-time replication between on-pr
 
 
 ## Step 1: Create a vault
-
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Click **Data Services** > **Recovery Services** > **Site Recovery Vault**.
-3. Click **Create New** > **Quick Create**.
-4. In **Name**, enter a friendly name to identify the vault.
-5. In **Region**, select the geographic region for the vault. To check supported regions, see [Azure Site Recovery
+2. Click New > Management > Backup and Site Recovery (OMS). Alternatively, you can click Browse > Recovery Services Vault > Add.
+3. In **Name** specify a friendly name to identify the vault. If you have more than one subscription, select one of them.
+4. In **Resource group** Create a new resource group or select an existing one. Specify an Azure region to complete required fields. 
+5.  In **Location**, select the geographic region for the vault. To check supported regions, see [Azure Site Recovery
 Pricing](https://azure.microsoft.com/pricing/details/site-recovery/).
-
-Check the status bar to confirm that the vault was successfully created. The vault will be listed as **Active** on the main **Recovery Services** page.
+5. If you want to quickly access the vault from the Dashboard click Pin to dashboard and then click Create.
+6. The new vault will appear on the Dashboard > All resources, and on the main Recovery Services vaults blade.
 
 ## Step 2: Configure the vault and download InMage Scout components
-
-1. Click **Create vault**.
-2. On the **Recovery Services** page, click the vault to open the **Quick Start** page.
-3. In the dropdown list, select **Between two on-premises VMware sites**.
-4. Download InMage Scout. The setup files for all of the required components are in the downloaded .zip file.
+7. In the Recovery Services vaults blade select your vault and click Settings.
+8. In **Settings** > **Getting Started** click **Site Recovery** > Step 1: **Prepare Infrastructure** > **Protection goal**.
+9. In **Protection goal** select To recovery site, and select Yes, with VMware vSphere Hypervisor. Then click OK.
+10. In **Scout setup**, click download to download InMage Scout 8.0.1 GA software and registration key. The setup files for all of the required components are in the downloaded .zip file.
 
 
 ## Step 3: Install component updates
@@ -58,25 +56,27 @@ Read about the latest [updates](#updates). You'll install the update files on se
 3. Process servers
 3. Master target servers
 4. vContinuum servers
-5. Source server (only for Windows Server)
+5. Source server (both Windows and Linux Server)
 
 Install the updates as follows:
 
-1. Download the [update](https://aka.ms/asr-scout-update3) .zip file. This .zip file contains the following files:
+1. Download the [update](https://aka.ms/asr-scout-update4) .zip file. This .zip file contains the following files:
 
-	-  RX_8.0.3.0_GA_Update_3_6684045_17Mar16.tar.gz
-	-  CX_Windows_8.0.3.0_GA_Update_3_5048668_16Mar16.exe
-	-  UA_Windows_8.0.3.0_GA_Update_3_7101745_04Apr16.exe
-	-  UA_RHEL6-64_8.0.3.0_GA_Update_3_7101745_04Apr16.zip
-	-  vCon_Windows_8.0.3.0_GA_Update_3_6873369_16Mar16.exe
-
-2. Extract the .zip files.
-3. **For the RX server**: Copy **RX_8.0.3.0_GA_Update_3_6684045_17Mar16.tar.gz** to the RX server and extract it. In the extracted folder, run **/Install**.
-4. **For the configuration server/process server**: Copy **CX_Windows_8.0.3.0_GA_Update_3_5048668_16Mar16.exe** to the configuration server and process server. Double-click to run it.
-5. **For the Windows master target server**: To update the unified agent, copy **UA_Windows_8.0.3.0_GA_Update_3_7101745_04Apr16.exe** to the master target server. Double-click it to run it. Note that the unified agent is also applicable to the source server. You should install it on the source server as well, as mentioned later in this list.
-6. **For the Linux master target server**: To update the unified agent, copy **UA_RHEL6-64_8.0.3.0_GA_Update_3_7101745_04Apr16.zip** to the master target server and extract it. In the extracted folder, run **/Install**.
-7. **For the vContinuum server**: Copy **vCon_Windows_8.0.3.0_GA_Update_3_6873369_16Mar16.exe** to the vContinuum server. Make sure that you've closed the vContinuum wizard. Double-click on the file to run it.
-8. **For the Windows source server**: To update the unified agent, copy **UA_Windows_8.0.3.0_GA_Update_3_7101745_04Apr16.exe** to the source server. Double-click it to run it.
+	- RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
+	- CX_Windows_8.0.4.0_GA_Update_4_8725865_14Sep16.exe
+	- UA_Windows_8.0.4.0_GA_Update_4_9035261_27Sep16.exe
+	- UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+	- vCon_Windows_8.0.4.0_GA_Update_4_8921562_16Sep16.exe
+	- UA update4 bits for RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz 
+	
+2. Extract the .zip files.<br>
+3. **For the RX server**: Copy **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** to the RX server and extract it. In the extracted folder, run **/Install**.<br>
+4. **For the configuration server/process server**: Copy **CX_Windows_8.0.4.0_GA_Update_4_8725865_14Sep16.exe** to the configuration server and process server. Double-click to run it.<br>
+5. **For the Windows master target server**: To update the unified agent, copy **UA_Windows_8.0.4.0_GA_Update_4_9035261_27Sep16.exe** to the master target server. Double-click it to run it. Note that the unified agent is also applicable to the source server. You should install it on the source server as well, as mentioned later in this list.<br>
+7. **For the vContinuum server**:  Copy **vCon_Windows_8.0.4.0_GA_Update_4_8921562_16Sep16.exe** to the vContinuum server.  Make sure that you've closed the vContinuum wizard. Double-click on the file to run it.<br>
+8. **For the Linux master target server**: To update the unified agent, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the master target server and extract it. In the extracted folder, run **/Install**.<br>
+9. **For the Windows source server**: To update the unified agent, copy **UA_Windows_8.0.4.0_GA_Update_4_9035261_27Sep16.exe** to the source server. Double-click it to run it.<br>
+10. **For the Linux source server**: To update the unified agent, copy corresponding  version of UA file to the Linux server and extract it. In the extracted folder, run **/Install**.  Example: For RHEL 6.7 64 bit server,  copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz**  to the server and extract it. In the extracted folder, run **/Install**.
 
 ## Step 4: Set up replication
 1. Set up replication between the source and target VMware sites.
@@ -90,6 +90,48 @@ Install the updates as follows:
 
 
 ## Updates
+
+### Azure Site Recovery Scout 8.0.1 Update 4
+Scout Update 4 is a cumulative update. It has all the fixes of update1 till update3 and following new bug fixes and enhancements.
+
+**New platform support** 
+
+- Support has been added for vCenter/vSphere 6.0, 6.1 and 6.2
+- Support has been added for following Linux operating systems
+	- Red Hat Enterprise Linux (RHEL)7.0, 7.1 and 7.2 
+	- CentOS 7.0, 7.1 and 7.2
+	- Red Hat Enterprise Linux (RHEL) 6.8
+	- CentOS 6.8
+
+>[AZURE.NOTE]
+>
+> RHEL/CentOS 7 64 bit  **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** is packaged with base Scout GA package **InMage_Scout_Standard_8.0.1 GA.zip**. Download Scout GA package from portal as mentioned in [step1](site-recovery-vmware-to-vmware.md#Step 1: Create a vault).
+
+**Bug fixes and enhancements** 
+
+- Improved shutdown handling for following Linux OSes and clones to prevent unwanted re-sync issues.
+	- Red Hat Enterprise Linux (RHEL) 6.x
+	- Oracle Linux (OL) 6.x
+- For Linux, complete folder access permissions in unified agent installation directory are now restricted only to the local user.
+- On Windows timing out issue while issuing  common distributed consistency book mark on heavily loaded distributed applications like SQL and Share Point clusters.
+- Added log related fix in CX base installer.
+- VMware vCLI 6.0 download link is added to Windows Master Target base installer.
+- Added more checks and logs for network configurations changes during failover and DR drills.
+- Sometime retention information is not reported to the CX.  
+- For physical cluster, volume Re-size operation through vContinuum wizard is failing when source volume shrink happened.
+- Cluster protection failed with error "Failed to find the disk signature" when cluster disk is PRDM disk.
+- cxps transport server crash because of out-of-range exception. 
+- Server name and IP columns are now resizable in push install page of vContinuum wizard.
+- RX API Enhancements
+	- Provides Five latest available common consistency points (Only Guaranteed tags).
+	- Provides capacity and free space details for all the protected devices.
+	- Provides Scout driver state on source server. 
+	
+>[AZURE.NOTE] 
+>
+>- **InMage_Scout_Standard_8.0.1_GA.zip** base package now has updated CX base installer **InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**  and Windows Master Target  base installer **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**. For all new installation use new CX and Windows Master Target GA bits.
+>- Update 4 can be directly applied on 8.0.1 GA.
+>- The configuration server and RX updates can’t be rolled back after they're applied on the system.
 
 ### Azure Site Recovery Scout 8.0.1 Update 3
 Update 3 includes the following bug fixes and enhancements:
