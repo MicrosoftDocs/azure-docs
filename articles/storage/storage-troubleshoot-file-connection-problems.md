@@ -41,16 +41,18 @@ This article lists common problems that are related to Microsoft Azure File stor
 
 **Linux client problems**
 
+[Error "You are copying a file to a destination that does not support encryption" when uploading/copying files to Azure Files](#encryption)
+
 [“Host is down” error on existing file shares, or the shell hangs when doing list commands on the mount point](#errorhold)
 
 [Mount error 115 when attempting to mount Azure Files on the Linux VM](#error15)
 
-[Linux VM experiencing random delays in commands like “ls”](#delayproblem)
+[Linux VM experiencing random delays in commands like “ls”](#delayproblem)s
 
-[Error "You are copying a file to a destination that does not support encryption" when uploading/copying files to Azure Files](#encryption)
 
+## General problems
 <a id="quotaerror"></a>
-## Quota error when trying to open a file
+### Quota error when trying to open a file
 
 In Windows, you receive error messages that resemble the following:
 
@@ -77,13 +79,15 @@ The problem occurs because you have reached the upper limit of concurrent open h
 Reduce the number of concurrent open handles by closing some handles,  and then retry. For more information, see [Microsoft Azure Storage Performance and Scalability Checklist](storage-performance-checklist.md).
 
 <a id="slowboth"></a>
-## Slow performance when accessing File storage from Windows or Linux
+### Slow performance when accessing File storage from Windows or Linux
 
 - If you don’t have a specific minimum I/O size requirement, we recommend that you use 1 MB as the I/O size for optimal performance.
 
 - If you know the final size of a file that you are extending with writes, and your software doesn’t have compatibility issues when the not yet written tail on the file containing zeros, then set the file size in advance instead of every write being an extending write.
 
-## Slow performance when accessing the File storage from Windows
+## Windows client problems
+
+### Slow performance when accessing the File storage from Windows
 
 For clients who are running Windows 8.1 or Windows Server 2012 R2, make sure that the hotfix [KB3114025](https://support.microsoft.com/kb/3114025) is installed. This hotfix improves the create and close handle performance.
 
@@ -103,7 +107,7 @@ If hotfix is installed, the following output is displayed:
 
 Never create or open a file for cached I/O that is requesting write access but not read access. That is, when you call **CreateFile()**, never specify only **GENERIC_WRITE**, but always specify **GENERIC_READ | GENERIC_WRITE**. A write-only handle cannot cache small writes locally, even when it is the only open handle for the file. This imposes a severe performance penalty on small writes. Note that the "a" mode to CRT **fopen()** opens a write-only handle.
 
-## "Error 53" when you try to mount or unmount an Azure File Share
+### "Error 53" when you try to mount or unmount an Azure File Share
 
 This problem can be caused by following conditions:
 
@@ -149,7 +153,7 @@ Azure Files supports only NTLMv2 authentication. Make sure that Group Policy is 
 
 The recommended policy setting is **Send NTLMv2 response only**. This corresponds to a registry value of 3. Clients use only NTLMv2 authentication, and they use NTLMv2 session security if the server supports it. Domain controllers accept LM, NTLM, and NTLMv2 authentication.
 
-## Net use was successful but don't see the Azure file share mounted in Windows Explorer
+### Net use was successful but don't see the Azure file share mounted in Windows Explorer
 
 ### Cause
 
@@ -179,7 +183,7 @@ From a batch file this can be done as
 
 •	You can also put double quotation marks around the key to work around this issue — unless "/" is the first character. If it is, either use the interactive mode and enter your password separately or regenerate your keys to get a key that doesn't start with the forward slash (/) character.
 
-## My application/service cannot access mounted Azure Files drive.
+### My application/service cannot access mounted Azure Files drive
 
 ### Cause
 
@@ -193,11 +197,13 @@ Alternatively, you can create a new user that has the same privileges as the net
 
 After you follow these instructions, you may receive the following error message: “System error 1312 has occurred. A specified logon session does not exist. It may already have been terminated” when you run **net use** for the system/network service account. If this occurs, make sure that the username that is passed to **net use** includes domain information (for example: “[storage account name].file.core.windows.net”).
 
-## Error “"You are copying a file to a destination that does not support encryption"
+## Linux client problems
+
+### Error “"You are copying a file to a destination that does not support encryption"
 
 ### Cause
 
-BBitlocker-encrypted files can be copied to Azure Files. However, the File storage does not support NTFS EFS. Therefore, you are likely using EFS in this case. If you have files that are encrypted through EFS, a copy operation to the File storage can fail unless the copy command is decrypting a copied file.
+Bitlocker-encrypted files can be copied to Azure Files. However, the File storage does not support NTFS EFS. Therefore, you are likely using EFS in this case. If you have files that are encrypted through EFS, a copy operation to the File storage can fail unless the copy command is decrypting a copied file.
 
 ### Workaround
 
@@ -214,7 +220,7 @@ To copy a file to the File storage, you must first decrypt it. You can do this b
 
 However, note that setting the registry key affects all copy operations to network shares.
 
-## “Host is down” error on existing file shares, or the shell hangs when you run list commands on the mount point
+### "Host is down" error on existing file shares, or the shell hangs when you run list commands on the mount point
 
 ### Cause
 
@@ -226,7 +232,7 @@ This issue is now fixed in the Linux kernel as part of [change set](https://git.
 
 To works around this issue, sustain the connection and avoid getting into an idle state, keep a file in the Azure File share that you write to periodically. This has to be a write operation, such as rewriting the created/modified date on the file. Otherwise, you might get cached results, and your operation might not trigger the connection.
 
-## "Mount error 115" when you try to mount Azure Files on the Linux VM
+### "Mount error 115" when you try to mount Azure Files on the Linux VM
 
 ### Cause
 
@@ -246,6 +252,7 @@ This can occur when the mount command does not include the **serverino** option.
 
 Check the **serverino** in your "/etc/fstab" entry:
 
-`//azureuser.file.core.windows.net/wms/comer on /home/sampledir type cifs (rw,nodev,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,,file_mode=0755,dir_mode=0755,serverino,rsize=65536,wsize=65536,actimeo=1)`
+//azureuser.file.core.windows.net/wms/comer on /home/sampledir type cifs (rw,nodev,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,
+file_mode=0755,dir_mode=0755,serverino,rsize=65536,wsize=65536,actimeo=1)
 
 If the **serverino** option is not present, unmount and mount Azure Files again by having the **serverino** option selected.
