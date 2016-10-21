@@ -74,7 +74,7 @@ This tutorial assumes the following:
 
 1. Click **Resource group** 
 
-    S![New Resource Group](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-newresourcegroup.png)
+    ![New Resource Group](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-newresourcegroup.png)
 
 1. Click **Create**. 
 
@@ -244,8 +244,8 @@ After the virtual machines are created, configure the domain controller.
 In the following steps, configure the **ad-primary-dc** machine as a domain controller for corp.contoso.com.
 
 1. In the portal, open the **SQL-HA-RG** resource group and select the **ad-primary-dc** machine. On the **ad-primary-dc** blade, click **Connect** to open an RDP file for remote desktop access.
-
-   ![Connect to Virtual Machine](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/20-connectrdp.png)
+ 
+    ![Connect to Virtual Machine](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/20-connectrdp.png)
 
 2. Log in with your configured administrator account (**\DomainAdmin**) and password (**Contoso!0000**).
 
@@ -253,15 +253,15 @@ In the following steps, configure the **ad-primary-dc** machine as a domain cont
 
 4. Click the **Add roles and features** link on the dashboard.
 
-   ![Server Explorer Add Roles](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784623.png)
-
+    ![Server Explorer Add Roles](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784623.png)
+ 
 5. Select **Next** until you get to the **Server Roles** section.
 
 6. Select the **Active Directory Domain Services** and **DNS Server** roles. When prompted, add any additional features required by these roles.
 
-   >[AZURE.NOTE] Windows warns you that there is no static IP address. If you are testing the configuration, click continue. For production scenarios, set the IP address to static in the Azure portal or [use PowerShell to set the static IP address of the domain controller machine](../virtual-network/virtual-networks-reserved-private-ip.md).
+    >[AZURE.NOTE] Windows warns you that there is no static IP address. If you are testing the configuration, click continue. For production scenarios, set the IP address to static in the Azure portal or [use PowerShell to set the static IP address of the domain controller machine](../virtual-network/virtual-networks-reserved-private-ip.md).
 
-   ![Add Roles Dialog](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784624.png)
+    ![Add Roles Dialog](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784624.png)
 
 7. Click **Next** until you reach the **Confirmation** section. Select the **Restart the destination server automatically if required** checkbox.
 
@@ -273,20 +273,20 @@ In the following steps, configure the **ad-primary-dc** machine as a domain cont
 
 11. Click the **More** link on the yellow warning bar.
 
-   ![AD DS dialog on DNS Server VM](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784625.png)
+    ![AD DS dialog on DNS Server VM](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784625.png)
 
 12. In the **Action** column of the **All Server Task Details** dialog, click **Promote this server to a domain controller**.
 
 13. In the **Active Directory Domain Services Configuration Wizard**, use the following values:
 
-| **Page**                      | Setting                                  |
-| ----------------------------- | ---------------------------------------- |
-| **Deployment Configuration**  | **Add a new forest** = Selected<br/>**Root domain name** = corp.contoso.com |
-| **Domain Controller Options** | **DSRM Password** = Contoso!0000<br/>**Confirm Password** = Contoso!0000 |
-
+    | **Page**                      | Setting                                  |
+    | ----------------------------- | ---------------------------------------- |
+    | **Deployment Configuration**  | **Add a new forest** = Selected<br/>**Root domain name** = corp.contoso.com |
+    | **Domain Controller Options** | **DSRM Password** = Contoso!0000<br/>**Confirm Password** = Contoso!0000 |
+ 
 1. Click **Next** to go through the other pages in the wizard. On the **Prerequisites Check** page, verify that you see the following message: **All prerequisite checks passed successfully**. Note that you should review any applicable warning messages, but it is possible to continue with the install.
 
-2. Click **Install**. The **ad-primary-dc** virtual machine automatically reboots.
+1. Click **Install**. The **ad-primary-dc** virtual machine automatically reboots.
 
 ### Configure the second domain controller
 
@@ -307,9 +307,9 @@ After the primary domain controller reboots, you can configure the second domain
 7. Select the **IPv4 address assigned by DHCP, IPv6 enabled** link.
 
 8. In the **Network Connections** window, select the network icon.
-
-   ![Change the VM Preferred DNS Server](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784629.png)
-
+ 
+    ![Change the VM Preferred DNS Server](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784629.png)
+ 
 9. On the command bar, click **Change the settings of this connection** (depending on the size of your window, you might have to click the double right arrow to see this command).
 
 10. Select **Internet Protocol Version 4 (TCP/IPv4)** and click Properties.
@@ -317,12 +317,11 @@ After the primary domain controller reboots, you can configure the second domain
 11. Select Use the following DNS server addresses and specify the address of the primary domain controller in **Preferred DNS server**.
 
 12. The address is the address assigned to a VM in the subnet-1 subnet in the Azure virtual network, and that VM is **ad-primary-dc**. To verify **ad-primary-dc**'s IP address, use the **nslookup ad-primary-dc** in the command prompt, as shown below.
-
-   ![Use NSLOOKUP to find IP address for DC](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC664954.png)
-
- >[AZURE.NOTE] After setting the DNS, you may lose the RDP session to the member server. If you do, reboot the VM from the Azure portal.
-
-
+ 
+    ![Use NSLOOKUP to find IP address for DC](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC664954.png)
+ 
+     >[AZURE.NOTE] After setting the DNS, you may lose the RDP session to the member server. If you do, reboot the VM from the Azure portal.
+      
 1. Click **OK** and then **Close** to commit the changes. You are now able to join the VM to **corp.contoso.com**.
 
 2. Repeat the steps that you followed to create the first domain controller except, in the **Active Directory Domain Services Configuration Wizard**, use the following values:
@@ -347,23 +346,23 @@ The next steps configure the Active Directory (AD) accounts for later use.
 
 4. On the right **Tasks** pane, select **New** and then click **User**. Use the following settings:
 
-| Setting                    | Value        |
-| -------------------------- | ------------ |
-| **First Name**             | Install      |
-| **User SamAccountName**    | Install      |
-| **Password**               | Contoso!0000 |
-| **Confirm password**       | Contoso!0000 |
-| **Other password options** | Selected     |
-| **Password never expires** | Checked      |
-
+    | Setting                    | Value        |
+    | -------------------------- | ------------ |
+    **First Name**             | Install      |
+    **User SamAccountName**    | Install      |
+    **Password**               | Contoso!0000 |
+    **Confirm password**       | Contoso!0000 |
+    **Other password options** | Selected     |
+    **Password never expires** | Checked      |
+ 
 1. Click **OK** to create the **Install** user. Use this account to configure the failover cluster and the availability group.
 
 2. Create two additional users with the same steps: **CORP\SQLSvc1** and **CORP\SQLSvc2**. The SQL Server services use these accounts. Next, give **CORP\Install** the necessary permissions to configure Windows Service Failover Clustering (WSFC).
 
 3. In the **Active Directory Administrative Center**, select **corp (local)** in the left pane. Then in the right-hand **Tasks** pane, click **Properties**.
-
-   ![CORP User Properties](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784627.png)
-
+ 
+    ![CORP User Properties](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784627.png)
+ 
 4. Select **Extensions**, and then click the **Advanced** button on the **Security** tab.
 
 5. On the **Advanced Security Settings for corp** dialog. Click **Add**.
@@ -372,7 +371,7 @@ The next steps configure the Active Directory (AD) accounts for later use.
 
 7. Select the **Read all properties** and **Create Computer objects** permissions.
 
-   ![Corp User Permissions](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784628.png)
+    ![Corp User Permissions](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784628.png)
 
 8. Click **OK**, and then click **OK** again. Close the corp properties window.
 
@@ -427,7 +426,7 @@ Use these addresses to configure the DNS service for each VM. Do the following s
 
 6. In the **Network Connections** window, select the network icon.
 
-   ![Change the VM Preferred DNS Server](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784629.png)
+    ![Change the VM Preferred DNS Server](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784629.png)
 
 7. On the command bar, click **Change the settings of this connection** (depending on the size of your window, you might have to click the double right arrow to see this command).
 
@@ -437,10 +436,9 @@ Use these addresses to configure the DNS service for each VM. Do the following s
 
 10. The address is the address assigned to a VM in the subnet-1 subnet in the Azure virtual network, and that VM is **ad-primary-dc**. To verify **ad-primary-dc**'s IP address, use the **nslookup ad-primary-dc** in the command prompt, as shown below.
 
-   ![Use NSLOOKUP to find IP address for DC](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC664954.png)
+    ![Use NSLOOKUP to find IP address for DC](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC664954.png)
 
- >[AZURE.NOTE] After setting the DNS, you may lose the RDP session to the member server. If you do, reboot the VM from the Azure portal.
-
+    >[AZURE.NOTE] After setting the DNS, you may lose the RDP session to the member server. If you do, reboot the VM from the Azure portal.
 
 1. Click **OK** and then **Close** to commit the changes. You are now able to join the VM to **corp.contoso.com**.
 
@@ -464,7 +462,7 @@ Use these addresses to configure the DNS service for each VM. Do the following s
 
 2. In **Server Manager** select **Tools**, and then click **Computer Management**.
 
-   ![Computer Management](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784630.png)
+    ![Computer Management](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784630.png)
 
 3. In the **Computer Management** window, expand **Local Users and Groups**, and then select **Groups**.
 
@@ -547,15 +545,15 @@ Follow the steps below to configure the cluster.
     | Confirmation                             | Use defaults unless you are using Storage Spaces. See the note following this table. |
 
 
->[AZURE.NOTE] If you are using [Storage Spaces](https://technet.microsoft.com/library/hh831739), which groups multiple disks in to storage pools, you must uncheck the **Add all eligible storage to the cluster** checkbox on the **Confirmation** page. If you do not uncheck this option, Windows detatches the virtual disks during the clustering process. As a result, they will not appear in Disk Manager or Explorer until the storage spaces are removed from the cluster and reattached using PowerShell.
+    >[AZURE.NOTE] If you are using [Storage Spaces](https://technet.microsoft.com/library/hh831739), which groups multiple disks in to storage pools, you must uncheck the **Add all eligible storage to the cluster** checkbox on the **Confirmation** page. If you do not uncheck this option, Windows detatches the virtual disks during the clustering process. As a result, they will not appear in Disk Manager or Explorer until the storage spaces are removed from the cluster and reattached using PowerShell.
  
-Now that you have created the cluster, verify the configuration and add the remaining nodes. 
+    Now that you have created the cluster, verify the configuration and add the remaining nodes. 
  
 1. In the center pane, scroll down to **Cluster Core Resources** section and expand the **Name: Clutser1** details. You should see both the **Name** and the **IP Address** resources in the **Failed** state. The IP address resource cannot be brought online because the cluster is assigned the same IP address as that of the machine itself, which is a duplicate address.
 
 2. Right-click the failed **IP Address** resource, and then click **Properties**.
 
-   ![Cluster Properties](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784633.png)
+    ![Cluster Properties](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784633.png)
 
 3. Select **Static IP Address** and specify an available address from subnet-2 in the Address text box. Then, click **OK**.
 
@@ -563,7 +561,7 @@ Now that you have created the cluster, verify the configuration and add the rema
 
 5. Finally, you add the remaining nodes to the cluster. In the browser tree, right-click **Cluster1.corp.contoso.com** and click **Add Node**, as shown below.
 
-   ![Add Node to the Cluster](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784634.png)
+    ![Add Node to the Cluster](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784634.png)
 
 6. In the **Add Node Wizard**, click **Next**. In the **Select Servers** page, add **sqlserver-1** and **cluster-fsw** to the list by typing the server name in **Enter server name** and then clicking **Add**. When you are done, click **Next**.
 
@@ -571,7 +569,7 @@ Now that you have created the cluster, verify the configuration and add the rema
 
 8. In the **Confirmation** page, click **Next** to add the nodes.
 
-   >[AZURE.WARNING] If you are using [Storage Spaces](https://technet.microsoft.com/library/hh831739), which groups multiple disks in to storage pools, you must uncheck the **Add all eligible storage to the cluster** checkbox. If you do not uncheck this option, the virtual disks will be detached during the clustering process. As a result, they will also not appear in Disk Manager or Explorer until the storage spaces are removed from cluster and reattached using PowerShell.
+    >[AZURE.WARNING] If you are using [Storage Spaces](https://technet.microsoft.com/library/hh831739), which groups multiple disks in to storage pools, you must uncheck the **Add all eligible storage to the cluster** checkbox. If you do not uncheck this option, the virtual disks will be detached during the clustering process. As a result, they will also not appear in Disk Manager or Explorer until the storage spaces are removed from cluster and reattached using PowerShell.
 
 9. Once the nodes are added to the cluster, click **Finish**. Failover Cluster Manager should now show that your cluster has three nodes and list them in the **Nodes** container.
 
