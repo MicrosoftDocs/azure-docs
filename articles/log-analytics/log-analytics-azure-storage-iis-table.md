@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/10/2016"
+	ms.date="10/20/2016"
 	ms.author="banders"/>
 
 
@@ -146,13 +146,15 @@ In approximately 30 minutes you will be able to see data from the storage accoun
 
 ## Enable Azure diagnostics in a virtual machine for event log and IIS log collection using PowerShell
 
+Use the steps in [Configuring Log Analytics to index Azure diagnostics](log-analytics-powershell-workspace-configuration.md/#configuring-log-analytics-to-index-azure-diagnostics) to use PowerShell to read from Azure diagnostics that are written to table storage.
+
 Using Azure PowerShell you can more precisely specify the events that are written to Azure Storage.
 Refer to [Enabling Diagnostics in Azure Virtual Machines](../virtual-machines-dotnet-diagnostics.md) for more details.
 
-You can enable and update the Agent using the following PowerShell script.
+You can enable and update Azure diagnostics using the following PowerShell script.
 You can also use this script with a custom logging configuration.
 You will need to modify the script to set the storage account, service name, and virtual machine name.
-The script using cmdlets for classic virtual machines.
+The script uses cmdlets for classic virtual machines.
 
 Review the following script sample, copy it, modify it as needed, save the sample as a PowerShell script file, and then run the script.
 
@@ -186,6 +188,7 @@ Review the following script sample, copy it, modify it as needed, save the sampl
 
 	(Get-AzureVM -ServiceName $service_name -Name $vm_name) | Set-AzureVMExtension -ExtensionName $wad_extension_name -Publisher $wad_publisher -PublicConfiguration $wad_public_config -PrivateConfiguration $wad_private_config -Version $wad_version | Update-AzureVM
 ```
+
 
 ## Next steps
 
