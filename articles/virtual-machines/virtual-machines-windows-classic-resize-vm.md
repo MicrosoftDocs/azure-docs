@@ -71,6 +71,6 @@ To resize a VM to a size not available in the hardware cluster hosting the VM, t
 A sample script for deleting and recreating a cloud service using a new VM size can be found [here](https://github.com/Azure/azure-vm-scripts). 
 
 
-## Next Steps
+## Next steps
 
 - [Resize a VM created in the Resource Manager deployment model](virtual-machines-windows-resize-vm.md).
