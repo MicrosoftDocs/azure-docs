@@ -736,7 +736,7 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 3. Click **Endpoints** to see the database mirroring endpoint that will be used by this availability group. Each instance of SQL Server must have one database mirroring endpoint. Note the TCP port that wizard specifies for this endpoint. Create an inbound firewall rule on each server for this TCP port.
 
-   When you are finished, click **Next**.
+    When you are finished, click **Next**.
 
 4. In the **Select Initial Data Synchronization** page, select **Join only** and click **Next**. You have already performed data synchronization manually when you took the full and transaction backups on **sqlserver-0** and restored them on **sqlserver-1**. You can instead choose not to perform the backup and restore operations on your database and select **Full** to let the New Availability Group Wizard perform data synchronization for you. However, this is not recommended for very large databases that are found in some enterprises.
 
@@ -871,12 +871,15 @@ To test the connection:
 
 2. Use sqlcmd utility to test the connection. For example, the following script establishes a sqlcmd connection to the primary replica through the listener with Windows authentication:
 
+    ```
     sqlcmd -S "<listenerName>" -E
+    ```
 
   If the listener is using a port besides 1433, you need to specify the port number in the test. For example, the following query tests connectivity to the listener name using port 1435:
 
-		sqlcmd -S "<listenerName>",1435 -E
-
+    ```
+    sqlcmd -S "<listenerName>",1435 -E
+    ```
 
 
 ## Next Steps

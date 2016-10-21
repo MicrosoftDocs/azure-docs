@@ -187,9 +187,9 @@ In this step, you add a client access point to the failover cluster with Failove
 
 10. Make the SQL Server Availability Group resource dependent on the IP address. Right click on the resource in cluster manager, this is on the **Resources** tab under **Other Resources**. 
 
-11. On the cluster node that currently hosts the primary replica, open an elevated PowerShell ISE and paste the following commands into a new script. On the **Dependencies** tab, click the name of the listener. 
-   ​      
-    ```powershell
+11. On the cluster node that currently hosts the primary replica, open an elevated PowerShell ISE and paste the following commands into a new script. On the **Dependencies** tab, click the name of the listener.
+ 
+    ```PowerShell
     $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
     $IPResourceName = "<IPResourceName>" # the IP Address resource name
     $ILBIP = “<n.n.n.n>” # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
@@ -199,7 +199,7 @@ In this step, you add a client access point to the failover cluster with Failove
     
     Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
     ```
-
+ 
 6. Update the variables and run the PowerShell script to configure the IP address and port for the new listener.
 
  >[AZURE.NOTE] If your SQL Servers are in separate regions, you need to run the PowerShell script twice. The first time use the cluster network name, cluster IP resource name, and load balancer IP address from the first resource group. The second time use the cluster network name, cluster IP resource name, and load balancer IP address from the second resource group.
