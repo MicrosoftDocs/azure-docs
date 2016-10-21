@@ -22,27 +22,27 @@
 
 An Azure virtual network (VNet) is a representation of your own network in the cloud. It is a logical isolation of the Azure cloud dedicated to your subscription. You can fully control the IP address blocks, DNS settings, security policies, and route tables within this network. You can also further segment your VNet into subnets and launch Azure IaaS virtual machines (VMs) and/or Cloud services (PaaS role instances). Additionally, you can connect the virtual network to your on-premises network using one of the connectivity options available in Azure. In essence, you can expand your network to Azure, with complete control on IP address blocks with the benefit of enterprise scale Azure provides.
 
-- [Virtual Network Overview](../virtual-networks/virtual-networks-overview.md)
+- [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
 
 You can use the Azure CLI to manage your Azure resources from the command prompt from any computer running Windows, Linux, or OSX. To create a VNet by using the Azure CLI, go here to follow the walk through.
 
-- [How to create a VNet using the Azure CLI](../virtual-networks/virtual-networks-create-vnet-arm-cli.md)
+- [How to create a VNet using the Azure CLI](../virtual-network/virtual-networks-create-vnet-arm-cli.md)
 
 ## Network Security Groups
 
 Network security group (NSG) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When a NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating a NSG directly to that VM.
 
-- [What is a Network Security Group (NSG)?](../virtual-networks/virtual-networks-nsg.md)
+- [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)
 
-- [How to create NSGs in the Azure CLI](../virtual-networks/virtual-networks-create-nsg-arm-cli.md)
+- [How to create NSGs in the Azure CLI](../virtual-network/virtual-networks-create-nsg-arm-cli.md)
 
 ## User Defined Routes
 
 When you add virtual machines (VMs) to a virtual network (VNet) in Azure, you will notice that the VMs are able to communicate with each other over the network, automatically. You do not need to specify a gateway, even though the VMs are in different subnets. The same is true for communication from the VMs to the public Internet, and even to your on-premises network when a hybrid connection from Azure to your own datacenter is present.
 
-- [What are User Defined Routes and IP Forwarding?](../virtual-networks/virtual-networks-udr-overview.md)
+- [What are User Defined Routes and IP Forwarding?](../virtual-network/virtual-networks-udr-overview.md)
 
-- [Create a UDR in the Azure CLI](../virtual-networks/virtual-network-create-udr-arm-cli.md)
+- [Create a UDR in the Azure CLI](../virtual-network/virtual-network-create-udr-arm-cli.md)
 
 ## Associating a FQDN to your Linux VM
 
@@ -54,7 +54,7 @@ When you create a virtual machine (VM) in the Azure portal using the Resource Ma
 
 A network interface (NIC) is the interconnection between a Virtual Machine (VM) and the underlying software network. This article explains what a network interface is and how it's used in the Azure Resource Manager deployment model.
 
-- [Virtual Network Interfaces Overview](../virtual-networks/virtual-network-network-interface-overview.md)
+- [Virtual Network Interfaces Overview](../virtual-network/virtual-network-network-interface-overview.md)
 
 ## Virtual NICs and DNS labeling
 
@@ -66,11 +66,11 @@ If you have a server that you need to be persistent, but that server is treated 
 
 A virtual network gateway is used to send network traffic between Azure virtual networks and on-premises locations and also between virtual networks within Azure (VNet-to-VNet). When you configure a VPN gateway, you must create and configure a virtual network gateway and a virtual network gateway connection.
 
-- [About VPN Gateway](../virtual-networks/vpn-gateway-about-vpngateways.md)
+- [About VPN Gateway](../virtual-network/vpn-gateway-about-vpngateways.md)
 
 
 ## Internal Load Balancing
 
 An Azure load balancer is a Layer-4 (TCP, UDP) load balancer. The load balancer provides high availability by distributing incoming traffic among healthy service instances in cloud services or virtual machines in a load balancer set. Azure Load Balancer can also present those services on multiple ports, multiple IP addresses, or both.
 
-- [Creating an internal load balancer using the Azure CLI](../virtual-networks/load-balancer-get-started-internet-arm-cli.md)
+- [Creating an internal load balancer using the Azure CLI](../virtual-network/load-balancer-get-started-internet-arm-cli.md)
