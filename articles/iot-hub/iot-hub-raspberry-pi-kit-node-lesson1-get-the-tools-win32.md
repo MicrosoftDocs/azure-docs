@@ -22,7 +22,7 @@
 > [AZURE.SELECTOR]
 - [Windows 7 +](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
 - [Ubuntu 16.04](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md)
-- [MacOS 10.10](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
+- [macOS 10.10](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
 
 ## 1.2.1 What you will do
 

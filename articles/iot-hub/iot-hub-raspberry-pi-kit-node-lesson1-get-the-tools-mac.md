@@ -1,5 +1,5 @@
 <properties
- pageTitle="Get the tools (MacOS 10.10) | Microsoft Azure"
+ pageTitle="Get the tools (macOS 10.10) | Microsoft Azure"
  description="Download and install the necessary tools and software for the first sample application for your Pi on macOS."
  services="iot-hub"
  documentationCenter=""
@@ -17,12 +17,12 @@
  ms.date="10/21/2016"
  ms.author="xshi"/>
 
-# 1.2 Get the tools (MacOS 10.10)
+# 1.2 Get the tools (macOS 10.10)
 
 > [AZURE.SELECTOR]
 - [Windows 7 +](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
 - [Ubuntu 16.04](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md)
-- [MacOS 10.10](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
+- [macOS 10.10](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
 
 ## 1.2.1 What you will do
 

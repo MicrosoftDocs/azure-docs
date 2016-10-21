@@ -100,7 +100,7 @@ To configure the device connection, follow these steps:
     # For Windows command prompt
     code %USERPROFILE%\.iot-hub-getting-started\config-raspberrypi.json
 
-    # For MacOS or Ubuntu
+    # For macOS or Ubuntu
     code ~/.iot-hub-getting-started/config-raspberrypi.json
     ```
 
