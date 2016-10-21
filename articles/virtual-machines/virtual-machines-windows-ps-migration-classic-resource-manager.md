@@ -147,7 +147,8 @@ Prepare the virtual machines in the cloud service for migration. You have two op
 	The preceding command displays any warnings and errors that block migration. If validation is successful, then you can move on to the **Prepare** step:
 
 		```powershell
-		Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
+		Move-AzureService -Prepare -ServiceName $serviceName `
+			-DeploymentName $deploymentName -CreateNewVirtualNetwork
 		```
 
 * **Option 2. Migrate to an existing virtual network in the Resource Manager deployment model**
@@ -163,14 +164,17 @@ This example sets the resource group name to **myResourceGroup**, the virtual ne
 	First, validate if you can migrate the cloud service using the following command:
 
 		```powershell
-		$validate = Move-AzureService -Validate -ServiceName $serviceName -DeploymentName $deploymentName -UseExistingVirtualNetwork -VirtualNetworkResourceGroupName $existingVnetRGName -VirtualNetworkName $vnetName -SubnetName $subnetName
+		$validate = Move-AzureService -Validate -ServiceName $serviceName `
+			-DeploymentName $deploymentName -UseExistingVirtualNetwork -VirtualNetworkResourceGroupName $existingVnetRGName -VirtualNetworkName $vnetName -SubnetName $subnetName
 		$validate.ValidationMessages
 		```
 
 	The preceding command displays any warnings and errors that block migration. If validation is successful, then you can proceed with the following Prepare step:
 
 		```powershell
-		Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName -UseExistingVirtualNetwork -VirtualNetworkResourceGroupName $existingVnetRGName -VirtualNetworkName $vnetName -SubnetName $subnetName
+		Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName `
+			-UseExistingVirtualNetwork -VirtualNetworkResourceGroupName $existingVnetRGName `
+			-VirtualNetworkName $vnetName -SubnetName $subnetName
 		```
 		
 After the Prepare operation succeeds with either of the preceding options, query the migration state of the VMs. Ensure that they are in the `Prepared` state.
