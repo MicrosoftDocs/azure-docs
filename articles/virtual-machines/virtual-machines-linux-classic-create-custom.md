@@ -19,7 +19,7 @@
 
 # How to Create a Custom Linux VM
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] For the Resource Manager version, see [here](virtual-machines-linux-create-cli-complete.md).
 
 This topic describes how to create a custom virtual machine (VM) with the Azure CLI using the classic deployment model. We use a Linux image from the available **IMAGES** on Azure. The Azure CLI commands give the following configuration choices, among others:
 

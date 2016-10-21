@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="09/20/2016"
-    ms.author="dineshm;tamram"/>
+	ms.date="10/18/2016"
+    ms.author="dineshm"/>
 
 # How to use Table storage from C++
 

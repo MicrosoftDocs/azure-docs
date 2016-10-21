@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="10/17/2016"
-	ms.author="cbrooks;tamram"/>
+	ms.author="tamram"/>
 
 
 
