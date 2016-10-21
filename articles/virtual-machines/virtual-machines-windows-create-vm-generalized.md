@@ -26,6 +26,7 @@ If you want to create a VM from a specialized VHD, see [Create a VM from a speci
 The quickest way to create a VM from a generalized VHD is to use a [quick start template]
 (https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image). 
 
+
 You can also create the VM using PowerShell. The following steps will walk you through using PowerShell to create a new VM as well as the networking resources that it will need to run in Azure.
 
 
@@ -40,14 +41,14 @@ $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vh
 
 ## Create a virtual network
 
-Create the vNet and subNet of the [virtual network](../virtual-network/virtual-networks-overview.md).
+Create the vNet and subnet of the [virtual network](../virtual-network/virtual-networks-overview.md).
 
 
 1. Create the subnet. The following sample creates a subnet named **mySubnet** in the resource group **myResourceGroup** with the address prefix of **10.0.0.0/24**.  
 
 	```powershell
 	$rgName = "myResourceGroup"
-	$subnetName = "mySubNet"
+	$subnetName = "mySubnet"
 	$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
 	```
       
@@ -160,6 +161,8 @@ The following PowerShell script shows how to set up the virtual machine configur
 	# Create the new VM
 	New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
 ```
+
+
 ## Verify that the VM was created 
 
 When complete, you should see the newly created VM in the [Azure portal](https://portal.azure.com) under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
