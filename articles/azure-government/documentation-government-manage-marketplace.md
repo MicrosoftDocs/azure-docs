@@ -22,7 +22,7 @@
 For on available images, see [Azure Government Marketplace Images](../azure-government-image-gallery.md)
 
 ##  Customers
-For details on this service and how to use it, see [Marketplace public documentation](https://azure.microsoft.com/documentation/xxxxxxxxxxxx).
+For details on this service and how to use it, see [Marketplace public documentation](https://azure.microsoft.com/marketplace/?source=datamarket).
 
 ### Variations
 The Marketplace Service is available to the Azure Government with ISV provided images. These images have the following attributes.
