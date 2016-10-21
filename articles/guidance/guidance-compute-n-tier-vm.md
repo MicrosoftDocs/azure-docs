@@ -39,7 +39,7 @@ There are variations of N-tier architectures. For the most part, the differences
 
 - **Database tier.** Provides persistent data storage, using [SQL Server Always On Availability Groups][sql-alwayson] for high availability.
 
-> The Visio template used for generating this architecture diagram is available for download at the [Microsoft download center][visio-download].
+> A Visio document that includes this architecture diagram is available for download at the [Microsoft download center][visio-download]. This diagram is on the "Compute - multi tier (Windows) page.
 
 ![[0]][0]
 
@@ -57,7 +57,7 @@ There are variations of N-tier architectures. For the most part, the differences
 
 - **SQL Server Always On Availability Group.** Provides high availability at the data tier, by enabling replication and failover.
 
-- **Active Directory domain controllers**. Prior to Windows Server 2016, Always On Availability Groups must be joined to an Active Directory domain. This is because Availability Groups depend on Windows Server Failover Cluster (WSFC) technology. Windows Server 2016 introduces the ability to create a Failover Cluster without Active Directory. For more information, see [What's new in Failover Clustering in Windows Server 2016][wsfc-whats-new]
+- **Active Directory Domain Services (AD DS) Servers**. Active Directory Domain Services (AD DS) stores directory data and manages communication between users and domains, including user logon processes, authentication, and directory searches. An Active Directory domain controller is a server that is running AD DS. Prior to Windows Server 2016, Always On Availability Groups must be joined to a domain. This is because Availability Groups depend on Windows Server Failover Cluster (WSFC) technology. Windows Server 2016 introduces the ability to create a Failover Cluster without Active Directory. For more information, see [What's new in Failover Clustering in Windows Server 2016][wsfc-whats-new]
 
 ## Recommendations
 
@@ -72,6 +72,22 @@ Choose an address range that does not overlap with your on-premise network, in c
 Design subnets with functionality and security requirements in mind. All VMs within the same tier or role should go into the same subnet, which can be a security boundary. For more information about designing VNets and subnets, see [Plan and design Azure Virtual Networks][plan-network].
 
 For each subnet, specify the address space for the subnet in CIDR notation. For example, '10.0.0.0/24' creates a range of 256 IP addresses. (VMs can use 251 of these; five are reserved. See the [Virtual Network FAQ][vnet faq].) Make sure the address ranges don't overlap across subnets.
+
+### Network Security Groups
+
+Use NSG rules to restrict traffic between tiers. For example, in the 3-tier architecture shown above, the web tier does not communicate directly with the database tier. To enforce this, the database tier should block incoming traffic from the web tier subnet.  
+
+  1. Create an NSG and associate it to the database tier subnet.
+
+  2. Add a rule that denies all inbound traffic from the VNet. (Use the `VIRTUAL_NETWORK` tag in the rule.) 
+
+  3. Add a rule with a higher priority that allows inbound traffic from the business tier subnet. This rule overrides the previous rule, and allows the business tier to talk to the database tier.
+
+  4. Add a rule that allows inbound traffic from within the database tier subnet itself. This rule allows communication between VMs in the database tier, which is needed for database replication and failover.
+
+  5. Add a rule that allows RDP traffic from the jumpbox subnet. This rule lets administrators connect to the database tier from the jumpbox.
+
+  > [AZURE.NOTE] An NSG has [default rules][nsg-rules] that allow any inbound traffic from within the VNet. These rules can't be deleted, but you can override them by creating higher-priority rules.
 
 ### Load balancers
 
@@ -107,6 +123,8 @@ Test your deployment by [forcing a manual failover][sql-alwayson-force-failover]
 
 ### Jumpbox
 
+Do not allow RDP access from the public Internet to the VMs that run the application workload. Instead, all RDP/SSH access to these VMs must come through the jumpbox. An administrator logs into the jumpbox, and then logs into the other VM from the jumpbox. The jumpbox allows RDP traffic from the Internet, but only from known, whitelisted IP addresses.
+
 Place the jumpbox in the same VNet as the other VMs, but in a separate management subnet.
 
 Create a [public IP address] for the jumpbox.
@@ -129,23 +147,7 @@ If you need higher availability than the [Azure SLA for VMs][vm-sla] provides, r
 
 ## Security considerations
 
-- Encrypt data at rest. Use [Azure Key Vault][azure-key-vault] to manage the database encryption keys. Key Vault can store encryption keys in hardware security modules (HSMs). For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs][sql-keyvault] It's also recommended to store application secrets, such as database connection strings, in Key Vault.
-
-- Do not allow RDP access from the public Internet to the VMs that run the application workload. Instead, all RDP/SSH access to these VMs must come through the jumpbox. An administrator logs into the jumpbox, and then logs into the other VM from the jumpbox. The jumpbox allows RDP traffic from the Internet, but only from known, whitelisted IP addresses.
-
-- Use NSG rules to restrict traffic between tiers. For example, in the 3-tier architecture shown above, the web tier does not communicate directly with the database tier. To enforce this, the database tier should block incoming traffic from the web tier subnet.  
-
-  1. Create an NSG and associate it to the database tier subnet.
-
-  2. Add a rule that denies all inbound traffic from the VNet. (Use the `VIRTUAL_NETWORK` tag in the rule.) 
-
-  3. Add a rule with a higher priority that allows inbound traffic from the business tier subnet. This rule overrides the previous rule, and allows the business tier to talk to the database tier.
-
-  4. Add a rule that allows inbound traffic from within the database tier subnet itself. This rule allows communication between VMs in the database tier, which is needed for database replication and failover.
-
-  5. Add a rule that allows RDP traffic from the jumpbox subnet. This rule lets administrators connect to the database tier from the jumpbox.
-
-  > [AZURE.NOTE] An NSG has [default rules][nsg-rules] that allow any inbound traffic from within the VNet. These rules can't be deleted, but you can override them by creating higher-priority rules.
+Encrypt data at rest. Use [Azure Key Vault][azure-key-vault] to manage the database encryption keys. Key Vault can store encryption keys in hardware security modules (HSMs). For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs][sql-keyvault] It's also recommended to store application secrets, such as database connection strings, in Key Vault.
 
 Consider adding a network virtual appliance (NVA) to create a DMZ between the public Internet and the Azure virtual network. NVA is a generic term for a virtual appliance that can perform network-related tasks such as firewall, packet inspection, auditing, custom routing, or a variety of other operations. For more information, see [Implementing a DMZ between Azure and the Internet][dmz].
 

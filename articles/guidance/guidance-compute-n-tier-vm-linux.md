@@ -40,7 +40,7 @@ There are variations of N-tier architectures. For the most part, the differences
 
 - **Database tier.** Provides persistent data storage, using Apache Cassandra for high availability.
 
-> The Visio template used for generating this architecture diagram is available for download at the [Microsoft download center][visio-download].
+> A Visio document that includes this architecture diagram is available for download at the [Microsoft download center][visio-download]. This diagram is on the "Compute - multi tier (Linux) page.
 
 ![[0]][0]
 
@@ -106,6 +106,8 @@ To secure the jumpbox, create an NSG and apply it to the jumpbox subnet. Add an 
 
 The NSG can be attached either to the subnet or to the jumpbox NIC. In this case, we recommend attaching it to the NIC, so SSH traffic is permitted only to the jumpbox, even if you add other VMs to the same subnet.
 
+Do not allow SSH access from the public Internet to the VMs that run the application workload. Instead, all SSH access to these VMs must come through the jumpbox. An administrator logs into the jumpbox, and then logs into the other VM from the jumpbox. The jumpbox allows SSH traffic from the Internet, but only from known, whitelisted IP addresses.
+
 ## Availability considerations
 
 Put each tier or VM role into a separate availability set. Don't put VMs from different tiers into the same availability set. 
@@ -115,8 +117,6 @@ At the database tier, having multiple VMs does not automatically translate into 
 If you need higher availability than the [Azure SLA for VMs][vm-sla] provides, replicate the application across two regions and use Azure Traffic Manager for failover. For more information, see [Running Linux VMs in multiple regions for high availability][multi-dc].  
 
 ## Security considerations
-
-Do not allow SSH access from the public Internet to the VMs that run the application workload. Instead, all SSH access to these VMs must come through the jumpbox. An administrator logs into the jumpbox, and then logs into the other VM from the jumpbox. The jumpbox allows SSH traffic from the Internet, but only from known, whitelisted IP addresses.
 
 Use NSG rules to restrict traffic between tiers. For example, in the 3-tier architecture shown above, the web tier does not communicate directly with the database tier. To enforce this, the database tier should block incoming traffic from the web tier subnet.  
 
