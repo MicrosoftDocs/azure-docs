@@ -46,13 +46,13 @@ If you are using a Windows Server computer as a desktop, you can register these 
 
 ## Prerequisites
 
-The main requirement for automatic registration of domain-joined devices by using Azure AD is to have an up-to-date version of Azure Active Directory Connect (Active AD Connect).
+The main requirement for automatic registration of domain-joined devices by using Azure AD is to have an up-to-date version of Azure Active Directory Connect (Azure AD Connect).
 
 Depending on how you deployed Azure AD Connect, and whether you used an express or custom installation or an in-place upgrade, the following prerequisites might have been configured automatically:
 
--	**Service connection point in on-premises Active Directory**. For discovery of Azure AD tenant information by computers that register for Azure AD
+-	**Service connection point in on-premises Active Directory**. For discovery of Azure AD tenant information by computers that register for Azure AD.
 
--	**Active Directory Federation Services (AD FS) issuance transform rules**. For computer authentication on registration (applicable to federated configurations)
+-	**Active Directory Federation Services (AD FS) issuance transform rules**. For computer authentication on registration (applicable to federated configurations).
 
 If some devices in your organizations are not Windows 10 domain-joined devices, make sure you do the following tasks:
 
@@ -131,8 +131,7 @@ To create these rules manually, in AD FS, use the following PowerShell script in
 
       => issue(Type = "http://schemas.microsoft.com/ws/2012/01/accounttype", Value = "DJ");'
 
-> [AZURE.NOTE] ONLY use the first three rules if your environment on-premises is a single forest. If your computers are in a different forest than the one synchronizing with Azure AD or if the you use alternate names to the ones in the synchronization configuration you must also include the remaining rules.
->>>>>>> 05abad1feeb7f0ca35bcfe4bcc4442e4b3c7c2dd
+> [AZURE.NOTE] Use only the first three rules if your environment on-premises is a single forest. If your computers are in a different forest than the one synchronizing with Azure AD or if the you use alternate names to the ones in the synchronization configuration, you must also include the remaining rules.
 
 	$rule3 = '@RuleName = "Pass through primary SID"
 
@@ -170,7 +169,7 @@ To create these rules manually, in AD FS, use the following PowerShell script in
 
 	Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString
 
-> [AZURE.NOTE] Windows 10 and Windows Server 2016 domain-joined computers authenticate by using Integrated Windows Authentication (IWA) to an active WS-Trust endpoint that is hosted by AD FS. Make sure that the endpoint is active. If you are using the Web Application Proxy, be sure that this endpoint is published through the proxy. The endpoint is adfs/services/trust/13/windowstransport. To check whether it's active, in the AD FS management console go to **Service** > **Endpoints**. If you don’t use AD FS for your on-premises federation server, follow your vendor's instructions to make sure that the corresponding endpoint is active.
+> [AZURE.NOTE] Windows 10 and Windows Server 2016 domain-joined computers authenticate by using IWA to an active WS-Trust endpoint that is hosted by AD FS. Make sure that the endpoint is active. If you are using the Web Application Proxy, be sure that this endpoint is published through the proxy. The endpoint is adfs/services/trust/13/windowstransport. To check whether it's active, in the AD FS management console go to **Service** > **Endpoints**. If you don’t use AD FS for your on-premises federation server, follow your vendor's instructions to make sure that the corresponding endpoint is active.
 
 
 
@@ -178,7 +177,7 @@ To create these rules manually, in AD FS, use the following PowerShell script in
 
 Make sure that IWA is set as a valid alternative to multi-factor authentication for device registration in AD FS. To do this, you need to have an issuance transform rule that passes through the authentication method.
 
-1. In the AD FS management console go to **AD FS** > **Trust Relationships** > **Relying Party Trusts**.
+1. In the AD FS management console, go to **AD FS** > **Trust Relationships** > **Relying Party Trusts**.
 
 2. Right-click the Microsoft Office 365 Identity Platform relying party trust object, and then select **Edit Claim Rules**.
 
