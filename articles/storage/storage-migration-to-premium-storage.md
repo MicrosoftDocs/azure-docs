@@ -36,7 +36,7 @@ You can either migrate VMs from other platforms to Azure Premium Storage or migr
 Completing the migration process in its entirety may require additional actions both before and after the steps provided in this guide. Examples include configuring virtual networks or endpoints or making code changes within the application itself which may require some downtime in your application. These actions are unique to each application, and you should complete them along with the steps provided in this guide to make the full transition to Premium Storage as seamless as possible.
 
 
-## <a name="plan-the-migration-to-premium-storage"></a>Plan for the Migration to Premium Storage
+## <a name="plan-the-migration-to-premium-storage"></a>Plan for the migration to Premium Storage
 
 This section ensures that you are ready to follow the migration steps in this article, and helps you to make the best decision on VM and Disk types.
 
@@ -87,7 +87,7 @@ When creating an Azure VM, you will be asked to configure certain VM settings. R
 [Azure Premium Storage: Design for High Performance](storage-premium-storage-performance.md) provides guidelines for building high-performance applications using Azure Premium Storage. You can follow the guidelines combined with performance best practices applicable to technologies used by your application.
 
 
-## <a name="prepare-and-copy-virtual-hard-disks-VHDs-to-premium-storage"></a>Prepare and Copy Virtual Hard Disks (VHDs) to Premium Storage
+## <a name="prepare-and-copy-virtual-hard-disks-VHDs-to-premium-storage"></a>Prepare and copy virtual hard disks (VHDs) to Premium Storage
 
 The following section provides guidelines for preparing VHDs from your VM and copying VHDs to Azure Storage.
 
@@ -114,7 +114,7 @@ If you are migrating existing Azure VMs, stop the VM, prepare VHDs per the type 
 
 The VM needs to be completely down to migrate a clean state. There will be a downtime until the migration completes.
 
-#### Step 1. Prepare VHDs for Migration
+#### Step 1. Prepare VHDs for migration
 
 If you are migrating existing Azure VMs to Premium Storage, your VHD may be:
 
@@ -124,7 +124,7 @@ If you are migrating existing Azure VMs to Premium Storage, your VHD may be:
 
 Below we walk through these 3 scenarios for preparing your VHD.
 
-##### Use a Generalized Operating System VHD to create multiple VM instances
+##### Use a generalized Operating System VHD to create multiple VM instances
 
 If you are uploading a VHD that will be used to create multiple generic Azure VM instances, you must first generalize VHD using a sysprep utility. This applies to a VHD that is on-premises or in the cloud. Sysprep removes any machine-specific information from the VHD.
 
@@ -141,11 +141,11 @@ If you are uploading a VHD that will be used to create multiple generic Azure VM
 
 For an Ubuntu VM, use virt-sysprep to achieve the same. See [virt-sysprep](http://manpages.ubuntu.com/manpages/precise/man1/virt-sysprep.1.html) for more details. See also some of the open source [Linux Server Provisioning software](http://www.cyberciti.biz/tips/server-provisioning-software.html) for other Linux operating systems.
 
-##### Use a Unique Operating System VHD to create a single VM instance
+##### Use a unique Operating System VHD to create a single VM instance
 
 If you have an application running on the VM which requires the machine specific data, do not generalize the VHD. A non-generalized VHD can be used to create a unique Azure VM instance. For example, if you have Domain Controller on your VHD, executing sysprep will make it ineffective as a Domain Controller. Review the applications running on your VM and the impact of running sysprep on them before generalizing the VHD.
 
-##### Register Data Disk VHD
+##### Register data disk VHD
 
 If you have data disks in Azure to be migrated, you must make sure the VMs that use these data disks are shut down.
 
@@ -215,7 +215,7 @@ Example:
 
 If you are migrating VHD from non-Azure Cloud Storage to Azure, you must first export the VHD to a local directory. Have the complete source path of the local directory where VHD is stored handy, and then using AzCopy to upload it to Azure Storage.
 
-#### Step 1. Export VHD to a Local Directory
+#### Step 1. Export VHD to a local directory
 
 ##### Copy a VHD from AWS
 
@@ -228,7 +228,7 @@ If you are migrating VHD from non-Azure Cloud Storage to Azure, you must first e
 
     ![][3]
 
-##### Copy a VHD from other non-Azure Cloud
+##### Copy a VHD from other non-Azure cloud
 
 If you are migrating VHD from non-Azure Cloud Storage to Azure, you must first export the VHD to a local directory. Copy the complete source path of the local directory where VHD is stored.
 
@@ -310,7 +310,7 @@ A sample migration script is provided at the end of this section. This simple sc
 
 Prepare your application for downtime. To do a clean migration, you have to stop all the processing in the current system. Only then you can get it to consistent state which you can migrate to the new platform. Downtime duration will depend on the amount of data in the disks to migrate.
 
->[AZURE.NOTE] If you are creating an ARM (Azure Resource Manager) VM from a specialized VHD Disk, please refer to [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) for deploying ARM VM using existing disk.
+>[AZURE.NOTE] If you are creating an Resource Manager VM from a specialized VHD Disk, please refer to [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) for deploying Resource Manager VM using existing disk.
 
 ### Register your VHD
 
@@ -332,7 +332,7 @@ After the unique OS VHD is uploaded to the storage account, register it as an **
 
 Copy and save the name of this new Azure OS Disk. In the example above, it is *OSDisk*.
 
-#### Data Disk VHD to be attached to new Azure VM instance(s)
+#### Data disk VHD to be attached to new Azure VM instance(s)
 
 After the data disk VHD is uploaded to storage account, register it as an Azure Data Disk so that it can be attached to your new DS Series, DSv2 series or GS Series Azure VM instance.
 
@@ -402,13 +402,13 @@ Use following PowerShell cmdlet to attach data disk to the new VM and specify th
 
 >[AZURE.NOTE] There may be additional steps necessary to support your application that is not be covered by this guide.
 
-### Checking and Plan Backup
+### Checking and plan backup
 
 Once the new VM is up and running, access it using the same login id and password is as the original VM, and verify that everything is working as expected. All the settings, including the striped volumes, would be present in the new VM.
 
 The last step is to plan backup and maintenance schedule for the new VM based on the application's needs.
 
-### <a name="a-sample-migration-script"></a>A Sample Migration Script
+### <a name="a-sample-migration-script"></a>A sample migration script
 
 If you have multiple VMs to migrate, automation through PowerShell scripts will be helpful. Following is a sample script that automates the migration of a VM. Note that below script is only an example, and there are few assumptions made about the current VM disks. You may need to update the script to match with your specific scenario.
 
@@ -730,11 +730,11 @@ Your current VM configuration may be customized specifically to work well with S
 
 For tuning the application for better disk performance, please refer to [Optimizing Application Performance](storage-premium-storage-performance.md#optimizing-application-performance).
 
-### Application Migrations
+### Application migrations
 
 Databases and other complex applications may require special steps as defined by the application provider for the migration. Please refer to respective application documentation. E.g. typically databases can be migrated through backup and restore.
 
-## Next Steps
+## Next steps
 
 See the following resources for specific scenarios for migrating virtual machines:
 
