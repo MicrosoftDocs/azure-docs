@@ -27,13 +27,11 @@ In this reference architecture, the workload is distributed across the VM instan
 
 This article builds on [Running a Single VM on Azure][single vm]. The recommendations in that article also apply to this architecture.
 
-> [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
-
 ## Architecture diagram
 
 VMs in Azure require supporting networking and storage resources.
 
-> The Visio template used for generating this architecture diagram is available for download at the [Microsoft download center][visio-download].
+> A Visio document that includes this architecture diagram is available for download at the [Microsoft download center][visio-download]. This diagram is on the "Compute - multi VM page.
 
 ![[0]][0]
 
