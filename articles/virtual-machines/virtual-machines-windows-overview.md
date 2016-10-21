@@ -19,7 +19,7 @@
 
 # Overview of Windows virtual machines in Azure
 
-Azure Virtual Machines (VM) is one of several types of [on-demand, scalable computing resources](../app-service-web/choose-web-site-cloud-service-vm.md) that Azure offers. Typically, you'll choose a VM if you need more control over the computing environment than the other choices offer. This article provides you with information about what you should think about before you create a VM, how you get started creating a VM, and how to manage the VM after you create it.
+Azure Virtual Machines (VM) is one of several types of [on-demand, scalable computing resources](../app-service-web/choose-web-site-cloud-service-vm.md) that Azure offers. Typically, you choose a VM when you need more control over the computing environment than the other choices offer. This article gives you information about what you should consider before you create a VM, how you create it, and how you manage it.
 
 An Azure VM gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. However, you still need to maintain the VM by performing tasks, such as configuring, patching, and installing the software that runs on it.
 
@@ -33,7 +33,7 @@ The number of VMs that your application uses can scale up and out to whatever is
 
 ## What do I need to think about before creating a VM?
 
-There are always a multitude of [design considerations](virtual-machines-windows-infrastructure-virtual-machine-guidelines.md) when you build out an application infrastructure in Azure. These are some of the considerations:
+There are always a multitude of [design considerations](virtual-machines-windows-infrastructure-virtual-machine-guidelines.md) when you build out an application infrastructure in Azure. These aspects of a VM are important to think:
 
 - The names of your application resources
 - The location where the resources are stored
@@ -52,7 +52,7 @@ We recommend that the Azure VM name is the same as the underlying operating syst
 
 ### Locations
 
-All resources created in Azure are are distributed across multiple [geographical regions](https://azure.microsoft.com/regions/) around the world. In most cases, the region is called location when you create a VM. For a VM, the location specifies where the virtual hard disks are stored.
+All resources created in Azure are distributed across multiple [geographical regions](https://azure.microsoft.com/regions/) around the world. Usually, the region is called **location** when you create a VM. For a VM, the location specifies where the virtual hard disks are stored.
 
 This table shows some of the ways you can get a list of available locations.
 
@@ -70,7 +70,7 @@ Azure charges an [hourly price](https://azure.microsoft.com/pricing/details/virt
 
 ### VM Limits
 
-Your subscription has default [quota limits](../azure-subscription-service-limits.md) in place that could impact the deployment of a large number of VMs for your project. The current limit on a per subscription basis is 20 VMs per region. Limits can be raised by filing a support ticket requesting an increase.
+Your subscription has default [quota limits](../azure-subscription-service-limits.md) in place that could impact the deployment of many VMs for your project. The current limit on a per subscription basis is 20 VMs per region. Limits can be raised by filing a support ticket requesting an increase.
 
 ### Operating system disks and images
 
@@ -92,7 +92,7 @@ You can [upload and use your own image](virtual-machines-windows-upload-image.md
 
 VM [extensions](virtual-machines-windows-extensions-features.md) give your VM additional capabilities through post deployment configuration and automated tasks.
 
-These are some of the common tasks that you can accomplish using extensions:
+These common tasks can be accomplish using extensions:
 
 - **Run custom scripts** – The [Custom Script Extension](virtual-machines-windows-extensions-customscript.md) helps you configure workloads on the VM by running your script when the VM is provisioned.
 - **Deploy and manage configurations** – The [PowerShell Desired State Configuration (DSC) Extension](virtual-machines-windows-extensions-dsc-overview.md) helps you set up DSC on a VM to manage configurations and environments.
@@ -125,7 +125,7 @@ This table provides information to get you started creating your VM.
 | Client SDKs | [Deploy Azure Resources using C#](virtual-machines-windows-csharp.md) |
 | REST APIs | [Create or update a VM](https://msdn.microsoft.com/library/mt163591.aspx) |
 
-You hope it never happens, but occasionally something goes wrong. If this happens to you, look at the information in [Troubleshoot Resource Manager deployment issues with creating a new Windows virtual machine in Azure](virtual-machines-windows-troubleshoot-deployment-new-vm.md).
+You hope it never happens, but occasionally something goes wrong. If this situation happens to you, look at the information in [Troubleshoot Resource Manager deployment issues with creating a Windows virtual machine in Azure](virtual-machines-windows-troubleshoot-deployment-new-vm.md).
 
 ## How do I manage the VM that I created?
 
@@ -144,15 +144,15 @@ This table shows you some of the ways that you can get information about a VM.
 
 ### Log on to the VM
 
-You use the Connect button in the Azure portal to [start a Remote Desktop (RDP) session](virtual-machines-windows-connect-logon.md). Things can sometimes go wrong when trying to use a remote connection. If this happens to you, check out the help information in [Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows](virtual-machines-windows-troubleshoot-rdp-connection.md).
+You use the Connect button in the Azure portal to [start a Remote Desktop (RDP) session](virtual-machines-windows-connect-logon.md). Things can sometimes go wrong when trying to use a remote connection. If this situation happens to you, check out the help information in [Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows](virtual-machines-windows-troubleshoot-rdp-connection.md).
 
 ### Manage availability
 
-It’s important for you to understand how to [ensure high availability](virtual-machines-windows-manage-availability.md) for your application. In most cases this involves creating multiple VMs to ensure that at least one is running.
+It’s important for you to understand how to [ensure high availability](virtual-machines-windows-manage-availability.md) for your application. Usually this involves creating multiple VMs to ensure that at least one is running.
 
-In order for your deployment to qualify for our 99.95 VM Service Level Agreement, you need to deploy two or more VMs running your workload inside of an [availability set](virtual-machines-windows-infrastructure-availability-sets-guidelines.md). This will ensure your VMs are distributed across multiple fault domains in our data centers as well as deployed onto hosts with different maintenance windows. The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) explains the guaranteed availability of Azure as a whole.
+In order for your deployment to qualify for our 99.95 VM Service Level Agreement, you need to deploy two or more VMs running your workload inside an [availability set](virtual-machines-windows-infrastructure-availability-sets-guidelines.md). This configuraiton ensures your VMs are distributed across multiple fault domains and are deployed onto hosts with different maintenance windows. The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) explains the guaranteed availability of Azure as a whole.
  
-### Backup the VM
+### Back up the VM
  
 A [Recovery Services vault](../backup/backup-introduction-to-azure-backup.md) is used to protect data and assets in both Azure Backup and Azure Site Recovery services. You can use a Recovery Services vault to [deploy and manage backups for Resource Manager-deployed VMs using PowerShell](../backup/backup-azure-vms-automation.md). 
 

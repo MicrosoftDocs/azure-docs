@@ -43,7 +43,7 @@ All resources must be contained in a resource group, so lets create that first.
     $location = "centralus"
     ```
     
-3. Create a new resource group. This command creates the resource group named **myResourceGroup** in the location that you set.
+3. Create a resource group. This command creates the resource group named **myResourceGroup** in the location that you set.
 
     ```powershell
     $myResourceGroup = "myResourceGroup"
@@ -95,7 +95,7 @@ To enable communication with the virtual machine in the virtual network, you nee
     $myPublicIp = New-AzureRmPublicIpAddress -Name "myPublicIp" -ResourceGroupName $myResourceGroup -Location $location -AllocationMethod Dynamic
     ```
         
-2. Create the network interface. This commannd creates a network interface named **myNIC**.
+2. Create the network interface. This command creates a network interface named **myNIC**.
 
     ```powershell
     $myNIC = New-AzureRmNetworkInterface -Name "myNIC" -ResourceGroupName $myResourceGroup -Location $location -SubnetId $myVnet.Subnets[0].Id -PublicIpAddressId $myPublicIp.Id
@@ -131,7 +131,7 @@ Now that you have all the pieces in place, it's time to create the virtual machi
     $myVM = Set-AzureRmVMSourceImage -VM $myVM -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer" -Skus "2012-R2-Datacenter" -Version "latest"
     ```
         
-    For more information about selecting images to use, see [Navigate and select Windows virtual machine images in Azure with PowerShell or the CLI](virtual-machines-windows-cli-ps-findimage.md) .
+    For more information about selecting images to use, see [Navigate and select Windows virtual machine images in Azure with PowerShell or the CLI](virtual-machines-windows-cli-ps-findimage.md).
         
 5. Add the network interface that you created to the configuration.
 
@@ -139,7 +139,7 @@ Now that you have all the pieces in place, it's time to create the virtual machi
     $myVM = Add-AzureRmVMNetworkInterface -VM $myVM -Id $myNIC.Id
     ```
         
-6. Define the name and location of the VM hard disk. The virtual hard disk file is usually stored in a container. This command creates the disk in a container named **vhds/WindowsVMosDisk.vhd** in the storage account that you created.
+6. Define the name and location of the VM hard disk. The virtual hard disk file is stored in a container. This command creates the disk in a container named **vhds/WindowsVMosDisk.vhd** in the storage account that you created.
 
     ```powershell
     $blobPath = "vhds/myOsDisk1.vhd"
