@@ -92,4 +92,4 @@ For the most current list of services, see the [Products by Region] (https://azu
 
 ##  Next Steps 
  
-For supplemental information and updates subscribe to the <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a> 
+For supplemental information and updates subscribe to the [Microsoft Azure Government Blog] (https://blogs.msdn.microsoft.com/azuregov/).
