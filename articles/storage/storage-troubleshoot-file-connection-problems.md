@@ -244,8 +244,8 @@ This can occur when the mount command does not include the **serverino** option.
 
 ### Solution
 
-Check the **serverino** in your /etc/fstab entry:
+Check the **serverino** in your "/etc/fstab" entry:
 
-**//azureuser.file.core.windows.net/wms/comer on /home/sampledir type cifs (rw,nodev,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,,file_mode=0755,dir_mode=0755,serverino,rsize=65536,wsize=65536,actimeo=1)**
+//azureuser.file.core.windows.net/wms/comer on /home/sampledir type cifs (rw,nodev,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,,file_mode=0755,dir_mode=0755,serverino,rsize=65536,wsize=65536,actimeo=1)
 
 If the **serverino** option is not present, unmount and mount Azure Files again by having the **serverino** option selected.
