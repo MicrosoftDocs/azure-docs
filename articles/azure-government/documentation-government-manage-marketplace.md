@@ -70,7 +70,7 @@ Complete all steps and click Ok to start the provisioning process
 
 ### Publish your Image on Azure Government 
  
->[AZURE.NOTE] If you are a new Marketplace partner and are not Azure Government Certified, please see the steps [here](../marketplace-publishing-getting-started.md) before proceeding.
+>[AZURE.NOTE] If you are a new Marketplace partner and are not Azure Government Certified, please see the steps [here](../marketplace-publishing/marketplace-publishing-getting-started.md) before proceeding.
 
 #### Step 1 	
 Log on to [https://publish.windowsazure.com](https://publish.windowsazure.com)
