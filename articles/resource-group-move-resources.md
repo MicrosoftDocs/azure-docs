@@ -82,7 +82,7 @@ For now, the services that enable moving to both a new resource group and subscr
 - Storage
 - Storage (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 - SQL Database server - The database and server must reside in the same resource group. When you move a SQL server, all of its databases are also moved.
-- Virtual Machines (however, does not support move to a new subscription when its certificates are stored in a Key Vault)
+- Virtual Machines - however, does not support move to a new subscription when its certificates are stored in a Key Vault
 - Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 - Virtual Networks
 
@@ -94,6 +94,7 @@ The services that currently do not enable moving a resource are:
 - Application Insights
 - Express Route
 - Recovery Services vault - also do not move the Compute, Network, and Storage resources associated with the Recovery Services vault, see [Recovery Services limitations](#recovery-services-limitations).
+- Virtual Machines with certificate stored in Key Vault
 - Virtual Machines Scale Sets
 - Virtual Networks (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 - VPN Gateway
