@@ -23,7 +23,7 @@
 
 This article outlines a set of proven practices for running multiple virtual machine (VM) instances, to improve scalability, availability, manageability, and security.   
 
-In this reference architecture, the workload is distributed across the VM instances. There is a single public IP address, and internet traffic is distributed to the VMs using a load balancer. This architecture can be used for a single-tier app, such as a stateless web app or storage cluster. It is also a building block for N-tier applications. 
+In this reference architecture, the workload is distributed across the VM instances. There is a single public IP address, and Internet traffic is distributed to the VMs using a load balancer. This architecture can be used for a single-tier app, such as a stateless web app or storage cluster. It is also a building block for N-tier applications. 
 
 This article builds on [Running a Single VM on Azure][single vm]. The recommendations in that article also apply to this architecture.
 
