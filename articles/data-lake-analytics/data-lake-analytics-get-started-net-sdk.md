@@ -77,7 +77,7 @@ A sample search log can be found in a public Azure Blob container. In the applic
     
         adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
         
-    You must use absolute paths to access  files in  linked Storage accounts.  The syntax for files stored in linked Azure Storage account is:
+    You must use absolute paths to access  files in  linked Storage accounts.  The syntax for files stored in the linked Azure Storage account is:
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
