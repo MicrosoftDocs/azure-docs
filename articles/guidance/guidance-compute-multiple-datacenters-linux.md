@@ -177,7 +177,7 @@ This series has focused on pure cloud deployments. Enterprise scenarios often re
 [health-endpoint-monitoring-pattern]: https://msdn.microsoft.com/library/dn589789.aspx
 [hybrid-vpn]: guidance-hybrid-network-vpn.md
 [regional-pairs]: ../best-practices-availability-paired-regions.md
-[resource groups]: ../resource-group-overview.md
+[resource groups]: ../azure-resource-manager/resource-group-overview.md
 [resource-group-links]: ../resource-group-link-resources.md
 [services-by-region]: https://azure.microsoft.com/en-us/regions/#services
 [ssl-client-node]: http://docs.datastax.com/en/cassandra/2.0/cassandra/security/secureSSLClientToNode_t.html
