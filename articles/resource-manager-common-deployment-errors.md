@@ -15,21 +15,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/14/2016"
+   ms.date="10/21/2016"
    ms.author="tomfitz"/>
 
 # Troubleshoot common Azure deployment errors with Azure Resource Manager
 
-This topic describes how you can resolve some common Azure deployment errors you may encounter. If you need more information about what went wrong with your deployment, first see [View deployment operations](resource-manager-troubleshoot-deployments-portal.md) and then come back to this article for help with resolving the error.
+This topic describes how you can resolve some common Azure deployment errors you may encounter. If you need more information about what went wrong with your deployment, first see [View deployment operations](resource-manager-troubleshoot-deployments-portal.md) and then come back to this article for help with resolving the error. The sections in this topic list the error code you see.
 
-## Invalid template or resource
+## InvalidTemplate
 
-When deploying a template, you may receive:
+This error can result from several different types of errors. 
+
+### Syntax error
+
+If you receive an error message that indicates the template failed validation, you may have a syntax problem in your template. 
 
     Code=InvalidTemplate 
     Message=Deployment template validation failed
 
-If you receive an error stating that either the template or a property on a resource is invalid, you may have a syntax error in your template. This error is easy to make because template expressions can be intricate. For example, the following name assignment for a storage account contains one set of brackets, three functions, three sets of parentheses, one set of single quotes, and one property:
+This error is easy to make because template expressions can be intricate. For example, the following name assignment for a storage account contains one set of brackets, three functions, three sets of parentheses, one set of single quotes, and one property:
 
     "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 
@@ -37,7 +41,7 @@ If you do not provide all of the matching syntax, the template will produce a va
 
 When you receive this type of error, carefully review the expression syntax. Consider using a JSON editor like [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) or [Visual Studio Code](resource-manager-vs-code.md) which can warn you about syntax errors. 
 
-## Incorrect segment lengths
+### Incorrect segment lengths
 
 Another invalid template error occurs when the resource name is not in the correct format.
 
@@ -50,12 +54,16 @@ A root level resource must one less segment in the name than in the resource typ
     {
       "type": "Microsoft.Web/serverfarms",
       "name": "myHostingPlanName",
+      ...
+    }
 
 But the next example is **not a valid name** because it has the same number of segments as the type.
 
     {
       "type": "Microsoft.Web/serverfarms",
       "name": "appPlan/myHostingPlanName",
+      ...
+    }
 
 For child resources, the type and name must have the same number of segments. This makes sense because the full name and type for the child includes the parent name and type, so the full name still has one less segment than the full type. 
 
@@ -68,28 +76,32 @@ For child resources, the type and name must have the same number of segments. Th
                 {
                     "type": "secrets",
                     "name": "appPassword",
+                    ...
+                }
+            ]
+        }
+    ]
 
 Getting the segments right can be particularly tricky with Resource Manager types that are applied across resource providers. For example, applying a resource lock to a web site requires a type with 4 segments. Therefore, the name is 3 segments:
 
     {
         "type": "Microsoft.Web/sites/providers/locks",
         "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
+        ...
+    }
 
-## Resource name already taken or is already used by another resource
+### Copy index is not expected
 
-For some resources, most notably storage accounts, database servers, and web sites, you must provide a name for the resource that is unique across all of Azure. If you do not provide a unique name, you may receive an error like:
+You encounter this error when you have applied the **copy** element to a part of the template that does not support this element. You can only apply the copy element to a resource type. You cannot apply copy to a property within a resource type. For example, you apply copy to a virtual machine, but you cannot apply it to the OS disks for a virtual machine. In some cases, you can convert a child resource to a parent resource to create a copy loop. For more information about using copy, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 
-    Code=StorageAccountAlreadyTaken 
-    Message=The storage account named mystorage is already taken.
+## NotFound
 
-You can create a unique name by concatenating your naming convention with the result of the [uniqueString](resource-group-template-functions.md#uniquestring) function.
+When your template includes the name of a resource that cannot be resolved, you receive an error similar to:
 
-    "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]",
-    "type": "Microsoft.Storage/storageAccounts",
+    "Code": "NotFound",
+    "Message": "Cannot find ServerFarm with name exampleplan.",
 
-## Cannot find resource during deployment
-
-Resource Manager optimizes deployment by creating resources in parallel, when possible. If one resource must be deployed after another resource, you need to use the **dependsOn** element in your template to create a dependency on the other resource. For example, when deploying a web app, the App Service plan must exist. If you have not specified that the web app is dependent on the App Service plan, Resource Manager will create both resources at the same time. You will receive an error stating that the App Service plan resource cannot be found, because it does not exist yet when attempting to set a property on the web app. You can prevent this error by setting the dependency in the web app.
+If you are attempting to deploy the missing resource in the template, check whether you need to add a dependency. Resource Manager optimizes deployment by creating resources in parallel, when possible. If one resource must be deployed after another resource, you need to use the **dependsOn** element in your template to create a dependency on the other resource. For example, when deploying a web app, the App Service plan must exist. If you have not specified that the web app is dependent on the App Service plan, Resource Manager will create both resources at the same time. You will receive an error stating that the App Service plan resource cannot be found, because it does not exist yet when attempting to set a property on the web app. You can prevent this error by setting the dependency in the web app.
 
     {
       "apiVersion": "2015-08-01",
@@ -100,28 +112,33 @@ Resource Manager optimizes deployment by creating resources in parallel, when po
       ],
       ...
     }
+ 
+You also see this error when the resource exists in a different resource group than the one being deployed to. In that case, use the [resourceId function](resource-group-template-functions.md#resourceid) to get the fully-qualified name of the resource.
 
-## Could not find member 'copy' on object
+    "properties": {
+        "name": "[parameters('siteName')]",
+        "serverFarmId": "[resourceId('plangroup', 'Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+    } 
 
-You encounter this error when you have applied the **copy** element to a part of the template that does not support this element. You can only apply the copy element to a resource type. You cannot apply copy to a property within a resource type. For example, you apply copy to a virtual machine, but you cannot apply it to the OS disks for a virtual machine. In some cases, you can convert a child resource to a parent resource to create a copy loop. For more information about using copy, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+## StorageAccountAlreadyExists or StorageAccountAlreadyTaken
 
-## SKU not available
+For storage accounts, you must provide a name for the resource that is unique across all of Azure. If you do not provide a unique name, you receive an error like:
 
-When deploying a resource (typically a virtual machine), you may receive the following error code and error message:
+    Code=StorageAccountAlreadyTaken 
+    Message=The storage account named mystorage is already taken.
 
-    Code: SkuNotAvailable
-    Message: The requested tier for resource '<resource>' is currently not available in location '<location>' for subscription '<subscriptionID>'. Please try another tier or deploy to a different location.
+You can create a unique name by concatenating your naming convention with the result of the [uniqueString](resource-group-template-functions.md#uniquestring) function.
 
-You receive this error when the resource SKU you have selected (such as VM size) is not available for the location you have selected. You have two options to resolve this issue:
+    "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]",
+    "type": "Microsoft.Storage/storageAccounts",
 
-1.	Log into portal and begin adding a new resource through the UI. As you set the values, you will see the available SKUs for that resource.
+If you deploy a storage account with the same name as an existing storage account in your subscription, but provide a different location, you receive an error indicating the storage account already exists in a different location. You must either delete the existing storage account, or provide the same location as the existing storage account.
 
-    ![available skus](./media/resource-manager-common-deployment-errors/view-sku.png)
+## AccountNameInvalid
 
-2.	If you are unable to find a suitable SKU in that region or an alternative region that meets your business needs, please reach out to [Azure Support](https://portal.azure.com/#create/Microsoft.Support).
+You see the **AccountNameInvalid** error when attempting to give a storage account a name that includes prohibited characters. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 
-
-## No registered provider found
+## NoRegisteredProviderFound
 
 When deploying resource, you may receive the following error code and message:
 
@@ -168,7 +185,7 @@ To see the supported locations and API versions for a resource provider, use:
 
     azure provider show -n Microsoft.Compute --json > compute.json
 
-## Quota exceeded
+## OperationNotAllowed
 
 You might have issues when deployment exceeds a quota, which could be per resource group, subscriptions, accounts, and other scopes. For example, your subscription may be configured to limit the number of cores for a region. If you attempt to deploy a virtual machine with more cores than the permitted amount, you will receive an error stating the quota has been exceeded.
 For complete quota information, see [Azure subscription and service limits, quotas, and constraints](azure-subscription-service-limits.md).
