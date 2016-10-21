@@ -16,7 +16,7 @@
    ms.date="05/19/2016"
    ms.author="yuridio"/>
 
-# Getting started with Microsoft Azure security
+# Getting started with Microsoft Azure security 
 
 When you build or migrate IT assets to a cloud provider, you are relying on that organization’s abilities to protect your applications and data with the services and the controls they provide to manage the security of your cloud-based assets.
 
