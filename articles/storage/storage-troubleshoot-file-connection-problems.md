@@ -77,13 +77,13 @@ The problem occurs because you have reached the upper limit of concurrent open h
 Reduce the number of concurrent open handles by closing some handles,  and then retry. For more information, see [Microsoft Azure Storage Performance and Scalability Checklist](storage-performance-checklist.md).
 
 <a id="slowboth"></a>
-## Slow performance when you access Azure File storage from Windows 8.1 or Windows Server 2012 R2 or from Linux
+## Slow performance when accessing File storage from Windows or Linux
 
 - If you don’t have a specific minimum I/O size requirement, we recommend that you use 1 MB as the I/O size for optimal performance.
 
 - If you know the final size of a file that you are extending with writes, and your software doesn’t have compatibility issues when the not yet written tail on the file containing zeros, then set the file size in advance instead of every write being an extending write.
 
-## Slow performance when accessing the File storage from Windows 8.1 or Windows Server 2012 R2
+## Slow performance when accessing the File storage from Windows
 
 For clients who are running Windows 8.1 or Windows Server 2012 R2, make sure that the hotfix [KB3114025](https://support.microsoft.com/kb/3114025) is installed. This hotfix improves the create and close handle performance.
 
@@ -149,7 +149,7 @@ Azure Files supports only NTLMv2 authentication. Make sure that Group Policy is 
 
 The recommended policy setting is **Send NTLMv2 response only**. This corresponds to a registry value of 3. Clients use only NTLMv2 authentication, and they use NTLMv2 session security if the server supports it. Domain controllers accept LM, NTLM, and NTLMv2 authentication.
 
-## Net use was successful but I don’t see the Azure file share mounted in Windows Explorer
+## Net use was successful but don't see the Azure file share mounted in Windows Explorer
 
 ### Cause
 
@@ -193,7 +193,7 @@ Alternatively, you can create a new user that has the same privileges as the net
 
 After you follow these instructions, you may receive the following error message: “System error 1312 has occurred. A specified logon session does not exist. It may already have been terminated” when you run **net use** for the system/network service account. If this occurs, make sure that the username that is passed to **net use** includes domain information (for example: “[storage account name].file.core.windows.net”).
 
-## Error “"You are copying a file to a destination that does not support encryption" when you upload or copy files to Azure Files
+## Error “"You are copying a file to a destination that does not support encryption"
 
 ### Cause
 
@@ -246,6 +246,6 @@ This can occur when the mount command does not include the **serverino** option.
 
 Check the **serverino** in your "/etc/fstab" entry:
 
-//azureuser.file.core.windows.net/wms/comer on /home/sampledir type cifs (rw,nodev,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,,file_mode=0755,dir_mode=0755,serverino,rsize=65536,wsize=65536,actimeo=1)
+`//azureuser.file.core.windows.net/wms/comer on /home/sampledir type cifs (rw,nodev,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,,file_mode=0755,dir_mode=0755,serverino,rsize=65536,wsize=65536,actimeo=1)`
 
 If the **serverino** option is not present, unmount and mount Azure Files again by having the **serverino** option selected.
