@@ -48,9 +48,10 @@ Before you begin the instructions in this article, you must have the following:
 3. Type or select the following values:
 
     * **Cluster Name**: Enter a name for the cluster. A green check will appear beside the cluster name if the name is available.
+
     * **Cluster Type**: Select **Hadoop**. Other options inclue **HBase**, **Storm**, and **Spark**.
 
-    > [AZURE.IMPORTANT] HDInsight clusters come in a variety of types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster. 
+        > [AZURE.IMPORTANT] HDInsight clusters come in a variety of types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster.
 
     * **Cluster Operating System**: Select **Windows**. To create a Linux-base cluster, select **Linux**.
     * **Version**: See [HDInsight versions](hdinsight-component-versioning.md).
