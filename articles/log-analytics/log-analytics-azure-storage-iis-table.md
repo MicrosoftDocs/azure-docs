@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2016"
+	ms.date="10/21/2016"
 	ms.author="banders"/>
 
 
@@ -27,7 +27,7 @@ Log Analytics can read the logs for the following services that write diagnostic
 
 Before Log Analytics can collect data for these resources, Azure diagnostics must be enabled.
 
-Once diagnostics are enabled you can use the Azure portal or PowerShell configure Log Analytics to collect the logs.
+Once diagnostics are enabled, you can use the Azure portal or PowerShell configure Log Analytics to collect the logs.
 
 Azure Diagnostics is an Azure extension that enables you to collect diagnostic data from a worker role, web role, or virtual machine running in Azure. The data is stored in an Azure storage account and can then be collected by Log Analytics.
 
@@ -45,18 +45,18 @@ For Log Analytics to collect these Azure Diagnostics logs, the logs must be in t
 
 >[AZURE.NOTE] IIS logs from Azure Websites are not currently supported.
 
-For virtual machines, you also have the option of installing the [Microsoft Monitoring Agent](http://go.microsoft.com/fwlink/?LinkId=517269) into your virtual machine to enable additional insights. In addition to being able to analyze IIS logs and Event Logs you will also allow be able to perform additional analysis including configuration change tracking, SQL assessment and update assessment.
+For virtual machines, you have the option of installing the [Microsoft Monitoring Agent](http://go.microsoft.com/fwlink/?LinkId=517269) into your virtual machine to enable additional insights. In addition to being able to analyze IIS logs and Event Logs, you can perform additional analysis including configuration change tracking, SQL assessment, and update assessment.
 
 ## Enable Azure diagnostics in a virtual machine for event log and IIS log collection
 
-Use the following procedure to enable Azure diagnostics in a virtual machine for Event Log and IIS log collection using the Microsoft Azure management portal.
+Use the following procedure to enable Azure diagnostics in a virtual machine for Event Log and IIS log collection using the Microsoft Azure portal.
 
-### To enable Azure diagnostics in a virtual machine with the Azure management portal
+### To enable Azure diagnostics in a virtual machine with the Azure portal
 
 1. Install the VM Agent when you create a virtual machine. If the virtual machine already exists, verify that the VM Agent is already installed.
-	- In the Azure management portal, navigate to the virtual machine, select **Optional Configuration**, then **Diagnostics** and set **Status** to **On**.
+	- In the Azure portal, navigate to the virtual machine, select **Optional Configuration**, then **Diagnostics** and set **Status** to **On**.
 
-	Upon completion, the VM will automatically have the Azure Diagnostics extension installed and running which will be responsible for collecting your diagnostics data.
+	Upon completion, the VM has the Azure Diagnostics extension installed and running. This extension is responsible for collecting your diagnostics data.
 
 2. Enable monitoring and configure event logging on an existing VM. You can enable diagnostics at the VM level. To enable diagnostics and then configure event logging, perform the following steps:
 	1. Select the VM.
@@ -71,7 +71,7 @@ Using Azure PowerShell you can more precisely specify the events that are writte
 
 ## Enable Azure diagnostics in a Web role for IIS log and event collection
 
-Refer to [How To Enable Diagnostics in a Cloud Service](../cloud-services/cloud-services-dotnet-diagnostics.md). You’ll use the basic information from there and customize the steps here for use with Log Analytics.
+Refer to [How To Enable Diagnostics in a Cloud Service](../cloud-services/cloud-services-dotnet-diagnostics.md) for general steps on enabling Azure diagnostics. The instructions below use this information and customize it for use with Log Analytics.
 
 With Azure diagnostics enabled:
 
@@ -114,7 +114,7 @@ Ensure that your ConfigurationSettings specifies a storage account, as in the fo
     </ConfigurationSettings>
 ```
 
-The **AccountName** and **AccountKey** values are found in the Azure Management Portal in the storage account dashboard, under Manage Access Keys. The protocol for the connection string must be **https**.
+The **AccountName** and **AccountKey** values are found in the Azure portal in the storage account dashboard, under Manage Access Keys. The protocol for the connection string must be **https**.
 
 Once the updated diagnostic configuration is applied to your cloud service and it is writing diagnostics to Azure Storage, then you are ready to configure Log Analytics.
 
@@ -132,7 +132,7 @@ In the Azure portal, navigate to your Log Analytics workspace and perform the fo
 1. Click *Storage accounts logs*
 2. Click the *Add* task
 3. Select the Storage account that contains the diagnostics logs
-  - This can be either a classic storage account or an Azure Resource Manager storage account
+  - This account can be either a classic storage account or an Azure Resource Manager storage account
 4. Select the Data Type you want to collect logs for
   - This will be one of IIS Logs; Events; Syslog (Linux); ETW Logs; Service Fabric Events
 5. The value for Source will be automatically populated based on the data type and cannot be changed
