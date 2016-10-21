@@ -51,7 +51,7 @@ This article lists common issues that are related to Microsoft Azure File storag
 
 ## General Troubleshooting (Windows and Linux)
 
-### Quota error when trying to open a file**
+### Quota error when trying to open a file
 
 In Windows, you receive error messages that resemble the following:
 
@@ -79,7 +79,7 @@ Reduce the number of concurrent open handles by closing some handles,  and then 
 
 ### Slow performance when you access Azure File storage from Windows 8.1 or Windows Server 2012 R2 or from Linux
 
-- If you don’t have a specific minimum I/O size requirement, we recommend that you use 1MB as the I/O size for optimal performance.
+- If you don’t have a specific minimum I/O size requirement, we recommend that you use 1 MB as the I/O size for optimal performance.
 
 - If you know the final size of a file that you are extending with writes, and your software doesn’t have compatibility issues when the not yet written tail on the file containing zeros, then set the file size in advance instead of every write being an extending write.
 
@@ -93,7 +93,7 @@ You can run the following script to check whether the hotfix has been installed 
 
 `reg query HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies`
 
-If hotfix is installed, the following output will be displayed:
+If hotfix is installed, the following output is displayed:
 
 **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies**
 
@@ -107,17 +107,17 @@ Never create or open a file for cached I/O that is requesting write access but n
 
 ### "Error 53" when you try to mount or unmount an Azure File Share
 
-This can occur for several reasons. Below are workarounds for the common cases.
+This problem can occur for several reasons:
 
-**Scenario1** “System error 53 has occurred. Access is denied.” For security reasons, connections to Azure Files shares are blocked if the communication channel isn’t encrypted and the connection attempt is not made from the same data center on which Azure File shares reside. Communication channel encryption is not provided if the user’s client OS doesn’t support SMB encryption. This is indicated by a “System error 53 has occurred. Access is denied” Error message when a user tries to mount a file share from on-premises or from a different data center. Windows 8, Windows Server 2012, and later versions of each negotiate request that include SMB 3.0, which supports encryption.
+**Cause 1** “System error 53 has occurred. Access is denied.” For security reasons, connections to Azure Files shares are blocked if the communication channel isn’t encrypted and the connection attempt is not made from the same data center on which Azure File shares reside. Communication channel encryption is not provided if the user’s client OS doesn’t support SMB encryption. This is indicated by a “System error 53 has occurred. Access is denied” Error message when a user tries to mount a file share from on-premises or from a different data center. Windows 8, Windows Server 2012, and later versions of each negotiate request that includes SMB 3.0, which supports encryption.
 
-**Workaround for the sceanrio 1**
+**Workaround for the Cause 1**
 
 Connect from a client that meets the requirements of Windows 8, Windows Server 2012 or later versions, or that connect from a virtual machine that is on the same data center as the Azure Storage account that is used for the Azure File share.
 
-**Scenario 2** “System Error 53” when you mount an Azure file share can occur if Port 445 outbound communication to Azure Files data center is blocked.
+**Cause 2** “System Error 53” when you mount an Azure file share can occur if Port 445 outbound communication to Azure Files data center is blocked.
 
-Comcast and some IT organizations block this port. To understand whether this is the reason behind the “System Error 53” message, you can use Portqry to query the TCP:445 endpoint. If the TCP:445 endpoint  is displayed  as filtered, the TCP port is blocked. Here is an example query:
+Comcast and some IT organizations block this port. To understand whether this is the reason behind the “System Error 53” message, you can use Portqry to query the TCP:445 endpoint. If the TCP:445 endpoint is displayed as filtered, the TCP port is blocked. Here is an example query:
 
 `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
 
@@ -127,21 +127,21 @@ If the TCP 445 being blocked by a rule along the network path， you will see th
 
 For more information on using Portqry, see [Description of the Portqry.exe command-line utility](https://support.microsoft.com/kb/310099).
 
-**Workaround for the scenario 2**
+**Workaround for the Cause 2**
 
 Work with your IT organization to open Port 445 outbound to Azure IP ranges.
 
-**Scenario 3** "System Error 53" can also be received if NTLMv1 communication is enabled on the client. Having NTLMv1 enabled creates a less-secure client. Therefore, communication will be blocked for Azure Files. To verify whether this is the cause of the error, verify that the following registry subkey is set to a value of 3:
+**Cause 3** "System Error 53" can also be received if NTLMv1 communication is enabled on the client. Having NTLMv1 enabled creates a less-secure client. Therefore, communication will be blocked for Azure Files. To verify whether this is the cause of the error, verify that the following registry subkey is set to a value of 3:
 
 HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel.
 
-For more information, see the [LmCompatibilityLevel](https://technet.microsoft.com/en-us/library/cc960646.aspx) topic on TechNet.
+For more information, see the [LmCompatibilityLevel](https://technet.microsoft.com/library/cc960646.aspx) topic on TechNet.
 
-**Solution**
+**Solution for Cause**
 
 To resolve this issue, revert the LmCompatibilityLevel value in the HKLM\SYSTEM\CurrentControlSet\Control\Lsa registry key to the default value of 3.
 
-Azure Files supports only NTLMv2 authentication. Make sure that Group Policy is applied to the clients. This will prevent this error from occurring. This is also considered to be a security best practice. For more information, see [how to configure clients to use NTLMv2 using Group Policy](https://technet.microsoft.com/en-us/library/jj852207(v=ws.11).aspx)
+Azure Files supports only NTLMv2 authentication. Make sure that Group Policy is applied to the clients. This will prevent this error from occurring. This is also considered to be a security best practice. For more information, see [how to configure clients to use NTLMv2 using Group Policy](https://technet.microsoft.com/library/jj852207(v=ws.11).aspx)
 
 The recommended policy setting is **Send NTLMv2 response only**. This corresponds to a registry value of 3. Clients use only NTLMv2 authentication, and they use NTLMv2 session security if the server supports it. Domain controllers accept LM, NTLM, and NTLMv2 authentication.
 
@@ -159,7 +159,7 @@ Mount the share from a non-administrator command line. Alternatively, you can fo
 
 **Cause**
 
-When the **net use** command is run under Command Prompt (cmd.exe), it’s parsed by adding “/” as a command line option. This causes the drive mapping to fail.
+When the **net use** command is run under Command Prompt (cmd.exe), it’s parsed by adding “/” as a command-line option. This causes the drive mapping to fail.
 
 **Workaround**
 
