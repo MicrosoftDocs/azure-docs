@@ -63,11 +63,11 @@ The following table lists the default VM sizes for HDInsight.
 
 Note that Head is known as *Nimbus* for the Storm cluster type. Worker is known as *Region* for the HBase cluster type and as *Supervisor* for the Storm cluster type.
 
-
-
 > [AZURE.IMPORTANT] If you plan on having more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14 GB of RAM.
 
 You can add other components such as Hue or R to these basic types by using [Script Actions](#customize-clusters-using-script-action).
+
+[AZURE.INCLUDE [cluster-type-disclaimer](../../includes/hdinsight-type-disclaimer.md)]
 
 ## Cluster tiers
 

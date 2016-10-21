@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/08/2016"
+   ms.date="10/21/2016"
    ms.author="jgao"/>
 
 # Create Windows-based Hadoop clusters in HDInsight
@@ -52,6 +52,8 @@ Each cluster type has its own number of nodes, terminology for nodes within the 
 > [AZURE.IMPORTANT] If you plan on having more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14 GB of RAM.
 
 You can add other components such as Hue or R to these basic types by using [Script Actions](#customize-clusters-using-script-action).
+
+[AZURE.INCLUDE [cluster-type-disclaimer](../../includes/hdinsight-type-disclaimer.md)]
 
 ## Basic configuration options
 
