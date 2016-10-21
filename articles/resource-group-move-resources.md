@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/11/2016" 
+	ms.date="10/20/2016" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
 
-This topic shows you how to move resources to either a new subscription or a new resource group in the same subscription. When moving to a new subscription, the subscription must exist within the same [Active Directory tenant](./active-directory/active-directory-howto-tenant.md) as the original subscription. You can use the portal, PowerShell, Azure CLI, or the REST API to move resource. The move operations in this topic are available to you without any assistance from Azure support.
+This topic shows you how to move resources to either a new subscription or a new resource group in the same subscription. You can use the portal, PowerShell, Azure CLI, or the REST API to move resource. The move operations in this topic are available to you without any assistance from Azure support.
 
 Typically, you move resources when you decide that:
 
@@ -36,6 +36,7 @@ You cannot change the location of the resource. Moving a resource only moves it 
 There are some important steps to perform before moving a resource. By verifying these conditions, you can avoid errors.
 
 1. The service must enable the ability to move resources. See the list below for information about which [services enable moving resources](#services-that-enable-move).
+1. The source and destination subscriptions must exist within the same [Active Directory tenant](./active-directory/active-directory-howto-tenant.md). To move to a new tenant, call support.
 2. The destination subscription must be registered for the resource provider of the resource being moved. If not, you receive an error stating that the **subscription is not registered for a resource type**. You might encounter this problem when moving a resource to a new subscription, but that subscription has never been used 
 with that resource type. To learn how to check the registration status and register resource providers, see [Resource providers and types](../resource-manager-supported-services.md#resource-providers-and-types).
 4. If you are moving App Service app, you have reviewed [App Service limitations](#app-service-limitations).
@@ -69,7 +70,7 @@ For now, the services that enable moving to both a new resource group and subscr
 - DocumentDB
 - HDInsight clusters
 - IoT Hubs
-- Key Vault
+- Key Vault 
 - Media Services
 - Mobile Engagement
 - Notification Hubs
@@ -81,7 +82,7 @@ For now, the services that enable moving to both a new resource group and subscr
 - Storage
 - Storage (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 - SQL Database server - The database and server must reside in the same resource group. When you move a SQL server, all of its databases are also moved.
-- Virtual Machines
+- Virtual Machines (however, does not support move to a new subscription when its certificates are stored in a Key Vault)
 - Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 - Virtual Networks
 
