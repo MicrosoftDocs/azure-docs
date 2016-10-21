@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="09/28/2016" 
+ ms.date="10/21/2016"
  ms.author="xshi"/>
 
 # 4.2 Optional section: Change the on and off behavior of the LED
@@ -71,7 +71,7 @@ You must have successfully completed [4.1 Run a sample application on your Raspb
 
     ```javascript
     var buildCustomMessage = function (messageId) {
-      if (messageId & 1 && messageId < MAX_MESSAGE_COUNT) {
+      if ((messageId & 1) && (messageId < MAX_MESSAGE_COUNT)) {
         return new Message(JSON.stringify({ command: 'on', messageId: messageId }));
       } else if (messageId < MAX_MESSAGE_COUNT) {
         return new Message(JSON.stringify({ command: 'off', messageId: messageId }));
@@ -107,5 +107,5 @@ Congratulations! You’ve successfully customized the messages that are sent to 
 
 ### 4.2.7 Summary
 
-This complementary reading demos how to customize the messages so that the sample application can control the on and off behavior of the LED in a different way.
+This optional section demos how to customize the messages so that the sample application can control the on and off behavior of the LED in a different way.
 

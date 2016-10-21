@@ -169,31 +169,16 @@ The calculated SLA number is a useful baseline, but it doesn't tell the whole st
 
 ## Designing for resiliency
 
-During the design phase, you should perform a failure mode analysis (FMA). The goal of an FMA is to identify possible failure points, and then to define how the application will respond to those failures.
+During the design phase, you should perform a failure mode analysis (FMA). The goal of an FMA is to identify possible points of failure, and define how the application will respond to those failures.
 
-For more information about 
+- How will the application detect this type of failure?
 
+- How will the application respond to this type of failure?
 
+- How will you log and monitor this type of failure? 
 
-1.	For each workload, identify possible failure points.
+For more information about the FMA process, with specific recommendations for Azure, see [Azure resiliency guidance: Failure mode analysis][fma].
 
-2.	For each failure point, identity possible types of failure. 
-
-3.	Rate each possible failure according to its overall risk, which is a combination of the severity of impact plus the likelihood of failure. 
-
-	- Severity: What is the impact on the application, in terms of availability, data loss, monetary cost, and business disruption. 
-
-	- Likelihood: Estimate the relative frequency. For example: Less than once per year, several times per year, or several times per month. You don't need exact numbers here. The point is to help rank the priority. 
-
-4.	Design a resiliency strategy
-
-	- How will the application detect this type of failure?
-
-	- How will the application respond to this type of failure? (See Resiliency Strategies)
-
-	- How will you log and monitor this type of failure? (See Telemetry and Monitoring.)
-
-For a structured approach to this process, see the paper [Resilience by design for cloud services][rma], which describes a methodology called Resiliency Modeling and Analysis (RMA) 
 
 ### Example of identifying failure modes and detection strategy
 
@@ -207,7 +192,7 @@ For a structured approach to this process, see the paper [Resilience by design f
 | Slow response | Request times out |
 
 
-## Implementing resiliency strategies
+## Resiliency strategies
 
 This section provides a survey of some common resiliency strategies. Most of these are not limited to a particular technology. The descriptions in this section are meant to summarize the general idea behind each technique, with links to further reading.
 
@@ -434,7 +419,11 @@ Here are the major points to take away from this article:
 
 ## Next steps
 
-You can find additional resources here: [Azure resiliency technical guidance](../resiliency/resiliency-technical-guidance.md) 
+- [Resiliency checklist][resiliency-checklist] contains a recommendations that will help you plan for a variety of failure modes that could occur.
+
+- [Failure mode analysis][fma] (FMA) is a process for building resiliency into a system, by identifying possible failure points. As a starting point for your FMA process, this article contains a catalog of potential failure modes and their mitigations. 
+
+- You can find additional resources here: [Azure resiliency technical guidance](../resiliency/resiliency-technical-guidance.md) 
 
 <!-- links -->
 
@@ -444,15 +433,16 @@ You can find additional resources here: [Azure resiliency technical guidance](..
 [compensating-transaction-pattern]: https://msdn.microsoft.com/library/dn589804.aspx
 [containers]: https://en.wikipedia.org/wiki/Operating-system-level_virtualization
 [dsc]: https://azure.microsoft.com/documentation/articles/automation-dsc-overview/
+[fma]: guidance-resiliency-failure-mode-analysis.md
 [hystrix]: http://techblog.netflix.com/2012/11/hystrix.html
 [jmeter]: http://jmeter.apache.org/
 [load-leveling-pattern]: https://msdn.microsoft.com/library/dn589783.aspx
 [monitoring-guidance]: https://azure.microsoft.com/documentation/articles/best-practices-monitoring/
 [ra-basic-web]: https://azure.microsoft.com/documentation/articles/guidance-web-apps-basic/
 [ra-multi-vm]: https://azure.microsoft.com/documentation/articles/guidance-compute-multi-vm/
+[resiliency-checklist]: guidance-resiliency-checklist.md
 [retry-pattern]: https://msdn.microsoft.com/library/dn589788.aspx
 [retry-service-specific guidance]: https://azure.microsoft.com/documentation/articles/best-practices-retry-service-specific/
-[rma]: https://www.microsoft.com/download/details.aspx?id=38823
 [sla]: https://azure.microsoft.com/support/legal/sla/
 [staging-slots]: https://azure.microsoft.com/documentation/articles/guidance-web-apps-basic/
 [throttling-pattern]: https://msdn.microsoft.com/library/dn589798.aspx
