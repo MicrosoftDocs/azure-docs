@@ -634,7 +634,7 @@ Do these steps on both SQL Servers.
 
 3. Click the **AlwaysOn High Availability** tab, then select **Enable AlwaysOn Availability Groups**, as shown below, and then click **Apply**. Click **OK** in the pop-up dialog, and do not close the properties window yet. You will restart the SQL Server service after you change the service account.
 
-   ![Enable AlwaysOn Availability Groups](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665520.gif)
+    ![Enable AlwaysOn Availability Groups](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665520.gif)
 
 ### Set the SQL Server service account on each SQL Server
 
@@ -668,11 +668,11 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 4. Right-click the new directory, point to **Share with**, and then click **Specific people**, as shown below.
 
-   ![Create a Backup Folder](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665521.gif)
+    ![Create a Backup Folder](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665521.gif)
 
 5. Add **CORP\SQLSvc1** and give it **Read/Write** permission, then add **CORP\SQLSvc2** and give it the **Read/Write** permission, as shown below, and then click **Share**. Once the file sharing process is complete, click **Done**.
 
-   ![Grant Permissions For Backup Folder](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665522.gif)
+    ![Grant Permissions For Backup Folder](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665522.gif)
 
 6. Next, you create the database. From the **Start** menu, launch **SQL Server Management Studio**, then click **Connect** to connect to the default SQL Server instance.
 
@@ -712,27 +712,27 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 1. Go back to the remote desktop session for **sqlserver-0**. In the **Object Explorer** in SSMS, right-click **AlwaysOn High Availability** and click **New Availability Group Wizard**, as shown below.
 
- ![Launch New Availability Group Wizard](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665523.gif)
+    ![Launch New Availability Group Wizard](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665523.gif)
 
 1. In the **Introduction** page, click **Next**. In the **Specify Availability Group Name** page, type **AG1** in **Availability group name**, then click **Next** again.
 
- ![New AG Wizard, Specify AG Name](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665524.gif)
+    ![New AG Wizard, Specify AG Name](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665524.gif)
 
 1. In the **Select Databases** page, select **MyDB1** and click **Next**. The database meets the prerequisites for an availability group because you have taken at least one full backup on the intended primary replica.
 
- ![New AG Wizard, Select Databases](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665525.gif)
+    ![New AG Wizard, Select Databases](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665525.gif)
 
 1. In the **Specify Replicas** page, click **Add Replica**.
 
- ![New AG Wizard, Specify Replicas](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665526.png)
+    ![New AG Wizard, Specify Replicas](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665526.png)
 
 1. The **Connect to Server** dialog pops up. Type **sqlserver-1** in **Server name**, then click **Connect**.
 
- ![New AG Wizard, Connect to Server](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665527.png)
+    ![New AG Wizard, Connect to Server](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665527.png)
 
 2. Back in the **Specify Replicas** page, you should now see **sqlserver-1** listed in **Availability Replicas**. Configure the replicas as shown below. 
 
-   ![New AG Wizard, Specify Replicas (Complete)](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665528.png)
+    ![New AG Wizard, Specify Replicas (Complete)](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665528.png)
 
 3. Click **Endpoints** to see the database mirroring endpoint that will be used by this availability group. Each instance of SQL Server must have one database mirroring endpoint. Note the TCP port that wizard specifies for this endpoint. Create an inbound firewall rule on each server for this TCP port.
 
@@ -740,31 +740,31 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 4. In the **Select Initial Data Synchronization** page, select **Join only** and click **Next**. You have already performed data synchronization manually when you took the full and transaction backups on **sqlserver-0** and restored them on **sqlserver-1**. You can instead choose not to perform the backup and restore operations on your database and select **Full** to let the New Availability Group Wizard perform data synchronization for you. However, this is not recommended for very large databases that are found in some enterprises.
 
-   ![New AG Wizard, Select Initial Data Synchronization](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665529.png)
+    ![New AG Wizard, Select Initial Data Synchronization](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665529.png)
 
 5. In the **Validation** page, click **Next**. This page should look similar to below. There is a warning for the listener configuration because you have not configured an availability group listener. You can ignore this warning, because this tutorial does not configure a listener. This tutorial will have you create the listener later.
 
-   ![New AG Wizard, Validation](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665530.gif)
+    ![New AG Wizard, Validation](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665530.gif)
 
 6. In the **Summary** page, click **Finish**, then wait while the wizard configures the new availability group. In the **Progress** page, you can click **More details** to view the detailed progress. Once the wizard is finished, inspect the **Results** page to verify that the availability group is successfully created, as shown below, then click **Close** to exit the wizard.
 
-   ![New AG Wizard, Results](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665531.png)
+    ![New AG Wizard, Results](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665531.png)
 
 7. In the **Object Explorer**, expand **AlwaysOn High Availability**, then expand **Availability Groups**. You should now see the new availability group in this container. Right-click **AG1 (Primary)** and click **Show Dashboard**.
 
-   ![Show AG Dashboard](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665532.png)
+    ![Show AG Dashboard](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665532.png)
 
 8. Your **AlwaysOn Dashboard** should look similar to the one shown below. You can see the replicas, the failover mode of each replica and the synchronization state.
 
-   ![AG Dashboard](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665533.png)
+    ![AG Dashboard](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665533.png)
 
 9. Return to **Server Manager**, select **Tools**, and then launch **Failover Cluster Manager**.
 
 10. Expand **Cluster1.corp.contoso.com**, and then expand **Services and applications**. Select **Roles** and note that the **AG1** availability group role has been created. Note that AG1 does not have any IP address by which database clients can connect to the availability group, because you did not configure a listener. You can connect directly to the primary node for read-write operations and the secondary node for read-only queries.
 
-   ![AG in Failover Cluster Manager](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665534.png)
+    ![AG in Failover Cluster Manager](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665534.png)
 
->[AZURE.WARNING] Do not try to fail over the availability group from the Failover Cluster Manager. All failover operations should be performed from within **AlwaysOn Dashboard** in SSMS. For more information, see [Restrictions on Using The WSFC Failover Cluster Manager with Availability Groups](https://msdn.microsoft.com/library/ff929171.aspx).
+    >[AZURE.WARNING] Do not try to fail over the availability group from the Failover Cluster Manager. All failover operations should be performed from within **AlwaysOn Dashboard** in SSMS. For more information, see [Restrictions on Using The WSFC Failover Cluster Manager with Availability Groups](https://msdn.microsoft.com/library/ff929171.aspx).
 
 ## Configure internal load balancer
 
