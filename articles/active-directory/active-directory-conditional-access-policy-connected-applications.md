@@ -52,11 +52,11 @@ To set a device-based conditional access policy, in the **Device based access ru
 
 A device-based conditional access policy has three components:
 
-- **Apply To**. The scope of users the policy applies to
+- **Apply To**. The scope of users the policy applies to.
 
-- **Device Rules**. The conditions a device must meet before it can access the application
+- **Device Rules**. The conditions a device must meet before it can access the application.
 
-- **Application Enforcement**. The client applications (native versus browser) the policy applies to
+- **Application Enforcement**. The client applications (native versus browser) the policy applies to.
 
   ![The three components of a device-based access policy](./media/active-directory-conditional-access-policy-connected-applications/03.png "Device based access rules")
 
@@ -67,9 +67,9 @@ In the **Apply To** section, you can select the scope of users this policy appli
 
 You have two options when you create an access policy scope for users:
 
-- **All Users**. Apply the policy to all users who access the application
+- **All Users**. Apply the policy to all users who access the application.
 
-- **Groups**. Limit the policy to users who are a member of a specific group
+- **Groups**. Limit the policy to users who are a member of a specific group.
 
 ![Apply policy to all users or to a group](./media/active-directory-conditional-access-policy-connected-applications/11.png "Apply to")
 
@@ -138,7 +138,7 @@ You have two options for the type of application to include:
 To enforce access policy for applications, select **For browser and native applications**. Then, you can include:
 
 - Browsers (for example, Microsoft Edge in Windows 10 or Safari in iOS).
-- Applications that use the Active Directory Authentication Library (ADAL) on any platform, or which use the WebAccountManager (WAM) API in Windows 10.
+- Applications that use the Active Directory Authentication Library (ADAL) on any platform, or that use the WebAccountManager (WAM) API in Windows 10.
 
 >[AZURE.NOTE] For more information about browser support and other considerations for a user who is accessing a device-based, certificate authority-protected application, see [Azure Active Directory conditional access](active-directory-conditional-access.md).
 
