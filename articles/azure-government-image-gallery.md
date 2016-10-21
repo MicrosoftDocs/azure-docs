@@ -197,9 +197,11 @@ Visual Studio|Visual Studio Enterprise 2015 Update?3 with Azure SDK 2.9.1 on Win
 Visual Studio|Visual Studio Community 2013 Update 5 with Azure 2.9 on Windows Server 2012 R2|This image of Visual Studio Community 2013 Update 5 with Azure Tools 2.9 enables you to unleash the full power of Visual Studio to develop cross-platform solutions.  Create apps in one unified IDE, an...|Windows|128 GB
 Visual Studio|Visual Studio Enterprise 2015 Update 2 with Azure SDK 2.9 on Windows Server 2012 R2|With Visual Studio Enterprise 2015 Update 2 you can create applications across devices and services, using a single solution with a consistent development experience.  You get the tools, you need to d...|Windows|128 GB
 
-
-
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged -->
+
+## Quick Start Templates
+
+
 
 ## <a name="next"></a>Next steps
 
