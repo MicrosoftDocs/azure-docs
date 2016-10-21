@@ -148,12 +148,12 @@ Cisco Spark application expects the SAML assertions to contain specific attribut
 
 7. On the **Configure single sign-on at Cisco Spark** page, Click **Download metadata**, and then save the file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_Spark_09.png)
+	![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_spark_09.png)
 
 8. Sign in to [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/) with your full administrator credentials.
 9. Select **Settings** and under the **Authentication** section, click **Modify**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_Spark_10.png)
+	![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_spark_10.png)
 
 10. Select **Integrate a 3rd-party identity provider. (Advanced)** and go to the next screen.
 11. Click on **Download Metadata File** and save the file on your computer.
