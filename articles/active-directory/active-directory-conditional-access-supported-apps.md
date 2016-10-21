@@ -49,7 +49,6 @@ The following applications support conditional access to Office 365 and other Az
 Currently, you must use other methods to block access to apps that do not use modern authentication. Access rules for apps that don't use modern authentication are not enforced by conditional access. This primarily is a consideration for Exchange and SharePoint access. Most earlier versions of apps use older access control protocols.
 
 ### Control access in Office 365 SharePoint Online
-
 You can disable legacy protocols for SharePoint access by using the Set-SPOTenant cmdlet. Use this cmdlet to prevent Office clients that use non-modern authentication protocols from accessing SharePoint Online resources.
 
 **Example command**:
@@ -73,9 +72,9 @@ By applying the following three rules to the AD FS relying party trust for Micro
 
 ##### Rule 1
 
-    `@RuleName = “Allow all intranet traffic”
+    @RuleName = “Allow all intranet traffic”
 	c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "true"]
-	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");`
+	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 ##### Rule 2
 
