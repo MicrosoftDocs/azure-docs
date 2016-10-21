@@ -47,7 +47,7 @@ This article lists common problems that are related to Microsoft Azure File stor
 
 [Mount error 115 when attempting to mount Azure Files on the Linux VM](#error15)
 
-[Linux VM experiencing random delays in commands like “ls”](#delayproblem)
+[Linux VM experiencing random delays in commands like "ls"](#delayproblem)
 
 
 ## General problems
@@ -133,7 +133,7 @@ If the TCP 445 being blocked by a rule along the network path， you will see th
 
 For more information on using Portqry, see [Description of the Portqry.exe command-line utility](https://support.microsoft.com/kb/310099).
 
-### Solution for the Cause 2
+### Solution for Cause 2
 
 Work with your IT organization to open Port 445 outbound to Azure IP ranges.
 
