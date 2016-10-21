@@ -71,7 +71,7 @@ You must have successfully completed [4.1 Run a sample application on your Raspb
 
     ```javascript
     var buildCustomMessage = function (messageId) {
-      if (messageId & 1 && messageId < MAX_MESSAGE_COUNT) {
+      if ((messageId & 1) && (messageId < MAX_MESSAGE_COUNT)) {
         return new Message(JSON.stringify({ command: 'on', messageId: messageId }));
       } else if (messageId < MAX_MESSAGE_COUNT) {
         return new Message(JSON.stringify({ command: 'off', messageId: messageId }));
