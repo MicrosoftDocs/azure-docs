@@ -45,7 +45,7 @@ For Log Analytics to collect these Azure Diagnostics logs, the logs must be in t
 
 >[AZURE.NOTE] IIS logs from Azure Websites are not currently supported.
 
-For virtual machines, you have the option of installing the [Microsoft Monitoring Agent](http://go.microsoft.com/fwlink/?LinkId=517269) into your virtual machine to enable additional insights. In addition to being able to analyze IIS logs and Event Logs, you can perform additional analysis including configuration change tracking, SQL assessment, and update assessment.
+For virtual machines, you have the option of installing the [Log Analytics agent](log-analytics-azure-vm-extension.md) into your virtual machine to enable additional insights. In addition to being able to analyze IIS logs and Event Logs, you can perform additional analysis including configuration change tracking, SQL assessment, and update assessment.
 
 ## Enable Azure diagnostics in a virtual machine for event log and IIS log collection
 
@@ -134,26 +134,26 @@ In the Azure portal, navigate to your Log Analytics workspace and perform the fo
 3. Select the Storage account that contains the diagnostics logs
   - This account can be either a classic storage account or an Azure Resource Manager storage account
 4. Select the Data Type you want to collect logs for
-  - This will be one of IIS Logs; Events; Syslog (Linux); ETW Logs; Service Fabric Events
-5. The value for Source will be automatically populated based on the data type and cannot be changed
+  - The choices are IIS Logs; Events; Syslog (Linux); ETW Logs; Service Fabric Events
+5. The value for Source is automatically populated based on the data type and cannot be changed
 6. Click OK to save the configuration
 
 Repeat steps 2-6 for additional storage accounts and data types that you want Log Analytics to collect.
 
-In approximately 30 minutes you will be able to see data from the storage account in Log Analytics. You will only see data that is written to storage after the configuration is applied. Log Analytics does not read the pre-existing data from the storage account.
+In approximately 30 minutes you are able to see data from the storage account in Log Analytics. You will only see data that is written to storage after the configuration is applied. Log Analytics does not read the pre-existing data from the storage account.
 
 >[AZURE.NOTE] The portal does not validate that the Source exists in the storage account or if new data is being written.
 
 ## Enable Azure diagnostics in a virtual machine for event log and IIS log collection using PowerShell
 
-Use the steps in [Configuring Log Analytics to index Azure diagnostics](log-analytics-powershell-workspace-configuration.md/#configuring-log-analytics-to-index-azure-diagnostics) to use PowerShell to read from Azure diagnostics that are written to table storage.
+Use the steps in [Configuring Log Analytics to index Azure diagnostics](log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) to use PowerShell to read from Azure diagnostics that are written to table storage.
 
 Using Azure PowerShell you can more precisely specify the events that are written to Azure Storage.
 Refer to [Enabling Diagnostics in Azure Virtual Machines](../virtual-machines-dotnet-diagnostics.md) for more details.
 
 You can enable and update Azure diagnostics using the following PowerShell script.
 You can also use this script with a custom logging configuration.
-You will need to modify the script to set the storage account, service name, and virtual machine name.
+You need to modify the script to set the storage account, service name, and virtual machine name.
 The script uses cmdlets for classic virtual machines.
 
 Review the following script sample, copy it, modify it as needed, save the sample as a PowerShell script file, and then run the script.
