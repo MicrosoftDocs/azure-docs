@@ -18,7 +18,7 @@
 
 
 # Azure Government Marketplace
-For partners interested in publishing your offerings to the Azure Marketplace for Government please find the details below.
+For partners interested in publishing your offerings to the Azure Marketplace for Government, find the details below.
 
 ## Publishing
 >[AZURE.NOTE] If you are not an existing Azure Certified Marketplace partner, complete the steps [here](../marketplace-publishing/marketplace-publishing-getting-started.md) before proceeding.
@@ -32,7 +32,7 @@ Click the offer you want to publish
 ### Step 3
 Click **SKUS** and click the Azure Government Cloud box
 
->[AZURE.NOTE] Only Bring Your Own License (BYOL) SKUs are supported.  This options will not be available for Pay-as-You-Go (PayG) SKUs.
+>[AZURE.NOTE] Only Bring Your Own License (BYOL) SKUs are supported.  This option is not available for Pay-as-You-Go (PayG) SKUs.
 
 ![alt text](./media/government-manage-marketplace-partner-1.png)
 
@@ -44,14 +44,14 @@ Click the + Add Certification link to add links to any certifications for your o
 ### Step 5
 Request for a trial account in Microsoft Azure Government cloud to enable you to test your image in the publishing portal: [https://azuregov.microsoft.com/trial/azuregovtrial](https://azuregov.microsoft.com/trial/azuregovtrial)
 
-Your eligibility as a partner who serves U.S. federal, state, local, or tribal entities will be verified and confirmation will provided via email.  Your trial account will be available within is 3-5 business days.
+Your eligibility as a partner who serves U.S. federal, state, local, or tribal entities are verified and confirmation will be provided via email.  Your trial account will be available within is 3-5 business days.
 
 ### Step 6
 Click Publish and click Push to Staging. 
 
 ![alt text](./media/government-manage-marketplace-partner-3.png)
 
-You will be prompted to enter a whitelisted subscription which has access to the staged offer. Enter the subscription ID from your newly acquired Azure Government trial account.
+You will be prompted to enter a whitelisted subscription that has access to the staged offer. Enter the subscription ID from your newly acquired Azure Government trial account.
 
 ![alt text](./media/government-manage-marketplace-partner-4.png)
 
@@ -59,7 +59,7 @@ You will be prompted to enter a whitelisted subscription which has access to the
 Once the offer is successfully staged, you can test your image by logging in to [https://portal.azure.us](https://portal.azure.us) using your Azure Government Trial account.
 
 ### Step 8
-Once you have validated your image using the trial subscription, you can make the Offer available live by clicking on Publish and requsting approval to go to production. 
+Once you have validated your image using the trial subscription, you can make the Offer available live by clicking on Publish and requesting approval to go to production. 
 
 ![alt text](./media/government-manage-marketplace-partner-5.png)
 
