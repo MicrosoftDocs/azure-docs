@@ -50,7 +50,10 @@ Connecting to your server in Azure is just like connecting to a server instance 
 Since managing your server in Azure by using SSMS is much the same as managing an on-premises server, we're not going to go into details here. All the help you need can be found in [Analysis Services Instance Management](https://msdn.microsoft.com/library/hh230806.aspx) on MSDN.
 
 ## Server administrators
-You can use **Analysis Services Admins** in the control blade for your server in Azure portal or SSMS to manage server administrators. Analysis Services Admins are database server administrators with  rights for common database administration tasks such as adding and removing databases and managing users. By default, the user that creates the server in Azure portal is automatically added as an Analysis Services Admin. You should also know:
+You can use **Analysis Services Admins** in the control blade for your server in Azure portal or SSMS to manage server administrators. Analysis Services Admins are database server administrators with  rights for common database administration tasks such as adding and removing databases and managing users. By default, the user that creates the server in Azure portal is automatically added as an Analysis Services Admin.
+
+You should also know:
+
 -   Windows Live ID is not a supported identity type for Azure Analysis Services.  
 -   Analysis Services Admins must be valid Azure Active Directory users.
 -   If creating an Azure Analysis Services server via Azure Resource Manager  templates, Analysis Services Admins takes a JSON array of users that should be added as admins.
@@ -65,6 +68,7 @@ Azure Analysis Services model database users must be in your Azure Active Direct
 You can add users by using [role assignments in Azure Active Directory](../active-directory/role-based-access-control-configure.md) or by using [Tabular Model Scripting Language](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) in SQL Server Management Studio.
 
 **Sample TMSL script**
+
 ```
 {
   "createOrReplace": {
