@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/06/2016"
+	ms.date="10/21/2016"
 	ms.author="v-livech"/>
 
 # Create SSH keys on Linux and Mac for Linux VMs in Azure
