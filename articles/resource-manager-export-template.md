@@ -148,7 +148,7 @@ To get the current state of your resource group, export a template that shows a 
 
       ![export resource group](./media/resource-manager-export-template/export-resource-group.png)
 
-     Not all resource types support the export template function. If your resource group only contains the storage account and virtual network shown in this article, you will not see an error. However, if you have created other resource types, you may see an error stating that there is a problem with the export. You learn how to handle those issues in the [Fix export issues](#fix-export-issues) section.
+     Not all resource types support the export template function. If your resource group only contains the storage account and virtual network shown in this article, you do not see an error. However, if you have created other resource types, you may see an error stating that there is a problem with the export. You learn how to handle those issues in the [Fix export issues](#fix-export-issues) section.
 
       
 
@@ -173,17 +173,21 @@ To get the current state of your resource group, export a template that shows a 
             "accountType": "Standard_RAGRS"
         },
 
-3. You have a couple of options for continuing to work with this template. You can either download the template and work on it locally.
+3. You have a couple of options for continuing to work with this template. You can either download the template and work on it locally with a JSON editor. Or, you can save the template to your library and work on it through the portal.
+
+     If you are comfortable using a JSON editor like [VS Code](resource-manager-vs-code.md) or [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), you might prefer downloading the template locally and using that editor. If you are not set up with a JSON editor, you might prefer editing the template through the portal. The remainder of this topic assumes you have saved the template to your library in the portal. However, you make the same syntax changes to the template whether working locally with a JSON editor or through the portal.
+
+     To work locally, select **Download**.
 
       ![download template](./media/resource-manager-export-template/download-template.png)
 
-     Or, you can save the template to your library and work on it through the portal.
+     To work through the portal, select **Add to library**.
 
       ![add to library](./media/resource-manager-export-template/add-to-library.png)
 
      When adding a template to the library, give the template a name and description. Then, select **Save**.
 
-     If you are comfortable using a JSON editor like VS Code or Visual Studio, you might prefer downloading the template locally and using that editor. If you are not set up with a JSON editor, you might prefer editing the template through the portal. The remainder of this topic assumes you have saved your template to your library in the portal, but the syntax changes are identical whether made locally with a JSON editor or through the portal.
+     ![set template values](./media/resource-manager-export-template/set-template-values.png)
 
 4. To view a template saved in your library, select **More services**, type **Templates** to filter results, select **Templates**.
 
@@ -195,9 +199,9 @@ To get the current state of your resource group, export a template that shows a 
 
 ## Customize the template
 
-The exported template works fine if you want to create the same type of storage account in the same region with a virtual network that uses the same address prefix and same subnet prefix for every deployment. However, Resource Manager provides options so that you can deploy templates with a lot more flexibility than that. For example, during deployment, you might want to specify the type of storage account to create or the values to use for the virtual network address prefix and subnet prefix.
+The exported template works fine if you want to create exactly the same storage account and virtual network for every deployment. However, Resource Manager provides options so that you can deploy templates with a lot more flexibility. For example, during deployment, you might want to specify the type of storage account to create or the values to use for the virtual network address prefix and subnet prefix.
 
-In this section, you add parameters to the exported template so that you can reuse the template when you deploy these resources to other environments. You also add some features to your template to decrease the likelihood that you'll encounter an error when you deploy your template. You no longer have to guess a unique name for your storage account. Instead, the template creates a unique name. You restrict the values that can be specified for the storage account type to only valid options.
+In this section, you add parameters to the exported template so that you can reuse the template when you deploy these resources to other environments. You also add some features to your template to decrease the likelihood of encountering an error when you deploy your template. You no longer have to guess a unique name for your storage account. Instead, the template creates a unique name. You restrict the values that can be specified for the storage account type to only valid options.
 
 1. Select **Edit** to customize the template.
 
@@ -207,7 +211,7 @@ In this section, you add parameters to the exported template so that you can reu
 
      ![edit template](./media/resource-manager-export-template/edit-template.png)
 
-1. To be able to pass the values that you might want to specify during deployment, replace the **parameters** section with the following parameter definitions. Notice the values of **allowedValues** for **storageAccount_accountType**. If you accidentally provide an invalid value, that error is recognized before the deployment starts. Also, notice that you are providing only a prefix for the storage account name, and the prefix is limited to 11 characters. When you limit the prefix to 11 characters, you ensure that the complete name will not exceed the maximum number of characters for a storage account. The prefix enables you to apply a naming convention to your storage accounts. You will see how to create a unique name in the next step.
+1. To be able to pass the values that you might want to specify during deployment, replace the **parameters** section with new parameter definitions. Notice the values of **allowedValues** for **storageAccount_accountType**. If you accidentally provide an invalid value, that error is recognized before the deployment starts. Also, notice that you are providing only a prefix for the storage account name, and the prefix is limited to 11 characters. When you limit the prefix to 11 characters, you ensure that the complete name does not exceed the maximum number of characters for a storage account. The prefix enables you to apply a naming convention to your storage accounts. You will see how to create a unique name in the next step.
 
         "parameters": {
           "storageAccount_prefix": {
@@ -242,13 +246,13 @@ In this section, you add parameters to the exported template so that you can reu
           }
         },
 
-2. The **variables** section of your template is currently empty. Replace this section with the following code. In the **variables** section, you can create values that simplify the syntax for the rest of your template. The  **storageAccount_name** variable concatenates the prefix from the parameter to a unique string that is generated based on the identifier of the resource group. You no longer have to guess a unique name when providing a parameter value.
+2. The **variables** section of your template is currently empty. In the **variables** section, you create values that simplify the syntax for the rest of your template. Replace this section with a new variable definition. The  **storageAccount_name** variable concatenates the prefix from the parameter to a unique string that is generated based on the identifier of the resource group. You no longer have to guess a unique name when providing a parameter value.
 
         "variables": {
           "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
         },
 
-3. To use the parameters and variable in the resource definitions, replace the **resources** section with the following definitions. Notice that very little has actually changed in the resource definitions other than the value that's assigned to the resource property. The properties are exactly the same as the properties from the exported template. You are simply assigning properties to parameter values instead of hard-coded values. The location of the resources is set to use the same location as the resource group through the **resourceGroup().location** expression. The variable that you created for the storage account name is referenced through the **variables** expression.
+3. To use the parameters and variable in the resource definitions, replace the **resources** section with new resource definitions. Notice that very little has changed in the resource definitions other than the value that's assigned to the resource property. The properties are the same as the properties from the exported template. You are simply assigning properties to parameter values instead of hard-coded values. The location of the resources is set to use the same location as the resource group through the **resourceGroup().location** expression. The variable that you created for the storage account name is referenced through the **variables** expression.
 
         "resources": [
           {
@@ -300,7 +304,7 @@ In this section, you add parameters to the exported template so that you can reu
 
 ## Update the downloaded parameters file
 
-If you are working with the downloaded files (rather than the portal library), you need to update the downloaded parameter file because it no longer matches the parameters in your template. You do not have to use a parameter file, but it can simplify the process when you redeploy an environment. You use the default values that are defined in the template for many of the parameters so that your parameter file only needs two values.
+If you are working with the downloaded files (rather than the portal library), you need to update the downloaded parameter file. It no longer matches the parameters in your template. You do not have to use a parameter file, but it can simplify the process when you redeploy an environment. You use the default values that are defined in the template for many of the parameters so that your parameter file only needs two values.
 
 Replace the contents of the parameters.json file with:
 
@@ -327,7 +331,7 @@ Not all resource types support the export template function. Resource Manager sp
 
 > [AZURE.NOTE] You only encounter export issues when exporting from a resource group rather than from your deployment history. If your last deployment accurately represents the current state of the resource group, you should export the template from the deployment history rather than from the resource group. Only export from a resource group when you have made changes to the resource group that are not defined in a single template.
 
-For example, if you export a template for a resource group that contains a web app, SQL Database, and a connection string in the site config, you will see the following message.
+For example, if you export a template for a resource group that contains a web app, SQL Database, and a connection string in the site config, you see the following message:
 
 ![show error](./media/resource-manager-export-template/show-error.png)
 
@@ -335,7 +339,7 @@ Selecting the message shows you exactly which resource types were not exported.
      
 ![show error](./media/resource-manager-export-template/show-error-details.png)
 
-This topic shows the following common fixes.
+This topic shows common fixes.
 
 ### Connection string
 
