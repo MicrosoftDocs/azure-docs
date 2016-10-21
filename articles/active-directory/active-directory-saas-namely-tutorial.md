@@ -249,7 +249,7 @@ The objective of this section is to create a user called Britta Simon in Namely.
 
 1. Click the **Directory** tab.
 
-![Configure Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_11.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_11.png) 
 
 1. Click **Add New Person**.
 
