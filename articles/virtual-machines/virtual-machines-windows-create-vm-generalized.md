@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2016"
+	ms.date="10/10/2016"
 	ms.author="cynthn"/>
 
 # Create a VM from a generalized VHD image
 
-A generalized VHD image has had all your personal account information removed using [Sysprep](virtual-machines-windows-generalize-vhd.md). You can create a generalized VHD by running Sysprep on an on-premises VM, then [uploading the VHD to Azure](virtual-machines-windows-upload-image.md), or by running Sysprep on an existing Azure VM and then [capturing an image](virtual-machines-windows-capture-image.md) of the VM.
+A generalized VHD image has had all of your personal account information removed using [Sysprep](virtual-machines-windows-generalize-vhd.md). You can create a generalized VHD by running Sysprep on an on-premises VM, then [uploading the VHD to Azure](virtual-machines-windows-upload-image.md), or by running Sysprep on an existing Azure VM and then [copying the VHD](virtual-machines-windows-vhd-copy.md).
 
 If you want to create a VM from a specialized VHD, see [Create a VM from a specialized VHD](virtual-machines-windows-create-vm-specialized.md).
 
@@ -27,12 +27,16 @@ The quickest way to create a VM from a generalized VHD is to use a [quick start 
 (https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image). 
 
 
-You can also create the VM using PowerShell. The following steps walk you through using PowerShell to create a new VM and the networking resources that it will need to run in Azure.
+## Prerequisites
+
+If you are going to use a VHD uploaded from an on-premises VM, like one created using Hyper-V, you should make sure you followed the directions in [Prepare a Windows VHD to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md). 
+
+Both uploaded VHDs and existing Azure VM VHDs need to be generalized before you can create a VM using this method. For more information, see [Generalize a Windows virtual machine using Sysprep](virtual-machines-windows-generalize-vhd.md). 
 
 
 ## Set the URI of the VHD
 
-The URI for the VHD to use is in the format: https://**mystorageaccount**.blob.core.windows.net/**mycontainer**/**MyVhdName**.vhd. In this example, the VHD named **myVHD** is in the storage account **mystorageaccount** in the container **mycontainer**.
+The URI for the VHD to use is in the format: https://**mystorageaccount**.blob.core.windows.net/**mycontainer**/**MyVhdName**.vhd. In this example the VHD named **myVHD** is in the storage account **mystorageaccount** in the container **mycontainer**.
 
 ```powershell
 $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vhd"
@@ -49,8 +53,7 @@ Create the vNet and subnet of the [virtual network](../virtual-network/virtual-n
 	```powershell
 	$rgName = "myResourceGroup"
 	$subnetName = "mySubnet"
-	$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName `
-		-AddressPrefix 10.0.0.0/24
+	$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
 	```
       
 2. Create the virtual network. The following sample creates a virtual network named **myVnet** in the **West US** location with the address prefix of **10.0.0.0/16**.  
@@ -58,8 +61,7 @@ Create the vNet and subnet of the [virtual network](../virtual-network/virtual-n
 	```powershell
 	$location = "West US"
 	$vnetName = "myVnet"
-	$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName `
-		-Location $location -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
+	$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
 	```    
             
 ## Create a public IP address and network interface
@@ -70,16 +72,14 @@ To enable communication with the virtual machine in the virtual network, you nee
 
 	```powershell
 	$ipName = "myPip"
-	$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName `
-		-Location $location -AllocationMethod Dynamic
+	$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
 	```       
 
 2. Create the NIC. This example creates a NIC named **myNic**. 
 
 	```powershell
 	$nicName = "myNic"
-	$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
-	-Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+	$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 	```
 
 ## Create the network security group and an RDP rule
@@ -91,14 +91,13 @@ This example creates an NSG named **myNsg** that contains a rule called **myRdpR
 ```powershell
 $nsgName = "myNsg"
 
-$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule `
-	-Description "Allow RDP" `
+$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
     -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
 
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName `
-	-Location $location -Name $nsgName -SecurityRules $rdpRule
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
+    -Name $nsgName -SecurityRules $rdpRule
 ```
 
 
@@ -107,8 +106,7 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName `
 Create a variable for the completed virtual network. 
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName `
-	-Name $vnetName
+$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 ```
 
 ## Create the VM
@@ -143,38 +141,30 @@ The following PowerShell script shows how to set up the virtual machine configur
 	$osDiskName = "myOsDisk"
 	
 	# Assign a SKU name. This example sets the SKU name as "Standard_LRS"
-	# Valid values for -SkuName are: Standard_LRS - locally redundant storage, 
-	# Standard_ZRS - zone redundant storage, Standard_GRS - geo redundant storage, 
-	# Standard_RAGRS - read access geo redundant storage, 
-	# Premium_LRS - premium locally redundant storage. 
+	# Valid values for -SkuName are: Standard_LRS - locally redundant storage, Standard_ZRS - zone redundant storage, Standard_GRS - geo redundant storage, Standard_RAGRS - read access geo redundant storage, Premium_LRS - premium locally redundant storage. 
 	$skuName = "Standard_LRS"
 	
 	# Get the storage account where the uploaded image is stored
-	$storageAcc = Get-AzureRmStorageAccount -ResourceGroupName $rgName `
-		-AccountName $storageAccName
-
+	$storageAcc = Get-AzureRmStorageAccount -ResourceGroupName $rgName -AccountName $storageAccName
+	
 	# Set the VM name and size
 	$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
-
+	
 	#Set the Windows operating system configuration and add the NIC
-	$vm = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows `
-		-ComputerName $computerName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-
+	$vm = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	
 	$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
-
+	
 	# Create the OS disk URI
-	$osDiskUri = '{0}vhds/{1}-{2}.vhd' `
-		-f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
-
+	$osDiskUri = '{0}vhds/{1}-{2}.vhd' -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
+	
 	# Configure the OS disk to be created from the existing VHD image (-CreateOption fromImage).
-
-	$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri `
-		-CreateOption fromImage -SourceImageUri $imageURI -Windows
-
+	
+	$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri $imageURI -Windows
+	
 	# Create the new VM
 	New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
 ```
-
 
 ## Verify that the VM was created 
 
