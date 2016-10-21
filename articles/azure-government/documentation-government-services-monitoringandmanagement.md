@@ -14,13 +14,25 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="10/14/2016"
+	ms.date="10/21/2016"
 	ms.author="ryansoc"/>
 
 
 #  Azure Government monitoring and management
 
-This article outlines the monitoring and management services variations and considerations that must be to be taken into account in the Azure Government environment.
+This article outlines the monitoring and management services variations and considerations for the Azure Government environment.
+
+## Automation
+
+Automation is generally available in Azure Government.
+
+### Variations
+
+The following Automation features are not currently available in Azure Government.
+
++ Creation of a Service Principle credential for authentication
+
+For more information, see [Automation public documentation](../automation/automation-intro.md).
 
 ## Log Analytics
 
@@ -28,24 +40,19 @@ Log Analytics is generally available in Azure Government.
 
 ### Variations
 
-The following Log Analytics features and solutions are not currently available in Azure Government. This list is updated when the status of features/solutions changes.
+The following Log Analytics features and solutions are not currently available in Azure Government.
 
 + Solutions that are in preview in Microsoft Azure, including:
   - Network Monitoring solution
-  - Azure Networking Analytics solution
+  - Application Dependency Monitoring solution
   - Office 365 solution
   - Windows 10 Upgrade Analytics solution
-  - Application Dependency Monitoring solution
   - Application Insights solution
-  - Azure Activity Logs solution
+  - Azure Networking Analytics solution
   - Azure Automation Analytics solution
   - Key Vault Analytics solution
-+ Solutions and features that require Azure Automation, including:
-  - Update management
-  - Change management
-  - Alerts that trigger an Azure Automation runbook
 + Solutions and features that require updates to on-premises software, including:
-  - Integration with System Center Operations Manager 2016
+  - Integration with System Center Operations Manager 2016 (earlier versions of Operations Manager are supported)
   - Computers groups from System Center Configuration Manager
   - Surface Hub solution
 + Features that are in preview in public Azure, including:
@@ -56,12 +63,11 @@ The following Log Analytics features and solutions are not currently available i
   - Virtual machines to enable the Log Analytics Agent</br>To select virtual machines to enable the Log Analytics Agent, you must use PowerShell or Resource Manager templates.
   - Azure metrics and Azure diagnostics
 + Operations Management Suite mobile applications
-+ Operations Management Suite Linux Agent virtual machine extension
 
 The following Log Analytics features behave differently in Azure Government:
 
 + The Windows Agent must be downloaded from the [Log Analytics portal](https://oms.microsoft.us) for Azure Government.
-+ To upload data by using the Data Collector API, you must the use the Azure Government URL, https://*workspaceId*.ods.opinsights.azure.us, where *workspaceId* is the workspace ID from the Operations Management Suite portal.
++ To upload data by using the Data Collector API, you must use the Azure Government URL, https://*workspaceId*.ods.opinsights.azure.us, where *workspaceId* is the workspace ID from the Operations Management Suite portal.
 + To connect your System Center Operations Manager management server to Log Analytics, you need to download and import updated management packs.
   1. Download and save the [updated management packs](http://go.microsoft.com/fwlink/?LinkId=828749).
   2. Unzip the file that you downloaded.
