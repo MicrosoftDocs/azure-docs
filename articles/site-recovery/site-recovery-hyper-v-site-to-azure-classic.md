@@ -48,7 +48,7 @@ Site Recovery can be used in a number of scenarios and can protect a number of w
 
 ## Hyper-V prerequisites
 
-- In the source on-premises site you'll need one or more servers running **Windows Server 2012 R2** with the Hyper-V role installed or a **Microsoft Hyper-V Server 2012 R2**. This server should:
+- In the source on-premises site you'll need one or more servers running **Windows Server 2012 R2** with the Hyper-V role installed or **Microsoft Hyper-V Server 2012 R2**. This server should:
 - Contain one or more virtual machines.
 - Be connected to the Internet, either directly or via a proxy.
 - Be running the fixes described in KB [2961977](https://support.microsoft.com/en-us/kb/2961977 "KB2961977").

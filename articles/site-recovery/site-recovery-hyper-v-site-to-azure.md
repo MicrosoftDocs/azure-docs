@@ -17,7 +17,7 @@
 	ms.author="raynew"/>
 
 
-# Replicate Hyper-V virtual machines (without VMM) to Azure using Azure Site Recovery with the Azure portal | Microsoft Azure
+# Replicate Hyper-V virtual machines (without VMM) to Azure using Azure Site Recovery with the Azure portal
 
 > [AZURE.SELECTOR]
 - [Azure Portal](site-recovery-hyper-v-site-to-azure.md)
@@ -208,7 +208,8 @@ Set up the Hyper-V site, install the Azure Site Recovery Provider and the Azure 
 	![internet](./media/site-recovery-hyper-v-site-to-azure/provider7.PNG)
 
 6.After installation finishes click **Register** to register the server in the vault.
-	![Install location](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
+
+![Install location](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
 
 7.After registration finishes metadata from the Hyper-V server is retrieved by Azure Site Recovery and the server is displayed on the **Settings** > **Site Recovery Infrastructure** > **Hyper-V Hosts** blade.
 
@@ -229,6 +230,8 @@ The Azure Site Recovery Provider and agent can also be installed using the follo
 4. Then run these commands to register the server in the vault:
 	    	CD C:\Program Files\Microsoft Azure Site Recovery Provider\
 	    	C:\Program Files\Microsoft Azure Site Recovery Provider\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file>
+
+<br/>
 Where:
 
 - **/Credentials** : Mandatory parameter that specifies the location in which the registration key file is located  
