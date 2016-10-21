@@ -49,7 +49,15 @@ Azure IoT Hub helps you connect, monitor, and manage millions of IoT assets. To 
 
     All your available subscriptions are listed after a successful login.
 
-2. Register the provider by running the following command:
+2. Set the default subscription that you want to use by running the following command:
+
+    ```bash
+    az account set -n {subscription id or name}
+    ```
+
+    The subscription ID or name can be found in the output of `az login`.
+
+3. Register the provider by running the following command:
 
     ```bash
     az resource provider register -n "Microsoft.Devices"
@@ -58,14 +66,6 @@ Azure IoT Hub helps you connect, monitor, and manage millions of IoT assets. To 
     You must register the provider before you can deploy the Azure resource that the provider provides.
 
     > [AZURE.NOTE] Most providers are registered automatically by the Azure portal or the Azure CLI you are using, but not all. For more information about the provider, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](../resource-manager-common-deployment-errors.md)
-
-3. Set the default subscription that you want to use by running the following command:
-
-    ```bash
-    az account set -n {subscription id or name}
-    ```
-
-    The subscription ID or name can be found in the output of `az login`.
 
 4. Create a resource group named iot-sample in the West US region by running the following command:
 
