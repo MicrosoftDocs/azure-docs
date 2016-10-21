@@ -19,7 +19,7 @@
 
 # Create a VM from a generalized VHD image
 
-A generalized VHD image has had all of your personal account information removed using [Sysprep](virtual-machines-windows-generalize-vhd.md). You can create a generalized VHD by running Sysprep on an on-premises VM, then [uploading the VHD to Azure](virtual-machines-windows-upload-image.md), or by running Sysprep on an existing Azure VM and then [capturing an image](virtual-machines-windows-capture-image.md) of the VM.
+A generalized VHD image has had all your personal account information removed using [Sysprep](virtual-machines-windows-generalize-vhd.md). You can create a generalized VHD by running Sysprep on an on-premises VM, then [uploading the VHD to Azure](virtual-machines-windows-upload-image.md), or by running Sysprep on an existing Azure VM and then [capturing an image](virtual-machines-windows-capture-image.md) of the VM.
 
 If you want to create a VM from a specialized VHD, see [Create a VM from a specialized VHD](virtual-machines-windows-create-vm-specialized.md).
 
@@ -27,12 +27,12 @@ The quickest way to create a VM from a generalized VHD is to use a [quick start 
 (https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image). 
 
 
-You can also create the VM using PowerShell. The following steps will walk you through using PowerShell to create a new VM as well as the networking resources that it will need to run in Azure.
+You can also create the VM using PowerShell. The following steps walk you through using PowerShell to create a new VM and the networking resources that it will need to run in Azure.
 
 
 ## Set the URI of the VHD
 
-The URI for the VHD to use is in the format: https://**mystorageaccount**.blob.core.windows.net/**mycontainer**/**MyVhdName**.vhd. In this example the VHD named **myVHD** is in the storage account **mystorageaccount** in the container **mycontainer**.
+The URI for the VHD to use is in the format: https://**mystorageaccount**.blob.core.windows.net/**mycontainer**/**MyVhdName**.vhd. In this example, the VHD named **myVHD** is in the storage account **mystorageaccount** in the container **mycontainer**.
 
 ```powershell
 $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vhd"

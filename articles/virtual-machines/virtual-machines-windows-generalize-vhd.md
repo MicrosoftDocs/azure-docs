@@ -40,7 +40,7 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 
 	![Start Sysprep](./media/virtual-machines-windows-upload-image/sysprepgeneral.png)
 
-6. When Sysprep completes, it will shut down the virtual machine. 
+6. When Sysprep completes, it shuts down the virtual machine. 
 
 ## Next Steps
 
