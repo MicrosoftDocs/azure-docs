@@ -51,7 +51,7 @@ Enter the name of the file that is saved into the `~/.ssh/` directory:
 id_rsa
 ```
 
-Enter passphrase for azure_fedora_id_rsa:
+Enter passphrase for id_rsa:
 
 ```bash
 correct horse battery staple
@@ -164,8 +164,8 @@ The key pair name for this article.  Having a key pair named **id_rsa** is the d
 
 ```bash
 ls -al ~/.ssh
--rw------- 1 ahmet staff  1675 Aug 25 18:04 azure_fedora_id_rsa
--rw-r--r-- 1 ahmet staff   410 Aug 25 18:04 azure_fedora_id_rsa.pub
+-rw------- 1 myuser staff  1675 Aug 25 18:04 id_rsa
+-rw-r--r-- 1 myuser staff   410 Aug 25 18:04 rsa.pub
 ```
 A listing of the `~/.ssh` directory. `ssh-keygen` creates the `~/.ssh` directory if it is not present and also sets the correct ownership and file modes.
 
