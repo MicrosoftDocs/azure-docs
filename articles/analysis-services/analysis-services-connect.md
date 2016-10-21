@@ -66,22 +66,19 @@ Connecting to Azure Analysis Services server in Excel is supported by using Get 
     ![Connect in Excel select model](./media/analysis-services-connect/aas-connect-excel-select.png)
 
 ## Connection string
+When connecting to Azure Analysis Services using the Tabular Object Model, use the following connection string formats:
 
-Azure Analysis Server supports the following connection string:
+###### Integrated Azure Active Directory authentication
+```
+"Provider=MSOLAP;Data Source=<Azure AS instance name>;"
+```
+Integrated authentication will pick up the Azure Active Directory credential cache if available. If not, the Azure login window is shown.
 
+###### Azure Active Directory authentication with username and password
 ```
-if (connForm.IntegratedAuth)
-    serverConnectionString = $"Provider=MSOLAP;
-    Data Source={connForm.ServerName};";
-else
-    serverConnectionString = $"Provider=MSOLAP;
-    Data Source={connForm.ServerName};
-    User ID={connForm.UserName};
-    Password={connForm.Passwrod};
-    Persist Security Info=True;
-    Impersonation Level=Impersonate;";
+"Provider=MSOLAP;Data Source=<Azure AS instance name>;User ID=<user name>;Password=<password>;Persist Security Info=True; Impersonation Level=Impersonate;";
 ```
-Integrated auth will pickup the Azure Active Directory (AAD) credential cache if available. If not available, the Azure login window is shown. The connection string is most commonly used with Tabular Object Model (TOM) connections.
+
 
 ## Next steps
 [Manage your server](analysis-services-manage.md)

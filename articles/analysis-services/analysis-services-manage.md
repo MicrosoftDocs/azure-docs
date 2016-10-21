@@ -59,6 +59,40 @@ Analysis Services Admins can be different from Azure resource administrators, wh
 
 To view all roles and access types for your Azure Analysis Services resource, use Access control (IAM) on the control blade.
 
+## Database users
+Azure Analysis Services model database users must be in your Azure Active Directory. Usernames specified for the model database must be by organizational email address or UPN. This is different from on-premises model databases which support users by Windows domain usernames.
+
+You can add users by using [role assignments in Azure Active Directory](../active-directory/role-based-access-control-configure.md) or by using [Tabular Model Scripting Language](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) in SQL Server Management Studio.
+
+**Sample TMSL script**
+```
+{
+  "createOrReplace": {
+    "object": {
+      "database": "SalesBI",
+      "role": "Users"
+    },
+    "role": {
+      "name": "Users",
+      "description": "All allowed users to query the model",
+      "modelPermission": "read",
+      "members": [
+        {
+          "memberName": "user1@contoso.com",
+          "identityProvider": "AzureAD"
+        },
+        {
+          "memberName": "group1@contoso.com",
+          "identityProvider": "AzureAD"
+        }
+      ]
+    }
+  }
+}
+
+```
+
+
 ## Next steps
 
 If you haven't already deployed a tabular model to your new server, now is a good time. To learn more, see [Deploy to Azure Analysis Services](analysis-services-deploy.md).

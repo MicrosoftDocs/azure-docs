@@ -47,6 +47,8 @@ A gateway is installed on a computer in your network. One gateway must be instal
 
 - To change the server name for a gateway that has already been configured, you need to reinstall and configure a new gateway.
 
+- In some cases, tabular models connecting to data sources using native providers such as SQL Server Native Client (SQLNCLI11) may return an error. To learn more, see [Preview expectations](analysis-services-overview.md#preview-expectations).
+
 ## Supported on-premises data sources
 For preview, the gateway supports connections between your Azure Analysis Services server and the following on-premises data sources:
 
