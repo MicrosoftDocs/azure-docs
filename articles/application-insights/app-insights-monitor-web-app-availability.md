@@ -63,7 +63,7 @@ In your Application Insights resource, look for the Availability tile. Click it 
 
 - **Alerts** are, by default, sent to you if there are failures in three locations over five minutes. A failure in one location is likely to be a network problem, and not a problem with your site. But you can change the threshold to be more or less sensitive, and you can also change who the emails should be sent to.
 
-    You can set up a [webhook](../azure-portal/insights-webhooks-alerts.md) that is called when an alert is raised. (But note that, at present, query parameters are not passed through as Properties.)
+    You can set up a [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) that is called when an alert is raised. (But note that, at present, query parameters are not passed through as Properties.)
 
 ### Test more URLs
 
@@ -124,7 +124,7 @@ Note that you can't use coded functions in your tests: the scenario steps must b
 
 #### 1. Record a scenario
 
-Use Visual Studio Enterprise or Ultimate to record a web session. 
+Use Visual Studio Enterprise or Ultimate to record a web session.
 
 1. Create a web performance test project.
 
@@ -216,7 +216,7 @@ Use the SAML plugin that is available for web tests.
 
 ### Client secret
 
-If your app has a sign-in route that involves a client secret, use that route. Azure Active Directory (AAD) is an example of a service that provides a client secret sign-in. In AAD, the client secret is the App Key. 
+If your app has a sign-in route that involves a client secret, use that route. Azure Active Directory (AAD) is an example of a service that provides a client secret sign-in. In AAD, the client secret is the App Key.
 
 Here's a sample web test of an Azure web app using an app key:
 
@@ -226,18 +226,18 @@ Here's a sample web test of an Azure web app using an app key:
 2. Extract bearer token from response.
 3. Call API using bearer token in the authorization header.
 
-Make sure that the web test is an actual client - that is, it has its own app in AAD - and use its clientId + appkey. Your service under test also has its own app in AAD: the appID URI of this app is reflected in the web test in the “resource” field. 
+Make sure that the web test is an actual client - that is, it has its own app in AAD - and use its clientId + appkey. Your service under test also has its own app in AAD: the appID URI of this app is reflected in the web test in the “resource” field.
 
 ### Open Authentication
 
-An example of open authentication is signing in with your Microsoft or Google account. Many apps that use OAuth provide the client secret alternative, so your first tactic should be to investigate that possibility. 
+An example of open authentication is signing in with your Microsoft or Google account. Many apps that use OAuth provide the client secret alternative, so your first tactic should be to investigate that possibility.
 
 If your test must sign in using OAuth, the general approach is:
 
- * Use a tool such as Fiddler to examine the traffic between your web browser, the authentication site, and your app. 
+ * Use a tool such as Fiddler to examine the traffic between your web browser, the authentication site, and your app.
  * Perform two or more sign-ins using different machines or browsers, or at long intervals (to allow tokens to expire).
- * By comparing different sessions, identify the token passed back from the authenticating site, that is then passed to your app server after sign-in. 
- * Record a web test using Visual Studio. 
+ * By comparing different sessions, identify the token passed back from the authenticating site, that is then passed to your app server after sign-in.
+ * Record a web test using Visual Studio.
  * Parameterize the tokens, setting the parameter when the token is returned from the authenticator, and using it in the query to the site.
  (Visual Studio attempts to parameterize the test, but does not correctly parameterize the tokens.)
 
@@ -254,15 +254,15 @@ You might want to disable web tests while you are performing maintenance on your
 
 You can run a load test on your website. Like the availability test, you can send either simple requests or multi-step requests from our points around the world. Unlike an availability test, many requests are sent, simulating multiple simultaneous users.
 
-From the Overview blade, open **Settings**, **Performance Tests**. When you create a test, you are invited to connect to or create a Visual Studio Team Services account. 
+From the Overview blade, open **Settings**, **Performance Tests**. When you create a test, you are invited to connect to or create a Visual Studio Team Services account.
 
 When the test is complete, you are shown response times and success rates.
 
 
 ## Automation
 
-* [Use PowerShell scripts to set up a web test](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automatically. 
-* Set up a [webhook](../azure-portal/insights-webhooks-alerts.md) that is called when an alert is raised.
+* [Use PowerShell scripts to set up a web test](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automatically.
+* Set up a [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) that is called when an alert is raised.
 
 ## Questions? Problems?
 
@@ -280,7 +280,7 @@ When the test is complete, you are shown response times and success rates.
 
 * *I'd like to use availability tests on our internal server that runs behind a firewall.*
 
-    Configure your firewall to permit requests from the [IP addresses 
+    Configure your firewall to permit requests from the [IP addresses
     of web test agents](app-insights-ip-addresses.md#availability).
 
 * *Uploading a multi-step web test fails*
@@ -293,7 +293,7 @@ When the test is complete, you are shown response times and success rates.
 
     Data sources aren't supported.
 
-    
+
 * *My multi-step test doesn't complete*
 
     There's a limit of 100 requests per test.

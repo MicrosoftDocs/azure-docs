@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/08/2016"
+   ms.date="10/21/2016"
    ms.author="jgao"/>
 
 # Create Windows-based Hadoop clusters in HDInsight
@@ -53,6 +53,14 @@ Each cluster type has its own number of nodes, terminology for nodes within the 
 
 You can add other components such as Hue or R to these basic types by using [Script Actions](#customize-clusters-using-script-action).
 
+> [AZURE.IMPORTANT] HDInsight clusters come in a variety of types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster. 
+
+If your solution requires technologies that are spread across multiple HDInsight cluster types, you should create an Azure Virtual Network and create the required cluster types within the virtual network. This allows the clusters, and any code you deploy to them, to directly communicate with each other.
+
+For more information on using an Azure Virtual Network with HDInsight, see [Extend HDInsight with Azure Virtual Networks](hdinsight-extend-hadoop-virtual-network.md).
+
+For an example of using two cluster types within an Azure Virtual Network, see [Analyze sensor data with Storm and HBase](hdinsight-storm-sensor-data-analysis.md).
+
 ## Basic configuration options
 
 The following are the basic configuration options required for creating an HDInsight cluster.
@@ -86,13 +94,13 @@ Each HDInsight cluster is tied to one Azure subscription.
 
 ### Resource group name###
 
-With [Azure Resource Manager](../resource-group-overview.md), you can deploy, update, monitor, or delete the resources for your application.
+With [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), you can deploy, update, monitor, or delete the resources for your application.
 
 ### Credentials
 
 With the HDInsight clusters, you can configure three user accounts during cluster creation.
 
-- [Azure Resource Manager](../resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure resource group. You can deploy, update, monitor, or delete all of the resources for your application in a single, coordinated operation.
+- [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure resource group. You can deploy, update, monitor, or delete all of the resources for your application in a single, coordinated operation.
 
 - HTTP user. The default user name is *admin* in the basic configuration on the Azure portal. Sometimes the default is called "Cluster user."
 - RDP user (Windows clusters). Connect to the cluster by using RDP. When you create the account, you must set an expiration date within 90 days of the day you create the account.

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Connect to Azure Stack CLI | Microsoft Azure"
+	pageTitle="Connect to Azure Stack with CLI | Microsoft Azure"
 	description="Learn how to use the cross-platform command-line interface (CLI) to manage and deploy resources on Azure Stack"
 	services="azure-stack"
 	documentationCenter=""
@@ -13,24 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/26/2016"
+	ms.date="10/19/2016"
 	ms.author="helaw"/>
 
-# Install and configure Azure CLI
+# Install and configure Azure Stack CLI
 
-In this document, we guide you through the process of using the Azure command-line interface (CLI) to manage resources on Windows, Linux, and Mac client platforms.  
+In this document, we guide you through the process of using Azure Command-line Interface (CLI) to manage Azure Stack resources on Linux and Mac client platforms.  
 
-## Install Azure CLI
-Quickly install the Azure CLI to use a set of open-source, shell-based commands for creating and managing resources in Microsoft Azure Stack.
+## Install Azure Stack CLI
 
-[Download the Windows CLI](http://aka.ms/azstack-windows-cli)
-
-[Download the Mac CLI](http://aka.ms/azstack-linux-cli)
-
-[Download the Linux CLI](http://aka.ms/azstack-mac-cli)
-
-
-  If you’re on Mac or Linux, you can also get the CLI by using the following command:
+If you’re on Mac or Linux, you can get the CLI by using the following command:
   
     `npm install -g azure-cli@0.10.4`.
 
@@ -42,7 +34,7 @@ In the following steps, you configure Azure CLI to connect to Azure Stack. Then 
         
           (Invoke-RestMethod -Uri https://api.azurestack.local/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
 
-2.  Use the following CLI command to add the Azure Stack environment, making sure to update *--active-directory-resource-id* with the data URL retrieved above:
+2.  Use the following CLI command to add the Azure Stack environment, making sure to update *--active-directory-resource-id* with the data URL retrieved in the previous step:
 
            azure account env add AzureStack --resource-manager-endpoint-url "https://api.azurestack.local" --management-endpoint-url "https://api.azurestack.local" --active-directory-endpoint-url  "https://login.windows.net" --portal-url "https://portal.azurestack.local" --gallery-endpoint-url "https://portal.azurestack.local" --active-directory-resource-id "https://azurestack.local-api/" --active-directory-graph-resource-id "https://graph.windows.net/"
 

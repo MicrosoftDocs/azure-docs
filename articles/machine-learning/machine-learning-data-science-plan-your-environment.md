@@ -101,7 +101,7 @@ There are lots of options here depending on what languages and development envir
 	- [RStudio](http://www.rstudio.com)
 	- [Python Tools for Visual Studio](http://microsoft.github.io/PTVS/)
 	- [Anaconda](https://www.continuum.io/why-anaconda)
-	- [Jupiter notebooks](http://jupyter.org/)
+	- [Jupyter notebooks](http://jupyter.org/)
 	- [Microsoft Power BI](http://powerbi.microsoft.com)
 
 

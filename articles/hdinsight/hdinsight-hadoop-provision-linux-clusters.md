@@ -63,11 +63,18 @@ The following table lists the default VM sizes for HDInsight.
 
 Note that Head is known as *Nimbus* for the Storm cluster type. Worker is known as *Region* for the HBase cluster type and as *Supervisor* for the Storm cluster type.
 
-
-
 > [AZURE.IMPORTANT] If you plan on having more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14 GB of RAM.
 
 You can add other components such as Hue or R to these basic types by using [Script Actions](#customize-clusters-using-script-action).
+
+> [AZURE.IMPORTANT] HDInsight clusters come in a variety of types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster. 
+
+If your solution requires technologies that are spread across multiple HDInsight cluster types, you should create an Azure Virtual Network and create the required cluster types within the virtual network. This allows the clusters, and any code you deploy to them, to directly communicate with each other.
+
+For more information on using an Azure Virtual Network with HDInsight, see [Extend HDInsight with Azure Virtual Networks](hdinsight-extend-hadoop-virtual-network.md).
+
+For an example of using two cluster types within an Azure Virtual Network, see [Analyze sensor data with Storm and HBase](hdinsight-storm-sensor-data-analysis.md).
+
 
 ## Cluster tiers
 
@@ -120,7 +127,7 @@ Each HDInsight cluster is tied to one Azure subscription.
 
 ### Resource group name ###
 
-[Azure Resource Manager](../resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure Resource Group. You can deploy, update, monitor, or delete all of the resources for your application in a single coordinated operation.
+[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure Resource Group. You can deploy, update, monitor, or delete all of the resources for your application in a single coordinated operation.
 
 ### Credentials###
 
