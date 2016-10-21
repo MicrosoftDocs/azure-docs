@@ -1,0 +1,165 @@
+<properties
+	pageTitle="Windows Virtual Machines Overview | Microsoft Azure"
+	description="Learn about creating and managing Windows virtual machines in Azure."
+	services="virtual-machines-windows"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager,azure-service-management"/>
+
+<tags
+	ms.service="virtual-machines-windows"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="10/20/2016"
+	ms.author="davidmu"/>
+
+# Overview of Windows virtual machines in Azure
+
+Azure Virtual Machines (VM) is one of several types of [on-demand, scalable computing resources](../app-service-web/choose-web-site-cloud-service-vm.md) that Azure offers. Typically, you'll choose a VM if you need more control over the computing environment than the other choices offer. This article provides you with information about what you should think about before you create a VM, how you get started creating a VM, and how to manage the VM after you create it.
+
+An Azure VM gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. However, you still need to maintain the VM by performing tasks, such as configuring, patching, and installing the software that runs on it.
+
+Azure virtual machines can be used in a variety of ways. Some examples are:
+
+- **Development and test** – Azure VMs offer a quick and easy way to create a computer with specific configurations required to code and test an application.
+- **Applications in the cloud** – Because demand for your application can fluctuate, it might make economic sense to run it on a VM in Azure. You pay for extra VMs when you need them and shut them down when you don’t.
+- **Extended datacenter** – Virtual machines in an Azure virtual network can easily be connected to your organization’s network.
+
+The number of VMs that your application uses can scale up and out to whatever is required to meet your needs.
+
+## What do I need to think about before creating a VM?
+
+There are always a multitude of [design considerations](virtual-machines-windows-infrastructure-virtual-machine-guidelines.md) when you build out an application infrastructure in Azure. These are some of the considerations:
+
+- The names of your application resources
+- The location where the resources are stored
+- The size of the VM
+- The maximum number of VMs that can be created
+- The operating system that the VM runs
+- The configuration of the VM after it starts
+- The related resources that the VM needs
+
+### Naming
+
+When you create a VM, the [name](virtual-machines-windows-infrastructure-naming-guidelines.md) can be up to 15 characters. Azure uses the same name for the operating system installed in the VM. However, these names might not always be the same.
+
+In case a VM is created from a .vhd image file that already contains an operating system, the VM name in Azure can differ from the VM's operating system computer name. This situation can add a degree of difficulty to VM management, which we therefore do not recommend. Assign the Azure VM resource the same name as the computer name that you assign to the operating system of that VM.
+We recommend that the Azure VM name is the same as the underlying operating system computer name.
+
+### Locations
+
+All resources created in Azure are are distributed across multiple [geographical regions](https://azure.microsoft.com/regions/) around the world. In most cases, the region is called location when you create a VM. For a VM, the location specifies where the virtual hard disks are stored.
+
+This table shows some of the ways you can get a list of available locations.
+
+| Method | Description |
+| ------ | ----------- |
+| Azure portal | Select a location from the list when you create a VM. |
+| Azure PowerShell | Use the [Get-AzureRmLocation](https://msdn.microsoft.com/library/mt619449.aspx) command. |
+| REST API | Use the [List locations](https://msdn.microsoft.com/library/dn790540.aspx) operation. |
+
+### VM size
+
+The [size](virtual-machines-windows-sizes.md) of the VM that you use is determined by the workload that you want to run. The size that you choose then determines factors such as processing power, memory, and storage capacity. Azure offers a wide variety of sizes to support many types of uses.
+
+Azure charges an [hourly price](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) based on the VM’s size and operating system. For partial hours, Azure charges only for the minutes used. Storage is priced and charged separately.
+
+### VM Limits
+
+Your subscription has default [quota limits](../azure-subscription-service-limits.md) in place that could impact the deployment of a large number of VMs for your project. The current limit on a per subscription basis is 20 VMs per region. Limits can be raised by filing a support ticket requesting an increase.
+
+### Operating system disks and images
+
+Virtual machines use [virtual hard disks (VHDs)](virtual-machines-windows-about-disks-vhds.md) to store their operating system (OS) and data. VHDs are also used for the images you can choose from to install an OS. 
+
+Azure provides many [marketplace images](https://azure.microsoft.com/marketplace/virtual-machines/) to use with various versions and types of Windows Server operating systems. Marketplace images are identified by image publisher, offer, sku, and version (typically version is specified as latest). 
+
+This table shows some ways that you can find the information for an image.
+
+| Method | Description |
+| ------ | ----------- |
+| Azure portal | The values are automatically specified for you when you select an image to use. |
+| Azure PowerShell | [Get-AzureRMVMImagePublisher](https://msdn.microsoft.com/library/mt603484.aspx) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://msdn.microsoft.com/library/mt603824.aspx) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](https://msdn.microsoft.com/library/mt619458.aspx) -Location "location" -Publisher "publisherName" -Offer "offerName" |
+| REST APIs | [List image publishers](https://msdn.microsoft.com/library/mt743702.aspx)<BR>[List image offers](https://msdn.microsoft.com/library/mt743700.aspx)<BR>[List image skus](https://msdn.microsoft.com/library/mt743701.aspx) |
+
+You can [upload and use your own image](virtual-machines-windows-upload-image.md) that you prepared locally. If you choose to use this method, the publisher name, offer, and sku aren’t used.
+
+### Extensions
+
+VM [extensions](virtual-machines-windows-extensions-features.md) give your VM additional capabilities through post deployment configuration and automated tasks.
+
+These are some of the common tasks that you can accomplish using extensions:
+
+- **Run custom scripts** – The [Custom Script Extension](virtual-machines-windows-extensions-customscript.md) helps you configure workloads on the VM by running your script when the VM is provisioned.
+- **Deploy and manage configurations** – The [PowerShell Desired State Configuration (DSC) Extension](virtual-machines-windows-extensions-dsc-overview.md) helps you set up DSC on a VM to manage configurations and environments.
+- **Collect diagnostics data** – The [Azure Diagnostics Extension](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) helps you configure the VM to collect diagnostics data that can be used to monitor the health of your application.
+
+### Related resources
+
+The resources in this table are used by the VM and need to exist or be created when the VM is created.
+
+| Resource | Required | Description |
+| -------- | -------- | ----------- |
+| [Resource group](../azure-resource-manager/resource-group-overview.md) | Yes | The VM must be contained in a resource group. |
+| [Storage account](../storage/storage-create-storage-account.md) | Yes | The VM needs the storage account to store its virtual hard disks. |
+| [Virtual network](../virtual-network/virtual-networks-overview.md) | Yes | The VM must be a member of a virtual network. |
+| [Public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md) | No | The VM can have a public IP address assigned to it to remotely accessed it. |
+| [Network interface](../virtual-network/virtual-network-network-interface-overview.md) | Yes | The VM needs the network interface to communicate in the network. |
+| [Data disks](virtual-machines-windows-attach-disk-portal.md) | No | The VM can include data disks to expand storage capabilities. |
+
+## How do I create my first VM?
+
+You have several choices for creating your VM. The choice that you make depends on the environment you are in. 
+
+This table provides information to get you started creating your VM.
+
+| Method | Article |
+| ------ | ------- |
+| Azure portal | [Create a virtual machine running Windows using the portal](virtual-machines-windows-hero-tutorial.md) |
+| Templates | [Create a Windows virtual machine with a Resource Manager template](virtual-machines-windows-ps-template.md) |
+| Azure PowerShell | [Create a Windows VM using PowerShell](virtual-machines-windows-ps-create.md) |
+| Client SDKs | [Deploy Azure Resources using C#](virtual-machines-windows-csharp.md) |
+| REST APIs | [Create or update a VM](https://msdn.microsoft.com/library/mt163591.aspx) |
+
+You hope it never happens, but occasionally something goes wrong. If this happens to you, look at the information in [Troubleshoot Resource Manager deployment issues with creating a new Windows virtual machine in Azure](virtual-machines-windows-troubleshoot-deployment-new-vm.md).
+
+## How do I manage the VM that I created?
+
+VMs can be managed using a browser-based portal, command-line tools with support for scripting, or directly through APIs. Some typical management tasks that you might perform are getting information about a VM, logging on to a VM, manage the availability of a VM, and make backups of a VM.
+
+### Get information about a VM
+
+This table shows you some of the ways that you can get information about a VM.
+
+| Method | Description |
+| ------ | ----------- |
+| Azure portal | On the hub menu, click **Virtual Machines** and then select the VM from the list. On the blade for the VM, you have access to overview information, setting values, and monitoring metrics. |
+| Azure PowerShell | For information about using PowerShell to manage VMs, see [Manage Azure Virtual Machines using Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md). |
+| REST API | Use the [Get VM information](https://msdn.microsoft.com/library/mt163682.aspx) operation to get information about a VM. |
+| Client SDKs | For information about using C# to manage VMs, see [Manage Azure Virtual Machines using Azure Resource Manager and C#](virtual-machines-windows-csharp-manage.md). |
+
+### Log on to the VM
+
+You use the Connect button in the Azure portal to [start a Remote Desktop (RDP) session](virtual-machines-windows-connect-logon.md). Things can sometimes go wrong when trying to use a remote connection. If this happens to you, check out the help information in [Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows](virtual-machines-windows-troubleshoot-rdp-connection.md).
+
+### Manage availability
+
+It’s important for you to understand how to [ensure high availability](virtual-machines-windows-manage-availability.md) for your application. In most cases this involves creating multiple VMs to ensure that at least one is running.
+
+In order for your deployment to qualify for our 99.95 VM Service Level Agreement, you need to deploy two or more VMs running your workload inside of an [availability set](virtual-machines-windows-infrastructure-availability-sets-guidelines.md). This will ensure your VMs are distributed across multiple fault domains in our data centers as well as deployed onto hosts with different maintenance windows. The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) explains the guaranteed availability of Azure as a whole.
+ 
+### Backup the VM
+ 
+A [Recovery Services vault](../backup/backup-introduction-to-azure-backup.md) is used to protect data and assets in both Azure Backup and Azure Site Recovery services. You can use a Recovery Services vault to [deploy and manage backups for Resource Manager-deployed VMs using PowerShell](../backup/backup-azure-vms-automation.md). 
+
+## Next steps
+
+- If your intent is to work with Linux VMs, look at [Azure and Linux](virtual-machines-linux-azure-overview.md).
+- Learn more about the guidelines around setting up your infrastructure in the [Example Azure infrastructure walkthrough](virtual-machines-windows-infrastructure-example.md).
+- Make sure you follow the [Best Practices for running a Windows VM on Azure](virtual-machines-windows-guidance-compute-single-vm.md).
+
+
