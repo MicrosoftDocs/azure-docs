@@ -89,12 +89,9 @@ You can add users by using [role assignments in Azure Active Directory](../activ
     }
   }
 }
-
 ```
 
-
 ## Next steps
-
 If you haven't already deployed a tabular model to your new server, now is a good time. To learn more, see [Deploy to Azure Analysis Services](analysis-services-deploy.md).
 
 If you've deployed a model to your server, you're ready to connect to it using a client or browser. To learn more, see [Connect to an Azure Analysis Services server](analysis-services-connect.md).
