@@ -201,7 +201,7 @@ Visual Studio|Visual Studio Enterprise 2015 Update 2 with Azure SDK 2.9 on Windo
 
 ## Quick Start Templates
 
-
+put content here
 
 ## <a name="next"></a>Next steps
 
