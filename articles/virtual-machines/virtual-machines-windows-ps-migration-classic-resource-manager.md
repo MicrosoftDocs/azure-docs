@@ -138,45 +138,45 @@ Prepare the virtual machines in the cloud service for migration. You have two op
 
 	First, validate if you can migrate the cloud service using the following commands:
 
-		```powershell
-		$validate = Move-AzureService -Validate -ServiceName $serviceName `
-			-DeploymentName $deploymentName -CreateNewVirtualNetwork
-		$validate.ValidationMessages
-		```
+	```powershell
+	$validate = Move-AzureService -Validate -ServiceName $serviceName `
+		-DeploymentName $deploymentName -CreateNewVirtualNetwork
+	$validate.ValidationMessages
+	```
 
 	The preceding command displays any warnings and errors that block migration. If validation is successful, then you can move on to the **Prepare** step:
 
-		```powershell
-		Move-AzureService -Prepare -ServiceName $serviceName `
-			-DeploymentName $deploymentName -CreateNewVirtualNetwork
-		```
+	```powershell
+	Move-AzureService -Prepare -ServiceName $serviceName `
+		-DeploymentName $deploymentName -CreateNewVirtualNetwork
+	```
 
 * **Option 2. Migrate to an existing virtual network in the Resource Manager deployment model**
 
 This example sets the resource group name to **myResourceGroup**, the virtual network name to **myVirtualNetwork** and the subnet name to **mySubNet**. Replace the names in the example with the names of your own resources.
 
-		```powershell
-		$existingVnetRGName = "myResourceGroup"
-		$vnetName = "myVirtualNetwork"
-		$subnetName = "mySubNet"
-		```
+	```powershell
+	$existingVnetRGName = "myResourceGroup"
+	$vnetName = "myVirtualNetwork"
+	$subnetName = "mySubNet"
+	```
 
 	First, validate if you can migrate the cloud service using the following command:
 
-		```powershell
-		$validate = Move-AzureService -Validate -ServiceName $serviceName `
-			-DeploymentName $deploymentName -UseExistingVirtualNetwork -VirtualNetworkResourceGroupName $existingVnetRGName -VirtualNetworkName $vnetName -SubnetName $subnetName
-		$validate.ValidationMessages
-		```
+	```powershell
+	$validate = Move-AzureService -Validate -ServiceName $serviceName `
+		-DeploymentName $deploymentName -UseExistingVirtualNetwork -VirtualNetworkResourceGroupName $existingVnetRGName -VirtualNetworkName $vnetName -SubnetName $subnetName
+	$validate.ValidationMessages
+	```
 
 	The preceding command displays any warnings and errors that block migration. If validation is successful, then you can proceed with the following Prepare step:
 
-		```powershell
-		Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName `
-			-UseExistingVirtualNetwork -VirtualNetworkResourceGroupName $existingVnetRGName `
-			-VirtualNetworkName $vnetName -SubnetName $subnetName
-		```
-		
+	```powershell
+	Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName `
+		-UseExistingVirtualNetwork -VirtualNetworkResourceGroupName $existingVnetRGName `
+		-VirtualNetworkName $vnetName -SubnetName $subnetName
+	```
+	
 After the Prepare operation succeeds with either of the preceding options, query the migration state of the VMs. Ensure that they are in the `Prepared` state.
 
 This example sets the VM name to **myVM**. Replace the example name with your own VM name.
