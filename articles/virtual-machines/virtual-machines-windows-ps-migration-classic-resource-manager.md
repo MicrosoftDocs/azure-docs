@@ -153,7 +153,7 @@ Prepare the virtual machines in the cloud service for migration. You have two op
 
 * **Option 2. Migrate to an existing virtual network in the Resource Manager deployment model**
 
-This example sets the resource group name to **myResourceGroup**, the virtual network name to **myVirtualNetwork** and the subnet name to **mySubNet**. Replace the names in the example with the names of your own resources.
+	This example sets the resource group name to **myResourceGroup**, the virtual network name to **myVirtualNetwork** and the subnet name to **mySubNet**. Replace the names in the example with the names of your own resources.
 
 	```powershell
 	$existingVnetRGName = "myResourceGroup"
@@ -177,6 +177,7 @@ This example sets the resource group name to **myResourceGroup**, the virtual ne
 		-VirtualNetworkName $vnetName -SubnetName $subnetName
 	```
 	
+
 After the Prepare operation succeeds with either of the preceding options, query the migration state of the VMs. Ensure that they are in the `Prepared` state.
 
 This example sets the VM name to **myVM**. Replace the example name with your own VM name.
