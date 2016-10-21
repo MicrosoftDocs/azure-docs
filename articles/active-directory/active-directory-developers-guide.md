@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/11/2016"
+   ms.date="10/21/2016"
    ms.author="mbaldwin"/>
 
 
@@ -25,7 +25,7 @@ As an identity management as a service (IDMaaS) platform, Azure Active Directory
 
 1. [The benefits of Azure AD integration](active-directory-how-to-integrate.md): Discover why integration with Azure AD offers the best solution for secure sign-in and authorization.
 
-1. [Azure AD authentication scenarios](active-directory-authentication-scenarios.md): Take advantage of simplified authentication in Azure AD to provide sign-on to your application.
+1. [Azure AD authentication scenarios](active-directory-authentication-scenarios.md): Take advantage of simplified authentication in Azure AD to provide sign-on to your application. If you're doing on-premises development using Active Directory Federation Services (ADFS), see [AD FS Scenarios for Developers](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 
 1. [Integrating applications with Azure AD](active-directory-integrating-applications.md): Learn how to add, update, and remove applications from Azure AD, and about the branding guidelines for integrated apps.
 
@@ -77,6 +77,9 @@ These articles describe how to perform specific tasks by using Azure Active Dire
 - [Preview: How to build apps that sign users in with both personal & work or school accounts](active-directory-appmodel-v2-overview.md)
 - [Preview: How to build apps that sign up & sign in consumers](../active-directory-b2c/active-directory-b2c-overview.md)
 - [Preview: Configuring token lifetimes in Azure AD](active-directory-configurable-token-lifetimes.md) using PowerShell. See [Policy operations](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) and the [Policy entity](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity) for details on configuring via the Azure AD Graph API.
+
+### Windows Server on-premises development
+- [Active Directory Federation Services (AD FS) walkthroughs](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/ad-fs-development)
 
 ## Reference
 
@@ -145,3 +148,9 @@ These overview presentations on developing apps by using Azure Active Directory 
 - [Cloud Identity](http://www.cloudidentity.net): Thoughts on identity management as a service, from a principal Azure Active Directory PM.  
 
 - [Azure Active Directory on Twitter](https://twitter.com/azuread): Azure Active Directory announcements in 140 characters or fewer.
+
+## Windows Server on-premises development
+For guidance on using Windows Server and Active Directory Federation Services (ADFS) development, see:
+
+- [AD FS Scenarios for Developers](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers): Provides an overview of AD FS components and how it works, with details on the supported authentication/authorization scenarios. 
+- [AD FS walkthroughs](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/ad-fs-development): a list of walk-through articles, which provide step-by-step instructions on implementing the related authentication/authorization flows. 
