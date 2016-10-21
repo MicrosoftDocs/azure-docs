@@ -23,7 +23,7 @@ Azure Virtual Machines (VM) is one of several types of [on-demand, scalable comp
 
 An Azure VM gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. However, you still need to maintain the VM by performing tasks, such as configuring, patching, and installing the software that runs on it.
 
-Azure virtual machines can be used in a variety of ways. Some examples are:
+Azure virtual machines can be used in various ways. Some examples are:
 
 - **Development and test** – Azure VMs offer a quick and easy way to create a computer with specific configurations required to code and test an application.
 - **Applications in the cloud** – Because demand for your application can fluctuate, it might make economic sense to run it on a VM in Azure. You pay for extra VMs when you need them and shut them down when you don’t.
@@ -47,7 +47,7 @@ There are always a multitude of [design considerations](virtual-machines-windows
 
 When you create a VM, the [name](virtual-machines-windows-infrastructure-naming-guidelines.md) can be up to 15 characters. Azure uses the same name for the operating system installed in the VM. However, these names might not always be the same.
 
-In case a VM is created from a .vhd image file that already contains an operating system, the VM name in Azure can differ from the VM's operating system computer name. This situation can add a degree of difficulty to VM management, which we therefore do not recommend. Assign the Azure VM resource the same name as the computer name that you assign to the operating system of that VM.
+If a VM is created from a .vhd image file that already contains an operating system, its name can differ from the VM's operating system computer name. This situation can add a degree of difficulty to VM management, which we therefore do not recommend. Assign the Azure VM resource the same name as the computer name that you assign to the operating system of that VM.
 We recommend that the Azure VM name is the same as the underlying operating system computer name.
 
 ### Locations
@@ -92,11 +92,11 @@ You can [upload and use your own image](virtual-machines-windows-upload-image.md
 
 VM [extensions](virtual-machines-windows-extensions-features.md) give your VM additional capabilities through post deployment configuration and automated tasks.
 
-These common tasks can be accomplish using extensions:
+These common tasks can be accomplished using extensions:
 
 - **Run custom scripts** – The [Custom Script Extension](virtual-machines-windows-extensions-customscript.md) helps you configure workloads on the VM by running your script when the VM is provisioned.
 - **Deploy and manage configurations** – The [PowerShell Desired State Configuration (DSC) Extension](virtual-machines-windows-extensions-dsc-overview.md) helps you set up DSC on a VM to manage configurations and environments.
-- **Collect diagnostics data** – The [Azure Diagnostics Extension](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) helps you configure the VM to collect diagnostics data that can be used to monitor the health of your application.
+- **Collect diagnostics data** – The [Azure Diagnostics Extension](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) helps you configure the VM to collect diagnostics data that can be used to monitor the health of your application.
 
 ### Related resources
 
@@ -129,7 +129,7 @@ You hope it never happens, but occasionally something goes wrong. If this situat
 
 ## How do I manage the VM that I created?
 
-VMs can be managed using a browser-based portal, command-line tools with support for scripting, or directly through APIs. Some typical management tasks that you might perform are getting information about a VM, logging on to a VM, manage the availability of a VM, and make backups of a VM.
+VMs can be managed using a browser-based portal, command-line tools with support for scripting, or directly through APIs. Some typical management tasks that you might perform are getting information about a VM, logging on to a VM, managing availability, and making backups.
 
 ### Get information about a VM
 
@@ -148,9 +148,9 @@ You use the Connect button in the Azure portal to [start a Remote Desktop (RDP) 
 
 ### Manage availability
 
-It’s important for you to understand how to [ensure high availability](virtual-machines-windows-manage-availability.md) for your application. Usually this involves creating multiple VMs to ensure that at least one is running.
+It’s important for you to understand how to [ensure high availability](virtual-machines-windows-manage-availability.md) for your application. This configuration involves creating multiple VMs to ensure that at least one is running.
 
-In order for your deployment to qualify for our 99.95 VM Service Level Agreement, you need to deploy two or more VMs running your workload inside an [availability set](virtual-machines-windows-infrastructure-availability-sets-guidelines.md). This configuraiton ensures your VMs are distributed across multiple fault domains and are deployed onto hosts with different maintenance windows. The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) explains the guaranteed availability of Azure as a whole.
+In order for your deployment to qualify for our 99.95 VM Service Level Agreement, you need to deploy two or more VMs running your workload inside an [availability set](virtual-machines-windows-infrastructure-availability-sets-guidelines.md). This configuration ensures your VMs are distributed across multiple fault domains and are deployed onto hosts with different maintenance windows. The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) explains the guaranteed availability of Azure as a whole.
  
 ### Back up the VM
  
