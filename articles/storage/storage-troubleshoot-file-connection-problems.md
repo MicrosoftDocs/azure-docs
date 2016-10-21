@@ -153,7 +153,7 @@ By default, Windows Explorer does not run as Administrator. If you run **net use
 
 **Workaround**
 
-Mount the share from a non-administrator command line. Alternatively, you can follow [this TechNet topic](https://technet.microsoft.com/en-us/library/ee844140.aspx) to configure the EnableLinkedConnections registry value.
+Mount the share from a non-administrator command line. Alternatively, you can follow [this TechNet topic](https://technet.microsoft.com/library/ee844140.aspx) to configure the EnableLinkedConnections registry value.
 
 ### My storage account contains “/” and the net use command fails
 
