@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/12/2016"
+   ms.date="10/21/2016"
    ms.author="mwasson"/>
 
 # Running Windows VMs in multiple regions for high availability
@@ -31,7 +31,7 @@ In this article, we recommend a set of practices to run Windows virtual machines
 
 A multi-region architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use [Traffic Manager][traffic-manager] to fail over to the secondary region. This architecture can also help if an individual subsystem of the application fails.  
      
-There are several general approaches to achieving high availability across data centers:      
+There are several general approaches to achieving high availability across data centers:
 
 - Active/passive with hot standby. Traffic goes to one region, while the other waits on standby. VMs in the secondary region are allocated and running at all times.
 
@@ -44,6 +44,8 @@ This architecture focuses on active/passive with hot standby, using Traffic Mana
 ## Architecture diagram
 
 The following diagram builds on the architecture shown in [Adding reliability to an N-tier architecture on Azure](guidance-compute-n-tier-vm.md).
+
+> A Visio document that includes this architecture diagram is available for download at the [Microsoft download center][visio-download]. This diagram is on the "Compute - multi region (Windows) page.
 
 [![0]][0]
 
@@ -62,6 +64,8 @@ The following diagram builds on the architecture shown in [Adding reliability to
 - **VPN Gateways**: Create a [VPN gateway][vpn-gateway] in each VNet, and configure a [VNet-to-VNet connection][vnet-to-vnet], to enable network traffic between the two VNets. This is required for the SQL Always On availability group.
 
 ## Recommendations
+
+Azure offers many different resources and resource types, so this reference architecture can be provisioned many different ways. We have provided an Azure Resource Manager template to install the reference architecture that follows these recommendations. If you choose to create your own reference architecture follow these recommendations unless you have a specific requirement that a recommendation does not fit.
 
 ### Regional pairing
 
@@ -191,7 +195,7 @@ Measure the recovery times and verify they meet your business requirements. Test
 
 ## Next steps
 
-- This series has focused on pure cloud deployments. Enterprise scenarios often require a hybrid network, connecting an on-premises network with an Azure virtual network. To learn how to build such a hybrid network, see [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][hybrid-vpn].
+This series has focused on pure cloud deployments. Enterprise scenarios often require a hybrid network, connecting an on-premises network with an Azure virtual network. To learn how to build such a hybrid network, see [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][hybrid-vpn].
 
 <!-- Links -->
 
