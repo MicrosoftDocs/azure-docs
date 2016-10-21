@@ -47,7 +47,7 @@ There are a few different [pricing tiers](https://azure.microsoft.com/pricing/de
 | Maximum Storage per Service      | 2 GB      | 300 GB      | 1.2 TB      | 2.4 TB      | 600 GB        |
 | Maximum Documents per Partition  | 1 million | 15 million  | 60 million  | 120 million | 200 million   |
 | Maximum Storage per Partition    | 2 GB      | 25 GB       | 100 GB      | 200 GB      | 200 GB        |
-| Maximum Indexes per Service      | 5         | 50          | 200         | 200         | 3000 (max 1,000 indexes/partition)          |
+| Maximum Indexes per Service      | 5         | 50          | 200         | 200         | 3000 (max 1000 indexes/partition)          |
 
 
 #### S3 High Density'
