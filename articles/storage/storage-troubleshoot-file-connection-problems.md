@@ -47,7 +47,7 @@ This article lists common problems that are related to Microsoft Azure File stor
 
 [Mount error 115 when attempting to mount Azure Files on the Linux VM](#error15)
 
-[Linux VM experiencing random delays in commands like “ls”](#delayproblem)s
+[Linux VM experiencing random delays in commands like “ls”](#delayproblem)
 
 
 ## General problems
@@ -226,7 +226,7 @@ However, note that setting the registry key affects all copy operations to netwo
 
 This error occurs on the Linux client when the client has been idle for an extended period of time. When this error occurs, the client disconnects, and the client connection times out.
 
-###Solution###
+### Solution
 
 This issue is now fixed in the Linux kernel as part of [change set](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93), pending backport into Linux distribution.
 
@@ -242,7 +242,7 @@ Linux distributions do not yet support encryption feature in SMB 3.0. In some di
 
 If the Linux SMB client that is used does not support encryption, mount Azure Files by using SMB 2.1 from a Linux VM on the same data center as the File storage account.
 
-## Linux VM experiencing random delays in commands like “ls”
+### Linux VM experiencing random delays in commands like “ls”
 
 ### Cause
 
