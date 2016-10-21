@@ -102,19 +102,20 @@ To create the virtual network:
 
     ![New Item](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/02-newiteminrg.png)
 
-2.  Search for **virtual network**.
+1.  Search for **virtual network**.
 
-       ![Search Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/04-findvirtualnetwork.png)
+      ![Search Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/04-findvirtualnetwork.png)
 
-3.  Click **Virtual network**.
+1.  Click **Virtual network**.
 
-4.  In the **Virtual network** blade, click the **Resource Manager** deployment model and click **Create**.
+1.  In the **Virtual network** blade, click the **Resource Manager** deployment model and click **Create**.
 
-        ![Create Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/05-createvirtualnetwork.png)
+      ![Create Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/05-createvirtualnetwork.png)
 
-5.  Configure the virtual network on the **Create virtual network** blade. 
+1.  Configure the virtual network on the **Create virtual network** blade. 
 
-       The following table shows the settings for the virtual network.
+    The following table shows the settings for the virtual network.
+
     | **Field**                | Value                                    |
     | ------------------------ | ---------------------------------------- |
     | **Name**                 | autoHAVNET                               |
@@ -124,12 +125,11 @@ To create the virtual network:
     | **Subscription**         | Specify the subscription that you intend to use. If you only have one subscription, this may be blank. |
     | **Location**             | Specify the Azure location.              |
 
-       Your address space and subnet address range may be different from the table. Depending on your subscription, Azure will specifies an available address space and corresponding subnet address range. If no sufficient address space is available, use a different subscription. 
+     Your address space and subnet address range may be different from the table. Depending on your subscription, Azure will specifies an available address space and corresponding subnet address range. If no sufficient address space is available, use a different subscription. 
 
-6.  Click **Create**
+1.  Click **Create**
 
-      ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/06-configurevirtualnetwork.png)
-
+    ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/06-configurevirtualnetwork.png)
 
 Azure returns you to the portal dashboard and notifies you when the new network is created.
 
@@ -139,25 +139,25 @@ At this point your virtual network contains one subnet, named Subnet-1. The doma
 
 1. On your dashboard, click the resource group that you created, **SQL-HA-RG**. Locate the network in the resource group under **Resources**.
 
-   If **SQL-HA-RG** is not visible, find it by clicking **Resource Groups** and filtering by the resource group name.
+    If **SQL-HA-RG** is not visible, find it by clicking **Resource Groups** and filtering by the resource group name.
 
-2. Click **autoHAVNET** on the list of resources. Azure opens the network configuration blade.
+1. Click **autoHAVNET** on the list of resources. Azure opens the network configuration blade.
 
-3. On **autoHAVNET** virtual network, click **All settings*.
+1. On **autoHAVNET** virtual network, click **All settings.**
 
-4. On the **Settings** blade, click **Subnets**.
+1. **On the **Settings** blade, click **Subnets**.
+ 
+    Notice the subnet that you already created. 
+ 
+    ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/07-addsubnet.png)
 
-   Notice the subnet that you already created. 
-
-   ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/07-addsubnet.png)
-
-5. Create a second subnet. Click **+ Subnet**. 
-
-   In the **Add Subnet** blade, configure the subnet by typing **subnet-2** under **Name**. Azure automatically specifies a valid **Address range**. Verify that this address range has at least 10 addresses in it. In a production environment, you may require more addresses. 
-
-6. Click **OK**.
-
-![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/08-configuresubnet.png)
+1. Create a second subnet. Click **+ Subnet**. 
+ 
+1. In the **Add Subnet** blade, configure the subnet by typing **subnet-2** under **Name**. Azure automatically specifies a valid **Address range**. Verify that this address range has at least 10 addresses in it. In a production environment, you may require more addresses. 
+ 
+1. Click **OK**.
+ 
+    ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/08-configuresubnet.png)
 
 Here is a summary of the configuration settings for the virtual network and both subnets.
 
@@ -481,25 +481,25 @@ Use these addresses to configure the DNS service for each VM. Do the following s
 ## Create the cluster
 
 ### Add the **Failover Clustering** feature to each cluster VM.
-
+ 
 1. RDP to **sqlserver-0**.
-
-2. In the **Server Manager** dashboard, click **Add roles and features**.
-
-3. In the **Add Roles and Features Wizard**, click **Next** until you get to the **Features** page.
-
-4. Select **Failover Clustering**. When prompted, add any other dependent features.
-
-   ![Add Failover Clustering Feature to VM](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784631.png)
-
-5. Click **Next**, and then click **Install** on the **Confirmation** page.
-
-6. When the **Failover Clustering** feature installation is completed, click **Close**.
-
-7. Log out of the VM.
-
-8. Repeat the steps in this section on **sqlserver-1**, and **cluster-fsw**.
-
+ 
+1. In the **Server Manager** dashboard, click **Add roles and features**.
+ 
+1. In the **Add Roles and Features Wizard**, click **Next** until you get to the **Features** page.
+ 
+1. Select **Failover Clustering**. When prompted, add any other dependent features.
+ 
+    ![Add Failover Clustering Feature to VM](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784631.png)
+ 
+1. Click **Next**, and then click **Install** on the **Confirmation** page.
+ 
+1. When the **Failover Clustering** feature installation is completed, click **Close**.
+ 
+1. Log out of the VM.
+ 
+1. Repeat the steps in this section on **sqlserver-1**, and **cluster-fsw**.
+ 
 The SQL Server VMs are now provisioned and running, but they are installed with SQL Server with default options.
 
 ### Create the WSFC Cluster
@@ -533,23 +533,24 @@ Follow the steps below to configure the cluster.
 2. In the **Server Manager** dashboard, select **Tools**, and then click **Failover Cluster Manager**.
 
 3. In the left pane, right-click **Failover Cluster Manager**, and then click **Create a Cluster**, as shown below.
+ 
+    ![Create Cluster](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784632.png)
+ 
+1. In the Create Cluster Wizard, create a one-node cluster by stepping through the pages with the settings below:
+ 
+    |Page                                     | Settings                                 
+    |---------------------------------------- | ---------------------------------------- |
+    |Before You Begin                         | Use defaults                             |
+    |Select Servers                           | Type **sqlserver-0** in **Enter server name** and click **Add** |
+    |Validation Warning                       | Select **No. I do not require support from Microsoft for this cluster, and therefore do not want to run the validation tests. When I click Next, continue Creating the cluster**. |
+    |Access Point for Administering the Cluster | Type **Cluster1** in **Cluster Name**    |
+    | Confirmation                             | Use defaults unless you are using Storage Spaces. See the note following this table. |
 
-   ![Create Cluster](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784632.png)
-
-4. In the Create Cluster Wizard, create a one-node cluster by stepping through the pages with the settings below:
-
-| Page                                     | Settings                                 |
-| ---------------------------------------- | ---------------------------------------- |
-| Before You Begin                         | Use defaults                             |
-| Select Servers                           | Type **sqlserver-0** in **Enter server name** and click **Add** |
-| Validation Warning                       | Select **No. I do not require support from Microsoft for this cluster, and therefore do not want to run the validation tests. When I click Next, continue creating the cluster**. |
-| Access Point for Administering the Cluster | Type **Cluster1** in **Cluster Name**    |
-| Confirmation                             | Use defaults unless you are using Storage Spaces. See the note following this table. |
 
 >[AZURE.NOTE] If you are using [Storage Spaces](https://technet.microsoft.com/library/hh831739), which groups multiple disks in to storage pools, you must uncheck the **Add all eligible storage to the cluster** checkbox on the **Confirmation** page. If you do not uncheck this option, Windows detatches the virtual disks during the clustering process. As a result, they will not appear in Disk Manager or Explorer until the storage spaces are removed from the cluster and reattached using PowerShell.
-
+ 
 Now that you have created the cluster, verify the configuration and add the remaining nodes. 
-
+ 
 1. In the center pane, scroll down to **Cluster Core Resources** section and expand the **Name: Clutser1** details. You should see both the **Name** and the **IP Address** resources in the **Failed** state. The IP address resource cannot be brought online because the cluster is assigned the same IP address as that of the machine itself, which is a duplicate address.
 
 2. Right-click the failed **IP Address** resource, and then click **Properties**.
@@ -713,24 +714,23 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 1. Go back to the remote desktop session for **sqlserver-0**. In the **Object Explorer** in SSMS, right-click **AlwaysOn High Availability** and click **New Availability Group Wizard**, as shown below.
 
-   ![Launch New Availability Group Wizard](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665523.gif)
+ ![Launch New Availability Group Wizard](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665523.gif)
 
-2. In the **Introduction** page, click **Next**. In the **Specify Availability Group Name** page, type **AG1** in **Availability group name**, then click **Next** again.
+1. In the **Introduction** page, click **Next**. In the **Specify Availability Group Name** page, type **AG1** in **Availability group name**, then click **Next** again.
 
-   ![New AG Wizard, Specify AG Name](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665524.gif)
+ ![New AG Wizard, Specify AG Name](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665524.gif)
 
-3. In the **Select Databases** page, select **MyDB1** and click **Next**. The database meets the prerequisites for an availability group because you have taken at least one full backup on the intended primary replica.
+1. In the **Select Databases** page, select **MyDB1** and click **Next**. The database meets the prerequisites for an availability group because you have taken at least one full backup on the intended primary replica.
 
-   ![New AG Wizard, Select Databases](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665525.gif)
+ ![New AG Wizard, Select Databases](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665525.gif)
 
-4. In the **Specify Replicas** page, click **Add Replica**.
+1. In the **Specify Replicas** page, click **Add Replica**.
 
-   ![New AG Wizard, Specify Replicas](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665526.png)
-
+ ![New AG Wizard, Specify Replicas](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665526.png)
 
 1. The **Connect to Server** dialog pops up. Type **sqlserver-1** in **Server name**, then click **Connect**.
 
-   ![New AG Wizard, Connect to Server](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665527.png)
+ ![New AG Wizard, Connect to Server](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665527.png)
 
 2. Back in the **Specify Replicas** page, you should now see **sqlserver-1** listed in **Availability Replicas**. Configure the replicas as shown below. 
 
