@@ -61,6 +61,8 @@ Once the offer is successfully staged, you can test your image by logging in to 
 ### Step 8
 Once you have validated your image using the trial subscription, you can make the Offer available live by clicking on Publish and requsting approval to go to production. 
 
+![alt text](./media/government-manage-marketplace-partner-5.png)
+
 ## Next steps
 
 For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
