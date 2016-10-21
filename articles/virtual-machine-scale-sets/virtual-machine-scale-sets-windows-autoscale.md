@@ -102,7 +102,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 	- The IP address names and prefixes for the virtual network and subnets.
 	- The names and identifiers of the virtual network, load balancer, and network interfaces.
 	- Storage account names for the accounts associated with the machines in the scale set.
-	- Settings for the Diagnostics extension that is installed on the virtual machines. For more information about the Diagnostics extension, see [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../virtual-machines/virtual-machines-extensions-diagnostics-windows-template.md).
+	- Settings for the Diagnostics extension that is installed on the virtual machines. For more information about the Diagnostics extension, see [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).
     
 4. Add the storage account resource under the resources parent element that you added to the template. This template uses a loop to create the recommended five storage accounts where the operating system disks and diagnostic data are stored. This set of accounts can support up to 100 virtual machines in a scale set, which is the current maximum. Each storage account is named with a letter designator that was defined in the variables combined with the prefix that you provide in the parameters for the template.
 
@@ -527,6 +527,6 @@ If you want to keep your resource group, you can delete the scale set only.
 
 - Manage the scale set that you just created using the information in [Manage virtual machines in a Virtual Machine Scale Set](virtual-machine-scale-sets-windows-manage.md).
 - Learn more about vertical scaling by reviewing [Vertical autoscale with Virtual Machine Scale sets](virtual-machine-scale-sets-vertical-scale-reprovision.md)
-- Find examples of Azure Insights monitoring features in [Azure Insights PowerShell quick start samples](../azure-portal/insights-powershell-samples.md)
-- Learn about notification features in [Use autoscale actions to send email and webhook alert notifications in Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) 
-- Learn how to [Use audit logs to send email and webhook alert notifications in Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md)
+- Find examples of Azure Insights monitoring features in [Azure Insights PowerShell quick start samples](../monitoring-and-diagnostics/insights-powershell-samples.md)
+- Learn about notification features in [Use autoscale actions to send email and webhook alert notifications in Azure Insights](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) 
+- Learn how to [Use audit logs to send email and webhook alert notifications in Azure Insights](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)

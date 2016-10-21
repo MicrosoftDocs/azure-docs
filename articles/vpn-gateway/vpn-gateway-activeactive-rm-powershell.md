@@ -143,7 +143,7 @@ Use the following cmdlets to show the two public IP addresses allocated for your
 	PS D:\> $gw1pip1.IpAddress
 	40.112.190.5
 
-	PS D:\> $gw1pip1.IpAddress
+	PS D:\> $gw1pip2.IpAddress
 	138.91.156.129
 
 	PS D:\> $vnet1gw.BgpSettingsText
@@ -388,9 +388,9 @@ The following example converts an active-standby gateway into an active-active g
 
 #### 3. Enable active-active mode and update the gateway
 
-You must set the gateway object in PowerShell to trigger the actual update.
+You must set the gateway object in PowerShell to trigger the actual update. The SKU of the gateway object must also be changed to HighPerformance since it was created previously as Standard.
 
-	Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -EnableActiveActiveFeature
+	Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -EnableActiveActiveFeature -GatewaySku HighPerformance
 
 This update can take 30 to 45 minutes.
 

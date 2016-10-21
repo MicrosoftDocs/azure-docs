@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/16/2016" 
+	ms.date="10/13/2016" 
 	ms.author="cephalin"
 />
 	
@@ -84,7 +84,7 @@ Now, let's deploy a Java app to Azure using FTPS.
 
     ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
 
-    When you get the notificiation **Successfully updated web app settings**, navigate to http://*&lt;appname>*.azurewebsites.net 
+    When you get the notification **Successfully updated web app settings**, navigate to http://*&lt;appname>*.azurewebsites.net 
     to see the default JSP servlet in action.
 
 7. Back in the web app blade, scroll down to **Deployment credentials** or search for it, then click it.
@@ -128,15 +128,14 @@ Whenever you need to make an update, just upload the new WAR file to the same re
 
 ## Next steps
 
-[Create a Java web app from a template in the Azure Marketplace](app-service-web-java-get-started.md#marketplace). You can get your own fully-customizable Tomcat 
+[Create a Java web app from a template in the Azure Marketplace](web-sites-java-get-started.md#marketplace). You can get your own fully customizable Tomcat 
 container and get the familiar Manager UI. 
 
 Debug your Azure web app, directly in [IntelliJ](app-service-web-debug-java-web-app-in-intellij.md) or [Eclipse](app-service-web-debug-java-web-app-in-eclipse.md).
 
 Or, do more with your first web app. For example:
 
-- Try out [other ways to deploy your code to Azure](../app-service-web/web-sites-deploy.md). For example, to deploy from one of your GitHub repositories, simply select
-**GitHub** instead of **Local Git Repository** in **Deployment options**.
+- Try out [other ways to deploy your code to Azure](../app-service-web/web-sites-deploy.md). 
 - Take your Azure app to the next level. Authenticate your users. Scale it based on demand. Set up some performance alerts. All with a few clicks. See 
 [Add functionality to your first web app](app-service-web-get-started-2.md).
 

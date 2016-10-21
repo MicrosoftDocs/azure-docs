@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/27/2016"
+	ms.date="09/30/2016"
 	ms.author="dastrock"/>
 
 # Should I use the v2.0 endpoint?
@@ -43,11 +43,11 @@ Many architectures include a Web API that needs to call another downstream Web A
 This scenario can be supported using the OAuth 2.0 Jwt Bearer Credential grant, otherwise known as the On-Behalf-Of Flow.  However, the On-Behalf-Of flow is not currently supported for the v2.0 endpoint.  To see how this flow works in the generally available Azure AD service, check out the [On-Behalf-Of code sample on GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
 ## Restrictions on app registrations
-At this point in time, all apps that want to integrate with the v2.0 endpoint must create a new app registration at [apps.dev.microsoft.com](https://apps.dev.microsoft.com).  Any existing Azure AD or Microsoft Account apps will not be compatible with the v2.0 endpoint, nor will apps registered in any portal besides the new App Registration Portal.  We plan to provide a way to enable existing applications for use as a v2.0 app. At this time though, there is no migration path for an app to the v2.0 endpoint.
+At this point in time, all apps that want to integrate with the v2.0 endpoint must create a new app registration at [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).  Any existing Azure AD or Microsoft Account apps will not be compatible with the v2.0 endpoint, nor will apps registered in any portal besides the new App Registration Portal.  We plan to provide a way to enable existing applications for use as a v2.0 app. At this time though, there is no migration path for an app to the v2.0 endpoint.
 
 Similarly, apps registered in the new App Registration Portal will not work against the original Azure AD authentication endpoint.  You can, however, use apps created in the App Registration Portal to integrate successfully with the Microsoft account authentication endpoint, `https://login.live.com`.
 
-In addition, app registrations created at [apps.dev.microsoft.com](https://apps.dev.microsoft.com) have the following caveats:
+In addition, app registrations created at [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) have the following caveats:
 
 - The **homepage** property, also known as the **sign-on URL** is not supported.  Without a homepage, these applications will not be displayed in the Office MyApps panel.
 - Only two app secrets are allowed per application Id at this time.

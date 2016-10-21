@@ -43,7 +43,7 @@ Run the following command to create a resource group:
 
 ### Create a server
 
-SQL databases are created inside Azure SQL Database servers. Run **New-AzureRmSqlServer** to create a server. The name for your server must be unique to all Azure SQL Database servers. If the server name is already taken, you get an error. Also worth noting is that this command may take several minutes to complete. You can edit the command to use any valid location you choose, but you should use the same location you used for the resource group created in the previous step.
+SQL databases are created inside Azure SQL Database servers. Run the [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715(v=azure.300\).aspx) to create a server. The name for your server must be unique to all Azure SQL Database servers. If the server name is already taken, you get an error. Also worth noting is that this command may take several minutes to complete. You can edit the command to use any valid location you choose, but you should use the same location you used for the resource group created in the previous step.
 
 	New-AzureRmSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "westus" -ServerVersion "12.0"
 
@@ -53,7 +53,7 @@ The server details appear after the server is successfully created.
 
 ### Configure a server firewall rule to allow access to the server
 
-To access the server, you need to establish a firewall rule. Run the following command, replacing the start and end IP addresses with valid values for your computer.
+To access the server, you need to establish a firewall rule. Run the [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860(v=azure.300\).aspx) command, replacing the start and end IP addresses with valid values for your computer.
 
 	New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.0" -EndIpAddress "192.168.0.0"
 
@@ -68,7 +68,7 @@ For more information, see [Azure SQL Database Firewall](sql-database-firewall-co
 
 Now you have a resource group, a server, and a firewall rule configured so you can access the server.
 
-The following command creates a (blank) SQL database at the Standard service tier, with an S1 performance level:
+The following [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339(v=azure.300\).aspx) command creates a (blank) SQL database at the Standard service tier, with an S1 performance level:
 
 
 	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -DatabaseName "database1" -Edition "Standard" -RequestedServiceObjectiveName "S1"
@@ -132,10 +132,11 @@ The following PowerShell script creates a SQL database and all its dependent res
 ## Next steps
 After you create a SQL database and perform basic database setup tasks, you're ready for the following:
 
-- [Manage SQL Database with PowerShell](sql-database-command-line-tools.md)
+- [Manage SQL Database with PowerShell](sql-database-manage-powershell.md)
 - [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
 
 
 ## Additional Resources
 
+- [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/azure/mt574084(v=azure.300\).aspx)
 - [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)

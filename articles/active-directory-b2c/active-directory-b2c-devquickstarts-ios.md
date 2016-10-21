@@ -3,7 +3,7 @@
 	description="This article will show you how to create an iOS 'to-do list' app that calls a Node.js web API by using OAuth 2.0 bearer tokens using a third party library"
 	services="active-directory-b2c"
 	documentationCenter="ios"
-	authors="brandwe"
+	authors="xerners"
 	manager="mbaldwin"
 	editor=""/>
 
@@ -157,7 +157,7 @@ Let's go in to these in detail.
 
 For `authURL`, `loginURL`, `bhh`, `tokenURL` you'll notice you need to fill in your tenant name. This is the tenant name of your B2C tenant that was assigned to you. For instance, `kidventusb2c.onmicrosoft.com`.If you use our open source Microsoft Azure Identity Libraries we would pull this data down for you using our metadata endpoint. We've done the hard work of extracting these values for you.
 
-For more information on B2C tenant names take a look here: [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 The `keychain` value is the container that the NXOAuth2Client library will use to create a keychain to store your tokens. If you'd like to get SSO across numerous apps you can specify the same keychain in each of your applications as well as request the use of that keychain in your XCode entitements. This is covered in the Apple documentation.
 

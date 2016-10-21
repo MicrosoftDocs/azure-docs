@@ -322,10 +322,10 @@ Microsoft Azure is certified for the following SAP products, with full support f
 
 SAP Product | Guest OS | RDBMS | Virtual Machine Types 
 ---------- | ------------ | ------------- | ------------- 
-SAP Business Suite Software | Windows, SUSE Linux Enterprise | SQL Server, Oracle, DB2, SAP ASE | A5 to A11, D11 to D14, DS11 to DS14, GS1 to GS5 
-SAP Business All-in-One | Windows, SUSE Linux Enterprise | SQL Server, Oracle, DB2, SAP ASE | A5 to A11, D11 to D14, DS11 to DS14, GS1 to GS5 
+SAP Business Suite Software | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux | SQL Server, Oracle, DB2, SAP ASE | A5 to A11, D11 to D14, DS11 to DS14, GS1 to GS5 
+SAP Business All-in-One | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux | SQL Server, Oracle, DB2, SAP ASE | A5 to A11, D11 to D14, DS11 to DS14, GS1 to GS5 
 SAP BusinessObjects BI | Windows | N/A | A5 to A11, D11 to D14, DS11 to DS14, GS1 to GS5 
-SAP NetWeaver | Windows, SUSE Linux Enterprise | SQL Server, Oracle, DB2, SAP ASE | A5 to A11, D11 to D14, DS11 to DS14, GS1 to GS5 
+SAP NetWeaver | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux | SQL Server, Oracle, DB2, SAP ASE | A5 to A11, D11 to D14, DS11 to DS14, GS1 to GS5 
 
 
 
@@ -395,7 +395,7 @@ Updated: August 2016
 
 Title: SAP NetWeaver on Windows Virtual Machines (VMs) – High Availability Deployment Guide
 
-Summary: This document describes how SAP single point of failure components like the SAP ASCS/SCS and DBMS can be protected in Azure. Components of the SAP ASCS/SCS, DBMS and application servers are essential for the functionality of SAP NetWeaver systems, e.g. SAP NetWeaver ABAP, SAP NetWeaver Java, SAP NetWeaver ABAP+Java systems. Therefore, high-availability functionality
+Summary: This document describes how SAP single point of failure components like the SAP ASCS/SCS and DBMS can be protected in Azure. Components of the SAP ASCS/SCS, DBMS and application servers are essential for the functionality of SAP NetWeaver systems, e.g. SAP NetWeaver ABAP, SAP NetWeaver Java, SAP NetWeaver ABAP+Java systems. Therefore, high-availability functionality needs to be put in place to make sure that those components can sustain a failure of a server or a VM as done with Windows Cluster configurations for bare-metal and Hyper-V environments.
 
 Updated: August 2016
 

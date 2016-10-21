@@ -24,6 +24,10 @@
 
 A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks on the cluster. Azure abstracts the implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information. In this article,  you will learn these configuration settings.
 
+## Access control requirements
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+
 ## Cluster types
 
 Currently, Azure HDInsight provides five different types of clusters, each with a set of components to provide certain functionalities.
@@ -116,7 +120,7 @@ Each HDInsight cluster is tied to one Azure subscription.
 
 ### Resource group name ###
 
-[Azure Resource Manager](../resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure Resource Group. You can deploy, update, monitor, or delete all of the resources for your application in a single coordinated operation.
+[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure Resource Group. You can deploy, update, monitor, or delete all of the resources for your application in a single coordinated operation.
 
 ### Credentials###
 

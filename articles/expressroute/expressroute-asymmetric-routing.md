@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/23/2016"
+   ms.date="10/10/2016"
    ms.author="osamazia"/>
 
 # Asymmetric routing with multiple network paths

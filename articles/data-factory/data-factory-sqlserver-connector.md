@@ -17,8 +17,22 @@
 	ms.author="jingwang"/>
 
 # Move data to and from SQL Server on-premises or on IaaS (Azure VM) using Azure Data Factory
-
 This article outlines how you can use the Copy Activity to move data from/to SQL Server to/from another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement, and data stores supported as sources and sinks.
+
+## Supported sources and sinks
+See [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table for a list of data stores supported as sources or sinks by the copy activity. You can move data from any supported source data store to SQL Server or from SQL Server to any supported sink data store.
+
+## Create pipeline
+You can create a pipeline with a copy activity that moves data to/from an on-premises SQL Server database by using different tools/APIs.  
+
+- Copy Wizard
+- Azure portal
+- Visual Studio
+- Azure PowerShell
+- .NET API
+- REST API
+
+See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity in different ways.
 
 ## Enabling connectivity
 
@@ -392,6 +406,7 @@ The pipeline contains a Copy Activity that is configured to use these input and 
 	}
 
 ## SQL Server linked service properties
+In the samples, you have used a linked service of type **OnPremisesSqlServer** to link an on-premises SQL Server database to a data factory. The following table provides description for JSON elements specific to on-premises SQL Server linked service.
 
 The following table provides description for JSON elements specific to SQL Server linked service.
 
@@ -444,16 +459,18 @@ If username and password are specified, gateway uses them to impersonate the spe
 See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) for details about setting credentials for an SQL Server data source.
 
 ## SQL Server dataset type properties
+In the samples, you have used a dataset of type **SqlServerTable** to represent a table in a SQL Server database.  
 
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (SQL Server, Azure blob, Azure table, etc.).
 
-The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The **typeProperties** section for the dataset of type **SqlServerTable** has the following properties.
+The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The **typeProperties** section for the dataset of type **SqlServerTable** has the following properties:
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
 | tableName | Name of the table in the SQL Server Database instance that linked service refers to. | Yes |
 
 ## SQL Server copy activity type properties
+If you are moving data from a SQL Server database, you set the source type in the copy activity to **SqlSource**. Similarly, if you are moving data to a SQL Server database, you set the sink type in the copy activity to **SqlSink**. This section provides a list of properties supported by SqlSource and SqlSink. 
 
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policies are available for all types of activities.
 
@@ -488,8 +505,8 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 | -------- | ----------- | -------------- | -------- |
 | writeBatchTimeout | Wait time for the batch insert operation to complete before it times out. | timespan<br/><br/> Example: “00:30:00” (30 minutes). | No |
 | writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize. | Integer (number of rows) | No (default: 10000)
-| sqlWriterCleanupScript | Specify query for Copy Activity to execute such that data of a specific slice is cleaned up. See repeatability section for more details. | A query statement.  | No |
-| sliceIdentifierColumnName | Specify column name for Copy Activity to fill with auto generated slice identifier, which is used to clean up data of a specific slice when rerun. See repeatability section for more details. | Column name of a column with data type of binary(32). | No |
+| sqlWriterCleanupScript | Specify query for Copy Activity to execute such that data of a specific slice is cleaned up. For more information, see [repeatability](#repeatability-during-copy) section. | A query statement.  | No |
+| sliceIdentifierColumnName | Specify column name for Copy Activity to fill with auto generated slice identifier, which is used to clean up data of a specific slice when rerun. For more information, see [repeatability](#repeatability-during-copy) section. | Column name of a column with data type of binary(32). | No |
 | sqlWriterStoredProcedureName | Name of the stored procedure that upserts (updates/inserts) data into the target table. | Name of the stored procedure. | No |
 | storedProcedureParameters | Parameters for the stored procedure. | Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
 | sqlWriterTableType | Specify table type name to be used in the stored procedure. Copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data being copied with existing data. | A table type name. | No |
@@ -585,6 +602,8 @@ Notice that the target table has an identity column.
 
 
 Notice that as your source and target table have different schema (target has an additional column with identity). In this scenario, you need to specify **structure** property in the target dataset definition, which doesn’t include the identity column.
+
+Then, you map columns from source dataset to columns in the destination dataset. See [Column mapping samples](#column-mapping-samples) section for an example. 
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 

@@ -43,7 +43,7 @@ This scenario will:
 
 ![Scenario example][scenario]
 
->[AZURE.NOTE] Additional configuration of the application gateway, including custom health probes, backend pool addresses, and additional rules are configured after the application gateway is configured and not during initial deployment.
+>[AZURE.IMPORTANT] Additional configuration of the application gateway, including custom health probes, backend pool addresses, and additional rules are configured after the application gateway is configured and not during initial deployment.
 
 ## Before you begin
 
@@ -120,10 +120,7 @@ Next give the public IP address a friendly name and click **OK**
 The last setting to configure when creating an application gateway is the listener configuration.  If **http** is used, nothing is left to configure and **OK** can be clicked. To use **https**
 further configuration is required.
 
-To use **https**, a certificate is required. The private key of the certificate is needed so a .pfx export of the certificate needs to be provided and the password for the file.
-
-
-![blank Listener Configuration section on Settings blade][8]
+To use **https**, a certificate is required. The private key of the certificate is needed so a .pfx export of the certificate and password need to be provided.
 
 ### Step 10
 
@@ -144,13 +141,15 @@ Once the application gateway has been created, navigate to it in the portal to c
 
 ![Application Gateway resource view][10]
 
-These steps create a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. You can modify these settings to suit your deployment once the provisioning is successful
+These steps create a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. You can modify these settings to suit your deployment once the provisioning is successful. As described earlier, this process creates a default application gateway.  The next steps are to configure the application gateway by adding pool members, modifying settings, and adjusting rules in the gateway for it to work properly.
 
 ## Next steps
 
 Learn how to create custom health probes by visiting [Create a custom health probe](application-gateway-create-probe-portal.md)
 
 Learn how to configure SSL Offloading and take the costly SSL decryption off your web servers by visiting [Configure SSL Offload](application-gateway-ssl-portal.md)
+
+Learn how to protect your applications with [Web Application Firewall](application-gateway-webapplicationfirewall-overview.md) a feature of application gateway.
 
 <!--Image references-->
 [1]: ./media/application-gateway-create-gateway-portal/figure1.png

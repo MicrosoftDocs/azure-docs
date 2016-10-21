@@ -1,18 +1,18 @@
 <properties 
     pageTitle="Service Bus and Python with AMQP 1.0 | Microsoft Azure"
     description="Using Service Bus from Python with AMQP."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" /> 
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/10/2016"
+    ms.date="09/29/2016"
     ms.author="sethm" />
 
 # Using Service Bus from Python with AMQP 1.0

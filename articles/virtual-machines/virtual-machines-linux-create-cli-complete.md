@@ -233,7 +233,7 @@ azure vm show -g TestRG -n TestVM2 --json | jq '.'
 Export the environment that you built to a template to quickly re-create new instances:
 
 ```bash
-azure resource export TestRG
+azure group export TestRG
 ```
 
 ## Detailed walkthrough

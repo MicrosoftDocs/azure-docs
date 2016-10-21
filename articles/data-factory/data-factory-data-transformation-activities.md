@@ -4,7 +4,7 @@
 	keywords="data transformation, process data, transform data, transformation activity"
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="sharonlo101" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -15,9 +15,19 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/23/2016" 
-	ms.author="spelluru"/>
+	ms.author="shlo"/>
 
 # Transform data in Azure Data Factory
+> [AZURE.SELECTOR]
+[Hive](data-factory-hive-activity.md)  
+[Pig](data-factory-pig-activity.md)  
+[MapReduce](data-factory-map-reduce.md)  
+[Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
+[Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
+[Stored Procedure](data-factory-stored-proc-activity.md)
+[Data Lake Analytics U-SQL](data-factory-usql-activity.md)
+[.NET custom](data-factory-use-custom-activities.md)
+   
 
 ## Overview 
 This article explains data transformation activities in Azure Data Factory that you can use to transform and processes your raw data into predictions and insights. A transformation activity executes in a computing environment such as Azure HDInsight cluster or an Azure Batch. It provides links to articles with detailed information on each transformation activity.

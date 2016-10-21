@@ -47,7 +47,7 @@ After upgrading to V12, [service tier recommendations](sql-database-service-tier
 
 ## Prepare to upgrade
 
-- **Upgrade all Web and Business databases**: See [Upgrade all Web and Business databases](sql-database-v12-upgrade.md#upgrade-all-web-and-business-databases) section below or use [PowerShell to upgrade databases and server](sql-database-upgrade-server-powershell.md).
+- **Upgrade all Web and Business databases**: Use the portal, or use [PowerShell to upgrade databases and server](sql-database-upgrade-server-powershell.md).
 - **Review and suspend Geo-Replication**: If your Azure SQL database is configured for Geo-Replication you should document its current configuration and [stop Geo-Replication](sql-database-geo-replication-portal.md#remove-secondary-database). After the upgrade completes reconfigure your database for Geo-Replication.
 - **Open these ports if you have clients on an Azure VM**: If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open port ranges 11000-11999 and 14000-14999 on the VM. For details, see [Ports for SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
@@ -183,7 +183,7 @@ Additional monitoring information:
 
 **Alerts:** Set up 'Alerts' in the Azure portal to notify you when the DTU consumption for an upgraded database approaches certain high level. Database alerts can be set up in the Azure portal for various performance metrics like DTU, CPU, IO, and Log. Browse to your database and select **Alert rules** in the **Settings** blade.
 
-For example, you can set up an email alert on “DTU Percentage” if the average DTU percentage value exceeds 75% over the last 5 minutes. Refer to [Receive alert notifications](../azure-portal/insights-receive-alert-notifications.md) to learn more about how to configure alert notifications.
+For example, you can set up an email alert on “DTU Percentage” if the average DTU percentage value exceeds 75% over the last 5 minutes. Refer to [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) to learn more about how to configure alert notifications.
 
 
 

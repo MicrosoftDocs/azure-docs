@@ -10,10 +10,10 @@
 <tags 
 	ms.service="machine-learning" 
 	ms.devlang="na" 
-	ms.topic="reference" 
+	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="multiple" 
-	ms.date="07/22/2016" 
+	ms.date="10/11/2016" 
 	ms.author="alokkirpal"/>
 
 
@@ -21,9 +21,9 @@
 
 ##Overview
 
-Anomaly Detection API is an example built with Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time. 
+[Anomaly Detection API](https://datamarket.azure.com/dataset/aml_labs/anomalydetection) is an example built with Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time. 
 
-This APIs can detect the following types of anomalous patterns in time series data:
+This API can detect the following types of anomalous patterns in time series data:
 
 * **Positive and negative trends**: For example, when monitoring memory usage in computing an upward trend may be of interest as it may be indicative of a memory leak,
 
@@ -31,20 +31,23 @@ This APIs can detect the following types of anomalous patterns in time series da
 
 * **Spikes and Dips**: For example, when monitoring the number of login failures in a service or number of checkouts in an e-commerce site, spikes or dips could indicate abnormal behavior.
 
-These machine learning detectors track such changes in values over time and reports ongoing changes in their values as anomaly scores. They do not require adhoc threshold tuning and their scores can be used to control false positive rate. The anomaly detection API is useful in several scenarios like service monitoring by tracking KPIs over time, usage monitoring through metrics such as number of searches, numbers of clicks, performance monitoring through counters like memory, CPU, file reads, etc. over time.
+These machine learning detectors track such changes in values over time and report ongoing changes in their values as anomaly scores. They do not require adhoc threshold tuning and their scores can be used to control false positive rate. The anomaly detection API is useful in several scenarios like service monitoring by tracking KPIs over time, usage monitoring through metrics such as number of searches, numbers of clicks, performance monitoring through counters like memory, CPU, file reads, etc. over time.
 
 The Anomaly Detection offering comes with useful tools to get you started. 
 
-* The [web application](http://anomalydetection-aml.azurewebsites.net/) helps you evaluate and visualize the results of anomaly detection APIs on your  data. 
+* The [web application](http://anomalydetection-aml.azurewebsites.net/) helps you evaluate and visualize the results of anomaly detection APIs on your data. 
 
 * The [sample code](http://adresultparser.codeplex.com/) shows how to programmatically access the API and parse the results in C#.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)] 
+>[AZURE.NOTE]
+>Try **IT Anomaly Insights solution** powered by [this API](https://datamarket.azure.com/dataset/aml_labs/anomalydetection)
+>
+>To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**Start here >**</a>
 
 
 ##API Definition
 
-The service provides a REST based API over HTTPS that can be consumed in different ways including a web or mobile application, R, Python, Excel, etc.  You send your time series data to this service via a REST API call, and it runs a combination of the three anomaly types described above. The service runs on the Azure Machine Learning platform, which scales to your business needs seamlessly and provides SLAs.
+The service provides a REST-based API over HTTPS that can be consumed in different ways including a web or mobile application, R, Python, Excel, etc.  You send your time series data to this service via a REST API call, and it runs a combination of the three anomaly types described above. The service runs on the Azure Machine Learning platform, which scales to your business needs seamlessly and provides SLAs.
 
 ###Headers
 Ensure that you include the correct headers in your request, which should be as follows:
@@ -158,15 +161,15 @@ The anomaly detection API supports detectors in 3 broad categories. Details on s
 
 |Detector Category|Detector|Description|Input Parameters|Outputs
 |---|---|---|---|---|
-|Spike Detectors|TSpike Detector|Detect spikes and dips  as per the set sensitivity|*tspikedetector.sensitivity:* takes integer value in the range 1-10, default: 3; The higher the less sensitive|TSpike: binary values – ‘1’ if a spike/dip is detected, ‘0’ otherwise|
-||ZSpike Detector|Detect spikes and dips as per the set sensitivity|*zspikedetector.sensitivity:* take integer value in the range 1-10, default: 3; The higher the less sensitive|ZSpike: binary values – ‘1’ if a spike/dip is detected, ‘0’ otherwise|
+|Spike Detectors|TSpike Detector|Detect spikes and dips based on far the values are from first and third quartiles|*tspikedetector.sensitivity:* takes integer value in the range 1-10, default: 3; Higher values will catch more extreme values thus making it less sensitive|TSpike: binary values – ‘1’ if a spike/dip is detected, ‘0’ otherwise|
+||ZSpike Detector|Detect spikes and dips based on how far the datapoints are from their mean|*zspikedetector.sensitivity:* take integer value in the range 1-10, default: 3; Higher values will catch more extreme values making it less sensitive|ZSpike: binary values – ‘1’ if a spike/dip is detected, ‘0’ otherwise|
 |Slow Trend Detector|Slow Trend Detector|Detect slow positive trend as per the set sensitivity|*trenddetector.sensitivity:* threshold on detector score (default: 3.25, 3.25 – 5 is a reasonable range to select this from; The higher the less sensitive)|TScore: floating number representing anomaly score on trend|
 |Level Change Detectors|Unidirectional Level Change Detector|Detect upward level change as per the set sensitivity|*upleveldetector.sensitivity:* threshold on detector score (default: 3.25, 3.25 – 5 is a reasonable range to select this from; The higher the less sensitive)|PScore: floating number representing anomaly score on upward level change|
 ||Bidirectional Level Change Detector|Detect both upward and downward level change as per the set sensitivity|*bileveldetector.sensitivity:* threshold on detector score (default: 3.25, 3.25 – 5 is a reasonable range to select this from; The higher the less sensitive)|RPScore: floating number representing anomaly score on upward and downward level change
 
 ###Parameters
 
-More detailed information on these input parameters are listed in the table below:
+More detailed information on these input parameters is listed in the table below:
 
 |Input Parameters|Description|Default Setting|Type|Valid Range|Suggested Range|
 |---|---|---|---|---|---|
@@ -175,7 +178,7 @@ More detailed information on these input parameters are listed in the table belo
 |preprocess.replaceMissing|Values used to impute missing data|lkv (last known value)|enumerated|zero, lkv, mean|N/A|
 |detectors.historyWindow|History (in # of data points) used for  anomaly score computation|500|integer|10-2000|Time-series dependent|
 |upleveldetector.sensitivity|Sensitivity for upward level change detector. |3.25|double|None|3.25-5(Lesser values mean more sensitive)|
-|bileveldetector.sensitivity|Sensitivity for bi directional level change detector. |3.25|double|None|3.25-5(Lesser values mean more sensitive)|
+|bileveldetector.sensitivity|Sensitivity for bidirectional level change detector. |3.25|double|None|3.25-5(Lesser values mean more sensitive)|
 |trenddetector.sensitivity|Sensitivity for positive trend detector. |3.25|double|None|3.25-5(Lesser values mean more sensitive)|
 |tspikedetector.sensitivity |Sensitivity for TSpike Detector|3|integer|1-10|3-5(Lesser values mean more sensitive)|
 |zspikedetector.sensitivity |Sensitivity for ZSpike Detector|3|integer|1-10 |3-5(Lesser values mean more sensitive)|
@@ -197,7 +200,7 @@ The API runs all detectors on your time series data and returns anomaly scores a
 |Pscore|A floating number representing anomaly score on upward level change|
 |Palert|1/0 value indicating there is an upward level change anomaly based on the input sensitivity|
 |RPScore|A floating number representing anomaly score on bidirectional level change|
-|RPAlert|1/0 value indicating there is an bi directional level change anomaly based on the input sensitivity|
+|RPAlert|1/0 value indicating there is a bidirectional level change anomaly based on the input sensitivity|
 |TScore|A floating number representing anomaly score on positive trend|
 |TAlert|1/0 value indicating there is a positive trend anomaly based on the input sensitivity|
 

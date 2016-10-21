@@ -118,7 +118,7 @@ When you create a cloud service or storage service you need to provide a valid l
 
 ## <a name="CreateCloudService"> </a>How to: Create a cloud service
 
-When you create an application and run it in Azure, the code and configuration together are called an Azure [cloud service] (known as a *hosted service* in earlier Azure releases). The **create\_hosted\_service** method allows you to create a new hosted service by providing a hosted service name (which must be unique in Azure), a label (automatically encoded to base64), a description, and a location.
+When you create an application and run it in Azure, the code and configuration together are called an Azure [cloud service][] (known as a *hosted service* in earlier Azure releases). The **create\_hosted\_service** method allows you to create a new hosted service by providing a hosted service name (which must be unique in Azure), a label (automatically encoded to base64), a description, and a location.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -436,5 +436,5 @@ For more information, see the [Python Developer Center](/develop/python/).
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[cloud service]:https://azure.microsoft.com/en-us/documentation/services/cloud-services/
+[cloud service]:/services/cloud-services/
 

@@ -49,7 +49,7 @@ The following diagram highlights the important components in this architecture (
 
 - **Network virtual appliance (NVA).** An NVA is a generic term for a virtual appliance that might perform tasks such as acting as a firewall, WAN optimization (including network compression), custom routing, or a variety of other operations. The NVA receives requests from the inbound NVA network. The NVA can validate these requests and, if they're acceptable, it can forward them to the web tier through the outbound NVA subnet.
 
-- **Web tier, business tier, and data tier subnets.** These are subnets hosting the VMs and services that implement an example 3-tier application running in the cloud. See [Implementing a multi-tier architecture on Azure][implementing-a-multi-tier-architecture-on-Azure] for more details about this structure.
+- **Web tier, business tier, and data tier subnets.** These are subnets hosting the VMs and services that implement an example 3-tier application running in the cloud. See [Running Windows VMs for an N-tier architecture on Azure][n-tier-ra] for more details about this structure.
 
 - **User-defined routes (UDR).** You can use UDRs to define how traffic flows within Azure. The gateway subnet contains routes to ensure that all application traffic from the on-premises network is routed through the NVAs. Traffic intended for the management subnet is allowed to bypass the NVAs. However, response traffic cannot be forwarded through the NVAs at this point. Basically, incoming traffic from the on-premises network to Azure will go through the NVAs, but response traffic, and traffic originating from Azure to the on-premises network will bypass the NVAs.
 
@@ -807,7 +807,7 @@ If you're using ExpressRoute to provide the connectivity between your on-premise
 [resource-manager-overview]: ../resource-group-overview.md
 [guidance-vpn-gateway]: ./guidance-hybrid-network-vpn.md
 [script]: #sample-solution-script
-[implementing-a-multi-tier-architecture-on-Azure]: ./guidance-compute-3-tier-vm.md
+[n-tier-ra]: ./guidance-compute-n-tier-vm.md
 [guidance-expressroute]: ./guidance-hybrid-network-expressroute.md
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
 [azure-network-security-group]: ../virtual-network/virtual-networks-nsg.md

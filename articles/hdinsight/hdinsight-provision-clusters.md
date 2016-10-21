@@ -25,6 +25,10 @@ A Hadoop cluster consists of several virtual machines (nodes) that are used for 
 
 >[AZURE.NOTE] The information in this document is specific to Windows-based Azure HDInsight clusters. For information about Linux-based clusters, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
+## Access control requirements
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+
 ## Cluster types##
 
 Currently, HDInsight provides four different types of clusters, each with a set of components to provide certain functionalities.
@@ -82,13 +86,13 @@ Each HDInsight cluster is tied to one Azure subscription.
 
 ### Resource group name###
 
-With [Azure Resource Manager](../resource-group-overview.md), you can deploy, update, monitor, or delete the resources for your application.
+With [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), you can deploy, update, monitor, or delete the resources for your application.
 
 ### Credentials
 
 With the HDInsight clusters, you can configure three user accounts during cluster creation.
 
-- [Azure Resource Manager](../resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure resource group. You can deploy, update, monitor, or delete all of the resources for your application in a single, coordinated operation.
+- [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure resource group. You can deploy, update, monitor, or delete all of the resources for your application in a single, coordinated operation.
 
 - HTTP user. The default user name is *admin* in the basic configuration on the Azure portal. Sometimes the default is called "Cluster user."
 - RDP user (Windows clusters). Connect to the cluster by using RDP. When you create the account, you must set an expiration date within 90 days of the day you create the account.

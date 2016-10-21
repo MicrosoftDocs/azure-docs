@@ -3,7 +3,7 @@
 	description="Learn how to use Azure services to send multi-platform push notifications to your Xamarin.Forms apps."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="wesmc7777"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/17/2016"
-	ms.author="wesmc"/>
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>
 
 # Add push notifications to your Xamarin.Forms app
 

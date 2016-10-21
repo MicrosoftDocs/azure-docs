@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/19/2016"
+	ms.date="10/03/2016"
 	ms.author="priyamo"/>
 
 # Service to service calls using client credentials

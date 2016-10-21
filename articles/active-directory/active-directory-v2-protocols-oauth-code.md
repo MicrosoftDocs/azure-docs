@@ -6,7 +6,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
-	manager="msmbaldwin"
+	manager="mbaldwin"
 	editor=""/>
 
 <tags
@@ -55,7 +55,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter | | Description |
 | ----------------------- | ------------------------------- | --------------- |
 | tenant | required | The `{tenant}` value in the path of the request can be used to control who can sign into the application.  The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers.  For more detail, see [protocol basics](active-directory-v2-protocols.md#endpoints). |
-| client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) assigned your app. |
+| client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) assigned your app. |
 | response_type | required | Must include `code` for the authorization code flow. |
 | redirect_uri | recommended | The redirect_uri of your app, where authentication responses can be sent and received by your app.  It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded.  For native & mobile apps, you should use the default value of `https://login.microsoftonline.com/common/oauth2/nativeclient`. |
 | scope | required | A space-separated list of [scopes](active-directory-v2-scopes.md) that you want the user to consent to.  |
@@ -135,7 +135,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter | | Description |
 | ----------------------- | ------------------------------- | --------------------- |
 | tenant | required | The `{tenant}` value in the path of the request can be used to control who can sign into the application.  The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers.  For more detail, see [protocol basics](active-directory-v2-protocols.md#endpoints). |
-| client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) assigned your app. |
+| client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) assigned your app. |
 | grant_type | required | Must be `authorization_code` for the authorization code flow. |
 | scope | required | A space-separated list of scopes.  The scopes requested in this leg must be equivalent to or a subset of the scopes requested in the first leg.  If the scopes specified in this request span multiple resource servers, then the v2.0 endpoint will return a token for the resource specified in the first scope.  For a more detailed explanation of scopes, refer to [permissions, consent, and scopes](active-directory-v2-scopes.md).  |
 | code | required | The authorization_code that you acquired in the first leg of the flow.   |
@@ -238,7 +238,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter | | Description |
 | ----------------------- | ------------------------------- | -------- |
 | tenant | required | The `{tenant}` value in the path of the request can be used to control who can sign into the application.  The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers.  For more detail, see [protocol basics](active-directory-v2-protocols.md#endpoints). |
-| client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) assigned your app. |
+| client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) assigned your app. |
 | grant_type | required | Must be `refresh_token` for this leg of the authorization code flow. |
 | scope | required | A space-separated list of scopes.  The scopes requested in this leg must be equivalent to or a subset of the scopes requested in the original authorization_code request leg.  If the scopes specified in this request span multiple resource servers, then the v2.0 endpoint will return a token for the resource specified in the first scope.  For a more detailed explanation of scopes, refer to [permissions, consent, and scopes](active-directory-v2-scopes.md).  |
 | refresh_token | required | The refresh_token that you acquired in the second leg of the flow.   |

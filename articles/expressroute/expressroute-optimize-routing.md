@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/07/2016"
+   ms.date="10/10/2016"
    ms.author="charwen"/>
 
 # Optimize ExpressRoute Routing
@@ -41,3 +41,5 @@ The second solution is that you continue to advertise both of the prefixes on bo
 >[AZURE.IMPORTANT] We remove private AS numbers in the AS PATH for the prefixes received on Microsoft Peering. You need to append public AS numbers in the AS PATH to influence routing for Microsoft Peering.
 
 ![](./media/expressroute-optimize-routing/expressroute-case2-solution.png)
+
+>[AZURE.IMPORTANT] While the examples given here are for Microsoft and Public peerings, we do support the same capabilities for the Private peering. Also, the AS Path prepending works within one single ExpressRoute circuit, to influence the selection of the primary and secondary paths.
