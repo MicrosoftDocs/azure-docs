@@ -69,12 +69,12 @@ This tutorial assumes the following:
 1. Sign in to the [Azure portal](http://portal.azure.com). 
 
 2. Click **+New** and then type **Resource group** in the **Marketplace** search window.
-
-  ![Resource Group](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-resourcegroupsymbol.png)
+ 
+    ![Resource Group](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-resourcegroupsymbol.png)
 
 1. Click **Resource group** 
 
-  ![New Resource Group](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-newresourcegroup.png)
+    S![New Resource Group](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-newresourcegroup.png)
 
 1. Click **Create**. 
 
