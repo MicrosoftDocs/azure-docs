@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="10/20/2016"
+	ms.date="10/21/2016"
 	ms.author="MikeRayMSFT" />
 
 # Configure Always On availability group in Azure VM manually - Resource Manager
@@ -104,17 +104,17 @@ To create the virtual network:
 
 2.  Search for **virtual network**.
 
-     ![Search Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/04-findvirtualnetwork.png)
+      ![Search Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/04-findvirtualnetwork.png)
 
 3.  Click **Virtual network**.
 
 4.  In the **Virtual network** blade, click the **Resource Manager** deployment model and click **Create**.
 
-      ![Create Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/05-createvirtualnetwork.png)
+       ![Create Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/05-createvirtualnetwork.png)
 
 5.  Configure the virtual network on the **Create virtual network** blade. 
 
-     The following table shows the settings for the virtual network.
+      The following table shows the settings for the virtual network.
     | **Field**                | Value                                    |
     | ------------------------ | ---------------------------------------- |
     | **Name**                 | autoHAVNET                               |
@@ -124,11 +124,11 @@ To create the virtual network:
     | **Subscription**         | Specify the subscription that you intend to use. If you only have one subscription, this may be blank. |
     | **Location**             | Specify the Azure location.              |
 
-     Your address space and subnet address range may be different from the table. Depending on your subscription, Azure will specifies an available address space and corresponding subnet address range. If no sufficient address space is available, use a different subscription. 
+      Your address space and subnet address range may be different from the table. Depending on your subscription, Azure will specifies an available address space and corresponding subnet address range. If no sufficient address space is available, use a different subscription. 
 
 6.  Click **Create**
 
-    ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/06-configurevirtualnetwork.png)
+     ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/06-configurevirtualnetwork.png)
 
 
 Azure returns you to the portal dashboard and notifies you when the new network is created.
