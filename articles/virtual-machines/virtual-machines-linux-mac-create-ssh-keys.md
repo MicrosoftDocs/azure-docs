@@ -133,15 +133,15 @@ ssh-keygen -f ~/.ssh/id_rsa.pub -e > ~/.ssh/id_ssh2.pem
 ## Example of ssh-keygen
 
 ```bash
-ssh-keygen -t rsa -b 2048 -C "my_user@mydomain.com"
+ssh-keygen -t rsa -b 2048 -C "ahmet@example.com"
 Generating public/private rsa key pair.
-Enter file in which to save the key (/home/myuser/.ssh/id_rsa): id_rsa
+Enter file in which to save the key (/home/ahmet/.ssh/id_rsa): id_rsa
 Enter passphrase (empty for no passphrase):
 Enter same passphrase again:
 Your identification has been saved in id_rsa.
 Your public key has been saved in id_rsa.pub.
 The key fingerprint is:
-14:a3:cb:3e:78:ad:25:cc:55:e9:0c:08:e5:d1:a9:08 my_user@mydomain.com
+14:a3:cb:3e:78:ad:25:cc:55:e9:0c:08:e5:d1:a9:08 ahmet@example.com
 The key's randomart image is:
 +--[ RSA 2048]----+
 |        o o. .   |
@@ -158,14 +158,14 @@ The key's randomart image is:
 
 Saved key files:
 
-`Enter file in which to save the key (/home/myuser/.ssh/id_rsa): id_rsa`
+`Enter file in which to save the key (/home/ahmet/.ssh/id_rsa): id_rsa`
 
 The key pair name for this article.  Having a key pair named **id_rsa** is the default and some tools might expect the **id_rsa** private key file name so having one is a good idea. The directory `~/.ssh/` is the default location for SSH key pairs and the SSH config file.
 
 ```bash
 ls -al ~/.ssh
--rw------- 1 myuser staff  1675 Aug 25 18:04 id_rsa
--rw-r--r-- 1 myuser staff   410 Aug 25 18:04 rsa.pub
+-rw------- 1 ahmet staff  1675 Aug 25 18:04 id_rsa
+-rw-r--r-- 1 ahmet staff   410 Aug 25 18:04 rsa.pub
 ```
 A listing of the `~/.ssh` directory. `ssh-keygen` creates the `~/.ssh` directory if it is not present and also sets the correct ownership and file modes.
 
@@ -217,7 +217,7 @@ vim ~/.ssh/config
 # Azure Keys
 Host fedora22
   Hostname 102.160.203.241
-  User myuser
+  User ahmet
 # ./Azure Keys
 # Default Settings
 Host *
@@ -240,11 +240,11 @@ This SSH config gives you sections for each server to enable each to have its ow
 
 `Hostname 102.160.203.241` = the IP address or DNS name for the server being accessed.
 
-`User myuser` = the remote user account to use when logging into the server.
+`User ahmet` = the remote user account to use when logging into the server.
 
 `PubKeyAuthentication yes` = tells SSH you want to use an SSH key to log in.
 
-`IdentityFile /home/myuser/.ssh/id_id_rsa` = the SSH private key and corresponding public key to use for authentication.
+`IdentityFile /home/ahmet/.ssh/id_id_rsa` = the SSH private key and corresponding public key to use for authentication.
 
 
 ## SSH into Linux without a password
