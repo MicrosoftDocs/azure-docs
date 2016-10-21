@@ -62,7 +62,7 @@ There are three types of disks that can be used with your VM and each has specif
 |IOPS per disk|500|2300|5000|
 |Throughput per disk|100 MB per second|150 MB per second|200 MB per second|
 
-Depending on your workload, determine if additional data disks are necessary for your VM. You can attach several persistent data disks to your VM. If needed, you can stripe across the disks to increase the capacity and performance of the volume. (See what is Disk Striping [here](https://azure.microsoft.com/en-in/documentation/articles/storage-premium-storage-performance/#disk-striping).) If you stripe Premium Storage data disks using [Storage Spaces](http://technet.microsoft.com/library/hh831739.aspx), you should configure it with one column for each disk that is used. Otherwise, the overall performance of the striped volume may be lower than expected due to uneven distribution of traffic across the disks. For Linux VMs you can use the *mdadm* utility to achieve the same. See article [Configure Software RAID on Linux](../virtual-machines/virtual-machines-linux-configure-raid.md) for details.
+Depending on your workload, determine if additional data disks are necessary for your VM. You can attach several persistent data disks to your VM. If needed, you can stripe across the disks to increase the capacity and performance of the volume. (See what is Disk Striping [here](storage-premium-storage-performance.md/#disk-striping).) If you stripe Premium Storage data disks using [Storage Spaces][4], you should configure it with one column for each disk that is used. Otherwise, the overall performance of the striped volume may be lower than expected due to uneven distribution of traffic across the disks. For Linux VMs you can use the *mdadm* utility to achieve the same. See article [Configure Software RAID on Linux](../virtual-machines/virtual-machines-linux-configure-raid.md) for details.
 
 #### Storage account scalability targets
 Premium Storage accounts have the following scalability targets in addition to the [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md). If your application requirements exceed the scalability targets of a single storage account, build your application to use multiple storage accounts, and partition your data across those storage accounts.
@@ -728,7 +728,7 @@ Your current VM configuration may be customized specifically to work well with S
 2.  Login to the VM and copy the data from the current volume to the new disk that maps to that volume. Do this for all the current volumes that need to map to a new disk.
 3.  Next, change the application settings to switch to the new disks, and detach the old volumes.
 
-For tuning the application for better disk performance, please refer to [Optimizing Application Performance](https://azure.microsoft.com/en-us/documentation/articles/storage-premium-storage-performance/#optimizing-application-performance).
+For tuning the application for better disk performance, please refer to [Optimizing Application Performance](storage-premium-storage-performance.md/#optimizing-application-performance).
 
 ### Application Migrations
 
@@ -739,16 +739,17 @@ Databases and other complex applications may require special steps as defined by
 See the following resources for specific scenarios for migrating virtual machines:
 
 - [Migrate Azure Virtual Machines between Storage Accounts](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-- [Create and upload a Windows Server VHD to Azure.](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-classic-createupload-vhd/)
-- [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-classic-create-upload-vhd/)
+- [Create and upload a Windows Server VHD to Azure.](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md)
+- [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md)
 - [Migrating Virtual Machines from Amazon AWS to Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Also, see the following resources to learn more about Azure Storage and Azure Virtual Machines:
 
 - [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 - [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
-- [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](https://azure.microsoft.com/en-us/documentation/articles/storage-premium-storage/)
+- [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md)
 
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
+[4]: http://technet.microsoft.com/library/hh831739.aspx
