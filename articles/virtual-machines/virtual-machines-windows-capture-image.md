@@ -92,5 +92,5 @@ This article shows you how to use Azure PowerShell create an image of a generali
 
 ## Next steps
 
-- Now you can [create a VM from the generalized VHD](virtual-machines-windows-create-vm-generalized.md).
+- Now you can [create a VM from the image](virtual-machines-windows-create-vm-generalized.md).
 

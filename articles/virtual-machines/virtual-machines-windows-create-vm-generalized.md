@@ -14,24 +14,19 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/10/2016"
+	ms.date="10/20/2016"
 	ms.author="cynthn"/>
 
 # Create a VM from a generalized VHD image
 
-A generalized VHD image has had all of your personal account information removed using [Sysprep](virtual-machines-windows-generalize-vhd.md). You can create a generalized VHD by running Sysprep on an on-premises VM, then [uploading the VHD to Azure](virtual-machines-windows-upload-image.md), or by running Sysprep on an existing Azure VM and then [copying the VHD](virtual-machines-windows-vhd-copy.md).
+A generalized VHD image has had all of your personal account information removed using [Sysprep](virtual-machines-windows-generalize-vhd.md). You can create a generalized VHD by running Sysprep on an on-premises VM, then [uploading the VHD to Azure](virtual-machines-windows-upload-image.md), or by running Sysprep on an existing Azure VM and then [capturing an image](virtual-machines-windows-capture-image.md) of the VM.
 
 If you want to create a VM from a specialized VHD, see [Create a VM from a specialized VHD](virtual-machines-windows-create-vm-specialized.md).
 
 The quickest way to create a VM from a generalized VHD is to use a [quick start template]
 (https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image). 
 
-
-## Prerequisites
-
-If you are going to use a VHD uploaded from on on-premises VM, like one created using Hyper-V, you should make sure you followed the directions in [Prepare a Windows VHD to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md). 
-
-Both uploaded VHDs and existing Azure VM VHDs need to be generalized before you can create a VM using this method. For more information, see [Generalize a Windows virtual machine using Sysprep](virtual-machines-windows-generalize-vhd.md). 
+You can also create the VM using PowerShell. The following steps will walk you through using PowerShell to create a new VM as well as the networking resources that it will need to run in Azure.
 
 
 ## Set the URI of the VHD
