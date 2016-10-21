@@ -212,6 +212,7 @@ This series has focused on pure cloud deployments. Enterprise scenarios often re
 [tm-routing]: ../traffic-manager/traffic-manager-routing-methods.md
 [tm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/traffic-manager/v1_0/
 [traffic-manager]: https://azure.microsoft.com/en-us/services/traffic-manager/
+[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [vnet-dns]: ../virtual-network/virtual-networks-manage-dns-in-vnet.md
 [vnet-to-vnet]: ../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [vpn-gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
