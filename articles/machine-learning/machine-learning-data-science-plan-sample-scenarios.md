@@ -97,7 +97,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 10. Build Azure Machine Learning experiment flow starting with ingested dataset(s).
 
 
-## <a name="smalllocaltodb"></a>Scenario \#4: Small to medium dataset of local files, targeting SQL Server in an Azure Virtal Machine
+## <a name="smalllocaltodb"></a>Scenario \#4: Small to medium dataset of local files, targeting SQL Server in an Azure Virtual Machine
 
 ![Small to medium local files to SQL DB in Azure][4]
 
