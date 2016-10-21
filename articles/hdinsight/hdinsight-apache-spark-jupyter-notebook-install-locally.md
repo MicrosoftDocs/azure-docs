@@ -66,7 +66,7 @@ In this section you configure the Spark magic that you installed earlier to conn
 	On the Python shell, enter the following command to find out the home directory.
 
 		import os
-		print os.path.expanduser('~')
+		print(os.path.expanduser('~'))
 
 2. Navigate to the home directory and create a folder called **.sparkmagic** if it does not already exist.
 

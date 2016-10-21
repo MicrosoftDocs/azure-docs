@@ -29,7 +29,7 @@ The quickest way to create a VM from a generalized VHD is to use a [quick start 
 
 ## Prerequisites
 
-If you are going to use a VHD uploaded from on on-premises VM, like one created using Hyper-V, you should make sure you followed the directions in [Prepare a Windows VHD to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md). 
+If you are going to use a VHD uploaded from an on-premises VM, like one created using Hyper-V, you should make sure you followed the directions in [Prepare a Windows VHD to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md). 
 
 Both uploaded VHDs and existing Azure VM VHDs need to be generalized before you can create a VM using this method. For more information, see [Generalize a Windows virtual machine using Sysprep](virtual-machines-windows-generalize-vhd.md). 
 
@@ -45,14 +45,14 @@ $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vh
 
 ## Create a virtual network
 
-Create the vNet and subNet of the [virtual network](../virtual-network/virtual-networks-overview.md).
+Create the vNet and subnet of the [virtual network](../virtual-network/virtual-networks-overview.md).
 
 
 1. Create the subnet. The following sample creates a subnet named **mySubnet** in the resource group **myResourceGroup** with the address prefix of **10.0.0.0/24**.  
 
 	```powershell
 	$rgName = "myResourceGroup"
-	$subnetName = "mySubNet"
+	$subnetName = "mySubnet"
 	$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
 	```
       

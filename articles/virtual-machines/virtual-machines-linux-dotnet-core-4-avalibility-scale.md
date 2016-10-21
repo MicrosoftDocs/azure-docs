@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Availability and Scale in Azure Resource Manager Templates | Microsoft Azure"
    description="Azure Virtual Machine DotNet Core Tutorial"
    services="virtual-machines-linux"
@@ -262,7 +262,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
 },
 ```
 
-The `copyIndex` function is used several times in the Music Store sample template. Resources and functions utilizing `copyIndex` include anything specific to a single instance of the virtual machine such and network interface, load balancer rules, and any depends on functions. 
+The `copyIndex` function is used several times in the Music Store sample template. Resources and functions utilizing `copyIndex` include anything specific to a single instance of the virtual machine such as network interface, load balancer rules, and any depends on functions. 
 
 For more information on the copy function, see [Create multiple instances of resources in Azure Resource Manager](../resource-group-create-multiple.md).
 
