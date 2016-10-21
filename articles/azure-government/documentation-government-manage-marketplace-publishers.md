@@ -8,68 +8,59 @@
 	manager="zakramer"
 	editor=""/>
 
-<tags
-	ms.service="multiple"
+<tags	ms.service="multiple"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
 	ms.date="10/20/2016"
-	ms.author="ryansoc"/>
+	ms.author="VybavaRamadoss"/>
 
 
 # Azure Government Marketplace
+For partners interested in publishing your offerings to the Azure Marketplace for Government please find the details below.
 
-## Image Availability
-For information on available images please see [Azure Government Marketplace Images](https://azure.microsoft.com/en-us/documentation/articles/azure-government-image-gallery/)
+## Publishing
+>[AZURE.NOTE] If you are not an existing Azure Certified Marketplace partner, complete the steps [here](../marketplace-publishing/marketplace-publishing-getting-started.md) before proceeding.
 
->[AZURE.NOTE] Azure Marketplace ISV Partners:
-If you are interested in making your product available to the Azure Government customers, please reach out to the Azure Global Ecosystems Team. <Need alias>
-
-##  Overview
-
-For details on this service and how to use it, see [Marketplace public documentation](https://azure.microsoft.com/documentation/xxxxxxxxxxxx).
-
-## Variations
-The Marketplace Service is available to the Azure Government with ISV provided images. These images have the below attributes.
-- Only Bring Your Own License (BYOL) SKUs are available. This means you cannot access any images that require purchase transaction through Azure Marketplace
-- Only a subset of images are currently available as compared to the public marketplace. You can find the list of available images here -> point to image page from here
-
-The provisioning experience in the Azure Portal will be similar to the Marketplace experience on public Azure. The provisioning flow is detailed below.
-
-### Step 1
-Launch the Marketplace
-
-![alt text](./media/government-manage-marketplace-launch.PNG)  
+### Step 1 	
+Log on to [https://publish.windowsazure.com](https://publish.windowsazure.com)
 
 ### Step 2
-Browse through different products to find the right one.
-
-The ISVs provides a list of certificates as part of the product description to help you make the right choice. The certification information is provided by the ISV.
-
-![alt text](./media/government-manage-marketplace-service.PNG)
+Click the offer you want to publish
 
 ### Step 3
-Choose an ISV product\image
+Click **SKUS** and click the Azure Government Cloud box
 
-![alt text](./media/government-manage-marketplace-image.PNG)
+>[AZURE.NOTE] Only Bring Your Own License (BYOL) SKUs are supported.  This options will not be available for Pay-as-You-Go (PayG) SKUs.
+
+![alt text](./media/government-manage-marketplace-partner-1.png)
 
 ### Step 4
-Launch the create flow and enter the required parameters for deployment
+Click the + Add Certification link to add links to any certifications for your offer.
 
-![alt text](./media/government-manage-marketplace-deployment.PNG)
-
->[AZURE.NOTE] In the Location dropdown, only Azure Government locations will be visible
+![alt text](./media/government-manage-marketplace-partner-2.png)
 
 ### Step 5
-Observe pricing
+Request for a trial account in Microsoft Azure Government cloud to enable you to test your image in the publishing portal: [https://azuregov.microsoft.com/trial/azuregovtrial](https://azuregov.microsoft.com/trial/azuregovtrial)
 
-![alt text](./media/government-manage-marketplace-pricing.PNG)
+Your eligibility as a partner who serves U.S. federal, state, local, or tribal entities will be verified and confirmation will provided via email.  Your trial account will be available within is 3-5 business days.
 
 ### Step 6
-Complete all steps and click Ok to start the provisioning process
+Click Publish and click Push to Staging. 
+
+![alt text](./media/government-manage-marketplace-partner-3.png)
+
+You will be prompted to enter a whitelisted subscription which has access to the staged offer. Enter the subscription ID from your newly acquired Azure Government trial account.
+
+![alt text](./media/government-manage-marketplace-partner-4.png)
+
+### Step 7
+Once the offer is successfully staged, you can test your image by logging in to [https://portal.azure.us](https://portal.azure.us) using your Azure Government Trial account.
+
+### Step 8
+Once you have validated your image using the trial subscription. you can make the Offer available live by clicking on Publish and requsting approval to go to production. 
 
 ## Next steps
 
-For supplemental information and updates, subscribe to the
-<a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
+For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
