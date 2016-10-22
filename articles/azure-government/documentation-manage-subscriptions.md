@@ -1,6 +1,6 @@
 <properties
     pageTitle="Azure Government Services | Microsoft Azure"
-    description="Infomration on managing your subscription in Azure Government"
+    description="Information on managing your subscription in Azure Government"
     services="Azure-Government"
     cloud="gov" 
     documentationCenter=""
