@@ -42,10 +42,10 @@ When you start PowerShell, you have to tell Azure PowerShell to connect to Azure
 
 Connection Type | Command
 ---|----
-[Service Management](https://msdn.microsoft.com/en-us/library/dn708504.aspx) commands | `Add-AzureAccount -Environment AzureUSGovernment`
-[Resource Management](https://msdn.microsoft.com/en-us/library/mt125356.aspx) commands | `Add-AzureRmAccount -EnvironmentName AzureUSGovernment`
-[Azure Active Directory](https://msdn.microsoft.com/en-us/library/azure/jj151815.aspx) commands | `Connect-MsolService -AzureEnvironment UsGovernment`
-[Azure Active Directory command v2](https://msdn.microsoft.com/en-us/library/azure/mt757189.aspx) | `Connect-AzureAD -AzureEnvironmentName AzureUSGovernment`
+[Service Management](https://msdn.microsoft.com/library/dn708504.aspx) commands | `Add-AzureAccount -Environment AzureUSGovernment`
+[Resource Management](https://msdn.microsoft.com/library/mt125356.aspx) commands | `Add-AzureRmAccount -EnvironmentName AzureUSGovernment`
+[Azure Active Directory](https://msdn.microsoft.com/library/azure/jj151815.aspx) commands | `Connect-MsolService -AzureEnvironment UsGovernment`
+[Azure Active Directory command v2](https://msdn.microsoft.com/library/azure/mt757189.aspx) | `Connect-AzureAD -AzureEnvironmentName AzureUSGovernment`
 
 You may also use the Environment switch when connecting to a storage account using New-AzureStorageContext and specify AzureUSGovernment.
 
@@ -76,6 +76,6 @@ If you are looking for more information, you can check out:
 
 + [PowerShell docs on GitHub](https://github.com/Azure/azure-powershell)
 + [Step-by-step instruction on connecting to Resource Management](https://blogs.msdn.microsoft.com/azuregov/2015/10/08/configuring-arm-on-azure-gc/)
-+ [Azure PowerShell docs on MSDN](https://msdn.microsoft.com/en-us/library/mt619274.aspx)
++ [Azure PowerShell docs on MSDN](https://msdn.microsoft.com/library/mt619274.aspx)
 
 For supplemental information and updates subscribe to the [Microsoft Azure Government Blog] (https://blogs.msdn.microsoft.com/azuregov/)
