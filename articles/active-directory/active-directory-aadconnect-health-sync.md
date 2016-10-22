@@ -93,6 +93,7 @@ Drilling into each category will provide the list of objects having the error in
 
 ### Error Details
 Following data is available in the detailed view for each error
+
 - Identifiers for the *AD Object* involved
 - Identifiers for the *Azure AD Object* involved (as applicable)
 - Error description and how to fix
