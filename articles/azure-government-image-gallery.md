@@ -66,7 +66,7 @@ Microsoft | Windows Server 2012 Datacenter
 Microsoft | Windows Server 2012 R2 Datacenter
 
 
-### Images - Classic Resource Provider.
+## Images - Classic Resource Provider.
 
 Publisher|Image Name|Description|OS|Disk Size
 ---|---|---|---|---
