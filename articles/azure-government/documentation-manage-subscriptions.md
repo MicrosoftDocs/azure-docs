@@ -20,7 +20,7 @@
 
 #  Managing and Connecting to you Subscription in Azure Goverment
 
-##Connecting to Azure Government with PowerhSell
+##Connecting to Azure Government with PowerShell
 
 Whether you are using Azure PowerShell to manage a large subscription through script or access features that are not currently available in the Azure Portal you will need to connect to Azure Government instead of Azure Public.  If you have used PowerShell in Azure Public, it is mostly the same.  The differences in Azure Government are:
 
@@ -53,11 +53,11 @@ There is one catch.  The Azure Government regions need to be formatted slightly 
 
 If you ever want to validate the available regions in Azure Government you can run the following commands and it will print the current list:
 
- $Get-AzureLocation
+    Get-AzureLocation
 
 If you are curious about the available environments across Azure, you can run:
 
- $Get-AzureEnvironment
+    Get-AzureEnvironment
 
 ##Next Steps
 
