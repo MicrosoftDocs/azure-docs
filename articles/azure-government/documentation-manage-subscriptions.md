@@ -51,7 +51,7 @@ You may also use the Environment switch when connecting to a storage account usi
 
 ###Determining Region
 
-Once you are connected there is one additional difference – The regions used to target a service.  Every Azure cloud has different regions.  You can see them listed on the service availability page.  You normally use the region in the Location parameter for a command.
+Once you are connected, there is one additional difference – The regions used to target a service.  Every Azure cloud has different regions.  You can see them listed on the service availability page.  You normally use the region in the Location parameter for a command.
 
 There is one catch.  The Azure Government regions need to be formatted differently than their common names:
 
@@ -62,7 +62,7 @@ US Gov Iowa | USGov Iowa
 
 >[AZURE.NOTE] There is no space between US and Gov when using the Location Parameter.
 
-If you ever want to validate the available regions in Azure Government you can run the following commands and it will print the current list:
+If you ever want to validate the available regions in Azure Government, you can run the following commands and print the current list:
 
     Get-AzureLocation
 
