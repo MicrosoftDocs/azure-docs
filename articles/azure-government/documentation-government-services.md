@@ -35,16 +35,16 @@ For the most current list of services, see the [Products by Region] (https://azu
 + [Linux Virtual Machines](documentation-government-compute.md#virtual-machines)
 + Cloud Services
 
-## Networking
+## [Networking](documentation-government-networking.md)
 
 + Virtual Network
 + Load Balancer
 + Application Gateway
 + VPN Gateway
 + Traffic Manager
-+ [ExpressRoute] (documentation-government-networking#expressroute-private-connectivity)
++ [ExpressRoute] (documentation-government-networking.m#expressroute-private-connectivity)
 
-## Storage
+## [Storage](documentation-government-services-storage.md)
 
 + [Azure Storage] (documentation-government-services-storage.md#azure-storage)
 + Import/Export
@@ -57,11 +57,11 @@ For the most current list of services, see the [Products by Region] (https://azu
 + Web Apps
 + Media Services
 
-## Databases
+## [Databases](documentation-government-services-database.md)
 
-+ [SQL Database](documentation-government-services-database#sql-database)
++ [SQL Database](documentation-government-services-database.md#sql-database)
 + SQL Server Stretch Database
-+ [Redis Cache](documentation-government-services-database#azure-redis-cache)
++ [Redis Cache](documentation-government-services-database.md#azure-redis-cache)
 
 ## Internet of Things (IoT)
 
@@ -74,17 +74,17 @@ For the most current list of services, see the [Products by Region] (https://azu
 + StorSimple
 + SQL Server Stretch Database
 
-## Security + Identity
+## [Security + Identity](documentation-government-services-securityandidentity.md)
 
-+ [Key Vault](documentation-government-services-securityandidentity#key-vault)
++ [Key Vault](documentation-government-services-securityandidentity.md#key-vault)
 + Azure Active Directory
 + Multi-Factor Authentication
 
-## Monitoring + Management
+## [Monitoring + Management](documentation-government-services-monitoringandmanagement.md)
 
-+ [Automation](documentation-government-services-monitoringandmanagement#automation)
++ [Automation](documentation-government-services-monitoringandmanagement.md#automation)
 + Backup
-+ [Log Analytics](documentation-government-services-monitoringandmanagement#log-analytics)
++ [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)
 + Site Recovery
 + Scheduler
 + Traffic Manager
