@@ -18,27 +18,27 @@
     ms.author="zakramer" />
 
 
-#  Managing and Connecting to you Subscription in Azure Goverment
+#  Managing and Connecting to your Subscription in Azure Government
 
-## Connecting via the Portal
-The portal is the primary way that most people connect to Azure Government.  To connect, browse to the portal at this addres:
+## Connecting via the portal
+The portal is the primary way that most people connect to Azure Government.  To connect, browse to the portal at this address:
 
 + [https://portal.azure.us](https://portal.azure.us)
 
->[AZURE.NOTE] The legacy version fo the Azure Portal can be accessed via [https://manage.windowsazure.us](https://manage.windowsazure.us)
+>[AZURE.NOTE] The legacy version fo the Azure portal can be accessed via [https://manage.windowsazure.us](https://manage.windowsazure.us)
 
 Subscriptions can be created for your account by connecting to [https://account.windowsazure.us](https://account.windowsazure.us).
 
 ## Connecting via PowerShell
 
-Whether you are using Azure PowerShell to manage a large subscription through script or access features that are not currently available in the Azure Portal you will need to connect to Azure Government instead of Azure Public.  If you have used PowerShell in Azure Public, it is mostly the same.  The differences in Azure Government are:
+Whether you are using Azure PowerShell to manage a large subscription through script or access features that are not currently available in the Azure portal you need to connect to Azure Government instead of Azure Public.  If you have used PowerShell in Azure Public, it is mostly the same.  The differences in Azure Government are:
 
 + Connecting your account
 + Region names
 
 >[AZURE.NOTE] If you have not used PowerShell yet, check out the [Introduction to Azure PowerShell](..\powershell-install-configure.md).
 
-When you start PowerShell you have to tell Azure PowerShell to connect to Azure Government by specifying an environment parameter.  The parameter will ensure that PowerShell is connecting to all of the correct endpoints.  The collection of endpoints is determined when you connect log into your account.  Different APIs require different versions of the environment switch:
+When you start PowerShell, you have to tell Azure PowerShell to connect to Azure Government by specifying an environment parameter.  The parameter ensures that PowerShell is connecting to the correct endpoints.  The collection of endpoints is determined when you connect log in to your account.  Different APIs require different versions of the environment switch:
 
 Connection Type | Command
 ---|----
@@ -51,12 +51,14 @@ You may also use the Environment switch when connecting to a storage account usi
 
 ###Determining Region
 
-Once you are connected there is one additional difference – The regions used to target a service.  Every Azure cloud has different regions.  You can see them listed on the service availability page.   You normally use the region in the Location parameter for a command.
+Once you are connected there is one additional difference – The regions used to target a service.  Every Azure cloud has different regions.  You can see them listed on the service availability page.  You normally use the region in the Location parameter for a command.
 
-There is one catch.  The Azure Government regions need to be formatted slightly differently from the way they are listed for the PowerShell commands:
+There is one catch.  The Azure Government regions need to be formatted differently than their common names:
 
-+ US Gov Virginia = USGov Virginia
-+ US Gov Iowa = USGov Iowa
+Common name | Command
+---|----
+US Gov Virginia | USGov Virginia
+US Gov Iowa | USGov Iowa
 
 >[AZURE.NOTE] There is no space between US and Gov when using the Location Parameter.
 
@@ -70,7 +72,7 @@ If you are curious about the available environments across Azure, you can run:
 
 ##Next Steps
 
-If you are looking for more information you can check out the following:
+If you are looking for more information, you can check out:
 
 + [PowerShell docs on GitHub](https://github.com/Azure/azure-powershell)
 + [Step-by-step instruction on connecting to Resource Management](https://blogs.msdn.microsoft.com/azuregov/2015/10/08/configuring-arm-on-azure-gc/)
