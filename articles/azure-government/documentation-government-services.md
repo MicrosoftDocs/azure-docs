@@ -29,10 +29,10 @@ Everything else you need to know about these services can be found in their gene
 
 For the most current list of services, see the [Products by Region] (https://azure.microsoft.com/regions/services/). 
 
-## Compute
+## [Compute](documentation-government-compute.md)
 
-+ Windows Virtual Machines
-+ Linux Virtual Machines
++ [Windows Virtual Machines](documentation-government-compute.md#virtual-machines)
++ [Linux Virtual Machines](documentation-government-compute.md#virtual-machines)
 + Cloud Services
 
 ## Networking
@@ -42,15 +42,15 @@ For the most current list of services, see the [Products by Region] (https://azu
 + Application Gateway
 + VPN Gateway
 + Traffic Manager
-+ [ExpressRoute] (documentation-government-networking.md#expressroute-private-connectivity)
++ [ExpressRoute] (documentation-government-networking#expressroute-private-connectivity)
 
 ## Storage
 
-+ [Azure Storage] (documentation-government-dataandstorage.md#storage)
++ [Azure Storage] (documentation-government-services-storage.md#azure-storage)
 + Import/Export
 + StorSimple
 + Backup
- Site Recovery
++ Site Recovery
 
 ## Web + Mobile
 
@@ -59,9 +59,9 @@ For the most current list of services, see the [Products by Region] (https://azu
 
 ## Databases
 
-+ SQL Database
++ [SQL Database](documentation-government-services-database#sql-database)
 + SQL Server Stretch Database
-+ Redis Cache
++ [Redis Cache](documentation-government-services-database#azure-redis-cache)
 
 ## Internet of Things (IoT)
 
@@ -76,15 +76,15 @@ For the most current list of services, see the [Products by Region] (https://azu
 
 ## Security + Identity
 
-+ Key Vault
++ [Key Vault](documentation-government-services-securityandidentity#key-vault)
 + Azure Active Directory
 + Multi-Factor Authentication
 
 ## Monitoring + Management
 
-+ Log Analytics (Preview)
-+ Automation
++ [Automation](documentation-government-services-monitoringandmanagement#automation)
 + Backup
++ [Log Analytics](documentation-government-services-monitoringandmanagement#log-analytics)
 + Site Recovery
 + Scheduler
 + Traffic Manager
