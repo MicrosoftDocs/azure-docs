@@ -21,7 +21,7 @@
 #  Managing and Connecting to you Subscription in Azure Goverment
 
 ## Connecting via the Portal
-The portal is the primary way that most people connect to Azure Government.  To connect browse to the portal at this addres:
+The portal is the primary way that most people connect to Azure Government.  To connect, browse to the portal at this addres:
 
 + [https://portal.azure.us](https://portal.azure.us)
 
