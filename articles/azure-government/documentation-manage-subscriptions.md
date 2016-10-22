@@ -1,6 +1,6 @@
 <properties
     pageTitle="Azure Government Services | Microsoft Azure"
-    description="Infomration on manager your subscription in Azure Government"
+    description="Infomration on managing your subscription in Azure Government"
     services="Azure-Government"
     cloud="gov" 
     documentationCenter=""
@@ -20,7 +20,16 @@
 
 #  Managing and Connecting to you Subscription in Azure Goverment
 
-##Connecting to Azure Government with PowerShell
+## Connecting via the Portal
+The portal is the primary way that most people connect to Azure Government.  To connect browse to the portal at this addres:
+
++ [https://portal.azure.us](https://portal.azure.us)
+
+>[AZURE.NOTE] The legacy version fo the Azure Portal can be accessed via [https://manage.windowsazure.us](https://manage.windowsazure.us)
+
+Subscriptions can be created for your account by connecting to [https://accounts.windowsazure.us](https://accounts.windowsazure.us).
+
+## Connecting via PowerShell
 
 Whether you are using Azure PowerShell to manage a large subscription through script or access features that are not currently available in the Azure Portal you will need to connect to Azure Government instead of Azure Public.  If you have used PowerShell in Azure Public, it is mostly the same.  The differences in Azure Government are:
 
