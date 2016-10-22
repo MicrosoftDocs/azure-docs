@@ -205,14 +205,14 @@ Go to Azure Quickstart Templates GitHub Repository and select from the list of S
 
 | Quick Start Template |
 | ------- |
-|<a href=": https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/ethereum-consortium-blockchain-network"> Ethereum Consortium Blockchain Network (</a>) |
+|<a href="https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/ethereum-consortium-blockchain-network"> Ethereum Consortium Blockchain Network (</a>) |
 |<a href="https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/splunk-on-ubuntu"> Splunk on Ubuntu </a> |
 
 ### Step 2
-In the Readme file, launch the template by clicking on Deploy to Azure Government button/link at the top of the page.
+In the Readme file, launch the template by clicking on "Deploy to Azure Government" button/link at the top of the page.
 
 ### Step 3
-A browser page will open the template deployment blade in the Azure Government portal. In the Parameters blade, complete required fields, click Okay
+A browser page will open the template deployment blade in the Azure Government portal. In the Parameters blade, complete required fields, and click "Okay."
 
 ### Step 4
 Accept legal terms and conditions, and checkmark the “Pin to dashboard” box, then click create. 
@@ -220,7 +220,7 @@ Accept legal terms and conditions, and checkmark the “Pin to dashboard” box,
 >[AZURE.NOTE] You will need an valid Azure Government Account valid in order to continue. To experience the power of Azure Government for your organization, sign up for an Azure Government Trial.
 
 ### Step 5
-The blades will close and it will go back to your portal dashboard view, showing the image deploying deployment This will take several minutes. Once the VM solution is running, it will show up in your dashboard. If you did not select the “Pin to dashboard” option in step 4, you will need to search for the VM in your Resources. 
+The blades will close and it will go back to your portal dashboard view, showing the image deployment. This will take several minutes. Once the VM solution is running, it will show up in your dashboard. If you did not select the “Pin to dashboard” option in step 4, you will need to search for the VM in your Resources. 
 
 >[AZURE.NOTE] Solution templates are provided from Microsoft and third-party providers as a starting point only. You are solely responsible for developing, implementing, and managing your applications and/or subscriptions running on Microsoft Azure and Azure Government in compliance with applicable laws, regulations, and contractual obligations.  These Templates are provided "AS-IS" and without any warranty of any kind, whether in express, implied or statutory, and Microsoft expressly disclaims all warranties of merchantability, fitness for a particular purpose, or non-infringement. 
 
