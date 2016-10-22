@@ -67,7 +67,7 @@ azure insights diagnostic set --resourceId /subscriptions/s1id1234-5679-0123-456
 | enabled          | Yes      | Boolean indicating whether diagnostics are enabled or disabled on this resource.                  |
 
 ## Archive Diagnostic Logs via the REST API
-[See this document](https://msdn.microsoft.com/library/azure/dn931931.aspx) for information on how you can set up a diagnostic setting using the Insights REST API.
+[See this document](https://msdn.microsoft.com/library/azure/dn931931.aspx) for information on how you can set up a diagnostic setting using the Azure Monitor REST API.
 
 ## Schema of Diagnostic Logs in the storage account
 Once you have set up archival, a storage container is created in the storage account as soon as an event occurs in one of the log categories you have enabled. The blobs within the container follow the same format across Diagnostic Logs and the Activity Log. The structure of these blobs is:

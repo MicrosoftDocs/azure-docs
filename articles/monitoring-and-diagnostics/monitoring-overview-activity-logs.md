@@ -19,9 +19,9 @@
 # Overview of the Azure Activity Log
 The **Azure Activity Log** is a log that provides insight into the operations that were performed on resources in your subscription. The Activity Log was previously known as “Audit Logs” or “Operational Logs,” since it reports control-plane events for your subscriptions. Using the Activity Log, you can determine the ‘what, who, and when’ for any write (PUT, POST, DELETE) operations taken on the resources in your subscription, plus understand the status of the operation and other relevant properties. The Activity Log does not include read (GET) operations.
 
-The Activity Log differs from [Diagnostic Logs](./monitoring-overview-of-diagnostic-logs.md), which are all logs emitted by a resource. These logs provide data about the operation of that resource, rather than operations on that resource. 
+The Activity Log differs from [Diagnostic Logs](./monitoring-overview-of-diagnostic-logs.md), which are all logs emitted by a resource. These logs provide data about the operation of that resource, rather than operations on that resource.
 
-You can retrieve events from your Activity Log using the Azure portal, CLI, PowerShell cmdlets, and Insights REST API.
+You can retrieve events from your Activity Log using the Azure portal, CLI, PowerShell cmdlets, and Azure Monitor REST API.
 
 ## What you can do with the Activity Log
 Here are some of the things you can do with the Activity Log:
@@ -93,7 +93,7 @@ azure insights logprofile get --name my_log_profile
 The `name` property should be the name of your log profile.
 
 #### Add a log profile
-``` 
+```
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
 ```
 

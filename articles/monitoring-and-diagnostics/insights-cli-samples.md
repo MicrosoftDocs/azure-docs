@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Insights: Azure Insights CLI quick start samples. | Microsoft Azure"
-	description="Sample CLI command can help you access Azure Insights monitoring features. Azure Insights is a Microsoft Azure service which allows you to autoScale Cloud Services, Virtual Machines, and Web Apps, send alert notifications, or call web URLs based on values of configured telemetry data."
+	pageTitle="Azure Monitor CLI quick start samples. | Microsoft Azure"
+	description="Sample CLI commands for Azure Monitor features. Azure Monitor is a Microsoft Azure service which allows you to send alert notifications, call web URLs based on values of configured telemetry data, and autoScale Cloud Services, Virtual Machines, and Web Apps."
 	authors="kamathashwin"
 	manager=""
 	editor=""
@@ -16,9 +16,11 @@
 	ms.date="09/08/2016"
 	ms.author="ashwink"/>
 
-# Azure Insights Cross-platform CLI quick start samples
+# Azure Monitor  Cross-platform CLI quick start samples
 
-This article shows you sample command-line interface (CLI) commands to help you access Azure Insights monitoring features. Azure Insights allows you to AutoScale Cloud Services, Virtual Machines, and Web Apps and to send alert notifications or call web URLs based on values of configured telemetry data.
+This article shows you sample command-line interface (CLI) commands to help you access Azure Monitor features. Azure Monitor allows you to AutoScale Cloud Services, Virtual Machines, and Web Apps and to send alert notifications or call web URLs based on values of configured telemetry data.
+
+![AZURE.NOTE] Azure Monitor is the new name for what was called "Azure Insights" until Sept 25th, 2016. However, the namespaces and thus the commands below still contain the "insights".
 
 
 ## Prerequisites
@@ -60,13 +62,13 @@ To change working context to a different subscription, use the following command
 azure account set "subscription ID or subscription name"
 ```
 
-To use Azure Resource Manager and Azure Insights commands, you need to be in Azure Resource Manager mode.
+To use Azure Resource Manager and Azure Monitor commands, you need to be in Azure Resource Manager mode.
 
 ```
 azure config mode arm
 ```
 
-To view a list of all supported Azure Insights commands, perform the following.
+To view a list of all supported Azure Monitor commands, perform the following.
 
 ```
 azure insights

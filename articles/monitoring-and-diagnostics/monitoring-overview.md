@@ -45,7 +45,7 @@ You can search the Activity Log (previously called Operational or Audit Logs) fo
 
 Some compute resources like Cloud Services, Virtual Machines, and Service Fabric have a dedicated Host VM they interact with. The Host VM is the equivalent of Root VM in the Hyper-V hypervisor model. In this case, you can collect metrics on just the Host VM in addition to the Guest OS.  
 
-For other Azure services, there is not necessarily a 1:1 mapping between your resource and a particular Host VM so host VM metrics are not available. 
+For other Azure services, there is not necessarily a 1:1 mapping between your resource and a particular Host VM so host VM metrics are not available.
 
 
 ### Resource - Metrics and Diagnostics Logs
@@ -92,7 +92,7 @@ A few ways to use this data:
 - Once written, you can have other tools within or outside of Azure read it and process it.
 - You download the data locally for a local archive or change your retention policy in the cloud to keep data for extended periods of time.  
 - You leave the data in Azure storage indefinitely, though you have to pay for Azure storage based on the amount of data you keep.
-- 
+-
 
 ### Query
 You can use the Azure Monitor REST API, cross platform Command-Line Interface (CLI) commands, PowerShell cmdlets, or the .NET SDK to access the data in the system or Azure storage
@@ -139,8 +139,8 @@ Azure has offerings available for monitoring your services from bare-metal infra
 ## Next steps
 Learn more about
 
-- [Azure Monitor in a video from Ignite 2016](https://myignite.microsoft.com/videos/4977) 
-- [Getting Started with Azure Monitor](monitoring-get-started.md) 
+- [Azure Monitor in a video from Ignite 2016](https://myignite.microsoft.com/videos/4977)
+- [Getting Started with Azure Monitor](monitoring-get-started.md)
 - [Azure Diagnostics](../azure-diagnostics.md) if you are attempting to diagnose problems in your Cloud Service, Virtual Machine, or Service Fabric application.
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) if you are trying to diagnostic problems in your App Service Web app.
 - [Troubleshooting Azure Storage](../storage/storage-e2e-troubleshooting.md) when using Storage Blobs, Tables, or Queues

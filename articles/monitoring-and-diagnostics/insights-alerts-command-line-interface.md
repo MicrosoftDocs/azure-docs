@@ -27,6 +27,8 @@
 
 This article shows you how to set up Azure alerts using the Command Line Interface (CLI).
 
+![AZURE.NOTE] Azure Monitor is the new name for what was called "Azure Insights" until Sept 25th, 2016. However, the namespaces and thus the commands below still contain the "insights".
+
 You can receive an alert based on monitoring metrics for, or events on, your Azure services.
 
 - **Metric values** - The alert triggers when the value of a specified metric crosses a threshold you assign in either direction. That is, it triggers both when the condition is first met and then afterwards when that condition is no longer being met.    
@@ -44,7 +46,7 @@ You can configure and get information about alert rules using
 - [Azure portal](insights-alerts-portal.md)
 - [PowerShell](insights-alerts-powershell.md)
 - [command-line interface (CLI)](insights-alerts-command-line-interface.md)
-- [Azure Insights REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+- [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 
 You can always receive help for commands by typing a command and putting -help at the end. For example:
@@ -55,7 +57,7 @@ You can always receive help for commands by typing a command and putting -help a
 
 ## Create alert rules using the CLI
 
-1. Perform the Prerequisites and login to Azure. See [Azure Insights CLI samples](insights-cli-samples.md). In short, install the CLI and run these commands. They get you logged in, show what subscription you are using, and prepare to run insights commands.
+1. Perform the Prerequisites and login to Azure. See [Azure Monitor CLI samples](insights-cli-samples.md). In short, install the CLI and run these commands. They get you logged in, show what subscription you are using, and prepare you to run Azure Monitor commands.
 
 
 	```console

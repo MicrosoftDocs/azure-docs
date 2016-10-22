@@ -34,8 +34,8 @@ You can receive alerts based on:
 Alerts are available across different services, including:
 
 - **Application Insights**: Enables web test and metric alerts. See [Set alerts in Application Insights](../application-insights/app-insights-alerts.md) and [Monitor availability and responsiveness of any website](../application-insights/app-insights-monitor-web-app-availability.md).
-- **Log Analytics (Operations Management Suite)**: Enables the routing of diagnostic logs to Log Analytics. Operations Management Suite allows metric, log, and other alert types. For more information, see [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md).   
-- **Azure Monitor**: Enables alerts based on both metric values and activity log events. Azure Monitor includes the [Azure Insights REST API](https://msdn.microsoft.com/library/dn931943.aspx).  For more information, see [Using the Azure portal, PowerShell, or the command-line interface to create alerts](insights-alerts-portal.md).
+- **Log Analytics (Operations Management Suite)**: Enables the routing of diagnostic logs to Log Analytics. Operations Management Suite allows metric, log, and other alert types. For more information, see [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md).  
+- **Azure Monitor**: Enables alerts based on both metric values and activity log events. Azure Monitor includes the [Azure Monitor REST API](https://msdn.microsoft.com/library/dn931943.aspx).  For more information, see [Using the Azure portal, PowerShell, or the command-line interface to create alerts](insights-alerts-portal.md).
 
 ## Alert actions
 You can configure an alert to do the following:

@@ -35,12 +35,12 @@ Diagnostic Logs for non-Compute resources are configured using Diagnostic Settin
 - Which Log Categories are sent.
 - How long each log category should be retained in a Storage Account – a retention of zero days means that logs are kept forever. Otherwise, this value can range from 1 to 2147483647. If retention policies are set but storing logs in a Storage Account is disabled (for example if only Event Hubs or OMS options are selected), the retention policies have no effect.
 
-These settings are easily configured via the Diagnostics blade for a resource in the Azure portal, via Azure PowerShell and CLI commands, or via the [Insights REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx).
+These settings are easily configured via the Diagnostics blade for a resource in the Azure portal, via Azure PowerShell and CLI commands, or via the [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
 > [AZURE.WARNING] Diagnostic logs and metrics for Compute resources (for example, VMs or Service Fabric) use [a separate mechanism for configuration and selection of outputs](../azure-diagnostics.md).
 
 ## How to enable collection of Diagnostic Logs
-Collection of Diagnostic Logs can be enabled as part of creating a resource or after a resource is created via the resource’s blade in the Portal. You can also enable Diagnostic Logs at any point using Azure PowerShell or CLI commands, or using the Insights REST API.
+Collection of Diagnostic Logs can be enabled as part of creating a resource or after a resource is created via the resource’s blade in the Portal. You can also enable Diagnostic Logs at any point using Azure PowerShell or CLI commands, or using the Azure Monitor REST API.
 
 > [AZURE.TIP] These instructions may not apply directly to every resource. See the schema links at the bottom of this page to understand special steps that may apply to certain resource types.
 
@@ -115,7 +115,7 @@ You can obtain your Log Analytics workspace ID in the Azure portal.
 You can combine these parameters to enable multiple output options.
 
 ### Enable Diagnostic Logs via REST API
-To change Diagnostic Settings using the Insights REST API, see [this document](https://msdn.microsoft.com/library/azure/dn931931.aspx).
+To change Diagnostic Settings using the Azure Monitor REST API, see [this document](https://msdn.microsoft.com/library/azure/dn931931.aspx).
 
 ## Manage Diagnostic Settings in the portal
 
@@ -135,7 +135,7 @@ Clicking on a resource will show all logs that have been stored in the storage a
 
 > [AZURE.NOTE] Diagnostic logs will only appear in this view and be available for download if you have configured diagnostic settings to save them to a storage account.
 
-Clicking on the link for **Diagnostic Settings** will bring up the Diagnostic Settings blade, where you can enable, disable, or modify your diagnostic settings for the selected resource. 
+Clicking on the link for **Diagnostic Settings** will bring up the Diagnostic Settings blade, where you can enable, disable, or modify your diagnostic settings for the selected resource.
 
 ## Supported services and schema for Diagnostic Logs
 The schema for Diagnostic Logs varies depending on the resource and log category. Below are the supported services and their schema.
@@ -187,5 +187,5 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 
 ## Next Steps
 - [Stream Diagnostic Logs to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-- [Change Diagnostic Settings using the Insights REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx)
+- [Change Diagnostic Settings using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 - [Analyze the logs with OMS Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)

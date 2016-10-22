@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Insights: Azure Insights PowerShell quick start samples. | Microsoft Azure"
-	description="Azure Insights quick start sample PowerShell commands can help you quickly access Azure Insights monitoring features."
+	pageTitle="Azure Monitor PowerShell quick start samples. | Microsoft Azure"
+	description="Use PowerShell to access Azure Monitor features such as autoscale, alerts, webhooks and searching Activity logs."
 	authors="kamathashwin"
 	manager=""
 	editor=""
@@ -16,16 +16,18 @@
 	ms.date="08/30/2016"
 	ms.author="ashwink"/>
 
-# Azure Insights PowerShell quick start samples
+# Azure Monitor PowerShell quick start samples
 
-This article shows you sample PowerShell commands to help you quickly access Azure Insights monitoring features. Azure Insights allows you to AutoScale Cloud Services, Virtual Machines, and Web Apps and to send alert notifications or call web URLs based on values of configured telemetry data.  
+This article shows you sample PowerShell commands to help you access Azure Monitor features. Azure Monitor allows you to AutoScale Cloud Services, Virtual Machines, and Web Apps and to send alert notifications or call web URLs based on values of configured telemetry data.
+
+![AZURE.NOTE] Azure Monitor is the new name for what was called "Azure Insights" until Sept 25th, 2016. However, the namespaces and thus the commands below still contain the "insights".
 
 ## Set up PowerShell
 If you haven't already, set up PowerShell to run on your computer. For more information, see [How to Install and Configure PowerShell](../powershell-install-configure.md) .
 
 ## Examples in this article
 
-The examples in the article illustrate how you can use Azure Insights cmdlets. You can also review the entire list of Azure Insights (monitoring) PowerShell cmdlets at [Azure Insights Cmdlets](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx).
+The examples in the article illustrate how you can use Azure Monitor cmdlets. You can also review the entire list of Azure Monitor PowerShell cmdlets at [Azure Monitor (Insights) Cmdlets](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx).
 
 
 ## Sign in and use subscriptions
