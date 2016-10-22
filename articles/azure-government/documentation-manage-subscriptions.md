@@ -31,7 +31,9 @@ Whether you are using Azure PowerShell to manage a large subscription through sc
 
 When you start PowerShell you have to tell Azure PowerShell to connect to Azure Government by specifying an environment parameter.  The parameter will ensure that PowerShell is connecting to all of the correct endpoints.  The collection of endpoints is determined when you connect log into your account.  Different APIs require different versions of the environment switch:
 
-[Service Management](https://msdn.microsoft.com/en-us/library/dn708504.aspx) commands| `Add-AzureAccount -Environment AzureUSGovernment`
+Connection Type | Command
+---|----
+[Service Management](https://msdn.microsoft.com/en-us/library/dn708504.aspx) commands | `Add-AzureAccount -Environment AzureUSGovernment`
 [Resource Management](https://msdn.microsoft.com/en-us/library/mt125356.aspx) commands | `Add-AzureRmAccount -EnvironmentName AzureUSGovernment`
 [Azure Active Directory](https://msdn.microsoft.com/en-us/library/azure/jj151815.aspx) commands | `Connect-MsolService -AzureEnvironment UsGovernment`
 [Azure Active Directory command v2](https://msdn.microsoft.com/en-us/library/azure/mt757189.aspx) | `Connect-AzureAD -AzureEnvironmentName AzureUSGovernment`
