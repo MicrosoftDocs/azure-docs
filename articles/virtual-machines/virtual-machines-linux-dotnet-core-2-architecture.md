@@ -80,7 +80,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
   "properties": {
     "accountType": "[variables('vhdStorageType')]"
   }
-},
+}
 ```
 
 A storage account is associate with a virtual machine inside the Resource Manager template declaration of the virtual machine. 
