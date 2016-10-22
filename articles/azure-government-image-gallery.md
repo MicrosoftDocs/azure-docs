@@ -20,13 +20,12 @@
 
 #  Azure Government Marketplace Images
 
-<p> The Microsoft Azure Government Marketplace is a similar experience to public Azure portal.  Customers can choose to deploy pre-built images from Microsoft and our partners, or upload their own VHDs.  This provides flexibility to deploy your own standardized images if needed.
+## Overview 
+The Microsoft Azure Government Marketplace is a similar experience to public Azure portal.  Customers can choose to deploy pre-built images from Microsoft and our partners, or upload their own VHDs.  This provides flexibility to deploy your own standardized images if needed.
 
 The below provides a list of available images within the Azure Government Marketplace.  Some of the prebuilt images do include pay as you go licensing for specific software.  Please review <a href="http://azure.microsoft.com/pricing/details/virtual-machines/">Virtual Machine Pricing</a> page for more guidance and work with your Microsoft account team or reseller for Azure Government specific pricing.
 
-## Azure Government Marketplace Images
-
-### All the images below are available via the new Azure Resource Manager
+## Images - Azure Resource Manager
 
 Publisher|Image Name|
 ---|---|
@@ -67,7 +66,7 @@ Microsoft | Windows Server 2012 Datacenter
 Microsoft | Windows Server 2012 R2 Datacenter
 
 
-### All the images below are available via classic resource provider.
+### Images - Classic Resource Provider.
 
 Publisher|Image Name|Description|OS|Disk Size
 ---|---|---|---|---
@@ -202,10 +201,15 @@ Visual Studio|Visual Studio Enterprise 2015 Update 2 with Azure SDK 2.9 on Windo
 ## Quick Start Templates
 
 ### Step 1
-Go to Azure Quickstart Templates GitHub Repository – select from the list of Solution Templates below: these solution templates support
+Go to Azure Quickstart Templates GitHub Repository and select from the list of Solution Templates below:
+
+| Quick Start Template |
+| ------- |
+|Ethereum Consortium Blockchain Network<a href="xxxxxx"> xxxxxxxxxx (</a>) |
+|<a href="https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/splunk-on-ubuntu"> Splunk on Ubuntu </a> |
 
 ### Step 2
-In the Readme file - the template by clicking on Deploy to Azure Government button/link at the top of the page
+In the Readme file, launch the template by clicking on Deploy to Azure Government button/link at the top of the page.
 
 ### Step 3
 A browser page will open the template deployment blade in the Azure Government portal. In the Parameters blade, complete required fields, click Okay
@@ -220,17 +224,7 @@ The blades will close and it will go back to your portal dashboard view, showing
 
 >[AZURE.NOTE] Solution templates are provided from Microsoft and third-party providers as a starting point only. You are solely responsible for developing, implementing, and managing your applications and/or subscriptions running on Microsoft Azure and Azure Government in compliance with applicable laws, regulations, and contractual obligations.  These Templates are provided "AS-IS" and without any warranty of any kind, whether in express, implied or statutory, and Microsoft expressly disclaims all warranties of merchantability, fitness for a particular purpose, or non-infringement. 
 
-
-QuickStart Template
- 
-
-Bletchley Ethereum Consortium Blockchain Network
- 
-
-Splunk on Ubuntu
- 
-
-## <a name="next"></a>Next steps
+## Next steps
 
 The below resources should provide more information on deploying from the image gallery or creating your own VHD.  Please reference the <a href="../azure-government-developer-guide">Azure Government Developer Guide</a> to uncover an programmatic differences with endpoints when working with Azure Government.
 
