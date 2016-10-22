@@ -27,7 +27,7 @@ The portal is the primary way that most people connect to Azure Government.  To 
 
 >[AZURE.NOTE] The legacy version fo the Azure Portal can be accessed via [https://manage.windowsazure.us](https://manage.windowsazure.us)
 
-Subscriptions can be created for your account by connecting to [https://accounts.windowsazure.us](https://accounts.windowsazure.us).
+Subscriptions can be created for your account by connecting to [https://account.windowsazure.us](https://account.windowsazure.us).
 
 ## Connecting via PowerShell
 
