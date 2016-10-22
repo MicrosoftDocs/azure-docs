@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Government Services | Microsoft Azure"
-	description="Provides and overview of the available services in Azure Government"
+	description="Provides an overview of the available services in Azure Government"
 	services="Azure-Government"
 	cloud="gov" 
 	documentationCenter=""
