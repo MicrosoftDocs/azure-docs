@@ -29,14 +29,9 @@ Virtual Machine extensions are specialized programs that execute against virtual
 
 Before detailing how virtual machine extensions are declared in an Azure Resource Manager template, examine the script that is run. This script configures the Windows virtual machine to host the Music Store application. When run, the script installs all needed software, install the Music store application from source control, and prepare the database. 
 
-```none
-<#
-.SYNOPSIS
-.DESCRIPTION
-.PARAMETER Alias
-.EXAMPLE
-#>
+> This sample is for demonstration purposes.
 
+```none
 Param (
     [string]$user,
     [string]$password,
