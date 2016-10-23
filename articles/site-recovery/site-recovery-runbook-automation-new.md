@@ -44,13 +44,13 @@ can troubleshoot a simple script if it goes wrong.
 
 1. Let us begin by operning the resource blade of the recovery plan. You can see the recovery plan has two virtual machines added to it for recovery. 
 
-![](media/site-recovery-runbook-automation-new/essentials-rp.PNG)
+	![](media/site-recovery-runbook-automation-new/essentials-rp.PNG)
 ---------------------
 
 2. Click on the customize button to begin adding a runbook. This will open the recovery plan customize blade.
 
 
-![](media/site-recovery-runbook-automation-new/customize-rp.PNG)
+	![](media/site-recovery-runbook-automation-new/customize-rp.PNG)
 
 
 3. Right click on the start group 1 and select to add a 'Add post action'.
@@ -63,13 +63,13 @@ can troubleshoot a simple script if it goes wrong.
 
 7. Select a runbook from the Automation Account. This is the script that will run during the execution of the recovery plan after the recovery of first group.
 
-![](media/site-recovery-runbook-automation-new/update-rp.PNG)
+	![](media/site-recovery-runbook-automation-new/update-rp.PNG)
 
 
 8. Select OK to save the script. This will add the script to the post action group of Group 1: Start.
 
 
-![](media/site-recovery-runbook-automation-new/addedscript-rp.PNG)
+	![](media/site-recovery-runbook-automation-new/addedscript-rp.PNG)
 
 
 ## Salient points of adding a script
