@@ -35,7 +35,7 @@ how to orchestrate recovery to Azure using recovery plans
 [here](https://azure.microsoft.com/blog/?p=166264).
 
 In this short tutorial, we will look at how you can integrate Azure Automation
-runbooks into recovery plans. We will also look at a simple technique to reuse the runbook for multiple recovery plans by passing parameters to the runbook.
+runbooks into recovery plans. We will automate simple tasks that earlier required manual intervention and see how to convert a multi step recovery into a single-click recovery action. We will also look at how you can troubleshoot a simple script if it goes wrong.
 
 ## Protect the application to Azure
 
