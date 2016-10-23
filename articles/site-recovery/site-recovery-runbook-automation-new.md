@@ -125,7 +125,7 @@ Consider that you want to pass 3 parameters to a runbook. Let us encode them int
 
 Use [AA complex variable](../automation/automation-variables.md#variable-types Complex variable) to create a new Automation asset.
 Name the variable as <RecoveryPlanName>-params.
-You can use the reference here to create a [omplex variable](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396).
+You can use the reference here to create a [complex variable](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396).
 
 For different recovery plans, name the variable as
 
@@ -151,7 +151,7 @@ Sample scripts are coming soon. Hold on!
 
 ## Additional Resources
 
-[Azure Automation Service Run as Account](../auomation/automation-sec-configure-azure-runas-account.md)
+[Azure Automation Service Run as Account](../automation/automation-sec-configure-azure-runas-account.md)
 
 [Azure Automation Overview](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Automation Overview")
 
