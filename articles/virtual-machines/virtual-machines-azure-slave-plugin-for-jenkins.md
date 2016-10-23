@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/20/2016" 
+	ms.date="10/19/2016" 
 	ms.author="robmcm"/>
 
 # How to use the Azure Slave Plugin with Jenkins Continuous Integration

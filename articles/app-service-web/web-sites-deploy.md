@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2016" 
+	ms.date="10/19/2016" 
 	ms.author="cephalin;dariac"/>
     
 # Deploy your app to Azure App Service

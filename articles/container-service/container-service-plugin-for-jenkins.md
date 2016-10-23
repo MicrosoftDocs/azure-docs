@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="10/20/2016" 
+	ms.date="10/19/2016" 
 	ms.author="robmcm"/>
 
 # Azure Container Service Plugin for Jenkins
