@@ -123,7 +123,7 @@ There is no first class mechanism to pass a parameter to a runbook. However, if 
 Consider that you want to pass 3 parameters to a runbook. Let us encode them into a JSON form
 {"Var1":"testautomation","Var2":"Unplanned","Var3":"PrimaryToSecondary"}
 
-Use [AA complex variable](https://azure.microsoft.com/en-in/documentation/articles/automation-variables/#variable-types Complex variable) to create a new Automation asset.
+Use [AA complex variable](../automation/automation-variables.md#variable-types Complex variable) to create a new Automation asset.
 Name the variable as <RecoveryPlanName>-params.
 You can use the reference here to create a [omplex variable](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396).
 
@@ -150,6 +150,8 @@ This way the same script can be used for different recovery plan by storing the 
 Sample scripts are coming soon. Hold on!
 
 ## Additional Resources
+
+[Azure Automation Service Run as Account](../auomation/automation-sec-configure-azure-runas-account.md)
 
 [Azure Automation Overview](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Automation Overview")
 
