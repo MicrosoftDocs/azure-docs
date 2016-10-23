@@ -22,13 +22,13 @@
 > [AZURE.SELECTOR]
 - [Azure Portal](site-recovery-hyper-v-site-to-azure.md)
 - [Azure Classic](site-recovery-hyper-v-site-to-azure-classic.md)
-- [PowerShell ARM](site-recovery-deploy-with-powershell-resource-manager.md)
+- [PowerShell Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
 
 
 
 Welcome to Azure Site Recovery! Use this article if you want to replicate on-premises Hyper-V  virtual machines that **aren't** managed in System Center Virtual Machines Manager (VMM) clouds to Azure. This article describes how to set up replication using Azure Site Recovery in the Azure portal.
 
-> [AZURE.NOTE] Azure has two different [deployment models](../resource-manager-deployment-model.md) for creating and working with resources: Azure Resource Manager (ARM) and classic. Azure also has two portals – the Azure classic portal that supports the classic deployment model, and the Azure portal with support for both deployment models.
+> [AZURE.NOTE] Azure has two different [deployment models](../resource-manager-deployment-model.md) for creating and working with resources: Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal that supports the classic deployment model, and the Azure portal with support for both deployment models.
 
 > Azure Site Recovery supports the recovery and migration of Hyper-V virtual machines to Azure. The steps in this article apply identically while configuring replication to Azure for disaster recovery or for migrating VMs to Azure
 
@@ -36,7 +36,7 @@ Azure Site Recovery in the Azure portal provides a number of new features:
 
 - In the Azure portal, Azure Backup and Azure Site Recovery services are combined into a single Recovery Services vault so that you can set up and manage business continuity and disaster recovery (BCDR) from a single location. A unified dashboard allows you monitor and manage operations across your on-premises sites and the Azure public cloud.
 - Users with Azure subscriptions provisioned with the Cloud Solution Provider (CSP) program can now manage Site Recovery operations in the Azure portal.
-- Site Recovery in the Azure portal can replicate machines to ARM storage accounts. At failover, Site Recovery creates ARM-based VMs in Azure.
+- Site Recovery in the Azure portal can replicate machines to Resource Manager storage accounts. At failover, Site Recovery creates Resource Manager-based VMs in Azure.
 - Site Recovery continues to support replication to classic storage accounts and failover of VMs using the classic deployment model.
 
 
@@ -110,7 +110,7 @@ To prepare for deployment you'll need to:
 Set up an Azure network. You’ll need this so that the Azure VMs created after failover are connected to a network.
 
 - The network should be in the same region as the one in which you'll deploy the Recovery Services vault.
-- Depending on the resource model you want to use for failed over Azure VMs, you’ll set up the Azure network in [ARM mode](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) or [classic mode](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
+- Depending on the resource model you want to use for failed over Azure VMs, you’ll set up the Azure network in [Resource Manager mode](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) or [classic mode](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 - We recommend you set up a network before you begin. If you don't you'll need to do it during Site Recovery deployment.
 
 > [AZURE.NOTE] [Migration of networks](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for networks used for deploying Site Recovery.
@@ -118,7 +118,7 @@ Set up an Azure network. You’ll need this so that the Azure VMs created after 
 ### Set up an Azure storage account
 
 - You’ll need a standard Azure storage account to hold data replicated to Azure.
-- Depending on the resource model you want to use for failed over Azure VMs, you'll set an account in [ARM mode](../storage/storage-create-storage-account.md) or [classic mode](../storage/storage-create-storage-account-classic-portal.md).
+- Depending on the resource model you want to use for failed over Azure VMs, you'll set an account in [Resource Manager mode](../storage/storage-create-storage-account.md) or [classic mode](../storage/storage-create-storage-account-classic-portal.md).
 - We recommend that you set up a storage account before you begin. If you don't you'll need to do it during Site Recovery deployment. The accounts need to be in the same region as the Recovery Services vault.
 
 > [AZURE.NOTE] [Migration of storage accounts](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
@@ -252,13 +252,13 @@ Specify the Azure storage account to be used for replication, and the Azure netw
 
 	![Storage](./media/site-recovery-hyper-v-site-to-azure/select-target.png)
 
-4.	If you haven't created a storage account and you want to create one using ARM click **+Storage** account to do that inline. On the **Create storage account** blade specify an account name, type, subscription, and location. The account should be in the same location as the Recovery Services vault.
+4.	If you haven't created a storage account and you want to create one using Resource Manager click **+Storage** account to do that inline. On the **Create storage account** blade specify an account name, type, subscription, and location. The account should be in the same location as the Recovery Services vault.
 
 	![Storage](./media/site-recovery-hyper-v-site-to-azure/gs-createstorage.png)
 
 	If you want to create a storage account using the classic model you'll do that [in the Azure portal](../storage/storage-create-storage-account-classic-portal.md).
 
-5.	If you haven’t created an Azure network and you want to create one using ARM click **+Network** to do that inline. On the **Create virtual network** blade specify a network name, address range, subnet details, subscription, and location. The network should be in the same location as the Recovery Services vault.
+5.	If you haven’t created an Azure network and you want to create one using Resource Manager click **+Network** to do that inline. On the **Create virtual network** blade specify a network name, address range, subnet details, subscription, and location. The network should be in the same location as the Recovery Services vault.
 
 	![Network](./media/site-recovery-hyper-v-site-to-azure/gs-createnetwork.png)
 
@@ -336,8 +336,8 @@ Now enable replication as follows:
 
 2. In the **Source** blade > select the Hyper-V site. Then click **OK**.
 3. In **Target** select the vault subscription, and the failover model you want to use in Azure (classic or resource management) after failover.
-4. Select the storage account you want to use. If you want to use a different storage account than those you have you can [create one](#set-up-an-azure-storage-account). To create a storage account using the ARM model click **Create new**. If you want to create a storage account using the classic model you'll do that [in the Azure portal](../storage/storage-create-storage-account-classic-portal.md). Then click **OK**.
-5.  Select the Azure network and subnet to which Azure VMs will connect when they're spun up after failover. Select **Configure now for selected machines** to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. If you want to use a different network from those you have you can [create one](#set-up-an-azure-network). To create a network using the ARM model click **Create new**.If you want to create a network using the classic model you’ll do that [in the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Select a subnet if applicable. Then click **OK**.
+4. Select the storage account you want to use. If you want to use a different storage account than those you have you can [create one](#set-up-an-azure-storage-account). To create a storage account using the Resource Manager model click **Create new**. If you want to create a storage account using the classic model you'll do that [in the Azure portal](../storage/storage-create-storage-account-classic-portal.md). Then click **OK**.
+5.  Select the Azure network and subnet to which Azure VMs will connect when they're spun up after failover. Select **Configure now for selected machines** to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. If you want to use a different network from those you have you can [create one](#set-up-an-azure-network). To create a network using the Resource Manager model click **Create new**.If you want to create a network using the classic model you’ll do that [in the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Select a subnet if applicable. Then click **OK**.
 
 	![Enable replication](./media/site-recovery-hyper-v-site-to-azure/enable-replication11.png)
 

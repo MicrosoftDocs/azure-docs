@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure Portal](site-recovery-vmm-to-azure.md)
-- [PowerShell - ARM](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+- [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 - [Classic Portal](site-recovery-vmm-to-azure-classic.md)
 - [PowerShell - Classic](site-recovery-deploy-with-powershell.md)
 
@@ -54,7 +54,7 @@ Make sure you have these prerequisites in place:
 
 - You'll need a [Microsoft Azure](https://azure.microsoft.com/) account. If you don't have one, start with a [free account](https://azure.microsoft.com/free). In addition, you can read about the [Azure Site Recovery Manager pricing](https://azure.microsoft.com/pricing/details/site-recovery/).
 - You'll need a CSP subscription if you are trying out the replication to a CSP subscription scenario. Learn more about the CSP program in [how to enroll in the CSP program](https://msdn.microsoft.com/library/partnercenter/mt156995.aspx).
-- You'll need an Azure v2 storage (ARM) account to store data replicated to Azure. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery service, and be associated with the same subscription or the CSP subscription. To learn more about setting up Azure storage, see the [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md) for reference.
+- You'll need an Azure v2 storage (Resource Manager) account to store data replicated to Azure. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery service, and be associated with the same subscription or the CSP subscription. To learn more about setting up Azure storage, see the [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md) for reference.
 - You'll need to make sure that virtual machines you want to protect comply with the [Azure virtual machine prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 
 > [AZURE.NOTE] Currently, only VM level operations are possible through Powershell. Support for recovery plan level operations will be made soon.  For now, you are limited to performing fail-overs only at a ‘protected VM’ granularity and not at a Recovery Plan level.
@@ -125,7 +125,7 @@ To learn about tips that can help you use the cmdlets, such as how parameter val
 
 ## Step 2: Create a Recovery Services vault
 
-1. Create an ARM resource group if you don't have one already
+1. Create a resource group  in Azure Resource Manager if you don't have one already
 
 		New-AzureRmResourceGroup -Name #ResourceGroupName -Location #location
 
