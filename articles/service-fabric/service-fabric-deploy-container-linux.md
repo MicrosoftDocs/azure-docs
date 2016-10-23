@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Service Fabric and Deploying Containers | Microsoft Azure"
-   description="Service Fabric and the use of containers to deploy microservice applications. This article describes the capabilities that Service Fabric provides for containers and how to deploy a Windows container image into a cluster"
+   pageTitle="Service Fabric and Deploying Containers in Linux | Microsoft Azure"
+   description="Service Fabric and the use of Docker containers to deploy microservice applications. This article describes the capabilities that Service Fabric provides for containers and how to deploy a Docker container image into a cluster"
    services="service-fabric"
    documentationCenter=".net"
    authors="msfussell"
@@ -16,19 +16,13 @@
    ms.date="10/22/2016"
    ms.author="msfussell"/>
 
-# Preview: Deploy a container to Service Fabric
-
-> [AZURE.SELECTOR]
-- [Deploy Windows Containers](service-fabric-deploy-container.md)
-- [Deploy Docker Containers](service-fabric-deploy-container-linux.md)
+# Preview: Deploy a Docker container to Service Fabric
 
 >[AZURE.NOTE] This feature is in preview for Linux and not currently available on Windows Server. This will be in preview for Windows Server on the next release of Service Fabric after Windows Server 2016 GA and supported in the subsequent release after that.
 
-This article walks you through building containerized services in Windows containers. 
+This article walks you through building containerized services in Docker containers on Linux. 
 
-Service Fabric has several container capabilities that help you with building applications that are composed of microservices that are containerized. These are called containerized services. 
-
-The capabilities include;
+Service Fabric has several container capabilities that help you with building applications that are composed of microservices that are containerized. These are called containerized services. The capabilities include;
 
 - Container image deployment and activation
 - Resource governance
@@ -39,13 +33,10 @@ The capabilities include;
 
 Lets look at each of capabilities in turn when packaging a containerized service to be included into your application.
 
-## Packaging a Windows container
+## Packaging a Docker container with yeoman
+When packaging a container on Linux, you can choose either to use a yeoman template or [create the application package manually](#manually).
 
-When packaging a container, you can choose either to use a Visual Studio project template or [create the application package manually](#manually). Using Visual Studio, the application package structure and manifest files are created by the new project wizard for you (this is coming in the next release).
-
-## Using Visual Studio to package an existing container image
-
->[AZURE.NOTE] In a future release of the Visual Studio tooling SDK, you will be able to add a container to an application in a similar way that you can add a guest executable today. See [Deploy a guest executable to Service Fabric](service-fabric-deploy-existing-app.md) topic. Currently you have to do manual packaging as described below.
+A Service Fabric application can contain one or more containers, each with a specific role in delivering the application's functionality. The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your application and add a container image. Let's use Yeoman to create a new application with a single Docker container. You can add more later.
 
 <a id="manually"></a>
 ## Manually packaging and deploying container

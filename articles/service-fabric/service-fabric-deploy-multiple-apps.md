@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Deploy a Node.js application using MongoDB | Microsoft Azure"
+   pageTitle="Deploy a Node.js application that uses MongoDB | Microsoft Azure"
    description="Walkthrough on how to package multiple guest executables to deploy to an Azure Service Fabric cluster"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/08/2016"
+   ms.date="10/22/2016"
    ms.author="msfussell;mikhegn"/>
 
 
