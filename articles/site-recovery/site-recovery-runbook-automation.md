@@ -4,7 +4,7 @@
    services="site-recovery"
    documentationCenter=""
    authors="ruturaj"
-   manager="mkjain"
+   manager="gauravd"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required"
-   ms.date="08/23/2016"
+   ms.date="10/23/2016"
    ms.author="ruturajd@microsoft.com"/>
 
 
@@ -34,11 +34,8 @@ Recovery](https://azure.microsoft.com/services/site-recovery/) and
 how to orchestrate recovery to Azure using recovery plans
 [here](https://azure.microsoft.com/blog/?p=166264).
 
-In this tutorial, we will look at how you can integrate Azure Automation
-runbooks into recovery plans. We will automate simple tasks that earlier
-required manual intervention and see how to convert a multi-step
-recovery into a single-click recovery action. We will also look at how you
-can troubleshoot a simple script if it goes wrong.
+In this short tutorial, we will look at how you can integrate Azure Automation
+runbooks into recovery plans. We will also look at a simple technique to reuse the runbook for multiple recovery plans by passing parameters to the runbook.
 
 ## Protect the application to Azure
 
