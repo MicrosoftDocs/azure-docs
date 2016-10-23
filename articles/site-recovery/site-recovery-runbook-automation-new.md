@@ -4,7 +4,7 @@
    services="site-recovery"
    documentationCenter=""
    authors="ruturaj"
-   manager="mkjain"
+   manager="gauravd"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required"
-   ms.date="08/23/2016"
+   ms.date="10/23/2016"
    ms.author="ruturajd@microsoft.com"/>
 
 
