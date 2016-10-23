@@ -44,13 +44,13 @@ can troubleshoot a simple script if it goes wrong.
 
 1. Let us begin by operning the resource blade of the recovery plan. You can see the recovery plan has two virtual machines added to it for recovery. 
 
-![](media/site-recovery-runbook-automation-new/essentials-rp.png)
+![](media/site-recovery-runbook-automation-new/essentials-rp.PNG)
 ---------------------
 
 2. Click on the customize button to begin adding a runbook. This will open the recovery plan customize blade.
 
 
-![](media/site-recovery-runbook-automation-new/customize-rp.png)
+![](media/site-recovery-runbook-automation-new/customize-rp.PNG)
 
 
 3. Right click on the start group 1 and select to add a 'Add post action'.
@@ -63,13 +63,13 @@ can troubleshoot a simple script if it goes wrong.
 
 7. Select a runbook from the Automation Account. This is the script that will run during the execution of the recovery plan after the recovery of first group.
 
-![](media/site-recovery-runbook-automation-new/update-rp.png)
+![](media/site-recovery-runbook-automation-new/update-rp.PNG)
 
 
 8. Select OK to save the script. This will add the script to the post action group of Group 1: Start.
 
 
-![](media/site-recovery-runbook-automation-new/addedscript-rp.png)
+![](media/site-recovery-runbook-automation-new/addedscript-rp.PNG)
 
 
 ## Salient points of adding a script
@@ -147,7 +147,7 @@ This way the same script can be used for different recovery plan by storing the 
 
 ## Sample scripts
 
-While we walked through automating one commonly used task of adding an endpoint to an Azure virtual machine in this tutorial, you could do a number of other powerful automation tasks using Azure automation. Microsoft and the Azure Automation community provide sample runbooks which can help you get started creating your own solutions, and utility runbooks, which you can use as building blocks for larger automation tasks. Start using them from the gallery and build  powerful one-click recovery plans for your applications using Azure Site Recovery.
+Sample scripts are coming soon. Hold on!
 
 ## Additional Resources
 
