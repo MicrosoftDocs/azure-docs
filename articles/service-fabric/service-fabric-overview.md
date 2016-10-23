@@ -41,9 +41,8 @@ Service Fabric provides comprehensive runtime and lifecycle management capabilit
 
 For more on the microservices approach, read [Why a microservices approach to building applications?](service-fabric-overview-microservices.md)
 
-## Container orchestration
+## Container deployment and orchestration
 Service Fabric is an [orchestrator](service-fabric-cluster-resource-manager-introduction.md) of microservices across a cluster of machines. Microservices can be developed in many ways from using the [Service Fabric programming models ](service-fabric-choose-framework.md) to deploying [guest executables](service-fabric-deploy-existing-app.md). Service Fabric can deploy services in container images and importantly you can mix both services in processes and services in containers together in the same application. If you just want to [deploy and manage container images](service-fabric-containers-overview.md) across a cluster of machines, Service Fabric is a perfect choice for this.
-
 
 
 ## Create Service Fabric clusters anywhere
@@ -83,7 +82,7 @@ By using Service Fabric, you can:
 
 - Develop highly reliable stateless and stateful microservices.
 
-- Deploy and orchestrate containers include Windows containers and Docker containers
+- Deploy and orchestrate containers include Windows containers and Docker containers across a cluster. These containers can container guest executables or reliable stateless and stateful microservices.  In either case you get container port to host port mapping, container discoverability and automated failover.
 
 - Simplify the design of your application by using stateful microservices in place of caches and queues.
 
@@ -105,7 +104,7 @@ By using Service Fabric, you can:
 
 - Monitor and diagnose the health of your applications and set policies for performing automatic repairs.
 
-- Scale up or scale down your Service Fabric cluster easily, knowing that the applications scale according to available resources.
+- Ability to scale-out or scale-in the number of nodes in a cluster, as well as scale-up or scale-down the size of each node, knowing that your applications automatically scale and are distributed according to the available resources.
 
 - Watch the self-healing resource balancer orchestrate the redistribution of applications across the cluster. Service Fabric recovers from failures and optimizes the distribution of load based on available resources.
 
