@@ -30,14 +30,14 @@ This section contains general prerequisites for Media Services development using
 
 ### Prerequisites
 
-- A Media Services account in a new or existing Azure subscription. See the topic [How to Create a Media Services Account](media-services-create-account.md).
+- A Media Services account in a new or existing Azure subscription. See the topic [How to Create a Media Services Account](media-services-portal-create-account.md).
 - The Azure Libraries for Java, which you can install from the [Azure Java Developer Center][].
 
 ## How to: Use Media Services with Java
 
 The following code shows how to create an asset, upload a media file to the asset, run a job with a task to transform the asset, and create a locator to stream your video.
 
-You need to set up a Media Services account before using this code. For information about setting up an account, see [How to Create a Media Services Account](media-services-create-account.md).
+You need to set up a Media Services account before using this code. For information about setting up an account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
 
 Substitute your values for the 'clientId' and 'clientSecret' variables. The code also relies on a locally stored file. You'll need to provide your own file to use.
 	
