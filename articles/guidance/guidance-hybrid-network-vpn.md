@@ -111,7 +111,7 @@ Select the Azure VPN Gateway SKU that most closely matches your throughput requi
 | Standard | 100 Mbps | 10 |
 | High Performance | 200 Mbps | 30 |
 
-> [AZURE.NOTE] The Basic SKU is not compatible with Azure ExpressRoute. You can [change the SKU][changing-SKUs] after the getway has been created.
+> [AZURE.NOTE] The Basic SKU is not compatible with Azure ExpressRoute. You can [change the SKU][changing-SKUs] after the gateway has been created.
 
 Create routing rules for the gateway subnet that direct incoming application traffic from the gateway to the internal load balancer rather than allowing requests to pass directly to the VMs that implement the application.
 
@@ -173,9 +173,9 @@ Ensure that the on-premises VPN appliance uses an encryption method that is [com
 
 If your on-premises VPN appliance is on a perimeter network that has a firewall between the perimeter network and the Internet, you might have to configure [additional firewall rules][additional-firewall-rules] to allow the site-to-site VPN connection.
 
-If the application in the VNet sends data to the Internet, consider [implementing forced tunnelling][forced-tunnelling] to route all Internet-bound traffic through the on-premises network. This approach enables you to audit outgoing requests made by the application from the on-premises infrastructure.
+If the application in the VNet sends data to the Internet, consider [implementing forced tunneling][forced-tunneling] to route all Internet-bound traffic through the on-premises network. This approach enables you to audit outgoing requests made by the application from the on-premises infrastructure.
 
-> [AZURE.NOTE] Forced tunnelling can impact connectivity to Azure services (the Storage Service, for example) and the Windows License Manager.
+> [AZURE.NOTE] Forced tunneling can impact connectivity to Azure services (the Storage Service, for example) and the Windows License Manager.
 
 ## Troubleshooting considerations
 
@@ -512,7 +512,7 @@ If you have an existing on-premises infrastructure already configured with a VPN
 [create-azure-vnet]: ../virtual-network/virtual-networks-create-vnet-classic-cli.md
 [azure-vm-diagnostics]: https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/
 [application-insights]: ../application-insights/app-insights-overview-usage.md
-[forced-tunnelling]: https://azure.microsoft.com/documentation/articles/vpn-gateway-about-forced-tunneling/
+[forced-tunneling]: https://azure.microsoft.com/documentation/articles/vpn-gateway-about-forced-tunneling/
 [getting-started-with-azure-security]: ./../security/azure-security-getting-started.md
 [vpn-appliances]: ../vpn-gateway/vpn-gateway-about-vpn-devices.md
 [installing-ad]: ../active-directory/active-directory-install-replica-active-directory-domain-controller.md
