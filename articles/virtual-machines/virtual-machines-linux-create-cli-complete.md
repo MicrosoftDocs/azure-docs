@@ -354,7 +354,7 @@ Output:
 }
 ```
 
-To investigate the storage account by using the CLI, you first need to set the account names and keys by using a variation of the following command. Replace the name of the storage account in the following example with a name that you choose:
+To investigate the storage account by using the CLI, you first need to set the account names and keys. Replace the name of the storage account in the following example with a name that you choose:
 
 ```
 AZURE_STORAGE_CONNECTION_STRING="$(azure storage account connectionstring show mystorageaccount --resource-group myResourceGroup --json | jq -r '.string')"
@@ -761,7 +761,7 @@ azure network lb inbound-nat-rule create --resource-group myResourceGroup \
   --frontend-port 4223 --backend-port 22
 ```
 
-Let's also go ahead and create a NAT rule for TCP port 80 for web traffic, hooking the rule up to our IP pools. If we hook up the rule to IP pool, instead of hooking up the rule to our VMs individually, we can simply add or remove VMs from the IP pool. The load balancer automatically adjusts the flow of traffic. The following example creates a rule named `myLoadBalancerRuleWeb` to map TCP port 80 to port 80:
+Let's also go ahead and create a NAT rule for TCP port 80 for web traffic, hooking the rule up to our IP pools. If we hook up the rule to IP pool, instead of hooking up the rule to our VMs individually, we can add or remove VMs from the IP pool. The load balancer automatically adjusts the flow of traffic. The following example creates a rule named `myLoadBalancerRuleWeb` to map TCP port 80 to port 80:
 
 ```bash
 azure network lb rule create --resource-group myResourceGroup \
@@ -1051,7 +1051,7 @@ azure network nic create --resource-group myResourceGroup --location westeurope 
 
 ## Create a network security group and rules
 
-Now we create a Network Security Group and the inbound rules that govern access to the NIC. A Network Security Group can be applied to the a NIC or subnet. You define rules to control the flow of traffic in and out of your VMs. The following example creates a Network Security Group named `myNetworkSecurityGroup`:
+Now we create a Network Security Group and the inbound rules that govern access to the NIC. A Network Security Group can be applied to a NIC or subnet. You define rules to control the flow of traffic in and out of your VMs. The following example creates a Network Security Group named `myNetworkSecurityGroup`:
 
 ```bash
 azure network nsg create --resource-group myResourceGroup --location westeurope \
@@ -1267,7 +1267,7 @@ info:    vm show command OK
 
 
 ## Export the environment as a template
-Now that you have built out this environment, what if you want to create an additional development environment with the same parameters, or a production environment that matches it? Resource Manager uses JSON templates that define all the parameters for your environment. You build out entire environments by referencing this JSON template. You can [build JSON templates manually](../resource-group-authoring-templates.md) or simply export an existing environment to create the JSON template for you:
+Now that you have built out this environment, what if you want to create an additional development environment with the same parameters, or a production environment that matches it? Resource Manager uses JSON templates that define all the parameters for your environment. You build out entire environments by referencing this JSON template. You can [build JSON templates manually](../resource-group-authoring-templates.md) or export an existing environment to create the JSON template for you:
 
 ```bash
 azure group export --name myResourceGroup
