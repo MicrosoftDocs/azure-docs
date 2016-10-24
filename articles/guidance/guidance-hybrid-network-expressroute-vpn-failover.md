@@ -160,7 +160,7 @@ If you have an existing on-premises infrastructure already configured with a sui
 
 <!-- links -->
 
-[resource-manager-overview]: ../resource-group-overview.md
+[resource-manager-overview]: ../azure-resource-manager/resource-group-overview.md
 [vpn-appliance]: ../vpn-gateway/vpn-gateway-about-vpn-devices.md
 [azure-vpn-gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
@@ -181,5 +181,6 @@ If you have an existing on-premises infrastructure already configured with a sui
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [naming conventions]: ./guidance-naming-conventions.md
 [azure-cli]: https://azure.microsoft.com/documentation/articles/xplat-cli-install/
+[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [0]: ./media/guidance-hybrid-network-expressroute-vpn-failover/figure1.png "Architecture of a highly available hybrid network architecture using ExpressRoute and VPN gateway"
 [ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/

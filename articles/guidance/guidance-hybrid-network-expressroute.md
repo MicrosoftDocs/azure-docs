@@ -295,7 +295,7 @@ If you have an existing on-premises infrastructure already configured with a VPN
 
 <!-- links -->
 [expressroute-technical-overview]: ../expressroute/expressroute-introduction.md
-[resource-manager-overview]: ../resource-group-overview.md
+[resource-manager-overview]: ../azure-resource-manager/resource-group-overview.md
 [azure-powershell]: ../powershell-azure-resource-manager.md
 [expressroute-prereqs]: ../expressroute/expressroute-prerequisites.md
 [configure-expressroute-routing]: ../expressroute/expressroute-howto-routing-arm.md
@@ -303,9 +303,9 @@ If you have an existing on-premises infrastructure already configured with a VPN
 [link-vnet-to-expressroute]: ../expressroute/expressroute-howto-linkvnet-arm.md
 [ExpressRoute-provisioning]: ../expressroute/expressroute-workflows.md
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
-[expressroute-limits]: ../azure-subscription-service-limits/#networking-limits
+[expressroute-limits]: ../azure-subscription-service-limits.md#networking-limits
 [sample-script]: #sample-solution-script
-[connectivity-providers]: ../expressroute/expressroute-introduction/#how-can-i-connect-my-network-to-microsoft-using-expressroute
+[connectivity-providers]: ../expressroute/expressroute-introduction.md#how-can-i-connect-my-network-to-microsoft-using-expressroute
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
 [forced-tuneling]: ./guidance-iaas-ra-secure-vnet-hybrid.md
 [highly-available-network-architecture]: ./guidance-hybrid-network-expressroute-vpn-failover.md
