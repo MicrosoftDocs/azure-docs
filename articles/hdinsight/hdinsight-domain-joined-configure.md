@@ -80,7 +80,7 @@ In this section, you create a classic VNet using the Azure classic portal. In th
 
 	- **Name**: contosoaadvnet
 	- **Address space**: 10.1.0.0/16
-	- **Subnet name**: Subnet-1
+	- **Subnet name**: Subnet1
 	- **Subnet address range**: 10.1.0.0/24
 	- **Subscription**: (Select a subscription. You will also use this subscription to create your HDInsight cluster.)
 	- **ResourceGroup**:
