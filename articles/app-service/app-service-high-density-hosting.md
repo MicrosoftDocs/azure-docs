@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/07/2016"
+	ms.date="10/24/2016"
 	ms.author="byvinyal"/>
 
-# High-density hosting on Azure App Service#
+# High-density hosting on Azure App Service
 
 When using App Service, your application will be decoupled from the capacity allocated to it by 2 concepts:
 
@@ -34,7 +34,7 @@ However, when multiple apps share an App Service plan, an
 instance of that app runs on every instance of that
 App Service plan.
 
-## Per app scaling##
+## Per app scaling
 *Per app scaling* is a feature that can be enabled at the
 App Service plan level and then used per application.
 
