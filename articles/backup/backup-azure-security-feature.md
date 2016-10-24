@@ -53,7 +53,7 @@ Users creating recovery services vault would be able to avail all the Security F
 
 > [AZURE.NOTE]
 1. Security Features should be enabled only if you are using: <br/>
-	i. MAB agent - minimum agent version 2.0.9052 
+	i. MAB agent - minimum agent version 2.0.9052 <br/>
 	ii. Azure Backup Server - minimum MAB agent version 2.0.9052 with Azure Backup Server upgrade 1 <br/>
 	iii. DPM - Do not enable this Setting for DPM. This feature is coming soon in future URs <br/>
 2. Once enabled, you get Security Features for all the Azure Recovery Services Agent (MARS) machines and Azure Backup Server registered with the vault. <br/>
