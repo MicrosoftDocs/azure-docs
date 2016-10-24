@@ -1,8 +1,8 @@
-This article outlines a set of proven practices for running a Windows virtual machine (VM) on Azure, paying attention to scalability, availability, manageability, and security. 
+This article outlines a set of proven practices for running a Windows virtual machine (VM) on Azure, paying attention to scalability, availability, manageability, and security.
 
 > [AZURE.NOTE] Azure has two different deployment models: [Azure Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
 
-We don't recommend using a single VM for production workloads, because there is no up-time service level agreement (SLA) for single VMs on Azure. To get the SLA, you must deploy multiple VMs in an [availability set][availability-set]. For more information, see [Running multiple Windows VMs on Azure][multi-vm]. 
+We don't recommend using a single VM for production workloads, because there is no up-time service level agreement (SLA) for single VMs on Azure. To get the SLA, you must deploy multiple VMs in an [availability set][availability-set]. For more information, see [Running multiple Windows VMs on Azure][multi-vm].
 
 ## Architecture diagram
 
@@ -27,7 +27,7 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 - **Network interface (NIC)**. The NIC enables the VM to communicate with the virtual network.
 
 - **Network security group (NSG)**. The [NSG][nsg] is used to allow/deny network traffic to the subnet. You can associate an NSG with an individual NIC or with a subnet. If you associate it with a subnet, the NSG rules apply to all VMs in that subnet.
- 
+
 - **Diagnostics.** Diagnostic logging is crucial for managing and troubleshooting the VM.
 
 ## Recommendations
@@ -46,13 +46,11 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 ### Disk and storage recommendations
 
-- For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid state drives (SSDs). Cost is based on the size of the provisioned disk. IOPS and throughput also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). 
-
-- One storage account can support 1 to 20 VMs.
+- For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid state drives (SSDs). Cost is based on the size of the provisioned disk. IOPS and throughput also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput).
 
 - Add one or more data disks. When you create a new VHD, it is unformatted. Log into the VM to format the disk.
 
-- If you have a large number of data disks, be aware of the total I/O limits of the storage account. For more information, see [Virtual Machine Disk Limits][vm-disk-limits].
+- Be aware of the total I/O limits of the storage account. For more information, see [Scalability targets for virtual machine disks][storage-scalability] and [Azure Premium Storage: Design for High Performance][premium-storage].
 
 - For best performance, create a separate storage account to hold diagnostic logs. A standard locally redundant storage (LRS) account is sufficient for diagnostic logs.
 
@@ -72,7 +70,7 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 ## Scalability considerations
 
-- You can scale a VM up or down by [changing the VM size][vm-resize]. 
+- You can scale a VM up or down by [changing the VM size][vm-resize].
 
 - To scale out horizontally, put two or more VMs into an availability set behind a load balancer. For details, see [Running multiple Windows VMs on Azure][multi-vm].
 
@@ -110,11 +108,11 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 - **Deleting a VM.** If you delete a VM, the VHDs are not deleted. That means you can safely delete the VM without losing data. However, you will still be charged for storage. To delete the VHD, delete the file from [blob storage][blob-storage].
 
-  To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as the VM. 
+  To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as the VM.
 
 ## Security considerations
 
-- Use [Azure Security Center][security-center] to get a central view of the security state of your Azure resources. Security Center monitors potential security issues such as system updates, antimalware, and provides a comprehensive picture of the security health of your deployment. 
+- Use [Azure Security Center][security-center] to get a central view of the security state of your Azure resources. Security Center monitors potential security issues such as system updates, antimalware, and provides a comprehensive picture of the security health of your deployment.
 
     - Security Center is configured per Azure subscription. Enable security data collection as described in [Use Security Center].
 
@@ -136,7 +134,7 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 - Use [audit logs][audit-logs] to see provisioning actions and other VM events.
 
-- Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks. 
+- Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks.
 
 ## Solution deployment
 
@@ -154,7 +152,7 @@ This reference architecture uses a single resource group that you can deploy by 
 
 ### Customize the deployment
 
-If you need to change the deployment to match your needs, follow the instructions in the [guidance-single-vm][readme] page. 
+If you need to change the deployment to match your needs, follow the instructions in the [guidance-single-vm][readme] page.
 
 ## Next steps
 
@@ -164,7 +162,6 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 
 [audit-logs]: https://azure.microsoft.com/en-us/blog/analyze-azure-audit-logs-in-powerbi-more/
 [availability-set]: ../articles/virtual-machines/virtual-machines-windows-create-availability-set.md
-[azure-cli]: ../articles/virtual-machines-command-line-tools.md
 [azure-storage]: ../articles/storage/storage-introduction.md
 [blob-snapshot]: ../articles/storage/storage-blob-snapshots.md
 [blob-storage]: ../articles/storage/storage-introduction.md
@@ -190,7 +187,6 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [reboot-logs]: https://azure.microsoft.com/en-us/blog/viewing-vm-reboot-logs/
 [resize-os-disk]: ../articles/virtual-machines/virtual-machines-windows-expand-os-disk.md
 [Resize-VHD]: https://technet.microsoft.com/en-us/library/hh848535.aspx
-[Resize virtual machines]: https://azure.microsoft.com/en-us/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md
 [resource-manager-overview]: ../articles/azure-resource-manager/resource-group-overview.md
 [security-center]: https://azure.microsoft.com/en-us/services/security-center/
@@ -198,17 +194,12 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [services-by-region]: https://azure.microsoft.com/en-us/regions/#services
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
+[storage-scalability]: ../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks
 [Use Security Center]: ../articles/security-center/security-center-get-started.md#use-security-center
 [virtual-machine-sizes]: ../articles/virtual-machines/virtual-machines-windows-sizes.md
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
-[ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
-[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/Deploy-ReferenceArchitecture.ps1
-[vnet-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/windows/virtualNetwork.parameters.json
-[nsg-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/windows/networkSecurityGroups.parameters.json
-[vm-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/windows/virtualMachine.parameters.json
-[azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Single Windows VM architecture in Azure"
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm
 [blocks]: https://github.com/mspnp/template-building-blocks
