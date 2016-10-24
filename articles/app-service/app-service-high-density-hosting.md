@@ -18,7 +18,7 @@
 
 # High density hosting on Azure App Service
 
-When using App Service, your application is decoupled from the capacity allocated to it by 2 concepts:
+When using App Service, your application is decoupled from the capacity allocated to it by two concepts:
 
 - **The Application:** Represents the app and its runtime configuration. For example, it includes the version of .NET that the runtime should load, the app settings, etc.
 
@@ -26,7 +26,7 @@ When using App Service, your application is decoupled from the capacity allocate
 
 An app is always linked to an App Service plan, but an App Service plan can provide capacity to one or more apps.
 
-This means that the platform provides the flexibility to isolate a
+As a result, the platform provides the flexibility to isolate a
 single app or have multiple apps share resources by sharing an
 App Service plan.
 
@@ -47,8 +47,9 @@ The following Azure Resource Manager template creates an App Service plan that's
 instances and an app that's configured to use per app scaling and scale to
 only 5 instances.
 
-To do this, the App Service plan is setting the **per-site scaling** property to true ( `"perSiteScaling": true`), and the app is setting the **number of
-workers** to use to 1 (`"properties": { "numberOfWorkers": "1" }`).
+The App Service plan is setting the **per-site scaling** property 
+to true ( `"perSiteScaling": true`). The app is setting the **number of workers** 
+to use to 5 (`"properties": { "numberOfWorkers": "5" }`).
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -90,7 +91,7 @@ workers** to use to 1 (`"properties": { "numberOfWorkers": "1" }`).
                     "apiVersion": "2015-08-01",
                     "location": "West US",
                     "dependsOn": [ "[resourceId('Microsoft.Web/Sites', parameters('appName'))]" ],
-                    "properties": { "numberOfWorkers": "1" }
+                    "properties": { "numberOfWorkers": "5" }
              } ]
          }]
     }
@@ -114,8 +115,8 @@ capacity on the worker pool.
 1. Set the per-site scaling flag to true on the App Service plan.
 
 1. New sites are created and assigned to that App Service plan with the
-**numberOfWorkers** property set to **1**. This yields the highest density
-possible on this worker pool.
+**numberOfWorkers** property set to **1**. Using this configuration yields the 
+highest density possible on this worker pool.
 
 1. The number of workers can be configured independently per site to grant
 additional resources as needed. For example, a high-use site might set
