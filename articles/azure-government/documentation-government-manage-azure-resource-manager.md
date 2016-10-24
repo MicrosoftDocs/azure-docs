@@ -105,7 +105,7 @@ For detailed information on Resource Manager providers, API versions, and schema
 | Service | Resource Manager Enabled |
 | ------- | ------- |
 | BizTalk Services | No |
-| Recovery Service | No |
+| Recovery Service | Yes (Hyper-V only) |
 | Service Bus | Yes |
 
 ## Developer Services
