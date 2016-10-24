@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Efficient list queries in Azure Batch | Microsoft Azure"
-	description="Increase performance by filtering your queries when requesting information on Batch entities such as pools, jobs, tasks, and compute nodes."
+	description="Increase performance by filtering your queries when requesting information on Batch resources like pools, jobs, tasks, and compute nodes."
 	services="batch"
 	documentationCenter=".net"
 	authors="mmacy"
@@ -13,18 +13,18 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="07/25/2016"
+	ms.date="10/25/2016"
 	ms.author="marsma" />
 
 # Query the Azure Batch service efficiently
 
 Here you'll learn how to increase your Azure Batch application's performance by reducing the amount of data that is returned by the service when you query jobs, tasks, and compute nodes with the [Batch .NET][api_net] library.
 
-Nearly all Batch applications need to perform some type of monitoring or other operation that queries the Batch service, often at regular intervals. For example, to determine whether there are any queued tasks remaining in a job, you must get data on every task within the job. To determine the status of the nodes in your pool, you must get data on every node in the pool. This article explains how to execute these types of queries in the most efficient way.
+Nearly all Batch applications need to perform some type of monitoring or other operation that queries the Batch service, often at regular intervals. For example, to determine whether there are any queued tasks remaining in a job, you must get data on every task in the job. To determine the status of nodes in your pool, you must get data on every node in the pool. This article explains how to execute such queries in the most efficient way.
 
 ## Meet the DetailLevel
 
-In a production Batch application, entities like jobs, tasks, and compute nodes can number in the thousands. Obtaining information for these can therefore generate a large amount of data that must "cross the wire" from the service to your application on each query. By limiting the number of items and the type of information that is returned by a query, you can increase the speed of your queries, and therefore the performance of your application.
+In a production Batch application, entities like jobs, tasks, and compute nodes can number in the thousands. When you request information on these resources, a potentially large amount of data must "cross the wire" from the Batch service to your application on each query. By limiting the number of items and type of information that is returned by a query, you can increase the speed of your queries, and therefore the performance of your application.
 
 This [Batch .NET][api_net] API code snippet lists *every* task that is associated with a job, along with *all* of the properties of each task:
 
@@ -82,12 +82,12 @@ The expand string reduces the number of API calls that are required to obtain ce
 
 ### Rules for filter, select, and expand strings
 
-- Properties names in filter, select, and expand strings should appear as they do in the [Batch REST][api_rest] API--even when you use the [Batch .NET][api_net] library.
+- Properties names in filter, select, and expand strings should appear as they do in the [Batch REST][api_rest] API--even when you use [Batch .NET][api_net] or one of the other Batch SDKs.
 - All property names are case sensitive, but property values are case insensitive.
 - Date/time strings can be one of two formats, and must be preceded with `DateTime`.
 
-  - W3C-DTF format example: `creationTime gt DateTime'2011-05-08T08:49:37Z'`.
-  - RFC 1123 format example: `creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`.
+  - W3C-DTF format example: `creationTime gt DateTime'2011-05-08T08:49:37Z'`
+  - RFC 1123 format example: `creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
 - Boolean strings are either `true` or `false`.
 - If an invalid property or operator is specified, a `400 (Bad Request)` error will result.
 
