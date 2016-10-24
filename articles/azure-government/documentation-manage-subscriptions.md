@@ -32,7 +32,7 @@ Whether you are using Azure PowerShell to manage a large subscription through sc
 + Connecting your account
 + Region names
 
->[AZURE.NOTE] If you have not used PowerShell yet, check out the [Introduction to Azure PowerShell](..\powershell-install-configure.md).
+>[AZURE.NOTE] If you have not used PowerShell yet, check out the [Introduction to Azure PowerShell](../powershell-install-configure.md).
 
 When you start PowerShell, you have to tell Azure PowerShell to connect to Azure Government by specifying an environment parameter.  The parameter ensures that PowerShell is connecting to the correct endpoints.  The collection of endpoints is determined when you connect log in to your account.  Different APIs require different versions of the environment switch:
 
