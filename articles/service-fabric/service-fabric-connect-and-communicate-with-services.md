@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/05/2016"
+   ms.date="10/19/2016"
    ms.author="vturecek"/>
 
 # Connect and communicate with services in Service Fabric

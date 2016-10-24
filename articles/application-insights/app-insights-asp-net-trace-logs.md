@@ -51,7 +51,7 @@ If you're using System.Diagnostics.Trace, you need to add an entry to web.config
 
 **[Add Application Insights to your project](app-insights-asp-net.md)** if you haven't done that yet. You'll see an option to include the log collector.
 
-Or **Configure Application Insights** by right-clicking your project in Solution Explorer. Select the options to include the log collector.
+Or **Configure Application Insights** by right-clicking your project in Solution Explorer. Select the option to **Configure trace collection**.
 
 *No Application Insights menu or log collector option?* Try [Troubleshooting](#troubleshooting).
 

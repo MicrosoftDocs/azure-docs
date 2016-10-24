@@ -8,3 +8,4 @@
 - [Service Bus](../articles/azure-functions/functions-bindings-service-bus.md)
 - [Storage](../articles/azure-functions/functions-bindings-storage.md)
 - [Timer](../articles/azure-functions/functions-bindings-timer.md)
+- [Twilio](../articles/azure-functions/functions-bindings-twilio.md)

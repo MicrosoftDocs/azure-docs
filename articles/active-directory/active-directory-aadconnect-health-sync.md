@@ -60,11 +60,13 @@ This feature provides a graphical trend of the number of changes that are being 
 
 ## Object Level Synchronization Error Report (Preview)
 This feature provides a report about synchronization errors that can occur when identity data is synchronized between Windows Server AD and Azure AD using Azure AD Connect.
+
 - The report covers errors recorded by the sync client (Azure AD Connect version 1.1.281.0 or higher)
 - It includes the errors that occurred in the last synchronization operation on the sync engine. ("Export" on the Azure AD Connector.)
 - Azure AD Connect Health agent for sync must have outbound connectivity to the required end points for the report to include the latest data. See the [Requirements section](active-directory-aadconnect-health-agent-install.md#Requirements) for details.
 - The report is **updated after every 30 minutes** using the data uploaded by Azure AD Connect Health agent for sync.
 It provides the following key capabilities
+
     - Categorization of errors
     - List of objects with error per category
     - All the data about the errors at one place
@@ -91,6 +93,7 @@ Drilling into each category will provide the list of objects having the error in
 
 ### Error Details
 Following data is available in the detailed view for each error
+
 - Identifiers for the *AD Object* involved
 - Identifiers for the *Azure AD Object* involved (as applicable)
 - Error description and how to fix
