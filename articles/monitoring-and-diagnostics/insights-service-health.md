@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Track service health using Azure Monitor Activity Logs| Microsoft Azure"
+	pageTitle="Track Azure service health using Azure Monitor Activity Logs | Microsoft Azure"
 	description="Find out when Azure has experienced performance degradation or service interruptions. "
 	authors="rboucher"
 	manager=""
@@ -16,7 +16,7 @@
 	ms.date="10/20/2016"
 	ms.author="robb"/>
 
-# Track service health
+# Track Azure service health using Azure Monitor Activity Logs
 
 Azure publicizes each time there is a service interruption or performance degradation. You can browse these events in the Azure portal, and you can also use the [REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx) or [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) to access the full set of events programmatically.
 
