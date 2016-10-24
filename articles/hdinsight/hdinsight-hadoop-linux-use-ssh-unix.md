@@ -206,7 +206,7 @@ Use the following steps to connect to the worker nodes for your cluster.
 **To run Hive queries on a Domain-joined HDInsight cluster using SSH**
 
 1. Connect to a Domain-joined HDInsight cluster using SSH.  For instrocutions, see [Connect to a Linux-based HDInsight cluster](#connect-to-a-linux-based-hdinsight-cluster).
-2. Run kinit. It will ask you for a domain user name and domain user password. For more information on configure domain users for domain-joined HDInsight clusters, see [Configure Domain-joined HDInisight clusters](hdinsight-domain-joined-config.md).
+2. Run kinit. It will ask you for a domain user name and domain user password. For more information on configure domain users for domain-joined HDInsight clusters, see [Configure Domain-joined HDInisight clusters](hdinsight-domain-joined-configure.md).
 
     ![HDInsight Hadoop Domain-joined kinit](./media/hdinsight-hadoop-linux-use-ssh-unix/hdinsight-domain-joined-hadoop-kinit.png)
 3. Open the Hive console by enter:
