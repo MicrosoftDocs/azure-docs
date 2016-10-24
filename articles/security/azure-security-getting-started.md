@@ -101,7 +101,7 @@ There are two categories of rules that are programmed here:
 
 -   **Machine configuration or infrastructure rules**: By default, all communication is blocked. There are exceptions to allow a virtual machine to send and receive DHCP and DNS traffic. Virtual machines can also send traffic to the “public” internet and send traffic to other virtual machines within the cluster and the OS activation server. The virtual machines’ list of allowed outgoing destinations does not include Azure router subnets, Azure management back end, and other Microsoft properties.
 
--   **Role configuration file**: This defines the inbound Access Control Lists (ACLs) based on the tenant's service model. For example, if a tenant has a Web front end on port 80 on a certain virtual machine, then Azure opens TCP port 80 to all IPs if you’re configuring an endpoint in the [Azure Service Management](../resource-manager-deployment-model.md) model. If the virtual machine has a back end or worker role running, then it opens the worker role only to the virtual machine within the same tenant.
+-   **Role configuration file**: This defines the inbound Access Control Lists (ACLs) based on the tenant's service model. For example, if a tenant has a Web front end on port 80 on a certain virtual machine, then Azure opens TCP port 80 to all IPs if you’re configuring an endpoint in the [Azure classic deployment model](../resource-manager-deployment-model.md). If the virtual machine has a back end or worker role running, then it opens the worker role only to the virtual machine within the same tenant.
 
 ## Isolation
 
