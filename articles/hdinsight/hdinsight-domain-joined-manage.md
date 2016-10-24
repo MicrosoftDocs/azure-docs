@@ -109,7 +109,7 @@ Domain-joined HDInsight have the following roles:
 
 6. Click **Add User** or **Add Group**, and then specify the users or groups that can use Hive Views. 
 
- ##Configure users for the roles
+## Configure users for the roles
 
  To see a list of roles and their permissions, see [Roles of Domain-joined HDInsight clusters](#roles-of-domain---joined-hdinsight-clusters).
 
