@@ -3,7 +3,7 @@
    	description="Learn how to manage Domain-joined HDInsight clusters"
    	services="hdinsight"
    	documentationCenter=""
-   	authors="mumian"
+   	authors="saurinsh"
    	manager="jhubbard"
    	editor="cgronlun"
 	tags=""/>
@@ -15,7 +15,7 @@
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
    	ms.date="10/24/2016"
-   	ms.author="jgao"/>
+   	ms.author="saurinsh"/>
 
 # Manage Domain-joined HDInsight clusters (Preview)
 
@@ -27,7 +27,7 @@ Learn the users and the roles in Domain-joined HDInsight, and how to manage doma
 
 An HDInsight cluster that is not domain-joined has two user accounts that are created during the cluster creation:
 
-- **Ambari admin**: This account is also known as *Hadoop user* or *HTTP user*. This account can be used to logon to Ambari at https://&lt;clustername>.azurehdinsight.net. It can also be used to run queries on Ambari views, execute jobs via external tools (i.e. PowerShell, Templeton, Visual Studio), and authenticate with the Hive ODBC driver and BI tools (i.e. Excel, PowerBI, or Tableau).
+- **Ambari admin**: This account is also known as *Hadoop user* or *HTTP user*. This account can be used to log on to Ambari at https://&lt;clustername>.azurehdinsight.net. It can also be used to run queries on Ambari views, execute jobs via external tools (i.e. PowerShell, Templeton, Visual Studio), and authenticate with the Hive ODBC driver and BI tools (i.e. Excel, PowerBI, or Tableau).
 
 - **SSH user**:  This account can be used with SSH, and execute sudo commands. It has root privileges to the Linux VMs.
 
@@ -49,7 +49,7 @@ A domain-joined HDInsight cluster has three new users in addition to Ambari Admi
 
 ## Roles of Domain-joined HDInsight clusters
 
-Domain-joined HDInsight have teh following roles:
+Domain-joined HDInsight have the following roles:
 
 - Cluster Administrator
 - Cluster Operator
@@ -79,14 +79,14 @@ Domain-joined HDInsight have teh following roles:
 
 	![Domain-joined HDInsight Ambari management UI](./media/hdinsight-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png)
 
-## List the domain users synchronied fron your Active Directory.
+## List the domain users synchronized from your Active Directory.
 
 1. Open the Ambari Management UI.  See [Open the Ambari Management UI])(#open-the-ambari-management-ui).
 2. From the left menu, click **Users**. You shall see all the users synced from your Active Directory to the HDInsight cluster.
 
 	![Domain-joined HDInsight Ambari management UI list users](./media/hdinsight-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png)
 
-## List the domain groups synchronied fron your Active Directory.
+## List the domain groups synchronized from your Active Directory.
 
 1. Open the Ambari Management UI.  See [Open the Ambari Management UI])(#open-the-ambari-management-ui).
 2. From the left menu, click **Groups**. You shall see all the groups synced from your Active Directory to the HDInsight cluster.
@@ -107,11 +107,11 @@ Domain-joined HDInsight have teh following roles:
 
 	![Domain-joined HDInsight Ambari management UI Hive Views configure permissions](./media/hdinsight-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png)
 
-6. Click **Add User** or **Add Group**, and the specify the users or groups that can use Hive Viwes. 
+6. Click **Add User** or **Add Group**, and then specify the users or groups that can use Hive Views. 
 
  ## Configure users for the roles
 
- To see a list of roles and the their permissions, see [Roles of Domain-joined HDInsight clusters](#roles-of-domain---joined-hdinsight-clusters).
+ To see a list of roles and their permissions, see [Roles of Domain-joined HDInsight clusters](#roles-of-domain---joined-hdinsight-clusters).
 
 1. Open the Ambari Management UI.  See [Open the Ambari Management UI])(#open-the-ambari-management-ui).
 2. From the left menu, click **Roles**.

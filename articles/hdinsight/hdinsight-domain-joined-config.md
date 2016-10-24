@@ -3,7 +3,7 @@
    	description="Learn how to set up and configure Domain-joined HDInsight clusters"
    	services="hdinsight"
    	documentationCenter=""
-   	authors="mumian"
+   	authors="saurinsh"
    	manager="jhubbard"
    	editor="cgronlun"
 	tags=""/>
@@ -15,7 +15,7 @@
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
    	ms.date="10/24/2016"
-   	ms.author="jgao"/>
+   	ms.author="saurinsh"/>
 
 # Configure Domain-joined HDInsight clusters (Preview)
 
