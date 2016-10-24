@@ -147,7 +147,27 @@ This way the same script can be used for different recovery plan by storing the 
 
 ## Sample scripts
 
-Sample scripts are coming soon. Hold on!
+Kristian Nese has been great to publish the following scripts that you can use to directly import into your automation account.
+[Kristian Nese's OMS repository for scripts](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/Solutions/asrautomation)
+
+The scripts here are
+
+* NSG
+
+The NSG runbook will assign Public IP addresses to every VM within the Recovery Plan and attach their virtual network adapters to a Network Security Group that will allow default communication
+
+* PublicIP
+
+The Public IP runbook will assign Public IP addresses to every VM within the Recovery Plan. Access to the machines and applications will depend on the firewall settings within each guest
+
+
+* CustomScript
+
+The CustomScript runbook will assign Public IP addresses to every VM within the Recovery Plan and install a custom script extension that will pull the script you refer to during deployment of the template
+
+* NSGwithCustomScript
+
+The NSGwithCustomScript runbook will assign Public IP addresses to every VM within the Recovery Plan, install a custom script using extension and connect the virtual network adapters to a NSG allowing default inbound and outbound communication for remote access
 
 ## Additional Resources
 
