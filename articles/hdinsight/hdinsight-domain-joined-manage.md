@@ -45,7 +45,7 @@ A domain-joined HDInsight cluster has three new users in addition to Ambari Admi
 
 	There are some end points within the cluster (for example, Templeton) which are not managed by Ranger, and hence are not secure. These end points are locked down for all users except the cluster admin domain user. 
 
-- **Regular **: During cluster creation, you can provide multiple active directory groups. The users in these groups will be synced to Ranger and Ambari. These users are domain users and will have access to only Ranger-managed endpoints (for example, Hiveserver2). All the RBAC policies and auditing will be applicable to these users.
+- **Regular**: During cluster creation, you can provide multiple active directory groups. The users in these groups will be synced to Ranger and Ambari. These users are domain users and will have access to only Ranger-managed endpoints (for example, Hiveserver2). All the RBAC policies and auditing will be applicable to these users.
 
 ## Roles of Domain-joined HDInsight clusters
 
@@ -59,7 +59,7 @@ Domain-joined HDInsight have the following roles:
 
 **To see the permissions of these roles**
 
-1. Open the Ambari Management UI.  See [Open the Ambari Management UI])(#open-the-ambari-management-ui).
+1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).
 2. From the left menu, click **Roles**.
 3. Click the blue question mark to see the permissions:
 
@@ -81,14 +81,14 @@ Domain-joined HDInsight have the following roles:
 
 ## List the domain users synchronized from your Active Directory.
 
-1. Open the Ambari Management UI.  See [Open the Ambari Management UI])(#open-the-ambari-management-ui).
+1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).
 2. From the left menu, click **Users**. You shall see all the users synced from your Active Directory to the HDInsight cluster.
 
 	![Domain-joined HDInsight Ambari management UI list users](./media/hdinsight-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png)
 
 ## List the domain groups synchronized from your Active Directory.
 
-1. Open the Ambari Management UI.  See [Open the Ambari Management UI])(#open-the-ambari-management-ui).
+1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).
 2. From the left menu, click **Groups**. You shall see all the groups synced from your Active Directory to the HDInsight cluster.
 
 	![Domain-joined HDInsight Ambari management UI list groups](./media/hdinsight-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png)
@@ -96,7 +96,7 @@ Domain-joined HDInsight have the following roles:
 
 ## Configure Hive Views permissions
 
-1. Open the Ambari Management UI.  See [Open the Ambari Management UI])(#open-the-ambari-management-ui).
+1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).
 2. From the left menu, click **Views**.
 3. Click **HIVE** to show the details.
 
@@ -109,11 +109,11 @@ Domain-joined HDInsight have the following roles:
 
 6. Click **Add User** or **Add Group**, and then specify the users or groups that can use Hive Views. 
 
- ## Configure users for the roles
+ ##Configure users for the roles
 
  To see a list of roles and their permissions, see [Roles of Domain-joined HDInsight clusters](#roles-of-domain---joined-hdinsight-clusters).
 
-1. Open the Ambari Management UI.  See [Open the Ambari Management UI])(#open-the-ambari-management-ui).
+1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).
 2. From the left menu, click **Roles**.
 3. Click **Add User** or **Add Group** to assign users and groups to different roles.
  
