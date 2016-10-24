@@ -130,7 +130,7 @@ Comcast and some IT organizations block this port. To understand whether this is
 
 `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
 
-If the TCP 445 being blocked by a rule along the network path， you will see the following output:
+If the TCP 445 being blocked by a rule along the network path, you will see the following output:
 
 **TCP port 445 (microsoft-ds service): FILTERED**
 
@@ -138,7 +138,7 @@ For more information on using Portqry, see [Description of the Portqry.exe comma
 
 #### Solution for Cause 2
 
-Work with your IT organization to [open Port 445 outbound to Azure IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
+Work with your IT organization to open Port 445 outbound to [Azure IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### Cause 3
 
@@ -165,7 +165,7 @@ By default, Windows Explorer does not run as Administrator. If you run **net use
 
 #### Solution
 
-Mount the share from a non-administrator command line. Alternatively, you can follow [this TechNet topic](https://technet.microsoft.com/library/ee844140.aspx) to configure the EnableLinkedConnections registry value.
+Mount the share from a non-administrator command line. Alternatively, you can follow [this TechNet topic](https://technet.microsoft.com/library/ee844140.aspx) to configure the **EnableLinkedConnections** registry value.
 
 <a id="slashfails"></a>
 ### My storage account contains “/” and the net use command fails
