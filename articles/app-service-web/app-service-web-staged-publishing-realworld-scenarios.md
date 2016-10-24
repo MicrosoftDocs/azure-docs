@@ -28,7 +28,7 @@ Once you have a production web app up and running, the next step is to create a 
 2. Deploying a web app to a slot first and swapping it into production ensures that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your web app. The traffic redirection is seamless, and no requests are dropped due to swap operations. This entire workflow can be automated by configuring [Auto Swap](web-sites-staged-publishing.md#configure-auto-swap-for-your-web-app) when pre-swap validation is not needed.
 3. After a swap, the slot with previously staged web app now has the previous production web app. If the changes swapped into the production slot are not as you expected, you can perform the same swap immediately to get your "last known good web app" back.
 
-To set up a staging deployment slot, see [Set up staging environments for web apps in Azure App Service](web-sites-staged-publishing) . Every environment should include its own set of resources, for example if you web app uses a database then both production and staging web app should be using different databases. Add staging development environment resources such as database, storage or cache for setting you your staging development environment.
+To set up a staging deployment slot, see [Set up staging environments for web apps in Azure App Service](web-sites-staged-publishing.md) . Every environment should include its own set of resources, for example if you web app uses a database then both production and staging web app should be using different databases. Add staging development environment resources such as database, storage or cache for setting you your staging development environment.
 
 ## Examples of using multiple development environments
 
@@ -239,7 +239,7 @@ require_once(ABSPATH . 'wp-settings.php');
 ```
 
 #### Set up a Staging Environment
-Assuming you already have a WordPress web app running on Azure Web, login to [Azure Management Preview portal](http://portal.azure.com) and go to your WordPress web app. Apps If not you can create one from the marketplace. To learn more, [click here](web-sites-php-web-site-gallery).
+Assuming you already have a WordPress web app running on Azure Web, login to [Azure Management Preview portal](http://portal.azure.com) and go to your WordPress web app. Apps If not you can create one from the marketplace. To learn more, [click here](web-sites-php-web-site-gallery.md).
 Click on Settings -> Deployment slots -> Add to create a deployment slot with the name stage .A deployment slot is another web application sharing the same resources as the primary web app created above.
 
 ![Create stage deployment slot](./media/app-service-web-staged-publishing-realworld-scenarios/1set upstage.png)
