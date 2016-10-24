@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="programmatically Monitor jobs on Stream Analytics | Microsoft Azure" 
+<properties
+	pageTitle="programmatically Monitor jobs on Stream Analytics | Microsoft Azure"
 	description="Learn how to programmatically monitor Stream Analytics jobs created via REST APIs, Azure SDK, or Powershell."
 	keywords=".net monitor, job monitor, monitoring app"
-	services="stream-analytics" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="jhubbard" 
+	services="stream-analytics"
+	documentationCenter=""
+	authors="jeffstokes72"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="09/26/2016" 
+<tags
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-services"
+	ms.date="09/26/2016"
 	ms.author="jeffstok"/>
 
 
@@ -33,7 +33,7 @@ Before you begin this article, you must have the following:
 ## Setup a project
 
 1.	Create a Visual Studio C# .Net console application.
-2.	In the Package Manager Console, run the following commands to install the NuGet packages. The first one is the Azure Stream Analytics Management .NET SDK. The second one is the Azure Insights SDK which will be used to enable monitoring. The last one is the Azure Active Directory client that will be used for authentication.
+2.	In the Package Manager Console, run the following commands to install the NuGet packages. The first one is the Azure Stream Analytics Management .NET SDK. The second one is the Azure Monitor SDK which will be used to enable monitoring. The last one is the Azure Active Directory client that will be used for authentication.
 
     ```
     Install-Package Microsoft.Azure.Management.StreamAnalytics
@@ -63,7 +63,7 @@ Replace values for *SubscriptionId* and *ActiveDirectoryTenantId* with your Azur
     ```
     Get-AzureAccount
     ```
-4.	Add the following using statements to the source file (Program.cs) in the project. 
+4.	Add the following using statements to the source file (Program.cs) in the project.
 
     ```
         using System;
@@ -141,11 +141,11 @@ The following code will enable monitoring for an **existing** Stream Analytics j
 
 > [AZURE.WARNING]
 > If you have previously enabled monitoring for a different Stream Analytics job, either through the Azure Portal or programmatically via the below code, **it is recommended that you provide the same storage account name that you did when you previously enabled monitoring.**
-> 
-> The storage account is linked to the region you created your Stream Analytics job in, not specifically to the job itself. 
-> 
+>
+> The storage account is linked to the region you created your Stream Analytics job in, not specifically to the job itself.
+>
 > All Stream Analytics job (and all other Azure resources) in that same region share this storage account to store monitoring data. If you provide a different storage account, it may cause unintended side effects to the monitoring of your other Stream Analytics jobs and/or other Azure resources.
-> 
+>
 > The storage account name used to replace ```“<YOUR STORAGE ACCOUNT NAME>”``` below should be a storage account that is in the same subscription as the Stream Analytics job you are enabling monitoring for.
 
     // Get an existing Stream Analytics job
@@ -168,7 +168,7 @@ The following code will enable monitoring for an **existing** Stream Analytics j
 
 
 ## Get support
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics). 
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 
 ## Next steps
@@ -178,4 +178,3 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 - [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 - [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
- 

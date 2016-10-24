@@ -78,7 +78,7 @@ PagerDuty, the leading incident management solution, has provided first-class su
 ## Splunk Add-on for Microsoft Azure
 The Splunk Add-on for Microsoft Azure collects valuable diagnostic, performance, audit, and security data for your infrastructure and websites running in Microsoft Azure.
 
-Performance and diagnostic information is collected from Azure Storage Tables and Azure Storage Blobs. Audit data is collected from the Azure Insights Events API. Network Security Group data is collect from Azure Storage Blobs. Several prebuilt panels are included with this add-on.
+Performance and diagnostic information is collected from Azure Storage Tables and Azure Storage Blobs. Audit data is collected from the Azure Monitor Events API. Network Security Group data is collect from Azure Storage Blobs. Several prebuilt panels are included with this add-on.
 
 [Go to the documentation.][splunk-doc]
 

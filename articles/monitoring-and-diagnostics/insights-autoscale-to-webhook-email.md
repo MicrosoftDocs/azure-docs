@@ -16,7 +16,7 @@
 	ms.date="07/19/2016"
 	ms.author="ashwink"/>
 
-# Use autoscale actions to send email and webhook alert notifications in Azure Insights
+# Use autoscale actions to send email and webhook alert notifications in Azure Monitor
 
 This article shows you how set up triggers so that you can call specific web URLs or send emails based on autoscale actions in Azure.  
 

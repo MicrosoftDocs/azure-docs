@@ -27,7 +27,7 @@
 
 This article shows you how to set up Azure alerts using the Command Line Interface (CLI).
 
-![AZURE.NOTE] Azure Monitor is the new name for what was called "Azure Insights" until Sept 25th, 2016. However, the namespaces and thus the commands below still contain the "insights".
+>[AZURE.NOTE] Azure Monitor is the new name for what was called "Azure Insights" until Sept 25th, 2016. However, the namespaces and thus the commands below still contain the "insights".
 
 You can receive an alert based on monitoring metrics for, or events on, your Azure services.
 

@@ -16,7 +16,7 @@
 	ms.topic="article"
 	ms.date="03/28/2016"
 	ms.author="guybo"/>
-    
+
 # Troubleshooting autoscale with Virtual Machine Scale Sets
 
 **Problem** – you’ve created an autoscaling infrastructure in Azure Resource Manager using VM Scale Sets –  for example by deploying a template like this: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale  – you have your scale rules defined and it works great, except that no matter how much load you put on the VMs, it won’t autoscale.
@@ -50,13 +50,13 @@ Some things to consider include:
 
     Try redeploying the VM Scale Set resource with a different “capacity” setting to change the number of VMs manually. An example template to do this is here: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing – you may need to edit the template to make sure it has the same machine size as your Scale Set is using. If you can successfully change the number of VMs manually, then you know the problem is isolated to autoscale.
 
-- Check your Microsoft.Compute/virtualMachineScaleSet, and Microsoft.Insights resources in the [Azure Resource Explorer](https://resources.azure.com/) 
+- Check your Microsoft.Compute/virtualMachineScaleSet, and Microsoft.Insights resources in the [Azure Resource Explorer](https://resources.azure.com/)
 
     This is an indispensable troubleshooting tool which shows you the state of your Azure Resource Manager resources. Click on your subscription and look at the Resource Group you are troubleshooting. Under the Compute resource provider look at the VM Scale Set you created and check the Instance View, which shows you the state of a deployment. Also check the instance view of VMs in the VM Scale Set. Then go into the Microsoft.Insights resource provider and check the autoscale rules look good.
 
 - Is the Diagnostic extension working and emitting performance data?
- 
-    Autoscale in Azure Resource Manager works by means of a VM extension called the Diagnostics Extension (divided into Linux Diagnostics extension and Windows). It emits performance data to a storage account you define in the template. This data is then aggregated by the Azure Insights service.
+
+    Autoscale in Azure Resource Manager works by means of a VM extension called the Diagnostics Extension (divided into Linux Diagnostics extension and Windows). It emits performance data to a storage account you define in the template. This data is then aggregated by the Azure Monitor service.
 
     If the Insights service can’t read data from the VMs, it is supposed to send you an email – for example if the VMs were down, so check your email (the one you specified when creating the Azure account).
 

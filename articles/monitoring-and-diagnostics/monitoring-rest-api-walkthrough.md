@@ -42,7 +42,7 @@ $pwd = "{service-principal-password}"
 
 # Create a new Azure AD application
 $azureAdApplication = New-AzureRmADApplication `
-                        -DisplayName "My Azure Insights" `
+                        -DisplayName "My Azure Monitor" `
                         -HomePage "https://localhost/azure-monitor" `
                         -IdentifierUris "https://localhost/azure-monitor" `
                         -Password $pwd

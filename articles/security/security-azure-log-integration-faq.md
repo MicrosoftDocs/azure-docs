@@ -77,7 +77,7 @@ Error:
 See:
 
 - [Audit operations with Resource Manager](../resource-group-audit.md)
-- [List the management events in a subscription in Azure Insights REST API](https://msdn.microsoft.com/library/azure/dn931934.aspx)
+- [List the management events in a subscription in Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931934.aspx)
 
 ## Where can I find details on Azure Security Center alerts?
 
