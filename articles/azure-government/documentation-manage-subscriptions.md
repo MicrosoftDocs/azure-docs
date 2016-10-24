@@ -18,7 +18,9 @@
     ms.author="zakramer" />
 
 
-#  Managing and Connecting to your Subscription in Azure Government
+#  Managing and connecting to your subscription in Azure Government
+
+Azure Government has unique URLs and endpoints for managing your environment. It is important to use the right connections to manage your environment thorugh the portal or PowerShell. Once you are connected to the Azure Government environment the normal commands for managing a service will work if the component has been deployed.
 
 ## Connecting via the portal
 The portal is the primary way that most people connect to Azure Government.  To connect, browse to the portal at [https://portal.azure.us](https://portal.azure.us).  The legacy version of the Azure portal can be accessed via [https://manage.windowsazure.us](https://manage.windowsazure.us).
@@ -36,7 +38,7 @@ Whether you are using Azure PowerShell to manage a large subscription through sc
 
 When you start PowerShell, you have to tell Azure PowerShell to connect to Azure Government by specifying an environment parameter.  The parameter ensures that PowerShell is connecting to the correct endpoints.  The collection of endpoints is determined when you connect log in to your account.  Different APIs require different versions of the environment switch:
 
-Connection Type | Command
+Connection type | Command
 ---|----
 [Service Management](https://msdn.microsoft.com/library/dn708504.aspx) commands | `Add-AzureAccount -Environment AzureUSGovernment`
 [Resource Management](https://msdn.microsoft.com/library/mt125356.aspx) commands | `Add-AzureRmAccount -EnvironmentName AzureUSGovernment`
@@ -45,7 +47,7 @@ Connection Type | Command
 
 You may also use the Environment switch when connecting to a storage account using New-AzureStorageContext and specify AzureUSGovernment.
 
-###Determining Region
+### Determining region
 
 Once you are connected, there is one additional difference – The regions used to target a service.  Every Azure cloud has different regions.  You can see them listed on the service availability page.  You normally use the region in the Location parameter for a command.
 
@@ -66,7 +68,7 @@ If you are curious about the available environments across Azure, you can run:
 
     Get-AzureEnvironment
 
-##Next Steps
+## Next steps
 
 If you are looking for more information, you can check out:
 
