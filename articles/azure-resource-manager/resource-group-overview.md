@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/04/2016"
+   ms.date="10/21/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager overview
@@ -43,6 +43,14 @@ Resource Manager provides several benefits:
 - You can clarify your organization's billing by viewing costs for a group of resources sharing the same tag.  
 
 Resource Manager provides a new way to deploy and manage your solutions. If you used the earlier deployment model and want to learn about the changes, see [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md).
+
+## Consistent management layer
+
+Resource Manager provides a consistent management layer for the tasks you perform through Azure PowerShell, Azure CLI, Azure portal, REST API, and development tools. All the tools use a common set of operations. You use the tools that work best for you, and can use them interchangeably without confusion. 
+
+The following image shows how all the tools interact with the same Azure Resource Manager API. The API passes requests to the Resource Manager service, which authenticates and authorizes the requests. Resource Manager then routes the requests to the appropriate resource providers.
+
+![Resource Manager request model](./media/resource-group-overview/consistent-management-layer.png)
 
 ## Guidance
 
@@ -99,30 +107,55 @@ For more information, see [Resource Manager providers, regions, API versions, an
 
 With Resource Manager, you can create a template (in JSON format) that defines the infrastructure and configuration of your Azure solution. By using a template, you can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. When you create a solution from the portal, the solution automatically includes a deployment template. You do not have to create your template from scratch because you can start with the template for your solution and customize it to meet your specific needs. You can retrieve a template for an existing resource group by either exporting the current state of the resource group, or viewing the template used for a particular deployment. Viewing the [exported template](../resource-manager-export-template.md) is a helpful way to learn about the template syntax.
 
-In its simplest form, a template contains the following elements:
-
-    {
-      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "",
-      "parameters": {  },
-      "variables": {  },
-      "resources": [  ],
-      "outputs": {  }
-    }
-
-In the **parameters** element, you specify values that enable customization and flexibility in deployment. For example, you can pass parameter values that tailor deployment for your test environment. By specifying the parameters, you can use the same template to deploy your solution to different environments.
-
-In the **variables** element, you specify values that are reused throughout the template, or values that are constructed from other values (like parameters).
-
-In the **resources** element, you specify the components of your infrastructure. You define as many resources as your solution needs.
-
-In the **outputs** element, you specify any values that are returned from the deployment (such as URIs from deployed resources).
-
 To learn more about the format of the template and how you construct it, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md) and [Resource Manager Template Walkthrough](../resource-manager-template-walkthrough.md).
 
-Azure Resource Manager analyzes dependencies to ensure resources are created in the correct order. If one resource relies on a value from another resource (such as a virtual machine needing a storage account for disks), you set a dependency. For more information, see [Defining dependencies in Azure Resource Manager templates](../resource-group-define-dependencies.md).
+Resource Manager processes the template like any other request (see the image for [Consistent management layer](#consistent-management-layer)). It parses the template and converts its syntax into REST API operations for the appropriate resource providers. For example, when Resource Manager receives a template with the following resource definition:
 
-You do not have to define your entire infrastructure in a single template. Often, it makes sense to divide your deployment requirements into a set of targeted, purpose-specific templates. You can easily reuse these templates for different solutions. To deploy a particular solution, you create a master template that links all the required templates.
+    "resources": [
+      {
+        "apiVersion": "2016-01-01",
+        "type": "Microsoft.Storage/storageAccounts",
+        "name": "mystorageaccount",
+        "location": "westus",
+        "sku": {
+          "name": "Standard_LRS"
+        },
+        "kind": "Storage",
+        "properties": {
+        }
+      }
+	  ]
+
+It converts the definition to the following REST API operation, which is sent to the Microsoft.Storage resource provider:
+
+    PUT
+    https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2016-01-01
+    REQUEST BODY
+    {
+      "location": "westus",
+      "properties": {
+      }
+      "sku": {
+        "name": "Standard_LRS"
+      },   
+      "kind": "Storage"
+    }
+
+How you define templates and resource groups is entirely up to you and how you want to manage your solution. For example, you can deploy your three tier application through a single template to a single resource group.
+
+![three tier template](./media/resource-group-overview/3-tier-template.png)
+
+But, you do not have to define your entire infrastructure in a single template. Often, it makes sense to divide your deployment requirements into a set of targeted, purpose-specific templates. You can easily reuse these templates for different solutions. To deploy a particular solution, you create a master template that links all the required templates. The following image shows how to deploy a three tier solution through a parent template that includes three nested templates.
+
+![nested tier template](./media/resource-group-overview/nested-tiers-template.png)
+
+If you envision your tiers having separate lifecycles, you can deploy your three tiers to separate resource groups. Notice the resources can still be linked to resources in other resource groups.
+
+![tier template](./media/resource-group-overview/tier-templates.png)
+
+For more suggestions about designing your templates, see [Patterns for designing Azure Resource Manager templates](../best-practices-resource-manager-design-templates.md). For information about nested templates, see [Using linked templates with Azure Resource Manager](../resource-group-linked-templates.md).
+
+Azure Resource Manager analyzes dependencies to ensure resources are created in the correct order. If one resource relies on a value from another resource (such as a virtual machine needing a storage account for disks), you set a dependency. For more information, see [Defining dependencies in Azure Resource Manager templates](../resource-group-define-dependencies.md).
 
 You can also use the template for updates to the infrastructure. For example, you can add a resource to your solution and add configuration rules for the resources that are already deployed. If the template specifies creating a resource but that resource already exists, Azure Resource Manager performs an update instead of creating a new asset. Azure Resource Manager updates the existing asset to the same state as it would be as new.  
 
@@ -158,7 +191,7 @@ The following example shows a tag applied to a virtual machine.
       }
     ]
 
-To retrieve all of the resources with a tag value, use the following PowerShell cmdlet:
+To retrieve all the resources with a tag value, use the following PowerShell cmdlet:
 
     Find-AzureRmResource -TagName costCenter -TagValue Finance
 
@@ -172,7 +205,14 @@ The [usage report](../billing/billing-understand-your-bill.md) for your subscrip
 
 ## Access control
 
-Resource Manager enables you to control who has access to specific actions for your organization. It natively integrates role-based access control (RBAC) into the management platform and applies that access control to all services in your resource group. You can add users to pre-defined platform and resource-specific roles and apply those roles to a subscription, resource group, or resource to limit access. For example, you can take advantage of the pre-defined role called Reader that permits users to view resources but not change them. You add users in your organization that need this type of access to the Reader role and apply the role to the subscription, resource group or resource.
+Resource Manager enables you to control who has access to specific actions for your organization. It natively integrates role-based access control (RBAC) into the management platform and applies that access control to all services in your resource group. 
+
+There are two main concepts to understand when working with role-based access control:
+
+- Role definitions - describe a set of permissions and can be used in many assignments.
+- Role assignments - associate a definition with an identity (user or group) for a particular scope (subscription, resource group, or resource). The assignment is inherited by lower scopes.
+
+You can add users to pre-defined platform and resource-specific roles. For example, you can take advantage of the pre-defined role called Reader that permits users to view resources but not change them. You add users in your organization that need this type of access to the Reader role and apply the role to the subscription, resource group, or resource.
 
 Azure provides the following four platform roles:
 
@@ -223,47 +263,7 @@ The following example shows a policy that ensures tag consistency by specifying 
       }
     }
 
-To prevent someone from deploying an unnecessarily expensive resource (such as in a test environment), you can restrict the permitted sizes. The following example shows how to restrict the virtual machines sku.
-
-    {
-      "if": {
-        "allOf": [
-          {
-            "field": "type",
-            "equals": "Microsoft.Compute/virtualMachines"
-          },
-          {
-            "not": {
-              "allof": [
-                {
-                  "field": "Microsoft.Compute/virtualMachines/sku.name",
-                  "in": ["Standard_DS1_V2", "Standard_DS2_V2"]
-                }
-              ]
-            }
-          }
-        ]
-      },
-      "then": {
-        "effect": "deny"
-      }
-    }
-
-The previous examples show actions that are denied if the request is not valid; however, you can instead choose to create an alert or append a value to the request. For more information, see [Use Policy to manage resources and control access](../resource-manager-policy.md).
-
-## Consistent management layer
-
-Resource Manager provides compatible operations through Azure PowerShell, Azure CLI for Mac, Linux, and Windows, the Azure portal, or REST API. You can use the interface that works best for you, and move quickly between the interfaces without confusion.
-
-For information about PowerShell, see [Using Azure PowerShell with Resource Manager](../powershell-azure-resource-manager.md) and [Azure Resource Manager Cmdlets][powershellref].
-
-For information about Azure CLI, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../xplat-cli-azure-resource-manager.md).
-
-For information about the REST API, see [Resource Manager REST APIs](../resource-manager-rest-api.md).
-
-For information about using the portal, see [Manage Azure resources through portal](../azure-portal/resource-group-portal.md).
-
-Azure Resource Manager supports cross-origin resource sharing (CORS). With CORS, you can call the Resource Manager REST API or an Azure service REST API from a web application that resides in a different domain. Without CORS support, the web browser would prevent an app in one domain from accessing resources in another domain. Resource Manager enables CORS for all requests with valid authentication credentials.
+There are many more types of policies you can create. For more information, see [Use Policy to manage resources and control access](../resource-manager-policy.md).
 
 ## SDKs
 

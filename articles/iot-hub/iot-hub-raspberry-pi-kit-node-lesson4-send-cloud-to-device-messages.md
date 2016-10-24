@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="09/28/2016" 
+ ms.date="10/21/2016"
  ms.author="xshi"/>
 
 # 4.1 Run the sample application to receive cloud-to-device messages
@@ -52,18 +52,18 @@ In this section, you deploy a sample application on your Raspberry Pi 3. The sam
 
 2. Initialize the configuration file with the following commands:
 
-  ```bash
-  npm install
-  gulp init
-  ```
+    ```bash
+    npm install
+    gulp init
+    ```
 
-  If you've completed Lesson 3 on this computer, all the configurations are inherited so you can skip to step 4.1.5. If you completed Lesson 3 on a different computer, you need to replace the placeholders in the `config-raspberrypi.json` file. The `config-raspberrypi.json` file is in the subfolder of your home folder.
+    If you've completed Lesson 3 on this computer, all the configurations are inherited so you can skip to step 4.1.5. If you completed Lesson 3 on a different computer, you need to replace the placeholders in the `config-raspberrypi.json` file. The `config-raspberrypi.json` file is in the subfolder of your home folder.
 
-  ![Config](media/iot-hub-raspberry-pi-lessons/lesson4/config_raspberrypi.png)
+    ![Config](media/iot-hub-raspberry-pi-lessons/lesson4/config_raspberrypi.png)
 
-  - Replace **[device hostname or IP address]** with your Pi’s IP address or hostname that you get by running the command `devdisco list --eth`
-  - Replace **[IoT device connection string]** with the device connection string that you get by running the command `az iot hub show-connection-string --name {my hub name} --resource-group {resource group name}`.
-  - Replace **[IoT hub connection string]** with the IoT hub connection string that you get by running the command `az iot device show-connection-string --hub {my hub name} --device-id {device id} --resource-group {resource group name}`.
+- Replace **[device hostname or IP address]** with your Pi’s IP address or hostname that you get by running the command `devdisco list --eth`
+- Replace **[IoT device connection string]** with the device connection string that you get by running the command `az iot hub show-connection-string --name {my hub name} --resource-group {resource group name}`.
+- Replace **[IoT hub connection string]** with the IoT hub connection string that you get by running the command `az iot device show-connection-string --hub {my hub name} --device-id {device id} --resource-group {resource group name}`.
 
 ## 4.1.5 Deploy and run the sample application
 
@@ -83,8 +83,8 @@ You should see the LED blinking every two seconds as the gulp task is sending 20
 
 ## 4.1.6 Summary
 
-You’ve successfully sent messages from your IoT hub to your Pi to blink the LED. Next section is complementary reading that shows you how to change the on and off behavior of the LED.
+You’ve successfully sent messages from your IoT hub to your Pi to blink the LED. Next section is optional section that shows you how to change the on and off behavior of the LED.
 
 ## Next Steps
 
-[Complementary reading: Change the on and off behavior of the LED](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
+[Optional section: Change the on and off behavior of the LED](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
