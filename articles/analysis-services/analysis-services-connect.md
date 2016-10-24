@@ -35,6 +35,8 @@ Before you connect, you need to get the server name. In **Azure portal** > serve
 
 ## Connect in Power BI Desktop
 
+> [AZURE.NOTE] This feature is Preview.
+
 1. In [Power BI Desktop](https://powerbi.microsoft.com/desktop/), click **Get Data** > **Databases** > **Azure Analysis Services**.
 
 2. In **Server**, paste the server name from the clipboard.
@@ -78,6 +80,15 @@ Integrated authentication will pick up the Azure Active Directory credential cac
 ```
 "Provider=MSOLAP;Data Source=<Azure AS instance name>;User ID=<user name>;Password=<password>;Persist Security Info=True; Impersonation Level=Impersonate;";
 ```
+
+## Client libraries
+When connecting to Azure Analysis Services from Excel or other interfaces such as TOM, AsCmd, ADOMD.NET, you may need to install the latest client libraries. Get the latest:  
+
+[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)</br>
+[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)</br>
+[AMO](https://go.microsoft.com/fwlink/?linkid=829578)</br>
+[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)</br>
+
 
 
 ## Next steps
