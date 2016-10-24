@@ -37,7 +37,7 @@ This error is easy to make because template expressions can be intricate. For ex
 
     "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 
-If you do not provide all of the matching syntax, the template produces a value that is different than your intention.
+If you do not provide the matching syntax, the template produces a value that is different than your intention.
 
 When you receive this type of error, carefully review the expression syntax. Consider using a JSON editor like [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) or [Visual Studio Code](resource-manager-vs-code.md), which can warn you about syntax errors. 
 
@@ -96,10 +96,12 @@ You encounter this **InvalidTemplate** error when you have applied the **copy** 
 
 ### Parameter is not valid
 
-If the template specifies permitted values for a parameter, and you provide a value that is not one of those values, you receive an error similar to the following:
+If the template specifies permitted values for a parameter, and you provide a value that is not one of those values, you receive a message similar to the following error:
 
     Code=InvalidTemplate; 
-    Message=Deployment template validation failed: 'The provided value {parameter vaule} for the template parameter {parameter name} is not valid. The parameter value is not part of the allowed value(s)
+    Message=Deployment template validation failed: 'The provided value {parameter vaule} 
+    for the template parameter {parameter name} is not valid. The parameter value is not 
+    part of the allowed value(s)
 
 Double check the allowed values in the template, and provide one during deployment.
 
@@ -107,8 +109,8 @@ Double check the allowed values in the template, and provide one during deployme
 
 When your template includes the name of a resource that cannot be resolved, you receive an error similar to:
 
-    "Code": "NotFound",
-    "Message": "Cannot find ServerFarm with name exampleplan.",
+    Code=NotFound;
+    Message=Cannot find ServerFarm with name exampleplan.
 
 If you are attempting to deploy the missing resource in the template, check whether you need to add a dependency. Resource Manager optimizes deployment by creating resources in parallel, when possible. If one resource must be deployed after another resource, you need to use the **dependsOn** element in your template to create a dependency on the other resource. For example, when deploying a web app, the App Service plan must exist. If you have not specified that the web app depends on the App Service plan, Resource Manager creates both resources at the same time. You receive an error stating that the App Service plan resource cannot be found, because it does not exist yet when attempting to set a property on the web app. You prevent this error by setting the dependency in the web app.
 
@@ -131,14 +133,15 @@ You also see this error when the resource exists in a different resource group t
 
 If you attempt to use the [reference](resource-group-template-functions.md#referenc) or [listKeys](resource-group-template-functions.md#listkeys) functions with a resource that cannot be resolved, you receive the following error:
 
-    "code": "ResourceNotFound",
-    "message": "The Resource 'Microsoft.Storage/storageAccounts/{storage name}' under resource group {resource group name} was not found."
+    Code=ResourceNotFound;
+    Message=The Resource 'Microsoft.Storage/storageAccounts/{storage name}' under resource 
+    group {resource group name} was not found.
 
 Look for an expression that includes the **reference** function. Double check that the parameter values are correct.
 
 ## Storage account already exists (or already taken)
 
-For storage accounts, you must provide a name for the resource that is unique across all of Azure. If you do not provide a unique name, you receive an error like:
+For storage accounts, you must provide a name for the resource that is unique across Azure. If you do not provide a unique name, you receive an error like:
 
     Code=StorageAccountAlreadyTaken 
     Message=The storage account named mystorage is already taken.
@@ -159,7 +162,8 @@ You see the **AccountNameInvalid** error when attempting to give a storage accou
 When deploying resource, you may receive the following error code and message:
 
     Code: NoRegisteredProviderFound
-    Message: No registered resource provider found for location '<location>' and API version '<api-version>' for type '<resource-type>'.
+    Message: No registered resource provider found for location {ocation} 
+    and API version {api-version} for type {resource-type}.
 
 You receive this error for one of three reasons:
 
@@ -222,9 +226,9 @@ Which returns:
 
 If you deploy a template that creates more than four cores in the West US region, you get a deployment error that looks like:
 
-    statusCode:Conflict
-    serviceRequestId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-    statusMessage:{"error":{"code":"OperationNotAllowed","message":"Operation results in exceeding quota limits of Core. Maximum allowed: 4, Current in use: 4, Additional requested: 2."}}
+    Code=OperationNotAllowed
+    Message=Operation results in exceeding quota limits of Core. 
+    Maximum allowed: 4, Current in use: 4, Additional requested: 2.
 
 Or in PowerShell, you can use the **Get-AzureRmVMUsage** cmdlet.
 
@@ -250,14 +254,14 @@ In these cases, you should go to the portal and file a support issue to raise yo
 
 When you receive the error message:
 
-    "code": "InvalidContentLink",
-    "message": "Unable to download deployment content from ..."
+    Code=InvalidContentLink
+    Message=Unable to download deployment content from ...
 
-You have most likely attempted to link to a nested template that is not availalbe. Double check the URI you provided for the nested template. If the template exists in a storage account, make sure the URI is not availalbe. You may need to pass a SAS token. For more information, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
+You have most likely attempted to link to a nested template that is not available. Double check the URI you provided for the nested template. If the template exists in a storage account, make sure the URI is accessible. You may need to pass a SAS token. For more information, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 
 ## Authorization failed
 
-You may receive an error during deployment because the account or service principal attempting to deploy the resources does not have access to perform those actions. Azure Active Directory enables you or your administrator to control which identities can access what resources with a great degree of precision. For example, if your account is assigned to the Reader role, you are not able to create new resources. In that case, you see an error message indicating that authorization failed.
+You may receive an error during deployment because the account or service principal attempting to deploy the resources does not have access to perform those actions. Azure Active Directory enables you or your administrator to control which identities can access what resources with a great degree of precision. For example, if your account is assigned to the Reader role, you are not able to create resources. In that case, you see an error message indicating that authorization failed.
 
 For more information about role-based access control, see [Azure Role-Based Access Control](./active-directory/role-based-access-control-configure.md).
 
@@ -273,7 +277,7 @@ In addition to role-based access control, your deployment actions may be limited
 | Secure Shell (SSH) errors when attempting to connect | [Secure Shell connections to Linux VM](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md) |
 | Errors connecting to application running on VM | [Application running on Windows VM](./virtual-machines/virtual-machines-windows-troubleshoot-app-connection.md)<br />or<br />[Application running on a Linux VM](./virtual-machines/virtual-machines-linux-troubleshoot-app-connection.md) |
 | Remote Desktop connection errors | [Remote Desktop connections to Windows VM](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md) |
-| Connection errors resolved by re-deploying | [Redeploy Virtual Machine to new Azure node](./virtual-machines/virtual-machines-windows-redeploy-to-new-node.md) |
+| Connection errors resolved by redeploying | [Redeploy Virtual Machine to new Azure node](./virtual-machines/virtual-machines-windows-redeploy-to-new-node.md) |
 | Cloud service errors | [Cloud service deployment problems](./cloud-services/cloud-services-troubleshoot-deployment-problems.md) |
 
 ## Troubleshooting other services
