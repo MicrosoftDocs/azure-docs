@@ -6,7 +6,7 @@
    authors="neilpeterson"
    manager="timlt"
    editor="tysonn"
-   tags="azure-service-management"/>
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines-linux"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="09/21/2016"
+   ms.date="10/24/2016"
    ms.author="nepeters"/>
 
 # Availability and scale in Azure Resource Manager templates
@@ -44,7 +44,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
     "platformUpdateDomainCount": 5,
     "platformFaultDomainCount": 3
   }
-},
+}
 ```
 
 An Availability Set is declared as a property of a Virtual Machine resource. 
@@ -56,7 +56,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
 "properties": {
   "availabilitySet": {
     "id": "[resourceId('Microsoft.Compute/availabilitySets', variables('availabilitySetName'))]"
-  },
+  }
 ```
 The availability set as seen from the Azure portal. Each virtual machine and details about the configuration are detailed here.
 
@@ -97,7 +97,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
     },
     "name": "LoadBalancerFrontend"
   }
-],
+]
 ```
 
 From the Azure portal, the network load balancer overview shows the association with the public IP address.
@@ -132,7 +132,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
       }
     }
   }
-],
+]
 ```
 
 A view of the network load balancer rule from the portal.
@@ -197,7 +197,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
     "backendPort": 22,
     "enableFloatingIP": false
   }
-},
+}
 ```
 
 One example inbound NAT rule as seen in the Azure portal. An SSH NAT rule is created for each virtual machine in the deployment.
@@ -220,7 +220,7 @@ In the Music Store Sample template, a parameter is defined that takes in an inst
   "metadata": {
     "description": "Number of VM instances to be created behind load balancer."
   }
-},
+}
 ```
 
 On the Virtual Machine resource, the copy loop is given a name and the number of instances parameter used to control the number of resulting copies.
@@ -236,7 +236,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
 "copy": {
   "name": "virtualMachineLoop",
   "count": "[parameters('numberOfInstances')]"
-},
+}
 ```
 
 The current iteration of the copy function can be accessed with the `copyIndex()` function. The value of the copy index function can be used to name virtual machines and other resources. For instance, if two instances of a virtual machine are deployed, they need different names. The `copyIndex()` function can be used as part of the virtual machine name to create a unique name. An example of the `copyindex()` function used for naming purposes can be seen in the Virtual Machine resource. Here, the computer name is a concatenation of the `vmName` parameter, and the `copyIndex()` function. 
@@ -259,7 +259,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
       ]
     }
   }
-},
+}
 ```
 
 The `copyIndex` function is used several times in the Music Store sample template. Resources and functions utilizing `copyIndex` include anything specific to a single instance of the virtual machine such as network interface, load balancer rules, and any depends on functions. 
