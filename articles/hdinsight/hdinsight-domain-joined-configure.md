@@ -73,25 +73,24 @@ In this section, you create a classic VNet using the Azure classic portal. In th
 
 **To create a classic VNet**
 
-1. Sign on to the [Azure classic portal](https://manage.windowsazure.com).
-2. Click **New** > **Network Services** > **Virtual Network** > **Custom Create**.
-3. Enter or select the following values:
+1. Sign on to the [Azure portal](https://portal.azure.com). 
+2. Click **New** > **Networking** > **Virtual Network**.
+3. In **Select a deployment model**, select **Classic**, and then click **Create**.
+4. Enter or select the following values:
 
 	- **Name**: contosoaadvnet
+	- **Address space**: 10.1.0.0/16
+	- **Subnet name**: Subnet-1
+	- **Subnet address range**: 10.1.0.0/24
+	- **Subscription**: (Select a subscription. You will also use this subscription to create your HDInsight cluster.)
+	- **ResourceGroup**:
 	- **Location**: (Select a region. This is the region where you want to create your HDInsight cluster.)
 
 		> [AZURE.IMPORTANT] You must choose a location that supports Azure AD DS. For more information, see [Products available by region](https://azure.microsoft.com/en-us/regions/services/). 
 		>
 		> Both the classic VNet and the Resource Group VNet must be in the same region as the Azure AD DS.
 
-	- **Subscription**: (Select a subscription. You will also use this subscription to create your HDInsight cluster.).
-4. Click **Next**.
-5. On the **DNS Servers and VPN Connectivity** page, click **Next**. If you do not specify a DNS server, the VNet uses the internal naming resolution provided by Azure. For this scenario, you don't need to configure DNS servers.
-6. Configure **Address Space** with **10.1.0.0/16**, and **Subnet-1** with **10.1.0.0/24** as shown below:
-
-	![Configure Domain-joined HDInsight clusters Azure Active directory virtual network](.\media\hdinsight-domain-joined-configure\hdinsight-domain-joined-aad-vnet-setting.png)
-	
-7. Click **Complete** to create the VNet.
+5. Click **Create** to create the VNet.
 
 ## Create and configure Azure AD DS for your Azure AD
 
