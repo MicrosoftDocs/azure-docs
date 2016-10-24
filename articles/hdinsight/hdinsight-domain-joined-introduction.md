@@ -55,29 +55,6 @@ Protecting data is important for meeting organizational security and compliance 
 
 See [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-config.md).
 
-## Users of Domain-joined HDInsight clusters
-
-An HDInsight cluster that is not domain-joined has two user accounts that are created during the cluster creation:
-
-- **Ambari admin**: This account is also known as *Hadoop user* or *HTTP user*. This account can be used to logon to Ambari at https://&lt;clustername>.azurehdinsight.net. It can also be used to run queries on Ambari views, execute jobs via external tools (i.e. PowerShell, Templeton, Visual Studio), and authenticate with the Hive ODBC driver and BI tools (i.e. Excel, PowerBI, or Tableau).
-
-- **SSH user**:  This account can be used with SSH, and execute sudo commands. It has root privileges to the Linux VMs.
-
-A domain-joined HDInsight cluster has three new users in addition to Ambari Admin and SSH user.
-
-- **Ranger admin**:  This account is the local Apache Ranger admin account. It is not an active directory domain user. This account can be used to setup policies and make other users admins or delegated admins (so that those users can manage policies). By default, the username is *admin* and the password is the same as the Ambari admin password. The password can be updated from the Settings page in Ranger.
-
-- **Cluster admin domain user**: This account is an active directory domain user designated as the Hadoop cluster admin including Ambari and Ranger. You must provide this user’s credentials during cluster creation. This user has the following privileges:
-
-	- Join machines to the domain and place them within the OU that you specify during cluster creation.
-	- Create service principals within the OU that you specify during cluster creation. 
-	- Create reverse DNS entries.
-
-	Note the other AD users also have these privileges. 
-
-	There are some end points within the cluster (for example, Templeton) which are not managed by Ranger, and hence are not secure. These end points are locked down for all users except the cluster admin domain user. 
-
-- **Regular **: During cluster creation, you can provide multiple active directory groups. The users in these groups will be synced to Ranger and Ambari. These users are domain users and will have access to only Ranger-managed endpoints (for example, Hiveserver2). All the RBAC policies and auditing will be applicable to these users.
 
 ## Run Hive jobs using Domain-joined HDInsight clusters 
 
@@ -86,5 +63,6 @@ See [Run a Hive job using Domain-joined HDInsight clusters](hdinsight-domain-joi
 ## Next steps
 
 - For configuring a Domain-joined HDInsight cluster, see [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-config.md).
+- For managing a Domain-joined HDInsight clusters, see [Manage Domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md).
 - For configuring Hive policies and run Hive queries, see [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md).
 - For running Hive queries using SSH on Domain-joined HDInsight clusters, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-domain-joined-hdinsight-cluster).
