@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/19/2016"
+   ms.date="10/24/2016"
    ms.author="tomfitz"/>
 
 # Authoring Azure Resource Manager templates
 
 This topic describes the structure of an Azure Resource Manager template. It presents the different sections of a template and the properties that are available in those sections. The template consists of JSON and expressions which you can use to construct values for your deployment. 
 
-For guidance on creating a template, see [Resource Manager Template Walkthrough](resource-manager-template-walkthrough.md). For recommendations about creating templates, see [Best practices for creating Azure Resource Manager templates](resource-manager-template-best-practices.md).
+To view the template for resources you have already deployed, see [Export an Azure Resource Manager template from existing resources](resource-manager-export-template.md). For guidance on creating a template, see [Resource Manager Template Walkthrough](resource-manager-template-walkthrough.md). For recommendations about creating templates, see [Best practices for creating Azure Resource Manager templates](resource-manager-template-best-practices.md).
 
 A good JSON editor can simplify the task of creating templates. For information about using Visual Studio with your templates, see [Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). For information about using VS Code, see [Working with Azure Resource Manager Templates in Visual Studio Code](resource-manager-vs-code.md).
 
@@ -76,16 +76,16 @@ You can use these parameter values throughout the template to set values for the
 You define parameters with the following structure:
 
     "parameters": {
-       "<parameterName>" : {
+       "<parameter-name>" : {
          "type" : "<type-of-parameter-value>",
-         "defaultValue": "<optional-default-value-of-parameter>",
-         "allowedValues": [ "<optional-array-of-allowed-values>" ],
-         "minValue": <optional-minimum-value-for-int-parameters>,
-         "maxValue": <optional-maximum-value-for-int-parameters>,
-         "minLength": <optional-minimum-length-for-string-secureString-array-parameters>,
-         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>,
+         "defaultValue": "<default-value-of-parameter>",
+         "allowedValues": [ "<array-of-allowed-values>" ],
+         "minValue": <minimum-value-for-int>,
+         "maxValue": <maximum-value-for-int>,
+         "minLength": <minimum-length-for-string-or-array>,
+         "maxLength": <maximum-length-for-string-or-array-parameters>,
          "metadata": {
-             "description": "<optional-description-of-the parameter>" 
+             "description": "<description-of-the parameter>" 
          }
        }
     }
@@ -104,11 +104,13 @@ You define parameters with the following structure:
 
 The allowed types and values are:
 
-- string or secureString - any valid JSON string
-- int - any valid JSON integer
-- bool - any valid JSON boolean
-- object or secureObject - any valid JSON object
-- array - any valid JSON array
+- **string**
+- **secureString**
+- **int**
+- **bool**
+- **object** 
+- **secureObject**
+- **array**
 
 To specify a parameter as optional, provide a defaultValue (can be an empty string). 
 
@@ -202,8 +204,7 @@ The next example shows a variable that is a complex JSON type, and variables tha
 
 ## Resources
 
-In the resources section, you define the resources that are deployed or updated. This is where your template can get more complicated because you must understand the types you are deploying to provide the right values. To learn 
-much of what you need to know about resource providers, see [Resource Manager providers, regions, API versions and schemas](resource-manager-supported-services.md).
+In the resources section, you define the resources that are deployed or updated. This is where your template can get more complicated because you must understand the types you are deploying to provide the right values. To learn much of what you need to know about resource providers, see [Resource Manager providers, regions, API versions and schemas](resource-manager-supported-services.md).
 
 You define resources with the following structure:
 
@@ -219,6 +220,10 @@ You define resources with the following structure:
            "<array-of-related-resource-names>"
          ],
          "properties": "<settings-for-the-resource>",
+         "copy": {
+           "name": "<name-of-copy-loop>",
+           "count": "<number-of-iterations>"
+         }
          "resources": [
            "<array-of-child-resources>"
          ]
@@ -227,50 +232,71 @@ You define resources with the following structure:
 
 | Element name             | Required | Description
 | :----------------------: | :------: | :----------
-| apiVersion               |   Yes    | Version of the REST API to use for creating the resource. To determine the available version numbers for a particular resource type, see [Supported API versions](resource-manager-supported-services.md#supported-api-versions).
-| type                     |   Yes    | Type of the resource. This value is a combination of the namespace of the resource provider and the resource type that the resource provider supports.
+| apiVersion               |   Yes    | Version of the REST API to use for creating the resource.
+| type                     |   Yes    | Type of the resource. This value is a combination of the namespace of the resource provider and the resource type (such as **Microsoft.Storage/storageAccounts**).
 | name                     |   Yes    | Name of the resource. The name must follow URI component restrictions defined in RFC3986. In addition, Azure services that expose the resource name to outside parties validate the name to make sure it is not an attempt to spoof another identity. See [Check resource name](https://msdn.microsoft.com/library/azure/mt219035.aspx).
-| location                 |   Varies  | Supported geo-locations of the provided resource. To determine the available locations, see [Supported regions](resource-manager-supported-services.md#supported-regions). Most resource types require a location, but some types (such as a role assignment) do not require a location.
+| location                 |   Varies  | Supported geo-locations of the provided resource. You can select any of the available locations, but typically it makes sense to pick one that is close to your users. Usually, it also makes sense to place resources that interact with each other in the same region. Most resource types require a location, but some types (such as a role assignment) do not require a location.
 | tags                     |   No     | Tags that are associated with the resource.
 | comments                 |   No     | Your notes for documenting the resources in your template
 | dependsOn                |   No     | Resources that the resource being defined depends on. The dependencies between resources are evaluated and resources are deployed in their dependent order. When resources are not dependent on each other, they are attempted to be deployed in parallel. The value can be a comma separated list of a resource names or resource unique identifiers.
 | properties               |   No     | Resource specific configuration settings. The values for the properties are exactly the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. For links to resource schema documentation or REST API, see [Resource Manager providers, regions, API versions and schemas](resource-manager-supported-services.md).
+| copy                     |   No     | If more than one instance is needed, the number of resources to create. For more information, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md). |
 | resources                |   No     | Child resources that depend on the resource being defined. You can provide only resource types that are permitted by the schema of the parent resource. The fully-qualified name of the child resource type includes the parent resource type, such as **Microsoft.Web/sites/extensions**. Dependency on the parent resource is not implied; you must explicitly define that dependency. 
 
+Knowing what values to specify for **apiVersion**, **type**, and **location** is not immediately obvious. Fortunately, you can determine these values through Azure PowerShell or Azure CLI.
 
-If the resource name is not unique, you can use the **resourceId** helper function (described below) to get the unique identifier for any resource.
+To get all the resource providers with **PowerShell**, use:
+
+    Get-AzureRmResourceProvider -ListAvailable
+
+From the returned list, find the resource providers you are interested in. To get the resource types for a resource provider (such as Storage), use:
+
+    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes
+
+To get the API versions for a resource type (such storage accounts), use:
+
+    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes | Where-Object ResourceTypeName -eq storageAccounts).ApiVersions
+
+To get supported locations for a resource type, use:
+
+    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes | Where-Object ResourceTypeName -eq storageAccounts).Locations
+
+To get all the resource providers with **Azure CLI**, use:
+
+    azure provider list
+
+From the returned list, find the resource providers you are interested in. To get the resource types for a resource provider (such as Storage), use:
+
+    azure provider show Microsoft.Storage
+
+To get supported locations and API versions, use:
+
+    azure provider show Microsoft.Storage --details --json
 
 The resources section contains an array of the resources to deploy. Within each resource, you can also define an array of child resources for that resources. Therefore, your resources section could have a structure like:
 
     "resources": [
        {
            "name": "resourceA",
-           ...
        },
        {
            "name": "resourceB",
-           ...
            "resources": [
                {
                    "name": "firstChildResourceB",
-                   ...
                },
                {   
                    "name": "secondChildResourceB",
-                   ...
                }
            ]
        },
        {
            "name": "resourceC",
-           ...
        }
     ]
 
 
-
-The following example shows a **Microsoft.Web/serverfarms** resource and a **Microsoft.Web/sites** resource with a child **Extensions** resource. Notice that the site is marked as dependent on the server farm since the server
-farm must exist before the site can be deployed. Notice too that the **Extensions** resource is a child of the site.
+The following example shows a **Microsoft.Web/serverfarms** resource and a **Microsoft.Web/sites** resource with a child **Extensions** resource. Notice that the site is marked as dependent on the server farm since the server farm must exist before the site can be deployed. Notice too that the **Extensions** resource is a child of the site.
 
     "resources": [
       {
@@ -297,7 +323,7 @@ farm must exist before the site can be deployed. Notice too that the **Extension
         "location": "[resourceGroup().location]",
         "tags": {
           "environment": "test",
-          "team": "ARM"
+          "team": "Web"
         },
         "dependsOn": [
           "[concat('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]"
@@ -363,7 +389,6 @@ For more information about working with output, see [Sharing state in Azure Reso
 - To view complete templates for many different types of solutions, see the [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/).
 - For details about the functions you can use from within a template, see [Azure Resource Manager Template Functions](resource-group-template-functions.md).
 - To combine multiple templates during deployment, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
-- To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 - You may need to use resources that exist within a different resource group. This is common when working with storage accounts or virtual networks that are shared across multiple resource groups. For more information, see the [resourceId function](resource-group-template-functions.md#resourceid).
 
 
