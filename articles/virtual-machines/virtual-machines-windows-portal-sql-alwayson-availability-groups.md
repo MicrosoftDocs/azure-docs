@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="09/22/2016"
-	ms.author="mikeray" />
+	ms.date="10/20/2016"
+	ms.author="MikeRayMSFT" />
 
 # Configure Always On availability group in Azure VM automatically - Resource Manager
 

@@ -89,7 +89,7 @@ The back-end receives a response which comprises:
 
 ```
 {
-    "status" : "OK",
+    "status" : 201,
     "payload" : {...}
 }
 ```
