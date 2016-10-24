@@ -20,7 +20,7 @@ What's new: Application Insights and HockeyApp analytics in Visual Studio.
 ### Visual Studio Application Insights Trends
 Visual Studio Application Insights is a new tool in Visual Studio that you can use to help you analyze how your app operates over time. To get started, on the **Application Insights** toolbar button or in the Application Insights Search window, choose **Explore Telemetry Trends**. Or, on the **View** menu, click **Other Windows**, and then click **Application Insights Trends**. Choose one of five common queries to get started. You can analyze different data sets based on telemetry types, time ranges, and other properties. To find anomalies in your data, choose one of the anomaly options in the **View Type** drop-down list. The filtering options at the bottom of the window make it easy to hone in on specific subsets of your telemetry.
 
-![Application Insights Trends](./media/app-insights-release-notes-vsix/Trends.PNG)
+![Application Insights Trends](./media/app-insights-release-notes-vsix/Trends.png)
 
 ### Exceptions in CodeLens
 Exception telemetry is now displayed in CodeLens. If you've connected your project to the Application Insights service, you'll see the number of exceptions that have occurred in each method in production in the past 24 hours. From CodeLens, you can jump to Search or Trends to investigate the exceptions in more detail.
@@ -30,11 +30,11 @@ Exception telemetry is now displayed in CodeLens. If you've connected your proje
 ### ASP.NET Core support
 Application Insights now supports ASP.NET Core RC2 projects in Visual Studio. You can add Application Insights to new ASP.NET Core RC2 projects from the **New Project** dialog, as in the following screenshot. Or, you can add it to an existing project, right-click the project in Solution Explorer, and then click **Add Application Insights Telemetry**.
 
-![ASP.NET Core support](./media/app-insights-release-notes-vsix/NetCoreSupport.PNG)
+![ASP.NET Core support](./media/app-insights-release-notes-vsix/NetCoreSupport.png)
 
 ASP.NET 5 RC1 and ASP.NET Core RC2 projects also have new support in the Diagnostic Tools window. You'll see Application Insights events like requests and exceptions from your ASP.NET app while you debug locally on your PC. From each event, click **Search** to drill down for more information.
 
-![Diagnostic Tools support](./media/app-insights-release-notes-vsix/DiagnosticTools.PNG)
+![Diagnostic Tools support](./media/app-insights-release-notes-vsix/DiagnosticTools.png)
 
 ### HockeyApp for Universal Windows apps
 In addition to beta distribution and user feedback, HockeyApp provides symbolicated crash reporting for your Universal Windows apps. We've made it even easier to add the HockeyApp SDK: right-click on your Universal Windows project, and then click **Hockey App - Enable Crash Analytics**. This installs the SDK, sets up crash collection, and provisions a HockeyApp resource in the cloud, all without uploading your app to the HockeyApp service.

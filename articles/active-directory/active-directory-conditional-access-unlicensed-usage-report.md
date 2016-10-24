@@ -3,7 +3,7 @@
 	description="The unlicensed usage report helps you identify unlicensed users that are using paid Azure AD features."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="MarkusVi"
 	manager="femila"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="10/20/2016"
 	ms.author="markvi"/>
 
 # Unlicensed usage report

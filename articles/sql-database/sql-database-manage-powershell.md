@@ -24,12 +24,12 @@
 - [Transact-SQL (SSMS)](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-manage-powershell.md)
 
-This topic shows the PowerShell cmdlets that are used to perform many Azure SQL Database tasks. For a complete list, see [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/mt574084.aspx).
+This topic shows the PowerShell cmdlets that are used to perform many Azure SQL Database tasks. For a complete list, see [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/mt574084(v=azure.300\).aspx).
 
 
 ## Create a resource group
 
-Create a resource group for our SQL Database and related Azure resources with the [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt759837.aspx) cmdlet.
+Create a resource group for our SQL Database and related Azure resources with the [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt759837(v=azure.300\).aspx) cmdlet.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -42,7 +42,7 @@ For a sample script, see [Create a SQL database PowerShell script](sql-database-
 
 ## Create a SQL Database server
 
-Create a SQL Database server with the [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715.aspx) cmdlet. Replace *server1* with the name for your server. Server names must be unique across all Azure SQL Database servers. If the server name is already taken, you get an error. This command may take several minutes to complete. The resource group must already exist in your subscription.
+Create a SQL Database server with the [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715(v=azure.300\).aspx) cmdlet. Replace *server1* with the name for your server. Server names must be unique across all Azure SQL Database servers. If the server name is already taken, you get an error. This command may take several minutes to complete. The resource group must already exist in your subscription.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -66,7 +66,7 @@ For more information, see [What is SQL Database](sql-database-technical-overview
 
 ## Create a SQL Database server firewall rule
 
-Create a firewall rule to access the server with the [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860.aspx) cmdlet. Run the following command, replacing the start and end IP addresses with valid values for your client. The resource group, and server must already exist in your subscription.
+Create a firewall rule to access the server with the [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860(v=azure.300\).aspx) cmdlet. Run the following command, replacing the start and end IP addresses with valid values for your client. The resource group, and server must already exist in your subscription.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -88,7 +88,7 @@ For more information, see [Azure SQL Database Firewall](https://msdn.microsoft.c
 
 ## Create a SQL database (blank)
 
-Create a database with the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) cmdlet. The resource group, and server must already exist in your subscription. 
+Create a database with the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339(v=azure.300\).aspx) cmdlet. The resource group, and server must already exist in your subscription. 
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -108,7 +108,7 @@ For more information, see [What is SQL Database](sql-database-technical-overview
 
 ## Change the performance level of a SQL database
 
-Scale your database up or down with the [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) cmdlet. The resource group, server, and database must already exist in your subscription. Set the `-RequestedServiceObjectiveName` to a single space (like the following snippet) for Basic tier. Set it to *S0*, *S1*, *P1*, *P6*, etc., like the preceding example for other tiers.
+Scale your database up or down with the [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433(v=azure.300\).aspx) cmdlet. The resource group, server, and database must already exist in your subscription. Set the `-RequestedServiceObjectiveName` to a single space (like the following snippet) for Basic tier. Set it to *S0*, *S1*, *P1*, *P6*, etc., like the preceding example for other tiers.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -127,7 +127,7 @@ For more information, see [SQL Database options and performance: Understand what
 
 ## Copy a SQL database to the same server
 
-Copy a SQL database to the same server with the [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/azure/mt603644.aspx) cmdlet. Set the `-CopyServerName` and `-CopyResourceGroupName` to the same values as your source database server and resource group.
+Copy a SQL database to the same server with the [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/azure/mt603644(v=azure.300\).aspx) cmdlet. Set the `-CopyServerName` and `-CopyResourceGroupName` to the same values as your source database server and resource group.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -149,7 +149,7 @@ For more information, see [Copy an Azure SQL Database](sql-database-copy.md). Fo
 
 ## Delete a SQL database
 
-Delete a SQL database with the [Remove-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619368.aspx) cmdlet. The resource group, server, and database must already exist in your subscription.
+Delete a SQL database with the [Remove-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619368(v=azure.300\).aspx) cmdlet. The resource group, server, and database must already exist in your subscription.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -162,7 +162,7 @@ Remove-AzureRmSqlDatabase -DatabaseName $databaseName `
 
 ## Delete a SQL Database server
 
-Delete a server with the [Remove-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603488.aspx) cmdlet.
+Delete a server with the [Remove-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603488(v=azure.300\).aspx) cmdlet.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -181,5 +181,5 @@ For details about managing elastic database pools using PowerShell, see [Monitor
 
 ## Related information
 
-- [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx)
-- [Azure Cmdlet Reference](https://msdn.microsoft.com/library/azure/dn708514.aspx)
+- [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/azure/mt574084(v=azure.300\).aspx)
+- [Azure Cmdlet Reference](https://msdn.microsoft.com/library/azure/dn708514(v=azure.300\).aspx)

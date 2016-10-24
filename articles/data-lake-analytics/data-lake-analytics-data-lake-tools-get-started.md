@@ -26,7 +26,7 @@ Learn how to install Data Lake Tools for Visual Studio, and use Data Lake Tools 
 U-SQL is a hyper-scalable, highly extensible language for preparing, transforming and analyzing all data in the data lake and beyond. For more information, see [U-SQL Reference] (http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 
-###Prerequisites
+##Prerequisites
 
 - **Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012. Enterprise (Ultimate/Premium), Professional, Community editions are supported; Express edition is not supported. Visual Studio "15" is currently not supported and we are working on that.**
 - **Microsoft Azure SDK for .NET version 2.7.1 or above**.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
@@ -239,7 +239,7 @@ The following video demonstrates the U-SQL local run feature:
     - In assembly registration (CREATE ASSEMBLY xyz FROM “/path/abc”): the script path will be searched, but not the DataRoot.
     - In registered TVF/View or other metadata entities: the DataRoot Path will be searched, but not the script path.
 
-    For scripts ran on Data Lake serivce, the default storage account will be used as root folder and will be searched accordingly.
+    For scripts ran on Data Lake service, the default storage account will be used as root folder and will be searched accordingly.
 
 ### Test U-SQL scripts locally
 For instructions on developing U-SQL scripts, see [Develop U-SQL scripts](#develop-and-test-u-sql-scripts). To build and run U-SQL scripts locally, select **(Local)** in the cluster drop-down list, and then click **Submit**. Please make sure you have the right data referenced - either refer to the absolute path or put the data under the DataRoot folder.

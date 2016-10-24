@@ -37,7 +37,7 @@ A version mismatch can result if the latest version of the profile module is ins
 
 Version 2.1.0 (and version 1.2.6 for AzureStack) are the first module versions designed to be installed and used side-by-side. Because Azure PowerShell uses binary modules, you must open a new PowerShell window and use **Import-Module** to import a specific version of the AzureRM cmdlets:
 
-**Import-Module AzureRM – RequiredVersion 2.1.0**
+    Import-Module AzureRM -RequiredVersion 2.1.0**
 
 Versions before 2.1.0 (other than 1.2.6) do not work well side-by-side with other Azure PowerShell module versions. When loading an earlier version of the Azure PowerShell modules using a command like the one above, incompatible versions of the **AzureRM.Profile** module will be loaded, resulting in the cmdlets asking you to log in whenever you execute a cmdlet, even after you have logged in.
 
@@ -45,11 +45,28 @@ The easiest way to resolve this is to install the latest Azure PowerShell from t
 
 Note that both Azure and AzureRM modules have dependencies in common, so if you use both modules, when updating one, you should update both. Earlier versions of the Azure module have the same issue with side-by-side module loading that earlier versions of the AzureRM module have.
 
-
 <a id="Install"></a>
 ## Step 1: Install
 
-Following are the two methods by which you can install Azure PowerShell. You can install it either from WebPI, or the PowerShell Gallery:
+Following are the two methods by which you can install Azure PowerShell. You can install it either from the PowerShell Gallery or the WebPI.
+
+###Installing Azure PowerShell from the PowerShell Gallery
+
+The preferred way is to use PowerShell Gallery. You need the PowerShellGet module to use the PowerShell Gallery. This is available here: [PowerShellGallery.com](https://www.powershellgallery.com/)
+
+Install Azure PowerShell 1.3.0 or greater from the PowerShell Gallery using an elevated Windows PowerShell or PowerShell Integrated Scripting Environment (ISE) prompt using the following commands:
+
+    # Install the Azure Resource Manager modules from the PowerShell Gallery
+    Install-Module AzureRM
+
+    # Install the Azure Service Management module from the PowerShell Gallery
+    Install-Module Azure
+
+####More about these commands
+
+- **Install-Module AzureRM** installs a rollup module for the Azure Resource Manager cmdlets. The AzureRM module depends on 
+- a particular version range for each Azure Resource Manager module. The included version range assures that no breaking module changes can be included when installing AzureRM modules with the same major version. When you install the AzureRM module, any Azure Resource Manager module that has not previously been installed will be downloaded and installed from the PowerShell Gallery. For more information on the semantic versioning used by Azure PowerShell modules, see [semver.org](http://semver.org). 
+- **Install-Module Azure** installs the Azure module. This module is the Service Management module from Azure PowerShell 0.9.x. This should have no major changes and be interchangeable for the previous version of the Azure module.
 
 ###Installing Azure PowerShell from WebPI
 
@@ -76,26 +93,11 @@ If you receive a message like the following when attempting to load or execute c
 ```
 
 This can be corrected by restarting the machine or importing the cmdlets from C:\Program Files\WindowsPowerShell\Modules\Azure\XXXX\ as following (where XXXX is the version of PowerShell installed:
+
 ```
-import-module "C:\Program Files\WindowsPowerShell\Modules\Azure\XXXX\azure.psd1"
-import-module "C:\Program Files\WindowsPowerShell\Modules\Azure\XXXX\expressroute\expressroute.psd1"
+Import-Module "C:\Program Files\WindowsPowerShell\Modules\Azure\XXXX\azure.psd1"
+Import-Module "C:\Program Files\WindowsPowerShell\Modules\Azure\XXXX\expressroute\expressroute.psd1"
 ```
-
-###Installing Azure PowerShell from the PowerShell Gallery
-
-Install Azure PowerShell 1.3.0 or greater from the PowerShell Gallery using an elevated Windows PowerShell or PowerShell Integrated Scripting Environment (ISE) prompt using the following commands:
-
-    # Install the Azure Resource Manager modules from the PowerShell Gallery
-    Install-Module AzureRM
-
-    # Install the Azure Service Management module from the PowerShell Gallery
-    Install-Module Azure
-
-####More about these commands
-
-- **Install-Module AzureRM** installs a rollup module for the Azure Resource Manager cmdlets. The AzureRM module depends on 
-- a particular version range for each Azure Resource Manager module. The included version range assures that no breaking module changes can be included when installing AzureRM modules with the same major version. When you install the AzureRM module, any Azure Resource Manager module that has not previously been installed will be downloaded and installed from the PowerShell Gallery. For more information on the semantic versioning used by Azure PowerShell modules, see [semver.org](http://semver.org). 
-- **Install-Module Azure** installs the Azure module. This module is the Service Management module from Azure PowerShell 0.9.x. This should have no major changes and be interchangeable for the previous version of the Azure module.
 
 ## Step 2: Start
 You can run the cmdlets from the standard Windows PowerShell console, or from PowerShell Integrated Scripting Environment (ISE).

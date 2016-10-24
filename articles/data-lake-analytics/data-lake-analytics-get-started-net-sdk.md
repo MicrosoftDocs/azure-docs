@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="09/23/2016"
+   ms.date="10/19/2016"
    ms.author="edmaca"/>
 
 # Tutorial: get started with Azure Data Lake Analytics using .NET SDK
@@ -52,7 +52,7 @@ A sample search log can be found in a public Azure Blob container. In the applic
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package WindowsAzure.Storage
 
-4. Add a new file to the project called **SampleUSQLScript.txt**, and then paste the following U-SQL script. The Data Lake Analytics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
+4. Add a new file to the project in the **C:\temp** folder called **SampleUSQLScript.txt**, and then paste the following U-SQL script. The Data Lake Analytics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
 
         @searchlog =
             EXTRACT UserId          int,
@@ -77,7 +77,7 @@ A sample search log can be found in a public Azure Blob container. In the applic
     
         adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
         
-    You must use absolute paths to access  files in  linked Storage accounts.  The syntax for files stored in linked Azure Storage account is:
+    You must use absolute paths to access  files in  linked Storage accounts.  The syntax for files stored in the linked Azure Storage account is:
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
