@@ -3,7 +3,7 @@
    description="Description of the 'Unknown Actor' event in Azure Active Directory Reports"
    services="active-directory"
    documentationCenter=""
-   authors="SSalahAhmed"
+   authors="MarkusVi"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/16/2016"
+   ms.date="10/24/2016"
    ms.author="saah"/>
 
 # Azure Active Directory Reporting 'Unknown Actor' event
