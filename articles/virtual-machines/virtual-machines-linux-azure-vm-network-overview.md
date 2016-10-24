@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="vm-linux"
   ms.workload="infrastructure"
-  ms.date="10/18/2016"
+  ms.date="10/24/2016"
   ms.author="v-livech"/>
 
 # Azure and Linux VM Network Overview
