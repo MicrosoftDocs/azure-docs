@@ -19,13 +19,13 @@
 # Use templates to create Azure Data Factory entities
 
 ## Overview
-While using Azure Data Factory for your data integration needs, you might find yourself reusing the same pattern across different environments or implementing the same task repetitively within the same solution. To make this easier and more manageable, templating comes in. Templates in Azure Data Factory are ideal for scenarios, which involve reusability and repetition.
+While using Azure Data Factory for your data integration needs, you may find yourself reusing the same pattern across different environments or implementing the same task repetitively within the same solution. Templates help you implement and manage these scenarios in an easy manner. Templates in Azure Data Factory are ideal for scenarios, which involve reusability and repetition.
  
 Consider the situation where an organization has 10 manufacturing plants across the globe. The logs from each of its plants go into a separate on-premises SQL Server. The company wants to build a single data warehouse in the cloud for ad-hoc analytics. It also wants to have the same logic but different configurations for development, test, and production environments. 
 
 In this case, a task needs to be repeated within the same environment, but with different values across the 10 data factories for each manufacturing plant. In effect, **repetition** is present. Templating allows the abstraction of this generic flow (that is, pipelines having the same activities for each data factory), but uses separate parameter files for each manufacturing plant.
 
-Furthermore, because the organization wants to deploy these 10 data factories multiple times across different environments, templates can use this **reusability** by utilizing separate parameter files for development, test, and production environments.
+Furthermore, as the organization wants to deploy these 10 data factories multiple times across different environments, templates can use this **reusability** by utilizing separate parameter files for development, test, and production environments.
 
 Thus with templates, you can repeatedly deploy your solution throughout its life cycle and have confidence your resources are deployed in a consistent state.
 
@@ -160,7 +160,7 @@ Refer to [Supported data stores](data-factory-data-movement-activities.md#suppor
 		}
 	}
 
-Refer to [defining pipelines](data-factory-create-pipelines.md#pipeline-json) for details about the JSON properties for defining the specific pipeline and activities you wish to deploy. Note the “dependsOn” parameter specifies name of the data factory, as well as any corresponding linked services or datasets. An example of a pipeline with a copy activity from Azure Blob Storage to Azure SQL Database is shown below.
+Refer to [defining pipelines](data-factory-create-pipelines.md#pipeline-json) for details about the JSON properties for defining the specific pipeline and activities you wish to deploy. Note the “dependsOn” parameter specifies name of the data factory, and any corresponding linked services or datasets. An example of a pipeline with a copy activity from Azure Blob Storage to Azure SQL Database is shown in the following JSON snippet:
 
 	"type": "datapipelines",
     "name": "[variables('pipelineName')]",
@@ -213,12 +213,12 @@ Refer to [defining pipelines](data-factory-create-pipelines.md#pipeline-json) fo
 		"end": "2016-10-04T00:00:00Z"
 
 ## Parameterizing Data Factory template
-For best practices on parameterizing, see [here](../resource-manager-template-best-practices.md#parameters) for details. In general, parameter usage should be minimized, especially if variables can be used instead. Only provide parameters in the the following scenarios:
+For best practices on parameterizing, see [here](../resource-manager-template-best-practices.md#parameters) for details. In general, parameter usage should be minimized, especially if variables can be used instead. Only provide parameters in the following scenarios:
 
 - Settings you wish to vary by environment
 - Secrets (such as passwords)
 
-In the case where you are pulling secrets from [Azure Key Vault](../key-vault/key-vault-get-started.md) when deploying Azure Data Factory entities using templates, specify the **key vault** and **secret name** as shown in the following example:
+If you need to pull secrets from [Azure Key Vault](../key-vault/key-vault-get-started.md) when deploying Azure Data Factory entities using templates, specify the **key vault** and **secret name** as shown in the following example:
 
 	"parameters": {
 		"storageAccountKey": { 
