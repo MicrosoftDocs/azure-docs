@@ -22,7 +22,7 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 
 Data factory currently supports only moving data from Amazon S3 to other data stores, but not for moving data from other data stores to Amazon S3.
 
-# Required permissions
+## Required permissions
 
 To copy data from Amazon S3, make sure you have been granted below permissions:
 
