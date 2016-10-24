@@ -89,7 +89,7 @@ For more information about connectivity providers, see [ExpressRoute circuits an
 
 ### ExpressRoute circuit
 
-Ensure that your organization has met the [ExpressRoute prerequiste requirements][expressroute-prereqs] for connecting to Azure.
+Ensure that your organization has met the [ExpressRoute prerequisite requirements][expressroute-prereqs] for connecting to Azure.
 
 If you haven't already done so, add a subnet named `GatewaySubnet` to your Azure VNet and create an ExpressRoute virtual network gateway using the Azure VPN Gateway service. For more information about this process, see [ExpressRoute workflows for circuit provisioning and circuit states][ExpressRoute-provisioning].
 
@@ -207,7 +207,7 @@ Configure a Site-to-Site VPN as a failover path for ExpressRoute. This is only a
 
 By default, BGP sessions use an idle timeout value of 60 seconds. Once a session is timed-out 3 times, the route is marked as unavailable, and all traffic is redirected to the remaining router. This 180-second timeout might be too long for critical applications. In such case, you can change your BGP time-out settings on the on-premises router to a smaller value.
 
-## Manageabilty considerations
+## Manageability considerations
 
 You can use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor connectivity between your on-premises datacenter and Azure.
 
