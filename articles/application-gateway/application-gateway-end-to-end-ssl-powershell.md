@@ -153,7 +153,7 @@ Upload the certificate to be used on the ssl enabled backend pool resources.
 
     $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
 
-> [AZURE.NOTE] The certificate provided in this step should be the public key of the pfx cert present on the backend. This step whitelists the backend with the application gateway. 
+> [AZURE.NOTE] The certificate provided in this step should be the public key of the pfx cert present on the backend. Export the certificate (not the root certificate) installed on the backend server in .CER format and use it in this step. This step whitelists the backend with the application gateway. 
 
 ### Step 8
 
