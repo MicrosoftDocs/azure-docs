@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/20/2016"
+   	ms.date="10/24/2016"
    	ms.author="jgao"/>
 
 # Introduce Domain-joined HDInsight clusters (Preview)
@@ -54,11 +54,6 @@ Protecting data is important for meeting organizational security and compliance 
 ## Configure Domain-joined HDInsight clusters
 
 See [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-config.md).
-See [Configure Domain-joined HDInsight clusters using Azure PowerShell](hdinsight-domain-joined-config-powershell.md).
-
-## Run Hive jobs using Domain-joined HDInsight clusters 
-
-See [Run a Hive job using Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md).
 
 ## Users of Domain-joined HDInsight clusters
 
@@ -83,6 +78,10 @@ A domain-joined HDInsight cluster has three new users in addition to Ambari Admi
 	There are some end points within the cluster (for example, Templeton) which are not managed by Ranger, and hence are not secure. These end points are locked down for all users except the cluster admin domain user. 
 
 - **Regular **: During cluster creation, you can provide multiple active directory groups. The users in these groups will be synced to Ranger and Ambari. These users are domain users and will have access to only Ranger-managed endpoints (for example, Hiveserver2). All the RBAC policies and auditing will be applicable to these users.
+
+## Run Hive jobs using Domain-joined HDInsight clusters 
+
+See [Run a Hive job using Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md).
 
 ## Next steps
 
