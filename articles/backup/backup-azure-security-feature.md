@@ -37,11 +37,9 @@ Users creating recovery services vault would be able to avail all the Security F
 	The list of recovery services vaults appears. 
 	From this list, select a vault. The selected vault dashboard opens.
 	
-	![Open vault blade](./media/backup-azure-security-feature/vault-settings.png)
+3. Click **Properties** and under **Settings**.
 
-3. Click **Settings** and select **Properties**.
-
-	![Open vault properties](./media/backup-azure-security-feature/vault-properties.png)
+	![Open vault properties](./media/backup-azure-security-feature/vault-dashboard.png)
 
 4. Click **Update** under **Security Settings**.
 
