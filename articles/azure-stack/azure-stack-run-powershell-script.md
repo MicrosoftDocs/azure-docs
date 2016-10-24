@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/10/2016"
+	ms.date="10/20/2016"
 	ms.author="erikje"/>
 
 # Deploy Azure Stack POC
@@ -25,11 +25,11 @@ Before you start, make sure that you at least 85 GB of space.
 
 1. The download of Azure Stack POC TP2 is comprised of a zip file containing the following 12 files, totaling ~20 GB:
     - 1 MicrosoftAzureStackPOC.EXE
-4. Review the License Agreement screen and information of the Self-Extractor Wizard and then click **Next**.
-5. Review the Privacy Statement screen and information of the Self-Extractor Wizard and then click **Next**.
-6. Select the Destination for the files to be extracted, click **Next**.
+2. Review the License Agreement screen and information of the Self-Extractor Wizard and then click **Next**.
+3. Review the Privacy Statement screen and information of the Self-Extractor Wizard and then click **Next**.
+4. Select the Destination for the files to be extracted, click **Next**.
     - The default is: <drive letter>:\<current folder>\Microsoft Azure Stack POC
-7. Review the Destination location screen and information of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (~44.5 GB) and ThirdPartyLicenses.rtf files.
+5. Review the Destination location screen and information of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (~44.5 GB) and ThirdPartyLicenses.rtf files.
 
 > [AZURE.NOTE] After you extract the files, you can delete the zip file to recover space on the machine. Or, you can move the zip file to another location so that if you need to redeploy you don’t need to download the zip files again.
 
@@ -63,10 +63,9 @@ Before you start, make sure that you at least 85 GB of space.
     
 6. Open an elevated PowerShell console and change the directory to where you copied the files.
     - 11 MicrosoftAzureStackPOC-N.BIN (where N is 1-11)
-2. Extract these files into a single folder on your computer.
-3. Right-Click on the MicrosoftAzureStackPOC.EXE > Run as an administrator.
+7. Right-Click on the MicrosoftAzureStackPOC.EXE > Run as an administrator.
 
-7. Run the PrepareBootFromVHD.ps1 script. This script and the unattend files are available with the other support scripts provided along with this build.
+8. Run the PrepareBootFromVHD.ps1 script. This script and the unattend files are available with the other support scripts provided along with this build.
     There are five parameters for this PowerShell script:
     - CloudBuilderDiskPath (required) – The path to the CloudBuilder.vhdx on the HOST.
     - DriverPath (optional) – Lets you add additional drivers for the host in the virtual HD.
@@ -80,9 +79,9 @@ Before you start, make sure that you at least 85 GB of space.
     
         If you run this exact command, you must enter the AdminPassword at the prompt.
 
-8. When the script is complete, you must confirm the reboot. If there are other users logged in, this command will fail. If the command fails, run the following command: `Restart-Computer -force` 
+9. When the script is complete, you must confirm the reboot. If there are other users logged in, this command will fail. If the command fails, run the following command: `Restart-Computer -force` 
 
-9. The HOST reboots into the OS of the CloudBuilder.vhdx, where the deployment continues.
+10. The HOST reboots into the OS of the CloudBuilder.vhdx, where the deployment continues.
 
 > [AZURE.IMPORTANT] Azure Stack requires access to the Internet, either directly or through a transparent proxy. The TP2 POC deployment supports exactly one NIC for networking. If you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script in the next section.
 

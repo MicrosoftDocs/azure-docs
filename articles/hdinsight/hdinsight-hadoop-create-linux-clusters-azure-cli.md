@@ -96,11 +96,21 @@ The following steps should be performed from a command-prompt, shell, or termina
         azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.windows.net --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 2 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
 
     * Replace __groupname__ with the resource group name.
+
+    * Replace __Hadoop__ with the cluster type that you wish to create. For example, `Hadoop`, `HBase`, `Storm` or `Spark`.
+
+        > [AZURE.IMPORTANT] HDInsight clusters come in a variety of types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster. 
+
     * Replace __location__ with the same location used in previous steps.
+
     * Replace __storagename__ with the storage account name.
+
     * Replace __storagekey__ with the key obtained in the previous step. 
+
     * For the `--defaultStorageContainer` parameter, use the same name as you are using for the cluster.
+
     * Replace __admin__ and __httppassword__ with the name and password you wish to use when accessing the cluster through HTTPS.
+
     * Replace __sshuser__ and __sshuserpassword__ with the username and password you wish to use when accessing the cluster using SSH
 
     It may take several minutes for the cluster creation process to finish. Usually around 15.
