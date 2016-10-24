@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/17/2016"
+	ms.date="10/24/2016"
 	ms.author="robb"/>
 
 # Use the cross-platform Command Line Interface (CLI) to create alerts for Azure services
@@ -51,9 +51,10 @@ You can configure and get information about alert rules using
 
 You can always receive help for commands by typing a command and putting -help at the end. For example:
 
+	```console
 	azure insights alerts -help
 	azure insights alerts actions email create -help
-
+	```
 
 ## Create alert rules using the CLI
 
@@ -82,7 +83,7 @@ You can always receive help for commands by typing a command and putting -help a
 
     An example resource id for a web app is
 
-	```
+	```console
 	/subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename
 	```
 
