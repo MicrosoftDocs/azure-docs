@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="10/21/2016"
+	ms.date="10/24/2016"
 	ms.author="heidist"/>
 
 # Service limits in Azure Search
@@ -39,7 +39,7 @@ A service is provisioned at a specific tier. If you need to jump tiers to get mo
 
 ## Per index limits ##
 
-There is a one-to-one correspondence between limits on indexes and limits on indexers. Given a limit of 200 indexes per S2 service, the maximum indexers and indexer datasources is also 200 for the same service.
+There is a one-to-one correspondence between limits on indexes and limits on indexers. Given a limit of 200 indexes per S2 service, the maximum indexers and datasources is also 200 for the same service.
 
 Resource|Free|Basic |S1|S2|S3 |S3 HD
 ---|---|---|---|---- |---|----
