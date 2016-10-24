@@ -73,7 +73,7 @@ To set up your development environment, you must install [Visual Studio 2013 Upd
 
 5. In the **Resource group** drop-down select an existing group or **Create new resource group**(see image below). 
 
-	If you prefer, you can select a resource group that you already have. But if you create a new resource group and only use it for this tutorial, it will be easy to delete all Azure resources you created for the tutorial when you're done with them. For information about resource groups, see [Azure Resource Manager overview](../resource-group-overview.md). 
+	If you prefer, you can select a resource group that you already have. But if you create a new resource group and only use it for this tutorial, it will be easy to delete all Azure resources you created for the tutorial when you're done with them. For information about resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md). 
 
 5. In the **App Service plan** drop-down select select an existing plan or **Create new App Service plan**(see image below).
 

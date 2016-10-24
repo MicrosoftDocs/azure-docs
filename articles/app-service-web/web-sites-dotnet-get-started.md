@@ -119,7 +119,7 @@ Now you tell Visual Studio about the Azure resources that you want it to create.
 
 	![Create App Service dialog](./media/web-sites-dotnet-get-started/rgcreate.png)
 
-	A resource group is a collection of Azure resources such as web apps, databases, and VMs. For a tutorial, it's generally best to create a new resource group because that makes it easy to delete in one step any Azure resources that you create for the tutorial. For more information, see [Azure Resource Manager overview](../resource-group-overview.md).
+	A resource group is a collection of Azure resources such as web apps, databases, and VMs. For a tutorial, it's generally best to create a new resource group because that makes it easy to delete in one step any Azure resources that you create for the tutorial. For more information, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
 4. Click the **New** button next to the **App Service Plan** drop-down.
 

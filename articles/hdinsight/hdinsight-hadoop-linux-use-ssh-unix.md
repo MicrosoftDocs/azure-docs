@@ -199,6 +199,22 @@ Use the following steps to connect to the worker nodes for your cluster.
 
 4. Once you have finished performing actions on the worker node, use the `exit` command to close the session to the worker node. This will return you to the `username@hn#-clustername` prompt.
 
+## Connect to a Domain-joined HDInsight cluster
+
+[Domain-joined HDInsight](hdinsight-domain-joined-introduction.md) integrates Kerberos with Hadoop in HDInsight. Because the SSH user is not an Active Direcotry domain user, this user account cannot run Hadoop commands from SSH shell on a domain-joined cluster directly. You must run *kinit* first. 
+
+**To run Hive queries on a Domain-joined HDInsight cluster using SSH**
+
+1. Connect to a Domain-joined HDInsight cluster using SSH.  For instrocutions, see [Connect to a Linux-based HDInsight cluster](#connect-to-a-linux-based-hdinsight-cluster).
+2. Run kinit. It will ask you for a domain user name and domain user password. For more information on configure domain users for domain-joined HDInsight clusters, see [Configure Domain-joined HDInisight clusters](hdinsight-domain-joined-configure.md).
+
+    ![HDInsight Hadoop Domain-joined kinit](./media/hdinsight-hadoop-linux-use-ssh-unix/hdinsight-domain-joined-hadoop-kinit.png)
+3. Open the Hive console by enter:
+
+        hive
+
+    Then you can run Hive commands.
+
 ##Add more accounts
 
 1. Generate a new public key and private key for the new user account, as described in the [Create an SSH key](#create-an-ssh-key-optional) section.

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/03/2016" 
+	ms.date="10/15/2016" 
 	ms.author="awills"/>
 
 
@@ -49,7 +49,7 @@ Let's start by examining a few sample rows of the table:
 > [AZURE.NOTE] Put the cursor somewhere in the statement before you click Go. You can split a statement over more than one line, but don't put blank lines in a statement. Blank lines are a convenient way to keep several separate queries in the window.
 
 
-Choose columns and adjust their positions:
+Choose columns, drag them, group by columns, and filter: 
 
 ![Click column selection at upper right of results](./media/app-insights-analytics-tour/030.png)
 
@@ -58,7 +58,7 @@ Expand any item to see the detail:
  
 ![Choose Table, and use Configure Columns](./media/app-insights-analytics-tour/040.png)
 
-> [AZURE.NOTE] Click the head of a column to re-order the results available in the web browser. But be aware that for a large result set, the number of rows downloaded to the browser is limited. Be aware that sorting this way doesn't always show you the actual highest or lowest items. For that, you should use the `top` or `sort` operator. 
+> [AZURE.NOTE] Click the head of a column to re-order the results available in the web browser. But be aware that for a large result set, the number of rows downloaded to the browser is limited. Sorting this way doesn't always show you the actual highest or lowest items. To sort items reliably, use the `top` or `sort` operator. 
 
 ## [Top](app-insights-analytics-reference.md#top-operator) and [sort](app-insights-analytics-reference.md#sort-operator)
 
@@ -269,24 +269,37 @@ Select the Chart display option:
 
 ![timechart](./media/app-insights-analytics-tour/080.png)
 
-The x axis for line charts has to be of type DateTime. 
 
 ## Multiple series 
 
-Use multiple values in a `summarize by` clause to create a separate row for each combination of values:
+Multiple expressions in the `summarize` creates multiple columns.
+
+Multiple expressions in the `by` clause creates multiple rows, one for each combination of values.
+
 
 ```AIQL
 
-    requests 
-      | summarize event_count=count()   
-        by bin(timestamp, 1d), client_StateOrProvince
+    requests
+    | summarize count(), avg(duration) 
+      by bin(timestamp, 1d), client_StateOrProvince, client_City 
+    | order by timestamp asc, client_StateOrProvince, client_City
 ```
 
 ![](./media/app-insights-analytics-tour/090.png)
 
-To display multiple lines on a chart, click **Split by** and choose a column.
+### Segment a chart by dimensions
 
-![](./media/app-insights-analytics-tour/100.png)
+If you chart a table that has a string column and a numeric column, the string can be used to split the numeric data into separate series of points. If there's more than one string column, you can choose which column to use as the discriminator. 
+
+![Segment an analytics chart](./media/app-insights-analytics-tour/100.png)
+
+### Display multiple metrics
+
+If you chart a table that more than one numeric column, in addition to the timestamp, you can display any combination of them.
+
+![Segment an analytics chart](./media/app-insights-analytics-tour/110.png)
+
+You must select Don't Split before you can select multiple numeric columns You can't split by a string column at the same time as displaying more than one numeric column. 
 
 
 
@@ -311,19 +324,19 @@ Count requests by the time modulo one day, binned into hours:
 
 ## Compare multiple daily series
 
-How does usage vary over the time of day in different states?
+How does usage vary over the time of day in different countries?
 
 ```AIQL
-    requests
+
+ requests  | where tostring(operation_SyntheticSource)
      | extend hour= floor( timestamp % 1d , 1h)
            + datetime("2001-01-01")
      | summarize event_count=count() 
-       by hour, client_StateOrProvince
+       by hour, client_CountryOrRegion 
+     | render timechart
 ```
 
-Split the chart by state:
-
-![Split By client_StateOrProvince](./media/app-insights-analytics-tour/130.png)
+![Split By client_CountryOrRegion](./media/app-insights-analytics-tour/130.png)
 
 
 ## Plot a distribution
@@ -342,7 +355,7 @@ How many sessions are there of different lengths?
     | project d = sessionDuration + datetime("2016-01-01"), count_
 ```
 
-The last line is required to convert to datetime - currently the x axis of a line chart can only be a datetime.
+The last line is required to convert to datetime. Currently the x axis of a chart is displayed as a scalar only if it is a datetime.
 
 The `where` clause excludes one-shot sessions (sessionDuration==0) and sets the length of the x-axis.
 
@@ -524,7 +537,7 @@ If you are using [TrackMetric()](app-insights-api-custom-events-metrics.md#track
 
 ### Performance counters table
 
-[Performance counters](app-insights-web-monitor-performance.md#system-performance-counters) show you basic system metrics for your app, such as CPU, memory, and network utilization. You can configure the SDK to send additional counters, including your own custom counters.
+[Performance counters](app-insights-performance-counters.md) show you basic system metrics for your app, such as CPU, memory, and network utilization. You can configure the SDK to send additional counters, including your own custom counters.
 
 The **performanceCounters** schema exposes the `category`, `counter` name, and `instance` name of each performance counter. Counter instance names are only applicable to some performance counters, and typically indicate the name of the process to which the count relates. In the telemetry for each application, you’ll see only the counters for that application. For example, to see what counters are available: 
 
@@ -576,10 +589,17 @@ Contains results of calls that your app makes to databases and REST APIs, and ot
 
 Contains the telemetry sent by your app using TrackTrace(), or [other logging frameworks](app-insights-asp-net-trace-logs.md).
 
-## Try it!
+## Dashboards
 
-* **[Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo)** if your app isn't sending data to Application Insights yet.
+You can pin your results to a dashboard in order to bring together all your most important charts and tables.
 
+* [Azure shared dashboard](app-insights-dashboards.md#share-dashboards): Click the pin icon. Before you do this, you must have a shared dashboard. In the Azure portal, open or create a dashboard and click Share.
+* [Power BI dashboard](app-insights-export-power-bi.md): Click Export, Power BI Query. An advantage of this alternative is that you can display your query alongside a other results from a very wide range of sources.
+
+
+## Next steps
+
+* [Analytics language reference](app-insights-analytics-reference.md)
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 

@@ -1,12 +1,20 @@
 ## Specifying formats
 
+Azure Data Factory supports the following format types: 
+
+- [Text Format](#specifying-textformat)
+- [JSON Format](#specifying-jsonformat)
+- [Avro Format](#specifying-avroformat)
+- [ORC Format](#specifying-orcformat)
+- [Parquet Format](#specifying-parquetformat)
+
 ### Specifying TextFormat
 
 If the format is set to **TextFormat**, you can specify the following **optional** properties in the **Format** section.
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------- | -------- | 
-| columnDelimiter | The character used to separate columns in a file. | Only one character is allowed. The default value is comma (','). | No |
+| columnDelimiter | The character used to separate columns in a file. | Only one character is allowed. The default value is comma (','). <br/><br/>To use an Unicode character, refer to [Unicode Characters](https://en.wikipedia.org/wiki/List_of_Unicode_characters) to get the corresponding code for it. For example, you can consider to use a rare unprintable char which not likely exist in your data: specify "\u0001" which represents Start of Heading (SOH). | No |
 | rowDelimiter | The character used to separate rows in a file. | Only one character is allowed. The default value is any of the following values on read: ["\r\n", "\r", "\n"] and "\r\n" on write. | No |
 | escapeChar | The special character used to escape a column delimiter in the content of input file. <br/><br/>You cannot specify both escapeChar and quoteChar for a table. | Only one character is allowed. No default value. <br/><br/>Example: if you have comma (',') as the column delimiter but you want to have the comma character in the text (example: "Hello, world"), you can define ‘$’ as the escape character and use string "Hello$, world" in the source. | No | 
 | quoteChar | The character used to quote a string value. The column and row delimiters inside the quote characters would be treated as part of the string value. This property is applicable to both input and output datasets.<br/><br/>You cannot specify both escapeChar and quoteChar for a table. | Only one character is allowed. No default value. <br/><br/>For example, if you have comma (',') as the column delimiter but you want to have comma character in the text (example: <Hello, world>), you can define " (double quote) as the quote character and use the string "Hello, world" in the source. | No |
@@ -57,6 +65,10 @@ If the format is set to AvroFormat, you do not need to specify any properties in
 	}
 
 To use Avro format in a Hive table, you can refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+
+Note the following points:  
+
+- [Complex data types](http://avro.apache.org/docs/current/spec.html#schema_complex) are not supported (records, enums, arrays, maps, unions and fixed)
 
 ### Specifying JsonFormat
 

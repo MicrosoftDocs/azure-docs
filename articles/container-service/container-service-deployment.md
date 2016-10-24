@@ -86,7 +86,7 @@ To create an instance of Azure Container Service by using the command line, you 
 
 To deploy a DC/OS or Docker Swarm cluster, select one of the following templates from GitHub. Note that both of these templates are the same, with the exception of the default orchestrator selection.
 
-* [DC/OS template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* [DC/OS template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
 * [Swarm template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
 Next, make sure that the Azure CLI has been connected to an Azure subscription. You can do this by using the following command:
@@ -140,7 +140,7 @@ You can also deploy an Azure Container Service cluster with PowerShell. This doc
 
 To deploy a DC/OS or Docker Swarm cluster, select one of the following templates. Note that both of these templates are the same, with the exception of the default orchestrator selection.
 
-* [DC/OS template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* [DC/OS template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
 * [Swarm template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
 Before creating a cluster in your Azure subscription, verify that your PowerShell session has been signed in to Azure. You can do this with the `Get-AzureRMSubscription` command:

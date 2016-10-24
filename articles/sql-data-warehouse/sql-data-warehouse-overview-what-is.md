@@ -10,7 +10,7 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="09/27/2016"
@@ -144,6 +144,10 @@ Polybase allows you to leverage your data from different sources by using famili
 
 - PolyBase can be used to access blob storage that is also being used as storage for an HDInsight cluster. This gives you access to the same data with relational and non-relational tools.
 
+## SLA
+
+SQL Data Warehouse offers a product level service level agreement (SLA) as part of Microsoft Online Services SLA. For more information, visit [SLA for SQL Data Warehouse][]. For SLA information about all other products you can visit the [Service Level Agreements] Azure page or download them on the [Volume Licensing][] page. 
+
 ## Next steps
 
 Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a SQL Data Warehouse][] and [load sample data][]. If you are new to Azure, you may find the [Azure glossary][] helpful as you encounter new terminology. Or, take a look at some of these other SQL Data Warehouse Resources.  
@@ -183,3 +187,6 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 [Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[SLA for SQL Data Warehouse]: https://azure.microsoft.com/en-us/support/legal/sla/sql-data-warehouse/v1_0/
+[Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
+[Service Level Agreements]: https://azure.microsoft.com/en-us/support/legal/sla/

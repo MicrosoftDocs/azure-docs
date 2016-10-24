@@ -13,9 +13,23 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="10/05/2016"
+	ms.date="10/21/2016"
 	ms.author="scooxl"/>
 #  Azure Government Management and Security
+
+## Automation
+
+Automation is generally available in Azure Government.
+
+### Variations
+
+The following Automation features are not currently available in Azure Government.
+
++ Creation of a Service Principle credential for authentication
+
+For more information, see [Automation public documentation](../automation/automation-intro.md).
+
+
 ##  Key Vault
 For details on this service and how to use it, see the <a href="https://azure.microsoft.com/documentation/services/key-vault">Azure Key Vault public documentation. </a>
 ### Data Considerations
@@ -29,26 +43,21 @@ Key Vault is generally available in Azure Government. As in public, there is no 
 ## Log Analytics
 Log Analytics is generally available in Azure Government. 
 
-### Differences from public Azure
+### Variations
 
 The following Log Analytics features and solutions are not currently available in Azure Government. This list is updated when the status of features / solutions changes.
 
 + Solutions that are in preview in public Azure, including:
   - Network Monitoring solution
-  - Azure Networking Analytics solution
+  - Application Dependency Monitoring
   - Office 365 solution
   - Windows 10 Upgrade Analytics solution
-  - Application Dependency Monitoring
   - Application Insights
-  - Azure Activity Logs
+  - Azure Networking Analytics solution
   - Azure Automation Analytics
   - Key Vault Analytics
-+ Solutions and features that require Azure Automation, including:
-  - Update Management
-  - Change Management
-  - Alerts that trigger an Azure Automation runbook
 + Solutions and features that require updates to on-premises software, including
-  - Integration with System Center Operations Manager 2016
+  - Integration with System Center Operations Manager 2016 (earlier versions of Operations Manager are supported)
   - Computers Groups from System Center Configuration Manager
   - Surface Hub solution
 + Features that are in preview in public Azure, including
@@ -58,8 +67,6 @@ The following Log Analytics features and solutions are not currently available i
   - Selecting virtual machines to enable the Log Analytics agent must be done through PowerShell or Resource Manager templates
   - Azure metrics and Azure diagnostics
 + OMS Mobile applications
-+ OMS Linux Agent VM Extension
-+ Usage data
 
 The following Log Analytics features have different behavior in Azure Government:
 

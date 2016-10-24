@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2016"
+	ms.date="10/19/2016"
 	ms.author="maheshu"/>
 
 # Azure Active Directory Domain Services: Frequently Asked Questions (FAQs)
@@ -28,6 +28,9 @@ Refer to our [Troubleshooting guide](active-directory-ds-troubleshooting.md) for
 
 #### Can I create multiple domains for a single Azure AD directory?
 No. You can only create a single domain serviced by Azure AD Domain Services for a single Azure AD directory.  
+
+#### Can I enable Azure AD Domain Services in an Azure Resource Manager virtual network?
+No. Azure AD Domain Services can only be enabled in a classic Azure virtual network. You can connect the classic virtual network to a Resource Manager virtual network using virtual network peering to use your managed domain in a Resource Manager virtual network.
 
 #### Can I make Azure AD Domain Services available in multiple virtual networks within my subscription?
 The service itself does not directly support this scenario. Azure AD Domain Services is available in only one virtual network at a time. However, you may configure connectivity between multiple virtual networks to expose Azure AD Domain Services to other virtual networks. This article describes how you can [connect virtual networks in Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
@@ -58,8 +61,9 @@ No. Group memberships cannot be modified on domains serviced by Azure AD Domain 
 #### Can I extend the schema of the domain provided by Azure AD Domain Services?
 No. The schema is administered by Microsoft for the managed domain. Schema extensions are not supported by Azure AD Domain Services.
 
-#### Can I modify DNS records provided by Azure AD Domain Services?
+#### Can I modify or add DNS records in my managed domain?
 Yes. Users that belong to the 'AAD DC Administrators' group are granted 'DNS Administrator' privileges, to modify DNS records in the managed domain. These users can use the DNS Manager console on a machine running Windows Server joined to the managed domain, to manage DNS. To use the DNS Manager console, install 'DNS Server Tools', which is part of the 'Remote Server Administration Tools' optional feature on the server. More information on [utilities for administering, monitoring and troubleshooting DNS](https://technet.microsoft.com/library/cc753579.aspx) is available on TechNet.
+
 
 ### Billing and availability
 
@@ -70,7 +74,8 @@ Yes. For more information, see the [pricing page](https://azure.microsoft.com/pr
 This service is included in the free trial for Azure. You can sign up for a [free one-month trial of Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 #### Can I get Azure AD Domain Services as part of Enterprise Mobility Suite (EMS)?
-No, Azure AD Domain Services is a pay-as-you-go Azure service and is not part of EMS. Azure AD Domain Services is available for all SKUs of Azure AD (Free, Basic, and Premium) and are billed on an hourly basis depending on usage.
+#### Do I need Azure AD Premium to use Azure AD Domain Services?
+No. Azure AD Domain Services is a pay-as-you-go Azure service and is not part of EMS. Azure AD Domain Services are available for all editions of Azure AD (Free, Basic, and, Premium) and are billed on an hourly basis, depending on usage.
 
 #### What Azure regions is the service available in?
-Refer to our [regions page](active-directory-ds-regions.md) to see a list of the Azure regions where Azure AD Domain Services is available.
+Refer to the [Azure Services by region](https://azure.microsoft.com/regions/#services/) page to see a list of the Azure regions where Azure AD Domain Services is available.

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2016"
+   ms.date="10/24/2016"
    ms.author="alkohli" />
 
 # Unpack, rack-mount, and cable your StorSimple 8600 device
@@ -300,4 +300,4 @@ You have completed cabling your device for power, network access, and serial con
 
 ## Next steps
 
-You are now ready to [deploy and configure your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
+You are now ready to [deploy and configure your on-premises StorSimple device](storsimple-deployment-walkthrough-u2.md).

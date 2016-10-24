@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Manage pricing and quota for Application Insights" 
-	description="Choose the price plan you need" 
+	pageTitle="Manage pricing and quota for Application Insights | Microsoft Azure" 
+	description="Choose the price plan you need, manage telemetry volumes" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/27/2016" 
+	ms.date="10/13/2016" 
 	ms.author="awills"/>
 
 # Manage pricing and quota for Application Insights
@@ -104,7 +104,7 @@ There are three buckets which are counted separately:
 
 *What happens if my app exceeds the per-second rate?*
 
-* The volume of data that your app sends is assessed every minute. If it exceeds the per-second rate averaged over the minute, the server refuses some requests. Some versions of the SDK then try to resend, spreading a surge out over several minutes; others such as the JavaScript SDK just drop the refused data.
+* The volume of data that your app sends is assessed every minute. If it exceeds the per-second rate averaged over the minute, the server refuses some requests. The SDK buffers the data and then tries to resend, spreading a surge out over several minutes. If your app consistently sends data at above the throttling rate, some data will be dropped. (The ASP.NET, Java, and JavaScript SDKs try to resend in this way; other SDKs might simply drop throttled data.)
 
 If throttling occurs, you'll see a notification warning that this has happened.
 
