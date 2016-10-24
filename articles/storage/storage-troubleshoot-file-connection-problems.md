@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2016"
+	ms.date="10/24/2016"
 	ms.author="genli"/>
 
 # Troubleshooting Azure File storage problems
@@ -124,7 +124,7 @@ Connect from a client that meets the requirements of Windows 8, Windows Server 2
 
 #### Cause 2
 
-“System Error 53” when you mount an Azure file share can occur if Port 445 outbound communication to Azure Files data center is blocked. Click [here](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) to see the summary of ISPs that allow / disallow access from port 445.
+“System Error 53” when you mount an Azure file share can occur if Port 445 outbound communication to Azure Files data center is blocked. Click [here](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) to see the summary of ISPs that allow or disallow access from port 445.
 
 Comcast and some IT organizations block this port. To understand whether this is the reason behind the “System Error 53” message, you can use Portqry to query the TCP:445 endpoint. If the TCP:445 endpoint is displayed as filtered, the TCP port is blocked. Here is an example query:
 
