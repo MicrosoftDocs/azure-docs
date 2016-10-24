@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="web"
-	ms.date="10/26/2016"
-	ms.author="tomfitz"/>
+	ms.date="10/24/2016"
+	ms.author="sumuth"/>
 
 # Enterprise-class WordPress on Azure App Service
 
