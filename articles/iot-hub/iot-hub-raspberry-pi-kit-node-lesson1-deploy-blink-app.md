@@ -21,13 +21,13 @@
 
 ## 1.3.1 What you will do
 
-Clone the sample Node.js application from Github, and use the gulp tool to deploy the sample application to your Raspberry Pi 3. The sample application blinks the LED connected to the board every two seconds. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
+Clone the sample Node.js application from GitHub, and use the gulp tool to deploy the sample application to your Raspberry Pi 3. The sample application blinks the LED connected to the board every two seconds. If you have any problems, seek solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## 1.3.2 What you will learn
 
-- How to use the `device-discover-cli` tool to retrieve networking information about your Pi.
-- How to deploy and run the sample application on your Pi.
-- How to deploy and debug applications running remotely on your Pi.
+- How to use the `device-discover-cli` tool to retrieve networking information about your Pi
+- How to deploy and run the sample application on your Pi
+- How to deploy and debug applications running remotely on your Pi
 
 ## 1.3.3 What you need
 
@@ -104,7 +104,7 @@ To configure the device connection, follow these steps:
     code ~/.iot-hub-getting-started/config-raspberrypi.json
     ```
 
-3. Replace the placeholder `[device hostname or IP address]` with the IP address or the host name that you get in section 1.3.4.
+3. Replace the placeholder `[device hostname or IP address]` with the IP address or the host name that you got in section 1.3.4.
 
     ![Config.json](media/iot-hub-raspberry-pi-lessons/lesson1/vscode-config-mac.png)
 

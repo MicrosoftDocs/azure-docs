@@ -37,7 +37,7 @@ In this section, you will learn:
 To complete this section, you need the following parts from your Raspberry Pi 3 Starter Kit:
 
 - The Raspberry Pi 3 board
-- The 16GB MicroSD card
+- The 16GB microSD card
 - The 5V 2A power supply with the six-foot micro USB cable
 - The breadboard
 - Connector wires
@@ -50,36 +50,36 @@ To complete this section, you need the following parts from your Raspberry Pi 3 
 You also need:
 
 - A wired or wireless connection for your Pi to connect to.
-- An USB-SD adapter or mini-SD card to burn the OS image into the MicroSD card.
-- A computer running Windows, Mac, or Linux. The computer is used to install Raspbian on the MicroSD card.
+- A USB-SD adapter or mini-SD card to burn the OS image onto the microSD card.
+- A computer running Windows, Mac, or Linux. The computer is used to install Raspbian on the microSD card.
 - An Internet connection to download the necessary tools and software.
 
-## 1.1.4 Install Raspbian on the MicroSD card
+## 1.1.4 Install Raspbian on the microSD card
 
-Prepare the MicroSD card to write the Raspbian image to.
+Prepare the microSD card for installation of the Raspbian image.
 
 1. Download Raspbian.
   1. [Download](https://www.raspberrypi.org/downloads/raspbian/) the .zip file for Raspbian Jessie with Pixel.
-  2. Extract the Raspbian image into a folder on your computer.
-2. Install Raspbian to the MicroSD card.
+  2. Extract the Raspbian image to a folder on your computer.
+2. Install Raspbian to the microSD card.
   1. [Download](https://www.etcher.io) and install the Etcher SD card burner utility.
   2. Run Etcher and select the Raspbian image that you extracted in step 1.
-  3. Select the MicroSD card drive.
+  3. Select the microSD card drive.
     Note: Etcher may have already selected the correct drive.
-  4. Click Flash to install Raspbian to the MicroSD card.
-  5. Remove the MicroSD card from your computer once complete.
-    Note: It is safe to remove the MicroSD card directly because Etcher automatically ejects or unmounts the MicroSD card upon completion.
-  6. Insert the MicroSD card into your Pi.
+  4. Click **Flash** to install Raspbian to the microSD card.
+  5. Remove the microSD card from your computer when installation is complete.
+    Note: It is safe to remove the microSD card directly because Etcher automatically ejects or unmounts the microSD card upon completion.
+  6. Insert the microSD card into your Pi.
 
 ![Insert the SD card](media/iot-hub-raspberry-pi-lessons/lesson1/insert_sdcard.jpg)
 
-## 1.1.5 Power on your Pi
+## 1.1.5 Turn on your Pi
 
-Power on your Pi by using the micro USB cable and the power supply.
+Turn on your Pi by using the micro USB cable and the power supply.
 
-![Power on](media/iot-hub-raspberry-pi-lessons/lesson1/micro_usb_power_on.jpg)
+![Turn on](media/iot-hub-raspberry-pi-lessons/lesson1/micro_usb_power_on.jpg)
 
-> [AZURE.NOTE] It is important to use the power supply in the kit that is at least 2A to make sure that your Raspberry is fed with enough power to work correctly.
+> [AZURE.NOTE] It is important to use the power supply in the kit that is at least 2A to make sure that your Raspberry has enough power to work correctly.
 
 ## 1.1.6 Connect your Raspberry Pi 3 to the network
 
@@ -97,7 +97,7 @@ Follow the [instructions](https://www.raspberrypi.org/learning/software-guide/wi
 
 ## 1.1.7 Connect the LED to your Pi
 
-To complete this task, use the [breadboard](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard), the connector wires, the LED, and the resistor. You connect them to the [general-purpose input/output](https://www.raspberrypi.org/documentation/usage/gpio/) (GPIO) ports of your Pi.
+To complete this task, use the [breadboard](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard), the connector wires, the LED, and the resistor. Connect them to the [general-purpose input/output](https://www.raspberrypi.org/documentation/usage/gpio/) (GPIO) ports of your Pi.
 
 ![Breadboard, LED, and Resistor](media/iot-hub-raspberry-pi-lessons/lesson1/breadboard_led_resistor.jpg)
 
