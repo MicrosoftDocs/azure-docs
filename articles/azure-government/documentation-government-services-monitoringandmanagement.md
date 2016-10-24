@@ -68,7 +68,7 @@ The following Log Analytics features behave differently in Azure Government:
 
 + The Windows Agent must be downloaded from the [Log Analytics portal](https://oms.microsoft.us) for Azure Government.
 + To upload data by using the Data Collector API, you must use the Azure Government URL, https://*workspaceId*.ods.opinsights.azure.us, where *workspaceId* is the workspace ID from the Operations Management Suite portal.
-+ When [configuring firewall settings](log-analytics-proxy-firewall.md) the following URLs need to be allowed for access to Log Analytics in Azure Government:
++ When [configuring firewall settings](../log-analytics-proxy-firewall.md) the following URLs need to be allowed for access to Log Analytics in Azure Government:
   1. \*.ods.opinsights.azure.us
   2. \*.oms.opinsights.azure.us
   3. \*.blob.core.usgovcloudapi.net
