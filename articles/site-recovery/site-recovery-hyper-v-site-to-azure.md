@@ -22,7 +22,7 @@
 > [AZURE.SELECTOR]
 - [Azure Portal](site-recovery-hyper-v-site-to-azure.md)
 - [Azure Classic](site-recovery-hyper-v-site-to-azure-classic.md)
-- [PowerShell Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
+- [PowerShell - Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
 
 
 
