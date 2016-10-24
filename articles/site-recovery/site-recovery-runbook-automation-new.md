@@ -116,11 +116,11 @@ CloudServiceName | Azure Cloud Service name under which the virtual machine is c
 CloudServiceName (in Resource Manager deployment model) | Azure Resource Group name under which the virtual machine is created.
 
 
-## Passing parameters to a runbook
+## Using complex variables per recovery plan
 
-There is no first class mechanism to pass a parameter to a runbook. However, if you want to use the same script via multiple recovery plans you can use the Recovery Plan Context variable 'RecoveryPlanName' and use the below experimental technique to pass additional parameters.
+Sometimes, a runbook requires more information than just the RecoveryPlanContext. There is no first class mechanism to pass a parameter to a runbook. However, if you want to use the same script via multiple recovery plans you can use the Recovery Plan Context variable 'RecoveryPlanName' and use the below experimental technique to use an Azure Automation complex variable in a runbook. The example below shows how you can create three different complex variable assets and use them in the runbook based on the name of the recovery plan.
 
-Consider that you want to pass 3 parameters to a runbook. Let us encode them into a JSON form
+Consider that you want to use 3 additional parameters in a runbook. Let us encode them into a JSON form
 {"Var1":"testautomation","Var2":"Unplanned","Var3":"PrimaryToSecondary"}
 
 Use [AA complex variable](../automation/automation-variables.md#variable-types Complex variable) to create a new Automation asset.
@@ -129,21 +129,21 @@ You can use the reference here to create a [complex variable](https://msdn.micro
 
 For different recovery plans, name the variable as
 
-1. coveryPlanName1>-params
-2. coveryPlanName2>-params
-3. coveryPlanName3>-params
+1. recoveryPlanName1>-params
+2. recoveryPlanName2>-params
+3. recoveryPlanName3>-params
 
 Now, in the script refer to the params as
 
 1. Get the RP name from the $rpname = $Recoveryplancontext variable
 2. Get asset of $paramValue = "$($rpname)-params"
-3. Use this as a param for the recovery plan.
+3. Use this as a complex variable for the recovery plan by calling Get-AzureAutomationVariable [-AutomationAccountName] <String> -Name $paramValue.
 
 As an example, to get the complex variable/parameter for the SharepointApp recovery plan, create an Azure Automation complex variable called 'SharepointApp-params'.
 
 Use it in the recovery plan by extracting the variable from the asset using the statement Get-AzureAutomationVariable [-AutomationAccountName] <String> [-Name] $paramValue. [Reference this for more details](https://msdn.microsoft.com/library/dn913772.aspx)
 
-This way the same script can be used for different recovery plan by storing the plan specific parameters in the assets.
+This way the same script can be used for different recovery plan by storing the plan specific complex variable in the assets.
 
 ## Sample scripts
 
