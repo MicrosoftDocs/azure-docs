@@ -1,6 +1,6 @@
 <properties
  pageTitle="Configure your device | Microsoft Azure"
- description="Configure your Raspberry Pi 3 for first time use and install the Raspbian OS, a free operating system that is optimized for the Raspberry Pi hardware."
+ description="Configure your Raspberry Pi 3 for first-time use and install the Raspbian OS, a free operating system that is optimized for the Raspberry Pi hardware."
  services="iot-hub"
  documentationCenter=""
  authors="shizn"
@@ -21,24 +21,24 @@
 
 ## 1.1.1 What you will do
 
-Configure your Pi for the first time use and install the Raspbian operating system, a free operating system that is optimized for the Raspberry Pi hardware. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
+Configure your Pi for first-time use and install the Raspbian operating system, a free operating system that is optimized for the Raspberry Pi hardware. If you have any problems, you can seek solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## 1.1.2 What you will learn
 
 In this section, you will learn:
 
-- How to install Raspbian on your Pi
-- How to power up your Pi using a USB cable
-- How to connect your Pi to the network using an Ethernet cable or Wi-Fi
-- How to add an LED to the breadboard and connect it to your Pi
+- How to install Raspbian on your Pi.
+- How to power up your Pi by using a USB cable.
+- How to connect your Pi to the network by using an Ethernet cable or wireless network.
+- How to add an LED to the breadboard and connect it to your Pi.
 
-## 1.1.3 What you need
+## 1.1.3 What you will need
 
 To complete this section, you need the following parts from your Raspberry Pi 3 Starter Kit:
 
 - The Raspberry Pi 3 board
 - The 16GB MicroSD card
-- The 5V 2A power supply with the six foot micro USB cable
+- The 5V 2A power supply with the six-foot micro USB cable
 - The breadboard
 - Connector wires
 - A 560 Ohm resistor
@@ -49,17 +49,17 @@ To complete this section, you need the following parts from your Raspberry Pi 3 
 
 You also need:
 
-- A wired or wireless connection for your Pi to connect to
+- A wired or wireless connection for your Pi to connect to.
 - An USB-SD adapter or mini-SD card to burn the OS image into the MicroSD card.
 - A computer running Windows, Mac, or Linux. The computer is used to install Raspbian on the MicroSD card.
-- An Internet connection to download the necessary tools and software
+- An Internet connection to download the necessary tools and software.
 
 ## 1.1.4 Install Raspbian on the MicroSD card
 
 Prepare the MicroSD card to write the Raspbian image to.
 
 1. Download Raspbian.
-  1. [Download](https://www.raspberrypi.org/downloads/raspbian/) the zip file for Raspbian Jessie with Pixel.
+  1. [Download](https://www.raspberrypi.org/downloads/raspbian/) the .zip file for Raspbian Jessie with Pixel.
   2. Extract the Raspbian image into a folder on your computer.
 2. Install Raspbian to the MicroSD card.
   1. [Download](https://www.etcher.io) and install the Etcher SD card burner utility.
@@ -89,7 +89,7 @@ You can connect your Pi to a wired network or to a wireless network. Make sure t
 
 Use the Ethernet cable to connect your Pi to your wired network. The two LEDs on your Pi turn on if the connection is established.
 
-![Connect using Ethernet cable](media/iot-hub-raspberry-pi-lessons/lesson1/connect_ethernet.jpg)
+![Connect by using an Ethernet cable](media/iot-hub-raspberry-pi-lessons/lesson1/connect_ethernet.jpg)
 
 ### 1.1.6.2	Connect to a wireless network
 
@@ -97,7 +97,7 @@ Follow the [instructions](https://www.raspberrypi.org/learning/software-guide/wi
 
 ## 1.1.7 Connect the LED to your Pi
 
-To complete this task, use the [breadboard](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard), the connector wires, the LED, and the resistor. You connect them to the [general-purpose input/output](https://www.raspberrypi.org/documentation/usage/gpio/) (GPIO) ports of your Pi. 
+To complete this task, use the [breadboard](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard), the connector wires, the LED, and the resistor. You connect them to the [general-purpose input/output](https://www.raspberrypi.org/documentation/usage/gpio/) (GPIO) ports of your Pi.
 
 ![Breadboard, LED, and Resistor](media/iot-hub-raspberry-pi-lessons/lesson1/breadboard_led_resistor.jpg)
 
@@ -109,7 +109,7 @@ Note that the LED polarity is important. This polarity setting is commonly known
 
 ![Pinout](media/iot-hub-raspberry-pi-lessons/lesson1/pinout_breadboard.png)
 
-Congratulation! You've successfully configured your Pi.
+Congratulations! You've successfully configured your Pi.
 
 ## 1.1.8 Summary
 
