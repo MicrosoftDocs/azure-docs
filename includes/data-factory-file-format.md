@@ -1,5 +1,13 @@
 ## Specifying formats
 
+Azure Data Factory support below types of format:
+
+- [Text Format](#specifying-textformat)
+- [JSON Format](#specifying-jsonformat)
+- [Avro Format](#specifying-avroformat)
+- [ORC Format](#specifying-orcformat)
+- [Parquet Format](#specifying-parquetformat)
+
 ### Specifying TextFormat
 
 If the format is set to **TextFormat**, you can specify the following **optional** properties in the **Format** section.
@@ -57,6 +65,10 @@ If the format is set to AvroFormat, you do not need to specify any properties in
 	}
 
 To use Avro format in a Hive table, you can refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+
+Note the following points:  
+
+- [Complex data types](http://avro.apache.org/docs/current/spec.html#schema_complex) are not supported (records, enums, arrays, maps, unions and fixed)
 
 ### Specifying JsonFormat
 
