@@ -57,11 +57,13 @@ When migrating an on-premises SQL Server Analysis Services tabular model to Azur
 ## Impersonation
 In some cases, it may be necessary to specify a different impersonation account. Impersonation account can be specified in SSDT or SSMS.
 
-For on-premises data sources,
+For on-premises data sources:
+
 - If using SQL authentication, impersonation should be Service Account.
 - If using Windows authentication, set Windows user/password. For SQL Server, Windows authentication with a specific impersonation account is supported only for in-memory data models.
 
-For cloud data sources,
+For cloud data sources:
+
 - If using SQL authentication, impersonation should be Service Account.
 
 
