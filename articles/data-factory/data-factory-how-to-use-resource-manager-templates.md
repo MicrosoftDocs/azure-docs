@@ -45,7 +45,7 @@ For more reference material, check out our Azure quick start templates:
 - [Create a Data factory with Hive activity on Azure HDInsight cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation)
 - [Create a Data factory to copy data from Salesforce to Azure Blobs](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy)
 
-As you build out your templates, feel free to share your Azure Data Factory templates to [Azure Quick start](https://azure.microsoft.com/en-us/documentation/templates/) by starting with the [contribution guide](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE). We’re excited to see what the community builds.
+As you build out your templates, feel free to share your Azure Data Factory templates to [Azure Quick start](https://azure.microsoft.com/documentation/templates/) by starting with the [contribution guide](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE). We’re excited to see what the community builds.
 
 Read on to learn how to achieve templating for your Azure Data Factory solutions.
 
@@ -218,7 +218,7 @@ For best practices on parameterizing, see [here](../resource-manager-template-be
 - Settings you wish to vary by environment
 - Secrets (such as passwords)
 
-In the case where you are pulling secrets from [Azure Key Vault](../key-vault/key-vault-get-started/) when deploying Azure Data Factory entities using templates, specify the **key vault** and **secret name** as shown in the following example:
+In the case where you are pulling secrets from [Azure Key Vault](../key-vault/key-vault-get-started.md) when deploying Azure Data Factory entities using templates, specify the **key vault** and **secret name** as shown in the following example:
 
 	"parameters": {
 		"storageAccountKey": { 
