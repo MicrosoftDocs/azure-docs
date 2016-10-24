@@ -30,6 +30,11 @@ class VisualObjectActor : Actor, IVisualObject
 {
     private IActorTimer _updateTimer;
 
+    public VisualObjectActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
+
     protected override Task OnActivateAsync()
     {
         ...
@@ -93,6 +98,11 @@ Actors that use reminders must implement the `IRemindable` interface, as shown i
 ```csharp
 public class ToDoListActor : Actor, IToDoListActor, IRemindable
 {
+    public ToDoListActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
+
     public Task ReceiveReminderAsync(string reminderName, byte[] context, TimeSpan dueTime, TimeSpan period)
     {
         if (reminderName.Equals("Pay cell phone bill"))

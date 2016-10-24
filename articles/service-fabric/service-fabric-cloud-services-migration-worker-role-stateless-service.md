@@ -41,7 +41,7 @@ Similar to Worker Role, a Web Role also represents a stateless workload, and so 
 **Application ** | **Supported** | **Migration path**
 --- | --- | ---
 ASP.NET Web Forms | No | Convert to ASP.NET Core 1 MVC
-ASP.NET MVC | With Migration | Upgrade to ASP.NET Core 1
+ASP.NET MVC | With Migration | Upgrade to ASP.NET Core 1 MVC
 ASP.NET Web API | With Migration | Use self-hosted server or ASP.NET Core 1
 ASP.NET Core 1 | Yes | N/A
 
