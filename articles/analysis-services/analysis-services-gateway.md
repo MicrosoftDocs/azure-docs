@@ -52,12 +52,11 @@ A gateway is installed on a computer in your network. One gateway must be instal
 ## Supported on-premises data sources
 For preview, the gateway supports connections between your Azure Analysis Services server and the following on-premises data sources:
 
-|**Data source**|**Live/DirectQuery**|**Manual or scheduled refresh**|
-|---|---|---|---|
-|SQL Server|Yes|Yes|
-|APS|Yes|Yes|
-|Oracle|Yes|Yes|
-|Teradata|Yes|Yes|
+- SQL Server
+- SQL Data Warehouse
+- APS
+- Oracle
+- Teradata
 
 
 ## Download

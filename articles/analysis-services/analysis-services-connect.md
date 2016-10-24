@@ -43,7 +43,7 @@ Before you connect, you need to get the server name. In **Azure portal** > serve
 
 3. In **Database**, if you know the name of the tabular model database or perspective you want to connect to, paste it here. Otherwise, you can leave this field blank. You can select a database or perspective on the next screen.
 
-4. Leave the default **Connect live** option selected, then press **Connect**.
+4. Leave the default **Connect live** option selected, then press **Connect**. If you're prompted to enter an account, enter your organizational account.
 
 5. In **Navigator**, expand the server, then select the model or perspective you want to connect to, then click **Connect**. A single click on a model or perspective shows all the objects for that view.
 
