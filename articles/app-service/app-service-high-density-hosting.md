@@ -1,6 +1,6 @@
 <properties
-	pageTitle="High-density hosting on Azure App Service | Microsoft Azure"
-	description="High-density hosting on Azure App Service"
+	pageTitle="High density hosting on Azure App Service | Microsoft Azure"
+	description="High density hosting on Azure App Service"
 	authors="btardif"
 	manager="wpickett"
 	editor=""
@@ -16,9 +16,9 @@
 	ms.date="10/24/2016"
 	ms.author="byvinyal"/>
 
-# High-density hosting on Azure App Service
+# High density hosting on Azure App Service
 
-When using App Service, your application will be decoupled from the capacity allocated to it by 2 concepts:
+When using App Service, your application is decoupled from the capacity allocated to it by 2 concepts:
 
 - **The Application:** Represents the app and its runtime configuration. For example, it includes the version of .NET that the runtime should load, the app settings, etc.
 
@@ -43,7 +43,7 @@ App Service plan that hosts it. This way, an App Service plan
 can be configured to provide 10 instances, but an app can be set to scale to
 only 5 of them.
 
-The following Azure Resource Manager template will create an App Service plan that's scaled out to 10
+The following Azure Resource Manager template creates an App Service plan that's scaled out to 10
 instances and an app that's configured to use per app scaling and scale to
 only 5 instances.
 
@@ -96,7 +96,7 @@ workers** to use to 1 (`"properties": { "numberOfWorkers": "1" }`).
     }
 
 
-## Recommended configuration for high-density hosting
+## Recommended configuration for high density hosting
 
 Per app scaling is a feature that is enabled in both public Azure regions
 and App Service Environments. However, the recommended strategy is to
@@ -104,10 +104,9 @@ use App Service Environments to take advantage of their advanced features and th
 pools of capacity.  
 
 Follow these steps to configure
-high-density hosting for your apps:
+high density hosting for your apps:
 
-1. Configure the App Service Environment and choose a worker pool that
-will be dedicated to the high-density hosting scenario.
+1. Configure the App Service Environment and choose a worker pool that is dedicated to the high density hosting scenario.
 
 1. Create a single App Service plan, and scale it to use all the available
 capacity on the worker pool.
@@ -115,7 +114,7 @@ capacity on the worker pool.
 1. Set the per-site scaling flag to true on the App Service plan.
 
 1. New sites are created and assigned to that App Service plan with the
-**numberOfWorkers** property set to **1**. This will yield the highest density
+**numberOfWorkers** property set to **1**. This yields the highest density
 possible on this worker pool.
 
 1. The number of workers can be configured independently per site to grant
