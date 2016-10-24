@@ -47,7 +47,7 @@ Use the elastic database tools to perform actions such as
 * Managing databases in a single-tenant model or a multi-tenant model using the [elastic scale client library](sql-database-elastic-database-client-library.md).
  
 
-## Additional Resources
+## Additional resources
 
 - [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
 - [Azure Automation](https://azure.microsoft.com/documentation/services/automation/)
