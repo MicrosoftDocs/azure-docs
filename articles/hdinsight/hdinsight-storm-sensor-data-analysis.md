@@ -77,6 +77,8 @@ This example consists of the following components:
 
 	* [D3.js](http://d3js.org/) is used to graph the data that is sent to the website.
 
+> [AZURE.IMPORTANT] Two clusters are required, as there is no supported method to create one HDInsight cluster for both Storm and HBase.
+
 The topology reads data from Event Hub by using the [org.apache.storm.eventhubs.spout.EventHubSpout](http://storm.apache.org/releases/0.10.1/javadocs/org/apache/storm/eventhubs/spout/class-use/EventHubSpout.html) class, and writes data into HBase using the [org.apache.storm.hbase.bolt.HBaseBolt](https://storm.apache.org/javadoc/apidocs/org/apache/storm/hbase/bolt/class-use/HBaseBolt.html) class. Communication with the website is accomplished by using [socket.io-client.java](https://github.com/nkzawa/socket.io-client.java).
 
 The following is a diagram of the topology.

@@ -57,7 +57,7 @@ While App Service supports many ways to deploy your code to an API app, this tut
 
 	Swaggerize is a tool that generates server code for an API described by a Swagger metadata file. The Swagger file that you'll use is named *api.json* and is located in the *start* folder of the repository you cloned.
 
-2. Navigate to the *start* folder, and then execute the `yo swaggerize` command. Swaggerize will ask a series of questions.  For **what to call this project**, enter "contactlist", for **path to swagger document**, enter "api.json", and for **Express, Hapi, or Restify**, enter "express".
+2. Navigate to the *start* folder, and then execute the `yo swaggerize` command. Swaggerize will ask a series of questions.  For **what to call this project**, enter "ContactList", for **path to swagger document**, enter "api.json", and for **Express, Hapi, or Restify**, enter "express".
 
 		yo swaggerize
 
@@ -71,7 +71,7 @@ While App Service supports many ways to deploy your code to an API app, this tut
 
  		"regenerate": "yo swaggerize --only=handlers,models,tests --framework express --apiPath config/api.json"
 
-1. Navigate to the folder that contains the scaffolded code (in this case, the *ContactList* subfolder).
+1. Navigate to the folder that contains the scaffolded code (in this case, the */start/ContactList* subfolder).
 
 1. Run `npm install`.
 	

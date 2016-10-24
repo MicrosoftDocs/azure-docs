@@ -62,6 +62,31 @@ Diagnostic and analytic tools:
 * Analytics - a powerful query language over your telemetry
 * Dashboards - compose the charts you need to monitor all your app components.
 
+## How do I use it?
+
+### Monitor
+
+Install Application Insights in your web app, set up availability web tests, and:
+
+* Set up a dashboard for your team room to keep an eye on load, responsiveness, and the performance of your dependencies, page loads, and AJAX calls. 
+* Discover which are the slowest and most failing requests.
+* Watch Live Stream when you deploy a new release, to know immediately about any degradation.
+
+### Diagnose
+
+When you receive an alert or discover a problem:
+
+* Correlate failures with exceptions, dependency calls and traces.
+* Examine stack dumps and trace logs.
+
+### Assess
+
+Measure the effectiveness of each new feature that you deploy.
+
+* Plan to measure how customers use new UX or business features.
+* Write custom telemetry into your code to log usage.
+* Base each development cycle on hard evidence from telemetry.
+
 
 ## Get started
 
