@@ -340,7 +340,7 @@ The next steps configure the Active Directory (AD) accounts for later use.
 
 2. In **Server Manager** select **Tools** and then click **Active Directory Administrative Center**.
 
-   ![Active Directory Administrative Center](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784626.png)
+    ![Active Directory Administrative Center](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784626.png)
 
 3. In the **Active Directory Administrative Center** select **corp (local)** from the left pane.
 

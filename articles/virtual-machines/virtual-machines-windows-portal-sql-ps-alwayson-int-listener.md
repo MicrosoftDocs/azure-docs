@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Configure Always On Availability Group Listeners – Microsoft Azure"
    description="Configure Availability Group Listeners on the Azure Resource Manager model, using an internal load balancer with one or more IP addresses."
    services="virtual-machines"
@@ -23,8 +23,6 @@ This topic shows how to do two things:
 - Create an internal load balancer for SQL Server availability groups using PowerShell cmdlets.
 
 - Add additional IP addresses to a load balancer to support more than one SQL Server availability group. 
-
-> **Important** Support for multiple listeners for Always On availability groups on Azure virtual machines is a preview feature and is subject to the preview terms in the license agreement (e.g., the Enterprise Agreement, Microsoft Azure Agreement, or Microsoft Online Subscription Agreement), as well as any applicable [Supplemental Terms of Use for Microsoft Azure Preview](http://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 In SQL Server an availability group listener is a virtual network name which clients connect to in order to access a database in the primary or secondary replica. On Azure virtual machines, a load balancer holds the IP address for  the listener. The load balancer routes traffic to the instance of SQL Server that is listening on the probe port. In most cases, an availability group uses an internal load balancer. An Azure internal load balancer can host one or many IP addresses. Each IP address uses a specific probe port. This document shows how to use PowerShell to create a new load balancer, or add IP addresses to an existing load balancer for SQL Server availability groups. 
 
