@@ -20,7 +20,7 @@
 
 #  Managing and connecting to your subscription in Azure Government
 
-Azure Government has unique URLs and endpoints for managing your environment. It is important to use the right connections to manage your environment thorugh the portal or PowerShell. Once you are connected to the Azure Government environment the normal commands for managing a service will work if the component has been deployed.
+Azure Government has unique URLs and endpoints for managing your environment. It is important to use the right connections to manage your environment through the portal or PowerShell. Once you are connected to the Azure Government environment, the normal operations for managing a service will work if the component has been deployed.
 
 ## Connecting via the portal
 The portal is the primary way that most people connect to Azure Government.  To connect, browse to the portal at [https://portal.azure.us](https://portal.azure.us).  The legacy version of the Azure portal can be accessed via [https://manage.windowsazure.us](https://manage.windowsazure.us).
