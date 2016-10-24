@@ -19,7 +19,8 @@
 # Get data from Azure Analysis Services
 Once you've created a server in Azure, and deployed a tabular model to it, users in your organization are ready to connect and begin exploring data.
 
-Azure Analysis Services supports client connections using updated object models; TOM, AMO, Adomd.Net, or MSOLAP, to connect via xmla to the server. For example, Power BI, Power BI Desktop, Excel, or any third-party client application that supports the object models.
+Azure Analysis Services supports client connections using [updated object models](#client-libraries); TOM, AMO, Adomd.Net, or MSOLAP, to connect via xmla to the server. For example, Power BI, Power BI Desktop, Excel, or any third-party client application that supports the object models.
+
 ## Server name
 When you create an Analysis Services server in Azure, you specify a unique name and the region where the server is to be created. When specifying the server name in a connection, the server naming scheme is:
 ```
@@ -82,7 +83,7 @@ Integrated authentication will pick up the Azure Active Directory credential cac
 ```
 
 ## Client libraries
-When connecting to Azure Analysis Services from Excel or other interfaces such as TOM, AsCmd, ADOMD.NET, you may need to install the latest client libraries. Get the latest:  
+When connecting to Azure Analysis Services from Excel or other interfaces such as TOM, AsCmd, ADOMD.NET, you may need to install the latest provider client libraries. Get the latest:  
 
 [MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)</br>
 [MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)</br>

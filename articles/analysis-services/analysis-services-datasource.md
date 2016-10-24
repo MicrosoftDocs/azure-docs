@@ -28,7 +28,7 @@ Or, if you have a DirectQuery model connecting to on-premises data sources, if y
 
 The following datasource providers are supported for in-memory or Direct Query data models when connecting to on-premises or cloud data sources:
 
-|               | Datasource                     | In-memory                            |  Direct Query                                           |
+|               | **Datasource**                     | **In-memory**                            |  **Direct Query**                                           |
 |---------------------------|-------------------------------|---------------------------------------------|---------------------------------------------|
 | **Cloud**                     | Azure SQL Data Warehouse      | .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
 |                           | Azure SQL Database            | .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
