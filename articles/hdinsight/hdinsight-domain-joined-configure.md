@@ -406,8 +406,6 @@ After you complete the tutorial, you might want to delete the cluster. With HDIn
 
 ## Test the connection between the two VNets
 
-[This part only tests the network connectivity and domain name resolution. Do I need to add another procedure for validating the AAD configuration, for example, verify domain users are populated when creating a Ranger policy.]
-
 To test the connection between the two VNets, you will ping one of the cluster nodes from the Windows VM in the Classic VNet.
 
 **To find the cluster node IP addresses**
