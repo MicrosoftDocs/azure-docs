@@ -26,7 +26,7 @@ A basic WordPress installation has only two requirements.
 
 * **MySQL Database** - available through [ClearDB in the Azure Marketplace][cdbnstore], or you can manage your own MySQL installation on Azure Virtual Machines using either [Windows][mysqlwindows] or [Linux][mysqllinux].
 
-  > [AZURE.NOTE] ClearDB provides several MySQL configurations, with different performance characteristics for each configuration. See the [Azure Store][cdbnstore] for information on offerings provided through the Azure store or [ClearDB pricing](http://www.cleardb.com/pricing.view) for offerings directly from ClearDB.
+  > [AZURE.NOTE] ClearDB provides several MySQL configurations, with different performance characteristics for each configuration. See the [Azure Store][cdbnstore] for information on offerings provided through the Azure store or directly as seen on [ClearDB website](http://www.cleardb.com/pricing.view).
 
 * **PHP 5.2.4 or greater** - Azure App Service currently provide [PHP versions 5.4, 5.5, and 5.6][phpwebsite].
 
@@ -105,7 +105,7 @@ There are two methods of migrating an existing WordPress site to Azure App Servi
 
 1. Use the [Azure Marketplace][cdbnstore] to create a MySQL database of the size you identified in the [Architecture and planning](#planning) section, in the region(s) that you will host your site.
 
-2. Follow the steps in [Create a WordPress web app in Azure App Service][createwordpress] to create a new WordPress web app. When creating the web app, select **Use an existing MySQL Database** and select the database created in step 1.
+2. Follow the steps in [Create a WordPress web app in Azure App Service][createwordpress] to create a WordPress web app. When creating the web app, select **Use an existing MySQL Database** and select the database created in step 1.
 
 If you are migrating an existing WordPress site, see [Migrate an existing WordPress site to Azure](#Migrate-an-existing-WordPress-site-to-Azure) after creating a new web app.
 
@@ -113,7 +113,7 @@ If you are migrating an existing WordPress site, see [Migrate an existing WordPr
 
 As mentioned in the [Architecture and planning](#planning) section, there are two ways to migrate a WordPress site.
 
-* **export and import** - for sites without a lot of customization, or where you just want to move the content.
+* **export and import** - for sites without much customization, or where you just want to move the content.
 
 * **backup and restore** - for sites with a lot of customization where you want to move everything.
 
@@ -123,17 +123,17 @@ Use one of the following sections to migrate your site.
 
 1. Use [WordPress export][export] to export your existing site.
 
-2. Create a new web app using the steps in the [Create a new WordPress site](#Create-a-new-WordPress-site) section.
+2. Create a web app using the steps in the [Create a WordPress site](#Create-a-new-WordPress-site) section.
 
-3. Login to your WordPress site on Web Apps and click **Plugins** -> **Add New**. Search for, and install, the **WordPress Importer** plugin.
+3. Log in to your WordPress site on Web Apps and click **Plugins** -> **Add New**. Search for, and install, the **WordPress Importer** plugin.
 
 4. After the importer plugin has been installed, click **Tools** -> **Import**, and then select **WordPress** to use the WordPress importer plugin.
 
 5. On the **Import WordPress** page, click **Choose File**. Browse to the WXR file exported from your existing WordPress site, and then choose **Upload file and import**.
 
-6. Click **Submit**. You will be prompted that the import was successful.
+6. Click **Submit**. You are prompted that the import was successful.
 
-8. Once you have completed all these steps, restart your site from its web app blade in the [Azure Portal][mgmtportal].
+8. Once you have completed all these steps, restart your site from its web app blade in the [Azure portal][mgmtportal].
 
 After importing the site, you may need to perform the following steps to enable settings not contained in the import file.
 
@@ -150,7 +150,7 @@ If you were using this... | Do this...
 
 2. Back up your existing database using the information at [Backing up your database][wordpressdbbackup].
 
-3. Create a new database and restore the backup.
+3. Create a database and restore the backup.
 
 	1. Purchase a new database from the [Azure Marketplace][cdbnstore], or setup a MySQL database on a [Windows][mysqlwindows] or [Linux][mysqllinux] VM.
 
@@ -158,9 +158,9 @@ If you were using this... | Do this...
 
 	3. Update the database to change the domain entries to your new Azure App Service domain. For example, mywordpress.azurewebsites.net. Use the [Search and Replace for WordPress Databases Script][searchandreplace] to safely change all instances.
 
-4. Create a new web app in the Azure Portal and publish the WordPress backup.
+4. Create a web app in the Azure portal and publish the WordPress backup.
 
-	1. Create a new web app in the [Azure Portal][mgmtportal] with a database using **New** -> **Web + Mobile** -> **Azure Marketplace** -> **Web Apps** -> **Web app + SQL** (or **Web app + MySQL**) -> **Create**. Configure all the required settings to create an empty web app.
+	1. Create a web app in the [Azure portal][mgmtportal] with a database using **New** -> **Web + Mobile** -> **Azure Marketplace** -> **Web Apps** -> **Web app + SQL** (or **Web app + MySQL**) -> **Create**. Configure all the required settings to create an empty web app.
 
 	2. In your WordPress backup, locate the **wp-config.php** file and open it in an editor. Replace the following entries with the information for your new MySQL database.
 
