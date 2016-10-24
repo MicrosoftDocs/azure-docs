@@ -41,7 +41,7 @@ The webhook can authenticate using either of these methods:
 
 The POST operation contains the following JSON payload and schema for all metric-based alerts.
 
-```
+```JSON
 {
 "status": "Activated",
 "context": {
