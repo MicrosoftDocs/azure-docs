@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2016"
+   ms.date="10/18/2016"
    ms.author="cherylmc" />
 
 # About VPN Gateway
@@ -35,8 +35,10 @@ Each virtual network can have only one virtual network gateway per gateway type.
 ## Gateway SKUs
 
 [AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
-PolicyBased VPNs can only be created for gateways using the Basic SKU.
+
 For more information about gateway SKUs, see [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+
+### Estimated aggregate throughput by SKU
 
 The following table shows the gateway types and the estimated aggregate throughput. This table applies to both the Resource Manager and classic deployment models.
 
