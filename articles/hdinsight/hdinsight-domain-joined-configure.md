@@ -28,7 +28,7 @@ This article is the first tutorial of a series:
 
 An example of the final topology looks as follows:
 
-![Domain-joined HDInsight topology](.\media\hdinsight-domain-joined-config\hdinsight-domain-joined-topology.png)
+![Domain-joined HDInsight topology](.\media\hdinsight-domain-joined-configure\hdinsight-domain-joined-topology.png)
 
 Because Azure AD currently only supports classic virtual networks (VNets) and Linux-based HDInsight clusters only support Azure Resource Manager based VNets, HDInsight Azure AD integration requires two VNets and a peering between them. For the comparison information between the two deployment models, see [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../resource-manager-deployment-model.md). The two VNets must be in the same region as the Azure AD DS.
 
@@ -48,7 +48,7 @@ Azure service names must be globally unique. The following names are used in thi
 
 This tutorial provides the steps for configuring a domain-joined HDInsight cluster. Each section has links to other articles with more background information.
 
-## Prerequisites:
+## Prerequisite:
 
 - Familiarize yourself with [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) its [pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/) structure.
 - Ensure that your subscription is whitelisted for this public preview. You can do so by sending an email to hdipreview@microsoft.com with your subscription ID.
@@ -89,7 +89,7 @@ In this section, you create a classic VNet using the Azure classic portal. In th
 5. On the **DNS Servers and VPN Connectivity** page, click **Next**. If you do not specify a DNS server, the VNet uses the internal naming resolution provided by Azure. For this scenario, you don't need to configure DNS servers.
 6. Configure **Address Space** with **10.1.0.0/16**, and **Subnet-1** with **10.1.0.0/24** as shown below:
 
-	![Configure Domain-joined HDInsight clusters Azure Active directory virtual network](.\media\hdinsight-domain-joined-config\hdinsight-domain-joined-aad-vnet-setting.png)
+	![Configure Domain-joined HDInsight clusters Azure Active directory virtual network](.\media\hdinsight-domain-joined-configure\hdinsight-domain-joined-aad-vnet-setting.png)
 	
 7. Click **Complete** to create the VNet.
 
@@ -176,7 +176,7 @@ If you use your own domain, you need to synchronize the password. See [Enable pa
 6. Follow the instruction to specify the certificate file and the password. You will see **Pending ...** next to **Enable domain services for this directory**.  
 7. Wait until **Pending ...** disappears, and **Secure LDAP Certificate** got populated.  This can take up 10 minutes or more.
  
-Note – If some background tasks are being run on the Azure AD DS, you may see an error while uploading certificate - <i>There is an operation being performed for this tenant. Please try again later</i>.  In case you experience this error, please try again after some time. The second domain controller may take up to 3 hours to be provisioned.
+>[AZURE.NOTE] If some background tasks are being run on the Azure AD DS, you may see an error while uploading certificate - <i>There is an operation being performed for this tenant. Please try again later</i>.  In case you experience this error, please try again after some time. The second domain controller may take up to 3 hours to be provisioned.
 
 For more information, see [Configure Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
@@ -272,7 +272,7 @@ The organization unit you create next will be used when creating the HDInsight c
 For more information, See [Create an Organizational Unit (OU) on an Azure AD Domain Services managed domain](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
 
 
-## Create an Azure Resource Manager virtual network for HDInsight cluster
+## Create an Resource Manager VNet for HDInsight cluster
 
 In this section, you will create an Azure Resource Manager VNet that will be used for the HDInsight cluster. For more information on creating Azure VNET using other methods, see [Create a virtual network](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
 
@@ -427,7 +427,7 @@ To test the connection between the two VNets, you will ping one of the cluster n
 
 
 
-## Next steps:
+## Next steps
 
 - For configuring Hive policies and run Hive queries, see [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md).
 - For running Hive queries using SSH on Domain-joined HDInsight clusters, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-domain-joined-hdinsight-cluster).

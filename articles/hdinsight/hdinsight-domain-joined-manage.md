@@ -79,14 +79,14 @@ Domain-joined HDInsight have the following roles:
 
 	![Domain-joined HDInsight Ambari management UI](./media/hdinsight-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png)
 
-## List the domain users synchronized from your Active Directory.
+## List the domain users synchronized from your Active Directory
 
 1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).
 2. From the left menu, click **Users**. You shall see all the users synced from your Active Directory to the HDInsight cluster.
 
 	![Domain-joined HDInsight Ambari management UI list users](./media/hdinsight-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png)
 
-## List the domain groups synchronized from your Active Directory.
+## List the domain groups synchronized from your Active Directory
 
 1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).
 2. From the left menu, click **Groups**. You shall see all the groups synced from your Active Directory to the HDInsight cluster.
@@ -117,8 +117,8 @@ Domain-joined HDInsight have the following roles:
 2. From the left menu, click **Roles**.
 3. Click **Add User** or **Add Group** to assign users and groups to different roles.
  
-## Next steps:
+## Next steps
 
-- For configuring a Domain-joined HDInsight cluster, see [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-config.md).
+- For configuring a Domain-joined HDInsight cluster, see [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md).
 - For configuring Hive policies and run Hive queries, see [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md).
 - For running Hive queries using SSH on Domain-joined HDInsight clusters, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-domain-joined-hdinsight-cluster).

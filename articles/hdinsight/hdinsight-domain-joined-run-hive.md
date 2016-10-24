@@ -24,7 +24,7 @@ Learn how to configure Apache Ranger policies for Hive. In this article, you cre
 
 ## Prerequisites
 
-- A Domain-joined HDInsight cluster. See [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-config.md).
+- A Domain-joined HDInsight cluster. See [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md).
 - A workstation with Office 2016, Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone, or Office 2010 Professional Plus.
 
 
@@ -47,7 +47,7 @@ In [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-setup.md
 
 ## Create Ranger policies
 
-In this section, you will create two Ranger policies for accessing hivesampletable. You give select permission on different set of columns. Both users were created in [Configure Domain-joined HDInsight clusters](hive-domain-joined-config.md#create-and-cofigure-an-aad).  In the next section, you will test the two policies in Excel.
+In this section, you will create two Ranger policies for accessing hivesampletable. You give select permission on different set of columns. Both users were created in [Configure Domain-joined HDInsight clusters](hive-domain-joined-configure.md#create-and-cofigure-an-aad).  In the next section, you will test the two policies in Excel.
 
 **To create Ranger policies**
 
@@ -141,9 +141,9 @@ To test the second policy (read-hivesampletable-devicemake) you created in the l
 
 	When it is done, you shall see two columns of data imported.
 
-## See also
+## Next steps
 
-- For configuring a Domain-joined HDInsight cluster, see [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-config.md).
+- For configuring a Domain-joined HDInsight cluster, see [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md).
 - For managing a Domain-joined HDInsight clusters, see [Manage Domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md).
 - For running Hive queries using SSH on Domain-joined HDInsight clusters, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-domain-joined-hdinsight-cluster).
 - For Connecting Hive using Hive JDBC, see [Connect to Hive on Azure HDInsight using the Hive JDBC driver](hdinsight-connect-hive-jdbc-driver.md)
