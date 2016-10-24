@@ -1,6 +1,6 @@
 ## Specifying formats
 
-Azure Data Factory support below types of format:
+Azure Data Factory supports the following format types: 
 
 - [Text Format](#specifying-textformat)
 - [JSON Format](#specifying-jsonformat)
