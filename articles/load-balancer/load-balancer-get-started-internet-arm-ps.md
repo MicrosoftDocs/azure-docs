@@ -29,7 +29,7 @@
 
 ## Deploying the solution by using Azure PowerShell
 
-The following procedures show how to create an Internet-facing load balancer by using Azure Resource Manager with PowerShell. With Azure Resource Manager, each resource is created and configured individually, and then put together to create a resource.
+The following procedures explain how to create an Internet-facing load balancer by using Azure Resource Manager with PowerShell. With Azure Resource Manager, each resource is created and configured individually, and then put together to create a load balancer.
 
 You must create and configure the following objects to deploy a load balancer:
 
