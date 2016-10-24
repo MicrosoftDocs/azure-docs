@@ -29,7 +29,7 @@ This article lists common problems that are related to Microsoft Azure File stor
 
 **Windows client problems**
 
-[Slow performance when you access Azure File storage from Windows 8.1 or Server 2012 R2](#windowsslow)
+[Slow performance when you access Azure File storage from Windows 8.1 or Windows Server 2012 R2](#windowsslow)
 
 [Error 53 attempting to mount an Azure File Share](#error53)
 
@@ -88,7 +88,7 @@ Reduce the number of concurrent open handles by closing some handles,  and then 
 
 ## Windows client problems
 <a id="windowsslow"></a>
-### Slow performance when accessing the File storage from Windows
+### Slow performance when accessing the File storage from Windows 8.1 or Windows Server 2012 R2
 
 For clients who are running Windows 8.1 or Windows Server 2012 R2, make sure that the hotfix [KB3114025](https://support.microsoft.com/kb/3114025) is installed. This hotfix improves the create and close handle performance.
 
@@ -124,7 +124,7 @@ Connect from a client that meets the requirements of Windows 8, Windows Server 2
 
 #### Cause 2
 
-“System Error 53” when you mount an Azure file share can occur if Port 445 outbound communication to Azure Files data center is blocked. Click [here](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) to see the summary of ISPs that Allow / Disallow Access from Port 445.
+“System Error 53” when you mount an Azure file share can occur if Port 445 outbound communication to Azure Files data center is blocked. Click [here](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) to see the summary of ISPs that allow / disallow access from port 445.
 
 Comcast and some IT organizations block this port. To understand whether this is the reason behind the “System Error 53” message, you can use Portqry to query the TCP:445 endpoint. If the TCP:445 endpoint is displayed as filtered, the TCP port is blocked. Here is an example query:
 
