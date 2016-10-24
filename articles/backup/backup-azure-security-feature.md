@@ -39,7 +39,7 @@ Users creating recovery services vault would be able to avail all the Security F
 	
 3. Click **Properties** and under **Settings**.
 
-	![Open vault properties](./media/backup-azure-security-feature/vault-dashboard.png)
+	![Open vault properties](./media/backup-azure-security-feature/vault-properties.png)
 
 4. Click **Update** under **Security Settings**.
 
