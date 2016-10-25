@@ -19,13 +19,13 @@
 
 # Create an internal load balancer by using the Azure CLI
 
-[AZURE.INCLUDE [load-balancer--resource-groupet-started-ilb-arm-selectors-include.md](../../includes/load-balancer--resource-groupet-started-ilb-arm-selectors-include.md)]
+[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
 
-[AZURE.INCLUDE [load-balancer--resource-groupet-started-ilb-intro-include.md](../../includes/load-balancer--resource-groupet-started-ilb-intro-include.md)]
+[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](load-balancer--resource-groupet-started-ilb-classic-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](load-balancer-get-started-ilb-classic-cli.md).
 
-[AZURE.INCLUDE [load-balancer--resource-groupet-started-ilb-scenario-include.md](../../includes/load-balancer--resource-groupet-started-ilb-scenario-include.md)]
+[AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
 ## Deploy the solution by using the Azure CLI
 
