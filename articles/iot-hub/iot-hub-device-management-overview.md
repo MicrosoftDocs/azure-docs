@@ -117,7 +117,7 @@ To continue learning about the Azure IoT Hub device management features, see the
 [lnk-hub-getstarted]: iot-hub-csharp-csharp-getstarted.md
 [lnk-identity-registry]: iot-hub-devguide-identity-registry.md
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
-[lnk-query-language]: iot-hub-devguide-query-language
+[lnk-query-language]: iot-hub-devguide-query-language.md
 [lnk-c2d-methods]: iot-hub-c2d-methods.md
 [lnk-methods-devguide]: iot-hub-devguide-direct-methods.md
 [lnk-jobs]: iot-hub-schedule-jobs.md

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/15/2016"
+	ms.date="10/24/2016"
 	ms.author="juliako"/>
 
 
@@ -50,7 +50,7 @@ Accessing Media Services requires two associated accounts:
 The steps in this section show how to create an AMS account.
 
 1. Log in at the [Azure portal](https://portal.azure.com/).
-2. Click **+New** > **Media + CDN** > **Media Services**.
+2. Click **+New** > **Web + Mobile** > **Media Services**.
 
 	![Media Services Create](./media/media-services-portal-vod-get-started/media-services-new1.png)
 

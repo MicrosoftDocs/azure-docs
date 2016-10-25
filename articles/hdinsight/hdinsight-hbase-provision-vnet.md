@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Provision HBase clusters on a Virtual Network | Microsoft Azure"
+	pageTitle="Create HBase clusters in a Virtual Network | Microsoft Azure"
 	description="Get started using HBase in Azure HDInsight. Learn how to create HDInsight HBase clusters on Azure Virtual Network."
 	keywords=""
 	services="hdinsight,virtual-network"
@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/27/2016"
+   ms.date="10/18/2016"
    ms.author="jgao"/>
 
-# Create HBase clusters on Azure Virtual Network 
+# Create HBase clusters in Azure Virtual Network 
 
-Learn how to create Azure HDInsight HBase clusters on an [Azure Virtual Network][1].
+Learn how to create Azure HDInsight HBase clusters in an [Azure Virtual Network][1].
 
 With virtual network integration, HBase clusters can be deployed to the same virtual network as your applications so that applications can communicate with HBase directly. The benefits include:
 
@@ -36,11 +36,12 @@ Before you begin this tutorial, you must have the following:
 
 ## Create HBase cluster into virtual network
 
-In this section, you will create a Linux-based HBase cluster in HDInsight using an [Azure Resource Manager template](../resource-group-template-deploy.md). The template experience is not required for following this tutorial. For other cluster creation methods and understanding the settings, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). For more information about using a template to create Hadoop clusters in HDInsight, see [Create Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
+In this section, you will create a Linux-based HBase cluster with the dependent Azure Storage account in an Azure virtual network using an [Azure Resource Manager template](../resource-group-template-deploy.md). For other cluster creation methods and understanding the settings, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). For more information about using a template to create Hadoop clusters in HDInsight, see [Create Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 
 > [AZURE.NOTE] Some properties have been hard-coded into the template. For example:
 >
-> * __Location__: East US
+> * __Location__: East US 2
+> * __Cluster version: 3.4
 > * __Cluster worker node count__: 4
 > * __Default storage account__: &lt;Cluster Name>store
 > * __Virtual network name__: &lt;Cluster Name>-vnet
@@ -50,33 +51,30 @@ In this section, you will create a Linux-based HBase cluster in HDInsight using 
 >
 > &lt;Cluster Name> will be replaced with the cluster name you provide when using the template.
 
-1. Click the following image to open the template in the Azure Portal. The template is located in a public blob container. 
+1. Click the following image to open the template in the Azure portal. The template is located in a public blob container. 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-2. From the **Parameters** blade, enter the following:
+2. From the **Custom deployment** blade, enter the following:
 
+	- **Subscription**: Select an Azure subscription used to create the HDInsight cluster, the dependent Storage account and the Azure virtual network.
+	- **Resource group**: Select **Create new**, and specify a new resource group name.
+	- **Location**: Select a location for the resource group.
     - **ClusterName**: Enter a name for the Hadoop cluster that you will create.
     - **Cluster login name and password**: The default login name is **admin**.
     - **SSH username and password**: The default username is **sshuser**.  You can rename it. 
-
+	- **I agree to the terms and the conditions stated above**: (Select)
     
 
-3. Click **OK** to save the parameters.
+3. Click **Purchase**. It takes about around 20 minutes to create a cluster. Once the cluster is created, you can click the cluster blade in the portal to open it.
 
-4. From the **Custom deployment** blade, click **Resource group** dropdown box, and then click **New** to create a new resource group.  The resource group is a container that groups the cluster, the dependent storage account and other linked resource.
-
-5. Click **Legal terms**, and then click **Create**.
-
-6. Click **Create**. You will see a new tile titled **Submitting deployment for Template deployment**. It takes about around 20 minutes to create a cluster. Once the cluster is created, you can click the cluster blade in the portal to open it.
-
-After you complete the tutorial, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Hadoop clusters in HDInsight by using the Azure Portal](hdinsight-administer-use-management-portal.md#delete-clusters).
+After you complete the tutorial, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-management-portal.md#delete-clusters).
 
 To begin working with your new HBase cluster, you can use the procedures found in [Get started using HBase with Hadoop in HDInsight](hdinsight-hbase-tutorial-get-started.md).
 
 ## Connect to the HBase cluster using HBase Java RPC APIs
 
-1.	Create an infrastructure as a service (IaaS) virtual machine into the same Azure virtual network and the same subnet. For instructions on creating a new IaaS virutal machine, see [Create a Virtual Machine Running Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md). When following the steps in this document, you must use the following for the Network configuration:
+1.	Create an infrastructure as a service (IaaS) virtual machine into the same Azure virtual network and the same subnet. For instructions on creating a new IaaS virtual machine, see [Create a Virtual Machine Running Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md). When following the steps in this document, you must use the following for the Network configuration:
 
     - __Virtual network__: &lt;Cluster name>-vnet
     - __Subnet__: default

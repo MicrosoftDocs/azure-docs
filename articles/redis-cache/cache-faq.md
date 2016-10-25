@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/21/2016" 
+	ms.date="10/18/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -52,6 +52,7 @@ The following FAQs cover basic concepts and questions about Azure Redis Cache an
 -	[Azure Redis Cache performance](#azure-redis-cache-performance)
 -	[In what region should I locate my cache?](#in-what-region-should-i-locate-my-cache)
 -	[How am I billed for Azure Redis Cache?](#how-am-i-billed-for-azure-redis-cache)
+-	[Can I use Azure Redis Cache with Azure Government Cloud or Azure China Cloud?](#can-i-use-azure-redis-cache-with-azure-government-cloud-or-azure-china-cloud)
 
 
 
@@ -173,6 +174,13 @@ For best performance and lowest latency, locate your Azure Redis Cache in the sa
 ### How am I billed for Azure Redis Cache?
 
 Azure Redis Cache pricing is [here](https://azure.microsoft.com/pricing/details/cache/). The pricing page lists pricing as an hourly rate. Caches are billed on a per-minute basis from the time that the cache is created until the time that a cache is deleted. There is no option for stopping or pausing the billing of a cache.
+
+
+## Can I use Azure Redis Cache with Azure Government Cloud or Azure China Cloud?
+
+Yes, Azure Redis Cache is available in both Azure Government Cloud and Azure China Cloud. Note that the URLs for accessing and managing Azure Redis Cache are different in Azure Government Cloud and Azure China Cloud compared with Azure Public Cloud. For more information on considerations when using Azure Redis Cache with Azure Government Cloud and Azure China Cloud, see [Azure Government Databases - Azure Redis Cache](../azure-government/documentation-government-services-database.md#azure-redis-cache) and [Azure China Cloud - Azure Redis Cache](https://www.azure.cn/documentation/services/redis-cache/).
+
+For information on using Azure Redis Cache with PowerShell in Azure Government Cloud and Azure China Cloud, see [How to connect to Azure Government Cloud or Azure China Cloud](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-azure-government-cloud-or-azure-china-cloud).
 
 
 <a name="cache-configuration"></a>

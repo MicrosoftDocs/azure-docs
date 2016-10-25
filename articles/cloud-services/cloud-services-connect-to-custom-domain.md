@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/06/2016"
+    ms.date="10/21/2016"
     ms.author="adegeo"/>
 
 # Connecting Azure Cloud Services Roles to a custom AD Domain Controller hosted in Azure
@@ -27,6 +27,8 @@ Before we get started, couple of things to keep in mind:
 2.	Your AD Domain Controller and Web/Worker Role instances need to be in the VNet.
 
 Follow this step-by-step guide and if you run into any issues, leave us a comment below. Someone will get back to you (yes, we do read comments).
+
+3. The network that is referenced by the cloud service <mark>must be</mark> a **classic virtual network**.
 
 ## Create a Virtual Network
 
@@ -67,6 +69,7 @@ To do this, create a virtual machine through PowerShell using the commands below
 
 ```powershell
 # Initialize variables
+# VNet and subnet must be classic virtual network resources, not Azure Resource Manager resources.
 
 $vnetname = '<your-vnet-name>'
 $subnetname = '<your-subnet-name>'
@@ -110,7 +113,8 @@ Next, you need to add your cloud service deployment to the VNet you just created
     </Dns>
     <!--optional-->
 
-    <!--VNet settings-->
+    <!--VNet settings
+        VNet and subnet must be classic virtual network resources, not Azure Resource Manager resources.-->
     <VirtualNetworkSite name="[virtual-network-name]" />
     <AddressAssignments>
         <InstanceAddress roleName="[role-name]">
@@ -153,6 +157,3 @@ You cloud services should now be joined to your custom domain controller. If you
 help Set-AzureServiceADDomainExtension
 help New-AzureServiceADDomainExtensionConfig
 ```
-
-We would also like your feedback on if it would be useful for you to have an extension that promotes a Virtual Machine to a Domain Controller. So if you think it would be, please let us know in the comments section.
-

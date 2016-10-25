@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/20/2016"
-    ms.author="mihauss;robinsh"/>
+    ms.date="10/18/2016"
+    ms.author="mihauss"/>
 
 
 # Azure Blob Storage: Hot and cool storage tiers
