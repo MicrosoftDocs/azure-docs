@@ -9,26 +9,10 @@
         "exclude": [         
           "**/obj/**",
           "**/includes/**",
-          "**/_themes/**",
-          "markdown templates/**"
+          "**/_themes/**"
         ],
         "src": "articles",
         "dest": "."
-      },
-      {
-        "files": [
-          "**/*.md",
-          "**/*.yml"
-        ],
-        "exclude": [         
-          "**/obj/**",
-          "**/includes/**",
-          "**/_themes/**",
-          "markdown templates/**",
-          "articles/**"
-        ],
-        "src": null,
-        "dest": null
       }
     ],
     "resource": [
@@ -36,27 +20,26 @@
         "files": [
           "**/*.png",
           "**/*.jpg",
+          "**/*.jpeg",
           "**/*.gif"
         ],
         "exclude": [
           "**/obj/**",
-          "**/_themes/**",
-          "markdown templates/**"
+          "**/_themes/**"
         ],
         "src": "articles",
         "dest": "."
       },
       {
         "files": [
-          "**/*.png",
-          "**/*.jpg",
-          "**/*.gif"
+          "includes/**/*.png",
+          "includes/**/*.jpg",
+          "includes/**/*.jpeg",
+          "includes/**/*.gif"
         ],
         "exclude": [
           "**/obj/**",
-          "**/_themes/**",
-          "markdown templates/**",
-          "articles/**"
+          "**/_themes/**"
         ],
         "src": null,
         "dest": null
