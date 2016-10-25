@@ -32,7 +32,7 @@ Once a network security group is assigned to a subnet, inbound traffic to apps i
 ## Network Ports Used in an App Service Environment ##
 Before locking down inbound network traffic with a network security group, it is important to know the set of required and optional network ports used by an App Service Environment.  Accidentally closing off traffic to some ports can result in loss of functionality in an App Service Environment.
 
-The following is a list of ports used by an App Service Environment:
+The following is a list of ports used by an App Service Environment. All ports are **TCP**, unless otherwise clearly noted:
 
 - 454:  **Required port** used by Azure infrastructure for managing and maintaining App Service Environments via SSL.  Do not block traffic to this port.  This port is always bound to the public VIP of an ASE.
 - 455:  **Required port** used by Azure infrastructure for managing and maintaining App Service Environments via SSL.  Do not block traffic to this port.  This port is always bound to the public VIP of an ASE.
