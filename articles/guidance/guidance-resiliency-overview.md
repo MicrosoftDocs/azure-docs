@@ -137,35 +137,27 @@ On the other hand, you can improve the composite SLA by creating independent fal
 
 With this design, the application is still available even if it can't connect to the database. However, it fails if the database and the queue both fail at the same time. The expected percentage of time for a simultaneous failure is 0.0001 × 0.001, so the composite SLA for this combined path is  
 
-```
-database OR queue = 1.0 - (0.0001 × 0.001) = 99.99999%
-```
+- Database OR queue = 1.0 &minus; (0.0001 &times; 0.001) = 99.99999%
 
 The total composite SLA is:
 
-```
-web app AND (database OR queue) = 99.95% x 99.99999% = ~99.95%
-```
+- Web app AND (database OR queue) = 99.95% &times; 99.99999% = ~99.95%
 
 But there are tradeoffs to this approach. The application logic is more complex, you are paying for the queue, and there may be data consistency issues to consider.
 
 **SLA for multi-region deployments**. Another HA technique is to deploy the application in more than one region, and use Azure Traffic Manager to fail over if the application fails in one region. For a two-region deployment, the composite SLA is calculated as follows. 
 
-Let *N* be the composite SLA for the application deployed in one region. The expected chance that the application will fail in both regions at the same time is `(1 - N)(1 - N)`. Therefore,
+Let *N* be the composite SLA for the application deployed in one region. The expected chance that the application will fail in both regions at the same time is (1 &minus; N) &times; (1 &minus; N). Therefore,
 
-```
-Combined SLA for both regions = 1 - (1 - N)(1 - N) = N + (1 - N)N
-```
+- Combined SLA for both regions = 1 &minus; (1 &minus; N)(1 &minus; N) = N + (1 &minus; N)N
 
-Finally, you must factor in the SLA for Traffic Manager, which is 99.99% at the time of writing.
+Finally, you must factor in the [SLA for Traffic Manager][tm-sla]. As of when this article was written, the SLA for Traffic Manager SLA is 99.99%.
 
-```
-Composite SLA = 99.99% x [combined SLA for both regions]
-```
+- Composite SLA = 99.99% &times; (combined SLA for both regions)
 
-A further detail is that failing over is not instantaneous, which can result in some downtime during a failover event. Azure Traffic Manager uses DNS, so the time-to-live (TTL ) of the DNS entries adds to the total failover time. See [Traffic Manager endpoint monitoring and failover][tm-failover].
+A further detail is that failing over is not instantaneous, which can result in some downtime during a failover. See [Traffic Manager endpoint monitoring and failover][tm-failover].
 
-The calculated SLA number is a useful baseline, but it doesn't tell the whole story about availability. Often, an application can degrade gracefully when a non-critical path fails. Consider an application that shows a catalog of books. If the application can't retrieve the thumbnail image for the cover, it might show a placeholder image. In that case, failing to get the image does not reduce the application's uptime, although it affects the user experience somewhat.  
+The calculated SLA number is a useful baseline, but it doesn't tell the whole story about availability. Often, an application can degrade gracefully when a non-critical path fails. Consider an application that shows a catalog of books. If the application can't retrieve the thumbnail image for the cover, it might show a placeholder image. In that case, failing to get the image does not reduce the application's uptime, although it affects the user experience.  
 
 ## Designing for resiliency
 
@@ -448,4 +440,5 @@ Here are the major points to take away from this article:
 [throttling-pattern]: https://msdn.microsoft.com/library/dn589798.aspx
 [tm]: https://azure.microsoft.com/services/traffic-manager/
 [tm-failover]: https://azure.microsoft.com/documentation/articles/traffic-manager-monitoring/
+[tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager/v1_0/
 [vsts]: https://www.visualstudio.com/features/vso-cloud-load-testing-vs.aspx
