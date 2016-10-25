@@ -4,7 +4,7 @@
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
-	authors="dlepow"
+	authors="squillace"
 	services="virtual-machines-linux,virtual-network,storage,azure-resource-manager"
 	tags="azure-resource-manager,azure-service-management"/>
 
@@ -15,7 +15,8 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/04/2016"
-	ms.author="danlep"/>
+	ms.author="rasquill"
+"/>
 
 # Log in to Azure from the Azure CLI
 

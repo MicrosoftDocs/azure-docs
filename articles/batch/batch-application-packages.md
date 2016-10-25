@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="08/25/2016"
+	ms.date="10/21/2016"
 	ms.author="marsma" />
 
 # Application deployment with Azure Batch application packages
@@ -90,7 +90,7 @@ We recommend that you create a storage account *specifically* for use with your 
 
 ### View current applications
 
-To view the applications in your Batch account, click the **Applications** tile in the **Batch account** blade.
+To view the applications in your Batch account, click the **Applications** menu item in the left menu while viewing the **Batch account** blade.
 
 ![Applications tile][2]
 
