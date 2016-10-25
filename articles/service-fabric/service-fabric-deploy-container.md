@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/22/2016"
+   ms.date="10/24/2016"
    ms.author="msfussell"/>
 
-# Preview: Deploy a container to Service Fabric
+# Preview: Deploy a Windows container to Service Fabric
 
 > [AZURE.SELECTOR]
-- [Deploy Windows Containers](service-fabric-deploy-container.md)
-- [Deploy Docker Containers](service-fabric-deploy-container-linux.md)
+- [Deploy Windows Container](service-fabric-deploy-container.md)
+- [Deploy Docker Container](service-fabric-deploy-container-linux.md)
 
 >[AZURE.NOTE] This feature is in preview for Linux and not currently available on Windows Server. This will be in preview for Windows Server on the next release of Service Fabric after Windows Server 2016 GA and supported in the subsequent release after that.
 

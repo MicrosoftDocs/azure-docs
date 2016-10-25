@@ -13,16 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/22/2016"
+   ms.date="10/24/2016"
    ms.author="msfussell"/>
 
-# Preview: Deploy a Docker container to Service Fabric
+# Preview: Deploy a docker container to Service Fabric
+
+> [AZURE.SELECTOR]
+- [Deploy Windows Container](service-fabric-deploy-container.md)
+- [Deploy Docker Container](service-fabric-deploy-container-linux.md)
 
 >[AZURE.NOTE] This feature is in preview for Linux and not currently available on Windows Server. This will be in preview for Windows Server on the next release of Service Fabric after Windows Server 2016 GA and supported in the subsequent release after that.
 
 This article walks you through building containerized services in Docker containers on Linux. 
 
-Service Fabric has several container capabilities that help you with building applications that are composed of microservices that are containerized. These are called containerized services. The capabilities include;
+Service Fabric has several container capabilities that help you with building applications that are composed of microservices that are containerized. These are called containerized services.
+
+ The capabilities include;
 
 - Container image deployment and activation
 - Resource governance
@@ -32,7 +38,7 @@ Service Fabric has several container capabilities that help you with building ap
 - Ability to configure and set environment variables
 
 
-## Packaging a Docker container with yeoman
+## Packaging a docker container with yeoman
 When packaging a container on Linux, you can choose either to use a yeoman template or [create the application package manually](service-fabric-deploy-container.md#manually-packaging-and-deploying-a-container).
 
 A Service Fabric application can contain one or more containers, each with a specific role in delivering the application's functionality. The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your application and add a container image. Let's use Yeoman to create a new application with a single Docker container called *SimpleContainerApp*. You can add more services later by editing the generated manifest files.
