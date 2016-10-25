@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/29/2016"
+	ms.date="10/24/2016"
 	ms.author="juliako"/>
 
 
@@ -36,7 +36,7 @@ This topic gives an overview of the main functionalities that are provided by St
 
 To start managing streaming endpoints for your account, do the following.
 
-1. Log in at the [Azure portal](https://portal.azure.com/).
+1. In the [Azure portal](https://portal.azure.com/), select your Azure Media Services account.
 2. In the **Settings** window, select **Streaming endpoints**.
 
 	![Streaming endpoint](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)

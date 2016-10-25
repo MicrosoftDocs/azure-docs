@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Architecture Reference - IaaS: Creating a trusted Active Directory domain in Azure | Microsoft Azure"
+   pageTitle="Azure Architecture Reference - IaaS: Creating a Active Directory resource forest in Azure | Microsoft Azure"
    description="How to create a trusted Active Directory domain in Azure."
    services="guidance,vpn-gateway,expressroute,load-balancer,virtual-network,active-directory"
    documentationCenter="na"
@@ -17,7 +17,7 @@
    ms.date="10/24/2016"
    ms.author="telmos"/>
 
-# Creating a trusted Active Directory domain in Azure
+# Creating a Active Directory Directory Services (ADDS) resource forest in Azure
 
 [AZURE.INCLUDE [pnp-RA-branding](../../includes/guidance-pnp-header-include.md)]
 
@@ -595,10 +595,18 @@ The remaining optional steps show how to determine whether the domain trust is w
 
 13. When the home page appears, verify that the correct domain and username appear in the menu bar at the top of the page, towards the right.
 
+## Next steps
+
+- Learn the best practices for [extending your on-premises ADDS domain to Azure][adds-extend-domain]
+
+- Learn the best practices for [creating an ADFS infrastructure][adfs] in Azure.
+
 <!-- links -->
 
 [resource-manager-overview]: ../azure-resource-manager/resource-group-overview.md
-[extending-ad-to-azure]: ./guidance-iaas-ra-secure-vnet-ad.md
+[adfs]: ./guidance-identity-adfs.md
+[adds-extend-domain]: ./guidance-identity-adds-extend-domain.md
+[extending-ad-to-azure]: ./guidance-identity-adds-extend-domain.md
 [implementing-aad]: ./guidance-identity-aad.md
 [implementing-a-multi-tier-architecture-on-Azure]: ./guidance-compute-n-tier-vm.md
 [implementing-a-secure-hybrid-network-architecture-with-internet-access]: ./guidance-iaas-ra-secure-vnet-dmz.md

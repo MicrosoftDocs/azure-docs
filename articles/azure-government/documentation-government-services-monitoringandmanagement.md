@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="10/21/2016"
+	ms.date="10/25/2016"
 	ms.author="ryansoc"/>
 
 
@@ -57,17 +57,23 @@ The following Log Analytics features and solutions are not currently available i
   - Surface Hub solution
 + Features that are in preview in public Azure, including:
   - Export of data to Power BI
-+ Azure portal integration
-  - Azure storage accounts to monitor</br>
-	  To select Azure storage accounts to monitor, you must use PowerShell or Resource Manager templates.
-  - Virtual machines to enable the Log Analytics Agent</br>To select virtual machines to enable the Log Analytics Agent, you must use PowerShell or Resource Manager templates.
-  - Azure metrics and Azure diagnostics
++ Azure metrics and Azure diagnostics
 + Operations Management Suite mobile applications
+
+The URLs for Log Analytics are different in Azure Government:
+
+| Azure Public | Azure Government | Notes |
+|--------------|------------------|-------|
+| mms.microsoft.com | oms.microsoft.us | Log Analytics portal |
+| *workspaceId*.ods.opinsights.azure.com | *workspaceId*.ods.opinsights.azure.us | [Data collector API](../log-analytics/log-analytics-data-collector-api.md) 
+| \*.ods.opinsights.azure.com | \*.ods.opinsights.azure.us | Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
+| \*.oms.opinsights.azure.com | \*.oms.opinsights.azure.us | Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
+| \*.blob.core.windows.net | \*.blob.core.usgovcloudapi.net | Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
+
 
 The following Log Analytics features behave differently in Azure Government:
 
 + The Windows Agent must be downloaded from the [Log Analytics portal](https://oms.microsoft.us) for Azure Government.
-+ To upload data by using the Data Collector API, you must use the Azure Government URL, https://*workspaceId*.ods.opinsights.azure.us, where *workspaceId* is the workspace ID from the Operations Management Suite portal.
 + To connect your System Center Operations Manager management server to Log Analytics, you need to download and import updated management packs.
   1. Download and save the [updated management packs](http://go.microsoft.com/fwlink/?LinkId=828749).
   2. Unzip the file that you downloaded.

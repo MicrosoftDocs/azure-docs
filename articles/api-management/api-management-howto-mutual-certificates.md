@@ -56,6 +56,8 @@ Click **Upload** to upload the certificate.
 
 Once the certificate is uploaded, it appears on the **Client certificates** tab. If you have multiple certificates, make a note of the subject, or the last four characters of the thumbprint, which are used to select the certificate when configuring an API to use certificates, as covered in the following [Configure an API to use a client certificate for gateway authentication][] section.
 
+>To turn off certificate chain validation when using, for example, a self-signed certificate, follow the steps described in this FAQ [item](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end).
+
 ## <a name="step1a"> </a>Delete a client certificate
 
 To delete a certificate, click **Delete** beside the desired certificate.
