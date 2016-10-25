@@ -57,7 +57,7 @@ Verify the resource group by using the JSON parser:
 azure group show myResourceGroup --json | jq '.'
 ```
 
-Create the storage account. The following example a storage account name `mystorageaccount`
+Create the storage account. The following example a storage account name `mystorageaccount` (the storage account name must be unique, so provide your own unique name):
 
 ```bash
 azure storage account create -g myResourceGroup -l westeurope \
@@ -104,11 +104,11 @@ Create the load balancer. The following example creates load balancer named `myL
 azure network lb create -g myResourceGroup -l westeurope -n myLoadBalancer
 ```
 
-Create a front-end IP pool for the load balancer, and associate the public IP. The following example creates a front-end IP pool named `mymySubnetPool`:
+Create a front-end IP pool for the load balancer, and associate the public IP. The following example creates a front-end IP pool named `mySubnetPool`:
 
 ```bash
 azure network lb frontend-ip create -g myResourceGroup -l myLoadBalancer \
-  -i myLoadBalancerPIP -n myFrontEndPool 
+  -i myPublicIP -n myFrontEndPool 
 ```
 
 Create the back-end IP pool for the load balancer. The following example creates a back-end IP pool named `myBackEndPool`:
@@ -132,7 +132,7 @@ Create the web inbound NAT rules for the load balancer. The following example cr
 ```bash
 azure network lb rule create -g myResourceGroup -l myLoadBalancer \
   -n myLoadBalancerRuleWeb -p tcp -f 80 -b 80 \
-  -t mymySubnetPool -o myBackEndPool
+  -t myFrontEndPool -o myBackEndPool
 ```
 
 Create the load balancer health probe. The following example creates a TCP probe named `myHealthProbe`:
@@ -319,7 +319,7 @@ info:    storage account create command OK
 To examine our resource group by using the `azure group show` command, let's use the [jq](https://stedolan.github.io/jq/) tool along with the `--json` Azure CLI option. (You can use **jsawk** or any language library you prefer to parse the JSON.)
 
 ```bash
-azure group show myResourceGroup --json | jq
+azure group show myResourceGroup --json | jq '.'
 ```
 
 Output:
@@ -640,8 +640,8 @@ Our load balancer is fairly empty, so let's create some IP pools. We want to cre
 First, let's create our front-end IP pool. The following example creates a front-end pool named `myFrontEndPool`:
 
 ```bash
-azure network lb frontend-ip create --resourceGroup myResourceGroup \
-  --lb-name myLoadBalancer --public-ip-name myLoadBalancerPIP \
+azure network lb frontend-ip create --resource-group myResourceGroup \
+  --lb-name myLoadBalancer --public-ip-name myPublicIP \
   --name myFrontEndPool 
 ```
 
@@ -650,16 +650,16 @@ Output:
 ```bash
 info:    Executing command network lb frontend-ip create
 + Looking up the load balancer "myLoadBalancer"
-+ Looking up the public ip "myLoadBalancerPIP"
++ Looking up the public ip "myPublicIP"
 + Updating load balancer "myLoadBalancer"
 data:    Name                            : myFrontEndPool
 data:    Provisioning state              : Succeeded
 data:    Private IP allocation method    : Dynamic
-data:    Public IP address id            : /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myLoadBalancerPIP
+data:    Public IP address id            : /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP
 info:    network lb mySubnet-ip create command OK
 ```
 
-Note how we used the `--public-ip-name` switch to pass in the myLoadBalancerPIP that we created earlier. Assigning the public IP address to the load balancer allows you to reach your VMs across the Internet.
+Note how we used the `--public-ip-name` switch to pass in the `myPublicIP` that we created earlier. Assigning the public IP address to the load balancer allows you to reach your VMs across the Internet.
 
 Next, let's create our second IP pool, this time for our back-end traffic. The following example creates a back-end pool named `myBackEndPool`:
 
@@ -705,7 +705,7 @@ Output:
       "name": "myFrontEndPool",
       "provisioningState": "Succeeded",
       "publicIPAddress": {
-        "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myLoadBalancerPIP"
+        "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP"
       },
       "privateIPAllocationMethod": "Dynamic",
       "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/mySubnetIPConfigurations/myFrontEndPool"
@@ -885,7 +885,7 @@ Output:
       "name": "myFrontEndPool",
       "provisioningState": "Succeeded",
       "publicIPAddress": {
-        "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myLoadBalancerPIP"
+        "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP"
       },
       "privateIPAllocationMethod": "Dynamic",
       "loadBalancingRules": [
@@ -954,15 +954,17 @@ Output:
 
 ## Create an NIC to use with the Linux VM
 
- NICs are programmatically available because you can apply rules to their use. You can also have more than one. In the following `azure network nic create` command, you hook up the NIC to the load back-end IP pool and associate it with the NAT rule to permit SSH traffic.
+NICs are programmatically available because you can apply rules to their use. You can also have more than one. In the following `azure network nic create` command, you hook up the NIC to the load back-end IP pool and associate it with the NAT rule to permit SSH traffic.
  
- Replace `guid` sections with your own Azure subscription ID. Your subscription ID noted in the output of `jq` when examining the resources you are creating. You can also view your subscription ID with `azure account list`. The following example creates a NIC named `myNic1`:
+Replace the `#####-###-###` sections with your own Azure subscription ID. Your subscription ID noted in the output of `jq` when examining the resources you are creating. You can also view your subscription ID with `azure account list`. 
+
+The following example creates a NIC named `myNic1`:
 
 ```bash
 azure network nic create --resource-group myResourceGroup --location westeurope \
   --subnet-vnet-name myVnet --subnet-name mySubnet --name myNic1 \
-  --lb-address-pool-ids /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/backendAddressPools/myBackEndPool \
-  --lb-inbound-nat-rule-ids /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/inboundNatRules/myLoadBalancerRuleSSH1
+  --lb-address-pool-ids /subscriptions/########-####-####-####-############/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/backendAddressPools/myBackEndPool \
+  --lb-inbound-nat-rule-ids /subscriptions/########-####-####-####-############/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/inboundNatRules/myLoadBalancerRuleSSH1
 ```
 
 Output:
@@ -1045,8 +1047,8 @@ Now we create the second NIC, hooking in to our back-end IP pool again. This tim
 ```bash
 azure network nic create --resource-group myResourceGroup --location westeurope \
   --subnet-vnet-name myVnet --subnet-name mySubnet --name myNic2 \
-  --lb-address-pool-ids  /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/backendAddressPools/myBackEndPool \
-  --lb-inbound-nat-rule-ids /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/inboundNatRules/myLoadBalancerRuleSSH2
+  --lb-address-pool-ids  /subscriptions/########-####-####-####-############/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/backendAddressPools/myBackEndPool \
+  --lb-inbound-nat-rule-ids /subscriptions/########-####-####-####-############/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/inboundNatRules/myLoadBalancerRuleSSH2
 ```
 
 ## Create a network security group and rules
@@ -1122,19 +1124,19 @@ Alternatively, you can use the `--admin-password` method to authenticate your SS
 We create the VM by bringing all our resources and information together with the `azure vm create` command:
 
 ```bash
-azure vm create \            
-    --resource-group myResourceGroup \
-    --name myVM1 \
-    --location westeurope \
-    --os-type linux \
-    --availset-name myAvailabilitySet \
-    --nic-name myNic1 \
-    --vnet-name myVnet \
-    --vnet-subnet-name mySubnet \
-    --storage-account-name mystorageaccount \
-    --image-urn canonical:UbuntuServer:16.04.0-LTS:latest \
-    --ssh-publickey-file ~/.ssh/id_rsa.pub \
-    --admin-username ops
+azure vm create \
+  --resource-group myResourceGroup \
+  --name myVM1 \
+  --location westeurope \
+  --os-type linux \
+  --availset-name myAvailabilitySet \
+  --nic-name myNic1 \
+  --vnet-name myVnet \
+  --vnet-subnet-name mySubnet \
+  --storage-account-name mystorageaccount \
+  --image-urn canonical:UbuntuServer:16.04.0-LTS:latest \
+  --ssh-publickey-file ~/.ssh/id_rsa.pub \
+  --admin-username ops
 ```
 
 Output:
@@ -1187,19 +1189,19 @@ ops@myVM1:~$
 Go ahead and create your second VM in the same manner:
 
 ```bash
-azure vm create \            
-    --resource-group myResourceGroup \
-    --name myVM2 \
-    --location westeurope \
-    --os-type linux \
-    --availset-name myAvailabilitySet \
-    --nic-name myNic2 \
-    --vnet-name myVnet \
-    --vnet-subnet-name mySubnet \
-    --storage-account-name mystorageaccount \
-    --image-urn canonical:UbuntuServer:16.04.0-LTS:latest \
-    --ssh-publickey-file ~/.ssh/id_rsa.pub \
-    --admin-username ops
+azure vm create \
+  --resource-group myResourceGroup \
+  --name myVM2 \
+  --location westeurope \
+  --os-type linux \
+  --availset-name myAvailabilitySet \
+  --nic-name myNic2 \
+  --vnet-name myVnet \
+  --vnet-subnet-name mySubnet \
+  --storage-account-name mystorageaccount \
+  --image-urn canonical:UbuntuServer:16.04.0-LTS:latest \
+  --ssh-publickey-file ~/.ssh/id_rsa.pub \
+  --admin-username ops
 ```
 
 And you can now use the `azure vm show myResourceGroup myVM1` command to examine what you've created. At this point, you're running your Ubuntu VMs behind a load balancer in Azure that you can sign into only with your SSH key pair (because passwords are disabled). You can install nginx or httpd, deploy a web app, and see the traffic flow through the load balancer to both of the VMs.
@@ -1279,7 +1281,7 @@ To create an environment from your template:
 
 ```bash
 azure group deployment create --resource-group myNewResourceGroup \
-  -template-file myResourceGroup.json
+  --template-file myResourceGroup.json
 ```
 
 You might want to read [more about how to deploy from templates](../resource-group-template-deploy-cli.md). Learn about how to incrementally update environments, use the parameters file, and access templates from a single storage location.
