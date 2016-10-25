@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/24/2016"
+	ms.date="10/25/2016"
 	ms.author="JPallavi" />
   
 # Security features for protecting hybrid backups using Azure Backup
@@ -34,12 +34,13 @@ Users creating recovery services vault would be able to avail all the Security F
 
 	![Create Recovery Services Vault step 1](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
 
-	The list of recovery services vaults appears. 
-	From this list, select a vault. The selected vault dashboard opens.
+	The list of recovery services vaults appears. From this list, select a vault. 
 	
-3. Click **Properties** and under **Settings**.
+	The selected vault dashboard opens.
+	
+3. From the list of items that appears under vault, click **Properties** and under **Settings**.
 
-	![Open vault properties](./media/backup-azure-security-feature/vault-properties.png)
+	![Open vault properties](./media/backup-azure-security-feature/vault-list-properties.png)
 
 4. Click **Update** under **Security Settings**.
 
@@ -47,15 +48,15 @@ Users creating recovery services vault would be able to avail all the Security F
 	
 	Update link opens Security Settings blade, which lets you Enable these features and gives summary of the feature.
 	
-5. Use the toggle button to **Enable** and click **Save** button on top to save Security Settings as shown in the figure shown above.
+5. Use the toggle button to **Enable** and click **Save** button on top to save Security Settings as shown in the figure.
 
 	![Enable security settings](./media/backup-azure-security-feature/enable-security-settings.png)
 
 > [AZURE.NOTE]
 1. Security Features should be enabled only if you are using: <br/>
-	i. MAB agent - minimum agent version 2.0.9052 <br/>
-	ii. Azure Backup Server - minimum MAB agent version 2.0.9052 with Azure Backup Server upgrade 1 <br/>
-	iii. DPM - Do not enable this Setting for DPM. This feature is coming soon in future URs <br/>
+	- **MAB agent** - minimum agent version 2.0.9052 <br/>
+	- **Azure Backup Server** - minimum MAB agent version 2.0.9052 with Azure Backup Server upgrade 1 <br/>
+	- **DPM** - Do not enable this Setting for DPM. This feature is coming soon in future URs <br/>
 2. Once enabled, you get Security Features for all the Azure Recovery Services Agent (MARS) machines and Azure Backup Server registered with the vault. <br/>
 3. Enabling this setting is a one-time action and you cannot disable these features after enabling them. <br/>
 4. This feature is available only for Recovery Services vault.
