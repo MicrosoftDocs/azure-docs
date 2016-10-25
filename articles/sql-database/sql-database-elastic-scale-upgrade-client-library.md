@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2016" 
+	ms.date="10/24/2016" 
 	ms.author="ddove" />
 
 # Upgrade an app to use the latest elastic database client library
