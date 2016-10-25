@@ -45,10 +45,9 @@ There are always a multitude of [design considerations](virtual-machines-windows
 
 ### Naming
 
-When you create a VM, the [name](virtual-machines-windows-infrastructure-naming-guidelines.md) can be up to 15 characters. Azure uses the same name for the operating system installed in the VM. However, these names might not always be the same.
+A virtual machine has a [name](virtual-machines-windows-infrastructure-naming-guidelines.md) assigned to it and it has a computer name configured as part of the operating system. The name of a VM can be up to 15 characters.
 
-If a VM is created from a .vhd image file that already contains an operating system, its name can differ from the VM's operating system computer name. This situation can add a degree of difficulty to VM management, which we therefore do not recommend. Assign the Azure VM resource the same name as the computer name that you assign to the operating system of that VM.
-We recommend that the Azure VM name is the same as the underlying operating system computer name.
+If you use Azure to create the operating system disk, the computer name and the virtual machine name are the same. If you [upload and use your own image](virtual-machines-windows-upload-image.md) that contains a perviously configured operating system and use it to create a virtual machine, the names can be different. We recommend that when you upload your own image file, you make the computer name in the operating system and the virtual machine name the same.
 
 ### Locations
 
@@ -86,7 +85,7 @@ This table shows some ways that you can find the information for an image.
 | Azure PowerShell | [Get-AzureRMVMImagePublisher](https://msdn.microsoft.com/library/mt603484.aspx) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://msdn.microsoft.com/library/mt603824.aspx) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](https://msdn.microsoft.com/library/mt619458.aspx) -Location "location" -Publisher "publisherName" -Offer "offerName" |
 | REST APIs | [List image publishers](https://msdn.microsoft.com/library/mt743702.aspx)<BR>[List image offers](https://msdn.microsoft.com/library/mt743700.aspx)<BR>[List image skus](https://msdn.microsoft.com/library/mt743701.aspx) |
 
-You can [upload and use your own image](virtual-machines-windows-upload-image.md) that you prepared locally. If you choose to use this method, the publisher name, offer, and sku aren’t used.
+You can choose to [upload and use your own image](virtual-machines-windows-upload-image.md) and when you do, the publisher name, offer, and sku aren’t used.
 
 ### Extensions
 

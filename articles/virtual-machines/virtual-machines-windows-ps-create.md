@@ -52,16 +52,16 @@ All resources must be contained in a resource group, so lets create that first.
     
 ## Step 3: Create a storage account
 
-A [storage account](../storage/storage-introduction.md) is needed to store the virtual hard disk that is used by the virtual machine that you create.
+A [storage account](../storage/storage-introduction.md) is needed to store the virtual hard disk that is used by the virtual machine that you create. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 
 1. Test the storage account name for uniqueness. This command tests the name **myStorageAccount**.
 
     ```powershell
-    $myStorageAccountName = "myStorageAccount"
+    $myStorageAccountName = "mystorageaccount"
     Get-AzureRmStorageAccountNameAvailability $myStorageAccountName
     ```
     
-    If this command returns **True**, your proposed name is unique within Azure. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
+    If this command returns **True**, your proposed name is unique within Azure. 
     
 2. Now, create the storage account.
     
@@ -114,7 +114,7 @@ Now that you have all the pieces in place, it's time to create the virtual machi
 2. Create the configuration object for the virtual machine. This command creates a configuration object named **myVmConfig** that defines the name of the VM and the size of the VM.
 
     ```powershell
-    $myVmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_A1"
+    $myVm = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS1_v2"
     ```
      
     See [Sizes for virtual machines in Azure](virtual-machines-windows-sizes.md) for a list of available sizes for a virtual machine.
