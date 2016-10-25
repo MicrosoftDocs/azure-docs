@@ -14,21 +14,19 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="10/25/2016"
 	ms.author="cjiang"/>
 
 # If you can't sign up for Azure
 
 This article will help you troubleshoot common causes of issues that can occur when you sign up for Azure.
 
-> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
-
 ## I am not getting text messages or calls during account verification when I try to sign up
 
 - Verify that your phone number can receive SMS.
 - Double check the phone number you entered, including the country code selection in the dropdown menu.
 - Be sure your phone can receive text messages (SMS) if you use "Send text message," or phone calls if you choose the "Call me" alternative.
-- If you use a mobile phone be sure that you have a good phone connection.
+- If you use a mobile phone, be sure that you have a good phone connection.
 - Wait up to 4 minutes to let the messaging system deliver your text code if you choose "Send text message."
 - As soon as you receive the text message, insert the code in the text box and click the verification button to proceed.
 
@@ -67,7 +65,7 @@ Verify through your benefit program channel if you are eligible for the chosen p
 
 ### Suggestion
 
-- If you tried to activate a new benefit subscription and you faced any error during sign up experience, please verify if your subscription setup has been completed at the [Azure subscription page](http://account.windowsazure.com/Subscriptions). It may take a few minutes for your subscription to show as active. Once your subscription has been activated, you will receive an email. If your subscription status remains pending for more than four minutes, please [contact Azure Support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) for assistance.
+If you tried to activate a new benefit subscription and you got an error during sign up, verify that your subscription setup has been completed at the [Azure subscription page](http://account.windowsazure.com/Subscriptions). It may take a few minutes for your subscription to show as active. When your subscription is activated, you will receive an email. If your subscription status remains pending for more than four minutes, [contact Azure Support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) for help.
 
 ## I can’t activate a new Azure In Open subscription
 
@@ -75,14 +73,17 @@ You must have a valid OSA key with at least an Azure In Open token associated to
 
 ### Suggestion
 
-If you do not have an OSA key, please contact one of Microsoft Partners listed in [Microsoft Pinpoint](http://pinpoint.microsoft.com/).
+If you do not have an OSA key, contact one of Microsoft Partners listed in [Microsoft Pinpoint](http://pinpoint.microsoft.com/).
 
 ## I can’t activate an Azure Free Trial
 
-Have you already used an Azure subscription in the past? The Azure Terms of Use agreement has a limit of only one available free trial activation for any user that never used Azure before. If you have had any other type of Azure subscription, you will not be able to activate a free trial.
+Have you already used an Azure subscription in the past? The Azure Terms of Use agreement limits free trial activation only for a user that's new to Azure. If you have had any other type of Azure subscription, you won't be able to activate a free trial.
 
 ### Suggestion
 
-If you already activated an Azure subscription in the past and free trial activation fails, please consider purchasing a Pay-As-You-Go subscription. You may also be eligible for a benefit offer. Learn more at the [Microsoft Azure offer details page](https://azure.microsoft.com/support/legal/offer-details/) instead of Azure Free Trial plan. Please note that benefit plans require specific prerequisites.
+-  If you activated an Azure subscription in the past and the free trial activation fails, consider the Pay-As-You-Go subscription. 
+-  Check to see if you're eligible for a benefit offer. Learn more at the [Microsoft Azure offer details page](https://azure.microsoft.com/support/legal/offer-details/). Benefit plans require specific prerequisites.
 
-> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+## Need help? Contact support. 
+
+If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly. 
