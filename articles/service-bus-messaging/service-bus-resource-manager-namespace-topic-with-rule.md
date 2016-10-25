@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Create a Service Bus namespace with topic,subscription and rule using an Azure Resource Manager template | Microsoft Azure"
-    description="Create a Service Bus namespace with topic,subscription and rule using Azure Resource Manager template"
+    pageTitle="Create a Service Bus namespace with topic, subscription and, rule using an Azure Resource Manager template | Microsoft Azure"
+    description="Create a Service Bus namespace with topic, subscription and, rule using Azure Resource Manager template"
     services="service-bus"
     documentationCenter=".net"
     authors="ShubhaVijayasarathy"
@@ -13,18 +13,18 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="10/24/2016"
+    ms.date="10/25/2016"
     ms.author="ShubhaVijayasarathy"/>
 
 # Create a Service Bus namespace with topic,subscription and rule using an Azure Resource Manager template
 
-This article shows how to use an Azure Resource Manager template that creates a Service Bus namespace with a topic,subscription and rule(filter). You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
+This article shows how to use an Azure Resource Manager template that creates a Service Bus namespace with a topic, subscription and, rule(filter). You learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
 
-For more information about creating templates, please see [Authoring Azure Resource Manager templates][].
+For more information about creating templates, see [Authoring Azure Resource Manager templates][].
 
 For more information on practice and patterns on Azure Resources naming conventions, see [Azure Resources Naming Conventions][].
 
-For the complete template, see the [Service Bus namespace with topic,subscription and rule][] template.
+For the complete template, see the [Service Bus namespace with topic, subscription and, rule][] template.
 
 >[AZURE.NOTE] The following Azure Resource Manager templates are available for download and deployment.
 >
@@ -37,9 +37,9 @@ For the complete template, see the [Service Bus namespace with topic,subscriptio
 
 ## What will you deploy?
 
-With this template, you will deploy a Service Bus namespace with topic,subscription and rule(filter).
+With this template, you deploy a Service Bus namespace with topic, subscription and, rule(filter).
 
-[Service Bus topics and subscriptions](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) provide a one-to-many form of communication, in a *publish/subscribe* pattern.When using topics and subscriptions, components of a distributed application do not communicate directly with each other, instead they exchange messages via topic which acts as an intermediary.A subscription to a topic resembles a virtual queue that receives copies of messages that were sent to the topic. A filter on subscription enables you to specify which messages sent to a topic should appear within a specific topic subscription.
+[Service Bus topics and subscriptions](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) provide a one-to-many form of communication, in a *publish/subscribe* pattern. When using topics and subscriptions, components of a distributed application do not communicate directly with each other, instead they exchange messages via topic that acts as an intermediary.A subscription to a topic resembles a virtual queue that receives copies of messages that were sent to the topic. A filter on subscription enables you to specify which messages sent to a topic should appear within a specific topic subscription.
 
 To run the deployment automatically, click the following button:
 
@@ -47,9 +47,9 @@ To run the deployment automatically, click the following button:
 
 ## Parameters
 
-With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called `Parameters` that contains all of the parameter values. You should define a parameter for those values that will vary based on the project you are deploying or based on the environment you are deploying to. Do not define parameters for values that will always stay the same. Each parameter value is used in the template to define the resources that are deployed.
+With Azure Resource Manager, you should define parameters for values you want to specify when the template is deployed. The template includes a section called `Parameters` that contains all the parameter values. You should define a parameter for those values that vary based on the project you are deploying or based on the environment you are deploying to. Do not define parameters for values that always stay the same. Each parameter value is used in the template to define the resources that are deployed.
 
-The template defines the following parameters.
+The template defines the following parameters:
 
 ### serviceBusNamespaceName
 
