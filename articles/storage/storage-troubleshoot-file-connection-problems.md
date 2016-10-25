@@ -53,8 +53,9 @@ This article lists common problems that are related to Microsoft Azure File stor
 
 ## Learn more
 
-- [Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
-- [Get started with Azure File storage on Linux](storage-how-to-use-files-linux.md)
+[Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
+
+[Get started with Azure File storage on Linux](storage-how-to-use-files-linux.md)
 
 ## General problems
 <a id="quotaerror"></a>
