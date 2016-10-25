@@ -28,7 +28,7 @@ If your internet browser page hangs, try each of the following steps until you c
 
 -	Refresh the page.
 -	Use a different Internet browser.
--	If you’re using Microsoft Internet Explorer, browse to the Azure portal by using the InPrivate Browsing mode. To do this, follow these steps:
+-	If you’re using Microsoft Internet Explorer, browse to the Azure portal by using the InPrivate Browsing mode. 
 
 	A.	Click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Safety** > **InPrivate Browsing**.
 
@@ -57,18 +57,18 @@ This issue can occur if you're using more than one user account in an Internet b
 
 To resolve the issue, try one of the following methods:
 
-- Sign out of the portal,  and then sign back in with the account you want to use.
--	Clear the cache and delete Internet cookies. To do this in Internet Explorer, click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Internet Options** > **Delete**, make sure that the check boxes for temporary files, cookies, password, and browsing history are selected, and then click Delete.
+- Sign out of the portal, and then sign back in with the account you want to use.
+-	Clear the cache and delete Internet cookies. In Internet Explorer, click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Internet Options** > **Delete**. Make sure that the check boxes for temporary files, cookies, password, and browsing history are selected, and then click Delete.
 
--	Reset the Internet Explorer settings to revert any personal settings that you’ve made. To do this, click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png)> **Internet Options** > **Advanced** >select the **Delete personal settings** box > **Reset**.
+-	Reset the Internet Explorer settings to revert any personal settings that you’ve made. Click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png)> **Internet Options** > **Advanced** >select the **Delete personal settings** box > **Reset**.
 
--	Browse to the Azure portal in InPrivate Browsing mode. To do this, click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Safety** > **InPrivate Browsing**.
+-	Browse to the Azure portal in InPrivate Browsing mode. Click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Safety** > **InPrivate Browsing**.
 
 ## You need to sign in to an organizational account
 
-Your Microsoft account is the email address you use, along with your password, to sign in to any Windows Live program or service, such as Outlook, Hotmail, MSN or OneDrive. You may set up a Microsoft account using any email address that belongs to you, including your company email. See [www.microsoft.com/account](http://www.microsoft.com/account) for more details.
+Your Microsoft account is the email address you use, along with your password, to sign in to any Windows Live program or service, such as Outlook, Hotmail, MSN, or OneDrive. You may set up a Microsoft account using any email address that belongs to you, including your company email. For more information, see [www.microsoft.com/account](http://www.microsoft.com/account).
 
-The default sign-in page of the Azure portal is for a Microsoft account. If your account is associated with an Organizational account, then please select the correct login option as shown below. For more information on using an Organizational account, see [Sign up for Azure as an organization](./active-directory/sign-up-organization.md):
+The default sign-in page of the Azure portal is for a Microsoft account. If your account is associated with an Organizational account, then select **Sign in with your organizational account**. For more information about using an Organizational account, see [Sign up for Azure as an organization](./active-directory/sign-up-organization.md):
 
 ![sign in page](./media/billing-cannot-login-subscription/signin.png)
 
