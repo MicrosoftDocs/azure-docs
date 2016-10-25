@@ -145,36 +145,36 @@ The schedules below all assume that the _interval_ is set to 1\. Also, one must 
 |**Example**|**Description**|
 |:---|:---|
 |<code>{"hours":[5]}</code>|Run at 5AM Every Day. Azure Scheduler matches up each value in "hours" with each value in "minutes", one by one, to create a list of all the times at which the job is to be run.|
-|<code>{"minutes":[15],"hours":[5]}</code>|Run at 5:15AM Every Day|
-|<code>{"minutes":[15],"hours":[5,17]}</code>|Run at 5:15 AM and 5:15 PM Every Day|
-|<code>{"minutes":[15,45],"hours":[5,17]}</code>|Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM Every Day|
+|<code>{"minutes":[15], "hours":[5]}</code>|Run at 5:15AM Every Day|
+|<code>{"minutes":[15], "hours":[5,17]}</code>|Run at 5:15 AM and 5:15 PM Every Day|
+|<code>{"minutes":[15,45], "hours":[5,17]}</code>|Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM Every Day|
 |<code>{"minutes":[0,15,30,45]}</code>|Run Every 15 Minutes|
-|<code>{hours":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]}</code>|Run Every Hour. This job runs every hour. The minute is controlled by the _startTime_, if one is specified, or if none is specified, by the creation time. For example, if the start time or creation time (whichever applies) is 12:25 PM, the job will be run at 00:25, 01:25, 02:25, …, 23:25. The schedule is equivalent to having a job with _frequency_ of "hour", an _interval_ of 1, and no _schedule_. The difference is that this schedule could be used with different _frequency_ and _interval_ to create other jobs too. For example, if the _frequency_ were "month", the schedule would run only once a month instead of every day if _frequency_ were "day"|
+|<code>{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}</code>|Run Every Hour. This job runs every hour. The minute is controlled by the _startTime_, if one is specified, or if none is specified, by the creation time. For example, if the start time or creation time (whichever applies) is 12:25 PM, the job will be run at 00:25, 01:25, 02:25, …, 23:25. The schedule is equivalent to having a job with _frequency_ of "hour", an _interval_ of 1, and no _schedule_. The difference is that this schedule could be used with different _frequency_ and _interval_ to create other jobs too. For example, if the _frequency_ were "month", the schedule would run only once a month instead of every day if _frequency_ were "day"|
 |<code>{minutes:[0]}</code>|Run Every Hour on the Hour. This job also runs every hour, but on the hour (e.g. 12AM, 1AM, 2AM, etc.) This is equivalent to a job with frequency of "hour", a startTime with zero minutes, and no schedule if the frequency were "day", but if the frequency were "week" or "month," the schedule would execute only one day a week or one day a month, respectively.|
 |<code>{"minutes":[15]}</code>|Run at 15 Minutes Past Hour Every Hour. Runs every hour, starting at 00:15AM, 1:15AM, 2:15AM, etc. and ending at 10:15PM and 11:15PM.|
-|<code>{"hours":[17],"weekDays":["saturday"]}</code>|Run at 5PM on Saturdays Every Week|
-|<code>{hours":[17],"weekDays":["monday","wednesday","friday"]}</code>|Run at 5PM on Monday, Wednesday, and Friday Every Week|
-|<code>{"minutes":[15,45],"hours":[17],"weekDays":["monday","wednesday","friday"]}</code>|Run at 5:15PM and 5:45PM on Monday, Wednesday, and Friday Every Week|
-|<code>{"hours":[5,17],"weekDays":["monday","wednesday","friday"]}</code>|Run at 5AM and 5PM on Monday, Wednesday, and Friday Every Week|
-|<code>{"minutes":[15,45],"hours":[5,17],"weekDays":["monday","wednesday","friday"]}</code>|Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM on Monday, Wednesday, and Friday Every Week|
-|<code>{"minutes":[0,15,30,45], "weekDays":["monday","tuesday","wednesday","thursday","friday"]}</code>|Run Every 15 Minutes on Weekdays|
-|<code>{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday","tuesday","wednesday","thursday","friday"]}</code>|Run Every 15 Minutes on Weekdays between 9AM and 4:45PM|
+|<code>{"hours":[17], "weekDays":["saturday"]}</code>|Run at 5PM on Saturdays Every Week|
+|<code>{hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code>|Run at 5PM on Monday, Wednesday, and Friday Every Week|
+|<code>{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code>|Run at 5:15PM and 5:45PM on Monday, Wednesday, and Friday Every Week|
+|<code>{"hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code>|Run at 5AM and 5PM on Monday, Wednesday, and Friday Every Week|
+|<code>{"minutes":[15,45], "hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code>|Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM on Monday, Wednesday, and Friday Every Week|
+|<code>{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code>|Run Every 15 Minutes on Weekdays|
+|<code>{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code>|Run Every 15 Minutes on Weekdays between 9AM and 4:45PM|
 |<code>{"weekDays":["sunday"]}</code>|Run on Sundays at Start Time|
 |<code>{"weekDays":["tuesday", "thursday"]}</code>|Run on Tuesdays and Thursdays at Start Time|
-|<code>{"minutes":[0],"hours":[6],"monthDays":[28]}</code>|Run at 6AM on the 28th Day of Every Month (assuming frequency of month)|
-|<code>{"minutes":[0],"hours":[6],"monthDays":[-1]}</code>|Run at 6AM on the Last Day of the Month. If you'd like to run a job on the last day of a month, use -1 instead of day 28, 29, 30, or 31.|
-|<code>{"minutes":[0],"hours":[6],"monthDays":[1,-1]}</code>|Run at 6AM on the First and Last Day of Every Month|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[28]}</code>|Run at 6AM on the 28th Day of Every Month (assuming frequency of month)|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[-1]}</code>|Run at 6AM on the Last Day of the Month. If you'd like to run a job on the last day of a month, use -1 instead of day 28, 29, 30, or 31.|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[1,-1]}</code>|Run at 6AM on the First and Last Day of Every Month|
 |<code>{monthDays":[1,-1]}</code>|Run on the First and Last Day of Every Month at Start Time|
 |<code>{monthDays":[1,14]}</code>|Run on the First and Fourteenth Day of Every Month at Start Time|
 |<code>{monthDays":[2]}</code>|Run on the Second Day of the Month at Start Time|
-|<code>{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday","occurrence":1}]}</code>|Run on First Friday of Every Month at 5AM|
-|<code>{"monthlyOccurrences":[{"day":"friday","occurrence":1}]}</code>|: Run on First Friday of Every Month at Start Time|
-|<code>{"monthlyOccurrences":[{"day":"friday","occurrence":-3}]}</code>|Run on Third Friday from End of Month, Every Month, at Start Time|
-|<code>{"minutes":[15],"hours":[5],"monthlyOccurrences":[{"day":"friday","occurrence":1},{"day":"friday","occurrence":-1}]}</code>|Run on First and Last Friday of Every Month at 5:15AM|
-|<code>{"monthlyOccurrences":[{"day":"friday","occurrence":1},{"day":"friday","occurrence":-1}]}</code>|Run on First and Last Friday of Every Month at Start Time|
-|<code>{"monthlyOccurrences":[{"day":"friday","occurrence":5}]}</code>|Run on Fifth Friday of Every Month at Start Time. If there is no fifth Friday in a month, this does not run, since it's scheduled to run on only fifth Fridays. You may consider using -1 instead of 5 for the occurrence if you want to run the job on the last occurring Friday of the month.|
-|<code>{"minutes":[0,15,30,45],"monthlyOccurrences":[{"day":"friday","occurrence":-1}]}</code>|Run Every 15 Minutes on Last Friday of the Month|
-|<code>{"minutes":[15,45],"hours":[5,17],"monthlyOccurrences":[{"day":"wednesday","occurrence":3}]}</code>|Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM on the 3rd Wednesday of Every Month|
+|<code>{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code>|Run on First Friday of Every Month at 5AM|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code>|: Run on First Friday of Every Month at Start Time|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}</code>|Run on Third Friday from End of Month, Every Month, at Start Time|
+|<code>{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code>|Run on First and Last Friday of Every Month at 5:15AM|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code>|Run on First and Last Friday of Every Month at Start Time|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}</code>|Run on Fifth Friday of Every Month at Start Time. If there is no fifth Friday in a month, this does not run, since it's scheduled to run on only fifth Fridays. You may consider using -1 instead of 5 for the occurrence if you want to run the job on the last occurring Friday of the month.|
+|<code>{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}</code>|Run Every 15 Minutes on Last Friday of the Month|
+|<code>{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}</code>|Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM on the 3rd Wednesday of Every Month|
 
 ## See Also
 

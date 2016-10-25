@@ -174,7 +174,7 @@ We have now created an Azure Function that reads from a Service Bus Queue. All t
 
 ````
 
-## Start Stream Analytics Job
+## Start the Stream Analytics job
 
 1. Start the telcodatagen.exe application. The usage is as follows: ````telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]````
 
@@ -186,8 +186,8 @@ We have now created an Azure Function that reads from a Service Bus Queue. All t
  
 	![Screenshot of start job time selection](./media/stream-analytics-functions-redis/start-job-time.png)
 
-## Run & Check
-Going back to your **ServiceBusQueueTrigger **page, you should now see log statements. These logs show that you got something from the Service Bus Queue, put it into the database, and fetched it out using the time as the key!
+## Run solution and check results
+Going back to your **ServiceBusQueueTrigger** page, you should now see log statements. These logs show that you got something from the Service Bus Queue, put it into the database, and fetched it out using the time as the key!
 
 To verify that your data is in your Redis cache, go to your Redis cache page in the new portal (as shown in the preceding [Create an Azure Redis Cache](#Create-an-Azure-Redis-Cache) step) and select Console.
 
@@ -195,7 +195,7 @@ Now you can write Redis commands to confirm that data is in fact in the cache.
 
 ![Screenshot of Redis Console](./media/stream-analytics-functions-redis/redis-console.png)
 
-## Next Steps
+## Next steps
 We’re excited about the new things Azure Functions and Stream analytics can do together, and we hope this unlocks new possibilities for you. If you have any feedback on what you want next, feel free to use the [Azure UserVoice site](https://feedback.azure.com/forums/270577-stream-analytics).
 
 If you are new Microsoft Azure, we invite you to try it out by signing up for a [free Azure trial account](https://azure.microsoft.com/pricing/free-trial/). If you are new to Stream Analytics, then we invite you to [create your first Stream Analytics job](stream-analytics-create-a-job.md).
