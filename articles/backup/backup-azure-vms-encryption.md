@@ -42,16 +42,13 @@ Use the following steps to set backup goal, define policy, configure items and t
   
       ![Create Recovery Services Vault step 1](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
 
-    The list of Recovery Services vaults appears.
-  - From the list of Recovery Services vaults, select a vault.
+    The list of Recovery Services vaults appears. From the list of Recovery Services vaults, select a vault.
 
     The selected vault dashboard opens.
 
-      ![Open vault blade](./media/backup-azure-vms-encryption/vault-settings.png) 
+2. From the list of items that appears under vault, click **Backup** to open the Backup blade.
 
-2. From the vault dashboard menu, click **Backup** to open the Backup blade.
-
-      ![Open Backup blade](./media/backup-azure-vms-encryption/backup-button.png) 
+      ![Open Backup blade](./media/backup-azure-vms-encryption/select-backup.png) 
     
 3. On the Backup blade, click **Backup goal** to open the Backup Goal blade.
 
@@ -87,12 +84,12 @@ Use the following steps to set backup goal, define policy, configure items and t
 Use the steps mentioned in the article [Backup Azure VMs to recovery services vault](backup-azure-arm-vms.md) to trigger backup job.
 
 ## Restore encrypted VM
-Restore experience for encrypted and non-encrypted virtual machines is the same. Use the steps mentioned in [restore virtual machines in Azure portal](backup-azure-arm-restore-vms.md) to restore the encrypted VM. 
+Restore experience for encrypted and non-encrypted virtual machines is the same. Use the steps mentioned in [restore virtual machines in Azure portal](backup-azure-arm-restore-vms.md) to restore the encrypted VM. In case you need to restore keys and secrets, you must ensure that key vault to restore them should already exist.
 
 ## Troubleshooting errors
 
 | Operation | Error details | Resolution |
 | -------- | -------- | -------|
 | Backup | Validation failed as virtual machine is encrypted with BEK alone. Backups can be enabled only for virtual machines encrypted with both BEK and KEK. | Virtual machine should be encrypted using BEK and KEK. After that, backup should be enabled. |
-| Restore | You cannot restore this encrypted VM since key vault associated with this VM does not exist. | Manage key vault using [Get Started with Azure Key Vault](../key-vault/key-vault-get-started.md). Refer the article [Restore key vault key and secret using Azure Backup](backup-azure-restore-key-secret.md) to restore key and secret if they are not present. |
+| Restore | You cannot restore this encrypted VM since key vault associated with this VM does not exist. | Create key vault using [Get Started with Azure Key Vault](../key-vault/key-vault-get-started.md). Refer the article [Restore key vault key and secret using Azure Backup](backup-azure-restore-key-secret.md) to restore key and secret if they are not present. |
 | Restore | You cannot restore this encrypted VM since key and secret associated with this VM do not exist. | Refer the article [Restore key vault key and secret using Azure Backup](backup-azure-restore-key-secret.md) to restore key and secret if they are not present. |
