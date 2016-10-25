@@ -20,7 +20,7 @@
 # 1.2 Get the tools (macOS 10.10)
 
 > [AZURE.SELECTOR]
-- [Windows 7 +](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
+- [Windows 7 or later](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
 - [Ubuntu 16.04](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md)
 - [macOS 10.10](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
 
@@ -64,7 +64,7 @@ To install Git and Node.js, use the [Homebrew](http://brew.sh) package managemen
 
 Use [gulp.js](http://gulpjs.com) to automate the deployment of the sample application to your Pi. Use the [device-discovery-cli](https://github.com/Azure/device-discovery-cli) to retrieve network information about your IoT devices.
 
-Install `gulp` and `device-discovery-cli` by running the following command in the Terminal window:
+Install `gulp` and `device-discovery-cli` by running the following command in the terminal:
 
 ```bash
 sudo npm install -g device-discovery-cli gulp

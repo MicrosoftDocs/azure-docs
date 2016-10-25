@@ -20,19 +20,19 @@
 # 1.2 Get the tools (Ubuntu 16.04)
 
 > [AZURE.SELECTOR]
-- [Windows 7 +](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
+- [Windows 7 or later](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
 - [Ubuntu 16.04](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md)
 - [macOS 10.10](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
 
 ## 1.2.1 What you will do
 
-Download the development tools and the software for the first sample application for your Raspberry Pi 3. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
+Download the development tools and the software for the first sample application for your Raspberry Pi 3. If you have any problems, seek solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## 1.2.2 What you will learn
 
 In this section, you will learn:
 
-- How to install Git and Node.js
+- How to install Git and Node.js.
   - [Git](https://git-scm.com) is an open source distributed version control system. The sample application for this lesson is stored on Git.
   - [Node.js](https://nodejs.org/en/) is a JavaScript runtime with a rich package ecosystem.
 - How to use NPM to install additional Node.js development tools.
@@ -42,7 +42,7 @@ In this section, you will learn:
 ## 1.2.3 What do you need
 
 - An Internet connection to download the development tools and the software
-- A computer that is running Ubuntu 16.04 or later 
+- A computer that is running Ubuntu 16.04 or later
 
 ## 1.2.4 Install Git, Node.js, and NPM
 
@@ -59,7 +59,7 @@ sudo apt-get install git
 
 You use [gulp.js](http://gulpjs.com) to automate the deployment of the sample application to your Pi. You also use the [device-discovery-cli](https://github.com/Azure/device-discovery-cli) to retrieve network information about your IoT devices.
 
-Install `gulp` and `device-discovery-cli` by running the following command in the Terminal window:
+Install `gulp` and `device-discovery-cli` by running the following command in the terminal:
 
 ```bash
 sudo npm install -g device-discovery-cli gulp
@@ -75,6 +75,6 @@ If you experience issues installing Node.js and these additional development too
 
 You've installed the required development tools and software for the first sample application. In the next section, you create, deploy, and run the sample application on your Pi.
 
-## Next Steps
+## Next steps
 
 [1.3 Create and deploy the blink sample application](iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md)
