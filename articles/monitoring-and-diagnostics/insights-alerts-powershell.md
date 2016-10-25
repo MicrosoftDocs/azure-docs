@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/23/2016"
+	ms.date="10/20/2016"
 	ms.author="robb"/>
 
 # Use PowerShell to create alerts for Azure services 
@@ -73,7 +73,7 @@ For additional information, you can always type ```get-help``` and then the Powe
 	```
 
 4. To create a rule, you need to have several important pieces of information first. 
-	- The **Resource ID** for the resource you want to set and alert for
+	- The **Resource ID** for the resource you want to set an alert for
 	- The **metric definitions** available for that resource
 	
 	One way to get the Resource ID is to use the Azure portal. Assuming the resource is already created, select it in the portal. Then in the next blade, select *Properties* under the *Settings* section. The RESOURCE ID is a field in the next blade. Another way is to use the [Azure Resource Explorer](https://resources.azure.com/).

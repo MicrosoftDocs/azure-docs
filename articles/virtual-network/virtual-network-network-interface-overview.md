@@ -36,7 +36,15 @@ In Azure, a network interface:
 10. Can receive traffic not destined to private IP addresses assigned to it if IP forwarding is enabled for the NIC. If a VM is running firewall software for example, it routes packets not destined for its own IP addresses. The VM must still run software capable of routing or forwarding traffic, but to do so, IP forwarding must be enabled for a NIC.
 11. Is often created in the same resource group as the VM it's attached to or the same VNet that it's connected to, though it isn't required to be.
 
-Multiple NICs can be attached to the same VM, provided the VM size supports it. To learn more about which VM sizes support multiple NIC, read the [Windows Server VM sizes](../virtual-machines/virtual-machines-windows-sizes.md) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md) articles.
+## VMs with multiple network interfaces
+
+Multiple NICs can be attached to a VM, but when doing so, be aware of the following:  
+
+- The VM size must support multiple NICs. To learn more about which VM sizes support multiple NICs, read the [Windows Server VM sizes](../virtual-machines/virtual-machines-windows-sizes.md) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md) articles.   
+- The VM must be created with at least two NICs. If the VM is created with only one NIC, even if the VM size supports more than one, you cannot attach additional NICs to the VM after it's created. As long as the VM was created with at least two NICs, you can attach additional NICs to the VM after it's created, as long as the VM size supports more than two NICs.  
+- You can detach secondary NICs (the primary NIC cannot be detached) from a VM if the VM has at least three NICs attached to it. You cannot detach NICs if the VM has two or less NICs attached to it.  
+- The order of the NICs from inside the VM will be random, and could also change across Azure infrastructure updates. However, the IP addresses, and the corresponding ethernet MAC addresses, will remain the same. For example, assume the operating system identifies Azure NIC1 as Eth1. Eth1 has IP address 10.1.0.100 and MAC address 00-0D-3A-B0-39-0D. After an Azure infrastructure update and reboot, the operating system may now identify Azure NIC1 as Eth2, but the IP and MAC addresses will be the same as they were when the operating system identified Azure NIC1 as Eth1. When a restart is customer-initiated, the NIC order will remain the same within the operating system.  
+- If the VM is a member of an [availability set](../azure-glossary-cloud-terminology.md#availability-set), all VMs within the availability set must have either a single NIC or multiple NICs. If the VMs have multiple NICs, the number they each have isn't required to be the same, as long as each VM has at least two NICs.
 
 ## Next steps
 
