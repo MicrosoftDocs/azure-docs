@@ -151,7 +151,7 @@ The default retry policy uses exponential back-off. To use a different retry pol
 
 **Recovery**
 
-- Each [Cassandra client](https://wiki.apache.org/cassandra/ClientOptions) has its own retry policies and capabilities.For more information, see [Cassandra error handling done right][cassandra-error-handling].
+- Each [Cassandra client](https://wiki.apache.org/cassandra/ClientOptions) has its own retry policies and capabilities. For more information, see [Cassandra error handling done right][cassandra-error-handling].
 - Use a rack-aware deployment, with data nodes distributed across the fault domains.
 - Deploy to multiple regions with local quorum consistency. If a non-transient failure occurs, fail over to another region.
 
@@ -271,7 +271,7 @@ Note: If you are using Storage queues with WebJobs, the WebJobs SDK provides bui
 
 **Recovery**
 
-1. Retry transient failures. Azure Redis cache supports built-in retry through See [Redis Cache retry guidelines][redis-retry].
+1. Retry on transient failures. Azure Redis cache supports built-in retry through See [Redis Cache retry guidelines][redis-retry].
 2. Treat non-transient failures as a cache miss, and fall back to the original data source.
 
 **Diagnostics**. Use [Redis Cache diagnostics][redis-monitor].
@@ -283,7 +283,7 @@ Note: If you are using Storage queues with WebJobs, the WebJobs SDK provides bui
 
 **Recovery**
 
-1. Retry transient failures. Azure Redis cache supports built-in retry through See [Redis Cache retry guidelines][redis-retry].
+1. Retry on transient failures. Azure Redis cache supports built-in retry through See [Redis Cache retry guidelines][redis-retry].
 2. If the error is non-transient, ignore it and let other transactions write to the cache later.
 
 **Diagnostics**. Use [Redis Cache diagnostics][redis-monitor].
@@ -343,7 +343,7 @@ For more information, see [Service Bus messaging exceptions][sb-messaging-except
 
 **Recovery**
 
-1. Retry transient failures. See [Service Bus retry guidelines][sb-retry].
+1. Retry on transient failures. See [Service Bus retry guidelines][sb-retry].
 
 2. Messages that cannot be delivered to any receiver are placed in a *dead-letter queue*. Use this queue to see which messages could not be received. There is no automatic cleanup of the dead-letter queue. Messages remain there until you explicitly retrieve them. See [Overview of Service Bus dead-letter queues][sb-dead-letter-queue].
 
@@ -457,7 +457,7 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 1. Retry the operation, to recover from transient failures. The [retry policy][Storage.RetryPolicies] in the client SDK handles this automatically.
 2. For RA-GRS storage, if reading from the primary endpoint fails, try reading from the secondary endpoint. The client SDK can handle this automatically. See [Azure Storage replication][storage-replication].
-3. If *N* retry attempts fail, take a fallback action to degrade gracefully. For example, display a placeholder image.
+3. If *N* retry attempts fail, take a fallback action to degrade gracefully. For example, if a product image can't be retrieved from storage, show a generic placeholder image.
 
 **Diagnostics**. Use [storage metrics][storage-metrics].
 
@@ -476,7 +476,7 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 - Implement a retry policy in the application. 
 
-- For persistent or non-transient errors, implement the Circuit Breaker patterns.
+- For persistent or non-transient errors, implement the [Circuit Breaker][circuit-breaker] pattern.
 
 - If the calling VM exceeds its network egress limit, the outbound queue will fill up. If the outbound queue is consistently full, consider scaling out. 
 
@@ -552,12 +552,11 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 **Recovery**
 
-1. Retry transient failures. 
+1. Retry on transient failures. 
 2. If the call fails after *N* attempts, take a fallback action. (Application specific.)
 3. Implement the [Circuit Breaker pattern][circuit-breaker] to avoid cascading failures. 
 
 **Diagnostics**. Log all remote call failures.
-
 
 
 ## Next steps
