@@ -62,7 +62,7 @@ Azure Analysis Services utilizes Azure Blob storage to persist storage and metad
 #### On-premises data sources
 Secure access to data residing on-premises in your organization can be achieved by installing and configuring an [On-premises data gateway](analysis-services-gateway.md). Gateways provide access to data for both Direct Query and in-memory modes. When an Azure Analysis Services model connects to an on-premises data source, a query is created along with the encrypted credentials for the on-premises data source. The gateway cloud service analyzes the query and pushes the request to an Azure Service Bus. The on-premises gateway polls the Azure Service Bus for pending requests. The gateway then gets the query, decrypts the credentials, and connects to the data source for execution. The results are then sent from the data source, back to the gateway and then on to the Azure Analysis Services database.
 
-Azure Analysis Services is governed by the [Microsoft Online Services Terms](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) and the [Microsoft Online Services Privacy Statement](https://www.microsoft.com/EN-US/privacystatement/OnlineServices/Default.aspx).
+Azure Analysis Services is governed by the [Microsoft Online Services Terms](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) and the [Microsoft Online Services Privacy Statement](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
 To learn more about Azure Security, see the [Microsoft Trust Center](https://www.microsoft.com/trustcenter/Security/AzureSecurity).
 
 ## Get help
@@ -73,7 +73,7 @@ We also have a number of helpful videos at [Azure Analysis Services on Channel 9
 Things are changing rapidly. You can always get the latest information on the [Azure Analysis Services blog](https://go.microsoft.com/fwlink/?linkid=830920).
 
 ## Community
-Analysis Services has a vibrant community of users. Join the conversation on [Azure Analysis Services forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureAnalysisServices).
+Analysis Services has a vibrant community of users. Join the conversation on [Azure Analysis Services forum](https://aka.ms/azureanalysisservicesforum).
 
 ## Feedback
 Have suggestions or feature requests? Be sure to leave your comments on [Azure Analysis Services Feedback](https://aka.ms/azureanalysisservicesfeedback).
@@ -83,10 +83,10 @@ Have suggestions about the documentation? You can add comments using Disqus at t
 ## Preview expectations
 Azure Analysis Services is currently in preview. There are a few things you should be aware of.
 
-### Server modes
+##### Server modes
 Azure Analysis Services currently supports Tabular mode for tabular models at the 1200 compatibility level. Multidimensional and Data Mining mode, and Power Pivot for SharePoint mode are not supported.
 
-### Data sources
+##### Data sources
 For preview, the following data sources are supported in tabular 1200 models deployed to an Azure Analysis Services server.
 
 | **Cloud** | **On-premises** |
