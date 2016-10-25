@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
+   ms.date="10/24/2016"
    ms.author="sewhee" />
 
 # Create an Internal load balancer in the Azure portal
