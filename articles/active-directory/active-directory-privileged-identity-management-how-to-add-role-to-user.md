@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/22/2016"
+   ms.date="10/24/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management: How to add or remove a user role
 
 With Azure Active Directory (AD), a global administrator (or company administrator) can update which users are **permanently** assigned to roles in Azure AD. This is done with PowerShell cmdlets like `Add-MsolRoleMember` and `Remove-MsolRoleMember`. Or they can use the Azure classic portal as described in [assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md).
 
-The Azure AD Privileged Identity Management application allows privileged role administrators to make permanent role assignments, as well. Additionally, it lets admins make temporary role assignments by making users **eligible** for a role. An eligible admin can activate the role when they need it, and then their permissions expire once they're done.
+The Azure AD Privileged Identity Management application allows privileged role administrators to make permanent role assignments, as well. Additionally, privileged role administrators can make users **eligible** for admin roles. An eligible admin can activate the role when they need it, and then their permissions expire once they're done.
 
 ## Manage roles with PIM in the Azure portal
 
@@ -44,9 +44,9 @@ If you want to give another user access to PIM itself, the roles which PIM requi
 
 > [AZURE.NOTE]
 >New users in a role are only eligible for the role by default. If you want to make the role permanent, click the user in the list. The user's information will appear in a new blade. Select **Make perm** in the user information menu.  
->If a user cannot register for Azure Multi-Factor Authentication (MFA), or is using a Microsoft account (usually @outlook.com), you need to make them permanent in all their roles. Temporary admins are asked to register for MFA during activation.
+>If a user cannot register for Azure Multi-Factor Authentication (MFA), or is using a Microsoft account (usually @outlook.com), you need to make them permanent in all their roles. Eligible admins are asked to register for MFA during activation.
 
-Now that the user has been assigned a temporary role, let them know that they can activate it according to the instructions in [How to activate or deactivate a role](active-directory-privileged-identity-management-how-to-activate-role.md).
+Now that the user is eligible for a role, let them know that they can activate it according to the instructions in [How to activate or deactivate a role](active-directory-privileged-identity-management-how-to-activate-role.md).
 
 ## Remove a user from a role
 

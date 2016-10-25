@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="10/10/2016"
+   ms.date="10/25/2016"
    ms.author="owend"/>
 
 # What is Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
-Built on the proven analytical engine in Microsoft SQL Server Analysis Services, Azure Analysis Services provides enterprise-grade data modeling in the cloud.
+Built on the proven analytics engine in Microsoft SQL Server Analysis Services, Azure Analysis Services provides enterprise-grade data modeling in the cloud.
 
-> [AZURE.IMPORTANT] Azure Analysis Services is in **preview**. There are some things that just aren't working yet. Be sure to check out [Preview expectations](#preview-expectations) later in this article. And, be sure to keep an eye on our Azure Analysis Services blog for the latest info.
+> [AZURE.IMPORTANT] Azure Analysis Services is in **preview**. There are some things that just aren't working yet. Be sure to check out [Preview expectations](#preview-expectations) later in this article. And, be sure to keep an eye on our [Azure Analysis Services blog](https://go.microsoft.com/fwlink/?linkid=830920) for the latest info.
 
 ## Built on SQL Server Analysis Services
 Azure Analysis Services is compatible with the same SQL Server 2016 Analysis Services Enterprise Edition you already know. Azure Analysis Services supports tabular models at the 1200 compatibility level. DirectQuery, partitions, row-level security, bi-directional relationships, and translations are all supported.
@@ -60,31 +60,33 @@ Permissions for managing the Azure Analysis Services server resource are handled
 Azure Analysis Services utilizes Azure Blob storage to persist storage and metadata for Analysis Services databases. Data files within Blob are encrypted using Azure Blob Server Side Encryption (SSE). When using Direct Query mode, only metadata is stored; the actual data is accessed from the data source at query time.
 
 #### On-premises data sources
-Secure access to data residing on-premises in your organization can be achieved by installing and configuring an [On-premises data gateway](analysis-services-gateway.md). Gateways provide access to data for both Direct Query and cached storage modes. When an Azure Analysis Services model connects to an on-premises data source, a query is created along with the encrypted credentials for the on-premises data source. The gateway cloud service analyzes the query and pushes the request to an Azure Service Bus. The on-premises gateway polls the Azure Service Bus for pending requests. The gateway then gets the query, decrypts the credentials, and connects to the data source for execution. The results are then sent from the data source, back to the gateway and then on to the Azure Analysis Services database.
+Secure access to data residing on-premises in your organization can be achieved by installing and configuring an [On-premises data gateway](analysis-services-gateway.md). Gateways provide access to data for both Direct Query and in-memory modes. When an Azure Analysis Services model connects to an on-premises data source, a query is created along with the encrypted credentials for the on-premises data source. The gateway cloud service analyzes the query and pushes the request to an Azure Service Bus. The on-premises gateway polls the Azure Service Bus for pending requests. The gateway then gets the query, decrypts the credentials, and connects to the data source for execution. The results are then sent from the data source, back to the gateway and then on to the Azure Analysis Services database.
 
-Azure Analysis Services is governed by the [Microsoft Online Services Terms](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) and the [Microsoft Online Services Privacy Statement](https://www.microsoft.com/EN-US/privacystatement/OnlineServices/Default.aspx).
+Azure Analysis Services is governed by the [Microsoft Online Services Terms](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) and the [Microsoft Online Services Privacy Statement](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
 To learn more about Azure Security, see the [Microsoft Trust Center](https://www.microsoft.com/trustcenter/Security/AzureSecurity).
 
 ## Get help
 Azure Analysis Services is simple to set up and to manage. You can find all the info you need to create and manage a server here. When creating a data model to deploy to your server, it's much the same as it is for creating a data model you deploy to an on-premises server. There's an extensive library of conceptual, procedural, tutorials, and reference articles at [Analysis Services on MSDN](https://msdn.microsoft.com/library/bb522607.aspx).
 
-Things are changing rapidly. You can always get the latest information on the Azure Analysis Services blog.
+We also have a number of helpful videos at [Azure Analysis Services on Channel 9](https://channel9.msdn.com/series/Azure-Analysis-Services).
+
+Things are changing rapidly. You can always get the latest information on the [Azure Analysis Services blog](https://go.microsoft.com/fwlink/?linkid=830920).
 
 ## Community
-Analysis Services has a vibrant community of users. Join the conversation on [Azure Analysis Services forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureAnalysisServices).
+Analysis Services has a vibrant community of users. Join the conversation on [Azure Analysis Services forum](https://aka.ms/azureanalysisservicesforum).
 
 ## Feedback
-Have suggestions or feature requests? Be sure to leave your comments on [Azure Analysis Services Feedback](https://feedback.azure.com/forums/556165).
+Have suggestions or feature requests? Be sure to leave your comments on [Azure Analysis Services Feedback](https://aka.ms/azureanalysisservicesfeedback).
 
 Have suggestions about the documentation? You can add comments using Disqus at the bottom of each article.
 
 ## Preview expectations
-Azure Analysis Services is currently in preview. There are some limitations you should be aware of.
+Azure Analysis Services is currently in preview. There are a few things you should be aware of.
 
-### Server modes
+##### Server modes
 Azure Analysis Services currently supports Tabular mode for tabular models at the 1200 compatibility level. Multidimensional and Data Mining mode, and Power Pivot for SharePoint mode are not supported.
 
-### Data sources
+##### Data sources
 For preview, the following data sources are supported in tabular 1200 models deployed to an Azure Analysis Services server.
 
 | **Cloud** | **On-premises** |
@@ -96,23 +98,7 @@ For preview, the following data sources are supported in tabular 1200 models dep
 
 
 ### Data source providers
-
-In some cases, tabular models connecting to data sources using native providers such as SQL Server Native Client (SQLNCLI11) may return an error. Use the following table to determine your providers:
-
-| **Model type** | **On-premises data sources** | **Cloud data sources** |
-|--------------|------------|------------|
-| **In-memory** | Use either managed or native providers as needed. Make sure 64-bit providers are installed when using On-premises gateway. | Use managed providers. If you use any native providers other than SQLOLEDB, you may see error message: “The provider 'SQLNCLI11.1' is not registered”. |
-| **Direct Query** | Use managed providers. If you use native providers, you may see error message: “Error creating OLE DB row set. Incorrect syntax near 'LIMIT'”. | Use managed providers. If you use any native provider other than SQLOLEDB, you may see error message: “The provider 'SQLNCLI11.1' is not registered” |
-
-When migrating an on-premises SQL Server Analysis Services tabular model to Azure Analysis Services, it may be necessary to change the data source provider.
-
-**To specify a data source provider**
-
-1. In SSDT > **Tabular Model Explorer** > **Data Sources**, right-click a data source connection, and then click **Edit Data Source**.
-
-2. In **Edit Connection**, click **Advanced** to open the Advance properties window.
-
-3. In **Set Advanced Properties** > **Providers**, select the appropriate provider.
+Data models in Azure Analysis Services may require different data providers to connect to data sources than data models in SQL Server Analysis Services. Data provider requirements depend on the data source being in the cloud or on-premises, and the type of data model; in-memory or Direct Query. To learn more, see [Datasource connections](analysis-services-datasource.md).
 
 
 ### Client connections

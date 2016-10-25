@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="10/24/2016"
    ms.author="gwallace" />
 
 # Create a custom probe for Azure Application Gateway (classic) by using PowerShell
@@ -33,7 +33,7 @@
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 
-## Create a application gateway
+## Create an application gateway
 
 To create an application gateway:
 
@@ -138,7 +138,7 @@ The following example shows how to use a configuration file to set up the applic
 
 >[AZURE.IMPORTANT] The protocol item Http or Https is case-sensitive.
 
-A new configuration item <Probe> is added to configure custom probes.
+A new configuration item \<Probe\> is added to configure custom probes.
 
 The configuration parameters are:
 

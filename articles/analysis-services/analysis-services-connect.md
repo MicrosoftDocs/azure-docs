@@ -13,13 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="10/10/2016"
+   ms.date="10/24/2016"
    ms.author="owend"/>
 
 # Get data from Azure Analysis Services
 Once you've created a server in Azure, and deployed a tabular model to it, users in your organization are ready to connect and begin exploring data.
 
-Azure Analysis Services supports client connections using updated object models; TOM, AMO, Adomd.Net, or MSOLAP, to connect via xmla to the server. For example, Power BI, Power BI Desktop, Excel, or any third-party client application that supports the object models.
+Azure Analysis Services supports client connections using [updated object models](#client-libraries); TOM, AMO, Adomd.Net, or MSOLAP, to connect via xmla to the server. For example, Power BI, Power BI Desktop, Excel, or any third-party client application that supports the object models.
+
 ## Server name
 When you create an Analysis Services server in Azure, you specify a unique name and the region where the server is to be created. When specifying the server name in a connection, the server naming scheme is:
 ```
@@ -35,13 +36,15 @@ Before you connect, you need to get the server name. In **Azure portal** > serve
 
 ## Connect in Power BI Desktop
 
+> [AZURE.NOTE] This feature is Preview.
+
 1. In [Power BI Desktop](https://powerbi.microsoft.com/desktop/), click **Get Data** > **Databases** > **Azure Analysis Services**.
 
 2. In **Server**, paste the server name from the clipboard.
 
 3. In **Database**, if you know the name of the tabular model database or perspective you want to connect to, paste it here. Otherwise, you can leave this field blank. You can select a database or perspective on the next screen.
 
-4. Leave the default **Connect live** option selected, then press **Connect**.
+4. Leave the default **Connect live** option selected, then press **Connect**. If you're prompted to enter an account, enter your organizational account.
 
 5. In **Navigator**, expand the server, then select the model or perspective you want to connect to, then click **Connect**. A single click on a model or perspective shows all the objects for that view.
 
@@ -78,6 +81,15 @@ Integrated authentication will pick up the Azure Active Directory credential cac
 ```
 "Provider=MSOLAP;Data Source=<Azure AS instance name>;User ID=<user name>;Password=<password>;Persist Security Info=True; Impersonation Level=Impersonate;";
 ```
+
+## Client libraries
+When connecting to Azure Analysis Services from Excel or other interfaces such as TOM, AsCmd, ADOMD.NET, you may need to install the latest provider client libraries. Get the latest:  
+
+[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)</br>
+[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)</br>
+[AMO](https://go.microsoft.com/fwlink/?linkid=829578)</br>
+[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)</br>
+
 
 
 ## Next steps

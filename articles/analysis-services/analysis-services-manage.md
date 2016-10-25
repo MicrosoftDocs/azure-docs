@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="10/10/2016"
+   ms.date="10/24/2016"
    ms.author="owend"/>
 
 # Manage Analysis Services
@@ -98,4 +98,4 @@ You can add users by using [role assignments in Azure Active Directory](../activ
 ## Next steps
 If you haven't already deployed a tabular model to your new server, now is a good time. To learn more, see [Deploy to Azure Analysis Services](analysis-services-deploy.md).
 
-If you've deployed a model to your server, you're ready to connect to it using a client or browser. To learn more, see [Connect to an Azure Analysis Services server](analysis-services-connect.md).
+If you've deployed a model to your server, you're ready to connect to it using a client or browser. To learn more, see [Get data from Azure Analysis Services server](analysis-services-connect.md).

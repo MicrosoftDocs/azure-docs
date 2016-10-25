@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/06/2015"
+   ms.date="10/19/2016"
    ms.author="vturecek"/>
 
 # Notes on Service Fabric Reliable Actors type serialization
@@ -38,6 +38,11 @@ The interface is impelemented by an actor, which uses the State Manager to store
 [StatePersistence(StatePersistence.Persisted)]
 public class VoiceMailBoxActor : Actor, IVoicemailBoxActor
 {
+    public VoiceMailBoxActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
+
     public Task<VoicemailBox> GetMailboxAsync()
     {
         return this.StateManager.GetStateAsync<VoicemailBox>("Mailbox");
