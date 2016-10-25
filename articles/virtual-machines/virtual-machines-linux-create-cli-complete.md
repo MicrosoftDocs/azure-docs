@@ -35,7 +35,7 @@ The environment contains:
 To create this custom environment, you need the latest [Azure CLI](../xplat-cli-install.md) in Resource Manager mode (`azure config mode arm`). You also need a JSON parsing tool. This example uses [jq](https://stedolan.github.io/jq/).
 
 ## Quick commands
-If you need to quickly accomplish the task, the following section details the base commands to upload a VM to Azure. More detailed information and context for each step can be found the rest of the document, starting [here](#detailed-walkthrough).
+If you need to quickly accomplish the task, the following section details the base commands to upload a VM to Azure. More detailed information and context for each step can be found in the rest of the document, starting [here](#detailed-walkthrough).
 
 Make sure that you have [the Azure CLI](../xplat-cli-install.md) logged in and using Resource Manager mode:
 
@@ -57,7 +57,7 @@ Verify the resource group by using the JSON parser:
 azure group show myResourceGroup --json | jq '.'
 ```
 
-Create the storage account. The following example a storage account name `mystorageaccount` (the storage account name must be unique, so provide your own unique name):
+Create the storage account. The following example creates a storage account named `mystorageaccount` (the storage account name must be unique, so provide your own unique name):
 
 ```bash
 azure storage account create -g myResourceGroup -l westeurope \
@@ -98,7 +98,7 @@ azure network public-ip create -g myResourceGroup -l westeurope \
   -n myPublicIP  -d mypublicdns -a static -i 4
 ```
 
-Create the load balancer. The following example creates load balancer named `myLoadBalancer`:
+Create the load balancer. The following example creates a load balancer named `myLoadBalancer`:
 
 ```bash
 azure network lb create -g myResourceGroup -l westeurope -n myLoadBalancer
@@ -148,7 +148,7 @@ Verify the load balancer, IP pools, and NAT rules by using the JSON parser:
 azure network lb show -g myResourceGroup -n myLoadBalancer --json | jq '.'
 ```
 
-Create the first network interface card (NIC). Replace the `#####-###-###` sections with your own Azure subscription ID. Your subscription ID noted in the output of `jq` when examining the resources you are creating. You can also view your subscription ID with `azure account list`. 
+Create the first network interface card (NIC). Replace the `#####-###-###` sections with your own Azure subscription ID. Your subscription ID is noted in the output of `jq` when examining the resources you are creating. You can also view your subscription ID with `azure account list`. 
 
 The following example creates a NIC named `myNic1`:
 
@@ -253,7 +253,7 @@ azure vm show -g myResourceGroup -n myVM1 --json | jq '.'
 azure vm show -g myResourceGroup -n myVM2 --json | jq '.'
 ```
 
-Export you new environment to a template to quickly re-create new instances:
+Export your new environment to a template to quickly re-create new instances:
 
 ```bash
 azure group export myResourceGroup
@@ -298,7 +298,7 @@ info:    group create command OK
 
 You need storage accounts for your VM disks and for any additional data disks that you want to add. You create storage accounts almost immediately after you create resource groups.
 
-Here we use the `azure storage account create` command, passing the location of the account, the resource group that controls it, and the type of storage support you want. The following example creates storage account named `mystorageaccount`:
+Here we use the `azure storage account create` command, passing the location of the account, the resource group that controls it, and the type of storage support you want. The following example creates a storage account named `mystorageaccount`:
 
 ```bash
 azure storage account create \  
@@ -794,7 +794,7 @@ info:    network lb rule create command OK
 
 ## Create a load balancer health probe
 
-A health probe periodically checks on the VMs that are behind our load balancer to make sure they're operating and responding to requests as defined. If not, they're removed from operation to ensure that users aren't being directed to them. You can define custom checks for the health probe, along with intervals and timeout values. For more information about health probes, see [Load Balancer probes](../load-balancer/load-balancer-custom-probe-overview.md). The following example creates TCP health probed named `myHealthProbe`:
+A health probe periodically checks on the VMs that are behind our load balancer to make sure they're operating and responding to requests as defined. If not, they're removed from operation to ensure that users aren't being directed to them. You can define custom checks for the health probe, along with intervals and timeout values. For more information about health probes, see [Load Balancer probes](../load-balancer/load-balancer-custom-probe-overview.md). The following example creates a TCP health probed named `myHealthProbe`:
 
 ```bash
 azure network lb probe create --resource-group myResourceGroup \
@@ -956,7 +956,7 @@ Output:
 
 NICs are programmatically available because you can apply rules to their use. You can also have more than one. In the following `azure network nic create` command, you hook up the NIC to the load back-end IP pool and associate it with the NAT rule to permit SSH traffic.
  
-Replace the `#####-###-###` sections with your own Azure subscription ID. Your subscription ID noted in the output of `jq` when examining the resources you are creating. You can also view your subscription ID with `azure account list`. 
+Replace the `#####-###-###` sections with your own Azure subscription ID. Your subscription ID is noted in the output of `jq` when examining the resources you are creating. You can also view your subscription ID with `azure account list`. 
 
 The following example creates a NIC named `myNic1`:
 
