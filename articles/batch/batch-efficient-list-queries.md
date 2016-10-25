@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Efficient list queries in Azure Batch | Microsoft Azure"
-	description="Increase performance by filtering your queries when requesting information on Batch entities such as pools, jobs, tasks, and compute nodes."
+	description="Increase performance by filtering your queries when requesting information on Batch resources like pools, jobs, tasks, and compute nodes."
 	services="batch"
 	documentationCenter=".net"
 	authors="mmacy"
@@ -13,18 +13,18 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="07/25/2016"
+	ms.date="10/25/2016"
 	ms.author="marsma" />
 
 # Query the Azure Batch service efficiently
 
 Here you'll learn how to increase your Azure Batch application's performance by reducing the amount of data that is returned by the service when you query jobs, tasks, and compute nodes with the [Batch .NET][api_net] library.
 
-Nearly all Batch applications need to perform some type of monitoring or other operation that queries the Batch service, often at regular intervals. For example, to determine whether there are any queued tasks remaining in a job, you must get data on every task within the job. To determine the status of the nodes in your pool, you must get data on every node in the pool. This article explains how to execute these types of queries in the most efficient way.
+Nearly all Batch applications need to perform some type of monitoring or other operation that queries the Batch service, often at regular intervals. For example, to determine whether there are any queued tasks remaining in a job, you must get data on every task in the job. To determine the status of nodes in your pool, you must get data on every node in the pool. This article explains how to execute such queries in the most efficient way.
 
 ## Meet the DetailLevel
 
-In a production Batch application, entities like jobs, tasks, and compute nodes can number in the thousands. Obtaining information for these can therefore generate a large amount of data that must "cross the wire" from the service to your application on each query. By limiting the number of items and the type of information that is returned by a query, you can increase the speed of your queries, and therefore the performance of your application.
+In a production Batch application, entities like jobs, tasks, and compute nodes can number in the thousands. When you request information on these resources, a potentially large amount of data must "cross the wire" from the Batch service to your application on each query. By limiting the number of items and type of information that is returned by a query, you can increase the speed of your queries, and therefore the performance of your application.
 
 This [Batch .NET][api_net] API code snippet lists *every* task that is associated with a job, along with *all* of the properties of each task:
 
@@ -48,7 +48,7 @@ IPagedEnumerable<CloudTask> completedTasks =
 	batchClient.JobOperations.ListTasks("job-001", detailLevel);
 ```
 
-In the above example scenario, if there are thousands of tasks in the job, the results from the second query will typically be returned much quicker than the first. More information about using ODATADetailLevel when you list items with the Batch .NET API is included [below](#efficient-querying-in-batch-net).
+In this example scenario, if there are thousands of tasks in the job, the results from the second query will typically be returned much quicker than the first. More information about using ODATADetailLevel when you list items with the Batch .NET API is included [below](#efficient-querying-in-batch-net).
 
 > [AZURE.IMPORTANT]
 > We highly recommend that you *always* supply an ODATADetailLevel object to your .NET API list calls to ensure maximum efficiency and performance of your application. By specifying a detail level, you can help to lower Batch service response times, improve network utilization, and minimize memory usage by client applications.
@@ -82,12 +82,12 @@ The expand string reduces the number of API calls that are required to obtain ce
 
 ### Rules for filter, select, and expand strings
 
-- Properties names in filter, select, and expand strings should appear as they do in the [Batch REST][api_rest] API--even when you use the [Batch .NET][api_net] library.
-- All property names are case sensitive, but property values are case insensitive.
+- Properties names in filter, select, and expand strings should appear as they do in the [Batch REST][api_rest] API--even when you use [Batch .NET][api_net] or one of the other Batch SDKs.
+- All property names are case-sensitive, but property values are case insensitive.
 - Date/time strings can be one of two formats, and must be preceded with `DateTime`.
 
-  - W3C-DTF format example: `creationTime gt DateTime'2011-05-08T08:49:37Z'`.
-  - RFC 1123 format example: `creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`.
+  - W3C-DTF format example: `creationTime gt DateTime'2011-05-08T08:49:37Z'`
+  - RFC 1123 format example: `creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
 - Boolean strings are either `true` or `false`.
 - If an invalid property or operator is specified, a `400 (Bad Request)` error will result.
 
@@ -216,7 +216,7 @@ As shown in the elapsed times, you can greatly lower query response times by lim
 
 In addition to the EfficientListQueries code sample above, you can find the [BatchMetrics][batch_metrics] project in the [azure-batch-samples][github_samples] GitHub repository. The BatchMetrics sample project demonstrates how to efficiently monitor Azure Batch job progress using the Batch API.
 
-The [BatchMetrics][batch_metrics] sample includes a .NET class library project which you can incorporate into your own projects, and a simple command line program to exercise and demonstrate the use of the library.
+The [BatchMetrics][batch_metrics] sample includes a .NET class library project which you can incorporate into your own projects, and a simple command-line program to exercise and demonstrate the use of the library.
 
 The sample application within the project demonstrates the following operations:
 

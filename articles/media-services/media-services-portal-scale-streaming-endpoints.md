@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/29/2016"
+	ms.date="10/24/2016"
 	ms.author="juliako"/>
 
 
@@ -40,7 +40,7 @@ In addition, you can control the capacity of the Streaming Endpoint service to h
 
 To create and change the number of streaming reserved units, do the following:
 
-1. Log in at the [Azure portal](https://portal.azure.com/).
+1. In the [Azure portal](https://portal.azure.com/), select your Azure Media Services account.
 2. In the **Settings** window, select **Streaming endpoints**.
 3. Click on the streaming endpoint that you want to scale. 
 4. Move the slider to specify the number of streaming units

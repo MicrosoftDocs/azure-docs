@@ -124,7 +124,11 @@ There are a few things that you might want for Azure development that aren't inc
 
   	**Local copies of client libraries.** The Azure SDK for .NET copies to your computer the NuGet packages for some Azure client libraries, such as Storage, Service Bus, and Caching. These client libraries are automatically included in new cloud service projects, so the local NuGet packages enable Visual Studio to create projects even if you're not connected to the Internet. Client libraries are generally updated more frequently than new SDK versions are released, so the client libraries at NuGet.org are often more current than what you get with the SDK.
 
-	**Project templates that include client libraries.** Only [Azure Cloud Service](cloud-services/cloud-services-dotnet-get-started.md) project templates automatically include some client libraries. For other libraries or other templates, install the [client library NuGet packages](http://go.microsoft.com/fwlink/?LinkId=510472) that you need.
+	**Project templates that include client libraries.** Only [Azure Cloud Service](cloud-services/cloud-services-dotnet-get-started.md) and Azure App Service [Mobile Apps](./app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) project templates automatically include some client libraries. For other libraries or other templates, install the [client library NuGet packages](http://go.microsoft.com/fwlink/?LinkId=510472) that you need.
+
+* [Mobile Apps project templates](./app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+
+	Mobile Apps templates are available only in Visual Studio 2013 Update 2 and later. They are not available in Visual Studio 2012 or earlier versions, and not in Visual Studio 2013 Update 1 or earlier, even if you install the Azure SDK for .NET.
 
 ##<a id="faq"></a>Frequently Asked Questions
 
