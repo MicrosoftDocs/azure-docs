@@ -46,4 +46,5 @@ Application gateway supports user configurable SSL negotiation policies, which a
 After learning about end to end SSL and SSL policy, go to [enable end to end SSL on application gateway](application-gateway-end-to-end-ssl-powershell.md) to create an application gateway with ability to send traffic to backends in encrypted form.
 
 <!--Image references-->
+
 [1]: ./media/application-gateway-backend-ssl/scenario.png
