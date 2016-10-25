@@ -166,23 +166,23 @@ Throughout the command examples, replace all example parameters with your own na
 
 The first step is to create an Azure Key Vault to store your cryptographic keys. Azure Key Vault can store keys, secrets, or passwords that allow you to securely implement them in your applications and services. For virtual disk encryption, you use Key Vault to store a cryptographic key that is used to encrypt or decrypt your virtual disks. 
 
-Enable the Azure Key Vault provider in your Azure subscription, then create a resource group as follows:
+Enable the Azure Key Vault provider in your Azure subscription, then create a resource group. The following example creates a resource group named `myResourceGroup` in the `WestUS` location:
 
 ```bash
 azure provider register Microsoft.KeyVault
 azure group create myResourceGroup --location WestUS
 ```
 
-The Azure Key Vault containing the cryptographic keys and associated compute resources such as storage and the VM itself must reside in the same region. Create an Azure Key Vault as follows:
+The Azure Key Vault containing the cryptographic keys and associated compute resources such as storage and the VM itself must reside in the same region. The following example creates an Azure Key Vault named `myKeyVault`:
 
 ```bash
 azure keyvault create --vault-name myKeyVault --resource-group myResourceGroup \
-  --location  <WestUS>
+  --location WestUS
 ```
 
 You can store cryptographic keys using software or Hardware Security Model (HSM) protection. Using an HSM requires a premium Key Vault. There is an additional cost to creating a premium Key Vault rather than standard Key Vault that stores software-protected keys. To create a premium Key Vault, in the preceding step add `--sku Premium` to the command. The following example uses software-protected keys since we created a standard Key Vault. 
 
-For both protection models, the Azure platform needs to be granted access to request the cryptographic keys when the VM boots to decrypt the virtual disks. Create an encryption key within your Key Vault, then enable it for use with virtual disk encryption as follows:
+For both protection models, the Azure platform needs to be granted access to request the cryptographic keys when the VM boots to decrypt the virtual disks. Create an encryption key within your Key Vault, then enable it for use with virtual disk encryption. The following example creates a key named `myKey` and then enables it for disk encryption:
 
 ```bash
 azure keyvault key create --vault-name myKeyVault --key-name myKey \
@@ -197,7 +197,7 @@ When virtual disks are encrypted or decrypted, you use an endpoint to handle the
 
 As you are not creating a full Azure Active Directory application, the `--home-page` and `--identifier-uris` parameters in the following example do not need to be actual routable address. The following example also specifies a password-based secret rather than generating keys from within the Azure portal. As this time, generating keys cannot be done from the Azure CLI. 
 
-Create your Azure Active Directory application as follows:
+Create your Azure Active Directory application. The following example creates an application named `myAADApp`:
 
 ```bash
 azure ad app create --name myAADApp \
