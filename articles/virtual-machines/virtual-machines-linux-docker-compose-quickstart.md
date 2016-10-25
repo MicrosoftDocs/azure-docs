@@ -30,7 +30,7 @@ You can use various Azure procedures and available images or Resource Manager te
 
 When you use the Docker VM extension, your VM is automatically set up as a Docker host and Compose is already installed. The example in that article shows you how to use the [Azure command-line interface for Mac, Linux, and Windows](../xplat-cli-install.md) (the Azure CLI) in Resource Manager mode to create the VM.
 
-The basic command from the preceding document creates a resource group named `myResourceGroup` and deploys a VM with the Azure Docker VM extension installed:
+The basic command from the preceding document creates a resource group named `myResourceGroup` in the `West US` location and deploys a VM with the Azure Docker VM extension installed:
 
 ```bash
 azure group create --name myResourceGroup --location "West US" \
@@ -65,10 +65,10 @@ touch docker-compose.yml
 Use your favorite text editor to add some data to the file. The following example uses the `vi` editor:
 
 ```bash
-touch docker-compose.yml
+vi docker-compose.yml
 ```
 
-For a proof of concept, copy the following text to the file. This configuration uses images from the [DockerHub Registry](https://registry.hub.docker.com/_/wordpress/) to install WordPress (the open source blogging and content management system) and a linked backend MariaDB SQL database. Enter your own `MYSQL_ROOT_PASSWORD` as follows:
+Paste the following example in to your text file. This configuration uses images from the [DockerHub Registry](https://registry.hub.docker.com/_/wordpress/) to install WordPress (the open source blogging and content management system) and a linked backend MariaDB SQL database. Enter your own `MYSQL_ROOT_PASSWORD` as follows:
 
 ```
 wordpress:
@@ -86,7 +86,7 @@ db:
 
 ## Step 4: Start the containers with Compose
 
-In the working directory on your VM, run the following command (depending on your environment, you might need to run `docker-compose` using `sudo`.):
+In the same directory as your `docker-compose.yml` file, run the following command (depending on your environment, you might need to run `docker-compose` using `sudo`.):
 
 ```
 docker-compose up -d
