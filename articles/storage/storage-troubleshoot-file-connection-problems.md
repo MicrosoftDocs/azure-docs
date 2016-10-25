@@ -51,6 +51,11 @@ This article lists common problems that are related to Microsoft Azure File stor
 
 [Linux VM experiencing random delays in commands like "ls"](#delayproblem)
 
+## Learn more
+
+- [Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
+- [Get started with Azure File storage on Linux](storage-how-to-use-files-linux.md)
+
 ## General problems
 <a id="quotaerror"></a>
 ### Quota error when trying to open a file
@@ -268,5 +273,3 @@ file_mode=0755,dir_mode=0755,serverino,rsize=65536,wsize=65536,actimeo=1)
 If the **serverino** option is not present, unmount and mount Azure Files again by having the **serverino** option selected.
 
 ## Next steps
-
-[How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md)
