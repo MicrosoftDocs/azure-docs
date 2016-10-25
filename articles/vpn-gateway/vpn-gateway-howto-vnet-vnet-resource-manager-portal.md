@@ -61,9 +61,7 @@ You may want to connect virtual networks for the following reasons:
 - **Regional multi-tier applications with isolation or administrative boundary**
 	- Within the same region, you can set up multi-tier applications with multiple virtual networks connected together due to isolation or administrative requirements.
 
-For more information about VNet-to-VNet connections, see the  [VNet-to-VNet FAQ](#faq) at the end of this article.
-
-## Before beginning
+For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article.
 
 ### <a name="values"></a>Example settings
 
