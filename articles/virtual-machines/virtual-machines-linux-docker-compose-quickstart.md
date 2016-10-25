@@ -68,7 +68,7 @@ Use your favorite text editor to add some data to the file. The following exampl
 vi docker-compose.yml
 ```
 
-Paste the following example in to your text file. This configuration uses images from the [DockerHub Registry](https://registry.hub.docker.com/_/wordpress/) to install WordPress (the open source blogging and content management system) and a linked backend MariaDB SQL database. Enter your own `MYSQL_ROOT_PASSWORD` as follows:
+Paste the following example into your text file. This configuration uses images from the [DockerHub Registry](https://registry.hub.docker.com/_/wordpress/) to install WordPress (the open source blogging and content management system) and a linked backend MariaDB SQL database. Enter your own `MYSQL_ROOT_PASSWORD` as follows:
 
 ```
 wordpress:
