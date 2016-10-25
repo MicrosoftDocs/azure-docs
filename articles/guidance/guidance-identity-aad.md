@@ -182,7 +182,7 @@ Use Azure AD to provide access to on-premises applications.
 
 - Expose your on-premises web applications using application proxy connectors manage by the Azure AD application proxy component. The application proxy connector opens an outbound network connection to the Azure AD application proxy. Remote users requests are routed back from AAD through this connection to the web apps. This mechanism removes the need to open inbound ports in the on-premises firewall, reducing the attack surface exposed by your organization.
 
-For more information, see [Publish applications using Azure AD Application proxy][aad-app-proxy].
+For more information, see [Publish applications using Azure AD Application proxy][aad-application-proxy].
 
 ## Object synchronization considerations
 
@@ -678,14 +678,12 @@ The configuration illustrated in these steps consists of two instances of the Az
 
 ## Next steps
 
-- [Single sign-on with Azure Active Directory][aad-sso]
+- Learn the best practices for [extending your on-premises ADDS domain to Azure][adds-extend-domain]
 
-- [Publish applications using Azure AD Application Proxy][aad-app-proxy]
-
-- [Configuring AD FS for user sign-in with Azure AD Connect][aad-connect-adfs]
+- Learn the best practices for [creating an ADDS resource forest][adds-resource-forest] in Azure
 
 <!-- links -->
-[resource-manager-overview]: ../resource-group-overview.md
+[resource-manager-overview]: ../azure-resource-manager/resource-group-overview.md
 [script]: #sample-solution-script
 [implementing-a-multi-tier-architecture-on-Azure]: ./guidance-compute-n-tier-vm.md
 [active-directory-domain-services]: https://technet.microsoft.com/library/dd448614.aspx
@@ -741,10 +739,8 @@ The configuration illustrated in these steps consists of two instances of the Az
 [aad-connect-download]: http://www.microsoft.com/download/details.aspx?id=47594
 [aad-custom-directory]: ../active-directory/active-directory-add-domain.md
 [aad-password-management]: ../active-directory/active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords
-[aad-sso]: ../active-directory/active-directory-appssoaccess-whatis.md
-[aad-app-proxy]: ../active-directory/active-directory-application-proxy-publish.md
-[aad-connect-adfs]: https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect
-[aad-app-proxy]: ../active-directory/active-directory-application-proxy-publish.md
+[adds-extend-domain]: ./guidance-identity-adds-extend-domain.md
+[adds-resource-forest]: ./guidance-identity-adds-resource-forest.md
 [0]: ./media/guidance-identity-aad/figure1.png "Cloud identity architecture using Azure Active Directory"
 [1]: ./media/guidance-identity-aad/figure2.png "Single forest, single AAD directory topology"
 [2]: ./media/guidance-identity-aad/figure3.png "Multiple forests, single AAD directory topology"

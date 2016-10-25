@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/22/2016"
+   ms.date="10/25/2016"
    ms.author="yurid"/>
 
 # Azure Security Center planning and operations guide
@@ -68,7 +68,11 @@ Security Center enables these individuals to meet these various responsibilities
 - Remediates alerts or works with Cloud Workload Owner to apply remediation 
 
 
-Security Center uses [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md), which provides [built-in roles](../active-directory/role-based-access-built-in-roles.md) that can be assigned to users, groups, and services in Azure. When a user opens Security Center, they only see information related to resources they have access to. Which means the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to. Using the personas explained in the previous diagram, the following RBAC would be needed:
+Security Center uses [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md), which provides [built-in roles](../active-directory/role-based-access-built-in-roles.md) that can be assigned to users, groups, and services in Azure. When a user opens Security Center, they only see information related to resources they have access to. Which means the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to. 
+
+> [AZURE.NOTE] A user needs to be at least a subscription, resource group owner or contributor to be able to see Security Center in Azure.
+
+Using the personas explained in the previous diagram, the following RBAC would be needed:
 
 **Jeff (Cloud Workload Owner)**
 
@@ -149,7 +153,15 @@ We strongly recommend that you turn data collection on for each of your subscrip
 
 The Azure Security Monitoring extension scans for various security relevant configuration and collects security logs from the virtual machine. This data is sent to a Storage account you specify. The scan manager (ASMSoftwareScanner.exe) will be also installed in the virtual machine and be used as a patch scanner.
 
-After data collection is enabled in the security policy, the monitoring agent and extensions are installed automatically on all existing and any new supported virtual machines that are provisioned in Azure.  The agent’s process is non-invasive and doesn’t affect the VM’s performance.
+Azure Security Monitoring (ASM) agent has the following footprint baseline:
+
+- 3MB memory footprint for the most part, with potential spikes of 10 MB when a scenario runs every 12 hrs.  
+- Negligible CPU from both persistent process and scanners. 
+- Negligible disk utilization.
+
+ASM agent has a chain of processes that can total approximately 30 MB in memory.  Each monitoring agent instance can use up to 3 GB of disk. Each instance is capped at 20% CPU, although in practice this is much less. 
+
+After data collection is enabled in the security policy, the monitoring agent and extensions are installed automatically on all existing and any new supported virtual machines that are provisioned in Azure.  The agent’s process is designed to be non-invasive and have very minimal impact on VM performance.
 
 > [AZURE.NOTE] To troubleshoot Azure Security Monitoring Agent related issues, read [Azure Security Center Troubleshooting Guide](security-center-troubleshooting-guide.md).
 
@@ -161,9 +173,11 @@ For each region in which you have virtual machines running, you choose the stora
 
 If you are using a storage account shared among different Azure resources, ensure that you read [Azure Storage Scalability and Performance Targets](../storage/storage-scalability-targets.md) article for more information about size limits and constraints. Your subscription also has storage account limits, review [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md) to better understand these limits.
 
-> [AZURE.NOTE] Costs associated with this storage are not included in the price of the  Security Center service and will be charged separately at regular [Azure storage rates](https://azure.microsoft.com/pricing/details/storage/).
+Costs associated with this storage are not included in the price of the  Security Center service and will be charged separately at regular [Azure storage rates](https://azure.microsoft.com/pricing/details/storage/). From the planning perspective, you should be aware that Security Center will add data to your Azure storage, which may increase the cost is between 1 to 3 dollars per year.
 
 Performance and scalability considerations should also be planned according to your Azure environment size and the resources that are consuming your storage account. Review [Microsoft Azure Storage Performance and Scalability Checklist](../storage/storage-performance-checklist.md) for more information.
+
+> [AZURE.NOTE] Microsoft make strong commitments to protect the privacy and security of this data. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service. For more information about data handling and privacy, read [Azure Security Center Data Security](security-center-data-security.md).
 
 ## Ongoing security monitoring
 

@@ -17,7 +17,7 @@
    ms.date="07/19/2016"
    ms.author="telmos"/>
 
-# Extending Active Directory to Azure
+# Extending Active Directory Directory Services (ADDS) to Azure
 
 [AZURE.INCLUDE [pnp-RA-branding](../../includes/guidance-pnp-header-include.md)]
 
@@ -472,10 +472,18 @@ Perform the following steps to build the sample solution:
 
 33. Verify that the script completes successfully.
 
+## Next steps
+
+- Learn the best practices for [creating an ADDS resource forest][adds-resource-forest] in Azure.
+
+- Learn the best practices for [creating an ADFS infrastructure][adfs] in Azure.
+
 <!-- links -->
 
-[resource-manager-overview]: ../resource-group-overview.md
+[resource-manager-overview]: ../azure-resource-manager/resource-group-overview.md
+[adfs]: ./guidance-identity-adfs.md
 [guidance-vpn-gateway]: ./guidance-hybrid-network-vpn.md
+[adds-resource-forest]: ./guidance-identity-adds-resource-forest.md
 [script]: #sample-solution-script
 [implementing-a-multi-tier-architecture-on-Azure]: ./guidance-compute-3-tier-vm.md
 [implementing-a-secure-hybrid-network-architecture-with-internet-access]: ./guidance-iaas-ra-secure-vnet-dmz.md
