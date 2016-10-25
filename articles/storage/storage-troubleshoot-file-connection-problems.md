@@ -23,39 +23,39 @@ This article lists common problems that are related to Microsoft Azure File stor
 
 **General problems (occur in both Windows and Linux clients)**
 
-[Quota error when trying to open a file](#quotaerror)
+- [Quota error when trying to open a file](#quotaerror)
 
-[Slow performance when you access Azure File storage from Windows or from Linux](#slowboth)
+- [Slow performance when you access Azure File storage from Windows or from Linux](#slowboth)
 
 **Windows client problems**
 
-[Slow performance when you access Azure File storage from Windows 8.1 or Windows Server 2012 R2](#windowsslow)
+- [Slow performance when you access Azure File storage from Windows 8.1 or Windows Server 2012 R2](#windowsslow)
 
-[Error 53 attempting to mount an Azure File Share](#error53)
+- [Error 53 attempting to mount an Azure File Share](#error53)
 
-[Net use was successful but I don’t see the Azure file share mounted in Windows Explorer](#netuse)
+- [Net use was successful but I don’t see the Azure file share mounted in Windows Explorer](#netuse)
 
-[My storage account contains “/” and the net use command fails](#slashfails)
+- [My storage account contains "/" and the net use command fails](#slashfails)
 
-[My application/service cannot access mounted Azure Files drive.](#accessfiledrive)
+- [My application/service cannot access mounted Azure Files drive.](#accessfiledrive)
 
-[Additional recommendations to optimize performance](#additional)
+- [Additional recommendations to optimize performance](#additional)
 
 **Linux client problems**
 
-[Error "You are copying a file to a destination that does not support encryption" when uploading/copying files to Azure Files](#encryption)
+- [Error "You are copying a file to a destination that does not support encryption" when uploading/copying files to Azure Files](#encryption)
 
-[“Host is down” error on existing file shares, or the shell hangs when doing list commands on the mount point](#errorhold)
+- ["Host is down" error on existing file shares, or the shell hangs when doing list commands on the mount point](#errorhold)
 
-[Mount error 115 when attempting to mount Azure Files on the Linux VM](#error15)
+- [Mount error 115 when attempting to mount Azure Files on the Linux VM](#error15)
 
-[Linux VM experiencing random delays in commands like "ls"](#delayproblem)
+- [Linux VM experiencing random delays in commands like "ls"](#delayproblem)
 
 ## Learn more
 
-[Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
+- [Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
 
-[Get started with Azure File storage on Linux](storage-how-to-use-files-linux.md)
+- [Get started with Azure File storage on Linux](storage-how-to-use-files-linux.md)
 
 ## General problems
 <a id="quotaerror"></a>
@@ -122,7 +122,7 @@ This problem can be caused by following conditions:
 
 #### Cause 1
 
-"System error 53 has occurred. Access is denied." For security reasons, connections to Azure Files shares are blocked if the communication channel isn’t encrypted and the connection attempt is not made from the same data center on which Azure File shares reside. Communication channel encryption is not provided if the user’s client OS doesn’t support SMB encryption. This is indicated by a “System error 53 has occurred. Access is denied” Error message when a user tries to mount a file share from on-premises or from a different data center. Windows 8, Windows Server 2012, and later versions of each negotiate request that includes SMB 3.0, which supports encryption.
+"System error 53 has occurred. Access is denied." For security reasons, connections to Azure Files shares are blocked if the communication channel isn’t encrypted and the connection attempt is not made from the same data center on which Azure File shares reside. Communication channel encryption is not provided if the user’s client OS doesn’t support SMB encryption. This is indicated by a "System error 53 has occurred. Access is denied" Error message when a user tries to mount a file share from on-premises or from a different data center. Windows 8, Windows Server 2012, and later versions of each negotiate request that includes SMB 3.0, which supports encryption.
 
 #### Solution for Cause 1
 
@@ -130,9 +130,9 @@ Connect from a client that meets the requirements of Windows 8, Windows Server 2
 
 #### Cause 2
 
-“System Error 53” when you mount an Azure file share can occur if Port 445 outbound communication to Azure Files data center is blocked. Click [here](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) to see the summary of ISPs that allow or disallow access from port 445.
+"System Error 53" when you mount an Azure file share can occur if Port 445 outbound communication to Azure Files data center is blocked. Click [here](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) to see the summary of ISPs that allow or disallow access from port 445.
 
-Comcast and some IT organizations block this port. To understand whether this is the reason behind the “System Error 53” message, you can use Portqry to query the TCP:445 endpoint. If the TCP:445 endpoint is displayed as filtered, the TCP port is blocked. Here is an example query:
+Comcast and some IT organizations block this port. To understand whether this is the reason behind the "System Error 53" message, you can use Portqry to query the TCP:445 endpoint. If the TCP:445 endpoint is displayed as filtered, the TCP port is blocked. Here is an example query:
 
 `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
 
@@ -174,11 +174,11 @@ By default, Windows Explorer does not run as Administrator. If you run **net use
 Mount the share from a non-administrator command line. Alternatively, you can follow [this TechNet topic](https://technet.microsoft.com/library/ee844140.aspx) to configure the **EnableLinkedConnections** registry value.
 
 <a id="slashfails"></a>
-### My storage account contains “/” and the net use command fails
+### My storage account contains "/" and the net use command fails
 
 #### Cause
 
-When the **net use** command is run under Command Prompt (cmd.exe), it’s parsed by adding “/” as a command-line option. This causes the drive mapping to fail.
+When the **net use** command is run under Command Prompt (cmd.exe), it’s parsed by adding "/" as a command-line option. This causes the drive mapping to fail.
 
 #### Solution
 
@@ -207,7 +207,7 @@ Mount drive from the same user account under which the application is. This can 
 
 Alternatively, you can create a new user that has the same privileges as the network service or system account, and then run **cmdkey** and **net use** under that account. The user name should be the storage account name, and password should be the storage account key. Another option for **net use** is to pass in the storage account name and key in the user name and password parameters of the **net use** command.
 
-After you follow these instructions, you may receive the following error message: “System error 1312 has occurred. A specified logon session does not exist. It may already have been terminated” when you run **net use** for the system/network service account. If this occurs, make sure that the username that is passed to **net use** includes domain information (for example: “[storage account name].file.core.windows.net”).
+After you follow these instructions, you may receive the following error message: "System error 1312 has occurred. A specified logon session does not exist. It may already have been terminated" when you run **net use** for the system/network service account. If this occurs, make sure that the username that is passed to **net use** includes domain information (for example: "[storage account name].file.core.windows.net").
 
 ## Linux client problems
 
@@ -258,7 +258,7 @@ Linux distributions do not yet support encryption feature in SMB 3.0. In some di
 If the Linux SMB client that is used does not support encryption, mount Azure Files by using SMB 2.1 from a Linux VM on the same data center as the File storage account.
 
 <a id="delayproblem"></a>
-### Linux VM experiencing random delays in commands like “ls”
+### Linux VM experiencing random delays in commands like "ls"
 
 #### Cause
 
