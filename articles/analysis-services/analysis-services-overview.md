@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="10/24/2016"
+   ms.date="10/25/2016"
    ms.author="owend"/>
 
 # What is Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
-Built on the proven analytical engine in Microsoft SQL Server Analysis Services, Azure Analysis Services provides enterprise-grade data modeling in the cloud.
+Built on the proven analytics engine in Microsoft SQL Server Analysis Services, Azure Analysis Services provides enterprise-grade data modeling in the cloud.
 
-> [AZURE.IMPORTANT] Azure Analysis Services is in **preview**. There are some things that just aren't working yet. Be sure to check out [Preview expectations](#preview-expectations) later in this article. And, be sure to keep an eye on our Azure Analysis Services blog for the latest info.
+> [AZURE.IMPORTANT] Azure Analysis Services is in **preview**. There are some things that just aren't working yet. Be sure to check out [Preview expectations](#preview-expectations) later in this article. And, be sure to keep an eye on our [Azure Analysis Services blog](https://go.microsoft.com/fwlink/?linkid=830920) for the latest info.
 
 ## Built on SQL Server Analysis Services
 Azure Analysis Services is compatible with the same SQL Server 2016 Analysis Services Enterprise Edition you already know. Azure Analysis Services supports tabular models at the 1200 compatibility level. DirectQuery, partitions, row-level security, bi-directional relationships, and translations are all supported.
@@ -68,18 +68,20 @@ To learn more about Azure Security, see the [Microsoft Trust Center](https://www
 ## Get help
 Azure Analysis Services is simple to set up and to manage. You can find all the info you need to create and manage a server here. When creating a data model to deploy to your server, it's much the same as it is for creating a data model you deploy to an on-premises server. There's an extensive library of conceptual, procedural, tutorials, and reference articles at [Analysis Services on MSDN](https://msdn.microsoft.com/library/bb522607.aspx).
 
-Things are changing rapidly. You can always get the latest information on the Azure Analysis Services blog.
+We also have a number of helpful videos at [Azure Analysis Services on Channel 9](https://channel9.msdn.com/series/Azure-Analysis-Services).
+
+Things are changing rapidly. You can always get the latest information on the [Azure Analysis Services blog](https://go.microsoft.com/fwlink/?linkid=830920).
 
 ## Community
 Analysis Services has a vibrant community of users. Join the conversation on [Azure Analysis Services forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureAnalysisServices).
 
 ## Feedback
-Have suggestions or feature requests? Be sure to leave your comments on [Azure Analysis Services Feedback](https://feedback.azure.com/forums/556165).
+Have suggestions or feature requests? Be sure to leave your comments on [Azure Analysis Services Feedback](https://aka.ms/azureanalysisservicesfeedback).
 
 Have suggestions about the documentation? You can add comments using Disqus at the bottom of each article.
 
 ## Preview expectations
-Azure Analysis Services is currently in preview. There are some limitations you should be aware of.
+Azure Analysis Services is currently in preview. There are a few things you should be aware of.
 
 ### Server modes
 Azure Analysis Services currently supports Tabular mode for tabular models at the 1200 compatibility level. Multidimensional and Data Mining mode, and Power Pivot for SharePoint mode are not supported.

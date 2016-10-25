@@ -23,7 +23,7 @@ This tutorial shows how to host a Ruby on Rails website on Azure using a Linux v
 
 This tutorial was validated using Ubuntu Server 14.04 LTS. If you use a different Linux distribution, you might need to modify the steps to install Rails.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [AZURE.IMPORTANT] Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../../../resource-manager-deployment-model.md).  This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 ## Create an Azure VM
 
@@ -139,11 +139,11 @@ To use Azure services from your Ruby application, see:
 * [Serve high bandwidth content with the Content Delivery Network][cdn-howto]
 
 <!-- WA.com links -->
-[blobs]: ../storage/storage-ruby-how-to-use-blob-storage.md
+[blobs]: ../../../storage/storage-ruby-how-to-use-blob-storage.md
 [cdn-howto]: https://azure.microsoft.com/develop/ruby/app-services/
 [management-portal]: https://manage.windowsazure.com/
-[tables]: ../storage/storage-ruby-how-to-use-table-storage.md
-[vm-instructions]: virtual-machines-linux-classic-createportal.md
+[tables]: ../../../storage/storage-ruby-how-to-use-table-storage.md
+[vm-instructions]: ../../virtual-machines-linux-classic-createportal.md
 
 <!-- External Links -->
 [rails-guides]: http://guides.rubyonrails.org/
