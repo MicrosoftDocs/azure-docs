@@ -48,7 +48,7 @@ When packaging a container, you can choose either to use a Visual Studio project
 >[AZURE.NOTE] In a future release of the Visual Studio tooling SDK, you will be able to add a container to an application in a similar way that you can add a guest executable today. See [Deploy a guest executable to Service Fabric](service-fabric-deploy-existing-app.md) topic. Currently you have to do manual packaging as described below.
 
 <a id="manually"></a>
-## Manually packaging and deploying container
+## Manually packaging and deploying a container
 The process of manually packaging a containerized service is based on the following steps:
 
 1. Published the containers to your repository.
