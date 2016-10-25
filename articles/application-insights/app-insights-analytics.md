@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Analytics - the powerful search tool of Application Insights | Microsoft Azure" 
-	description="Overview of Analytics, 
-	             the powerful diagnostic search tool of Application Insights. " 
+	description="Overview of Analytics, the powerful diagnostic search tool of Application Insights. " 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -13,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/25/2016" 
+	ms.date="07/26/2016" 
 	ms.author="awills"/>
 
 
@@ -66,7 +65,6 @@ The language has many attractive features:
 
 
 
->[AZURE.NOTE] We recommend you start with the [language tour](app-insights-analytics-tour.md).
 
 
 
@@ -87,3 +85,8 @@ At present, query results are limited to just over a week of past data.
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
+
+## Next steps
+
+
+* We recommend you start with the [language tour](app-insights-analytics-tour.md).

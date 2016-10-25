@@ -1110,7 +1110,7 @@ If you have implemented your web API by using the ASP.NET Web API template (eith
 
 You can view this data in real time from the Azure Management portal. You can also create webtests that monitor the health of the web API. A webtest sends a periodic request to a specified URI in the web API and captures the response. You can specify the definition of a successful response (such as HTTP status code 200), and if the request does not return this response you can arrange for an alert to be sent to an administrator. If necessary, the administrator can restart the server hosting the web API if it has failed.
 
-The [Application Insights - Start monitoring your app's health and usage](../articles/application-insights/app-insights-start-monitoring-app-health-usage.md) page on the Microsoft website provides more information.
+The [Application Insights - Get started with ASP.NET](../articles/application-insights/app-insights-asp-net.md) page on the Microsoft website provides more information.
 
 ### Monitoring a web API through the API Management Service
 
@@ -1147,6 +1147,6 @@ You can use this information to determine whether a particular web API or operat
 - The [API Management](https://azure.microsoft.com/services/api-management/) page on the Microsoft website describes how to publish a product that provides controlled and secure access to a web API.
 - The [Azure API Management REST API Reference](https://msdn.microsoft.com/library/azure/dn776326.aspx) page on the Microsoft website describes how to use the API Management REST API to build custom management applications.
 - The [Traffic Manager Routing Methods](../articles/traffic-manager/traffic-manager-routing-methods.md) page on the Microsoft website summarizes how Azure Traffic Manager can be used to load-balance requests across multiple instances of a website hosting a web API.
-- The [Application Insights - Start monitoring your app's health and usage](../articles/application-insights/app-insights-start-monitoring-app-health-usage.md) page on the Microsoft website provides detailed information on installing and configuring Application Insights in an ASP.NET Web API project.
+- The [Application Insights - Get started with ASP.NET](../articles/application-insights/app-insights-asp-net.md) page on the Microsoft website provides detailed information on installing and configuring Application Insights in an ASP.NET Web API project.
 - The page [Verifying Code by Using Unit Tests](https://msdn.microsoft.com/library/dd264975.aspx) on the Microsoft website provides detailed information on creating and managing unit tests by using Visual Studio.
 - The page [Run performance tests on an application before a release](https://msdn.microsoft.com/library/dn250793.aspx) on the Microsoft website describes how to use Visual Studio Ultimate to create a web performance and load test project.

@@ -53,8 +53,12 @@ To start with, [download the standalone cluster package](service-fabric-cluster-
                 "CertificateIssuerThumbprint" : "[Thumbprint]",
                 "IsAdmin": true
             }]
+			"HttpApplicationGatewayCertificate":{
+                "Thumbprint": "[Thumbprint]",
+                "X509StoreName": "My"
+			}
         }
-    },
+    }
 
 This section describes the certificates that you need for securing your standalone Windows cluster. To enable certificate-based security set the values of **ClusterCredentialType** and **ServerCredentialType** to *X509*.
 
@@ -68,14 +72,15 @@ The following table lists the certificates that you will need on your cluster se
 |ServerCertificate|This certificate is presented to the client when it tries to connect to this cluster. For convenience, you can choose to use the same certificate for *ClusterCertificate* and *ServerCertificate*. You can use two different server certificates, a primary and a secondary for upgrade. Set the thumbprint of the primary certificate in the **Thumbprint** section and that of the secondary in the **ThumbprintSecondary** variables. |
 |ClientCertificateThumbprints|This is a set of certificates that you want to install on the authenticated clients. You can have a number of different client certificates installed on the machines that you want to allow access to the cluster. Set the thumbprint of each certificate in the **CertificateThumbprint** variable. If you set the **IsAdmin** to *true*, then the client with this certificate installed on it can do administrator management activities on the cluster. If the **IsAdmin** is *false*, the client with this certificate can only perform the actions allowed for user access rights, typically read-only. For more information on roles read [Role based access control (RBAC)](service-fabric-cluster-security.md/#role-based-access-control-rbac)  |
 |ClientCertificateCommonNames|Set the common name of the first client certificate for the **CertificateCommonName**. The **CertificateIssuerThumbprint** is the thumbprint for the issuer of this certificate. Read [Working with certificates](https://msdn.microsoft.com/library/ms731899.aspx) to know more about common names and the issuer.|
+|HttpApplicationGatewayCertificate|This is an optional certificate that can be specified if you want to secure your Http Application Gateway. Make sure reverseProxyEndpointPort is set in nodeTypes if you are using this certificate.|
 
 Here is example cluster configuration where the Cluster, Server, and Client certificates have been provided.
 
  ```
  {
     "name": "SampleCluster",
-    "clusterManifestVersion": "1.0.0",
-    "apiVersion": "2015-01-01-alpha",
+    "clusterConfigurationVersion": "1.0.0",
+    "apiVersion": "2016-09-26",
     "nodes": [{
         "nodeName": "vm0",
 		"metadata": "Replace the localhost below with valid IP address or FQDN",
@@ -98,15 +103,14 @@ Here is example cluster configuration where the Cluster, Server, and Client cert
         "faultDomain": "fd:/dc1/r2",
         "upgradeDomain": "UD2"
     }],
-    "diagnosticsFileShare": {
-        "etlReadIntervalInMinutes": "5",
-        "uploadIntervalInMinutes": "10",
-        "dataDeletionAgeInDays": "7",
-        "etwStoreConnectionString": "file:c:\\ProgramData\\SF\\FileshareETW",
-        "crashDumpConnectionString": "file:c:\\ProgramData\\SF\\FileshareCrashDump",
-        "perfCtrConnectionString": "file:c:\\ProgramData\\SF\\FilesharePerfCtr"
-    },
     "properties": {
+		"diagnosticsStore": {
+        "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
+        "dataDeletionAgeInDays": "7",
+        "storeType": "FileShare",
+        "IsEncrypted": "false",
+        "connectionstring": "c:\\ProgramData\\SF\\DiagnosticsStore"
+		}
         "security": {
             "metadata": "The Credential type X509 indicates this is cluster is secured using X509 Certificates. The thumbprint format is - d5 ec 42 3b 79 cb e5 07 fd 83 59 3c 56 b9 d5 31 24 25 42 64.",
             "ClusterCredentialType": "X509",
@@ -184,7 +188,7 @@ $cert = Get-Item Cert:\LocalMachine\My\<Thumbprint>
 Write-Host $cert.ToString($true)
 ```
 
-Alternatively, if you have an Azure subscription, you can follow the section [Acquire the X.509 certificates](service-fabric-secure-azure-cluster-with-certs.md#acquirecerts) to create your certificates.
+Alternatively, if you have an Azure subscription, follow the section [Add certificates to Key Vault](service-fabric-cluster-creation-via-arm.md#add-certificate-to-key-vault).
 
 ## Install the certificates
 Once you have certificate(s), you can install them on the cluster nodes. Your nodes need to have the latest Windows PowerShell 3.x installed on them. You will need to repeat these steps on each node, for both Cluster and Server certificates and any secondary certificates.

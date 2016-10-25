@@ -24,6 +24,6 @@ You can read more detailed information on the technologies discussed here, along
 
 - [Quick-start - Create a Network Security Group and ACL rules using the Azure portal](virtual-machines-windows-nsg-quickstart-portal.md)  
 - [Quick-start - Create a Network Security Group and ACL rules using the Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md)  
-- [Azure Resource Manager overview](../resource-group-overview.md)  
+- [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)  
 - [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)  
 - [Azure Resource Manager Overview for Load Balancers](../load-balancer/load-balancer-arm.md) 

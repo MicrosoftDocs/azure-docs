@@ -3,8 +3,8 @@
    description="Power BI Embedded, use SDK to add interactive Power BI reports into your business intelligence application"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
-   manager="NA"
+   authors="guyinacube"
+   manager="erikre"
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="07/14/2016"
-   ms.author="owend"/>
+   ms.date="10/04/2016"
+   ms.author="asaxton"/>
 
 # Get started with Power BI Embedded sample
 
@@ -36,7 +36,7 @@ Let's walk through setting up your Visual Studio development environment to acce
 
 1. Download and unzip the [Power BI Embedded - Integrate a report into a web app](http://go.microsoft.com/fwlink/?LinkId=761493) sample on GitHub.
 
-2. Open **PowerBI-embedded.sln** in Visual Studio.
+2. Open **PowerBI-embedded.sln** in Visual Studio. You may need to execute the **Update-Package** command in the NuGET Package Manager Console in order to update the packages used in this solution.
 
 3. Build the solution.
 

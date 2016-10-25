@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/20/2016"
+   ms.date="08/25/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Create SQL Data Warehouse using PowerShell
@@ -23,19 +23,19 @@
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-This article will show you how to create a SQL Data Warehouse using PowerShell.
+This article shows you how to create a SQL Data Warehouse using PowerShell.
 
 ## Prerequisites
 
-To get started, you will need:
+To get started, you need:
 
 - **Azure account**: Visit [Azure Free Trial][] or [MSDN Azure Credits][] to create an account.
 - **Azure SQL server**:  See [Create an Azure SQL Database logical server with the Azure Portal][] or 
 [Create an Azure SQL Database logical server with PowerShell][] for more details.
 - **Resource group**: Either use the same resource group as your Azure SQL server or see [how to create a resource group][].
-- **PowerShell version 1.0.3 or greater**:  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from  [Microsoft Web Platform Installer][].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][].
+- **PowerShell version 1.0.3 or greater**:  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from [Microsoft Web Platform Installer][].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][].
 
-> [AZURE.NOTE] Creating a new SQL Data Warehouse may result in a new billable service.  See [SQL Data Warehouse pricing][] for more details on pricing.
+> [AZURE.NOTE] Creating a SQL Data Warehouse may result in a new billable service.  See [SQL Data Warehouse pricing][] for more details on pricing.
 
 ## Create a SQL Data Warehouse
 
@@ -52,22 +52,27 @@ To get started, you will need:
 	Get-AzureRmSubscription	-SubscriptionName "MySubscription" | Select-AzureRmSubscription
 	```
 
-4.  Create database. This example creates a new database named "mynewsqldw", with service objective level "DW400", to the server named "sqldwserver1" which is in the resource group named "mywesteuroperesgp1".
+4.  Create database. This example creates a database named "mynewsqldw", with service objective level "DW400", to the server named "sqldwserver1", which is in the resource group named "mywesteuroperesgp1".
 
 	```Powershell
-	New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse"
+	New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse" -CollationName "SQL_Latin1_General_CP1_CI_AS" -MaxSizeBytes 10995116277760
 	```
 
-The parameters required for this cmdlet are:
+Required Parameters are:
 
-- **RequestedServiceObjectiveName**: The amount of [DWU][] you are requesting.  Supported values are: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000 and DW6000.
+- **RequestedServiceObjectiveName**: The amount of [DWU][] you are requesting.  Supported values are: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000, and DW6000.
 - **DatabaseName**: The name of the SQL Data Warehouse that you are creating.
 - **ServerName**: The name of the server that you are using for creation (must be V12).
 - **ResourceGroupName**: Resource group you are using.  To find available resource groups in your subscription use Get-AzureResource.
-- **Edition**: You must set edition to "DataWarehouse" to create a SQL Data Warehouse.
+- **Edition**: Must be "DataWarehouse" to create a SQL Data Warehouse.
 
-For more details on the parameter options, see [Create Database (Azure SQL Data Warehouse)][].
-For the command reference, see [New-AzureRmSqlDatabase][]
+Optional Parameters are:
+
+- **CollationName**: The default collation if not specified is SQL_Latin1_General_CP1_CI_AS.  Collation cannot be changed on a database.
+- **MaxSizeBytes**: The default max size of a database is 10 GB.
+
+
+For more details on the parameter options, see [New-AzureRmSqlDatabase][] and [Create Database (Azure SQL Data Warehouse)][].
 
 ## Next steps
 
@@ -82,7 +87,7 @@ If you're interested in more on how to manage SQL Data Warehouse programmaticall
 [migrate]: ./sql-data-warehouse-overview-migrate.md
 [develop]: ./sql-data-warehouse-overview-develop.md
 [load]: ./sql-data-warehouse-load-with-bcp.md
-[loading sample data]: ./sql-data-warehouse-get-started-load-sample-databases.md
+[loading sample data]: ./sql-data-warehouse-load-sample-databases.md
 [PowerShell cmdlets and REST APIs]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [firewall rules]: ../sql-database-configure-firewall-settings.md
 

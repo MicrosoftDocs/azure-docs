@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/03/2016" 
+	ms.date="09/07/2016" 
 	ms.author="tamram"/>
 
 # Use the Azure Storage Emulator for Development and Testing
@@ -22,6 +22,8 @@
 The Microsoft Azure storage emulator provides a local environment that emulates the Azure Blob, Queue, and Table services for development purposes. Using the storage emulator, you can test your application against the storage services locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the emulator, you can switch to using an Azure storage account in the cloud.
 
 > [AZURE.NOTE] The storage emulator is available as part of the [Microsoft Azure SDK](https://azure.microsoft.com/downloads/). You can also install the storage emulator using the [standalone installer](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409). To configure the storage emulator, you must have administrative privileges on the computer.
+> 
+> The storage emulator currently runs only on Windows.
 >  
 > Note that data created in one version of the storage emulator is not guaranteed to be accessible when using a different version. If you need to persist your data for the long term, it's recommended that you store that data in an Azure storage account, rather than in the storage emulator.
 
@@ -65,7 +67,7 @@ The resulting shared access signature URI for the new container should be simila
 
 The shared access signature created with this example is valid for one day. The signature grants full access (i.e. read, write, delete, list) to blobs within the container.
 
-For more information on shared access signatures, see [Shared Access Signatures: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md).
+For more information on shared access signatures, see [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 
 ## Start and initialize the storage emulator
@@ -203,7 +205,13 @@ There are no differences specific to Queue storage in the emulator.
 
 ## Storage emulator release notes
 
+### Version 4.5
+
+- Fixed a bug that caused initialization and installation of the storage emulator to fail when the backing database was renamed.
+
 ### Version 4.4
+
+- The storage emulator now supports version 2015-12-11 of the storage services on Blob, Queue, and Table service endpoints.
 
 - The storage emulator's garbage collection of blob data is now more efficient when dealing with large numbers of blobs.
 

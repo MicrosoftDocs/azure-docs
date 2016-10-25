@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Migrate Azure Endpoint to Application Insights Availability Tests" 
-	description="We are moving your classic Azure Endpoint Monitoring tests into Application Insights availability tests. We expect to switch over to them during the week of August 22, 2016."
+	description="Migrating classic Azure Endpoint Monitoring tests into Application Insights availability tests by October 31, 2016."
 	services="application-insights" 
     documentationCenter=""
 	authors="soubhagyadash" 
@@ -17,7 +17,7 @@
  
 # Moving from Azure Endpoint Monitoring to Application Insights Availability Tests
 
-Do you use [Endpoint monitoring](https://blogs.msdn.microsoft.com/mast/2013/03/03/windows-azure-portal-update-configure-web-endpoint-status-monitoring-preview/) for your Azure apps? During the week of August 22, 2016, we'll replace them with the new and more powerful [Availability tests](app-insights-monitor-web-app-availability.md). We have already created some of the new tests, although they're disabled until August 22nd 2016. 
+Do you use [Endpoint monitoring](https://blogs.msdn.microsoft.com/mast/2013/03/03/windows-azure-portal-update-configure-web-endpoint-status-monitoring-preview/) for your Azure apps? By *October 31, 2016*, we'll replace them with the new and more powerful [Availability tests](app-insights-monitor-web-app-availability.md). We have already created some of the new tests, although they're disabled until October 31, 2016. 
 
 You can edit the new tests and do the switch yourself if you want. You'll find them [Azure portal](https://portal.azure.com) in the Default-ApplicationInsights-CentralUS resource group.
 
@@ -58,7 +58,7 @@ In the [Azure portal](https://portal.azure.com), you can find the migrated tests
 
 ### Option A: Do nothing. Leave it to us.
 
-**During the week of August 22nd, 2016,** we will:
+**On October 31, 2016,** we will:
 
 * Disable the old endpoint tests.
 * Enable the migrated Availability tests.
@@ -69,14 +69,14 @@ In the [Azure portal](https://portal.azure.com), you can find the migrated tests
  * Review the trigger criteria
  * Review the email recipients
 * Enable the new tests
-* Delete the old endpoint tests [in the classic portal](https://manage.windowsazure.com). We recommend this to avoid duplicate alerts and reduce the load of test traffic on your web site. If not, we'll delete them on August 22nd, 2016.
+* We will disable the legacy endpoint monitoring tests on October 31, 2016 
 
 
 ### Option C: Opt out
 
 If you don't want to use Availability tests, you can delete them in [Azure portal](https://portal.azure.com). There's also an Unsubscribe link at the bottom of the notification emails.
 
-We will still delete the old endpoint tests on August 22nd, 2016. 
+We will still delete the old endpoint tests on October 31, 2016. 
 
 ## How do I edit the new tests?
 

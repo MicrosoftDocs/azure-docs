@@ -5,7 +5,7 @@
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="09/26/2016" 
 	ms.author="jeffstok"/>
 
 # Understand Stream Analytics job monitoring and how to monitor queries
@@ -41,9 +41,8 @@ The first time a Stream Analytics job is created in a region, you will need to c
 | Metric | Definition |
 |--------|-------------|
 | SU % Utilization | The utilization of the Streaming Unit(s) assigned to a job from the Scale tab of the job. Should this indicator reach 80%, or above, there is high probability that event processing may be delayed or stopped making progress. |
-| Input Events | Amount of data received by the Stream Analytics job, in terms of event count. This can be used to validate that events are being sent to the input source. |
-| Input Event Bytes | Amount of data received by the Stream Analytics job, in terms of throughput in bytes |
-| Output Events | Amount of data sent by the Stream Analytics job to the output target, in terms of event count. |
+| Input Events | Amount of data received by the Stream Analytics job, in number of events. This can be used to validate that events are being sent to the input source. |
+| Output Events | Amount of data sent by the Stream Analytics job to the output target, in number of events. |
 | Out-of-Order Events | Number of events received out of order that were either dropped or given an adjusted timestamp, based on the Event Ordering Policy. This can be impacted by the configuration of the Out of Order Tolerance Window setting. |
 | Data Conversion Errors | Number of data conversion errors incurred by a Stream Analytics job. |
 | Runtime Errors | Number of errors that happen during execution of a Stream Analytics job. |
@@ -67,7 +66,7 @@ You can set rules that can notify you by email in case the job crosses a defined
 
 ## Customizing Monitoring in the Azure Portal ##
 
-You can adjust the type of chart, metrics shown, and time range in the Edit Chart settings. For details, see [How to Customize Monitoring](../azure-portal/insights-how-to-customize-monitoring.md).
+You can adjust the type of chart, metrics shown, and time range in the Edit Chart settings. For details, see [How to Customize Monitoring](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
   ![Azure Portal Query Monitor Time Scale](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 

@@ -15,11 +15,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/24/2016"
 	ms.author="genli"/>
 
 # How to create a support ticket for Azure billing and subscription issues
-
 This article provides the information you will need to open a ticket with Azure Support.
 
 1. Sign into the [Azure portal](https://portal.azure.com/). Select **Help + support**>**New support request**.

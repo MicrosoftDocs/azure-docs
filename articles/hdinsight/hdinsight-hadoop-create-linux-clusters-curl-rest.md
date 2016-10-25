@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="Blackmist"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="07/27/2016"
+   	ms.date="10/11/2016"
    	ms.author="larryfr"/>
 
 #Create Linux-based clusters in HDInsight using cURL and the Azure REST API
@@ -47,6 +47,10 @@ The Azure REST API allows you to perform management operations on services hoste
     > `Remove-item alias:curl`
     >
     > Once the alias has been removed, you should be able to use the version of cURL that you have installed on your system.
+
+### Access control requirements
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ##Create a template
 

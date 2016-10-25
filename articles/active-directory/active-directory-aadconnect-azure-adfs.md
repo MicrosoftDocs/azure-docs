@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Active Directory Federation Services in Azure | Microsoft Azure"
 	description="In this document you will learn how to deploy AD FS in Azure for high availablity."
-    keywords="introduction to AD FS, Azure, Azure AD Connect overview, AD FS in Azure, iaas, ADFS"
+    keywords="deploy AD FS in azure, deploy azure adfs, azure adfs, azure ad fs,deploy adfs, deploy ad fs, adfs in azure, deploy adfs in azure, deploy AD FS in azure, adfs azure, introduction to AD FS, Azure, AD FS in Azure, iaas, ADFS, move adfs to azure"
 	services="active-directory"
 	documentationCenter=""
 	authors="anandyadavmsft"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/13/2016"
+	ms.date="10/03/2016"
 	ms.author="anandy;billmath"/>
 
 # AD FS deployment in Azure 
@@ -36,7 +36,7 @@ The diagram above shows the recommended basic topology to start deploying your A
 * **DC / ADFS Servers**: If you have fewer than 1,000 users you can simply install AD FS role on your domain controllers. If you do not want any performance impact on the domain controllers or if you have more than 1,000 users, then deploy AD FS on separate servers.
 * **WAP Server** – it is necessary to deploy Web Application Proxy servers, so that users can reach the AD FS when they are not on the company network also.
 * **DMZ**: The Web Application Proxy servers will be placed in the DMZ and ONLY TCP/443 access is allowed between the DMZ and the internal subnet.
-* **Load Balancers**: To ensure high availability of AD FS and Web Application Proxy servers, we recommend using an internal load balancer for AD FS servers and Azure Load Balancer for Web Application Proxy  servers.
+* **Load Balancers**: To ensure high availability of AD FS and Web Application Proxy servers, we recommend using an internal load balancer for AD FS servers and Azure Load Balancer for Web Application Proxy servers.
 * **Availability Sets**: To provide redundancy to your AD FS deployment, it is recommended that you group two or more virtual machines in an Availability Set for similar workloads. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine will be available
 * **Storage Accounts**: It is recommended to have two storage accounts. Having a single storage account can lead to creation of a single point of failure and can cause the deployment to become unavailable in an unlikely scenario where the storage account goes down. Two storage accounts will help associate one storage account for each fault line.
 * **Network segregation**:  Web Application Proxy servers should be deployed in a separate DMZ network. You can divide one virtual network into two subnets and then deploy the Web Application Proxy server(s) in an isolated subnet. You can simply configure the network security group settings for each subnet and allow only required communication between the two subnets. More details are given per deployment scenario below
@@ -101,7 +101,7 @@ While it is recommended to use ExpressRoute, you may choose any connection metho
 
 ### 2. Create storage accounts
 
-In order to maintain high availability and avoid dependence on a single storage account, you can create two storage accounts. Divide the machines in each availability set into two groups and then assign each group a separate storage account. Remember, you are only billed for the actual usage of the storage.
+In order to maintain high availability and avoid dependence on a single storage account, you can create two storage accounts. Divide the machines in each availability set into two groups and then assign each group a separate storage account.
 
 ![Create storage accounts](./media/active-directory-aadconnect-azure-adfs/storageaccount1.png)
 
@@ -279,8 +279,9 @@ Overall, you need the following rules to efficiently secure your internal subnet
 |Rule|Description|Flow|
 |:----|:----|:------:|
 |AllowHTTPSFromDMZ| Allow the HTTPS communication from DMZ | Inbound |
-|DenyAllFromDMZ| This rule will block all traffic from DMZ to internal subnet. The rule AllowHTTPSFromDMZ already takes care of ensuring that HTTPS communication goes through and anything else is blocked by this rule | Inbound |
 |DenyInternetOutbound| No access to internet | Outbound |
+
+![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsg_int.png)
 
 [comment]: <> (![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png))
 [comment]: <> (![INT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
@@ -289,10 +290,10 @@ Overall, you need the following rules to efficiently secure your internal subnet
 
 |Rule|Description|Flow|
 |:----|:----|:------:|
-|AllowHttpsFromVirtualNetwork| Allow HTTPS from virtual network | Inbound |
-|AllowHTTPSInternet| Allow HTTPS from internet to the DMZ | Inbound|
-|DenyingressexceptHTTPS| Block anything other than HTTPS from internet | Inbound |
-|DenyOutToInternet|	Anything except HTTPS to internet is blocked | Outbound |
+|AllowHTTPSFromInternet| Allow HTTPS from internet to the DMZ | Inbound|
+|DenyInternetOutbound|	Anything except HTTPS to internet is blocked | Outbound |
+
+![EXT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsg_dmz.png)
 
 [comment]: <> (![EXT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png))
 [comment]: <> (![EXT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
@@ -313,6 +314,42 @@ On successful sign-in, it will provide you with a success message as shown below
 
 ![Test success](./media/active-directory-aadconnect-azure-adfs/test2.png)
 
+## Template for deploying AD FS in Azure
+
+The template deploys a 6 machine setup, 2 each for Domain Controllers, AD FS and WAP.
+
+[AD FS in Azure Deployment Template](https://github.com/paulomarquesc/adfs-6vms-regular-template-based)
+
+You can use an existing virtual network or create a new VNET while deploying this template. The various parameters available for customizing the deployment are listed below with the description of usage of the parameter in the deployment process. 
+
+| Parameter | Description |
+|:--------|:-----|
+|Location| The region to deploy the resources into, e.g. East US. |
+|StorageAccountType| The type of the Storage Account created|
+|VirtualNetworkUsage| Indicates if a new virtual network will be created or use an existing one|
+|VirtualNetworkName| The name of the Virtual Network to Create, mandatory on both existing or new virtual network usage|
+|VirtualNetworkResourceGroupName| Specifies the name of the resource group where the existing virtual network resides. When using an existing virtual network, this becomes a mandatory parameter so the deployment can find the ID of the existing virtual network|
+|VirtualNetworkAddressRange| The address range of the new VNET, mandatory if creating a new virtual network|
+|InternalSubnetName| The name of the internal subnet, mandatory on both virtual network usage options (new or existing)|
+|InternalSubnetAddressRange| The address range of the internal subnet, which contains the Domain Controllers and ADFS servers, mandatory if creating a new virtual network.|
+|DMZSubnetAddressRange| The address range of the dmz subnet, which contains the Windows application proxy servers, mandatory if creating a new virtual network.|
+|DMZSubnetName| The name of the internal subnet, mandatory on both virtual network usage options (new or existing). |
+|ADDC01NICIPAddress| The internal IP address of the first Domain Controller, this IP address will be statically assigned to the DC and must be a valid ip address within the Internal subnet|
+|ADDC02NICIPAddress| The internal IP address of the second Domain Controller, this IP address will be statically assigned to the DC and must be a valid ip address within the Internal subnet|
+|ADFS01NICIPAddress| The internal IP address of the first ADFS server, this IP address will be statically assigned to the ADFS server and must be a valid ip address within the Internal subnet|
+|ADFS02NICIPAddress| The internal IP address of the second ADFS server, this IP address will be statically assigned to the ADFS server and must be a valid ip address within the Internal subnet|
+|WAP01NICIPAddress| The internal IP address of the first WAP server, this IP address will be statically assigned to the WAP server and must be a valid ip address within the DMZ subnet|
+|WAP02NICIPAddress| The internal IP address of the second WAP server, this IP address will be statically assigned to the WAP server and must be a valid ip address within the DMZ subnet|
+|ADFSLoadBalancerPrivateIPAddress| The internal IP address of the ADFS load balancer, this IP address will be statically assigned to the load balancer and must be a valid ip address within the Internal subnet|
+|ADDCVMNamePrefix| Virtual Machine name prefix for Domain Controllers|
+|ADFSVMNamePrefix| Virtual Machine name prefix for ADFS servers|
+|WAPVMNamePrefix| Virtual Machine name prefix for WAP servers|
+|ADDCVMSize| The vm size of the Domain Controllers|
+|ADFSVMSize| The vm size of the ADFS servers|
+|WAPVMSize| The vm size of the WAP servers|
+|AdminUserName| The name of the local Administrator of the virtual machines|
+|AdminPassword| The password for the local Administrator account of the virtual machines|
+
 ## Additional resources
 * [Availability Sets](https://aka.ms/Azure/Availability ) 
 * [Azure Load Balancer](https://aka.ms/Azure/ILB)
@@ -326,7 +363,7 @@ On successful sign-in, it will provide you with a success message as shown below
 
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 * [Configuring and managing your AD FS using Azure AD Connect](active-directory-aadconnectfed-whatis.md)
-
+* [High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 
 
 

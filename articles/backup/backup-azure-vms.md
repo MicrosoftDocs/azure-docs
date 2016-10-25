@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2016"
+	ms.date="09/28/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
@@ -41,7 +41,7 @@ To ensure any new virtual machines (VMs) added to the subscription are identifie
 
 1. Sign in to the [Classic portal](http://manage.windowsazure.com/)
 
-2. In the list of Azure services , click **Recovery Services** to open the list of Backup and Site Recovery vaults.
+2. In the list of Azure services, click **Recovery Services** to open the list of Backup and Site Recovery vaults.
     ![Open vault list](./media/backup-azure-vms/choose-vault-list.png)
 
 3. In the list of Backup vaults, select the vault to back up a VM.
@@ -50,7 +50,7 @@ To ensure any new virtual machines (VMs) added to the subscription are identifie
 
     ![Open Registered items menu](./media/backup-azure-vms/vault-quick-start.png)
 
-    If the vault has previously been configured, the portal opens to the most recently-used menu.
+    If the vault has previously been configured, the portal opens to the most recently used menu.
 
 4. From the vault menu (at the top of the page), click **Registered Items**.
 
@@ -67,7 +67,7 @@ To ensure any new virtual machines (VMs) added to the subscription are identifie
 
     ![Discover VMs](./media/backup-azure-vms/discovering-vms.png)
 
-    The notification changes when the process is complete. If the discovery process did not find the virtual machines, first ensure the VMs exist. If the VMs exist, ensure the VMs are in the same region as the backup vault. If the VMs exist and are in the same region, ensure the VMs are not already registered to a backup vault. If a VMs is assigned to a backup vault it is not available to be assigned to other backup vaults.
+    The notification changes when the process is complete. If the discovery process did not find the virtual machines, first ensure the VMs exist. If the VMs exist, ensure the VMs are in the same region as the backup vault. If the VMs exist and are in the same region, ensure the VMs are not already registered to a backup vault. If a VM is assigned to a backup vault it is not available to be assigned to other backup vaults.
 
     ![Discovery done](./media/backup-azure-vms/discovery-complete.png)
 

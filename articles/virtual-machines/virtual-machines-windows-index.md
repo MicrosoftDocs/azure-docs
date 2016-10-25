@@ -3,7 +3,7 @@
    description="A complete list of Microsoft Azure documentation articles for Windows virtual machines in the classic deployment model"
    services="virtual-machines-windows"
    documentationCenter=""
-   authors="dlepow"
+   authors="cynthn"
    manager="timlt"
    tags="azure-service-management"
    editor=""/>
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="08/05/2016"
-   ms.author="danlep"/>
+   ms.author="cynthn"/>
 
 # Technical articles for Windows VMs in the classic deployment model
 
@@ -31,7 +31,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Frequently asked question about Azure Virtual Machines created with the classic deployment model](virtual-machines-windows-classic-faq.md)
 
-[Compare VMs, websites and cloud services](../app-service-web/choose-web-site-cloud-service-vm.md)
+[Compare VMs, websites, and cloud services](../app-service-web/choose-web-site-cloud-service-vm.md)
 
 [Virtual Machines and Containers in Azure](virtual-machines-windows-containers.md)
 
@@ -62,11 +62,11 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Sizes for virtual machines](virtual-machines-windows-sizes.md)
 
-[About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md)
+[About H-series and compute-intensive A-series VMs](virtual-machines-windows-a8-a9-a10-a11-specs.md)
 
 [Planned maintenance for Azure virtual machines](virtual-machines-windows-planned-maintenance.md)
 
-[Azure infrastructure services implementation guidelines](virtual-machines-windows-infrastructure-service-guidelines.md)
+[Azure infrastructure services implementation guidelines](virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md)
 
 [Create an availability set for virtual machines](virtual-machines-windows-classic-configure-availability.md)
 
@@ -90,7 +90,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Manage your virtual machines by using Azure PowerShell](virtual-machines-windows-classic-manage-psh.md)
 	
-[Connect classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)
+[Connect classic VNets to new VNets](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 	
 [About the virtual machine agent and extensions](virtual-machines-windows-classic-agents-and-extensions.md)
 
@@ -190,7 +190,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Troubleshoot classic deployment issues with creating a new Windows virtual machine in Azure](virtual-machines-windows-classic-troubleshoot-deployment-new-vm.md)
 
-[Troubleshoot classic deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
+[Troubleshoot classic deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure](windows/classic/virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
 
 

@@ -78,7 +78,7 @@ The scripts below were written targeting Python 3.5. If you want to use the vers
       <Variable name="EMULATED">
         <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
       </Variable>
-	  <Variable name="PYTHON2" value="off" />
+      <Variable name="PYTHON2" value="off" />
     </Environment>
   </Task>
 
@@ -87,8 +87,9 @@ The scripts below were written targeting Python 3.5. If you want to use the vers
       <Variable name="EMULATED">
         <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
       </Variable>
+      <Variable name="PYTHON2" value="off" />
     </Environment>
-	<Variable name="PYTHON2" value="off" />
+	
   </Task>
 
 </Startup>
@@ -173,7 +174,7 @@ $is_python2 = $env:PYTHON2 -eq "on"
 $nl = [Environment]::NewLine
 
 if (-not $is_emulated){
-	Write-Host "Checking if python is installed...$nl"
+	Write-Output "Checking if python is installed...$nl"
 	if ($is_python2) {
 		& "${env:SystemDrive}\Python27\python.exe"  -V | Out-Null
 	}
@@ -191,9 +192,9 @@ if (-not $is_emulated){
 			$outFile = "${env:TEMP}\python-2.7.12.amd64.msi"
 		}
 		
-		Write-Host "Not found, downloading $url to $outFile$nl"
+		Write-Output "Not found, downloading $url to $outFile$nl"
 		Invoke-WebRequest $url -OutFile $outFile
-		Write-Host "Installing$nl"
+		Write-Output "Installing$nl"
 
 		if ($is_python2) {
 			Start-Process msiexec.exe -ArgumentList "/q", "/i", "$outFile", "ALLUSERS=1" -Wait
@@ -202,10 +203,10 @@ if (-not $is_emulated){
 			Start-Process "$outFile" -ArgumentList "/quiet", "InstallAllUsers=1" -Wait
 		}
 
-		Write-Host "Done$nl"
+		Write-Output "Done$nl"
 	}
 	else {
-		Write-Host "Already installed"
+		Write-Output "Already installed"
 	}
 }
 ```
@@ -220,9 +221,9 @@ $is_python2 = $env:PYTHON2 -eq "on"
 $nl = [Environment]::NewLine
 
 if (-not $is_emulated){
-	Write-Host "Checking if requirements.txt exists$nl"
+	Write-Output "Checking if requirements.txt exists$nl"
 	if (Test-Path ..\requirements.txt) {
-		Write-Host "Found. Processing pip$nl"
+		Write-Output "Found. Processing pip$nl"
 
 		if ($is_python2) {
 			& "${env:SystemDrive}\Python27\python.exe" -m pip install -r ..\requirements.txt
@@ -231,15 +232,17 @@ if (-not $is_emulated){
 			py -m pip install -r ..\requirements.txt
 		}
 
-		Write-Host "Done$nl"
+		Write-Output "Done$nl"
 	}
 	else {
-		Write-Host "Not found$nl"
+		Write-Output "Not found$nl"
 	}
 }
 ```
 
 #### Modify LaunchWorker.ps1
+
+>[AZURE.NOTE] In the case of a **worker role** project, **LauncherWorker.ps1** file is required to execute the startup file. In a **web role** project, the startup file is instead defined in the project properties.
 
 The **bin\LaunchWorker.ps1** was originally created to do a lot of prep work but it doesn't really work. Replace the contents in that file with the following script.
 
@@ -252,7 +255,7 @@ $nl = [Environment]::NewLine
 
 if (-not $is_emulated)
 {
-	Write-Host "Running worker.py$nl"
+	Write-Output "Running worker.py$nl"
 
 	if ($is_python2) {
 		cd..
@@ -265,7 +268,7 @@ if (-not $is_emulated)
 }
 else
 {
-	Write-Host "Running (EMULATED) worker.py$nl"
+	Write-Output "Running (EMULATED) worker.py$nl"
 
 	# Customize to your local dev environment
 
@@ -323,7 +326,7 @@ Deployment will take several minutes to complete, then your web and/or worker ro
 
 ### Investigate logs
 
-After the cloud service virtual machine starts up and installs Python, you can look at the logs to find any failure messages. These logs are located in the **C:\Resources\Directory\{role}\LogFiles** folder. **PrepPython.err.txt** will have at least one error in it from when the script tries to detect if Python is installed and **PipInstaller.err.txt** may complain about an outdated version of pip.
+After the cloud service virtual machine starts up and installs Python, you can look at the logs to find any failure messages. These logs are located in the **C:\Resources\Directory\\{role}\LogFiles** folder. **PrepPython.err.txt** will have at least one error in it from when the script tries to detect if Python is installed and **PipInstaller.err.txt** may complain about an outdated version of pip.
 
 ## Next steps
 
@@ -351,8 +354,8 @@ For more details about using Azure services from your web and worker roles, such
 [Blob Service]: ../storage/storage-python-how-to-use-blob-storage.md
 [Queue Service]: ../storage/storage-python-how-to-use-queue-storage.md
 [Table Service]: ../storage/storage-python-how-to-use-table-storage.md
-[Service Bus Queues]: ../service-bus/service-bus-python-how-to-use-queues.md
-[Service Bus Topics]: ../service-bus/service-bus-python-how-to-use-topics-subscriptions.md
+[Service Bus Queues]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
+[Service Bus Topics]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->

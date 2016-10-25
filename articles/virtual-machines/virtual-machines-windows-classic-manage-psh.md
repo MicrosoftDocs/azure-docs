@@ -3,7 +3,7 @@
    description="Learn commands that you can use to automate tasks in managing your virtual machines."
    services="virtual-machines-windows"
    documentationCenter="windows"
-   authors="singhkay"
+   authors="singhkays"
    manager="timlt"
    editor=""
    tags="azure-service-management"/>
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="07/01/2016"
+   ms.date="10/12/2016"
    ms.author="kasing"/>
 
 # Manage your virtual machines by using Azure PowerShell

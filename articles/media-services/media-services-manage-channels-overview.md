@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Overview of Live Steaming using Azure Media Services" 
+	pageTitle="Overview of Live Steaming using Azure Media Services | Microsoft Azure" 
 	description="This topic gives an overview of live steaming using Azure Media Services." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="10/17/2016"
 	ms.author="juliako"/>
 
 #Overview of Live Steaming using Azure Media Services
@@ -119,9 +119,9 @@ A channel supports up to three concurrently running programs so you can create m
 
 A channel begins billing as soon as it's state transitions to "Running" via the API.  
 
-The following table shows how Channel states map to billing states in the API and Azure Classic Portal. Note that the states are slightly different between the API and Portal UX. As soon as a channel is in the "Running" state via the API, or in the "Ready" or "Streaming" state in the Azure Classic Portal, billing will be active.
+The following table shows how Channel states map to billing states in the API and Azure portal. Note that the states are slightly different between the API and Portal UX. As soon as a channel is in the "Running" state via the API, or in the "Ready" or "Streaming" state in the Azure portal, billing will be active.
 
-To stop the Channel from billing you further, you have to Stop the Channel via the API or in the Azure Classic Portal.
+To stop the Channel from billing you further, you have to Stop the Channel via the API or in the Azure portal.
 You are responsible for stopping your channels when you are done with the channel. Failure to stop the channel will result in continued billing.
 
 >[AZURE.NOTE]When working with Standard channels, AMS will auto shutoff any Channel that is still in “Running” state 12 hours after the input feed is lost, and there are no Programs running. However, you will still be billed for the time the Channel was in “Running” state.

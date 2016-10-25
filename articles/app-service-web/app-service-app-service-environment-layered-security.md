@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="08/30/2016" 
 	ms.author="stefsch"/>	
 
 # Implementing a Layered Security Architecture with App Service Environments
@@ -41,7 +41,7 @@ Since [network security groups (NSGs)][NetworkSecurityGroups] are applied to sub
 - **Will the back-end API app need to call itself?**  A sometimes overlooked and subtle point is the scenario where the back-end application needs to call itself.  If a back-end API application on an App Service Environment needs to call itself, this is also treated as an "Internet" call.  In the sample architecture this requires allowing access from the outbound IP address of the "apiase" App Service Environment as well.
 
 ## Setting up the Network Security Group ##
-Once the set of outbound IP addresses are known, the next step is to construct a network security group.  Since App Service Environments are currently only supported in "v1" virtual networks, [NSG configuration][NetworkSecurityGroupsClassic] is accomplished using the classic NSG support in Powershell.
+Once the set of outbound IP addresses are known, the next step is to construct a network security group.  Network security groups can be created for both Resource Manager based virtual networks, as well as classic virtual networks.  The examples below show creating and configuring an NSG on a classic virtual network using Powershell.
 
 For the sample architecture, the environments are located in South Central US, so an empty NSG is created in that region:
 
@@ -91,7 +91,7 @@ With the NSG applied to the subnet, only the three upstream App Service Environm
 ## Additional Links and Information ##
 All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
 
-Configuring [network security groups][NetworkSecurityGroupsClassic] on classic virtual networks. 
+Information about [network security groups](../virtual-network/virtual-networks-nsg.md). 
 
 Understanding [outbound IP addresses][NetworkArchitecture] and App Service Environments.
 
@@ -104,7 +104,6 @@ Understanding [outbound IP addresses][NetworkArchitecture] and App Service Envir
 <!-- LINKS -->
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [NetworkArchitecture]:  https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-architecture-overview/
-[NetworkSecurityGroupsClassic]:  https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps/
 [InboundTraffic]:  https://azure.microsoft.com/en-us/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
 
 <!-- IMAGES -->

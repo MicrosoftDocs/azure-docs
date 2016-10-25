@@ -14,18 +14,12 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Get started with the SendGrid connector
 
-
-
-The SendGrid connector can be used from:  
-
-- [Logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md)  
-- [PowerApps](http://powerapps.microsoft.com)  
-- [Flow](http://flows.microsoft.com)  
+SendGrid Connection Provider lets you send email and manage recipient lists.
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
 
@@ -35,7 +29,7 @@ You can get started by creating a Logic app now, see [Create a logic app](../app
 
 The SendGrid connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
 
- The SendGrid connector has the following action(s) and/or trigger(s) available:
+ The SendGrid connector has the following actions available. There are no triggers.
 
 ### SendGrid actions
 You can take these action(s):
@@ -44,11 +38,6 @@ You can take these action(s):
 |--- | ---|
 |[SendEmail](connectors-create-api-sendgrid.md#sendemail)|Sends an email using SendGrid API (Limited to 10,000 recipients)|
 |[AddRecipientToList](connectors-create-api-sendgrid.md#addrecipienttolist)|Add an individual recipient to a recipient list|
-### SendGrid triggers
-You can listen for these event(s):
-
-|Trigger | Description|
-|--- | ---|
 
 
 ## Create a connection to SendGrid

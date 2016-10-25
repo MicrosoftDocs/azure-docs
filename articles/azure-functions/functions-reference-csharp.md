@@ -22,6 +22,7 @@
 
 > [AZURE.SELECTOR]
 - [C# script](../articles/azure-functions/functions-reference-csharp.md)
+- [F# script](../articles/azure-functions/functions-reference-fsharp.md)
 - [Node.js](../articles/azure-functions/functions-reference-node.md)
  
 The C# experience for Azure Functions is based on the Azure WebJobs SDK. Data flows into your C# function via method arguments. Argument names are specified in `function.json`, and there are predefined names for accessing things like the function logger and cancellation tokens.
@@ -144,7 +145,8 @@ In addition, the following assemblies are special cased and may be referenced by
 * `Microsoft.WindowsAzure.Storage`
 * `Microsoft.ServiceBus`
 * `Microsoft.AspNet.WebHooks.Receivers`
-* `Microsoft.AspNEt.WebHooks.Common`.
+* `Microsoft.AspNEt.WebHooks.Common`
+* `Microsoft.Azure.NotificationHubs`
 
 If you need to reference a private assembly, you can upload the assembly file into a `bin` folder relative to your function and reference it by using the file name (e.g.  `#r "MyAssembly.dll"`). For information on how to upload files to your function folder, see the following section on package management.
 
@@ -255,6 +257,7 @@ The `#load` directive works only with *.csx* (C# script) files, not with *.cs* f
 For more information, see the following resources:
 
 * [Azure Functions developer reference](functions-reference.md)
+* [Azure Functions F# developer reference](functions-reference-fsharp.md)
 * [Azure Functions NodeJS developer reference](functions-reference-node.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)
 

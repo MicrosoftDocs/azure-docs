@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/12/2016"
+	ms.date="10/05/2016"
 	ms.author="raynew"/>
 
 # How does Azure Site Recovery work?
@@ -118,7 +118,7 @@ Here's what you'll need:
 - **Azure account**: You'll need a Microsoft Azure account.
 - **Azure storage**: You'll need an Azure storage account to store replicated data. In the Azure portal you can use a classic account or a Resource Manager storage account. In the classic portal you can use a classic account only. Replicated data is stored in Azure storage and Azure VMs are created when failover occurs.
 - **Azure network**: You'll need an Azure network that Azure VMs will connect to when they're created after failover. 
-- **Hyper-v host**: You'll need one or more Windows Server 2012 R2 Hyper-V host server. During Site Recovery deployment you'll install the 
+- **Hyper-v host**: You'll need one or more Windows Server 2012 R2 Hyper-V host server. During Site Recovery deployment you'll install the Azure Site Recovery Provider and the Microsoft Azure Recovery Services agent on the host.
 - **Hyper-V VMs**: You'll need one or more VMs on the Hyper-V host server. Azure Site Recovery Provider and the Azure Recovery Services agent on the Hyper-V host during Site Recovery deployment. The Provider coordinates and orchestrates replication with the Site Recovery service over the internet. The agent handles data replication data over HTTPS 443. Communications from both the Provider and the agent are secure and encrypted. Replicated data in Azure storage is also encrypted.
 
 **General architecture**

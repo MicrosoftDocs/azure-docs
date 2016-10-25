@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="07/21/2016"
+	ms.date="10/03/2016"
 	ms.author="wesmc"/>
 
 # Getting started with Notification Hubs for Windows Universal Platform Apps
@@ -102,7 +102,7 @@ To send push notifications to UWP apps, you must associate your app to the Windo
 
 [AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="7">
+<ol start="6">
 <li><p>Select the <b>Notification Services</b> option and the <b>Windows (WNS)</b> option. Then enter the <b>Application secret</b> password in the <b>Security Key</b> field. Enter your <b>Package SID</b> value that you obtained from WNS in the previous section, and then click <b>Save</b>.</p>
 </li>
 </ol>
@@ -267,8 +267,8 @@ To learn more general information about Notification Hubs, see [Notification Hub
 
 <!-- URLs. -->
 
-[Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
-[Use Notification Hubs to send breaking news]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
 [toast catalog]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [tile catalog]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx

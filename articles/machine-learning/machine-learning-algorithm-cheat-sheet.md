@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="brohrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags

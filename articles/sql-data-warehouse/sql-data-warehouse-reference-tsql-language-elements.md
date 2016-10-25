@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/28/2016"
-   ms.author="barbkess;sonyama"/>
+   ms.date="09/08/2016"
+   ms.author="barbkess;sonyama;kevin"/>
 
 # Language elements
 
@@ -252,6 +252,7 @@
 - [sp_pdw_remove_network_credentials](https://msdn.microsoft.com/library/mt204038.aspx)
 - [sp_pkeys](https://msdn.microsoft.com/library/ms189813.aspx)
 - [sp_prepare](https://msdn.microsoft.com/library/ff848808.aspx)
+- [sp_spaceused](https://msdn.microsoft.com/library/ms188776.aspx)
 - [sp_special_columns_100](https://msdn.microsoft.com/library/mt204025.aspx)
 - [sp_sproc_columns](https://msdn.microsoft.com/library/ms182705.aspx)
 - [sp_statistics](https://msdn.microsoft.com/library/ms173842.aspx)

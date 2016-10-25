@@ -5,7 +5,7 @@
    documentationCenter=""
    tags="azure-portal"
    authors="mumian"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="07/25/2016"
+   ms.date="10/21/2016"
    ms.author="jgao"/>
 
 # Learn Hadoop by using the Azure HDInsight Getting Started Gallery
@@ -36,11 +36,11 @@ The following video shows how to run the Twitter trend analysis sample:
 
 <center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
-The Dashboard can be accessed by browsing to http://<YourHDInsightClusterName>.azurehdinsight.net/ or from the Azure Portal.
+The Dashboard can be accessed by browsing to http://<YourHDInsightClusterName>.azurehdinsight.net/ or from the Azure portal.
 
 **To run a sample from the Getting Started Gallery**
 
-1. Sign in to the [Azure Portal][azure.portal].
+1. Sign in to the [Azure portal][azure.portal].
 2. Click **Browse** from the left menu, click **HDInsight Clusters**, and then click your cluster name.
 3. Click **Dashboard** from the top menu.
 4. Enter the user name and password for the HTTP user (also called the cluster user).

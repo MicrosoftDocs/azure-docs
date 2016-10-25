@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2016"
+	ms.date="10/18/2016"
 	ms.author="jehollan"/>
 
 # Monitor your Logic apps
@@ -32,6 +32,8 @@ There are a few sections on this blade that are helpful:
 	- **All runs** list the latest logic app runs.  You can click any row for details on the run, or click on the tile to list more runs.
 	- **Trigger History** lists all the trigger activity for this logic app.  Trigger activity could be a "Skipped" check for new data (e.g. looking to see if a new file was added to FTP), "Succeeded" meaning data was returned to fire a logic app, or "Failed" corresponding an error in configuration.
 - **Diagnostics** allows you to view runtime details and events, and subscribe to [Azure Alerts](#adding-azure-alerts)
+
+>[AZURE.NOTE] All runtime details and events are encrypted at rest within the Logic App service. They are only decrypted upon a view request from a user. Access to these events can also be controlled by Azure Role-Based Access Control (RBAC).
 
 ### View the run details
 

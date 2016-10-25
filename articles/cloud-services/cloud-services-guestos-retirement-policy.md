@@ -3,7 +3,7 @@
    description="Provides information about what Microsoft will support as regards to the Azure Guest OS used by Cloud Services." 
    services="cloud-services" 
    documentationCenter="na" 
-   authors="yuemlu" 
+   authors="raiye" 
    manager="timlt" 
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="04/19/2016"
-   ms.author="yuemlu"/>
+   ms.date="10/24/2016"
+   ms.author="raiye"/>
 
 # Azure Guest OS supportability and retirement policy
 The information on this page relates to the Azure Guest operating system ([Guest OS](cloud-services-guestos-update-matrix.md)) for Cloud Services worker and web roles (PaaS). It does not apply to Virtual Machines (IaaS). 

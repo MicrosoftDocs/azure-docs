@@ -3,8 +3,8 @@
    description="How to run multiple VM instances on Azure for scalability, resiliency, manageability, and security."
    services=""
    documentationCenter="na"
-   authors="mikewasson"
-   manager="roshar"
+   authors="MikeWasson"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -14,22 +14,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/06/2016"
-   ms.author="mikewasson"/>
+   ms.date="10/19/2016"
+   ms.author="mwasson"/>
 
 # Running multiple VMs on Azure for scalability and availability 
 
 [AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
-This article outlines a set of proven practices for running multiple virtual machine (VM) instances, to improve availability and scalability.   
+This article outlines a set of proven practices for running multiple virtual machine (VM) instances, to improve scalability, availability, manageability, and security.   
 
-In this architecture, the workload is distributed across the VM instances. There is a single public IP address, and Internet traffic is distributed to the VMs using a load balancer. This architecture can be used for a single-tier app, such as a stateless web app or storage cluster. It is also a building block for N-tier applications. 
+In this reference architecture, the workload is distributed across the VM instances. There is a single public IP address, and Internet traffic is distributed to the VMs using a load balancer. This architecture can be used for a single-tier app, such as a stateless web app or storage cluster. It is also a building block for N-tier applications. 
 
 This article builds on [Running a Single VM on Azure][single vm]. The recommendations in that article also apply to this architecture.
 
-> [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
-
 ## Architecture diagram
+
+VMs in Azure require supporting networking and storage resources.
+
+> A Visio document that includes this architecture diagram is available for download at the [Microsoft download center][visio-download]. This diagram is on the "Compute - multi VM page".
 
 ![[0]][0]
 
@@ -41,11 +43,11 @@ The architecture has the following components:
 
 - **Azure Load Balancer.** The [load balancer] distributes incoming Internet requests to the VM instances in an availability set. The load balancer includes some related resources:
 
-    - **Public IP address.** A public IP address is needed for the load balancer to receive Internet traffic.
+  - **Public IP address.** A public IP address is needed for the load balancer to receive Internet traffic.
 
-    - **Front-end configuration.** Associates the public IP address with the load balancer.
+  - **Front-end configuration.** Associates the public IP address with the load balancer.
 
-    - **Back-end address pool.** Contains the network interfaces (NICs) for the VMs that will receive the incoming traffic.
+  - **Back-end address pool.** Contains the network interfaces (NICs) for the VMs that will receive the incoming traffic.
 
 - **Load balancer rules** are used to distribute network traffic among all the VMs in the back-end address pool. 
 
@@ -56,6 +58,8 @@ The architecture has the following components:
 - **Storage.** Storage accounts hold the VM images and other file-related resources, such as VM diagnostic data captured by Azure.
 
 ## Recommendations
+
+Azure offers many different resources and resource types, so this reference architecture can be provisioned many different ways. We have provided an Azure Resource Manager template to install the reference architecture that follows these recommendations. If you choose to create your own reference architecture you should follow these recommendations unless you have a specific requirement that a recommendation does not fit.
 
 ### Availability set recommendations
 
@@ -123,44 +127,56 @@ Virtual networks are a traffic isolation boundary in Azure. VMs in one VNet cann
 
 For incoming Internet traffic, the load balancer rules define which traffic can reach the back end. However, load balancer rules don't support IP whitelisting, so if you want to whitelist certain public IP addresses, add an NSG to the subnet.
 
-## Solution Deployment
+## Solution deployment
 
-<!-- THIS SECTION TO BE UPDATED WHEN THE NEW TEMPLATES ARE AVAILABLE -->
+A deployment for a reference architecture that implements these recommendations is available on Github. This reference architecture includes a virtual network (VNet), network security group (NSG), load balancer, and two virtual machines (VMs).
 
-An example deployment script for this architecture is available on GitHub.
+The reference architecture can be deployed either with Windows or Linux VMs by following the directions below: 
 
-- [Bash script (Linux)][deployment-script-linux]
+1. Right click the button below and select either "Open link in new tab" or "Open link in new window":  
+[![Deploy to Azure](./media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-multi-vm%2Fazuredeploy.json)
 
-- [Batch file (Windows)][deployment-script-windows]
+2. Once the link has opened in the Azure portal, you must enter values for some of the settings: 
+    - The **Resource group** name is already defined in the parameter file, so select **Use Existing** and enter `ra-multi-vm-rg` in the text box.
+    - Select the region from the **Location** drop down box.
+    - Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
+    - Select the **Os Type** from the drop down box, **windows** or **linux**.
+    - Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
+    - Click on the **Purchase** button.
 
-The script requires version 0.9.20 or later of the [Azure Command-Line Interface (CLI)][azure-cli]. 
+3. Wait for the deployment to complete.
+
+4. The parameter files include a hard-coded administrator user name and password, and it is strongly recommended that you immediately change both. Click on the VM named `ra-multi-vm1` in the Azure Portal. Then, click on **Reset password** in the **Support + troubleshooting** blade. Select **Reset password** in the **Mode** dropdown box, then select a new **User name** and **Password**. Click the **Update** button to persist the new user name and password. Repeat for the VM named `ra-multi-vm2`.
+
+For information on additional ways to deploy this reference architecture, see the readme file in the [guidance-single-vm][github-folder] Github folder. 
 
 ## Next steps
 
-- Placing several VMs behind a load balancer is a building block for creating multi-tier architectures. For more information, see [Running VMs for an N-tier architecture on Azure][3-tier-blueprint].
+Placing several VMs behind a load balancer is a building block for creating multi-tier architectures. For more information, see [Running Windows VMs for an N-tier architecture on Azure][n-tier-windows] and [Running Linux VMs for an N-tier architecture on Azure][n-tier-linux]
 
 <!-- Links -->
-[3-tier-blueprint]: guidance-compute-3-tier-vm.md
 [availability set]: ../virtual-machines/virtual-machines-windows-manage-availability.md
 [availability set ch9]: https://channel9.msdn.com/Series/Microsoft-Azure-Fundamentals-Virtual-Machines/08
 [azure-automation]: https://azure.microsoft.com/en-us/documentation/services/automation/
 [azure-cli]: ../virtual-machines-command-line-tools.md
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
+[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm
 [health probe log]: ../load-balancer/load-balancer-monitor-log.md
 [health probes]: ../load-balancer/load-balancer-overview.md#service-monitoring
 [health-probe-ip]: ../virtual-network/virtual-networks-nsg.md#special-rules
 [load balancer]: ../load-balancer/load-balancer-get-started-internet-arm-cli.md
 [load balancer hashing]: ../load-balancer/load-balancer-overview.md#hash-based-distribution
+[n-tier-linux]: guidance-compute-n-tier-vm-linux.md
+[n-tier-windows]: guidance-compute-n-tier-vm.md
 [naming conventions]: guidance-naming-conventions.md
 [network-security]: ../best-practices-network-security.md
 [nsg]: ../virtual-network/virtual-networks-nsg.md
-[resource-manager-overview]: ../resource-group-overview.md 
+[resource-manager-overview]: ../azure-resource-manager/resource-group-overview.md 
 [Runbook Gallery]: ../automation/automation-runbook-gallery.md#runbooks-in-runbook-gallery
 [single vm]: guidance-compute-single-vm.md
 [subscription-limits]: ../azure-subscription-service-limits.md
+[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [vm-disk-limits]: ../azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
-
-[deployment-script-linux]: https://github.com/mspnp/blueprints/blob/master/multivm-linux/azurecli-multi-vm-single-tier-sample.sh
-[deployment-script-windows]: https://github.com/mspnp/blueprints/blob/master/multivm-windows/azurecli-multi-vm-single-tier-sample.cmd
+[VM-sizes]: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/
 [0]: ./media/blueprints/compute-multi-vm.png "Architecture of a multi-VM solution on Azure comprising an availability set with two VMs and a load balancer"

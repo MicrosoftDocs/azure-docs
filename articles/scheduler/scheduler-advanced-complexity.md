@@ -3,8 +3,8 @@
  description="How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler"
  services="scheduler"
  documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
+ authors="derek1ee"
+ manager="kevinlam1"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -12,8 +12,8 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="06/30/2016"
- ms.author="krisragh"/>
+ ms.date="08/18/2016"
+ ms.author="deli"/>
 
 # How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler  
 

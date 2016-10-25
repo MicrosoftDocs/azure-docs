@@ -4,7 +4,7 @@
 	keywords="Application development, database tutorial, learn node.js, node.js tutorial, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="nodejs" 
-	authors="AndrewHoh" 
+	authors="syamkmsft" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="08/11/2016" 
-	ms.author="anhoh"/>
+	ms.date="08/25/2016" 
+	ms.author="syamk"/>
 
 # <a name="_Toc395783175"></a>Build a Node.js web application using DocumentDB
 
@@ -108,7 +108,7 @@ which modules need to be installed on Azure to support your application. We stil
 
 	![Screenshot of the package.json tab](./media/documentdb-nodejs-application/image17.png)
 
-       This tells Node (and Azure later) that your application depends on these additional modules.
+	This tells Node (and Azure later) that your application depends on these additional modules.
 
 ## <a name="_Toc395783180"></a>Step 4: Using the DocumentDB service in a node application
 
@@ -173,11 +173,7 @@ That takes care of all the initial setup and configuration, now let’s get down
 		                        id: collectionId
 		                    };
 							
-				 			var requestOptions = {
-								offerType: 'S1'
-							};
-							
-		                    client.createCollection(databaseLink, collectionSpec, requestOptions, function (err, created) {
+		                    client.createCollection(databaseLink, collectionSpec, function (err, created) {
 		                        callback(null, created);
 		                    });
 		

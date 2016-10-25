@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/11/2016"
+   ms.date="08/24/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Migration to Premium Storage Details
@@ -47,9 +47,9 @@ If you created a DW before the dates below, you are currently using Standard Sto
 | South Central US    | May 27, 2016                      |
 | Southeast Asia      | May 24, 2016                      |
 | West Europe         | May 25, 2016                      |
-| West Central US     | Premium Storage Not Yet Available |
+| West Central US     | August 26, 2016                   |
 | West US             | May 26, 2016                      |
-| West US2            | Premium Storage Not Yet Available |
+| West US2            | August 26, 2016                   |
 
 ## Automatic migration details
 By default, we will migrate your database for you during 6pm and 6am in your region's local time during the [automatic migration schedule][] below.  Your existing Data Warehouse will be unusable during the migration.  We estimate that the migration will take around one hour per TB of storage per Data Warehouse.  We will also ensure that you are not charged during any portion of the automatic migration.
@@ -91,13 +91,13 @@ Automatic migrations occur from 6pm – 6am (local time per region) during the f
 | Japan East          | August 10, 2016              | August 24, 2016              |
 | Japan West          | Not determined yet           | Not determined yet           |
 | North Central US    | Not determined yet           | Not determined yet           |
-| North Europe        | August 10, 2016              | August 24, 2016              |
+| North Europe        | August 10, 2016              | August 31, 2016              |
 | South Central US    | June 23, 2016                | July 2, 2016                 |
 | Southeast Asia      | June 23, 2016                | July 1, 2016                 |
 | West Europe         | June 23, 2016                | July 8, 2016                 |
-| West Central US     | August 14, 2016              | August 28, 2016              |
+| West Central US     | August 14, 2016              | August 31, 2016              |
 | West US             | June 23, 2016                | July 7, 2016                 |
-| West US2            | August 14, 2016              | August 28, 2016              |
+| West US2            | August 14, 2016              | August 31, 2016              |
 
 ## Self-migration to Premium Storage
 If you would like to control when your downtime will occur, you can use the following steps to migrate an existing Data Warehouse on Standard Storage to Premium Storage.  If you choose to self-migrate, you must complete the self-migration before the automatic migration begins in that region to avoid any risk of the automatic migration causing a conflict (refer to the [automatic migration schedule][]).
@@ -133,7 +133,7 @@ ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
 >	-  Firewall rules at the **Database** level need to be readded.  Firewall rules at the **Server** level are not be impacted.
 
 ## Next steps
-With the change to Premium Storage, we have also increased the number of database blob files in the underlying architecture of your Data Warehouse.  If you encounter any performance issues, we recommend that you rebuild your Clustered Columnstore Indexes using the following script.  The script below works by forcing some of your existing data to the additional blobs.  If you take no action, the data will naturally redistribute over time as you load more data into your Data Warehouse tables.
+With the change to Premium Storage, we have also increased the number of database blob files in the underlying architecture of your Data Warehouse.  To maximize the performance benefits of this change, we recommend that you rebuild your Clustered Columnstore Indexes using the following script.  The script below works by forcing some of your existing data to the additional blobs.  If you take no action, the data will naturally redistribute over time as you load more data into your Data Warehouse tables.
 
 **Pre-requisites:**
 
@@ -191,14 +191,14 @@ If you encounter any issues with your Data Warehouse, [create a support ticket][
 <!--Article references-->
 [automatic migration schedule]: #automatic-migration-schedule
 [self-migration to Premium Storage]: #self-migration-to-premium-storage
-[create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Azure paired region]: ./best-practices-availability-paired-regions.md
-[main documentation site]: ./services/sql-data-warehouse.md
-[Pause]: ./sql-data-warehouse-manage-compute-portal.md/#pause-compute
-[Restore]: ./sql-data-warehouse-manage-database-restore-portal.md
+[create a support ticket]: sql-data-warehouse-get-started-create-support-ticket.md
+[Azure paired region]: best-practices-availability-paired-regions.md
+[main documentation site]: services/sql-data-warehouse.md
+[Pause]: sql-data-warehouse-manage-compute-portal.md/#pause-compute
+[Restore]: sql-data-warehouse-restore-database-portal.md
 [steps to rename during migration]: #optional-steps-to-rename-during-migration
-[scale compute power]: ./sql-data-warehouse-manage-compute-portal/#scale-compute-power
-[mediumrc role]: ./sql-data-warehouse-develop-concurrency/#workload-management
+[scale compute power]: sql-data-warehouse-manage-compute-portal/#scale-compute-power
+[mediumrc role]: sql-data-warehouse-develop-concurrency/#workload-management
 
 <!--MSDN references-->
 

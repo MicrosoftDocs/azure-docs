@@ -3,8 +3,8 @@
 	description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby." 
 	services="storage" 
 	documentationCenter="ruby" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	authors="robinsh" 
+	manager="carmonm" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="08/11/2016" 
-	ms.author="robmcm"/>
+	ms.date="10/18/2016" 
+	ms.author="robinsh"/>
 
 
 # How to use Queue storage from Ruby
@@ -38,7 +38,7 @@ queues**.
 ## Create a Ruby Application
 
 Create a Ruby application. For instructions, 
-see [Ruby on Rails Web application on an Azure VM](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
+see [Ruby on Rails Web application on an Azure VM](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## Configure Your Application to Access Storage
 
@@ -168,5 +168,5 @@ Now that you've learned the basics of queue storage, follow these links to learn
 - Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
 - Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
 
-For a comparison between the Azure Queue Service discussed in this article and Azure Service Bus Queues discussed in the [How to use Service Bus Queues](/develop/ruby/how-to-guides/service-bus-queues/) article, see [Azure Queues and Service Bus Queues - Compared and Contrasted](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+For a comparison between the Azure Queue Service discussed in this article and Azure Service Bus Queues discussed in the [How to use Service Bus Queues](/develop/ruby/how-to-guides/service-bus-queues/) article, see [Azure Queues and Service Bus Queues - Compared and Contrasted](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
  

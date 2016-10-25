@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # App registration reference
-This document provides context and descriptions of various features found in the Microsoft App Registration Portal [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com).
+This document provides context and descriptions of various features found in the Microsoft App Registration Portal [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).
 
 ## My Applications
 This list contains all of your applications registered for use with the Azure AD v2.0 endpoint.  These applications have the ability to sign in users with both personal accounts from Microsoft account and work/school accounts from Azure Active Directory.  To learn more about the Azure AD v2.0 endpoint, see our [v2.0 overview](active-directory-appmodel-v2-overview.md).  These applications can also be used to integrate with the Microsoft account authentication endpoint, `https://login.live.com`.

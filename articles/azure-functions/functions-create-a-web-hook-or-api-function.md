@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/07/2016"
+   ms.date="08/30/2016"
    ms.author="glenga"/>
    
 # Create a webhook or API Azure Function
@@ -42,7 +42,7 @@ A function app hosts the execution of your functions in Azure. Before you can cr
 
 	![Create new GitHub webhook function](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook.png) 
 
-4. In the **Develop** tab, note the sample express.js function in the **Code** window. This function receives a GitHub request from an issue comment webhook, logs the issue text and sends a response to the webhook as `New GitHub comment: <Your issue comment text>`.
+4. In **Develop**, note the sample express.js function in the **Code** window. This function receives a GitHub request from an issue comment webhook, logs the issue text and sends a response to the webhook as `New GitHub comment: <Your issue comment text>`.
 
 
 	![Create new GitHub webhook function](./media/functions-create-a-web-hook-or-api-function/functions-new-webhook-in-portal.png) 

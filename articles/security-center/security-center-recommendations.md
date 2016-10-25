@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/26/2016"
+   ms.date="09/25/2016"
    ms.author="terrylan"/>
 
 # Managing security recommendations in Azure Security Center
@@ -69,7 +69,7 @@ Use the table below as a reference to help you understand the available recommen
 |[Remediate OS vulnerabilities](security-center-remediate-os-vulnerabilities.md)|Recommends that you align your OS configurations with the recommended configuration rules, e.g. do not allow passwords to be saved.|
 |[Apply system updates](security-center-apply-system-updates.md)|Recommends that you deploy missing system security and critical updates to VMs.|
 |[Reboot after system updates](security-center-apply-system-updates.md#reboot-after-system-updates)|Recommends that you reboot a VM to complete the process of applying system updates.|
-|[Add a web application firewall](security-center-add-web-application-firewall.md)|Recommends that you deploy a web application firewall (WAF) for web endpoints. You can protect multiple web applications in Security Center by adding these applications to your existing WAF deployments. WAF appliances (created using the Resource Manager deployment model) need to be deployed to a separate virtual network. WAF appliances (created using the classic deployment model) are restricted to using a network security group. This support will be extended to a fully customized deployment of a WAF appliance (classic) in the future.|
+|[Add a web application firewall](security-center-add-web-application-firewall.md)|Recommends that you deploy a web application firewall (WAF) for web endpoints. You can protect multiple web applications in Security Center by adding these applications to your existing WAF deployments. WAF appliances (created using the Resource Manager deployment model) need to be deployed to a separate virtual network. WAF appliances (created using the classic deployment model) are restricted to using a network security group. This support will be extended to a fully customized deployment of a WAF appliance (classic) in the future. Security Center will recommend that you provision a WAF to help defend against attacks targeting your web applications on VMs and on App Service Environment (ASE). To learn more about ASE, see the [App Service Environment Documentation](../app-service/app-service-app-service-environments-readme.md). |
 |[Finalize application protection](security-center-add-web-application-firewall.md#finalize-application-protection)|To complete the configuration of a WAF, traffic must be rerouted to the WAF appliance. Following this recommendation will complete the necessary setup changes.|
 |[Add a Next Generation Firewall](security-center-add-next-generation-firewall.md)|Recommends that you add a Next Generation Firewall (NGFW) from a Microsoft partner in order to increase your security protections.|
 |[Route traffic through NGFW only](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)|Recommends that you configure network security group (NSG) rules that force inbound traffic to your VM through your NGFW.|
@@ -84,6 +84,8 @@ Use the table below as a reference to help you understand the available recommen
 | [Apply disk encryption](security-center-apply-disk-encryption.md) |Recommends that you encrypt your VM disks using Azure Disk Encryption (Windows and Linux VMs). Encryption is recommended for both the OS and data volumes on your VM.|
 |[Provide security contact details](security-center-provide-security-contact-details.md) | Recommends that you provide security contact information for each of your subscriptions. Contact information is an email address and phone number. The information will be used to contact you if our security team finds that your resources are compromised. |
 | [Update OS version](security-center-update-os-version.md) | Recommends that you update the operating system (OS) version for your Cloud Service to the most recent version available for your OS family.  To learn more about Cloud Services, see the [Cloud Services overview](../cloud-services/cloud-services-choose-me.md). |
+| [Vulnerability assessment not installed](security-center-vulnerability-assessment-recommendations.md) | Recommends that you install a vulnerability assessment solution on your VM. |
+| [Remediate vulnerabilities](security-center-vulnerability-assessment-recommendations.md#review-recommendation) | Enables you to see system and application vulnerabilities detected by the vulnerability assessment solution installed on your VM. |
 
 You can filter and dismiss recommendations.
 

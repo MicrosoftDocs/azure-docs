@@ -37,7 +37,7 @@ Not at this time.
 
 #### Can I advertise the exact prefixes as my Virtual Network prefixes?
 
-No, advertising the same prefixes as any one of your Virtual Network address prefixes will be blocked or filtered by the Azure platform.
+No, advertising the same prefixes as any one of your Virtual Network address prefixes will be blocked or filtered by the Azure platform. However you can advertise a prefix that is a superset of what you have inside your Virtual Network. For example, your Virtual Network could use the address space 10.10.0.0/16 and you could advertise 10.0.0.0/8.
 
 ### Can I use BGP with my VNet-to-VNet connections?
 

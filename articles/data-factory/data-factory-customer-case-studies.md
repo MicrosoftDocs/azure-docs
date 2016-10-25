@@ -3,7 +3,7 @@
 	description="Learn about how some of our customers have been using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="sharonlo101" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
-	ms.author="spelluru"/>
+	ms.date="09/20/2016" 
+	ms.author="shlo"/>
 
 # Customer case studies
 

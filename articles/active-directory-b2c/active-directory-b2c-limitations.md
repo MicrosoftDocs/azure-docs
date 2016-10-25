@@ -4,7 +4,7 @@
 	services="active-directory-b2c"
 	documentationCenter=""
 	authors="swkrish"
-	manager="msmbaldwin"
+	manager="mbaldwin"
 	editor="bryanla"/>
 
 <tags
@@ -23,6 +23,8 @@ There are several features and functionalities of Azure Active Directory (Azure 
 ## Issues during the creation of Azure AD B2C tenants
 
 If you encounter issues during the [creation of an Azure AD B2C tenant](active-directory-b2c-get-started.md), see [Create an Azure AD tenant or an Azure AD B2C tenant--issues and resolutions](active-directory-b2c-support-create-directory.md) for guidance.
+
+Note that there are known issues when you delete an existing B2C tenant and re-create it with the same domain name. You have to create a B2C tenant with a different domain name.
 
 ## Note about B2C tenant quotas
 

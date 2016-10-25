@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/28/2016"
+	ms.date="08/24/2016"
 	ms.author="awills"/>
 
 
@@ -37,7 +37,7 @@ Here's a summary of what you get in each way:
 |Requests & exceptions|Yes|Yes|
 |[More detailed exceptions](app-insights-asp-net-exceptions.md)||Yes|
 |[Dependency diagnostics](app-insights-asp-net-dependencies.md)|On .NET 4.6+|Yes|
-|[System performance counters](app-insights-web-monitor-performance.md#system-performance-counters)||IIS or Azure cloud service, not Azure web app|
+|[System performance counters](app-insights-performance-counters.md)||IIS or Azure cloud service, not Azure web app|
 |[API for custom telemetry][api]|Yes||
 |[Trace log integration](app-insights-asp-net-trace-logs.md)|Yes||
 |[Page view & user data](app-insights-javascript.md)|Yes||
@@ -162,7 +162,7 @@ You need to open [some outgoing ports](app-insights-ip-addresses.md#outgoing-por
   * Open Diagnostic Search (the Search tile) to see individual events. Events are often visible in Diagnostic Search before aggregate data appears in the charts.
   * Open Status Monitor and select your application on left pane. Check if there are any diagnostics messages for this application in the "Configuration notifications" section:
 
-  ![](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
+  ![Open the Performance blade to see request, response time, dependency and other data](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
 
   * Make sure your server firewall allows outgoing traffic on the ports listed above.
   * On the server, if you see a message about "insufficient permissions", try the following:
@@ -284,11 +284,7 @@ If the web app is in Azure and you create your resources using an Azure Resource
 * [Add web client telemetry][usage] to see exceptions from web page code and to let you insert trace calls.
 * [Add Application Insights SDK to your web service code][greenbrown] so that you can insert trace and log calls in the server code.
 
-## Video
 
-#### Performance monitoring
-
-[AZURE.VIDEO app-insights-performance-monitoring]
 
 <!--Link references-->
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2016" 
+	ms.date="08/30/2016" 
 	ms.author="sdanie"/>
 
 # How to monitor Azure Redis Cache
@@ -24,7 +24,7 @@ When cache diagnostics are enabled, metrics for Azure Redis Cache instances are 
 
 Cache metrics are collected using the Redis [INFO](http://redis.io/commands/info) command. For more information about the different INFO values used for each cache metric, see [Available metrics and reporting intervals](#available-metrics-and-reporting-intervals).
 
-To view cache metrics, [browse](cache-configure.md) to your cache instance in the [Azure Portal](https://portal.azure.com). Metrics for Azure Redis Cache instances are accessed on the **Redis metrics** blade.
+To view cache metrics, [browse](cache-configure.md#configure-redis-cache-settings) to your cache instance in the [Azure portal](https://portal.azure.com). Metrics for Azure Redis Cache instances are accessed on the **Redis metrics** blade.
 
 ![Redis metrics][redis-cache-redis-metrics-blade]
 
@@ -36,7 +36,7 @@ The **Redis metrics** blade has **Monitoring** charts that display cache metrics
 
 ## Enable cache diagnostics
 
-Azure Redis Cache provides you the ability to have diagnostics data stored in a storage account so you can use any tools you want to access and process the data directly. In order for cache diagnostics to be collected, stored, and displayed in the Azure Portal, a storage account must be configured. Caches in the same region and subscription share the same diagnostics storage account, and when the configuration is changed it applies to all caches in the subscription that are in that region.
+Azure Redis Cache provides you the ability to have diagnostics data stored in a storage account so you can use any tools you want to access and process the data directly. In order for cache diagnostics to be collected, stored, and displayed in the Azure portal, a storage account must be configured. Caches in the same region and subscription share the same diagnostics storage account, and when the configuration is changed it applies to all caches in the subscription that are in that region.
 
 To enable and configure cache diagnostics, navigate to the **Redis Cache** blade for your cache instance. If diagnostics are not yet enabled, a message is displayed instead of a diagnostics chart.
 
@@ -56,9 +56,9 @@ Once the diagnostic settings are configured, click **Save** to save the configur
 
 >[AZURE.IMPORTANT] Caches in the same region and subscription share the same diagnostics storage settings, and when the configuration is changed (diagnostics enabled/disabled or changing the storage account) it applies to all caches in the subscription that are in that region.
 
-To view the stored metrics, examine the tables in your storage account with names that start with `WADMetrics`. For more information about accessing the stored metrics outside of the Azure Portal, see the [Access Redis Cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) sample.
+To view the stored metrics, examine the tables in your storage account with names that start with `WADMetrics`. For more information about accessing the stored metrics outside of the Azure portal, see the [Access Redis Cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) sample.
 
->[AZURE.NOTE] Only metrics that are stored in the selected storage account are displayed in the Azure Portal. If you change storage accounts, the data in the previously configured storage account remains available for download, but it is not displayed in the Azure Portal.  
+>[AZURE.NOTE] Only metrics that are stored in the selected storage account are displayed in the Azure portal. If you change storage accounts, the data in the previously configured storage account remains available for download, but it is not displayed in the Azure portal.  
 
 ## Available metrics and reporting intervals
 
@@ -126,7 +126,7 @@ To add or remove metrics from the chart, click the checkbox beside the name of t
 
 ![Edit chart][redis-cache-edit-chart]
 
-When you click **Save** your changes will persist until you leave the **Metric** blade. When you come back later, you'll see the original metric and time range again. For more information on customizing charts, see [Monitor service metrics](../azure-portal/insights-how-to-customize-monitoring.md).
+When you click **Save** your changes will persist until you leave the **Metric** blade. When you come back later, you'll see the original metric and time range again. For more information on customizing charts, see [Monitor service metrics](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
 To view the metrics for a specific time period on a chart, hover the mouse over one of the specific bars or points on the chart that corresponds to the desired time, and the metrics for that interval are displayed.
 
@@ -167,7 +167,7 @@ The **Operations** section on the **Redis Cache** blade has **Events** and **Ale
 
 To see a list of recent cache operations, click the **Events** chart to display the **Events** blade. Examples of operations include retrieving and regenerating access keys, and the activation and resolution of alert rules. For more information about each event, click the event in the **Events** blade.
 
-For more information on events, see [View events and audit logs](../azure-portal/insights-debugging-with-events.md).
+For more information on events, see [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md).
 
 The **Alert rules** section displays the count of alerts for the cache instance. An alert rule enables you to monitor your cache instance and receive an email whenever a certain metric value reaches the threshold defined in the rule. 
 
@@ -211,7 +211,7 @@ When an alert rule is activated, an email is sent depending on the configuration
 
 An alert rule is considered to be resolved when the alert condition no longer evaluates to true. Once the alert rule condition is resolved, the alert icon is replaced with a check mark. For details on alert activations and resolutions, click the **Events** part on the **Redis Cache** blade to view the events on the **Events** blade.
 
-For more information about alerts in Azure, see [Receive alert notifications](../azure-portal/insights-receive-alert-notifications.md).
+For more information about alerts in Azure, see [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
 ## Metrics on the Redis Cache blade
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="10/19/2016"
 	ms.author="wesmc"/>
 
 # Sending push notifications with Azure Notification Hubs and Node.js
@@ -41,7 +41,7 @@ Azure Notification Hubs provide an easy-to-use, multi-platform, scalable infrast
 
 ##Create a Node.js Application
 
-The first step in this tutorial is creating a new blank Node.js application. For instructions on creating a Node.js application, see [Create and deploy a Node.js application to Azure Web Site][nodejswebsite], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
+The first step in this tutorial is creating a new blank Node.js application. For instructions on creating a Node.js application, see [Create and deploy a Node.js application to Azure Web Site][nodejswebsite], [Node.js Cloud Service][Node.js Cloud Service] using Windows PowerShell, or [Web Site with WebMatrix].
 
 ##Configure Your Application to Use Notification Hubs
 
@@ -107,7 +107,7 @@ The following code uses the **GcmService** instance exposed by the **Notificatio
 
 	var payload = {
 	  data: {
-	    msg: 'Hello!'
+	    message: 'Hello!'
 	  }
 	};
 	notificationHubService.gcm.send(null, payload, function(error){

@@ -90,6 +90,7 @@ This graph indicates how many connections have been established to your edge ser
 
 ## Next Steps
 
+- Get notified with [Real-time alerts in Azure CDN](cdn-real-time-alerts.md)
 - Dig deeper with [advanced HTTP reports](cdn-advanced-http-reports.md)
 - Analyze [usage patterns](cdn-analyze-usage-patterns.md)
 

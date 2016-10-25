@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Exploring Metrics in Application Insights" 
+	pageTitle="Exploring Metrics in Application Insights | Microsoft Azure" 
 	description="How to interpret charts on metric explorer, and how to customize metric explorer blades." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/06/2016" 
+	ms.date="10/15/2016" 
 	ms.author="awills"/>
  
 # Exploring Metrics in Application Insights
@@ -40,10 +40,11 @@ You can change the Time range covered by the charts or grids on any blade.
 
 If you're expecting some data that hasn't appeared yet, click Refresh. Charts refresh themselves at intervals, but the intervals are longer for larger time ranges. In release mode, it can take a while for data to come through the analysis pipeline onto a chart.
 
-To zoom into part of a chart, drag over it and then click the magnifier symbol:
+To zoom into part of a chart, drag over it:
 
 ![Drag across part of a chart.](./media/app-insights-metrics-explorer/12-drag.png)
 
+Click the Undo Zoom button to restore it.
 
 
 ## Granularity and point values
@@ -92,7 +93,7 @@ You can change the aggregation method:
 
 ![Select the chart and then select aggregation](./media/app-insights-metrics-explorer/05-aggregation.png)
 
-The default method for each metric is shown when you create a new chart:
+The default method for each metric is shown when you create a new chart or when all metrics are deselected:
 
 ![Deselect all metrics to see the defaults](./media/app-insights-metrics-explorer/06-total.png)
 

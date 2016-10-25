@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/27/2016"
+	ms.date="08/27/2016"
 	ms.author="rachelap"/>
 
 # Consume an API app from JavaScript using CORS
@@ -28,7 +28,7 @@ This article contains two sections:
 
 ## <a id="corsconfig"></a> How to configure CORS in Azure App Service
 
-You can configure CORS in the Azure portal or by using [Azure Resource Manager](../resource-group-overview.md) tools.
+You can configure CORS in the Azure portal or by using [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) tools.
 
 #### Configure CORS in the Azure portal
 

@@ -2,7 +2,7 @@
    pageTitle="Azure Active Directory Authentication Protocols | Microsoft Azure"
    description="An overview of the authentication protocols supported by Azure Active Directory (AD)"
    documentationCenter="dev-center-name"
-   authors="msmbaldwin"
+   authors="bryanla"
    services="active-directory"
    manager="mbaldwin"
    editor=""/>
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/16/2016"
+   ms.date="09/16/2016"
    ms.author="mbaldwin"/>
 
 # Azure Active Directory Authentication Protocols

@@ -14,7 +14,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="05/05/2016" 
+    ms.date="08/08/2016" 
     ms.author="arramac"/>
 
 
@@ -159,7 +159,7 @@ The following table shows the consistency for queries based on the indexing mode
     </tbody>
 </table>
 
-DocumentDB returns an error for queries made on collections with None indexing mode. Queries can still be executed as scans via the explicit `x-ms-documentdb-enable-scans` header in the REST API or the `EnableScanInQuery` request option using the .NET SDK. Some query features like ORDER BY are not supported as scans with `EnableScanInQuery`.
+DocumentDB returns an error for queries made on collections with None indexing mode. Queries can still be executed as scans via the explicit `x-ms-documentdb-enable-scan` header in the REST API or the `EnableScanInQuery` request option using the .NET SDK. Some query features like ORDER BY are not supported as scans with `EnableScanInQuery`.
 
 The following table shows the consistency for queries based on the indexing mode (Consistent, Lazy, and None) when EnableScanInQuery is specified.
 
@@ -461,7 +461,7 @@ The following example configures a specific path with range indexing and a custo
 
 Now that we've taken a look at how to specify paths, let's look at the options we can use to configure the indexing policy for a path. You can specify one or more indexing definitions for every path:
 
-- Data type: **String**, **Number** or **Point** (can contain only one entry per data type per path)
+- Data type: **String**, **Number** or **Point** (can contain only one entry per data type per path). **Polygon** and **LineString** supported in private preview
 - Index kind: **Hash** (equality queries), **Range** (equality, range or Order By queries), or **Spatial** (spatial queries) 
 - Precision: 1-8 or -1 (Maximum precision) for numbers, 1-100 (Maximum precision) for string
 
@@ -475,6 +475,8 @@ DocumentDB supports Hash and Range index kinds for every path (that can configur
 DocumentDB also supports the Spatial index kind for every path, that can be specified for the Point data type. The value at the specified path must be a valid GeoJSON point like `{"type": "Point", "coordinates": [0.0, 10.0]}`.
 
 - **Spatial** supports efficient spatial (within and distance) queries.
+
+>[AZURE.NOTE] DocumentDB supports automatic indexing of Points, Polygons (private preview), and LineStrings (private preview). For access to the preview, please email askdocdb@microsoft.com, or contact us via Azure Support.
 
 Here are the supported index kinds and examples of queries that they can be used to serve:
 
@@ -540,7 +542,7 @@ Here are the supported index kinds and examples of queries that they can be used
     </tbody>
 </table>
 
-By default, an error is returned for queries with range operators such as >= if there is no range index (of any precision) in order to signal that a scan might be necessary to serve the query. Range queries can be performed without a range index using the x-ms-documentdb-enable-scans header in the REST API or the EnableScanInQuery request option using the .NET SDK. If there are any other filters in the query that DocumentDB can use the index to filter against, then no error will be returned.
+By default, an error is returned for queries with range operators such as >= if there is no range index (of any precision) in order to signal that a scan might be necessary to serve the query. Range queries can be performed without a range index using the x-ms-documentdb-enable-scan header in the REST API or the EnableScanInQuery request option using the .NET SDK. If there are any other filters in the query that DocumentDB can use the index to filter against, then no error will be returned.
 
 The same rules apply for spatial queries. By default, an error is returned for spatial queries if there is no spatial index, and there are no other filters that can be served from the index. They can be performed as a scan using x-ms-documentdb-enable-scan/EnableScanInQuery.
 

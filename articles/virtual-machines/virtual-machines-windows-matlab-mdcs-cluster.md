@@ -4,7 +4,7 @@
    services="virtual-machines-windows"
    documentationCenter=""
    authors="mscurrell"
-   manager="asutton"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -31,7 +31,7 @@ By using Azure virtual machines, you can create MATLAB Distributed Computing Ser
 
 * **Client computer** - You'll need a Windows-based client computer to communicate with Azure and the MATLAB Distributed Computing Server cluster after deployment. 
 
-* **Azure PowerShell** - See [How to install and configure Azure PowerShell](../powershell-install-configure) to install it on your client computer. 
+* **Azure PowerShell** - See [How to install and configure Azure PowerShell](../powershell-install-configure.md) to install it on your client computer. 
 
 * **Azure subscription** - If you don't have a subscription, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes. For larger clusters, consider a pay-as-you-go subscription or other purchase options. 
 

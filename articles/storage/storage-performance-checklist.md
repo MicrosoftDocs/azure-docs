@@ -185,7 +185,7 @@ This code will increase the thread pool min threads:
 
 	ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 
-For more information, see [ThreadPool.SetMinThreads Method](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads(v=vs.110).aspx).  
+For more information, see [ThreadPool.SetMinThreads Method](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads%28v=vs.110%29.aspx).  
 
 ####<a name="subheading11"></a>Take advantage of .NET 4.5 Garbage Collection
 Use .NET 4.5 or later for the client application to take advantage of performance improvements in server garbage collection.

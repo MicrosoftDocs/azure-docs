@@ -4,7 +4,7 @@
 	services="functions"
 	documentationCenter="na"
 	authors="tdykstra"
-	manager="wpickett"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="04/14/2016"
-	ms.author="tdykstra"/>
+	ms.date="08/22/2016"
+	ms.author="glenga"/>
 
 # How to code and test Azure functions in Visual Studio
 
@@ -219,5 +219,6 @@ For more information, see the following resources:
 
 * [Azure Functions developer reference](functions-reference.md)
 * [Azure Functions C# developer reference](functions-reference-csharp.md)
+* [Azure Functions F# developer reference](functions-reference-fsharp.md)
 * [Azure Functions NodeJS developer reference](functions-reference-node.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)
