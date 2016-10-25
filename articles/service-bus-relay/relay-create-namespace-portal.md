@@ -11,7 +11,7 @@
     ms.service="service-bus"
     ms.devlang="tbd"
     ms.topic="get-started-article"
-    ms.tgt_pltfrm="dotnet"
+    ms.tgt_pltfrm="multiple"
     ms.workload="na"
     ms.date="11/01/2016"
     ms.author="jotaub"/>
