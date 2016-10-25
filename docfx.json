@@ -9,32 +9,10 @@
         "exclude": [         
           "**/obj/**",
           "**/includes/**",
-          "**/_themes/**",
-          "markdown templates/**",
-          "contributor-guide/**",
-          "CONTRIBUTING.md",
-          "README.md"
+          "**/_themes/**"
         ],
         "src": "articles",
         "dest": "."
-      },
-      {
-        "files": [
-          "**/*.md",
-          "**/*.yml"
-        ],
-        "exclude": [         
-          "**/obj/**",
-          "**/includes/**",
-          "**/_themes/**",
-          "markdown templates/**",
-          "contributor-guide/**",
-          "CONTRIBUTING.md",
-          "README.md",
-          "articles/**"
-        ],
-        "src": null,
-        "dest": null
       }
     ],
     "resource": [
@@ -47,30 +25,21 @@
         ],
         "exclude": [
           "**/obj/**",
-          "**/_themes/**",
-          "markdown templates/**",
-          "contributor-guide/**",
-          "CONTRIBUTING.md",
-          "README.md"
+          "**/_themes/**"
         ],
         "src": "articles",
         "dest": "."
       },
       {
         "files": [
-          "**/*.png",
-          "**/*.jpg",
-          "**/*.jpeg",
-          "**/*.gif"
+          "includes/**/*.png",
+          "includes/**/*.jpg",
+          "includes/**/*.jpeg",
+          "includes/**/*.gif"
         ],
         "exclude": [
           "**/obj/**",
-          "**/_themes/**",
-          "markdown templates/**",
-          "contributor-guide/**",
-          "CONTRIBUTING.md",
-          "README.md",
-          "articles/**"
+          "**/_themes/**"
         ],
         "src": null,
         "dest": null
