@@ -23,7 +23,7 @@
 ## Overview
 In this tutorial, you add push notifications to the [Android quick start] project so that a push notification is sent to the device every time a record is inserted.
 
-If you do not use the downloaded quick start server project, you will need the push notification extension package. See [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) for more information.
+If you do not use the downloaded quick start server project, you need the push notification extension package. For more information, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ## Prerequisites
 

@@ -225,14 +225,14 @@ You can now test push notifications by running the app and inserting items in th
 Attach your Android device to your development computer with a USB cable.  Instead of **Google Android Emulator**, select **Device**. Visual Studio will deploy the application to the device and run it.  You can then interact with the application on the device.  
 Improve your development experience.  Screen sharing applications such as [Mobizen] can assist you in developing an Android application by projecting your Android screen on to a web browser on your PC.
 
-- **On an an Android emulator:**  
+- **On an Android emulator:**  
 There are additional configuration steps required when running on an emulator.
 
 	Make sure that you are deploying to or debugging on a virtual device that has Google APIs set as the target, as shown below in the Android Virtual Device (AVD) manager.
 
 	![](./media/app-service-mobile-cordova-get-started-push/google-apis-avd-settings.png)
 
-	If you want to use a faster x86 emulator, you [install the the HAXM driver](https://taco.visualstudio.com/en-us/docs/run-app-apache/#HAXM) and configure the emulator use it.
+	If you want to use a faster x86 emulator, you [install the HAXM driver](https://taco.visualstudio.com/en-us/docs/run-app-apache/#HAXM) and configure the emulator use it.
 
 	Add a Google account to the Android device by clicking **Apps** > **Settings** > **Add account**, then follow the prompts to add an existing Google account to the device (we recommend using an existing account rather than creating a new one).
 
