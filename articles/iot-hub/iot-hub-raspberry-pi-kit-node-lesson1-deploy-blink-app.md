@@ -21,13 +21,15 @@
 
 ## 1.3.1 What you will do
 
-Clone the sample Node.js application from GitHub, and use the gulp tool to deploy the sample application to your Raspberry Pi 3. The sample application blinks the LED connected to the board every two seconds. If you have any problems, seek solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
+Clone the sample Node.js application from GitHub and use the gulp tool to deploy the sample application to your Raspberry Pi 3. The sample application blinks the LED connected to the board every two seconds. If you have any problems, look for solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## 1.3.2 What you will learn
 
-- How to use the `device-discover-cli` tool to retrieve networking information about your Pi
-- How to deploy and run the sample application on your Pi
-- How to deploy and debug applications running remotely on your Pi
+In this section you will learn:
+
+- How to use the `device-discover-cli` tool to retrieve networking information about your Pi.
+- How to deploy and run the sample application on your Pi.
+- How to deploy and debug applications running remotely on your Pi.
 
 ## 1.3.3 What you need
 
@@ -120,7 +122,7 @@ Install Node.js and NPM on your Pi by running the following command:
 gulp install-tools
 ```
 
-It might take 10 minutes to complete the first time you run this task.
+This task might take 10 minutes to complete the first time you run it.
 
 ### 1.3.8.2 Deploy and run the sample app
 
@@ -143,4 +145,4 @@ You've installed the required tools to work with your Pi and deployed a sample a
 
 ## Next Steps
 
-You are now ready to start Lesson 2 that begins with [Get the Azure tools](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md)
+You are now ready to start Lesson 2 that begins with [Get the Azure tools](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md).

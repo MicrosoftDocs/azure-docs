@@ -26,7 +26,7 @@
 
 ## 1.2.1 What you will do
 
-Download the development tools and the software for the first sample application for your Raspberry Pi 3. If you have any problems, seek solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
+Download the development tools and the software for the first sample application for your Raspberry Pi 3. If you have any problems, look for solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## 1.2.2 What you will learn
 In this section, you will learn:
@@ -40,15 +40,17 @@ In this section, you will learn:
 
 ## 1.2.3 What you need
 
-- An Internet connection to download the development tools and the software
-- A Mac that is running macOS Yosemite (10.10) or later
+To complete this operation, you will need:
+
+- An Internet connection to download the development tools and the software.
+- A Mac that is running macOS Yosemite (10.10) or later.
 
 ## 1.2.4 Install Git and Node.js
 
 To install Git and Node.js, use the [Homebrew](http://brew.sh) package management utility by following these steps:
 
 1. Install Homebrew. If you've already installed Homebrew, go to step 2.
-  1. Press `Cmd + Space` and enter `Terminal` to open a terminal window.
+  1. Press `Cmd + Space` and enter `Terminal` to open a terminal.
   2. Run the following command:
 
     ```bash

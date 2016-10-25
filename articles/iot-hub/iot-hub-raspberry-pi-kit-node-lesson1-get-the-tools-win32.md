@@ -26,9 +26,12 @@
 
 ## 1.2.1 What you will do
 
-Download the development tools and the software for the first sample application for your Raspberry Pi 3. If you have any problems, seek solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
+Download the development tools and the software for the first sample application for your Raspberry Pi 3. If you have any problems, look for solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## 1.2.2 What you will learn
+
+In this section you will learn:
+
 - How to install Git and Node.js.
   - [Git](https://git-scm.com) is an open source distributed version control system. The sample application for this lesson is stored on Git.
   - [Node.js](https://nodejs.org/en/) is a JavaScript runtime with a rich package ecosystem.
@@ -38,8 +41,10 @@ Download the development tools and the software for the first sample application
 
 ## 1.2.3 What you need
 
-- An Internet connection to download the development tools and the software
-- A computer that is running Windows
+To complete this operation, you will need:
+
+- An Internet connection to download the development tools and the software.
+- A computer that is running Windows.
 
 ## 1.2.4 Install Git and Node.js
 

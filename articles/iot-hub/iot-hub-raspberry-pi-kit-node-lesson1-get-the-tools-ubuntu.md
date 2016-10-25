@@ -26,7 +26,7 @@
 
 ## 1.2.1 What you will do
 
-Download the development tools and the software for the first sample application for your Raspberry Pi 3. If you have any problems, seek solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
+Download the development tools and the software for the first sample application for your Raspberry Pi 3. If you have any problems, look for solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## 1.2.2 What you will learn
 
@@ -41,12 +41,14 @@ In this section, you will learn:
 
 ## 1.2.3 What do you need
 
-- An Internet connection to download the development tools and the software
-- A computer that is running Ubuntu 16.04 or later
+To complete this operation, you will need:
+
+- An Internet connection to download the development tools and the software.
+- A computer that is running Ubuntu 16.04 or later.
 
 ## 1.2.4 Install Git, Node.js, and NPM
 
-Use the keyboard shortcut `Ctrl + Alt + T` to open a Terminal window and run the following commands:
+Use the keyboard shortcut `Ctrl + Alt + T` to open a terminal and run the following commands:
 
 ```bash
 sudo apt-get update
