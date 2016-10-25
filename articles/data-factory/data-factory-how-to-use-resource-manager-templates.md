@@ -12,44 +12,42 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="10/24/2016" 
 	ms.author="shlo"/>
 
 # Use templates to create Azure Data Factory entities
 
 ## Overview
-While using Azure Data Factory for your data integration needs, you may find yourself reusing the same pattern across different environments or implementing the same task repetitively within the same solution. Templates help you implement and manage these scenarios in an easy manner. Templates in Azure Data Factory are ideal for scenarios, which involve reusability and repetition.
+While using Azure Data Factory for your data integration needs, you may find yourself reusing the same pattern across different environments or implementing the same task repetitively within the same solution. Templates help you implement and manage these scenarios in an easy manner. Templates in Azure Data Factory are ideal for scenarios that involve reusability and repetition.
  
-Consider the situation where an organization has 10 manufacturing plants across the globe. The logs from each of its plants go into a separate on-premises SQL Server. The company wants to build a single data warehouse in the cloud for ad-hoc analytics. It also wants to have the same logic but different configurations for development, test, and production environments. 
+Consider the situation where an organization has 10 manufacturing plants across the world. The logs from each plant are stored in a separate on-premises SQL Server database. The company wants to build a single data warehouse in the cloud for ad-hoc analytics. It also wants to have the same logic but different configurations for development, test, and production environments. 
 
-In this case, a task needs to be repeated within the same environment, but with different values across the 10 data factories for each manufacturing plant. In effect, **repetition** is present. Templating allows the abstraction of this generic flow (that is, pipelines having the same activities for each data factory), but uses separate parameter files for each manufacturing plant.
+In this case, a task needs to be repeated within the same environment, but with different values across the 10 data factories for each manufacturing plant. In effect, **repetition** is present. Templating allows the abstraction of this generic flow (that is, pipelines having the same activities in each data factory), but uses a separate parameter file for each manufacturing plant.
 
 Furthermore, as the organization wants to deploy these 10 data factories multiple times across different environments, templates can use this **reusability** by utilizing separate parameter files for development, test, and production environments.
 
-Thus with templates, you can repeatedly deploy your solution throughout its life cycle and have confidence your resources are deployed in a consistent state.
-
 ## Templating with Azure Resource Manager
-[Azure Resource Manager templates](../azure-resource-manager/resource-group-overview.md#template-deployment) are a great way to achieve templating in Azure Data Factory. Resource Manager templates define the infrastructure and configuration of your Azure solution through a JSON file. Because Azure Resource Manager templates work with all/most Azure services, it can be widely used to easily manage all resources of your Azure assets. See [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md) to learn further about the generic Resource Manager Templates. 
+[Azure Resource Manager templates](../azure-resource-manager/resource-group-overview.md#template-deployment) are a great way to achieve templating in Azure Data Factory. Resource Manager templates define the infrastructure and configuration of your Azure solution through a JSON file. Because Azure Resource Manager templates work with all/most Azure services, it can be widely used to easily manage all resources of your Azure assets. See [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md) to learn more about the Resource Manager Templates in general. 
 
 ## Tutorials
-See our tutorials for a walkthrough of using Resource Manager templates:
+See the following tutorials for step-by-step instructions to create Data Factory entities by using Resource Manager templates:
 
-- [Tutorial: Create a pipeline with Copy Activity using Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-- [Tutorial: Build your first pipeline to process data using Hadoop cluster](data-factory-build-your-first-pipeline.md)
+- [Tutorial: Create a pipeline to copy data by using Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+- [Tutorial: Create a pipeline to process data by using Azure Resource Manager template](data-factory-build-your-first-pipeline.md)
 
 ## Data Factory templates on Github
-For more reference material, check out our Azure quick start templates:
+Check out the following Azure quick start templates on Github: 
 
 - [Create a Data factory to copy data from Azure Blob Storage to Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy)
 - [Create a Data factory with Hive activity on Azure HDInsight cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation)
 - [Create a Data factory to copy data from Salesforce to Azure Blobs](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy)
 
-As you build out your templates, feel free to share your Azure Data Factory templates to [Azure Quick start](https://azure.microsoft.com/documentation/templates/) by starting with the [contribution guide](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE). We’re excited to see what the community builds.
+Feel free to share your Azure Data Factory templates at [Azure Quick start](https://azure.microsoft.com/documentation/templates/). Refer to the [contribution guide](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE) while developing templates that can be shared via this repository. 
 
-Read on to learn how to achieve templating for your Azure Data Factory solutions.
+The following sections provide details about defining Data Factory resources in a Resource Manager template. 
 
-## Defining Data Factory Resources in templates
+## Defining Data Factory resources in templates
 The top-level template for defining a data factory is:
 
 	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -105,7 +103,7 @@ The dataFactoryName is defined in “variables” as:
 
 See [Storage Linked Service](data-factory-azure-blob-connector.md#azure-storage-linked-service) or [Compute Linked Services](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details about the JSON properties for the specific linked service you wish to deploy. The “dependsOn” parameter specifies name of the corresponding data factory. An example of defining a linked service for Azure Storage is shown in the following JSON definition:
 
-### Define dataset
+### Define datasets
 
 	"type": "datasets",
 	"name": "[variables('<myDatasetName>')]",
@@ -160,7 +158,7 @@ Refer to [Supported data stores](data-factory-data-movement-activities.md#suppor
 		}
 	}
 
-Refer to [defining pipelines](data-factory-create-pipelines.md#pipeline-json) for details about the JSON properties for defining the specific pipeline and activities you wish to deploy. Note the “dependsOn” parameter specifies name of the data factory, and any corresponding linked services or datasets. An example of a pipeline with a copy activity from Azure Blob Storage to Azure SQL Database is shown in the following JSON snippet:
+Refer to [defining pipelines](data-factory-create-pipelines.md#pipeline-json) for details about the JSON properties for defining the specific pipeline and activities you wish to deploy. Note the “dependsOn” parameter specifies name of the data factory, and any corresponding linked services or datasets. An example of a pipeline that copies data from Azure Blob Storage to Azure SQL Database is shown in the following JSON snippet:
 
 	"type": "datapipelines",
     "name": "[variables('pipelineName')]",
@@ -213,9 +211,9 @@ Refer to [defining pipelines](data-factory-create-pipelines.md#pipeline-json) fo
 		"end": "2016-10-04T00:00:00Z"
 
 ## Parameterizing Data Factory template
-For best practices on parameterizing, see [here](../resource-manager-template-best-practices.md#parameters) for details. In general, parameter usage should be minimized, especially if variables can be used instead. Only provide parameters in the following scenarios:
+For best practices on parameterizing, see [Best practices for creating Azure Resource Manager templates](../resource-manager-template-best-practices.md#parameters) article. In general, parameter usage should be minimized, especially if variables can be used instead. Only provide parameters in the following scenarios:
 
-- Settings you wish to vary by environment
+- Settings vary by environment (example: development, test, and production)
 - Secrets (such as passwords)
 
 If you need to pull secrets from [Azure Key Vault](../key-vault/key-vault-get-started.md) when deploying Azure Data Factory entities using templates, specify the **key vault** and **secret name** as shown in the following example:
