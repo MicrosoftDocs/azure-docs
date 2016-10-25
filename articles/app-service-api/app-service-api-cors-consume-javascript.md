@@ -28,7 +28,7 @@ This article contains two sections:
 
 ## <a id="corsconfig"></a> How to configure CORS in Azure App Service
 
-You can configure CORS in the Azure portal or by using [Azure Resource Manager](../resource-group-overview.md) tools.
+You can configure CORS in the Azure portal or by using [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) tools.
 
 #### Configure CORS in the Azure portal
 

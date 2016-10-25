@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="09/19/2016"
+	ms.date="10/12/2016"
 	ms.author="juliako;anilmur"/>
 
 #Azure Media Services overview and common scenarios
@@ -35,7 +35,7 @@ To build Media Services solutions, you can use:
 - [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
 - [Azure Media Services for Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (This is a non-Microsoft version of a Node.js SDK. It is maintained by a community and currently does not have a 100% coverage of the AMS APIs).
 - Existing tools:
-- [Azure Classic Portal](http://manage.windowsazure.com/)
+- [Azure portal](https://portal.azure.com/)
 - [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) is a Winforms/C# application for Windows)
 
 ##Media Services learning paths
@@ -50,7 +50,7 @@ You can view AMS learning paths here:
 To start using Azure Media Services, you should have the following:
 
 3. An Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com).
-2. An Azure Media Services account. Use the Azure Classic Portal, .NET, or REST API to create Azure Media Services account. For more information, see [Create Account](media-services-create-account.md).
+2. An Azure Media Services account. Use the Azure portal, .NET, or REST API to create Azure Media Services account. For more information, see [Create Account](media-services-portal-create-account.md).
 3. (Optional) Set up development environment. Choose .NET or REST API for your development environment. For more information, see [Set up environment](media-services-dotnet-how-to-use.md).
 
 Also, learn how to connect  programmatically [Connect](media-services-dotnet-connect-programmatically.md).

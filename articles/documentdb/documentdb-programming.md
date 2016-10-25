@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="10/14/2016" 
 	ms.author="andrl"/>
 
 # DocumentDB server-side programming: Stored procedures, database triggers, and UDFs

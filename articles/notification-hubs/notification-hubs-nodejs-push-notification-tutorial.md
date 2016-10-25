@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="10/19/2016"
 	ms.author="wesmc"/>
 
 # Sending push notifications with Azure Notification Hubs and Node.js
@@ -107,7 +107,7 @@ The following code uses the **GcmService** instance exposed by the **Notificatio
 
 	var payload = {
 	  data: {
-	    msg: 'Hello!'
+	    message: 'Hello!'
 	  }
 	};
 	notificationHubService.gcm.send(null, payload, function(error){

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="09/05/2016" 
+	ms.date="10/24/2016" 
 	ms.author="juliako"/>
 
 
@@ -31,7 +31,7 @@ This tutorial walks you through the steps of using the Azure portal to create a 
 The following are required to complete the tutorial:
 
 - An Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
-- A Media Services account.	To create a Media Services account, see [How to Create a Media Services Account](media-services-create-account.md).
+- A Media Services account.	To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
 - A webcam. For example, [Telestream Wirecast encoder](http://www.telestream.net/wirecast/overview.htm).
 
 It is highly recommended to review the following articles:
@@ -124,7 +124,8 @@ This section shows how to use the **Quick Create** option to create a pass-throu
 
 For more details about pass-through channels, see [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md).
 
-1. In the **Settings** window, click **Live streaming**. 
+1. In the [Azure portal](https://portal.azure.com/), select your Azure Media Services account.
+2. In the **Settings** window, click **Live streaming**. 
 
 	![Getting started](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
 	

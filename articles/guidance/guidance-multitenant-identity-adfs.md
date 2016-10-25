@@ -90,7 +90,7 @@ The SaaS provider can deploy AD FS either on-premise or on Azure VMs. For securi
 -	Domain controllers and AD FS servers should never be exposed directly to the Internet and should be in a virtual network with direct access to them.
 -	Web application proxies (previously AD FS proxies) must be used to publish AD FS servers to the Internet.
 
-To set up a similar topology in Azure requires the use of Virtual networks, NSG’s, azure VM’s and availability sets. For more details, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines] (MSDN).
+To set up a similar topology in Azure requires the use of Virtual networks, NSG’s, azure VM’s and availability sets. For more details, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines][active-directory-on-azure].
 
 ## Configure OpenID Connect authentication with AD FS
 
@@ -206,7 +206,7 @@ The customer must do the following:
 [Expiration time]: http://tools.ietf.org/html/draft-ietf-oauth-json-web-token-25#section-4.1.4
 [Issued at]: http://tools.ietf.org/html/draft-ietf-oauth-json-web-token-25#section-4.1.6
 [Name identifier]: https://msdn.microsoft.com/library/system.security.claims.claimtypes.nameidentifier(v=vs.110).aspx
-[Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines]: https://msdn.microsoft.com/library/azure/jj156090.aspx
+[active-directory-on-azure]: https://msdn.microsoft.com/library/azure/jj156090.aspx
 [blog post]: http://www.cloudidentity.com/blog/2015/08/21/OPENID-CONNECT-WEB-SIGN-ON-WITH-ADFS-IN-WINDOWS-SERVER-2016-TP3/
 [Customizing the AD FS Sign-in Pages]: https://technet.microsoft.com/library/dn280950.aspx
 [sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps

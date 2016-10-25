@@ -49,7 +49,7 @@ After you select the image, you can use the default settings and quickly create 
 	The password must be 8-123 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. See more about [username and password requirements](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
 
 
-3. Select an existing [Resource group](../resource-group-overview.md#resource-groups) or type the name for a new one. Type an Azure datacenter **Location** such as **West US**. 
+3. Select an existing [Resource group](../azure-resource-manager/resource-group-overview.md#resource-groups) or type the name for a new one. Type an Azure datacenter **Location** such as **West US**. 
 
 4. When you are done, click **OK** to continue to the next section. 
 

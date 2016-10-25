@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="jutang;robinsh"/>
+	ms.author="robinsh"/>
 
 
 # What to do if an Azure Storage outage occurs

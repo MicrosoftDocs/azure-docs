@@ -78,12 +78,17 @@ public interface IMyActor : IActor
 }
 ```
 
-* **The actor service project (MyActor)**. This is the project used to define the Service Fabric service that is going to host the actor. It contains the implementation of the actor. An actor implementation is a class that derives from the base type `Actor` and implements the interface(s) that are defined in the MyActor.Interfaces project.
+* **The actor service project (MyActor)**. This is the project used to define the Service Fabric service that is going to host the actor. It contains the implementation of the actor. An actor implementation is a class that derives from the base type `Actor` and implements the interface(s) that are defined in the MyActor.Interfaces project. An actor class must also implement a constructor that accepts an `ActorService` instance and an `ActorId` and passes them to the base `Actor` class. This allows for constructor dependency injection of platform dependencies.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
-internal class MyActor : Actor, IMyActor
+class MyActor : Actor, IMyActor
 {
+    public MyActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
+
     public Task<string> HelloWorld()
     {
         return Task.FromResult("Hello world!");

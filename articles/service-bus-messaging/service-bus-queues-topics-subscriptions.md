@@ -5,14 +5,14 @@
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="tysonn" />
+    editor="" />
 <tags 
     ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="06/20/2016"
+    ms.date="10/14/2016"
     ms.author="sethm" />
 
 # Service Bus queues, topics, and subscriptions
