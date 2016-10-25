@@ -79,7 +79,7 @@ Use the Azure CLI to generalize and capture the VM. In the following examples, r
 6. To find the location of a captured image, open the JSON template in a text editor. In the **storageProfile**, find the **uri** of the **image** located in the **system** container. For example, the uri of the OS disk image is similar to `https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
 
 ## Step 3: Create a VM from the captured image
-Now use the image with a template to create a Linux VM. These steps show you how to use the Azure CLI and the JSON file template you created with the **azure vm capture** command to create the VM in a new virtual network.
+Now use the image with a template to create a Linux VM. These steps show you how to use the Azure CLI and the JSON file template you captured to create the VM in a new virtual network.
 
 ### Create network resources
 
@@ -107,7 +107,7 @@ The **Id** in the output is similar to the following string:
 
 
 
-### Create a new deployment
+### Create a VM
 Now run the following command to create your VM from the captured VM image. Use the **-f** parameter to specify the path to the template JSON file you saved.
 
 	azure group deployment create MyResourceGroup1 MyDeployment -f MyTemplate.json
@@ -121,7 +121,7 @@ In the command output, you are prompted to supply a new VM name, the admin user 
 	adminPassword: ********
 	networkInterfaceId: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resource Groups/MyResourceGroup1/providers/Microsoft.Network/networkInterfaces/myNic
 
-The following sample output show what you see for a successful deployment:
+The following sample s what you see for a successful deployment:
 
 	+ Initializing template configurations and parameters
 	+ Creating a deployment
@@ -180,7 +180,7 @@ If you want the network set up automatically when you create a VM from the image
 
 Usually it's easiest to use a Resource Manager template to create a VM from the image. However, you can create the VM _imperatively_ by using the **azure vm create** command with the **-Q** (**--image-urn**) parameter. If you use this method, you also pass the **-d** (**--os-disk-vhd**) parameter to specify the location of the OS .vhd file for the new VM. This file must be in the vhds container of the storage account where the image VHD file is stored. The command copies the VHD for the new VM automatically to the **vhds** container.
 
-Before running **azure vm create** with the image, do the following:
+Before running **azure vm create** with the image, complete the following steps:
 
 1.	Create a resource group, or identify an existing resource group for the deployment.
 
