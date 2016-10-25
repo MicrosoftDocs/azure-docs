@@ -651,7 +651,7 @@ To run the script that deploys the solution:
 
 [vm-recommendations]: ./guidance-compute-single-vm.md#Recommendations
 [naming-conventions]: ./guidance-naming-conventions.md
-[implementing-active-directory]: ./guidance-iaas-ra-secure-vnet-ad.md
+[implementing-active-directory]: ./guidance-identity-adds-extend-domain.md
 [resource-manager-overview]: ../azure-resource-manager/resource-group-overview.md
 [implementing-a-secure-hybrid-network-architecture]: ./guidance-iaas-ra-secure-vnet-hybrid.md
 [implementing-a-secure-hybrid-network-architecture-with-internet-access]: ./guidance-iaas-ra-secure-vnet-dmz.md
@@ -693,7 +693,7 @@ To run the script that deploys the solution:
 [virtualnetworkgateway-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/virtualNetworkGateway.parameters.json
 [hybrid-azure-on-prem-vpn]: ./guidance-hybrid-network-vpn.md
 [virtualmachines-adds-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/virtualMachines-adds.parameters.json
-[extending-ad-to-azure]: ./guidance-iaas-ra-secure-vnet-ad.md
+[extending-ad-to-azure]: ./guidance-identity-adds-extend-domain.md
 [loadbalancer-adfs-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/loadBalancer-adfs.parameters.json
 [add-adds-domain-controller-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/add-adds-domain-controller.parameters.json
 [gmsa-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/gmsa.parameters.json

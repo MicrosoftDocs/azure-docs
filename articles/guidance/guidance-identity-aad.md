@@ -182,7 +182,7 @@ Use Azure AD to provide access to on-premises applications.
 
 - Expose your on-premises web applications using application proxy connectors manage by the Azure AD application proxy component. The application proxy connector opens an outbound network connection to the Azure AD application proxy. Remote users requests are routed back from AAD through this connection to the web apps. This mechanism removes the need to open inbound ports in the on-premises firewall, reducing the attack surface exposed by your organization.
 
-For more information, see [Publish applications using Azure AD Application proxy][aad-app-proxy].
+For more information, see [Publish applications using Azure AD Application proxy][aad-application-proxy].
 
 ## Object synchronization considerations
 

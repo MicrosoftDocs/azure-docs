@@ -606,7 +606,7 @@ The remaining optional steps show how to determine whether the domain trust is w
 [resource-manager-overview]: ../azure-resource-manager/resource-group-overview.md
 [adfs]: ./guidance-identity-adfs.md
 [adds-extend-domain]: ./guidance-identity-adds-extend-domain.md
-[extending-ad-to-azure]: ./guidance-iaas-ra-secure-vnet-ad.md
+[extending-ad-to-azure]: ./guidance-identity-adds-extend-domain.md
 [implementing-aad]: ./guidance-identity-aad.md
 [implementing-a-multi-tier-architecture-on-Azure]: ./guidance-compute-n-tier-vm.md
 [implementing-a-secure-hybrid-network-architecture-with-internet-access]: ./guidance-iaas-ra-secure-vnet-dmz.md
