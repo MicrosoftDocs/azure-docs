@@ -22,15 +22,15 @@
 
 Follow the steps in this article to generalize and capture your Azure Linux virtual machine (VM) in the Resource Manager deployment model. When you generalize the VM, you remove personal account information and prepare the VM to be used as an image. You then capture a generalized virtual hard disk (VHD) image for the OS, VHDs for attached data disks, and a [Resource Manager template](../azure-resource-manager/resource-group-overview.md) for new VM deployments. 
 
-To create VMs using the image, set up network resources for each new VM, and use the template (a JavaScript Object Notation, or JSON, file) to deploy it from the captured VHD images. In this way, you can replicate a VM with its current state and software, similar to the way you use images in the Azure Marketplace.
+To create VMs using the image, set up network resources for each new VM, and use the template (a JavaScript Object Notation, or JSON, file) to deploy it from the captured VHD images. In this way, you can replicate a VM with its current software configuration, similar to the way you use images in the Azure Marketplace.
 
->[AZURE.TIP]If you set up an on-premises Linux VHD image that you want to use to deploy Azure VMs, see [Upload and create a Linux VM from custom disk image](virtual-machines-linux-upload-vhd.md).
+>[AZURE.TIP]If you want to create a copy of your existing Linux VM with its specialized state for backup or debugging, see [Create a copy of a Linux virtual machine running on Azure](virtual-machines-linux-copy-vm.md). And if you want to upload a Linux VHD from an on-premises VM, see [Upload and create a Linux VM from custom disk image](virtual-machines-linux-upload-vhd.md).  
 
 ## Before you begin
 
 Ensure that you meet the following prerequisites:
 
-* **Azure VM created in the Resource Manager deployment model** - If you haven't created a Linux VM, you can use the [portal](virtual-machines-linux-quick-create-portal.md), the [Azure CLI](virtual-machines-linux-quick-create-cli.md), and [Resource Manager templates](virtual-machines-linux-cli-deploy-templates.md). 
+* **Azure VM created in the Resource Manager deployment model** - If you haven't created a Linux VM, you can use the [portal](virtual-machines-linux-quick-create-portal.md), the [Azure CLI](virtual-machines-linux-quick-create-cli.md), or [Resource Manager templates](virtual-machines-linux-cli-deploy-templates.md). 
 
     Configure the VM as needed. For example, [add data disks](virtual-machines-linux-add-disk.md), apply updates, and install applications. 
 * **Azure CLI** - Install the [Azure CLI](../xplat-cli-install.md) on a local computer.
@@ -76,7 +76,7 @@ Use the Azure CLI to generalize and capture the VM. In the following examples, r
 
 	>[AZURE.IMPORTANT]The image VHD files get created by default in the same storage account that the original VM used. Use the *same storage account* to store the VHDs for any new VMs you create from the image. 
 
-6. To find the location of a captured image, open the JSON template in a text editor. In the **storageProfile**, find the **uri** of the **image** located in the **system** container. For example, the uri of the OS disk image is similar to `https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
+6. To find the location of a captured image, open the JSON template in a text editor. In the **storageProfile**, find the **uri** of the **image** located in the **system** container. For example, the URI of the OS disk image is similar to `https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
 
 ## Step 3: Create a VM from the captured image
 Now use the image with a template to create a Linux VM. These steps show you how to use the Azure CLI and the JSON file template you captured to create the VM in a new virtual network.
@@ -167,10 +167,10 @@ Use the captured image and template to deploy additional VMs using the steps in 
 
 To use the captured image and template, follow these steps (detailed in the preceding section):
 
-* Ensure that your VM image is in the same storage account that hosts your VM's VHD
-* Copy the template JSON file and enter a unique value for the **uri** of the new VM's VHD (or VHDs)
-* Create a NIC in either the same or a different virtual network
-* Using the modified template JSON file, create a deployment in the resource group in which you set up the virtual network
+* Ensure that your VM image is in the same storage account that hosts your VM's VHD.
+* Copy the template JSON file and specify a unique name for the OS disk of the new VM's VHD (or VHDs). For example, in the **storageProfile**, under **vhd**, in **uri**, specify a unique name for the **osDisk** VHD, similar to `https://xxxxxxxxxxxxxx.blob.core.windows.net/vhds/MyNewVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
+* Create a NIC in either the same or a different virtual network.
+* Using the modified template JSON file, create a deployment in the resource group in which you set up the virtual network.
 
 ### Use a quickstart template
 
