@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/27/2016" 
+    ms.date="10/24/2016" 
     ms.author="ddove" />
 
 # Moving data between scaled-out cloud databases
