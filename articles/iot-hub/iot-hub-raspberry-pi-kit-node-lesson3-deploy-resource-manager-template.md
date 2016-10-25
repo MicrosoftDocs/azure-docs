@@ -19,7 +19,7 @@
 
 # 3.1 Create an Azure function app and storage account
 
-[Azure Functions](../../articles/azure-functions/functions-overview.md) is a solution for easily running *functions* (small pieces of code)  in the cloud. An Azure function app hosts the execution of your functions in Azure.
+[Azure Functions](../../articles/azure-functions/functions-overview.md) is a solution for easily running *functions* (small pieces of code) in the cloud. An Azure function app hosts the execution of your functions in Azure.
 
 ## 3.1.1 What you will do
 
