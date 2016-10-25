@@ -27,7 +27,7 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 
 All tiers can be [provisioned in the portal](search-create-service-portal.md). A service is initially allocated one partition and one replica, but you can increase the resource allocation once the service is created. 
 
-A service is provisioned at a specific tier. If you need to jump tiers to get more capacity, you must provision a new service (there is no in-place upgrade). For more information about scalability, see [Scale resource levels for query and indexing workloads](search-capacity-planning.md).
+A service is provisioned at a specific tier. If you need to jump tiers to get more capacity, you must provision a new service (there is no in-place upgrade). For more information about tiers, see [Scale resource levels for query and indexing workloads](search-capacity-planning.md).
 
 ## Per subscription limits
 
