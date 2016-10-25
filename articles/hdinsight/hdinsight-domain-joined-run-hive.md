@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/24/2016"
+   	ms.date="10/25/2016"
    	ms.author="saurinsh"/>
 
 # Configure Hive policies in Domain-joined HDInsight (Preview)
@@ -43,11 +43,11 @@ Learn how to configure Apache Ranger policies for Hive. In this article, you cre
 
 ## Create Domain users
 
-In [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-setup.md#create-and-configure-an-aad), you have created hiveruser1 and hiveuser2. You will use the two user account in this tutorial.
+In [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-ad), you have created hiveruser1 and hiveuser2. You will use the two user account in this tutorial.
 
 ## Create Ranger policies
 
-In this section, you will create two Ranger policies for accessing hivesampletable. You give select permission on different set of columns. Both users were created in [Configure Domain-joined HDInsight clusters](hive-domain-joined-configure.md#create-and-cofigure-an-aad).  In the next section, you will test the two policies in Excel.
+In this section, you will create two Ranger policies for accessing hivesampletable. You give select permission on different set of columns. Both users were created in [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-add).  In the next section, you will test the two policies in Excel.
 
 **To create Ranger policies**
 
