@@ -3,7 +3,7 @@
 	description="How to build a NodeJS Web API accepts tokens from both personal Microsoft Account and work or school accounts."
 	services="active-directory"
 	documentationCenter="nodejs"
-	authors="xerners"
+	authors="brandwe"
 	manager="mbaldwin"
 	editor=""/>
 
