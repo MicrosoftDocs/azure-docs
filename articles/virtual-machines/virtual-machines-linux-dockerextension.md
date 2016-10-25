@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Using the Azure Docker VM Extension | Microsoft Azure"
-   description="Learn how to use the Docker VM Extension to quickly and securely deploy a Docker environment in Azure using Resource Manager templates."
+   pageTitle="Using the Azure Docker VM extension | Microsoft Azure"
+   description="Learn how to use the Docker VM extension to quickly and securely deploy a Docker environment in Azure using Resource Manager templates."
    services="virtual-machines-linux"
    documentationCenter=""
    authors="iainfoulds"
@@ -13,27 +13,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="10/12/2016"
+   ms.date="10/25/2016"
    ms.author="iainfou"/>
 
-# Create a Docker environment in Azure using the Docker VM Extension
+# Create a Docker environment in Azure using the Docker VM extension
 Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux (and Windows as well). In Azure, there are various ways you can deploy Docker according to your needs:
 
 - To quickly prototype an app, you can create a single Docker host using [Docker Machine](./virtual-machines-linux-docker-machine.md).
-- For larger, more stable environments, you can use the Azure Docker VM Extension, which also supports [Docker Compose](https://docs.docker.com/compose/overview/) to generate consistent container deployments.
+- For larger, more stable environments, you can use the Azure Docker VM extension, which also supports [Docker Compose](https://docs.docker.com/compose/overview/) to generate consistent container deployments.
 - To build production-ready, scalable environments that provide additional scheduling and management tools, you can deploy a [Docker Swarm cluster on Azure Container Services](../container-service/container-service-deployment.md).
 
-This article focuses on using the Docker VM Extension and Azure Resource Manager templates.
+This article focuses on using the Docker VM extension and Azure Resource Manager templates.
 
 
-## Azure Docker VM Extension overview
-The Azure Docker VM Extension installs and configures the Docker daemon, Docker client, and Docker Compose in your Linux virtual machine (VM). By using the Azure Docker VM Extension, you have more control and features than simply using Docker Machine or creating the Docker host yourself. These additional features, such as [Docker Compose](https://docs.docker.com/compose/overview/), make the Azure Docker VM Extension suited for more robust developer or production environments.
+## Azure Docker VM extension overview
+The Azure Docker VM extension installs and configures the Docker daemon, Docker client, and Docker Compose in your Linux virtual machine (VM). By using the Azure Docker VM extension, you have more control and features than simply using Docker Machine or creating the Docker host yourself. These additional features, such as [Docker Compose](https://docs.docker.com/compose/overview/), make the Azure Docker VM extension suited for more robust developer or production environments.
 
 Azure Resource Manager templates define the entire structure of your environment. Templates allow you to create and configure resources such as the Docker host VMs, storage, Role-Based Access Controls (RBAC), and diagnostics. You can reuse these templates to create additional deployments in a consistent manner. For more information about Azure Resource Manager and templates, see [Resource Manager overview](../azure-resource-manager/resource-group-overview.md). 
 
 
-## Deploy a template with the Azure Docker VM Extension
-Let's use an existing quick-start template to create an Ubuntu VM that uses the Azure Docker VM Extension to install and configure the Docker host. You can view the template here: [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). 
+## Deploy a template with the Azure Docker VM extension
+Let's use an existing quickstart template to create an Ubuntu VM that uses the Azure Docker VM extension to install and configure the Docker host. You can view the template here: [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). 
 
 You need the [latest Azure CLI](../xplat-cli-install.md) installed and logged in using the Resource Manager mode as follows:
 
@@ -73,7 +73,7 @@ info:    group create command OK
 
 ```
 
-The Azure CLI returns you to the prompt after only a few seconds, but your Docker host is still being created and configured by the Azure Docker VM Extension. It takes a few minutes for the deployment to finish. You can view details about the Docker host status using the `azure vm show` command.
+The Azure CLI returns you to the prompt after only a few seconds, but your Docker host is still being created and configured by the Azure Docker VM extension. It takes a few minutes for the deployment to finish. You can view details about the Docker host status using the `azure vm show` command.
 
 The following example checks the status of the VM named `myDockerVM` (the default name from the template - don't change this name) in the resource group named `myResourceGroup`. Enter the name of the resource group you created in the preceding step:
 
@@ -160,8 +160,8 @@ To see your container in action, open up a web browser and enter the FQDN name o
 ![Running ngnix container](./media/virtual-machines-linux-dockerextension/nginxrunning.png)
 
 
-## Azure Docker VM Extension template reference
-The previous example uses an existing quick-start template. You can also deploy the Azure Docker VM Extension with your own Resource Manager templates. To do so, add the following to your Resource Manager templates, defining the `vmName` of your VM appropriately:
+## Azure Docker VM extension template reference
+The previous example uses an existing quickstart template. You can also deploy the Azure Docker VM extension with your own Resource Manager templates. To do so, add the following to your Resource Manager templates, defining the `vmName` of your VM appropriately:
 
 ```
 {
@@ -183,7 +183,7 @@ The previous example uses an existing quick-start template. You can also deploy 
 }
 ```
 
-You can find more detailed walkthrough on using Resource Manager templates by reading [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)
+You can find more detailed walkthrough on using Resource Manager templates by reading [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
 
 ## Next steps
