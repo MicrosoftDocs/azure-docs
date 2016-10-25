@@ -76,7 +76,7 @@ Use the Azure CLI to generalize and capture the VM. In the following examples, r
 
 	>[AZURE.IMPORTANT]The image VHD files get created by default in the same storage account that the original VM used. Use the *same storage account* to store the VHDs for any new VMs you create from the image. 
 
-6. To find the location of a captured image, open the JSON template in a text editor. In the **storageProfile**, find the **uri** of the **image** located in the **system** container. For example, the URI of the OS disk image is similar to `https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
+6. To find the location of a captured image, open the JSON template in a text editor. In the **storageProfile**, find the **uri** of the **image** located in the **system** container. For example, the URI of the OS disk image is similar to `https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`
 
 ## Step 3: Create a VM from the captured image
 Now use the image with a template to create a Linux VM. These steps show you how to use the Azure CLI and the JSON file template you captured to create the VM in a new virtual network.
@@ -168,7 +168,7 @@ Use the captured image and template to deploy additional VMs using the steps in 
 To use the captured image and template, follow these steps (detailed in the preceding section):
 
 * Ensure that your VM image is in the same storage account that hosts your VM's VHD.
-* Copy the template JSON file and specify a unique name for the OS disk of the new VM's VHD (or VHDs). For example, in the **storageProfile**, under **vhd**, in **uri**, specify a unique name for the **osDisk** VHD, similar to `https://xxxxxxxxxxxxxx.blob.core.windows.net/vhds/MyNewVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
+* Copy the template JSON file and specify a unique name for the OS disk of the new VM's VHD (or VHDs). For example, in the **storageProfile**, under **vhd**, in **uri**, specify a unique name for the **osDisk** VHD, similar to `https://xxxxxxxxxxxxxx.blob.core.windows.net/vhds/MyNewVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`
 * Create a NIC in either the same or a different virtual network.
 * Using the modified template JSON file, create a deployment in the resource group in which you set up the virtual network.
 
