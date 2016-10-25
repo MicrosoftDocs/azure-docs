@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2016" 
+	ms.date="10/24/2016" 
 	ms.author="jingwang"/>
 
 # Move data From Amazon Simple Storage Service using Azure Data Factory
@@ -21,6 +21,15 @@
 This article outlines how you can use the Copy Activity in an Azure data factory to move data to from Amazon Simple Storage Service (S3) to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article that presents a general overview of data movement, and a list of supported source/sink data stores with copy activity.  
 
 Data factory currently supports only moving data from Amazon S3 to other data stores, but not for moving data from other data stores to Amazon S3.
+
+## Required permissions
+
+To copy data from Amazon S3, make sure you have been granted below permissions:
+
+- **s3:GetObject** and **s3:GetObjectVersion** for Amazon S3 Object Operations
+- **s3:ListBucket** and **s3:ListAllMyBuckets** (used in copy wizard only) for Amazon S3 Bucket Operations 
+
+You can find the full list of Amazon S3 permisions with detail from [Specifying Permissions in a Policy](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
 ## Copy data wizard
 The easiest way to create a pipeline that copies data from Amazon S3 is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 

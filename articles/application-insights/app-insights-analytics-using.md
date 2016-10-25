@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/03/2016" 
-	ms.author="danha"/>
+	ms.date="10/21/2016" 
+	ms.author="awills"/>
 
 
 # Using Analytics in Application Insights
@@ -169,7 +169,11 @@ After you've run a query, you can download a .csv file. Click **Export, to Excel
 
 Put the cursor in a query and choose **Export to Power BI**.
 
-    ![](./media/app-insights-analytics-using/240.png)
+![Export from Analytics to Power BI](./media/app-insights-analytics-using/240.png)
+
+The query gets the data, which you then render in Power BI. You can refresh the data by re-running the query.
+
+With Power BI, you can create dashboards that bring together data from a wide variety of sources.
 
 
 [Learn more about export to Power BI](app-insights-export-power-bi.md)

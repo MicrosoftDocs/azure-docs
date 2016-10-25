@@ -92,6 +92,8 @@ Azure IoT Hub implements the [service-assisted communication][lnk-service-assist
 
 The mobile industry has used the service-assisted communication pattern at enormous scale to implement push notification services such as [Windows Push Notification Services][lnk-wns], [Google Cloud Messaging][lnk-google-messaging], and [Apple Push Notification Service][lnk-apple-push].
 
+IoT Hub is supported over ExpressRoute's public peering path.
+
 ## Next steps
 
 To learn how Azure IoT Hub enables standards-based IoT device management for you to remotely manage, configure, and update your devices, see [Overview of Azure IoT Hub device management][lnk-device-management].
