@@ -19,7 +19,7 @@
 
 # Get Started with Docker and Compose to define and run a multi-container application on an Azure virtual machine
 
-Get started using Docker and [Compose](http://github.com/docker/compose) to define and run a complex application on a Linux virtual machine in Azure. With Compose, you use a simple text file to define an application consisting of multiple Docker containers. You then you spin up your application in a single command that does everything to deploy your defined environment. 
+Get started using Docker and [Compose](http://github.com/docker/compose) to define and run a complex application on a Linux virtual machine in Azure. With Compose, you use a simple text file to define an application consisting of multiple Docker containers. You then spin up your application in a single command that does everything to deploy your defined environment. 
 
 As an example, this article shows you how to quickly set up a WordPress blog with a backend MariaDB SQL database on an Ubuntu VM. You can also use Compose to set up more complex applications.
 
@@ -86,7 +86,7 @@ db:
 
 ## Step 4: Start the containers with Compose
 
-In the working directory on your VM, run the following command. (Depending on your environment, you might need to run `docker-compose` using `sudo`.):
+In the working directory on your VM, run the following command (depending on your environment, you might need to run `docker-compose` using `sudo`.):
 
 ```
 docker-compose up -d
