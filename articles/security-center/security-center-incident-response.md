@@ -92,13 +92,13 @@ After reading the description, Judy is convinced that this is not a false positi
 
 ### Diagnose incident response stage
 
-Sam receives the case from Judy and starts reviewing the remediation steps that were suggested by Security Center.
+Sam receives the case from Judy and starts reviewing the remediation steps that Security Center suggested.
 
 ![Incident response lifecycle](./media/security-center-incident-response/security-center-incident-response-fig6.png)
 
 ### Additional resources
 
-The incident response team can also take advantage of the [Security Center Power BI](security-center-powerbi.md) capability to see different types of reports. These reports can help them during further investigation to visualize, analyze, and filter recommendations and security alerts. For companies that use their security information and event management (SIEM) solution during the investigation process, they can also [integrate Security Center with their solution](security-center-integrating-alerts-with-log-integration.md). You can also integrate Azure audit logs and virtual machine (VM) security events by using the [Azure log integration tool](https://blogs.msdn.microsoft.com/azuresecurity/2016/07/21/microsoft-azure-log-integration-preview/). To investigate an attack, you can use this information in conjunction with the information that is provided by Security Center.
+The incident response team can also take advantage of the [Security Center Power BI](security-center-powerbi.md) capability to see different types of reports. These reports can help them during further investigation to visualize, analyze, and filter recommendations and security alerts. For companies that use their security information and event management (SIEM) solution during the investigation process, they can also [integrate Security Center with their solution](security-center-integrating-alerts-with-log-integration.md). You can also integrate Azure audit logs and virtual machine (VM) security events by using the [Azure log integration tool](https://blogs.msdn.microsoft.com/azuresecurity/2016/07/21/microsoft-azure-log-integration-preview/). To investigate an attack, you can use this information in conjunction with the information that Security Center provides.
 
 
 ## Conclusion
