@@ -4,7 +4,7 @@
 	services="azure-resource-manager"
 	documentationCenter="na"
 	authors="ravbhatnagar"
-	manager="ryjones"
+	manager="timlt"
 	editor="tysonn"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="07/12/2016"
+	ms.date="10/25/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # Use Policy to manage resources and control access
