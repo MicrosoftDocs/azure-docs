@@ -20,14 +20,14 @@
 # How to capture a VM image from a generalized Azure VM
 
 
-This article shows you how to use Azure PowerShell create an image of a generalized Azure VM. You can then use the image to create another VM. The image includes the OS disk and the data disks that are attached to the virtual machine. The image doesn't include the virtual network resources, so you need to set up those resources when you create the new VM. 
+This article shows you how to use Azure PowerShell to create an image of a generalized Azure VM. You can then use the image to create another VM. The image includes the OS disk and the data disks that are attached to the virtual machine. The image doesn't include the virtual network resources, so you need to set up those resources when you create the new VM. 
 
 
 ## Prerequisites
 
 - You need to have already [generalized the VM](virtual-machines-windows-generalize-vhd.md). Generalizing a VM removes all your personal account information, among other things, and prepares the machine to be used as an image.
 
-- You need to have Azure PowerShell version 1.0.x installed. If you haven't already installed PowerShell, read [How to install and configure Azure PowerShell](../powershell-install-configure.md) for installation steps.
+- You need to have Azure PowerShell version 1.0.x or newer installed. If you haven't already installed PowerShell, read [How to install and configure Azure PowerShell](../powershell-install-configure.md) for installation steps.
 
 
 ## Log in to Azure PowerShell
@@ -71,13 +71,13 @@ This article shows you how to use Azure PowerShell create an image of a generali
 3. Check the status of the VM. The **OSState/generalized** section for the VM should have the **DisplayStatus** set to **VM generalized**.  
 
 	```powershell
-	$vm = Get-AzureRmVM -ResourceGroupName <resourceGroup> -Name <vmName> -status
+	$vm = Get-AzureRmVM -ResourceGroupName <resourceGroup> -Name <vmName> -Status
 	$vm.Statuses
 	```
 
 ## Create the image 
 
-1. Copy the virtual machine image to the destination storage container using this command. The image is created in the same storage account as the original virtual machine. The `-Path` variable saves a copy of the JSON template locally. The `-DestinationContainerName` variable is the name of the container that you want to hold your images. If the container doesn't exist, it is created for you.
+1. Copy the virtual machine image to the destination storage container using this command. The image is created in the same storage account as the original virtual machine. The `-Path` parameter saves a copy of the JSON template locally. The `-DestinationContainerName` parameter is the name of the container that you want to hold your images. If the container doesn't exist, it is created for you.
 
 	```powershell
 	Save-AzureRmVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
