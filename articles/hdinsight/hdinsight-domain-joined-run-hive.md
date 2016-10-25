@@ -35,7 +35,7 @@ Learn how to configure Apache Ranger policies for Hive. In this article, you cre
 1. From a browser, connect to Ranger Admin UI. The URL is https://&lt;ClusterName>.azurehdinsight.net/Ranger/. 
 
 	>[AZURE.NOTE] Ranger uses different credentials than Hadoop cluster. To prevent browsers using cached Hadoop credentials, use new inprivate browser window to connect to the Ranger Admin UI.
-4. Log in as **admin** with the password **admin**. This is the default password.  You can change the password. The Ranger Admin UI home page looks like:
+4. Log in using the cluster administrator domain user name and password:
 
 	![HDInsight Domain-joined Ranger home page](./media/hdinsight-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png)
 
