@@ -249,8 +249,8 @@ For more information, see [Install Active Directory administration tools on the 
 4. Click **Next**.
 5. Select **Primary zone**, and then click **Next**.
 6. Select **To all DNS servers running on domain controllers in this domain**, and then click **Next**.
-6. Select **IPv4 Reverse Lookup Zone, and then click **Next**.
-7. In **Network ID**, enter the prefix for the HDInsight VNET network range, and then click **Next**.
+6. Select **IPv4 Reverse Lookup Zone**, and then click **Next**.
+7. In **Network ID**, enter the prefix for the HDInsight VNET network range, and then click **Next**. You will create the HDInsight VNet in the following section.
 8. Click **Next**.
 9. Click **Next**.
 10. Click **Finish**.

@@ -47,7 +47,7 @@ In [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configur
 
 ## Create Ranger policies
 
-In this section, you will create two Ranger policies for accessing hivesampletable. You give select permission on different set of columns. Both users were created in [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-add).  In the next section, you will test the two policies in Excel.
+In this section, you will create two Ranger policies for accessing hivesampletable. You give select permission on different set of columns. Both users were created in [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-ad).  In the next section, you will test the two policies in Excel.
 
 **To create Ranger policies**
 
