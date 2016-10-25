@@ -65,7 +65,7 @@ Azure IoT Hub helps you connect, monitor, and manage millions of IoT assets. To 
 
     You must register the provider before you can deploy the Azure resource that the provider provides.
 
-    > [AZURE.NOTE] Most providers are registered automatically by the Azure portal or the Azure CLI you are using, but not all. For more information about the provider, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](../resource-manager-common-deployment-errors.md).
+    > [AZURE.NOTE] Most providers are registered automatically by the Azure portal or the Azure CLI that you're using, but not all. For more information about the provider, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](../resource-manager-common-deployment-errors.md).
 
 4. Create a resource group named iot-sample in the West US region by running the following command:
 
@@ -101,4 +101,4 @@ You've created a hub and registered Pi with a device identity in your hub. You'r
 
 ## Next steps
 
-[Create an Azure function app and a storage account to process and store IoT hub messages](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md).
+[Create an Azure function app and a storage account to process and store hub messages](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md).
