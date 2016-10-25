@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Deploying Compute Resources with Azure Resource Manager Templates | Microsoft Azure"
    description="Azure Virtual Machine DotNet Core Tutorial"
    services="virtual-machines-linux"
@@ -80,7 +80,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
   "properties": {
     "accountType": "[variables('vhdStorageType')]"
   }
-},
+}
 ```
 
 A storage account is associate with a virtual machine inside the Resource Manager template declaration of the virtual machine. 
@@ -229,7 +229,7 @@ In addition to a virtual machine hosting the Music Store website, an Azure SQL D
 
 An Azure SQL database can be added using the Visual Studio Add New Resource wizard, or by inserting valid JSON into a template. The SQL Server resource includes a user name and password that is granted administrative rights on the SQL instance. Also, a SQL firewall resource is added. By default, applications hosted in Azure are able to connect with the SQL instance. To allow external application such a SQL Server Management studio to connect to the SQL instance, the firewall needs to be configured. For the sake of the Music Store demo, the default configuration is fine. 
 
-Follow this link to see the JSON sample within the Resource Manager template – [Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L401.
+Follow this link to see the JSON sample within the Resource Manager template – [Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L401).
 
 
 ```none

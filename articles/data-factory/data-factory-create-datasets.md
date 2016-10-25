@@ -4,7 +4,7 @@
     keywords="create dataset, dataset example, offset example"
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="sharonlo101" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/13/2016" 
-	ms.author="spelluru"/>
+	ms.author="shlo"/>
 
 # Datasets in Azure Data Factory
 This article describes datasets in Azure Data Factory and includes examples such as offset, anchorDateTime, and offset/style databases.

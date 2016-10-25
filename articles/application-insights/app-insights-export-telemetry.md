@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Continuous export of telemetry from Application Insights" 
+	pageTitle="Continuous export of telemetry from Application Insights | Microsoft Azure" 
 	description="Export diagnostic and usage data to storage in Microsoft Azure, and download it from there." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2016" 
+	ms.date="10/18/2016" 
 	ms.author="awills"/>
  
 # Export telemetry from Application Insights
@@ -48,11 +48,11 @@ On your application's Overview blade in the Application Insights portal, open Co
 
 ![Scroll down and click Continuous Export](./media/app-insights-export-telemetry/01-export.png)
 
-Add an export, and choose an [Azure storage account](../storage/storage-introduction.md) where you want to put the data:
+Add a continuous export, and choose the event types you'd like to export:
 
 ![Click Add, Export Destination, Storage account, and then either create a new store or choose an existing store](./media/app-insights-export-telemetry/02-add.png)
 
-Choose the event types you'd like to export:
+Choose or create the [Azure storage account](../storage/storage-introduction.md) where you want to store the data:
 
 ![Click Choose event types](./media/app-insights-export-telemetry/03-types.png)
 
@@ -168,9 +168,7 @@ The continuous export will restart.
 
 * [Export to SQL using a worker role][exportcode]
 * [Export to SQL using Stream Analytics][exportasa]
-* [Export to Power BI using Stream Analytics](app-insights-export-power-bi.md)
- * Note that this isn't the standard way to use Power BI. There's [an adaptor](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) which doesn't require Continuous Export.
-
+* [Stream Analytics sample 2](app-insights-export-stream-analytics.md)
 
 On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdinsight/) - Hadoop clusters in the cloud. HDInsight provides a variety of technologies for managing and analyzing big data.
 
@@ -215,8 +213,8 @@ On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdin
 
 ## Code samples
 
-* [Stream Application Insights to Power BI](app-insights-export-power-bi.md)
 * [Parse exported JSON using a worker role][exportcode]
+* [Stream Analytics sample](app-insights-export-stream-analytics.md)
 * [Export to SQL using Stream Analytics][exportasa]
 
 * [Detailed data model reference for the property types and values.](app-insights-export-data-model.md)

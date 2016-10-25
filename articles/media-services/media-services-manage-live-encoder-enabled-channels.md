@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2016"
+	ms.date="10/17/2016"
 	ms.author="juliako;anilmur"/>
 
 #Live streaming using Azure Media Services to create multi-bitrate streams
@@ -43,7 +43,7 @@ Starting with the Media Services 2.10 release, when you create a Channel, you ca
 
 A live encoding channel begins billing as soon as it's state transitions to "Running" via the API.   You can also view the state in the Azure portal, or in the Azure Media Services Explorer tool (http://aka.ms/amse).
 
-The following table shows how Channel states map to billing states in the API and Azure portal. Note that the states are slightly different between the API and Portal UX. As soon as a channel is in the "Running" state via the API, or in the "Ready" or "Streaming" state in the Azure Classic Portal, billing will be active.
+The following table shows how Channel states map to billing states in the API and Azure portal. Note that the states are slightly different between the API and Portal UX. As soon as a channel is in the "Running" state via the API, or in the "Ready" or "Streaming" state in the Azure portal, billing will be active.
 To stop the Channel from billing you further, you have to Stop the Channel via the API or in the Azure portal.
 You are responsible for stopping your channels when you are done with the live encoding channel.  Failure to stop an encoding channel will result in continued billing.
 
@@ -106,7 +106,7 @@ The following are general steps involved in creating common live streaming appli
 
 3. Create a program. 
 
-	When using the Azure Classic Portal, creating a program also creates an asset. 
+	When using the Azure portal, creating a program also creates an asset. 
 
 	When using .NET SDK or REST you need to create an asset and specify to use this asset when creating a Program. 
 1. Publish the asset associated with the program.   
@@ -238,7 +238,7 @@ You have an option of ingesting Fragmented MP4 (Smooth Streaming) live stream ov
 
 ###Allowed IP addresses
 
-You can define the IP addresses that are allowed to publish video to this channel. Allowed IP addresses can be specified as either a single IP address (e.g. ‘10.0.0.1’), an IP range using an IP address and a CIDR subnet mask (e.g. ‘10.0.0.1/22’), or an IP range using an IP address and a dotted decimal subnet mask (e.g. ‘10.0.0.1(255.255.252.0)’).
+You can define the IP addresses that are allowed to publish video to this channel. Allowed IP addresses can be specified as either a single IP address (e.g. '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (e.g. ‘10.0.0.1/22’), or an IP range using an IP address and a dotted decimal subnet mask (e.g. '10.0.0.1(255.255.252.0)').
 
 If no IP addresses are specified and there is no rule definition then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.
 
@@ -253,7 +253,7 @@ You can get the preview URL when you create the channel. To get the URL, the cha
 
 Once the Channel starts ingesting data, you can preview your stream.
 
->[AZURE.NOTE]Currently the preview stream can only be delivered in Fragmented MP4 (Smooth Streaming) format regardless of the specified input type. You can use the [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) player to test the Smooth Stream. You can also use a player hosted in the Azure Classic Portal to view your stream.
+>[AZURE.NOTE]Currently the preview stream can only be delivered in Fragmented MP4 (Smooth Streaming) format regardless of the specified input type. You can use the [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) player to test the Smooth Stream. You can also use a player hosted in the Azure portal to view your stream.
 
 ###Allowed IP Addresses
 

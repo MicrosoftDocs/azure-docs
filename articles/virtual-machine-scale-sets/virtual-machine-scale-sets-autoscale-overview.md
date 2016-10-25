@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/27/2016"
+	ms.date="10/18/2016"
 	ms.author="davidmu"/>
 
 # Automatic scaling and virtual machine scale sets
@@ -23,7 +23,7 @@ Automatic scaling of virtual machines in a scale set is the creation or deletion
 
 Automatic scaling is an automated process that helps ease management overhead. By reducing overhead, you don't need to continually monitor system performance or decide how to manage resources. Scaling is an elastic process. More resources can be added as the load increases, but as demand decreases resources can be removed to minimize costs and maintain performance levels.
 
-Set up automatic scaling on a scale set by using an Azure Resource Manager template, by using Azure PowerShell, or by using Azure CLI.
+Set up automatic scaling on a scale set by using an Azure Resource Manager template, Azure PowerShell, Azure CLI, or the Azure portal.
 
 ## Set up scaling by using Resource Manager templates
 
@@ -198,11 +198,15 @@ After a cooldown period of five minutes, if the average number of threads on the
 
 ## Set up scaling using Azure PowerShell
 
-To see examples of using PowerShell to set up autoscaling, look at [Azure Insights PowerShell quick start samples](../azure-portal/insights-powershell-samples.md).
+To see examples of using PowerShell to set up autoscaling, look at [Azure Insights PowerShell quick start samples](../monitoring-and-diagnostics/insights-powershell-samples.md).
 
 ## Set up scaling using Azure CLI
 
-To see examples of using Azure CLI to set up autoscaling, look at [Azure Insights Cross-platform CLI quick start samples](../azure-portal/insights-cli-samples.md).
+To see examples of using Azure CLI to set up autoscaling, look at [Azure Insights Cross-platform CLI quick start samples](../monitoring-and-diagnostics/insights-cli-samples.md).
+
+## Set up scaling using the Azure portal
+
+To see an example of using the Azure portal to set up autoscaling, look at [Create a Virtual Machine Scale Set using the Azure portal](virtual-machine-scale-sets-portal-create.md).
 
 ## Investigate scaling actions
 
@@ -219,7 +223,7 @@ subscriptions > {your subscription} > resourceGroups > {your resource group} > p
 ## Next Steps
 
 - Look at [Automatically scale machines in a Virtual Machine Scale Set](virtual-machine-scale-sets-windows-autoscale.md) to see an example of how to create a scale set with automatic scaling configured.
-- Find examples of Azure Insights monitoring features in [Azure Insights PowerShell quick start samples](../azure-portal/insights-powershell-samples.md)
-- Learn about notification features in [Use autoscale actions to send email and webhook alert notifications in Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md).
-- Learn about how to [Use audit logs to send email and webhook alert notifications in Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md)
+- Find examples of Azure Insights monitoring features in [Azure Insights PowerShell quick start samples](../monitoring-and-diagnostics/insights-powershell-samples.md)
+- Learn about notification features in [Use autoscale actions to send email and webhook alert notifications in Azure Insights](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md).
+- Learn about how to [Use audit logs to send email and webhook alert notifications in Azure Insights](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 - Learn about [advanced autoscale scenarios](./virtual-machine-scale-sets-advanced-autoscale.md).
