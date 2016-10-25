@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/29/2016"
+	ms.date="10/24/2016"
 	ms.author="juliako"/>
 
 # Publish content with the Azure portal
@@ -59,7 +59,7 @@ To update an expiration date on a locator, use [REST](http://msdn.microsoft.com/
 
 To use the portal to publish an asset, do the following:
 
-1. Log in at the [Azure portal](https://portal.azure.com/).
+1. In the [Azure portal](https://portal.azure.com/), select your Azure Media Services account.
 1. Select **Settings** > **Assets**.
 1. Select the asset that you want to publish.
 1. Click the **Publish** button.
