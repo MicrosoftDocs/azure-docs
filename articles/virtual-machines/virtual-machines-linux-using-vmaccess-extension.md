@@ -27,7 +27,7 @@ This article shows you how to use the Azure VMAcesss Extension to check or repai
 
 - the [Azure CLI](../xplat-cli-install.md) logged in with `azure login`.
 
-- the Azure CLI _must be in_ Azure Resource Manager mode `azure config mode arm`. 
+- the Azure CLI _must be in_ Azure Resource Manager mode `azure config mode arm`.
 
 ## Quick commands
 
@@ -41,17 +41,19 @@ For the quick command section, we are going to use the Azure CLI `azure vm reset
 ## Create a Resource Group and Linux VM
 
 ```bash
-azure group create resourcegroupexample westus
+azure group create myResourceGroup westus
 ```
+
+## Create a Debian VM
 
 ```bash
 azure vm quick-create \
 -M ~/.ssh/id_rsa.pub \
--u userexample \
--g resourcegroupexample \
+-u myAdminUser \
+-g myResourceGroup \
 -l westus \
 -y Linux \
--n debianexamplevm \
+-n myDebianVM \
 -Q Debian
 ```
 
@@ -60,7 +62,11 @@ azure vm quick-create \
 To reset the root password:
 
 ```bash
-azure vm reset-access -g exampleResourceGroup -n exampleVMName -u root -p examplenewPassword
+azure vm reset-access \
+-g myResourceGroup \
+-n myDebianVM \
+-u root \
+-p myNewPassword
 ```
 
 ## SSH key reset
@@ -68,7 +74,11 @@ azure vm reset-access -g exampleResourceGroup -n exampleVMName -u root -p exampl
 To reset the SSH key of a non-root user:
 
 ```bash
-azure vm reset-access -g exampleResourceGroup -n exampleVMName -u userexample -M ~/.ssh/id_rsa.pub
+azure vm reset-access \
+-g myResourceGroup \
+-n myDebianVM \
+-u myAdminUser \
+-M ~/.ssh/id_rsa.pub
 ```
 
 ## Create a user
@@ -76,13 +86,20 @@ azure vm reset-access -g exampleResourceGroup -n exampleVMName -u userexample -M
 To create a user:
 
 ```bash
-azure vm reset-access -g exampleResourceGroup -n exampleVMName -u userexample -p examplePassword
+azure vm reset-access \
+-g myResourceGroup \
+-n myDebianVM \
+-u myAdminUser \
+-p myAdminUserPassword
 ```
 
 ## Remove a user
 
 ```bash
-azure vm reset-access -g exampleResourceGroup -n exampleVMName -R userexample
+azure vm reset-access \
+-g myResourceGroup \
+-n myDebianVM \
+-R myRemovedUser
 ```
 
 ## Reset SSHD
@@ -90,7 +107,10 @@ azure vm reset-access -g exampleResourceGroup -n exampleVMName -R userexample
 To reset the SSHD configuration:
 
 ```bash
-azure vm reset-access -g exampleResourceGroup -n exampleVMName -r
+azure vm reset-access \
+-g myResourceGroup \
+-n myDebianVM
+-r
 ```
 
 
