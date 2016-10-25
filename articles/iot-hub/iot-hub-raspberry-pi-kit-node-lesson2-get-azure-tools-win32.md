@@ -40,7 +40,7 @@ Install Python and the Azure command-line interface (Azure CLI). If you have any
 
 ## Install Python
 
-[Install Python](https://www.python.org/downloads/) on your Windows computer. You can install Python 2.7, 3.4 or 3.5. This tutorial is based on Python 2.7. If you've already installed Python, go to the next section and install Azure CLI.
+[Install Python](https://www.python.org/downloads/) on your Windows computer. You can install Python 2.7, 3.4, or 3.5. This tutorial is based on Python 2.7. If you've already installed Python, go to the next section and install Azure CLI.
 
 You also need to add the path of the folders where python.exe and pip.exe are installed to the system `PATH` environment variable. By default, python.exe is installed in `C:\Python27` and pip.exe is installed in `C:\Python27\Scripts`.
 
