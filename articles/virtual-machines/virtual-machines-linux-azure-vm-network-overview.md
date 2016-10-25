@@ -24,7 +24,7 @@ An Azure virtual network (VNet) is a representation of your own network in the c
 
 - [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
 
-You can use the Azure CLI to manage your Azure resources from the command prompt from any computer running Windows, Linux, or OSX. To create a VNet by using the Azure CLI, go here to follow the walk through.
+To create a VNet by using the Azure CLI, go here to follow the walk through.
 
 - [How to create a VNet using the Azure CLI](../virtual-network/virtual-networks-create-vnet-arm-cli.md)
 
