@@ -64,14 +64,6 @@ To resolve the issue, try one of the following methods:
 
 -	Browse to the Azure portal in InPrivate Browsing mode. Click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Safety** > **InPrivate Browsing**.
 
-## You need to sign in to an organizational account
-
-Your Microsoft account is the email address you use, along with your password, to sign in to any Windows Live program or service, such as Outlook, Hotmail, MSN, or OneDrive. You may set up a Microsoft account using any email address that belongs to you, including your company email. For more information, see [www.microsoft.com/account](http://www.microsoft.com/account).
-
-The default sign-in page of the Azure portal is for a Microsoft account. If your account is associated with an Organizational account, then select **Sign in with your organizational account**. For more information about using an Organizational account, see [Sign up for Azure as an organization](./active-directory/sign-up-organization.md):
-
-![sign in page](./media/billing-cannot-login-subscription/signin.png)
-
 ## Need help? Contact support. 
 
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly. 
