@@ -151,9 +151,11 @@ Create the HTTP listener for the application gateway. Assign the front-end ip co
 
 Upload the certificate to be used on the ssl enabled backend pool resources.
 
+> [AZURE.NOTE] The default probe gets the public key from the **default** SSL binding on the back-end's IP address and compares the public key value it receives to the public key value you provide here. The retrieved public key may not necessarily be the intended site to which traffic will flow **if** you are using host headers and SNI on the back-end. If in doubt, visit https://127.0.0.1/ on the back-ends to confirm which certificate is used for the **default** SSL binding. Use the public key from that request in this section. If you are using host-headers and SNI on HTTPS bindings and you do not receive a response and certificate from a manual browser request to https://127.0.0.1/ on the back-ends, you must set up a default SSL binding on the back-ends. If you do not do so, probes will fail and the back-end will be not be whitelisted.
+
     $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
 
-> [AZURE.NOTE] The certificate provided in this step should be the public key of the pfx cert present on the backend. Export the certificate (not the root certificate) installed on the backend server in .CER format and use it in this step. This step whitelists the backend with the application gateway. 
+> [AZURE.NOTE] The certificate provided in this step should be the public key of the pfx cert present on the backend. Export the certificate (not the root certificate) installed on the backend server in .CER format and use it in this step. This step whitelists the backend with the application gateway.
 
 ### Step 8
 
