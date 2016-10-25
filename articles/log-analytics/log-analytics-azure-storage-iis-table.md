@@ -140,7 +140,7 @@ In the Azure portal, navigate to your Log Analytics workspace and perform the fo
 
 Repeat steps 2-6 for additional storage accounts and data types that you want Log Analytics to collect.
 
-In approximately 30 minutes you are able to see data from the storage account in Log Analytics. You will only see data that is written to storage after the configuration is applied. Log Analytics does not read the pre-existing data from the storage account.
+In approximately 30 minutes, you are able to see data from the storage account in Log Analytics. You will only see data that is written to storage after the configuration is applied. Log Analytics does not read the pre-existing data from the storage account.
 
 >[AZURE.NOTE] The portal does not validate that the Source exists in the storage account or if new data is being written.
 
@@ -149,11 +149,11 @@ In approximately 30 minutes you are able to see data from the storage account in
 Use the steps in [Configuring Log Analytics to index Azure diagnostics](log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) to use PowerShell to read from Azure diagnostics that are written to table storage.
 
 Using Azure PowerShell you can more precisely specify the events that are written to Azure Storage.
-Refer to [Enabling Diagnostics in Azure Virtual Machines](../virtual-machines-dotnet-diagnostics.md) for more details.
+For more information, see [Enabling Diagnostics in Azure Virtual Machines](../virtual-machines-dotnet-diagnostics.md).
 
 You can enable and update Azure diagnostics using the following PowerShell script.
 You can also use this script with a custom logging configuration.
-You need to modify the script to set the storage account, service name, and virtual machine name.
+Modify the script to set the storage account, service name, and virtual machine name.
 The script uses cmdlets for classic virtual machines.
 
 Review the following script sample, copy it, modify it as needed, save the sample as a PowerShell script file, and then run the script.
