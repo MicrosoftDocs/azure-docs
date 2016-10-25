@@ -28,16 +28,14 @@ When you connect to Linux virtual machines (VMs) in Azure, you should use [publi
 
 ## Overview of SSH and keys
 
-SSH is an encrypted connection protocol that allows secure logins over unsecured connections. It is the default connection protocol for Linux VMs hosted in Azure. Although SSH itself provides an encrypted connection, using passwords with SSH connections still leaves the VM vulnerable to brute-force attacks or guessing of passwords. A more secure, and preferred, method of connecting to a VM using SSH is through the use cryptographic keys, also known as SSH keys.
-
 You can securely log in to your Linux VM by using public and private keys:
 
 - The **public key** is placed on your Linux VM, or any other service that you wish to use with public-key cryptography.
-- The **private key** is what you present to your Linux VM when you log in, to verify your identity.
+- The **private key** is what you present to your Linux VM when you log in, to verify your identity. Protect this private key. Do not share it.
 
-These public and private keys can be used on multiple VMs and services. You do not need a pair of keys for each VM or service you wish to access. 
+These public and private keys can be used on multiple VMs and services. You do not need a pair of keys for each VM or service you wish to access. For a more detailed overview, see [public-key cryptography](https://wikipedia.org/wiki/Public-key_cryptography).
 
-For a more detailed overview, see [public-key cryptography](https://wikipedia.org/wiki/Public-key_cryptography).
+SSH is an encrypted connection protocol that allows secure logins over unsecured connections. It is the default connection protocol for Linux VMs hosted in Azure. Although SSH itself provides an encrypted connection, using passwords with SSH connections still leaves the VM vulnerable to brute-force attacks or guessing of passwords. A more secure, and preferred, method of connecting to a VM using SSH is through the use of these public and private keys, also known as SSH keys.
 
 If you do not wish to use SSH keys, you can still log in to your Linux VMs using a password. If your VM is not exposed to the Internet, using passwords may be sufficient. However, you still need to manage your passwords for each Linux VM and maintain healthy password policies and practices, such as minimum password length and regularly updating them. The use of SSH keys reduces the complexity of managing individual credentials across multiple VMs.
 
