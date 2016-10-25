@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="big-data"
-	ms.date="07/14/2016"
+	ms.date="10/19/2016"
 	ms.author="rashimg;jgao"/>
 
 # Index of Hadoop in HDInsight troubleshooting articles

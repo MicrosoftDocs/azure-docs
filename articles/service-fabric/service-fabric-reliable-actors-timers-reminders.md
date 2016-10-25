@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/06/2016"
+   ms.date="10/19/2016"
    ms.author="vturecek"/>
 
 
@@ -29,6 +29,11 @@ Actors can use the `RegisterTimer` and `UnregisterTimer` methods on their base c
 class VisualObjectActor : Actor, IVisualObject
 {
     private IActorTimer _updateTimer;
+
+    public VisualObjectActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
 
     protected override Task OnActivateAsync()
     {
@@ -93,6 +98,11 @@ Actors that use reminders must implement the `IRemindable` interface, as shown i
 ```csharp
 public class ToDoListActor : Actor, IToDoListActor, IRemindable
 {
+    public ToDoListActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
+
     public Task ReceiveReminderAsync(string reminderName, byte[] context, TimeSpan dueTime, TimeSpan period)
     {
         if (reminderName.Equals("Pay cell phone bill"))
