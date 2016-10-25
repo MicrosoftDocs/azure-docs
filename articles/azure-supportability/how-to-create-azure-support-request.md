@@ -13,13 +13,15 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="07/25/2016"
+	 ms.date="10/25/2016"
 	 ms.author="gangan"/>
 
 # How to create an Azure support request
 
 ## Summary
 Azure customers can create and manage support requests in the Azure portal, [https://portal.azure.com](https://portal.azure.com).
+>[AZURE.NOTE] The Azure portal for Germany is [https://portal.microsoftazure.de](https://portal.microsoftazure.de) and for Azure government portal it's [https://portal.azure.us](https://portal.azure.us).
+
 Based on customer feedback, we’ve updated the support request experience to focus on three main goals:
 
 - **Streamlined**: Reduce clicks and blades to make the process of submitting a support request simple.
