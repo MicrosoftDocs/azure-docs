@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/24/2016"
+   ms.date="10/25/2016"
    ms.author="gwallace" />
 
 # Create a custom probe for Azure Application Gateway (classic) by using PowerShell
