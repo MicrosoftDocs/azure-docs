@@ -3,7 +3,7 @@
 	description="How to build a Node.js web app that signs in users by using a B2C tenant."
 	services="active-directory-b2c"
 	documentationCenter=""
-	authors="xerners"
+	authors="brandwe"
 	manager="msmbaldwin"
 	editor=""/>
 
