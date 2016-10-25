@@ -1161,7 +1161,7 @@ The [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-sta
 		</Source>
 	</Sources>
 
-Also, see [this](https://msdn.microsoft.com/en-us/library/azure/mt269962.aspx#PreserveResolutionAfterRotation) topic for more information on how the encoder interprets the Width and Height settings in the preset, when rotation compensation is triggered.
+Also, see [this](https://msdn.microsoft.com/library/azure/mt269962.aspx#PreserveResolutionAfterRotation) topic for more information on how the encoder interprets the Width and Height settings in the preset, when rotation compensation is triggered.
 
 You can use the value "0" to indicate to the encoder to ignore rotation metadata, if present, in the input video. 
 
