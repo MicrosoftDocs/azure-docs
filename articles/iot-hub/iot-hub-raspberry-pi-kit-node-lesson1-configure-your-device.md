@@ -63,7 +63,7 @@ Prepare the microSD card for installation of the Raspbian image.
   2. Extract the Raspbian image to a folder on your computer.
 2. Install Raspbian to the microSD card.
   1. [Download](https://www.etcher.io) and install the Etcher SD card burner utility.
-  2. Run Etcher and select the Raspbian image that you extracted in step 1.
+  2. Run Etcher and select the Raspbian image that you extracted in Step 1.
   3. Select the microSD card drive.
     Note: Etcher may have already selected the correct drive.
   4. Click **Flash** to install Raspbian to the microSD card.

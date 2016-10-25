@@ -143,6 +143,6 @@ You should now see the LED on your Pi blinking every two seconds.  If you don’
 
 You've installed the required tools to work with your Pi and deployed a sample application to your Pi to blink the LED. You can now move on to the next lesson to create, deploy, and run another sample application that connects your Pi to Azure IoT Hub to send and receive messages.
 
-## Next Steps
+## Next steps
 
 You are now ready to start Lesson 2 that begins with [Get the Azure tools](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md).
