@@ -19,15 +19,15 @@
 
 # Choose a SKU or pricing tier for Azure Search
 
-In Azure Search, a service is provisioned at a specific pricing tier or SKU during [service provisioning](search-create-service-portal.md). Choices include **Free**, **Basic**, or **Standard**, where **Standard** is available in multiple configurations and capacities. 
+In Azure Search, a [service is provisioned](search-create-service-portal.md) at a specific pricing tier or SKU. Options include **Free**, **Basic**, or **Standard**, where **Standard** is available in multiple configurations and capacities. 
 
-The purpose of this article is to help you choose a tier. If you underestimate capacity, you will need to provision a new service at the higher tier and then reload your indexes. There is no in-place upgrade of the same service from one SKU to another. 
+The purpose of this article is to help you choose a tier. If a tier's capacity turns out to be too low, you will need to provision a new service at the higher tier and then reload your indexes. There is no in-place upgrade of the same service from one SKU to another. 
 
-> [AZURE.NOTE] After you choose a tier and [provision a search service](search-create-service-portal.md), you can increase replica and partition counts to scale the workloads. For guidance, see [Scale resource levels for query and indexing workloads in Azure Search](searcb-capacity-planning.md).
+> [AZURE.NOTE] After you choose a tier and [provision a search service](search-create-service-portal.md), you can increase replica and partition counts within the service. For guidance, see [Scale resource levels for query and indexing workloads](search-capacity-planning.md).
 
 ## How to approach a pricing tier decision
 
-In Azure Search, the tier determines capacity, not feature availability. All features are available at every tier, including preview features.
+In Azure Search, the tier determines capacity, not feature availability. Generally, features are available at every tier, including preview features. The one exception is no support for indexers in S3 HD.
 
 > [AZURE.TIP] We recommend that you always provision a **Free** service (one per subscription, with no expiration) so that its readily available for light-weight projects. Use the **Free** service for testing and evaluation; create a second billable service at the **Basic** or **Standard** tier for production or larger test workloads.
 
@@ -86,8 +86,9 @@ The following questions can help you arrive at the right SKU decision for your w
 2. **How many indexes** do you require? One of the biggest variables that will factor into a SKU decision is the number of indexes supported by each SKU. Index support is at markedly different levels in the lower pricing tiers. Requirements on number of indexes could be a primary determinant of a SKU decision.
 3. **How many documents** will be loaded into each index? The number and size of documents will determine the eventual size of the index. Assuming you can estimate the projected size of the index, you can compare that number against the partition size per SKU, extended by the number of partitions required to store an index of that size. 
 4. **What is the expected query load**? Once storage requirements are understood, consider query workloads. S2 and both S3 SKUs offer near-equivalent throughput, but SLA requirements will rule out any preview SKUs. 
+5. If you are considering the S2 or S3 tier, determine whether you require [indexers](search-indexer-overview.md). Indexers are not yet available for the S3 HD tier. Alternative approach is to use a push model for index updates, where you write application code to push a data set to an index.
 
-Most customers can rule a specific SKU in or out based on their answers to these four questions. If you still aren't sure which SKU to go with, contact Azure Support for further guidance.
+Most customers can rule a specific SKU in or out based on their answers to the above questions. If you still aren't sure which SKU to go with, you can post questions to MSDN or StackOverflow forums, or contact Azure Support for further guidance.
 
 ## Decision validation: does the SKU offer sufficient storage and QPS?
 
