@@ -69,7 +69,7 @@ This tutorial provides the steps for configuring a domain-joined HDInsight clust
 	
 ## Create an Azure classic VNet
 
-In this section, you create a classic VNet using the Azure classic portal. In the next section, you enable the Azure AD DS for your Azure AD in the classic VNet. For additional information about the following procedure and using other VNet creation methods, see [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
+In this section, you create a classic VNet using the Azure portal. In the next section, you enable the Azure AD DS for your Azure AD in the classic VNet. For additional information about the following procedure and using other VNet creation methods, see [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
 
 **To create a classic VNet**
 
@@ -97,12 +97,12 @@ In this section, you create a classic VNet using the Azure classic portal. In th
 In this section, you will:
 
 1. Create an Azure AD.
-2. Create Azure AD users. These are domain users. You used the first user to be created for configuring the HDInsight cluster with the Azure AD.  The other two users are optional for this tutorial. They will be used in [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md) when you configure Apache Ranger policies.
+2. Create Azure AD users. These are domain users. You will use the first user for configuring the HDInsight cluster with the Azure AD.  The other two users are optional for this tutorial. They will be used in [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md) when you configure Apache Ranger policies.
 3. Create the AAD DC Administrators group and add the Azure AD user to the group. You use this user to create the organizational unit.
 4. Enable Azure AD Domain Services (Azure AD DS) for the Azure AD.
 7. Configure LDAPS for the Azure AD. The Lightweight Directory Access Protocol (LDAP) is used to read from and write to Azure AD.
 
-If you prefer to use an existing Azure AD, you can skip step 1.
+If you prefer to use an existing Azure AD, you can skip steps 1 and 2.
 
 **To create an Azure AD**
 
@@ -110,7 +110,7 @@ If you prefer to use an existing Azure AD, you can skip step 1.
 3. Enter or select the following values:
 
 	- **Name**: contosoaaddirectory
-	- **Domain name**: contoso.  This name must be globally unique. Replace the number in the name with a different number until it is validated successfully.
+	- **Domain name**: contoso.  This name must be globally unique.
 	- **Country or region**: Select your country or region.
 4. Click **Complete**.
 
@@ -167,7 +167,7 @@ If you use your own domain, you need to synchronize the password. See [Enable pa
 
 **To configure LDAPS for the Azure AD**
 
-1. Get an SSL certificate that is signed by a signing authority for your domain. If you can't create an SSL certificate, please contact hdipreview@microsoft.com. Self-signed certificates can't be used.
+1. Get an SSL certificate that is signed by a signing authority for your domain. Self-signed certificates can't be used. If you can't get an SSL certificate, please reach out to hdipreview@microsoft.com for an exception.
 1. From the [Azure classic portal](https://manage.windowsazure.com), click **Active Directory** > **contosoaaddirectory**. 
 3. Click **Configure** from the top menu.
 4. Scroll to **domain services**.
@@ -175,7 +175,7 @@ If you use your own domain, you need to synchronize the password. See [Enable pa
 6. Follow the instruction to specify the certificate file and the password. You will see **Pending ...** next to **Enable domain services for this directory**.  
 7. Wait until **Pending ...** disappears, and **Secure LDAP Certificate** got populated.  This can take up 10 minutes or more.
  
->[AZURE.NOTE] If some background tasks are being run on the Azure AD DS, you may see an error while uploading certificate - <i>There is an operation being performed for this tenant. Please try again later</i>.  In case you experience this error, please try again after some time. The second domain controller may take up to 3 hours to be provisioned.
+>[AZURE.NOTE] If some background tasks are being run on the Azure AD DS, you may see an error while uploading certificate - <i>There is an operation being performed for this tenant. Please try again later</i>.  In case you experience this error, please try again after some time. The second domain controller IP may take up to 3 hours to be provisioned.
 
 For more information, see [Configure Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 

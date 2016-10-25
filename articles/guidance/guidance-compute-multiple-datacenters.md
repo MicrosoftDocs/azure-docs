@@ -161,13 +161,15 @@ For the SQL Server cluster, there are two failover scenarios to consider:
 
 1. All of the SQL replicas in the primary region fail. For example, this could happen during a regional outage. In that case, you must manually fail over the SQL availability group, even though Traffic Manager automatically fails over on the front end. Follow the steps in [Perform a Forced Manual Failover of a SQL Server Availability Group](https://msdn.microsoft.com/library/ff877957.aspx), which describes how to perform a forced failover by using SQL Server Management Studio, Transact-SQL, or PowerShell in SQL Server 2016. 
 
-> [AZURE.WARNING] With forced failover, there is a risk of data loss. Once the primary region is back online, take a snapshot of the database and use [tablediff] to find the differences.
+    > [AZURE.WARNING] With forced failover, there is a risk of data loss. Once the primary region is back online, take a snapshot of the database and use [tablediff] to find the differences.
 
 2. Traffic Manager fails over to the secondary region, but the primary SQL replica is still available. For example, the front-end tier might fail, without affecting the SQL VMs. In that case, Internet traffic is routed to the secondary region, and that region can still connect to the primary SQL replica. However, there will be increased latency, because the SQL connections are going across regions. In this situation, you should perform a manual failover as follows: 
 
-- Temporarily switch a SQL replica in the secondary region to *synchronous* commit. This ensures there won't be data loss during the failover.
-- Fail over to that SQL replica. 
-- When you fail back to primary region, restore the asynchronous commit setting. 
+    - Temporarily switch a SQL replica in the secondary region to *synchronous* commit. This ensures there won't be data loss during the failover.
+
+    - Fail over to that SQL replica. 
+    
+    - When you fail back to primary region, restore the asynchronous commit setting. 
 
 ## Manageability considerations
 
