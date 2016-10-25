@@ -213,7 +213,7 @@ Retrieve details of the application gateway and its associated IP/DNS name using
 		
 	Name                     : publicIP01
 	ResourceGroupName        : appgw-RG
-	Location                 : eastasia
+	Location                 : westus
 	Id                       : /subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/publicIPAddresses/publicIP01
 	Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
 	ResourceGuid             : 00000000-0000-0000-0000-000000000000
@@ -231,6 +231,11 @@ Retrieve details of the application gateway and its associated IP/DNS name using
 	                             "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
 	                           }
 
+## Finalize configuration
+
+Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, application gateway requires a dynamically assigned DNS name, which is not friendly. To ensure end users can hit the application gateway a CNAME record can be used to point to the public endpoint of the application gateway. [Configuring a custom domain name for in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md)
+
 ## Next steps
+
 
 Learn how to protect your websites with [Application Gateway - Web Application Firewall](application-gateway-webapplicationfirewall-overview.md)

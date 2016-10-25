@@ -105,7 +105,7 @@ Retrieve the virtual network resource and subnet resources to be used in the fol
 
 Create a public IP resource to be used for the application gateway. This public IP address is used a following step.
 
-    $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'appgwpip' -Location "West US" -AllocationMethod Dynamic
+    $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'publicIP01' -Location "West US" -AllocationMethod Dynamic
 
 > [AZURE.IMPORTANT] Application Gateway does not support the use of a public IP address created with a domain label defined. Only a public IP address with a dynamically created domain label is supported. If you require a friendly dns name for the application gateway, it is recommended to use a cname record as an alias.
 
@@ -222,6 +222,32 @@ Define an SSL policy. In the following example, TLSv1.0 and TLSv1.1 are disabled
 Finally, update the gateway. It is important to note that this last step is a long running task. When it is done, end to end ssl is configured on the application gateway.
 
     $gw | Set-AzureRmApplicationGateway
+
+## Get application gateway DNS name
+
+Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, application gateway requires a dynamically assigned DNS name, which is not friendly. To ensure end users can hit the application gateway a CNAME record can be used to point to the public endpoint of the application gateway. [Configuring a custom domain name for in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). To do this, retrieve details of the application gateway and its associated IP/DNS name using the PublicIPAddress element attached to the application gateway. The application gateway's DNS name should be used to create a CNAME record, which points the two web applications to this DNS name. The use of A-records is not recommended since the VIP may change on restart of application gateway.
+	
+	Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -name publicIP01
+		
+	Name                     : publicIP01
+	ResourceGroupName        : appgw-RG
+	Location                 : westus
+	Id                       : /subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/publicIPAddresses/publicIP01
+	Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
+	ResourceGuid             : 00000000-0000-0000-0000-000000000000
+	ProvisioningState        : Succeeded
+	Tags                     : 
+	PublicIpAllocationMethod : Dynamic
+	IpAddress                : xx.xx.xxx.xx
+	PublicIpAddressVersion   : IPv4
+	IdleTimeoutInMinutes     : 4
+	IpConfiguration          : {
+	                             "Id": "/subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/applicationGateways/appgwtest/frontendIP
+	                           Configurations/frontend1"
+	                           }
+	DnsSettings              : {
+	                             "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
+	                           }
 
 ## Next steps
 

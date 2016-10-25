@@ -213,6 +213,31 @@ To verify that the service has been removed, you can use the **Get-AzureRmApplic
 
 	Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
+## Get application gateway DNS name
+
+Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, application gateway requires a dynamically assigned DNS name, which is not friendly. To ensure end users can hit the application gateway a CNAME record can be used to point to the public endpoint of the application gateway. [Configuring a custom domain name for in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). To do this, retrieve details of the application gateway and its associated IP/DNS name using the PublicIPAddress element attached to the application gateway. The application gateway's DNS name should be used to create a CNAME record, which points the two web applications to this DNS name. The use of A-records is not recommended since the VIP may change on restart of application gateway.
+	
+	Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -name publicIP01
+		
+	Name                     : publicIP01
+	ResourceGroupName        : appgw-RG
+	Location                 : westus
+	Id                       : /subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/publicIPAddresses/publicIP01
+	Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
+	ResourceGuid             : 00000000-0000-0000-0000-000000000000
+	ProvisioningState        : Succeeded
+	Tags                     : 
+	PublicIpAllocationMethod : Dynamic
+	IpAddress                : xx.xx.xxx.xx
+	PublicIpAddressVersion   : IPv4
+	IdleTimeoutInMinutes     : 4
+	IpConfiguration          : {
+	                             "Id": "/subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/applicationGateways/appgwtest/frontendIP
+	                           Configurations/frontend1"
+	                           }
+	DnsSettings              : {
+	                             "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
+	                           }
 
 ## Next steps
 
