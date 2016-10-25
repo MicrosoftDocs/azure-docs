@@ -42,6 +42,7 @@ You can configure the custom .NET activity to run using either an **Azure Batch*
 
 The following walkthrough provides step-by-step instructions for creating a custom .NET activity and using the custom activity in a pipeline. The walkthrough uses the **Azure Batch** linked service. To use the Azure HDInsight linked service instead, you create a linked service of type **HDInsight** (if you are using your own HDInsight cluster) or **HDInsightOnDemand** (if you want Data Factory to create an HDInsight cluster on-demand) and use it in the activity section of the pipeline JSON (**linkedServiceName**). See [Use Azure HDInsight linked services](#use-azure-hdinsight-linked-services) section for details on using Azure HDInsight to run the custom activity.
 
+> [AZURE.IMPORTANT] Set 4.5.2 version of .NET Framework as the target framework for your .NET custom activity project in Visual Studio. We do not support using custom activities compiled against .NET Framework versions later than 4.5.2.   
 
 ## Walkthrough 
 
@@ -336,6 +337,8 @@ The method returns a dictionary that can be used to chain custom activities toge
 	The Calculate method calculates the number of instances of keyword Microsoft in the input files (blobs in the folder). The search term (“Microsoft”) is hard-coded in the code.
 
 10. Compile the project. Click **Build** from the menu and click **Build Solution**.
+
+	> [AZURE.IMPORTANT] Set 4.5.2 version of .NET Framework as the target framework for your project: right-click the project, and click **Properties** to see set the target framework. We do not support using custom activities compiled against .NET Framework versions later than 4.5.2.
 11. Launch **Windows Explorer**, and navigate to **bin\debug** or **bin\release** folder depending on the type of build.
 12. Create a zip file **MyDotNetActivity.zip** that contains all the binaries in the <project folder>\bin\Debug folder. You may want to include the **MyDotNetActivity.pdb** file so that you get additional details such as line number in the source code that caused the issue if there was a failure. All the files in the zip file for the custom activity must be at the **top level** with no sub folders.
 
