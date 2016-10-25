@@ -25,9 +25,9 @@
 
 This issue is always related to hardware circuit connectivity. Use the following steps to identify problems:
 
-1. Check that you chose the correct **GPIO** on your board. The two ports in this lesson should be **GPIO GND (Pin 6)** and **GPIO 04 (Pin 7)**.
+1. Check that you chose the correct **GPIO** on your board. The two ports should be **GPIO GND (Pin 6)** and **GPIO 04 (Pin 7)**.
 2. Check that the polarity of your LED is correct. The longer leg should indicate the **positive**, anode pin.
-3. Use the **3.3V Pin** and **GND Pin** on Raspberry Pi 3. Treat Pi as the DC Power. Check that the LED works fine.
+3. Use the **3.3V Pin** and **GND Pin** on Raspberry Pi 3. Treat Pi as the DC power. Check that the LED works fine.
 
 ![LED specification](media/iot-hub-raspberry-pi-lessons/troubleshooting/led_spec.png)
 
@@ -61,7 +61,7 @@ If the problem still exists, leave your comments at the end of this article or c
 
 ## Remote debugging
 
-### Run the sample application in debug mode:
+### Run the sample application in debug mode
 
 ```bash
 gulp run --debug
@@ -71,11 +71,11 @@ When the debug engine is ready, you should see ```Debugger listening on port 585
 
 ### Configure Visual Studio Code to connect to the remote device
 
-Open the **Debug** panel on the left side.
+1. Open the **Debug** panel on the left side.
 
-Click the green **Start Debugging** (F5) button. Visual Studio Code opens a **launch.json** file.
+2. Click the green **Start Debugging** (F5) button. Visual Studio Code opens a launch.json file.
 
-Update the **launch.json** file with the following content. Replace `[device host name or IP address]` with the actual device IP address or host name.   
+3. Update the launch.json file with the following content. Replace `[device hostname or IP address]` with the actual device IP address or host name.   
 
 ```json
 {
@@ -86,7 +86,7 @@ Update the **launch.json** file with the following content. Replace `[device hos
             "type": "node",
             "request": "attach",
             "port": 5858,
-            "address": "[device host name or IP address]",
+            "address": "[device hostname or IP address]",
             "restart": false,
             "sourceMaps": false,
             "outDir": null,
@@ -144,7 +144,7 @@ Configure your IoT Hub connection string within this tool to use all its capabil
 
 [iothub-explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md) is a sample multiplatform CLI tool to manage device clients. You can use the tool to manage the devices in the identity registry, monitor device-to-cloud messages, and send cloud-to-device commands.
 
-To install the latest (pre-release) version of the iothub-explorer tool, run the following command in your command-line environment:
+To install the latest (prerelease) version of the iothub-explorer tool, run the following command in your command-line environment:
 
 ```
 npm install -g iothub-explorer@latest
@@ -156,9 +156,9 @@ You can use the following command to get additional help about all the iothub-ex
 iothub-explorer help
 ```
 
-### Use the Azure portal to manage your resources
+### Azure portal
 
-In all these lessons, a full CLI experience is provided to create and manage all your Azure resources. You might also want to use the [Microsoft Azure portal](../azure-portal-overview.md) to help provision, manage, and debug your Azure resources.
+A full CLI experience helps you create and manage all your Azure resources. You might also want to use the [Microsoft Azure portal](../azure-portal-overview.md) to help provision, manage, and debug your Azure resources.
 
 ## Azure Storage issues
 
