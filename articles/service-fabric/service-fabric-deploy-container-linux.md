@@ -16,15 +16,13 @@
    ms.date="10/24/2016"
    ms.author="msfussell"/>
 
-# Preview: Deploy a docker container to Service Fabric
+# Deploy a Docker container to Service Fabric
 
 > [AZURE.SELECTOR]
 - [Deploy Windows Container](service-fabric-deploy-container.md)
 - [Deploy Docker Container](service-fabric-deploy-container-linux.md)
 
 This article walks you through building containerized services in Docker containers on Linux.
-
->[AZURE.NOTE] This feature is in preview for Linux and not currently available on Windows Server. This will be in preview for Windows Server on the next release of Service Fabric after Windows Server 2016 GA and supported in the subsequent release after that.
 
 Service Fabric has several container capabilities that help you with building applications that are composed of microservices that are containerized. These are called containerized services.
 
