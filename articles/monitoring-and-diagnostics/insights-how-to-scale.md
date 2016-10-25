@@ -36,7 +36,7 @@ You can scale in the portal, and you can also use the [REST API](https://msdn.mi
 3. Clicking on the tile will take you to the **Scale** blade. At the top of the scale blade you can see a history of autoscale actions the service.  
     ![Scale blade](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
 
->[AZURE.NOTE] Only actions that are performed by autoscale will show up in this chart. If you manually adjust the instance count, the change will not be reflected in this chart.
+	>[AZURE.NOTE] Only actions that are performed by autoscale will show up in this chart. If you manually adjust the instance count, the change will not be reflected in this chart.
 
 4. You can manually adjust the number **Instances** with slider.
 5. Click the **Save** command and you'll be scaled to that number of instances almost immediately.
@@ -112,6 +112,7 @@ However, you may want to have more agressive scaling during the day, or the week
 2. For example, to have a profile that applies during the week, in the **Days** dropdown uncheck **Saturday** and **Sunday**.
 
 3. To have a profile that applies during the daytime, set the **Start time** to the time of day that you want to start at.
+
     ![Default recurrence](./media/insights-how-to-scale/Insights_ProfileRecurrence.png)
 
 4. Click **OK**.
@@ -125,11 +126,12 @@ However, you may want to have more agressive scaling during the day, or the week
 
 8. As with the Default profile, choose the **Days** you want this profile to apply to, and the **Start time** during the day.
 
->[AZURE.NOTE] Autoscale will use the Daylight savings rules for whichever **Time zone** you select. However, during Daylight savings time the UTC offset will show the base Time zone offset, not the Daylight savings UTC offset.
+	>[AZURE.NOTE] Autoscale will use the Daylight savings rules for whichever **Time zone** you select. However, during Daylight savings time the UTC offset will show the base Time zone offset, not the Daylight savings UTC offset.
 
 9. Click **OK**.
 
 10. Now, you will need to add whatever rules you want to apply during your second profile. Click **Add Rule**, and then you could construct the same rule you have during the Default profile.
+
     ![Add rule to off work](./media/insights-how-to-scale/Insights_RuleOffWork.png)
 
 11. Be sure to create both a rule for scale out and scale in, or else during the profile the instance count will only grow (or decrease).

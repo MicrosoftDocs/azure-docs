@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Monitor Apps in Azure App Service"
+	pageTitle="Monitor Apps in Azure App Service | Microsoft Azure"
 	description="Learn how to monitor Apps in Azure App Service by using the Azure Portal."
 	services="app-service"
 	documentationCenter=""
 	authors="btardif"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor=""/>
 
 <tags
 	ms.service="app-service"
