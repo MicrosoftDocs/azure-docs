@@ -73,7 +73,7 @@ azure vm create \
 
 ## Detailed walkthrough
 
-## Introduction
+### Introduction
 
 When you launch a new Linux VM, you are getting a standard Linux VM with nothing customized or ready for your needs. [Cloud-init](https://cloudinit.readthedocs.org) is a standard way to inject a script or configuration settings into that Linux VM as it is booting up for the first time.
 
@@ -92,7 +92,7 @@ To inject scripts at any time after boot:
 
 >[AZURE.NOTE]: VMAccess Extension executes a script as root in the same way using SSH can.  However, using the VM extension enables several features that Azure offers that can be useful depending upon your scenario.
 
-### Cloud-init availability on Azure VM quick-create image aliases:
+## Cloud-init availability on Azure VM quick-create image aliases:
 
 | Alias     | Publisher | Offer        | SKU         | Version | cloud-init |
 |:----------|:----------|:-------------|:------------|:--------|:-----------|
@@ -105,7 +105,7 @@ To inject scripts at any time after boot:
 
 Microsoft is working with our partners to get cloud-init included and working in the images that they provide to Azure.
 
-### Adding a cloud-init script to the VM creation with the Azure CLI
+## Adding a cloud-init script to the VM creation with the Azure CLI
 
 To launch a cloud-init script when creating a VM in Azure, specify the cloud-init file using the Azure CLI `--custom-data` switch.
 
@@ -135,11 +135,11 @@ azure vm create \
 
 ```
 
-### Creating a cloud-init script to set the hostname of a Linux VM
+## Creating a cloud-init script to set the hostname of a Linux VM
 
 One of the simplest and most important settings for any Linux VM would be the hostname. We can easily set this using cloud-init with this script.  
 
-#### Example cloud-init script named `cloud_config_hostname.txt`.
+### Example cloud-init script named `cloud_config_hostname.txt`.
 
 ``` bash
 #cloud-config
@@ -173,11 +173,11 @@ hostname
 myservername
 ```
 
-### Creating a cloud-init script to update Linux
+## Creating a cloud-init script to update Linux
 
 For security, you want your Ubuntu VM to update on the first boot.  Using cloud-init we can do that with the follow script, depending on the Linux distribution you are using.
 
-#### Example cloud-init script `cloud_config_apt_upgrade.txt` for the Debian Family
+### Example cloud-init script `cloud_config_apt_upgrade.txt` for the Debian Family
 
 ```bash
 #cloud-config
@@ -217,11 +217,11 @@ The following packages have been kept back:
 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
 ```
 
-### Creating a cloud-init script to add a user to Linux
+## Creating a cloud-init script to add a user to Linux
 
 One of the first tasks on any new Linux VM is to add a user for yourself or to avoid using `root`. SSH keys are best practice for security and for usability and they are added to the `~/.ssh/authorized_keys` file with this cloud-init script.
 
-#### Example cloud-init script `cloud_config_add_users.txt` for Debian Family
+### Example cloud-init script `cloud_config_add_users.txt` for Debian Family
 
 ```bash
 #cloud-config
