@@ -70,7 +70,7 @@ vi docker-compose.yml
 
 Paste the following example into your text file. This configuration uses images from the [DockerHub Registry](https://registry.hub.docker.com/_/wordpress/) to install WordPress (the open source blogging and content management system) and a linked backend MariaDB SQL database. Enter your own `MYSQL_ROOT_PASSWORD` as follows:
 
-```
+```bash
 wordpress:
   image: wordpress
   links:
@@ -88,14 +88,14 @@ db:
 
 In the same directory as your `docker-compose.yml` file, run the following command (depending on your environment, you might need to run `docker-compose` using `sudo`.):
 
-```
+```bash
 docker-compose up -d
 
 ```
 
 This command starts the Docker containers specified in `docker-compose.yml`. It takes a minute or two for this step to complete. You see output similar to the following example:
 
-```
+```bash
 Creating wordpress_db_1...
 Creating wordpress_wordpress_1...
 ...
@@ -105,7 +105,7 @@ Creating wordpress_wordpress_1...
 
 To verify that the containers are up, type `docker-compose ps`. You should see something like:
 
-```
+```bash
 Name             Command             State              Ports
 -------------------------------------------------------------------------
 wordpress_db_1     /docker-           Up                 3306/tcp
