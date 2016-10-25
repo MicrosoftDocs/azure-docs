@@ -37,7 +37,7 @@ This tutorial requires the following:
 
 ##<a name="configure-hub"></a>Configure a Notification Hub
 
-[AZURE.INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
+[AZURE.INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ##<a id="register"></a>Enable Firebase Cloud Messaging
 
