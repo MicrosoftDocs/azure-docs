@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/30/2016"
+	ms.date="10/25/2016"
 	ms.author="ashwink"/>
 
 # Azure Monitor PowerShell quick start samples
@@ -95,7 +95,7 @@ Get-AzureRmLog -MaxEvents 1000
 >[AZURE.NOTE] `Get-AzureRmLog` only provides 15 days of history. Using the **-MaxEvents** parameter allows you to query the last N events, beyond 15 days. To access events older than 15 days, use the REST API or SDK (C# sample using the SDK). If you do not include **StartTime**, then the default value is **EndTime** minus one hour. If you do not include **EndTime**, then the default value is current time. All times are in UTC.
 
 ## Retrieve alerts history
-To view all alert events, you can query the Azure Resource Manager (ARM) logs using the following examples.
+To view all alert events, you can query the Azure Resource Manager logs using the following examples.
 
 ```PowerShell
 Get-AzureRmLog -Caller "Microsoft.Insights/alertRules" -DetailedOutput -StartTime 2015-03-01
