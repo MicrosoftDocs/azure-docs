@@ -19,7 +19,7 @@
 
 # Get Started with Docker and Compose to define and run a multi-container application on an Azure virtual machine
 
-Get started using Docker and [Compose](http://github.com/docker/compose) to define and run a complex application on a Linux virtual machine in Azure. With Compose, you use a simple text file to define an application consisting of multiple Docker containers. Then you spin up your application in a single command that does everything to get it running on the VM. 
+Get started using Docker and [Compose](http://github.com/docker/compose) to define and run a complex application on a Linux virtual machine in Azure. With Compose, you use a simple text file to define an application consisting of multiple Docker containers. You then you spin up your application in a single command that does everything to deploy your defined environment. 
 
 As an example, this article shows you how to quickly set up a WordPress blog with a backend MariaDB SQL database on an Ubuntu VM. You can also use Compose to set up more complex applications.
 
@@ -30,7 +30,7 @@ You can use various Azure procedures and available images or Resource Manager te
 
 When you use the Docker VM extension, your VM is automatically set up as a Docker host and Compose is already installed. The example in that article shows you how to use the [Azure command-line interface for Mac, Linux, and Windows](../xplat-cli-install.md) (the Azure CLI) in Resource Manager mode to create the VM.
 
-The basic command from the preceding document creates a new resource group named `myResourceGroup` and deploys a VM with the Azure Docker VM extension:
+The basic command from the preceding document creates a resource group named `myResourceGroup` and deploys a VM with the Azure Docker VM extension installed:
 
 ```bash
 azure group create --name myResourceGroup --location "West US" \
@@ -86,14 +86,14 @@ db:
 
 ## Step 4: Start the containers with Compose
 
-In the working directory on your VM, run the following command. (Depending on your environment, you might need to run `docker-compose` using `sudo`.)
+In the working directory on your VM, run the following command. (Depending on your environment, you might need to run `docker-compose` using `sudo`.):
 
 ```
 docker-compose up -d
 
 ```
 
-This command starts the Docker containers specified in `docker-compose.yml`. It takes a minute or two for this step to complete. You see output similar to the following:
+This command starts the Docker containers specified in `docker-compose.yml`. It takes a minute or two for this step to complete. You see output similar to the following example:
 
 ```
 Creating wordpress_db_1...
