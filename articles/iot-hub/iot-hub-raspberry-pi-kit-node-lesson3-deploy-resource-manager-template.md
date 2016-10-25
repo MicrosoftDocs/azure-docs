@@ -21,11 +21,11 @@
 
 [Azure Functions](../../articles/azure-functions/functions-overview.md) is a solution for easily running *functions* (small pieces of code)  in the cloud. An Azure function app hosts the execution of your functions in Azure.
 
-## 3.1.1 What will you do
+## 3.1.1 What you will do
 
 Use an Azure Resource Manager template to create an Azure function app and a storage account. The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure table storage. If you have any problems, look for solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
-## 3.1.2 What will you learn
+## 3.1.2 What you will learn
 
 In this section, you will learn:
 

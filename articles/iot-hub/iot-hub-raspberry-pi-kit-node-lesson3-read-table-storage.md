@@ -19,17 +19,17 @@
 
 # 3.3 Read messages persisted in Azure Storage
 
-## 3.3.1 What will you do
+## 3.3.1 What you will do
 
-Monitor the device-to-cloud messages that are sent from your Raspberry Pi 3 to your IoT hub as the messages are written to your Azure Table storage. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
+Monitor the device-to-cloud messages that are sent from your Raspberry Pi 3 to your IoT hub as the messages are written to your Azure Table storage. If you have any problems, look for solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
-## 3.3.2 What will you learn
+## 3.3.2 What you will learn
 
-- How to use the gulp read-message task to read messages persisted in your Azure Table storage.
+In this section, you will learn how to use the gulp read-message task to read messages persisted in your Azure Table storage.
 
-## 3.3.3 What do you need
+## 3.3.3 What you need
 
-- You must have successfully completed the previous section [Run the Azure blink sample application on your Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md).
+Before starting this process, you must have successfully completed the previous section [Run the Azure blink sample application on your Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md).
 
 ## 3.3.4 Read new messages from your storage account
 
@@ -46,7 +46,7 @@ To read messages stored in your Azure Table storage, follow these steps:
 
     The first command retrieves the `storage name` that is used in the second command to get the connection string. `iot-sample` is the default value of `{resource group name}` if you didn't change the value in Lesson 2.
 
-2. Open the configuration file `config-raspberrypi.json` file in Visual Studio Code by running the following command:
+2. Open the configuration file `config-raspberrypi.json` in Visual Studio Code by running the following command:
 
     ```bash
     # For Windows command prompt
@@ -56,7 +56,7 @@ To read messages stored in your Azure Table storage, follow these steps:
     code ~/.iot-hub-getting-started/config-raspberrypi.json
     ```
 
-3. Replace `[Azure storage connection string]` with the connection string you got in step 1.
+3. Replace `[Azure storage connection string]` with the connection string you got in Step 1.
 4. Save the `config-raspberrypi.json` file.
 5. Send messages again and read them from your Azure Table storage by running the following command:
 
@@ -70,8 +70,8 @@ To read messages stored in your Azure Table storage, follow these steps:
 
 ## 3.3.5 Summary
 
-You've successfully connected your Pi to your IoT hub in the cloud and used the blink sample application to send device-to-cloud messages. You also used the Azure function app to store incoming IoT hub messages to your Azure Table storage. You can move on to the next lesson on how to send cloud-to-device messages from your IoT hub to your Pi.
+You've successfully connected your Pi to your IoT hub in the cloud and used the blink sample application to send device-to-cloud messages. You also used the Azure function app to store incoming IoT hub messages to your Azure Table storage. You can move on to the next lesson about how to send cloud-to-device messages from your IoT hub to your Pi.
 
-## Next Steps
+## Next steps
 
 [Lesson 4: Send cloud-to-device messages](iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md)

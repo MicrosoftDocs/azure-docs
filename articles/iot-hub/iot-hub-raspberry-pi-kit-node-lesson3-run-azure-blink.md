@@ -17,19 +17,19 @@
  ms.date="10/21/2016"
  ms.author="xshi"/>
 
-# 3.2 Run sample application to send device-to-cloud messages
+# 3.2 Run a sample application to send device-to-cloud messages
 
 ## 3.2.1 What you will do
 
-Deploy and run a sample application on your Raspberry Pi 3 that sends messages to your IoT hub. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
+This section will show you how to deploy and run a sample application on your Raspberry Pi 3 that sends messages to your IoT hub. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## 3.2.2 What you will learn
 
-- How to use the gulp tool to deploy and run the sample Node.js application on your Pi.
+You will learn how to use the gulp tool to deploy and run the sample Node.js application on your Pi.
 
 ## 3.2.3 What you need
 
-- You must have successfully completed the previous section in this lesson: [Create an Azure function app and a storage account to process and store IoT hub messages](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md).
+Before you start this section, you must have successfully completed the previous section in this lesson, [Create an Azure function app and a storage account to process and store IoT hub messages](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md).
 
 ## 3.2.4 Get your IoT hub and device connection strings
 
@@ -65,7 +65,7 @@ az iot device show-connection-string --hub {my hub name} --device-id myraspberry
     ```bash
     # For Windows command prompt
     code %USERPROFILE%\.iot-hub-getting-started\config-raspberrypi.json
-  
+
     # For macOS or Ubuntu
     code ~/.iot-hub-getting-started/config-raspberrypi.json
     ```
@@ -78,7 +78,7 @@ az iot device show-connection-string --hub {my hub name} --device-id myraspberry
   - Replace **[IoT device connection string]** with the `device connection string` you obtained.
   - Replace **[IoT hub connection string]** with the `iot hub connection string` you obtained.
 
-You update the `config-raspberrypi.json` file so that you can deploy the sample application from your computer.
+Update the `config-raspberrypi.json` file so that you can deploy the sample application from your computer.
 
 ## 3.2.6 Deploy and run the sample application
 
@@ -88,11 +88,11 @@ Deploy and run the sample application on your Pi by running the following comman
 gulp
 ```
 
-> [AZURE.NOTE] The default gulp task runs `install-tools`, `deploy`, and `run` tasks sequentially. In [Lesson 1](iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md), you ran these tasks one after another separately.
+> [AZURE.NOTE] The default gulp task runs `install-tools`, `deploy`, and `run` tasks sequentially. In [Lesson 1](iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md), you ran these tasks separately.
 
-## 3.2.7 Verify the sample application works
+## 3.2.7 Verify that the sample application works
 
-You should see the LED that is connected to your Pi blinking every two seconds. Every time the LED blinks, the sample application sends a message to your IoT hub and verifies that the message has been successfully sent to your IoT hub. In addition, for each of the message received by the IoT hub, the message is printed in the console window. The sample application terminates automatically after sending 20 messages.
+You should see the LED that is connected to your Pi blinking every two seconds. Every time the LED blinks, the sample application sends a message to your IoT hub and verifies that the message has been successfully sent to your IoT hub. In addition, each message received by the IoT hub is printed in the console window. The sample application terminates automatically after sending 20 messages.
 
 ![](media/iot-hub-raspberry-pi-lessons/lesson3/gulp_run.png)
 
@@ -100,6 +100,6 @@ You should see the LED that is connected to your Pi blinking every two seconds. 
 
 You've deployed and run the new blink sample application on your Pi to send device-to-cloud messages to your IoT hub. You can move to the next section to monitor your messages as they are written to the storage account.
 
-## Next Steps
+## Next steps
 
 [3.3 Read messages persisted in Azure Storage](iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md)
