@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="10/24/2016"
- ms.author="kdotchkoff"/>
+ ms.author="kdotchko"/>
 
 # IoT Hub MQTT support
 
@@ -94,6 +94,8 @@ IoT Hub does not persists Retain messages. If a device client publishes a messag
 ### Receiving messages
 
 To receive messages from IoT Hub, a device should subscribe using `devices/{device_id}/messages/devicebound/#”` as a **Topic Filter**. The multi-level wild card **#** in the Topic Filter is used only to allow the device to receive additional properties in the topic name. IoT Hub does not allow the usage of the **#** or **?** wild cards for filtering of sub-topics. Since IoT Hub is not a general purpose pub-sub messaging broker, it only supports the documented topic names and topic filters.
+
+Please note, that the device will not receive any messages from IoT Hub, before it has successfully subscribed to its device specific endpoint, represented by the `devices/{device_id}/messages/devicebound/#”` topic filter. After successful subscription has been established, the device will start receiving only cloud-to-device messages that have been sent to it after the time of the subscription. If the device connects with **CleanSession** flag set to **0**, the subscription will be persisted across different sessions. In this case, the next time it connects with **CleanSession 0** the device will receive outstanding messages that have been sent to it, while it was disconnected. If the device uses **CleanSession** flag set to **1** though, it will not receive any messages from IoT Hub until it subscribes to its device-endpoint.
 
 IoT Hub delivers messages with the **Topic Name** `devices/{device_id}/messages/devicebound/`, or `devices/{device_id}/messages/devicebound/{property_bag}` if there are any message properties. `{property_bag}` contains url-encoded key/value pairs of message properties. Only application properties and user-settable system properties (such as **messageId** or **correlationId**) are included in the property bag. System property names have the prefix **$**, application properties use the original property name with no prefix.
 
