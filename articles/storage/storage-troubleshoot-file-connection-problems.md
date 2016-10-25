@@ -271,5 +271,3 @@ Check the **serverino** in your "/etc/fstab" entry:
 file_mode=0755,dir_mode=0755,serverino,rsize=65536,wsize=65536,actimeo=1)
 
 If the **serverino** option is not present, unmount and mount Azure Files again by having the **serverino** option selected.
-
-## Next steps
