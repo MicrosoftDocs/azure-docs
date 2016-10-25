@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="07/25/2016"
+	ms.date="10/25/2016"
 	ms.author="marsma" />
 
 # Maximize Azure Batch compute resource usage with concurrent node tasks
