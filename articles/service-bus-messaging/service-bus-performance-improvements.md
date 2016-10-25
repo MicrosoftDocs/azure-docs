@@ -161,6 +161,13 @@ namespaceManager.CreateQueue(qd);
 
 If it is not possible to use a partitioned queue or topic, or the expected load cannot be handled by a single partitioned queue or topic, you must use multiple messaging entities. When using multiple entities, create a dedicated client for each entity, instead of using the same client for all entities.
 
+## Development & Testing Features
+
+Service Bus has one feature that is used specifically for development which **should never be used in production configurations**.
+
+[TopicDescription.EnableFilteringMessagesBeforePublishing](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing.aspx)
+- When new Rules or Filters are added to the topic, EnableFilteringMessagesBeforePublishing can be used to verify that the new filter expression is working as expected.
+
 ## Scenarios
 
 The following sections describe typical messaging scenarios and outline the preferred Service Bus settings. Throughput rates are classified as small (less than 1 message/second), moderate (1 message/second or greater but less than 100 messages/second) and high (100 messages/second or greater). The number of clients are classified as small (5 or fewer), moderate (more than 5 but less than or equal to 20), and large (more than 20).
@@ -278,14 +285,6 @@ To maximize throughput, do the following:
 -   Leave batched store access enabled. This increases the overall rate at which messages can be written into the topic.
 
 -   Set the prefetch count to 20 times the expected receive rate in seconds. This reduces the number of Service Bus client protocol transmissions.
-
-## Development & Testing Features
-
-Service Bus has one feature that is used specifically for development which **should never be used in production configurations**.
-
-[TopicDescription.EnableFilteringMessagesBeforePublishing](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing.aspx)
-- When new Rules or Filters are added to the topic, EnableFilteringMessagesBeforePublishing can be used to verify that the new filter expression is working as expected.
-
 
 ## Next steps
 
