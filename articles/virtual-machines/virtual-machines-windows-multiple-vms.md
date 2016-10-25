@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="10/25/2016"
 	ms.author="guybo"/>
 
 # Create multiple Azure virtual machines
@@ -39,9 +39,9 @@ Finally, when you use a resource loop, multiple calls to create resources go to 
 
 ## Virtual machine scale sets
 
-Virtual machine scale sets are an Azure Cloud Services resource to deploy and manage a set of identical VMs. With all VMs configured the same, VM scale sets are easy to scale in and scale out. You simply change the number of VMs in the set. You can also configure VM scale sets to autoscale based on the demands of the workload.
+Virtual machine scale sets are an Azure Compute resource to deploy and manage a set of identical VMs. With all VMs configured the same, VM scale sets are easy to scale in and scale out. You simply change the number of VMs in the set. You can also configure VM scale sets to autoscale based on the demands of the workload.
 
-For applications that need to scale compute resources out and in, scale operations are implicitly balanced across fault and update domains.
+For applications that need to scale Compute resources out and in, scale operations are implicitly balanced across fault and update domains.
 
 Instead of correlating multiple resources such as NICs and VMs, a VM scale set has network, storage, virtual machine, and extension properties that you can configure centrally.
 
