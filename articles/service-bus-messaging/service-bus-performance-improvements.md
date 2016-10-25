@@ -23,13 +23,6 @@ Throughout this topic, the term "client" refers to any entity that accesses Serv
 
 These sections introduce several concepts that Service Bus uses to help boost performance.
 
-## Development & Testing Features
-
-Service Bus has one feature that is used specifically for development which **should never be used in production configurations**.
-
-[TopicDescription.EnableFilteringMessagesBeforePublishing](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing.aspx)
-- When new Rules or Filters are added to the topic, EnableFilteringMessagesBeforePublishing can be used to verify that the new filter expression is working as expected.
-
 ## Protocols
 
 Service Bus enables clients to send and receive messages via three protocols
@@ -285,6 +278,14 @@ To maximize throughput, do the following:
 -   Leave batched store access enabled. This increases the overall rate at which messages can be written into the topic.
 
 -   Set the prefetch count to 20 times the expected receive rate in seconds. This reduces the number of Service Bus client protocol transmissions.
+
+## Development & Testing Features
+
+Service Bus has one feature that is used specifically for development which **should never be used in production configurations**.
+
+[TopicDescription.EnableFilteringMessagesBeforePublishing](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing.aspx)
+- When new Rules or Filters are added to the topic, EnableFilteringMessagesBeforePublishing can be used to verify that the new filter expression is working as expected.
+
 
 ## Next steps
 
