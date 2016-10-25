@@ -1,4 +1,4 @@
-<properties
+properties
    pageTitle="SQL Database disaster recovery | Microsoft Azure"
    description="Learn how to recover a database from a regional datacenter outage or failure with the Azure SQL Database Active Geo-Replication, and Geo-Restore capabilities."
    services="sql-database"
