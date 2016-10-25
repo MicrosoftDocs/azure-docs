@@ -37,12 +37,12 @@ In this section, you will learn:
 To complete this section, you need the following parts from your Raspberry Pi 3 Starter Kit:
 
 - The Raspberry Pi 3 board
-- The 16GB microSD card
-- The 5V 2A power supply with the six-foot micro USB cable
+- The 16-GB microSD card
+- The 5-volt 2-amp power supply with the 6-foot micro USB cable
 - The breadboard
 - Connector wires
-- A 560 Ohm resistor
-- A diffused 10mm LED
+- A 560-ohm resistor
+- A diffused 10-mm LED
 - The Ethernet cable
 
 ![Things in your Starter Kit](media/iot-hub-raspberry-pi-lessons/lesson1/starter_kit.jpg)

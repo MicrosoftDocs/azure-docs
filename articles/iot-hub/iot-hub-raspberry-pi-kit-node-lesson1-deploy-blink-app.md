@@ -50,7 +50,7 @@ You should see an output that is similar to the following:
 
 Take note of the `IP address` and `hostname` of your Pi. You need this information later in this section.
 
-> [AZURE.NOTE] Make sure that your Pi is connected to the same network as your computer. For example, if your computer is connected to a wireless network while your Pi is connected to a wired network, you may not see the IP address in the devdisco output.
+> [AZURE.NOTE] Make sure that your Pi is connected to the same network as your computer. For example, if your computer is connected to a wireless network while your Pi is connected to a wired network, you might not see the IP address in the devdisco output.
 
 ## 1.3.5 Clone the sample application
 
@@ -120,7 +120,7 @@ Install Node.js and NPM on your Pi by running the following command:
 gulp install-tools
 ```
 
-It might take ten minutes to complete the first time you run this task.
+It might take 10 minutes to complete the first time you run this task.
 
 ### 1.3.8.2 Deploy and run the sample app
 
