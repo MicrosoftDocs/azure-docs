@@ -16,38 +16,38 @@
    ms.date="10/22/2016"
    ms.author="msfussell;mikhegn"/>
 
-# Deploy a guest executable to Service Fabric
+# Deploy a guest executable to Azure Service Fabric
 
 You can run any type of application, such as node.js, Java, or native applications in Azure Service Fabric. Service Fabric refers to these types of applications as guest executables.
-Guest executables are treated by Service Fabric like stateless services. As a result, they are placed on nodes in a cluster, based on availability and other metrics. This article describes how to package and deploy a guest executable to a Service Fabric cluster, using Visual Studio or a command-line utility.
+Guest executables are treated by Service Fabric like stateless services. As a result, they are placed on nodes in a cluster, based on availability and other metrics. This article describes how to package and deploy a guest executable to a Service Fabric cluster, by using Visual Studio or a command-line utility.
 
 In this article, we cover the steps to package a guest executable and deploy it to Service Fabric.  
 
 ## Benefits of running a guest executable in Service Fabric
 
-There are several advantages that come with running a guest executable in a Service Fabric cluster:
+There are several advantages to running a guest executable in a Service Fabric cluster:
 
 - High availability. Applications that run in Service Fabric are made highly available. Service Fabric ensures that instances of an application are running.
-- Health monitoring. Service Fabric health monitoring detects if an application is running and provides diagnostics information if there is a failure.   
+- Health monitoring. Service Fabric health monitoring detects if an application is running, and provides diagnostic information if there is a failure.   
 - Application lifecycle management. Besides providing upgrades with no downtime, Service Fabric provides automatic rollback to the previous version if there is a bad health event reported during an upgrade.    
 - Density. You can run multiple applications in a cluster, which eliminates the need for each application to run on its own hardware.
 
 
 ## Overview of application and service manifest files
 
-As part of deploying a guest executable, it is useful to understand the Service Fabric packaging and deployment model as described [application model](service-fabric-application-model.md). The Service Fabric packaging model relies on two XML files: the application and service manifests. The schema definition for the ApplicationManifest.xml and ServiceManifest.xml files is installed with the Service Fabric SDK into *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+As part of deploying a guest executable, it is useful to understand the Service Fabric packaging and deployment model as described in [application model](service-fabric-application-model.md). The Service Fabric packaging model relies on two XML files: the application and service manifests. The schema definition for the ApplicationManifest.xml and ServiceManifest.xml files is installed with the Service Fabric SDK into *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 * **Application manifest**
-  The application manifest is used to describe the application. It lists the services that compose it and other parameters that are used to define how the one or more services should be deployed, such as the number of instances.
+  The application manifest is used to describe the application. It lists the services that compose it, and other parameters that are used to define how one or more services should be deployed, such as the number of instances.
 
-  In the Service Fabric an application is a unit of deployment and upgrade. An application can be upgraded as a single unit where potential failures and potential rollbacks are managed. Service Fabric guarantees that the upgrade process is either successful, or, if the upgrade fails, does not leave the application in an unknown/unstable state.
+  In Service Fabric, an application is a unit of deployment and upgrade. An application can be upgraded as a single unit where potential failures and potential rollbacks are managed. Service Fabric guarantees that the upgrade process is either successful, or, if the upgrade fails, does not leave the application in an unknown or unstable state.
 
 * **Service manifest**
-  The service manifest describes the components of a service. It includes data, such as the name and type of service, and its code, configuration, and Data. The service manifest also includes some additional parameters that can be used to configure the service once it is deployed.
+  The service manifest describes the components of a service. It includes data, such as the name and type of service, and its code and configuration. The service manifest also includes some additional parameters that can be used to configure the service once it is deployed.
 
 
 ## Application package file structure
-To deploy an application to Service Fabric, the application needs to follow a predefined directory structure. The following example of that structure.
+To deploy an application to Service Fabric, the application should follow a predefined directory structure. The following is an example of that structure.
 
 ```
 |-- ApplicationPackageRoot
@@ -61,13 +61,13 @@ To deploy an application to Service Fabric, the application needs to follow a pr
     |-- ApplicationManifest.xml
 ```
 
-The ApplicationPackageRoot contains the ApplicationManifest.xml file that defines the application. A subdirectory for each service included in the application is used to contain all the artifacts that the service requires--the ServiceManifest.xml and typically, the following three directories:
+The ApplicationPackageRoot contains the ApplicationManifest.xml file that defines the application. A subdirectory for each service included in the application is used to contain all the artifacts that the service requires. These subdirectories are the ServiceManifest.xml and, typically, the following:
 
 - *Code*. This directory contains the service code.
 - *Config*. This directory contains a Settings.xml file (and other files if necessary) that the service can access at run time to retrieve specific configuration settings.
-- *Data*. This is an additional directory to store additional local data that the service may need. Note: Data should be used to store only ephemeral data. Service Fabric does not copy/replicate changes to the data directory if the service needs to be relocated--for instance, during failover.
+- *Data*. This is an additional directory to store additional local data that the service may need. Data should be used to store only ephemeral data. Service Fabric does not copy or replicate changes to the data directory if the service needs to be relocated (for example, during failover).
 
-Note: You don't have to create the `config` and `data` directories if you don't need them.
+>[AZURE.NOTE] You don't have to create the `config` and `data` directories if you don't need them.
 
 ## Packaging an existing executable
 
@@ -228,7 +228,7 @@ In the preceding example the `Endpoint` element specifies the endpoints that the
 Furthermore you can ask Service Fabric to publish this endpoint to the Naming Service so other services can discover the endpoint address to this service. This enables you to be able to communicate between services that are guest executables.
 The published endpoint address is of the form `UriScheme://IPAddressOrFQDN:Port/PathSuffix`. `UriScheme` and `PathSuffix` are optional attributes. `IPAddressOrFQDN` is the IPAddress or Fully Qualified Domain Name of the node this executable gets placed on and is calculated for you.
 
-In the following example once the service is deployed, in the Service Fabric Explorer you see an endpoint similar to `http://10.1.4.92:3000/myapp/` published for the service instance or if this is a local machine you see `http://localhost:3000/myapp/`. 
+In the following example once the service is deployed, in the Service Fabric Explorer you see an endpoint similar to `http://10.1.4.92:3000/myapp/` published for the service instance or if this is a local machine you see `http://localhost:3000/myapp/`.
 
 ```xml
 <Endpoints>
