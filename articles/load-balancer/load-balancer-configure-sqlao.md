@@ -31,26 +31,24 @@ By using ILB on the listener, the SQL server endpoint (e.g. Server=tcp:ListenerN
 
 ![ILB_SQLAO_NewPic](./media/load-balancer-configure-sqlao/sqlao1.png)
 
+Figure 1 - SQL AlwaysOn configured with Internet-facing load balancer
+
 ## Add Internal Load Balancer to the service
 
-### Step 1
+1. In the following example, we will configure a Virtual network that contains a subnet  called ‘Subnet-1’:
 
-In the following example, we will configure a Virtual network that contains a subnet  called ‘Subnet-1’:
+        Add-AzureInternalLoadBalancer -InternalLoadBalancerName ILB_SQL_AO -SubnetName Subnet-1 -ServiceName SqlSvc
 
-    Add-AzureInternalLoadBalancer -InternalLoadBalancerName ILB_SQL_AO -SubnetName Subnet-1 -ServiceName SqlSvc
+2. Add load balanced endpoints for ILB on each VM
 
-### Step 2
+        Get-AzureVM -ServiceName SqlSvc -Name sqlsvc1 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –
+        DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
 
-Add load balanced endpoints for ILB on each VM
+        Get-AzureVM -ServiceName SqlSvc -Name sqlsvc2 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
 
-    Get-AzureVM -ServiceName SqlSvc -Name sqlsvc1 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –
-    DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
+    In the example above, you have 2 VM's called "sqlsvc1" and "sqlsvc2" running in the cloud service "Sqlsvc". After creating the ILB with "DirectServerReturn" switch, you add load balanced endpoints to the ILB to allow SQL to configure the listeners for the availability groups.
 
-    Get-AzureVM -ServiceName SqlSvc -Name sqlsvc2 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
-
-In the example above, you have 2 VM's called "sqlsvc1" and "sqlsvc2" running in the cloud service "Sqlsvc". After creating the ILB with "DirectServerReturn" switch, you will add load balanced endpoints to the ILB to allow SQL to configure the listeners for the availability groups.
-
-You can find more details creating a SQL AlwaysOn [Using the Portal Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
+For more information about SQL AlwaysOn, see [Configure an internal load balancer for an AlwaysOn availability group in Azure](../virtual-machines/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
 ## See Also
 
