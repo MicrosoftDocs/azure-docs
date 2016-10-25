@@ -17,7 +17,7 @@
    ms.author="ruturajd@microsoft.com"/>
 
 
-# Add Azure automation runbooks to recovery plans
+# Add Azure automation runbooks to recovery plans - Classic
 
 
 This tutorial describes how Azure Site Recovery integrates with Azure
