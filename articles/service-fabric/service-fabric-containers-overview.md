@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/22/2016"
+   ms.date="10/24/2016"
    ms.author="msfussell"/>
 
 # Preview: Service Fabric and containers 
