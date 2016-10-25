@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/08/2016"
+   ms.date="10/25/2016"
    ms.author="yurid"/>
 
 # Azure Security Center Data Security
@@ -21,7 +21,8 @@ To help customers prevent, detect, and respond to threats, Azure Security Center
 
 This article explains how data is managed and safeguarded in Azure Security Center.
 
-## Data Sources
+## Data sources
+
 Azure Security Center analyzes data from the following sources:
 
 - Azure Services: Reads information about the configuration of Azure services you have deployed by communicating with that service’s resource provider.
@@ -31,7 +32,8 @@ Azure Security Center analyzes data from the following sources:
 
 In addition, information about security alerts, recommendations, and security health status is stored in Azure Security Center storage, currently located in the United States. This information may include related configuration information and security events collected from your virtual machines as needed to provide you with the security alert, recommendation, or security health status.
 
-## Data Protection
+## Data protection
+
 **Data segregation**: Data is kept logically separate on each component throughout the service. All data is tagged per organization. This tagging persists throughout the data lifecycle, and it is enforced at each layer of the service. In addition, data collected from your virtual machines is stored in your storage account(s).
 
 **Data access**: In order to provide security recommendations and investigate potential security threats, Microsoft personnel may access information collected or analyzed by Azure services, including crash dump files. Crash dump files and process creation events may unintentionally include Customer Data or personal data from your virtual machines. We adhere to the [Microsoft Online Services Terms](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) and [Privacy Statement](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx), which state that Microsoft will not use Customer Data or derive information from it for any advertising or similar commercial purposes. We only use Customer Data as needed to provide you with Azure services, including purposes compatible with providing those services. You retain all rights to Customer Data.
@@ -40,7 +42,7 @@ In addition, information about security alerts, recommendations, and security he
 
 **Data location**: A storage account is specified for each region where virtual machines are running. This enables you to store data in the same region as the virtual machine from which the data is collected. This data, including crash dump files, will be persistently stored in your storage account. The service also stores information about security alerts, including alerts from integrated partner solutions, recommendations, and security health status in Azure Security Center storage, currently located in the United States.
 
-## Managing Data Collection from Virtual Machines
+## Managing data collection from virtual machines
 
 When you choose to enable Azure Security Center, data collection is turned on for each of your subscriptions. You can turn off data collection in the “Security Policy” section of your Azure Security Center Dashboard. When Data collection is turned on, Azure Security Center provisions the Azure Monitoring Agent on all existing supported virtual machines and any new ones that are created. The Azure Security Monitoring extension scans for various security related configurations and events it into [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) traces. In addition, the operating system will raise event log events during the course of running the machine. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, logged in user, and tenant ID. The Azure Monitoring Agent reads event log entries and ETW traces and copies them to your storage account for analysis. 
 
@@ -51,7 +53,7 @@ The Azure Monitoring Agent also copies crash dump files to your storage account.
 You can disable data collection from virtual machines at any time, which will remove any Monitoring Agents previously installed by Azure Security Center.
 
 
-## Next steps
+## See also
 
 In this document, you learned how data is managed and safeguarded in Azure Security Center. To learn more about Azure Security Center, see:
 

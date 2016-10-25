@@ -137,63 +137,40 @@ On the other hand, you can improve the composite SLA by creating independent fal
 
 With this design, the application is still available even if it can't connect to the database. However, it fails if the database and the queue both fail at the same time. The expected percentage of time for a simultaneous failure is 0.0001 × 0.001, so the composite SLA for this combined path is  
 
-```
-database OR queue = 1.0 - (0.0001 × 0.001) = 99.99999%
-```
+- Database OR queue = 1.0 &minus; (0.0001 &times; 0.001) = 99.99999%
 
 The total composite SLA is:
 
-```
-web app AND (database OR queue) = 99.95% x 99.99999% = ~99.95%
-```
+- Web app AND (database OR queue) = 99.95% &times; 99.99999% = ~99.95%
 
 But there are tradeoffs to this approach. The application logic is more complex, you are paying for the queue, and there may be data consistency issues to consider.
 
 **SLA for multi-region deployments**. Another HA technique is to deploy the application in more than one region, and use Azure Traffic Manager to fail over if the application fails in one region. For a two-region deployment, the composite SLA is calculated as follows. 
 
-Let *N* be the composite SLA for the application deployed in one region. The expected chance that the application will fail in both regions at the same time is `(1 - N)(1 - N)`. Therefore,
+Let *N* be the composite SLA for the application deployed in one region. The expected chance that the application will fail in both regions at the same time is (1 &minus; N) &times; (1 &minus; N). Therefore,
 
-```
-Combined SLA for both regions = 1 - (1 - N)(1 - N) = N + (1 - N)N
-```
+- Combined SLA for both regions = 1 &minus; (1 &minus; N)(1 &minus; N) = N + (1 &minus; N)N
 
-Finally, you must factor in the SLA for Traffic Manager, which is 99.99% at the time of writing.
+Finally, you must factor in the [SLA for Traffic Manager][tm-sla]. As of when this article was written, the SLA for Traffic Manager SLA is 99.99%.
 
-```
-Composite SLA = 99.99% x [combined SLA for both regions]
-```
+- Composite SLA = 99.99% &times; (combined SLA for both regions)
 
-A further detail is that failing over is not instantaneous, which can result in some downtime during a failover event. Azure Traffic Manager uses DNS, so the time-to-live (TTL ) of the DNS entries adds to the total failover time. See [Traffic Manager endpoint monitoring and failover][tm-failover].
+A further detail is that failing over is not instantaneous, which can result in some downtime during a failover. See [Traffic Manager endpoint monitoring and failover][tm-failover].
 
-The calculated SLA number is a useful baseline, but it doesn't tell the whole story about availability. Often, an application can degrade gracefully when a non-critical path fails. Consider an application that shows a catalog of books. If the application can't retrieve the thumbnail image for the cover, it might show a placeholder image. In that case, failing to get the image does not reduce the application's uptime, although it affects the user experience somewhat.  
+The calculated SLA number is a useful baseline, but it doesn't tell the whole story about availability. Often, an application can degrade gracefully when a non-critical path fails. Consider an application that shows a catalog of books. If the application can't retrieve the thumbnail image for the cover, it might show a placeholder image. In that case, failing to get the image does not reduce the application's uptime, although it affects the user experience.  
 
 ## Designing for resiliency
 
-During the design phase, you should perform a failure mode analysis (FMA). The goal of an FMA is to identify possible failure points, and then to define how the application will respond to those failures.
+During the design phase, you should perform a failure mode analysis (FMA). The goal of an FMA is to identify possible points of failure, and define how the application will respond to those failures.
 
-For more information about 
+- How will the application detect this type of failure?
 
+- How will the application respond to this type of failure?
 
+- How will you log and monitor this type of failure? 
 
-1.	For each workload, identify possible failure points.
+For more information about the FMA process, with specific recommendations for Azure, see [Azure resiliency guidance: Failure mode analysis][fma].
 
-2.	For each failure point, identity possible types of failure. 
-
-3.	Rate each possible failure according to its overall risk, which is a combination of the severity of impact plus the likelihood of failure. 
-
-	- Severity: What is the impact on the application, in terms of availability, data loss, monetary cost, and business disruption. 
-
-	- Likelihood: Estimate the relative frequency. For example: Less than once per year, several times per year, or several times per month. You don't need exact numbers here. The point is to help rank the priority. 
-
-4.	Design a resiliency strategy
-
-	- How will the application detect this type of failure?
-
-	- How will the application respond to this type of failure? (See Resiliency Strategies)
-
-	- How will you log and monitor this type of failure? (See Telemetry and Monitoring.)
-
-For a structured approach to this process, see the paper [Resilience by design for cloud services][rma], which describes a methodology called Resiliency Modeling and Analysis (RMA) 
 
 ### Example of identifying failure modes and detection strategy
 
@@ -207,7 +184,7 @@ For a structured approach to this process, see the paper [Resilience by design f
 | Slow response | Request times out |
 
 
-## Implementing resiliency strategies
+## Resiliency strategies
 
 This section provides a survey of some common resiliency strategies. Most of these are not limited to a particular technology. The descriptions in this section are meant to summarize the general idea behind each technique, with links to further reading.
 
@@ -434,7 +411,11 @@ Here are the major points to take away from this article:
 
 ## Next steps
 
-You can find additional resources here: [Azure resiliency technical guidance](../resiliency/resiliency-technical-guidance.md) 
+- [Resiliency checklist][resiliency-checklist] contains a recommendations that will help you plan for a variety of failure modes that could occur.
+
+- [Failure mode analysis][fma] (FMA) is a process for building resiliency into a system, by identifying possible failure points. As a starting point for your FMA process, this article contains a catalog of potential failure modes and their mitigations. 
+
+- You can find additional resources here: [Azure resiliency technical guidance](../resiliency/resiliency-technical-guidance.md) 
 
 <!-- links -->
 
@@ -444,18 +425,20 @@ You can find additional resources here: [Azure resiliency technical guidance](..
 [compensating-transaction-pattern]: https://msdn.microsoft.com/library/dn589804.aspx
 [containers]: https://en.wikipedia.org/wiki/Operating-system-level_virtualization
 [dsc]: https://azure.microsoft.com/documentation/articles/automation-dsc-overview/
+[fma]: guidance-resiliency-failure-mode-analysis.md
 [hystrix]: http://techblog.netflix.com/2012/11/hystrix.html
 [jmeter]: http://jmeter.apache.org/
 [load-leveling-pattern]: https://msdn.microsoft.com/library/dn589783.aspx
 [monitoring-guidance]: https://azure.microsoft.com/documentation/articles/best-practices-monitoring/
 [ra-basic-web]: https://azure.microsoft.com/documentation/articles/guidance-web-apps-basic/
 [ra-multi-vm]: https://azure.microsoft.com/documentation/articles/guidance-compute-multi-vm/
+[resiliency-checklist]: guidance-resiliency-checklist.md
 [retry-pattern]: https://msdn.microsoft.com/library/dn589788.aspx
 [retry-service-specific guidance]: https://azure.microsoft.com/documentation/articles/best-practices-retry-service-specific/
-[rma]: https://www.microsoft.com/download/details.aspx?id=38823
 [sla]: https://azure.microsoft.com/support/legal/sla/
 [staging-slots]: https://azure.microsoft.com/documentation/articles/guidance-web-apps-basic/
 [throttling-pattern]: https://msdn.microsoft.com/library/dn589798.aspx
 [tm]: https://azure.microsoft.com/services/traffic-manager/
 [tm-failover]: https://azure.microsoft.com/documentation/articles/traffic-manager-monitoring/
+[tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager/v1_0/
 [vsts]: https://www.visualstudio.com/features/vso-cloud-load-testing-vs.aspx

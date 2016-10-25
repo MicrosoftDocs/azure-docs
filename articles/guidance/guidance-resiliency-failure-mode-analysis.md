@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/10/2016"
+   ms.date="10/24/2016"
    ms.author="mwasson"/>
 
-# Designing resilient applications for Azure: Failure mode analysis
+# Azure resiliency guidance: Failure mode analysis
 
 Failure mode analysis (FMA) is a process for building resiliency into a system, by identifying possible failure points in the system. The FMA should be part of the architecture and design phases, so that you can build failure recovery into the system from the beginning.
 
@@ -36,55 +36,6 @@ Here is the general process to conduct an FMA:
 4. For each failure mode, determine how the application will respond and recover. Consider tradeoffs in cost and application complexity.   
 
 As a starting point for your FMA process, this article contains a catalog of potential failure modes and their mitigations. The catalog is organized by technology or Azure service, plus a general category for application-level design. The catalog is not exhaustive, but covers many of the core Azure services. 
-
-
-## Application design
-
-### Application can't handle a spike in incoming requests.
-
-**Detection**. Depends on the application. Typical symptoms:
-
-- The website starts returning 500 errors.
-- Dependent services, such as database or storage, start to throttle requests. Look for HTTP errors such as HTTP 429 (Too Many Requests), depending on the service.
-- HTTP queue length grows.
-
-**Recovery**
-
-- Scale out to handle increased load. 
-
-- Mitigate failures to avoid having cascading failures disrupt the entire application. Mitigation strategies include:
-
-    - Implement the [Throttling Pattern][throttling-pattern] to avoid overwhelming backend systems.
-    - Use [queue-based load leveling][queue-based-load-leveling] to buffer requests and process them at appropriate pace.
-    - Prioritize certain clients. For example, if the application has have free and paid tiers, throttle customers on the free tier, but not paid customers. See [Priority queue pattern][priority-queue-pattern].
-
-**Diagnostics**. Use [App Service diagnostic logging][app-service-logging].
-
-
-### One of the operations in a workflow or distributed transaction fails.
-
-**Detection**. After *N* retry attempts, it still fails.
-
-**Recovery**
-
-- As a mitigation plan, implement the [Scheduler Agent Supervisor][scheduler-agent-supervisor] pattern to manage the entire workflow. 
-- Don't retry on timeouts. There is a low success rate for this error. 
-- Queue work, in order to retry later.
-
-**Diagnostics**. Log all operations (successful and failed), including compensating actions. Use correlation IDs, so that you can track all operations within the same transaction.
-
-
-### A call to a remote service fails.
-
-**Detection**. HTTP error code.
-
-**Recovery**
-
-1. Retry transient failures. 
-2. If the call fails after *N* attempts, take a fallback action. (Application specific.)
-3. Implement the [Circuit Breaker pattern][circuit-breaker] to avoid cascading failures. 
-
-**Diagnostics**. Log all remote call failures.
 
 
 ## App Service
@@ -164,7 +115,7 @@ Application_End logging will catch the app domain shutdown (soft process crash) 
 
 ## Azure Search
 
-### Writing data to AzureSearch fails.
+### Writing data to Azure Search fails.
 
 **Detection**. Catch `Microsoft.Rest.Azure.CloudException` errors.
 
@@ -200,7 +151,7 @@ The default retry policy uses exponential back-off. To use a different retry pol
 
 **Recovery**
 
-- Each [Cassandra client](https://wiki.apache.org/cassandra/ClientOptions) has its own retry policies and capabilities.For more information, see [Cassandra error handling done right][cassandra-error-handling].
+- Each [Cassandra client](https://wiki.apache.org/cassandra/ClientOptions) has its own retry policies and capabilities. For more information, see [Cassandra error handling done right][cassandra-error-handling].
 - Use a rack-aware deployment, with data nodes distributed across the fault domains.
 - Deploy to multiple regions with local quorum consistency. If a non-transient failure occurs, fail over to another region.
 
@@ -305,7 +256,7 @@ For more information, see [Running Elasticsearch on Azure][elasticsearch-azure].
 
 Move the message to a separate queue. Run a separate process to examine the messages in that queue.
 
-Consider using Azure Service Bus, which provides a [dead-letter queue][sb-dead-letter-queue] functionality for this purpose.
+Consider using Azure Service Bus Messaging queues, which provides a [dead-letter queue][sb-dead-letter-queue] functionality for this purpose.
 
 Note: If you are using Storage queues with WebJobs, the WebJobs SDK provides built-in poison message handling. See [How to use Azure queue storage with the WebJobs SDK][sb-poison-message].
 
@@ -320,7 +271,7 @@ Note: If you are using Storage queues with WebJobs, the WebJobs SDK provides bui
 
 **Recovery**
 
-1. Retry transient failures. Azure Redis cache supports built-in retry through See [Redis Cache retry guidelines][redis-retry].
+1. Retry on transient failures. Azure Redis cache supports built-in retry through See [Redis Cache retry guidelines][redis-retry].
 2. Treat non-transient failures as a cache miss, and fall back to the original data source.
 
 **Diagnostics**. Use [Redis Cache diagnostics][redis-monitor].
@@ -332,7 +283,7 @@ Note: If you are using Storage queues with WebJobs, the WebJobs SDK provides bui
 
 **Recovery**
 
-1. Retry transient failures. Azure Redis cache supports built-in retry through See [Redis Cache retry guidelines][redis-retry].
+1. Retry on transient failures. Azure Redis cache supports built-in retry through See [Redis Cache retry guidelines][redis-retry].
 2. If the error is non-transient, ignore it and let other transactions write to the cache later.
 
 **Diagnostics**. Use [Redis Cache diagnostics][redis-monitor].
@@ -382,9 +333,9 @@ To detect these errors, catch `System.Data.SqlClient.SqlException` and check the
 - Enable [SQL Database auditing][sql-db-audit] and check for failed logins.
 
 
-## Service Bus
+## Service Bus Messaging
 
-### Reading a message from Service Bus fails.
+### Reading a message from a Service Bus queue fails.
 
 **Detection**. Catch exceptions from the client SDK. The base class for Service Bus exceptions is [MessagingException][sb-messagingexception-class]. If the error is transient, the `IsTransient` property is true. 
 
@@ -392,12 +343,12 @@ For more information, see [Service Bus messaging exceptions][sb-messaging-except
 
 **Recovery**
 
-1. Retry transient failures. See [Service Bus retry guidelines][sb-retry].
+1. Retry on transient failures. See [Service Bus retry guidelines][sb-retry].
 
 2. Messages that cannot be delivered to any receiver are placed in a *dead-letter queue*. Use this queue to see which messages could not be received. There is no automatic cleanup of the dead-letter queue. Messages remain there until you explicitly retrieve them. See [Overview of Service Bus dead-letter queues][sb-dead-letter-queue].
 
 
-### Writing a message to Service Bus fails.
+### Writing a message to a Service Bus queue fails.
 
 **Detection**. Catch exceptions from the client SDK. The base class for Service Bus exceptions is [MessagingException][sb-messagingexception-class]. If the error is transient, the `IsTransient` property is true. 
 
@@ -445,7 +396,7 @@ For more information, see [Service Bus messaging exceptions][sb-messaging-except
 
 There are two failure modes to consider. 
 
-- The receiver detects the failure. In this case, move the message to the dead-letter queue (DLQ). Later, run a separate process to examine the messages in the dead-letter queue.
+- The receiver detects the failure. In this case, move the message to the dead-letter queue. Later, run a separate process to examine the messages in the dead-letter queue.
 
 - The receiver fails in the middle of processing the message &mdash; for example, due to an unhandled exception. To handle this case, use `PeekLock` mode. In this mode, if the lock expires, the message becomes available to other receivers. If the message exceeds the maximum delivery count or the time-to-live, the message is automatically moved to the dead-letter queue.
 
@@ -506,7 +457,7 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 1. Retry the operation, to recover from transient failures. The [retry policy][Storage.RetryPolicies] in the client SDK handles this automatically.
 2. For RA-GRS storage, if reading from the primary endpoint fails, try reading from the secondary endpoint. The client SDK can handle this automatically. See [Azure Storage replication][storage-replication].
-3. If *N* retry attempts fail, take a fallback action to degrade gracefully. For example, display a placeholder image.
+3. If *N* retry attempts fail, take a fallback action to degrade gracefully. For example, if a product image can't be retrieved from storage, show a generic placeholder image.
 
 **Diagnostics**. Use [storage metrics][storage-metrics].
 
@@ -525,7 +476,7 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 - Implement a retry policy in the application. 
 
-- For persistent or non-transient errors, implement the Circuit Breaker patterns.
+- For persistent or non-transient errors, implement the [Circuit Breaker][circuit-breaker] pattern.
 
 - If the calling VM exceeds its network egress limit, the outbound queue will fill up. If the outbound queue is consistently full, consider scaling out. 
 
@@ -559,11 +510,64 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 **Recovery**. Enable the `Always On` setting in the web app. For more information, see [Run Background tasks with WebJobs][web-jobs].
 
 
+## Application design
+
+### Application can't handle a spike in incoming requests.
+
+**Detection**. Depends on the application. Typical symptoms:
+
+- The website starts returning HTTP 5xx error codes.
+- Dependent services, such as database or storage, start to throttle requests. Look for HTTP errors such as HTTP 429 (Too Many Requests), depending on the service.
+- HTTP queue length grows.
+
+**Recovery**
+
+- Scale out to handle increased load. 
+
+- Mitigate failures to avoid having cascading failures disrupt the entire application. Mitigation strategies include:
+
+    - Implement the [Throttling Pattern][throttling-pattern] to avoid overwhelming backend systems.
+    - Use [queue-based load leveling][queue-based-load-leveling] to buffer requests and process them at an appropriate pace.
+    - Prioritize certain clients. For example, if the application has free and paid tiers, throttle customers on the free tier, but not paid customers. See [Priority queue pattern][priority-queue-pattern].
+
+**Diagnostics**. Use [App Service diagnostic logging][app-service-logging]. Use a service such as [Azure Log Analytics][azure-log-analytics], [Application Insights][app-insights], or [New Relic][new-relic] to help understand the diagnostic logs.
+
+
+### One of the operations in a workflow or distributed transaction fails.
+
+**Detection**. After *N* retry attempts, it still fails.
+
+**Recovery**
+
+- As a mitigation plan, implement the [Scheduler Agent Supervisor][scheduler-agent-supervisor] pattern to manage the entire workflow. 
+- Don't retry on timeouts. There is a low success rate for this error. 
+- Queue work, in order to retry later.
+
+**Diagnostics**. Log all operations (successful and failed), including compensating actions. Use correlation IDs, so that you can track all operations within the same transaction.
+
+
+### A call to a remote service fails.
+
+**Detection**. HTTP error code.
+
+**Recovery**
+
+1. Retry on transient failures. 
+2. If the call fails after *N* attempts, take a fallback action. (Application specific.)
+3. Implement the [Circuit Breaker pattern][circuit-breaker] to avoid cascading failures. 
+
+**Diagnostics**. Log all remote call failures.
+
+
+## Next steps
+
+For more information about the FMA process, see [Resilience by design for cloud services][resilience-by-design-pdf] (PDF download).
 
 <!-- links -->
 
 [api-management]: https://azure.microsoft.com/documentation/services/api-management/
 [api-management-throttling]: ../api-management/api-management-sample-flexible-throttling.md
+[app-insights]: ../application-insights/app-insights-overview.md
 [app-insights-web-apps]: ../application-insights/app-insights-azure-web-apps.md
 [app-service-configure]: ../app-service-web/web-sites-configure.md
 [app-service-logging]: ../app-service-web/web-sites-enable-diagnostic-log.md
@@ -571,6 +575,7 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 [auto-rest-client-retry]: https://github.com/Azure/autorest/blob/master/Documentation/clients-retry.md
 [azure-activity-logs]: ../monitoring-and-diagnostics/monitoring-overview-activity-logs.md
 [azure-alerts]: ../monitoring-and-diagnostics/insights-alerts-portal.md
+[azure-log-analytics]: ../log-analytics/log-analytics-overview.md
 [BrokeredMessage.TimeToLive]: https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx
 [cassandra-error-handling]: http://www.datastax.com/dev/blog/cassandra-error-handling-done-right
 [circuit-breaker]: https://msdn.microsoft.com/library/dn589784.aspx
@@ -581,12 +586,14 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 [onstop-events]: https://azure.microsoft.com/blog/the-right-way-to-handle-azure-onstop-events/
 [lb-monitor]: ../load-balancer/load-balancer-monitor-log.md
 [lb-probe]: ../load-balancer/load-balancer-custom-probe-overview.md#learn-about-the-types-of-probes
+[new-relic]: https://newrelic.com/
 [priority-queue-pattern]: https://msdn.microsoft.com/library/dn589794.aspx
 [queue-based-load-leveling]: https://msdn.microsoft.com/library/dn589783.aspx
 [QuotaExceededException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.quotaexceededexception.aspx
 [ra-web-apps-basic]: guidance-web-apps-basic.md
 [redis-monitor]: ../redis-cache/cache-how-to-monitor.md
 [redis-retry]: ../best-practices-retry-service-specific.md#cache-redis-retry-guidelines
+[resilience-by-design-pdf]: http://download.microsoft.com/download/D/8/C/D8C599A4-4E8A-49BF-80EE-FE35F49B914D/Resilience_by_Design_for_Cloud_Services_White_Paper.pdf
 [RoleEntryPoint.OnStop]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [RoleEnvironment.Stopping]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx
 [rm-locks]: ../resource-group-lock-resources.md
@@ -613,3 +620,4 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 [throttling-pattern]: https://msdn.microsoft.com/library/dn589798.aspx
 [web-jobs]: ../app-service-web/web-sites-create-web-jobs.md
 [web-jobs-shutdown]: ../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful
+

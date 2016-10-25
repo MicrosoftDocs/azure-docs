@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="10/14/2016"
+    ms.date="10/25/2016"
     ms.author="sethm" />
 
 # Best Practices for performance improvements using Service Bus Messaging
@@ -25,9 +25,15 @@ These sections introduce several concepts that Service Bus uses to help boost pe
 
 ## Protocols
 
-Service Bus enables clients to send and receive messages via two protocols: the Service Bus client protocol, and HTTP (REST). The Service Bus client protocol is more efficient, because it maintains the connection to the Service Bus service as long as the messaging factory exists. It also implements batching and prefetching. The Service Bus client protocol is available for .NET applications using the .NET APIs.
+Service Bus enables clients to send and receive messages via three protocols
 
-Unless explicitly mentioned, all content in this topic assumes the use of the Service Bus client protocol.
+1. Advanced Message Queuing Protocol (AMQP)
+
+2. Service Bus Messaging Protocol (SBMP)
+
+3. HTTP
+
+Both AMQP and SBMP are more efficient, because they maintain the connection to Service Bus as long as the messaging factory exists. It also implements batching and prefetching. Unless explicitly mentioned, all content in this topic assumes the use of AMQP or SBMP.
 
 ## Reusing factories and clients
 
@@ -154,6 +160,13 @@ namespaceManager.CreateQueue(qd);
 ## Use of multiple queues
 
 If it is not possible to use a partitioned queue or topic, or the expected load cannot be handled by a single partitioned queue or topic, you must use multiple messaging entities. When using multiple entities, create a dedicated client for each entity, instead of using the same client for all entities.
+
+## Development & Testing Features
+
+Service Bus has one feature that is used specifically for development which **should never be used in production configurations**.
+
+[TopicDescription.EnableFilteringMessagesBeforePublishing](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing.aspx)
+- When new Rules or Filters are added to the topic, EnableFilteringMessagesBeforePublishing can be used to verify that the new filter expression is working as expected.
 
 ## Scenarios
 

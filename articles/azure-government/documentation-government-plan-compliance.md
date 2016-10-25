@@ -37,6 +37,6 @@ We value any feedback on the CRM as it is pivotal to our iteration of the docume
 
 ## Next Steps
 
-<a href="https://www.microsoft.com/en-us/TrustCenter/Compliance/itar"> Microsoft Trust Center - ITAR web page </a>
+<a href="https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx"> Microsoft Trust Center </a>
 
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
