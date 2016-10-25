@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2016"
+	ms.date="10/24/2016"
 	ms.author="juliako"/>
 
 # Change the reserved unit type
@@ -33,7 +33,7 @@
 
 To change the reserved unit type and the number of reserved units, do the following:
 
-1. Log in at the [Azure portal](https://portal.azure.com/).
+1. In the [Azure portal](https://portal.azure.com/), select your Azure Media Services account.
 
 2. In the **Settings** window, select **Media reserved units**.
 
