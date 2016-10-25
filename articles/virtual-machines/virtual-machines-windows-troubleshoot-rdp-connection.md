@@ -79,6 +79,8 @@ After each troubleshooting step, try connecting to your VM again. If you still c
 
 	![Verify RDP NSG rule in the Azure portal](./media/virtual-machines-windows-troubleshoot-rdp-connection/verify-nsg-rules.png)
 
+	If you do not have a rule that allows RDP traffic, [create a new Network Security Group rule](virtual-machines-windows-nsg-quickstart-portal.md). Allow TCP port 3389.
+
 3. **Review VM console logs**
 
 4. **Check the VM Resource Health**. This troubleshooting step verifies there are no known issues with the Azure platform that may impact connectivity to the VM.
@@ -161,6 +163,8 @@ After each troubleshooting step, try connecting to your VM again. If you still c
 	Direction                : Inbound
 	```
 
+	If you do not have a rule that allows RDP traffic, [create a new Network Security Group rule](virtual-machines-windows-nsg-quickstart-powershell.md). Allow TCP port 3389.
+
 3. **Reset user credentials**. This troubleshooting step resets the password on the local administrator that you specify when you are unsure or have forgotten the credentials.
 
 	First, specify the username and a new password by assigning credentials to the `$cred` variable as follows:
@@ -214,6 +218,8 @@ After each troubleshooting step, try reconnecting to the VM.
 	The following example shows valid endpoints that permit RDP traffic:
 
 	![Verify Cloud Services endpoints in the Azure portal](./media/virtual-machines-windows-troubleshoot-rdp-connection/classic-verify-cloud-services-endpoints.png)
+
+	If you do not have an endpoint that allows RDP traffic, [create a new Cloud Services endpoint](virtual-machines-windows-classic-setup-endpoints.md). Allow TCP to private port 3389.
 
 3. **Review VM console logs**
 
