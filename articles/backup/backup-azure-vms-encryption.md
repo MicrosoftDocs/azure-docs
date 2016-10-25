@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="06/10/2016"
+   ms.date="10/25/2016"
    ms.author="markgal; jimpark; trinadhk"/>
 
 # Backup and restore encrypted VMs using Azure Backup
