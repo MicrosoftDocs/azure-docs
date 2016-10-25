@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Troubleshoot Azure sign up issues | Microsoft Azure"
-	description="Troubleshoot common causes of issues that can occur when you sign up for Azure."
+	description="Describes how to troubleshoot some common Azure sign up issues."
 	services=""
 	documentationCenter=""
 	authors="JiangChen79"
@@ -17,11 +17,11 @@
 	ms.date="10/25/2016"
 	ms.author="cjiang"/>
 
-# If you can't sign up for Azure
+# I can't sign up for Azure
 
-If you can't sign up for Azure, there are several things to check to troubleshoot the issue.
+If you can't sign up for Azure, there are several things you can check to troubleshoot the issue.
 
-## I am not getting text messages or calls during account verification when I try to sign up
+## No text messages or calls during sign up account verification 
 
 - Verify that your phone number can receive SMS.
 - Double check the phone number you entered, including the country code selection in the dropdown menu.
@@ -38,7 +38,7 @@ If you can't sign up for Azure, there are several things to check to troubleshoo
 
 >[AZURE.NOTE] You can change your preferred phone number later by [updating your profile information](billing-how-to-change-azure-account-profile.md).
 
-## My credit card was not accepted
+## Credit card declined or not accepted
 
 Make sure that the payment method you are using at sign-up is supported for Azure activations or payments.
 
@@ -47,9 +47,9 @@ Make sure that the payment method you are using at sign-up is supported for Azur
 
 ### Suggestion
 
-For common causes of sign-up issues using a credit or debit card, see the article [My credit card doesn’t go through when I try to sign up for Azure](billing-credit-card-fails-during-azure-sign-up.md).
+For common causes of sign-up issues using a credit or debit card, see [Your debit card or credit card is declined at Azure sign up](billing-credit-card-fails-during-azure-sign-up.md).
 
-## I can’t activate an Azure benefit plan like MSDN, BizSpark, BizSparkPlus or MPN
+## Can’t activate Azure benefit plan like MSDN, BizSpark, BizSparkPlus or MPN
 
 Verify through your benefit program channel if you are eligible for the chosen plan:
 
@@ -67,7 +67,7 @@ Verify through your benefit program channel if you are eligible for the chosen p
 
 If you tried to activate a new benefit subscription and you got an error during sign up, verify that your subscription setup has been completed at the [Azure subscription page](http://account.windowsazure.com/Subscriptions). It may take a few minutes for your subscription to show as active. When your subscription is activated, you receive an email. If your subscription status remains pending for more than four minutes, [contact Azure Support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) for help.
 
-## I can’t activate a new Azure In Open subscription
+## Can’t activate new Azure In Open subscription
 
 You must have a valid OSA key with at least an Azure In Open token associated to it to activate a new Azure In Open subscription.
 
@@ -75,7 +75,7 @@ You must have a valid OSA key with at least an Azure In Open token associated to
 
 If you do not have an OSA key, contact one of Microsoft Partners listed in [Microsoft Pinpoint](http://pinpoint.microsoft.com/).
 
-## I can’t activate an Azure Free Trial
+## Can’t activate Azure Free Trial
 
 Have you used an Azure subscription in the past? The Azure Terms of Use agreement limits free trial activation only for a user that's new to Azure. If you have had any other type of Azure subscription, you can't activate a free trial.
 

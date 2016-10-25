@@ -1,6 +1,6 @@
 <properties
-	pageTitle="I cannot sign in to manage my Azure subscription | Microsoft Azure"
-	description="Describes the troubleshoot information for some common Azure subscription login issues"
+	pageTitle="Can't sign in to Azure subscription | Microsoft Azure"
+	description="Describes how to troubleshoot some common Azure subscription login issues."
 	services=""
 	documentationCenter=""
 	authors="genlin"
@@ -18,7 +18,7 @@
 	ms.date="10/25/2016"
 	ms.author="genli"/>
 
-# I cannot sign in to manage my Azure subscription
+# I can't sign in to manage my Azure subscription
 
 This article guides you through some of the most common methods to resolve login issues.
 
