@@ -17,7 +17,7 @@
 	ms.author="johnkem"/>
 
 # Overview of the Azure Activity Log
-The **Azure Activity Log** is a log that provides insight into the operations that were performed on resources in your subscription. The Activity Log was previously known as “Audit Logs” or “Operational Logs,” since it reports control-plane events for your subscriptions. Using the Activity Log, you can determine the ‘what, who, and when’ for any write (PUT, POST, DELETE) operations taken on the resources in your subscription, plus understand the status of the operation and other relevant properties. The Activity Log does not include read (GET) operations.
+The **Azure Activity Log** is a log that provides insight into the operations that were performed on resources in your subscription. The Activity Log was previously known as “Audit Logs” or “Operational Logs,” since it reports control-plane events for your subscriptions. Using the Activity Log, you can determine the ‘what, who, and when’ for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties. The Activity Log does not include read (GET) operations.
 
 The Activity Log differs from [Diagnostic Logs](./monitoring-overview-of-diagnostic-logs.md), which are all logs emitted by a resource. These logs provide data about the operation of that resource, rather than operations on that resource.
 
@@ -57,7 +57,7 @@ You can stream the Activity Log to an Event Hub or store them in a Storage Accou
 3. In the blade that appears, you can select:  
 	- regions for which you would like to export events
 	- the Storage Account to which you would like to save events
-	- the number of days you want to retain these events in storage. A setting of 0 days will retain the logs forever.
+	- the number of days you want to retain these events in storage. A setting of 0 days retains the logs forever.
 	- the Service Bus Namespace in which you would like an Event Hub to be created for streaming these events.
 
     ![Export Activity Log blade](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
@@ -80,7 +80,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | StorageAccountId | No       | Resource ID of the Storage Account to which the Activity Log should be saved.                         |
 | serviceBusRuleId | No       | Service Bus Rule ID for the Service Bus namespace you would like to have event hubs created in. Is a string with this format: `{service bus resource ID}/authorizationrules/{key name}`. |
 | Locations        | Yes      | Comma-separated list of regions for which you would like to collect Activity Log events.              |
-| RetentionInDays  | Yes      | Number of days for which events should be retained, between 1 and 2147483647. A value of zero will store the logs indefinitely (forever). |
+| RetentionInDays  | Yes      | Number of days for which events should be retained, between 1 and 2147483647. A value of zero stores the logs indefinitely (forever). |
 | Categories       | No       | Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action.                                 |
 
 #### Remove a log profile
@@ -118,7 +118,7 @@ azure insights logprofile delete --name my_log_profile
 ```
 
 ## Event schema
-Each event in the Activity Log has a JSON blob like this one:
+Each event in the Activity Log has a JSON blob similar to this example:
 
 ```
 {
