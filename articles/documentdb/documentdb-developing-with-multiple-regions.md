@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/03/2016"
+   ms.date="10/25/2016"
    ms.author="kipandya"/>
    
 # Developing with multi-region DocumentDB accounts
