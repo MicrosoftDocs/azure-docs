@@ -23,7 +23,7 @@ The Activity Log differs from [Diagnostic Logs](./monitoring-overview-of-diagnos
 
 You can retrieve events from your Activity Log using the Azure portal, CLI, PowerShell cmdlets, and Insights REST API.
 
-You can also view a [video introducing Activity Logs](https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz).  
+View this [video introducing Activity Logs](https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz).  
 
 ## What you can do with the Activity Log
 Here are some of the things you can do with the Activity Log:
