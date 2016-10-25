@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="vm-linux"
   ms.workload="infrastructure"
-  ms.date="10/24/2016"
+  ms.date="10/25/2016"
   ms.author="v-livech"/>
 
 # Azure and Linux VM Network Overview
@@ -66,11 +66,11 @@ If you have a server that you need to be persistent, but that server is treated 
 
 A virtual network gateway is used to send network traffic between Azure virtual networks and on-premises locations and also between virtual networks within Azure (VNet-to-VNet). When you configure a VPN gateway, you must create and configure a virtual network gateway and a virtual network gateway connection.
 
-- [About VPN Gateway](../virtual-network/vpn-gateway-about-vpngateways.md)
+- [About VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 
 ## Internal Load Balancing
 
 An Azure load balancer is a Layer-4 (TCP, UDP) load balancer. The load balancer provides high availability by distributing incoming traffic among healthy service instances in cloud services or virtual machines in a load balancer set. Azure Load Balancer can also present those services on multiple ports, multiple IP addresses, or both.
 
-- [Creating an internal load balancer using the Azure CLI](../virtual-network/load-balancer-get-started-internet-arm-cli.md)
+- [Creating an internal load balancer using the Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
