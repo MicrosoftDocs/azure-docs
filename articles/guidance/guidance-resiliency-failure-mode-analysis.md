@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/10/2016"
+   ms.date="10/24/2016"
    ms.author="mwasson"/>
 
 # Azure resiliency guidance: Failure mode analysis
@@ -115,7 +115,7 @@ Application_End logging will catch the app domain shutdown (soft process crash) 
 
 ## Azure Search
 
-### Writing data to AzureSearch fails.
+### Writing data to Azure Search fails.
 
 **Detection**. Catch `Microsoft.Rest.Azure.CloudException` errors.
 
@@ -396,7 +396,7 @@ For more information, see [Service Bus messaging exceptions][sb-messaging-except
 
 There are two failure modes to consider. 
 
-- The receiver detects the failure. In this case, move the message to the dead-letter queue (DLQ). Later, run a separate process to examine the messages in the dead-letter queue.
+- The receiver detects the failure. In this case, move the message to the dead-letter queue. Later, run a separate process to examine the messages in the dead-letter queue.
 
 - The receiver fails in the middle of processing the message &mdash; for example, due to an unhandled exception. To handle this case, use `PeekLock` mode. In this mode, if the lock expires, the message becomes available to other receivers. If the message exceeds the maximum delivery count or the time-to-live, the message is automatically moved to the dead-letter queue.
 
@@ -516,7 +516,7 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 **Detection**. Depends on the application. Typical symptoms:
 
-- The website starts returning 500 errors.
+- The website starts returning HTTP 5xx error codes.
 - Dependent services, such as database or storage, start to throttle requests. Look for HTTP errors such as HTTP 429 (Too Many Requests), depending on the service.
 - HTTP queue length grows.
 
@@ -527,8 +527,8 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 - Mitigate failures to avoid having cascading failures disrupt the entire application. Mitigation strategies include:
 
     - Implement the [Throttling Pattern][throttling-pattern] to avoid overwhelming backend systems.
-    - Use [queue-based load leveling][queue-based-load-leveling] to buffer requests and process them at appropriate pace.
-    - Prioritize certain clients. For example, if the application has have free and paid tiers, throttle customers on the free tier, but not paid customers. See [Priority queue pattern][priority-queue-pattern].
+    - Use [queue-based load leveling][queue-based-load-leveling] to buffer requests and process them at an appropriate pace.
+    - Prioritize certain clients. For example, if the application has free and paid tiers, throttle customers on the free tier, but not paid customers. See [Priority queue pattern][priority-queue-pattern].
 
 **Diagnostics**. Use [App Service diagnostic logging][app-service-logging]. Use a service such as [Azure Log Analytics][azure-log-analytics], [Application Insights][app-insights], or [New Relic][new-relic] to help understand the diagnostic logs.
 
