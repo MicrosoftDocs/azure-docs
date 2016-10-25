@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Leveraging Azure Security Center for an incident response | Microsoft Azure"
-   description="This document explains how to leverage Azure Security Center for an incident response scenario."
+   pageTitle="Using Azure Security Center for an incident response | Microsoft Azure"
+   description="This document explains how to use Azure Security Center for an incident response scenario."
    services="security-center"
    documentationCenter="na"
    authors="YuriDio"
@@ -16,8 +16,8 @@
    ms.date="09/20/2016"
    ms.author="yurid"/>
 
-# Leveraging Azure Security Center for an incident response
-Many organizations learn how to respond to security incidents only after suffering an attack. To reduce costs and damage, it’s important to have an incident response plan in place before an attack takes place. You can leverage Azure Security Center in different stages of an incident response.
+# Using Azure Security Center for an incident response
+Many organizations learn how to respond to security incidents only after suffering an attack. To reduce costs and damage, it’s important to have an incident response plan in place before an attack takes place. You can use Azure Security Center in different stages of an incident response.
 
 ## Incident response planning
 
@@ -67,7 +67,7 @@ Since Judy and Sam have different roles, they'll be using different areas of Sec
 
 ![Security alerts](./media/security-center-incident-response/security-center-incident-response-fig3.png)
 
-Judy will use Security alerts during the Detect and Assess stages. After Judy finishes the initial assessment, she may escalate the issue to Sam if additional investigation is required. At this point, Sam will use the information that was provided by Security Center, sometimes in conjunction with other data sources, to move to the Diagnose stage.
+Judy will use Security alerts during the Detect and Assess stages. After Judy finishes the initial assessment, she might escalate the issue to Sam if additional investigation is required. At this point, Sam will use the information that was provided by Security Center, sometimes in conjunction with other data sources, to move to the Diagnose stage.
 
 
 ## How to implement this solution
@@ -76,7 +76,7 @@ To see how you would use Azure Security Center in an incident response scenario,
 
 ### Detect and Assess incident response stages
 
-Judy signed in to the Azure portal and is in the Security Center console. As part of her daily monitoring activities, she started reviewing high-priority security alerts by performing the following steps:
+Judy signed in to the Azure portal and is working in the Security Center console. As part of her daily monitoring activities, she started reviewing high-priority security alerts by performing the following steps:
 
 1. Click the **Security alerts** tile and access the **Security alerts** blade.
 	![Security alert blade](./media/security-center-incident-response/security-center-incident-response-fig4.png)
