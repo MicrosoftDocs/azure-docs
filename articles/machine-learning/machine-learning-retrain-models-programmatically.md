@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="raymondlaghaeian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -13,41 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2016"
+	ms.date="10/10/2016"
 	ms.author="raymondl;garye;v-donglo"/>
 
 
-#Retrain Machine Learning models programmatically  
+# Retrain Machine Learning models programmatically  
 
-As part of the process of operationalization of machine learning models in Azure Machine Learning, your model is trained and saved. You then use it to create a predicative Web service. The Web service can then be consumed in web sites, dashboards, and mobile apps. 
+In this walkthrough, you will learn how to programmatically retrain an Azure Machine Learning Web Service using C# and the Machine Learning Batch Execution service.
 
-Models you create using Machine Learning are typically not static. As new data becomes available or when the consumer of the API has their own data the model needs to be retrained. Or, you may need to apply filters obtain a subset of the data and retrain the model. 
+Once you have retrained the model, the following walkthroughs show how to update the model in your predictive Web service:
 
-Retraining may occur frequently. With the Programmatic Retraining API feature, you can programmatically retrain the model using the Retraining APIs and update the Web service with the newly trained model. 
+- If you deployed a Classic Web service in the Machine Learning Web Services portal, see [Retrain a Classic Web service](machine-learning-retrain-a-classic-web-service.md). 
+- If you deployed a New Web service, see [Retrain a New Web service using the Machine Learning Management cmdlets](machine-learning-retrain-new-web-service-using-powershell.md).
 
-This document describes the retraining process, and shows you how to use the Retraining APIs.
+For an overview of the retraining process, see [Retrain a Machine Learning Model](machine-learning-retrain-machine-learning-model.md).
 
-## Why retrain: defining the problem  
-
-As part of the machine learning training process, a model is trained using a set of data. Models you create using Machine Learning are typically not static. As new data becomes available or when the consumer of the API has their own data the model needs to be retrained. Additional scenarios may require you to apply filters obtain a subset of the data and retrain the model. 
-
-In these scenarios, a programmatic API provides a convenient way to allow you or the consumer of your APIs to create a client that can, on a one-time or regular basis, retrain the model using their own data. They can then evaluate the results of retraining, and update the Web service API to use the newly trained model.  
-
-##How to retrain: the end to end process  
-
-To start, the process involves the following components: A Training Experiment and a Predictive Experiment published as a Web service. To enable retraining of a trained model, the Training Experiment must be published as a Web service with the output of a trained model. This enables API access to the model for retraining. 
-
-The process for setting up retraining for a Classic Web service involves the following steps:
-
-![Retraining process overview][1]
-
-Diagram 1: Retraining process for a Classic Web service overview  
-
-The process for setting up retraining for a New Web service involves the following steps:
-
-![Retraining process overview][7]
-
-Diagram 2: Retraining process for a New Web service overview  
+If you want to start with your existing New Azure Resource Manager based Web service, see [Retrain an existing Predictive Web service](machine-learning-retrain-existing-resource-manager-based-web-service.md).
 
 ## Create a Training Experiment
  
@@ -67,7 +48,7 @@ To create the experiment:
 
 Diagram 2: Initial experiment.
 
-## Create a Scoring Experiment and publish as a Web service  
+## Create a Predictive Experiment and publish as a Web service  
 
 Next you create a Predicative Experiment.
 
@@ -81,8 +62,8 @@ To retrain the trained model, you must deploy the Training Experiment that you c
 
 1. To return to the training experiment, click the Experiments icon in the left pane, then click the experiment named Census Model.  
 2. In the Search Experiment Items search box, type Web service. 
-3. Drag a *Web Service Input* module onto the experiment canvas and connect its output to the *Clean Missing Data* module. 
-4. Drag two *Web service Output* modules onto the experiment canvas. Connect the output of the *Train Model* module to one and the output of the *Evaluate Model* module to the other. The Web service output for **Train Model** gives us the new trained model. The output attached to **Evaluate Model** returns that module’s output.
+3. Drag a *Web Service Input* module onto the experiment canvas and connect its output to the *Clean Missing Data* module.  This ensures that your retraining data is processed the same way as your original training data.
+4. Drag two *Web service Output* modules onto the experiment canvas. Connect the output of the *Train Model* module to one and the output of the *Evaluate Model* module to the other. The Web service output for **Train Model** gives us the new trained model. The output attached to **Evaluate Model** returns that module’s output, which is the performance results.
 5. Click **Run**. 
 
 Next you must deploy the Training Experiment as a web service that produces a trained model and model evaluation results. To accomplish this, your next set of actions are dependent on whether you are working with a Classic Web service or a New Web service.  
@@ -102,6 +83,8 @@ In either case, after experiment has completed running, the resulting workflow s
 Diagram 3: Resulting workflow after run.
 
 ## Retrain the model with new data using BES
+
+For this example, you are using C# to create the retraining application. You can also use the Python or R sample code to accomplish this task.
 
 To call the Retraining APIs:
 
@@ -153,7 +136,9 @@ You also must ensure the input file is available at the location you specify in 
 
 ### Specify the output location
 
-When specifying the output location in the Request Payload, the extension of the file specified in *RelativeLocation* must be specified as ilearner. See the following example.
+When specifying the output location in the Request Payload, the extension of the file specified in *RelativeLocation* must be specified as ilearner. 
+
+See the following example:
 
     Outputs = new Dictionary<string, AzureBlobDataReference>() {
         {

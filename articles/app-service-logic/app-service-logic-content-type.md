@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="05/03/2016"
+   ms.date="10/18/2016"
    ms.author="jehollan"/>
 
 # Logic Apps Content Type Handling

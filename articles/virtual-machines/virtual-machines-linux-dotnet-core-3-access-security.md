@@ -48,7 +48,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
       "domainNameLabel": "[parameters('publicipaddressDnsName')]"
     }
   }
-},
+}
 ```
 
 A Public IP Address can be associated with a Virtual Network Adapter, or a Load Balancer. In this example, because the Music Store website is load balanced across several virtual machines, the Public IP Address is attached to the Load Balancer.
@@ -65,7 +65,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
     },
     "name": "LoadBalancerFrontend"
   }
-],
+]
 ```
 
 The public IP Address as seen from the Azure portal. Notice that the public IP address is associated to a load balancer and not a virtual machine. Network load balancers are detailed in the next document of this series.
@@ -108,7 +108,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
       ........<truncated> 
     ]
   }
-},
+}
 ```
 
 In this example, the network security group is associate with the subnet object declared in the Virtual Network resource. 
@@ -139,4 +139,4 @@ For in-depth information on Network Security Groups, see [What is a Network Secu
 
 <hr>
 
-[Step 3 - Availability and Scale in Azure Resource Manager Templates](./virtual-machines-linux-dotnet-core-4-avalibility-scale.md)
+[Step 3 - Availability and Scale in Azure Resource Manager Templates](./virtual-machines-linux-dotnet-core-4-availability-scale.md)

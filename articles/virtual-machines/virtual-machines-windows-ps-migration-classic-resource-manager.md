@@ -3,7 +3,7 @@
 	description="This article walks through the platform-supported migration of IaaS resources from classic to Azure Resource Manager by using Azure PowerShell commands"
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dlepow"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/16/2016"
-	ms.author="danlep"/>
+	ms.author="cynthn"/>
 
 # Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell
 

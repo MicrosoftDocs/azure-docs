@@ -232,9 +232,11 @@ The following is a list of SDKs and integrations that you can use with Event Hub
 * [Apache Storm spout](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). You can view the [spout source](https://github.com/apache/storm/tree/master/external/storm-eventhubs) on GitHub.
 * [Apache Spark integration](../hdinsight/hdinsight-apache-spark-eventhub-streaming.md)
 
-## Reference
+## Reference topics:
 
-### Message format
+The following reference topics provide you with more information about exchanging messages with IoT Hub.
+
+## Message format
 
 IoT Hub messages comprise:
 
@@ -260,33 +262,34 @@ The following table lists the set of system properties in IoT Hub messages.
 | ConnectionDeviceGenerationId | An ID set by IoT Hub on device-to-cloud messages. It contains the **generationId** (as per [Device identity properties][lnk-device-properties]) of the device that sent the message. |
 | ConnectionAuthMethod | An authentication method set by IoT Hub on device-to-cloud messages. This property contains information about the authentication method used to authenticate the device sending the message. For more information, see [Device to cloud anti-spoofing][lnk-antispoofing].|
 
-### Communication protocols
+## Communication protocols
 
-Iot Hub supports MQTT, [AMQP][lnk-amqp], AMQP over WebSockets, and HTTP/1 protocols for device-side communications. The following table provides the high-level recommendations for your choice of protocol:
+IoT Hub allows devices to use [MQTT][lnk-mqtt], MQTT over WebSockets, [AMQP][lnk-amqp], AMQP over WebSockets, and HTTP/1 protocols for device-side communications. The following table provides the high-level recommendations for your choice of protocol:
 
 | Protocol | When you should choose this protocol |
 | -------- | ------------------------------------ |
-| MQTT     | Use on all devices that do not require the use of WebSockets. |
-| AMQPS    | Use on field and cloud gateways to take advantage of connection multiplexing across devices. <br/> Use when you need to connect on port 443. |
+| MQTT <br> MQTT over WebSocket     | Use on all devices that do not require to connect multiple devices (each with its own per-device credentials) over the same TLS connection. |
+| AMQPS <br> AMQP over WebSocket    | Use on field and cloud gateways to take advantage of connection multiplexing across devices. |
 | HTTPS    | Use for devices that cannot support other protocols. |
 
 Consider the following points when you choose your protocol for device-side communications:
 
-* **Cloud-to-device pattern**. HTTP/1 does not have an efficient way to implement server push. As such, when you are using HTTP/1, devices poll IoT Hub for cloud-to-device messages. This approach is inefficient for both the device and IoT Hub. Under current HTTP/1 guidelines, each device should poll for messages every 25 minutes or more. On the other hand, MQTT and AMQP support server push when receiving cloud-to-device messages. They enable immediate pushes of messages from IoT Hub to the device. If delivery latency is a concern, AMQP or MQTT are the best protocols to use. For rarely connected devices, HTTP/1 works as well.
+* **Cloud-to-device pattern**. HTTP/1 does not have an efficient way to implement server push. As such, when you are using HTTP/1, devices poll IoT Hub for cloud-to-device messages. This approach is inefficient for both the device and IoT Hub. Under current HTTP/1 guidelines, each device should poll for messages every 25 minutes or more. On the other hand, MQTT and AMQP support server push when receiving cloud-to-device messages. They enable immediate pushes of messages from IoT Hub to the device. If delivery latency is a concern, MQTT or AMQP are the best protocols to use. For rarely connected devices, HTTP/1 works as well.
 * **Field gateways**. When using HTTP/1 and MQTT, you cannot connect multiple devices (each with its own per-device credentials) using the same TLS connection. Thus, for [Field gateway scenarios][lnk-azure-gateway-guidance], these protocols are suboptimal because they require one TLS connection between the field gateway and IoT Hub for each device connected to the field gateway.
 * **Low resource devices**. The MQTT and HTTP/1 libraries have a smaller footprint than the AMQP libraries. As such, if the device has limited resources (for example, less than 1 MB RAM), these protocols might be the only protocol implementation available.
-* **Network traversal**. The MQTT standard listens on port 8883, which could cause problems in networks that are closed to non-HTTP protocols. Both HTTP and AMQP (over WebSockets) are available to be used in this scenario.
+* **Network traversal**. The standard AMQP protocol uses port 5671, while MQTT listens on port 8883, which could cause problems in networks that are closed to non-HTTP protocols. MQTT over WebSockets, AMQP over WebSockets, and HTTP are available to be used in this scenario.
 * **Payload size**. AMQP and MQTT are binary protocols, which result in more compact payloads than HTTP/1.
 
 > [AZURE.NOTE] When using HTTP/1, each device should poll for cloud-to-device messages every 25 minutes or more. However, during development, it is acceptable to poll more frequently than every 25 minutes.
 
-### Port numbers
+## Port numbers
 
 Devices can communicate with IoT Hub in Azure using various protocols. Typically, the choice of protocol is driven by the specific requirements of the solution. The following table lists the outbound ports that must be open for a device to be able to use a specific protocol:
 
 | Protocol | Port(s) |
 | -------- | ------- |
 | MQTT     | 8883    |
+| MQTT over WebSockets | 443    |
 | AMQP     | 5671    |
 | AMQP over WebSockets | 443    |
 | HTTPS    | 443     |
@@ -294,7 +297,7 @@ Devices can communicate with IoT Hub in Azure using various protocols. Typically
 
 Once you have created an IoT hub in an Azure region, the hub keeps the same IP address for the lifetime of that hub. However, to maintain quality of service, if Microsoft moves the IoT hub to a different scale unit then it is assigned a new IP address.
 
-### Notes on MQTT support
+## Notes on MQTT support
 
 IoT Hub implements the MQTT v3.1.1 protocol with the following limitations and specific behavior:
 
@@ -303,9 +306,9 @@ IoT Hub implements the MQTT v3.1.1 protocol with the following limitations and s
 
 For more information, see [IoT Hub MQTT support][lnk-devguide-mqtt].
 
-As a final consideration, you should review the [Azure IoT protocol gateway][lnk-azure-protocol-gateway] that enables you to deploy a high-performance custom protocol gateway that interfaces directly with IoT Hub. The Azure IoT protocol gateway enables you to customize the device protocol to accommodate brownfield MQTT deployments or other custom protocols. This approach does require, however, that you self-host and operate a custom protocol gateway.
+As a final consideration, you should review the [Azure IoT protocol gateway][lnk-azure-protocol-gateway] that enables you to deploy a high-performance custom protocol gateway that interfaces directly with IoT Hub. The Azure IoT protocol gateway enables you to customize the device protocol to accommodate brownfield MQTT deployments or other custom protocols. This approach does require, however, that you run and operate a custom protocol gateway.
 
-### Additional reference material
+## Additional reference material
 
 Other reference topics in the Developer Guide include:
 
@@ -340,7 +343,8 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-azure-gateway-guidance]: iot-hub-devguide-endpoints.md#field-gateways
 [lnk-guidance-scale]: iot-hub-scaling.md
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
-[lnk-amqp]: https://www.amqp.org/
+[lnk-amqp]: http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf
+[lnk-mqtt]: http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.pdf
 [lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
 [lnk-event-hubs-consuming-events]: ../event-hubs/event-hubs-programming-guide.md#event-consumers
 [lnk-management-portal]: https://portal.azure.com

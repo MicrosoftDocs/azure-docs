@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/11/2016" 
+	ms.date="10/19/2016" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -381,7 +381,7 @@ Normally the SDK sends data at times chosen to minimize impact on the user. Howe
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
 
-Note that the function is asynchronous for in-memory channels, but synchronous if you choose to use the [persistent channel](app-insights-api-filtering-sampling.md#persistence-channel).
+Note that the function is asynchronous for the [server telemetry channel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/), but synchronous if you choose to use the in-memory channel or [persistent channel](app-insights-api-filtering-sampling.md#persistence-channel).
 
 
 ## Authenticated users

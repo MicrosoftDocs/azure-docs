@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/20/2016"
+	ms.date="10/12/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -357,10 +357,11 @@ Azure AD Identity Protection helps you manage the mitigation of risky sign-ins b
 	![Sign-in risk policy](./media/active-directory-identityprotection/1016.png "Sign-in risk policy")
 
 
-- Set the controls to be enforced when the policy triggers::  
+- Set the controls to be enforced when the policy triggers:  
 
 	![Sign-in risk policy](./media/active-directory-identityprotection/1017.png "Sign-in risk policy")
-
+	
+	Multi-factor authentication can only be required for users that haven already been registered for multi-factor authentication. If the condition to require multi-factor authentication is satisfied for a user who is not yet registered for multi-factor authentication, the user is blocked. 
 
 - Switch the state of your policy:
 

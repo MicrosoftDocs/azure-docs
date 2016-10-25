@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="10/17/2016"
 	ms.author="ccompy"/>
 
 # Using an Internal Load Balancer with an App Service Environment #
@@ -55,7 +55,7 @@ Creating an ILB ASE is not much different from creating an ASE normally.  For a 
 2.	Select your subscription
 3.	Select or create a resource group
 4.	Select or create a VNet
-5.	Select or create a subnet if selecting a VNet
+5.	Create a subnet if selecting a VNet
 6.	Select **Virtual Network/Location -> VNet Configuration** and set the VIP Type to Internal
 7.	Provide subdomain name (this will be the subdomain used for apps created in this ASE)
 8.	Select Ok and then Create
@@ -94,7 +94,7 @@ Under the app name the subdomain name gets updated to reflect the subdomain of y
 An ILB ASE is slightly different than the non-ILB ASE.  As already noted you need to manage your own DNS and you also have to provide your own certificate for HTTPS connections.  
 
 
-After you create your ASE you will notice that the subdomain shows the subdomain you specified and there is a new item in the **Setting** menu called **ILB Certificate**.  Until you set a certificate for your ASE you will not be able to reach the apps in your ASE over HTTPS.  
+After you create your ASE you will notice that the subdomain shows the subdomain you specified and there is a new item in the **Setting** menu called **ILB Certificate**.  The ASE is created with a self-signed certificate which makes it easier to test HTTPS.  The portal will tell you that you need to provide your own certificate for HTTPS but this is to drive you to have a certificate that goes with your subdomain.  
 
 ![][3]
 
@@ -103,7 +103,7 @@ If you are simply trying things out and don't know how to create a certificate, 
 
 ![][6]
 
-If you want to test both HTTP and HTTPS access to your ASE:
+If you want to try the flow with your own certificates and test both HTTP and HTTPS access to your ASE:
 
 1.	Go to ASE UI after ASE is created **ASE -> Settings -> ILB Certificates**
 2.	Set ILB certificate by selecting certificate pfx file and provide password.  This step takes a little while to process and the message that a scaling operation is in progress will be shown.

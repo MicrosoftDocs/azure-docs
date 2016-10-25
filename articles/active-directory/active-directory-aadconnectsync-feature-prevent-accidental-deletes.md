@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="09/01/2016"
-   ms.author="andkjell"/>
+   ms.author="billmath"/>
 
 # Azure AD Connect sync: Prevent accidental deletes
 This topic describes the prevent accidental deletes (preventing accidental deletions) feature in Azure AD Connect.

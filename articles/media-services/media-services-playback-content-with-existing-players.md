@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/19/2016" 
+	ms.date="10/12/2016" 
 	ms.author="juliako"/>
 
 
@@ -23,7 +23,7 @@ Azure Media Services supports many popular streaming formats, such as Smooth Str
 
 >[AZURE.NOTE]To play dynamically packaged or dynamically encrypted content, make sure to get at least one streaming unit for the streaming endpoint from which you plan to deliver your content. For information about scaling streaming units, see: [How to scale streaming units](media-services-portal-manage-streaming-endpoints.md).
 
-###Azure Classic Portal Media Services content Player
+### The Azure portal Media Services content player
 
 The **Azure** portal provides a content player that you can use to test your video.
 

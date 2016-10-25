@@ -235,7 +235,7 @@ To perform an automatic deployment of Azure services and Team Services build ser
 
 Microsoft Azure provides a wealth of different services that you can use to build cloud applications. Although many can be used individually (such as App Service/Web Apps), they're at their best when they're interconnected to form an integrated system like that we use in MyDriving.
 
-It's possible to create and interconnect Azure services manually, but it's much quicker and more reliable to use Azure Resource Manager templates. [Resource Manager](../resource-group-overview.md) automates the deployment of a solution's resources and making the interconnections between them.
+It's possible to create and interconnect Azure services manually, but it's much quicker and more reliable to use Azure Resource Manager templates. [Resource Manager](../azure-resource-manager/resource-group-overview.md) automates the deployment of a solution's resources and making the interconnections between them.
 
 You'll find the template for the MyDriving system in the GitHub repository under [scripts/ARM](https://github.com/Azure-Samples/MyDriving/tree/master/scripts/ARM). It provides a comprehensive and concise view of how the different services in our architecture are interconnected. We explain all these in detail in the [MyDriving Reference Guide](http://aka.ms/mydrivingdocs), but you can learn a lot just by reading through the template itself.
 

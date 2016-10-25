@@ -4,7 +4,7 @@
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="MandiOhlinger"
-	manager="dwrede"
+	manager="anneta"
 	editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2016"
+	ms.date="10/18/2016"
 	ms.author="mandia"/>
 
 # Manage and Monitor your built-in API Apps and Connectors

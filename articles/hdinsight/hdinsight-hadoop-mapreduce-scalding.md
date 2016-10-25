@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="08/02/2016"
+ ms.date="10/18/2016"
  ms.author="larryfr"/>
 
 # Develop Scalding MapReduce jobs with Apache Hadoop on HDInsight
@@ -151,7 +151,7 @@ In this document, learn how to use Maven to create a basic word count MapReduce 
 
 3. Delete the **src/test** directory, as you will not be creating tests with this example.
 
-4. Open the **src/main/scala/com/microsoft/example/app.scala** file and replace the contents with the following:
+4. Open the **src/main/scala/com/microsoft/example/App.scala** file and replace the contents with the following:
 
         package com.microsoft.example
 
@@ -250,14 +250,14 @@ The following steps use Windows PowerShell. For other methods of running MapRedu
 4. use the following script to upload and run the WordCount job. Replace `CLUSTERNAME` with the name of your HDInsight cluster, and make sure that `$fileToUpload` is the correct path to the __scaldingwordcount-1.0-SNAPSHOT.jar__ file.
 
         #Cluster name, file to be uploaded, and where to upload it
-        $clustername = "CLUSTERNAME"
-        $fileToUpload = "scaldingwordcount-1.0-SNAPSHOT.jar"
+        $clustername = Read-Host -Prompt "Enter the HDInsight cluster name"
+        $fileToUpload = Read-Host -Prompt "Enter the path to the scaldingwordcount-1.0-SNAPSHOT.jar file"
         $blobPath = "example/jars/scaldingwordcount-1.0-SNAPSHOT.jar"
-        
+
         #Login to your Azure subscription
         Login-AzureRmAccount
         #Get HTTPS/Admin credentials for submitting the job later
-        $creds = Get-Credential
+        $creds = Get-Credential -Message "Enter the login credentials for the cluster"
         #Get the cluster info so we can get the resource group, storage, etc.
         $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
         $resourceGroup = $clusterInfo.ResourceGroup
@@ -266,7 +266,7 @@ The following steps use Windows PowerShell. For other methods of running MapRedu
         $storageAccountKey=(Get-AzureRmStorageAccountKey `
             -Name $storageAccountName `
             -ResourceGroupName $resourceGroup)[0].Value
-        
+
         #Create a storage content and upload the file
         $context = New-AzureStorageContext `
             -StorageAccountName $storageAccountName `
@@ -284,10 +284,10 @@ The following steps use Windows PowerShell. For other methods of running MapRedu
             -JarFile wasbs:///example/jars/scaldingwordcount-1.0-SNAPSHOT.jar `
             -ClassName com.microsoft.example.WordCount `
             -arguments "--hdfs", `
-                       "--input", `
-                       "wasbs:///example/data/gutenberg/davinci.txt", `
-                       "--output", `
-                       "wasbs:///example/wordcountout"
+                        "--input", `
+                        "wasbs:///example/data/gutenberg/davinci.txt", `
+                        "--output", `
+                        "wasbs:///example/wordcountout"
         $job = Start-AzureRmHDInsightJob `
             -clustername $clusterName `
             -jobdefinition $jobDef `

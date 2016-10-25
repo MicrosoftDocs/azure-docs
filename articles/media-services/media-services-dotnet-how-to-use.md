@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="10/10/2016"  
+ 	ms.date="10/24/2016"  
 	ms.author="juliako"/>
 
 #Media Services development with .NET
@@ -27,7 +27,7 @@ The **Azure Media Services .NET SDK** library enables you to program against Med
 
 ##Prerequisites
 
--   A Media Services account in a new or existing Azure subscription. See the topic [How to Create a Media Services Account](media-services-create-account.md).
+-   A Media Services account in a new or existing Azure subscription. See the topic [How to Create a Media Services Account](media-services-portal-create-account.md).
 -   Operating Systems: Windows 10, Windows 7, Windows 2008 R2, or Windows 8.
 -   .NET Framework 4.5.
 -    Visual Studio 2015, Visual Studio 2013, Visual Studio 2012, or Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express).
@@ -41,50 +41,47 @@ This section shows how to use **NuGet** to add Media Services .NET SDK and other
 
 Alternatively, you can get the latest Media Services .NET SDK bits from GitHub ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) and [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), build the solution, and add the references to the client project. Note that all the necessary dependencies get downloaded and extracted automatically.
 
-1. Create a new C# Console Application in Visual Studio 2013, Visual Studio 2012 or Visual Studio 2010 SP1. Enter the **Name**, **Location**, and **Solution name**, and then click OK.
+1. Create a new C# Console Application in Visual Studio 2010 SP1 or later VS versions. Enter the **Name**, **Location**, and **Solution name**, and then click OK.
 
 2. Build the solution.
 
 2. Use **NuGet** to install and add **Azure Media Services .NET SDK Extensions**. Installing this package, also installs **Media Services .NET SDK** and adds all other required dependencies.
-1. Ensure that you have the newest version of NuGet installed. For more information and installation instructions, see [NuGet](http://nuget.codeplex.com/).
+
+	Ensure that you have the newest version of NuGet installed. For more information and installation instructions, see [NuGet](http://nuget.codeplex.com/).
 
 2. In Solution Explorer, right-click the name of the project and choose Manage NuGet packages ….
 
-The Manage NuGet Packages dialog box appears.
+	The Manage NuGet Packages dialog box appears.
 
 3. In the Online gallery, search for Azure MediaServices Extensions, choose Azure Media Services .NET SDK Extensions, and then click the Install button.
 
-The project is modified and references to the Media Services .NET SDK Extensions,  Media Services .NET SDK, and other dependent assemblies are added.
+	The project is modified and references to the Media Services .NET SDK Extensions,  Media Services .NET SDK, and other dependent assemblies are added.
 
 4. To promote a cleaner development environment, consider enabling NuGet Package Restore. For more information, see [NuGet Package Restore"](http://docs.nuget.org/consume/package-restore).
 
 3. Add a reference to **System.Configuration** assembly. This assembly contains the System.Configuration.**ConfigurationManager** class that is used to access configuration files (for example, App.config).
 
-To add references using the Manage References dialog, do the following:
+	To add references using the Manage References dialog, right-click the project name in the Solution Explorer. Then, select Add and References.
 
-1. In Solution Explorer, right-click the project name. Then, select Add and References.
+	The Manage References dialog appears.
 
-The Manage References dialog appears.
+4. Under .NET framework assemblies, find and select the System.Configuration assembly and press OK.
+5. Open the App.config file (add the file to your project if it was not added by default) and add an *appSettings* section to the file. 	
+Set the values for your Azure Media Services account name and account key, as shown in the following example.
 
-2. Under .NET framework assemblies, find and select the System.Configuration assembly.
-3. Press OK.
-
-
-4. Open the App.config file (add the file to your project if it was not added by default) and add an *appSettings* section to the file. Set the values for your Azure Media Services account name and account key, as shown in the following example.
-
-To obtain the **account name** and **account key** information, open the **Azure Classic Portal**, select your media services account and click the **MANAGE KEYS** button.
+	To find the Name and Key values, go to the Azure portal and select your account. The Settings window appears on the right. In the Settings window, select Keys. Clicking on the icon next to each text box copies the value to the system clipboard.
 
 
-	<configuration>
-	...
-	  <appSettings>
-	    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-	    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-	  </appSettings>
-	  
-	</configuration>
+		<configuration>
+		...
+		    <appSettings>
+		      <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+		      <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+		    </appSettings>
 
-5. Overwrite the existing using statements at the beginning of the Program.cs file with the following code.
+		</configuration>
+
+6. Overwrite the existing **using** statements at the beginning of the Program.cs file with the following code.
 
 		using System;
 		using System.Collections.Generic;
@@ -97,7 +94,6 @@ To obtain the **account name** and **account key** information, open the **Azure
 		using Microsoft.WindowsAzure.MediaServices.Client;
 
 At this point, you are ready to start developing a Media Services application.    
-
 
 
 ##Media Services learning paths

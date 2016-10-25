@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/09/2016"
+   ms.date="10/18/2016"
    ms.author="alkohli" />
 
 # StorSimple Virtual Array best practices
@@ -71,18 +71,18 @@ On your virtual array, you want to be able to
 
 For the preceding volumes or shares, let us calculate the space requirements on the local tier. 
 
-First, for each tiered volume/share, local reservation would be equal to 12% of the volume/share size. For the locally pinned volume/share, local reservation would be 10 % of the volume/share size. In this example, you need
+First, for each tiered volume/share, local reservation would be equal to 12% of the volume/share size. For the locally pinned volume/share, local reservation is 10 % of the locally pinned volume/share size (in addition to the provisioned size). In this example, you need
 
 - 240 GB local reservation (for a 2 TB tiered volume/share)
 - 120 GB local reservation (for a 1 TB tiered volume/share)
-- 330 GB for locally pinned volume or share
+- 330 GB for locally pinned volume or share (adding 10 % of local reservation to the 300 GB provisioned size)
 
 The total space required on the local tier so far is: 240 GB + 120 GB + 330 GB = 690 GB.
 
-Second, we need at least as much space on the local tier as the largest single reservation. This extra amount is used in case you need to restore from a cloud snapshot. In this example, the largest local reservation is 330 GB (including reservation for file system), so you would add that to the 660 GB: 660 GB + 330 GB = 990 GB.
+Second, we need at least as much space on the local tier as the largest single reservation. This extra amount is used in case you need to restore from a cloud snapshot. In this example, the largest local reservation is 330 GB (including reservation for file system), so you would add that to the 690 GB: 690 GB + 330 GB = 1020 GB.
 If we performed subsequent additional restores, we can always free up the space from the previous restore operation.
 
-Third, we need 15 % of your total local space so far to store local snapshots, so that only 85% of it is available. In this example, that would be around 990 GB = 0.85&ast;provisioned data disk TB. So, the provisioned data disk would be (990&ast;(1/0.85))= 1164 GB = 1.16 TB ~ 1.25 TB (rounding off to nearest quartile)
+Third, we need 15 % of your total local space so far to store local snapshots, so that only 85% of it is available. In this example, that would be around 1020 GB = 0.85&ast;provisioned data disk TB. So, the provisioned data disk would be (1020&ast;(1/0.85))= 1200 GB = 1.20 TB ~ 1.25 TB (rounding off to nearest quartile)
 
 Factoring in unexpected growth and new restores, you should provision a local disk of around 1.25 - 1.5 TB.
 
@@ -97,7 +97,7 @@ On your virtual array, you want to be able to
 Based on 12 % of local space reservation for tiered volumes/shares and 10 % for locally pinned volumes/shares, we need
 
 - 240 GB local reservation (for 2 TB tiered volume/share)
-- 330 GB for locally pinned volume or share
+- 330 GB for locally pinned volume or share (adding 10% of local reservation to the 300 GB provisioned space)
 
 Total space required on the local tier is: 240 GB + 330 GB = 570 GB
 

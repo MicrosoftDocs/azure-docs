@@ -54,7 +54,7 @@ You can also write your own dependency tracking code using the [TrackDependency 
 
 ### Performance collector
 
-[Collects system performance counters](app-insights-web-monitor-performance.md#system-performance-counters) such as CPU, memory and network load from IIS installations. You can specify which counters to collect, including performance counters you have set up yourself.
+[Collects system performance counters](app-insights-performance-counters.md) such as CPU, memory and network load from IIS installations. You can specify which counters to collect, including performance counters you have set up yourself.
 
 * `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule`
 * [Microsoft.ApplicationInsights.PerfCounterCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet package.

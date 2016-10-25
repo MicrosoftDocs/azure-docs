@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="07/26/2016"
-	ms.author="minet;robinsh" />
+	ms.date="10/18/2016"
+	ms.author="minet" />
 
 # Get started with Azure File storage on Windows
 

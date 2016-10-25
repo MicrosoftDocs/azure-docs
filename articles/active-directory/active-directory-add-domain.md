@@ -19,7 +19,7 @@
 # Add a custom domain name to Azure Active Directory
 
 > [AZURE.SELECTOR]
-- [Azure portal](active-directory-domains-add-qzure-portal.md)
+- [Azure portal](active-directory-domains-add-azure-portal.md)
 - [Azure classic portal](active-directory-add-domain.md)
 
 You've got one or more domain names that your organization uses to do business, and your users sign in to your corporate network using your corporate domain name. Now that you're using Azure Active Directory (Azure AD), you can add your corporate domain name to Azure AD as well. This allows you to assign user names in the directory that are familiar to your users, such as ‘alice@contoso.com.’ The process is simple:

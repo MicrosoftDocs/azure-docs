@@ -13,15 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2016"
+	ms.date="10/17/2016"
 	ms.author="mimig"/>
 
 # Monitor DocumentDB requests, usage, and storage
 
 You can monitor your Azure DocumentDB accounts in the [Azure portal](https://portal.azure.com/). For each DocumentDB account, both performance metrics, such as requests and server errors, and usage metrics, such as storage consumption, are available.
 
-## View performance metrics in the portal 
+Metrics can be reviewed on the Account blade or on the new Metrics blade. 
+
+## View performance metrics on the Metrics blade
+
+1. In a new window, open the [Azure portal](https://portal.azure.com/), click **More Services**, click **DocumentDB (NoSQL)**, and then click the name of the DocumentDB account for which you would like to view performance metrics. 
+2. In the resource menu, click **Metrics**.
+
+The Metrics blade opens, and you can select the collection to review. You can review Availability, Requests, Throughput, and Storage metrics and compare them to the DocumentDB SLAs. 
+
+## View performance metrics on the account blade
 1.	In a new window, open the [Azure portal](https://portal.azure.com/), click **More Services**, click **DocumentDB (NoSQL)**, and then click the name of the DocumentDB account for which you would like to view performance metrics.
+
 2.	The **Monitoring** lens displays the following tiles by default:
 	*	Total requests for the current day.
 	*	Storage used.

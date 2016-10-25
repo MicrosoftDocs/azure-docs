@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="09/13/2016"
-	ms.author="billmath;andkjell"/>
+	ms.author="billmath"/>
 
 # Getting started with Azure AD Connect using express settings
 Azure AD Connect **Express Settings** is used when you have a single-forest topology and [password synchronization](../active-directory-aadconnectsync-implement-password-synchronization.md) for authentication. **Express Settings** is the default option and is used for the most commonly deployed scenario. You are only a few short clicks away to extend your on-premises directory to the cloud.

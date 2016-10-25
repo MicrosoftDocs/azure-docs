@@ -14,52 +14,49 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/11/2016"
+	ms.date="10/17/2016"
 	ms.author="bradsev" />
 
 
-# Introduction to the Data Science Virtual Machine for Linux and Windows, a cloud environment and toolkit
+# Introduction to the cloud-based Data Science Virtual Machine for Linux and Windows
 
-Learn about the key scenarios and features of Azure Data Science Virtual Machines and how to get started. The Data Science VM is a data science environment and toolkit ready for analytics and provisioned in the Microsoft Azure cloud in Windows Server 2012 or OpenLogic 7.2 CentOS-based Linux versions.
+The Data Science Virtual Machine is a customized VM image on Microsoft’s Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured to jump-start building intelligent applications for advanced analytics. It is available on Windows Server 2012 or on OpenLogic 7.2 CentOS-based Linux versions. 
 
-
-## What can I do in the Data Science Virtual Machine?
-
-The goal of the Data Science Virtual Machine is to provide data professionals at all skill levels and roles with a friction-free data science environment that allows you to start your data science project immediately in a newly created VM instance. This VM saves you considerable time that you would spend if you rolled out a comparable environment on your own.
-
-The Data Science VM is preconfigured for the broad usage scenarios:
-
-- Scale your environment up or down as your project needs change.
-- Use any language to program your data science tasks.
-- Install other tools and customize the system for your exact needs.​​
+This topic discusses what you can do with the Data Science VM, outlines some of the key scenarios for using the VM, itemizes the key features available on the Windows and Linux versions, and provides instructions on how to get started using them.
 
 
+## What can I do with the Data Science Virtual Machine?
 
-## Preconfigured analytics desktop in the cloud
+The goal of the Data Science Virtual Machine is to provide data professionals at all skill levels and roles with a friction-free data science environment. This VM saves you considerable time that you would spend if you had rolled out a comparable environment on your own. Instead, start your data science project immediately in a newly created VM instance. 
+
+The Data Science VM is designed and configured for working with a broad usage scenarios. You can scale your environment up or down as your project needs change. You are able to use your preferred language to program data science tasks. You can install other tools and customize the system for your exact needs.​​
+ 
+## Key Scenarios
+This section suggests some key scenarios for which the Data Science VM can be deployed.
+
+### Preconfigured analytics desktop in the cloud
 
 The Data Science VM provides a baseline configuration for data science teams looking to replace their local desktops with a managed cloud desktop. This baseline ensures that all the data scientists on a team have a consistent setup with which to verify experiments and promote collaboration. It also lowers costs by reducing the sysadmin burden and saving on the time needed to evaluate, install, and maintain the various software packages needed to do advanced analytics.  
 
-## Data science training and education
+### Data science training and education
 
 Enterprise trainers and educators that teach data science classes usually provide a virtual machine image to ensure that their students have a consistent setup and that the samples work predictably. The Data Science VM creates an on-demand environment with a consistent setup that eases the support and incompatibility challenges. Cases where these environments need to be built frequently, especially for shorter training classes, benefit substantially.
 
-## On-demand elastic capacity for large-scale projects
+### On-demand elastic capacity for large-scale projects
 
 Data science hackathons/competitions or large-scale data modeling and exploration require scaled out hardware capacity, typically for short duration. The Data Science VM can help replicate the data science environment quickly on demand, on scaled out servers that allow experiments requiring high-powered computing resources to be run.
 
-## Short-term experimentation and evaluation
+### Short-term experimentation and evaluation
 
 The Data Science VM can be used to evaluate or learn tools such as Microsoft R Server, SQL Server, Visual Studio tools, Jupyter, deep learning / ML toolkits, and new tools popular in the community with minimal setup effort. Since the Data Science VM can be set up quickly, it can be applied in other short-term usage scenarios such as replicating published experiments, executing demos, following walkthroughs in online sessions or conference tutorials.
 
 
-## What's included in the Windows and Linux versions of the Data Science VM?
+## What's included in the Data Science VM?
 
-The Data Science Virtual Machine has many popular data science and other tools already installed and configured to jump-start building intelligent applications using advanced analytics. These tools can be deployed on the cloud, on-premises, or in a hybrid environment.
-
-It also includes tools that make it easy to work with various Azure data and analytics products. You can explore and build predictive models on large-scale data sets using the Microsoft R Server (Developer Edition) on the VM. A host of other tools from the open source community and from Microsoft are also included, as well as sample code and notebooks.
+The Data Science Virtual Machine has many popular data science tools already installed and configured. It also includes tools that make it easy to work with various Azure data and analytics products. You can explore and build predictive models on large-scale data sets using the Microsoft R Server or using SQL Server 2016. A host of other tools from the open source community and from Microsoft are also included, as well as sample code and notebooks. The following table itemizes and compares the main components included in the Windows and Linux editions of the Data Science Virtual Machine.
 
 
-|Windows Edition | Linux Edition |
+|**Windows Edition** | **Linux Edition** |
 |----------------|---------------|
 |Microsoft R Server Developer Edition | Microsoft R Server Developer Edition |
 |Anaconda Python 2.7, 3.5 | Anaconda Python 2.7, 3.5 |
@@ -75,7 +72,7 @@ It also includes tools that make it easy to work with various Azure data and ana
 
 
 
-## How to get started with the Windows Server Data Science VM
+## How to get started with the Windows Data Science VM
 
 - Create an instance of the VM on Windows by navigating to [this page](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) and selecting the green **Create Virtual Machine** button.
 - Sign in to the VM from your remote desktop using the credentials you specified when you created the VM.

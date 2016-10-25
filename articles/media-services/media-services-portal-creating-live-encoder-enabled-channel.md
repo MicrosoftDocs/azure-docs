@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="09/06/2016"
-	ms.author="juliako;juliako"/>
+	ms.date="10/24/2016"
+	ms.author="juliako"/>
 
 
 #How to perform live streaming using Azure Media Services to create multi-bitrate streams with the Azure portal
@@ -69,11 +69,12 @@ In this tutorial, the Azure portal is used to accomplish the following tasks:
 2.  Cleaning up
 
 ##Prerequisites
+
 The following are required to complete the tutorial.
 
 - To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. 
 For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
-- A Media Services account. To create a Media Services account, see [Create Account](media-services-create-account.md).
+- A Media Services account. To create a Media Services account, see [Create Account](media-services-portal-create-account.md).
 - A webcam and an encoder that can send a single bitrate live stream.
 
 ##Configure streaming endpoints 
@@ -84,7 +85,7 @@ To take advantage of dynamic packaging, you need to get at least one streaming u
 
 To create and change the number of streaming reserved units, do the following:
 
-1. Log in at the [Azure portal](https://portal.azure.com/).
+1. Log in at the [Azure portal](https://portal.azure.com/) and select your AMS account.
 1. In the **Settings** window, click **Streaming endpoints**. 
 
 2. Click on the default streaming endpoint. 
@@ -101,7 +102,7 @@ To create and change the number of streaming reserved units, do the following:
 
 ##Create a CHANNEL
 
-1. In the [Azure portal](https://portal.azure.com/), click Media Services and then click on the Media Services account name.
+1. In the [Azure portal](https://portal.azure.com/), select Media Services and then click on your Media Services account name.
 2. Select **Live Streaming**.
 3. Select **Custom create**. This option will let you create a channel that is enabled for live encoding.
 
@@ -219,7 +220,7 @@ If you are done streaming events and want to clean up the resources provisioned 
 
 Even after you stop and delete the event, the users would be able to stream your archived content as a video on demand, for as long as you do not delete the asset. An asset cannot be deleted if it is used by an event; the event must be deleted first. 
 
-To manage your assets select **Setting** and click **Assets**.
+To manage your assets, select **Setting** and click **Assets**.
 
 ![Assets](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 

@@ -3,7 +3,7 @@
    description="Details on how to add, update, or remove an application in Azure Active Directory (Azure AD)."
    services="active-directory"
    documentationCenter=""
-   authors="msmbaldwin"
+   authors="bryanla"
    manager="mbaldwin"
    editor="mbaldwin" />
 <tags

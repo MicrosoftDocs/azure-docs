@@ -164,7 +164,7 @@ Here is the expected output for the command above:
 
 ### Step 3
 
-If necessary, run the **azure group create** command to create a new resource group, as shown below. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager overview](../resource-group-overview.md).
+If necessary, run the **azure group create** command to create a new resource group, as shown below. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
 	azure group create -n appgatewayRG -l eastus
 

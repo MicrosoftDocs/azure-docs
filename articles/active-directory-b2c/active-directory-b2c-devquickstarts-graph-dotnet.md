@@ -4,7 +4,7 @@
 	services="active-directory-b2c"
 	documentationCenter=".net"
 	authors="dstrockis"
-	manager="msmbaldwin"
+	manager="mbaldwin"
 	editor="bryanla"/>
 
 <tags

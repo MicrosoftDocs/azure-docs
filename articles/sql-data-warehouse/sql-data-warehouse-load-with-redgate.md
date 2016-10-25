@@ -3,7 +3,7 @@
    description="Learn how to use Redgate's Data Platform Studio for data warehousing scenarios."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="mausher"
+   authors="twounder"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/05/2016"
+   ms.date="10/13/2016"
    ms.author="mausher;barbkess"/>
 
 

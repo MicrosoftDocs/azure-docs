@@ -31,7 +31,7 @@ This article focuses on using Resource Manager templates to deploy the Docker VM
 
 The Azure Docker VM Extension installs and configures the Docker daemon, Docker client, and Docker Compose in your Linux virtual machine. The extension is also used to define and deploy container applications using Docker Compose. You have additional controls over using Docker Machine or creating the Docker host yourself, making it suited for more robust developer or production environments.
 
-Using Azure Resource Manager, you can create and deploy templates that define the entire structure of your environment. Templates allow you to define the Docker hosts, storage, Role-Based Access Controls (RBAC), diagnostics, etc. You can [read more about Resource Manager](../resource-group-overview.md) and templates to better understand some of the benefits. By using Resource Manager templates, you are also able to reproduce the deployments as needed in the future.
+Using Azure Resource Manager, you can create and deploy templates that define the entire structure of your environment. Templates allow you to define the Docker hosts, storage, Role-Based Access Controls (RBAC), diagnostics, etc. You can [read more about Resource Manager](../azure-resource-manager/resource-group-overview.md) and templates to better understand some of the benefits. By using Resource Manager templates, you are also able to reproduce the deployments as needed in the future.
 
 ## Deploy a template with the Docker VM Extension:
 
@@ -170,7 +170,7 @@ This example used a quick-start template. To deploy the Azure Docker VM Extensio
 }
 ```
 
-You can find more detailed walkthrough on using Resource Manager templates by reading [Azure Resource Manager overview](../resource-group-overview.md)
+You can find more detailed walkthrough on using Resource Manager templates by reading [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)
 
 ## Next steps
 

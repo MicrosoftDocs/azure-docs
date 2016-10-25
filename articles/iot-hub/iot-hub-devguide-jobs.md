@@ -36,16 +36,13 @@ Jobs are initiated by the solution back end and maintained by IoT Hub.  You can 
 
 > [AZURE.NOTE] When you initiate a job, property names and values can only contain US-ASCII printable alphanumeric, except any in the following set: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
 
-## Reference
+## Reference topics:
 
-For all HTTP requests, see the following references:
+The following reference topics provide you with more information about using jobs.
 
-- Query condition: [Details for querying of twins][lnk-query]
-- Method details: [Details for C2D methods][lnk-dev-methods]
+## Jobs to execute direct methods
 
-## Jobs to execute C2D methods
-
-The following is the HTTP 1.1 request details for executing a C2D method on a set of devices using a job:
+The following is the HTTP 1.1 request details for executing a [direct method][lnk-dev-methods] on a set of devices using a job:
 
     ```
     PUT /jobs/v2/<jobId>?api-version=2016-09-30-preview
@@ -94,7 +91,7 @@ The following is the HTTP 1.1 request details for updating device twin propertie
 
 ## Querying for progress on jobs
 
-The following is the HTTP 1.1 request details for querying for jobs:
+The following is the HTTP 1.1 request details for [querying for jobs][lnk-query]:
 
     ```
     GET /jobs/v2/query?api-version=2016-09-30-preview[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]

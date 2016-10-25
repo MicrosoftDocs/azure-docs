@@ -59,6 +59,6 @@ If you need to use port-forwarding to map a unique external port to an internal 
 ## Next steps
 In this example, you created a simple rule to allow HTTP traffic. You can find information on creating more detailed environments in the following articles:
 
-- [Azure Resource Manager overview](../resource-group-overview.md)
+- [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)
 - [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)
 - [Azure Resource Manager Overview for Load Balancers](../load-balancer/load-balancer-arm.md)

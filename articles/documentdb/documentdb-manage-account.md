@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
+	ms.date="10/14/2016"
 	ms.author="kirillg"/>
 
 # How to manage a DocumentDB account
@@ -71,6 +71,16 @@ access your DocumentDB account.
 
 
 > [AZURE.NOTE] It can take several minutes before a newly generated key can be used to access your DocumentDB account.
+
+## Get the  connection string
+
+To retrieve your connection string, do the following: 
+
+1. In the [Azure portal](https://portal.azure.com), access your DocumentDB account.
+2. In the resource menu, click **Keys**.
+3. Click the **Copy** button next to the **Primary Connection String** or **Secondary Connection String** box. 
+
+If you are using the connection string in the [DocumentDB Database Migration Tool](documentdb-import-data.md), append the database name to the end of the connection string. `AccountEndpoint=< >;AccountKey=< >;Database=< >`.
 
 ## <a id="delete"></a> Delete a DocumentDB account
 To remove a DocumentDB account from the Azure Portal that you are no longer using, use the **Delete Account** command on the **DocumentDB account** blade.

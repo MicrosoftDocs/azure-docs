@@ -110,7 +110,7 @@ Note that Widevine license delivery services provided by Azure Media Sevices is 
 
 ##<a id="oct_changes_15"></a>October 2015 Release
 
-Azure Media Services (AMS) is now live in the following data centers: Brazil South,  India West, India South and India Central. You can now use the Azure Classic Portal to [create Media Service accounts](media-services-create-account.md#create-a-media-services-account-using-quick-create) and perform various tasks described [here](https://azure.microsoft.com/documentation/services/media-services/). However, Live Encoding is not enabled in these data centers. Further, not all types of Encoding Reserved Units are available in these data centers.
+Azure Media Services (AMS) is now live in the following data centers: Brazil South,  India West, India South and India Central. You can now use the Azure Classic Portal to [create Media Service accounts](media-services-portal-create-account.md) and perform various tasks described [here](https://azure.microsoft.com/documentation/services/media-services/). However, Live Encoding is not enabled in these data centers. Further, not all types of Encoding Reserved Units are available in these data centers.
 
 - Brazil South:                                          Only Standard and Basic Encoding Reserved Units are available
 - India West, India South and India Central:             Only Basic Encoding Reserved Units are available
@@ -261,12 +261,12 @@ This release marked the default Microsoft.WindowsAzure.MediaServices.Client.Cont
 
 ##<a id="november_changes_14"></a>November 2014 Release
 
-        - Media Services now enables you to ingest a live Smooth Streaming (FMP4) content over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS.  For more information about live streaming, see [Working with Azure Media Services Live Streaming].
-        - Note that currently, you cannot ingest an RTMP live stream over an SSL connection.
-        - You can also stream your content over an SSL connection. To do this, make sure your streaming URLs start with HTTPS.
-        - Note that you can only stream over SSL if the streaming endpoint from which you deliver your content was created after September 10th, 2014. If your streaming URLs are based on the streaming endpoints created after September 10th, the URL contains “streaming.mediaservices.windows.net” (the new format). Streaming URLs that contain “origin.mediaservices.windows.net” (the old format) do not support SSL. If your URL is in the old format and you want to be able to stream over SSL, [create a new streaming endpoint](media-services-portal-manage-streaming-endpoints.md). Use URLs created based on the new streaming endpoint to stream your content over SSL.
+- Media Services now enables you to ingest a live Smooth Streaming (FMP4) content over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS.  For more information about live streaming, see [Working with Azure Media Services Live Streaming].
+- Note that currently, you cannot ingest an RTMP live stream over an SSL connection.
+- You can also stream your content over an SSL connection. To do this, make sure your streaming URLs start with HTTPS.
+- Note that you can only stream over SSL if the streaming endpoint from which you deliver your content was created after September 10th, 2014. If your streaming URLs are based on the streaming endpoints created after September 10th, the URL contains “streaming.mediaservices.windows.net” (the new format). Streaming URLs that contain “origin.mediaservices.windows.net” (the old format) do not support SSL. If your URL is in the old format and you want to be able to stream over SSL, [create a new streaming endpoint](media-services-portal-manage-streaming-endpoints.md). Use URLs created based on the new streaming endpoint to stream your content over SSL.
 
-        ##<a id="october_changes_14"></a>October 2014 Release
+##<a id="october_changes_14"></a>October 2014 Release
 
 ### <a id="new_encoder_release"></a>Media Services Encoder Release
 

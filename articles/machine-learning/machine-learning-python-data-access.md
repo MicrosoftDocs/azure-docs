@@ -148,8 +148,7 @@ The following steps show an example that creates an experiment, runs it and acce
 
 6. Click the output node on the [Convert to CSV][convert-to-csv] module.
 
-7. A context menu 
-8.  appear, select **Generate Data Access Code**.
+7. When the context menu appears, select **Generate Data Access Code**.
 
 	![Context Menu][experiment]
 

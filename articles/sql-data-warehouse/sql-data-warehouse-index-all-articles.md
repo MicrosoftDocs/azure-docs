@@ -28,7 +28,7 @@ This topic lists every topic that applies directly to the **SQL Data Warehouse**
 
 | &nbsp; | Title | Description |
 | --: | :-- | :-- |
-| 1 | [SQL Data Warehouse backups](sql-data-warehouse-backup.md) | Learn about SQL Data Warehouse built-in database backups that enable you to restore an Azure SQL Data Warehouse to a restore point or a different geographical region. |
+| 1 | [SQL Data Warehouse backups](sql-data-warehouse-backups.md) | Learn about SQL Data Warehouse built-in database backups that enable you to restore an Azure SQL Data Warehouse to a restore point or a different geographical region. |
 
 
 ## Updated articles, SQL Data Warehouse

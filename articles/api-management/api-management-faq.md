@@ -117,11 +117,7 @@ To set up multiple environments, for example, a test environment and a productio
 
 ### Can I use SOAP with API Management?
 
-Currently, we offer limited support for Simple Object Access Protocol (SOAP) in Azure API Management. It's a feature that we're investigating. We're interested in seeing examples of your Web Services Description Language (WSDL) documents. Your examples could help us validate our thinking. If you have examples to share with us, please contact us through one of the contact methods in [How can I ask the Microsoft Azure API Management team a question?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question).
-
-If you need to get SOAP with API Management working right now, some members of our community have suggested workarounds. For details, see [Azure API Management: APIM, consuming a SOAP WCF service over HTTP](http://mostlydotnetdev.blogspot.com/2015/03/azure-api-management-apim-consuming.html).
-
-If you implement the solution the way it's described in [Azure API Management: APIM, consuming a SOAP WCF service over HTTP](http://mostlydotnetdev.blogspot.com/2015/03/azure-api-management-apim-consuming.html), you'll need to manually configure some aspects of the policies. SOAP with API Management doesn't support WSDL import or export. Users need to form up the body of requests made by using the test console in the developer portal.
+[SOAP pass-through](http://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) support is now available. Administrators can import the WSDL of their SOAP service, and Azure API Management will create a SOAP front end. Developer portal documentation, test console, policies and analytics are all available for SOAP services.
 
 ### Is the API Management gateway IP address constant? Can I use it in firewall rules?
 

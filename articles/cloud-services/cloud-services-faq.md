@@ -54,7 +54,7 @@ When the virtual machine instance recycles, all local changes are lost. Use a [s
 
 ### I cannot find my management certificates in the portal
 
-[Management certificates](..\azure-api-management-certs.md) are only avialable in the Azure Classic Portal. The current Azure portal does not use management certificates. 
+[Management certificates](..\azure-api-management-certs.md) are only available in the Azure Classic Portal. The current Azure portal does not use management certificates. 
 
 ### How can I disable a management certificate?
 
@@ -63,6 +63,18 @@ When the virtual machine instance recycles, all local changes are lost. Use a [s
 ### How do I create an SSL certificate for a specific IP address?
 
 Follow the directions in the [create a certificate tutorial](cloud-services-certs-create.md). Use the IP address as the DNS Name.
+
+## Security
+
+### Disable SSL 3.0
+
+To disable SSL 3.0 and use TLS security, create a startup task which is documented on this blog post: https://azure.microsoft.com/en-us/blog/how-to-disable-ssl-3-0-in-azure-websites-roles-and-virtual-machines/
+
+## Scale a cloud service
+
+### I cannot scale beyond X instances
+
+Your Azure Subscription has a limit on the number of cores you can use. Scaling will not work if you have used all the cores available. For example, if you have a limit of 100 cores, this means you could have 100 A1 sized virtual machine instances for your cloud service, or 50 A2 sized virtual machine instances.
 
 ## Troubleshooting
 

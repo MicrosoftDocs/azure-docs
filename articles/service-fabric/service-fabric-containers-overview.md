@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/25/2016"
+   ms.date="10/24/2016"
    ms.author="msfussell"/>
 
 # Preview: Service Fabric and containers 
 
->[AZURE.NOTE] This feature is in preview for Linux and not currently available on Windows Server. This will be in preview for Windows Server on the next release of Service Fabric after Windows Server 2016 GA and supported in the subsequent release after that.
+>[AZURE.NOTE] This feature is in preview for Linux and not currently available on Windows Server 2016. This will be in preview for Windows Server on the next release of Service Fabric after Windows Server 2016 GA and supported in the subsequent release after that.
 
 ## Introduction
 Service Fabric is an [orchestrator](service-fabric-cluster-resource-manager-introduction.md) of services across a cluster of machines. Services can be developed in many ways from using the [Service Fabric programming models ](service-fabric-choose-framework.md) to deploying [guest executables](service-fabric-deploy-existing-app.md). By default Service Fabric deploys and activates these services as processes. Processes provide the fastest activation and highest density usage of the resources in cluster. Service Fabric can also deploy services in container images and importantly you can mix both services in processes and services in containers together in the same application. You get the best of both worlds depending on your scenario.
@@ -39,13 +39,17 @@ Containers are a virtualization technology that virtualizes the underlying OS fr
 ## Container types
 Service Fabric supports the following types of containers:
 
-### Docker containers on linux
+### Docker containers on Linux
 Docker provides higher level APIs to create and manage containers on top of Linux kernel containers and provides Docker Hub as a central repository for storing and retrieving container images. 
+
+For a walk through on how to do this read [Deploy a Docker container to Service Fabric](service-fabric-deploy-container-linux.md) 
 
 ### Windows Server containers
 Windows Server 2016 provides two different types of containers that differ in the level of isolation provided. Windows Server containers are similar to Docker containers in that they have namespace and file system isolation but share the kernel with the host they are running on. On Linux, this isolation has traditionally been provided by cgroups and namespaces, and Windows Server containers behave similarly. 
 
 Windows Hyper-V containers provide a higher degree of isolation and security since each container does not share the OS kernel either among them or with the host. With this higher level of security isolation, Hyper-V Containers are particularly targeted at hostile, multi-tenant scenarios.
+
+For a walk through on how to do this read [Deploy a Windows container to Service Fabric](service-fabric-deploy-container.md) 
 
 The following figure shows the different types of virtualization and isolation levels available in the OS.
 ![Service Fabric platform][Image1]
@@ -86,7 +90,9 @@ Service Fabric has several container capabilities that help you with building ap
 ## Next steps
 In this article, you learned about containers, that Service Fabric is a container orchestrator and the features that Service Fabric provides to support containers. As a next step we will go over examples of each of the features to show you how to use them. 
 
-[Deploy a container to Service Fabric](service-fabric-deploy-container.md)
+[Deploy a Windows container to Service Fabric on Windows Server 2016](service-fabric-deploy-container.md)
+
+[Deploy a Docker container to Service Fabric on Linux](service-fabric-deploy-container-linux.md)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png
 

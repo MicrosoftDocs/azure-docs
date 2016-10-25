@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Azure AD Connect: Version Release History | Microsoft Azure"
    description="This topic lists all releases of Azure AD Connect and Azure AD Sync"
    services="active-directory"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="08/23/2016"
-   ms.author="andkjell"/>
+   ms.author="billmath"/>
 
 # Azure AD Connect: Version Release History
 

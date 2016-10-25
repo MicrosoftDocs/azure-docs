@@ -119,7 +119,7 @@ As previously mentioned, which service is best suited to you depends on your sit
 - If a step in your integration scenario requires highly custom transformation or specialized code, then write a 
 function app, and then trigger a function as an action in your logic app.
 
-You can call a logic app in a flow. You can also call a function in a logic app, and a logic app in a funciton. 
+You can call a logic app in a flow. You can also call a function in a logic app, and a logic app in a function. 
 The integration between Flow, Logic Apps, and Functions continue to improve overtime. You can 
 build something in one service and use it in the other services. Therefore, any investment you make in these three 
 technologies is worthwhile.

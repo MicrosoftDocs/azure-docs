@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/21/2016"
-	ms.author="micurd;tamram"/>
+	ms.author="micurd"/>
 
 # Moving data to and from Azure Storage
 

@@ -14,26 +14,25 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2016"
+   ms.date="10/17/2016"
    ms.author="cherylmc"/>
 
 # Configure a Point-to-Site connection to a VNet using the Azure portal
 
 > [AZURE.SELECTOR]
+- [Resource Manager - Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 - [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Classic - Azure Portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
-- [Classic - Classic Portal](vpn-gateway-point-to-site-create.md)
 
 This article walks you through creating a VNet with a Point-to-Site connection in the classic deployment model using the Azure portal. A Point-to-Site (P2S) configuration lets you create a secure connection from an individual client computer to a virtual network. A P2S connection is useful when you want to connect to your VNet from a remote location, such as from home or a conference. Or, when you only have a few clients that need to connect to a virtual network.
 
 Point-to-Site connections do not require a VPN device or a public-facing IP address to work. A VPN connection is established by starting the connection from the client computer. For more information about Point-to-Site connections, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#point-to-site-connections) and [About VPN Gateway](vpn-gateway-about-vpngateways.md#point-to-site).
 
-
 ### Deployment models and methods for P2S connections
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[AZURE.INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] 
 
-The following table shows the two deployment models and the available deployment tools for each deployment model. When an article is available, we link to it.
+The following table shows the two deployment models and available deployment methods for P2S configurations. When an article with configuration steps is available, we link directly to it from this table.
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-table-point-to-site-include.md)] 
 
@@ -59,7 +58,7 @@ You can use the following example settings:
 - **Address space: 192.168.0.0/16**
 - **Subnet name: FrontEnd**
 - **Subnet address range: 192.168.1.0/24**
-- **Subscription:** Verify that you have the correct subscription if you have more than one.
+- **Subscription:** If you have more than one subscription, verify that you are using the correct one.
 - **Resource Group: TestRG**
 - **Location: East US**
 - **Connection type: Point-to-site**
@@ -70,9 +69,9 @@ You can use the following example settings:
 
 ## <a name="vnetvpn"></a>Section 1 - Create a virtual network and a VPN gateway
 
-### Part 1: Create a virtual network
+### <a name="createvnet"></a>Part 1: Create a virtual network
 
-To create a VNet by using the Azure portal, use the following steps. Screenshots are provided as examples. Be sure to replace the values with your own.
+If you don't already have a virtual network, create one. Screenshots are provided as examples. Be sure to replace the values with your own. To create a VNet by using the Azure portal, use the following steps: 
 
 1. From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
 
@@ -90,7 +89,7 @@ To create a VNet by using the Azure portal, use the following steps. Screenshots
 
 5. Verify that the **Subscription** is the correct one. You can change subscriptions by using the drop-down.
 
-6. Click **Resource group** and either select an existing resource group, or create a new one by typing a name for your new resource group. If you are creating a new group, name the resource group according to your planned configuration values. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md#resource-groups).
+6. Click **Resource group** and either select an existing resource group, or create a new one by typing a name for your new resource group. If you are creating a new group, name the resource group according to your planned configuration values. For more information about resource groups, visit [Azure Resource Manager Overview](azure-resource-manager/resource-group-overview.md#resource-groups).
 
 7. Next, select the **Location** settings for your VNet. The location will determine where the resources that you deploy to this VNet will reside.
 
@@ -107,7 +106,7 @@ To create a VNet by using the Azure portal, use the following steps. Screenshots
 
 Once your virtual network has been created, you will see **Created** listed under **Status** on the networks page in the Azure classic portal.
 
-### Part 2: Create gateway subnet and a dynamic routing gateway
+### <a name="gateway"></a>Part 2: Create gateway subnet and a dynamic routing gateway
 
 In this step, you will create a gateway subnet and a Dynamic routing gateway. In the Azure portal for the classic deployment model, creating the gateway subnet and the gateway can be done through the same configuration blades.
 
@@ -153,15 +152,29 @@ In this step, you will create a gateway subnet and a Dynamic routing gateway. In
 
 ## <a name="generatecerts"></a>Section 2 - Generate certificates
 
-Certificates are used by Azure to authenticate VPN clients for Point-to-Site VPNs. You can use the .cer file from either a root certificate generated by an enterprise certificate solution, or a self-signed root certificate. In this section, you will obtain the .cer file for the root certificate and a client certificate generated from the root cert.
+Certificates are used by Azure to authenticate VPN clients for Point-to-Site VPNs. You export public certificate data (not the private key) as a Base-64 encoded X.509 .cer file from either a root certificate generated by an enterprise certificate solution, or a self-signed root certificate. You then import the public certificate data from the root certificate to Azure. Additionally, you need to generate a client certificate from the root certificate for clients. Each client that wants to connect to the virtual network using a P2S connection must have a client certificate installed that was generated from the root certificate.
 
-### <a name="root"></a>Part 1: Obtain the .cer file for the root certificate
+### <a name="cer"></a>Part 1: Obtain the .cer file for the root certificate
+
+
+If you are using an enterprise solution, you can use your existing certificate chain. If you aren't using an enterprise CA solution, you can create a self-signed root cert. One method for creating a self-signed cert is makecert.
 
 - If you are using an enterprise certificate system, obtain the .cer file for the root certificate that you want to use. 
 
-- If you are not using an enterprise certificate solution, you need to generate a self-signed root certificate. For Windows 10 steps, you can refer to [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md). The article walks you through using makecert to generate a self-signed certificate, and then export the .cer file.
+- If you are not using an enterprise certificate solution, you need to generate a self-signed root certificate. For Windows 10 steps, you can refer to [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md).
 
-### Part 2: Generate a client certificate
+1. To obtain a .cer file from a certificate, open **certmgr.msc** and locate the root certificate. Right-click the self-signed root certificate, click **all tasks**, and then click **export**. This opens the **Certificate Export Wizard**.
+
+2. In the Wizard, click **Next**, select **No, do not export the private key**, and then click **Next**.
+
+3. On the **Export File Format** page, select **Base-64 encoded X.509 (.CER).** Then, click **Next**. 
+
+4. On the **File to Export**, **Browse** to the location to which you want to export the certificate. For **File name**, name the certificate file. Then click **Next**.
+
+5. Click **Finish** to export the certificate.
+
+
+### <a name="genclientcert"></a>Part 2: Generate a client certificate
 
 You can either generate a unique certificate for each client that will connect, or you can use the same certificate on multiple clients. The advantage to generating unique client certificates is the ability to revoke a single certificate if needed. Otherwise, if everyone is using the same client certificate and you find that you need to revoke the certificate for one client, you will need to generate and install new certificates for all of the clients that use that certificate to authenticate.
 
@@ -169,16 +182,16 @@ You can either generate a unique certificate for each client that will connect, 
 
 - If you are using a self-signed certificate, see [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md) to generate a client certificate.
 
-### Part 3: Export the client certificate
+### <a name="exportclientcert"></a>Part 3: Export the client certificate
 
 Install a client certificate on each computer that you want to connect to the virtual network. A client certificate is required for authentication. You can automate installing the client certificate, or you can install it manually. The following steps walk you through exporting and installing the client certificate manually.
 
 1. To export a client certificate, you can use *certmgr.msc*. Right-click the client certificate that you want to export, click **all tasks**, and then click **export**.
 2. Export the client certificate with the private key. This is a *.pfx* file. Make sure to record or remember the password (key) that you set for this certificate.
 
-## <a name="upload"></a>Section 3 - Upload the .cer file
+## <a name="upload"></a>Section 3 - Upload the root certificate .cer file
 
-After the gateway has been created, you can upload the .cer file for a trusted root certificate to Azure. You can upload files for up to 20 root certificates. You do not upload the private key for the certificate to Azure. Once the .cer file is uploaded, Azure uses it to authenticate clients that connect to the virtual network.
+After the gateway has been created, you can upload the .cer file for a trusted root certificate to Azure. You can upload files for up to 20 root certificates. You do not upload the private key for the root certificate to Azure. Once the .cer file is uploaded, Azure uses it to authenticate clients that connect to the virtual network.
 
 1. On the **VPN connections** section of the blade for your VNet, click the **clients** graphic to open the **Point-to-site VPN connection** blade.
 
@@ -219,14 +232,14 @@ The VPN client package contains configuration information to configure the VPN c
 3. You will see a message that Azure is generating the VPN client configuration package for the virtual network. After a few minutes, the package is generated and you will see a message on your local computer that the package has been downloaded. Save the configuration package file. You will install this on each client computer that will connect to the virtual network using P2S.
 
 
-## Section 5 - Configure the client computer
+## <a name="clientconfiguration"></a>Section 5 - Configure the client computer
 
 ### Part 1: Install the client certificate
 
 Each client computer must have a client certificate in order to authenticate. When installing the client certificate, you will need the password that was created when the client certificate was exported.
 
 1. Copy the .pfx file to the client computer.
-2. Double-click the .pfx file to install it. 
+2. Double-click the .pfx file to install it. Do not modify the installation location.
 
 ### Part 2: Install the VPN client configuration package
 
@@ -240,7 +253,7 @@ You can use the same VPN client configuration package on each client computer, p
 
 	![VPN client](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/vpn.png "VNet VPN client")
 
-## Section 6 - Connect to Azure
+## <a name="connect"></a>Section 6 - Connect to Azure
 
 ### Connect to your VNet
 

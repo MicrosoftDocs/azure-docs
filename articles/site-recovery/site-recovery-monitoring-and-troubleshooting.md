@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="10/05/2016"	
+	ms.date="10/13/2016"	
 	ms.author="rajanaki"/>
 	
 # Monitor and troubleshoot protection for virtual machines and physical servers
@@ -215,3 +215,8 @@ Configuration Server (CS), Process Server (PS), Master Targer (MT)
 
 ### Remote desktop troubleshooting after failover
 -   Many customers have faced issues to connect to the failed over VM in Azure. [Use the troubleshooting document to RDP into the VM](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
+
+#### Adding a public IP on a resource manager virtual machine
+If the **Connect** button in the portal is greyed out and you are not connected to Azure via an Express Route or Site-to-Site VPN connection, you need to create and assign your VM a public IP address before you can use RDP/SSH. Follow the steps below to add a Public IP on the network interface of the virtual machine.  
+
+![Adding a Public IP on the network interface of failed over virtual machine](media/site-recovery-monitoring-and-troubleshooting/createpublicip.gif)

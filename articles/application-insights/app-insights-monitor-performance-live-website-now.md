@@ -37,7 +37,7 @@ Here's a summary of what you get in each way:
 |Requests & exceptions|Yes|Yes|
 |[More detailed exceptions](app-insights-asp-net-exceptions.md)||Yes|
 |[Dependency diagnostics](app-insights-asp-net-dependencies.md)|On .NET 4.6+|Yes|
-|[System performance counters](app-insights-web-monitor-performance.md#system-performance-counters)||IIS or Azure cloud service, not Azure web app|
+|[System performance counters](app-insights-performance-counters.md)||IIS or Azure cloud service, not Azure web app|
 |[API for custom telemetry][api]|Yes||
 |[Trace log integration](app-insights-asp-net-trace-logs.md)|Yes||
 |[Page view & user data](app-insights-javascript.md)|Yes||

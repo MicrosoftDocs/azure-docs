@@ -1,10 +1,10 @@
 <properties
    pageTitle="Ask a question you can answer with data - formulate questions | Microsoft Azure"
    description="Learn how to formulate a data science question in Data Science for Beginners video 3. Includes a comparison of classification and regression questions."
-   keywords="choose a question,data science questions,formulate question,formulate questions,regression questions,classification questions,sharp question"
+   keywords="data science questions,formulate questions,regression questions,classification questions,sharp question"
    services="machine-learning"
    documentationCenter="na"
-   authors="brohrer-ms"
+   authors="cjgronlund"
    manager="jhubbard"
    editor="cjgronlund"/>
 
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2016"
-   ms.author="cgronlun;brohrer;garye"/>
+   ms.date="10/20/2016"
+   ms.author="cgronlun;garye"/>
 
 # Ask a question you can answer with data
 
@@ -23,7 +23,7 @@
 
 Learn how to formulate a data science question in Data Science for Beginners video 3. This video includes a comparison of questions for classification and regression algorithms.
 
-To get the most out of the series, watch them in order. [Go to the list of videos](#other-videos-in-this-series)
+To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-ask-a-question-you-can-answer-with-data]
 
@@ -39,7 +39,7 @@ To get the most out of the series, watch them in order. [Go to the list of video
 
 ## Transcript: Ask a question you can answer with data
 
-Welcome to the third video in the series "Data Science for Beginners".  
+Welcome to the third video in the series "Data Science for Beginners."  
 
 In this one, you'll get some tips for formulating a question you can answer with data.
 
@@ -98,5 +98,5 @@ Be sure to check out the other videos in "Data Science for Beginners" from Micro
 
 ## Next steps
 
-  * [Try your first data science experiment with Azure Machine Learning](machine-learning-create-experiment.md)
+  * [Try a first data science experiment with Machine Learning Studio](machine-learning-create-experiment.md)
   * [Get an introduction to Machine Learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/29/2016"
+	ms.date="10/17/2016"
 	ms.author="curtand"/>
 
 
@@ -22,7 +22,7 @@
 > [AZURE.SELECTOR]
 - [Azure portal](active-directory-groups-create-azure-portal.md)
 - [Azure classic portal](active-directory-accessmanagement-manage-groups.md)
-- [PowerShell](active-directory-accessmanagement-groups-v2-cmdlets.md)
+- [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 
 This article explains how to create and populate a new group in the Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md) Use a group to perform management tasks such as assigning licenses or permissions to a number of users or devices at once.
 

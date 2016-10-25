@@ -79,7 +79,7 @@ On the **Basics** blade, provide the following information:
 * If you have multiple subscriptions, verify that the subscription is correct for the new VM.
 * In the **Resource group** box, type a name for a new resource group. Alternatively, to use an existing resource group click **Select existing**. A resource group is a collection of related resources in Azure (virtual machines, storage accounts, virtual networks, etc.).
 
-	>[AZURE.NOTE] Using a new resource group is helpful if you are just testing or learning about SQL Server deployments in Azure. After you finish with your test, delete the resource group to automatically delete the VM and all resources associated with that resource group. For more information about resource groups, see [Azure Resource Manager Overview](../resource-group-overview.md).
+	>[AZURE.NOTE] Using a new resource group is helpful if you are just testing or learning about SQL Server deployments in Azure. After you finish with your test, delete the resource group to automatically delete the VM and all resources associated with that resource group. For more information about resource groups, see [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md).
 
 * Select a **Location** for this deployment.
 * Click **OK** to save the settings.
