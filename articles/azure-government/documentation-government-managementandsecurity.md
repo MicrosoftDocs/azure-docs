@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="10/21/2016"
+	ms.date="10/25/2016"
 	ms.author="scooxl"/>
 #  Azure Government Management and Security
 
@@ -62,16 +62,23 @@ The following Log Analytics features and solutions are not currently available i
   - Surface Hub solution
 + Features that are in preview in public Azure, including
   - Export of data to PowerBI
-+ Azure portal integration
-  - Selecting Azure storage accounts to monitor must be done through PowerShell or Resource Manager templates
-  - Selecting virtual machines to enable the Log Analytics agent must be done through PowerShell or Resource Manager templates
-  - Azure metrics and Azure diagnostics
++ Azure metrics and Azure diagnostics
 + OMS Mobile applications
+
+The URLs for Log Analytics are different in Azure Government:
+
+| Azure Public | Azure Government | Notes |
+|--------------|------------------|-------|
+| mms.microsoft.com | oms.microsoft.us | Log Analytics portal |
+| *workspaceId*.ods.opinsights.azure.com | *workspaceId*.ods.opinsights.azure.us | [Data collector API](../log-analytics/log-analytics-data-collector-api.md) 
+| \*.ods.opinsights.azure.com | \*.ods.opinsights.azure.us | Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
+| \*.oms.opinsights.azure.com | \*.oms.opinsights.azure.us | Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
+| \*.blob.core.windows.net | \*.blob.core.usgovcloudapi.net | Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
+
 
 The following Log Analytics features have different behavior in Azure Government:
 
 + The Windows agent must be downloaded from the [Log Analytics portal](https://oms.microsoft.us) for Azure Government.
-+ Uploading data using the Data Collector API requires the use of the Azure Government URL, https://*workspaceId*.ods.opinsights.azure.us where *workspaceId* is the Workspace Id from the OMS portal. 
 + To connect your System Center Operations Manager management server to Log Analytics, you need to download and import updated Management Packs.
   1. Download and save the [updated management packs](http://go.microsoft.com/fwlink/?LinkId=828749)
   2. Unzip the file you have downloaded
