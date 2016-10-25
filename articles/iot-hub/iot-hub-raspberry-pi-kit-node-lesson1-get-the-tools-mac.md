@@ -26,12 +26,12 @@
 
 ## 1.2.1 What you will do
 
-Download the development tools and the software for the first sample application for your Raspberry Pi 3. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
+Download the development tools and the software for the first sample application for your Raspberry Pi 3. If you have any problems, seek solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## 1.2.2 What you will learn
 In this section, you will learn:
 
-- How to install Git and Node.js
+- How to install Git and Node.js.
     - [Git](https://git-scm.com) is an open source distributed version control system. The sample application for this lesson is stored on Git.
     - [Node.js](https://nodejs.org/en/) is a JavaScript runtime with a rich package ecosystem.
 - How to use NPM to install additional Node.js development tools.
@@ -62,7 +62,7 @@ To install Git and Node.js, use the [Homebrew](http://brew.sh) package managemen
 
 ## 1.2.5 Install additional Node.js development tools
 
-You use [gulp.js](http://gulpjs.com) to automate the deployment of the sample application to your Pi. You also use the [device-discovery-cli](https://github.com/Azure/device-discovery-cli) to retrieve network information about your IoT devices.
+Use [gulp.js](http://gulpjs.com) to automate the deployment of the sample application to your Pi. Use the [device-discovery-cli](https://github.com/Azure/device-discovery-cli) to retrieve network information about your IoT devices.
 
 Install `gulp` and `device-discovery-cli` by running the following command in the Terminal window:
 
@@ -80,6 +80,6 @@ If you experience issues installing Node.js and these additional development too
 
 You've installed the required development tools and software for the first sample application. In the next section, you create, deploy, and run the sample application on your Pi.
 
-## Next Steps
+## Next steps
 
 [1.3 Create and deploy the blink sample application](iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md)
