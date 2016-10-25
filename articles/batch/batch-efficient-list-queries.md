@@ -48,7 +48,7 @@ IPagedEnumerable<CloudTask> completedTasks =
 	batchClient.JobOperations.ListTasks("job-001", detailLevel);
 ```
 
-In the above example scenario, if there are thousands of tasks in the job, the results from the second query will typically be returned much quicker than the first. More information about using ODATADetailLevel when you list items with the Batch .NET API is included [below](#efficient-querying-in-batch-net).
+In this example scenario, if there are thousands of tasks in the job, the results from the second query will typically be returned much quicker than the first. More information about using ODATADetailLevel when you list items with the Batch .NET API is included [below](#efficient-querying-in-batch-net).
 
 > [AZURE.IMPORTANT]
 > We highly recommend that you *always* supply an ODATADetailLevel object to your .NET API list calls to ensure maximum efficiency and performance of your application. By specifying a detail level, you can help to lower Batch service response times, improve network utilization, and minimize memory usage by client applications.
@@ -83,7 +83,7 @@ The expand string reduces the number of API calls that are required to obtain ce
 ### Rules for filter, select, and expand strings
 
 - Properties names in filter, select, and expand strings should appear as they do in the [Batch REST][api_rest] API--even when you use [Batch .NET][api_net] or one of the other Batch SDKs.
-- All property names are case sensitive, but property values are case insensitive.
+- All property names are case-sensitive, but property values are case insensitive.
 - Date/time strings can be one of two formats, and must be preceded with `DateTime`.
 
   - W3C-DTF format example: `creationTime gt DateTime'2011-05-08T08:49:37Z'`
@@ -216,7 +216,7 @@ As shown in the elapsed times, you can greatly lower query response times by lim
 
 In addition to the EfficientListQueries code sample above, you can find the [BatchMetrics][batch_metrics] project in the [azure-batch-samples][github_samples] GitHub repository. The BatchMetrics sample project demonstrates how to efficiently monitor Azure Batch job progress using the Batch API.
 
-The [BatchMetrics][batch_metrics] sample includes a .NET class library project which you can incorporate into your own projects, and a simple command line program to exercise and demonstrate the use of the library.
+The [BatchMetrics][batch_metrics] sample includes a .NET class library project which you can incorporate into your own projects, and a simple command-line program to exercise and demonstrate the use of the library.
 
 The sample application within the project demonstrates the following operations:
 
