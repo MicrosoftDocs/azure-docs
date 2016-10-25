@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/26/2016"
+	ms.date="10/25/2016"
 	ms.author="helaw"/>
 
 # Microsoft Azure Stack POC architecture
@@ -39,7 +39,7 @@ The Azure Stack POC offers services using the following VMs on the POC host:
 
  - **MAS-CA01** Virtual machine providing certificate authority services for Azure Stack role services.
 
- - **MAS-Con01** Virtual machine available to developers for installing PowerShell, Visual Studio, and other tools.
+ - **MAS-CON01** Virtual machine available to developers for installing PowerShell, Visual Studio, and other tools.
 
  - **MAS-DC01** Virtual machine hosting Active Directory, DNS, and DHCP services for Microsoft Azure Stack.
 
@@ -53,7 +53,7 @@ The Azure Stack POC offers services using the following VMs on the POC host:
 
  - **MAS-WAS01**  Virtual machine hosting portal and Azure Resource Manager services.
 
- - **MAS-Xrp01** Virtual machine that hosts the core resource providers of Microsoft Azure Stack, including the Compute, Network, and Storage resource providers.
+ - **MAS-XRP01** Virtual machine that hosts the core resource providers of Microsoft Azure Stack, including the Compute, Network, and Storage resource providers.
 
 ## Storage services
 Storage services in the operating system on the physical host include:
@@ -68,4 +68,8 @@ Storage services in the operating system on the physical host include:
 
 ## Next steps
 
+[Deploy Azure Stack](azure-stack-deploy.md)
+
 [First scenarios to try](azure-stack-first-scenarios.md)
+
+
