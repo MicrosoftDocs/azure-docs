@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/24/2016"
+   	ms.date="10/26/2016"
    	ms.author="saurinsh"/>
 
 # Configure Domain-joined HDInsight clusters (Preview)
@@ -358,9 +358,60 @@ After creating the VNet, you will configure the Resource Manager VNet to use the
 ## Create HDInsight cluster
 
 
-In this section, you will create a Linux-based Hadoop cluster in HDInsight using [Azure Resource Manager template](../resource-group-template-deploy.md). The Azure Resource Manager template experience is not required for following this tutorial. For other cluster creation methods and understanding the settings, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). For more information about using Resource Manager template to create Hadoop clusters in HDInsight, see [Create Hadoop clusters in HDInsight using Resource Manager templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
+In this section, you create a Linux-based Hadoop cluster in HDInsight using either the Azure portal or [Azure Resource Manager template](../resource-group-template-deploy.md). For other cluster creation methods and understanding the settings, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). For more information about using Resource Manager template to create Hadoop clusters in HDInsight, see [Create Hadoop clusters in HDInsight using Resource Manager templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 
-**To create a Domain-joined HDInsight cluster**
+
+**To create a Domain-joined HDInsight cluster using the Azure portal**
+
+1. Sign on to the [Azure portal](https://portal.azure.com).
+2. Click **New**, **Intelligence + analytics**, and then **HDInsight**.
+3. From the **New HDInsight cluster** blade, enter or select the following:
+
+	- Cluster name: Enter a new cluster name for the Domain-joined HDInsight cluster.
+	- Subscription: Select an Azure subscription used for creating this cluster.
+	- Cluster configuration:
+
+		- Cluster Type: Hadooop. Domain-joined HDInsight cluster currently only support Hive.
+		- Operating System: Linux.  Domain-joined HDInsight cluster only supports Linux-based HDInsight clusters.
+		- Version: Hadoop 2.7.3 (HDI 3.5). Domain-joined HDInsight cluster only supports HDInsight cluster version 3.5.
+		- Cluster Type: PREMIUM
+
+		Click **Select** to save the changes.
+
+	- Credentials: Configure the crendentials for both the Cluster user and the SSH user.
+	- Data Source: Create a new Storage account or use an existing Storage account as the default Storage account for the HDInsight cluster. The location must be the same as the two VNets.  The location is also the location of the HDInsight cluster.
+	- Pricing: Select the number of worker nodes of your cluster.
+	- Advanced configurations: 
+
+		- Domain-joining & Vnet/Subnet: 
+
+			- Domain settings: 
+
+				- Domain name: contoso.onmicrosoft.com
+				- Domain user name: Enter the domain admin user name
+				- Domain password: Enter the domain admin user password.
+				- Organization Unit: OU=HiveUsers,DC=contoso,DC=onmicrosoft,DC=com
+				- LDAPS URL: ldaps://contoso.onmicrosoft.com:636
+				- Access user group: HiveUsers
+
+				Click **Select** to save the changes.
+
+				![Domain-joined HDInsight portal configure domain setting](./media/hdinsight-domain-joined-configure/hdinsight-domain-joined-portal-domain-setting.png)
+
+			- Virtual Network: contosohdivnet
+			- Subnet: Subnet1
+
+			Click **Select** to save the changes.
+		
+		Click **Select to save the changes.
+	- Resource Group: Select the resource group used for the HDInsight VNet (contosohdirg).
+
+4. Click **Create**.  
+
+The following procedure shows you how to create the domain-joined HDInsight cluster using an Azure Resource Management template instead of using the Azure portal.
+
+
+**To create a Domain-joined HDInsight cluster using a Resource Managerment template**
 
 1. Click the following image to open a Resource Manager template in the Azure portal. The Resource Manager template is located in a public blob container. 
 
@@ -378,7 +429,7 @@ In this section, you will create a Linux-based Hadoop cluster in HDInsight using
     - **SSH username and password**: The default username is **sshuser**.  You can rename it. 
 
 	- DomainName: contoso.onmicrosoft.com
-	- OrganizationUnitDN: OU=Hadoop System Users,DC=contoso,DC=onmicrosoft,DC=com
+	- OrganizationUnitDN: OU=HiveUsers,DC=contoso,DC=onmicrosoft,DC=com
 	- LDAPUrls: ["ldaps://contoso.onmicrosoft.com:636"]
 	- DomainAdminUserName: (Enter the domain admin user name)
 	- DomainAdminPassword: (enter the domain admin user password)
