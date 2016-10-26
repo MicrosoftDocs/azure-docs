@@ -1,6 +1,6 @@
 <properties
  pageTitle="Create an Azure function app and storage account | Microsoft Azure"
- description="The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure table storage."
+ description="The Azure function app listens to Azure IoT Hub events, processes incoming messages, and writes them to Azure table storage."
  services="iot-hub"
  documentationCenter=""
  authors="shizn"
@@ -23,7 +23,7 @@
 
 ## What you will do
 
-Use an Azure Resource Manager template to create an Azure function app and a storage account. The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure table storage. If you have any problems, look for solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
+Use an Azure Resource Manager template to create an Azure function app and a storage account. The Azure function app listens to Azure IoT Hub events, processes incoming messages, and writes them to Azure table storage. If you have any problems, look for solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## What you will learn
 
@@ -35,8 +35,9 @@ In this article, you will learn:
 ## What you need
 
 You must have successfully completed:
+
 - [Get started with your Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-get-started.md)
-- [Create your Azure IoT hub](iot-hub-raspberry-pi-kit-node-get-started.md).
+- [Create your Azure IoT Hub](iot-hub-raspberry-pi-kit-node-get-started.md).
 
 ## Open the sample app
 
@@ -60,7 +61,7 @@ Update the `arm-template-param.json` file in Visual Studio Code.
 
 ![Azure Resource Manager template parameters](media/iot-hub-raspberry-pi-lessons/lesson3/arm_para.png)
 
-- Replace **[your IoT Hub name]** with **{my hub name}** that you specified in [Create your IoT hub and register Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md).
+- Replace **[your IoT Hub name]** with **{my hub name}** that you specified when you [created your hub and registered Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md).
 - Replace **[prefix string for new resources]** with any prefix you want. The prefix ensures that the resource name is globally unique to avoid conflict. Do not use a dash or number initial in the prefix.
 
 > [AZURE.NOTE] You don't need `azure_storage_connection_string` in this article. Keep it as is.
@@ -79,4 +80,4 @@ You've created your Azure function app to process hub messages and an Azure stor
 
 ## Next Steps
 
-[Run sample application to send device-to-cloud messages on your Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)
+[Run a sample application to send device-to-cloud messages on your Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)

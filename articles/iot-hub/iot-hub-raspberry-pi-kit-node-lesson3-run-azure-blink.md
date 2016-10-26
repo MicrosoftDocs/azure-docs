@@ -1,5 +1,5 @@
 <properties
- pageTitle="Run sample application to send device-to-cloud messages | Microsoft Azure"
+ pageTitle="Run a sample application to send device-to-cloud messages | Microsoft Azure"
  description="Deploy and run a sample application to Raspberry Pi 3 that sends messages to your hub and blinks the LED."
  services="iot-hub"
  documentationCenter=""
@@ -21,11 +21,11 @@
 
 ## What you will do
 
-This article will show you how to deploy and run a sample application on your Raspberry Pi 3 that sends messages to your hub. If you meet any problems, seek solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
+This article will show you how to deploy and run a sample application on Raspberry Pi 3 that sends messages to your hub. If you have any problems, look for solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## What you will learn
 
-You will learn how to use the gulp tool to deploy and run the sample Node.js application on your Pi.
+You will learn how to use the gulp tool to deploy and run the sample Node.js application on Pi.
 
 ## What you need
 
@@ -82,7 +82,7 @@ Update the `config-raspberrypi.json` file so that you can deploy the sample appl
 
 ## Deploy and run the sample application
 
-Deploy and run the sample application on your Pi by running the following command:
+Deploy and run the sample application on Pi by running the following command:
 
 ```bash
 gulp
@@ -92,13 +92,13 @@ gulp
 
 ## Verify that the sample application works
 
-You should see the LED that is connected to your Pi blinking every two seconds. Every time the LED blinks, the sample application sends a message to your hub and verifies that the message has been successfully sent to your hub. In addition, each message received by the hub is printed in the console window. The sample application terminates automatically after sending 20 messages.
+You should see the LED that is connected to Pi blinking every two seconds. Every time the LED blinks, the sample application sends a message to your hub and verifies that the message has been successfully sent to your hub. In addition, each message received by the hub is printed in the console window. The sample application terminates automatically after sending 20 messages.
 
 ![](media/iot-hub-raspberry-pi-lessons/lesson3/gulp_run.png)
 
 ## Summary
 
-You've deployed and run the new blink sample application on your Pi to send device-to-cloud messages to your hub. You can move to the next article to monitor your messages as they are written to the storage account.
+You've deployed and run the new blink sample application on Pi to send device-to-cloud messages to your hub. You can move to the next article to monitor your messages as they are written to the storage account.
 
 ## Next steps
 
