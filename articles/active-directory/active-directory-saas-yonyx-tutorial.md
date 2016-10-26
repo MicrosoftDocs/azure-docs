@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/21/2016"
+	ms.date="10/26/2016"
 	ms.author="jeedes"/>
 
 
@@ -131,7 +131,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	![Configure Single Sign-On](./media/active-directory-saas-yonyx-tutorial/tutorial_yonyx_05.png)
 
-5. To get SSO configured for your application, contact IBM Kenexa support team and provide them with the following:
+5. To get SSO configured for your application, contact Yonyx Interactive Guides support team via <mailto:support@yonyx.com> and provide them with the following:
 
 	•  The downloaded **Certificate**
 
@@ -216,7 +216,7 @@ The objective of this section is to create a user called Britta Simon in Yonyx I
 
 There is no action item for you in this section. A new user will be created during an attempt to access Adobe Creative Cloud if it doesn't exist yet.
 
-> [AZURE.NOTE] If you need to create an user manually, you need to contact the Yonyx Interactive Guides support team.
+> [AZURE.NOTE] If you need to create an user manually, you need to contact the Yonyx Interactive Guides support team via <mailto:support@yonyx.com>.
 
 
 ### Assigning the Azure AD test user
