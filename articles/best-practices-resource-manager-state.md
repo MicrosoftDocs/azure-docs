@@ -25,9 +25,9 @@ This topic is part of a larger whitepaper. To read the full paper, download [Wor
 
 ## Provide standard configuration settings
 
-Rather than offer a template that provides total flexibility and countless variations, a common pattern is to provide the ability to select known configurations — in effect, standard t-shirt sizes such as sandbox, small, medium, and large. Other examples of t-shirt sizes are product offerings, such as community edition or enterprise edition. In other cases, it may be workload-specific configurations of a technology – such as map reduce or no sql.
+Rather than offer a template that provides total flexibility and countless variations, a common pattern is to provide a selection of known configurations. In effect, users can select standard t-shirt sizes such as sandbox, small, medium, and large. Other examples of t-shirt sizes are product offerings, such as community edition or enterprise edition. In other cases, it may be workload-specific configurations of a technology – such as map reduce or no sql.
 
-With complex objects, you can create variables that contain collections of data, sometimes known as "property bags" and use that data to drive the resource declaration in your template. This approach provides good, known configurations of varying sizes that are preconfigured for customers. Without known configurations, end customers must determine cluster sizing on their own, factor in platform resource constraints, and do math to identify the resulting partitioning of storage accounts and other resources (due to cluster size and resource constraints). In addition to making a better experience for the customer, a few known configurations are easier to support and can help you deliver a higher level of density.
+With complex objects, you can create variables that contain collections of data, sometimes known as "property bags" and use that data to drive the resource declaration in your template. This approach provides good, known configurations of varying sizes that are preconfigured for customers. Without known configurations, users of the template must determine cluster sizing on their own, factor in platform resource constraints, and do math to identify the resulting partitioning of storage accounts and other resources (due to cluster size and resource constraints). In addition to making a better experience for the customer, a few known configurations are easier to support and can help you deliver a higher level of density.
 
 The following example shows how to define variables that contain complex objects for representing collections of data. The collections define values that are used for virtual machine size, network settings, operating system settings and availability settings.
 
@@ -111,7 +111,7 @@ The following example shows how to define variables that contain complex objects
 Notice that the **tshirtSize** variable concatenates the t-shirt size you provided through a parameter (**Small**, **Medium**, **Large**) to the text **tshirtSize**. You use this variable to retrieve the associated complex object variable for that t-shirt size.
 
 You can then reference these variables later in the template. The ability to reference named-variables and their properties simplifies the template syntax, 
-and makes it easy to understand context. The following example defines a resource to deploy by using the objects shown above to set values. For example, note that the VM size is set by retrieving the value 
+and makes it easy to understand context. The following example defines a resource to deploy by using the objects shown previously to set values. For example, the VM size is set by retrieving the value 
 for `variables('tshirtSize').vmSize` while the value for the disk size is retrieved from `variables('tshirtSize').diskSize`. In addition, the URI for a linked template is set with the value for `variables('tshirtSize').vmTemplate`.
 
     "name": "master-node",
@@ -210,7 +210,7 @@ When connecting to linked templates, you often use a mix of static and generated
 
 Static variables are often used to provide base values, such as URLs, that are used throughout a template.
 
-In the template excerpt below, `templateBaseUrl` specifies the root location for the template in GitHub. The next line builds a new variable `sharedTemplateUrl` that concatenates the base URL with the known name of the shared resources template. Below that, a complex object variable is used to store a t-shirt size, where the base URL is 
+In the following template excerpt, `templateBaseUrl` specifies the root location for the template in GitHub. The next line builds a new variable `sharedTemplateUrl` that concatenates the base URL with the known name of the shared resources template. Below that line, a complex object variable is used to store a t-shirt size, where the base URL is 
 concatenated to the known configuration template location and stored in the `vmTemplate` property.
 
 The benefit of this approach is that if the template location changes, you only need to change the static variable 
