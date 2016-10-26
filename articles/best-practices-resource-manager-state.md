@@ -308,8 +308,8 @@ The following example shows an object for *osSettings*:
 
 #### machineSettings
 
-A generated variable, *machineSettings* is a complex object containing a mix of core variables for creating a new VM: administrator user name and password, a prefix for the VM names, and an operating 
-system image reference as shown below:
+A generated variable, *machineSettings* is a complex object containing a mix of core variables for creating a VM. The variables include administrator user name and password, a prefix for the VM names, and an operating 
+system image reference.
 
     "machineSettings": {
         "adminUsername": "[parameters('adminUsername')]",
@@ -331,14 +331,12 @@ on the preference of a template consumer.
 The *vmScripts* object contains details about the scripts to download and execute on a VM instance, including outside and inside references. Outside references include the infrastructure. 
 Inside references include the installed software installed and configuration.
 
-You use the *scriptsToDownload* property to list the scripts to download to the VM.
-
-As the example below shows, this object also contains references to command-line arguments for different types of actions. These actions include executing the default installation for 
+You use the *scriptsToDownload* property to list the scripts to download to the VM. This object also contains references to command-line arguments for different types of actions. These actions include executing the default installation for 
 each individual node, an installation that runs after all nodes are deployed, and any additional scripts that may be specific to a given template.
 
 This example is from a template used to deploy MongoDB, which requires an arbiter to deliver high availability. The *arbiterNodeInstallCommand* has been added to *vmScripts* to install the arbiter.
 
-The variables section is where you’ll find the variables that define the specific text to execute the script with the proper values.
+The variables section is where you find the variables that define the specific text to execute the script with the proper values.
 
     "vmScripts": {
         "scriptsToDownload": [
@@ -381,7 +379,7 @@ For an example of using the outputs section of a linked template to return data 
 
 ## Define authentication settings for virtual machine
 
-You can use the same pattern shown above for configuration settings to specify the authentication settings for a virtual machine. You create a parameter for passing in the type of authentication.
+You can use the same pattern shown previously for configuration settings to specify the authentication settings for a virtual machine. You create a parameter for passing in the type of authentication.
 
     "parameters": {
       "authenticationType": {
