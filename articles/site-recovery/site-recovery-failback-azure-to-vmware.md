@@ -146,7 +146,7 @@ If you have protected your machines as classic resources (that is the VM recover
 
 The master target server receives the failback data. A master target server is automatically installed on the on-premises management server but if you're failing back a lot of data you might need to set up an additional master target server. Do this as follows:
 
->[AZURE.NOTE] If you want to install a master target server on Linux, follow the instructions in the next procedure. Make sure you only use CentOS 6.6 minimal operating system only, for the MT OS.
+>[AZURE.NOTE] If you want to install a master target server on Linux, follow the instructions in the next procedure. Make sure you only use CentOS 6.6 minimal operating system, for the MT OS.
 
 1. If you're installing the master target server on Windows, open the Quick Start page from the VM on which you're installing the master target server, and download the installation file for the Azure Site Recovery Unified Setup wizard.
 2. Run setup and in **Before you begin** select **Add additional process servers to scale out deployment**.

@@ -149,7 +149,7 @@ This way the same script can be used for different recovery plan by storing the 
 
 For a repository of scripts that you can directly import into your automation account, please see [Kristian Nese's OMS repository for scripts](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/Solutions/asrautomation)
 
-The script here is an ARM template that will deploy all the below scripts
+The script here is an Azure Resource Manager template that will deploy all the below scripts
 
 * NSG
 
