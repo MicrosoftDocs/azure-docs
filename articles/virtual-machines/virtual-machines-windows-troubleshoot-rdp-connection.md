@@ -81,7 +81,7 @@ After each troubleshooting step, try connecting to your VM again. If you still c
 
 	If you do not have a rule that allows RDP traffic, [create a Network Security Group rule](virtual-machines-windows-nsg-quickstart-portal.md). Allow TCP port 3389.
 
-3. **Review VM boot diagnostics**. This troubleshooting step reviews the VM console logs to determine if the VM is reporting an issue. Not all VMs have boot diagnostics enabled, so this may be an optional troubleshootingstep.
+3. **Review VM boot diagnostics**. This troubleshooting step reviews the VM console logs to determine if the VM is reporting an issue. Not all VMs have boot diagnostics enabled, so this troubleshooting step may be optional.
 	
 	Specific troubleshooting steps are beyond the scope of this article, but may indicate a wider problem that is affecting RDP connectivity. For more information on reviewing the console logs and VM screenshot, see [Boot Diagnostics for VMs](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/).
 
@@ -223,7 +223,7 @@ After each troubleshooting step, try reconnecting to the VM.
 
 	If you do not have an endpoint that allows RDP traffic, [create a Cloud Services endpoint](virtual-machines-windows-classic-setup-endpoints.md). Allow TCP to private port 3389.
 
-3. **Review VM boot diagnostics**. This troubleshooting step reviews the VM console logs to determine if the VM is reporting an issue. Not all VMs have boot diagnostics enabled, so this may be an optional troubleshootingstep.
+3. **Review VM boot diagnostics**. This troubleshooting step reviews the VM console logs to determine if the VM is reporting an issue. Not all VMs have boot diagnostics enabled, so this troubleshooting step may be optional.
 	
 	Specific troubleshooting steps are beyond the scope of this article, but may indicate a wider problem that is affecting RDP connectivity. For more information on reviewing the console logs and VM screenshot, see [Boot Diagnostics for VMs](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/).
 
