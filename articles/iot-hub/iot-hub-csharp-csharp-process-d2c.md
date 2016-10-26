@@ -41,7 +41,7 @@ Service Bus helps ensure reliable processing of interactive messages, as it prov
 
 At the end of this tutorial, you run three Windows console apps:
 
-* **SimulatedDevice**, a modified version of the app created in the [Get started with IoT Hub] tutorial, sends data point device-to-cloud messages every second, and interactive device-to-cloud messages every 10 seconds. This app uses the AMQPS protocol to communicate with IoT Hub.
+* **SimulatedDevice**, a modified version of the app created in the [Get started with IoT Hub] tutorial, sends data point device-to-cloud messages every second, and interactive device-to-cloud messages every 10 seconds. This app uses the AMQP protocol to communicate with IoT Hub.
 * **ProcessDeviceToCloudMessages** uses the [EventProcessorHost] class to retrieve messages from the Event Hub-compatible endpoint. It then reliably stores data point messages in Azure blob storage, and forwards interactive messages to a Service Bus queue.
 * **ProcessD2CInteractiveMessages** de-queues the interactive messages from the Service Bus queue.
 

@@ -53,7 +53,7 @@ This module scans for messages that include a property that contains the MAC add
 
 ### IoT Hub communication module
 
-This module takes messages with an IoT Hub device identity assigned by the previous module and sends the message content to IoT Hub using HTTPS. HTTPS is one of the three protocols understood by IoT Hub.
+This module takes messages with an IoT Hub device identity assigned by the previous module and sends the message content to IoT Hub using HTTP. HTTP is one of the three protocols understood by IoT Hub.
 
 Instead of opening a connection to IoT Hub for each simulated device, this module opens a single HTTP connection from the gateway to the IoT hub and multiplexes connections from all the simulated devices over that connection. This enables a single gateway to connect many more devices, simulated or otherwise, than would be possible if it opened a unique connection for every device.
 

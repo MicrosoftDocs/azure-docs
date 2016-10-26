@@ -75,7 +75,7 @@ In this section, you modify the simulated device application you created in [Get
     };
     ```
 
-    > [AZURE.NOTE] If you use HTTP/1 instead of AMQP or MQTT as the transport, the **DeviceClient** instance checks for messages from IoT Hub infrequently (less than every 25 minutes). For more information about the differences between AMQP, MQTT and HTTP/1 support, and IoT Hub throttling, see the [IoT Hub Developer Guide][IoT Hub Developer Guide - C2D].
+    > [AZURE.NOTE] If you use HTTP instead of MQTT or AMQP as the transport, the **DeviceClient** instance checks for messages from IoT Hub infrequently (less than every 25 minutes). For more information about the differences between MQTT, AMQP and HTTP support, and IoT Hub throttling, see the [IoT Hub Developer Guide][IoT Hub Developer Guide - C2D].
 
 ## Send a cloud-to-device message
 

@@ -24,7 +24,7 @@ At the end of this tutorial, you have three Node.js console applications:
 
 * **CreateDeviceIdentity.js**, which creates a device identity and associated security key to connect your simulated device.
 * **ReadDeviceToCloudMessages.js**, which displays the telemetry sent by your simulated device.
-* **SimulatedDevice.js**, which connects to your IoT hub with the device identity created earlier, and sends a telemetry message every second using the AMQPS protocol.
+* **SimulatedDevice.js**, which connects to your IoT hub with the device identity created earlier, and sends a telemetry message every second using the AMQP protocol.
 
 > [AZURE.NOTE] The article [IoT Hub SDKs][lnk-hub-sdks] provides information about the various SDKs that you can use to build both applications to run on devices and your solution back end.
 
@@ -110,7 +110,7 @@ In this section, you create a Node.js console app that creates a device identity
 
 In this section, you create a Node.js console app that reads device-to-cloud messages from IoT Hub. An IoT hub exposes an [Event Hubs][lnk-event-hubs-overview]-compatible endpoint to enable you to read device-to-cloud messages. To keep things simple, this tutorial creates a basic reader that is not suitable for a high throughput deployment. The [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial shows you how to process device-to-cloud messages at scale. The [Get Started with Event Hubs][lnk-eventhubs-tutorial] tutorial provides further information on how to process messages from Event Hubs and is applicable to the IoT Hub Event Hub-compatible endpoints.
 
-> [AZURE.NOTE] The Event Hub-compatible endpoint for reading device-to-cloud messages always uses the AMQPS protocol.
+> [AZURE.NOTE] The Event Hub-compatible endpoint for reading device-to-cloud messages always uses the AMQP protocol.
 
 1. Create a new empty folder called **readdevicetocloudmessages**. In the **readdevicetocloudmessages** folder, create a package.json file using the following command at your command-prompt. Accept all the defaults:
 

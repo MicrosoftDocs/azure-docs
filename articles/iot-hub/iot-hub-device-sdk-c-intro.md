@@ -40,7 +40,7 @@ This repository contains the entire family of Azure IoT device SDKs. However, th
 
 * The core implementation of the SDK can be found in the **iothub\_client** folder which contains the implementation of the lowest API layer in the SDK: the **IoTHubClient** library. The **IoTHubClient** library contains APIs implementing raw messaging for sending messages to IoT Hub as well as receiving messages from it. When using this library, you are responsible for implementing message serialization (eventually using the serializer sample described below), but other details of communicating with IoT Hub are handled for you.
 * The **serializer** folder contains helper functions and samples showing how to serialize data before sending to Azure IoT Hub using the client library. Note that the use of the serializer is not mandatory and only provided as a convenience. If you use the **serializer** library, you start by defining a model that specifies the events you want to send to IoT Hub as well as the messages you expect to receive from it. Once the model is defined, the SDK provides you an API surface that enables you to easily work with events and messages without having to worry about serialization details.
-The library depends on other open source libraries that implement transport using several protocols (AMQP, MQTT).
+The library depends on other open source libraries that implement transport using several protocols (MQTT, AMQP).
 * The **IoTHubClient** library depends on other open source libraries:
    * The [Azure C shared utility](https://github.com/Azure/azure-c-shared-utility) library which provides common functionality for basic tasks (like string, list manipulation, IO, etc. ...) needed across several Azure-related C SDKs
    * The [Azure uAMQP](https://github.com/Azure/azure-uamqp-c) library which is client side implementation of AMQP optimized for resource constraint devices.
@@ -151,7 +151,7 @@ This solution contains a single project. It is worth noting that there are four 
 - Microsoft.Azure.IoTHub.IoTHubClient
 - Microsoft.Azure.uamqp
 
-You always need the **Microsoft.Azure.C.SharedUtility** package when you are working with the SDK. Since this sample relies on AMQP, you must also include the **Microsoft.Azure.uamqp** and **Microsoft.Azure.IoTHub.AmqpTransport** packages (there are equivalent packages for HTTP and MQTT). Because the sample uses the **IoTHubClient** library, you must also include the **Microsoft.Azure.IoTHub.IoTHubClient** package in your solution.
+You always need the **Microsoft.Azure.C.SharedUtility** package when you are working with the SDK. Since this sample relies on AMQP, you must also include the **Microsoft.Azure.uamqp** and **Microsoft.Azure.IoTHub.AmqpTransport** packages (there are equivalent packages for MQTT and HTTP). Because the sample uses the **IoTHubClient** library, you must also include the **Microsoft.Azure.IoTHub.IoTHubClient** package in your solution.
 
 You can find the implementation for the sample application in the **iothub\_client\_sample\_amqp.c** source file.
 
@@ -159,7 +159,7 @@ We'll use this sample application to walk you through what’s required to use t
 
 ### Initializing the library
 
-> [AZURE.NOTE] Before you start working with the libraries, you may need to perform some platform specific initialization. For example, if you plan to use AMQPS on Linux you must initialize the OpenSSL library. The samples in the [GitHub repository](https://github.com/Azure/azure-iot-sdks) call the utility function **platform_init** when the client starts and call the **platform_deinit** function before exiting. These functions are declared in the "platform.h" header file. You should examine the definitions of these functions for your target platform in the [repository](https://github.com/Azure/azure-iot-sdks) to determine whether you need to include any platform initialization code in your client.
+> [AZURE.NOTE] Before you start working with the libraries, you may need to perform some platform specific initialization. For example, if you plan to use AMQP on Linux you must initialize the OpenSSL library. The samples in the [GitHub repository](https://github.com/Azure/azure-iot-sdks) call the utility function **platform_init** when the client starts and call the **platform_deinit** function before exiting. These functions are declared in the "platform.h" header file. You should examine the definitions of these functions for your target platform in the [repository](https://github.com/Azure/azure-iot-sdks) to determine whether you need to include any platform initialization code in your client.
 
 To start working with the libraries you must first allocate an IoT Hub client handle:
 
