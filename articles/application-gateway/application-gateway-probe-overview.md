@@ -16,12 +16,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/29/2016"
+   ms.date="10/25/2016"
    ms.author="gwallace" />
 
 # Application Gateway health monitoring overview
 
-Azure Application Gateway by default monitors the health of all resources in its back-end pool and automatically removes any resource considered unhealthy from the pool. Application Gateway continues to monitor the unhealthy instances and adds them back to the healthy back-end pool once they become available and respond to health probes.
+Azure Application Gateway by default monitors the health of all resources in its back-end pool and automatically removes any resource considered unhealthy from the pool. Application Gateway continues to monitor the unhealthy instances and adds them back to the healthy back-end pool once they become available and respond to health probes. Application gateway sends the health probes with the same port that is defined in the back-end HTTP settings. This ensures that the probe is testing the same port that customers would be using to connect to the backend.
 
 ![application gateway probe example][1]
 
@@ -29,7 +29,7 @@ In addition to using default health probe monitoring, you can also customize the
 
 ## Default health probe
 
-An application gateway automatically configures a default health probe when you don't set up any custom probe configuration. The monitoring behavior works by making an HTTP request to the IP addresses configured for the back-end pool.
+An application gateway automatically configures a default health probe when you don't set up any custom probe configuration. The monitoring behavior works by making an HTTP request to the IP addresses configured for the back-end pool. For default probes if the backend http settings are configured for HTTPS, the probe will use https as well to test health of the backends.
 
 For example: You configure your application gateway to use back-end servers A, B, and C to receive HTTP network traffic on port 80. The default health monitoring tests the three servers every 30 seconds for a healthy HTTP response. A healthy HTTP response has a [status code](https://msdn.microsoft.com/library/aa287675.aspx) between 200 and 399.
 
@@ -43,6 +43,8 @@ If the default probe check fails for server A, the application gateway removes i
 | Interval | 30 | Probe interval in seconds |
 | Time-out  | 30 | Probe time-out in seconds |
 | Unhealthy threshold | 3 | Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
+
+> [AZURE.NOTE] The port will always be the same port as the back-end HTTP settings.
 
 The default probe looks only at http://127.0.0.1:\<port\> to determine health status. If you need to configure the health probe to go to a custom URL or modify any other settings, you must use custom probes as described in the following steps.
 
@@ -65,7 +67,7 @@ The following table provides definitions for the properties of a custom health p
 | Unhealthy threshold | Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
 > [AZURE.IMPORTANT] If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe.
-For reference a custom probe is sent to \<protocol\>://\<host\>:\<port\>\<path\>.
+For reference a custom probe is sent to \<protocol\>://\<host\>:\<port\>\<path\>. The port used will be the same port as defined in the back-end HTTP settings.
 
 ## Next steps
 

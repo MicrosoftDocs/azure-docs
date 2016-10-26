@@ -45,7 +45,7 @@ Packets are routed over a TCP/IP network based on a route table defined at each 
 |---|---|---|---|
 | Address Prefix | The destination CIDR to which the route applies, such as 10.1.0.0/16.|Must be a valid CIDR range representing addresses on the public Internet, Azure virtual network, or on-premises datacenter.|Make sure the **Address prefix** does not contain the address for the **Next hop address**, otherwise your packets will enter in a loop going from the source to the next hop without ever reaching the destination. |
 | Next hop type | The type of Azure hop the packet should be sent to. | Must be one of the following values: <br/> **Virtual Network**. Represents the local virtual network. For instance, if you have two subnets, 10.1.0.0/16 and 10.2.0.0/16 in the same virtual network, the route for each subnet in the route table will have a next hop value of *Virtual Network*. <br/> **Virtual Network Gateway**. Represents an Azure S2S VPN Gateway. <br/> **Internet**. Represents the default Internet gateway provided by the Azure Infrastructure. <br/> **Virtual Appliance**. Represents a virtual appliance you added to your Azure virtual network. <br/> **None**. Represents a black hole. Packets forwarded to a black hole will not be forwarded at all.| Consider using a **None** type to stop packets from flowing to a given destination. | 
-| Next hop address | The next hop address contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is *Virtual Appliance*.| Must be a reachable IP address. | If the IP address represents a VM, make sure you enable [IP forwarding](#IP-forwarding) in Azure for the VM. |
+| Next hop address | The next hop address contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is *Virtual Appliance*.| Must be an IP address that is reachable within the Virtual Network where the User Defined Route is applied. | If the IP address represents a VM, make sure you enable [IP forwarding](#IP-forwarding) in Azure for the VM. |
 
 In Azure PowerShell some of the "NextHopType" values have different names:
 - Virtual Network is VnetLocal
@@ -59,7 +59,7 @@ Every subnet created in a virtual network is automatically associated with a rou
 
 - **Local Vnet Rule**: This rule is automatically created for every subnet in a virtual network. It specifies that there is a direct link between the VMs in the VNet and there is no intermediate next hop.
 - **On-premises Rule**: This rule applies to all traffic destined to the on-premises address range and uses VPN gateway as the next hop destination.
-- **Internet Rule**: This rule handles all traffic destined to the public Internet and uses the infrastructure internet gateway as the next hop for all traffic destined to the Internet.
+- **Internet Rule**: This rule handles all traffic destined to the public Internet (address prefix 0.0.0.0/0) and uses the infrastructure internet gateway as the next hop for all traffic destined to the Internet.
 
 ### User Defined Routes
 For most environments you will only need the system routes already defined by Azure. However, you may need to create a route table and add one or more routes in specific cases, such as:

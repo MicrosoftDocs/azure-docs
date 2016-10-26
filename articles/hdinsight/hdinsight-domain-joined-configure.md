@@ -69,7 +69,7 @@ This tutorial provides the steps for configuring a domain-joined HDInsight clust
 	
 ## Create an Azure classic VNet
 
-In this section, you create a classic VNet using the Azure classic portal. In the next section, you enable the Azure AD DS for your Azure AD in the classic VNet. For additional information about the following procedure and using other VNet creation methods, see [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
+In this section, you create a classic VNet using the Azure portal. In the next section, you enable the Azure AD DS for your Azure AD in the classic VNet. For additional information about the following procedure and using other VNet creation methods, see [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
 
 **To create a classic VNet**
 
@@ -97,12 +97,12 @@ In this section, you create a classic VNet using the Azure classic portal. In th
 In this section, you will:
 
 1. Create an Azure AD.
-2. Create Azure AD users. These are domain users. You used the first user to be created for configuring the HDInsight cluster with the Azure AD.  The other two users are optional for this tutorial. They will be used in [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md) when you configure Apache Ranger policies.
+2. Create Azure AD users. These are domain users. You will use the first user for configuring the HDInsight cluster with the Azure AD.  The other two users are optional for this tutorial. They will be used in [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md) when you configure Apache Ranger policies.
 3. Create the AAD DC Administrators group and add the Azure AD user to the group. You use this user to create the organizational unit.
 4. Enable Azure AD Domain Services (Azure AD DS) for the Azure AD.
 7. Configure LDAPS for the Azure AD. The Lightweight Directory Access Protocol (LDAP) is used to read from and write to Azure AD.
 
-If you prefer to use an existing Azure AD, you can skip step 1.
+If you prefer to use an existing Azure AD, you can skip steps 1 and 2.
 
 **To create an Azure AD**
 
@@ -110,7 +110,7 @@ If you prefer to use an existing Azure AD, you can skip step 1.
 3. Enter or select the following values:
 
 	- **Name**: contosoaaddirectory
-	- **Domain name**: contoso.  This name must be globally unique. Replace the number in the name with a different number until it is validated successfully.
+	- **Domain name**: contoso.  This name must be globally unique.
 	- **Country or region**: Select your country or region.
 4. Click **Complete**.
 
@@ -167,7 +167,7 @@ If you use your own domain, you need to synchronize the password. See [Enable pa
 
 **To configure LDAPS for the Azure AD**
 
-1. Get an SSL certificate that is signed by a signing authority for your domain. If you can't create an SSL certificate, please contact hdipreview@microsoft.com. Self-signed certificates can't be used.
+1. Get an SSL certificate that is signed by a signing authority for your domain. Self-signed certificates can't be used. If you can't get an SSL certificate, please reach out to hdipreview@microsoft.com for an exception.
 1. From the [Azure classic portal](https://manage.windowsazure.com), click **Active Directory** > **contosoaaddirectory**. 
 3. Click **Configure** from the top menu.
 4. Scroll to **domain services**.
@@ -175,7 +175,7 @@ If you use your own domain, you need to synchronize the password. See [Enable pa
 6. Follow the instruction to specify the certificate file and the password. You will see **Pending ...** next to **Enable domain services for this directory**.  
 7. Wait until **Pending ...** disappears, and **Secure LDAP Certificate** got populated.  This can take up 10 minutes or more.
  
->[AZURE.NOTE] If some background tasks are being run on the Azure AD DS, you may see an error while uploading certificate - <i>There is an operation being performed for this tenant. Please try again later</i>.  In case you experience this error, please try again after some time. The second domain controller may take up to 3 hours to be provisioned.
+>[AZURE.NOTE] If some background tasks are being run on the Azure AD DS, you may see an error while uploading certificate - <i>There is an operation being performed for this tenant. Please try again later</i>.  In case you experience this error, please try again after some time. The second domain controller IP may take up to 3 hours to be provisioned.
 
 For more information, see [Configure Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
@@ -249,8 +249,8 @@ For more information, see [Install Active Directory administration tools on the 
 4. Click **Next**.
 5. Select **Primary zone**, and then click **Next**.
 6. Select **To all DNS servers running on domain controllers in this domain**, and then click **Next**.
-6. Select **IPv4 Reverse Lookup Zone, and then click **Next**.
-7. In **Network ID**, enter the prefix for the HDInsight VNET network range, and then click **Next**.
+6. Select **IPv4 Reverse Lookup Zone**, and then click **Next**.
+7. In **Network ID**, enter the prefix for the HDInsight VNET network range, and then click **Next**. You will create the HDInsight VNet in the following section.
 8. Click **Next**.
 9. Click **Next**.
 10. Click **Finish**.
@@ -368,58 +368,34 @@ In this section, you will create a Linux-based Hadoop cluster in HDInsight using
 
 2. From the **Parameters** blade, enter the following values:
 
-	- Subscription: (Select your Azure subscription).
-	- Resource group: Click **Use existing**, and specify the same resource group you have been using.  For example contosohdirg. 
+	- **Subscription**: (Select your Azure subscription).
+	- **Resource group**: Click **Use existing**, and specify the same resource group you have been using.  For example contosohdirg. 
+	- **Location**: Specify a resource group location.
 
-	- **ClusterVNetID**: /subscriptions/&lt;SubscriptionID>/resourceGroups/&lt;ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/&lt;VNetName>
-	- **ClusterVNetSubNetID**: /subscriptions/&lt;SubscriptionID>/resourceGroups/&lt;ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/&lt;VNetName>/subnets/Subnet1
-    - **ClusterName**: Enter a name for the Hadoop cluster that you will create. For example contosohdicluster
+    - **Cluster Name**: Enter a name for the Hadoop cluster that you will create. For example contosohdicluster.
+	- **Cluster Type**: Select a cluster type.  The default value is **hadoop**.
+	- **Location**: Select a location for the cluster.  The default storage account uses the same location.
+	- **Cluster Worker Node Acount**: Select the number of worker nodes.
     - **Cluster login name and password**: The default login name is **admin**.
     - **SSH username and password**: The default username is **sshuser**.  You can rename it. 
 
-	- DomainName: contoso.onmicrosoft.com
-	- OrganizationUnitDN: OU=Hadoop System Users,DC=contoso,DC=onmicrosoft,DC=com
-	- LDAPUrls: ["ldaps://contoso.onmicrosoft.com:636"]
-	- DomainAdminUserName: (Enter the domain admin user name)
-	- DomainAdminPassword: (enter the domain admin user password)
+	- **Virtual Network Id**: /subscriptions/&lt;SubscriptionID>/resourceGroups/&lt;ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/&lt;VNetName>
+	- **Virtual Network Subnet**: /subscriptions/&lt;SubscriptionID>/resourceGroups/&lt;ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/&lt;VNetName>/subnets/Subnet1
+
+	- **Domain Name**: contoso.onmicrosoft.com
+	- **Organization Unit DN**: OU=Hadoop System Users,DC=contoso,DC=onmicrosoft,DC=com
+	- **Cluster Users Group D Ns**: "\"CN=HiveUsers,OU=AADDC Users,DC=<DomainName>,DC=onmicrosoft,DC=com\""
+	- **LDAPUrls**: ["ldaps://contoso.onmicrosoft.com:636"]
+	- **DomainAdminUserName**: (Enter the domain admin user name)
+	- **DomainAdminPassword**: (enter the domain admin user password)
 
 	- **I agree to the terms and conditions stated above**: (Check)
 	- **Pin to dashboard**: (Check)
-
-	The organizational unit is what you created earlier in the article.
-
-    Other properties have been hard-coded into the template. For example:
-    
-    - Location: East US 2
-    - Cluster worker node count: 2
-    - Default storage account: <Cluster Name>store
-    - Virtual network name: <Cluster Name>-vnet
-    - Virtual network address space: 10.2.0.0/16
-    - Subnet name: default
-    - Subnet address range: 10.2.0.0/24
-
 
 6. Click **Purchase**. You will see a new tile titled **Deploying Template deployment**. It takes about around 20 minutes to create a cluster. Once the cluster is created, you can click the cluster blade in the portal to open it.
 
 After you complete the tutorial, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-management-portal.md#delete-clusters).
 
-
-## Test the connection between the two VNets
-
-To test the connection between the two VNets, you will ping one of the cluster nodes from the Windows VM in the Classic VNet.
-
-**To find the cluster node IP addresses**
-
-1. From the [Azure portal](https://portal.azure.com), open the cluster. For example: contosohdicluster.
-3. Click **Dashboard**.
-4. Sign in to Ambari using the Hadoop HTTP username and password.
-5. Click **Hosts** from the top. You will see a list of the Hadoop nodes.  Write down the IP address and the domain name of one of the nodes.
-
-**To ping a cluster node**
-
-1. RDP into **contosoaadadmin** using the domain account that is in the **AAD DC Administrators** group.
-2. Click **Start**, and then click **Windows PowerShell**.
-3. Ping the IP address and the domain name you wrote down in the last procedure.
 
 
 
