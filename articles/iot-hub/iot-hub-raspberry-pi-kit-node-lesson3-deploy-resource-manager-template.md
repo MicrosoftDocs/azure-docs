@@ -27,14 +27,16 @@ Use an Azure Resource Manager template to create an Azure function app and a sto
 
 ## What you will learn
 
-In this section, you will learn:
+In this article, you will learn:
 
 - How to use [Azure Resource Manager](../../articles/azure-resource-manager/resource-group-overview.md) to deploy Azure resources.
-- How to use an Azure function app to process IoT hub messages and write them to a table in Azure table storage.
+- How to use an Azure function app to process hub messages and write them to a table in Azure table storage.
 
 ## What you need
 
-You must have successfully completed the previous lessons: [Get started with your Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-get-started.md) and [Create your Azure IoT hub](iot-hub-raspberry-pi-kit-node-get-started.md).
+You must have successfully completed:
+- [Get started with your Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-get-started.md)
+- [Create your Azure IoT hub](iot-hub-raspberry-pi-kit-node-get-started.md).
 
 ## Open the sample app
 
@@ -47,7 +49,7 @@ code .
 
 ![Repo Structure](media/iot-hub-raspberry-pi-lessons/lesson3/repo_structure.png)
 
-- The `app.js` file in the `app` subfolder is the key source file. This source file contains the code to send a message 20 times to your IoT hub and blink the LED for each message it sends.
+- The `app.js` file in the `app` subfolder is the key source file. This source file contains the code to send a message 20 times to your hub and blink the LED for each message it sends.
 - The `arm-template.json` file is the Azure Resource Manager template that contains an Azure function app and a storage account.
 - The `arm-template-param.json` file is the configuration file used by the Azure Resource Manager template.
 - The `ReceiveDeviceMessages` subfolder contains the Node.js code for the Azure function.
@@ -58,10 +60,10 @@ Update the `arm-template-param.json` file in Visual Studio Code.
 
 ![Azure Resource Manager template parameters](media/iot-hub-raspberry-pi-lessons/lesson3/arm_para.png)
 
-- Replace **[your IoT Hub name]** with **{my hub name}** that you specified in [Lesson 2](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md).
+- Replace **[your IoT Hub name]** with **{my hub name}** that you specified in [Create your IoT hub and register Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md).
 - Replace **[prefix string for new resources]** with any prefix you want. The prefix ensures that the resource name is globally unique to avoid conflict. Do not use a dash or number initial in the prefix.
 
-> [AZURE.NOTE] You don't need `azure_storage_connection_string` in this section. Keep it as is.
+> [AZURE.NOTE] You don't need `azure_storage_connection_string` in this article. Keep it as is.
 
 After you update the `arm-template-param.json` file, deploy the resources to Azure by running the following command:
 
@@ -69,11 +71,11 @@ After you update the `arm-template-param.json` file, deploy the resources to Azu
 az resource group deployment create --template-file-path arm-template.json --parameters-file-path arm-template-param.json -g iot-sample -n mydeployment
 ```
 
-It takes about five minutes to create these resources. While the resource creation is in progress, you can move on to the next section.
+It takes about five minutes to create these resources. While the resource creation is in progress, you can move on to the next article.
 
 ## Summary
 
-You've created your Azure function app to process IoT hub messages and an Azure storage account to store these messages. You can move on to the next section to deploy and run the sample to send device-to-cloud messages on your Pi.
+You've created your Azure function app to process hub messages and an Azure storage account to store these messages. You can move on to the next article to deploy and run the sample to send device-to-cloud messages on Pi.
 
 ## Next Steps
 
