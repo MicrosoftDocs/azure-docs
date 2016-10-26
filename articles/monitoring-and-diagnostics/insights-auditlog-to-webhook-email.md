@@ -2,7 +2,7 @@
 	pageTitle="Configure a webhook on Azure Activity Log alerts | Microsoft Azure"
 	description="See how to use Activity Log alerts to call webhooks. "
 	authors="kamathashwin"
-	manager=""
+	manager="carolz"
 	editor=""
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>

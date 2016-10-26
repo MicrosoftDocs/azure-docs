@@ -2,7 +2,7 @@
 	pageTitle="Overview of metrics in Microsoft Azure | Microsoft Azure"
 	description="Overview of metrics and their uses in Microsoft Azure"
 	authors="kamathashwin"
-	manager=""
+	manager="carolz"
 	editor=""
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>

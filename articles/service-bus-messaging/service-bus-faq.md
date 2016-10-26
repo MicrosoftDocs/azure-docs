@@ -4,7 +4,7 @@
     services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
-    manager=""
+    manager="timlt"
     editor="" />
 <tags 
     ms.service="service-bus"

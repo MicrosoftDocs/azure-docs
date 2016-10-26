@@ -44,5 +44,5 @@ To use Blitline you need to have your Application ID.
 [blitline-store]: ./media/blitline-signup/blitline_offerings_store.png
 [store-screen-1]: ./media/blitline-signup/blitline_purchase.jpg
 [blitline-connection-info-button]: ./media/blitline-signup/blitline_connection_info_button.png
-[blitline-connection-info]: ./media/blitline-signup/blitline_connection_info_screen.jpeg
+[blitline-connection-info]: ./media/blitline-signup/blitline_connection_info_screen.jpg
 
