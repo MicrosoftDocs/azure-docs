@@ -20,11 +20,11 @@
 
 Azure Resource Manager provides a new way for you to deploy and manage the services that make up your applications. Most, but not all, services support Resource Manager, and some services support Resource Manager only partially. This topic provides a list of supported resource providers for Azure Resource Manager.
 
-When deploying your resources, you also need to know which regions support those resources and which API versions are available for the resources. The section [Supported regions](#supported-regions) shows you how to find out which regions will work for your subscription and resources. The section [Supported API versions](#supported-api-versions) shows you how to determine which API versions you can use.
+When deploying your resources, you also need to know which regions support those resources and which API versions are available for the resources. The section [Supported regions](#supported-regions) shows you how to find out which regions work for your subscription and resources. The section [Supported API versions](#supported-api-versions) shows you how to determine which API versions you can use.
 
 To see which services are supported in the Azure portal and classic portal, see [Azure portal availability chart](https://azure.microsoft.com/features/azure-portal/availability/). To see which services support moving resources, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
 
-The following tables list which Microsoft services support deployment and management through Resource Manager and which do not. The link in the column **Quickstart Templates** sends a query to the Azure Quickstart Templates repository for the specified resource provider. Quickstart templates are added and updated frequently. The presence of a link for a particular service does not necessarily mean the query will return templates from the repository. There are also many third party resource providers that support Resource Manager. You learn how to see all the resource providers in the [Resource providers and types](#resource-providers-and-types) section.
+The following tables list which Microsoft services support deployment and management through Resource Manager and which do not. The link in the column **Quickstart Templates** sends a query to the Azure Quickstart Templates repository for the specified resource provider. Quickstart templates are added and updated frequently. The presence of a link for a particular service does not necessarily mean the query returns templates from the repository. There are also many third-party resource providers that support Resource Manager. You learn how to see all the resource providers in the [Resource providers and types](#resource-providers-and-types) section.
 
 
 ## Compute
@@ -202,7 +202,7 @@ The next example shows how to get the resource types for a particular resource p
 
     (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes
     
-The output will be similar to:
+The output is similar to:
 
     ResourceTypeName                Locations                                         
     ----------------                ---------                                         
@@ -210,7 +210,7 @@ The output will be similar to:
     sites/slots/extensions          {Brazil South, East Asia, East US, Japan East...} .
     ...
     
-To register a resource provider provide the namespace:
+To register a resource provider, provide the namespace:
 
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
 
@@ -220,10 +220,10 @@ The following example shows how to get all of the available resource providers.
 
     azure provider list
     
-The output will be similar to:
+The output is similar to:
 
     info:    Executing command provider list
-    + Getting ARM registered providers
+    + Getting registered providers
     data:    Namespace                        Registered
     data:    -------------------------------  -------------
     data:    Microsoft.ApiManagement          Unregistered
@@ -235,17 +235,17 @@ You can save the information for a particular resource provider to a file with t
 
     azure provider show Microsoft.Web -vv --json > c:\temp.json
 
-To register a resource provider provide the namespace:
+To register a resource provider, provide the namespace:
 
     azure provider register -n Microsoft.ServiceBus
 
 ## Supported regions
 
 When deploying resources, you typically need to specify a region for the resources. Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. In addition, there 
-may be limitations on your subscription which prevent you from using some regions that support the resource. These limitations may be related to tax issues for your home country, or the result of a policy placed 
+may be limitations on your subscription that prevent you from using some regions that support the resource. These limitations may be related to tax issues for your home country, or the result of a policy placed 
 by your subscription administrator to use only certain regions. 
 
-For a complete list of all supported regions for all Azure services, see [Services by region](https://azure.microsoft.com/regions/#services); however, this list may include regions that your subscription does not support. You can determine the regions for a particular resource type that your subscription supports by running one of the following commands.
+For a complete list of all supported regions for all Azure services, see [Services by region](https://azure.microsoft.com/regions/#services); however, this list may include regions that your subscription does not support. You can determine the regions for a particular resource type that your subscription supports through the portal, REST API, PowerShell, or Azure CLI.
 
 ### Portal
 
@@ -273,7 +273,7 @@ The following example shows how to get the supported regions for web sites.
 
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
     
-The output will be similar to:
+The output is similar to:
 
     Brazil South
     East Asia
@@ -310,8 +310,12 @@ Which returns:
 ## Supported API versions
 
 When you deploy a template, you must specify an API version to use for creating each resource. The API version corresponds to a version of REST API operations that are released by the resource provider. 
-As a resource provider enables new features, it will release a new version of the REST API. Therefore, the version of the API you specify in your template affects which properties you can specify in the 
-template. In general, you will want to select the most recent API version when creating new templates. For existing templates, you can decide whether you want to continue using an earlier API version, or update your template for the latest version to take advantage of new features.
+As a resource provider enables new features, it releases a new version of the REST API. Therefore, the version of the API you specify in your template affects which properties you can specify in the 
+template. In general, you want to select the most recent API version when creating templates. For existing templates, you can decide whether you want to continue using an earlier API version, or update your template for the latest version to take advantage of new features.
+
+### Portal
+
+You determine the supported API versions in the same way you determined supported regions (shown previously).
 
 ### REST API
 
@@ -319,11 +323,11 @@ To discover which API versions are available for resource types, use the [List a
 
 ### PowerShell
 
-The following example shows how to get the available API versions for a paticular resource type.
+The following example shows how to get the available API versions for a particular resource type.
 
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
     
-The output will be similar to:
+The output is similar to:
     
     2015-08-01
     2015-07-01
