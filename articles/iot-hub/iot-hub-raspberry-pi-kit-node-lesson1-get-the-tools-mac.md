@@ -17,18 +17,18 @@
  ms.date="10/21/2016"
  ms.author="xshi"/>
 
-# 1.2 Get the tools (macOS 10.10)
+# Get the tools (macOS 10.10)
 
 > [AZURE.SELECTOR]
 - [Windows 7 or later](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
 - [Ubuntu 16.04](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md)
 - [macOS 10.10](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
 
-## 1.2.1 What you will do
+## What you will do
 
 Download the development tools and the software for the first sample application for your Raspberry Pi 3. If you have any problems, look for solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
-## 1.2.2 What you will learn
+## What you will learn
 In this section, you will learn:
 
 - How to install Git and Node.js.
@@ -38,14 +38,14 @@ In this section, you will learn:
   - The minimum required version of Node.js is 4.5 LTS.
   - [NPM](https://www.npmjs.com) is one of the package managers for Node.js.
 
-## 1.2.3 What you need
+## What you need
 
 To complete this operation, you will need:
 
 - An Internet connection to download the development tools and the software.
 - A Mac that is running macOS Yosemite (10.10) or later.
 
-## 1.2.4 Install Git and Node.js
+## Install Git and Node.js
 
 To install Git and Node.js, use the [Homebrew](http://brew.sh) package management utility by following these steps:
 
@@ -62,7 +62,7 @@ To install Git and Node.js, use the [Homebrew](http://brew.sh) package managemen
     brew install node git
     ```
 
-## 1.2.5 Install additional Node.js development tools
+## Install additional Node.js development tools
 
 Use [gulp.js](http://gulpjs.com) to automate the deployment of the sample application to your Pi. Use the [device-discovery-cli](https://github.com/Azure/device-discovery-cli) to retrieve network information about your IoT devices.
 
@@ -74,14 +74,14 @@ sudo npm install -g device-discovery-cli gulp
 
 If you experience issues installing Node.js and these additional development tools on macOS, see the [troubleshooting guide](iot-hub-raspberry-pi-kit-node-troubleshooting.md) for solutions to common problems.
 
-## 1.2.6 Install Visual Studio Code
+## Install Visual Studio Code
 
 [Download](https://code.visualstudio.com/docs/setup/osx) and install Visual Studio Code. Visual Studio Code is a lightweight but powerful source code editor for Windows, Linux, and macOS. You use this editor later in the tutorial to edit the sample code.
 
-## 1.2.7 Summary
+## Summary
 
 You've installed the required development tools and software for the first sample application. In the next section, you create, deploy, and run the sample application on your Pi.
 
 ## Next steps
 
-[1.3 Create and deploy the blink sample application](iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md)
+[Create and deploy the blink sample application](iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md)

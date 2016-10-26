@@ -17,13 +17,13 @@
  ms.date="10/21/2016"
  ms.author="xshi"/>
 
-# 1.1 Configure your device
+# Configure your device
 
-## 1.1.1 What you will do
+## What you will do
 
 Configure your Pi for first-time use and install the Raspbian operating system, a free operating system that is optimized for the Raspberry Pi hardware. If you have any problems, you can seek solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
-## 1.1.2 What you will learn
+## What you will learn
 
 In this section, you will learn:
 
@@ -32,7 +32,7 @@ In this section, you will learn:
 - How to connect your Pi to the network by using an Ethernet cable or wireless network.
 - How to add an LED to the breadboard and connect it to your Pi.
 
-## 1.1.3 What you will need
+## What you will need
 
 To complete this section, you need the following parts from your Raspberry Pi 3 Starter Kit:
 
@@ -54,7 +54,7 @@ You also need:
 - A computer running Windows, Mac, or Linux. The computer is used to install Raspbian on the microSD card.
 - An Internet connection to download the necessary tools and software.
 
-## 1.1.4 Install Raspbian on the microSD card
+## Install Raspbian on the microSD card
 
 Prepare the microSD card for installation of the Raspbian image.
 
@@ -73,7 +73,7 @@ Prepare the microSD card for installation of the Raspbian image.
 
 ![Insert the SD card](media/iot-hub-raspberry-pi-lessons/lesson1/insert_sdcard.jpg)
 
-## 1.1.5 Turn on your Pi
+## Turn on your Pi
 
 Turn on your Pi by using the micro USB cable and the power supply.
 
@@ -81,21 +81,21 @@ Turn on your Pi by using the micro USB cable and the power supply.
 
 > [AZURE.NOTE] It is important to use the power supply in the kit that is at least 2A to make sure that your Raspberry has enough power to work correctly.
 
-## 1.1.6 Connect your Raspberry Pi 3 to the network
+## Connect your Raspberry Pi 3 to the network
 
 You can connect your Pi to a wired network or to a wireless network. Make sure that your Pi is connected to the same network as your computer. For example, you can connect your Pi to the same switch that your computer is connected to.
 
-### 1.1.6.1 Connect to a wired network
+### Connect to a wired network
 
 Use the Ethernet cable to connect your Pi to your wired network. The two LEDs on your Pi turn on if the connection is established.
 
 ![Connect by using an Ethernet cable](media/iot-hub-raspberry-pi-lessons/lesson1/connect_ethernet.jpg)
 
-### 1.1.6.2	Connect to a wireless network
+### Connect to a wireless network
 
 Follow the [instructions](https://www.raspberrypi.org/learning/software-guide/wifi/) from the Raspberry Pi Foundation to connect your Pi to your wireless network. These instructions require you to first connect a monitor and a keyboard to your Pi.
 
-## 1.1.7 Connect the LED to your Pi
+## Connect the LED to your Pi
 
 To complete this task, use the [breadboard](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard), the connector wires, the LED, and the resistor. Connect them to the [general-purpose input/output](https://www.raspberrypi.org/documentation/usage/gpio/) (GPIO) ports of your Pi.
 
@@ -111,12 +111,12 @@ Note that the LED polarity is important. This polarity setting is commonly known
 
 Congratulations! You've successfully configured your Pi.
 
-## 1.1.8 Summary
+## Summary
 
 In this section, you’ve learned how to configure your Pi by installing Raspbian, connecting your Pi to a network, and connecting an LED to your Pi. Note that the LED doesn't yet light up. In the next section, you install the necessary tools and software in preparation for running a sample application on your Pi.
 
 ![Hardware is ready](media/iot-hub-raspberry-pi-lessons/lesson1/hardware_ready.jpg)
 
-## Next Steps
+## Next steps
 
-[1.2 Get the tools](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
+[Get the tools](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
