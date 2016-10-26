@@ -64,9 +64,9 @@ Retrieve the gateway that you are adding Web Application Firewall to.
 
 ### Step 4
 
-Configure the web application firewall sku. The available sizes are **WAF\_Large** and **WAF\_Medium**. When web application is used the tier must be **WAF**.
+Configure the web application firewall sku. The available sizes are **WAF\_Large** and **WAF\_Medium**. When web application firewall is used the tier must be **WAF**, the capacity must be confirmed when setting the sku.
 
-    $gw | Set-AzureRmApplicationGatewaySku -Name WAF_Large -Tier WAF
+    $gw | Set-AzureRmApplicationGatewaySku -Name WAF_Large -Tier WAF -Capacity 2
 
 ### Step 5
 
@@ -74,7 +74,7 @@ Configure the WAF settings as defined in the following example:
 
 For the **WafMode** setting, the available values are Prevention and Detection.
 
-    $config = Add-AzureRmApplicationGatewayWafConfig -Enabled $true -WafMode "Prevention" -ApplicationGateway $gw
+    $gw | Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention
 
 ### Step 6
 
@@ -174,35 +174,47 @@ Configure the back-end IP address pool with the IP addresses of the backend web 
 
 ### Step 12
 
+Upload the certificate to be used on the ssl enabled backend pool resources.
+
+    $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile <full path to .cer file>
+
+### Step 13
+
 Configure the application gateway back-end http settings. Assign the certificate uploaded in the preceding step to the http settings.
 
     $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 'setting01' -Port 443 -Protocol Https -CookieBasedAffinity Enabled -AuthenticationCertificates $authcert
 
-### Step 13
+### Step 14
 
 Configure the front-end IP port for the public IP endpoint. This port is the port that end users connect to.
 
     $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
 
-### Step 14
+### Step 15
 
 Create a front-end IP configuration, this setting maps a private or public ip address to the front-end of the application gateway. The following step associates the public IP address in the preceding step with the front-end IP configuration.
 
     $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
 
-### Step 15
+### Step 16
+
+Configure the certificate for the application gateway. This certificate is used to decrypt and re-encrypt the traffic on the application gateway.
+
+    $cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
+
+### Step 17
 
 Create the HTTP listener for the application gateway. Assign the front-end ip configuration, port, and ssl certificate to use.
 
 	$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
 
-### Step 16
+### Step 18
 
 Create a load balancer routing rule that configures the load balancer behavior. In this example, a basic round robin rule is created.
 
     $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
    
-### Step 17
+### Step 19
 
 Configure the instance size of the application gateway.
 
@@ -210,17 +222,17 @@ Configure the instance size of the application gateway.
 
 >[AZURE.NOTE]  You can choose between **WAF\_Medium** and **WAF\_Large**, the tier when using WAF is always **WAF**. Capacity is any number between 1 and 10.
 
-### Step 18
+### Step 20
 
 Configure the mode for WAF, acceptable values are **Prevention** and **Detection**.
 
     $config = New-AzureRmApplicationGatewayWafConfig -Enabled $true -WafMode "Prevention"
 
-### Step 19
+### Step 21
 
 Create an application gateway with all configuration items from the preceding steps. In this example, the application gateway is called "appgwtest".
 
-	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -WafConfig $config
+	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert -AuthenticationCertificates $authcert
 
 ## Next steps
 

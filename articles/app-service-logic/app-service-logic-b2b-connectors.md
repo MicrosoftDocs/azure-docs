@@ -4,7 +4,7 @@
 	services="logic-apps" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="erikre" 
+	manager="anneta" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2016" 
+	ms.date="10/18/2016" 
 	ms.author="mandia"/> 
 
 # Business-to-Business Connectors and API Apps

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="web"
 	ms.devlang="js"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="10/18/2016"
 	ms.author="piyushjo" />
 
 
@@ -28,10 +28,10 @@ Start here for all the details about how to integrate Azure Mobile Engagement in
 
 ## Release notes
 
-### 2.0.1 (6/10/2016)
+### 2.0.2 (10/18/2016)
 
--   Disabled the Mobile Engagement Web SDK in Internet Explorer 8 and Internet Explorer 9.
--   Fixed the Opera web browser detection.
+-   Fixed crash on private browsing (Safari).
+-   Fixed crash on browsers with cookies disabled.
 
 For all versions, please see the [complete release notes](mobile-engagement-web-release-notes.md).
 

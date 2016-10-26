@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="10/05/2016"
+   ms.date="10/24/2016"
    ms.author="raiye"/>
 
 # Azure Guest OS releases and SDK compatibility matrix
@@ -28,6 +28,9 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 Unsure about what the Guest OS is or how the Guest OS releases work? Read [this](#how-it-works) section.
 
 ## News updates
+###### **October 23 2016**
+Windows Server 2016 will be released as OS Family 5 on November 1 2016, with .NET 4.6 support.
+
 ###### **September 13 2016**
 September Guest OS rollout is starting September 13 2016, and projected to be released on October 13 2016.
 

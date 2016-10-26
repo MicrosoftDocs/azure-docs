@@ -7,12 +7,12 @@
    manager="timlt"
    editor="tysonn" />
 <tags 
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-linux"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/06/2016"
+   ms.date="10/19/2016"
    ms.author="rclaus" />
 
 # DNS Name Resolution Options for Linux VMs in Azure
@@ -37,7 +37,7 @@ The type of name resolution you use depends on how your VMs and role instances n
 
 ## Azure-provided name resolution
 
-Along with resolution of public DNS names, Azure provides internal name resolution for VMs and role instances that reside within the same virtual network.  In ARM-based virtual networks, the DNS suffix is consistent across the virtual network (so the FQDN is not needed) and DNS names can be assigned to both NICs and VMs. Although Azure-provided name resolution does not require any configuration, it is not the appropriate choice for all deployment scenarios, as seen on the table above.
+Along with resolution of public DNS names, Azure provides internal name resolution for VMs and role instances that reside within the same virtual network.  In ARM-based virtual networks, the DNS suffix is consistent across the virtual network (so the FQDN is not needed) and DNS names can be assigned to both NICs and VMs. Although Azure-provided name resolution does not require any configuration, it is not the appropriate choice for all deployment scenarios, as seen on the preceding table.
 
 ### Features and Considerations
 
@@ -63,15 +63,15 @@ Along with resolution of public DNS names, Azure provides internal name resoluti
 
 - Hostnames must be DNS-compatible (They must use only 0-9, a-z and '-', and cannot start or end with a '-'. See RFC 3696 section 2.)
 
-- DNS query traffic is throttled for each VM. This shouldn't impact most applications.  If request throttling is observed, ensure that client-side caching is enabled.  For more details, see [Getting the most from Azure-provided name resolution](#Getting-the-most-from-Azure-provided-name-resolution).
+- DNS query traffic is throttled for each VM. This shouldn't impact most applications.  If request throttling is observed, ensure that client-side caching is enabled.  For more information, see [Getting the most from Azure-provided name resolution](#Getting-the-most-from-Azure-provided-name-resolution).
 
 
 ### Getting the most from Azure-provided name resolution
 **Client-side Caching:**
 
-Not every DNS query needs to be sent across the network.  Client-side caching helps reduce latency and improve resilience to network blips by resolving recurring DNS queries from a local cache.  DNS records contain a Time-To-Live (TTL) which allows the cache to store the record for as long as possible without impacting record freshness, so client-side caching is suitable for most situations.
+Not every DNS query is sent across the network.  Client-side caching helps reduce latency and improve resilience to network blips by resolving recurring DNS queries from a local cache.  DNS records contain a Time-To-Live (TTL) which allows the cache to store the record for as long as possible without impacting record freshness.  Because of this, client-side caching is suitable for most situations.
 
-Some Linux distros do not include caching by default.  It is recommended that one be added to each Linux VM (after checking that there isn't a local cache already).
+Some Linux distros do not include caching by default.  It is recommended you add one to each Linux VM (after checking that there isn't a local cache already).
 
 There are several different DNS caching packages available, for example dnsmasq, here are the steps to install dnsmasq on the most common distros:
 
@@ -97,7 +97,7 @@ There are several different DNS caching packages available, for example dnsmasq,
 DNS is primarily a UDP protocol.  As the UDP protocol doesn't guarantee message delivery, retry logic is handled in the DNS protocol itself.  Each DNS client (operating system) can exhibit different retry logic depending on the creators preference:
 
  - Windows operating systems retry after one second and then again after another two, four and another four seconds. 
- - The default Linux setup retries after five seconds.  It is recommended to change this to retry five times at one second intervals.  
+ - The default Linux setup retries after five seconds.  You should change this to retry five times at one-second intervals.  
 
 To check the current settings on a Linux VM, 'cat /etc/resolv.conf' and look at the 'options' line, for example:
 

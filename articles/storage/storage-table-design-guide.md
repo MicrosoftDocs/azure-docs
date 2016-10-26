@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="storage"
 	ms.date="09/22/2016"
-	ms.author="jahogg;tamram"/>
+	ms.author="jahogg"/>
 
 # Azure Storage Table Design Guide: Designing Scalable and Performant Tables
 

@@ -38,7 +38,7 @@ This recommendation is generated for any non-web port that has "any" as source.
 4. On the **Inbound security rules** blade select the inbound rule to edit. In this example, let’s select **AllowWeb**.
 ![Inbound security rules][4]
 
-  Note, you can also select **Default rules** to see the set of default rules contained by all NSGs. The default rules cannot be deleted but, because they are assigned a lower priority, they can be overridden by the rules that you create. Learn more about [default rules](../virtual-network/ virtual-networks-nsg.md#default-rules).
+  Note, you can also select **Default rules** to see the set of default rules contained by all NSGs. The default rules cannot be deleted but, because they are assigned a lower priority, they can be overridden by the rules that you create. Learn more about [default rules](../virtual-network/virtual-networks-nsg.md#default-rules).
 ![Default rules][5]
 
 5. On the **AllowWeb** blade, edit the properties of the inbound rule so that the **Source** is an IP address or block of IP addresses. To learn more about the properties of the inbound rule, see [NSG rules](../virtual-network/virtual-networks-nsg.md#nsg-rules).

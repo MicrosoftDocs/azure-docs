@@ -75,7 +75,7 @@ Though you'll probably want the *same* Azure resources created in each environme
 
 4. Using any text or JSON editor, edit the Test environment parameter file you created in Step 3, replacing the the values listed to the right of the parameter values in the file with the *values* listed to the right of the **parameters** below:
  - **siteName**: *TestApp1TestApp*
- - **hostingPlanName**: *TestApp1TestPla*n
+ - **hostingPlanName**: *TestApp1TestPlan*
  - **siteLocation**: *Central US*
  - **serverName**: *testapp1testsrv*
  - **serverLocation**: *Central US*

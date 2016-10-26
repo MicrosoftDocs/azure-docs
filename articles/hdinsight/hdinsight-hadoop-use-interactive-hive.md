@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Use Interactive Hive in HDInsight? | Microsoft Azure"
+	pageTitle="Use Interactive Hive in HDInsight | Microsoft Azure"
 	description="Learn how to use Interactive Hive (Hive on LLAP) in HDInsight."
 	keywords=""
 	services="hdinsight"
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2016"
+	ms.date="10/18/2016"
 	ms.author="jgao"/>
 
 

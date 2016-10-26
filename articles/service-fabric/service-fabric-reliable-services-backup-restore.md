@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/19/2016"
+   ms.date="10/18/2016"
    ms.author="mcoskun"/>
 
 # Back up and restore Reliable Services and Reliable Actors
@@ -72,8 +72,14 @@ await this.BackupAsync(myBackupDescription);
 
 ```
 
-Request to take an incremental backup can fail with **FabricMissingFullBackupException** which indicates that either the replica has never taken a full backup or some of the log records since that last back has been truncated.
-Users can modify the truncation rate by modifying the **CheckpointThresholdInMB**.
+Request to take an incremental backup can fail with **FabricMissingFullBackupException** which indicates that either
+- the replica has never taken a full backup since it has become primary,
+- some of the log records since the last backup has been truncated or
+- replica passed the **MaxAccumulatedBackupLogSizeInMB** limit.
+
+Users can increase the likelihood of being able to do incremental backups by configuring **MinLogSizeInMB** or **TruncationThresholdFactor**.
+Note that increasing these values will increase the per replica disk usage.
+For more information, see [Reliable Services Configuration](service-fabric-reliable-services-configuration.md)
 
 **BackupInfo** provides information regarding the backup, including the location of the folder where the runtime saved the backup (**BackupInfo.Directory**). The callback function can move the **BackupInfo.Directory** to an external store or another location.  This function also returns a bool that indicates whether it was able to successfully move the backup folder to its target location.
 
@@ -220,6 +226,8 @@ This step ensures that the recovered state is consistent.
 
 ## Next steps
 
+- [Reliable Collections](service-fabric-work-with-reliable-collections.md)
 - [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
 - [Reliable Services notifications](service-fabric-reliable-services-notifications.md)
+- [Reliable Services configuration](service-fabric-reliable-services-configuration.md)
 - [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

@@ -85,8 +85,7 @@ of the feature, see [Offline Data Sync in Azure Mobile Apps][2].
 
 	This code creates a new local SQLite database using the **MobileServiceSQLiteStore** class.
 
-    The **DefineTable** method creates a table in the local store that matches the fields in the provided type.  The type doesn't have to
-    include all the columns that are in the remote database. It is possible to store a subset of columns.
+    The **DefineTable** method creates a table in the local store that matches the fields in the provided type.  The type doesn't have to include all the columns that are in the remote database. It is possible to store a subset of columns.
 
 * The **todoTable** field in **TodoItemManager** is an **IMobileServiceSyncTable** type instead of **IMobileServiceTable**. This
   class uses the local database for all create, read, update, and delete (CRUD) table operations. You decide when those changes
@@ -137,8 +136,7 @@ of the feature, see [Offline Data Sync in Azure Mobile Apps][2].
             }
         }
 
-	This sample uses simple error handling with the default sync handler. A real application would handle the various errors
-    like network conditions and server conflicts by using a custom **IMobileServiceSyncHandler** implementation.
+	This sample uses simple error handling with the default sync handler. A real application would handle the various errors like network conditions and server conflicts by using a custom **IMobileServiceSyncHandler** implementation.
 
 ## Offline sync considerations
 
@@ -151,7 +149,7 @@ triggers a preceding context push. When refreshing, adding, and completing items
 call.
 
 In the provided code, all records in the remote TodoItem table are queried, but it is also possible to filter records by passing a
-query id and query to **PushAsync**. For more information, see the section *Incremental Sync* in [Offline Data Sync in Azure Mobile Apps].
+query id and query to **PushAsync**. For more information, see the section *Incremental Sync* in [Offline Data Sync in Azure Mobile Apps][2].
 
 ## Run the client app
 

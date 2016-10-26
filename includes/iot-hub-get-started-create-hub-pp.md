@@ -69,4 +69,4 @@ Refer to [Getting started with IoT Hub][lnk-getstarted] for a way to create devi
 [iot-hub-explorer]: https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer
 
 [lnk-getstarted]: ../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md
-[Using resource groups to manage your Azure resources]: ../azure-portal/resource-group-portal.md
+[Using resource groups to manage your Azure resources]: ../articles/azure-portal/resource-group-portal.md

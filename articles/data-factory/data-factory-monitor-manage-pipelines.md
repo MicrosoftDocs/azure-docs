@@ -22,7 +22,7 @@
 - [Using Azure portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
 - [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
 
-The Data Factory service provides reliable and complete view of your storage, processing, and data movement services. The service provides you a monitoring dashboard helps that you can use to perform the following: 
+The Data Factory service provides reliable and complete view of your storage, processing, and data movement services. The service provides you a monitoring dashboard helps that you can use to perform the following tasks: 
 
 - Quickly assess end-to-end data pipeline health.
 - Identify issues, and take corrective action if needed. 
@@ -33,7 +33,7 @@ The Data Factory service provides reliable and complete view of your storage, pr
 This article describes how to monitor, manage, and debug your pipelines. It also provides information on how to create alerts and get notified on failures.
 
 ## Understand pipelines and activity states
-Using the Azure portal, you can do the following: 
+Using the Azure portal, you can:
 
 - View your data factory as a diagram
 - View activities in a pipeline
@@ -44,12 +44,15 @@ This section also provides how a slice transitions from one state to another sta
 
 ### Navigate to your data factory
 1.	Sign in to the [Azure portal](https://portal.azure.com).
-2.	Click **Browse All** and select **Data Factories**.
-	
+2.	Click **Data factories** in the menu on the left. If you do not see it, click **More services >** and click **Data factories** under **INTELLIGENCE + ANALYTICS** category. 
+
 	![Browse All -> Data factories](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 
 	You should see all the data factories in the **Data factories** blade. 
-4. In the Data factories blade, select the data factory you are interested in and you should see the home page (**Data factory** blade) for the data factory.
+4. In the Data factories blade, select the data factory you are interested in.
+
+	![select data factory](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)  
+5.  and you should see the home page (**Data factory** blade) for the data factory.
 
 	![Data factory blade](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
 
@@ -148,11 +151,7 @@ You can view the details about a slice by clicking a slice entry in the **Recent
 
 ![Slice details](./media/data-factory-monitor-manage-pipelines/slice-details.png)
  
-If the slice has been executed multiple times, you see multiple rows in the **Activity runs** list.
-
-![Activity runs for a slice](./media/data-factory-monitor-manage-pipelines/activity-runs-for-a-slice.png)
-
-You can view details about an activity run by clicking the run entry in the **Activity runs** list. The list shows all the log files along with an error message if any. This feature is useful to view and debug logs without having to leave your data factory.
+If the slice has been executed multiple times, you see multiple rows in the **Activity runs** list. You can view details about an activity run by clicking the run entry in the **Activity runs** list. The list shows all the log files along with an error message if any. This feature is useful to view and debug logs without having to leave your data factory.
 
 ![Activity run details](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
@@ -165,8 +164,7 @@ Once you deploy a data factory and the pipelines have a valid active period, the
 
 ![State diagram](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
 
-The dataset state transition flow in data factory involves the following:
-Waiting-> In-Progress/In-Progress (Validating) -> Ready/Failed
+The dataset state transition flow in data factory: Waiting-> In-Progress/In-Progress (Validating) -> Ready/Failed
 
 The slices start in a **Waiting** state for pre-conditions to be met before executing. Then, the activity starts executing and the slice goes in **In-Progress** state. The activity execution may succeed or fail. The slice is marked as **Ready**’ or **Failed** based on the result of the execution. 
 
@@ -183,7 +181,7 @@ For example: in the following screen shot, an issue has been identified with the
 
 ![Pipeline to be suspended](./media/data-factory-monitor-manage-pipelines/pipeline-to-be-suspended.png)
 
-To suspend a pipeline, run the following PowerShell command.
+To suspend a pipeline, run the following PowerShell command:
 
 	Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
@@ -191,7 +189,7 @@ For example:
 
 	Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
 
-Once the issue has been fixed with the **PartitionProductsUsagePipeline**, the suspended pipeline can be resumed by running the following PowerShell command.
+Once the issue has been fixed with the **PartitionProductsUsagePipeline**, the suspended pipeline can be resumed by running the following PowerShell command:
 
 	Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
@@ -208,12 +206,6 @@ If the activity run fails in a pipeline, the dataset produced by the pipeline is
 
 #### Use Azure portal to debug an error:
 
-1.	Click **With errors** on **Datasets** tile on the data factory home page.
-	
-	![Datasets tile with error](./media/data-factory-monitor-manage-pipelines/datasets-tile-with-errors.png)
-2.	In the **Datasets with errors** blade, click the table that you are interested in.
-
-	![Datasets with errors blade](./media/data-factory-monitor-manage-pipelines/datasets-with-errors-blade.png)
 3.	In the **TABLE** blade, click the problem slice with **STATUS** set to **Failed**.
 
 	![Table blade with problem slice](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
@@ -226,55 +218,52 @@ If the activity run fails in a pipeline, the dataset produced by the pipeline is
 
 #### Use the PowerShell to debug an error
 1.	Launch **Azure PowerShell**.
-3.	Run **Get-AzureRmDataFactorySlice** command to see the slices and their statuses. You should see a slice with the status: **Failed**.
+3.	Run **Get-AzureRmDataFactorySlice** command to see the slices and their statuses. You should see a slice with the status: **Failed**.		
 
-		Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+			Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
 	
 	For example:
-
-
-		Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
+		
+			Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
 
 	Replace **StartDateTime** with the StartDateTime value you specified for the Set-AzureRmDataFactoryPipelineActivePeriod.
 4. Now, run the **Get-AzureRmDataFactoryRun** cmdlet to get details about activity run for the slice.
 
-		Get-AzureRmDataFactoryRun [-ResourceGroupName] <String> [-
-		DataFactoryName] <String> [-TableName] <String> [-StartDateTime] 
+		Get-AzureRmDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] 
 		<DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
 	
 	For example:
-
 
 		Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
 
 	The value of StartDateTime is the start time for the error/problem slice you noted from the previous step. The date-time should be enclosed in double quotes.
 5. 	You should see the output with details about the error (similar to the following):
 
-		Id                  	: 841b77c9-d56c-48d1-99a3-8c16c3e77d39
-		ResourceGroupName   	: ADF
-		DataFactoryName     	: LogProcessingFactory3
-		TableName           	: EnrichedGameEventsTable
-		ProcessingStartTime 	: 10/10/2014 3:04:52 AM
-		ProcessingEndTime   	: 10/10/2014 3:06:49 AM
-		PercentComplete     	: 0
-		DataSliceStart      	: 5/5/2014 12:00:00 AM
-		DataSliceEnd        	: 5/6/2014 12:00:00 AM
-		Status              	: FailedExecution
-		Timestamp           	: 10/10/2014 3:04:52 AM
-		RetryAttempt        	: 0
-		Properties          	: {}
-		ErrorMessage        	: Pig script failed with exit code '5'. See wasb://		adfjobs@spestore.blob.core.windows.net/PigQuery
-		                        		Jobs/841b77c9-d56c-48d1-99a3-
-					8c16c3e77d39/10_10_2014_03_04_53_277/Status/stderr' for
-					more details.
-		ActivityName        	: PigEnrichLogs
-		PipelineName        	: EnrichGameLogsPipeline
-		Type                	:
+			Id                  	: 841b77c9-d56c-48d1-99a3-8c16c3e77d39
+			ResourceGroupName   	: ADF
+			DataFactoryName     	: LogProcessingFactory3
+			TableName           	: EnrichedGameEventsTable
+			ProcessingStartTime 	: 10/10/2014 3:04:52 AM
+			ProcessingEndTime   	: 10/10/2014 3:06:49 AM
+			PercentComplete     	: 0
+			DataSliceStart      	: 5/5/2014 12:00:00 AM
+			DataSliceEnd        	: 5/6/2014 12:00:00 AM
+			Status              	: FailedExecution
+			Timestamp           	: 10/10/2014 3:04:52 AM
+			RetryAttempt        	: 0
+			Properties          	: {}
+			ErrorMessage        	: Pig script failed with exit code '5'. See wasb://		adfjobs@spestore.blob.core.windows.net/PigQuery
+			                        		Jobs/841b77c9-d56c-48d1-99a3-
+						8c16c3e77d39/10_10_2014_03_04_53_277/Status/stderr' for
+						more details.
+			ActivityName        	: PigEnrichLogs
+			PipelineName        	: EnrichGameLogsPipeline
+			Type                	:
 	
 	
 6. 	You can run **Save-AzureRmDataFactoryLog** cmdlet with Id value you see from the output and download the log files using the **-DownloadLogsoption** for the cmdlet.
 
-	Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
+			Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
 
 
 ## Rerun failures in a pipeline
@@ -411,69 +400,82 @@ To retrieve the list of deployed Azure Resource Group deployments, use the cmdle
 	Outputs           :
 
 
-#### Troubleshooting User Events
+#### Troubleshooting user events
 
 
-- You can see all the events generated after clicking the **Operations** tile, and alerts can be set up on any of these operations visible on the **Events** blade:
+1. You can see all the events generated after clicking the **Metrics and operations** tile.
 
-	![Operations](./media/data-factory-monitor-manage-pipelines/operations.png)
+	![Metrics and operations tile](./media/data-factory-monitor-manage-pipelines/metrics-and-operations-tile.png)
 
+2. Click **Events** tile to see the events. 
 
-- See [Azure Insight Cmdlets](https://msdn.microsoft.com/library/mt282452.aspx) article for PowerShell cmdlets that you can use to add/get/remove alerts. Here are a few examples of using the **Get-AlertRule** cmdlet: 
+	![Events tile](./media/data-factory-monitor-manage-pipelines/events-tile.png)
+3. In the **Events** blade, you can see details about events, filter events and so on. 
 
-
-		PS C:\> get-alertrule -res $resourceGroup -n ADFAlertsSlice -det
-			
-				Properties :
-		        Action      : Microsoft.Azure.Management.Insights.Models.RuleEmailAction
-		        Condition   :
-				DataSource :
-				EventName             :
-				Category              :
-				Level                 :
-				OperationName         : RunFinished
-				ResourceGroupName     :
-				ResourceProviderName  :
-				ResourceId            :
-				Status                : Failed
-				SubStatus             : FailedExecution
-				Claims                : Microsoft.Azure.Management.Insights.Models.RuleManagementEventClaimsDataSource
-		        Condition  	:
-				Description : One or more of the data slices for the Azure Data Factory has failed processing.
-				Status      : Enabled
-				Name:       : ADFAlertsSlice
-				Tags       :
-				$type          : Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage
-				Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/ADFAlertsSlice
-				Location   : West US
-				Name       : ADFAlertsSlice
-		
-		PS C:\> Get-AlertRule -res $resourceGroup
+	![Events blade](./media/data-factory-monitor-manage-pipelines/events-blade.png)
+4. Click an **operation** in the operations list that causes an error.
 	
-				Properties : Microsoft.Azure.Management.Insights.Models.Rule
-				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
-				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
-				Location   : West US
-				Name       : FailedExecutionRunsWest0
+	![Select an operation](./media/data-factory-monitor-manage-pipelines/select-operation.png) 
+5. Click an **error** event to see details about the error.
+
+	![Event error](./media/data-factory-monitor-manage-pipelines/operation-error-event.png)
+  
+
+See [Azure Insight Cmdlets](https://msdn.microsoft.com/library/mt282452.aspx) article for PowerShell cmdlets that you can use to add/get/remove alerts. Here are a few examples of using the **Get-AlertRule** cmdlet: 
+
+
+	PS C:\> get-alertrule -res $resourceGroup -n ADFAlertsSlice -det
 		
-				Properties : Microsoft.Azure.Management.Insights.Models.Rule
-				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
-				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest3
-				Location   : West US
-				Name       : FailedExecutionRunsWest3
+			Properties :
+	        Action      : Microsoft.Azure.Management.Insights.Models.RuleEmailAction
+	        Condition   :
+			DataSource :
+			EventName             :
+			Category              :
+			Level                 :
+			OperationName         : RunFinished
+			ResourceGroupName     :
+			ResourceProviderName  :
+			ResourceId            :
+			Status                : Failed
+			SubStatus             : FailedExecution
+			Claims                : Microsoft.Azure.Management.Insights.Models.RuleManagementEventClaimsDataSource
+	        Condition  	:
+			Description : One or more of the data slices for the Azure Data Factory has failed processing.
+			Status      : Enabled
+			Name:       : ADFAlertsSlice
+			Tags       :
+			$type          : Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage
+			Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/ADFAlertsSlice
+			Location   : West US
+			Name       : ADFAlertsSlice
 	
-		PS C:\> Get-AlertRule -res $resourceGroup -Name FailedExecutionRunsWest0
-		
-				Properties : Microsoft.Azure.Management.Insights.Models.Rule
-				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
-				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
-				Location   : West US
-				Name       : FailedExecutionRunsWest0
+	PS C:\> Get-AlertRule -res $resourceGroup
 
-	Run the following get-help commands to see details and examples for the Get-AlertRule cmdlet. 
+			Properties : Microsoft.Azure.Management.Insights.Models.Rule
+			Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+			Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
+			Location   : West US
+			Name       : FailedExecutionRunsWest0
+	
+			Properties : Microsoft.Azure.Management.Insights.Models.Rule
+			Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+			Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest3
+			Location   : West US
+			Name       : FailedExecutionRunsWest3
 
-		get-help Get-AlertRule -detailed 
-		get-help Get-AlertRule -examples
+	PS C:\> Get-AlertRule -res $resourceGroup -Name FailedExecutionRunsWest0
+	
+			Properties : Microsoft.Azure.Management.Insights.Models.Rule
+			Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+			Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
+			Location   : West US
+			Name       : FailedExecutionRunsWest0
+
+Run the following get-help commands to see details and examples for the Get-AlertRule cmdlet. 
+
+	get-help Get-AlertRule -detailed 
+	get-help Get-AlertRule -examples
 
 
 - If you see the alert generation events on the portal blade but you don't receive email notifications, check whether e-mail address specified is set to receive emails from external senders. The alert e-mails may have been blocked by your e-mail settings.
@@ -486,33 +488,53 @@ Data Factory allows you to capture various metrics and create alerts on metrics.
 
 These metrics are useful and allow you to get an overview of overall failed and successful runs in their data factory. Metrics are emitted every time there is a slice run. On top of the hour, these metrics are aggregated and pushed to your storage account. Therefore, to enable metrics, set up a storage account.
 
+
 #### Enabling Metrics:
 To enable metrics, click the following from Data Factory blade:
 
 **Monitoring** -> **Metric** -> **Diagnostic settings** -> **Diagnostic**
 
+![Diagnostics link](./media/data-factory-monitor-manage-pipelines/diagnostics-link.png)
+
 On the **Diagnostic** blade, click **On** and select the storage account and save.
 
-![Enable metrics](./media/data-factory-monitor-manage-pipelines/enable-metrics.png)
+![Diagnostics blade](./media/data-factory-monitor-manage-pipelines/diagnostics-blade.png)
 
 Once saved, it may take up to one hour for the metrics to be visible on the monitoring blade, because metrics aggregation happens hourly.
 
 
 ### Setting up alert on Metrics:
 
-To set up alerting on Metrics, click the following from Data factory blade:
-**Monitoring** -> **Metric** -> **Add alert** -> **Add an alert rule**.
+Click **Data Factory metrics** blade: 
 
-Fill in the details for alert rule, specify emails, and click **OK**.
+![Data factory metrics tile](./media/data-factory-monitor-manage-pipelines/data-factory-metrics-tile.png)
 
+On the **Metric** blade, click **+ Add alert** on the toolbar. 
+![Data factory metric blade - add alert](./media/data-factory-monitor-manage-pipelines/add-alert.png)
 
-![Setting up alerts on metrics](./media/data-factory-monitor-manage-pipelines/setting-up-alerts-on-metrics.png)
+On the **Add an alert rule** page, do the following steps, and click **OK**.
+ 
+- Enter a name for the alert (example: failed alert).
+- Enter a description for the alert (example: send an email when a failure occurs).
+- Select a metric (failed runs vs. successful runs).
+- Specify a condition and a threshold value.   
+- Specify the period. 
+- Specify whether an email should be sent to owners, contributors, and readers.
+- and more. 
 
-Once done, you should see a new alert rule enabled on Alert rules tile as following:
+![Data factory metric blade - add alert](./media/data-factory-monitor-manage-pipelines/add-an-alert-rule.png)
 
-![Alert rules enabled](./media/data-factory-monitor-manage-pipelines/alert-rule-enabled.png)
+Once the alert rule is added successfully, the blade closes and you see the new alert on the **Metric** page. 
 
-Congratulations! You have set up your first alert on Metrics. Now you should get notifications every time alert rule matches in the given time window.
+![Data factory metric blade - add alert](./media/data-factory-monitor-manage-pipelines/failed-alert-in-metric-blade.png)
+
+You should also see the number of alerts on the **Alerts** tile. Click **Alerts** tile.
+
+![Data factory metric blade - Alert rules](./media/data-factory-monitor-manage-pipelines/alert-rules-tile-rules.png)
+
+In the **Alerts** blade, you see any existing alerts. To add an alert, click **Add alert** on the toolbar.
+
+![Alert rules blade](./media/data-factory-monitor-manage-pipelines/alert-rules-blade.png)
 
 ### Alert notifications:
 Once the alert rule matches the condition, you should get an alert activated email. Once the issue is resolved and the alert condition doesn’t match any more, you get an alert resolved email.

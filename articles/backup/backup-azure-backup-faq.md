@@ -14,20 +14,17 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="08/29/2016"
+	 ms.date="10/21/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Azure Backup service- FAQ
 
-> [AZURE.SELECTOR]
-- [Backup FAQ for Classic mode](backup-azure-backup-faq.md)
-- [Backup FAQ for Resource Manager mode](backup-azure-backup-ibiza-faq.md)
 
 This article is a list of commonly asked questions (and the respective answers) about the Azure Backup service. Our community replies quickly, and if a question is asked often, we add it to this article. The answers to questions typically provide reference or support information. You can ask questions about Azure Backup in the Disqus section of this article or a related article. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 
 ## What is the list of supported operating systems from which I can back up to Azure using Azure Backup? <br/>
-Azure Backup supports the following list of operating systems for file-folder backup, application backup using Azure Backup Server and SCDPM. 
+Azure Backup supports the following list of operating systems for file-folder backup, application backup using Azure Backup Server and SCDPM.
 
 | Operating System        | Platform           | SKU  |
 | :------------- |-------------| :-----|
@@ -55,7 +52,7 @@ You can download the latest agent for backing up Windows Server, System Center D
 We recommend that you install the [latest](http://aka.ms/azurebackup_agent) Azure Backup agent on the latest update rollup of SCDPM (UR11 as of August 2016)
 
 ## When configuring the Azure Backup agent, I am prompted to enter the vault credentials. Do vault credentials expire?
-Yes, the vault credentials expire after 48 hours. If the file expires, log in to the Azure portal and download the vault credentials files from your vault. 
+Yes, the vault credentials expire after 48 hours. If the file expires, log in to the Azure portal and download the vault credentials files from your vault.
 
 ## Is there any limit on the number of vaults that can be created in each Azure subscription? <br/>
 Yes. As of September 2016, you can create 25 backup vaults per subscription. You can create upto 25 Recovery Services vaults per each supported region of Azure backup per subscription. If you need more vaults, then create a new subscription.
@@ -109,7 +106,7 @@ Yes. The agent service converts the deduplicated data to normal data when it pre
 ## If I cancel a backup job once it has started, is the transferred backup data deleted? <br/>
 No. The backup vault stores the backed-up data that had been transferred up to the point of the cancellation. Azure Backup uses a checkpoint mechanism to occasionally add checkpoints to the backup data during the backup. Because there are checkpoints in the backup data, the next backup process can validate the integrity of the files. The next backup triggered would be incremental over the data that had been backed up previously. An incremental backup provides better utilization of bandwidth, so that you do not need to transfer the same data repeatedly.
 
-In case of Azure VM backup, once the job is canceled, transferred data is ignored and fresh backup transfers incremental data from previously successful backup job. 
+In case of Azure VM backup, once the job is canceled, transferred data is ignored and fresh backup transfers incremental data from previously successful backup job.
 
 ## Why am I seeing the warning "Azure Backups have not been configured for this server" even though I had scheduled regular backups previously? <br/>
 This warning occurs when the backup schedule settings stored on the local server are not the same as the settings stored in the backup vault. When either the server or the settings have been recovered to a known good state, the backup schedules can lose synchronization. If you receive this warning, [reconfigure the backup policy](backup-azure-manage-windows-server.md) and then **Run Back Up Now** to resynchronize the local server with Azure.
@@ -190,7 +187,7 @@ No, the incremental copy is sent based on the time mentioned in the backup sched
  No – the time to recover the oldest or the newest point is the same. Each recovery point behaves like a full point.
 
 ## If each recovery point is like a full point, does it impact the total billable backup storage?<br/>
-Typical long-term retention point products store backup data as full points. The full points are storage *inefficient* but are easier and faster to restore. Incremental copies are storage *efficient* but require you to restore a chain of data, which impacts your recovery time. Azure Backup storage architecture gives you the best of both worlds by optimally storing data for fast restores and incurring low storage costs. This data storage approach ensures that your ingress and egress bandwidth is used efficiently. Both the amount of data storage and the time needed to recover the data, is kept to a minimum. Learn more on how [incremental backups](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/) save are efficient. 
+Typical long-term retention point products store backup data as full points. The full points are storage *inefficient* but are easier and faster to restore. Incremental copies are storage *efficient* but require you to restore a chain of data, which impacts your recovery time. Azure Backup storage architecture gives you the best of both worlds by optimally storing data for fast restores and incurring low storage costs. This data storage approach ensures that your ingress and egress bandwidth is used efficiently. Both the amount of data storage and the time needed to recover the data, is kept to a minimum. Learn more on how [incremental backups](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/) save are efficient.
 
 ## Is there a limit on the number of recovery points that can be created?<br/>
 No. We have eliminated limits on recovery points. You can create as many recovery points as you desire.
@@ -214,7 +211,7 @@ There is no limit on the number of recoveries from Azure Backup.
 Yes. Data is encrypted on the on-premises server/client/SCDPM machine using AES256 and the data is sent over a secure HTTPS link.
 
 ## Is the backup data on Azure encrypted as well?<br/>
- Yes. The data sent to Azure remains encrypted (at rest). Microsoft does not decrypt the backup data at any point. For Azure VM backup, Azure Backup relies on encryption of the virtual machine i.e. if your VM is encrypted using Azure Disk Encryption or some other encryption technology, Azure Backup uses that encryption to secure your data. 
+ Yes. The data sent to Azure remains encrypted (at rest). Microsoft does not decrypt the backup data at any point. For Azure VM backup, Azure Backup relies on encryption of the virtual machine i.e. if your VM is encrypted using Azure Disk Encryption or some other encryption technology, Azure Backup uses that encryption to secure your data.
 
 ## What is the minimum length of encryption key used to encrypt backup data? <br/>
  The encryption key should be at least 16 characters.

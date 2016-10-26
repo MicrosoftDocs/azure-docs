@@ -4,8 +4,8 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="karavar"
-	manager="femila"
-	editor="karavar"/>
+	manager="samueld"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/05/2016"
+	ms.date="10/18/2016"
 	ms.author="vakarand"/>
 
 
@@ -176,7 +176,7 @@ At this point, the services should be started automatically allowing the agent t
 
 ![Verify Azure AD Connect Health for AD DS](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install4.png)
 
-To verify the agent has been installed, look for the following services on the domain controller. 
+To verify the agent has been installed, look for the following services on the domain controller.
 
 - Azure AD Connect Health AD DS Insights Service
 - Azure AD Connect Health AD DS Monitoring Service
@@ -185,7 +185,7 @@ If you completed the configuration, these services should already be running. Ot
 
 ![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install5.png)
 
-## Installing the Azure AD Connect Health Agent for AD DS on Server Core. 
+## Installing the Azure AD Connect Health Agent for AD DS on Server Core.
 After installing the .exe file, you can complete the registration process by using the following PowerShell command:
 
 `Register-AzureADConnectHealthADDSAgent -Credential $cred`

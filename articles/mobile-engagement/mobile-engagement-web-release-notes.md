@@ -13,18 +13,23 @@
 	ms.tgt_pltfrm="web"
 	ms.devlang="js"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="10/18/2016"
 	ms.author="piyushjo" />
 
 
 #Azure Mobile Engagement Web SDK release notes
 
-##Release 2.0.1 (6/10/2016)
+## 2.0.2 (10/18/2016)
+
+-   Fixed crash on private browsing (Safari).
+-   Fixed crash on browsers with cookies disabled.
+
+## 2.0.1 (6/10/2016)
 
 -   Disabled the SDK in Internet Explorer 8 and Internet Explorer 9.
 -   Fixed Opera web browser detection.
 
-##Release 2.0.0 (6/7/2016)
+## 2.0.0 (6/7/2016)
 
 -   Released Azure Mobile Engagement.
 -   Updated so that the `appId` configuration is replaced by a connection string configuration.

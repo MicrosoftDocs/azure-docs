@@ -3,7 +3,7 @@
    description="Learn about the service limits for Azure Key Vault."
    documentationCenter="dev-center-name"
    services="key-vault"  
-   authors="msmbaldwin"
+   authors="cabailey"
    manager="mbaldwin"
    editor=""/>
 

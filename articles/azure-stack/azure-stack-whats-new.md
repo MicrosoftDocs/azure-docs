@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/26/2016"
+	ms.date="10/25/2016"
 	ms.author="helaw"/>
 
 # What's new in Azure Stack Technical Preview 2
@@ -45,14 +45,14 @@ This release provides new features for both tenants and administrators.
 
 ### Portal Experience
  - Azure Stack Regions are a logical unit of scale and management within Azure Stack. In this preview, you can view information on services like compute, network, and storage by region.
- - You can now preview the updates interface.
+ - You can now preview the (updates)[azure-stack-updates.md] interface.
 
 ## Key Vault
 - [Key Vault in Azure Stack](azure-stack-kv-intro.md) provides secure management of your keys and passwords for cloud apps.
 - You can audit and monitor key usage by apps and VMs.
 
 ## Billing and usage
- - Billing and consumption APIs expose data on how your services are consumed.  
+ - [Billing and consumption APIs](azure-stack-billing-and-chargeback.md) expose data on how your services are consumed.  
  - Delegated Providers enable resellers to offer your Azure Stack services to their customers.
 
 ## Monitoring and health

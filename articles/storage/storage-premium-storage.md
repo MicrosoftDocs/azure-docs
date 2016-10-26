@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/28/2016"
-	ms.author="yuemlu;aungoo;robinsh"/>
+	ms.author="yuemlu"/>
 
 
 # Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads
