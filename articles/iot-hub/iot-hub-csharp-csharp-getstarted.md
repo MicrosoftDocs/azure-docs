@@ -32,7 +32,7 @@ To complete this tutorial, you need the following:
 
 + Microsoft Visual Studio 2015.
 
-+ An active Azure account. (If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].)
++ An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
 [AZURE.INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -244,7 +244,7 @@ You are now ready to run the applications.
 
 ## Next steps
 
-In this tutorial, you configured an IoT hub in the portal, and then created a device identity in the hub's identity registry. You used this device identity to enable the simulated device app to send device-to-cloud messages to the hub. You also created an app that displays the messages received by the hub. 
+In this tutorial, you configured an IoT hub in the Azure portal, and then created a device identity in the hub's identity registry. You used this device identity to enable the simulated device app to send device-to-cloud messages to the hub. You also created an app that displays the messages received by the hub. 
 
 To continue getting started with IoT Hub and to explore other IoT scenarios, see:
 

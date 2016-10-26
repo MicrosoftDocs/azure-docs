@@ -18,7 +18,7 @@
 
 # Introduction to diagnostic metrics
 
-Diagnostic metrics give you better data about the state of the Azure resources in your subscription. Metrics enable you to assess the overall health of the service and the devices connected to it. User-facing statistics are important because they help you see what is going on with your IoT hub and help root-cause issues without needing to contact Azure support.
+Diagnostic metrics give you better data about the state of the Azure resources in your Azure subscription. Metrics enable you to assess the overall health of the service and the devices connected to it. User-facing statistics are important because they help you see what is going on with your IoT hub and help root-cause issues without needing to contact Azure support.
 
 You can enable diagnostic metrics from the Azure portal.
 

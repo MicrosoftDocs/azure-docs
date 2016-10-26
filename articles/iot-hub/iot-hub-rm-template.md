@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create an IoT Hub using an ARM template and C# | Microsoft Azure"
-	description="Follow this tutorial to get started using Resource Manager templates to create an IoT Hub with a C# program."
+	description="Follow this tutorial to get started using Azure Resource Manager templates to create an IoT Hub with a C# program."
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="dominicbetts"
@@ -16,21 +16,21 @@
      ms.date="08/16/2016"
      ms.author="dobett"/>
 
-# Create an IoT hub using a C# program with a Resource Manager template
+# Create an IoT hub using a C# program with an Azure Resource Manager template
 
 [AZURE.INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## Introduction
 
-You can use Azure Resource Manager to create and manage Azure IoT hubs programmatically. This tutorial shows you how to use a Resource Manager template to create an IoT hub from a C# program.
+You can use Azure Resource Manager to create and manage Azure IoT hubs programmatically. This tutorial shows you how to use an Azure Resource Manager template to create an IoT hub from a C# program.
 
-> [AZURE.NOTE] Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model.
+> [AZURE.NOTE] Azure has two different deployment models for creating and working with resources:  [Azure Resource Manager and classic](../resource-manager-deployment-model.md).  This article covers using the Azure Resource Manager deployment model.
 
 To complete this tutorial, you need the following:
 
 - Microsoft Visual Studio 2015.
-- An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
-- An [Azure storage account][lnk-storage-account] where you can store your template files.
+- An active Azure account. <br/>If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
+- An [Azure storage account][lnk-storage-account] where you can store your Azure Resource Manager template files.
 - [Microsoft Azure PowerShell 1.0][lnk-powershell-install] or later.
 
 [AZURE.INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
@@ -55,7 +55,7 @@ To complete this tutorial, you need the following:
     using Microsoft.Rest;
     ```
     
-6. In Program.cs, add the following static variables replacing the placeholder values. You made a note of **ApplicationId**, **SubscriptionId**, **TenantId**, and **Password** earlier in this tutorial. **Your storage account name** is the name of the Azure storage account where you store your template files. **Resource group name** is the name of the resource group you use when you create the IoT Hub, it can be a pre-existing resource group or a new one. **Deployment name** is a name for the deployment, such as **Deployment_01**.
+6. In Program.cs, add the following static variables replacing the placeholder values. You made a note of **ApplicationId**, **SubscriptionId**, **TenantId**, and **Password** earlier in this tutorial. **Your storage account name** is the name of the Azure storage account where you store your Azure Resource Manager template files. **Resource group name** is the name of the resource group you use when you create the IoT Hub, it can be a pre-existing resource group or a new one. **Deployment name** is a name for the deployment, such as **Deployment_01**.
 
     ```
     static string applicationId = "{Your ApplicationId}";
@@ -69,9 +69,9 @@ To complete this tutorial, you need the following:
 
 [AZURE.INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
 
-## Submit a template to create an IoT hub
+## Submit an Azure Resource Manager template to create an IoT hub
 
-Use a JSON template and parameter file to create an IoT hub in your resource group. You can also use a template to make changes to an existing IoT hub.
+Use a JSON template and parameter file to create an IoT hub in your resource group. You can also use an Azure Resource Manager template to make changes to an existing IoT hub.
 
 1. In Solution Explorer, right-click on your project, click **Add**, and then click **New Item**. Add a JSON file called **template.json** to your project.
 
@@ -194,15 +194,15 @@ You can now complete the application by calling the **CreateIoTHub** method befo
 
 3. Click **Debug** and then **Start Debugging** to run the application. It may take several minutes for the deployment to run.
 
-4. You can verify that your application added the new IoT hub by visiting the [portal][lnk-azure-portal] and viewing your list of resources, or by using the **Get-AzureRmResource** PowerShell cmdlet.
+4. You can verify that your application added the new IoT hub by visiting the [Azure portal][lnk-azure-portal] and viewing your list of resources, or by using the **Get-AzureRmResource** PowerShell cmdlet.
 
-> [AZURE.NOTE] This example application adds an S1 Standard IoT Hub for which you are billed. You can delete the IoT hub through the [portal][lnk-azure-portal] or by using the **Remove-AzureRmResource** PowerShell cmdlet when you are finished.
+> [AZURE.NOTE] This example application adds an S1 Standard IoT Hub for which you are billed. You can delete the IoT hub through the [Azure portal][lnk-azure-portal] or by using the **Remove-AzureRmResource** PowerShell cmdlet when you are finished.
 
 ## Next steps
 
 Now you have deployed an IoT hub using an Azure Resource Manager template with a C# program, you may want to explore further:
 
-- Read about the capabilities of the [IoT Hub Resource Provider REST API][lnk-rest-api].
+- Read about the capabilities of the [IoT Hub resource provider REST API][lnk-rest-api].
 - Read [Azure Resource Manager overview][lnk-azure-rm-overview] to learn more about the capabilities of Azure Resource Manager.
 
 To learn more about developing for IoT Hub, see the following:

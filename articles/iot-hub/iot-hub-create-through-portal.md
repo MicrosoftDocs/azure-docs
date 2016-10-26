@@ -23,7 +23,7 @@
 
 ## Introduction
 
-This article describes how to find the IoT Hub service in the portal, and how to create and manage IoT hubs.
+This article describes how to find the IoT Hub service in the Azure portal, and how to create and manage IoT hubs.
 
 ## Where to find IoT hubs
 
@@ -57,7 +57,7 @@ You can choose from four tiers: **Free**, **Standard 1** and **Standard 2**, and
 
 ![][4]
 
-> [AZURE.NOTE] IoT Hub only allows one free hub per subscription.
+> [AZURE.NOTE] IoT Hub only allows one free hub per Azure subscription.
 
 ### IoT hub units
 
@@ -73,7 +73,7 @@ For resource groups, you do not need to explicitly create an empty resource grou
 
 ### Choose subscriptions
 
-Azure IoT Hub automatically shows the list of subscriptions to which the user account is linked. You can choose one of the options here to associate the IoT hub with that subscription.
+Azure IoT Hub automatically shows the list of Azure subscriptions to which the user account is linked. You can choose one of the options here to associate the IoT hub with that Azure subscription.
 
 ### Choose the location
 
@@ -130,7 +130,7 @@ Click **Messaging** to display a list of messaging properties for the IoT hub th
 The pricing of an existing IoT hub can be changed through the **Pricing** settings, with the following exceptions:
 
 - In the current implementation, an IoT hub with a free SKU cannot change tiers to one of the paid SKUs, or vice versa.
-- There can only be one free tier IoT hub in the subscription.
+- There can only be one free tier IoT hub in the Azure subscription.
 
 ![][12]
 

@@ -57,7 +57,7 @@ To complete this tutorial, you need the following:
 
 + Maven 3.  <br/> [Prepare your development environment][lnk-dev-setup] describes how to install Maven for this tutorial on either Windows or Linux.
 
-+ An active Azure account. <br/>If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes.
++ An active Azure account. <br/>If you don't have an account, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes.
 
 You should have some basic knowledge of [Azure Storage] and [Azure Service Bus].
 

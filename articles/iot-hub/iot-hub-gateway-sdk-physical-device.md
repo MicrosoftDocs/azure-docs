@@ -179,7 +179,7 @@ At the time of writing, the IoT Gateway SDK only supports gateways that use BLE 
 
 ### Configure two sample devices in your IoT Hub
 
-- [Create an IoT hub][lnk-create-hub] in your Azure subscription, you will need the name of your hub to complete this walkthrough. If you don't already have an Azure subscription, you can get a [free account][lnk-free-trial].
+- [Create an IoT hub][lnk-create-hub] in your Azure subscription, you will need the name of your hub to complete this walkthrough. If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
 - Add one device called **SensorTag_01** to your IoT hub and make a note of its id and device key. You can use the [Device Explorer or iothub-explorer][lnk-explorer-tools] tools to add this device to the IoT hub you created in the previous step and to retrieve its key. You will map this device to the SensorTag device when you configure the gateway.
 
 ### Build the IoT Gateway SDK on your Edison device

@@ -34,7 +34,7 @@ Use this IoT Hub feature when you need to upload a file from a device to your ba
 
 ## Associate an Azure Storage account with IoT Hub
 
-To use the file upload functionality, you must first link an Azure Storage account to the IoT Hub. You can do this either through the [Azure portal][lnk-management-portal], or programmatically through the [Azure IoT Hub - Resource Provider APIs][lnk-resource-provider-apis]. Once you have associated a storage account with your IoT Hub, the service returns a SAS URI to a device when the device initiates a file upload request.
+To use the file upload functionality, you must first link an Azure Storage account to the IoT Hub. You can do this either through the [Azure portal][lnk-management-portal], or programmatically through the [IoT Hub resource provider REST APIs][lnk-resource-provider-apis]. Once you have associated a storage account with your IoT Hub, the service returns a SAS URI to a device when the device initiates a file upload request.
 
 > [AZURE.NOTE] The [Azure IoT Hub SDKs][lnk-sdks] automatically handle retrieving the SAS URI, uploading the file, and notifying IoT Hub of a completed upload.
 

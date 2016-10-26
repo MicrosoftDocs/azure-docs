@@ -65,11 +65,11 @@ You can disable devices by updating the **status** property of an identity in th
 
 ## Import and export device identities
 
-You can export device identities in bulk from an IoT hub's identity registry, by using asynchronous operations on the [IoT Hub Resource Provider endpoint][lnk-endpoints]. Exports are long-running jobs that use a customer-supplied blob container to save device identity data read from the identity registry.
+You can export device identities in bulk from an IoT hub's identity registry, by using asynchronous operations on the [IoT Hub resource provider endpoint][lnk-endpoints]. Exports are long-running jobs that use a customer-supplied blob container to save device identity data read from the identity registry.
 
-You can import device identities in bulk to an IoT hub's identity registry, by using asynchronous operations on the [IoT Hub Resource Provider endpoint][lnk-endpoints]. Imports are long-running jobs that use data in a customer-supplied blob container to write device identity data into the device identity registry.
+You can import device identities in bulk to an IoT hub's identity registry, by using asynchronous operations on the [IoT Hub resource provider endpoint][lnk-endpoints]. Imports are long-running jobs that use data in a customer-supplied blob container to write device identity data into the device identity registry.
 
-- For detailed information about the import and export APIs, see [Azure IoT Hub - Resource Provider APIs][lnk-resource-provider-apis].
+- For detailed information about the import and export APIs, see [IoT Hub resource provider REST APIs][lnk-resource-provider-apis].
 - To learn more about running import and export jobs, see [Bulk management of IoT Hub device identities][lnk-bulk-identity].
 
 ## Device provisioning

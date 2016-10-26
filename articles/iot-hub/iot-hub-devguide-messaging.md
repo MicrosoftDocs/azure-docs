@@ -78,7 +78,7 @@ An IoT hub exposes the following properties to enable you to control device-to-c
 
 Also, analogously to Event Hubs, IoT Hub enables you to manage consumer groups on the device-to-cloud receive endpoint.
 
-You can modify all these properties, either programmatically through the [Azure IoT Hub - Resource Provider APIs][lnk-resource-provider-apis], or by using the [Azure portal][lnk-management-portal].
+You can modify all these properties, either programmatically through the [IoT Hub resource provider REST APIs][lnk-resource-provider-apis], or by using the [Azure portal][lnk-management-portal].
 
 ### Anti-spoofing properties
 
