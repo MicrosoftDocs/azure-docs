@@ -38,12 +38,12 @@ In the limits below, a new table has been added to reflect any differences in li
 <!-- -->
 As a result, you may find it useful to consider deciding what your Azure Resource Group quotas need to be for your workload in any one region, and request that amount in each region into which you are considering deployment. See [troubleshooting deployment issues](./resource-manager-common-deployment-errors.md) for more help discovering your current quotas for specific regions.
 
-
 ## Service-specific limits
 
 - [Active Directory](#active-directory-limits)
 - [API Management](#api-management-limits)
 - [App Service](#app-service-limits)
+- [Application Gateway](#application-gateway-limits)
 - [Application Insights](#application-insights-limits)
 - [Automation](#automation-limits)
 - [Azure Redis Cache](#azure-redis-cache-limits)
@@ -121,6 +121,10 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 #### Networking limits
 [AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
+
+#### Application Gateway limits
+
+[AZURE.INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
 
 #### Traffic Manager limits
 

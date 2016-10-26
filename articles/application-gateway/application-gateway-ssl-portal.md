@@ -40,11 +40,11 @@ The HTTPS listener looks for traffic based on its configuration and helps route 
 
 Navigate to the Azure portal and select an existing application gateway
 
-![app gateway overview blade][1]
-
 ### Step 2
 
 Click Listeners and click the Add button to add a listener.
+
+![app gateway overview blade][1]
 
 ### Step 3
 
