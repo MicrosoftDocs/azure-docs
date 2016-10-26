@@ -1,5 +1,5 @@
 <properties
- pageTitle="Optional section: Change the on and off behavior of the LED | Microsoft Azure"
+ pageTitle="Optional: Change the on and off behavior of the LED | Microsoft Azure"
  description="Customize the messages to change the LED’s on and off behavior."
  services="iot-hub"
  documentationCenter=""
@@ -17,7 +17,7 @@
  ms.date="10/21/2016"
  ms.author="xshi"/>
 
-# Optional section: Change the on and off behavior of the LED
+# Change the on and off behavior of the LED
 
 ## What you will do
 
