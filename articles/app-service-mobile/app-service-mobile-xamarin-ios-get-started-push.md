@@ -3,7 +3,7 @@
 	description="Learn how to use Azure App Service to send push notifications to your Xamarin.iOS app"
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="adrianhall"
+	authors="ysxu"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/01/2016"
-	ms.author="adrianha"/>
+	ms.date="10/12/2016"
+	ms.author="yuaxu"/>
 
 # Add push notifications to your Xamarin.iOS App
 
@@ -22,7 +22,9 @@
 
 ##Overview
 
-This tutorial is based on the [Xamarin.iOS quickstart](app-service-mobile-xamarin-ios-get-started.md) tutorial, which you must complete first. You will add push notifications to the Xamarin.iOS quick start project so that every time a record is inserted, a push notification is sent. If you do not use the downloaded quick start server project, you must add the push notification extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+In this tutorial, you add push notifications to the [Xamarin.iOS quick start](app-service-mobile-xamarin-ios-get-started.md) project so that a push notification is sent to the device every time a record is inserted.
+
+If you do not use the downloaded quick start server project, you will need the push notification extension package. See [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) for more information.
 
 ##Prerequisites
 
@@ -32,23 +34,11 @@ This tutorial is based on the [Xamarin.iOS quickstart](app-service-mobile-xamari
 
 ##Register the app for push notifications on Apple's developer portal
 
-[AZURE.INCLUDE [Notification Hubs Xamarin Enable Apple Push Notifications](../../includes/notification-hubs-xamarin-enable-apple-push-notifications.md)]
+[AZURE.INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
 ##Configure your Mobile App to send push notifications
 
-To configure your app to send notifications, create a new hub and configure it for the platform notification services that you will use.
-
-1. In the [Azure portal](https://portal.azure.com/), click **Browse** > **Mobile Apps** > your Mobile App > **Settings** > **Mobile** > **Push** > **Notification Hub** > **+ Notification Hub**, and provide a name and namespace for a new notification hub, and then click the **OK** button.
-
-	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-configure-notification-hub.png)
-
-2. In the Create Notification Hub blade, click **Create**.
-
-3. Click **Push** > **Apple (APNS)** > **Upload Certificate**. Upload the .p12 push certificate file you exported earlier.  Make sure to select **Sandbox** if you created a development push certificate for development and testing.  Otherwise, choose **Production**.
-
-	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
-
-Your service is now configured to work with push notifications on iOS.
+[AZURE.INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
 ##Update the server project to send push notifications
 

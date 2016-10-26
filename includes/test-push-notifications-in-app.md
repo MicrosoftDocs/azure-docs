@@ -1,6 +1,5 @@
 
-* In Xcode, press **Run** and start the app on an iOS device (not the simulator.) Click **OK** to accept push notifications; this request occurs
-   the first time the app runs.
+* In Xcode, press **Run** and start the app on an iOS device (note that push will not work on simulators). Click **OK** to accept push notifications; this request occurs the first time the app runs.
 
 * In the app, add a new item and click **+**.
 

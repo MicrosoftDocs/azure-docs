@@ -3,7 +3,7 @@
 	description="In this tutorial, you learn how to use Azure Notification Hubs to push notifications to a Windows Universal Platform application."
 	services="notification-hubs"
 	documentationCenter="windows"
-	authors="wesmc7777"
+	authors="ysxu"
 	manager="erikre"
 	editor="erikre"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
 	ms.date="10/03/2016"
-	ms.author="wesmc"/>
+	ms.author="yuaxu"/>
 
 # Getting started with Notification Hubs for Windows Universal Platform Apps
 
