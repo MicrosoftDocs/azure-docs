@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Basic web application | Azure reference architecture | Microsoft Azure"
+   pageTitle="Azure reference architecture: Basic web application | Microsoft Azure"
    description="Recommended architecture for a basic web application running in Microsoft Azure."
    services="app-service,app-service\web,sql-database"
    documentationCenter="na"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="10/26/2016"
    ms.author="mwasson"/>
 
 # Azure reference architecture: Basic web application
