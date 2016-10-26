@@ -1,6 +1,6 @@
 <properties
  pageTitle="Get the tools (macOS 10.10) | Microsoft Azure"
- description="Download and install the necessary tools and software for the first sample application for your Pi on macOS."
+ description="Download and install the necessary tools and software for the first sample application for Pi on macOS."
  services="iot-hub"
  documentationCenter=""
  authors="shizn"
@@ -29,10 +29,10 @@
 Download the development tools and the software for the first sample application for your Raspberry Pi 3. If you have any problems, look for solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## What you will learn
-In this section, you will learn:
+In this article, you will learn:
 
 - How to install Git and Node.js.
-    - [Git](https://git-scm.com) is an open source distributed version control system. The sample application for this lesson is stored on Git.
+    - [Git](https://git-scm.com) is an open source distributed version control system. The sample application for this article is stored on Git.
     - [Node.js](https://nodejs.org/en/) is a JavaScript runtime with a rich package ecosystem.
 - How to use NPM to install additional Node.js development tools.
   - The minimum required version of Node.js is 4.5 LTS.
@@ -64,7 +64,7 @@ To install Git and Node.js, use the [Homebrew](http://brew.sh) package managemen
 
 ## Install additional Node.js development tools
 
-Use [gulp.js](http://gulpjs.com) to automate the deployment of the sample application to your Pi. Use the [device-discovery-cli](https://github.com/Azure/device-discovery-cli) to retrieve network information about your IoT devices.
+Use [gulp.js](http://gulpjs.com) to automate the deployment of the sample application to Pi. Use the [device-discovery-cli](https://github.com/Azure/device-discovery-cli) to retrieve network information about your IoT devices.
 
 Install `gulp` and `device-discovery-cli` by running the following command in the terminal:
 
@@ -80,7 +80,7 @@ If you experience issues installing Node.js and these additional development too
 
 ## Summary
 
-You've installed the required development tools and software for the first sample application. In the next section, you create, deploy, and run the sample application on your Pi.
+You've installed the required development tools and software for the first sample application. In the next article, you create, deploy, and run the sample application on Pi.
 
 ## Next steps
 
