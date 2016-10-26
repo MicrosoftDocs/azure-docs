@@ -52,6 +52,8 @@ The architecture has the following components:
 
 ## Recommendations
 
+
+
 ### App Service plan
 
 Use the Standard or Premium tiers, because they support scale out, autoscale, and SSL, among other features. Each tier supports several *instance sizes*, which differ by number of cores and memory. You can change the tier or instance size after you create a plan. For more information about app service plans, see [App Service Pricing][app-service-plans-tiers].
