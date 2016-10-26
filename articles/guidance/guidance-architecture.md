@@ -60,7 +60,7 @@ This series covers proven practices on creating DMZ in Azure to secure connectio
 This series starts by demonstrating how to use Azure Active Directory to provide user authentication in Azure. Then it expands to cover complex scenarios extending your ADDS infrastructure to Azure, and using ADFS for delegation.
 
 - [Implementing Azure Active Directory](./guidance-identity-aad.md)
-- [Extending Active Directory Directory Services (ADDS) to Azure](./guidance-adds-extend-domain.md)
+- [Extending Active Directory Directory Services (ADDS) to Azure](./guidance-identity-adds-extend-domain.md)
 - [Creating a Active Directory Directory Services (ADDS) resource forest in Azure](./guidance-identity-adds-resource-forest.md)
 - [Implementing Active Directory Federation Services (ADFS) in Azure](./guidance-identity-adfs.md)
 
