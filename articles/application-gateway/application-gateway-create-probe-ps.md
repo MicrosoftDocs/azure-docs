@@ -26,12 +26,9 @@
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
-
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](application-gateway-create-probe-classic-ps.md).
 
-
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
-
 
 ### Step 1
 
@@ -57,7 +54,7 @@ Choose which of your Azure subscriptions to use. <BR>
 
 Create a resource group (skip this step if you're using an existing resource group).
 
-    New-AzureRmResourceGroup -Name appgw-rg -location "West US"
+    New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
 
 Azure Resource Manager requires that all resource groups specify a location. This location is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway use the same resource group.
 
@@ -92,7 +89,7 @@ Assign a subnet variable for the next steps, which create an application gateway
 
 Create a public IP resource "publicIP01" in resource group "appgw-rg" for the West US region.
 
-	$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
+	$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01 -Location "West US" -AllocationMethod Dynamic
 
 
 ## Create an application gateway configuration object with a custom probe
@@ -140,7 +137,7 @@ Configure application gateway setting "poolsetting01" for the traffic in the bac
 
 Configure the front-end IP port named "frontendport01" for the public IP endpoint.
 
-	$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
+	$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01 -Port 80
 
 ### Step 6
 
@@ -237,6 +234,32 @@ Update the back-end pool setting to remove the probe and time-out setting by usi
 Save the configuration to the application gateway by using **Set-AzureRmApplicationGateway**. 
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw
+
+## Get application gateway DNS name
+
+Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, application gateway requires a dynamically assigned DNS name, which is not friendly. To ensure end users can hit the application gateway a CNAME record can be used to point to the public endpoint of the application gateway. [Configuring a custom domain name for in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). To do this, retrieve details of the application gateway and its associated IP/DNS name using the PublicIPAddress element attached to the application gateway. The application gateway's DNS name should be used to create a CNAME record, which points the two web applications to this DNS name. The use of A-records is not recommended since the VIP may change on restart of application gateway.
+	
+	Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
+		
+	Name                     : publicIP01
+	ResourceGroupName        : appgw-RG
+	Location                 : westus
+	Id                       : /subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/publicIPAddresses/publicIP01
+	Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
+	ResourceGuid             : 00000000-0000-0000-0000-000000000000
+	ProvisioningState        : Succeeded
+	Tags                     : 
+	PublicIpAllocationMethod : Dynamic
+	IpAddress                : xx.xx.xxx.xx
+	PublicIpAddressVersion   : IPv4
+	IdleTimeoutInMinutes     : 4
+	IpConfiguration          : {
+	                             "Id": "/subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/applicationGateways/appgwtest/frontendIP
+	                           Configurations/frontend1"
+	                           }
+	DnsSettings              : {
+	                             "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
+	                           }
 
 ## Next steps
 
