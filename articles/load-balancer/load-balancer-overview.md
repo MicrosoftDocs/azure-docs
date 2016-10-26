@@ -59,7 +59,7 @@ Figure 2 - Azure Load Balancer in Resource Manager
 
 The load balancer can be managed through Resource Manager-based templates, APIs, and tools. To learn more about Resource Manager, see the [Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
-## Load balancer features
+## Load Balancer features
 
 * Hash-based distribution
 
@@ -104,11 +104,9 @@ The load balancer can be managed through Resource Manager-based templates, APIs,
 
     The load balancer configuration supports full cone NAT for UDP. Full cone NAT is a type of NAT where the port allows inbound connections from any external host (in response to an outbound request).
 
-
     For each new outbound connection that a virtual machine initiates, an outbound port is also allocated by the load balancer. The external host sees traffic with a virtual IP (VIP)-allocated port. For scenarios that require a large number of outbound connections, it is recommended to use [instance-level public IP](../virtual-network/virtual-networks-instance-level-public-ip.md) addresses so that the VMs have a dedicated outbound IP address for SNAT. This reduces the risk of port exhaustion.
 
     The maximum number of ports that can be used by the VIP or an instance-level public IP (PIP) is 64,000. This is a TCP standard limitation.
-
 
 ### Support for multiple load-balanced IP addresses for virtual machines
 
