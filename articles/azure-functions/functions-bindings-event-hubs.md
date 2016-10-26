@@ -23,7 +23,7 @@
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 This article explains how to configure and code [Azure Event Hub](../event-hubs/event-hubs-overview.md) bindings for Azure Functions. 
-Azure functions supports trigger and output bindings for Azure Event Hubs.
+Azure Functions supports trigger and output bindings for Event Hubs.
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 

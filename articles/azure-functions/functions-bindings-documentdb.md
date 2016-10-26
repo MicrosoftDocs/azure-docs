@@ -23,10 +23,11 @@
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 This article explains how to configure and code Azure DocumentDB bindings in Azure Functions. 
+Azure Functions supports input and output bindings for DocumentDB.
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
-For more information on Azure DocumentDB, see [Introduction to DocumentDB](../documentdb/documentdb-introduction.md) 
+For more information on DocumentDB, see [Introduction to DocumentDB](../documentdb/documentdb-introduction.md) 
 and [Build a DocumentDB console application](../documentdb/documentdb-get-started.md).
 
 <a id="docdbinput"></a>
@@ -49,7 +50,7 @@ The DocumentDB input to a function uses the following JSON object in the `bindin
  
 Note the following:
 
-- `id` supports bindings similar to "{queueTrigger}", which uses the string value of the queue message as the document Id.
+- `id` supports bindings similar to `{queueTrigger}`, which uses the string value of the queue message as the document Id.
 - `connection` must be the name of an app setting that points to the endpoint for your DocumentDB account (with the value 
 `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). If you create a DocumentDB account through the 
 Functions portal UI, the account creation process creates a new app setting for you. To use an existing DocumentDB account, you need to 

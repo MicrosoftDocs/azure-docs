@@ -23,6 +23,7 @@
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 This article explains how to configure and code HTTP and webhook triggers and bindings in Azure Functions. 
+Azure Functions supports trigger and output bindings for HTTP requests and webhooks.
 
 An [HTTP trigger binding](#httptrigger) lets you invoke a function with an HTTP request. A 
 [webhook trigger binding](#hooktrigger) trigger is an HTTP trigger that's tailored for
