@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2016" 
+	ms.date="10/24/2016" 
 	ms.author="awills"/>
  
 # Troubleshooting no data - Application Insights for .NET
