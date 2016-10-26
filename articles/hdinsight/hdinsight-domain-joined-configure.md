@@ -390,7 +390,7 @@ In this section, you create a Linux-based Hadoop cluster in HDInsight using eith
 				- **Domain name**: contoso.onmicrosoft.com
 				- **Domain user name**: Enter a domain user name. This domain must have the following privileges: Join machines to the domain and place them in the organization unit you configured earlier; Create service principals within the organization unit you configured earlier; Create reverse DNS entries. This domain user will become the administrator of this domain-joined HDInsight cluster.
 				- **Domain password**: Enter the domain user password.
-				- **Organization Unit**: OU=HiveUsers,DC=contoso,DC=onmicrosoft,DC=com
+				- **Organization Unit**: Enter the distinguished name of the OU tht you configured earlier. For example: OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com
 				- **LDAPS URL**: ldaps://contoso.onmicrosoft.com:636
 				- **Access user group**: Specify the security group whose users you wan to sync to the cluster. For example, HiveUsers.
 
@@ -429,7 +429,7 @@ The following procedure shows you how to create the domain-joined HDInsight clus
 	- **Virtual Network Id**: /subscriptions/&lt;SubscriptionID>/resourceGroups/&lt;ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/&lt;VNetName>
 	- **Virtual Network Subnet**: /subscriptions/&lt;SubscriptionID>/resourceGroups/&lt;ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/&lt;VNetName>/subnets/Subnet1
 	- **Domain Name**: contoso.onmicrosoft.com
-	- **Organization Unit DN**: OU=Hadoop System Users,DC=contoso,DC=onmicrosoft,DC=com
+	- **Organization Unit DN**: OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com
 	- **Cluster Users Group D Ns**: "\"CN=HiveUsers,OU=AADDC Users,DC=<DomainName>,DC=onmicrosoft,DC=com\""
 	- **LDAPUrls**: ["ldaps://contoso.onmicrosoft.com:636"]
 	- **DomainAdminUserName**: (Enter the domain admin user name)
