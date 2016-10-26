@@ -136,10 +136,10 @@ The resources below explain how to implement the architectures described in this
 - [Implementing Active Directory Federation Services (ADFS) in Azure][adfs-in-azure]
 
 <!-- Links -->
-[0]: ./media/identity/figure1.png "Cloud identity architecture using Azure Active Directory"
-[1]: ./media/identity/figure2.png "Secure hybrid network architecture with Active Directory"
-[2]: ./media/identity/figure3.png "Secure hybrid network architecture with separate AD domains and forests"
-[3]: ./media/identity/figure4.png "Secure hybrid network architecture with ADFS"
+[0]: ./media/guidance-identity/figure1.png "Cloud identity architecture using Azure Active Directory"
+[1]: ./media/guidance-identity/figure2.png "Secure hybrid network architecture with Active Directory"
+[2]: ./media/guidance-identity/figure3.png "Secure hybrid network architecture with separate AD domains and forests"
+[3]: ./media/guidance-identity/figure4.png "Secure hybrid network architecture with ADFS"
 [implementing-aad]: ./guidance-identity-aad.md
 [extending-adds]: ./guidance-identity-adds-extend-domain.md
 [adds-forest-in-azure]: ./guidance-identity-adds-resource-forest.md
