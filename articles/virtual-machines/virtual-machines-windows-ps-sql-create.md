@@ -117,7 +117,7 @@ And you can see the Skus available for an offering with the Get-AzureRmVMImageSk
 
 ## Create a resource group
 
-With the Resource Manager deployment model, the first object that you create is the resource group. We will use the [New-AzureRmResourceGroup](https://msdn.microsoft.com/en-us/library/mt759837.aspx) cmdlet to create an Azure resource group and its resources with the resource group name and location defined by the variables that you previously initialized.
+With the Resource Manager deployment model, the first object that you create is the resource group. We will use the [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt759837.aspx) cmdlet to create an Azure resource group and its resources with the resource group name and location defined by the variables that you previously initialized.
 
 Execute the following cmdlet to create your new resource group.
 
