@@ -115,7 +115,7 @@ Click **Messaging** to display a list of messaging properties for the IoT hub th
 
 **Partitions**: This value is set when the IoT hub is created and can be changed through this setting.
 
-**Event Hub compatible name and endpoint**: When the IoT hub is created, an Event Hub is created internally that you may need access to under certain circumstances. This Event Hub name and endpoint cannot be customized but is available for use via the **Copy** button.
+**Event Hub-compatible name and endpoint**: When the IoT hub is created, an Event Hub is created internally that you may need access to under certain circumstances. This Event Hub-compatible name and endpoint cannot be customized but is available for use via the **Copy** button.
 
 **Retention Time**: Set to one day by default but can be customized to other values using the drop-down list. This value is in days for Device to Cloud and not in hours, as is the similar setting for Cloud to Device.
 
