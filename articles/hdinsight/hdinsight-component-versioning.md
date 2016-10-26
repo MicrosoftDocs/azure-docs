@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/30/2016"
+	ms.date="10/26/2016"
 	ms.author="jgao"/>
 
 
@@ -42,6 +42,8 @@ The following table lists the HDInsight cluster type and Premium support matrix.
 | Spark        | Yes           | Yes          |
 | HBase        | Yes           | No           |
 | Storm        | Yes           | No           |
+| Interactive Hive (Preview) | Yes | No |
+| R Server (Preview) | Yes | No |
 
 This table will be updated as more cluster types are included in HDInsight Premium.
 
