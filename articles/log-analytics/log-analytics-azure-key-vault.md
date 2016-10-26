@@ -69,7 +69,7 @@ After you click the **Overview** tile, you can view summaries of your logs and t
 
 ## Log Analytics records
 
-The Azure Key Vault solution analyzes records that have a type of **KeyVaults** that are collected from [AuditEvent logs](https://azure.microsoft.com/en-us/documentation/articles/key-vault-logging/) in Azure Diagnostics.  Properties for these records are in the following table.  
+The Azure Key Vault solution analyzes records that have a type of **KeyVaults** that are collected from [AuditEvent logs](../key-vault/key-vault-logging.md) in Azure Diagnostics.  Properties for these records are in the following table.  
 
 | Property | Description |
 |:--|:--|
@@ -82,7 +82,7 @@ The Azure Key Vault solution analyzes records that have a type of **KeyVaults** 
 | HttpStatusCode_d | HTTP status code returned by the request |
 | Id_s       | Unique ID of the request |
 | Identity_o | Identity from the token that was presented when making the REST API request. This is usually a "user", a "service principal," or a combination "user+appId" as in the case of a request resulting from an Azure PowerShell cmdlet. |
-| OperationName      | Name of the operation, as documented in [Azure Key Vault Logging](https://azure.microsoft.com/en-us/documentation/articles/key-vault-logging/)|
+| OperationName      | Name of the operation, as documented in [Azure Key Vault Logging](../key-vault/key-vault-logging.md)|
 | OperationVersion      | REST API version requested by the client|
 | RemoteIPLatitude | Latitude of the client who made the request |
 | RemoteIPLongitude | Longitude of the client who made the request |
