@@ -388,13 +388,7 @@ In this section, you create a Linux-based Hadoop cluster in HDInsight using eith
 			- **Domain settings**: 
 
 				- **Domain name**: contoso.onmicrosoft.com
-				- **Domain user name**: Enter a domain user name. This domain must have the following privileges:
-
-					- Join machines to the domain and place them in the organization unit you configured earlier.
-					- Create service principals within the organization unit you configured earlier.
-					- Create reverse DNS entries.
-
-					This domain user will become the administrator of this domain-joined HDInsight cluster.
+				- **Domain user name**: Enter a domain user name. This domain must have the following privileges: Join machines to the domain and place them in the organization unit you configured earlier; Create service principals within the organization unit you configured earlier; Create reverse DNS entries. This domain user will become the administrator of this domain-joined HDInsight cluster.
 				- **Domain password**: Enter the domain user password.
 				- **Organization Unit**: OU=HiveUsers,DC=contoso,DC=onmicrosoft,DC=com
 				- **LDAPS URL**: ldaps://contoso.onmicrosoft.com:636
