@@ -110,7 +110,7 @@ To create a VNet peering by using PowerShell, please follow the steps below:
 	|Option|Description|Default|
 	|:-----|:----------|:------|
 	|AllowVirtualNetworkAccess|Whether address space of Peer VNet to be included as part of the Virtual_network Tag|Yes|
-	|AllowForwardedTraffic|Allows traffic not originated from peered VNet is accepted or dropped|No|
+	|AllowForwardedTraffic|Whether traffic not originating from a peered VNet is accepted or dropped|No|
 	|AllowGatewayTransit|Allows the peer VNet to use your VNet gateway|No|
 	|UseRemoteGateways|Use your peer’s VNet gateway. The peer VNet must have a gateway configured and AllowGatewayTransit selected. You cannot use this option if you have a gateway configured|No|
 
@@ -197,10 +197,12 @@ To create VNet peering across subscriptions using PowerShell, please follow the 
 To create a VNet peering between a classic virtual network and an Azure Resource Manager virtual network in PowerShell, follow the steps below:
 
 1. Read virtual network object for **VNET1**, the Azure Resource Manager virtual network as follows:
+
         $vnet1 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet1
 
 2. To establish VNet peering in this scenario, only one link is needed, specifically a link from **VNET1** to **VNET2**. This step requires knowing your classic VNet's resource ID. The resource group ID format looks like:
-        /subscriptions/SubscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.ClassicNetwork/virtualNetworks/VirtualNetworkName
+
+        /subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.ClassicNetwork/virtualNetworks/{VirtualNetworkName}
 
     Be sure to replace SubscriptionID, ResourceGroupName, and VirtualNetworkName with the appropriate names.
 
