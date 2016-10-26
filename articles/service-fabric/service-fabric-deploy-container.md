@@ -1,6 +1,6 @@
 <properties
    pageTitle="Service Fabric and Deploying Containers | Microsoft Azure"
-   description="Service Fabric and the use of containers to deploy microservice applications. This article the capabilities that Service Fabric provides for containers and how to deploy a container image into a cluster"
+   description="Service Fabric and the use of containers to deploy microservice applications. This article describes the capabilities that Service Fabric provides for containers and how to deploy a Windows container image into a cluster"
    services="service-fabric"
    documentationCenter=".net"
    authors="msfussell"
@@ -13,14 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/25/2016"
+   ms.date="10/24/2016"
    ms.author="msfussell"/>
 
-# Preview: Deploy a container to Service Fabric
+# Preview: Deploy a Windows container to Service Fabric
 
->[AZURE.NOTE] This feature is in preview for Linux and not currently available on Windows Server. This will be in preview for Windows Server on the next release of Service Fabric after Windows Server 2016 GA and supported in the subsequent release after that.
+> [AZURE.SELECTOR]
+- [Deploy Windows Container](service-fabric-deploy-container.md)
+- [Deploy Docker Container](service-fabric-deploy-container-linux.md)
 
-Service Fabric has several container capabilities that help you with building applications that are composed of microservices that are containerized. These are called containerized services. The capabilities include;
+This article walks you through building containerized services in Windows containers. 
+
+>[AZURE.NOTE] This feature is in preview for Linux and not currently available for use with Windows Server 2016. This will be available in preview for Windows Server 2016 in the next release of Service Fabric and supported in the subsequent release after that.
+
+Service Fabric has several container capabilities that help you with building applications that are composed of microservices that are containerized. These are called containerized services. 
+
+The capabilities include;
 
 - Container image deployment and activation
 - Resource governance
@@ -31,16 +39,16 @@ Service Fabric has several container capabilities that help you with building ap
 
 Lets look at each of capabilities in turn when packaging a containerized service to be included into your application.
 
-## Packaging a container
+## Packaging a Windows container
 
-When packaging a container, you can choose either to use a Visual Studio project template or [create the application package manually](#manually). Using Visual Studio, the application package structure and manifest files are created by the new project wizard for you.
+When packaging a container, you can choose either to use a Visual Studio project template or [create the application package manually](#manually). Using Visual Studio, the application package structure and manifest files are created by the new project wizard for you (this is coming in the next release).
 
-## Using Visual Studio to package an existing executable
+## Using Visual Studio to package an existing container image
 
 >[AZURE.NOTE] In a future release of the Visual Studio tooling SDK, you will be able to add a container to an application in a similar way that you can add a guest executable today. See [Deploy a guest executable to Service Fabric](service-fabric-deploy-existing-app.md) topic. Currently you have to do manual packaging as described below.
 
 <a id="manually"></a>
-## Manually packaging and deploying container
+## Manually packaging and deploying a container
 The process of manually packaging a containerized service is based on the following steps:
 
 1. Published the containers to your repository.
@@ -100,7 +108,7 @@ To download a container you may have to provide login credentials to the contain
 
 The password can and should be encrypted using a certificate deployed to the machine.
 
-The following example shows an account called *TestUser* with the password encrypted using a certificate called *MyCert*. You can use the `Invoke-ServiceFabricEncryptText` Powershell command to create the secret cipher text for the password. See this article [Managing secrets in Service Fabric applications](service-fabric-application-secret-management.md) for details on how. The private key of the certificate to decrypt the password must be deployed to the local machine in an out-of-band method (in Azure this is via the Resource Manager). Then, when Service Fabric deploys the service package to the machine, it is able to decrypt the secret and along with the account name, authenticate with the container repository using these credentials.
+The following example shows an account called *TestUser* with the password encrypted using a certificate called *MyCert*. You can use the `Invoke-ServiceFabricEncryptText` Powershell command to create the secret cipher text for the password. See this article [Managing secrets in Service Fabric applications](service-fabric-application-secret-management.md) for details on how. The private key of the certificate to decrypt the password must be deployed to the local machine in an out-of-band method (in Azure this is via ARM). Then, when Service Fabric deploys the service package to the machine, it is able to decrypt the secret and along with the account name, authenticate with the container repository using these credentials.
 
 
     <ServiceManifestImport>
@@ -109,9 +117,6 @@ The following example shows an account called *TestUser* with the password encry
             <ContainerHostPolicies CodePackageRef="FrontendService.Code">
                 <RepositoryCredentials AccountName="TestUser" Password="[Put encrypted password here using MyCert certificate ]" PasswordEncrypted="true"/>
             </ContainerHostPolicies>
-            <SecurityAccessPolicies>
-                <SecurityAccessPolicy ResourceRef="MyCert" PrincipalRef="TestUser" GrantRights="Full" ResourceType="Certificate" />
-            </SecurityAccessPolicies>
         </Policies>
     </ServiceManifestImport>
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/07/2016"
+	ms.date="10/24/2016"
 	ms.author="byvinyal"
 />
 
@@ -32,7 +32,7 @@ You can access the autoscale functionality from the **Settings** tab of the work
 
 ![Settings tab of the worker pool.][settings-scale]
 
-From there, the interface should be fairly familiar because this is the same experience that you see when you scale an App Service plan. You will be able to enter a scale value manually.
+From there, the interface should be fairly familiar since it is the same experience that you see when you scale an App Service plan. 
 
 ![Manual scale settings.][scale-manual]
 
@@ -48,13 +48,13 @@ After you define a profile, you can add autoscale rules to scale up or down the 
 
 ![Scale rule.][scale-rule]
 
- Any worker pool or front-end metrics can be used to define autoscale rules. These are the same metrics that you can monitor in the resource blade graphs or set alerts for.
+ Any worker pool or front-end metrics can be used to define autoscale rules. These metrics are the same metrics you can monitor in the resource blade graphs or set alerts for.
 
 ## Autoscale example
 
 Autoscale of an App Service environment can best be illustrated by walking through a scenario.
 
-This article explains all the necessary considerations when you set up autoscale and all the interactions that come into play when you factor in autoscaling App Service environments that are hosted in App Service Environment.
+This article explains all the necessary considerations when you set up autoscale. The article walks you through the interactions that come into play when you factor in autoscaling App Service environments that are hosted in App Service Environment.
 
 ### Scenario introduction
 
@@ -69,7 +69,7 @@ The App Service environment is configured to manual scale as follows:
 
 Worker pool 1 is used for production workloads, while worker pool 2 and worker pool 3 are used for quality assurance (QA) and development workloads.
 
-The App Service plans for QA and dev are configured to manual scale, but the production App Service plan is set to autoscale to deal with variations in load and traffic.
+The App Service plans for QA and dev are configured to manual scale. The production App Service plan is set to autoscale to deal with variations in load and traffic.
 
 Frank is very familiar with the application. He knows that the peak hours for load are between 9:00 AM and 6:00 PM because this is a line-of-business (LOB) application that employees use while they are in the office. Usage drops after that when users are done for that day. Outside peak hours, there is still some load because users can access the app remotely by using their mobile devices or home PCs. The production App Service plan is already configured to autoscale based on CPU usage with the following rules:
 
@@ -106,7 +106,7 @@ Frank is very familiar with the application. He knows that the peak hours for lo
 
 ### App Service plan inflation rate
 
-App Service plans that are configured to autoscale will do so at a maximum rate per hour. This rate
+App Service plans that are configured to autoscale do so at a maximum rate per hour. This rate
 can be calculated based on the values provided on the autoscale rule.
 
 Understanding and calculating the *App Service plan inflation rate* is important for App Service environment autoscale because scale changes to a worker pool are not instantaneous.
@@ -115,7 +115,7 @@ The App Service plan inflation rate is calculated as follows:
 
 ![App Service plan inflation rate calculation.][ASP-Inflation]
 
-Based on the Autoscale – Scale Up rule for the Weekday profile of the production App Service plan, this would look as follows:
+Based on the Autoscale – Scale Up rule for the Weekday profile of the production App Service plan:
 
 ![App Service plan inflation rate for weekdays based on Autoscale – Scale Up rule.][Equation1]
 
@@ -136,10 +136,9 @@ App Service plan, the formula would resolve to:
 
 ![App Service plan inflation rate for weekends based on Autoscale – Scale Down rule.][Equation4]
 
-This means that the production App Service plan can grow at a maximum rate of eight
-instances per hour during the week and four instances per hour during the weekend. And it can
-release instances at a maximum rate of four instances per hour during the week and six instances
-per hour during weekends.
+The production App Service plan can grow at a maximum rate of eight instances/hour 
+during the week and four instances/hour during the weekend. It can release instances 
+at a maximum rate of four instances/hour during the week and six instances/hour during weekends.
 
 If multiple App Service plans are being hosted in a worker pool, you have to calculate the *total inflation rate* as the sum of the inflation rate for all the App Service plans that are being hosting in that worker pool.
 
@@ -147,7 +146,7 @@ If multiple App Service plans are being hosted in a worker pool, you have to cal
 
 ### Use the App Service plan inflation rate to define worker pool autoscale rules
 
-Worker pools that host App Service plans that are configured to autoscale will need to
+Worker pools that host App Service plans that are configured to autoscale need to
 be allocated a buffer of capacity. The buffer allows for the autoscale operations to grow and shrink the
 App Service plan as needed. The minimum buffer would be the calculated Total App Service Plan Inflation Rate.
 
@@ -207,8 +206,8 @@ Rules for front-end autoscale are simpler than for worker pools. Primarily, you 
 make sure that duration of the measurement and the cooldown timers consider that scale
 operations on an App Service plan are not instantaneous.
 
-For this scenario, Frank knows that the error rate increases after front ends reach 80% CPU utilization.
-To prevent this, he sets the autoscale rule to increase instances as follows:
+For this scenario, Frank knows that the error rate increases after front ends 
+reach 80% CPU utilization and sets the autoscale rule to increase instances as follows:
 
 ![Autoscale settings for front-end pool.][Front-End-Scale]
 
