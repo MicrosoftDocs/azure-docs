@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Implementing a Hybrid Network Architecture with Azure and On-premises VPN | Reference Architecture | Microsoft Azure"
+   pageTitle="Implementing a Hybrid Network Architecture with Azure and On-premises VPN | Microsoft Azure"
    description="How to implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected by using a VPN."
    services=""
    documentationCenter="na"
@@ -530,7 +530,7 @@ If you have an existing on-premises infrastructure already configured with a VPN
 [virtualNetworkGateway-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn/parameters/virtualNetworkGateway.parameters.json
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [azure-cli]: https://azure.microsoft.com/documentation/articles/xplat-cli-install/
-[0]: ./media/guidance-hybrid-network-vpn/arch-diagram.png "Structure of a hybrid network spanning the on-premises and cloud infrastructures"
+[0]: ./media/blueprints/hybrid-network-vpn.png "Structure of a hybrid network spanning the on-premises and cloud infrastructures"
 [1]: ./media/guidance-hybrid-network-vpn/partitioned-vpn.png "Partitioning a VNet to improve scalability"
 [2]: ./media/guidance-hybrid-network-vpn/audit-logs.png "Audit logs in the Azure portal"
 [3]: ./media/guidance-hybrid-network-vpn/RRAS-perf-counters.png "Performance counters for monitoring VPN network traffic"
