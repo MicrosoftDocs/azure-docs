@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/30/2016"
+    ms.date="10/26/2016"
     ms.author="v-livech"
 />
 
@@ -35,15 +35,15 @@ Create a cloud-init.txt script that sets the hostname, updates all packages, and
 
 ```bash
 #cloud-config
-hostname: myservername
+hostname: myVMhostname
 apt_upgrade: true
 users:
-  - name: myAdminUser
+  - name: myNewAdminUser
     groups: sudo
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     ssh-authorized-keys:
-      - ssh-rsa AAAAB3<snip>==myAdminUser@myserver
+      - ssh-rsa AAAAB3<snip>==myAdminUser@myVM
 ```
 Create a resource group to launch VMs into.
 
@@ -56,19 +56,18 @@ Create a Linux VM using cloud-init to configure it during boot.
 ```bash
 azure vm create \
 -g myResourceGroup \
--n myUbuntuVM \
+-n myVM \
 -l westus \
 -y Linux \
--f myUbuntuVM \
+-f myVMnic \
 -F myVNet \
 -P 10.0.0.0/22 \
--j myVNetSubNet \
+-j mySubnet \
 -k 10.0.0.0/24 \
 -Q canonical:ubuntuserver:14.04.2-LTS:latest \
 -M ~/.ssh/id_rsa.pub \
--u ahmet \
+-u myAdminUser \
 -C cloud-init.txt
-
 ```
 
 ## Detailed walkthrough
@@ -120,19 +119,18 @@ Create a Linux VM using cloud-init to configure it during boot.
 ```bash
 azure vm create \
 --resource-group myResourceGroup \
---name myUbuntuVM \
+--name myVM \
 --location westus \
 --os-type Linux \
---nic-name myUbuntuNIC \
+--nic-name myVMnic \
 --vnet-name myVNet \
 --vnet-address-prefix 10.0.0.0/22 \
---vnet-subnet-name myVNetSubNet \
+--vnet-subnet-name mySubnet \
 --vnet-subnet-address-prefix 10.0.0.0/24 \
 --image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
 --ssh-publickey-file ~/.ssh/id_rsa.pub \
---admin-username ahmet \
+--admin-username myAdminUser \
 --custom-data cloud-init.txt
-
 ```
 
 ## Creating a cloud-init script to set the hostname of a Linux VM
@@ -151,24 +149,24 @@ During the initial startup of the VM, this cloud-init script sets the hostname t
 ```bash
 azure vm create \
 --resource-group myResourceGroup \
---name myUbuntuVM \
+--name myVM \
 --location westus \
 --os-type Linux \
---nic-name myUbuntuNIC \
+--nic-name myVMnic \
 --vnet-name myVNet \
 --vnet-address-prefix 10.0.0.0/22 \
---vnet-subnet-name myVNetSubNet \
+--vnet-subnet-name mySubNet \
 --vnet-subnet-address-prefix 10.0.0.0/24 \
 --image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
 --ssh-publickey-file ~/.ssh/id_rsa.pub \
---admin-username ahmet \
+--admin-username myAdminUser \
 --custom-data cloud_config_hostname.txt
 ```
 
 Login and verify the hostname of the new VM.
 
 ```bash
-ssh myUbuntuVM
+ssh myVM
 hostname
 myservername
 ```
@@ -189,17 +187,17 @@ After Linux has booted, all the installed packages are updated via `apt-get`.
 ```bash
 azure vm create \
 --resource-group myResourceGroup \
---name myUbuntuVM \
+--name myVM \
 --location westus \
 --os-type Linux \
---nic-name myUbuntuNIC \
+--nic-name myVMnic \
 --vnet-name myVNet \
 --vnet-address-prefix 10.0.0.0/22 \
---vnet-subnet-name myVNetSubNet \
+--vnet-subnet-name mySubNet \
 --vnet-subnet-address-prefix 10.0.0.0/24 \
 --image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
 --ssh-publickey-file ~/.ssh/id_rsa.pub \
---admin-username ahmet \
+--admin-username myAdminUser \
 --custom-data cloud_config_apt_upgrade.txt
 ```
 
@@ -226,7 +224,7 @@ One of the first tasks on any new Linux VM is to add a user for yourself or to a
 ```bash
 #cloud-config
 users:
-  - name: myAdminUser
+  - name: myCloudInitAddedAdminUser
     groups: sudo
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
@@ -239,24 +237,24 @@ After Linux has booted, all the listed users are created and added to the sudo g
 ```bash
 azure vm create \
 --resource-group myResourceGroup \
---name myUbuntuVM \
+--name myVM \
 --location westus \
 --os-type Linux \
---nic-name myUbuntuNIC \
+--nic-name myVMnic \
 --vnet-name myVNet \
 --vnet-address-prefix 10.0.0.0/22 \
---vnet-subnet-name myVNetSubNet \
+--vnet-subnet-name mySubNet \
 --vnet-subnet-address-prefix 10.0.0.0/24 \
 --image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
 --ssh-publickey-file ~/.ssh/id_rsa.pub \
---admin-username ahmet \
+--admin-username myAdminUser \
 --custom-data cloud_config_add_users.txt
 ```
 
 Login and verify the newly created user.
 
 ```bash
-ssh myUbuntuVM
+ssh myVM
 cat /etc/group
 ```
 
@@ -265,9 +263,9 @@ Output
 ```bash
 root:x:0:
 <snip />
-sudo:x:27:myAdminUser
+sudo:x:27:myCloudInitAddedAdminUser
 <snip />
-myAdminUser:x:1000:
+myCloudInitAddedAdminUser:x:1000:
 ```
 
 ## Next Steps
