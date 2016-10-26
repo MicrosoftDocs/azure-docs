@@ -29,8 +29,8 @@ Over time, the v2.0 endpoint will grow to eliminate the restrictions listed here
 
 If you have an existing Azure AD app that does not use the v2.0 endpoint, there's no need to start from scratch. In the future, we will provide a way for you to use your existing Azure AD applications with the v2.0 endpoint.
 
-## App restrictions
-Currently, the following types of apps are not supported by the v2.0 endpoint. For a description of supported app types, see [Apps that you can use with v2.0](active-directory-v2-flows.md).
+## Restrictions on app types
+Currently, the following types of apps are not supported by the v2.0 endpoint. For a description of supported app types, see [App types for the Azure Active Directory v2.0 endpoint](active-directory-v2-flows.md).
 
 ### Standalone Web APIs
 You can use the v2.0 endpoint to [build a Web API that is secured with OAuth 2.0](active-directory-v2-flows.md#web-apis). However, that Web API can receive tokens only from an application that has the same Application ID. You cannot access a Web API from a client that has a different Application ID. The client won't be able to request or obtain permissions to your Web API.
@@ -43,16 +43,16 @@ Many architectures include a Web API that needs to call another downstream Web A
 You can create this scenario by using the OAuth 2.0 JSON Web Token (JWT) bearer credential grant, otherwise known as the on-behalf-of flow. Currently, however, the on-behalf-of flow is not supported for the v2.0 endpoint. To see how this flow works in the generally available Azure AD service, check out the [on-behalf-of code sample on GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
 ## Restrictions on app registrations
-Currently, for each app that you want to integrate with the v2.0 endpoint, you must create a new app registration in the new [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList). Existing Azure AD or Microsoft account apps are not compatible with the v2.0 endpoint. Apps that are registered in any portal except the Application Registration Portal are not compatible with the v2.0 endpoint. In the future, we plan to provide a way to use an existing application as a v2.0 app. Currently, though, there is no migration path for an existing app to work with the v2.0 endpoint.
+Currently, for each app that you want to integrate with the v2.0 endpoint, you must create an app registration in the new [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList). Existing Azure AD or Microsoft account apps are not compatible with the v2.0 endpoint. Apps that are registered in any portal other than the Application Registration Portal are not compatible with the v2.0 endpoint. In the future, we plan to provide a way to use an existing application as a v2.0 app. Currently, though, there is no migration path for an existing app to work with the v2.0 endpoint.
 
 Apps that are registered in the Application Registration Portal will not work with the original Azure AD authentication endpoint. However, you can use apps that you create in the Application Registration Portal to integrate successfully with the Microsoft account authentication endpoint `https://login.live.com`.
 
 In addition, app registrations that you create in the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) have the following caveats:
 
-- The *homepage* property, also known as the *sign-on URL*, is not supported. Without a homepage, these applications will not be displayed in the Office MyApps panel.
+- The **homepage** property, also known as the *sign-on URL*, is not supported. Without a homepage, these applications will not appear in the Office MyApps panel.
 - Currently, only two app secrets are allowed per Application ID.
 - An app registration can be viewed and managed only by a single developer account. It cannot be shared between multiple developers.
-- There are several restrictions on the format of the redirect URI that is allowed. See the next section for more information about redirect URIs.
+- There are several restrictions on the format of the redirect URI that is allowed. For more information about redirect URIs, see the next section.
 
 ## Restrictions on redirect URIs
 Currently, apps that are registered in the Application Registration Portal are restricted to a limited set of redirect URI values. The redirect URI for web apps and services must begin with the scheme `https`, and all redirect URI values must share a single DNS domain. For example, you cannot register a web app that has one of these direct URIs:
