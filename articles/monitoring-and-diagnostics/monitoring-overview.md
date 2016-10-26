@@ -2,7 +2,7 @@
 	pageTitle="Overview of Monitoring in Microsoft Azure | Microsoft Azure"
 	description="Top level overview of monitoring and diagnostics in Microsoft Azure including alerts, webhooks, autoscale and more."
 	authors="rboucher"
-	manager=""
+	manager="carolz"
 	editor=""
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>

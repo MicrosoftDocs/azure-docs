@@ -2,7 +2,7 @@
 	pageTitle="Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets | Microsoft Azure"
 	description="Configure autoscale for VM Scale Sets based on multiple rules and profiles with email and webhoook notifications for scale actions."
 	authors="kamathashwin"
-	manager=""
+	manager="carolz"
 	editor=""
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>
