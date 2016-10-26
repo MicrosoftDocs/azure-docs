@@ -3,7 +3,7 @@
 	description="Overview of Azure Relay"
 	services="service-bus"
 	documentationCenter=".net"
-	authors="babanisa"
+	authors="banisadr"
 	manager="timlt"
 	editor="" />
 
@@ -12,9 +12,9 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="11/01/2016"
-	ms.author="banisadr" />
+	ms.author="babanisa" />
 
 # What is Azure Relay?
 
