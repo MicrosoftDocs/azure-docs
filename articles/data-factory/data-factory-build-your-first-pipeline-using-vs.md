@@ -335,7 +335,8 @@ Important points to note:
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. When processing is done, you see the slice in **Ready** state.
-	>[AZURE.IMPORTANT] Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes). Therefore, expect the pipeline to take **approximately 30 minutes** to process the slice.  
+
+	> [AZURE.IMPORTANT] Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes). Therefore, expect the pipeline to take **approximately 30 minutes** to process the slice.  
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)	
 	

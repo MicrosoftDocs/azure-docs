@@ -3,8 +3,8 @@
 	description="Learn how to create a console application that uploads an image to Azure, and then displays the image in your browser. Code samples in Java."
 	services="storage"
 	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
+	authors="tamram"
+	manager="carmonm"
 	editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/11/2016"
-	ms.author="jwillis;rmcmurray"/>
+	ms.date="10/18/2016"
+	ms.author="tamram"/>
 
 # On-premises application with blob storage
 

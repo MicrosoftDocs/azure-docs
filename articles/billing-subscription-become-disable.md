@@ -5,7 +5,7 @@
 	services=""
 	documentationCenter=""
 	authors="genlin"
-	manager="msmbaldwin"
+	manager="mbaldwin"
 	editor=""
 	tags="billing"
 	/>

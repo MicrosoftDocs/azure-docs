@@ -257,5 +257,5 @@ This article walked you through all the steps to provision a new Deis cluster on
 [Using Azure PowerShell with Azure Resource Manager] [powershell-azure-resource-manager]  
 
 [azure-command-line-tools]: ../xplat-cli-install.md
-[resource-group-overview]: ../resource-group-overview.md
+[resource-group-overview]: ../azure-resource-manager/resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md

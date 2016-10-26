@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/12/2016"
+   ms.date="10/21/2016"
    ms.author="mwasson"/>
 
 # Running Linux VMs in multiple regions for high availability
@@ -43,7 +43,9 @@ This architecture focuses on active/passive with hot standby, using Traffic Mana
 
 ## Architecture diagram
 
-The following diagram builds on the architecture shown in [Adding reliability to an N-tier architecture on Azure](guidance-compute-n-tier-vm-linux.md).
+The following diagram builds on the architecture shown in [Adding reliability to an N-tier architecture on Azure](guidance-compute-n-tier-vm-linux.md). 
+
+> A Visio document that includes this architecture diagram is available for download at the [Microsoft download center][visio-download]. This diagram is on the "Compute - multi region (Linux) page.
 
 ![[0]][0]
 
@@ -58,6 +60,8 @@ The following diagram builds on the architecture shown in [Adding reliability to
 - **Apache Cassandra** deployed in data centers across Azure regions. Cassandra data centers are deployed in different Azure regions for high availability. Within each region, nodes are configured in rack-aware mode with fault and upgrade domains, for resiliency inside the region.
 
 ## Recommendations
+
+Azure offers many different resources and resource types, so this reference architecture can be provisioned many different ways. We have provided an Azure Resource Manager template to install the reference architecture that follows these recommendations. If you choose to create your own reference architecture follow these recommendations unless you have a specific requirement that a recommendation does not fit.
 
 ### Regional pairing
 
@@ -159,7 +163,7 @@ Measure the recovery times and verify they meet your business requirements. Test
 
 ## Next steps
 
-- This series has focused on pure cloud deployments. Enterprise scenarios often require a hybrid network, connecting an on-premises network with an Azure virtual network. To learn how to build such a hybrid network, see [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][hybrid-vpn].
+This series has focused on pure cloud deployments. Enterprise scenarios often require a hybrid network, connecting an on-premises network with an Azure virtual network. To learn how to build such a hybrid network, see [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][hybrid-vpn].
 
 <!-- Links -->
 
@@ -173,7 +177,7 @@ Measure the recovery times and verify they meet your business requirements. Test
 [health-endpoint-monitoring-pattern]: https://msdn.microsoft.com/library/dn589789.aspx
 [hybrid-vpn]: guidance-hybrid-network-vpn.md
 [regional-pairs]: ../best-practices-availability-paired-regions.md
-[resource groups]: ../resource-group-overview.md
+[resource groups]: ../azure-resource-manager/resource-group-overview.md
 [resource-group-links]: ../resource-group-link-resources.md
 [services-by-region]: https://azure.microsoft.com/en-us/regions/#services
 [ssl-client-node]: http://docs.datastax.com/en/cassandra/2.0/cassandra/security/secureSSLClientToNode_t.html
@@ -184,6 +188,7 @@ Measure the recovery times and verify they meet your business requirements. Test
 [tm-routing]: ../traffic-manager/traffic-manager-routing-methods.md
 [tm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/traffic-manager/v1_0/
 [traffic-manager]: https://azure.microsoft.com/en-us/services/traffic-manager/
+[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [vnet-dns]: ../virtual-network/virtual-networks-manage-dns-in-vnet.md
 [vnet-to-vnet]: ../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [vpn-gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md

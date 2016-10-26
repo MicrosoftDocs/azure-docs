@@ -52,7 +52,11 @@ By default when you create a VM, Azure provides you with an OS disk (/dev/sda) a
 
 ## Linux Swap File
 
-VM images deployed from the Azure Marketplace have a VM Linux Agent integrated with the OS, which allows the VM to interact with various Azure services. Assuming you have deployed a standard image from the Azure Marketplace, you would need to do the following to correctly configure your Linux swap file settings:
+If your Azure VM is from an Ubuntu or CoreOS image, then you can use CustomData to send a cloud-config to cloud-init. If you [uploaded a custom Linux image](virtual-machines-linux-upload-vhd.md) that uses cloud-init, you also configure swap partitions using cloud-init.
+
+On Ubuntu Cloud Images, you must use cloud-init to configure the swap partition. See the following page on the Ubuntu wiki for more details: [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
+
+For images without cloud-init support, VM images deployed from the Azure Marketplace have a VM Linux Agent integrated with the OS. This agent allows the VM to interact with various Azure services. Assuming you have deployed a standard image from the Azure Marketplace, you would need to do the following to correctly configure your Linux swap file settings:
 
 Locate and modify two entries in the **/etc/waagent.conf** file. They control the existence of a dedicated swap file and size of the swap file. The parameters you are looking to modify are `ResourceDisk.EnableSwap=N` and `ResourceDisk.SwapSizeMB=0` 
 

@@ -4,7 +4,7 @@
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""
 	keywords="backup vms, back up virtual machines"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2016"
+	ms.date="10/19/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Plan your VM backup infrastructure in Azure
@@ -30,7 +30,7 @@ After the snapshot is taken, the data is transferred by the Azure Backup service
 When the data transfer is complete, the snapshot is removed and a recovery point is created.
 
 ### Data consistency
-Backing up and restoring business critical data is complicated by the fact that it needs to be backed up while the applications that produce the data are running. To address this, Azure Backup provides application-consistent backups for Microsoft workloads by using VSS to ensure that data is written correctly to storage.
+Backing up and restoring business critical data is complicated by the fact that business critical data must be backed up while the applications that produce the data are running. To address this, Azure Backup provides application-consistent backups for Microsoft workloads by using VSS to ensure that data is written correctly to storage.
 
 >[AZURE.NOTE] For Linux virtual machines, only file-consistent backups are possible, since Linux does not have an equivalent platform to VSS.
 

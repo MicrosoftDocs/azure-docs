@@ -188,6 +188,12 @@ In this Apache Storm tutorial, you used the Storm Starter to learn how to create
 
 If you're already familiar with developing Java-based topologies and want to deploy an existing topology to HDInsight, see [Deploy and manage Apache Storm topologies on HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md).
 
+If you are a .NET developer, you can create C# or hybrid C#/Java topologies using Visual Studio. For more information, see [Develop C# topologies for Apache Storm on HDInsight using Hadoop tools for Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+
+For example topologies that can be used with Storm on HDInsight, see the following examples:
+
+	* [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)
+
 [apachestorm]: https://storm.incubator.apache.org
 [stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html
 [stormstarter]: https://github.com/apache/storm/tree/master/examples/storm-starter

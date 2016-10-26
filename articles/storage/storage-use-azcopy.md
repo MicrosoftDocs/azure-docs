@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/02/2016"
-	ms.author="micurd;tamram"/>
+	ms.author="micurd"/>
 
 # Transfer data with the AzCopy Command-Line Utility
 

@@ -14,7 +14,7 @@
 	ms.devlang="python"
 	ms.topic="article"
 	ms.date="09/20/2016"
-	ms.author="cbrooks;robinsh"/>
+	ms.author="robinsh"/>
 
 # How to use Queue storage from Python
 

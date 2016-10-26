@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2016"
+	ms.date="10/17/2016"
 	ms.author="jeedes"/>
 
 
@@ -111,69 +111,47 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 	 
 	![Configure Single Sign-On][6] 
 
-2. On the **How would you like users to sign on to Wizergos Productivity Software** page, select **Azure AD Single Sign-On**, and then click **Next**.
+2. On the **How would you like users to sign on to Wizergos Productivity Software** page, select **Azure AD Single Sign-On**, and then click **Next**:
     
 	![Configure Single Sign-On](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_03.png)
 
-3. On the **Configure App Settings** dialog page, If you wish to configure the application in **IDP initiated mode**, perform the following steps and click **Next**:
+3. On the **Configure App Settings** dialog page, click **Next**:
 
     ![Configure Single Sign-On](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_04.png)
 
-	a. In the **Identifier** textbox, type: `https://www.wizergos.net`
-
-    b. In the **Reply URL** textbox, type: `https://www.wizergos.net/register_users/saml2/`
-
-	c. Click **Next**
-
-4. If you wish to configure the application in **SP initiated mode** on the **Configure App Settings** dialog page, then click on the **“Show advanced settings (optional)”** and then enter the **Sign On URL** and click **Next**.
+4. On the **Configure single sign-on at Wizergos Productivity Software** page, click **Download certificate**, and then save the file on your computer:
 
 	![Configure Single Sign-On](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_05.png)
 
-	a. In the **Sign On URL** textbox, type: `https://www.wizergos.net`
+5. In a different web browser window, sign-on to your Wizergos Productivity Software tenant as an administrator.
 
-	b. Click **Next**
-
-5. On the **Configure single sign-on at Wizergos Productivity Software** page, perform the following steps and click **Next**:
-
-	![Configure Single Sign-On](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_06.png)
-
-    a. Click **Download certificate**, and then save the file on your computer.
-
-    b. Click **Next**.
-
-6. In a different web browser window, sign-on to your Wizergos Productivity Software tenant as an administrator.
-
-7. From the hamburger menu, select **Admin**.
+6. From the hamburger menu, select **Admin**.
 
 	![Configure Single Sign-On On App side](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_000.png)
 
-8. In Admin page on left hand menu select **AUTHENTICATION** and click on **Azure AD**.
+7. In Admin page on left hand menu select **AUTHENTICATION** and click on **Azure AD**.
 
 	![Configure Single Sign-On On App side](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_002.png)
 
-9. Perform the following steps on **AUTHENTICATION** section.
+8. Perform the following steps on **AUTHENTICATION** section.
 
 	![Configure Single Sign-On On App side](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_003.png)
 
-	a. Open the downloaded certificate from Azure AD and copy the thumbprint of certificate. Then paste it to the textbox of **Certificate ThumbPrint**.
-
-	![Configure Single Sign-On On App side](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_004.png)
+	a. Click **UPLOAD** button to upload the downloaded certificate from Azure AD. 
 
 	b. In the **Issuer URL** textbox put the value of **Issuer URL** from Azure AD application configuration wizard.
 
-	c. In the **Signle Sign-On URL** textbox put the value of **Single Sign-on Service URL** from Azure AD application configuration wizard.
+	c. In the **Single Sign-On URL** textbox put the value of **Single Sign-on Service URL** from Azure AD application configuration wizard.
 
-	d. In the **Signle Sign-Out URL** textbox put the value of **Single Sign-out Service URL** from Azure AD application configuration wizard.
+	d. In the **Single Sign-Out URL** textbox put the value of **Single Sign-out Service URL** from Azure AD application configuration wizard.
 
 	e. Click **Save** button.
 
-	> [AZURE.NOTE] Please note that the certificate fingerprint should not contain any spaces in-between.
-
-7. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+9. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
     
 	![Azure AD Single Sign-On][10]
 
-8. On the **Single sign-on confirmation** page, click **Complete**.  
+10. On the **Single sign-on confirmation** page, click **Complete**.  
     
 	![Azure AD Single Sign-On][11]
 

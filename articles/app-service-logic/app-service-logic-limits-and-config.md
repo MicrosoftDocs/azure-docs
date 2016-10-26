@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2016"
+	ms.date="10/18/2016"
 	ms.author="jehollan"/>
 
 # Logic App limits and configuration
@@ -67,7 +67,7 @@ These are limits for a single logic app run.
 |----|----|----|
 |ForEach items|5,000|You can use the [query action](../connectors/connectors-native-query.md) to filter larger arrays as needed|
 |Until iterations|10,000||
-|SplitOn items|10,000||
+|SplitOn items|5,000||
 |ForEach Parallelism|20|You can set to a sequential foreach by adding `"operationOptions": "Sequential"` to the `foreach` action|
 
 

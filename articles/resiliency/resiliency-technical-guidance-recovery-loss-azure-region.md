@@ -123,13 +123,9 @@ When attempting to run your cloud service in multiple Azure regions, you must co
 
 Azure Service Bus uses a unique namespace that does not span Azure regions. So the first requirement is to setup the necessary service bus namespaces in the alternate region. However, there are also considerations for the durability of the queued messages. There are several strategies for replicating messages across Azure regions. For the details on these replication strategies and other disaster recovery strategies, see [Best practices for insulating applications against Service Bus outages and disasters](../service-bus-messaging/service-bus-outages-disasters.md). For other availability considerations, see [Service Bus (Availability)](./resiliency-technical-guidance-recovery-local-failures.md#other-azure-platform-services).
 
-###Web Apps
+###App Service
 
-To migrate an Azure Web App to a secondary Azure region, you must have a backup of the website available for publishing. If the outage does not involve the entire Azure datacenter, it might be possible to use FTP to download a recent backup of the site content. Then create a new Web App in the alternate region, unless you have previously done this to reserve capacity. Publish the site to the new region, and make any necessary configuration changes. These changes could include database connection strings or other region-specific settings. If necessary, add the site’s SSL certificate and change the DNS CNAME record so that the custom domain name points to the redeployed Azure Web App URL.
-
-###Mobile services
-
-In the secondary Azure region, create a backup mobile service for your application. Restore the Azure SQL Database to the alternate region as well. Then use Azure command-line tools to move the mobile service to the alternate region. Finally, configure the mobile service to use the restored database. For more information on this process, see [Recover your mobile service in the event of a disaster](../mobile-services/mobile-services-disaster-recovery.md). For other availability considerations, see [Mobile Services (Availability)](./resiliency-technical-guidance-recovery-local-failures.md#mobile-services).
+To migrate an Azure App Service application, such as Web Apps or Mobile Apps, to a secondary Azure region, you must have a backup of the website available for publishing. If the outage does not involve the entire Azure datacenter, it might be possible to use FTP to download a recent backup of the site content. Then create a new app in the alternate region, unless you have previously done this to reserve capacity. Publish the site to the new region, and make any necessary configuration changes. These changes could include database connection strings or other region-specific settings. If necessary, add the site’s SSL certificate and change the DNS CNAME record so that the custom domain name points to the redeployed Azure Web App URL.
 
 ###HDInsight
 
@@ -185,20 +181,13 @@ Configuration files provide the quickest way to set up a virtual network in an a
   2. Configure a Service Bus namespace in an alternate region.
   3. Consider custom replication strategies for messages across regions.
 
-##Web Apps checklist
+##App Service checklist
 
-  1. Review the Web Apps section of this document.
-  2. Maintain website backups outside of the primary region.
+  1. Review the App Service section of this document.
+  2. Maintain site backups outside of the primary region.
   3. If outage is partial, attempt to retrieve current site with FTP.
-  4. Plan to deploy website to new or existing website in an alternate region.
+  4. Plan to deploy the site to new or existing site in an alternate region.
   5. Plan configuration changes for both application and DNS CNAME records.
-
-##Mobile services checklist
-
-  1. Review the Mobile services section of this document.
-  2. Create a backup mobile service in an alternate region.
-  3. Manage backups of the associated Azure SQL Database to restore during failover.
-  4. Use Azure command-line tools to move mobile service.
 
 ##HDInsight checklist
 

@@ -4,7 +4,7 @@
    description="An overview of the five most common authentication scenarios for Azure Active Directory (AAD)"
    services="active-directory"
    documentationCenter="dev-center-name"
-   authors="msmbaldwin"
+   authors="bryanla"
    manager="mbaldwin"
    editor=""/>
 

@@ -42,7 +42,7 @@ $pwd = "{service-principal-password}"
 
 # Create a new Azure AD application
 $azureAdApplication = New-AzureRmADApplication `
-                        -DisplayName "My Azure Insights" `
+                        -DisplayName "My Azure Monitor" `
                         -HomePage "https://localhost/azure-monitor" `
                         -IdentifierUris "https://localhost/azure-monitor" `
                         -Password $pwd
@@ -56,7 +56,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Reader `
 
 ```
 
-To query the Azure Monitor API, the client application should use the previously created service principal to authenticate. The following example PowerShell script shows one approach, using the [Active Directory Authentication Library](../active-directory/active-directory-authentication-libraries.md) (ADAL) to help get the JWT authentication token. The JWT token is passed as part of an HTTP Authorization parameter in requests to the Azure Insights API.
+To query the Azure Monitor API, the client application should use the previously created service principal to authenticate. The following example PowerShell script shows one approach, using the [Active Directory Authentication Library](../active-directory/active-directory-authentication-libraries.md) (ADAL) to help get the JWT authentication token. The JWT token is passed as part of an HTTP Authorization parameter in requests to the Azure Monitor REST API.
 
 ```PowerShell
 $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://localhost/azure-monitor"
@@ -204,7 +204,7 @@ To retrieve the resource ID using the Azure CLI, execute the 'azure webapp show'
 ![Alt "Resource ID obtained via PowerShell"](./media\monitoring-rest-api-walkthrough\resourceid_azurecli.png)
 
 ## Retrieve Activity Log Data
-In addition to working with metric definitions and related values, it is also possible to retrieve additional interesting insights related to Azure resources. As an example, it is possible to query [activity log](https://msdn.microsoft.com/library/azure/dn931934.aspx) data. The following sample demonstrates using the Azure Monitor REST API to query activity log data within a specific date range for an Azure subscription: 
+In addition to working with metric definitions and related values, it is also possible to retrieve additional interesting insights related to Azure resources. As an example, it is possible to query [activity log](https://msdn.microsoft.com/library/azure/dn931934.aspx) data. The following sample demonstrates using the Azure Monitor REST API to query activity log data within a specific date range for an Azure subscription:
 
 ```PowerShell
 $apiVersion = "2014-04-01"

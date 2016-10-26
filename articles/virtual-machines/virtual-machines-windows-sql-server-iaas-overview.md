@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="10/11/2016"
+	ms.date="10/19/2016"
 	ms.author="jroth"/>
 
 # Overview of SQL Server on Azure Virtual Machines
@@ -44,19 +44,10 @@ The video covers the following areas:
 
 >[AZURE.NOTE] The video focuses on SQL Server 2016, but Azure provides VM images for many versions of SQL Server, including 2008, 2012, 2014, and 2016. 
 
-## Understand your options
+## Scenarios
 There are many reasons that you might choose to host your data in Azure. If your application is moving to Azure, it improves performance to also move the data. But there are other benefits. You automatically have access to multiple data centers for a global presence and disaster recovery. The data is also highly secured and durable.
 
-SQL Server running on Azure VMs is one option for storing your relational data in Azure. The following table provides a quick summary of the SQL offerings on Azure.
-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| SQL offering | Description |
-|---:|---|---|
-|![SQL Server on Azure Virtual Machines](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-virtual-machine.png)|[SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)|Run SQL Server on Azure Virtual Machines (the focus of this topic). Directly manage the virtual machine and run your database on retail versions of SQL Server. |
-|![SQL Database](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-database.png)|[SQL Database](https://azure.microsoft.com/services/sql-database/)|Use the SQL Database service to access and scale your database without having to manage the underlying infrastructure.|
-|![SQL Data Warehouse](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-data-warehouse.png)|[SQL Data Warehouse](https://azure.microsoft.com/en-us/services/sql-data-warehouse/)|Use Azure SQL Data Warehouse to process large amounts of relational and non-relational data. Provides scalable data warehousing capabilities as a service.|
-|![SQL Server Stretch Database](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-stretch-database.png)|[SQL Server Stretch Database](https://azure.microsoft.com/en-us/services/sql-server-stretch-database/)|Dynamically stretch on-premises transactional data from Microsoft SQL Server 2016 to Azure.|
-
-With these different options, SQL Server running on Azure VMs is good choice for several scenarios. For example, you might want to configure the Azure VM as similarly as possible to an on-premises SQL Server machine. Or you might want to run additional applications and services on the same database server. There are two resources that can help you think through more decision factors:
+SQL Server running on Azure VMs is one option for storing your relational data in Azure. It is good choice for several scenarios. For example, you might want to configure the Azure VM as similarly as possible to an on-premises SQL Server machine. Or you might want to run additional applications and services on the same database server. There are two main resources that can help you think through even more scenarios and considerations:
 
  - [SQL Server on Azure virtual machines](https://azure.microsoft.com/services/virtual-machines/sql-server/) provides an overview of the best scenarios for using SQL Server on Azure VMs. 
  - [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md) provides a detailed comparison between SQL Database and SQL Server running on a VM.

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/22/2016"
-	ms.author="jahogg;robinsh"/>
+	ms.author="jahogg"/>
 
 # Monitor, diagnose, and troubleshoot Microsoft Azure Storage
 

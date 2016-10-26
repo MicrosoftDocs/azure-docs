@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/06/2016"
+   ms.date="10/19/2016"
    ms.author="vturecek"/>
 
 # Reliable Actors state management
@@ -68,7 +68,7 @@ When using the `StatePersistence` attribute, a state provider is automatically s
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <Parameters>
       <Parameter Name="MyActorService_PartitionCount" DefaultValue="10" />
-      <Parameter Name="MyActorService_MinReplicaSetSize" DefaultValue="2" />
+      <Parameter Name="MyActorService_MinReplicaSetSize" DefaultValue="3" />
       <Parameter Name="MyActorService_TargetReplicaSetSize" DefaultValue="3" />
    </Parameters>
    <ServiceManifestImport>
@@ -106,6 +106,11 @@ State can be retrieved using a standard *Get* operation that throws `KeyNotFound
 [StatePersistence(StatePersistence.Persisted)]
 class MyActor : Actor, IMyActor
 {
+    public MyActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
+
     public Task<int> GetCountAsync()
     {
         return this.StateManager.GetStateAsync<int>("MyState");
@@ -118,6 +123,11 @@ State can also be retrieved using a *TryGet* method that does not throw if an en
 ```csharp
 class MyActor : Actor, IMyActor
 {
+    public MyActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
+
     public async Task<int> GetCountAsync()
     {
         ConditionalValue<int> result = await this.StateManager.TryGetStateAsync<int>("MyState");
@@ -141,6 +151,11 @@ State can be inserted using an unconditional *Set*, which is the equivalent of t
 [StatePersistence(StatePersistence.Persisted)]
 class MyActor : Actor, IMyActor
 {
+    public MyActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
+
     public Task SetCountAsync(int value)
     {
         return this.StateManager.SetStateAsync<int>("MyState", value);
@@ -154,6 +169,11 @@ State can be added using an *Add* method, which will throw `InvalidOperationExce
 [StatePersistence(StatePersistence.Persisted)]
 class MyActor : Actor, IMyActor
 {
+    public MyActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
+
     public Task AddCountAsync(int value)
     {
         return this.StateManager.AddStateAsync<int>("MyState", value);
@@ -167,6 +187,11 @@ State can also be added using a *TryAdd* method, which will not throw when tryin
 [StatePersistence(StatePersistence.Persisted)]
 class MyActor : Actor, IMyActor
 {
+    public MyActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
+
     public async Task AddCountAsync(int value)
     {
         bool result = await this.StateManager.TryAddStateAsync<int>("MyState", value);
@@ -200,6 +225,11 @@ State can be removed permanently from an actor's State Manager by calling the *R
 [StatePersistence(StatePersistence.Persisted)]
 class MyActor : Actor, IMyActor
 {
+    public MyActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
+
     public Task RemoveCountAsync()
     {
         return this.StateManager.RemoveStateAsync("MyState");
@@ -213,6 +243,11 @@ State can also be removed permanently by using the *TryRemove* method, which wil
 [StatePersistence(StatePersistence.Persisted)]
 class MyActor : Actor, IMyActor
 {
+    public MyActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
+    
     public async Task RemoveCountAsync()
     {
         bool result = await this.StateManager.TryRemoveStateAsync("MyState");

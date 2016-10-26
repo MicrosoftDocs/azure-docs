@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/07/2016"
-	ms.author="cbrooks;tamram"/>
+	ms.author="cbrooks"/>
 
 # Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services
 

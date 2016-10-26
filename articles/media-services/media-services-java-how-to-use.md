@@ -82,7 +82,7 @@ Substitute your values for the 'clientId' and 'clientSecret' variables. The code
     private static MediaContract mediaService;
 
     // Encoder configuration
-    private static String preferedEncoder = "Media Encoder Standard";
+    private static String preferredEncoder = "Media Encoder Standard";
     private static String encodingPreset = "H264 Multiple Bitrate 720p";
 
     public static void main(String[] args)
@@ -169,7 +169,7 @@ Substitute your values for the 'clientId' and 'clientSecret' variables. The code
 
     // Retrieve the list of Media Processors that match the name
     ListResult<MediaProcessorInfo> mediaProcessors = mediaService
-			                  .list(MediaProcessor.list().set("$filter", String.format("Name eq '%s'", preferedEncoder)));
+			                  .list(MediaProcessor.list().set("$filter", String.format("Name eq '%s'", preferredEncoder)));
 	
 	          // Use the latest version of the Media Processor
 	          MediaProcessorInfo mediaProcessor = null;

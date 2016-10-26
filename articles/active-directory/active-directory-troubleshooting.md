@@ -3,7 +3,7 @@
    description="What to do when Active Directory menu item doesn't appear in the Azure Management Portal."
    services="active-directory"
    documentationCenter="na"
-   authors="msmbaldwin"
+   authors="bryanla"
    manager="mbaldwin"
    editor=""/>
 

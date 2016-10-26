@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/17/2016"
+   ms.date="10/21/2016"
    ms.author="cherylmc" />
 
 # ExpressRoute partners and peering locations
@@ -82,6 +82,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supported | Supported | Amsterdam, Chicago, Dallas, Las Vegas+, London, Seattle, Silicon Valley, Washington DC |
 | **Megaport** | Supported | Supported | Dallas, Hong Kong, Las Vegas, Los Angeles, Melbourne, New York, Seattle, Singapore, Sydney, Washington DC |
 | **MTN** | Supported | Supported | London |
+| **Next Generation Data** | Coming Soon | Coming Soon | Newport(Wales)+ |
 | **NEXTDC** | Supported | Supported | Melbourne, Sydney |
 | **NTT Communications** | Supported | Supported | London, Los Angeles, Osaka, Tokyo |
 | **[Orange]( http://www.orange-business.com/en/products/business-vpn-galerie)** | Supported | Supported | Amsterdam, Hong Kong, London, Silicon Valley, Singapore, Sydney, Washington DC |
@@ -92,7 +93,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **[TeleCity Group]( http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Supported | Supported | Amsterdam, Dublin, London |
 | **Telefonica** | Supported | Supported | Sao Paulo |
 | **Telenor** | Supported | Supported | Amsterdam, London |
-| **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Supported | Coming Soon | Melbourne, Sydney |
+| **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Supported | Supported | Melbourne, Sydney |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Supported | Supported | Amsterdam, Hong Kong, London, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **Vodafone** | Supported | Not Supported | London | 
 | **[Zayo Group]( http://www.zayo.com/solutions/industries/connect-to-cloud-data-centers/cloud-connectivity/microsoft-expressroute/)** | Supported | Supported | Chicago, Los Angeles, New York, Silicon Valley, Toronto, Washington DC |

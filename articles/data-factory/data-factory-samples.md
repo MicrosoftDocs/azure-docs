@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/08/2016" 
+	ms.date="10/18/2016" 
 	ms.author="shlo"/>
 
 # Azure Data Factory - Samples
@@ -37,6 +37,14 @@ The [GitHub Azure-DataFactory repository](https://github.com/azure/azure-datafac
 | [JSON Conversion Tool](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSONConversionTool) | This tool allows you to convert JSONs from version prior to 2015-07-01-preview to latest or 2015-07-01-preview (default). |  
 | [U-SQL sample input file](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/U-SQL%20Sample%20Input%20File) |  This file is a sample file used by an U-SQL activity. | 
 
+## Azure Resource Manager templates
+You can find the following Azure Resource Manager templates for Data Factory on Github. 
+
+| Template | Description |
+| -------- | ----------- | 
+| [Copy from Azure Blob Storage to Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) | Deploying this template creates an Azure data factory with a pipeline that copies data from the specified Azure blob storage to the Azure SQL database |    
+| [Copy from Salesforce to Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) | Deploying this template creates an Azure data factory with a pipeline that copies data from the specified Salesforce account to the Azure blob storage. |    
+| [Transform data by running Hive script on an Azure HDInsight cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation) | Deploying this template creates an Azure data factory with a pipeline that transforms data by running the sample Hive script on an Azure HDInsight Hadoop cluster. | 
 
 
 ## Samples in Azure portal

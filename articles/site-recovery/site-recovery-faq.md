@@ -164,6 +164,12 @@ This is supported when you're [replicating VMware VMs and physical servers](site
 
 Dynamic disks are supported when replicating Hyper-V virtual machines. They are also supported when replicating VMware VMs and physical machines to Azure. The operating system disk must be a basic disk.
 
+### Can I add a new machine to an existing replication group?
+
+Adding new machines to existing replication groups is supported. To do so, select the replication group (from 'Replicated items' blade) and right click/select context menu on the replication group and select the appropriate option.
+
+![Add to replication group](./media/site-recovery-faq/add-server-replication-group.png)
+
 ### Can I throttle bandwidth allotted for Hyper-V replication traffic?
 
 Yes. You can read more about throttling bandwidth in the deployment articles:

@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/18/2016"
-	ms.author="minet;genli;robinsh"/>
+	ms.author="genli"/>
 
 # Troubleshoot deleting Azure storage accounts, containers, or VHDs in a classic deployment
 

@@ -3,7 +3,7 @@
    description="An overview and quickstart guide for the Graph API which allows programmatic access to Azure AD through REST API endpoints."
    services="active-directory"
    documentationCenter=""
-   authors="msmbaldwin"
+   authors="PatAltimore"
    manager="mbaldwin"
    editor="mbaldwin" />
 <tags

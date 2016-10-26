@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="09/05/2016" 
+	ms.date="10/24/2016" 
 	ms.author="juliako"/>
 
 
@@ -124,7 +124,8 @@ This section shows how to use the **Quick Create** option to create a pass-throu
 
 For more details about pass-through channels, see [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md).
 
-1. In the **Settings** window, click **Live streaming**. 
+1. In the [Azure portal](https://portal.azure.com/), select your Azure Media Services account.
+2. In the **Settings** window, click **Live streaming**. 
 
 	![Getting started](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
 	

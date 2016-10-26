@@ -64,13 +64,8 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 
 ## Next steps
 
-
-[Configure failover routing method](traffic-manager-configure-failover-routing-method.md)
-
-[Configure round robin routing method](traffic-manager-configure-round-robin-routing-method.md)
-
-[Configure performance routing method](traffic-manager-configure-performance-routing-method.md)
-
-[Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)
-
-[Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
+- [Configure failover routing method](traffic-manager-configure-failover-routing-method.md)
+- [Configure round robin routing method](traffic-manager-configure-round-robin-routing-method.md)
+- [Configure performance routing method](traffic-manager-configure-performance-routing-method.md)
+- [Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)
+- [Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/p/?LinkID=313584)

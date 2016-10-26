@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/16/2016"
-   ms.author="adegeo"/>
+   ms.author="timlt"/>
 
 # DC/OS Agent Pools for Azure Container Service
 

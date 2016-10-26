@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/06/2016"
+   ms.date="10/19/2016"
    ms.author="vturecek"/>
  
 # Guide to converting Web and Worker Roles to Service Fabric stateless services
@@ -41,7 +41,7 @@ Similar to Worker Role, a Web Role also represents a stateless workload, and so 
 **Application ** | **Supported** | **Migration path**
 --- | --- | ---
 ASP.NET Web Forms | No | Convert to ASP.NET Core 1 MVC
-ASP.NET MVC | With Migration | Upgrade to ASP.NET Core 1
+ASP.NET MVC | With Migration | Upgrade to ASP.NET Core 1 MVC
 ASP.NET Web API | With Migration | Use self-hosted server or ASP.NET Core 1
 ASP.NET Core 1 | Yes | N/A
 

@@ -6,7 +6,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
-	manager="msmbaldwin"
+	manager="mbaldwin"
 	editor=""/>
 
 <tags

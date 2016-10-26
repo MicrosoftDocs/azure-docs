@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Install PowerShell and connect | Microsoft Azure"
+	pageTitle="Connect to Azure Stack with PowerShell | Microsoft Azure"
 	description="Learn how to manage Azure Stack with PowerShell"
 	services="azure-stack"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/26/2016"
+	ms.date="10/19/2016"
 	ms.author="helaw"/>
 
-# Install PowerShell and connect
+# Install PowerShell and connect to Azure Stack
 In this guide, we walk through the steps for connecting to Azure Stack with PowerShell. Once completed, these steps can also help you manage and deploy resources.
 
 ## Install Azure Stack PowerShell cmdlets
@@ -38,7 +38,7 @@ In this guide, we walk through the steps for connecting to Azure Stack with Powe
 	    Get-Command -Module AzureRM.AzureStackAdmin
 
 ## Connect to Azure Stack
-A module is available for download which handles configuring the PowerShell connection to Azure Stack for you.  Visit [Azure Stack Tools](http://aka.ms/ConnectToAzureStackPS) for the module and additional steps. 
+A module is available for download that handles configuring the PowerShell connection to Azure Stack for you.  Visit [Azure Stack Tools](http://aka.ms/ConnectToAzureStackPS) for the module and additional steps. 
 
 ## Retrieve a list of subscriptions
 In this section, you verify PowerShell cmdlets are running against Azure Stack by retrieving and selecting a subscription for use.
