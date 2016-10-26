@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Simulate a device with the Gateway SDK | Microsoft Azure"
-	description="Azure IoT Hub Gateway SDK walkthrough using Linux to illustrate sending telemetry from a simulated device using the Azure IoT Hub Gateway SDK."
+	pageTitle="Simulate a device with the IoT Gateway SDK | Microsoft Azure"
+	description="Azure IoT Gateway SDK walkthrough using Linux to illustrate sending telemetry from a simulated device using the Azure IoT Gateway SDK."
 	services="iot-hub"
 	documentationCenter=""
 	authors="chipalost"
@@ -17,7 +17,7 @@
      ms.author="andbuc"/>
 
 
-# IoT Gateway SDK (beta) – send device-to-cloud messages with a simulated device using Linux
+# Azure IoT Gateway SDK (beta) – send device-to-cloud messages with a simulated device using Linux
 
 [AZURE.INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
@@ -129,9 +129,9 @@ To run the sample:
 
 ## Next steps
 
-If you want to gain a more advanced understanding of the Gateway SDK and experiment with some code examples, visit the following developer tutorials and resources:
+If you want to gain a more advanced understanding of the IoT Gateway SDK and experiment with some code examples, visit the following developer tutorials and resources:
 
-- [Send device-to-cloud messages from a real device with the Gateway SDK][lnk-physical-device]
+- [Send device-to-cloud messages from a real device with the IoT Gateway SDK][lnk-physical-device]
 - [Azure IoT Gateway SDK][lnk-gateway-sdk]
 
 To further explore the capabilities of IoT Hub, see:

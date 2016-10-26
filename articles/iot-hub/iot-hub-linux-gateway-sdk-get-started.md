@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Get started with the IoT Hub Gateway SDK | Microsoft Azure"
-	description="This Azure IoT Hub Gateway SDK walkthrough uses Linux to illustrate key concepts you should understand when you use the Azure IoT Hub Gateway SDK."
+	description="This Azure IoT Gateway SDK walkthrough uses Linux to illustrate key concepts you should understand when you use the Azure IoT Gateway SDK."
 	services="iot-hub"
 	documentationCenter=""
 	authors="chipalost"
@@ -17,7 +17,7 @@
      ms.author="andbuc"/>
 
 
-# IoT Gateway SDK (beta) - Get started using Linux
+# Azure IoT Gateway SDK (beta) - Get started using Linux
 
 [AZURE.INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 

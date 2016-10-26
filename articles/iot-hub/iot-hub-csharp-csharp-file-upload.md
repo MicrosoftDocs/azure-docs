@@ -157,7 +157,7 @@ In this tutorial, you learned how to leverage the file upload capabilities of Io
 
 To further explore the capabilities of IoT Hub, see:
 
-- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
 <!-- Images. -->
 

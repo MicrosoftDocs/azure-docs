@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Use a real device with the Gateway SDK | Microsoft Azure"
-	description="Azure IoT Hub Gateway SDK walkthrough using a Texas Instruments SensorTag to send data to IoT Hub through a gateway running on an Intel Edison Compute Module"
+	pageTitle="Use a real device with the IoT Gateway SDK | Microsoft Azure"
+	description="Azure IoT Gateway SDK walkthrough using a Texas Instruments SensorTag device to send data to IoT Hub through a gateway running on an Intel Edison Compute Module"
 	services="iot-hub"
 	documentationCenter=""
 	authors="chipalost"
@@ -17,9 +17,9 @@
      ms.author="andbuc"/>
 
 
-# IoT Gateway SDK (beta) – send device-to-cloud messages with a real device using Linux
+# Azure IoT Gateway SDK (beta) – send device-to-cloud messages with a real device using Linux
 
-This walkthrough of the [Bluetooth low energy sample][lnk-ble-samplecode] shows you how to use the [Microsoft Azure IoT Gateway SDK][lnk-sdk] to forward device-to-cloud telemetry to IoT Hub from a physical device and how to route commands from IoT Hub to a physical device.
+This walkthrough of the [Bluetooth low energy sample][lnk-ble-samplecode] shows you how to use the [Azure IoT Gateway SDK][lnk-sdk] to forward device-to-cloud telemetry to IoT Hub from a physical device and how to route commands from IoT Hub to a physical device.
 
 This walkthrough covers:
 
@@ -172,24 +172,24 @@ You're now ready to run the BLE Gateway sample on your Edison device.
 To run the BLE sample on your Edison, you need to complete three tasks:
 
 - Configure two sample devices in your IoT Hub.
-- Build the Gateway SDK on your Edison device.
+- Build the IoT Gateway SDK on your Edison device.
 - Configure and run the BLE sample on your Edison device.
 
-At the time of writing, the Gateway SDK only supports gateways that use BLE modules on Linux.
+At the time of writing, the IoT Gateway SDK only supports gateways that use BLE modules on Linux.
 
 ### Configure two sample devices in your IoT Hub
 
 - [Create an IoT hub][lnk-create-hub] in your Azure subscription, you will need the name of your hub to complete this walkthrough. If you don't already have an Azure subscription, you can get a [free account][lnk-free-trial].
 - Add one device called **SensorTag_01** to your IoT hub and make a note of its id and device key. You can use the [Device Explorer or iothub-explorer][lnk-explorer-tools] tools to add this device to the IoT hub you created in the previous step and to retrieve its key. You will map this device to the SensorTag device when you configure the gateway.
 
-### Build the Gateway SDK on your Edison device
+### Build the IoT Gateway SDK on your Edison device
 
-The version of **git** on the Edsion does not support submodules. To download the full source for the Gateway SDK to the Edison you have two options:
+The version of **git** on the Edsion does not support submodules. To download the full source for the IoT Gateway SDK to the Edison you have two options:
 
-- Option #1: Clone the [Microsoft Azure IoT Gateway SDK][lnk-sdk] repository on your Edison and then manually clone the repository for each submodule.
-- Option #2: Clone the [Microsoft Azure IoT Gateway SDK][lnk-sdk] repository on a desktop device where **git** supports submodules and then copy the complete repository with submodules onto your Edison.
+- Option #1: Clone the [Azure IoT Gateway SDK][lnk-sdk] repository on your Edison and then manually clone the repository for each submodule.
+- Option #2: Clone the [Azure IoT Gateway SDK][lnk-sdk] repository on a desktop device where **git** supports submodules and then copy the complete repository with submodules onto your Edison.
 
-If you choose option #2, use the following **git** commands to clone the Gateway SDK and all its submodules:
+If you choose option #2, use the following **git** commands to clone the IoT Gateway SDK and all its submodules:
 
 ```
 git clone --recursive https://github.com/Azure/azure-iot-gateway-sdk.git 
@@ -202,7 +202,7 @@ You should then zip the entire local repository into a single archive file befor
 pscp .\gatewaysdk.zip root@192.168.0.45:/home/root
 ```
 
-When you have a complete copy of the Gateway SDK repository on your Edison, you can build it using the following command from the folder that contains the SDK:
+When you have a complete copy of the IoT Gateway SDK repository on your Edison, you can build it using the following command from the folder that contains the SDK:
 
 ```
 ./tools/build.sh
@@ -210,9 +210,9 @@ When you have a complete copy of the Gateway SDK repository on your Edison, you 
 
 ### Configure and run the BLE sample on your Edison device
 
-To bootstrap and run the sample, you need to configure each module that participates in the gateway. This configuration is provided in a JSON file and you need to configure all five participating modules. There is a sample JSON file provided in the repository called **gateway_sample.json** which you can use as the starting point for building your own configuration file. This file is in the **samples/ble_gateway_hl/src** folder in local copy of the Gateway SDK repository.
+To bootstrap and run the sample, you need to configure each module that participates in the gateway. This configuration is provided in a JSON file and you need to configure all five participating modules. There is a sample JSON file provided in the repository called **gateway_sample.json** which you can use as the starting point for building your own configuration file. This file is in the **samples/ble_gateway_hl/src** folder in local copy of the IoT Gateway SDK repository.
 
-The following sections describe how to edit this configuration file for the BLE sample and assume that the gateway SDK repository is in the **/home/root/azure-iot-gateway-sdk/** folder on your Edison device. If the repository is elsewhere, you should adjust the paths accordingly:
+The following sections describe how to edit this configuration file for the BLE sample and assume that the IoT Gateway SDK repository is in the **/home/root/azure-iot-gateway-sdk/** folder on your Edison device. If the repository is elsewhere, you should adjust the paths accordingly:
 
 #### Logger configuration
 
@@ -355,7 +355,7 @@ To run the sample you run the **ble_gateway_hl** binary passing the path to the 
 ./build/samples/ble_gateway_hl/ble_gateway_hl ./samples/ble_gateway_hl/src/gateway_sample.json
 ```
 
-You may need to press the small button on the SensorTag to make it discoverable before you run the sample.
+You may need to press the small button on the SensorTag device to make it discoverable before you run the sample.
 
 When you run the sample, you can use the [Device Explorer or iothub-explorer][lnk-explorer-tools] tool to monitor the messages the gateway forwards from the SensorTag device.
 
@@ -419,7 +419,7 @@ The default behavior for a device using the HTTP protocol to connect to IoT Hub 
 
 ## Next steps
 
-If you want to gain a more advanced understanding of the Gateway SDK and experiment with some code examples, visit the following developer tutorials and resources:
+If you want to gain a more advanced understanding of the IoT Gateway SDK and experiment with some code examples, visit the following developer tutorials and resources:
 
 - [Azure IoT Gateway SDK][lnk-sdk]
 

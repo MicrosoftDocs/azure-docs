@@ -63,12 +63,12 @@ The following is a list of links to online API reference documentation for Azure
 
 - [Internet of Things (IoT) .NET][lnk-dotnet-ref]
 - [IoT Hub REST][lnk-rest-ref]
-- [Microsoft Azure IoT device SDK for C][lnk-c-ref]
-- [Microsoft Azure IoT device SDK for Java][lnk-java-ref]
-- [Microsoft Azure IoT service SDK for Java][lnk-java-service-ref]
-- [Microsoft Azure IoT device SDK for Node.js][lnk-node-ref]
-- [Microsoft Azure IoT service SDK for Node.js][lnk-node-service-ref]
-- [Microsoft Azure IoT gateway SDK][lnk-gateway-ref]
+- [Azure IoT device SDK for C][lnk-c-ref]
+- [Azure IoT device SDK for Java][lnk-java-ref]
+- [Azure IoT service SDK for Java][lnk-java-service-ref]
+- [Azure IoT device SDK for Node.js][lnk-node-ref]
+- [Azure IoT service SDK for Node.js][lnk-node-service-ref]
+- [Azure IoT gateway SDK][lnk-gateway-ref]
 
 ## Next steps
 

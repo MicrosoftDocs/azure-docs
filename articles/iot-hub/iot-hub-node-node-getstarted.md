@@ -284,7 +284,7 @@ To continue getting started with IoT Hub and to explore other IoT scenarios, see
 
 - [Connecting your device][lnk-connect-device]
 - [Getting started with device management][lnk-device-management]
-- [Getting started with the Gateway SDK][lnk-gateway-SDK]
+- [Getting started with the IoT Gateway SDK][lnk-gateway-SDK]
 
 To learn how to extend your IoT solution and process device-to-cloud messages at scale, see the [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.
 

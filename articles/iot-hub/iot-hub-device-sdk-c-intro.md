@@ -471,7 +471,7 @@ To learn more about developing for IoT Hub, see the [IoT Hub SDKs][lnk-sdks].
 
 To further explore the capabilities of IoT Hub, see:
 
-- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
 
 [lnk-file upload]: iot-hub-csharp-csharp-file-upload.md
