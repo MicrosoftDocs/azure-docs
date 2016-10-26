@@ -432,7 +432,7 @@ The following procedure shows you how to create the domain-joined HDInsight clus
     - **Cluster Name**: Enter a name for the Hadoop cluster that you will create. For example contosohdicluster.
 	- **Cluster Type**: Select a cluster type.  The default value is **hadoop**.
 	- **Location**: Select a location for the cluster.  The default storage account uses the same location.
-	- **Cluster Worker Node Acount**: Select the number of worker nodes.
+	- **Cluster Worker Node count**: Select the number of worker nodes.
     - **Cluster login name and password**: The default login name is **admin**.
     - **SSH username and password**: The default username is **sshuser**.  You can rename it. 
 	- **Virtual Network Id**: /subscriptions/&lt;SubscriptionID>/resourceGroups/&lt;ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/&lt;VNetName>
