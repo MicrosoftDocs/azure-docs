@@ -1,9 +1,9 @@
 <properties
 	pageTitle="What is Azure relay? | Microsoft Azure"
-	description="Overview of Azure Relay."
+	description="Overview of Azure Relay"
 	services="service-bus"
 	documentationCenter=".net"
-	authors="jotaub;banisadr"
+	authors="babanisa"
 	manager="timlt"
 	editor="" />
 
@@ -14,7 +14,7 @@
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
 	ms.date="11/01/2016"
-	ms.author="jtaubensee;babanisa" />
+	ms.author="banisadr" />
 
 # What is Azure Relay?
 
