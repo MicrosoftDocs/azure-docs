@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="douglasl"/>
+	ms.date="10/26/2016"
+	ms.author="anvang"/>
 
 # Limitations for Stretch Database
 
