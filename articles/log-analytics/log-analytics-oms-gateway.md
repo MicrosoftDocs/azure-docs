@@ -35,7 +35,7 @@ Here's a diagram that shows data flow from direct agents to OMS.
 
 Here's a diagram that shows data flow from Operations Manager to OMS.
 
-![SCOM diagram](./media/log-analytics-oms-gateway/scom-mgt-server.png)
+![Operations Manager diagram](./media/log-analytics-oms-gateway/scom-mgt-server.png)
 
 ## Install the OMS Gateway
 
@@ -44,7 +44,7 @@ Installing this Gateway replaces previous versions of the Gateway that you have 
 Prerequisites: .Net Framework 4.5, Windows Server 2012 R2 SP1 and above
 
 1. Download the latest version of the OMS Gateway from the [Microsoft Download Center](http://download.microsoft.com/download/2/5/C/25CF992A-0347-4765-BD7D-D45D5B27F92C/OMS%20Gateway.msi)
-2. Double-click **OMS Gateway.msi** to start the installation.
+2. To start the installation, double-click **OMS Gateway.msi** .
 3. On the Welcome page, **Next**.  
     ![Gateway Setup wizard](./media/log-analytics-oms-gateway/gateway-wizard01.png)
 4. On the License Agreement page, select **I accept the terms in the License Agreement** to agree to the EULA and then **Next**.
@@ -62,13 +62,13 @@ Prerequisites: .Net Framework 4.5, Windows Server 2012 R2 SP1 and above
 
 ## Install an agent on devices
 
-If needed, see [Connect Windows computers to Log Analytics](..log-analytics-windows-agents.md) for information about how to install directly-connected agents. The article describes how you can install the agent using a Setup wizard or by using the command line.
+If needed, see [Connect Windows computers to Log Analytics](..log-analytics-windows-agents.md) for information about how to install directly connected agents. The article describes how you can install the agent using a Setup wizard or by using the command line.
 
 ## Configure OMS agents
 
 See [Configure proxy and firewall settings with the Microsoft Monitoring Agent](..log-analytics-proxy-firewall.md) for information about configuring an agent to use a proxy server, which is this case is the gateway.
 
-Operations Manager agents send some data such as Operations Manager alerts, configuration assessment, instance space, and capacity data, through the Management Server. Other high-volume data, such as IIS logs, performance, and security is sent directly to the OMS Gateway. See [Add Log Analytics solutions from the Solutions Gallery](..log-analytics-add-solutions.md) for a complete list of data that is sent through each channel.
+Operations Manager agents send some data such as Operations Manager alerts, configuration assessment, instance space, and capacity data, through the Management Server. Other high-volume data, such as IIS logs, performance, and security are sent directly to the OMS Gateway. See [Add Log Analytics solutions from the Solutions Gallery](..log-analytics-add-solutions.md) for a complete list of data that is sent through each channel.
 
 >[AZURE.NOTE]
 If you plan to use the Gateway with network load balancing, see [Optionally configure network load balancing](#optionally-configure-network-load-balancing).
@@ -77,17 +77,17 @@ If you plan to use the Gateway with network load balancing, see [Optionally conf
 
 You configure Operations Manager to add the gateway to act as a proxy server. When you update the proxy configuration, the proxy configuration is automatically applied to all the agents reporting to Operations Manager.
 
-To use the Gateway to support Operations Manager, you need to have the following:
+To use the Gateway to support Operations Manager, you need to have:
 
 - Microsoft Monitoring Agent (agent version – **8.0.10900.0** and later) installed on the Gateway server and configured for the OMS workspaces with which you want to communicate.
 - The gateway must have Internet connectivity or be connected to a proxy server that does.
 
 ### To configure SCOM for the gateway
 
-1. Open the Operations Manager console and under **Operations Management Suite** , click **Connection** and then click **Configure Proxy Server** :  
-    ![SCOM – Configure Proxy Server](./media/log-analytics-oms-gateway/scom01.png)
+1. Open the Operations Manager console and under **Operations Management Suite**, click **Connection** and then click **Configure Proxy Server**:  
+    ![Operations Manager – Configure Proxy Server](./media/log-analytics-oms-gateway/scom01.png)
 2. Select **Use a proxy server to access the Operations Management Suite** and then type the IP address of the OMS Gateway server. Ensure that you start with the `http://` prefix:  
-    ![SCOM – proxy server address](./media/log-analytics-oms-gateway/scom02.png)
+    ![Operations Manager – proxy server address](./media/log-analytics-oms-gateway/scom02.png)
 3. Click **Finish**. Your Operations Manager server is connected to your OMS workspace.
 
 ## Optionally configure network load balancing
@@ -114,11 +114,11 @@ In the following steps, you need to know the Azure region where the Automation a
 2. Select the Azure Automation service.
 3. Select the appropriate Azure Automation account.
 4. View its region under **Location**.  
-    ![Azure Portal – Automation account location](./media/log-analytics-oms-gateway/location.png)
+    ![Azure portal – Automation account location](./media/log-analytics-oms-gateway/location.png)
 
 Use the following tables to identify the URL for each location:
 
-**Job runtime dataservice URLs**
+**Job runtime data service URLs**
 
 | **location** | **URL** |
 | --- | --- |
@@ -170,11 +170,11 @@ Cmdlets help you to carry certain tasks to update the OMS Gateway's configuratio
 
 1. Install the OMS Gateway (MSI).
 2. Open the PowerShell window.
-3. To import the module, type this command : `Import-Module OMSGateway`
+3. To import the module, type this command: `Import-Module OMSGateway`
 4. If no error occurred in the previous step, the module was successfully imported, and the cmdlets can be used. Type `Get-Module OMSGateway`
 5. After you make changes by using the cmdlets, ensure that you restart the Gateway service.
 
-If you get an error in step 3, the module wasn't imported. The error is usually caused because PowerShell was unable to find the module. You can find it in the Gateway's installation path: C:\Program File\Microsoft OMS Gateway\PowerShell.
+If you get an error in step 3, the module wasn't imported. The error might occur when PowerShell is unable to find the module. You can find it in the Gateway's installation path: C:\Program File\Microsoft OMS Gateway\PowerShell.
 
 | **Cmdlet** | **Parameters** | **Description** | **Examples** |
 | --- | --- | --- | --- |
@@ -211,7 +211,7 @@ The following table shows the event IDs and descriptions for OMS Gateway Log eve
 | 103 | Received an HTTP CONNECT command from client |
 | 104 | Not an HTTP CONNECT command |
 | 105 | Destination server is not in allowed list or the destination port is not secure port (443) <br> <br> Ensure that the MMA agent on your Gateway server and the agents communicating with the Gateway are connected to the same Log Analytics workspace.|
-| 105 | ERROR TcpConnection – Invalid Client certificate: CN=Gateway <br><br> Ensure the following: <br>	<br> 1. You are using a Gateway with version number 1.0.395.0 or greater. <br> 2. The MMA agent on your Gateway server and the agents communicating with the Gateway are connected to the same Log Analytics workspace. |
+| 105 | ERROR TcpConnection – Invalid Client certificate: CN=Gateway <br><br> Ensure that: <br>	<br> 1. You are using a Gateway with version number 1.0.395.0 or greater. <br> 2. The MMA agent on your Gateway server and the agents communicating with the Gateway are connected to the same Log Analytics workspace. |
 | 106 | Any reason that the TLS session is suspicious and rejected |
 | 107 | The TLS session has been verified |
 
