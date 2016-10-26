@@ -47,7 +47,7 @@ Here are some key features and capabilities of App Service:
 
 ## App types in App Service
 
-App Service offers several *app types*, each of which is  intended to host a specific kind of workload:
+App Service offers several *app types*, each of which is intended to host a specific kind of workload:
 
 - [**Web Apps**](../app-service-web/app-service-web-overview.md) - For hosting websites and web applications.
 
@@ -57,7 +57,7 @@ App Service offers several *app types*, each of which is  intended to host a spe
 
 - [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - For automating business processes and integrating systems and data across clouds without writing code.
 
-The word *app* here refers to the hosting resources dedicated to running a workload. Taking “web app” as an example, you’re probably accustomed to thinking of a web app as both the compute resources and application code that together deliver functionality to a browser. But in App Service a *web app* is the compute resources that Azure provides for hosting your application code. If your application is composed of a web front-end and a RESTful API back end, you could deploy both to a web app or you could deploy your front-end code to a web app and your back end code to an API app. Your application may be composed of multiple App Service apps of different kinds.
+The word *app* here refers to the hosting resources dedicated to running a workload. Taking “web app” as an example, you’re probably accustomed to thinking of a web app as both the compute resources and application code that together deliver functionality to a browser. But in App Service a *web app* is the compute resources that Azure provides for hosting your application code. If your application is composed of a web front end and a RESTful API back end, you could deploy both to a web app or you could deploy your front-end code to a web app and your back-end code to an API app. Your application may be composed of multiple App Service apps of different kinds.
 
 ## App Service Plans
 
