@@ -52,11 +52,11 @@ As a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) customer,
 
 5.	Depending on the offer you’re switching to, you may see a note about the impact of switching. Go through this list carefully and follow the instructions before you proceed.
 
-	![Review the things to note before switching](./media/billing-how-to-switch-azure-offer/thingstonote.png)
+	![Review the notes](./media/billing-how-to-switch-azure-offer/thingstonote.png)
 
 6.	You can rename your subscription. By default, we set it to the new offer name. Click **Switch Offer** to complete the process.
 
-	![Click the green button to complete the switch](./media/billing-how-to-switch-azure-offer/confirmpage.png)
+	![Click the green button](./media/billing-how-to-switch-azure-offer/confirmpage.png)
 
 7.	Success! Your subscription is now switched to the new offer.
 
@@ -92,7 +92,7 @@ On the day you switch, an invoice is generated for all outstanding charges. Then
 
 ## Can I migrate from Pay-As-You-Go to [Cloud Solution Provider](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) or [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
 
-We currently don't support offer switch to CSP or EA in the Accounts Center. To move your existing subscription into EA, have your enrollment admin add your account into the EA. Then, you receive an invitation email. When you follow the instructions to accept the invitation, your subscriptions are automatically moved under the Enterprise Agreement. To migrate to CSP, please see [Azure Subscription Migration to CSP](https://blogs.technet.microsoft.com/hybridcloudbp/2016/08/26/azure-subscription-migration-to-csp/).
+We currently don't support offer switch to CSP or EA in the Accounts Center. To move your existing subscription into EA, have your enrollment admin add your account into the EA. Then, you receive an invitation email. When you follow the instructions to accept the invitation, your subscriptions are automatically moved under the Enterprise Agreement. To migrate to CSP, see [Azure Subscription Migration to CSP](https://blogs.technet.microsoft.com/hybridcloudbp/2016/08/26/azure-subscription-migration-to-csp/).
 
 ## Next steps
 

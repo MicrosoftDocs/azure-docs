@@ -24,12 +24,12 @@ You can upgrade your [Free Trial](https://azure.microsoft.com/free/) or [Microso
 
 1. Sign in to the [Azure Account Portal](https://account.windowsazure.com/subscriptions) and navigate to the **subscriptions** tab.
 
-2. In the subscription status section, select the **Click here to upgrade now** banner.
+2. In the subscription status section, select the **Upgrade now** banner.
 
     ![Notice to upgrade from Free Trial to Pay-As-You-Go](./media/billing-upgrade-azure-subscription/billpage.png)
 
-3. Follow instructions to finish the upgrade.
+3. Confirm your upgrade.
 
     ![Confirmation for upgrading your subscription](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
-When you upgrade Free Trial Pay-As-You-Go , any benefits left over from your Free Trial such as the 30-day limit or the $200 credit to use on Azure services continues until one of them is exhausted. The subscription happens afterwards.
+When you upgrade Free Trial Pay-As-You-Go, any benefits left over from your Free Trial like the 30-day limit or $200 credit would continue until one of them is exhausted. The subscription happens afterwards.
