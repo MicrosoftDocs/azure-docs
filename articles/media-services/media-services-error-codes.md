@@ -25,7 +25,7 @@ When using Microsoft Azure Media Services, you may receive HTTP error codes from
 The request contains invalid information and is rejected due to one of the following reasons:
 
 - An unsupported API version is specified. For the most current version, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
-- The API version of Media Services is not specified. For information on how to specify the API version, see [Connecting to Media Services with the Media Services REST API](media-services-rest-connect_programmatically.md). 
+- The API version of Media Services is not specified. For information on how to specify the API version, see [Connecting to Media Services with the Media Services REST API](media-services-rest-connect-programmatically.md). 
    
 	>[AZURE.NOTE] If you are using the .NET or Java SDKs to connect to Media Services, the API version is specified for you whenever you try and perform some action against Media Services.
 - An undefined property has been specified. The property name is in the error message. Only those properties that are members of a given entity can be specified. See [Azure Media Services REST API Reference](http://msdn.microsoft.com/library/azure/hh973617.aspx) for a list of entities and their properties.
