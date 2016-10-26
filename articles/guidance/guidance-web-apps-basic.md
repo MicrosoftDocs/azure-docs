@@ -52,7 +52,15 @@ The architecture has the following components:
 
 ## Recommendations
 
+This section provides a list of recommendations based on the essential components required to implement the basic architecture. These recommendations cover:
 
+- Azure App service plan
+
+- Azure SQL Database 
+
+- Regions
+
+You might have additional or differing requirements from those described here. You can use the items in this section as a starting point for considering how to customize the architecture for your own system.
 
 ### App Service plan
 
