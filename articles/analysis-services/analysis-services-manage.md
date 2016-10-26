@@ -45,7 +45,7 @@ Connecting to your server in Azure is just like connecting to a server instance 
 
     **Active Directory Password Authentication** to use an organizational account. For example, when connecting from a non-domain joined computer.
 
-    Note: If you don't see Active Directory Authentication, you may need to [enable Azure Active Directory authentication](#Enable-Azure-Active-Directory-authentication) in SSMS.
+    Note: If you don't see Active Directory Authentication, you may need to [enable Azure Active Directory authentication](#enable-azure-active-directory-authentication) in SSMS.
 
     ![Connect in SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
