@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2016"
+   ms.date="10/25/2016"
    ms.author="gwallace"/>
 
 # URL Path Based Routing overview

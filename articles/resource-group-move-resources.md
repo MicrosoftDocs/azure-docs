@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2016" 
+	ms.date="10/21/2016" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
@@ -82,7 +82,7 @@ For now, the services that enable moving to both a new resource group and subscr
 - Storage
 - Storage (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 - SQL Database server - The database and server must reside in the same resource group. When you move a SQL server, all of its databases are also moved.
-- Virtual Machines (however, does not support move to a new subscription when its certificates are stored in a Key Vault)
+- Virtual Machines - however, does not support move to a new subscription when its certificates are stored in a Key Vault
 - Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 - Virtual Networks
 
@@ -94,6 +94,7 @@ The services that currently do not enable moving a resource are:
 - Application Insights
 - Express Route
 - Recovery Services vault - also do not move the Compute, Network, and Storage resources associated with the Recovery Services vault, see [Recovery Services limitations](#recovery-services-limitations).
+- Virtual Machines with certificate stored in Key Vault
 - Virtual Machines Scale Sets
 - Virtual Networks (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 - VPN Gateway
@@ -132,13 +133,11 @@ To accomplish this move, perform two separate move operations in the following s
 1. Move the **web-a** to **plan-group**
 2. Move **web-a** and **plan-a** to **combined-group**.
 
-Currently, if your web app includes an SSL certificate that you purchased externally and uploaded to the app, you must delete the certificate before moving the web app. For example, you can perform the following steps:
+You can move an App Service Certificate to a new resource group or subscription without any issues. However, if your web app includes an SSL certificate that you purchased externally and uploaded to the app, you must delete the certificate before moving the web app. For example, you can perform the following steps:
 
 1. Delete the uploaded certificate from the web app
 2. Move the web app
 3. Upload the certificate to the web app
-
-If your web app uses an App Service Certificate, you can move the web app and certificate to a new resource group without issue. To move an App Service Certificate to a new subscription, contact Azure support.
 
 ## Recovery Services limitations
 

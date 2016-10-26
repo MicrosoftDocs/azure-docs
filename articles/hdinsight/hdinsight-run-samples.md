@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="10/21/2016"
 	ms.author="jgao"/>
 
 #Run Hadoop MapReduce samples in Windows-based HDInsight
@@ -135,7 +135,7 @@ For more information about the Hadoop Streaming interface, see [Hadoop Streaming
 
 **To submit a C# streaming word count job**
 
-- Follow the procdure in [Word count - Java](#word-count-java), and replace the job definition with the following:
+- Follow the procedure in [Word count - Java](#word-count-java), and replace the job definition with the following:
 
 		$mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
     							-Files "/example/apps/cat.exe","/example/apps/wc.exe" `
@@ -157,7 +157,7 @@ The script provided for this sample submits a Hadoop jar job and is set up to ru
 
 **To submit a pi estimator job**
 
-- Follow the procdure in [Word count - Java](#word-count-java), and replace the job definition with the following:
+- Follow the procedure in [Word count - Java](#word-count-java), and replace the job definition with the following:
 
 		$mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
 									-JarFile "wasbs:///example/jars/hadoop-mapreduce-examples.jar" `
@@ -184,7 +184,7 @@ Three tasks are required by the sample, each corresponding to one of the MapRedu
 
 **To submit the jobs**
 
-- Follow the procdure in [Word count - Java](#word-count-java), and use the following job definitions:
+- Follow the procedure in [Word count - Java](#word-count-java), and use the following job definitions:
 
 	$teragen = New-AzureRmHDInsightMapReduceJobDefinition `
 								-JarFile "/example/jars/hadoop-mapreduce-examples.jar" `

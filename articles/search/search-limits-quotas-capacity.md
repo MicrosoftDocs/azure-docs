@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="10/17/2016"
+	ms.date="10/24/2016"
 	ms.author="heidist"/>
 
 # Service limits in Azure Search
@@ -22,10 +22,12 @@
 Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on whether you add Azure Search at a **Free**, **Basic**, or **Standard** pricing tier.
 
 - **Free** is a multi-tenant shared service that comes with your Azure subscription. It's a no-additional-cost option for existing subscribers that allows you to experiment with the service before signing up for dedicated resources. 
-- **Basic** provides dedicated computing resources for production workloads at a smaller scale. ).
-- **Standard** runs on dedicated machines, with more storage and processing capacity at every level, including the minimum configuration. Standard comes in four levels: S1, S2, S3, and S3 High Density (S3 HD). S3 and S3 HD are currently in Preview and offered at a 50% reduced rate during the Preview period.
+- **Basic** provides dedicated computing resources for production workloads at a smaller scale.
+- **Standard** runs on dedicated machines, with more storage and processing capacity at every level. Standard comes in four levels: S1, S2, S3, and S3 High Density (S3 HD).
 
-All tiers can be [provisioned in the portal](search-create-service-portal.md). A service is initially allocated one partition and one replica, but you can change the resource allocation once the service is created. See [Scale resource levels for query and indexing workloads](search-capacity-planning.md) for details.
+All tiers can be [provisioned in the portal](search-create-service-portal.md). A service is initially allocated one partition and one replica, but you can increase the resource allocation once the service is created. 
+
+A service is provisioned at a specific tier. If you need to jump tiers to get more capacity, you must provision a new service (there is no in-place upgrade). For more information about tiers, see [Choose a SKU or tier](search-sku-tier.md). To learn more about adjusting capacity within a service you've already provisioned, see [Scale resource levels for query and indexing workloads](search-capacity-planning.md).
 
 ## Per subscription limits
 
@@ -37,9 +39,9 @@ All tiers can be [provisioned in the portal](search-create-service-portal.md). A
 
 ## Per index limits ##
 
-There is a one-to-one correspondence between limits on indexes and limits on indexers. Given a limit of 200 indexes per S2 service, the maximum indexers and indexer datasources is also 200 for the same service.
+There is a one-to-one correspondence between limits on indexes and limits on indexers. Given a limit of 200 indexes per S2 service, the maximum indexers and datasources is also 200 for the same service.
 
-Resource|Free|Basic |S1|S2|S3 (Preview)|S3 HD (Preview) 
+Resource|Free|Basic |S1|S2|S3 |S3 HD
 ---|---|---|---|---- |---|----
 Index: maximum fields per index|1000|100 <sup>1</sup>|1000|1000|1000|1000 
 Index: maximum scoring profiles per index|16|16|16|16|16|16 
@@ -51,11 +53,11 @@ Blob indexer: maximum characters of content extracted from a blob|32,000|64,000|
 
 <sup>1</sup> Basic tier is the only SKU with a lower limit of 100 fields per index.
 
-<sup>2</sup> S3 HD doesn't currently support indexers or indexer datasources. Please contact Azure Support if you have an urgent need for this capability.
+<sup>2</sup> S3 HD doesn't currently support indexers. Please contact Azure Support if you have an urgent need for this capability.
 
 ## Document size limits ##
 
-Resource|Free|Basic |S1|S2|S3 (Preview)|S3 HD (Preview) 
+Resource|Free|Basic |S1|S2|S3|S3 HD 
 ---|---|---|---|---- |---|----
 Individual document size per Index API|<16 MB|<16 MB|<16 MB |<16 MB|<16 MB|<16 MB
 
@@ -65,7 +67,7 @@ To keep document size down, remember to exclude non-queryable data from the requ
 
 ## Workload limits (Queries per second) ##
 
-Resource|Free|Basic|S1|S2|S3 (Preview)|S3 HD (Preview)
+Resource|Free|Basic|S1|S2|S3|S3 HD
 ---|---|---|---|----|---|----
 QPS|N/A|~3 per replica|~15 per replica|~60 per replica|>60 per replica|>60 per replica
 

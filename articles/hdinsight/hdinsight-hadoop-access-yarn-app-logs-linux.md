@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/27/2016"
+	ms.date="10/21/2016"
 	ms.author="larryfr"/>
 
 # Access YARN application logs on Linux-based HDInsight 

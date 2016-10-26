@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/30/2016"   
+	ms.date="09/25/2016"   
 	ms.author="juliako"/>
 
 
@@ -34,6 +34,7 @@ The custom presets that perform the following encoding tasks are demonstrated:
 - [Concatenate two or more video files](media-services-custom-mes-presets-with-dotnet.md#concatenate)
 - [Crop videos with Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#crop)
 - [Insert a video track when input has no video](media-services-custom-mes-presets-with-dotnet.md#no_video)
+- [Rotate a video](media-services-custom-mes-presets-with-dotnet.md#rotate_video)
 
 ##<a id="encoding_with_dotnet"></a>Encoding with Media Services .NET SDK
 
@@ -1131,6 +1132,39 @@ You can take any of the MES presets documented [here](https://msdn.microsoft.com
 	<KeyFrameInterval>00:00:02</KeyFrameInterval>
 	<StretchMode>AutoSize</StretchMode>
 	<Condition>InsertBlackIfNoVideo</Condition>
+
+##<a id="rotate_video"></a>Rotate a video
+
+The [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) supports rotation by angles of 0/90/180/270. The default behavior is "Auto", where it tries to detect the rotation metadata in the incoming video file and compensate for it. Include the following **Sources** element to one of the presets defined [here](http://msdn.microsoft.com/library/azure/mt269960.aspx):
+
+### JSON preset
+
+	"Sources": [
+	{
+	  "Streams": [],
+	  "Filters": {
+	    "Rotation": "90"
+	  }
+	}
+	],
+	"Codecs": [
+	
+	...
+### XML preset
+
+	<Sources>
+	   	<Source>
+		  <Streams />
+		  <Filters>
+		    <Rotation>90</Rotation>
+		  </Filters>
+		</Source>
+	</Sources>
+
+Also, see [this](https://msdn.microsoft.com/library/azure/mt269962.aspx#PreserveResolutionAfterRotation) topic for more information on how the encoder interprets the Width and Height settings in the preset, when rotation compensation is triggered.
+
+You can use the value "0" to indicate to the encoder to ignore rotation metadata, if present, in the input video. 
+
 
 ##Media Services learning paths
 

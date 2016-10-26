@@ -67,7 +67,7 @@ The command does the following:
 
 To verify that the command ran successfully, go to Marketplace in the portal, and then verify that the VM image is available in the **Virtual Machines** category.
 
-> ![VM image added successfully](/articles/azure-stack/media/azure-stack-add-vm-image/image5.PNG)
+> ![VM image added successfully](./media/azure-stack-add-vm-image/image5.PNG)
 
 Following is a description of the command parameters.
 
@@ -120,14 +120,14 @@ step for the ‘Login to Azure’ step.
 
 2.  To make the blob anonymously accessible, go to the storage account blob container where the VM image VHD was uploaded to **Blob,** and then select **Access Policy**. If you want, you can instead generate a shared access signature for the container and include it as part of the blob URI.
 
-![Navigate to storage account blobs](/articles/azure-stack/media/azure-stack-add-vm-image/image1.png)
+![Navigate to storage account blobs](./media/azure-stack-add-vm-image/image1.png)
 
-![Set blob access to public](/articles/azure-stack/media/azure-stack-add-vm-image/image2.png)
+![Set blob access to public](./media/azure-stack-add-vm-image/image2.png)
 
 1.  Sign in to Azure Stack as an administrator. Go to **Region
     Management**. Then, under **RPs**, select  **Compute Resource Provider** > **VM Images** > **Add.**
 
-    ![Start to add an image](/articles/azure-stack/media/azure-stack-add-vm-image/image3.png)
+    ![Start to add an image](./media/azure-stack-add-vm-image/image3.png)
 
 2.  On the following blade, enter the publisher, offer, SKU, and version
     of the VM image. These name segments refer to the VM
@@ -136,7 +136,7 @@ step for the ‘Login to Azure’ step.
     image was uploaded in step 1. Click **Create** to begin creating the
     VM Image.
 
-    ![Begin to create the image](/articles/azure-stack/media/azure-stack-add-vm-image/image4.png)
+    ![Begin to create the image](./media/azure-stack-add-vm-image/image4.png)
 
 3.  The VM Image status changes to ‘Succeeded’ when the image is
     successfully added.

@@ -3,14 +3,14 @@
 	description="Create a copy of an Azure SQL database"
 	services="sql-database"
 	documentationCenter=""
-	authors="nosovsh"
+	authors="anosov1960"
 	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/16/2016"
+	ms.date="10/24/2016"
 	ms.author="sstein; sashan"
 	ms.workload="data-management"
 	ms.topic="article"
