@@ -184,7 +184,7 @@ The following checklist items apply to specific services in Azure.
 
 - **Separate web apps from web APIs**. If your solution has both a web front-end and a web API, consider decomposing them into separate App Service apps. This design makes it easier to decompose the solution by workload. You can run the web app and the API in separate App Service plans, so they can be scaled independently. If you don't need that level of scalability at first, you can deploy the apps into the same plan, and move them into separate plans later, if needed.
 
-- **Avoid using the App Service backup feature to back up Azure SQL databases.** Instead, use [SQL Database automated backups](SQL Database backups). App Service backup exports the database to a SQL .bacpac file, which costs DTUs.  
+- **Avoid using the App Service backup feature to back up Azure SQL databases.** Instead, use [SQL Database automated backups][sql-backup]. App Service backup exports the database to a SQL .bacpac file, which costs DTUs.  
 
 - **Deploy to a staging slot.** Create a deployment slot for staging. Deploy application updates to the staging slot, and verify the deployment before swapping it into production. This reduces the chance of a bad update in production. It also ensures that all instances are warmed up before being swapped into production. Many applications have a significant warmup and cold-start time. For more information, see [Set up staging environments for web apps in Azure App Service](../app-service-web/web-sites-staged-publishing.md). 
 
@@ -236,9 +236,9 @@ The following checklist items apply to specific services in Azure.
 
 - **Use sharding**. Consider using sharding to partition the database horizontally. Sharding can provide fault isolation. For more information, see [Scaling out with Azure SQL Database](../sql-database/sql-database-elastic-scale-introduction.md). 
 
-- **Use point-in-time restore to recover from human error.**  Point-in-time restore returns your database to an earlier point in time. For more information, see [SQL Database backups](../sql-database/sql-database-automated-backups.md).
+- **Use point-in-time restore to recover from human error.**  Point-in-time restore returns your database to an earlier point in time. For more information, see [Recover an Azure SQL database using automated database backups][sql-restore].
 
-- **Use geo-restore to recover from a service outage.** Geo-restore restores a database from a geo-redundant backup.  For more information, see [SQL Database backups](../sql-database/sql-database-business-continuity.md).
+- **Use geo-restore to recover from a service outage.** Geo-restore restores a database from a geo-redundant backup.  For more information, see [Recover an Azure SQL database using automated database backups][sql-restore].
 
 
 ###  SQL Server (running in a VM)
@@ -308,6 +308,8 @@ The following checklist items apply to specific services in Azure.
 [retry-pattern]: https://msdn.microsoft.com/library/dn589788.aspx
 [retry-service-guidance]: ../best-practices-retry-service-specific.md
 [search-optimization]: ../search/search-performance-optimization.md
+[sql-backup]: ../sql-database/sql-database-automated-backups.md
+[sql-restore]: ../sql-database/sql-database-recovery-using-backups.md
 [traffic-manager]: ../traffic-manager/traffic-manager-overview.md
 [traffic-manager-routing]: ../traffic-manager/traffic-manager-routing-methods.md
 [vmss-autoscale]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md

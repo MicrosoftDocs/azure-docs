@@ -95,7 +95,7 @@ Here's what you'll need on-premises.
 
 **Prerequisite** | **Details**
 --- | ---
-**Protected VMs** | Before you fail over a VM you'll need to make sure that the name that will be assigned to the Azure VM complies with [Azure prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements). You can modify the name after you've enabled replication for the VM.<br/><br/> Individual disk capacity on protected machines shouldn’t be more than 1023 GB. A VM can have up to 64 disks (thus up to 64 TB).<br/><br/> Shared disk guest clusters aren't supported.<br/><br/> If the source VM has NIC teaming it’s converted to a single NIC after failover to Azure.<br/><br/>Protecting VMs running Linux with a static IP address isn't supported.
+**Protected VMs** | Before you fail over a VM you'll need to make sure that the name that will be assigned to the Azure VM complies with [Azure prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements). You can modify the name after you've enabled replication for the VM.<br/><br/> Individual disk capacity on protected machines shouldn’t be more than 1023 GB. A VM can have up to 16 disks (thus up to 16 TB).<br/><br/> Shared disk guest clusters aren't supported.<br/><br/> If the source VM has NIC teaming it’s converted to a single NIC after failover to Azure.<br/><br/>Protecting VMs running Linux with a static IP address isn't supported.
 
 ## Prepare for deployment
 
