@@ -367,44 +367,51 @@ In this section, you create a Linux-based Hadoop cluster in HDInsight using eith
 2. Click **New**, **Intelligence + analytics**, and then **HDInsight**.
 3. From the **New HDInsight cluster** blade, enter or select the following:
 
-	- Cluster name: Enter a new cluster name for the Domain-joined HDInsight cluster.
-	- Subscription: Select an Azure subscription used for creating this cluster.
-	- Cluster configuration:
+	- **Cluster name**: Enter a new cluster name for the Domain-joined HDInsight cluster.
+	- **Subscription**: Select an Azure subscription used for creating this cluster.
+	- **Cluster configuration**:
 
-		- Cluster Type: Hadooop. Domain-joined HDInsight cluster currently only support Hive.
-		- Operating System: Linux.  Domain-joined HDInsight cluster only supports Linux-based HDInsight clusters.
-		- Version: Hadoop 2.7.3 (HDI 3.5). Domain-joined HDInsight cluster only supports HDInsight cluster version 3.5.
-		- Cluster Type: PREMIUM
+		- **Cluster Type**: Hadooop. Domain-joined HDInsight cluster currently only support Hive.
+		- **Operating System**: Linux.  Domain-joined HDInsight cluster only supports Linux-based HDInsight clusters.
+		- **Version**: Hadoop 2.7.3 (HDI 3.5). Domain-joined HDInsight cluster only supports HDInsight cluster version 3.5.
+		- **Cluster Type**: PREMIUM
 
 		Click **Select** to save the changes.
 
-	- Credentials: Configure the crendentials for both the Cluster user and the SSH user.
-	- Data Source: Create a new Storage account or use an existing Storage account as the default Storage account for the HDInsight cluster. The location must be the same as the two VNets.  The location is also the location of the HDInsight cluster.
-	- Pricing: Select the number of worker nodes of your cluster.
-	- Advanced configurations: 
+	- **Credentials**: Configure the crendentials for both the cluster user and the SSH user.
+	- **Data Source**: Create a new Storage account or use an existing Storage account as the default Storage account for the HDInsight cluster. The location must be the same as the two VNets.  The location is also the location of the HDInsight cluster.
+	- **Pricing**: Select the number of worker nodes of your cluster.
+	- **Advanced configurations**: 
 
-		- Domain-joining & Vnet/Subnet: 
+		- **Domain-joining & Vnet/Subnet**: 
 
-			- Domain settings: 
+			- **Domain settings**: 
 
-				- Domain name: contoso.onmicrosoft.com
-				- Domain user name: Enter the domain admin user name
-				- Domain password: Enter the domain admin user password.
-				- Organization Unit: OU=HiveUsers,DC=contoso,DC=onmicrosoft,DC=com
-				- LDAPS URL: ldaps://contoso.onmicrosoft.com:636
-				- Access user group: HiveUsers
+				- **Domain name**: contoso.onmicrosoft.com
+				- **Domain user name**: Enter a domain user name. This domain must have the following priviledges:
+
+					- Join machines to the domain and place them in the organization unit you configured earlier.
+					- Create servies principals wthin the organization unit you configured earlier.
+					- Create reverse DNS entries.
+
+					This domain user will become the administrator of this domain-joined HDInsight cluster.
+
+				- **Domain password**: Enter the domain user password.
+				- **Organization Unit**: OU=HiveUsers,DC=contoso,DC=onmicrosoft,DC=com
+				- **LDAPS URL**: ldaps://contoso.onmicrosoft.com:636
+				- **Access user group**: HiveUsers
 
 				Click **Select** to save the changes.
 
 				![Domain-joined HDInsight portal configure domain setting](./media/hdinsight-domain-joined-configure/hdinsight-domain-joined-portal-domain-setting.png)
 
-			- Virtual Network: contosohdivnet
-			- Subnet: Subnet1
+			- **Virtual Network**: contosohdivnet
+			- **Subnet**: Subnet1
 
 			Click **Select** to save the changes.
 		
-		Click **Select to save the changes.
-	- Resource Group: Select the resource group used for the HDInsight VNet (contosohdirg).
+		Click **Select** to save the changes.
+	- **Resource Group**: Select the resource group used for the HDInsight VNet (contosohdirg).
 
 4. Click **Create**.  
 
