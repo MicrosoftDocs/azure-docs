@@ -18,7 +18,7 @@
 
 # Create a Service Bus namespace with topic, subscription, and rule using an Azure Resource Manager template
 
-This article shows how to use an Azure Resource Manager template that creates a Service Bus namespace with a topic, subscription, and rule(filter). You learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
+This article shows how to use an Azure Resource Manager template that creates a Service Bus namespace with a topic, subscription, and rule (filter). You learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
 
 For more information about creating templates, see [Authoring Azure Resource Manager templates][].
 
@@ -37,7 +37,7 @@ For the complete template, see the [Service Bus namespace with topic, subscripti
 
 ## What will you deploy?
 
-With this template, you deploy a Service Bus namespace with topic, subscription, and rule(filter).
+With this template, you deploy a Service Bus namespace with topic, subscription, and rule (filter).
 
 [Service Bus topics and subscriptions](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) provide a one-to-many form of communication, in a *publish/subscribe* pattern. When using topics and subscriptions, components of a distributed application do not communicate directly with each other, instead they exchange messages via topic that acts as an intermediary.A subscription to a topic resembles a virtual queue that receives copies of messages that were sent to the topic. A filter on subscription enables you to specify which messages sent to a topic should appear within a specific topic subscription.
 
