@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/12/2016"
+   ms.date="10/26/2016"
    ms.author="mwasson"/>
 
 
@@ -53,6 +53,8 @@ The architecture has the following components:
 - **Email/SMS**. If your application needs to send email or SMS messages, use a third-party service such as SendGrid or Twilio, rather than building this functionality directly into the application.
 
 ## Recommendations
+
+You might have additional or differing requirements from the architecture described here. You can use the items in this section as a starting point for considering how to customize the architecture for your own system.
 
 ### App Service apps 
 
@@ -102,6 +104,8 @@ Relational data, requiring richer query support, strict schema, and/or strong co
 
 ## Scalability considerations
 
+A primary benefit of implementing your application in Azure App Service is the ability to scale your application based on load. Here are some considerations you should keep in mind when planning to scale your application.
+
 ### App Service app
 
 If your solution includes several App Service apps, consider deploying them to separate App Service plans. This approach enables you to scale them independently, because they run on separate instances. For more information about scaling out, see the [Scalability considerations][basic-web-app-scalability] section in the [Basic web application architecture][basic-web-app].
@@ -121,6 +125,8 @@ Increase scalability of a SQL database by *sharding* the database &mdash; that i
 Azure Search removes the overhead of performing complex data searches from the primary data store, and it can scale to handle load. See [Scale resource levels for query and indexing workloads in Azure Search][azure-search-scaling].
 
 ## Security considerations
+
+Security should be designed into your application from the outset, and here are some security issues to consider during that process.
 
 ### Cross-Origin Resource Sharing (CORS)
 

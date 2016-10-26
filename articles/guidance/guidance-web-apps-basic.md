@@ -52,15 +52,7 @@ The architecture has the following components:
 
 ## Recommendations
 
-This section provides a list of recommendations based on the essential components required to implement the basic architecture. These recommendations cover:
-
-- Azure App service plan
-
-- Azure SQL Database 
-
-- Regions
-
-You might have additional or differing requirements from those described here. You can use the items in this section as a starting point for considering how to customize the architecture for your own system.
+You might have additional or differing requirements from the architecture described here. You can use the items in this section as a starting point for considering how to customize the architecture for your own system.
 
 ### App Service plan
 
@@ -78,8 +70,9 @@ Provision the App Service plan and the SQL Database in the same region, to minim
 
 The resource group also has a region, which specifies where deployment metadata is stored. Put the resource group and its resources in the same region. This can improve availability during deployment, if there is problem in some Azure datacenters.  
 
-
 ## Scalability considerations
+
+A primary benefit of implementing your application in Azure App Service is the ability to scale your application based on load. Here are some considerations you should keep in mind when planning to scale your application.
 
 ### Scaling the App Service app
 
@@ -189,7 +182,6 @@ Tips for troubleshooting your application:
 
 - If you use Visual Studio, see the article [Troubleshoot a web app in Azure App Service using Visual Studio][troubleshoot-web-app] for debugging and troubleshooting tips.
 
-
 ## Security considerations
 
 > [AZURE.NOTE] This section points out some security considerations that are specific to the Azure services described in this article. It's not a complete list of security best practices. For some additional security considerations, see [Secure an app in Azure App Service][app-service-security].
@@ -232,8 +224,6 @@ Some limitations of App Service Authentication:
 
 - For multi-tenant scenarios, the application must implement the logic to validate the token issuer.
 
-
-
 ## Deploying the sample solution
 
 An example Resoure Manager template for this architecture is available on GitHub. Download it [here][paas-basic-arm-template].
@@ -249,7 +239,6 @@ New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <r
 ```
 
 For more information, see [Deploy resources with Azure Resource Manager templates][deploy-arm-template].
-
 
 ## Next steps
 

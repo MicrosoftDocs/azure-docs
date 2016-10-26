@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/27/2016"
+   ms.date="10/26/2016"
    ms.author="mwasson"/>
 
 # Azure reference architecture: Web application with high availability
@@ -36,6 +36,8 @@ This architecture builds on the one shown in [Improving scalability in a web app
 - **Geo-replication** of SQL Database and DocumentDB.
 
 ## Recommendations
+
+You might have additional or differing requirements from the architecture described here. You can use the items in this section as a starting point for considering how to customize the architecture for your own system.
 
 ### Regional pairing
 
