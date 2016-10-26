@@ -19,9 +19,9 @@
 
 # Scale resource levels for query and indexing workloads in Azure Search
 
-After you [choose a pricing tier](search-sku-tier.md) and [provision a search service](search-create-service-portal.md), the next step is to optionally increase the number of replicas or partitions used by your service. Each tier offers a fixed number of billable units. This article explains how to allocate those units to achieve an optimal configuration that balances your requirements for query execution, indexing, and storage. 
+After you [choose a pricing tier](search-sku-tier.md) and [provision a search service](search-create-service-portal.md), the next step is to optionally increase the number of replicas or partitions used by your service. Each tier offers a fixed number of billing units. This article explains how to allocate those units to achieve an optimal configuration that balances your requirements for query execution, indexing, and storage. 
 
-Resource configuration is available when you provision a service at either the [Basic tier](http://aka.ms/azuresearchbasic) or one of the [Standard tiers](search-limits-quotas-capacity.md). For billable services at these tiers, capacity is purchased in increments of *search units* (SU) where each partition and replica counts as one SU apiece. Using fewer SUs results in a proportionally lower bill. Billing is in effect for as long as the service is provisioned. If you are temporarily not using a service, the only way to avoid billing is by deleting the service, and then recreating it later when you need it.
+Resource configuration is available when you provision a service at either the [Basic tier](http://aka.ms/azuresearchbasic) or one of the [Standard tiers](search-limits-quotas-capacity.md). For billable services at these tiers, capacity is purchased in increments of *search units* (SU) where each partition and replica counts as one SU. Using fewer SUs results in a proportionally lower bill. Billing is in effect for as long as the service is provisioned. If you are temporarily not using a service, the only way to avoid billing is by deleting the service, and then recreating it later when you need it.
 
 ## Terminology: partitions and replicas
 
@@ -37,14 +37,16 @@ Partitions and replicas are the primary resources that back a search service.
 
 In Azure Search, a service is initially allocated a minimal level of resources consisting of one partition and one replica. For tiers that support it, you can incrementally adjust computational resources by increasing partitions if you need more storage and IO, or replicas for larger query volumes or better performance. A single service must have sufficient resources to handle all workloads (indexing and queries). You cannot subdivide workloads among multiple services.
 
-To increase or change the allocation of replicas and partitions, we recommend using the portal. The portal will enforce limits on allowable combinations that stay below maximum limits:
+To increase or change the allocation of replicas and partitions, we recommend using the portal. The portal enforces limits on allowable combinations that stay below maximum limits:
 
 1. Sign in to the [Azure Portal](https://portal.azure.com/) and select the search service.
 2. In Settings, open the Scale blade and use the sliders to increase or decrease the number of partitions and replicas.
 
+An alternative to the portal is to use the [management REST API](https://msdn.microsoft.com/library/azure/dn832687.aspx) if you require a script or code-based provisioning approach.
+
 As a general rule, search applications need more replicas than partitions, particularly when the service operations are biased towards query workloads. The section on [high availability](#HA) explains why.
 
-> [AZURE.NOTE] Once a service is provisioned, it cannot be upgraded in place to a higher SKU. You will need to create a new search service at the new tier and reload your indexes. See [Create an Azure Search service in the portal](search-create-service-portal.md) for help with service provisioning.
+> [AZURE.NOTE] Once a service is provisioned, it cannot be upgraded in place to a higher SKU. You will need to create a search service at the new tier and reload your indexes. See [Create an Azure Search service in the portal](search-create-service-portal.md) for help with service provisioning.
 
 <a id="HA"></a>
 ## High availability
@@ -74,7 +76,7 @@ Currently, there is no built-in mechanism for disaster recovery. Adding partitio
 
 Query latency is an indicator that additional replicas are needed. Generally, a first step towards improving query performance is to add more of this resource. As you add replicas, additional copies of the index are brought online to support bigger query workloads and to load balance the requests over the multiple replicas. 
 
-Note that we cannot provide hard estimates on queries per second (QPS): query performance depends on the complexity of the query and competing workloads. On average, a replica at Basic or S1 SKUs can service about 15 QPS, but your throughput will be somewhat higher or lower depending on query complexity (faceted queries are more complex) and network latency. Also, it's important to recognize that while adding replicas will definitely add scale and performance, the end result is not strictly linear: adding 3 replicas does not guarantee triple throughput. 
+We cannot provide hard estimates on queries per second (QPS): query performance depends on the complexity of the query and competing workloads. On average, a replica at Basic or S1 SKUs can service about 15 QPS, but your throughput will be higher or lower depending on query complexity (faceted queries are more complex) and network latency. Also, it's important to recognize that while adding replicas will definitely add scale and performance, the end result is not strictly linear: adding 3 replicas does not guarantee triple throughput. 
 
 To learn about QPS, including approaches for estimating QPS for your workloads, see [Manage your Search service](search-manage.md).
 
@@ -93,7 +95,7 @@ A Basic service can have exactly 1 partition and up to 3 replicas, for a maximum
 
 This table shows the search units required to support combinations of replicas and partitions, subject to the 36 search unit (SU) limit, for all standard tiers. 
 
-- |- |- |- |- |- |- |
+ - |**1 Partition** |**2 Partitions** |**3 Partitions** |**4 Partitions**|**6 Partitions**|**12 Partitions**|
 ---|----|---|---|---|---|---|
 **12 replicas**|12 SU|24 SU|36 SU|N/A|N/A|N/A|
 **6 replicas**|6 SU|12 SU|18 SU|24 SU|36 SU|N/A|
@@ -102,7 +104,7 @@ This table shows the search units required to support combinations of replicas a
 **3 replicas**|3 SU|6 SU|9 SU|12 SU|18 SU|36 SU|
 **2 replicas**|2 SU|4 SU|6 SU|8 SU|12 SU|24 SU|
 **1 replica**|1 SU|2 SU|3 SU|4 SU|6 SU|12 SU|
-N/A|**1 Partition**|**2 Partitions**|**3 Partitions**<|**4 Partitions**|**6 Partitions**|**12 Partitions**|
+
 
 Search units, pricing, and capacity are explained in detail on the Azure web site. See [Pricing Details](https://azure.microsoft.com/pricing/details/search/) for more information.
 
