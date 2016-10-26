@@ -21,7 +21,6 @@ The Azure Active Directory (AD) v2.0 endpoint supports authentication for a vari
 
 > [AZURE.NOTE]
 	The v2.0 endpoint doesn't support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
-
 ## The basics
 You must register each app that uses the v2.0 endpoint in the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com). The app registration process collects and assigns these values for your app:
 
@@ -65,11 +64,7 @@ You can ensure the user's identity by validating the ID token with a public sign
 
 To see this scenario in action, try one of the web app sign-in code samples in our v2.0 [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
 
-<<<<<<< HEAD
-In addition to simple sign-in, a web server app might need to access another web service, such as a REST API. In this case, the web server app engages in a combined OpenID Connect and OAuth 2.0 flow, by using the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md#oauth2-authorization-code-flow). For more information about this scenario, read about [getting started with web apps and Web APIs ](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
-=======
 In addition to simple sign-in, a web server app might need to access another web service, such as a REST API. In this case, the web server app engages in a combined OpenID Connect and OAuth 2.0 flow, by using the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md#oauth2-authorization-code-flow). For more information about this scenario, read about [getting started with web apps and web APIs](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
->>>>>>> a21fd32e9268401f6f6c138c59eb72270d8419c0
 
 ## Web APIs
 You can use the v2.0 endpoint to secure web services, such as your app's RESTful Web API. Instead of ID tokens and session cookies, a Web API uses an OAuth 2.0 access token to secure its data and to authenticate incoming requests. The caller of a Web API appends an access token in the authorization header of an HTTP request, like this:
