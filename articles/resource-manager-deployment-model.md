@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/25/2016"
+   ms.date="10/26/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources
 
-In this topic, you learn about Azure Resource Manager and classic deployment models, the state of your resources, and why your resources were deployed with one or the other. The Resource Manager deployment model contains important differences from the classic deployment model, and the two models are not completely compatible with each other. To simplify the deployment and management of resources, Microsoft recommends that you use Resource Manager for new resources, and, if possible, redeploy existing resources through Resource Manager.
+In this topic, you learn about Azure Resource Manager and classic deployment models, the state of your resources, and why your resources were deployed with one or the other. The Resource Manager and classic deployment models represent two different ways of deploying and managing your Azure solutions. You work with them through two different API sets, and the deployed resources can contain important differences. The two models are not completely compatible with each other. This topic describes those differences.
+
+To simplify the deployment and management of resources, Microsoft recommends that you use Resource Manager for all new resources. If possible, Microsoft recommends that you redeploy existing resources through Resource Manager.
 
 If you are new to Resource Manager, you may want to first review the terminology defined in the [Azure Resource Manager overview](azure-resource-manager/resource-group-overview.md).
 
@@ -100,10 +102,6 @@ To help you understand the two models, let's review the characteristics of Resou
 
     ![web app](./media/resource-manager-deployment-model/resource-manager-type.png)
 
-The application shown in the following diagram shows how resources deployed through Resource Manager are contained in a single resource group.
-
-  ![Resource Manager architecture](./media/virtual-machines-azure-resource-manager-architecture/arm_arch3.png)
-
 ## Classic deployment characteristics
 
 You may also know the classic deployment model as the Service Management model.
@@ -134,11 +132,30 @@ Resources created in the classic deployment model share the following characteri
 
 You can use the Azure portal to manage resources that were created through classic deployment.
 
-Here are the components and their relationships for Azure Service Management.
-
-  ![classic architecture](./media/virtual-machines-azure-resource-manager-architecture/arm_arch1.png)
-
 ## Changes for compute, network, and storage
+
+The following diagram displays compute, network, and storage resources deployed through Resource Manager.
+
+![Resource Manager architecture](./media/virtual-machines-azure-resource-manager-architecture/arm_arch3.png)
+
+Note the following relationships between the resources:
+
+- All the resources exist within a resource group.
+- The virtual machine depends on a specific storage account defined in the Storage resource provider to store its disks in blob storage (required).
+- The virtual machine references a specific NIC defined in the Network resource provider (required) and an availability set defined in the Compute resource provider (optional).
+- The NIC references the virtual machine's assigned IP address (required), the subnet of the virtual network for the virtual machine (required), and to a Network Security Group (optional).
+- The subnet within a virtual network references a Network Security Group (optional).
+- The load balancer instance references the backend pool of IP addresses that include the NIC of a virtual machine (optional) and references a load balancer public or private IP address (optional).
+
+Here are the components and their relationships for classic deployment:
+
+![classic architecture](./media/virtual-machines-azure-resource-manager-architecture/arm_arch1.png)
+
+The classic solution for hosting a virtual machine includes:
+
+- A required cloud service that acts as a container for hosting virtual machines (compute). Virtual machines are automatically provided with a network interface card (NIC) and an IP address assigned by Azure. Additionally, the cloud service contains an external load balancer instance, a public IP address, and default endpoints to allow remote desktop and remote PowerShell traffic for Windows-based virtual machines and Secure Shell (SSH) traffic for Linux-based virtual machines.
+- A required storage account that stores the VHDs for a virtual machine, including the operating system, temporary, and additional data disks (storage).
+- An optional virtual network that acts as an additional container, in which you can create a subnetted structure and designate the subnet on which the virtual machine is located (network).
 
 The following table describes changes in how Compute, Network, and Storage resource providers interact:
 

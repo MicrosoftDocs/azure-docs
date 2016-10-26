@@ -2,7 +2,7 @@
 	pageTitle="Overview of alerts in Microsoft Azure | Microsoft Azure"
 	description="Alerts enable you to monitor Azure resource metrics, events, or logs and be notified when a condition you specify is met."
 	authors="rboucher"
-	manager=""
+	manager="carolz"
 	editor=""
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>

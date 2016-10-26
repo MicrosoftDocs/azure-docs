@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="petertaylor9999"
-   manager=""
+   manager="christb"
    editor=""
    tags=""/>
 
