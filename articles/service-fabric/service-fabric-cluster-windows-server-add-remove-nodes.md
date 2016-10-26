@@ -43,13 +43,13 @@ After you have [created your standalone Service Fabric cluster on Windows Server
 2. Remote desktop (RDP) into the VM/machine that you want to remove from the cluster.
 2. Copy or [download the standalone package for Service Fabric for Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) and unzip the package to this VM/machine.
 3. Run Powershell as an administrator, and navigate to the location of the unzipped package.
-4. Run *RemoveNode.ps1* Powershell. The example below removes the current node from the cluster. The *ExistingClusterConnectionEndPoint* is a connection endpoint for a node already in the existing cluster. For this endpoint, you must choose the IP address of *any* **other node** in the cluster.
+4. Run *RemoveNode.ps1* in PowerShell. The example below removes the current node from the cluster. The *ExistingClientConnectionEndpoint * is a client connection endpoint for any node that will remain in the cluster. Choose the IP address and the endpoint port of *any* **other node** in the cluster. This **other node** will in turn update the cluster configuration for the removed node. 
 
 ```
-.\RemoveNode.ps1 -ExistingClusterConnectionEndPoint 182.17.34.50:19000
+.\RemoveNode.ps1 -ExistingClientConnectionEndpoint 182.17.34.50:19000
 ```
 
-Known defect that is getting fixed in the next release - Even after removing a node, the node shows up as being down in queries and SFX. 
+Please note about a known defect that even after removing a node, the node shows up as being down in queries and SFX. This defect will be fixed in an upcoming release. 
 
 ## Next steps
 - [Configuration settings for standalone Windows cluster](service-fabric-cluster-manifest.md)
