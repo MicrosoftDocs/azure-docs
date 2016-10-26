@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Upgrade your Azure subscription to Pay-As-You-Go"
+   pageTitle="Upgrade your Azure Free Trial subscription to Pay-As-You-Go"
    description="Describes the process and requirements for upgrading from a free subscription to Pay-As-You-Go"
    services=""
    documentationCenter=""
