@@ -43,8 +43,8 @@ Installing this Gateway replaces previous versions of the Gateway that you have 
 
 Prerequisites: .Net Framework 4.5, Windows Server 2012 R2 SP1 and above
 
-1. Download the latest version of the OMS Gateway from the [Microsoft Download Center](http://download.microsoft.com/download/2/5/C/25CF992A-0347-4765-BD7D-D45D5B27F92C/OMS%20Gateway.msi)
-2. To start the installation, double-click **OMS Gateway.msi** .
+1. Download the latest version of the OMS Gateway from the [Microsoft Download Center](http://download.microsoft.com/download/2/5/C/25CF992A-0347-4765-BD7D-D45D5B27F92C/OMS%20Gateway.msi).
+2. To start the installation, double-click **OMS Gateway.msi**.
 3. On the Welcome page, **Next**.  
     ![Gateway Setup wizard](./media/log-analytics-oms-gateway/gateway-wizard01.png)
 4. On the License Agreement page, select **I accept the terms in the License Agreement** to agree to the EULA and then **Next**.
@@ -166,7 +166,7 @@ If your computer is on-boarded to Azure Automation by using the hybrid worker re
 
 ## Useful PowerShell cmdlets
 
-Cmdlets help you to carry certain tasks to update the OMS Gateway's configuration settings. Before you use them, be sure to:
+Cmdlets can help you complete tasks that are needed to update the OMS Gateway's configuration settings. Before you use them, be sure to:
 
 1. Install the OMS Gateway (MSI).
 2. Open the PowerShell window.
