@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Retry logic in the Media Services SDK for .NET | Microsoft Azure"
-	description="The topic gives and overview of retry logic in the Media Services SDK for .NET."
+	description="The topic gives an overview of retry logic in the Media Services SDK for .NET."
 	authors="Juliako"
 	manager="erikre"
 	editor=""

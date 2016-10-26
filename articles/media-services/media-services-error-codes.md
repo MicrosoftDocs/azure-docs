@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Media Services error codes | Microsoft Azure"
-	description="The topic gives and overview of Azure Media Services error codes."
+	description="The topic gives an overview of Azure Media Services error codes."
 	authors="Juliako"
 	manager="erikre"
 	editor=""
