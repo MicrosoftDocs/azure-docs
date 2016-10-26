@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2016"
+	ms.date="10/26/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -361,7 +361,6 @@ Azure AD Identity Protection helps you manage the mitigation of risky sign-ins b
 
 	![Sign-in risk policy](./media/active-directory-identityprotection/1017.png "Sign-in risk policy")
 	
-	Multi-factor authentication can only be required for users that haven already been registered for multi-factor authentication. If the condition to require multi-factor authentication is satisfied for a user who is not yet registered for multi-factor authentication, the user is blocked. 
 
 - Switch the state of your policy:
 
@@ -370,6 +369,25 @@ Azure AD Identity Protection helps you manage the mitigation of risky sign-ins b
 - Review and evaluate the impact of a change before activating it: 
 
 	![Sign-in risk policy](./media/active-directory-identityprotection/1018.png "Sign-in risk policy")
+
+
+### What you need to know
+
+You can configure a sign-in risk security policy to require multi-factor authentication:
+
+![Sign-in risk policy](./media/active-directory-identityprotection/1017.png "Sign-in risk policy")
+
+However, for security reasons, this setting only works for users that have already been registered for multi-factor authentication. If the condition to require multi-factor authentication is satisfied for a user who is not yet registered for multi-factor authentication, the user is blocked. 
+
+As a best practice, if you want to require multi-factor authentication for risky sign-ins, you should:
+
+1. Enable the multi-factor authentication registration policy for the affected users.
+2. Require the affected users to login in a non-risky session to perform a MFA registration
+
+Completing these steps ensures that multi-factor authentication is required for a risky sign-in. 
+
+
+### Best practices
 
  
 Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users.  
@@ -489,9 +507,10 @@ For an overview of the related user experience, see:
  - [Types of risk events detected by Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md)
  - [Vulnerabilities detected by Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md)
  - [Azure Active Directory Identity Protection notifications](active-directory-identityprotection-notifications.md)
- - [Azure Active Directory Identity Protection flows](active-directory-identityprotection-flows.md)
  - [Azure Active Directory Identity Protection playbook](active-directory-identityprotection-playbook.md)
  - [Azure Active Directory Identity Protection glossary](active-directory-identityprotection-glossary.md)
+
+ - [Sign-in experiences with Azure AD Identity Protection](active-directory-identityprotection-flows.md)
 
  - [Enabling Azure Active Directory Identity Protection](active-directory-identityprotection-enable.md)
  - [Azure Active Directory Identity Protection - How to unblock users](active-directory-identityprotection-unblock-howto.md)
