@@ -30,7 +30,7 @@ You can enable diagnostic metrics from the Azure portal.
 
     ![][1]
 
-3. Configure your diagnostics by setting the status to **On** and selecting a storage account to store the diagnostics data. Check **Metrics**, and then press **Save**. Note that the storage account must be created ahead of time and that you are charged separately for storage. You can also choose to send your diagnostics data to an Event Hubs endpoint.
+3. Configure your diagnostics by setting the status to **On** and selecting an Azure Storage account to store the diagnostics data. Check **Metrics**, and then press **Save**. Note that the Azure Storage account must be created ahead of time and that you are charged separately for storage. You can also choose to send your diagnostics data to an Event Hubs endpoint.
 
     ![][2]
 

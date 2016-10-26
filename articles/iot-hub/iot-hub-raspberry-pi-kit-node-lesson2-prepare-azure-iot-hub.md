@@ -101,4 +101,4 @@ You've created an Azure IoT hub and registered your Pi with a device identity in
 
 ## Next Steps
 
-You're now ready to start Lesson 3 that begins with [Create an Azure function app and a storage account to process and store IoT hub messages](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md).
+You're now ready to start Lesson 3 that begins with [Create an Azure function app and an Azure Storage account to process and store IoT hub messages](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md).

@@ -95,7 +95,7 @@ There are two ways to obtain **DeviceConnect** permissions with IoT Hub with [se
 
 Azure IoT Hub and other services which may be part of the solution allow management of users using the Azure Active Directory.
 
-Data ingested by Azure IoT Hub can be consumed by a variety of services such as Azure Stream Analytics, blob storage, etc. These services allow management access. Read more about these services and available options below:
+Data ingested by Azure IoT Hub can be consumed by a variety of services such as Azure Stream Analytics and Azure blob storage. These services allow management access. Read more about these services and available options below:
 
 - [Azure DocumentDB][lnk-docdb]: A scalable, fully-indexed database service for semi-structured data that manages metadata for the devices you provision, such as attributes, configuration, and security properties. DocumentDB offers high-performance and high-throughput processing, schema-agnostic indexing of data, and a rich SQL query interface.
 
@@ -105,7 +105,7 @@ Data ingested by Azure IoT Hub can be consumed by a variety of services such as 
 
 - [Logic Apps][lnk-logicapps]: The Logic Apps feature of Azure App Service helps integrate your IoT solution to your existing line-of-business systems and automate workflow processes. Logic Apps enables developers to design workflows that start from a trigger and then execute a series of steps—rules and actions that use powerful connectors to integrate with your business processes. Logic Apps offers out-of-the-box connectivity to a vast ecosystem of SaaS, cloud-based, and on-premises applications.
 
-- [Blob storage][lnk-blob]: Reliable, economical cloud storage for the data that your devices send to the cloud.
+- [Azure blob storage][lnk-blob]: Reliable, economical cloud storage for the data that your devices send to the cloud.
 
 ## Conclusion
 

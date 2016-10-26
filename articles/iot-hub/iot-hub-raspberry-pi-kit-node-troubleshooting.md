@@ -160,6 +160,6 @@ iothub-explorer help
 
 In all these lessons, a full CLI experience is provided to create and manage all your Azure resources. You might also want to use the [Azure portal](../azure-portal-overview.md) to help provision, manage, and debug your Azure resources.
 
-## Azure storage issues
+## Azure Storage issues
 
-[Microsoft Azure Storage Explorer (Preview)](http://storageexplorer.com) is a standalone app from Microsoft that allows you to work with Azure Storage data on Windows, macOS, and Linux. This tool allows you to connect to your table and see the data in it. You can use this tool to troubleshoot your Azure storage issues.
+[Microsoft Azure Storage Explorer (Preview)](http://storageexplorer.com) is a standalone app from Microsoft that allows you to work with Azure Storage data on Windows, macOS, and Linux. This tool allows you to connect to your table and see the data in it. You can use this tool to troubleshoot your Azure Storage issues.
