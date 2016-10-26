@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Scale instance count manually or automatically | Microsoft Azure"
+	pageTitle="Scale instance count manually or with autoscale with Azure Portal | Microsoft Azure"
 	description="Learn how to scale your services Azure."
 	authors="rboucher"
 	manager=""
@@ -31,9 +31,11 @@ You can scale in the portal, and you can also use the [REST API](https://msdn.mi
 1. In the [Azure Portal](https://portal.azure.com/), click **Browse**, then navigate to the resource you want to scale, such as a **App Service plan**.
 
 2. The **Scale** tile in **Operations** will tell you the status of scaling: **Off** for when you are scaling manually, **On** for when you are scaling by one or more performance metrics.
+
     ![Scale tile](./media/insights-how-to-scale/Insights_UsageLens.png)
 
-3. Clicking on the tile will take you to the **Scale** blade. At the top of the scale blade you can see a history of autoscale actions the service.  
+3. Clicking on the tile will take you to the **Scale** blade. At the top of the scale blade you can see a history of autoscale actions the service.
+
     ![Scale blade](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
 
 	>[AZURE.NOTE] Only actions that are performed by autoscale will show up in this chart. If you manually adjust the instance count, the change will not be reflected in this chart.
