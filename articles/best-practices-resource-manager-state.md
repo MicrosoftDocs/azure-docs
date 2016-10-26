@@ -20,14 +20,14 @@
 
 This topic shows best practices for managing and sharing state within templates. The parameters and variables shown in this topic are examples of the type of objects you can define to conveniently organize your deployment requirements. From these examples, you can implement your own objects with property values that make sense for your environment.
 
-This topic is part of a larger whitepaper. To read the full paper, download [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
+This topic is part of a larger whitepaper. To read the full paper, download [World Class Resource Manager Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 
 ## Provide standard configuration settings
 
-Rather than offer a template that provides total flexibility and countless variations, a common pattern is to provide the ability to select known configurations — in effect, standard t-shirt sizes such as sandbox, small, medium, and large. Other examples of t-shirt sizes are product offerings, such as community edition or enterprise edition. In other cases, it may be workload specific configurations of a technology – such as map reduce or no sql.
+Rather than offer a template that provides total flexibility and countless variations, a common pattern is to provide the ability to select known configurations — in effect, standard t-shirt sizes such as sandbox, small, medium, and large. Other examples of t-shirt sizes are product offerings, such as community edition or enterprise edition. In other cases, it may be workload-specific configurations of a technology – such as map reduce or no sql.
 
-With complex objects, you can create variables that contain collections of data, sometimes known as "property bags" and use that data to drive the resource declaration in your template. This approach provides good, known configurations of varying sizes that are preconfigured for customers. Without known configurations, end customers must determine cluster sizing on their own, factor in platform resource constraints, and do math to identify the resulting partitioning of storage accounts and other resources (due to cluster size and resource constraints). In addition to making a better experience for the customer, a small number of known configurations is easier to support and can help you deliver a higher level of density.
+With complex objects, you can create variables that contain collections of data, sometimes known as "property bags" and use that data to drive the resource declaration in your template. This approach provides good, known configurations of varying sizes that are preconfigured for customers. Without known configurations, end customers must determine cluster sizing on their own, factor in platform resource constraints, and do math to identify the resulting partitioning of storage accounts and other resources (due to cluster size and resource constraints). In addition to making a better experience for the customer, a few known configurations is easier to support and can help you deliver a higher level of density.
 
 The following example shows how to define variables that contain complex objects for representing collections of data. The collections define values that are used for virtual machine size, network settings, operating system settings and availability settings.
 
@@ -108,7 +108,7 @@ The following example shows how to define variables that contain complex objects
       }
     }
 
-Notice that the **tshirtSize** variable concatenates the t-shirt size you provided through a parameter (**Small**, **Medium**, **Large**) to the text **tshirtSize**. You will use this variable to retrieve the associated complex object variable for that t-shirt size.
+Notice that the **tshirtSize** variable concatenates the t-shirt size you provided through a parameter (**Small**, **Medium**, **Large**) to the text **tshirtSize**. You use this variable to retrieve the associated complex object variable for that t-shirt size.
 
 You can then reference these variables later in the template. The ability to reference named-variables and their properties simplifies the template syntax, 
 and makes it easy to understand context. The following example defines a resource to deploy by using the objects shown above to set values. For example, note that the VM size is set by retrieving the value 
@@ -171,12 +171,12 @@ for `variables('tshirtSize').vmSize` while the value for the disk size is retrie
 
 You share state into a template through parameters that you provide directly during deployment.
 
-The following table lists commonly-used parameters in templates.
+The following table lists commonly used parameters in templates.
 
 Name | Value | Description
 ---- | ----- | -----------
-location	| String from a constrained list of Azure regions	| The location where the resources will be deployed.
-storageAccountNamePrefix	| String	| Unique DNS name for the Storage Account where the VM's disks will be placed
+location	| String from a constrained list of Azure regions	| The location where the resources are deployed.
+storageAccountNamePrefix	| String	| Unique DNS name for the Storage Account where the VM's disks are placed
 domainName	| String	| Domain name of the publicly accessible jumpbox VM in the format: **{domainName}.{location}.cloudapp.com** For example: **mydomainname.westus.cloudapp.azure.com**
 adminUsername	| String	| Username for the VMs
 adminPassword	| String	| Password for the VMs
@@ -204,7 +204,7 @@ The **tshirtSize** parameter used in the previous section is defined as:
 
 ## Pass state to linked templates
 
-When connecting to linked templates, you will often use a mix of static and generated variables.
+When connecting to linked templates, you often use a mix of static and generated variables.
 
 ### Static variables
 
@@ -214,7 +214,7 @@ In the template excerpt below, `templateBaseUrl` specifies the root location for
 concatenated to the known configuration template location and stored in the `vmTemplate` property.
 
 The benefit of this approach is that if the template location changes, you only need to change the static variable 
-in one place which passes it throughout the linked templates.
+in one place, which passes it throughout the linked templates.
 
     "variables": {
       "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
@@ -237,7 +237,7 @@ in one place which passes it throughout the linked templates.
 
 ### Generated variables
 
-In addition to static variables, a number of variables are generated dynamically. This section identifies some of the common types of generated variables.
+In addition to static variables, several variables are generated dynamically. This section identifies some of the common types of generated variables.
 
 #### tshirtSize
 
