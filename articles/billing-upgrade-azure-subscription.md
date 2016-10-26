@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Upgrade your Azure Free Trial subscription to Pay-As-You-Go"
+   pageTitle="Upgrade your Azure subscription to Pay-As-You-Go"
    description="Describes the process and requirements for upgrading from a free subscription to Pay-As-You-Go"
    services=""
    documentationCenter=""
@@ -18,7 +18,7 @@
    ms.date="10/26/2016"
    ms.author="jlian"/>
 
-# Upgrade your Azure Free Trial subscription to Pay-As-You-Go
+# Upgrade your Azure subscription to Pay-As-You-Go
 
 Upgrade your [Free Trial](https://azure.microsoft.com/free/) subscription to [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) from the Azure Account Portal. You can upgrade your [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) subscription the same way.
 
@@ -28,7 +28,7 @@ Upgrade your [Free Trial](https://azure.microsoft.com/free/) subscription to [Pa
 
     ![Notice to upgrade from Free Trial to Pay-As-You-Go](./media/billing-upgrade-azure-subscription/billpage.png)
 
-3. Select **Yes**, and then select **Upgrade now**.
+3. Follow instructions to finish the upgrade.
 
     ![Confirmation for upgrading your subscription](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
