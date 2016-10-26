@@ -32,4 +32,4 @@ You can upgrade your [Free Trial](https://azure.microsoft.com/free/) or [Microso
 
     ![Confirmation for upgrading your subscription](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
-When you upgrade from a Free Trial subscription to a Pay-As-You-Go subscription, any benefits left over from your Free Trial such as the 30-day limit or the $200 credit to use on Azure services will continue until one of them is exhausted. The subscription upgrade will happen afterwards.
+When you upgrade Free Trial Pay-As-You-Go , any benefits left over from your Free Trial such as the 30-day limit or the $200 credit to use on Azure services continues until one of them is exhausted. The subscription happens afterwards.
