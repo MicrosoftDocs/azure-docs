@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Scalable web application | Azure reference architecture | Microsoft Azure"
+   pageTitle="Improving scalability in a web application | Microsoft Azure"
    description="Improving scalability in a web application running in Microsoft Azure."
    services="app-service,app-service\web,sql-database"
    documentationCenter="na"
@@ -24,8 +24,6 @@
 
 This article shows a recommended architecture for improving scalability and performance in a web application running on Microsoft Azure. The architecture builds on [Azure reference architecture: Basic web application][basic-web-app]. The recommendations and considerations from that article apply to this architecture as well.
 
->[AZURE.NOTE] Azure has two different deployment models: Resource Manager and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
-
 ## Architecture diagram
 
 ![[0]][0]
@@ -38,19 +36,17 @@ The architecture has the following components:
 
 - **WebJob**. Use [Azure WebJobs][webjobs] to run long-running tasks in the background. WebJobs can run on a schedule, continously, or in response to a trigger, such as putting a message on a queue. A WebJob runs as a background process in the context of an App Service app. 
 
-- **Queue**. In the architecture shown here, the application queues background tasks by putting a message onto an [Azure Queue Storage][queue-storage] queue. The message triggers a function in the WebJob. 
-
-	Alternatively, you can use Service Bus queues. For a comparison, see [Azure Queues and Service Bus queues - compared and contrasted][queues-compared].
+- **Queue**. In the architecture shown here, the application queues background tasks by putting a message onto an [Azure Queue Storage][queue-storage] queue to trigger a function in the WebJob. Service Bus queues can also be used. For a comparison, see [Azure Queues and Service Bus queues - compared and contrasted][queues-compared].
 
 - **Cache**. Store semi-static data in [Azure Redis Cache][azure-redis].  
 
-- **CDN**. Use [Azure Content Delivery Network][azure-cdn] (CDN) to cache publicly available content, for lower latency and faster delivery of content.
+- **CDN**. Use [Azure Content Delivery Network][azure-cdn] (CDN) to cache publicly available content for lower latency and faster delivery of content.
 
-- **Data storage.** Use [Azure SQL Database][sql-db] for relational data. For non-relational data, consider a NoSQL store, such as Azure Table Storage or [DocumentDB][documentdb].
+- **Data storage.** Use [Azure SQL Database][sql-db] for relational data. For non-relational data consider a NoSQL store, such as Azure Table Storage or [DocumentDB][documentdb].
 
-- **Azure Search**. Use [Azure Search][azure-search] to add search functionality, including search suggestions, fuzzy search, and language-specific search. Azure Search is typically used in conjunction with another data store, especially if the primary data store requires strict consistency. In this approach, you would the authoritative data in the other data store, and put the search index into Azure Search. Azure Search can also be used to consolidate a single search index from multiple data stores.  
+- **Azure Search**. Use [Azure Search][azure-search] to add search functionality such as search suggestions, fuzzy search, and language-specific search. Azure Search is typically used in conjunction with another data store if the primary data store requires strict consistency. In this approach, store authoritative data in the other data store and the search index in Azure Search. Azure Search can also be used to consolidate a single search index from multiple data stores.  
 
-- **Email/SMS**. If your application needs to send email or SMS messages, use a third-party service such as SendGrid or Twilio, rather than building this functionality directly into the application.
+- **Email/SMS**. Use a third-party service such as SendGrid or Twilio to send email or SMS messages instead of building this functionality directly into the application.
 
 ## Recommendations
 
@@ -58,17 +54,19 @@ You might have additional or differing requirements from the architecture descri
 
 ### App Service apps 
 
-We recommend creating the web application and the web API as separate App Service apps. This design lets you run them in separate App Service plans, which in turn lets you scale them independently. If you don't need that level of scalability at first, you can deploy the apps into the same plan, and move them into separate plans later, if needed. (For the Basic, Standard, and Premium plans, you are billed for the VM instances in the plan, not per app. See [App Service Pricing][app-service-pricing])
+We recommend creating the web application and the web API as separate App Service apps. This design lets you run them in separate App Service plans sp they can be scaled independently. If you don't need that level of scalability initially, you can instead deploy the apps into the same plan and move them into separate plans later if necessary. 
+
+> [AZURE.NOTE] For the Basic, Standard, and Premium plans, you are billed for the VM instances in the plan, not per app. See [App Service Pricing][app-service-pricing]
 
 If you intend to use the *Easy Tables* or *Easy APIs* features of App Service Mobile Apps, create a separate App Service app for this purpose.  These features rely on a specific application framework to enable them.
 
 ### WebJobs
 
-If the WebJob is resource intensive, consider deploying it to an empty App Service app within a separate App Service plan, to provide dedicated instances for the WebJob. See [Background jobs guidance][webjobs-guidance].  
+Consider deploying resource intensive WebJobs to an empty App Service app within a separate App Service plan. This provides dedicated instances for the WebJob. See [Background jobs guidance][webjobs-guidance].  
 
 ### Cache
 
-You can improve performance and scalability by using [Azure Redis Cache][azure-redis] to cache some data. Consider using Redis Cache for:
+You can improve performance and scalability by using [Azure Redis Cache][azure-redis]. Consider using Redis Cache for:
 
 - Semi-static transaction data.
 
@@ -80,11 +78,9 @@ For more detailed guidance on designing a caching strategy, see [Caching guidanc
 
 ### CDN 
 
-Use [Azure CDN][azure-cdn] to cache static content. The main benefit of a CDN is to reduce latency for users, because content is cached at an *edge server* that is geographically close to the user. CDN can also reduce load on the application, because that traffic is not being handled by the application.
+Use [Azure CDN][azure-cdn] to cache static content. CDN caches content at an *edge server* that is geographically close to the user, resulting in less latency. CDN can also reduce load on the application by handling traffic on behalf of the application. 
 
-- If your app consists mostly of static pages, consider using CDN to cache the entire app. See [Use Azure CDN in Azure App Service][cdn-app-service].
-
-- Otherwise, put static content, such as images, CSS, and HTML files, into Azure Storage, and use CDN to cache those files. See [Integrate a Storage Account with CDN][cdn-storage-account].
+If your app consists mostly of static pages, consider using [CDN to cache the entire app][cdn-app-service]. Otherwise, put static content such as images, CSS, and HTML files, into [Azure Storage and use CDN to cache those files][cdn-storage-account].
 
 > [AZURE.NOTE] Azure CDN cannot serve content that requires authentication.
 
@@ -99,8 +95,8 @@ What you want to store | Example | Recommended storage
 Files | Images, documents, PDFs | Azure Blob Storage
 Key/Value pairs | User profile data looked up by user ID | Azure Table Storage
 Short messages intended to trigger further processing | Order requests | Azure Queue Storage, Service Bus Queue, or Service Bus Topic
-Non-relational data, with a flexible schema, requiring basic querying | Product catalog | Document database, such as Azure DocumentDB, MongoDB, or Apache CouchDB
-Relational data, requiring richer query support, strict schema, and/or strong consistency | Product inventory | Azure SQL Database
+Non-relational data with a flexible schema requiring basic querying | Product catalog | Document database, such as Azure DocumentDB, MongoDB, or Apache CouchDB
+Relational data requiring richer query support, strict schema, and/or strong consistency | Product inventory | Azure SQL Database
 
 ## Scalability considerations
 
@@ -108,17 +104,13 @@ A primary benefit of implementing your application in Azure App Service is the a
 
 ### App Service app
 
-If your solution includes several App Service apps, consider deploying them to separate App Service plans. This approach enables you to scale them independently, because they run on separate instances. For more information about scaling out, see the [Scalability considerations][basic-web-app-scalability] section in the [Basic web application architecture][basic-web-app].
+If your solution includes several App Service apps, consider deploying them to separate App Service plans. This approach enables you to scale them independently because they run on separate instances. For more information about scaling out, see the [Scalability considerations][basic-web-app-scalability] section in the [Basic web application architecture][basic-web-app].
 
-Similarly, consider putting a WebJob into its own plan, so that background tasks don't run on the same instances that handle HTTP requests.  
+Similarly, consider putting a WebJob into its own plan so that background tasks don't run on the same instances that handle HTTP requests.  
 
 ### SQL Database
 
-Increase scalability of a SQL database by *sharding* the database &mdash; that is, partitioning the database horizontally. Sharding allows you to scale out the database horizontally, using [Elastic Database tools][sql-elastic]. Potential benefits of sharding include:
-
-- Better transaction throughput.
-
-- Queries can run faster over a subset of the data. 
+Increase scalability of a SQL database by *sharding* the database. Sharding refers to partitioning the database horizontally. Sharding allows you to scale out the database horizontally using [Elastic Database tools][sql-elastic]. Some of the benefits of sharing are better transaction throughput and  faster running queries over a subset of the data. 
 
 ### Azure Search
 
@@ -126,7 +118,7 @@ Azure Search removes the overhead of performing complex data searches from the p
 
 ## Security considerations
 
-Security should be designed into your application from the outset, and here are some security issues to consider during that process.
+This section lists security considerations that are specific to the Azure services described in this article. It's not a complete list of security best practices. For some additional security considerations, see [Secure an app in Azure App Service][app-service-security].
 
 ### Cross-Origin Resource Sharing (CORS)
 
@@ -138,7 +130,7 @@ App Services has built-in support for CORS, without needing to write any applica
 
 ### SQL Database encryption
 
-Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at rest in the database. This feature performs real-time encryption and decryption of an entire database (including backups and transaction log files), without requiring changes to the application. Encryption does add some latency, so it's a good practice to separate the data that must be secure into its own database, and enable encryption only for that database.  
+Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at rest in the database. This feature performs real-time encryption and decryption of an entire database (including backups and transaction log files) and requires no changes to the application. Encryption does add some latency so it's a good practice to separate the data that must be secure into its own database and enable encryption only for that database.  
 
 ## Next steps
 

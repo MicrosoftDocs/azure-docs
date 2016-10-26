@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [pnp-RA-branding](../../includes/guidance-pnp-header-include.md)]
 
 This article shows a recommended architecture for a basic web application in Microsoft Azure. 
-The architecture implements a web front end using [Azure App Service][app-service], with [Azure SQL Database][sql-db] on the database. Later articles in this series build on this basic architecture, adding components such as cache and CDN. 
+The architecture implements a web front end using [Azure App Service][app-service] with [Azure SQL Database][sql-db] as a database. Other articles in this series build on this basic architecture, and add components such as cache and CDN. 
 
 > [AZURE.NOTE] This article is not focused on application development, and doesn't assume any particular application framework. Instead, the goal is to understand how the various Azure services fit together within this application architecture.
 
@@ -38,7 +38,7 @@ The architecture has the following components:
 
 - **App Service plan**. An [App Service plan][app-service-plans] provides the managed virtual machines (VMs) that host your app. All apps associated with a plan run on the same VM instances. 
 
-- **Deployment slots.**  A [deployment slot][deployment-slots] lets you stage a deployment and then swap it with the production deployment. That way, you avoid deploying directly into production. See the [Manageability](#manageability-considerations) section for specific recommendations.   
+- **Deployment slots.** A [deployment slot][deployment-slots] is a live web app separate from the production slot for the deployment of the latest version of a web app. Once the latest version is ready to move to production the deployment slot can be swapped with the production slot. See the [Manageability](#manageability-considerations) section for specific recommendations.   
 
 - **IP address.** The App Service app has a public IP address and a domain name. The domain name is a subdomain of `azurewebsites.net`, such as `contoso.azurewebsites.net`. To use a custom domain name, such as `contoso.com`, create DNS records that map the custom domain name to the IP address. For more information, see [Configure a custom domain name in Azure App Service][custom-domain-name].
 
@@ -52,23 +52,23 @@ The architecture has the following components:
 
 ## Recommendations
 
-You might have additional or differing requirements from the architecture described here. You can use the items in this section as a starting point for considering how to customize the architecture for your own system.
+You might have additional or differing requirements from the architecture described here. You can use the recommendations in this section as a starting point to customize the architecture for your own application.
 
 ### App Service plan
 
-Use the Standard or Premium tiers, because they support scale out, autoscale, and SSL, among other features. Each tier supports several *instance sizes*, which differ by number of cores and memory. You can change the tier or instance size after you create a plan. For more information about app service plans, see [App Service Pricing][app-service-plans-tiers].
+Use the Standard or Premium tiers, as they support scale out, autoscale, and SSL, and other useful features. Each tier supports several *instance sizes*, which differ by number of cores and memory. You can change the tier or instance size after you create a plan. For more information about App Service plans, see [App Service Pricing][app-service-plans-tiers].
 
 You are charged for the instances in the App Service plan, even if the app is stopped. Make sure to delete plans that you aren't using (for example, test deployments).
 
 ### SQL Database
 
-Use the [V12 version][sql-db-v12] of SQL Database. SQL Database supports Basic, Standard, and Premium [service tiers][sql-db-service-tiers], with multiple performance levels within each tier, measured in [Database Transaction Units (DTUs)][sql-dtu]. Do capacity planning and choose a tier and performance level that meets your requirements.
+Use the [V12 version][sql-db-v12] of SQL Database. SQL Database supports Basic, Standard, and Premium [service tiers][sql-db-service-tiers], with multiple performance levels within each tier measured in [Database Transaction Units (DTUs)][sql-dtu]. Perform capacity planning and choose a tier and performance level that meets your requirements.
 
 ### Region
 
-Provision the App Service plan and the SQL Database in the same region, to minimize network latency. Generally, choose a region closest to your users. 
+Provision the App Service plan and the SQL Database in the same region to minimize network latency. Choose the region closest to your users. 
 
-The resource group also has a region, which specifies where deployment metadata is stored. Put the resource group and its resources in the same region. This can improve availability during deployment, if there is problem in some Azure datacenters.  
+The resource group is associated with a region that specifies where deployment metadata is stored. Improve availability by deploying the resource group and its resources in the same region.  
 
 ## Scalability considerations
 
@@ -80,45 +80,39 @@ There are two ways to scale an App Service app:
 
 - *Scale up*, which means changing the instance size. The instance size determines the memory, number of cores, and storage on each VM instance. You can scale up manually by changing the instance size or the plan tier.  
 
-- *Scale out*, which means adding instances to handle increased load. Each pricing tier has a maximum number of instances. You can scale out manually by changing the instance count, or use [autoscaling][web-app-autoscale] to have Azure automatically add or remove instances, based on a schedule and/or performance metrics.
+- *Scale out*, which means adding instances to handle increased load. Each pricing tier has a maximum number of instances. You can scale out manually by changing the instance count, or use [autoscaling][web-app-autoscale] to have Azure automatically add or remove instances based on a schedule and/or performance metrics. There are a few considerations to be aware of when using autoscaling:
 
-    - An autoscale profile defines the minimum and maximum number of instances. Profiles can be scheduled. For example, you can create separate profiles for weekdays and weekends. 
+  - An autoscale profile defines the minimum and maximum number of instances. Profiles can be scheduled. For example, you can create separate profiles for weekdays and weekends. 
 
-    - Optionally, a profile has rules for when to add or remove instances, within the minimum and mazimum range defined by the profile. For example: Add two instances if CPU usage is above 70% for 5 minutes. Each scale operation happens quickly &mdash; typically within seconds.
-    
-    - Autoscale rules include a *cool-down* period, which is the interval to wait after a scale action before performing another scale action. The cool-down period lets the system stabilize before scaling again.
+  - Optionally, a profile has rules for when to add or remove instances within the minimum and mazimum range defined by the profile. For example: Add two instances if CPU usage is above 70% for 5 minutes. Each scale operation happens quickly &mdash; typically within seconds.
+
+  - Autoscale rules include a *cool-down* period, which is the interval to wait after a scale action has completed before starting a new scale action. The cool-down period lets the system stabilize before scaling again.
  
-Here are our recommendations for scaling a web app:
+Some general considerations to be aware of when scaling a web app:
 
-- As much as possible, avoid scaling up and down, because it may trigger an application restart. Select a tier and size that meet your performance requirements under typical load, and then scale out the instances to handle changes in traffic volume.    
+- Minimize scaling up and down. Scaling up or down may trigger an application restart and affect availability of your application. Instead, select a tier and size that meet your performance requirements under typical load and then scale out the instances to handle changes in traffic volume.    
 
-- Enable autoscaling. If your application has a predictable, regular workload, create profiles to schedule the instance counts ahead of time. If the workload is not predictable, use rule-based autoscaling to react to changes in load as they occur. You can combine both approaches. 
+- Enable autoscaling. If your application has a predictable, regular workload, create profiles to schedule the instance counts ahead of time. If the workload is not predictable, use rule-based autoscaling to react to changes in load as they occur. It is possible to combine both approaches if required. 
 
-- CPU is generally a good metric for autoscale rules. However, you should load test your application, identify potential bottlenecks, and base your autoscale rules on that data.  
+- CPU usage is generally a metric for use in autoscale rules. However, you should load test your application, identify potential bottlenecks, and base your autoscale rules on that data.  
 
-- Set a shorter cool-down period for adding instances, and a longer cool-down period for removing instances. For example, set 5 minutes to add an instance, but 60 minutes to remove an instance. Under sudden load, it's better to add new instances quickly, to handle the traffic, and then gradually scale back.
-    
+- Set a shorter cool-down period for adding instances, and a longer cool-down period for removing instances. For example, set 5 minutes to add an instance, but 60 minutes to remove an instance. It's better to add new instances quickly under heavy load to handle the additional traffic with a gradual scale back.
+
 ### Scaling SQL Database
 
-If you need a higher service tier or performance level for SQL Database, you can scale up individual databases, with no application downtime. For details, see [Change the service tier and performance level of a SQL database][sql-db-scale]. 
+If you need a higher service tier or performance level for SQL Database, you can scale up individual databases with no application downtime. For details, see [Change the service tier and performance level of a SQL database][sql-db-scale]. 
 
 ## Availability considerations
 
-At the time of writing, the SLA for App Service is 99.95%, and the SLA for SQL Database is 99.99% for Basic, Standard, and Premium tiers. 
+At the time of writing, the SLA for App Service is 99.95% and the SLA for SQL Database is 99.99% for Basic, Standard, and Premium tiers. 
 
 > [AZURE.NOTE] The App Service SLA applies to both single and multiple instances.  
 
 ### Backups
 
-SQL Database provides point-in-time restore and geo-restore. These features are available in all tiers and are automatically enabled. You don't need to schedule or manage the backups. 
+In the event of data loss, SQL Database provides point-in-time restore and geo-restore. These features are available in all tiers and are automatically enabled, so it's not necessary to schedule or manage the backups. Use point-in-time restore to [recover from human error][sql-human-error] by returning the database to an earlier point in time. Use geo-restore to [recover from a service outage][sql-outage-recovery] by restoring a database from a geo-redundant backup. For more information about these options, see [Cloud business continuity and database disaster recovery with SQL Database][sql-backup]. 
 
-- Use point-in-time restore to [recover from human error][sql-human-error]. It returns your database to an earlier point in time.
-
-- Use geo-restore to [recover from a service outage][sql-outage-recovery]. It restores a database from a geo-redundant backup.
-
-For more information about these options, see [Cloud business continuity and database disaster recovery with SQL Database][sql-backup]. 
-
-App Service provides a [backup and restore][web-app-backup] feature. However, be aware that the backed-up files include app settings in plain text. These may include secrets, such as connection strings. Avoid using the App Service backup feature to back up your SQL databases, because it exports the database to a SQL .bacpac file, which uses [DTUs][sql-dtu]. Instead, use SQL Database point-in-time restore, described above. 
+App Service provides a [backup and restore][web-app-backup] feature for your application files. However, be aware that the backed-up files include app settings in plain text and these may include secrets, such as connection strings. Avoid using the App Service backup feature to back up your SQL databases because it exports the database to a SQL .bacpac file, consuming [DTUs][sql-dtu]. Instead, use SQL Database point-in-time restore described above. 
 
 ## Manageability considerations
 
@@ -138,9 +132,9 @@ For more information, see [Azure Resource Manager overview][resource-group].
 
 Deployment involves two steps:
 
-- Provisioning the Azure resources. We recommend that you use [Azure Resoure Manager templates][arm-template] for this step. Templates make it easier to automate deployments via PowerShell or the Azure CLI. 
+1. Provisioning the Azure resources. We recommend that you use [Azure Resoure Manager templates][arm-template] for this step. Templates make it easier to automate deployments via PowerShell or the Azure CLI. 
 
-- Deploying the application (code, binaries, and content files). You have several options, including deploying from a local Git repository, using Visual Studio, or continuous deployment from cloud-based source control. See [Deploy your app to Azure App Service][deploy].  
+2. Deploying the application (code, binaries, and content files). You have several options, including deploying from a local Git repository, using Visual Studio, or continuous deployment from cloud-based source control. See [Deploy your app to Azure App Service][deploy].  
  
 An App Service app always has one deployment slot named `production`, which represents the live production site. We recommend creating a staging slot for deploying updates. The benefits of using a staging slot include:
 
@@ -158,7 +152,7 @@ Don't use slots on your production deployment for testing, because all apps with
 
 ### Configuration
 
-Store configuration settings as [app settings][app-settings]. Define the app settings in your Resource Manager templates, or by using PowerShell. At runtime, app settings are available to the application as environment variables. 
+Store configuration settings as [app settings][app-settings]. Define the app settings in your Resource Manager templates, or using PowerShell. At runtime, app settings are available to the application as environment variables. 
 
 Never check passwords, access keys, or connection strings into source control. Instead, pass these as parameters to a deployment script that stores these values as app settings. 
 
@@ -174,7 +168,7 @@ Perform load testing, using a tool such as [Visual Studio Team Services][vsts]. 
 
 Tips for troubleshooting your application:
 
-- Use the [Troubleshoot blade][troubleshoot-blade] in the Azure portal to identity solutions to common problems.
+- Use the [Troubleshoot blade][troubleshoot-blade] in the Azure portal to find solutions to common problems.
 
 - Enable [log streaming][web-app-log-stream] to see logging information in near-real time. 
 
@@ -184,49 +178,57 @@ Tips for troubleshooting your application:
 
 ## Security considerations
 
-> [AZURE.NOTE] This section points out some security considerations that are specific to the Azure services described in this article. It's not a complete list of security best practices. For some additional security considerations, see [Secure an app in Azure App Service][app-service-security].
+This section lists security considerations that are specific to the Azure services described in this article. It's not a complete list of security best practices. For some additional security considerations, see [Secure an app in Azure App Service][app-service-security].
 
-**SQL Database auditing**. Auditing can help you maintain regulatory compliance, and get insight into discrepancies and anomalies that could indicate business concerns or suspected security violations. See [Get started with SQL database auditing][sql-audit].
+### SQL Database auditing
 
-**Deployment slots**. Each deployment slot has a public IP address. Secure the non-production slots using [Azure Active Directory login][aad-auth], so that only members of your development and DevOps teams can reach those endpoints. 
+Auditing can help you maintain regulatory compliance and get insight into discrepancies and anomalies that could indicate business concerns or suspected security violations. See [Get started with SQL database auditing][sql-audit].
 
-**Logging**. Logs should never record users' passwords or other information that might be used to commit identity fraud. Scrub those details from the data before storing it.   
+### Deployment slots
 
-**SSL**. An App Service app includes an SSL endpoint on a subdomain of `azurewebsites.net` at no additional cost, with a wildcard certificate for the `*.azurewebsites.net` domain.     If you use a custom domain name, you must provide a certificate that matches the custom domain. The simplest approach is to buy a certificate directly through the Azure Portal. You can also import certificates  from other certificate authorities. For more information, see [Buy and Configure an SSL Certificate for your Azure App Service][ssl-cert]. 
+Each deployment slot has a public IP address. Secure the non-production slots using [Azure Active Directory login][aad-auth] so that only members of your development and DevOps teams can reach those endpoints. 
 
-As a security best practice, your app should enforce HTTPS, by redirecting HTTP requests. You can implement this inside your application, or use a URL rewrite rule as described in [Enable HTTPS for an app in Azure App Service][ssl-redirect].
+### Logging
+
+Logs should never record users' passwords or other information that might be used to commit identity fraud. Scrub those details from the data before storing it.   
+
+### SSL
+
+An App Service app includes an SSL endpoint on a subdomain of `azurewebsites.net` at no additional cost. The SSL endpoint includes a wildcard certificate for the `*.azurewebsites.net` domain. If you use a custom domain name, you must provide a certificate that matches the custom domain. The simplest approach is to buy a certificate directly through the Azure Portal, but it's possible to import certificates from other certificate authorities. For more information, see [Buy and Configure an SSL Certificate for your Azure App Service][ssl-cert]. 
+
+### HTTP/HTTPS
+
+As a security best practice, your app should enforce HTTPS by redirecting HTTP requests. You can implement this inside your application or use a URL rewrite rule as described in [Enable HTTPS for an app in Azure App Service][ssl-redirect].
 
 ### Authentication
 
-We recommend authenticating through an identity provider (IDP), such as Azure AD, Facebook, Google, or Twitter, using OAuth 2 or OpenID Connect (OIDC) for the authentication flow. 
+We recommend authenticating through an identity provider (IDP), such as Azure AD, Facebook, Google, or Twitter. Use OAuth 2 or OpenID Connect (OIDC) for the authentication flow. Azure AD provides functionality to manage users and groups, create application roles, integrate your on-premises identities, and consume backend services such as Office 365 and Skype for Business.
 
-Azure AD gives you the ability to manage users and groups, create application roles, integrate your on-premises identities, and consume backend services such as Office 365 and Skype for Business.
-
-Avoid having the application manage user logins and credentials directly, as it creates a large potential attack surface. At a minimum, you would need to have email confirmation, password recovery, and multi-factor authentication; validate password strength; and store password hashes securely. The large identity providers handle all of those things for you, and are constantly monitoring and improving their security practices. 
+Your application should not manage user logins and credentials directly, as these offer a large potential attack surface. Managing user logins and creditentials requires you to implement email confirmation, password recovery, and multi-factor authentication; validate password strength; and store password hashes securely. The large identity providers already implement all of this functionality and are constantly monitoring and improving their security practices. 
 
 Consider using [App Service Authentication][app-service-auth] to implement the OAuth/OIDC authentication flow. The benefits of App Service Authentication include:
 
-- Easy to configure.
-    
-- For simple authentication scenarios, no code is required.
-    
-- Supports delegated authorization; that is, using OAuth access tokens to consume resources on behalf of the user.
-    
-- Provides a built-in token cache.
+- Ease of configuration.
+
+- No code is required for simple authentication scenarios.
+
+- Support for delegated authorization using OAuth access tokens to consume resources on behalf of the user.
+
+- A built-in token cache.
 
 Some limitations of App Service Authentication:  
 
 - Limited customization options. 
 
 - Delegated authorization is restricted to one backend resource per login session.
-    
+
 - If you use more than one IDP, there is no built-in mechanism for home realm discovery.
 
 - For multi-tenant scenarios, the application must implement the logic to validate the token issuer.
 
 ## Deploying the sample solution
 
-An example Resoure Manager template for this architecture is available on GitHub. Download it [here][paas-basic-arm-template].
+An example Resoure Manager template for this architecture is [available on GitHub][paas-basic-arm-template].
 
 To deploy the template using PowerShell, run the following commands:
 
