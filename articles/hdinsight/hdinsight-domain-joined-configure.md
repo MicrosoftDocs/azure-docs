@@ -69,7 +69,7 @@ This tutorial provides the steps for configuring a domain-joined HDInsight clust
 	
 ## Create an Azure classic VNet
 
-In this section, you create a classic VNet using the Azure portal. In the next section, you enable the Azure AD DS for your Azure AD in the classic VNet. For additional information about the following procedure and using other VNet creation methods, see [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
+In this section, you create a classic VNet using the Azure portal. In the next section, you enable the Azure AD DS for your Azure AD in the classic VNet. For more information about the following procedure and using other VNet creation methods, see [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
 
 **To create a classic VNet**
 
@@ -82,9 +82,9 @@ In this section, you create a classic VNet using the Azure portal. In the next s
 	- **Address space**: 10.1.0.0/16
 	- **Subnet name**: Subnet1
 	- **Subnet address range**: 10.1.0.0/24
-	- **Subscription**: (Select a subscription. You will also use this subscription to create your HDInsight cluster.)
+	- **Subscription**: (Select a subscription used for creating this VNet.)
 	- **ResourceGroup**:
-	- **Location**: (Select a region. This is the region where you want to create your HDInsight cluster.)
+	- **Location**: (Select a region for your HDInsight cluster.)
 
 		> [AZURE.IMPORTANT] You must choose a location that supports Azure AD DS. For more information, see [Products available by region](https://azure.microsoft.com/en-us/regions/services/). 
 		>
@@ -97,7 +97,7 @@ In this section, you create a classic VNet using the Azure portal. In the next s
 In this section, you will:
 
 1. Create an Azure AD.
-2. Create Azure AD users. These are domain users. You will use the first user for configuring the HDInsight cluster with the Azure AD.  The other two users are optional for this tutorial. They will be used in [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md) when you configure Apache Ranger policies.
+2. Create Azure AD users. These users are domain users. You use the first user for configuring the HDInsight cluster with the Azure AD.  The other two users are optional for this tutorial. They will be used in [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md) when you configure Apache Ranger policies.
 3. Create the AAD DC Administrators group and add the Azure AD user to the group. You use this user to create the organizational unit.
 4. Enable Azure AD Domain Services (Azure AD DS) for the Azure AD.
 7. Configure LDAPS for the Azure AD. The Lightweight Directory Access Protocol (LDAP) is used to read from and write to Azure AD.
@@ -271,7 +271,7 @@ The organization unit you create next will be used when creating the HDInsight c
 For more information, See [Create an Organizational Unit (OU) on an Azure AD Domain Services managed domain](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
 
 
-## Create an Resource Manager VNet for HDInsight cluster
+## Create a Resource Manager VNet for HDInsight cluster
 
 In this section, you will create an Azure Resource Manager VNet that will be used for the HDInsight cluster. For more information on creating Azure VNET using other methods, see [Create a virtual network](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
 
@@ -365,20 +365,20 @@ In this section, you create a Linux-based Hadoop cluster in HDInsight using eith
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
 2. Click **New**, **Intelligence + analytics**, and then **HDInsight**.
-3. From the **New HDInsight cluster** blade, enter or select the following:
+3. From the **New HDInsight cluster** blade, enter or select the following values:
 
 	- **Cluster name**: Enter a new cluster name for the Domain-joined HDInsight cluster.
 	- **Subscription**: Select an Azure subscription used for creating this cluster.
 	- **Cluster configuration**:
 
-		- **Cluster Type**: Hadooop. Domain-joined HDInsight cluster currently only support Hive.
+		- **Cluster Type**: Hadoop. Domain-joined HDInsight cluster currently only supports Hive.
 		- **Operating System**: Linux.  Domain-joined HDInsight cluster only supports Linux-based HDInsight clusters.
 		- **Version**: Hadoop 2.7.3 (HDI 3.5). Domain-joined HDInsight cluster only supports HDInsight cluster version 3.5.
 		- **Cluster Type**: PREMIUM
 
 		Click **Select** to save the changes.
 
-	- **Credentials**: Configure the crendentials for both the cluster user and the SSH user.
+	- **Credentials**: Configure the credentials for both the cluster user and the SSH user.
 	- **Data Source**: Create a new Storage account or use an existing Storage account as the default Storage account for the HDInsight cluster. The location must be the same as the two VNets.  The location is also the location of the HDInsight cluster.
 	- **Pricing**: Select the number of worker nodes of your cluster.
 	- **Advanced configurations**: 
@@ -388,10 +388,10 @@ In this section, you create a Linux-based Hadoop cluster in HDInsight using eith
 			- **Domain settings**: 
 
 				- **Domain name**: contoso.onmicrosoft.com
-				- **Domain user name**: Enter a domain user name. This domain must have the following priviledges:
+				- **Domain user name**: Enter a domain user name. This domain must have the following privileges:
 
 					- Join machines to the domain and place them in the organization unit you configured earlier.
-					- Create servies principals wthin the organization unit you configured earlier.
+					- Create service principals within the organization unit you configured earlier.
 					- Create reverse DNS entries.
 
 					This domain user will become the administrator of this domain-joined HDInsight cluster.
@@ -418,7 +418,7 @@ In this section, you create a Linux-based Hadoop cluster in HDInsight using eith
 The following procedure shows you how to create the domain-joined HDInsight cluster using an Azure Resource Management template instead of using the Azure portal.
 
 
-**To create a Domain-joined HDInsight cluster using a Resource Managerment template**
+**To create a Domain-joined HDInsight cluster using a Resource Management template**
 
 1. Click the following image to open a Resource Manager template in the Azure portal. The Resource Manager template is located in a public blob container. 
 
