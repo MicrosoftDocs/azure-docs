@@ -97,24 +97,21 @@ This table shows the search units required to support combinations of replicas a
 
  - |**1 Partition** |**2 Partitions** |**3 Partitions** |**4 Partitions**|**6 Partitions**|**12 Partitions**|
 ---|----|---|---|---|---|---|
-**12 replicas**|12 SU|24 SU|36 SU|N/A|N/A|N/A|
-**6 replicas**|6 SU|12 SU|18 SU|24 SU|36 SU|N/A|
-**5 replicas**|5 SU|10 SU|15 SU|20 SU|30 SU|N/A|
-**4 replicas**|4 SU|8 SU<|12 SU|16 SU|24 SU|N/|
-**3 replicas**|3 SU|6 SU|9 SU|12 SU|18 SU|36 SU|
-**2 replicas**|2 SU|4 SU|6 SU|8 SU|12 SU|24 SU|
 **1 replica**|1 SU|2 SU|3 SU|4 SU|6 SU|12 SU|
-
+**2 replicas**|2 SU|4 SU|6 SU|8 SU|12 SU|24 SU|
+**3 replicas**|3 SU|6 SU|9 SU|12 SU|18 SU|36 SU|
+**4 replicas**|4 SU|8 SU<|12 SU|16 SU|24 SU|N/|
+**5 replicas**|5 SU|10 SU|15 SU|20 SU|30 SU|N/A|
+**6 replicas**|6 SU|12 SU|18 SU|24 SU|36 SU|N/A|
+**12 replicas**|12 SU|24 SU|36 SU|N/A|N/A|N/A|
 
 Search units, pricing, and capacity are explained in detail on the Azure web site. See [Pricing Details](https://azure.microsoft.com/pricing/details/search/) for more information.
 
-> [AZURE.NOTE] The number of replicas and partitions must evenly divide into 12 (specifically, 1, 2, 3, 4, 6, 12). This is because Azure Search pre-divides each index into 12 shards so that it can be spread in equal portions across all partitions. For example, if your service has three partitions and you create a new index, each partition will contain 4 shards of the index. How Azure Search shards an index is an implementation detail, subject to change in future release. Although the number is 12 today, you shouldn't expect that number to always be 12 in the future.
+> [AZURE.NOTE] The number of replicas and partitions divides evenly into 12 (specifically, 1, 2, 3, 4, 6, 12). This is because Azure Search pre-divides each index into 12 shards so that it can be spread in equal portions across all partitions. For example, if your service has three partitions and you create a new index, each partition will contain 4 shards of the index. How Azure Search shards an index is an implementation detail, subject to change in future release. Although the number is 12 today, you shouldn't expect that number to always be 12 in the future.
 
-## Calculate Search Units for Specific Resourcing Combinations: R X P = SU
+## Billing formula for replica and partition resources
 
-The formula for calculating how many SUs you need is replicas multiplied by partitions. For example, 3 replicas multiplied by 3 partitions is billed as 9 search units.
+The formula for calculating how many SUs are used for specific combinations is the *product* of replicas and partitions, or (R X P = SU). For example, 3 replicas multiplied by 3 partitions is billed as 9 SUs.
 
-Both tiers start with one replica and one partition, counted as one search unit (SU). This is the only instance where both a replica and a partition count as one search unit. Each additional  resource, whether it is a replica or a partition, is counted as its own SU.
-
-Cost per SU is determined by the tier. Cost per SU is lower for the Basic tier than it is for Standard. Rates for each tier can be found on [Pricing Details](https://azure.microsoft.com/pricing/details/search/).
+Cost per SU is determined by the tier, with a lower per-unit billing rate for Basic than for Standard. Rates for each tier can be found on [Pricing Details](https://azure.microsoft.com/pricing/details/search/).
 
