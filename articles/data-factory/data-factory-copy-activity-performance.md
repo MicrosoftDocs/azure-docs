@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/13/2016"
+	ms.date="10/25/2016"
 	ms.author="jingwang"/>
 
 
@@ -38,6 +38,8 @@ This article describes:
 ## Performance reference
 
 ![Performance matrix](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
+
+> [AZURE.NOTE] #: You can achieve higher throughput by leveraging more DMUs, while the default max DMU is 8 for each cloud-to-cloud copy activity run. For example, with 100 DMUs, you can reach beyond 1GB/s when copy from Azure Blob to Azure Data Lake Store. See the [Cloud data movement](#cloud-data-movement-units) section for details about this feature. Contact [Azure support](https://azure.microsoft.com/support/) to request more DMUs.
 
 Points to note:
 

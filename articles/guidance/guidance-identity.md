@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Connecting your on-premises network to Azure | Microsoft Azure"
-   description="Explains and compares the different methods available for connecting to Microsoft cloud services such as Azure, Office 365, and Dynamics CRM Online."
+   pageTitle="Managing identity in Azure | Microsoft Azure"
+   description="Explains and compares the different methods available for managing identity in hybrid systems that span the on-premises/cloud boundary with Azure."
    services=""
    documentationCenter="na"
-   authors="jimdial"
-   manager="carmonm"
+   authors="telmosampaio"
+   manager="christb"
    editor=""
    tags=""/>
 <tags
@@ -13,104 +13,134 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/25/2016"
-   ms.author="jdial"/>
+   ms.date="10/26/2016"
+   ms.author="telmosampaio"/>
    
-# Connecting your on-premises network to Azure
+# Managing Identity in Azure
 
-Microsoft provides several types of cloud services. While you can connect to all the services over the public Internet, you can also connect to some of the services using a virtual private network (VPN) tunnel over the Internet or over a direct, private connection to Microsoft. This article helps you determine which connectivity option will best meet your needs based on the types of Microsoft cloud services that you consume. Most organizations utilize multiple connection types described below.
+In most enterprise systems based on Windows, you will use Active Directory (AD) to provide identity management services to your applications. AD works well in an on-premises environment, but when you extend your network infrastructure to the cloud you have some important decisions to make concerning how to manage identity. Should you expand your on-premises domains to incorporate VMs in the cloud? Should you create new domains in the cloud, and if so, how? Should you implement your own forest in the cloud or should you make use of Azure Active Directory (AAD)?
 
-## Connecting over the public Internet
+This article describes some common options for meeting the challenges posed by this scenario, and helps you determine which solution will best meet your needs based on your requirements.
 
-This connection type provides access to Microsoft cloud services directly over the Internet, as shown below.
+## Using Azure Active Directory
 
-![Internet](./media/guidance-connecting-your-on-premises-network-to-azure/internet.png "Internet")
+You can use AAD to create an AD domain in the cloud and link it to an on-premises AD domain. AAD enables you to configure single sign-on (SSO) for users running applications accessed through the cloud.
 
-This connection is typically the first type used for connecting to Microsoft cloud services. The table below lists pros and cons of this connection type.
+[![0]][0]
 
+AAD is a straightforward way to implement a security domain in the cloud. It is utilized by many Microsoft applications, such as Microsoft Office 365. 
 
+Benefits of using AAD:
 
-| **Benefits**| **Considerations**|
-|---------|---------|
-|Requires no modification to your on-premises network as long as all client devices have unlimited access to all IP addresses and ports on the Internet.|Though traffic is often encrypted using HTTPS, it can be intercepted in transit since it traverses the public Internet.|
-|Can connect to all Microsoft cloud services exposed to the public Internet.|Unpredictable latency because the connection traverses the Internet.|
-|Uses your existing Internet connection.||
-|Doesn't require management of any connectivity devices.||
+- There is no need to maintain an Active Directory infrastructure in the cloud. AAD is entirely managed and maintained by Microsoft.
 
-This connection has no connectivity or bandwidth costs since you use your existing Internet connection. 
+- AAD provides the same identity information that is available on-premises.
 
-## Connecting with a point-to-site connection
+- Authentication can happen in Azure, reducing the need for external applications and users to contact the on-premises domain.
 
-This connection type provides access to some Microsoft cloud services through a Secure Socket Tunneling Protocol (SSTP) tunnel over the Internet, as shown below.
+Points to consider when using AAD:
 
-![P2S](./media/guidance-connecting-your-on-premises-network-to-azure/p2s.png "Point-to-site connection")
+- Identity services are limited to users and groups. There is no ability to authenticate service and computer accounts.
 
-The connection is made over your existing Internet connection, but requires use of an Azure VPN Gateway. The table below lists pros and cons of this connection type.
+- You must configure connectivity with your on-premises domain to keep the AAD directory synchronized. 
 
-| **Benefits**| **Considerations**|
-|---------|---------|
-|Requires no modification to your on-premises network as long as all client devices have unlimited access to all IP addresses and ports on the Internet.|Though traffic is encrypted using IPSec, it can be intercepted in transit since it traverses the public Internet.|
-|Uses your existing Internet connection.|Unpredictable latency because the connection traverses the Internet.|
-|Throughput up to 200 Mb/s per gateway.|Requires creation and management of separate connections between each device on your on-premises network and each gateway each device needs to connect to.|
-|Can be used to connect to Azure services that can be connected to an Azure Virtual Networks (VNet) such as Azure Virtual Machines and Azure Cloud Services.|Requires minimal ongoing administration of an Azure VPN Gateway.|
-||Cannot be used to connect to Microsoft Office 365 or Dynamics CRM Online.
-||Cannot be used to connect to Azure services that cannot be connected to a VNet.|
+- You are responsible for publishing applications that users can access in the cloud through AAD.
 
-Learn more about the [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) service, its [pricing](https://azure.microsoft.com/pricing/details/vpn-gateway), and outbound data transfer [pricing](https://azure.microsoft.com/pricing/details/data-transfers).
+For detailed information, read [Implementing Azure Active Directory][implementing-aad].
 
-## Connecting with a site-to-site connection
+## Using Active Directory in the cloud joined to an on-premises forest
 
-This connection type provides access to some Microsoft cloud services through an IPSec tunnel over the Internet, as shown below.
+You can host AD Directory Services (AD DS) on-premises, but in a hybrid scenario where elements of an application are located in Azure it can be more efficient to replicate this functionality and the AD repository to the cloud. This approach can help  reduce the latency caused by sending authentication and local authorization requests from the cloud back to AD DS running on-premises. 
 
-![S2S](./media/guidance-connecting-your-on-premises-network-to-azure/s2s.png "Site-to-site connection")
+[![1]][1]
 
-The connection is made over your existing Internet connection, but requires use of an Azure VPN Gateway with its associated pricing and outbound data transfer pricing. The table below lists pros and cons of this connection type.
+This approach requires that you create your own domain in the cloud and join it to the on-premises forest. You create VMs to host the AD DS services.
 
-| **Benefits**| **Considerations**|
-|---------|---------|
-|All devices on your on-premises network can communicate with Azure services connected to a VNet so there’s no need to configure individual connections for each device.|Though traffic is encrypted using IPSec, it can be intercepted in transit since it traverses the public Internet.|
-|Uses your existing Internet connection.|Unpredictable latency because the connection traverses the Internet.|
-|Can be used to connect to Azure services that can be connected to a VNet such as Virtual Machines and Cloud Services.|Must configure and manage a validated VPN device* on-premises.|
-|Throughput up to 200 Mb/s per gateway.|Requires minimal ongoing administration of an Azure VPN Gateway.|
-|Can force outbound traffic initiated from cloud virtual machines through the on-premises network for inspection and logging using user-defined routes or the Border Gateway Protocol (BGP)**.|Cannot be used to connect to Microsoft Office 365 or Dynamics CRM Online.|
-||Cannot be used to connect to Azure services that cannot be connected to a VNet.|
-||If you use services that initiate connections back to on-premises devices and your security policies require it, you may need a firewall between the on-premises network and Azure.|
+Benefits of using a separate domain in the cloud:
 
-- *View a list of [validated VPN devices](../vpn-gateway/vpn-gateway-about-vpn-devices.md#validated-vpn-devices).
-- **Learn more about using [user-defined routes](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) or [BGP](../vpn-gateway/vpn-gateway-bgp-overview.md) to force routing from Azure VNets to an on-premises device.
+- Provides the ability to authenticate user, service, and computer accounts on-premises and in the cloud.
 
-## Connecting with a dedicated private connection
+- Provides access to the same identity information that is available on-premises.
 
-This connection type provides access to all Microsoft cloud services over a dedicated private connection to Microsoft that does not traverse the Internet, as shown below.
+- There is no need to manage a separate AD forest; the domain in the cloud can belong to the on-premises forest.
 
-![ER](./media/guidance-connecting-your-on-premises-network-to-azure/er.png "ExpressRoute connection")
+- You can apply group policy defined by on-premises GPO objects to the domain in the cloud.
 
-The connection requires use of the ExpressRoute service and a connection to a connectivity provider. The table below lists pros and cons of this connection type.
+Considerations for using a separate domain in the cloud:
 
-| **Benefits**| **Considerations**|
-|---------|---------|
-|Traffic cannot be intercepted in transit over the public Internet since a dedicated connection through a service provider is used.|Requires on-premises router management.|
-|Bandwidth up to 10 Gb/s per ExpressRoute circuit and throughput up to 2 Gb/s to each gateway.|Requires a dedicated connection to a connectivity provider.|
-|Predictable latency because it’s a dedicated connection to Microsoft that does not traverse the Internet.|May require minimal ongoing administration of one or more Azure VPN Gateways (if connecting the circuit to VNets).|
-|Does not require encrypted communication, though you can encrypt the traffic, if desired.| If you're using cloud services that initiate connections back to on-premises devices, you may need a firewall between the on-premises network and Azure.|
-|Can directly connect to all Microsoft cloud services, with a few exceptions*.|Requires network address translation (NAT) of on-premises IP addresses entering the Microsoft data centers for services that can't be connected to a VNet.**|
-|Can force outbound traffic initiated from cloud virtual machines through the on-premises network for inspection and logging using BGP.|
+- Requires you to create and manage your own AD DS servers and domain in the cloud.
 
-- *View a [list of services](../expressroute/expressroute-faqs.md#supported-services) that cannot be used with ExpressRoute. Your Azure subscription must be approved to connect to Office 365.  See the [Azure ExpressRoute for Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd?ui=en-US&rs=en-US&ad=US&fromAR=1) article for details.
-- **Learn more about ExpressRoute [NAT](../expressroute/expressroute-nat.md) requirements.
+- There may be some synchronization latency between the domain servers in the cloud and the servers running on-premises.
 
-Learn more about [ExpressRoute](../expressroute/expressroute-introduction.md), its associated [pricing](https://azure.microsoft.com/pricing/details/expressroute), and [connectivity providers](../expressroute/expressroute-locations.md#connectivity-provider-locations).
+For information on how to configure this architecture, see [Extending Active Directory Directory Services (ADDS) to Azure][extending-adds].
 
-## Additional considerations
+## Using Active Directory with a separate forest
 
-- Several of the options above have various maximum limits they can support for VNet connections, gateway connections, and other criteria. It’s recommended that you review the Azure [networking limits](../azure-subscription-service-limits.md#networking-limits) to understand if any of them impact the connectivity types you choose to use. 
-- If you plan to connect a gateway from a site-to-site VPN connection to the same VNet as an ExpressRoute gateway, you should familiarize yourself with important constraints first. See the [Configure ExpressRoute and Site-to-Site coexisting connections](../expressroute/expressroute-howto-coexist-resource-manager.md#limits-and-limitations) article for more details.
+An organization that runs Active Directory (AD) on-premises might have a forest comprising many different domains. You can use domains to provide isolation between functional areas that must be kept separate, possibly for security reasons, but you can share information between domains by establishing trust relationships.
+
+[![2]][2]
+
+An organization that utilizes separate domains can take advantage of Azure by relocating one or more of these domains into a separate forest in the cloud. Alternatively, an organization might wish to keep all cloud resources logically distinct from those held on-premises, and store information about cloud resources in their own directory, as part of a forest also held in the cloud.
+
+Benefits of using a separate forest in the cloud:
+
+- You can implement on-premises identities and separate Azure-only identities.
+
+- There is no need to replicate from the on-premises AD forest to Azure, reducing the effects of network latency.
+
+Considerations:
+
+- Authentication for on-premises identities in the cloud performs extra network *hops* to the on-premises AD servers.
+
+- Requires you to implement your own AD DS servers and forest in the cloud, and establish the appropriate trust relationships between forests.
+
+The document [Creating a Active Directory Directory Services (ADDS) resource forest in Azure][adds-forest-in-azure] describes how to implement this approach in more detail.
+
+## Using Active Directory Federation Services (ADFS) with Azure
+
+ADFS can run on-premises, but in a hybrid scenario where applications are located in Azure it can be more efficient to implement this functionality in the cloud, as shown below.
+
+[![3]][3]
+
+This architecture is especially useful for:
+
+- Solutions that utilize federated authorization to expose web applications to partner organizations.
+
+- Systems that support access from web browsers running outside of the organizational firewall.
+
+- Systems that enable users to access to web applications by connecting from authorized external devices such as remote computers, notebooks, and other mobile devices. 
+
+Benefits of using ADFS with Azure:
+
+- You can leverage claims-aware applications.
+
+- It provides the ability to trust external partners for authentication.
+
+- It provides compatibility with large set of authentication protocols.
+
+Considerations for using ADFS with Azure:
+
+- It requires you to implement your own ADDS, ADFS, and ADFS Web Application Proxy servers in the cloud.
+
+- This architecture can be complex to configure.
+
+For detailed information, read [Implementing Active Directory Federation Services (ADFS) in Azure][adfs-in-azure].
 
 ## Next steps
 
-The resources below explain how to implement the connection types covered in this article.
+The resources below explain how to implement the architectures described in this article.
 
--   [Implement a point-to-site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
--   [Implement a site-to-site connection](guidance-hybrid-network-vpn.md)
--   [Implement a dedicated private connection](guidance-hybrid-network-expressroute.md)
--   [Implement a dedicated private connection with a site-to-site connection for high availability](guidance-hybrid-network-expressroute-vpn-failover.md)
+- [Implementing Azure Active Directory][implementing-aad]
+- [Extending Active Directory Directory Services (ADDS) to Azure][extending-adds]
+- [Creating a Active Directory Directory Services (ADDS) resource forest in Azure][adds-forest-in-azure]
+- [Implementing Active Directory Federation Services (ADFS) in Azure][adfs-in-azure]
+
+<!-- Links -->
+[0]: ./media/guidance-identity/figure1.png "Cloud identity architecture using Azure Active Directory"
+[1]: ./media/guidance-identity/figure2.png "Secure hybrid network architecture with Active Directory"
+[2]: ./media/guidance-identity/figure3.png "Secure hybrid network architecture with separate AD domains and forests"
+[3]: ./media/guidance-identity/figure4.png "Secure hybrid network architecture with ADFS"
+[implementing-aad]: ./guidance-identity-aad.md
+[extending-adds]: ./guidance-identity-adds-extend-domain.md
+[adds-forest-in-azure]: ./guidance-identity-adds-resource-forest.md
+[adfs-in-azure]: ./guidance-identity-adfs.md
