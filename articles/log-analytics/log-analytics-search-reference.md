@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2016"
+	ms.date="10/25/2016"
 	ms.author="banders"/>
 
 
@@ -358,7 +358,7 @@ The *measure* command is used to apply statistical functions to the raw search r
 Syntax:
 
 	measure aggregateFunction1([aggregatedField]) [as fieldAlias1] [, aggregateFunction2([aggregatedField2]) [as fieldAlias2] [, ...]] by groupField1 [, groupField2 [, groupField3]]  [interval interval]
-	
+
 
 	measure aggregateFunction1([aggregatedField]) [as fieldAlias1] [, aggregateFunction2([aggregatedField2]) [as fieldAlias2] [, ...]]  interval interval
 
@@ -370,13 +370,13 @@ Aggregates the results by *groupField* and calculates the aggregated measure val
 |Measure statistical function|Description|
 |---|---|
 |*aggregateFunction*|The name of the aggregate function (case insensitive). The following aggregate functions are supported:COUNT MAX MIN SUM AVG STDDEV COUNTDISTINCT PERCENTILE## or PCT## (## is any number between 1 to 99)|
-|*aggregatedField*|The field that is being aggregated. This field is optional for the COUNT aggregate function, but has to be an existing numeric field for SUM, MAX, MIN, AVG STDDEV, or PERCENTILE## or PCT## (## is any number between 1 to 99).|
+|*aggregatedField*|The field that is being aggregated. This field is optional for the COUNT aggregate function, but has to be an existing numeric field for SUM, MAX, MIN, AVG STDDEV, or PERCENTILE## or PCT## (## is any number between 1 to 99). The aggregatedField can also be any of the Extend supported functions.|
 |*fieldAlias*|The (optional) alias for the calculated aggregated value. If not specified, the field name will be AggregatedValue.|
 |*groupField*|The name of the field that the result set is grouped by.|
 |*Interval*|The time interval in the format:**nnnNAME** Where:nnn is the positive integer number. **NAME** is the interval name. Supported interval names include (case sensitive):MILLISECOND[S] SECOND[S] MINUTE[S] HOUR[S] DAY[S] MONTH[S] YEAR[S]|
 
 
-The interval option can only be used in Date/Time group fields (such as *TimeGenerated* and *TimeCreated*). Currently, this is not enforced by the service, but a field without Date/Time that is passed to the backend will cause a runtime error. When the schema validation is implemented, the service API rejects queries that use fields without Date/Time for interval aggregation. The current *Measure* implementation supports interval grouping for any aggregate function.
+The interval option can only be used in Date/Time group fields (such as *TimeGenerated* and *TimeCreated*). Currently, this is not enforced by the service, but a field without Date/Time that is passed to the backend will cause a runtime error. When the schema validation is implemented, the service API rejects queries that use fields without Date/Time for interval aggregation. The current *Measure* implementation supports interval grouping for any aggregate function.
 
 If the BY clause is omitted but an interval is specified (as a second syntax), the *TimeGenerated* field is assumed by default.
 
@@ -540,6 +540,15 @@ Type:Perf CounterName=”% Processor Time”  | measure min(CounterValue) as MIN
 
 Groups % Processor Time first by computer and then by Instance name, and returns the minimum, average, 75 percentile, and maximum for every 1 hour
 
+**Example 20**
+
+```
+Type= Perf CounterName="Disk Writes/sec" Computer="BaconDC01.BaconLand.com" | measure max(product(CounterValue,60)) as MaxDWPerMin by InstanceName Interval 1HOUR
+```
+
+*Explanation*
+
+Calculates the maximum of Disk writes per minute for every disk on your computer
 
 ### Where
 
@@ -599,7 +608,7 @@ The above example returns one  event  (the latest since we use DESC on TimeGener
 ### Extend
 
 **Description**
-Allows you to create run-time fields in queries
+Allows you to create run-time fields in queries. You can also use measure command after Extend if you want to perform aggregation.
 
 **Example 1**
 
@@ -620,8 +629,15 @@ Scale the value of WireData TotalBytes such that all results lie between 0 and 1
 
 ```
 Type=Perf CounterName="% Processor Time" | EXTEND if(map(CounterValue,0,50,0,1),"HIGH","LOW") as UTILIZATION
-Tag Perf Counter Values less than 50% las LOW and others as HIGH
 ```
+Tag Perf Counter Values less than 50% las LOW and others as HIGH
+
+**Example 5**
+
+```
+Type= Perf CounterName="Disk Writes/sec" Computer="BaconDC01.BaconLand.com" | Extend product(CounterValue,60) as DWPerMin| measure max(DWPerMin) by InstanceName Interval 1HOUR
+```
+Calculates the maximum of Disk writes per minute for every disk on your computer
 
 **Supported  Functions**
 
@@ -634,12 +650,12 @@ Tag Perf Counter Values less than 50% las LOW and others as HIGH
 | asin | Returns arc sine of a value or a function | `asin(x)` |
 | atan | Returns arc tangent of a value or a function | `atan(x)` |
 | atan2 |  Returns the angle resulting from the conversion of the rectangular coordinates x,y to polar coordinates | `atan2(x,y)` |
-| cbrt | Cube root |  `cbrt(x)` | 
+| cbrt | Cube root |  `cbrt(x)` |
 | ceil | Rounds up to an integer | `ceil(x)`  <br> `ceil(5.6)` - Returns 6 |
 | cos | Returns cosine of an angle | `cos(x)` |
 | cosh | Returns hyperbolic cosine of an angle | `cosh(x)` |
 | def | def is short for default. Returns the value of field "field", or if the field does not exist, returns the default value specified and yields the first value where: `exists()==true`. | `def(rating,5)` - This def() function returns the rating, or if no rating specified in the document, returns 5 <br> `def(myfield, 1.0)` - equivalent to `if(exists(myfield),myfield,1.0)` |
-| deg | Convert radians to degrees |  `deg(x)` | 
+| deg | Convert radians to degrees |  `deg(x)` |
 | div | `div(x,y)` divides x by y. | `div(1,y)` <br> `div(sum(x,100),max(y,1))` |
 | dist | Returns the distance between two vectors, (points) in an n-dimensional space. Takes in the power, plus two or more, ValueSource instances and calculates the distances between the two vectors. Each ValueSource must be a number. There must be an even number of ValueSource instances passed in and the method assumes that the first half represent the first vector and the second half represent the second vector.  | `dist(2, x, y, 0, 0)` - Calculates the Euclidean distance between,(0,0) and (x,y) for each document. <br> `dist(1, x, y, 0, 0)` - Calculates the Manhattan (taxicab), distance between (0,0) and (x,y) for each document. <br> `dist(2,,x,y,z,0,0,0)` - Euclidean distance between (0,0,0) and (x,y,z) for each document.<br>`dist(1,x,y,z,e,f,g)` - Manhattan distance between (x,y,z) and (e,f,g), where each letter is a field name. |
 | exists | Returns TRUE if any member of the field exists. | `exists(author)` - Returns TRUE for any document has a value in the "author" field.<br>`exists(query(price:5.00))` -  Returns TRUE if "price" matches,"5.00". |
@@ -648,12 +664,12 @@ Tag Perf Counter Values less than 50% las LOW and others as HIGH
 | hypo | Returns  sqrt(sum(pow(x,2),pow(y,2))) without intermediate overflow or underflow | `hypo(x,y)`  <br> ` |
 | if | Enables conditional function queries. In `if(test,value1,value2)` - Test is or refers to a logical value or expression that returns a logical value (TRUE or FALSE).  `value1` is the value that is returned by the function if test yields TRUE. `value2` is the value that is returned by the function if test yields FALSE. An expression can be any function which outputs boolean values, or even functions returning numeric values, in which case value 0 will be interpreted as false, or strings, in which case empty string is interpreted as false. | `if(termfreq(cat,'electronics'),popularity,42)` - This function checks each document for the to see if it contains the term "electronics" in the cat field. If it does, then the value of the popularity field is returned, otherwise the value of 42 is returned. |
 | linear | Implements `m*x+c` where m and c are constants and x is an arbitrary function. This is equivalent to `sum(product(m,x),c)`, but slightly more efficient as it is implemented as a single function. | `linear(x,m,c) linear(x,2,4)` returns `2*x+4` |
-| ln| Returns the natural log of the specified function |  `ln(x)` | 
+| ln| Returns the natural log of the specified function |  `ln(x)` |
 | log | Returns the log base 10 of the specified function. | `log(x)   log(sum(x,100))` |
 | map | Maps any values of an input function x that fall within min and max inclusive to the specified target. The arguments min and max must be constants. The arguments target and default can be constants or functions. If the value of x does not fall between min and max, then either the value of x is returned, or a default value is returned if specified as a 5th argument. |  `map(x,min,max,target) map(x,0,0,1)` - Changes any values of 0 to 1. This can be useful in handling default 0 values.<br> `map(x,min,max,target,default)    map(x,0,100,1,-1)` - Changes any values between 0 and 100 to 1, and all other values to -1.<br>  `map(x,0,100,sum(x,599),docfreq(text,solr))` - Changes any values between 0 and 100 to x+599, and all other values to frequency of the term 'solr' in the field text. |
 | max | Returns the maximum numeric value of multiple nested functions or constants, which are specified as arguments: `max(x,y,...)`. The max function can also be useful for "bottoming out" another function or field at some specified constant.  Use the `field(myfield,max)` syntax for selecting the maximum value of a single multivalued field.  | `max(myfield,myotherfield,0)` |
 | min | Returns the minimum numeric value of multiple nested functions of constants, which are specified as arguments: `min(x,y,...)`. The min function can also be useful for providing an "upper bound" on a function using a constant. Use the `field(myfield,min)` syntax for selecting the minimum value of a single multivalued field. | `min(myfield,myotherfield,0)` |
-| mod | Computes the modulus of the function x by the function y. |`mod(1,x)` <br> `mod(sum(x,100), max(y,1))`   | 
+| mod | Computes the modulus of the function x by the function y. |`mod(1,x)` <br> `mod(sum(x,100), max(y,1))`   |
 | ms | Returns milliseconds of difference between its arguments. Dates are relative to the Unix or POSIX time epoch, midnight, January 1, 1970 UTC. Arguments may be the name of an indexed TrieDateField, or date math based on a constant date or NOW . `ms()` is equivalent to `ms(NOW)`, number of milliseconds since the epoch. `ms(a)` returns the number of milliseconds since the epoch that the argument represents. `ms(a,b)` returns the number of milliseconds that b occurs before a, which is `a - b`.| `ms(NOW/DAY)`<br>`ms(2000-01-01T00:00:00Z)`<br>`ms(mydatefield)`<br>`ms(NOW,mydatefield)`<br>`ms(mydatefield,2000-01-01T00:00:00Z)`<br>`ms(datefield1,datefield2)` |
 | not | The logically negated value of the wrapped function. | `not(exists(author))` - TRUE only when `exists(author)` is false. |
 | or | A logical disjunction. | `or(value1,value2)` - TRUE if either value1 or value2 is true. |
@@ -664,7 +680,7 @@ Tag Perf Counter Values less than 50% las LOW and others as HIGH
 | rint| Rounds to the nearest integer | `rint(x)`  <br> `rint(5.6)` - Returns 6 |
 | sin | Returns sine of an angle | `sin(x)` |
 | sinh | Returns hyperbolic sine of an angle | `sinh(x)` |
-| scale | Scales values of the function x such that they fall between the specified minTarget and maxTarget inclusive. The current implementation traverses all of the function values to obtain the min and max, so it can pick the correct scale. The current implementation cannot distinguish when documents have been deleted or documents that have no value. It uses 0.0 values for these cases. This means that if values are normally all greater than 0.0, one can still end up with 0.0 as the min value to map from. In these cases, an appropriate `map()` function could be used as a workaround to change 0.0 to a value in the real range, as shown here: `scale(map(x,0,0,5),1,2)` | `scale(x,minTarget,maxTarget)`<br>`scale(x,1,2)` - Scales the values of x such that all values will be between 1 and 2 inclusive. | 
+| scale | Scales values of the function x such that they fall between the specified minTarget and maxTarget inclusive. The current implementation traverses all of the function values to obtain the min and max, so it can pick the correct scale. The current implementation cannot distinguish when documents have been deleted or documents that have no value. It uses 0.0 values for these cases. This means that if values are normally all greater than 0.0, one can still end up with 0.0 as the min value to map from. In these cases, an appropriate `map()` function could be used as a workaround to change 0.0 to a value in the real range, as shown here: `scale(map(x,0,0,5),1,2)` | `scale(x,minTarget,maxTarget)`<br>`scale(x,1,2)` - Scales the values of x such that all values will be between 1 and 2 inclusive. |
 | sqrt | Returns the square root of the specified value or function. | `sqrt(x)`<br>`sqrt(100)`<br>`sqrt(sum(x,100))` |
 | strdist | Calculate the distance between two strings. Uses the Lucene spell checker StringDistance interface and supports all of the implementations available in that package, plus allows applications to plug in their own via Solr's resource loading capabilities. strdist takes `(string1, string2, distance measure)`. Possible values for distance measure are: <br>jw: Jaro-Winkler<br>edit: Levenstein or Edit distance<br>ngram: The NGramDistance, if specified, can optionally pass in the ngram size too. Default is 2.<br>FQN: Fully Qualified class Name for an implementation of the StringDistance interface. Must have a no-arg constructor.|`strdist("SOLR",id,edit)` |
 | sub | Returns x-y from `sub(x,y)`. | `sub(myfield,myfield2)`<br>`sub(100,sqrt(myfield))` |
@@ -672,7 +688,6 @@ Tag Perf Counter Values less than 50% las LOW and others as HIGH
 |termfreq | Returns the number of times the term appears in the field for that document. | termfreq(text,'memory')|
 | tan | Returns tangent of an angle | `tan(x)` |
 | tanh | Returns hyperbolic tangent of an angle | `tanh(x)` |
-
 
 
 

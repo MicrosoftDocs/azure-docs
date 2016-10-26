@@ -21,7 +21,7 @@
 > [AZURE.SELECTOR]
 - [Portal](insights-alerts-portal.md)
 - [PowerShell](insights-alerts-powershell.md)
-- [CLI](insights-alerts-command-line-interface.md) 
+- [CLI](insights-alerts-command-line-interface.md)
 
 ## Overview
 
@@ -33,20 +33,20 @@ You can receive an alert based on monitoring metrics for, or events on, your Azu
 - **Activity log events** - An alert can trigger on *every* event, or, only when a certain number of events occur.
 
 
-You can configure an alert to do the following when it triggers: 
+You can configure an alert to do the following when it triggers:
 
 - send email notifications to the service administrator and co-administrators
 - send email to additional emails that you specify.
 - call a webhook
-- start execution of an Azure runbook (only from the Azure portal) 
+- start execution of an Azure runbook (only from the Azure portal)
 
-You can configure and get information about alert rules using 
+You can configure and get information about alert rules using
 
 - [Azure portal](insights-alerts-portal.md)
-- [PowerShell](insights-alerts-powershell.md) 
-- [command-line interface (CLI)](insights-alerts-command-line-interface.md) 
-- [Azure Insights REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
- 
+- [PowerShell](insights-alerts-powershell.md)
+- [command-line interface (CLI)](insights-alerts-command-line-interface.md)
+- [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+
 
 ## Create an alert rule on a metric with the Azure portal
 
@@ -66,11 +66,11 @@ You can configure and get information about alert rules using
 
 6. Check **Email owners...** if you want administrators and co-administrators to be emailed when the alert fires.
 
-7. If you want additional emails to receive a notification when the alert fires, add them in the **Additional Administrator email(s)** field. Separate multiple emails with semi-colons - *email@contoso.com;email2@contoso.com* 
+7. If you want additional emails to receive a notification when the alert fires, add them in the **Additional Administrator email(s)** field. Separate multiple emails with semi-colons - *email@contoso.com;email2@contoso.com*
 
 8. Put in a valid URI in the **Webhook** field if you want it called when the alert fires.
 
-9. If you use Azure Automation, you can select a Runbook to be run when the alert fires. 
+9. If you use Azure Automation, you can select a Runbook to be run when the alert fires.
 
 10. Select **OK** when done to create the alert.   
 
@@ -80,9 +80,9 @@ Within a few minutes, the alert is active and triggers as previously described.
 
 Once you have created an alert, you can select it and:
 
-- View a graph showing the metric threshold and the actual values from the previous day. 
-- Edit or delete it. 
-- **Disable** or **Enable** it if you want to temporarily stop or resume receiving notifications for that alert. 
+- View a graph showing the metric threshold and the actual values from the previous day.
+- Edit or delete it.
+- **Disable** or **Enable** it if you want to temporarily stop or resume receiving notifications for that alert.
 
 
 
