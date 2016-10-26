@@ -2,6 +2,7 @@
 	pageTitle="Create an Azure Search index using the Azure Portal | Microsoft Azure | Hosted cloud search service"
 	description="Create an index using the Azure Portal."
 	services="search"
+	manager="jhubbard"
 	authors="ashmaka"
 	documentationCenter=""/>
 

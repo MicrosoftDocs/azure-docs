@@ -21,6 +21,7 @@
 # Configure a VNet-to-VNet connection for the classic deployment model
 
 > [AZURE.SELECTOR]
+- [Resource Manager - Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 - [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 - [Classic - Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 
@@ -31,14 +32,13 @@ This article walks you through the steps to create and connect virtual networks 
 ![VNet to VNet Connectivity Diagram](./media/virtual-networks-configure-vnet-to-vnet-connection/v2vclassic.png)
 
 
-### Deployment models and methods for VNet-to-VNet
+### Deployment models and methods for VNet-to-VNet connections
 
+[AZURE.INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+The following table shows the currently available deployment models and methods for VNet-to-VNet configurations. When an article with configuration steps is available, we link directly to it from this table.
 
-A VNet-to-VNet connection can be configured in both deployment models and by using several different tools. We update the following table as new articles and additional tools become available for this configuration. When an article is available, we link directly to it from the table.<br><br>
-
-[AZURE.INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
+[AZURE.INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
 ## About VNet-to-VNet connections
 
