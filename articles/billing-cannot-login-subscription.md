@@ -57,7 +57,6 @@ This issue can occur if you're using more than one user account in an Internet b
 
 To resolve the issue, try one of the following methods:
 
-- Sign out of the portal, and then sign back in with the account you want to use.
 -	Clear the cache and delete Internet cookies. In Internet Explorer, click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Internet Options** > **Delete**. Make sure that the check boxes for temporary files, cookies, password, and browsing history are selected, and then click Delete.
 
 -	Reset the Internet Explorer settings to revert any personal settings that you’ve made. Click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png)> **Internet Options** > **Advanced** >select the **Delete personal settings** box > **Reset**.
