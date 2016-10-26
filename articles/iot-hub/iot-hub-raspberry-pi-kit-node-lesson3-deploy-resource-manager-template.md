@@ -17,26 +17,26 @@
  ms.date="10/21/2016"
  ms.author="xshi"/>
 
-# 3.1 Create an Azure function app and storage account
+# Create an Azure function app and storage account
 
 [Azure Functions](../../articles/azure-functions/functions-overview.md) is a solution for easily running *functions* (small pieces of code) in the cloud. An Azure function app hosts the execution of your functions in Azure.
 
-## 3.1.1 What you will do
+## What you will do
 
 Use an Azure Resource Manager template to create an Azure function app and a storage account. The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure table storage. If you have any problems, look for solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
-## 3.1.2 What you will learn
+## What you will learn
 
 In this section, you will learn:
 
 - How to use [Azure Resource Manager](../../articles/azure-resource-manager/resource-group-overview.md) to deploy Azure resources.
 - How to use an Azure function app to process IoT hub messages and write them to a table in Azure table storage.
 
-## 3.1.3 What you need
+## What you need
 
 You must have successfully completed the previous lessons: [Get started with your Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-get-started.md) and [Create your Azure IoT hub](iot-hub-raspberry-pi-kit-node-get-started.md).
 
-## 3.1.4 Open the sample app
+## Open the sample app
 
 Open the sample project in Visual Studio Code by running the following commands:
 
@@ -52,7 +52,7 @@ code .
 - The `arm-template-param.json` file is the configuration file used by the Azure Resource Manager template.
 - The `ReceiveDeviceMessages` subfolder contains the Node.js code for the Azure function.
 
-## 3.1.5 Configure Azure Resource Manager templates and create resources in Azure
+## Configure Azure Resource Manager templates and create resources in Azure
 
 Update the `arm-template-param.json` file in Visual Studio Code.
 
@@ -71,10 +71,10 @@ az resource group deployment create --template-file-path arm-template.json --par
 
 It takes about five minutes to create these resources. While the resource creation is in progress, you can move on to the next section.
 
-## 3.1.6 Summary
+## Summary
 
 You've created your Azure function app to process IoT hub messages and an Azure storage account to store these messages. You can move on to the next section to deploy and run the sample to send device-to-cloud messages on your Pi.
 
 ## Next Steps
 
-[3.2 Run sample application to send device-to-cloud messages on your Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)
+[Run sample application to send device-to-cloud messages on your Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)

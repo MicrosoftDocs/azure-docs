@@ -17,21 +17,21 @@
  ms.date="10/21/2016"
  ms.author="xshi"/>
 
-# 3.3 Read messages persisted in Azure Storage
+# Read messages persisted in Azure Storage
 
-## 3.3.1 What you will do
+## What you will do
 
 Monitor the device-to-cloud messages that are sent from your Raspberry Pi 3 to your IoT hub as the messages are written to your Azure Table storage. If you have any problems, look for solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
-## 3.3.2 What you will learn
+## What you will learn
 
 In this section, you will learn how to use the gulp read-message task to read messages persisted in your Azure Table storage.
 
-## 3.3.3 What you need
+## What you need
 
 Before starting this process, you must have successfully completed the previous section [Run the Azure blink sample application on your Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md).
 
-## 3.3.4 Read new messages from your storage account
+## Read new messages from your storage account
 
 In the previous section, you ran a sample application on your Pi. The sample application sent messages to your Azure IoT hub. The messages sent to your IoT hub are stored into your Azure Table storage via the Azure function app. You need the Azure storage connection string to read messages from your Azure Table storage.
 
@@ -68,7 +68,7 @@ To read messages stored in your Azure Table storage, follow these steps:
 
     ![gulp run --read-storage](media/iot-hub-raspberry-pi-lessons/lesson3/gulp_read_message.png)
 
-## 3.3.5 Summary
+## Summary
 
 You've successfully connected your Pi to your IoT hub in the cloud and used the blink sample application to send device-to-cloud messages. You also used the Azure function app to store incoming IoT hub messages to your Azure Table storage. You can move on to the next lesson about how to send cloud-to-device messages from your IoT hub to your Pi.
 
