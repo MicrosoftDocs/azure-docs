@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="07/15/2016"
+	ms.date="10/25/2016"
 	ms.author="jroth"/>
 
 # Provision a SQL Server virtual machine using Azure PowerShell (Resource Manager)
@@ -98,13 +98,13 @@ Modify as desired and then execute the following cmdlet to initialize these vari
 
 ### Image properties
 
-Use the following variables to define the image to use for the virtual machine. In this example, the SQL Server 2016 RC3 evaluation image is used.
+Use the following variables to define the image to use for the virtual machine. In this example, the SQL Server 2016 Enterprise image is used.
 
 Modify as desired and then execute the following cmdlet to initialize these variables.
 
     $PublisherName = "MicrosoftSQLServer"
-    $OfferName = "SQL2016RC3-WS2012R2"
-    $Sku = "Evaluation"
+    $OfferName = "SQL2016-WS2016"
+    $Sku = "Enterprise"
     $Version = "latest"
 
 Note that you can get a full list of SQL Server image offerings with the Get-AzureRmVMImageOffer command:
@@ -117,7 +117,7 @@ And you can see the Skus available for an offering with the Get-AzureRmVMImageSk
 
 ## Create a resource group
 
-With the Resource Manager deployment model, the first object that you create is the resource group. We will use the [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt678985.aspx) cmdlet to create an Azure resource group and its resources with the resource group name and location defined by the variables that you previously initialized.
+With the Resource Manager deployment model, the first object that you create is the resource group. We will use the [New-AzureRmResourceGroup](https://msdn.microsoft.com/en-us/library/mt759837.aspx) cmdlet to create an Azure resource group and its resources with the resource group name and location defined by the variables that you previously initialized.
 
 Execute the following cmdlet to create your new resource group.
 
@@ -277,8 +277,8 @@ The following script contains the complete PowerShell script for this tutorial. 
 
     ##Image
     $PublisherName = "MicrosoftSQLServer"
-    $OfferName = "SQL2016RC3-WS2012R2"
-    $Sku = "Evaluation"
+    $OfferName = "SQL2016-WS2016"
+    $Sku = "Enterprise"
     $Version = "latest"
 
     # Resource Group
