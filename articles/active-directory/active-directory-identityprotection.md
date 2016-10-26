@@ -381,7 +381,7 @@ However, for security reasons, this setting only works for users that have alrea
 
 As a best practice, if you want to require multi-factor authentication for risky sign-ins, you should:
 
-1. Enable the multi-factor authentication registration policy for the affected users.
+1. Enable the [multi-factor authentication registration policy](active-directory-identityprotection.md#multi-factor-authentication-registration-policy) for the affected users.
 2. Require the affected users to login in a non-risky session to perform a MFA registration
 
 Completing these steps ensures that multi-factor authentication is required for a risky sign-in. 
