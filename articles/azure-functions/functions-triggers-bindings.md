@@ -73,42 +73,66 @@ In cases where your function code returns a single output, you can use an output
 	}
 
 
-Language | Example using a named output binding | Example with $return 
------|---------|---------
-Node.js | ```JavaScript
-module.exports = function (context, input) {
-    var json = JSON.stringify(input);
-    context.log('Node.js script processed queue message', json);
-    context.bindings.output = json;
-    context.done();
-} ``` | ```JavaScript
-module.exports = function (context, input) {
-    var json = JSON.stringify(input);
-    context.log('Node.js script processed queue message', json);
-    context.done(null, json);
-} ```
-C# | ```csharp
-public static void Run(WorkItem input, out string output, TraceWriter log)
-{
-    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
-    output = json;
-} ``` | ```csharp
-public static string Run(WorkItem input, TraceWriter log)
-{
-    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
-    return json;
-}
-F# | ```
-let Run(input: WorkItem, output: byref<string>, log: TraceWriter) =
-    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
-    log.Info(sprintf "F# script processed queue message '%s'" json)
-    output <- json ``` | ```
-let Run(input: WorkItem, log: TraceWriter) =
-    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
-    log.Info(sprintf "F# script processed queue message '%s'" json)
-    json ```
+The following C# code returns an output parameter using an `out` parameter instead of using a `$return` binding.
+
+	public static void Run(WorkItem input, out string output, TraceWriter log)
+	{
+	    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+	    log.Info($"C# script processed queue message. Item={json}");
+	    output = json;
+	}
+
+Using `$return` that same code can use a more natural function signature as shown below.
+
+	public static string Run(WorkItem input, TraceWriter log)
+	{
+	    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+	    log.Info($"C# script processed queue message. Item={json}");
+	    return json;
+	}
+
+	// Async
+	public static Task<string> Run(WorkItem input, TraceWriter log)
+	{
+	    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+	    log.Info($"C# script processed queue message. Item={json}");
+	    return json;
+	}
+
+
+This same approach is demonstrated below with Node.js and F#
+
+Node.js
+
+	// Node.js without $return binding
+	module.exports = function (context, input) {
+	    var json = JSON.stringify(input);
+	    context.log('Node.js script processed queue message', json);
+	    context.bindings.output = json;
+	    context.done();
+	}
+
+	// Node.js using $return binding
+	module.exports = function (context, input) {
+	    var json = JSON.stringify(input);
+	    context.log('Node.js script processed queue message', json);
+	    context.done(null, json);
+	}
+
+F#
+
+
+	// F# without $return binding
+	let Run(input: WorkItem, output: byref<string>, log: TraceWriter) =
+	    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
+	    log.Info(sprintf "F# script processed queue message '%s'" json)
+	    output <- json
+
+	// F# using $return binding
+	let Run(input: WorkItem, log: TraceWriter) =
+	    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
+	    log.Info(sprintf "F# script processed queue message '%s'" json)
+	    json
 
 This can only be used with languages that support a return value (C#, Node.js, F#). This can also be used with multiple output parameters if you want to designate a single output with `$return`.
 
