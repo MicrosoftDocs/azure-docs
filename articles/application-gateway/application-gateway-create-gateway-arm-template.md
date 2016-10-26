@@ -45,7 +45,7 @@ In this scenario you will:
 
 >[AZURE.NOTE] Those settings are the parameters for this template. To customize the template, you can change rules, the listener, and the SSL that opens the azuredeploy.json.
 
-![Scenario](./media/application-gateway-create-gateway-arm-template/scenario-arm.png)
+![Scenario](./media/application-gateway-create-gateway-arm-template/scenario.png)
 
 ## Download and understand the Azure Resource Manager template
 
