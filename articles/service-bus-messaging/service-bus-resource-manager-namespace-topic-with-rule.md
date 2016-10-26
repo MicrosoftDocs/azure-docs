@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Create a Service Bus namespace with topic, subscription and, rule using an Azure Resource Manager template | Microsoft Azure"
-    description="Create a Service Bus namespace with topic, subscription and, rule using Azure Resource Manager template"
+    pageTitle="Create a Service Bus namespace with topic, subscription, and rule using an Azure Resource Manager template | Microsoft Azure"
+    description="Create a Service Bus namespace with topic, subscription, and rule using Azure Resource Manager template"
     services="service-bus"
     documentationCenter=".net"
     authors="ShubhaVijayasarathy"
@@ -16,15 +16,15 @@
     ms.date="10/25/2016"
     ms.author="ShubhaVijayasarathy"/>
 
-# Create a Service Bus namespace with topic,subscription and rule using an Azure Resource Manager template
+# Create a Service Bus namespace with topic, subscription, and rule using an Azure Resource Manager template
 
-This article shows how to use an Azure Resource Manager template that creates a Service Bus namespace with a topic, subscription and, rule(filter). You learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
+This article shows how to use an Azure Resource Manager template that creates a Service Bus namespace with a topic, subscription, and rule(filter). You learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
 
 For more information about creating templates, see [Authoring Azure Resource Manager templates][].
 
 For more information on practice and patterns on Azure Resources naming conventions, see [Azure Resources Naming Conventions][].
 
-For the complete template, see the [Service Bus namespace with topic, subscription and, rule][] template.
+For the complete template, see the [Service Bus namespace with topic, subscription, and rule][] template.
 
 >[AZURE.NOTE] The following Azure Resource Manager templates are available for download and deployment.
 >
@@ -37,7 +37,7 @@ For the complete template, see the [Service Bus namespace with topic, subscripti
 
 ## What will you deploy?
 
-With this template, you deploy a Service Bus namespace with topic, subscription and, rule(filter).
+With this template, you deploy a Service Bus namespace with topic, subscription, and rule(filter).
 
 [Service Bus topics and subscriptions](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) provide a one-to-many form of communication, in a *publish/subscribe* pattern. When using topics and subscriptions, components of a distributed application do not communicate directly with each other, instead they exchange messages via topic that acts as an intermediary.A subscription to a topic resembles a virtual queue that receives copies of messages that were sent to the topic. A filter on subscription enables you to specify which messages sent to a topic should appear within a specific topic subscription.
 
@@ -47,7 +47,7 @@ In many scenarios, messages that have specific characteristics must be processed
 
 To run the deployment automatically, click the following button:
 
-[![Deploy to Azure](./media/service-bus-resource-manager-namespace-topic/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-topicSubscription-rule %2Fazuredeploy.json)
+[![Deploy to Azure](./media/service-bus-resource-manager-namespace-topic/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-topic-subscription-rule%2Fazuredeploy.json)
 
 ## Parameters
 
@@ -162,7 +162,7 @@ Creates a standard Service Bus namespace of type **Messaging**, with topic and s
 ## PowerShell
 
 ```
-New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<resource-group-name\> -TemplateUri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topicSubscription-rule/azuredeploy.json>
+New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<resource-group-name\> -TemplateUri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-subscription-rule/azuredeploy.json>
 ```
 
 ## Azure CLI
@@ -170,7 +170,7 @@ New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<
 ```
 azure config mode arm
 
-azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topicSubscription-rule/azuredeploy.json>
+azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-subscription-rule/azuredeploy.json>
 ```
 
 ## Next steps
@@ -188,6 +188,6 @@ Now that you've created and deployed resources using Azure Resource Manager, lea
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [Azure Resources Naming Conventions]: https://azure.microsoft.com/en-us/documentation/articles/guidance-naming-conventions/
-  [Service Bus namespace with topic,subscription and rule]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topicSubscription-rule/
+  [Service Bus namespace with topic,subscription, and rule]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-subscription-rule/
   [Service Bus queues, topics, and subscriptions]:service-bus-queues-topics-subscriptions.md
   
