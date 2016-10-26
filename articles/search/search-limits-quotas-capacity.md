@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="10/21/2016"
+	ms.date="10/24/2016"
 	ms.author="heidist"/>
 
 # Service limits in Azure Search
@@ -27,7 +27,7 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 
 All tiers can be [provisioned in the portal](search-create-service-portal.md). A service is initially allocated one partition and one replica, but you can increase the resource allocation once the service is created. 
 
-A service is provisioned at a specific tier. If you need to jump tiers to get more capacity, you must provision a new service (there is no in-place upgrade). For more information about scalability, see [Scale resource levels for query and indexing workloads](search-capacity-planning.md).
+A service is provisioned at a specific tier. If you need to jump tiers to get more capacity, you must provision a new service (there is no in-place upgrade). For more information about tiers, see [Choose a SKU or tier](search-sku-tier.md). To learn more about adjusting capacity within a service you've already provisioned, see [Scale resource levels for query and indexing workloads](search-capacity-planning.md).
 
 ## Per subscription limits
 
@@ -39,7 +39,7 @@ A service is provisioned at a specific tier. If you need to jump tiers to get mo
 
 ## Per index limits ##
 
-There is a one-to-one correspondence between limits on indexes and limits on indexers. Given a limit of 200 indexes per S2 service, the maximum indexers and indexer datasources is also 200 for the same service.
+There is a one-to-one correspondence between limits on indexes and limits on indexers. Given a limit of 200 indexes per S2 service, the maximum indexers and datasources is also 200 for the same service.
 
 Resource|Free|Basic |S1|S2|S3 |S3 HD
 ---|---|---|---|---- |---|----
