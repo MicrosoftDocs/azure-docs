@@ -249,8 +249,8 @@ For more information, see [Install Active Directory administration tools on the 
 4. Click **Next**.
 5. Select **Primary zone**, and then click **Next**.
 6. Select **To all DNS servers running on domain controllers in this domain**, and then click **Next**.
-6. Select **IPv4 Reverse Lookup Zone, and then click **Next**.
-7. In **Network ID**, enter the prefix for the HDInsight VNET network range, and then click **Next**.
+6. Select **IPv4 Reverse Lookup Zone**, and then click **Next**.
+7. In **Network ID**, enter the prefix for the HDInsight VNET network range, and then click **Next**. You will create the HDInsight VNet in the following section.
 8. Click **Next**.
 9. Click **Next**.
 10. Click **Finish**.
@@ -368,58 +368,34 @@ In this section, you will create a Linux-based Hadoop cluster in HDInsight using
 
 2. From the **Parameters** blade, enter the following values:
 
-	- Subscription: (Select your Azure subscription).
-	- Resource group: Click **Use existing**, and specify the same resource group you have been using.  For example contosohdirg. 
+	- **Subscription**: (Select your Azure subscription).
+	- **Resource group**: Click **Use existing**, and specify the same resource group you have been using.  For example contosohdirg. 
+	- **Location**: Specify a resource group location.
 
-	- **ClusterVNetID**: /subscriptions/&lt;SubscriptionID>/resourceGroups/&lt;ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/&lt;VNetName>
-	- **ClusterVNetSubNetID**: /subscriptions/&lt;SubscriptionID>/resourceGroups/&lt;ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/&lt;VNetName>/subnets/Subnet1
-    - **ClusterName**: Enter a name for the Hadoop cluster that you will create. For example contosohdicluster
+    - **Cluster Name**: Enter a name for the Hadoop cluster that you will create. For example contosohdicluster.
+	- **Cluster Type**: Select a cluster type.  The default value is **hadoop**.
+	- **Location**: Select a location for the cluster.  The default storage account uses the same location.
+	- **Cluster Worker Node Acount**: Select the number of worker nodes.
     - **Cluster login name and password**: The default login name is **admin**.
     - **SSH username and password**: The default username is **sshuser**.  You can rename it. 
 
-	- DomainName: contoso.onmicrosoft.com
-	- OrganizationUnitDN: OU=Hadoop System Users,DC=contoso,DC=onmicrosoft,DC=com
-	- LDAPUrls: ["ldaps://contoso.onmicrosoft.com:636"]
-	- DomainAdminUserName: (Enter the domain admin user name)
-	- DomainAdminPassword: (enter the domain admin user password)
+	- **Virtual Network Id**: /subscriptions/&lt;SubscriptionID>/resourceGroups/&lt;ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/&lt;VNetName>
+	- **Virtual Network Subnet**: /subscriptions/&lt;SubscriptionID>/resourceGroups/&lt;ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/&lt;VNetName>/subnets/Subnet1
+
+	- **Domain Name**: contoso.onmicrosoft.com
+	- **Organization Unit DN**: OU=Hadoop System Users,DC=contoso,DC=onmicrosoft,DC=com
+	- **Cluster Users Group D Ns**: "\"CN=HiveUsers,OU=AADDC Users,DC=<DomainName>,DC=onmicrosoft,DC=com\""
+	- **LDAPUrls**: ["ldaps://contoso.onmicrosoft.com:636"]
+	- **DomainAdminUserName**: (Enter the domain admin user name)
+	- **DomainAdminPassword**: (enter the domain admin user password)
 
 	- **I agree to the terms and conditions stated above**: (Check)
 	- **Pin to dashboard**: (Check)
-
-	The organizational unit is what you created earlier in the article.
-
-    Other properties have been hard-coded into the template. For example:
-    
-    - Location: East US 2
-    - Cluster worker node count: 2
-    - Default storage account: <Cluster Name>store
-    - Virtual network name: <Cluster Name>-vnet
-    - Virtual network address space: 10.2.0.0/16
-    - Subnet name: default
-    - Subnet address range: 10.2.0.0/24
-
 
 6. Click **Purchase**. You will see a new tile titled **Deploying Template deployment**. It takes about around 20 minutes to create a cluster. Once the cluster is created, you can click the cluster blade in the portal to open it.
 
 After you complete the tutorial, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-management-portal.md#delete-clusters).
 
-
-## Test the connection between the two VNets
-
-To test the connection between the two VNets, you will ping one of the cluster nodes from the Windows VM in the Classic VNet.
-
-**To find the cluster node IP addresses**
-
-1. From the [Azure portal](https://portal.azure.com), open the cluster. For example: contosohdicluster.
-3. Click **Dashboard**.
-4. Sign in to Ambari using the Hadoop HTTP username and password.
-5. Click **Hosts** from the top. You will see a list of the Hadoop nodes.  Write down the IP address and the domain name of one of the nodes.
-
-**To ping a cluster node**
-
-1. RDP into **contosoaadadmin** using the domain account that is in the **AAD DC Administrators** group.
-2. Click **Start**, and then click **Windows PowerShell**.
-3. Ping the IP address and the domain name you wrote down in the last procedure.
 
 
 

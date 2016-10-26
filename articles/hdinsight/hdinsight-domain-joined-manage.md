@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/24/2016"
+   	ms.date="10/25/2016"
    	ms.author="saurinsh"/>
 
 # Manage Domain-joined HDInsight clusters (Preview)
