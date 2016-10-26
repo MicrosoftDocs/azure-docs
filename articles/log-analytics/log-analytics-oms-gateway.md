@@ -62,13 +62,13 @@ Prerequisites: .Net Framework 4.5, Windows Server 2012 R2 SP1 and above
 
 ## Install an agent on devices
 
-If needed, see [Connect Windows computers to Log Analytics](..log-analytics-windows-agents.md) for information about how to install directly connected agents. The article describes how you can install the agent using a Setup wizard or by using the command line.
+If needed, see [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md) for information about how to install directly connected agents. The article describes how you can install the agent using a Setup wizard or by using the command line.
 
 ## Configure OMS agents
 
-See [Configure proxy and firewall settings with the Microsoft Monitoring Agent](..log-analytics-proxy-firewall.md) for information about configuring an agent to use a proxy server, which is this case is the gateway.
+See [Configure proxy and firewall settings with the Microsoft Monitoring Agent](log-analytics-proxy-firewall.md) for information about configuring an agent to use a proxy server, which is this case is the gateway.
 
-Operations Manager agents send some data such as Operations Manager alerts, configuration assessment, instance space, and capacity data, through the Management Server. Other high-volume data, such as IIS logs, performance, and security are sent directly to the OMS Gateway. See [Add Log Analytics solutions from the Solutions Gallery](..log-analytics-add-solutions.md) for a complete list of data that is sent through each channel.
+Operations Manager agents send some data such as Operations Manager alerts, configuration assessment, instance space, and capacity data, through the Management Server. Other high-volume data, such as IIS logs, performance, and security are sent directly to the OMS Gateway. See [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) for a complete list of data that is sent through each channel.
 
 >[AZURE.NOTE]
 If you plan to use the Gateway with network load balancing, see [Optionally configure network load balancing](#optionally-configure-network-load-balancing).
