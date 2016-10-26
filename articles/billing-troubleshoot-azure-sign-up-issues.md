@@ -49,7 +49,7 @@ Make sure that the payment method you are using at sign-up is supported for Azur
 
 For common causes of sign-up issues using a credit or debit card, see [Your debit card or credit card is declined at Azure sign up](billing-credit-card-fails-during-azure-sign-up.md).
 
-## Can’t activate Azure benefit plan like MSDN, BizSpark, BizSparkPlus or MPN
+## Can’t activate Azure benefit plan like MSDN, BizSpark, BizSparkPlus, or MPN
 
 Verify through your benefit program channel if you are eligible for the chosen plan:
 
