@@ -371,9 +371,9 @@ In this section, you create a Linux-based Hadoop cluster in HDInsight using eith
 	- **Subscription**: Select an Azure subscription used for creating this cluster.
 	- **Cluster configuration**:
 
-		- **Cluster Type**: Hadoop. Domain-joined HDInsight cluster currently only supports Hive.
-		- **Operating System**: Linux.  Domain-joined HDInsight cluster only supports Linux-based HDInsight clusters.
-		- **Version**: Hadoop 2.7.3 (HDI 3.5). Domain-joined HDInsight cluster only supports HDInsight cluster version 3.5.
+		- **Cluster Type**: Hadoop. Domain-joined HDInsight is currently only supported on Hadoop clusters.
+		- **Operating System**: Linux.  Domain-joined HDInsight is only supported on Linux-based HDInsight clusters.
+		- **Version**: Hadoop 2.7.3 (HDI 3.5). Domain-joined HDInsight is only supported on HDInsight cluster version 3.5.
 		- **Cluster Type**: PREMIUM
 
 		Click **Select** to save the changes.
@@ -406,8 +406,7 @@ In this section, you create a Linux-based Hadoop cluster in HDInsight using eith
 
 4. Click **Create**.  
 
-The following procedure shows you how to create the domain-joined HDInsight cluster using an Azure Resource Management template instead of using the Azure portal.
-
+Another option for creating Domain-joined HDInsight cluster is to use Azure Resource Management template. The following procedure shows you how:
 
 **To create a Domain-joined HDInsight cluster using a Resource Management template**
 
