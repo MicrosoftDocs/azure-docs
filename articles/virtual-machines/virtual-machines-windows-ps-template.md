@@ -95,7 +95,7 @@ You can create your own template using the information found in [Authoring Azure
             {
               "apiVersion": "2016-03-30",
               "type": "Microsoft.Network/virtualNetworks",
-              "name": "myvnet1",
+              "name": "myvn1",
               "location": "[resourceGroup().location]",
               "properties": {
                 "addressSpace": { "addressPrefixes": [ "10.0.0.0/16" ] },
