@@ -3,7 +3,7 @@
 	description="Application Insights performs automatic deep analysis of your app telemetry and warns you of potential problems." 
 	services="application-insights" 
     documentationCenter="windows"
-	authors="rakefetj" 
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
