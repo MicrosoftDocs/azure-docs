@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="10/24/2016"
+   ms.date="10/25/2016"
    ms.author="owend"/>
 
 # Datasource connections
@@ -44,9 +44,9 @@ The following datasource providers are supported for in-memory or Direct Query d
 
 > [AZURE.NOTE] Ensure 64-bit providers are installed when using On-Premises Gateway.
 
-When migrating an on-premises SQL Server Analysis Services tabular model to Azure Analysis Services, it may be necessary to change the data source provider.
+When migrating an on-premises SQL Server Analysis Services tabular model to Azure Analysis Services, it may be necessary to change the provider.
 
-**To specify a data source provider**
+**To specify a datasource provider**
 
 1. In SSDT > **Tabular Model Explorer** > **Data Sources**, right-click a data source connection, and then click **Edit Data Source**.
 
