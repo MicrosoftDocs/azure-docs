@@ -1,6 +1,6 @@
 <properties
-	pageTitle="App types you can use with the Azure Active Directory v2.0 endpoint | Microsoft Azure"
-	description="Learn the types of apps and scenarios that you can use with the Azure Active Directory v2.0 endpoint."
+	pageTitle="App types for the Azure Active Directory v2.0 endpoint | Microsoft Azure"
+	description="The types of apps and scenarios supported by the Azure Active Directory v2.0 endpoint."
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -16,7 +16,7 @@
 	ms.date="09/30/2016"
 	ms.author="dastrock"/>
 
-# App types for Azure Active Directory v2.0
+# App types for the Azure Active Directory v2.0 endpoint
 The Azure Active Directory (AD) v2.0 endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) or [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). This article describes the types of apps that you can build by using Azure AD v2.0, regardless of your preferred language or platform. The information in this article is designed to help you understand high-level scenarios before you [start working with the code](active-directory-appmodel-v2-overview.md#getting-started).
 
 > [AZURE.NOTE]
@@ -65,7 +65,7 @@ Validating the ID token with a public signing key that's received from the v2.0 
 
 To see this scenario in action, try one of the web app sign-in code samples in our v2.0 [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
 
-In addition to simple sign-in, a web server app might need to access another web service, such as a REST API. In this case, the web server app engages in a combined OpenID Connect and OAuth 2.0 flow, by using the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md#oauth2-authorization-code-flow). For more information about this scenario, read about [getting started with web apps and web APIs ](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
+In addition to simple sign-in, a web server app might need to access another web service, such as a REST API. In this case, the web server app engages in a combined OpenID Connect and OAuth 2.0 flow, by using the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md#oauth2-authorization-code-flow). For more information about this scenario, read about [getting started with web apps and web APIs](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
 
 ## Web APIs
 You can use the v2.0 endpoint to secure web services, such as your app's RESTful web API. Instead of ID tokens and session cookies, a web API uses an OAuth 2.0 access token to secure its data and to authenticate incoming requests. The caller of a web API appends an access token in the authorization header of an HTTP request, like this:
