@@ -39,13 +39,13 @@ In this short video, you will learn how to create an Azure Function that listens
 
 6. Click the **Create** button to create the function.
 
-![Add a new trigger timer functions](./media/create-azure-connected-function/new-trigger-timer-function.png)
+![Add a new trigger timer functions](./media/functions-create-an-azure-connected-function/new-trigger-timer-function.png)
 
 7. Click the **Save** button to save the function. 
 
 8. Verify that the function works by viewing activity in the log. 
 
-![Verify the function works by viewing the log](./media/create-azure-connected-function/functionsbindingsdemo1-view-log.png)
+![Verify the function works by viewing the log](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-view-log.png)
 
 The goal of this function is to write a message to a queue every 10 seconds. To accomplish this, you'll need to create the message queue and add the code to write messages to the newly created queue.
 
@@ -63,7 +63,7 @@ The goal of this function is to write a message to a queue every 10 seconds. To 
 
 6. Click **Next**  
 
-![Add a new trigger timer functions](./media/create-azure-connected-function/functionsbindingsdemo1-integrate-tab.png)
+![Add a new trigger timer functions](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab.png)
 
 ### Write to the message queue
 
@@ -102,7 +102,7 @@ This code creates a **myQueueItem** and sets its **time** property to the curren
 
 5. Verify the new function works by viewing the both the function's log and Visual Studio for updates. The function's log will show that the function is running, as well as items being dequeued. Since the function is bound to the **functions-bindings** output queue as an input trigger, refreshing the **functions-bindings** Queue in Visual Studio should reveal that the items are gone, as they have been dequeued.   
 
-![Add a new output queue timer functions](./media/create-azure-connected-function/functionsbindingsdemo2-integrate-tab.png)   
+![Add a new output queue timer functions](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png)   
 
 ### Modify the queue item type from JSON to object
 
