@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/19/2016" 
+	ms.date="010/27/2016" 
 	ms.author="awills"/>
 
 # Reference for Analytics
@@ -41,7 +41,7 @@
 
 **String** [GUIDs](#guids) | [Obfuscated String Literals](#obfuscated-string-literals) | [String Literals](#string-literals) | [String comparisons](#string-comparisons) | [countof](#countof) | [extract](#extract) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper)
 
-**Arrays, objects and dynamic** [Array and object literals](#array-and-object-literals) | [Dynamic object functions](#dynamic-object-functions) | [Dynamic objects in let clauses](#dynamic-objects-in-let-clauses) | [JSON Path expressions](#json-path-expressions) | [Names](#names) | [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [todynamic](#todynamic) | [treepath](#treepath)
+**Arrays, objects and dynamic** [Array and object literals](#array-and-object-literals) | [Dynamic object functions](#dynamic-object-functions) | [Dynamic objects in let clauses](#dynamic-objects-in-let-clauses) | [JSON Path expressions](#json-path-expressions) | [Names](#names) | [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [parseurl](#parseurl) | [range](#range) | [todynamic](#todynamic) | [treepath](#treepath)
 
 
 
@@ -2145,7 +2145,7 @@ The integer result represents the week number by the ISO 8601 standard. The firs
 
 ## String
 
-[countof](#countof) | [extract](#extract) | [extractjson](#extractjson)  | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [tostring](#tostring) | [toupper](#toupper)
+[countof](#countof) | [extract](#extract) | [extractjson](#extractjson)  | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [parseurl](#parseurl) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [tostring](#tostring) | [toupper](#toupper)
 
 
 ### String Literals
@@ -2323,7 +2323,32 @@ Indicates whether the argument is an empty string or isnull.
     T | where isempty(fieldName) | count
 
 
+### parseurl
 
+Split a URL into its parts.
+
+**Syntax**
+
+    parseurl(urlstring)
+
+**Arguments**
+
+* *urlstring:* A URL.
+
+**Returns**
+
+An object containing the parts as strings.
+
+`http://user:pass@contoso.com/icecream/buy.aspx?a=1&b=2#tag`
+
+* *Scheme:* `http`
+* *Host:* `contoso.com`
+* *Port:* `80`
+* *Path:* `/icecream/buy.aspx`
+* *Username:* `user`
+* *Password:* `pass`
+* *Query Parameters:* `{"a":"1","b":"2"}`
+* *Fragment:* `tag`
 
 ### replace
 
