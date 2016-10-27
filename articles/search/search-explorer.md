@@ -2,6 +2,7 @@
     pageTitle="Query your Azure Search Index using the Azure Portal | Microsoft Azure | Hosted cloud search service"
     description="Issue a search query in the Azure Portal's Search Explorer."
     services="search"
+    manager="jhubbard"
     documentationCenter=""
 	authors="ashmaka"
 />

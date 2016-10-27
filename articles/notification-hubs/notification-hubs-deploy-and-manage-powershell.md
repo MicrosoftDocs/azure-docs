@@ -3,7 +3,7 @@
 	description="How to Create and Manage Notification Hubs Using PowerShell for Automation" 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="wesmc7777" 
+	authors="ysxu" 
 	manager="erikre" 
 	editor="" />
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="06/29/2016" 
-	ms.author="wesmc"/>
+	ms.author="yuaxu"/>
 
 # Deploy and Manage Notification Hubs using PowerShell
 

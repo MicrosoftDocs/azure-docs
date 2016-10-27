@@ -4,7 +4,7 @@
    services="Azure Marketplace"
    documentationCenter=""
    authors="HannibalSII"
-   manager=""
+   manager="hascipio"
    editor=""/>
 
 <tags

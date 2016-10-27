@@ -45,6 +45,8 @@ Connecting to your server in Azure is just like connecting to a server instance 
 
     **Active Directory Password Authentication** to use an organizational account. For example, when connecting from a non-domain joined computer.
 
+    Note: If you don't see Active Directory Authentication, you may need to [enable Azure Active Directory authentication](#enable-azure-active-directory-authentication) in SSMS.
+
     ![Connect in SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
 Since managing your server in Azure by using SSMS is much the same as managing an on-premises server, we're not going to go into details here. All the help you need can be found in [Analysis Services Instance Management](https://msdn.microsoft.com/library/hh230806.aspx) on MSDN.
@@ -94,6 +96,20 @@ You can add users by using [role assignments in Azure Active Directory](../activ
   }
 }
 ```
+
+## Enable Azure Active Directory authentication
+To enable the Azure Active Directory authentication feature for SSMS in the registry, create a text file named EnableAAD.reg, then copy and paste the following:
+
+
+```
+Windows Registry Editor Version 5.00
+[HKEY_CURRENT_USER\Software\Microsoft\Microsoft SQL Server\Microsoft Analysis Services\Settings]
+"AS AAD Enabled"="True"
+```
+
+Save and then run the file.
+
+
 
 ## Next steps
 If you haven't already deployed a tabular model to your new server, now is a good time. To learn more, see [Deploy to Azure Analysis Services](analysis-services-deploy.md).
