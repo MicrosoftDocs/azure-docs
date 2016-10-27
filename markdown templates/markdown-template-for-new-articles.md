@@ -18,7 +18,7 @@ ms.author: Your MSFT alias or your full email address;semicolon separates two or
 ---
 # Markdown template for Azure on Microsoft Docs
 
-Your article should have only on H1 heading, which you create with a single # sign. The the H1 heading should always be followed by a descriptive paragraph that helps the customer understand what the article is about. It should contain keywords you think customers would use to search for this piece of content. Do not start the article with a note or tip - always start with an introductory paragraph.
+Your article should have only one H1 heading, which you create with a single # sign. The the H1 heading should always be followed by a descriptive paragraph that helps the customer understand what the article is about. It should contain keywords you think customers would use to search for this piece of content. Do not start the article with a note or tip - always start with an introductory paragraph.
 
 ## Headings 
 
@@ -31,27 +31,45 @@ Within an H2 section, you can use three ### signs to create H3 headings. In our 
 ## Images
 You can use images throughout a technical article. Make sure you include alt text for all your images. This helps accessibility and discoverability.
 
-  ![Alt text; do not leave blank. Describe image.][8]
+This image of the GitHub Octocats uses in-line image references:
 
-  ![Alt text; do not leave blank. Collector car in racing red.][5]
+ ![GitHub Octocats using inline link](./media/markdown-template-for-new-articles/octocats.png)
+
+The sample markdown looks like this:
+```
+![GitHub Octocats using inline link](./media/markdown-template-for-new-articles/octocats.png)
+```
+
+This second image of the octocats uses reference style syntax, where you define the target as "5" and at the bottom of the article, and you list the path to image 5 in a reference section.
+ ![GitHub Octocats using ref style link][5]
+
+ The sample markdown looks like this:
+ ```
+  ![GitHub Octocats image][5]
+
+  <!--Image references-->
+  [5]: ./media/markdown-template-for-new-articles/octocats.png
+ ``` 
 
 ## Linking
-Your article will most likely contain links. Here's a sample link to a target not on the docs.microsoft.com site:
+Your article will most likely contain links. Here's sample markdown for a link to a target that is not on the docs.microsoft.com site:
 
-    [Link text for link outside of azure.microsoft.com](http://weblogs.asp.net/scottgu). 
+    [link text](url)
+    [Scott Guthrie's blog](http://weblogs.asp.net/scottgu)
 
-Here's a sample link to another technical article in the azure-docs-pr repository:
+Here's sample markdown for a link to another technical article in the azure-docs-pr repository:
 
-    [example link text for link to an article in a service folder](../expressroute/expressroute-bandwidth-upgrade.md).
+    [link text](../service-directory/article-name.md)
+    [ExpressRoute circuits and routing domains](../expressroute/expressroute-circuit-peerings.md)
 
 You can also use so-called reference style links where you define the links at the bottom of the article, and reference them like this:
 
     I get 10 times more traffic from [Google][gog] than from [Yahoo][yah] or [MSN][msn].
 
-For information about linking, see the [linking guidance](../contributor-guide/create-links-markdown.md)
+For more information about linking, see the [linking guidance](../contributor-guide/create-links-markdown.md)
 
 ## Notes and tips
-You should use notes and tips judiciously. A little bit goes a long way.
+You should use notes and tips judiciously. A little bit goes a long way. Put the text of the note or tip on the line after the custom markdown extension.
 
 > [!NOTE]
 > Note text.
@@ -60,7 +78,8 @@ You should use notes and tips judiciously. A little bit goes a long way.
 > Tip text.
 
 > [!IMPORTANT]
-> 
+> Important text.
+
 ## Lists
 
 A simple numbered list in markdown creates a numbered list on your published page.
@@ -88,9 +107,6 @@ Every topic should end with 1 to 3 concrete, action oriented next steps and link
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
-[8]: ./media/markdown-template-for-new-articles/copytemplate.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [gog]: http://google.com/        
