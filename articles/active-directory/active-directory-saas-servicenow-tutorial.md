@@ -19,6 +19,7 @@
 
 # Tutorial: Azure Active Directory integration with ServiceNow and ServiceNow Express.
 
+
 In this tutorial, you learn how to integrate ServiceNow and ServiceNow Express with Azure Active Directory (Azure AD).
 
 Integrating ServiceNow and ServiceNow Express with Azure AD provides you with the following benefits:
@@ -293,12 +294,12 @@ This link relationship is established by assigning the value of the **user name*
 
 7. In the navigation pane on the left side, click **Single Sign-On**.  
 
-    ![Configure app URL](./media/active-directory-saas-servicenow-tutorial/IC7694980ex.png "Configure app URL")
+    ![Configure app URL](./media/active-directory-saas-servicenow-tutorial/ic7694980ex.png "Configure app URL")
 
 
 8. On the **Single Sign-On** dialog, click the configuration icon on the upper right and set the following properties:
 
-    ![Configure app URL](./media/active-directory-saas-servicenow-tutorial/IC7694981ex.png "Configure app URL")
+    ![Configure app URL](./media/active-directory-saas-servicenow-tutorial/ic7694981ex.png "Configure app URL")
 
     a. Toggle **Enable multiple provider SSO** to the right.
 
@@ -309,7 +310,7 @@ This link relationship is established by assigning the value of the **user name*
 
 9. On the **Single Sign-On** dialog, click **Add New Certificate**.
 
-    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC7694973ex.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694973ex.png "Configure single sign-on")
 
 
 
@@ -336,12 +337,12 @@ This link relationship is established by assigning the value of the **user name*
 
 11. On the **Single Sign-On** dialog, click **Add New IdP**.
 
-    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC7694976ex.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694976ex.png "Configure single sign-on")
 
 
 12. On the **Add New Identity Provider** dialog, under **Configure Identity Provider**, perform the following steps:
 
-    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC7694982ex.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694982ex.png "Configure single sign-on")
 
 
     a. In the **Name** textbox, type a name for your configuration (e.g.: **SAML 2.0**).
@@ -357,7 +358,7 @@ This link relationship is established by assigning the value of the **user name*
 
 13. Click **Advanced Settings**, and under **Additional Identity Provider Properties**, perform the following steps:
 
-    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC7694983ex.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694983ex.png "Configure single sign-on")
 
     a. In the **Protocol Binding for the IDP's SingleLogoutRequest** textbox, type **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**.
 
@@ -369,7 +370,7 @@ This link relationship is established by assigning the value of the **user name*
 
 14. Under **Additional Service Provider Properties**, perform the following steps:
 
-    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC7694984ex.png "Configure single sign-on")
+    ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694984ex.png "Configure single sign-on")
 
     a. In the **ServiceNow Homepage** textbox, type the URL of your ServiceNow instance homepage.
 
