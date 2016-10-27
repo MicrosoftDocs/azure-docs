@@ -1,105 +1,90 @@
-<properties
-   pageTitle="Page title that displays in the browser tab and search results"
-   description="Article description that will be displayed on landing pages and in most search results"
-   services="service-name"
-   documentationCenter="dev-center-name"
-   authors="GitHub-alias-of-only-one-author"
-   manager="manager-alias"
-   editor=""/>
+---
+title: Page title that displays in the browser tab and search results | Microsoft Docs
+description: Article description that will be displayed on landing pages and in most search results
+services: service-name
+documentationcenter: dev-center-name
+author: GitHub-alias-of-only-one-author
+manager: manager-alias
 
-<tags
-   ms.service="required"
-   ms.devlang="may be required"
-   ms.topic="article"
-   ms.tgt_pltfrm="may be required"
-   ms.workload="required"
-   ms.date="mm/dd/yyyy"
-   ms.author="Your MSFT alias or your full email address;semicolon separates two or more"/>
 
-# Markdown template (article Heading 1 or H1): Heading at the top of the article
+ms.service: required
+ms.devlang: may be required
+ms.topic: article
+ms.tgt_pltfrm: may be required
+ms.workload: required
+ms.date: mm/dd/yyyy
+ms.author: Your MSFT alias or your full email address;semicolon separates two or more aliases
 
-To copy the markdown from this template, copy the article in your local repo, or click the Raw button in the GitHub UI and copy the markdown.
+---
+# Markdown template for Azure on Microsoft Docs
+
+Your article should have only on H1 heading, which you create with a single # sign. The the H1 heading should always be followed by a descriptive paragraph that helps the customer understand what the article is about. It should contain keywords you think customers would use to search for this piece of content. Do not start the article with a note or tip - always start with an introductory paragraph.
+
+## Headings 
+
+Two ## signs create an H2 heading - if your article needs to be structured with headings below the H1, you need to have at least TWO H2 headings.
+
+H2 headings are rendered on the page as an automatic on-page TOC. Do not hand-code article navigation in an article. Use the H2 headings to do that.
+
+Within an H2 section, you can use three ### signs to create H3 headings. In our content, try to avoid going deeper than 3 heading layers - the headings are often hard to distinguish on the rendered page. 
+
+## Images
+You can use images throughout a technical article. Make sure you include alt text for all your images. This helps accessibility and discoverability.
 
   ![Alt text; do not leave blank. Describe image.][8]
 
-Intro paragraph: Lorem dolor amet, adipiscing elit. Phasellus interdum nulla risus, lacinia porta nisl imperdiet sed. Mauris dolor mauris, tempus sed lacinia nec, euismod non felis. Nunc semper porta ultrices. Maecenas neque nulla, condimentum vitae ipsum sit amet, dignissim aliquet nisi.
+  ![Alt text; do not leave blank. Collector car in racing red.][5]
 
-## Heading 2 (H2)
+## Linking
+Your article will most likely contain links. Here's a sample link to a target not on the docs.microsoft.com site:
 
-Aenean sit amet leo nec purus placerat fermentum ac gravida odio. Aenean tellus lectus, faucibus in rhoncus in, faucibus sed urna.  volutpat mi id purus ultrices iaculis nec non neque. [Link text for link outside of azure.microsoft.com](http://weblogs.asp.net/scottgu). Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris [example link text for link to an article in a service folder](../articles/expressroute/expressroute-bandwidth-upgrade.md).
+    [Link text for link outside of azure.microsoft.com](http://weblogs.asp.net/scottgu). 
 
-I get 10 times more traffic from [Google] [gog] than from [Yahoo] [yah] or [MSN] [msn].
+Here's a sample link to another technical article in the azure-docs-pr repository:
 
-> [AZURE.NOTE] Indented note text.  The word 'note' will be added during publication. Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio. Curabitur lacinia, erat tristique iaculis rutrum, erat sem sodales nisi, eu condimentum turpis nisi a purus.
+    [example link text for link to an article in a service folder](../expressroute/expressroute-bandwidth-upgrade.md).
 
-1. Aenean sit amet leo nec **Purus** placerat fermentum ac gravida odio.
+You can also use so-called reference style links where you define the links at the bottom of the article, and reference them like this:
 
-2. Aenean tellus lectus, faucius in **Rhoncus** in, faucibus sed urna. Suspendisse volutpat mi id purus ultrices iaculis nec non neque.
+    I get 10 times more traffic from [Google][gog] than from [Yahoo][yah] or [MSN][msn].
 
-  	![Alt text; do not leave blank. Collector car in racing red.][5]
+For information about linking, see the [linking guidance](../contributor-guide/create-links-markdown.md)
 
-3. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Sed dolor dui, condimentum et varius a, vehicula at nisl.
+## Notes and tips
+You should use notes and tips judiciously. A little bit goes a long way.
 
-  	![Alt text; do not leave blank][6]
+> [!NOTE]
+> Note text.
 
+> [!TIP]
+> Tip text.
 
-Suspendisse volutpat mi id purus ultrices iaculis nec non neque. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Otrus informatus: [Link 1 to another azure.microsoft.com documentation topic](virtual-machines-windows-hero-tutorial.md)
+> [!IMPORTANT]
+> 
+## Lists
 
-## Heading (H2)
+A simple numbered list in markdown creates a numbered list on your published page.
 
-Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio.
+1. First step.
+2. Second step.
+3. Third step.
 
-1. Curabitur lacinia, erat tristique iaculis rutrum, erat sem sodales nisi, eu condimentum turpis nisi a purus.
+Use hyphens to create unordered lists:
 
-        - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
-        (NSDictionary *)launchOptions
-        {
-            // Register for remote notifications
-            [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-            UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
-            return YES;
-        }
-
-2. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.
-
-   	    // Because toast alerts don't work when the app is running, the app handles them.
-        // This uses the userInfo in the payload to display a UIAlertView.
-        - (void)application:(UIApplication *)application didReceiveRemoteNotification:
-        (NSDictionary *)userInfo {
-            NSLog(@"%@", userInfo);
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
-            [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:
-            @"OK" otherButtonTitles:nil, nil];
-            [alert show];
-        }
+- Item
+- Item
+- Item
 
 
-    > [AZURE.NOTE] Duis sed diam non <i>nisl molestie</i> pharetra eget a est. [Link 2 to another azure.microsoft.com documentation topic](web-sites-custom-domain-name.md)
-
-
-Quisque commodo eros vel lectus euismod auctor eget sit amet leo. Proin faucibus suscipit tellus dignissim ultrices.
-
-## Heading 2 (H2)
-
-1. Maecenas sed condimentum nisi. Suspendisse potenti.
-
-  + Fusce
-  + Malesuada
-  + Sem
-
-2. Nullam in massa eu tellus tempus hendrerit.
-
-  	![Alt text; do not leave blank. Example of a Channel 9 video.][7]
-
-3. Quisque felis enim, fermentum ut aliquam nec, pellentesque pulvinar magna.
-
-
-
-
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
+Every topic should end with 1 to 3 concrete, action oriented next steps and links to the next logical piece of content to keep the customer engaged. 
 
-Vestibul ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam ultricies, ipsum vitae volutpat hendrerit, purus diam pretium eros, vitae tincidunt nulla lorem sed turpis: [Link 3 to another azure.microsoft.com documentation topic](storage-whatis-account.md).
+- See the [content quality guidelines](../contributor-guide/contributor-guide-pr-criteria.md#non-blocking-content-quality-items) for an example of what a good next steps section looks like. 
+
+- Review the [custom markdown extensions](../contributor-guide/custom-markdown-extensions.md) we use for videos, reusable content, selectors, and other content features.
+
+- Make sure your articles meet [the content quality guidelines](../contributor-guide/contributor-guide-pr-criteria.md) before you sign-off on a PR. 
+
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
