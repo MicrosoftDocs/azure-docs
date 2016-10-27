@@ -3,7 +3,7 @@
 	description="Learn how to use Azure Notification Hubs from a PHP back-end." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="wesmc7777" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="php" 
 	ms.topic="article" 
 	ms.date="06/07/2016" 
-	ms.author="wesmc"/>
+	ms.author="yuaxu"/>
 
 # How to use Notification Hubs from PHP
 [AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
