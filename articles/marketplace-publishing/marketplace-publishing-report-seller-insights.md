@@ -18,7 +18,6 @@
    ms.date="10/27/2016"
    ms.author="v-jeana; hascipio"/>
 
-
 # Understand your seller insights report
 
 **What are seller insights?**
