@@ -2,7 +2,7 @@
 	pageTitle="Best practices for Azure Monitor autoscaling. | Microsoft Azure"
 	description="Learn principles to effectively use autoscaling in Azure Monitor."
 	authors="kamathashwin"
-	manager=""
+	manager="carolz"
 	editor=""
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>

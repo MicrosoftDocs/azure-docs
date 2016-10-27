@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="darrelmiller"
-	manager=""
+	manager="erikre"
 	editor=""/>
 
 <tags

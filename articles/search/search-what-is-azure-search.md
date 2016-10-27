@@ -2,6 +2,7 @@
 	pageTitle="What is Azure Search | Microsoft Azure | Hosted cloud search service"
 	description="Azure Search is a fully-managed hosted cloud search service. Learn more in this feature overview."
 	services="search"
+	manager="jhubbard"
 	authors="ashmaka"
 	documentationCenter=""/>
 

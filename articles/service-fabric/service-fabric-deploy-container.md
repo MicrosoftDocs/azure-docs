@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="msfussell"
-   manager=""
+   manager="timlt"
    editor=""/>
 
 <tags

@@ -49,9 +49,7 @@ The Blobs node displays a list of containers for the selected storage account. B
 
 1. Open the shortcut menu for the **Blobs** node, and then choose **Create Blob Container**.
 
-1. Enter the name of the new container in the **Create Blob Container** dialog box and then choose **Ok**.
-
-    ![Adding a new blob container](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744153.bmp)
+1. Enter the name of the new container in the **Create Blob Container** dialog box and then choose **Ok**
 
     >[AZURE.NOTE] The blob container name must begin with a number (0-9) or lowercase letter (a-z).
 

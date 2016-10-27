@@ -2,7 +2,7 @@
 	pageTitle="Overview of autoscale in Microsoft Azure Virtual Machines, Cloud Services, and Web Apps | Microsoft Azure"
 	description="Overview of autoscale in Microsoft Azure. Applies to Virtual Machines, Cloud Services and Web Apps."
 	authors="rboucher"
-	manager=""
+	manager="carolz"
 	editor=""
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>

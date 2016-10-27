@@ -1,4 +1,3 @@
-
 4. Create a new class in the project called `ToDoBroadcastReceiver`.
 
 5. Add the following using statements to **ToDoBroadcastReceiver** class:
