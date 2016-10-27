@@ -97,23 +97,23 @@ Create an ExpressRoute circuit as follows:
 
 1. Run the following PowerShell command:
 
-```powershell
-New-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>> -Location <<location>> -SkuTier <<sku-tier>> -SkuFamily <<sku-family>> -ServiceProviderName <<service-provider-name>> -PeeringLocation <<peering-location>> -BandwidthInMbps <<bandwidth-in-mbps>>
-```
+  ```powershell
+  New-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>> -Location <<location>> -SkuTier <<sku-tier>> -SkuFamily <<sku-family>> -ServiceProviderName <<service-provider-name>> -PeeringLocation <<peering-location>> -BandwidthInMbps <<bandwidth-in-mbps>>
+  ```
 
 2. Send the `ServiceKey` for the new circuit to the service provider.
 
 3. Wait for the provider to provision the circuit. You can verify the provisioning state of a circuit by using the following PowerShell command:
 
-```powershell
-Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
-```
+  ```powershell
+  Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
+  ```
 
 The `Provisioning state` field in the `Service Provider` section of the output will change from `NotProvisioned` to `Provisioned` when the circuit is ready.
 
 >[AZURE.NOTE]If you're using a layer 3 connection, the provider should configure and manage routing for you; you provide the information necessary to enable the provider to implement the appropriate routes.
 
-If you're using a layer 2 connection, follow the steps below. If you're using a layer 3 connection, skip to the next bullet.
+If you're using a layer 2 connection, follow the steps below:
 
 1. Reserve two /30 subnets composed of valid public IP addresses for each type of peering you want to implement. These /30 subnets will be used to provide IP addresses for the routers used for the circuit. If you are implementing private, public, and Microsoft peering, you'll need 6 /30 subnets with valid public IP addresses. 	
 
@@ -121,11 +121,11 @@ If you're using a layer 2 connection, follow the steps below. If you're using a 
 
 >[AZURE.NOTE]See [Create and modify routing for an ExpressRoute circuit][configure-expressroute-routing] for details. Use the following PowerShell commands to add a network peering for routing traffic:
 
-```powershell
-Set-AzureRmExpressRouteCircuitPeeringConfig -Name <<peering-name>> -Circuit <<circuit-name>> -PeeringType <<peering-type>> -PeerASN <<peer-asn>> -PrimaryPeerAddressPrefix <<primary-peer-address-prefix>> -SecondaryPeerAddressPrefix <<secondary-peer-address-prefix>> -VlanId <<vlan-id>>
+  ```powershell
+  Set-AzureRmExpressRouteCircuitPeeringConfig -Name <<peering-name>> -Circuit <<circuit-name>> -PeeringType <<peering-type>> -PeerASN <<peer-asn>> -PrimaryPeerAddressPrefix <<primary-peer-address-prefix>> -SecondaryPeerAddressPrefix <<secondary-peer-address-prefix>> -VlanId <<vlan-id>>
 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit <<circuit-name>>
-```
+  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit <<circuit-name>>
+  ```
 
 3. Reserve another pool of valid public IP addresses to use for NAT for public, and Microsoft peering. It is recommended to have a different pool for each peering. Specify the pool to your connectivity provider, so they can configure BGP advertisements for those ranges.
 
@@ -260,7 +260,7 @@ Remove-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<re
 
 If your provider had already provisioned the circuit, and the `ProvisioningState` is set to `Failed`, or the `CircuitProvisioningState` is not `Enabled`, contact your provider for further assistance.
 
-## Solution Deployment
+## Solution deployment
 
 If you have an existing on-premises infrastructure already configured with a suitable network appliance, you can deploy the reference architecture by following these steps:
 
@@ -269,7 +269,7 @@ If you have an existing on-premises infrastructure already configured with a VPN
 1. Right click the button below and select either "Open link in new tab" or "Open link in new window":  
 [![Deploy to Azure](./media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-er%2Fazuredeploy.json)
 
-2. Wait for the link to open in the Azure portal, then enter the follow settings for the template: 
+2. Wait for the link to open in the Azure portal, then follow these steps: 
   - The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-hybrid-er-rg` in the text box.
   - Select the region from the **Location** drop down box.
   - Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
@@ -281,13 +281,14 @@ If you have an existing on-premises infrastructure already configured with a VPN
 4. Right click the button below and select either "Open link in new tab" or "Open link in new window":  
 [![Deploy to Azure](./media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-er%2Fazuredeploy-expressRouteCircuit.json)
 
-5. Wait for the link to open in the Azure portal, then enter the follow settings for the template: 
+5. Wait for the link to open in the Azure portal, then follow these steps: 
   - Select **Use existing** in the **Resource group** section and enter `ra-hybrid-er-rg` in the text box.
   - Select the region from the **Location** drop down box.
   - Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
   - Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
   - Click on the **Purchase** button.
 
+6. Wait for the deployment to complete.
 
 ## Next steps
 
