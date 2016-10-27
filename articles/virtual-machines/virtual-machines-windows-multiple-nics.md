@@ -22,7 +22,7 @@ You can create a virtual machine (VM) in Azure that has multiple virtual network
 >[AZURE.WARNING] You must attach multiple NICs when you create a VM - you cannot add NICs to an existing VM. You can [create a VM based on the original virtual disk(s)](virtual-machines-windows-vhd-copy.md) and create multiple NICs as you deploy the VM.
 
 ## Create core resources
-Make sure that you have the [latest Azure PowerShell installed and configured](../powershell-install-configure.md). Log in to your account:
+Make sure that you have the [latest Azure PowerShell installed and configured](../powershell-install-configure.md). Log in to your Azure account:
 
 ```powershell
 Login-AzureRmAccount
