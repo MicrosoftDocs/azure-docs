@@ -29,7 +29,7 @@ The v2.0 endpoint supports the [OAuth 2.0 authorization protocol](active-directo
 
 A bearer token is a lightweight security token that grants the bearer access to a protected resource. The bearer is any party that can present the token. Although a party must first authenticate with Azure AD to receive the bearer token, if the required steps are not taken to secure the token in transmission and storage, it can be intercepted and used by an unintended party. Although some security tokens have a built-in mechanism for preventing unauthorized parties from using them, bearer tokens do not have this mechanism. Bearer tokens must be transported in a secure channel such as transport layer security (HTTPS). If a bearer token is transmitted without this type of security, a "man-in-the-middle attack" can be used by a malicious party to acquire the token and use it for unauthorized access to a protected resource. The same security principles apply when storing or caching bearer tokens for later use. Always ensure that your app transmits and stores bearer tokens securely. For more security considerations for bearer tokens, see [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
 
-Many of the tokens issued by the v2.0 endpoint are implemented as JSON Web Tokens (JWTs). A JWT is a compact, URL-safe way to transfer information between two parties. The information in a JWT is called a *claims*. It's an assertion of information about the bearer and subject of the token. The claims in a JWT are JSON objects that are encoded and serialized for transmission. Because the JWTs issued by the v2.0 endpoint are signed but not encrypted, you can easily inspect the contents of a JWT for debugging purposes. For more information about JWTs, see the [JWT specification](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
+Many of the tokens issued by the v2.0 endpoint are implemented as JSON Web Tokens (JWTs). A JWT is a compact, URL-safe way to transfer information between two parties. The information in a JWT is called a *claims*. It's an assertion of information about the bearer and subject of the token. The claims in a JWT are JavaScript Object Notation (JSON) objects that are encoded and serialized for transmission. Because the JWTs issued by the v2.0 endpoint are signed but not encrypted, you can easily inspect the contents of a JWT for debugging purposes. For more information about JWTs, see the [JWT specification](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ## ID tokens
 
@@ -51,7 +51,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | Name | Claim | Example value | Description |
 | ----------------------- | ------------------------------- | ------------ | --------------------------------- |
 | Audience | `aud` | `6731de76-14a6-49ae-97bc-6eba6914391e` | Identifies the intended recipient of the token. In ID tokens, the audience is your app's Application ID, assigned to your app in the Microsoft Application Registration Portal. Your app should validate this value and reject the token if it does not match. |
-| Issuer | `iss` | `https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` | Identifies the security token service (STS) that constructs and returns the token, and the Azure AD tenant in which the user was authenticated. Your app should validate the issuer claim to ensure that the token came from the v2.0 endpoint. It also should use the GUID portion of the claim to restrict the set of tenants that are allowed to sign in to the app. The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. |
+| Issuer | `iss` | `https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` | Identifies the security token service (STS) that constructs and returns the token, and the Azure AD tenant in which the user was authenticated. Your app should validate the issuer claim to ensure that the token came from the v2.0 endpoint. It also should use the GUID portion of the claim to restrict the set of tenants that can sign in to the app. The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 | Issued At | `iat` | `1452285331` | The time at which the token was issued, represented in epoch time. |
 | Expiration Time | `exp` | `1452289231` | The time at which the token becomes invalid, represented in epoch time. Your app should use this claim to verify the validity of the token lifetime. |
 | Not Before | `nbf` | `1452285331` | The time at which the token becomes valid, represented in epoch time. It is usually the same as the issuance time. Your app should use this claim to verify the validity of the token lifetime. |
@@ -107,7 +107,7 @@ ID tokens are signed by using industry standard asymmetric encryption algorithms
 }
 ```
 
-The `alg` claim indicates the algorithm that was used to sign the token. The `kid` claim indicates the particular public key that was used to sign the token.
+The `alg` claim indicates the algorithm that was used to sign the token. The `kid` claim indicates the public key that was used to sign the token.
 
 At any time, the v2.0 endpoint might sign an ID token using any one of a certain set of public-private key pairs. The v2.0 endpoint rotates the possible set of keys on a periodic basis, so your app should be written to handle those key changes automatically. A reasonable frequency to check for updates to the public keys used by the v2.0 endpoint is about every 24 hours.
 
@@ -117,24 +117,23 @@ You can acquire the signing key data necessary to validate the signature by usin
 https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 ```
 
-> [AZURE.TIP] Try the this URL in a browser!
+> [AZURE.TIP] Try the URL in a browser!
 
-This metadata document is a JavaScript Object Notation (JSON) object that has several useful pieces of information, such as the location of the various endpoints required for OpenID Connect authentication.  
+This metadata document is a JSON object that has several useful pieces of information, such as the location of the various endpoints required for OpenID Connect authentication.  
 
-The document also includes a `jwks_uri`, which gives the location of the set of public keys used to sign tokens. The JSON document located at the `jwks_uri` has all of the current public key information in use. Your app can use the `kid` claim in the JWT header to select which public key in this document has been used to sign a particular token. It can then perform signature validation using the correct public key and the indicated algorithm.
+The document also includes a *jwks_uri*, which gives the location of the set of public keys used to sign tokens. The JSON document located at the jwks_uri has all the current public key information in use. Your app can use the `kid` claim in the JWT header to select which public key in this document has been used to sign a token. It can then perform signature validation using the correct public key and the indicated algorithm.
 
 Performing signature validation is outside the scope of this document. Many open-source libraries are available to help you with this, if you need it.
 
 #### Validate the claims
 When your app receives an ID token upon user sign-in, it should also perform a few checks against the claims in the ID token. These include but are not limited to:
 
-- The **Audience** claim - to verify that the ID token was intended to be given to your app.
-- The **Not Before** and **Expiration Time** claims - to verify that the ID token has not expired.
-- The **Issuer** claim - to verify that the token was indeed issued to your app by the v2.0 endpoint.
-- The **Nonce** - as a token replay attack mitigation.
-- and more...
+- **audience** claim, to verify that the ID token was intended to be given to your app
+- **not before** and **expiration time** claims, to verify that the ID token has not expired
+- **issuer** claim, to verify that the token was issued to your app by the v2.0 endpoint
+- **nonce**, as a token replay attack mitigation
 
-For a full list of claim validations your app should perform, see the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
+For a full list of claim validations that your app should perform, see the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
 
 Details of the expected values for these claims are included in the [ID token](# ID tokens) section.
 
