@@ -72,6 +72,7 @@ For more information about linking, see the [linking guidance](../contributor-gu
 ## Notes and tips
 You should use notes and tips judiciously. A little bit goes a long way. Put the text of the note or tip on the line after the custom markdown extension.
 
+```
 > [!NOTE]
 > Note text.
 
@@ -80,6 +81,7 @@ You should use notes and tips judiciously. A little bit goes a long way. Put the
 
 > [!IMPORTANT]
 > Important text.
+```
 
 ## Lists
 
