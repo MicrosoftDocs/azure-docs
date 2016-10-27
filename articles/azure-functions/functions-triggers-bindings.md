@@ -117,14 +117,12 @@ The following C# function responds to a new item being dropped into the queue an
 	    public string MobileNumber { get; set; }
 	}
 
-For more code examples and more specific information regarding Azure storage types that are supported, see [Azure Functions triggers and bindings for Azure Storage](functions-bindings-storage.md)
+For more code examples and more specific information regarding Azure storage types that are supported, see [Azure Functions triggers and bindings for Azure Storage](functions-bindings-storage.md).
 
-
-## Advanced binding features
 
 To use the more advanced binding features in the Azure portal, click the **Advanced editor** option on the **Integrate** tab of your function. The advanced editor allows you to edit the *function.json* directly in the portal.
 
-#### Dynamic parameter binding 
+## Dynamic parameter binding 
 
 Instead of a static configuration setting for your output binding properties, you can configure the settings to be dynamically bound to data that is part of your trigger's input binding. Consider a scenario where new orders are processed using an Azure Storage queue. Each new queue item is a JSON string containing at least the following properties:
 
@@ -177,7 +175,7 @@ Node.js
 
 
 
-#### Random GUIDs
+## Random GUIDs
 
 Azure Functions provides a syntax to generate random GUIDs with your bindings. The following binding syntax will write output to a new BLOB with a unique name in an Azure Storage container: 
 
@@ -190,7 +188,7 @@ Azure Functions provides a syntax to generate random GUIDs with your bindings. T
 
 
 
-#### Returning a single output
+## Returning a single output
 
 In cases where your function code returns a single output, you can use an output binding named `$return` to retain a more natural function signature in your code. This can only be used with languages that support a return value (C#, Node.js, F#). The binding would be similar to the following blob output binding that is used with a queue trigger.
 
@@ -249,7 +247,7 @@ F# example provided below.
 This can also be used with multiple output parameters by designating a single output with `$return`.
 
 
-#### Route support
+## Route support
 
 By default when you create a function for an HTTP trigger, or WebHook, the function is addressable with a route of the form:
 
