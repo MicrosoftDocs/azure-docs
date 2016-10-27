@@ -4,7 +4,7 @@
 	services="notification-hubs"
     keywords="mobile push notifications,push notifications,push notification,chrome push notifications"
 	documentationCenter=""
-	authors="wesmc7777"
+	authors="ysxu"
 	manager="erikre"
 	editor=""/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="JavaScript"
 	ms.topic="hero-article"
 	ms.date="10/03/2016"
-	ms.author="wesmc"/>
+	ms.author="yuaxu"/>
 
 # Send push notifications to Chrome apps with Azure Notification Hubs
 

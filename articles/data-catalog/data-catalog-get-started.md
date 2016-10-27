@@ -4,7 +4,7 @@
 	documentationCenter=""
 	services="data-catalog"
 	authors="steelanddata"
-	manager=""
+	manager="jhubbard"
 	editor=""
 	tags=""/>
 <tags

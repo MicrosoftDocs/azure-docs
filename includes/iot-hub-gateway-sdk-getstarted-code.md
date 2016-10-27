@@ -206,7 +206,7 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 
 ## Next steps
 
-To learn about how to use the Gateway SDK, see the following:
+To learn about how to use the IoT Gateway SDK, see the following:
 
 - [IoT Gateway SDK – send device-to-cloud messages with a simulated device using Linux][lnk-gateway-simulated].
 - [Azure IoT Gateway SDK][lnk-gateway-sdk] on GitHub.

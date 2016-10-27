@@ -107,9 +107,9 @@ Read [JavaScript in VS Code](https://code.visualstudio.com/docs/languages/javasc
 
 ![Remote debugging interactive](media/iot-hub-raspberry-pi-lessons/troubleshooting/remote_debugging_interactive.png)
 
-## Azure-cli issues
+## Azure CLI issues
 
-Azure-cli is a preview build. You can refer to [Preview Install Guide](https://github.com/Azure/azure-cli/blob/master/doc/preview_install_guide.md) to seek solutions.
+Azure CLI is a preview build. You can refer to [Preview Install Guide](https://github.com/Azure/azure-cli/blob/master/doc/preview_install_guide.md) to seek solutions.
 
 If you encounter any bugs with the tool, file an [issue](https://github.com/Azure/azure-cli/issues) in the **Issues** section of the GitHub repo.
 
@@ -158,8 +158,8 @@ iothub-explorer help
 
 ### Use Azure portal to manage your resources
 
-In all these lessons, a full CLI experience is provided to create and manage all your Azure resources. You might also want to use the [Microsoft Azure portal](../azure-portal-overview.md) to help provision, manage, and debug your Azure resources.
+In all these lessons, a full CLI experience is provided to create and manage all your Azure resources. You might also want to use the [Azure portal](../azure-portal-overview.md) to help provision, manage, and debug your Azure resources.
 
-## Azure storage issues
+## Azure Storage issues
 
-[Microsoft Azure Storage Explorer (Preview)](http://storageexplorer.com) is a standalone app from Microsoft that allows you to work with Azure Storage data on Windows, macOS, and Linux. This tool allows you to connect to your table and see the data in it. You can use this tool to troubleshoot your Azure storage issues.
+[Microsoft Azure Storage Explorer (Preview)](http://storageexplorer.com) is a standalone app from Microsoft that allows you to work with Azure Storage data on Windows, macOS, and Linux. This tool allows you to connect to your table and see the data in it. You can use this tool to troubleshoot your Azure Storage issues.

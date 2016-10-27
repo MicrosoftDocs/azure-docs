@@ -127,7 +127,7 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
 	              "threshold": 60
 	            },
 	            "scaleAction": {
-	              "direction": "Increase",
+	              "direction": "Decrease",
 	              "type": "ChangeCount",
 	              "value": "1",
 	              "cooldown": "PT5M"

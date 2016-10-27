@@ -2,7 +2,7 @@
 	pageTitle="Use PowerShell to create alerts for Azure services | Microsoft Azure"
     description="Use PowerShell to create Azure alerts, which can trigger notifications or automation when the conditions you specify are met."
 	authors="rboucher"
-	manager=""
+	manager="carolz"
 	editor=""
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>
