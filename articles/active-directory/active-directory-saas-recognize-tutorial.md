@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/21/2016"
+	ms.date="10/27/2016"
 	ms.author="jeedes"/>
 
 
@@ -119,15 +119,15 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
     ![Configure Single Sign-On](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_04.png)
 
-	a. In the **Sign On URL** textbox, type a URL using the following pattern: `https://recognizeapp.com/<your-subdomain>.<your-domain>/saml/sso`.
+	a. In the **Sign On URL** textbox, type a URL using the following pattern: `https://recognizeapp.com/<your-domain>/saml/sso`.
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://recognizeapp.com/<your-subdomain>.<your-domain>/saml/metadata`.
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://recognizeapp.com/<your-domain>/saml/metadata`.
 
 	c. Click **Next**
 
 	> [AZURE.NOTE] If you don't know about these URLs, type sample URLs with example pattern. To get these values, you can refer step 9 for more details or contact Recognize support team via <mailto:support@recognizeapp.com>.
 
-4. On the **Configure single sign-on at Wizergos Productivity Software** page, click **Download certificate** and then save the file on your computer:
+4. On the **Configure single sign-on at Recognize** page, click **Download certificate** and then save the file on your computer:
 
 	![Configure Single Sign-On](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_05.png)
 
@@ -153,7 +153,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	d. In the **Slo target url** textbox put the value of **Single Sign-Out Service URL** from Azure AD application configuration wizard.
 
-	e. Copy the content of the downloaded certificate file and then paste it into the **Certificate** textbox. 
+	e. Open your downloaded certificate file in notepad, copy the content of it into your clipboard, and then paste it to the **Certificate** textbox. 
 
 	f. Click the **Save settings** button. 
 
