@@ -39,8 +39,7 @@ Microservices address these downsides and more closely align with the preceding 
 The downside of microservices comes in managing the increased number of separate entities and dealing with more complex deployments and versioning. Network traffic between the microservices increases as well as the corresponding network latencies. Lots of chatty, granular services are a recipe for a performance nightmare. Without tools to help view these dependencies, it is hard to “see” the whole system. Standards make the microservice approach work by agreeing on how to communicate and being tolerant of only the things you need from a service, rather than rigid contracts. It is important to define these contracts up front in the design, because services update independently of each other. Another description coined for designing with a microservices approach is “fine-grained service-oriented architecture (SOA).”
 
 
-> At its simplest, the microservices design approach is about a decoupled federation of services, with independent changes to
-> each, and agreed-upon standards for communication.
+***At its simplest, the microservices design approach is about a decoupled federation of services, with independent changes to each, and agreed-upon standards for communication.***
 
 
 As more cloud apps are produced, people discover that this decomposition of the overall app into independent, scenario-focused services is a better long-term approach.
@@ -76,8 +75,7 @@ There are different definitions of microservices. If you search the Internet, yo
 
 You can summarize these characteristics into:
 
-> Microservice applications are composed of small, independently versioned, and scalable customer-focused services that
-> communicate with each other over standard protocols with well-defined interfaces.
+***Microservice applications are composed of small, independently versioned, and scalable customer-focused services that communicate with each other over standard protocols with well-defined interfaces.***
 
 
 We covered the first two points in the preceding section, and now we expand on and clarify the others.
@@ -95,10 +93,9 @@ Returning to the monolithic versus microservice approach for a moment, the follo
 #### State storage between application styles
 ![Service Fabric platform state storage][Image2]
 
-> The monolithic approach on the left has a single database and tiers of specific technologies.
+***The monolithic approach on the left has a single database and tiers of specific technologies.***
 
-> The microservices approach on the right has a graph of interconnected microservices where state is typically scoped to the
-> microservice and various technologies are used.
+***The microservices approach on the right has a graph of interconnected microservices where state is typically scoped to the microservice and various technologies are used.***
 
 In a monolithic approach, typically the application uses a single database. The advantage is that it is a single location, which makes it easy to deploy. Each component can have a single table to store its state. Teams need to strictly separate state, which is a challenge. Inevitably there are temptations to add a new column to an existing customer table, do a join between tables, and create dependencies at the storage layer. After this happens, you can't scale individual components. In the microservices approach, each service manages and stores its own state. Each service is responsible for scaling both code and state together to meet the demands of the service. A downside is that when there is a need to create views, or queries, of your application’s data, you will need to query across disparate state stores. Typically, this is solved by having a separate microservice that builds a view across a collection of microservices. If you need to perform multiple impromptu queries on the data, each microservice should consider writing its data to a data warehousing service for offline analytics.
 
@@ -129,8 +126,7 @@ Health is different from diagnostics. Health is about the microservice reporting
 
 Azure Service Fabric emerged from a transition by Microsoft from delivering box products, which were typically monolithic in style, to delivering services. The experience of building and operating large services, such as Azure SQL Database and DocumentDB, shaped Service Fabric. The platform evolved over time as more and more services adopted it. Importantly, Service Fabric had to run not only in Azure but also in standalone Windows Server deployments.
 
-> The aim of Service Fabric is to solve the hard problems of building and running a service and utilize infrastructure resources
-> efficiently, so that teams can solve business problems using a microservices approach.
+***The aim of Service Fabric is to solve the hard problems of building and running a service and utilize infrastructure resources efficiently, so that teams can solve business problems using a microservices approach.***
 
 Service Fabric provides two broad areas to help you build applications that use a microservices approach:
 
@@ -138,8 +134,7 @@ Service Fabric provides two broad areas to help you build applications that use 
 
 -  Programming APIs, or frameworks, to help you build applications as microservices: [reliable actors and reliable services](service-fabric-choose-framework.md). Of course, you can choose any code to build your microservice. But these APIs make the job more straightforward, and they integrate with the platform at a deeper level. This way, for example, you can get health and diagnostics information, or you can take advantage of built-in high availability.
 
-> Service Fabric is agnostic on how you build your service, and you can use any technology.
-> However, it does provide built-in programming APIs that make it easier to build microservices.
+***Service Fabric is agnostic on how you build your service, and you can use any technology.However, it does provide built-in programming APIs that make it easier to build microservices.***
 
 ### Are microservices right for my application?
 
