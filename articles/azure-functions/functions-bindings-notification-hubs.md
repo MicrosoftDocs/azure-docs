@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="10/18/2016"
+	ms.date="10/27/2016"
 	ms.author="wesmc"/>
 
 # Azure Functions Notification Hub output binding
@@ -78,35 +78,8 @@ You can also manually add a connection string for an existing hub by adding a co
 3. Scroll down to the **Connection strings** section, and add an named entry for *DefaultFullSharedAccessSignature* value for you notification hub. Change the type to **Custom**.
 4. Reference your connection string name in the output bindings. Similar to **MyHubConnectionString** used in the example above.
 
-## Azure Notification Hub code example for a Node.js timer trigger 
 
-This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `location` and `message`.
-
-	module.exports = function (context, myTimer) {
-	    var timeStamp = new Date().toISOString();
-	   
-	    if(myTimer.isPastDue)
-	    {
-	        context.log('Node.js is running late!');
-	    }
-	    context.log('Node.js timer trigger function ran!', timeStamp);  
-	    context.bindings.notification = {
-	        location: "Redmond",
-	        message: "Hello from Node!"
-	    };
-	    context.done();
-	};
-
-## Azure Notification Hub code example for a F# timer trigger
-
-This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `location` and `message`.
-
-	let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
-	    notification = dict [("location", "Redmond"); ("message", "Hello from F#!")]
-
-## Azure Notification Hub code example for a C# queue trigger
-
-#### APNS native notification example
+## APNS native notifications with C# queue triggers
 
 This example shows how to use types defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) to send a native APNS notification. 
 
@@ -135,7 +108,7 @@ This example shows how to use types defined in the [Microsoft Azure Notification
 	    await notification.AddAsync(new AppleNotification(apnsNotificationPayload));	    
 	}
 
-#### GCM native notification example
+## GCM native notifications with C# queue triggers
 
 This example shows how to use types defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) to send a native GCM notification. 
 
@@ -164,7 +137,7 @@ This example shows how to use types defined in the [Microsoft Azure Notification
 	    await notification.AddAsync(new GcmNotification(gcmNotificationPayload));	    
 	}
 
-#### WNS native notification example
+## WNS native notifications with C# queue triggers
 
 This example shows how to use types defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) to send a native WNS toast notification. 
 
@@ -205,8 +178,34 @@ This example shows how to use types defined in the [Microsoft Azure Notification
 	    await notification.AddAsync(new WindowsNotification(wnsNotificationPayload));	    
 	}
 
+## Template example for Node.js timer triggers 
 
-#### Template example using an out parameter 
+This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `location` and `message`.
+
+	module.exports = function (context, myTimer) {
+	    var timeStamp = new Date().toISOString();
+	   
+	    if(myTimer.isPastDue)
+	    {
+	        context.log('Node.js is running late!');
+	    }
+	    context.log('Node.js timer trigger function ran!', timeStamp);  
+	    context.bindings.notification = {
+	        location: "Redmond",
+	        message: "Hello from Node!"
+	    };
+	    context.done();
+	};
+
+## Template example for F# timer triggers
+
+This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `location` and `message`.
+
+	let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
+	    notification = dict [("location", "Redmond"); ("message", "Hello from F#!")]
+
+
+## Template example using an out parameter 
 
 This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains a `message` place holder in the template.
 
@@ -227,7 +226,7 @@ This example sends a notification for a [template registration](../notification-
 	    return templateProperties;
 	}
 
-#### Asynchronous template example
+## Template example with asynchronous function
 
 If you are using asynchronous code, you won't be able use out parameters. In this case use `IAsyncCollector` to return your template notification. The following code is an asynchronous example of the code above. 
 
@@ -250,7 +249,7 @@ If you are using asynchronous code, you won't be able use out parameters. In thi
 	    return templateProperties;
 	}
 
-#### Template example using JSON 
+## Template example using JSON 
 
 This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains a `message` place holder in the template using a valid JSON string.
 
@@ -263,7 +262,7 @@ This example sends a notification for a [template registration](../notification-
 	}
 
 
-#### Template example using Notification Hubs library types
+## Template example using Notification Hubs library types
 
 This example shows how to use types defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). 
 
