@@ -45,7 +45,7 @@ When you package a container, you can choose to use either a Visual Studio proje
 
 ## Use Visual Studio to package an existing container image
 
->[AZURE.NOTE] In a future release of the Visual Studio tooling for Service Fabric, you will be able to add a container to an application in Then way that you can add a guest executable today. For more information, see [Deploy a guest executable to Service Fabric](service-fabric-deploy-existing-app.md) topic. Currently you have to manually package a container as described in the following section.
+>[AZURE.NOTE] In a future release of Visual Studio tooling for Service Fabric, you will be able to add a container to an application in the way that you can add a guest executable today. For more information, see [Deploy a guest executable to Service Fabric](service-fabric-deploy-existing-app.md) topic. Currently you have to manually package a container as described in the following section.
 
 <a id="manually"></a>
 ## Manually package and deploy a container
@@ -110,7 +110,7 @@ We recommend that you encrypt the password by using a certificate that's deploye
 
 The following example shows an account called *TestUser*, where the password was encrypted by using a certificate called *MyCert*. You can use the `Invoke-ServiceFabricEncryptText` PowerShell command to create the secret cipher text for the password. For more information, see the article [Managing secrets in Service Fabric applications](service-fabric-application-secret-management.md).
 
-The private key of the certificate that's used to decrypt the password must be deployed to the local machine in an out-of-band method (in Azure, this method is Azure Resource Manager). Then, when Service Fabric deploys the service package to the machine, it can decrypt the secret. By using the secret along with the account name, it can then authenticate with the container repository.
+The private key of the certificate that's used to decrypt the password must be deployed to the local machine in an out-of-band method. (In Azure, this method is Azure Resource Manager.) Then, when Service Fabric deploys the service package to the machine, it can decrypt the secret. By using the secret along with the account name, it can then authenticate with the container repository.
 
 
     <ServiceManifestImport>
@@ -137,9 +137,9 @@ You can configure a host port used to communicate with the container by specifyi
 
 
 ## Configure container-to-container discovery and communication
-By using the `PortBinding` policy, you can map a container port to an `Endpoint` in the service manifest as shown in the following example. The endpoint `Endpoint1` can specify a fixed port (for example, port 80). It can also specify no port at all, in which case a random port from the cluster's application port range is chosen for you.
+By using the `PortBinding` policy, you can map a container port to an `Endpoint` in the service manifest as shown in the following example. The endpoint `Endpoint1` can specify a fixed port (for example, port 80).  can also specify no port at all, in which case a random port from the cluster's application port range is chosen for you.
 
-If you specify an Endpoint` like this in the service manifest of a guest container, Service Fabric can automatically publish this endpoint to the Naming service so that other services running in the cluster can discover this container by using the resolve service REST queries.
+If you specify an Endpoint` like this in the service manifest of a guest container, Service Fabric can automatically publish this endpoint to the Naming service. This means that other services that are running in the cluster can discover this container by using the resolve service REST queries.
 
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
