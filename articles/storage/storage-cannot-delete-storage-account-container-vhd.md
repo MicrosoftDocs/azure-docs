@@ -49,7 +49,7 @@ You might also see this error:
 
 *Storage account <vm-storage-account-name> has some active image(s) and/or disk(s), e.g. xxxxxxxxx- xxxxxxxxx-O-209490240936090599. Ensure these image(s) and/or disk(s) are removed before deleting this storage account.*
 
-Or, you might also see this error:
+Or
 
 **On the Azure portal**:
 
