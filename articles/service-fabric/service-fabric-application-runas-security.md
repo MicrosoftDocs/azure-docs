@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Understanding Service Fabric application  and service security policies | Microsoft Azure"
+   pageTitle="Understanding Service Fabric application and service security policies | Microsoft Azure"
    description="An overview of how to run a Service Fabric application under system and local security accounts, including the SetupEntry point where an application needs to perform some privileged action before it starts"
    services="service-fabric"
    documentationCenter=".net"
@@ -17,17 +17,17 @@
    ms.author="mfussell"/>
 
 # Configure security policies for your application
-Azure Service Fabric provides the ability to secure applications running in the cluster under different user accounts. Service Fabric also secures the resources used by the applications at the time of deployment under the user account such as files, directories, and certificates. This makes running applications, even in a shared hosted environment, secure from one another. 
+Azure Service Fabric provides the ability to secure applications that are running in the cluster under different user accounts. Service Fabric also secures the resources used by the applications at the time of deployment under the user account, such as files, directories, and certificates. This makes running applications, even in a shared hosted environment, secure from one another.
 
-By default, Service Fabric applications run under the account that the Fabric.exe process runs under. Service Fabric also provides the capability to run applications under a local user account or local system account, specified within the application’s manifest. Supported local system account types for are **LocalUser**, **NetworkService**, **LocalService**, and **LocalSystem**.
+By default, Service Fabric applications run under the account that the Fabric.exe process runs under. Service Fabric also provides the capability to run applications under a local user account or local system account, which are specified within the application manifest. Supported local system account types are **LocalUser**, **NetworkService**, **LocalService**, and **LocalSystem**.
 
- When running Service Fabric on Windows Server in your data center using the standalone installer, you can use Active Directory (AD) domain accounts.
+ When you're running Service Fabric on Windows Server in your datacenter by using the standalone installer, you can use Active Directory domain accounts.
 
-User groups can be defined and created so that one or more users can be added to each group to be managed together. This is useful when there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level.
+You can define and create user groups so that one or more users can be added to each group to be managed together. This is useful when there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level.
 
-## Configure the policy for service SetupEntryPoint
+## Configure the policy for a service setup entry point
 
-As described in the [application model](service-fabric-application-model.md) the **SetupEntryPoint** is a privileged entry point that runs with the same credentials as Service Fabric (typically the *NetworkService* account) before any other entry point. The executable specified by **EntryPoint** is typically the long-running service host, so having a separate setup entry point avoids having to run the service host executable with high privileges for extended periods of time. The executable specified by **EntryPoint** is run after **SetupEntryPoint** exits successfully. The resulting process is monitored and restarted, beginning again with **SetupEntryPoint**, if it ever terminates or crashes.
+As described in the [application model](service-fabric-application-model.md), the setup entry point, **SetupEntryPoint**, is a privileged entry point that runs with the same credentials as Service Fabric (typically the *NetworkService* account) before any other entry point. The executable that is specified by **EntryPoint** is typically the long-running service host. So having a separate setup entry point avoids having to run the service host executable with high privileges for extended periods of time. The executable that is specified by **EntryPoint** is run after **SetupEntryPoint** exits successfully. The resulting process is monitored and restarted, beginning again with **SetupEntryPoint** if it ever terminates or crashes.
 
 The following is a simple service manifest example that shows the SetupEntryPoint and the main EntryPoint for the service.
 
@@ -57,7 +57,7 @@ The following is a simple service manifest example that shows the SetupEntryPoin
 
 ### Configure the policy using a local account
 
-After you configure the service to have a setup entry point, you can change the security permissions that it runs under in the application manifest. The followin example shows how to configure the service to run under user administrator account privileges.
+After you configure the service to have a setup entry point, you can change the security permissions that it runs under in the application manifest. The following example shows how to configure the service to run under user administrator account privileges.
 
 ~~~
 <?xml version="1.0" encoding="utf-8"?>
@@ -190,7 +190,7 @@ Echo "Test console redirection which writes to the application log folder on the
 
 **Once you have debugged your script, immediately remove this console redirection policy**
 
-## Configure policy for service code packages 
+## Configure policy for service code packages
 In the preceding steps, you saw how to apply RunAs policy to SetupEntryPoint. Let's look a little deeper into how to create different principals that can be applied as service policies.
 
 ### Create local user groups
@@ -261,9 +261,9 @@ The **DefaultRunAsPolicy** section is used to specify a default user account for
 </Policies>
 ~~~
 ### Using an Active Directory domain group or user
-For Service Fabric installed on Windows Server with the standalone installer you, can run the service under the credentials for an Active Directory (AD) user or group account. Note: This is Active Directory on-premise within your domain and is not with Azure Active Directory (AAD). By using a domain user or group, you can then access other resources in the domain (for example, file shares) that have been granted permissions.
+For Service Fabric installed on Windows Server with the standalone installer you, can run the service under the credentials for an Active Directory user or group account. Note that this is Active Directory on-premises within your domain and is not with Azure Active Directory (Azure AD). By using a domain user or group, you can then access other resources in the domain (for example, file shares) that have been granted permissions.
 
-The following example shows an AD user called *TestUser* with their domain password encrypted using a certificate called *MyCert*. You can use the `Invoke-ServiceFabricEncryptText` Powershell command to create the secret cipher text. See this article [Managing secrets in Service Fabric applications](service-fabric-application-secret-management.md) for details on how. The private key of the certificate to decrypt the password must be deployed to the local machine in an out-of-band method (in Azure this is via the Resource Manager). Then, when Service Fabric deploys the service package to the machine, it is able to decrypt the secret and along with the user name, authenticate with AD to run under those credentials.
+The following example shows an Active Directory user called *TestUser* with their domain password encrypted using a certificate called *MyCert*. You can use the `Invoke-ServiceFabricEncryptText` Powershell command to create the secret cipher text. See this article [Managing secrets in Service Fabric applications](service-fabric-application-secret-management.md) for details on how. The private key of the certificate to decrypt the password must be deployed to the local machine in an out-of-band method (in Azure this is via the Resource Manager). Then, when Service Fabric deploys the service package to the machine, it is able to decrypt the secret and along with the user name, authenticate with Active Directory to run under those credentials.
 
 ~~~
 <Principals>
