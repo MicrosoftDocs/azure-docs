@@ -34,10 +34,7 @@ The following IoT device SDKs are available to download from GitHub:
 
 ## OS Platforms and hardware compatibility
 
-For more information about SDK compatibility with specific hardware devices, see the following articles:
-
-- [OS Platforms and hardware compatibility with device SDKs][lnk-compatibility]
-- [Microsoft Azure Certified for IoT program][lnk-certified].
+For more information about SDK compatibility with specific hardware devices, see the [Azure Certified for IoT device catalog][lnk-certified].
 
 ## IoT Hub service SDKs
 
@@ -89,8 +86,7 @@ Other reference topics in this IoT Hub developer guide include:
 [lnk-node-device-sdk]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/readme.md
 [lnk-node-service-sdk]: https://github.com/Azure/azure-iot-sdks/blob/master/node/service/README.md
 [lnk-python-device-sdk]: https://github.com/Azure/azure-iot-sdks/blob/master/python/device/readme.md
-[lnk-compatibility]: iot-hub-tested-configurations.md
-[lnk-certified]: iot-hub-tested-configurations.md#microsoft-azure-certified-for-iot
+[lnk-certified]: https://catalog.azureiotsuite.com/
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/README.md
 
 [lnk-dotnet-ref]: https://msdn.microsoft.com/library/mt488521.aspx
