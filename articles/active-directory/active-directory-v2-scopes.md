@@ -29,7 +29,7 @@ Azure AD implements the [OAuth 2.0](active-directory-v2-protocols.md) authorizat
 
 - The Office 365 Unified Mail API: `https://outlook.office.com`
 - The Azure AD Graph API: `https://graph.windows.net`
-- The Microsoft Graph: `https://graph.microsoft.com`
+- Microsoft Graph: `https://graph.microsoft.com`
 
 The same is true for any third-party resources that have integrated with Azure AD. Any of these resources also can define a set of permissions that can be used to divide up the functionality of that resource into smaller chunks. As an example, [Microsoft Graph](https://graph.microsoft.io) has defined permissions to do the following:
 
