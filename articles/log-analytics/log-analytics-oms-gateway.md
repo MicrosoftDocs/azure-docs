@@ -1,5 +1,5 @@
 <properties
-	pageTitle="OMS Gateway | Microsoft Azure"
+	pageTitle="Connect computers and devices to OMS using the OMS Gateway | Microsoft Azure"
 	description="Connect your OMS-managed devices and Operations Manager-monitored computers with the OMS Gateway to send data to the OMS service when they do not have Internet access."
 	services="log-analytics"
 	documentationCenter=""
@@ -15,7 +15,7 @@
 	ms.date="10/26/2016"
 	ms.author="banders"/>
 
-# OMS Gateway
+# Connect computers and devices to OMS using the OMS Gateway
 
 This document describes how your OMS-managed devices and System Center Operations Manager (SCOM)-monitored computers can send data to the OMS service when they do not have Internet access. The OMS Gateway can collect the data and send it to the OMS service on their behalf.
 
@@ -90,7 +90,7 @@ To use the Gateway to support Operations Manager, you need to have:
     ![Operations Manager – proxy server address](./media/log-analytics-oms-gateway/scom02.png)
 3. Click **Finish**. Your Operations Manager server is connected to your OMS workspace.
 
-## Optionally configure network load balancing
+## Configure network load balancing
 
 You can configure the gateway for high availability using network load balancing by creating a cluster. The cluster manages traffic from your agents by redirecting the requested connections from the Microsoft Monitoring Agents across its nodes. If one Gateway server goes down, the traffic gets redirected to other nodes.
 
@@ -104,7 +104,7 @@ You can configure the gateway for high availability using network load balancing
 5. On computers that do not have Internet connectivity, be sure to use the IP address of the cluster when you configure the **Microsoft Monitoring Agent Properties**:  
     ![Microsoft Monitoring Agent Properties – Proxy Settings](./media/log-analytics-oms-gateway/nlb04.png)
 
-## Configure the Gateway for automation hybrid workers
+## Configure for automation hybrid workers
 
 If you have automation hybrid workers in your environment, the following steps provide manual, temporary workarounds to configure the Gateway to support them.
 
@@ -189,7 +189,7 @@ If you get an error in step 3, the module wasn't imported. The error might occur
 | `Remove-OMSGatewayAllowedClientCertificate` | Subject (required) | Removes the client certificate subject from the allowed list | `Remove- OMSGatewayAllowedClientCertificate -Subject mycert` |
 | `Get-OMSGatewayAllowedClientCertificat`e |   | Gets the  currently allowed client certificate subjects (only the locally configured allowed subjects, do not include automatically downloaded allowed subjects) | `Get-OMSGatewayAllowedClientCertificate` |
 
-## Troubleshoot the gateway
+## Troubleshoot
 
 We recommend that you install the OMS agent on computers that have the gateway installed. You can then use the agent to collect the events that are logged by the gateway.
 
@@ -211,7 +211,7 @@ The following table shows the event IDs and descriptions for OMS Gateway Log eve
 | 103 | Received an HTTP CONNECT command from client |
 | 104 | Not an HTTP CONNECT command |
 | 105 | Destination server is not in allowed list or the destination port is not secure port (443) <br> <br> Ensure that the MMA agent on your Gateway server and the agents communicating with the Gateway are connected to the same Log Analytics workspace.|
-| 105 | ERROR TcpConnection – Invalid Client certificate: CN=Gateway <br><br> Ensure that: <br>	<br> 1. You are using a Gateway with version number 1.0.395.0 or greater. <br> 2. The MMA agent on your Gateway server and the agents communicating with the Gateway are connected to the same Log Analytics workspace. |
+| 105 | ERROR TcpConnection – Invalid Client certificate: CN=Gateway <br><br> Ensure that: <br>	<br> &#149; You are using a Gateway with version number 1.0.395.0 or greater. <br> &#149; The MMA agent on your Gateway server and the agents communicating with the Gateway are connected to the same Log Analytics workspace. |
 | 106 | Any reason that the TLS session is suspicious and rejected |
 | 107 | The TLS session has been verified |
 
@@ -229,7 +229,7 @@ The following table shows the performance counters available for the OMS Gateway
 ![OMS Gateway performance counters](./media/log-analytics-oms-gateway/counters.png)
 
 
-## Get assistance from Microsoft
+## Get assistance
 
 When you're signed-in to the Azure portal, you can create a request for assistance with the OMS Gateway or any other Azure service or feature of a service.
 To request assistance, click the question mark symbol in the top right corner of the portal and then click **New support request**. Then, complete the new support request form.
