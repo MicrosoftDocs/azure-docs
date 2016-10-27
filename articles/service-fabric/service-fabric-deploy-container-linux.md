@@ -24,7 +24,7 @@
 
 This article walks you through building containerized services in Docker containers on Linux.
 
-Service Fabric has several container capabilities that help you build applications that are composed of microservices that are containerized. These are called containerized services.
+Service Fabric has several container capabilities that help you with building applications that are composed of microservices that are containerized. These are called containerized services.
 
 The capabilities include;
 
@@ -37,7 +37,7 @@ The capabilities include;
 
 
 ## Packaging a docker container with yeoman
-When packaging a container on Linux, you can choose either to use a yeoman template or to [create the application package manually](service-fabric-deploy-container.md#manually-packaging-and-deploying-a-container).
+When packaging a container on Linux, you can choose either to use a yeoman template or [create the application package manually](service-fabric-deploy-container.md#manually-packaging-and-deploying-a-container).
 
 A Service Fabric application can contain one or more containers, each with a specific role in delivering the application's functionality. The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your application and add a container image. Let's use Yeoman to create a new application with a single Docker container called *SimpleContainerApp*. You can add more services later by editing the generated manifest files.
 
@@ -86,3 +86,4 @@ Once the application is built, you can deploy it to the local cluster using the 
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-deploy-container-linux/sf-container-yeoman.png
+
