@@ -2,7 +2,7 @@
 	pageTitle="Track Azure service health using Azure Monitor Activity Logs | Microsoft Azure"
 	description="Find out when Azure has experienced performance degradation or service interruptions. "
 	authors="rboucher"
-	manager=""
+	manager="carolz"
 	editor=""
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>

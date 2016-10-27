@@ -4,7 +4,7 @@
 	services="notification-hubs"
 	documentationCenter="windows"
     keywords="push notification,push notification,windows phone push"
-	authors="wesmc7777"
+	authors="ysxu"
 	manager="erikre"
 	editor="erikre"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
 	ms.date="10/03/2016"
-	ms.author="wesmc"/>
+	ms.author="yuaxu"/>
 
 # Sending push notifications with Azure Notification Hubs on Windows Phone
 
