@@ -278,7 +278,7 @@ Using this configuration, the function is now addressable with the following rou
 
 	http://<yourapp>.azurewebsites.net/api/products/electronics/357
 
-This allows the function code to support two parameters in the address, `category` and `id`. The following C# function code makes use of both parameters as an example.
+This allows the function code to support two parameters in the address, `category` and `id`. You can use any [Web API Route Constraint](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) with your parameters. The following C# function code makes use of both parameters.
 
 	public static Task<HttpResponseMessage> Run(HttpRequestMessage request, string category, int? id, 
 													TraceWriter log)
