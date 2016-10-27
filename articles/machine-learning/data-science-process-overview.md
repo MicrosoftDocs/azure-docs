@@ -20,7 +20,7 @@
 
 The Team Data Science Process (TDSP) provides a recommended lifecycle that you can use to structure the development your data science projects. The lifecycle outlines the steps that projects follow, from start to finish, when they are executed using the TDSP. If you are using another data science lifecycle, such as [CRISP-DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process) or your organization's own custom process, you can still use the TDSP in the context of those development lifecycles. 
 
-This lifecycle has been designed for data science projects that are going ship as intelligent applications that include predictive analytics that deploy machine learning or artificial intelligence (AI) models. Exploratory data science projects and ad hoc or on-off analytics projects can also use this process, but in such cases some steps of this lifecycle may not be needed.    
+This lifecycle has been designed for data science projects that are going ship as intelligent applications. They deploy machine learning or artificial intelligence models for predictive analytics. Exploratory data science projects and ad hoc or on-off analytics projects can also benefit from using this process, but in such cases some steps described may not be needed.    
 
 Here is a visual representation of the TDSP lifecycle. 
 
@@ -44,17 +44,17 @@ For each stage, we provide the following three kinds of information:
 
 ### Goals
 
-* Clearly and explicitly specify each of the **model targets** as a 'sharp' question which is used to drive the customer engagement.
-* Clearly specify where to find the data sources of interest. The predictive model target is defined in this step to determine whether we need to bring in ancillary data from other sources.
+* Specify each of the **model targets** to predict with a specific and unambiguous question, which can be used to drive the customer engagement.
+* Clearly specify the **data sources** of interest that the business has and whether you need to bring in ancillary data from other sources.
 
 ### How to do it 
 
-In this stage, you work with your customer and other stakeholders to understand the business problems that can be addressed with predictive analytics. A central objective of this step is to identify the key **business variables** (sales forecast or the probability of an order being fraudulent, for example) that the analysis needs to predict (also known as **model targets**) to satisfy these requirements. An understanding of the data sources is also needed to address the objectives of the project from an analytical perspective. There are two main aspects of this stage - Define Objectives and Identify data sources. 
+There are two main aspects of this stage **Define Objectives** and **Identify data sources**.  You work with your customer and other stakeholders to identify and understand the business problems that can be addressed with predictive analytics. A central objective of this step is to identify the key **business variables** that the analysis needs to predict. These variables are referred to as the **model targets**. Sales forecast or the probability of an order being fraudulent are examples of such targets. An understanding of the data sources is also needed to address the objectives of the project from an analytical perspective. 
 
 #### 1.1 Define Objectives
 
-1. Understand the customer business domain, key variables by which success is defined in that space. Then understand what business problems are we trying to address using data science to affect those key metrics?
-2. Define the project goals with 'sharp' question(s). A fine description of what a sharp question is, and how you can ask it, can be found in this [article](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/). As per the article, here is a useful tip to ask a sharp question - "When choosing your question, imagine that you are approaching an oracle that can tell you anything in the universe, as long as the answer is a number or a name". Data science / machine learning is typically used to answer these five types of questions:
+1. Understand the customer business domain and business problems that need to be addressed. Figure out what the key variables for the business are, by which its success is defined and measured. Then determine how a data science analysis can be used to affect those key metrics.
+2. Define the project goals with 'sharp' questions. A fine description of what a sharp question is, and how you can ask it, can be found in this [article](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/). As per the article, here is a useful tip to ask a sharp question - "When choosing your question, imagine that you are approaching an oracle that can tell you anything in the universe, as long as the answer is a number or a name". Data science / machine learning is typically used to answer these five types of questions:
 	1. How much or how many? (regression)
 	2. Which category? (classification)
 	3. Which group? (clustering)
@@ -63,7 +63,7 @@ In this stage, you work with your customer and other stakeholders to understand 
 
 3. Define the project team, the role, and responsibilities. Develop a high-level milestone plan that you iterate upon as more information is discovered.  
 
-4. Define success metrics. The metrics must be SMART (Specific, Measurable, Achievable, Relevant, and Time-bound). For example: Achieve customer churn prediction accuracy of X% by the end of this 3-month project so that we can offer promotions to reduce churn. 
+4. **Define success metrics**. The metrics must be SMART (**S**pecific, **M**easurable, **A**chievable, **R**elevant, and **T**ime-bound). For example: Achieve customer churn prediction accuracy of X% by the end of this 3-month project so that we can offer promotions to reduce churn. 
 
 #### 1.2 Identify Data Sources
 
