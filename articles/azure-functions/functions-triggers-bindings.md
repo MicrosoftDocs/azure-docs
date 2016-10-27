@@ -45,7 +45,7 @@ To better understand triggers and bindings in general, suppose you want to execu
 - The queue name 
 - A variable name that your code would use to refer to the new item that was dropped into the queue.  
  
-A queue trigger binding will contain this information for an Azure function. The *function.json* file for each function will contain all related bindings.  Here is an example *function.json* containing a queue trigger binding. 
+A queue trigger binding contains this information for an Azure function. The *function.json* file for each function contains all related bindings.  Here is an example *function.json* containing a queue trigger binding. 
 
 	{
 	  "bindings": [
@@ -60,7 +60,7 @@ A queue trigger binding will contain this information for an Azure function. The
 	  "disabled": false
 	}
 
-Your code may send different types of output depending on how the new queue item is processed. For example, you might want to write a new record to an Azure Storage table.  To accomplish this you can setup an output binding to an Azure Storage table. Here is an example *function.json* that includes a storage table output binding that could be used with a queue trigger. 
+Your code may send different types of output depending on how the new queue item is processed. For example, you might want to write a new record to an Azure Storage table.  To accomplish this, you can setup an output binding to an Azure Storage table. Here is an example *function.json* that includes a storage table output binding that could be used with a queue trigger. 
 
 
 	{
@@ -122,11 +122,11 @@ For more code examples and more specific information regarding Azure storage typ
 
 ## Advanced binding features for your code
 
-To use the more advanced binding features in the Azure Portal, click the **Advanced editor** option on the **Integrate** tab of your function. This will allow you to edit the *function.json* directly in the portal.
+To use the more advanced binding features in the Azure Portal, click the **Advanced editor** option on the **Integrate** tab of your function. The advanced editor allows you to edit the *function.json* directly in the portal.
 
 #### Dynamic parameter binding 
 
-Instead of a static configuration setting for your output binding properties, you can configure the settings to be dynamically bound to data that is part of your trigger's input binding. Consider a scenario where new orders are processed using an Azure Storage queue. Each new queue item will be a JSON string containing at least the following properties.
+Instead of a static configuration setting for your output binding properties, you can configure the settings to be dynamically bound to data that is part of your trigger's input binding. Consider a scenario where new orders are processed using an Azure Storage queue. Each new queue item is a JSON string containing at least the following properties:
 
 	{
 	  name : "Customer Name",
@@ -179,7 +179,7 @@ Node.js
 
 #### Random GUIDs
 
-Azure Functions provides a syntax to generate random GUIDs with your bindings. For example, if your function code needed to write output to a new BLOB with a unique name in an Azure Storage container, you could use a BLOB output binding with `{rand-guid}` in the path. Here is an example BLOB output binding that demonstrates this. 
+Azure Functions provides a syntax to generate random GUIDs with your bindings. The following binding syntax will write output to a new BLOB with a unique name in an Azure Storage container: 
 
 	{
 	  "type": "blob",
@@ -322,7 +322,7 @@ By default, all function routes are prefixed with *api*. You can also customize 
 
 For detailed information on how to update the *host.json* file for your function, See, [How to update function app files](functions-reference.md#fileupdate). 
 
-By adding this configuration, the function is now addressable with the following route.
+By adding this configuration, the function is now addressable with the following route:
 
 	http://<yourapp>.azurewebsites.net/products/electronics/357
 
