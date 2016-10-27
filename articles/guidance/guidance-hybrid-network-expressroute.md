@@ -97,17 +97,17 @@ Create an ExpressRoute circuit as follows:
 
 1. Run the following PowerShell command:
 
-  ```powershell
-  New-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>> -Location <<location>> -SkuTier <<sku-tier>> -SkuFamily <<sku-family>> -ServiceProviderName <<service-provider-name>> -PeeringLocation <<peering-location>> -BandwidthInMbps <<bandwidth-in-mbps>>
-  ```
+    ```powershell
+    New-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>> -Location <<location>> -SkuTier <<sku-tier>> -SkuFamily <<sku-family>> -ServiceProviderName <<service-provider-name>> -PeeringLocation <<peering-location>> -BandwidthInMbps <<bandwidth-in-mbps>>
+    ```
 
 2. Send the `ServiceKey` for the new circuit to the service provider.
 
 3. Wait for the provider to provision the circuit. You can verify the provisioning state of a circuit by using the following PowerShell command:
 
-  ```powershell
-  Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
-  ```
+    ```powershell
+    Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
+    ```
 
 The `Provisioning state` field in the `Service Provider` section of the output will change from `NotProvisioned` to `Provisioned` when the circuit is ready.
 
@@ -119,13 +119,13 @@ If you're using a layer 2 connection, follow the steps below:
 
 2. Configure routing for the ExpressRoute circuit. You need to run the command below for each type of peering you want to configure (private, public, and Microsoft).
 
->[AZURE.NOTE]See [Create and modify routing for an ExpressRoute circuit][configure-expressroute-routing] for details. Use the following PowerShell commands to add a network peering for routing traffic:
+    >[AZURE.NOTE]See [Create and modify routing for an ExpressRoute circuit][configure-expressroute-routing] for details. Use the following PowerShell commands to add a network peering for routing traffic:
 
-  ```powershell
-  Set-AzureRmExpressRouteCircuitPeeringConfig -Name <<peering-name>> -Circuit <<circuit-name>> -PeeringType <<peering-type>> -PeerASN <<peer-asn>> -PrimaryPeerAddressPrefix <<primary-peer-address-prefix>> -SecondaryPeerAddressPrefix <<secondary-peer-address-prefix>> -VlanId <<vlan-id>>
+    ```powershell
+    Set-AzureRmExpressRouteCircuitPeeringConfig -Name <<peering-name>> -Circuit <<circuit-name>> -PeeringType <<peering-type>> -PeerASN <<peer-asn>> -PrimaryPeerAddressPrefix <<primary-peer-address-prefix>> -SecondaryPeerAddressPrefix <<secondary-peer-address-prefix>> -VlanId <<vlan-id>>
 
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit <<circuit-name>>
-  ```
+    Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit <<circuit-name>>
+    ```
 
 3. Reserve another pool of valid public IP addresses to use for NAT for public, and Microsoft peering. It is recommended to have a different pool for each peering. Specify the pool to your connectivity provider, so they can configure BGP advertisements for those ranges.
 
