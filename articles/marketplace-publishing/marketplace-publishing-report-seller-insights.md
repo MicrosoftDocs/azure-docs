@@ -13,13 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-<<<<<<< HEAD
    ms.date="10/03/2016"
    ms.author="v-jeana; hascipio"; v-dabosl/>
-=======
-   ms.date="02/05/2016"
+   ms.date="10/27/2016"
    ms.author="v-jeana; hascipio"/>
->>>>>>> d2f4ddbb480dc0b549b3d2eed953e647c39aed88
+
 
 # Understand your seller insights report
 
