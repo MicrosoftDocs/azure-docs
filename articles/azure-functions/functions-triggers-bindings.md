@@ -49,9 +49,77 @@ Your code may want to send different types of output depending on how the new qu
     }
 
 
-## Supported binding features for your code
+## Advanced binding features for your code
 
-#### Returning a single output - $return
+To use some of the more advanced binding features in the Azure Portal, click the **Advanced Editor** option on the **Integrate** tab of your function. This will allow you to edit the *function.json* directly in the portal.
+
+#### Dynamic parameter binding 
+
+Instead of a static configuration setting for your output binding properties, you can configure the setting to be dynamically bound to data that is part of your trigger's input binding. Consider a scenario where new orders are processed using an Azure Storage queue. Each new queue item will be a JSON string containing at least the following properties.
+
+	{
+	  name : "Customer Name",
+	  address : "Customer's Address".
+	  mobileNumber : "Customer's mobile number."
+	}
+
+You might want to send the customer an SMS text message using your Twilio account as an update that the order was received.  You can configure the `body` and `to` field of your Twilio output binding to be dynamically bound to the `name` and `mobileNumber` that were part of the input as follows.
+
+    {
+      "name": "myNewOrderItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "queue-newOrders",
+      "connection": "orders_STORAGE"
+    },
+    {
+      "type": "twilioSms",
+      "name": "message",
+      "accountSid": "TwilioAccountSid",
+      "authToken": "TwilioAuthToken",
+      "to": "{mobileNumber}",
+      "from": "+XXXYYYZZZZ",
+      "body": "Thank you {name}, your order was received",
+      "direction": "out"
+    },
+ 
+Now your function code only has to initialize the output parameter as follows
+
+C#
+
+    // Even if you want to use a hard coded message and number in the binding, you must at least 
+    // initialize the message variable.
+    message = new SMSMessage();
+
+    // Using dynamic parameter binding no need to set this in code.
+	// message.body = msg;
+	// message.to = myNewOrderItem.mobileNumber
+
+Node.js
+
+    context.bindings.message = {
+        // Using dynamic parameter binding no need to set this in code.
+        //body : msg,
+        //to : myNewOrderItem.mobileNumber
+    };
+
+
+
+
+#### Random GUIDs
+
+Azure Functions provides a syntax to generate random GUIDs with your bindings. For example, if your function code needed to write output to a new BLOB with a unique name in an Azure Storage container, you could use a BLOB output binding with `{rand-guid}` in the path. Here is an example BLOB output binding that demonstrates this. 
+
+	{
+	  "type": "blob",
+	  "name": "blobOutput",
+	  "direction": "out",
+	  "path": "my-output-container/{rand-guid}"
+	}
+
+
+
+#### Returning a single output
 
 In cases where your function code returns a single output, you can use an output binding named `$return` to retain a more natural function signature in your code. The binding would be similar to the following blob output binding that is used with a queue trigger.
 
@@ -91,7 +159,7 @@ Using `$return` that same code can use a more natural function signature as show
 	    return json;
 	}
 
-	// Async
+	// Async example
 	public static Task<string> Run(WorkItem input, TraceWriter log)
 	{
 	    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
@@ -100,9 +168,7 @@ Using `$return` that same code can use a more natural function signature as show
 	}
 
 
-This same approach is demonstrated below with Node.js and F#
-
-Node.js
+This same approach is demonstrated below with Node.js.
 
 	// Node.js without $return binding
 	module.exports = function (context, input) {
@@ -119,7 +185,7 @@ Node.js
 	    context.done(null, json);
 	}
 
-F#
+F# example:
 
 
 	// F# without $return binding
@@ -137,9 +203,9 @@ F#
 This can only be used with languages that support a return value (C#, Node.js, F#). This can also be used with multiple output parameters if you want to designate a single output with `$return`.
 
 
+#### Routing support
 
 - You can use %% and {} binding functionality...
-- There is also a syntax for adding random Guids...
 - #load
 
 ## Trigger and bindings types with code examples
