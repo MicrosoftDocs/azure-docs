@@ -461,7 +461,7 @@ The following example configures a specific path with range indexing and a custo
 
 Now that we've taken a look at how to specify paths, let's look at the options we can use to configure the indexing policy for a path. You can specify one or more indexing definitions for every path:
 
-- Data type: **String**, **Number** or **Point** (can contain only one entry per data type per path). **Polygon** and **LineString** supported in private preview
+- Data type: **String**, **Number**, **Point**, **Polygon**, or **LineString** (can contain only one entry per data type per path)
 - Index kind: **Hash** (equality queries), **Range** (equality, range or Order By queries), or **Spatial** (spatial queries) 
 - Precision: 1-8 or -1 (Maximum precision) for numbers, 1-100 (Maximum precision) for string
 
@@ -469,14 +469,14 @@ Now that we've taken a look at how to specify paths, let's look at the options w
 
 DocumentDB supports Hash and Range index kinds for every path (that can configured for strings, numbers or both).
 
-- **Hash** supports efficient equality and JOIN queries. For most use cases, hash indexes do not need a higher precision than the default value of 3 bytes.
-- **Range** supports efficient equality queries, range queries (using >, <, >=, <=, !=), and Order By queries. Order By queries by default also require maximum index precision (-1).
+- **Hash** supports efficient equality and JOIN queries. For most use cases, hash indexes do not need a higher precision than the default value of 3 bytes. DataType can be String or Number.
+- **Range** supports efficient equality queries, range queries (using >, <, >=, <=, !=), and Order By queries. Order By queries by default also require maximum index precision (-1). DataType can be String or Number.
 
-DocumentDB also supports the Spatial index kind for every path, that can be specified for the Point data type. The value at the specified path must be a valid GeoJSON point like `{"type": "Point", "coordinates": [0.0, 10.0]}`.
+DocumentDB also supports the Spatial index kind for every path, that can be specified for the Point, Polygon, or LineString data types. The value at the specified path must be a valid GeoJSON fragment like `{"type": "Point", "coordinates": [0.0, 10.0]}`.
 
-- **Spatial** supports efficient spatial (within and distance) queries.
+- **Spatial** supports efficient spatial (within and distance) queries. DataType can be Point, Polygon, or LineString.
 
->[AZURE.NOTE] DocumentDB supports automatic indexing of Points, Polygons (private preview), and LineStrings (private preview). For access to the preview, please email askdocdb@microsoft.com, or contact us via Azure Support.
+>[AZURE.NOTE] DocumentDB supports automatic indexing of Points, Polygons, and LineStrings.
 
 Here are the supported index kinds and examples of queries that they can be used to serve:
 
@@ -535,7 +535,8 @@ Here are the supported index kinds and examples of queries that they can be used
                     Range over /prop/? (or /*) can be used to serve the following queries efficiently:
                         SELECT * FROM collection c 
                         WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40
-                        SELECT * FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... })
+                        SELECT * FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --with indexing on points enabled
+                        SELECT * FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --with indexing on polygons enabled
                 </p>
             </td>
         </tr>        
@@ -553,7 +554,7 @@ For numbers, we recommend using the default precision configuration of -1 ("maxi
 
 Index precision configuration has more practical application with string ranges. Since strings can be any arbitrary length, the choice of the index precision can impact the performance of string range queries, and impact the amount of index storage space required. String range indexes can be configured with 1-100 or -1 ("maximum"). If you would like to perform Order By queries against string properties, then you must specify a precision of -1 for the corresponding paths.
 
-Spatial indexes always use the default index precision for points and cannot be overriden. 
+Spatial indexes always use the default index precision for all types (Points, LineStrings, and Polygons) and cannot be overriden. 
 
 The following example shows how to increase the precision for range indexes in a collection using the .NET SDK. 
 
