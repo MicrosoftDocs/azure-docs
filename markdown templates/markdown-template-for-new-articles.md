@@ -41,6 +41,7 @@ The sample markdown looks like this:
 ```
 
 This second image of the octocats uses reference style syntax, where you define the target as "5" and at the bottom of the article, and you list the path to image 5 in a reference section.
+
  ![GitHub Octocats using ref style link][5]
 
  The sample markdown looks like this:
