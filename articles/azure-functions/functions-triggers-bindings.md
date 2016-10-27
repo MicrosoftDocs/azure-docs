@@ -21,9 +21,9 @@
 # Azure Functions triggers and bindings developer reference
 
 
-This topic provides general reference for triggers and bindings. It includes some of the advanced binding features and syntax that is supported with all binding types.  
+This topic provides general reference for triggers and bindings. It includes some of the advanced binding features and syntax supported by all binding types.  
 
-If you are looking for detailed information around configuring and coding for specific types of triggers and bindings, click on a trigger or binding listed below:
+If you are looking for detailed information around configuring and coding a specific type of trigger and binding, click on the trigger or binding listed below:
 
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)] 
 
