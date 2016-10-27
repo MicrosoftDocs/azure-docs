@@ -176,5 +176,3 @@
         }
     }
     ```
-  
-5. Make sure there is a listener connected, and run the console application (the server application created in step 3).
