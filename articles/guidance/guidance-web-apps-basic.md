@@ -269,7 +269,7 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [paas-basic-arm-template]: https://github.com/mspnp/blueprints/tree/master/paas-basic/Paas-Basic/Templates
 [perf-analysis]: https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md
 [rbac]: ../active-directory/role-based-access-control-what-is.md
-[resource-group]: ../resource-group-overview.md
+[resource-group]: ../resource-group-overview.md#resource-groups
 [sla]: https://azure.microsoft.com/en-us/support/legal/sla/
 [sql-audit]: ../sql-database/sql-database-auditing-get-started.md
 [sql-backup]: ../sql-database/sql-database-business-continuity.md

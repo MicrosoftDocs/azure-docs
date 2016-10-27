@@ -139,7 +139,7 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 <!-- links -->
 
 [api-guidance]: ../best-practices-api-design.md
-[app-service-security]: ../web-sites-security.md
+[app-service-security]: ../app-service-web/web-sites-security.md
 [app-service-web-app]: ../app-service-web/app-service-web-overview.md
 [app-service-api-app]: ../app-service-api/app-service-api-apps-why-best-platform.md
 [app-service-pricing]: https://azure.microsoft.com/en-us/pricing/details/app-service/
