@@ -2,7 +2,7 @@
 	pageTitle="Receive alert notifications for Azure services | Microsoft Azure"
 	description="Be notified when alert rules conditions are met."
 	authors="rboucher"
-	manager=""
+	manager="carolz"
 	editor=""
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>

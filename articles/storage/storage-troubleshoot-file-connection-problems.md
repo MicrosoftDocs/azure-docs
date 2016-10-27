@@ -206,7 +206,7 @@ After you follow these instructions, you may receive the following error message
 ## Linux client problems
 
 <a id="encryption"></a>
-### Error “"You are copying a file to a destination that does not support encryption"
+### Error "You are copying a file to a destination that does not support encryption"
 
 #### Cause
 
