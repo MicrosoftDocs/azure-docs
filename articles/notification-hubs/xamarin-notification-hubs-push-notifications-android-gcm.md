@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Get started with Notification Hubs for Xamarin.Android apps | Microsoft Azure"
 	description="In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to a Xamarin Android application."
-	authors="wesmc7777"
+	authors="ysxu"
 	manager="erikre"
 	editor=""
 	services="notification-hubs"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
 	ms.date="06/29/2016"
-	ms.author="wesmc"/>
+	ms.author="yuaxu"/>
 
 # Get started with Notification Hubs with Xamarin for Android
 
