@@ -65,7 +65,15 @@ Relays that are opened using the netTCPRelay WCF binding treat messages not as i
 
 ## Quotas
 
-For a list of Service Bus limits and quotas, see [Quotas overview][].
+|Quota Name|Scope|Type|Behavior when exceeded|Value|
+|---|---|---|---|---|
+|Number of concurrent listeners on a relay|Entity|Static|Subsequent requests for additional connections will be rejected and an exception will be received by the calling code.|25|
+|Number of concurrent relay listeners|System-wide|Static|Subsequent requests for additional connections will be rejected and an exception will be received by the calling code.|2,000|
+|Number of concurrent relay connections per all relay endpoints in a service namespace|System-wide|Static|-|5,000|
+|Number of relay endpoints per service namespace|System-wide|Static|-|10,000|
+|Message size for [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) and [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) relays|System-wide|Static|Incoming messages that exceed these quotas will be rejected and an exception will be received by the calling code.|64KB
+|Message size for [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) and [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) relays|System-wide|Static|-|Unlimited|
+
 
 ### Does Relay have any usage quotas?
 
@@ -81,22 +89,6 @@ As with other services on Azure, Relay enforces a set of specific quotas to ensu
 #### Naming restrictions
 
 A Relay namespace name can only be between 6-50 characters in length.
-
-#### Number of concurrent listeners on a Relay
-
-The number of concurrent **netTcpRelay** and **netHttpRelay** listeners on a Relay is limited to 25 (1 for a **NetOneway** Relay).
-
-#### Number of concurrent Relay listeners per namespace
-
-There is a limit of 2000 concurrent Relay listeners per service namespace. If this quota is reached, subsequent requests to open additional Relay listeners will be rejected and an exception will be received by the calling code.
-
-### Message size quotas
-
-**NetOneway and NetEvent Relays** - Each message is limited to a total size of 64KB, including message headers.
-
-**Http and NetTcp Relays** – There is no upper bound on the size of these messages.
-
-Messages that exceed these size quotas will be rejected and an exception will be received by the calling code.
 
 ## Subscription and namespace management
 
@@ -129,7 +121,6 @@ To learn more about Service Bus messaging, see the following topics.
 [Best practices for performance improvements using Service Bus brokered messaging]: service-bus-performance-improvements.md
 [Best practices for insulating applications against Service Bus outages and disasters]: service-bus-outages-disasters.md
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
-[Quotas overview]: ../service-bus-messaging/service-bus-quotas.md
 [here]: service-bus-powershell-how-to-provision.md#migrate-a-namespace-to-another-azure-subscription
 [Exceptions overview]: service-bus-messaging-exceptions.md
 [Shared Access Signatures]: service-bus-sas-overview.md
