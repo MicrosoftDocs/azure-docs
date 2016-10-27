@@ -29,7 +29,7 @@ This article shows how to quickly deploy a Linux virtual machine (VM) on Azure b
 
 You can also quickly deploy a Linux VM by using the [Azure portal](virtual-machines-linux-quick-create-portal.md).
 
-### Quick commands
+## Quick commands
 
 The following example shows how to deploy a CoreOS VM and attach your Secure Shell (SSH) key (your arguments might be different):
 
@@ -37,7 +37,9 @@ The following example shows how to deploy a CoreOS VM and attach your Secure She
 azure vm quick-create -M ~/.ssh/id_rsa.pub -Q CoreOS
 ```
 
-### Detailed walkthrough
+## Detailed walkthrough
+
+The following walkthrough has an UbuntuLTS VM being deployed, step by step, with explanations of what each step is doing.
 
 ## VM quick-create aliases
 
@@ -152,6 +154,8 @@ data:
 data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
+
+## Log in to the new VM
 
 Log in to your VM by using the public IP address listed in the output. You can also use the fully qualified domain name (FQDN) that's listed:
 
