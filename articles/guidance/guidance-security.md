@@ -18,53 +18,60 @@
    
 # Protecting the Cloud Boundary in Azure
 
-Hybrid systems comprise elements running on-premises and in the cloud. You can connect the on-premises network to a VNet in the cloud by using an Azure VPN gateway. The network boundary between these two environments can expose areas of weakness in terms of security, and it is necessary to protect this boundary to block unauthorized requests. Cloud applications that are exposed to the public Internet require similar protection.
+An on-premises network can be connected to a VNet in Azure by using an Azure VPN gateway. The network boundary between these two environments can expose areas of weakness in terms of security, and it is necessary to protect this boundary to block unauthorized requests. Cloud applications that are exposed to the public Internet require similar protection. <!-- mike: True but the considerations will be different in PaaS, e.g. you don't need a DMZ in App Services. Should we rephrase to limit it to IaaS? (Apps running on VMs in Azure?) -->  
 
-This article describes some common options for meeting the challenges posed by these scenarios.
+The patterns & practices group has created a set of reference architectures to address these scenarios. Each reference architecture demonstrates one approach to protecting the network boundary, and includes:
+  		  
+- Recommendations and best practices.
+- Considerations for availability, security, scalability, and manageability.
+- An Azure Resource Manager template that you can modify and deploy. 
+
+This article gives a summary of each reference architecture, and helps you to decide which solution will best meet your needs.
+
 
 ## Using a DMZ between Azure and on-premises datacenters
 
 You can create a DMZ (also known as a *perimeter network*) to filter traffic that crosses the cloud boundary as it attempts to access components and applications running in Azure. A DMZ consists of a set of highly available network virtual appliances (NVAs) that can perform tasks such as acting as a firewall, inspecting network packets, and denying access to suspicious requests. These NVAs are typically implemented as Azure VMs. Traffic enters the NVA from a network interface exposed as part of the *inbound NVA subnet*, and filtered traffic exits to the application through another network interface on the *outbound NVA subnet*. 
 
-You can additionally implement user-defined routing (*forced tunnelling*) to direct outbound traffic from the cloud intended for the Internet back through the on-premises network. You can then audit and log all Internet-bound traffic, which is a regulatory requirement of many commercial systems, and can help to prevent public disclosure of private information.
+You can also implement user-defined routing (*forced tunnelling*) to direct outbound traffic from Azure intended for the Internet back through the on-premises network. You can then audit and log all Internet-bound traffic, which is a regulatory requirement of many commercial systems, and can help to prevent public disclosure of private information.
 
 The following diagram illustrates the main features of this architecture:
 
 [![0]][0]
 
-Benefits of implementing a DMZ between Azure and an on-premises datacenter include:
+Benefits:
 
 - The ability to reuse security appliances commonly used by on-premises networks.
 
-- Being able to secure access to Azure at the point of the VPN gateway.
+- The ability to secure access to Azure at the point of the VPN gateway.
 
-Points to consider when creating a DMZ for this scenario:
+Considerations:
 
 - An internal load balancer only provides high available for traffic ingress.
 
 - Egress from the VNet is not highly available.
 
-For detailed information, read [Implementing a secure hybrid network architecture in Azure][secure-hybrid-network-architecture].
+For detailed information about this architecture, see [Implementing a secure hybrid network architecture in Azure][secure-hybrid-network-architecture].
 
 ## Using a DMZ between Azure and the public Internet
 
-If your Azure web applications are open to the Internet, you must ensure that all public access is protected. In this scenario, you can implement a DMZ that filters traffic received via a load balancer from a public IP address rather than the VPN gateway, as shown below: 
+If your Azure web applications <!-- This could be confused with App Service we apps (PaaS), specify VM environment here --> are open to the Internet, you must ensure that all public access is protected. In this scenario, you can implement a DMZ that filters traffic received via a load balancer from a public IP address rather than the VPN gateway, as shown below: 
 
 [![1]][1]
 
-Benefits of using a DMZ between Azure and the public Internet include:
+Benefits:
 
 - The ability to reuse security appliances commonly used by on-premises networks.
 
 - Securing access to Azure at the load balancer endpoint.
 
-Considerations for using a DMZ for public access:
+Considerations:
 
 - An external load balancer only provides high available for traffic ingress to the VNet.
 
 - Egress from the VNet is not highly available.
 
-For information on how to configure this architecture, see [Implementing a DMZ between Azure and the Internet][dmz-azure-internet].
+For detailed information about this architecture, see  [Implementing a DMZ between Azure and the Internet][dmz-azure-internet].
 
 ## Next steps
 
