@@ -43,8 +43,9 @@ First, run the **waagent** command with the **deprovision** parameter on the Lin
 
 2. In the SSH window, type the following command:
 
-	`sudo waagent -deprovision+user`
-
+    ```
+    sudo waagent -deprovision+user
+    ```
 	>[AZURE.NOTE] Only run this command on a VM that you intend to capture as an image. It does not guarantee that the image is cleared of all sensitive information or is suitable for redistribution.
 
 3. Type **y** to continue. You can add the **-force** parameter to avoid this confirmation step.
@@ -60,19 +61,27 @@ Use the Azure CLI to generalize and capture the VM. In the following examples, r
 
 6. Make sure you are in Resource Manager mode.
 
-	`azure config mode arm`
+	```
+    azure config mode arm
+    ```
 
 7. Shut down the VM that you already deprovisioned by using the following command:
 
-	`azure vm deallocate -g MyResourceGroup -n myVM`
+	```
+    azure vm deallocate -g MyResourceGroup -n myVM
+    ```
 
 8. Generalize the VM with the following command:
 
-	`azure vm generalize -g MyResourceGroup -n myVM`
+	```
+    azure vm generalize -g MyResourceGroup -n myVM
+    ```
 
 9. Now run the **azure vm capture** command, which captures the VM. In the following example, the image VHDs are captured with names beginning with **MyVHDNamePrefix**, and the **-t** option specifies a path to the template **MyTemplate.json**. 
 
-	`azure vm capture MyResourceGroup MyResourceGroup MyVHDNamePrefix -t MyTemplate.json`
+	```
+    azure vm capture MyResourceGroup MyResourceGroup MyVHDNamePrefix -t MyTemplate.json
+    ```
 
 	>[AZURE.IMPORTANT]The image VHD files get created by default in the same storage account that the original VM used. Use the *same storage account* to store the VHDs for any new VMs you create from the image. 
 
@@ -101,9 +110,7 @@ To deploy a VM from the image by using the JSON you saved during capture, you ne
 
 	azure network nic show MyResourceGroup1 myNIC
 
-The **Id** in the output is similar to the following string:
-
-	/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup1/providers/Microsoft.Network/networkInterfaces/myNic
+The **Id** in the output is similar to `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup1/providers/Microsoft.Network/networkInterfaces/myNic`
 
 
 
@@ -121,7 +128,7 @@ In the command output, you are prompted to supply a new VM name, the admin user 
 	adminPassword: ********
 	networkInterfaceId: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resource Groups/MyResourceGroup1/providers/Microsoft.Network/networkInterfaces/myNic
 
-The following sample s what you see for a successful deployment:
+The following sample shows what you see for a successful deployment:
 
 	+ Initializing template configurations and parameters
 	+ Creating a deployment
