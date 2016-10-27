@@ -136,15 +136,15 @@ Copy the *BaseLocation*, *RelativeLocation*, and *SasBlobToken* from the output 
 
 ## Retrain the web service
 
-When you retrain a new web service, you update the predictive web service definition to reference the new trained model.  
+When you retrain a new web service, you update the predictive web service definition to reference the new trained model. The web service definition is an internal representation of the trained model of the web service and is not directly modifiable. Make sure that you are retrieving the web service definition for your predictive experiment and not your training experiment.
 
 ## Sign in to Azure Resource Manager
 
 You must first sign in to your Azure account from within the PowerShell environment by using the [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet.
 
-## Get the web service definition
+## Get the Web Service Definition object
 
-Next, get the web service definition by calling the [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet. The web service definition is an internal representation of the trained model of the web service and is not directly modifiable. Make sure that you are retrieving the web service definition for your predictive experiment and not your training experiment.
+Next, get the Web Service Definition object by calling the [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet.
 
 	$wsd = Get-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
@@ -162,7 +162,7 @@ Alternatively, to determine the resource group name of an existing web service, 
 	https://services.azureml.net/subscriptions/<subcription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
 
 
-## Export the web service definition as JSON
+## Export the Web Service Definition object as JSON
 
 To modify the definition of the trained model to use the newly trained model, you must first use the [Export-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767935.aspx) cmdlet to export it to a JSON-format file.
 
@@ -185,9 +185,9 @@ In the assets, locate the [trained model], update the *uri* value in the *locati
         }
       },
 
-## Import the JSON into a web service definition
+## Import the JSON into a Web Service Definition object
 
-You must use the [Import-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767925.aspx) cmdlet to convert the modified JSON file back into a web service definition that you can use to update the predicative experiment.
+You must use the [Import-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767925.aspx) cmdlet to convert the modified JSON file back into a Web Service Definition object that you can use to update the predicative experiment.
 
 	$wsd = Import-AzureRmMlWebService -InputFile "C:\temp\mlservice_export.json"
 
