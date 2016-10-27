@@ -22,7 +22,7 @@
 # Create a Linux VM on Azure using the Portal
 
 
-This article shows how to use the [Azure portal](https://portal.azure.com/) to create a Linux Virtual Machine quickly.
+This article shows you how to use the [Azure portal](https://portal.azure.com/) to create a Linux Virtual Machine.
 
 The requirements are:
 
