@@ -117,26 +117,7 @@ find | replace with
 `"myappname"` (lower case) | `"[toLower(parameters('appName'))]"`
 `"<WebTest Name=\"myWebTest\" ...`<br/>` Url=\"http://fabrikam.com/home\" ...>"`|`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]" `
 
-## If your app is an Azure web app
 
-Add this resource, or if a `siteextensions` resource is already there, parameterize it like this:
-
-```json
-    {
-      "apiVersion": "2014-06-01",
-      "name": "Microsoft.ApplicationInsights.AzureWebSites",
-      "type": "siteextensions",
-      "dependsOn": [
-        "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]",
-        "[resourceId('Microsoft.Web/Sites/config', parameters('siteName'), 'web')]",
-        "[resourceId('Microsoft.Web/sites/sourcecontrols', parameters('siteName'), 'web')]"
-      ],
-      "properties": { }
-    }
-
-```
-
-This resource deploys the Application Insights SDK to your Azure web app.
 
 ## Set dependencies between the resources
 
