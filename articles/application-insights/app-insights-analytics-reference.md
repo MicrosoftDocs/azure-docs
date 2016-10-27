@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="010/27/2016" 
+	ms.date="10/27/2016" 
 	ms.author="awills"/>
 
 # Reference for Analytics
