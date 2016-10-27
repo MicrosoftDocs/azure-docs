@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/14/2016"
+	ms.date="10/26/2016"
 	ms.author="garye"/>
 
 # Azure Machine Learning Frequently Asked Questions (FAQ): Billing, capabilities, limitations, and support
@@ -43,13 +43,15 @@ For more information, see [Connect to a Machine Learning web service](machine-le
 
 **Where are my classic web services listed? Where are my new Azure Resource Manager based web services listed?**
 
-Classic web services are listed in [Machine Learning Studio](http://studio.azureml.net) on the web services tab. New Azure Resource Manager based web services are listed in the [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/) portal. There is no cross listing available.
+Classic Web services and New Azure Resource Manager based Web services are listed in the [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/) portal. 
+
+Classic Web services are also listed in [Machine Learning Studio](http://studio.azureml.net) on the Web services tab.
 
 ## Microsoft Azure Machine Learning Web Service questions
 
-**What are Azure ML Web Services?**
+**What are Azure Machine Learning Web Services?**
 
-With the Azure Machine Learning web service, an external application communicates with a Machine Learning workflow scoring model in real time. A Machine Learning web service call returns prediction results to an external application. To make a Machine Learning web service call, you pass an API key that was created when you deployed the web service. The Machine Learning web service is based on REST, a popular architecture choice for web programming projects.
+Machine Learning Web Services provide an interface between an application and a Machine Learning workflow scoring model. Using the Azure Machine Learning web service, an external application can communicate with a Machine Learning workflow scoring model in real time. A Machine Learning web service call returns prediction results to an external application. To make a Machine Learning web service call, you pass an API key that was created when you deployed the web service. The Machine Learning web service is based on REST, a popular architecture choice for web programming projects.
 
 Azure Machine Learning has two types of services:
 
@@ -59,8 +61,8 @@ Azure Machine Learning has two types of services:
 There are several ways to consume the REST API and access the web service. For example, you can write an application in C#, R, or Python using the sample code generated for you when you deployed the web service.
 
 The sample code is available on:
-The Consume page for the Web service in the Azure Machine Learning Web Services portal,
-The API Help Page in the web service dashboard in Machine Learning Studio.
+The Consume page for the Web service in the Azure Machine Learning Web Services portal.
+The API Help Page in the Web service dashboard in Machine Learning Studio.
 
 Or you can use the sample Microsoft Excel workbook created for you (also available in the web service dashboard in Studio).
 
@@ -69,21 +71,6 @@ Or you can use the sample Microsoft Excel workbook created for you (also availab
 For more information about the New Azure Machine Learning Web Services, refer to the [related documentation](machine-learning-whats-new.md).
 
 ## Machine Learning Studio questions
-
-### Creating an experiment
-
-**Is there version control or Git integration for experiment graphs?**
-
-No, however Machine Learning Studio retains each iteration of an experiment that cannot be modified by other users.
-For more information, see [Manage experiment iterations in Machine Learning Studio](machine-learning-manage-experiment-iterations.md).
-
-
-### Deploying an experiment
-
-**Can I deploy a predictive experiment as a New (Azure Resource Manager based) web service if I have already deployed it as a classic web service?**
-
-No, you cannot deploy an experiment that has been previously deployed as a classic web service. You must create a new predictive experiment and deploy it instead.
-
 
 ### Importing and exporting data for Machine Learning
 
@@ -249,7 +236,7 @@ For more information, see [Retrain Machine Learning models programmatically](mac
 
 **How do I monitor my web service deployed in production?**
 
-Once a predictive model has been deployed, you can monitor it from the Azure classic portal. Each deployed service has its own dashboard where you can see monitoring information for that service. For more information on managing your deployed web services, see [Manage an Azure Machine Learning workspace](machine-learning-manage-workspace.md).
+Once a predictive model has been deployed, you can monitor it from the Azure classic portal (Classic web services only) or the Azure Machine Learning Web Services portal. Each deployed service has its own dashboard where you can see monitoring information for that service. For more information on managing your deployed web services, see  [Manage a Web service using the Azure Machine Learning Web Services portal](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-manage-new-webservice/) and [Manage an Azure Machine Learning workspace](machine-learning-manage-workspace.md).
 
 **Is there a place where I can see the output of my RRS/BES?**
 
