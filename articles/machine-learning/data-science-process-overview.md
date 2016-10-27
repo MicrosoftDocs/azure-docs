@@ -1,7 +1,6 @@
 <properties
-	pageTitle="What is Team Data Science Process?  | Microsoft Azure"
-	description="The Team Data Science Process is a systematic method for building intelligent applications that leverage advanced analytics."
-	keywords="data science process,data science teams"
+	pageTitle="Team Data Science Process Lifecycle 
+	description="An outline of the key components of the Team Data Science Team Lifecycle."  
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
@@ -14,88 +13,183 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/19/2016"
-	ms.author="bradsev" />
+	ms.date="10/27/2016"
+	ms.author="bradsev;hangzh;gokuma"/>
+    
+# Team Data Science Process lifecycle 
+
+Team Data Science Process (TDSP) provides a recommended lifecycle that you can use to structure your data science projects. Basically, the lifecycle defines the steps that projects executing using the TDSP follow from start to finish. If you are using another lifecycle such as [CRISP-DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process) or your own custom process that is working well in your organization, you can still use TDSP in the context of those development lifecycles. It is to be noted that this lifecycle is in the context of data science projects that lead to building data products and intelligent applications that include predictive analytics using machine learning or artificial intelligence (AI) models that are productionized. Exploratory data science projects and ad hoc / on-off analytics projects can use this process but some steps of this lifecycle may not be needed.    
+
+Here is a depiction of the TDSP lifecycle. 
+
+![TDSP_LIFECYCLE](./media/data-science-process-overview/tdsp-lifecycle.png) 
+
+The TDSP data science lifecycle is composed of five major stages that are executed iteratively. This includes:
+
+* Business Understanding
+* Data Acquisition and Understanding
+* Modeling
+* Deployment
+* Customer Acceptance
+
+We describe each stage in detail. 
+
+## 1. Business Understanding
+
+### Goals
+
+The goals of this stage are:
+
+* Clearly and explicitly specify the model target(s) as 'sharp' question(s) which is used to drive the customer engagement.
+* Clearly specifying where to find the data sources of interest. Define the predictive model target in this step and determine if we need to bring in ancillary data from other sources.
+
+### How to do it 
+
+In this stage, you work with your customer and stakeholder to understand the business problems that can be greatly enhanced with predictive analytics. A central objective of this step is to identify the key business variables (sales forecast or the probability of an order being fraudulent, for example) that the analysis needs to predict (also known as model targets) to satisfy these requirements. In this stage you also to develop an understanding of the data sources needed to address the objectives of the project from an analytical perspective. There are two main aspects of this stage - Define Objectives and Identify data sources. 
+
+#### 1.1 Define Objectives
+
+1. Understand the customer business domain, key variables by which success is defined in that space. Then understand what business problems are we trying to address using data science to affect those key metrics?
+2. Define the project goals with 'sharp' question(s). A fine description of what a sharp question is, and how you can ask it, can be found in this [article](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/). As per the article, here is a very useful tip to ask a sharp question - "When choosing your question, imagine that you are approaching an oracle that can tell you anything in the universe, as long as the answer is a number or a name". Data science / machine learning is typically used to answer these five types of questions:
+ * How much or how many? (regression)
+ * Which category? (classification)
+ * Which group? (clustering)
+ * Is this weird? (anomaly detection)
+ * Which option should be taken? (recommendation)
+3. Define the project team, the role and responsibilities. Develop a high level milestone plan that you iterate upon as more information is discovered.  
+
+4. Define success metrics. The metrics must be SMART (Specific, Measurable, Achievable, Relevant and Time-bound). For example: Achieve customer churn prediction accuracy of X% by the end of this 3-month project so that we can offer promotions to reduce churn. 
+
+#### 1.2 Identify Data Sources
+
+Identify data sources that contain known examples of answers to the sharp questions. Look for the following:
+ * Data that is **Relevant** to the question. Do we have measures of the target and features that are related to the target?
+ * Data that is an **Accurate** measure of our model target and the features of interest.
+ 
+ It is not uncommon, for example, to find that existing systems need to collect and log additional kinds of data to address the problem and achieve the project goals. In this case, you may want to look for external data sources or update your systems to collect newer data.
 
 
-# What is the Team Data Science Process (TDSP)?
+### Artifacts
 
-The Team Data Science Process (TDSP) provides a systematic approach to building intelligent applications that enables teams of data scientists to collaborate effectively over the full lifecycle of activities needed to turn these applications into products.
+The following are the deliverables in this stage.
 
-Specifically, the TDSP currently provides data science teams with:
+ * **[Charter Document](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md)** : A standard template is provided in the TDSP project structure  definition. This is a living document that is updated throughout the project as new discoveries are made and as business requirements change. The key is to iterate upon this document with finer details as you progress through the discovery process. Be sure to keep the customer and stakeholders involved in the changes and clearly communicate the reasons for the change.  
+ * **[Data Sources](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#raw-data-sources)**: This is part of the Data Report that is found in the TDSP project structure. It describes the sources for the raw data. In later stages you will fill in additional details like scripts to move the data to your analytic ernvironment.  
+ * **[Data Dictionaries](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/DataDictionaries)** : This document provides the descriptions and the schema (data types, information on any validation rules) of the data which will be used to answer the question. If available, the entity-relation diagrams or descriptions are included too.
+ 
+## 2. Data Acquisition and Understanding
 
-- **Methodology**: It outlines a sequence of steps that define the development lifecycle providing guidance on how to define the problem, analyze relevant data, build and evaluate predictive models, and then deploy those models in enterprise applications.
-- **Resources**: Tools and technologies such as the Data Science VM to simplify setting up environments for data science activities and practical guidance for on-boarding new technologies.
+### Goals 
 
-Here is the development lifecycle of the Team Data Science Process:
+The goals for this stage are:
+ * Ingest the data into the target analytic environment
+ * To determine if the data we have can be used to answer the question. 
+ 
+### How to do it
 
-![Diagram: Data science process for teams ](./media/data-science-process-overview/data-science-process-for-teams-diagram.png)
+In this stage, you will start developing the process to move the data from the source location to the target locations where the analytics operations like training and predictions (also known as scoring) will be run. For technical details and options on how to do this on various Azure data services, see [Load data into storage environments for analytics](https://azure.microsoft.com/documentation/articles/machine-learning-data-science-ingest-data/). 
 
+Before you train your models, you need to develop a deep understanding about the data. Real world data is often messy with incomplete or incorrect data. By data summarization and  visualization of the data, you can quickly identify the quality of your data and inform how to deal with the data quality. For guidance on cleaning the data, see this [article](https://azure.microsoft.com/documentation/articles/machine-learning-data-science-prepare-data/).
 
-The process is **iterative**: the understanding of new and existing or refinements in the model evolves and requires reworking steps previously completed in the sequence. Existing organizational development and project planning processes are **easily adapted** to work with the TDSP-defined sequence of steps.
+Data visualization can be particularly useful to answer questions like - Have we measured the features consistently enough for them to be useful or are there a lot of missing values in the data? Has the data been consistently collected over the time period of interest or are there blocks of missing observations? If the data does not pass this quality check, we may need to go back to the previous step to correct or get more data. 
 
-The steps in the process are diagrammed and linked in the [TDSP learning path](https://azure.microsoft.com/documentation/learning-paths/data-science-process/) and described below.  
+Otherwise, you can start to better understand the inherent patterns in the data that will help you develop a sound predictive model for your target. Specifically you look for evidence for how well connected is the data to the target and whether the data is large enough to move forward with next steps.  As we determine if the data is connected or if we have enough data, we may need to find new data sources with more accurate or more relevant data to complete the data set initially identified in the previous stage. TDSP also provides automated utility called [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) to help visualize the data and prepare data summary reports. We recommend starting with IDEAR first to explore the data to help develop initial data understanding interactively with no coding and then write custom code for data exploration and visualization.  
 
+In addition to the initial ingestion of data, you will typically need to setup a process to score new data or refresh the data regularly as part of an ongoing learning process. This can be done by setting up a data pipeline or workflow. Here is an [example](https://azure.microsoft.com/documentation/articles/machine-learning-data-science-move-sql-azure-adf/) of how to setup a pipeline with [Azure Data Factory](https://azure.microsoft.com/services/data-factory/). A solution architecture of the data pipeline is developed in this stage. The pipeline is developed in parallel in the following stages of the data science project. The pipeline may be batch based or a streaming/real-time or a hybrid depending on your business need and the constraints of your existing systems into which this solution is being integrated. 
 
-## Planning and preparation steps
+### Artifacts
 
-## P1. Business and technology planning
+The following are the deliverables in this stage.
 
-Start an analytics project by defining your business goals and problems. They are specified in terms of **business requirements**. A central objective of this step is to identify the key business variables (sales forecast or the probability of an order being fraudulent, for example) that the analysis needs to predict to satisfy these requirements. Additional planning is then usually essential to develop an understanding of the **data sources** needed to address the objectives of the project from an analytical perspective. It is not uncommon, for example, to find that existing systems need to collect and log additional kinds of data to address the problem and achieve the project goals. For guidance, see [Plan your environment for the Team Data Science Process](machine-learning-data-science-plan-your-environment.md) and [Scenarios for advanced analytics in Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md).  
+ * **[Data Quality Report](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/DataSummaryReport.md)** : This report contains data summaries, relationships between each attribute and target, variable ranking etc. The [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) tool provided as part of TDSP can help with the quickly generating this report on any tabular dataset like a CSV or relational table. 
+ 
+ * Solution Architecture: This can be a diagram and/or description of your data pipeline used to run scoring or predictions on new data once you have built a model. It will also contain the pipeline to retrain your model based on new data. The document is stored in this [directory](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) when using the TDSP directory structure template.   
+ 
+ 
+**Checkpoint Decision**: Before we begin to do the full feature engineering and model building process, we can reevaluate the project to determine value in continuing this effort. We may be ready to proceed, need to collect more data, or it’s possible the data does not exist to answer the question.
 
+## 3. Modeling
+ 
+### Goals
 
-## P2. Plan and prepare infrastructure
+The goals for this stage are:
+  * Develop new attributes or data features (also known as feature engineering), for building the machine learning model.
+  * Construct and evaluate an informative model to predict the target.
+  * Determine if we have a model that is suitable for production use
+  
 
-An analytics environment for the Team Data Science Process involves several components:
+### How to do it
 
-- **data workspaces** where the data is staged for analysis and modeling,
-- a **processing infrastructure** for pre-processing, exploring, and modeling the data
-- a **runtime infrastructure** to operationalize the analytical models and run the intelligent client applications that consume the models.  
-
-The analytics infrastructure that needs to be set up is often part of an environment that is separate from core operational systems. But it typically leverages data from multiple systems within the enterprise as well as from sources external to the company. The analytics infrastructure can be purely cloud-based, or an on-premises setup, or a hybrid of the two. For options, see [Set up data science environments for use in the Team Data Science Process](machine-learning-data-science-environment-setup.md).
-
-
-## Analytics Steps:  
-
-## 1. Ingest the data into the data platform
-
-The first step is to bring the relevant data from various sources, either from within or from outside the enterprise, into an analytics environment where the data can be processed. The **format** of the data at source may differ from the format required by the destination. So some data transformation may also have to be done by the ingestion tooling. For options, see [Load data into storage environments for analytics](machine-learning-data-science-ingest-data.md)
-
-In addition to the initial ingestion of data, many intelligent applications are required to refresh the data regularly as part of an ongoing learning process. This can be done by setting up a **data pipeline** or workflow. This forms part of the iterative part of the process that includes rebuilding and re-evaluating the analytical models used by the intelligent application deploying the solution. See, for example, [Move data from an on-premise SQL server to SQL Azure with Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md).
-
-
-## 2. Explore and visualize the data
-
-The next step is to obtain a deeper understanding of the data by investigating its **summary statistics**, relationships, and by using techniques such **visualization**. This is also where issues of **data quality** and integrity, such as missing values, data type mismatches, and inconsistent data relationships, are handled. Pre-processing transforms are used to clean up the raw data before further analytics and modeling can take place. For a description, see [Tasks to prepare data for enhanced machine learning](machine-learning-data-science-prepare-data.md).
-
-
-## 3. Generate and select features
-
-Data scientists, in collaboration with domain experts, must identify the features that capture the salient properties of the data set and that can best be used to predict the key business variables identified during planning. These new features can be derived from existing data or may require additional data to be collected. This process is known as **feature engineering** and is one of the key steps in building an effective predictive analytics system. This step requires a creative combination of domain expertise and the insights obtained from the data exploration step. For guidance, see [Feature engineering in the Team Data Science Process](machine-learning-data-science-create-features.md).
+There are two main aspects in this stage - Feature Engineering and Model training. They are described in following sub-sections. 
 
 
-## 4. Create and train Machine Learning models
+#### 3.1 Feature Engineering
 
-Data scientists build analytical models to predict the key variables identified by the business requirements defined in the planning step using data that has been cleaned and featurized. Machine learning systems support multiple **modeling algorithms** that are applicable to a wide variety of cases. For guidance, see [How to choose algorithms for Azure Machine Learning](machine-learning-algorithm-choice.md).
-
-Data scientists must choose the most appropriate model for their prediction task and it is not uncommon that results from multiple models need to be combined to obtain the best results. The input data for modeling is usually divided randomly into three parts:
-
-- a training data set,
-- a validation data set
-- a testing data set
-
-The models are built using the **training data set**. The optimal combination of models (with parameters tuned) is selected by running the models and measuring the prediction errors for the **validation data set**. Finally the **test data set** is used to evaluate the performance of the chosen model on independent data that was not used to train or validate the model.  For procedures, see [How to evaluate model performance in Azure Machine Learning](machine-learning-evaluate-model-performance.md).
+Feature engineering involves inclusion, aggregation and transformation of raw variables to create the features used in the analysis. If we want insight into what is driving the model, then we need to understand how features are related to each other, and how the machine learning method will be using those features. This step requires a creative combination of domain expertise and the insights obtained from the data exploration step. This is a balancing act of including informative variables without including too many unrelated variables. Informative variables will improve our result; unrelated variables will introduce unnecessary noise into the model. You will also need to be able to generate these features for new data during scoring. So there should not be any dependency on generating these features on any piece of data that is unavailable at the time of scoring. For technical guidance on feature engineering when using various Azure data technologies, see this [article](https://azure.microsoft.com/documentation/articles/machine-learning-data-science-create-features/). 
 
 
-## 5. Deploy and consume the models in the product
+#### 3.2 Model Training
 
-Once we have a set of models that perform well, they can be **operationalized** for other applications to consume. Depending on the business requirements, predictions are made either in **real time** or on a **batch** basis. To be operationalized, the models have to be exposed with an **open API interface** that is easily consumed from various applications such online website, spreadsheets, dashboards, or line of business and backend applications. See [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
+Depending on type of question you are trying answer, there are multiple modeling algorithms options available. For guidance on choosing the algorithms, see this [article](https://azure.microsoft.com/documentation/articles/machine-learning-algorithm-choice/). NOTE: Though this article is written for Azure Machine Learning, it should be generally useful even when using other frameworks. 
+
+The process for model training is: 
+
+ * The input data for modeling is usually split randomly into a training data set and a test data set. 
+ * The models are built using the training data set.
+ * Evaluate (training and test dataset) a series of competing machine learning algorithms along with the various associated tuning parameters (also known as parameter sweep) that are geared toward answering the question of interest with the data we currently have at hand. 
+ * Determine the “best” solution to answer the question by comparing the success metric between alternative methods.
+ 
+ >[NOTE] Avoid leakage: Leakage is caused by including variables that can perfectly predict the target. These are usually variables that may have been used to detect the target initially. As the target is redefined, these dependencies can be hidden from the original definition. To avoid this often requires iterating between building an analysis data set, and creating a model and evaluating the accuracy. Leakage is a major reason data scientists get nervous when they get really good predictive results.
+
+We provide a [Automated Modeling and Reporting tool](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling) with TDSP that is able to run through multiple algorithms and parameter sweeps to produce a baseline model. It will also produce a baseline modeling report summarizing performance of each model and parameter combination including variable importance. This can further drive further feature engineering. 
+
+### Artifacts
+The artifacts produced in this stage includes:
+
+ * **[Feature Sets](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets)**: The features developed for the modeling are described in the in the Feature Set section of the Data Definition report. It contains pointers to the code to generate the features and description on how the feature was generated.  
+ 
+ * **[Modeling Report](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md)**: For each models that are tried, a standard report following a specified TDSP template is produced. The  
+
+**Checkpoint Decision**: We evaluate whether the model performing is acceptable enough to deploy it to a production system here. Some of the questions to ask include:
+ * Does the model answer the question sufficiently given the test data? 
+ * Should we go back and collect more data or do more feature engineering or try other algorithms?
+
+## 4. Deployment
+
+### Goal
+Deploy models and pipeline to a production or production-like environment for final user acceptance. 
+
+### How to do it
+
+Once we have a set of models that perform well, they can be operationalized for other applications to consume. Depending on the business requirements, predictions are made either in real time or on a batch basis. To be operationalized, the models have to be exposed with an open API interface that is easily consumed from various applications such online website, spreadsheets, dashboards, or line of business and backend applications. See example of model operationalization with Azure Machine Learning web service in this [article](https://azure.microsoft.com/documentation/articles/machine-learning-publish-a-machine-learning-web-service/). It is also a good idea to build in telemetry and monitoring of the production model deployment and the data pipeline to help with system status reporting and troubleshooting.  
+
+### Artifacts
+ 
+  * Status dashboard of system health and key metrics
+  * Final modeling report with deployment details
+  * Final solution architecture document
+  
+## 5. Customer Acceptance
+
+### Goal
+To finalize the project deliverables by confirming the pipeline, the model, and their deployment in a production environment.
 
 
-## Summary and next steps
+###How to do it
 
-The [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/) is modeled as a sequence of iterated steps that **provide guidance** on the tasks needed to use advanced analytics to build an intelligent application. Each step also provides details on how to use various Microsoft technologies to complete the tasks described.
+The customer would validate that the system meet their business need and the answers the questions with acceptable accuracy to deploy the system to production for use by their client application. All the documentation are finalized and reviewed. A handoff of the project to the entity responsible for operations is done. Thbis could be an IT or data science team at the customer or an agent of the customer that will be responsible for running the system in production. 
 
-While TDSP does not prescribe specific types of **documentation** artifacts, it is a best practice to document the results of the data exploration, modeling and evaluation, and to save the pertinent code so that the analysis can be iterated when required. This also allows reuse of the analytics work when working on other applications involving similar data and prediction tasks.
+
+###Artifacts
+
+The main artifact produced in this final stage is the **[Project Final Report](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Exit%20Report.md)**. This is the project technical report containing all details of the project that useful to learn and operate the system. A [template](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Exit%20Report.md) is provided by TDSP that can be used as is or customized for specific client needs. 
+
+
+## Summary
+
+The [Team Data Science Process lifecycle](https://azure.microsoft.com/documentation/learning-paths/data-science-process/) is modeled as a sequence of iterated steps that provide guidance on the tasks needed to use predictive models that can be deployed in a production environment to be leveraged to build intelligent applications. The goal of this process lifecycle is to continue to move a data science project forward towards a clear engagement end point. While it is true that data science is an exercise in research and discovery, being able to clearly communicate this to customers using a well defined set of artifacts in a standardized template can help avoid misunderstanding and increase the odds of success.
+
+
+## Next steps
 
 Full end-to-end walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed with thumbnail descriptions in the [Team Data Science Process walkthroughs](data-science-process-walkthroughs.md) topic.
