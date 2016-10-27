@@ -67,19 +67,26 @@ The goal of this function is to write a message to a queue every 10 seconds. To 
 
 1. Return to the **Develop** tab, and add the following code to the function after the existing code:
 
-    ```function myQueueItem() {
-      return {
-      msg: "some message goes here",
-      time: "time goes here"
+    ```javascript
+
+    function myQueueItem() 
+      {
+        return {
+        msg: "some message goes here",
+        time: "time goes here"
       }
     }
+
     ```
 
 2. Modify the existing function code to call the code added in Step 1. Insert the following code around line 9 of the function, after the *if* statement.
 
-    ```var toBeQed = myQueueItem();
+    ```javascript
+
+	var toBeQed = myQueueItem();
     toBeQed.time = timeStamp;
     context.bindings.myQueue = toBeQed;
+
     ```
 
 This code creates a **myQueueItem** and sets its **time** property to the current timeStamp. It then adds the new queue item to the context's myQueue binding.
@@ -110,7 +117,9 @@ This code creates a **myQueueItem** and sets its **time** property to the curren
 
 1. Repleace the code in **FunctionsBindingsDemo2** with the code below:    
 
-    ```using System;
+    ```c#
+
+    using System;
 
     public static void Run(QItem myQueueItem, ICollector<TableItem> myTable, TraceWriter log)
     {
@@ -139,6 +148,7 @@ This code creates a **myQueueItem** and sets its **time** property to the curren
       public string Msg { get; set;}
       public string Time { get; set;}
     }
+
 	```
 
 This code adds two clases, **TableItem** and **QItem**, that you will use to read and write to queues. Additionally, the **Run** function has been modified to accept the **QItem** and **TraceWriter** parameter, instead of a **string** and a **TraceWriter**. 
@@ -149,6 +159,8 @@ This code adds two clases, **TableItem** and **QItem**, that you will use to rea
 
 
 ## Store messages in an Azure Table
+
+Now that you have the queues working together, it's time to add in an Azure table for permanent storage of the queue data.
 
 1. Go to the **Integrate** tab.
 
@@ -166,7 +178,9 @@ This code adds two clases, **TableItem** and **QItem**, that you will use to rea
 
 9. Create a **TableItem** class to represent an Azure table, and modify the Run function to accept the newly created TableItem object. Notice that you must use the **PartitionKey** and **RowKey** properties in order for it to work.
 
-    ```public static void Run(QItem myQueueItem, ICollector<TableItem> myTable, TraceWriter log)
+    ```c#
+	
+	public static void Run(QItem myQueueItem, ICollector<TableItem> myTable, TraceWriter log)
     {    
       TableItem myItem = new TableItem
       {
