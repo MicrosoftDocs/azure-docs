@@ -2,7 +2,7 @@
 - [Linux](../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md)
 - [Windows](../articles/iot-hub/iot-hub-windows-gateway-sdk-simulated-device.md)
 
-This walkthrough of the [Simulated Device Cloud Upload sample] shows how to use the [Microsoft Azure IoT Gateway SDK][lnk-sdk] to send device-to-cloud telemetry to IoT Hub from simulated devices.
+This walkthrough of the [Simulated Device Cloud Upload sample] shows how to use the [Azure IoT Gateway SDK][lnk-sdk] to send device-to-cloud telemetry to IoT Hub from simulated devices.
 
 This walkthrough covers:
 
@@ -27,7 +27,7 @@ The following diagram shows the main components of the sample, including the gat
 ![][1]
 
 
-> [AZURE.NOTE] The modules do not pass messages directly to each other. The modules publish messages to an internal broker that delivers the messages to the other modules using a subscription mechanism as shown in the diagram below. For more information see [Get started with the Gateway SDK][lnk-gw-getstarted].
+> [AZURE.NOTE] The modules do not pass messages directly to each other. The modules publish messages to an internal broker that delivers the messages to the other modules using a subscription mechanism as shown in the diagram below. For more information see [Get started with the IoT Gateway SDK][lnk-gw-getstarted].
 
 ### Protocol ingestion module
 
@@ -53,7 +53,7 @@ This module scans for messages that include a property that contains the MAC add
 
 ### IoT Hub communication module
 
-This module takes messages with an IoT Hub device identity assigned by the previous module and sends the message content to IoT Hub using HTTPS. HTTPS is one of the three protocols understood by IoT Hub.
+This module takes messages with an IoT Hub device identity assigned by the previous module and sends the message content to IoT Hub using HTTP. HTTP is one of the three protocols understood by IoT Hub.
 
 Instead of opening a connection to IoT Hub for each simulated device, this module opens a single HTTP connection from the gateway to the IoT hub and multiplexes connections from all the simulated devices over that connection. This enables a single gateway to connect many more devices, simulated or otherwise, than would be possible if it opened a unique connection for every device.
 

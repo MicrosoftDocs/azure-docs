@@ -22,7 +22,7 @@ The security token method provides authentication for each call made by the devi
 
 ## IoT Hub security tokens
 
-IoT Hub uses security tokens to authenticate devices and services to avoid sending keys on the network. Additionally, security tokens are limited in time validity and scope. Azure IoT Hub SDKs automatically generate tokens without requiring any special configuration. Some scenarios, however, require the user to generate and use security tokens directly. These include the direct use of the AMQP, MQTT, or HTTP surfaces, or the implementation of the token service pattern.
+IoT Hub uses security tokens to authenticate devices and services to avoid sending keys on the network. Additionally, security tokens are limited in time validity and scope. Azure IoT Hub SDKs automatically generate tokens without requiring any special configuration. Some scenarios, however, require the user to generate and use security tokens directly. These include the direct use of the MQTT, AMQP, or HTTP surfaces, or the implementation of the token service pattern.
 
 More details on the structure of the security token and its usage can be found in the following articles:
 
@@ -31,7 +31,7 @@ More details on the structure of the security token and its usage can be found i
 
 Each IoT Hub has a [Device Identity Registry][lnk-identity-registry] that can be used to create per-device resources in the service, such as a queue that contains in-flight cloud-to-device messages, and to allow access to the device-facing endpoints. The IoT Hub identity registry provides secure storage of device identities and security keys for a solution. Individual or groups of device identities can be added to an allow list, or a block list, enabling complete control over device access. The following articles provide more details on the structure of the Device Identity Registry and supported operations.
 
-[IoT Hub supports protocols such as AMQP, MQTT, and HTTPS][lnk-protocols]. Each of these protocols use security tokens from the IoT device to IoT Hub differently:
+[IoT Hub supports protocols such as MQTT, AMQP, and HTTP][lnk-protocols]. Each of these protocols use security tokens from the IoT device to IoT Hub differently:
 
 - AMQP: SASL PLAIN and AMQP Claims-based security ({policyName}@sas.root.{iothubName} in the case of Hub-level tokens; {deviceId} in case of device-scoped tokens).
 
@@ -95,7 +95,7 @@ There are two ways to obtain **DeviceConnect** permissions with IoT Hub with [se
 
 Azure IoT Hub and other services which may be part of the solution allow management of users using the Azure Active Directory.
 
-Data ingested by Azure IoT Hub can be consumed by a variety of services such as Azure Stream Analytics, blob storage, etc. These services allow management access. Read more about these services and available options below:
+Data ingested by Azure IoT Hub can be consumed by a variety of services such as Azure Stream Analytics and Azure blob storage. These services allow management access. Read more about these services and available options below:
 
 - [Azure DocumentDB][lnk-docdb]: A scalable, fully-indexed database service for semi-structured data that manages metadata for the devices you provision, such as attributes, configuration, and security properties. DocumentDB offers high-performance and high-throughput processing, schema-agnostic indexing of data, and a rich SQL query interface.
 
@@ -105,7 +105,7 @@ Data ingested by Azure IoT Hub can be consumed by a variety of services such as 
 
 - [Logic Apps][lnk-logicapps]: The Logic Apps feature of Azure App Service helps integrate your IoT solution to your existing line-of-business systems and automate workflow processes. Logic Apps enables developers to design workflows that start from a trigger and then execute a series of steps—rules and actions that use powerful connectors to integrate with your business processes. Logic Apps offers out-of-the-box connectivity to a vast ecosystem of SaaS, cloud-based, and on-premises applications.
 
-- [Blob storage][lnk-blob]: Reliable, economical cloud storage for the data that your devices send to the cloud.
+- [Azure blob storage][lnk-blob]: Reliable, economical cloud storage for the data that your devices send to the cloud.
 
 ## Conclusion
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/30/2016"
+	ms.date="10/27/2016"
 	ms.author="jgao"/>
 
 
@@ -24,13 +24,13 @@ Find out about the different service levels offered by HDInsight as well as the 
 
 ## HDInsight Standard and HDInsight Premium
 
-Azure HDInsight provides the big data cloud offerings in two categories: **Standard** and **Premium**. The table below section lists the features that are available **only** as part of Premium. Features that are not explicitly called out in the table here are available as part of Standard.
+Azure HDInsight provides the big data cloud offerings in two categories: **Standard** and **Premium**. The table below section lists the features that are available **only as part of Premium**. Features that are not explicitly called out in the table here are available as part of Standard.
 
 >[AZURE.NOTE] The HDInsight Premium offering is currently in Preview and available only for Linux clusters.
 
 | HDInsight Premium feature | Description |
 |--------------|---------------|
-| Microsoft R Server (Preview)       | Microsoft R Server is the most broadly deployed enterprise-class analytics platform for scalable R. The R language supports a variety of big data statistics, predictive modeling, and machine learning capabilities. As part of HDInsight Premium, you can now create an HDInsight cluster with R Server ready to be used with massive datasets and models. This new capability provides data scientists and statisticians a familiar R interface that can scale on-demand through HDInsight, without the overhead of cluster setup and maintenance. <br> <br>For more information, see [Getting Started with R Server on HDInsight](hdinsight-hadoop-r-server-get-started.md).
+| Domain-joined HDInsight clusters       | Join HDInsight clusters to Azure Active Directory (AAD) domains for enterprise-level security. You can now configure a list of employees from your enterprise who can authenticate through Azure Active Directory to log on to HDInsight cluster. The enterprise admin can also configure role based access control for Hive security using [Apache Ranger](http://hortonworks.com/apache/ranger/), thus restricting access to data to only as much as needed. Finally, the admin can audit the data accessed by employees, and any changes done to access control policies, thus achieving a high degree of governance of their corporate resources. For more information, see [Configure domain-joined HDInsight clusters](hdinsight-domain-joined-configure).
 
 ### Cluster types supported for Premium
 
@@ -38,10 +38,12 @@ The following table lists the HDInsight cluster type and Premium support matrix.
 
 | Cluster type | Standard  | Premium |
 |--------------|---------------|--------------|
-| Hadoop       | Yes           | Yes          |
-| Spark        | Yes           | Yes          |
+| Hadoop       | Yes           | Yes (HDInsight 3.5 only)         |
+| Spark        | Yes           | No          |
 | HBase        | Yes           | No           |
 | Storm        | Yes           | No           |
+| Interactive Hive (Preview) | Yes | No |
+| R Server (Preview) | Yes | No |
 
 This table will be updated as more cluster types are included in HDInsight Premium.
 

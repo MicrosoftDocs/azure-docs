@@ -42,6 +42,6 @@ The instructions for creating a VNet are found [here](./virtual-networks-create-
 
 **Q: Can a replica of a VNet in a given region be re-created in another region ahead of time?**
 
-A: Yes, you can create two VNets using the same private IP address space and resources under the VNet in two different regions ahead of time. If the customer was hosting internet facing services in the VNet, he could have setup Traffic Manager to geo distribute traffic to the region that is active. However, a customer cannot connect two VNets with the same address space to on-premises network as it would cause routing issues. At the time of a disaster and loss of a VNet in one region, the customer can connect the other available VNet with the same address space to on-premises network.
+A: Yes, you can create two VNets using the same private IP address space and resources in two different regions ahead of time. If a customer was hosting internet facing services in the VNet, they could have set up Traffic Manager to geo-route traffic to the region that is active. However, a customer cannot connect two VNets with the same address space to their on-premises network as it would cause routing issues. At the time of a disaster and loss of a VNet in one region, a customer can connect the other VNet in the available region with matching address space to their on-premises network.
 
 The instructions for creating a VNet are found [here](./virtual-networks-create-vnet-arm-pportal.md).

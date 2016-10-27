@@ -4,7 +4,7 @@
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
-   manager=""
+   manager="hascipio"
    editor=""/>
 
 <tags
@@ -134,7 +134,7 @@ Use the [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) cmdlet.
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 
 ### Upload a VHD by using the command-line tool for Mac and Linux
-With the [Linux command-line tool](../virtual-machines/command-line-tools/), use the following:
+With the [Linux command-line tool](../virtual-machines-command-line-tools.md), use the following:
         azure vm image create <image name> --location <Location of the data center> --OS Linux <LocationOfLocalVHD>
 
 ## See also

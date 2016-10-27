@@ -2,6 +2,7 @@
     pageTitle="Query your Azure Search Index | Microsoft Azure | Hosted cloud search service"
     description="Build a search query in Azure search and use search parameters to filter and sort search results."
     services="search"
+    manager="jhubbard"
     documentationCenter=""
 	authors="ashmaka"
 />
