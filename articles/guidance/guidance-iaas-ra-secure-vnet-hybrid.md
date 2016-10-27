@@ -17,7 +17,7 @@
    ms.date="10/24/2016"
    ms.author="telmos"/>
 
-# Implementing a secure hybrid network architecture in Azure
+# Implementing a DMZ between Azure and your on-premises datacenter
 
 [AZURE.INCLUDE [pnp-RA-branding](../../includes/guidance-pnp-header-include.md)]
 
@@ -134,6 +134,10 @@ The management subnet contains a jump box that executes management and monitorin
 - Create one route to access the jump box through the incoming gateway and implement an NSG in the management subnet to only respond to requests from the allowed route.
 - Restrict execution of all secure management tasks to the jump box.
 
+### NVA recommendations
+
+Include a layer 7 NVA to terminate application connections at the NVA level and maintain affinity with the backend tiers. This guarantees symmetric connectivity in which response traffic from the backend tiers returns through the NVA.
+
 ## Scalability considerations
 
 The reference architecture implements a load balancer directing on-premises network traffic to a pool of NVA devices. As discussed earlier, the NVA devices are VMs executing network traffic routing rules and are deployed into an [availability set][availability-set]. This design allows you to monitor the throughput of the NVAs over time and add NVA devices in response to increases in load.
@@ -153,6 +157,8 @@ For specific information on maintaining availability for VPN and ExpressRoute co
 ## Manageability considerations
 
 All application and resource monitoring should be performed by the jump box in the management subnet. Depending on your application requirements, you may need to add additional monitoring resources in the management subnet, but again any of these additional resources should be accessed via the jump box.
+
+If gateway connectivity from your on-premises network to Azure is down, you can still reach the jump box by deploying a PIP, adding it to the jump box, and remoting in from the internet.
 
 Each tier's subnet in the reference architecture is protected by NSG rules, and it may be necessary to create a rule to open port 3389 for RDP access on Windows VMs or port 22 for SSH access on Linux VMs. Other management and monitoring tools may require rules to open additional ports.
 

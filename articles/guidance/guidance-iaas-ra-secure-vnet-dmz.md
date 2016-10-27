@@ -57,6 +57,8 @@ Azure offers many different resources and resource types, so this reference arch
 
 Implement one set of NVAs for traffic originating on the internet and another for traffic originating on-premises. It's a security risk to use only one set of NVAs for both because this design provides no security perimeter between the two sets of network traffic. It's a benefit to use this design because it reduces the complexity of checking security rules and makes it clearer which rules correspond to each incoming network request. For example, one set of NVAs implements rules for internet traffic only while another set of NVAs implement rules for on-premises traffic only.
 
+Include a layer 7 NVA to terminate application connections at the NVA level and maintain affinity with the backend tiers. This guarantees symmetric connectivity in which response traffic from the backend tiers returns through the NVA.  
+
 ### Public load balancer recommendations ###
 
 To maintain scalability and availability, deploy the public DMZ inbound NVAs in an [availability set][availability-set] and use a [internet facing load balancer][load-balancer] to distribute internet requests across the NVAs in the availability set.  
@@ -73,7 +75,9 @@ The internet facing load balancer requires each NVA in the Public DMZ inbound su
 
 ## Manageability considerations
 
-Restrict the monitoring and management functionality for the inbound public DMZ NVA's to respond to requests from the jump box in the management subnet only. As discussed in the [Implementing a DMZ between Azure and your on-premises datacenter][implementing-a-secure-hybrid-network-architecture] document, define a single network route from the on-premises network through the gateway to the jump box in the management subnet to restrict access.  
+Restrict the monitoring and management functionality for the inbound public DMZ NVA's to respond to requests from the jump box in the management subnet only. As discussed in the [Implementing a DMZ between Azure and your on-premises datacenter][implementing-a-secure-hybrid-network-architecture] document, define a single network route from the on-premises network through the gateway to the jump box in the management subnet to restrict access.
+
+If gateway connectivity from your on-premises network to Azure is down, you can still reach the jump box by deploying a PIP, adding it to the jump box, and remoting in from the internet.
 
 ## Security considerations
 
@@ -86,6 +90,10 @@ This reference architecture implements multiple levels of security:
 - The NAT routing configuration for the NVAs directs incoming requests on port 80 and port 443 to the web tier load balancer, but ignores requests on all other ports.
 
 Note that you should log all incoming requests on all ports. Regularly audit the logs, paying attention to requests that fall outside of expected parameters as these may indicate intrusion attempts.
+
+### Using NSGs to block/pass traffic between application tiers
+
+Each of the web, business, and data tiers restrict traffic between them using NSGs. That is, the business tier uses an NSG to block all traffic that doesn't originate in the web tier, and the data tier uses an NSG to block all traffic that doesn't originate in the business tier. If you have a requirement to expand the NSG rules to allow broader access to these tiers, weigh these requirements against the security risks. Each new inbound pathway represents an opportunity for accidental or purposeful data leakage or application damage.
 
 ## Solution deployment
 
