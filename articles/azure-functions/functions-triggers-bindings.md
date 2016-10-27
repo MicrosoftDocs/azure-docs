@@ -23,7 +23,7 @@
 
 This topic provides general reference for triggers and bindings. It includes some of the advanced binding features and syntax supported by all binding types.  
 
-If you are looking for detailed information around configuring and coding a specific type of trigger and binding, click on the trigger or binding listed below:
+If you are looking for detailed information around configuring and coding a specific type of trigger or binding, you may want to click on one of the trigger or bindings listed below instead:
 
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)] 
 
@@ -323,6 +323,8 @@ For detailed information on how to update the *host.json* file for your function
 By adding this configuration, the function is now addressable with the following route:
 
 	http://<yourapp>.azurewebsites.net/products/electronics/357
+
+For information on other properties you can configure in your *host.json* file, see [host.json reference](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 
 
 
