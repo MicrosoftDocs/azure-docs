@@ -67,13 +67,12 @@ Relays that are opened using the netTCPRelay WCF binding treat messages not as i
 
 |Quota Name|Scope|Type|Behavior when exceeded|Value|
 |---|---|---|---|---|
-|Number of concurrent listeners on a relay|Entity|Static|Subsequent requests for additional connections will be rejected and an exception will be received by the calling code.|25|
-|Number of concurrent relay listeners|System-wide|Static|Subsequent requests for additional connections will be rejected and an exception will be received by the calling code.|2,000|
-|Number of concurrent relay connections per all relay endpoints in a service namespace|System-wide|Static|-|5,000|
-|Number of relay endpoints per service namespace|System-wide|Static|-|10,000|
+|Concurrent listeners on a relay|Entity|Static|Subsequent requests for additional connections will be rejected and an exception will be received by the calling code.|25|
+|Concurrent relay listeners|System-wide|Static|Subsequent requests for additional connections will be rejected and an exception will be received by the calling code.|2,000|
+|Concurrent relay connections per all relay endpoints in a service namespace|System-wide|Static|-|5,000|
+|Relay endpoints per service namespace|System-wide|Static|-|10,000|
 |Message size for [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) and [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) relays|System-wide|Static|Incoming messages that exceed these quotas will be rejected and an exception will be received by the calling code.|64KB
 |Message size for [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) and [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) relays|System-wide|Static|-|Unlimited|
-
 
 ### Does Relay have any usage quotas?
 
@@ -83,8 +82,6 @@ By default, for any cloud service Microsoft sets an aggregate monthly usage quot
 - 2 million Relay hours
 
 While we do reserve the right to disable a customer account that has exceeded its usage quotas in a given month, we will provide e-mail notification and make multiple attempts to contact a customer before taking any action. Customers exceeding these quotas will still be responsible for charges that exceed the quotas.
-
-As with other services on Azure, Relay enforces a set of specific quotas to ensure that there is fair usage of resources. The following are the usage quotas that the service enforces:
 
 #### Naming restrictions
 
