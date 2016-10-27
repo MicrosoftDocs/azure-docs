@@ -22,7 +22,7 @@
 You can use the [OAuth 2.0 client credentials grant](http://tools.ietf.org/html/rfc6749#section-4.4), sometimes called *two-legged OAuth*, to access web-hosted resources by using the identity of an application. This type of grant commonly is used for server-to-server interactions that must run in the background, without immediate interaction with a user. These types of applications often are referred to as *daemons* or *service accounts*.
 
 > [AZURE.NOTE]
-	The v2.0 endpoint doesn't support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+The v2.0 endpoint doesn't support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
 In the more typical *three-legged OAuth*, a client application is granted permission to access a resource on behalf of a specific user. The permission is delegated from the user to the application, usually during the [consent](active-directory-v2-scopes.md) process. However, in the client credentials flow, permissions are granted directly to the application itself. When the app presents a token to a resource, the resource enforces that the app itself has authorization to perform an action, and not that the user has authorization.
 
@@ -60,11 +60,11 @@ To use application permissions in your app, do the steps we discuss in the next 
 2. Locate the **Direct Application Permissions** section, and then add the permissions that your app requires.
 3. **Save** the app registration.
 
-#### Recommended: Sign in the user
+#### Recommended: Sign the user in to your app
 
 Typically, when you build an application that uses application permissions, the app requires a page or view on which the admin approves the app's permissions. This page can be part of the app's sign-in flow, part of the app's settings, or it can be a dedicated "connect" flow. In many cases, it makes sense for the app to show this "connect" view only after a user has signed in with a work or school Microsoft account.
 
-In your app, if you sign in the user, you can identify the organization to which the user belongs before you ask the user to approve the application permissions. Although not strictly necessary, it can help you create a more intuitive experience for your users. To sign in the user, follow our [v2.0 protocol tutorials](active-directory-v2-protocols.md).
+If you sign the user in to your app, you can identify the organization to which the user belongs before you ask the user to approve the application permissions. Although not strictly necessary, it can help you create a more intuitive experience for your users. To sign the user in, follow our [v2.0 protocol tutorials](active-directory-v2-protocols.md).
 
 #### Request the permissions from a directory admin
 
