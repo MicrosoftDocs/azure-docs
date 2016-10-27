@@ -102,11 +102,9 @@ You should have following four values from these steps:
 	6. Select **C:\ADFGetStarted** for the Location.
 	7. Click **OK** to create the project.
 2. Click **Tools**, point to **Nuget Package Manager**, and click **Package Manager Console**.
-3.	In the **Package Manager Console**, do the following: 
-	1.	Install Data Factory package:
-				Install-Package Microsoft.Azure.Management.DataFactories		
-	2.	Install Active Directory package (you use Active Directory API in the code):   
-				Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
+3.	In the **Package Manager Console**, do the following steps: 
+	1.	Run the following command to install Data Factory package: `Install-Package Microsoft.Azure.Management.DataFactories`		
+	2.	Run the following command to install Azure Active Directory package (you use Active Directory API in the code): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
 6. Add the following **appSetttings** section to the **App.config** file. These settings are used by the helper method: **GetAuthorizationHeader**. 
 
 	Replace values for **&lt;Application ID&gt;**, **&lt;Password&gt;**, **&lt;Subscription ID&gt;**, and **&lt;tenant ID&gt;** with your own values. 
