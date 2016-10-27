@@ -20,8 +20,7 @@
 
 The Azure Active Directory (Azure AD) v2.0 endpoint emits several types of security tokens in each [authentication flow](active-directory-v2-flows.md). This reference describes the format, security characteristics, and contents of each type of token.
 
-> [AZURE.NOTE]
-	The v2.0 endpoint does not support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+> [AZURE.NOTE]The v2.0 endpoint does not support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
 ## Types of tokens
 
@@ -31,7 +30,7 @@ A bearer token is a lightweight security token that grants the bearer access to 
 
 Many of the tokens issued by the v2.0 endpoint are implemented as JSON Web Tokens (JWTs). A JWT is a compact, URL-safe way to transfer information between two parties. The information in a JWT is called a *claim*. It's an assertion of information about the bearer and subject of the token. The claims in a JWT are JavaScript Object Notation (JSON) objects that are encoded and serialized for transmission. Because the JWTs issued by the v2.0 endpoint are signed but not encrypted, you can easily inspect the contents of a JWT for debugging purposes. For more information about JWTs, see the [JWT specification](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
-## ID tokens
+### ID tokens
 
 An ID token is a form of sign-in security token that your app receives when it performs authentication by using [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). ID tokens are represented as [JWTs](#types-of-tokens), and they contain claims that you can use to sign the user in to your app. You can use the claims in an ID token in various ways. Typically, admins use ID tokens to display account information or to make access control decisions in an app. The v2.0 endpoint issues only one type of ID token, which has a consistent set of claims, regardless of the type of user that is signed in. The format and content of ID tokens are the same for personal Microsoft account users and for work or school accounts.
 
@@ -49,6 +48,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 
 #### Claims in ID tokens
 | Name | Claim | Example value | Description |
+<<<<<<< HEAD
 | -------------------- | ------------------ | ------------------- | --------------------- |
 | audience | `aud` | `6731de76-14a6-49ae-97bc-6eba6914391e` | Identifies the intended recipient of the token. In ID tokens, the audience is your app's Application ID, assigned to your app in the Microsoft Application Registration Portal. Your app should validate this value, and reject the token if the value does not match. |
 | issuer | `iss` | `https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` | Identifies the security token service (STS) that constructs and returns the token, and the Azure AD tenant in which the user was authenticated. Your app should validate the issuer claim to ensure that the token came from the v2.0 endpoint. It also should use the GUID portion of the claim to restrict the set of tenants that can sign in to the app. The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. |
@@ -65,9 +65,27 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | preferred username | `preferred_username` | `thegreatbambino@nyy.onmicrosoft.com` | The primary username that represents the user in the v2.0 endpoint. It could be an email address, phone number, or a generic username without a specified format. Its value is mutable and might change over time. The `profile` scope is required in order to receive this claim. |
 | subject | `sub` | `MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource. Because the subject is always present in the tokens that Azure AD issues, we recommend using this value in a general-purpose authorization system. |
 | object ID | `oid` | `a1dbdde8-e4f9-4571-ad93-3059e3750d23` | The object ID of the work or school account in the Azure AD system. This claim is not issued for personal Microsoft accounts. The `profile` scope is required in order to receive this claim. |
+=======
+| ----------------------- | --------------------- | ------------ | ------------------------------- |
+| Audience | `aud` | `6731de76-14a6-49ae-97bc-6eba6914391e` | Identifies the intended recipient of the token. In ID tokens, the audience is your app's Application ID, assigned to your app in the Microsoft Application Registration Portal. Your app should validate this value, and reject the token if the value does not match. |
+| Issuer | `iss` | `https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` | Identifies the security token service (STS) that constructs and returns the token, and the Azure AD tenant in which the user was authenticated. Your app should validate the issuer claim to ensure that the token came from the v2.0 endpoint. It also should use the GUID portion of the claim to restrict the set of tenants that can sign in to the app. The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. |
+| Issued At | `iat` | `1452285331` | The time at which the token was issued, represented in epoch time. |
+| Expiration Time | `exp` | `1452289231` | The time at which the token becomes invalid, represented in epoch time. Your app should use this claim to verify the validity of the token lifetime. |
+| Not Before | `nbf` | `1452285331` | The time at which the token becomes valid, represented in epoch time. It is usually the same as the issuance time. Your app should use this claim to verify the validity of the token lifetime. |
+| Version | `ver` | `2.0` | The version of the ID token, as defined by Azure AD. For the v2.0 endpoint, the value is `2.0`. |
+| Tenant Id | `tid` | `b9419818-09af-49c2-b0c3-653adc1f376e` | A GUID that represents the Azure AD tenant that the user is from. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user belongs to. For personal accounts, the value is `9188040d-6c67-4c5b-b112-36a304b66dad`. The `profile` scope is required in order to receive this claim. |
+| Code Hash | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | The code hash is included in ID tokens only when the ID token is issued at the same time as an OAuth 2.0 authorization code. It can be used to validate the authenticity of an authorization code. For details about performing this validation, see the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html). |
+| Access Token Hash | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | The access token hash is included in ID tokens only when the ID token is issued at the same time as an OAuth 2.0 access token. It can be used to validate the authenticity of an access token. For details about performing this validation, see the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html). |
+| Nonce | `nonce` | `12345` | The nonce is a strategy for mitigating token replay attacks. Your app can specify a nonce in an authorization request by using the `nonce` query parameter. The value you provide in the request is emitted in the ID token's `nonce` claim, unmodified. Your app can verify the value against the value it specified on the request, which associates the app's session with a specific ID token. Your app should perform this validation during the ID token validation process. |
+| Name | `name` | `Babe Ruth` | The name claim provides a human-readable value that identifies the subject of the token. The value is not guaranteed to be unique, it is mutable, and it's designed to be used only for display purposes. The `profile` scope is required in order to receive this claim. |
+| Email | `email` | `thegreatbambino@nyy.onmicrosoft.com` | The primary email address associated with the user account, if one exists. Its value is mutable and might change over time. The `email` scope is required in order to receive this claim. |
+| Preferred Username | `preferred_username` | `thegreatbambino@nyy.onmicrosoft.com` | The primary username that represents the user in the v2.0 endpoint. It could be an email address, phone number, or a generic username without a specified format. Its value is mutable and might change over time. The `profile` scope is required in order to receive this claim. |
+| Subject | `sub` | `MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource. Because the subject is always present in the tokens that Azure AD issues, we recommend using this value in a general-purpose authorization system. |
+| ObjectId | `oid` | `a1dbdde8-e4f9-4571-ad93-3059e3750d23` | The object ID of the work or school account in the Azure AD system. This claim is not issued for personal Microsoft accounts. The `profile` scope is required in order to receive this claim. |
+>>>>>>> a3e69739a08e2279d64a6c3ae60103a2ade1344b
 
 
-## Access tokens
+### Access tokens
 
 Currently, access tokens issued by the v2.0 endpoint can be consumed only by Microsoft Services. Your apps shouldn't need to perform any validation or inspection of access tokens for any of the currently supported scenarios. You can treat access tokens as completely opaque. They are just strings that your app can pass to Microsoft in HTTP requests.
 
@@ -75,7 +93,7 @@ In the near future, the v2.0 endpoint will introduce the ability for your app to
 
 When you request an access token from the v2.0 endpoint, the v2.0 endpoint also returns metadata about the access token for your app to use. This information includes the expiry time of the access token and the scopes for which it is valid. Your app uses this metadata to perform intelligent caching of access tokens without having to parse open the access token itself.
 
-## Refresh tokens
+### Refresh tokens
 
 Refresh tokens are security tokens that your app can use to get new access tokens in an OAuth 2.0 flow. Your app can use refresh tokens to achieve long-term access to resources on behalf of a user without requiring interaction with the user.
 
@@ -87,14 +105,14 @@ Refresh tokens are, and always will be, completely opaque to your app. They are 
 
 When you redeem a refresh token for a new access token (and if your app had been granted the `offline_access` scope), you receive a new refresh token in the token response. Save the newly issued refresh token, to replace the one you used in the request. This guarantees that your refresh tokens remain valid for as long as possible.
 
-## Validate tokens
+## Validating tokens
 
 Currently, the only token validation your apps should need to perform is validating ID tokens. To validate an ID token, your app should validate both the ID token's signature and the claims in the ID token.
 
 <!-- TODO: Link -->
 Microsoft provides libraries and code samples that show you how to easily handle token validation. In the next sections, we describe the underlying process. Several third-party open-source libraries also are available for JWT validation. There's at least one library option for almost every platform and language.
 
-#### Validate the signature
+### Validate the signature
 A JWT contains three segments, which are separated by the `.` character. The first segment is known as the *header*, the second segment is the *body*, and the third segment is the *signature*. The signature segment can be used to validate the authenticity of the ID token so that it can be trusted by your app.
 
 ID tokens are signed by using industry-standard asymmetric encryption algorithms, such as RSA 256. The header of the ID token has information about the key and encryption method used to sign the token. For example:
@@ -123,7 +141,7 @@ This metadata document is a JSON object that has several useful pieces of inform
 
 Performing signature validation is outside the scope of this document. Many open-source libraries are available to help you with this.
 
-#### Validate the claims
+### Validate the claims
 When your app receives an ID token upon user sign-in, it should also perform a few checks against the claims in the ID token. These include but are not limited to:
 
 - **audience** claim, to verify that the ID token was intended to be given to your app
