@@ -176,7 +176,7 @@ If the primary database fails, perform a manual failover to the secondary databa
 [health-endpoint-monitoring-pattern]: https://msdn.microsoft.com/library/dn589789.aspx
 [ra-grs]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
 [regional-pairs]: ../best-practices-availability-paired-regions.md
-[resource groups]: ../resource-group-overview.md
+[resource groups]: ../resource-group-overview.md#resource-groups
 [services-by-region]: https://azure.microsoft.com/en-us/regions/#services
 [sql-failover]: ../sql-database/sql-database-disaster-recovery.md
 [sql-replication]: ../sql-database/sql-database-geo-replication-overview.md

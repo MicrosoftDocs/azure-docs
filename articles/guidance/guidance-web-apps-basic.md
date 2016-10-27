@@ -257,7 +257,7 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [app-service-plans-tiers]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [app-service-security]: ../app-service-web/web-sites-security.md
 [app-settings]: ../app-service-web/web-sites-configure.md
-[arm-template]: ../resource-group-overview.md
+[arm-template]: ../resource-group-overview.md#resource-groups
 [custom-domain-name]: ../app-service-web/web-sites-custom-domain-name.md
 [deploy]: ../app-service-web/web-sites-deploy.md
 [deploy-arm-template]: ../resource-group-template-deploy.md

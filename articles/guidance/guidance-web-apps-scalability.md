@@ -139,6 +139,7 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 <!-- links -->
 
 [api-guidance]: ../best-practices-api-design.md
+[app-service-security]: ../web-sites-security.md
 [app-service-web-app]: ../app-service-web/app-service-web-overview.md
 [app-service-api-app]: ../app-service-api/app-service-api-apps-why-best-platform.md
 [app-service-pricing]: https://azure.microsoft.com/en-us/pricing/details/app-service/
@@ -158,7 +159,7 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 [polyglot-storage]: https://github.com/mspnp/azure-guidance/blob/master/Polyglot-Solutions.md
 [queue-storage]: ../storage/storage-dotnet-how-to-use-queues.md
 [queues-compared]: ../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md
-[resource-group]: ../resource-group-overview.md
+[resource-group]: ../resource-group-overview.md#resource-groups
 [sql-db]: https://azure.microsoft.com/en-us/documentation/services/sql-database/
 [sql-elastic]: ../sql-database/sql-database-elastic-scale-introduction.md
 [sql-encryption]: https://msdn.microsoft.com/en-us/library/dn948096.aspx
