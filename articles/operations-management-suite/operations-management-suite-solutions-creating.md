@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/25/2016"
+   ms.date="10/27/2016"
    ms.author="bwren" />
 
 # Creating management solutions in Operations Management Suite (OMS) (Preview)
@@ -70,9 +70,9 @@ The following table describes the attributes of a parameter.
 
 
 ### Standard parameters
-The following table lists the standard parameters for all management solutions.  These values are populated for the user when they install your solution from the Azure Marketplace or Quickstart templates.  The user must provide values for them if the solution is installed with another method.
+The following table lists the standard parameters for all management solutions.  These values are populated for the user instead of prompting for them when your solution is installed from the Azure Marketplace or Quickstart templates.  The user must provide values for them if the solution is installed with another method.
 
->[AZURE.NOTE]The user interface in the Azure Marketplace and Quickstart templates is expecting the parameter names in the table.  If you use different parameter names then your solution will fail if installed by either of these methods.
+>[AZURE.NOTE]The user interface in the Azure Marketplace and Quickstart templates is expecting the parameter names in the table.  If you use different parameter names then the user will be prompted for them, and they will not be automatically populated.
 
 
 | Parameter | Type | Description |
