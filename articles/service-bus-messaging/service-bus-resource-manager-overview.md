@@ -32,6 +32,7 @@ These Service Bus and Event Hubs Azure Resource Manager templates are available 
 - [Create a Service Bus namespace with queue](service-bus-resource-manager-namespace-queue.md)
 - [Create a Service Bus namespace with topic and subscription](service-bus-resource-manager-namespace-topic.md)
 - [Create a Service Bus namespace with queue and authorization rule](service-bus-resource-manager-namespace-auth-rule.md)
+- [Create a Service Bus namespace with topic, subscription, and rule](service-bus-resource-manager-namespace-topic-with-rule.md)
 
 ## Deploy with PowerShell
 
