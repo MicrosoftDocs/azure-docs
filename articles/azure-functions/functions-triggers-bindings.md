@@ -15,23 +15,34 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="10/25/2016"
+	ms.date="10/27/2016"
 	ms.author="chrande"/>
 
 # Azure Functions triggers and bindings developer reference
+
+
+This topic provides reference for triggers and bindings along with some of the advanced binding features you can use with your function apps. 
+
+If you are looking for information regarding how to configure and code specific types of triggers and bindings in Azure Functions, click on a trigger or binding listed below to learn more:
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)] 
+
+These articles assume that you've read the [Azure Functions developer reference](functions-reference.md), and the [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md), or [Node.js](functions-reference-node.md) developer reference articles.
+
+
 
 ## Overview
 
 Triggers are event responses used to trigger your custom code. This allows you to respond to events across Azure or on premise. Bindings represent the necessary meta data used to connect your code to the desired trigger or associated input or output data.
 
-To get a better idea of the scope of bindings you can integrate with your Azure Function app, refer to the table below.
+To get a better idea of the bindings you can integrate with your Azure Function app, refer to the table below.
 
 [AZURE.INCLUDE [dynamic compute](../../includes/functions-bindings.md)]  
 
-As an example, suppose you want to execute your code when a new item is dropped into an Azure Storage queue. You would need the following binding information to monitor the queue: the storage account where the queue exists, the queue name, and a variable name that your code would use to refer to the new item that was dropped into the queue.  Here is an example queue trigger binding that could be used.
+Suppose you want to execute some code when a new item is dropped into an Azure Storage queue. You could use an Azure Queue trigger to do this. You would need the following binding information to monitor the queue: the storage account where the queue exists, the queue name, and a variable name that your code would use to refer to the new item that was dropped into the queue.  Here is an example queue trigger binding that could be used with provisioning new user accounts in a system.
 
     {
-      "name": "myNewQueueItem",
+      "name": "myNewUserQueueItem",
       "type": "queueTrigger",
       "direction": "in",
       "queueName": "queue-newusers",
@@ -55,7 +66,7 @@ To use some of the more advanced binding features in the Azure Portal, click the
 
 #### Dynamic parameter binding 
 
-Instead of a static configuration setting for your output binding properties, you can configure the setting to be dynamically bound to data that is part of your trigger's input binding. Consider a scenario where new orders are processed using an Azure Storage queue. Each new queue item will be a JSON string containing at least the following properties.
+Instead of a static configuration setting for your output binding properties, you can configure the settings to be dynamically bound to data that is part of your trigger's input binding. Consider a scenario where new orders are processed using an Azure Storage queue. Each new queue item will be a JSON string containing at least the following properties.
 
 	{
 	  name : "Customer Name",
@@ -83,7 +94,7 @@ You might want to send the customer an SMS text message using your Twilio accoun
       "direction": "out"
     },
  
-Now your function code only has to initialize the output parameter as follows
+Now your function code only has to initialize the output parameter as follows. During execution the output properties will be bound to the desired input data.
 
 C#
 
@@ -91,14 +102,14 @@ C#
     // initialize the message variable.
     message = new SMSMessage();
 
-    // Using dynamic parameter binding no need to set this in code.
+    // When using dynamic parameter binding no need to set this in code.
 	// message.body = msg;
 	// message.to = myNewOrderItem.mobileNumber
 
 Node.js
 
     context.bindings.message = {
-        // Using dynamic parameter binding no need to set this in code.
+        // When using dynamic parameter binding no need to set this in code.
         //body : msg,
         //to : myNewOrderItem.mobileNumber
     };
@@ -121,7 +132,7 @@ Azure Functions provides a syntax to generate random GUIDs with your bindings. F
 
 #### Returning a single output
 
-In cases where your function code returns a single output, you can use an output binding named `$return` to retain a more natural function signature in your code. The binding would be similar to the following blob output binding that is used with a queue trigger.
+In cases where your function code returns a single output, you can use an output binding named `$return` to retain a more natural function signature in your code. This can only be used with languages that support a return value (C#, Node.js, F#). The binding would be similar to the following blob output binding that is used with a queue trigger.
 
 	{
 	  "bindings": [
@@ -141,16 +152,8 @@ In cases where your function code returns a single output, you can use an output
 	}
 
 
-The following C# code returns an output parameter using an `out` parameter instead of using a `$return` binding.
+The following C# code returns the output more naturally without using an `out` parameter in the function signature.
 
-	public static void Run(WorkItem input, out string output, TraceWriter log)
-	{
-	    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-	    log.Info($"C# script processed queue message. Item={json}");
-	    output = json;
-	}
-
-Using `$return` that same code can use a more natural function signature as shown below.
 
 	public static string Run(WorkItem input, TraceWriter log)
 	{
@@ -170,51 +173,97 @@ Using `$return` that same code can use a more natural function signature as show
 
 This same approach is demonstrated below with Node.js.
 
-	// Node.js without $return binding
-	module.exports = function (context, input) {
-	    var json = JSON.stringify(input);
-	    context.log('Node.js script processed queue message', json);
-	    context.bindings.output = json;
-	    context.done();
-	}
-
-	// Node.js using $return binding
 	module.exports = function (context, input) {
 	    var json = JSON.stringify(input);
 	    context.log('Node.js script processed queue message', json);
 	    context.done(null, json);
 	}
 
-F# example:
+F# example provided below.
 
-
-	// F# without $return binding
-	let Run(input: WorkItem, output: byref<string>, log: TraceWriter) =
-	    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
-	    log.Info(sprintf "F# script processed queue message '%s'" json)
-	    output <- json
-
-	// F# using $return binding
 	let Run(input: WorkItem, log: TraceWriter) =
 	    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
 	    log.Info(sprintf "F# script processed queue message '%s'" json)
 	    json
 
-This can only be used with languages that support a return value (C#, Node.js, F#). This can also be used with multiple output parameters if you want to designate a single output with `$return`.
+This can also be used with multiple output parameters by designating a single output with `$return`.
 
 
-#### Routing support
+#### Route support
 
-- You can use %% and {} binding functionality...
-- #load
+By default when you create a function for an HTTP trigger, or WebHook, the function is addressable with a route of the form:
 
-## Trigger and bindings types with code examples
+	http://<yourapp>.azurewebsites.net/api/<funcname> 
 
-The following articles explain how to configure and code specific types of triggers and bindings in Azure Functions. These articles assume that you've read the [Azure Functions developer reference](functions-reference.md), and the [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md), or [Node.js](functions-reference-node.md) developer reference articles.
+You can customize this route using the optional `route` property on the HTTP trigger's input binding. As an example, the following *function.json* file defines a `route` property for an HTTP trigger:
 
-Click on a trigger or binding listed below to learn more:
+	{
+	  "bindings": [
+	    {
+	      "type": "httpTrigger",
+	      "name": "req",
+	      "direction": "in",
+	      "methods": [ "get" ],
+	      "route": "products/{category:alpha}/{id:int?}"
+	    },
+	    {
+	      "type": "http",
+	      "name": "res",
+	      "direction": "out"
+	    }
+	  ]
+	}
 
-[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+Using this configuration, the function is now addressable with the following route instead of the original route.
+
+	http://<yourapp>.azurewebsites.net/api/products/electronics/357
+
+This allows the function code to support two parameters in the address, `category` and `id`. The following C# function code makes use of both parameters as an example.
+
+	public static Task<HttpResponseMessage> Run(
+	     HttpRequestMessage request, string category, int? id, TraceWriter log)
+	{
+	    ...
+	}
+
+Here is Node.js function code to use the same route parameters.
+
+	module.exports = function (context, req) {
+	    var category = context.bindingData.category;
+	    var id = context.bindingData.id;
+	
+	    ...
+	} 
+
+By default, all function routes are prefixed with *api*. You can also customize this, or remove it, using the `http.routePrefix` property in your *function.json* file. The following example remove the *api* route prefix by using an empty string.
+
+	{
+	  "http": {
+	    "routePrefix": ""
+	  },
+	  "bindings": [
+	    {
+	      "type": "httpTrigger",
+	      "name": "req",
+	      "direction": "in",
+	      "methods": [ "get" ],
+	      "route": "products/{category:alpha}/{id:int?}"
+	    },
+	    {
+	      "type": "http",
+	      "name": "res",
+	      "direction": "out"
+	    }
+	  ]
+	}
+
+Using this configuration, the function is now addressable with the following route.
+
+	http://<yourapp>.azurewebsites.net/products/electronics/357
+
+
+
+
 
 ## Next steps
 
