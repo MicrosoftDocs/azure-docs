@@ -42,7 +42,9 @@ A sample search log can be found in a public Azure Blob container. In the applic
 
 **To create a U-SQL script**
 
-Add a new file in the **C:\temp** folder called **SampleUSQLScript.txt**, and then paste the following U-SQL script. The Data Lake Analytics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
+Data Lake Analytics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
+
+Create a **SampleUSQLScript.txt** file with the following U-SQL script, and place the file in the **C:\temp\** path.  The path is hardcoded in the .NET application that you create in the next procedure.  
 
 	@searchlog =
 		EXTRACT UserId          int,
