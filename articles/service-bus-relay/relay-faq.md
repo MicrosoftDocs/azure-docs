@@ -29,7 +29,7 @@ This article answers some frequently-asked questions about Microsoft Azure Relay
 
 ### What is Azure Relay?
 
-The [Relay service](../service-bus-Relay/Relay-what-is-it.md) provides the ability to transparently host and access WCF services from anywhere. In other words, this enables hybrid applications that run in both an Azure datacenter and an on-premises enterprise environment.
+The [Relay service](relay-what-is-it.md) provides the ability to transparently host and access WCF services from anywhere. In other words, this enables hybrid applications that run in both an Azure datacenter and an on-premises enterprise environment.
 
 ### What is a Relay namespace?
 
