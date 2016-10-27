@@ -3,7 +3,7 @@
 	description="Alerts you to unusual failure patterns in your app, and provides diagnostic analysis. No configuration is needed." 
 	services="application-insights" 
     documentationCenter=""
-	authors="yorac" 
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 

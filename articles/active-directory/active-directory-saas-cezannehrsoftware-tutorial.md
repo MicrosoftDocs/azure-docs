@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2016"
+	ms.date="10/26/2016"
 	ms.author="jeedes"/>
 
 
@@ -121,13 +121,11 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	a. In the **Sign On URL** textbox, type a URL using the following pattern: `https://w3.cezanneondemand.com/cezannehr/-/<tenant id>`.
 
-    b. In the **Identifier** textbox, type: `https://w3.cezanneondemand.com/CezanneOnDemand/`.
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://w3.cezanneondemand.com:443/CezanneOnDemand/-/<tenant id>/Saml/samlp`.
 
-	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://w3.cezanneondemand.com:443/CezanneOnDemand/-/<tenant id>/Saml/samlp`.
+	c. Click **Next**
 
-	d. Click **Next**
-
-	> [AZURE.NOTE] Please note that you have to update these values with the actual Sign On URL, Identifier and Reply URL. To get these values, contact Cezanne HR Software support team via <mailto:info@cezannehr.com>.
+	> [AZURE.NOTE] Please note that you have to update these values with the actual Sign On URL and Reply URL. To get these values, contact Cezanne HR Software support team via <mailto:info@cezannehr.com>.
 
 4. On the **Configure single sign-on at Cezanne HR Software** page, perform the following steps and click **Next**:
 

@@ -68,7 +68,7 @@ There are a few configurable properties for each link:
 |Option|Description|Default|
 |:-----|:----------|:------|
 |AllowVirtualNetworkAccess|Whether address space of Peer VNet to be included as part of the Virtual_network Tag|Yes|
-|AllowForwardedTraffic|Allows traffic not originated from peered VNet is accepted or dropped|No|
+|AllowForwardedTraffic|Whether traffic not originating from a peered VNet is accepted or dropped|No|
 |AllowGatewayTransit|Allows the peer VNet to use your VNet gateway|No|
 |UseRemoteGateways|Use your peer’s VNet gateway. The peer VNet must have a gateway configured and AllowGatewayTransit is selected. You cannot use this option if you have a gateway configured|No|
 
@@ -96,7 +96,7 @@ Each link in VNet peering has a set of above properties. From portal, you can cl
 
 6. Login to the portal as UserA, navigate to the VNET3 blade, click Peering, check ‘I Know my resource ID” checkbox and type the resource ID for VNET5 in below format.
 
-    /subscriptions/<Subscription- ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/<VNET name>
+    /subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Network/VirtualNetwork/{VNETname}
 
     ![Resource ID](./media/virtual-networks-create-vnetpeering-arm-portal/figure12.png)
 

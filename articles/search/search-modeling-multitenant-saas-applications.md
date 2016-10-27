@@ -2,6 +2,7 @@
 	pageTitle="Modeling Multitenancy in Azure Search | Microsoft Azure | Hosted cloud search service"
 	description="Learn about common design patterns for multitenant SaaS applications while using Azure Search."
 	services="search"
+	manager="jhubbard"
 	authors="ashmaka"
 	documentationCenter=""/>
 
