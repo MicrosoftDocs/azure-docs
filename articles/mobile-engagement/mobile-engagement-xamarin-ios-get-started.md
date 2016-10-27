@@ -4,7 +4,7 @@
 	services="mobile-engagement"
 	documentationCenter="xamarin"
 	authors="piyushjo"
-	manager=""
+	manager="erikre"
 	editor="" />
 
 <tags

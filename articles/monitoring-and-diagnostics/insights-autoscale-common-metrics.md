@@ -2,7 +2,7 @@
 	pageTitle="Azure Monitor autoscaling common metrics. | Microsoft Azure"
 	description="Learn which metrics are commonly used for autoscaling your Cloud Services, Virtual Machines and Web Apps."
 	authors="kamathashwin"
-	manager=""
+	manager="carolz"
 	editor=""
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>

@@ -4,7 +4,7 @@
 	services=" "
 	documentationCenter=".net"
 	authors="rboucher"
-	manager=""
+	manager="carolz"
 	editor=""/>
 
 <tags
