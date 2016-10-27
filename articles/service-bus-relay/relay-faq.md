@@ -45,7 +45,9 @@ For complete information about Relay pricing, please see [Service Bus pricing de
 
 ### What usage of Relay is subject to data transfer?
 
-Relay includes 5 GB per month, per subscription.
+Relay includes 5 GB of data ingress per month, per subscription. There is no additional Azure ingress/egress charge for data used by Relay.
+
+The data charge for Relay is for ingress from senders only, as Relay listeners do not incur a data charge. For example, if you send 1 GB, you will only be billed for 1 GB, even though a listener also received 1 GB and may be outside of Azure's datacenters.
 
 ### How are Relay hours calculated?
 
@@ -53,9 +55,11 @@ Relay hours are billed for the cumulative amount of time during which each Relay
 
 ### What if I have more than one listener connected to a given Relay?
 
-In some cases, a single Relay in Service Bus may have multiple connected listeners. A Relay is considered "open" when at least one Relay listener is connected to it. Adding additional listeners to an open Relay does not change the status of that Relay for billing purposes. The number of Relay senders (clients that invoke or send messages to Relays) connected to a Relay also has no effect on the calculation of Relay hours.
+In some cases, a single Relay may have multiple connected listeners. A Relay is considered "open" when at least one Relay listener is connected to it. Adding additional listeners to an open Relay will result in additional relay hours. The number of Relay senders (clients that invoke or send messages to Relays) connected to a Relay also has no effect on the calculation of Relay hours.
 
-### How is the messages meter calculated for Relays?
+### How is the messages meter calculated for WCF Relays?
+
+**This is only applicable to WCF Relays and is not a cost of Hybrid Connections**
 
 In general, billable messages are calculated for Relays using the same method as described above for brokered entities (queues, topics, and subscriptions). However, there are several notable differences:
 
