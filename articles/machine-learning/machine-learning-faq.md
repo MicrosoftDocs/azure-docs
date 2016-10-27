@@ -17,7 +17,7 @@
 	ms.date="10/26/2016"
 	ms.author="garye"/>
 
-# Azure Machine Learning Frequently Asked Questions (FAQ): Billing, capabilities, limitations, and support
+# Azure Machine Learning Frequently Asked Questions (FAQ): Billing, capabilities, limitations, and support #
 
 This FAQ answers questions about Azure Machine Learning, a cloud service for developing predictive models and operationalizing solutions through web services. This FAQ covers questions about using the service, including the billing model, capabilities, limitations, and support.
 
