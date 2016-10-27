@@ -6,16 +6,16 @@ This article provides a detailed walkthrough of the [Hello World sample code][ln
 
 This walkthrough covers:
 
-- **Concepts**: A conceptual overview of the components that compose any gateway you create with the Gateway SDK.  
+- **Concepts**: A conceptual overview of the components that compose any gateway you create with the IoT Gateway SDK.  
 - **Hello World sample architecture**: Describes how the concepts apply to the Hello World sample and how the components fit together.
 - **How to build the sample**: The steps required to build the sample.
 - **How to run the sample**: The steps required to run the sample. 
 - **Typical output**: An example of the output to expect when you run the sample.
 - **Code snippets**: A collection of code snippets to show how the Hello World sample implements key gateway components.
 
-## Gateway SDK concepts
+## Azure IoT Gateway SDK concepts
 
-Before you examine the sample code or create your own field gateway using the Gateway SDK, you should understand the key concepts that underpin the architecture of the SDK.
+Before you examine the sample code or create your own field gateway using the IoT Gateway SDK, you should understand the key concepts that underpin the architecture of the SDK.
 
 ### Modules
 
@@ -31,7 +31,7 @@ The SDK contains the following:
 
 The SDK provides an abstraction layer that enables you to build gateways to run on a variety of operating systems and platforms.
 
-![Azure IoT Hub Gateway SDK abstraction layer][2]
+![Azure IoT Gateway SDK abstraction layer][2]
 
 ### Messages
 
