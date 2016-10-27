@@ -15,15 +15,19 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/30/2016"
+    ms.date="10/25/2016"
     ms.author="v-livech"
 />
 
 # Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension
 
-This article shows you how to use the Azure VMAcesss Extension to check or repair a disk, reset user access, manage user accounts, or reset the SSHD configuration on Linux.  
+This article shows you how to use the Azure VMAcesss Extension to check or repair a disk, reset user access, manage user accounts, or reset the SSHD configuration on Linux. The article requires:
 
-Prerequisites are: [an Azure account](https://azure.microsoft.com/pricing/free-trial/), [SSH public and private keys](virtual-machines-linux-mac-create-ssh-keys.md), and the Azure CLI installed and switched to Resource Manager mode using `azure config mode arm`.
+- an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)).
+
+- the [Azure CLI](../xplat-cli-install.md) logged in with `azure login`.
+
+- the Azure CLI _must be in_ Azure Resource Manager mode `azure config mode arm`.
 
 ## Quick commands
 
@@ -37,17 +41,19 @@ For the quick command section, we are going to use the Azure CLI `azure vm reset
 ## Create a Resource Group and Linux VM
 
 ```bash
-azure group create resourcegroupexample westus
+azure group create myResourceGroup westus
 ```
+
+## Create a Debian VM
 
 ```bash
 azure vm quick-create \
 -M ~/.ssh/id_rsa.pub \
--u userexample \
--g resourcegroupexample \
+-u myAdminUser \
+-g myResourceGroup \
 -l westus \
 -y Linux \
--n debianexamplevm \
+-n myVM \
 -Q Debian
 ```
 
@@ -56,7 +62,11 @@ azure vm quick-create \
 To reset the root password:
 
 ```bash
-azure vm reset-access -g exampleResourceGroup -n exampleVMName -u root -p examplenewPassword
+azure vm reset-access \
+-g myResourceGroup \
+-n myVM \
+-u root \
+-p myNewPassword
 ```
 
 ## SSH key reset
@@ -64,7 +74,11 @@ azure vm reset-access -g exampleResourceGroup -n exampleVMName -u root -p exampl
 To reset the SSH key of a non-root user:
 
 ```bash
-azure vm reset-access -g exampleResourceGroup -n exampleVMName -u userexample -M ~/.ssh/id_rsa.pub
+azure vm reset-access \
+-g myResourceGroup \
+-n myVM \
+-u myAdminUser \
+-M ~/.ssh/id_rsa.pub
 ```
 
 ## Create a user
@@ -72,13 +86,20 @@ azure vm reset-access -g exampleResourceGroup -n exampleVMName -u userexample -M
 To create a user:
 
 ```bash
-azure vm reset-access -g exampleResourceGroup -n exampleVMName -u userexample -p examplePassword
+azure vm reset-access \
+-g myResourceGroup \
+-n myVM \
+-u myAdminUser \
+-p myAdminUserPassword
 ```
 
 ## Remove a user
 
 ```bash
-azure vm reset-access -g exampleResourceGroup -n exampleVMName -R userexample
+azure vm reset-access \
+-g myResourceGroup \
+-n myVM \
+-R myRemovedUser
 ```
 
 ## Reset SSHD
@@ -86,7 +107,10 @@ azure vm reset-access -g exampleResourceGroup -n exampleVMName -R userexample
 To reset the SSHD configuration:
 
 ```bash
-azure vm reset-access -g exampleResourceGroup -n exampleVMName -r
+azure vm reset-access \
+-g myResourceGroup \
+-n myVM
+-r
 ```
 
 
@@ -116,8 +140,11 @@ To check, and then repair the disk use this VMAccess script:
 Execute the VMAccess script with:
 
 ```bash
-azure vm extension set exampleResourceGroup exampleVM \
-VMAccessForLinux Microsoft.OSTCExtensions * \
+azure vm extension set \
+myResourceGroup \
+myVM \
+VMAccessForLinux \
+Microsoft.OSTCExtensions * \
 --private-config-path disk_check_repair.json
 ```
 
@@ -132,15 +159,18 @@ To reset the root password, use this VMAccess script:
 ```json
 {
   "username":"root",
-  "password":"exampleNewPassword",   
+  "password":"myNewPassword",   
 }
 ```
 
 Execute the VMAccess script with:
 
 ```bash
-azure vm extension set exampleResourceGroup exampleVM \
-VMAccessForLinux Microsoft.OSTCExtensions * \
+azure vm extension set \
+myResourceGroup \
+myVM \
+VMAccessForLinux \
+Microsoft.OSTCExtensions * \
 --private-config-path reset_root_password.json
 ```
 
@@ -150,16 +180,19 @@ To reset the SSH key of a non-root user, use this VMAccess script:
 
 ```json
 {
-  "username":"exampleUser",
-  "ssh_key":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCZ3S7gGp3rcbKmG2Y4vGZFMuMZCwoUzZNG1vHY7P2XV2x9FfAhy8iGD+lF8UdjFX3t5ebMm6BnnMh8fHwkTRdOt3LDQq8o8ElTBrZaKPxZN2thMZnODs5Hlemb2UX0oRIGRcvWqsd4oJmxsXa/Si98Wa6RHWbc9QZhw80KAcOVhmndZAZAGR+Wq6yslNo5TMOr1/ZyQAook5C4FtcSGn3Y+WczaoGWIxG4ZaWk128g79VIeJcIQqOjPodHvQAhll7qDlItVvBfMOben3GyhYTm7k4YwlEdkONm4yV/UIW0la1rmyztSBQIm9sZmSq44XXgjVmDHNF8UfCZ1ToE4r2SdwTmZv00T2i5faeYnHzxiLPA3Enub7iUo5IdwFArnqad7MO1SY1kLemhX9eFjLWN4mJe56Fu4NiWJkR9APSZQrYeKaqru4KUC68QpVasNJHbuxPSf/PcjF3cjO1+X+4x6L1H5HTPuqUkyZGgDO4ynUHbko4dhlanALcriF7tIfQR9i2r2xOyv5gxJEW/zztGqWma/d4rBoPjnf6tO7rLFHXMt/DVTkAfn5woYtLDwkn5FMyvThRmex3BDf0gujoI1y6cOWLe9Y5geNX0oj+MXg/W0cXAtzSFocstV1PoVqy883hNoeQZ3mIGB3Q0rIUm5d9MA2bMMt31m1g3Sin6EQ== exampleUser@exampleServer",   
+  "username":"myAdminUser",
+  "ssh_key":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCZ3S7gGp3rcbKmG2Y4vGZFMuMZCwoUzZNG1vHY7P2XV2x9FfAhy8iGD+lF8UdjFX3t5ebMm6BnnMh8fHwkTRdOt3LDQq8o8ElTBrZaKPxZN2thMZnODs5Hlemb2UX0oRIGRcvWqsd4oJmxsXa/Si98Wa6RHWbc9QZhw80KAcOVhmndZAZAGR+Wq6yslNo5TMOr1/ZyQAook5C4FtcSGn3Y+WczaoGWIxG4ZaWk128g79VIeJcIQqOjPodHvQAhll7qDlItVvBfMOben3GyhYTm7k4YwlEdkONm4yV/UIW0la1rmyztSBQIm9sZmSq44XXgjVmDHNF8UfCZ1ToE4r2SdwTmZv00T2i5faeYnHzxiLPA3Enub7iUo5IdwFArnqad7MO1SY1kLemhX9eFjLWN4mJe56Fu4NiWJkR9APSZQrYeKaqru4KUC68QpVasNJHbuxPSf/PcjF3cjO1+X+4x6L1H5HTPuqUkyZGgDO4ynUHbko4dhlanALcriF7tIfQR9i2r2xOyv5gxJEW/zztGqWma/d4rBoPjnf6tO7rLFHXMt/DVTkAfn5woYtLDwkn5FMyvThRmex3BDf0gujoI1y6cOWLe9Y5geNX0oj+MXg/W0cXAtzSFocstV1PoVqy883hNoeQZ3mIGB3Q0rIUm5d9MA2bMMt31m1g3Sin6EQ== myAdminUser@myVM",   
 }
 ```
 
 Execute the VMAccess script with:
 
 ```bash
-azure vm extension set exampleResourceGroup exampleVM \
-VMAccessForLinux Microsoft.OSTCExtensions * \
+azure vm extension set \
+myResourceGroup \
+myVM \
+VMAccessForLinux \
+Microsoft.OSTCExtensions * \
 --private-config-path reset_ssh_key.json
 ```
 
@@ -173,35 +206,41 @@ To create a user, use this VMAccess script:
 
 ```json
 {
-"username":"exampleNewUserName",
-"ssh_key":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCZ3S7gGp3rcbKmG2Y4vGZFMuMZCwoUzZNG1vHY7P2XV2x9FfAhy8iGD+lF8UdjFX3t5ebMm6BnnMh8fHwkTRdOt3LDQq8o8ElTBrZaKPxZN2thMZnODs5Hlemb2UX0oRIGRcvWqsd4oJmxsXa/Si98Wa6RHWbc9QZhw80KAcOVhmndZAZAGR+Wq6yslNo5TMOr1/ZyQAook5C4FtcSGn3Y+WczaoGWIxG4ZaWk128g79VIeJcIQqOjPodHvQAhll7qDlItVvBfMOben3GyhYTm7k4YwlEdkONm4yV/UIW0la1rmyztSBQIm9sZmSq44XXgjVmDHNF8UfCZ1ToE4r2SdwTmZv00T2i5faeYnHzxiLPA3Enub7iUo5IdwFArnqad7MO1SY1kLemhX9eFjLWN4mJe56Fu4NiWJkR9APSZQrYeKaqru4KUC68QpVasNJHbuxPSf/PcjF3cjO1+X+4x6L1H5HTPuqUkyZGgDO4ynUHbko4dhlanALcriF7tIfQR9i2r2xOyv5gxJEW/zztGqWma/d4rBoPjnf6tO7rLFHXMt/DVTkAfn5woYtLDwkn5FMyvThRmex3BDf0gujoI1y6cOWLe9Y5geNX0oj+MXg/W0cXAtzSFocstV1PoVqy883hNoeQZ3mIGB3Q0rIUm5d9MA2bMMt31m1g3Sin6EQ== exampleUser@exampleServer",
-"password":"examplePassword",
+"username":"myNewUser",
+"ssh_key":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCZ3S7gGp3rcbKmG2Y4vGZFMuMZCwoUzZNG1vHY7P2XV2x9FfAhy8iGD+lF8UdjFX3t5ebMm6BnnMh8fHwkTRdOt3LDQq8o8ElTBrZaKPxZN2thMZnODs5Hlemb2UX0oRIGRcvWqsd4oJmxsXa/Si98Wa6RHWbc9QZhw80KAcOVhmndZAZAGR+Wq6yslNo5TMOr1/ZyQAook5C4FtcSGn3Y+WczaoGWIxG4ZaWk128g79VIeJcIQqOjPodHvQAhll7qDlItVvBfMOben3GyhYTm7k4YwlEdkONm4yV/UIW0la1rmyztSBQIm9sZmSq44XXgjVmDHNF8UfCZ1ToE4r2SdwTmZv00T2i5faeYnHzxiLPA3Enub7iUo5IdwFArnqad7MO1SY1kLemhX9eFjLWN4mJe56Fu4NiWJkR9APSZQrYeKaqru4KUC68QpVasNJHbuxPSf/PcjF3cjO1+X+4x6L1H5HTPuqUkyZGgDO4ynUHbko4dhlanALcriF7tIfQR9i2r2xOyv5gxJEW/zztGqWma/d4rBoPjnf6tO7rLFHXMt/DVTkAfn5woYtLDwkn5FMyvThRmex3BDf0gujoI1y6cOWLe9Y5geNX0oj+MXg/W0cXAtzSFocstV1PoVqy883hNoeQZ3mIGB3Q0rIUm5d9MA2bMMt31m1g3Sin6EQ== myNewUser@myVM",
+"password":"myNewUserPassword",
 }
 ```
 
 Execute the VMAccess script with:
 
 ```bash
-azure vm extension set exampleResourceGroup exampleVM \
-VMAccessForLinux Microsoft.OSTCExtensions * \
+azure vm extension set \
+myResourceGroup \
+myVM \
+VMAccessForLinux \
+Microsoft.OSTCExtensions * \
 --private-config-path create_new_user.json
 ```
 
-To create a user:
+To delete a user, use this VMAccess script:
 
 `remove_user.json`
 
 ```json
 {
-"remove_user":"exampleUser",
+"remove_user":"myDeletedUser",
 }
 ```
 
 Execute the VMAccess script with:
 
 ```bash
-azure vm extension set exampleResourceGroup exampleVM \
-VMAccessForLinux Microsoft.OSTCExtensions * \
+azure vm extension set \
+myResourceGroup \
+myVM \
+VMAccessForLinux \
+Microsoft.OSTCExtensions * \
 --private-config-path remove_user.json
 ```
 
@@ -222,8 +261,11 @@ To reset the SSHD configuration use this VMAccess script:
 Execute the VMAccess script with:
 
 ```bash
-azure vm extension set exampleResourceGroup exampleVM \
-VMAccessForLinux Microsoft.OSTCExtensions * \
+azure vm extension set \
+myResourceGroup \
+myVM \
+VMAccessForLinux \
+Microsoft.OSTCExtensions * \
 --private-config-path reset_sshd.json
 ```
 
