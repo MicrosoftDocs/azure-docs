@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Azure Active Directory v2.0 with the OpenID Connect protocol | Microsoft Azure"
+	pageTitle="Azure Active Directory v2.0 and the OpenID Connect protocol | Microsoft Azure"
 	description="Build web applications by using the Azure AD v2.0 implementation of the OpenID Connect authentication protocol."
 	services="active-directory"
 	documentationCenter=""
@@ -17,11 +17,11 @@
 	ms.date="09/30/2016"
 	ms.author="dastrock"/>
 
-# Azure Active Directory v2.0 with the OpenID Connect protocol
-OpenID Connect is an authentication protocol built on OAuth 2.0. You can use OpenID Connect to securely sign in a user to a web application. Using the v2.0 endpoint's implementation of OpenID Connect, you can add sign-in and API access to your web-based applications. In this article, we show you how to do this independent of language. We describe how to send and receive HTTP messages without using any Microsoft open-source libraries.
+# Azure Active Directory v2.0 and the OpenID Connect protocol
+OpenID Connect is an authentication protocol built on OAuth 2.0 that you can use to securely sign in a user to a web application. When you use the v2.0 endpoint's implementation of OpenID Connect, you can add sign-in and API access to your web-based apps. In this article, we show you how to do this independent of language. We describe how to send and receive HTTP messages without using any Microsoft open-source libraries.
 
 > [AZURE.NOTE]
-	The v2.0 endpoint does not support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+The v2.0 endpoint does not support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) extends the OAuth 2.0 *authorization* protocol to use as an *authentication* protocol, so you can perform single sign-on using OAuth. OpenID Connect introduces the concept of an ID token, which is a security token that allows the client to verify the identity of the user. The ID token also gets basic profile information about the user. Because OpenID Connect extends OAuth 2.0, apps can securely acquire *access tokens*, which can be used to access resources that are secured by an [authorization server](active-directory-v2-protocols.md#the-basics). We recommend that you use OpenID Connect if you are building a [web application](active-directory-v2-flows.md#web-apps) that is hosted on a server and accessed via a browser.
 
@@ -86,8 +86,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [AZURE.TIP] Click the following link to execute this request. After you sign in, your browser will be redirected to https://localhost/myapp/, with an ID token in the address bar. Note that this request uses `response_mode=query` (for demonstration purposes only). We recommend that you use `response_mode=form_post`.
+    <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=query&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-<a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=query&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
 | Parameter | Condition | Description |
 | ----------------------- | ------------------------------- | --------------- |
