@@ -193,7 +193,7 @@ This is not supported. You cannot use Azure Resource Manager to deploy a virtual
 
 **Can I create a virtual machine using the Azure Resource Manager from a user image that was created using the Azure Service Management APIs?**
 
-This is not supported. However, you can copy the VHD files from a storage account that was created using the Service Management APIs and copy it to a new account created using the using the new Azure Resource Manager APIs.
+This is not supported. However, you can copy the VHD files from a storage account that was created using the Service Management APIs, and add them to a new account created through Azure Resource Manager.
 
 **What is the impact on the quota for my subscription?**
 
