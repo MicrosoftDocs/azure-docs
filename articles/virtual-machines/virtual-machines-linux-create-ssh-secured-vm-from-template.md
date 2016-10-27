@@ -19,7 +19,7 @@
 
 # Create a Linux VM using an Azure template
 
-This article shows how to quickly deploy a Linux Virtual Machine on Azure using an Azure Template.  The article requires:
+This article shows you how to quickly deploy a Linux Virtual Machine on Azure using an Azure Template.  The article requires:
 
 - an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)).
 
