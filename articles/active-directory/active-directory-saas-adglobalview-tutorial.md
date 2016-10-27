@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2016"
+	ms.date="10/26/2016"
 	ms.author="jeedes"/>
 
 
@@ -125,10 +125,10 @@ Before you can configure the SAML assertion, you need to contact your ADP Global
 	![Configure Single Sign-On](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_04.png) 
 
 
-    a. In the **Identifier** textbox, type the URL used to idenify ADP GlobalView application using one the following patterns: **“https://\<server name\>.globalview.adp.com/federate2”**, **“https://\<server name\>.globalview.adp.com/federate”** 
+    a. In the **Identifier** textbox, type the URL used to idenify ADP GlobalView application using one the following patterns: `https://<server name>.globalview.adp.com/federate2` or `https://<server name>.globalview.adp.com/federate`
 
 
-    b. In the **Reply URL** textbox, type the URL used by Azure AD to post the response to the ADP GlobalView application, using one of the following patterns: **“https://\<server name\>.globalview.adp.com/federate2/sp/ACS.saml2”**, **“https://\<server name\>.globalview.adp.com/federate/sp/ACS.saml2”**
+    b. In the **Reply URL** textbox, type the URL used by Azure AD to post the response to the ADP GlobalView application, using one of the following patterns: `https://<server name>.globalview.adp.com/federate2/sp/ACS.saml2` or `https://<server name>.globalview.adp.com/federate/sp/ACS.saml2`
 
     c. Click **Next**.
 
@@ -144,15 +144,55 @@ Before you can configure the SAML assertion, you need to contact your ADP Global
 
 5. To get SSO configured for your application, contact your ADP GlobalView support team and provide them with the following: 
 
-    - The downloaded certificate file
-    - Entity ID
-    - SAML SSO URL
-    - Single Sign-Out Service URL
+    - The downloaded **certificate**
+    - **Entity ID**
+    - **SAML SSO URL**
+    - **Single Sign-Out Service URL**
 
 
-    > [AZURE.NOTE] After **ADP GlobalView** team configure the instance, get the **RelayState** value from them and request to Azure AD to configure that for your application instance. You can send this value, your Azure AD tenanat id and application id to Azure AD team on [waadpartners@microsoft.com](mailTo:waadpartners@microsoft.com). After this configuring only you can test the integration and it will work. So please note that this is important configuration step for this application integration to work.
+    > [AZURE.NOTE] After **ADP GlobalView** team configure the instance, get the **RelayState** value from them. Follow the below mentioned steps to configure it. After this configuration you can test the integration. So please note that this is important configuration for this application integration to work
 
-6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+6. To configure the RelayState value in Azure AD, perform the following steps: 
+	
+	a. Logon to the [Azure Management Portal](https://portal.azure.com) as administrator.
+
+	b. In the left navigation pane, click **More Services**. 
+ 	
+	![Configure Single Sign-On](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_07.png)
+
+	c. In the **Search** textbox, type **Azure Active Directory**, and then click the related link.
+	
+	![Configure Single Sign-On](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_08.png)
+
+	d. Click **Enterprise Applications**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_09.png)
+
+	e. In the **Manage** section, click **All Applications**.
+	
+	![Configure Single Sign-On](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_10.png)
+
+	f. In the **Search** textbox, type **ADP eTime**, and then click the related link. 
+	
+	![Configure Single Sign-On](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_11.png)
+
+	g. In the **Manage** section, click **Single sign-on**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_12.png)
+
+	h. Select **Show advanced URL settings**.
+	
+	![Configure Single Sign-On](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_13.png)
+	
+	i. In the **Relay State** textbox, type a value using the following patterns:
+    
+    `https://<server name>.globalview.adp.com/gvolution/session/<instance name>/sso` 
+
+	![Configure Single Sign-On](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_14.png)
+
+	j. Save the settings.
+
+7. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 
 	![Azure AD Single Sign-On][10]
 
