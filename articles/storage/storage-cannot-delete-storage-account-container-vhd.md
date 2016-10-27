@@ -76,7 +76,7 @@ After you delete a VM and then try to delete the blobs for the associated VHDs, 
 ## Solution
 To resolve the most common issues, try the following method:
 
-### Step 1: Delete any OS Disks that are preventing deletion of the Storage Account, Container, or VHD
+### Step 1: Delete any OS Disks that are preventing deletion of the storage account, container, or VHD
 
 1. Switch to the [Azure classic portal](https://manage.windowsazure.com/).
 2. Select **VIRTUAL MACHINE** > **DISKS**.
@@ -91,7 +91,7 @@ To resolve the most common issues, try the following method:
 
  	> [AZURE.NOTE] If a disk is attached to a VM, you will not be able to delete it. Disks are detached from a deleted VM asynchronously. It might take a few minutes after the VM is deleted for this field to clear up.
 
-### Step 2: Delete any VM Images that are preventing deletion of the Storage Account or Container
+### Step 2: Delete any VM Images that are preventing deletion of the storage account or container
 
 1. Switch to the [Azure classic portal](https://manage.windowsazure.com/).
 2. Select **VIRTUAL MACHINE** > **IMAGES**, and then delete the images that are associated with the storage account, container, or VHD.
