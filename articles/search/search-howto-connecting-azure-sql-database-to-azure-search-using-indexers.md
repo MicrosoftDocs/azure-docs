@@ -89,7 +89,7 @@ An indexer created in this way doesn’t have a schedule. It automatically runs 
 	POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2015-02-28 
 	api-key: admin-key
 
-You can customize several aspects of indexer behavior, such as batch size and how many documents can be skipped before an indexer execution will be failed. For more details, see [Create Indexer API](https://msdn.microsoft.com/library/azure/dn946899.aspx).
+You can customize several aspects of indexer behavior, such as batch size and how many documents can be skipped before an indexer execution fails. For more information, see [Create Indexer API](https://msdn.microsoft.com/library/azure/dn946899.aspx).
  
 You may need to allow Azure services to connect to your database. See [Connecting From Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) for instructions on how to do that.
 
@@ -171,7 +171,7 @@ You can add, change, or delete a schedule for an existing indexer by using a **P
 <a name="CaptureChangedRows">,/a>
 ## Capturing new, changed, and deleted rows
 
-If your table has a lot of rows, you should use a data change detection policy. Change detection enables an efficient retrieval of only the new or changed rows without having to re-index the entire table.
+If your table has many rows, you should use a data change detection policy. Change detection enables an efficient retrieval of only the new or changed rows without having to re-index the entire table.
 
 ### SQL Integrated Change Tracking Policy
 
@@ -224,7 +224,7 @@ To use this policy, create or update your data source like this:
 
 > [AZURE.WARNING] If the source table does not have an index on the high water mark column, queries used by the SQL indexer may time out. In particular, the `ORDER BY [High Water Mark Column]` clause requires an index to run efficiently when the table contains many rows. 
 
-If you encounter timeout errors, you can use the `queryTimeout` indexer configuration setting to set the query timeout to a value higher than the default 5 minute timeout. For example, to set the timeout to 10 minutes, create or update the indexer with the following configuration: 
+If you encounter timeout errors, you can use the `queryTimeout` indexer configuration setting to set the query timeout to a value higher than the default 5-minute timeout. For example, to set the timeout to 10 minutes, create or update the indexer with the following configuration: 
 
 	{
 	  ... other indexer definition properties
@@ -232,7 +232,7 @@ If you encounter timeout errors, you can use the `queryTimeout` indexer configur
 	        "configuration" : { "queryTimeout" : "00:10:00" } }
 	}
 
-You can also disable the `ORDER BY [High Water Mark Column]` clause. However, this is not recommended because if the indexer execution is interrupted by an error, the indexer will have to re-process all rows if it runs later - even if the indexer has already processed almost all the rows by the time it was interrupted. To disable the `ORDER BY` clause, use the `disableOrderByHighWaterMarkColumn` setting in the indexer definition:  
+You can also disable the `ORDER BY [High Water Mark Column]` clause. However, this is not recommended because if the indexer execution is interrupted by an error, the indexer has to re-process all rows if it runs later - even if the indexer has already processed almost all the rows by the time it was interrupted. To disable the `ORDER BY` clause, use the `disableOrderByHighWaterMarkColumn` setting in the indexer definition:  
 
 	{
 	 ... other indexer definition properties
