@@ -35,7 +35,7 @@ It is critical for every customer to prepare their own disaster recovery plan. P
 
 You must copy your critical data to another Data Lake Store account in another region with a frequency aligned to the needs of your disaster recovery plan. There are a variety of methods to copy data including [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) or [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md). Azure Data Factory is a useful service for creating and deploying data movement pipelines on a recurring basis.
   
-If a regional outage occurs, you can then access your data in the region where the data was copied.You can monitor the [Azure Service Health Dashboard](https://azure.microsoft.com/en-us/status/) to determine the Azure service status across the globe.
+If a regional outage occurs, you can then access your data in the region where the data was copied.You can monitor the [Azure Service Health Dashboard](https://azure.microsoft.com/status/) to determine the Azure service status across the globe.
 
 ### Data corruption or accidental deletion recovery guidance
 
