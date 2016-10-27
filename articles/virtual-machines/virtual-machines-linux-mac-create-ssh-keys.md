@@ -42,7 +42,7 @@ cd ~/.ssh/
 If you do not have a `~/.ssh` directory the `ssh-keygen` command will create it for you with the correct permissions.
 
 ```bash
-ssh-keygen -t rsa -b 2048 -C "my_user@mydomain.com"
+ssh-keygen -t rsa -b 2048 -C "myusername@myserver"
 ```
 
 Enter the name of the file that is saved into the `~/.ssh/` directory:
@@ -73,13 +73,13 @@ ssh-add ~/.ssh/id_rsa
 Copy the SSH public key to your Linux Server:
 
 ```bash
-ssh-copy-id -i ~/.ssh/id_rsa.pub myusername@myserver.com
+ssh-copy-id -i ~/.ssh/id_rsa.pub myusername@myserver
 ```
 
 Test the login using keys instead of a password:
 
 ```bash
-ssh -o PreferredAuthentications=publickey -o PubkeyAuthentication=yes -i ~/.ssh/id_rsa myusername@myserver.com
+ssh -o PreferredAuthentications=publickey -o PubkeyAuthentication=yes -i ~/.ssh/id_rsa myusername@myserver
 Last login: Tue April 12 07:07:09 2016 from 66.215.22.201
 $
 ```
@@ -107,7 +107,7 @@ cd ~/.ssh
 If you do not have a `~/.ssh` directory the `ssh-keygen` command will create it for you with the correct permissions.
 
 ```bash
-ssh-keygen -t rsa -b 2048 -C "my_user@mydomain.com"
+ssh-keygen -t rsa -b 2048 -C "myusername@myserver"
 ```
 
 _Command explained_
@@ -118,7 +118,7 @@ _Command explained_
 
 `-b 2048` = bits of the key
 
-`-C "my_user@mydomain.com"` = a comment appended to the end of the public key file to easily identify it.  Normally an email is used as the comment but you can use whatever works best for your infrastructure.
+`-C "myusername@myserver"` = a comment appended to the end of the public key file to easily identify it.  Normally an email is used as the comment but you can use whatever works best for your infrastructure.
 
 ### Using PEM keys
 
@@ -133,15 +133,15 @@ ssh-keygen -f ~/.ssh/id_rsa.pub -e > ~/.ssh/id_ssh2.pem
 ## Example of ssh-keygen
 
 ```bash
-ssh-keygen -t rsa -b 2048 -C "ahmet@example.com"
+ssh-keygen -t rsa -b 2048 -C "myusername@myserver"
 Generating public/private rsa key pair.
-Enter file in which to save the key (/home/ahmet/.ssh/id_rsa): id_rsa
+Enter file in which to save the key (/home/myusername/.ssh/id_rsa): id_rsa
 Enter passphrase (empty for no passphrase):
 Enter same passphrase again:
 Your identification has been saved in id_rsa.
 Your public key has been saved in id_rsa.pub.
 The key fingerprint is:
-14:a3:cb:3e:78:ad:25:cc:55:e9:0c:08:e5:d1:a9:08 ahmet@example.com
+14:a3:cb:3e:78:ad:25:cc:55:e9:0c:08:e5:d1:a9:08 myusername@myserver
 The key's randomart image is:
 +--[ RSA 2048]----+
 |        o o. .   |
@@ -158,14 +158,14 @@ The key's randomart image is:
 
 Saved key files:
 
-`Enter file in which to save the key (/home/ahmet/.ssh/id_rsa): id_rsa`
+`Enter file in which to save the key (/home/myusername/.ssh/id_rsa): id_rsa`
 
 The key pair name for this article.  Having a key pair named **id_rsa** is the default and some tools might expect the **id_rsa** private key file name so having one is a good idea. The directory `~/.ssh/` is the default location for SSH key pairs and the SSH config file.
 
 ```bash
 ls -al ~/.ssh
--rw------- 1 ahmet staff  1675 Aug 25 18:04 id_rsa
--rw-r--r-- 1 ahmet staff   410 Aug 25 18:04 rsa.pub
+-rw------- 1 myusername staff  1675 Aug 25 18:04 id_rsa
+-rw-r--r-- 1 myusername staff   410 Aug 25 18:04 rsa.pub
 ```
 A listing of the `~/.ssh` directory. `ssh-keygen` creates the `~/.ssh` directory if it is not present and also sets the correct ownership and file modes.
 
@@ -217,7 +217,7 @@ vim ~/.ssh/config
 # Azure Keys
 Host fedora22
   Hostname 102.160.203.241
-  User ahmet
+  User myusername
 # ./Azure Keys
 # Default Settings
 Host *
@@ -240,11 +240,11 @@ This SSH config gives you sections for each server to enable each to have its ow
 
 `Hostname 102.160.203.241` = the IP address or DNS name for the server being accessed.
 
-`User ahmet` = the remote user account to use when logging into the server.
+`User myusername` = the remote user account to use when logging into the server.
 
 `PubKeyAuthentication yes` = tells SSH you want to use an SSH key to log in.
 
-`IdentityFile /home/ahmet/.ssh/id_id_rsa` = the SSH private key and corresponding public key to use for authentication.
+`IdentityFile /home/myusername/.ssh/id_id_rsa` = the SSH private key and corresponding public key to use for authentication.
 
 
 ## SSH into Linux without a password
