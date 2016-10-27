@@ -120,9 +120,9 @@ The following C# function responds to a new item being dropped into the queue an
 For more code examples and more specific information regarding Azure storage types that are supported, see [Azure Functions triggers and bindings for Azure Storage](functions-bindings-storage.md)
 
 
-## Advanced binding features for your code
+## Advanced binding features
 
-To use the more advanced binding features in the Azure Portal, click the **Advanced editor** option on the **Integrate** tab of your function. The advanced editor allows you to edit the *function.json* directly in the portal.
+To use the more advanced binding features in the Azure portal, click the **Advanced editor** option on the **Integrate** tab of your function. The advanced editor allows you to edit the *function.json* directly in the portal.
 
 #### Dynamic parameter binding 
 
