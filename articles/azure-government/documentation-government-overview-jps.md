@@ -32,6 +32,5 @@ Other cloud providers treat Criminal Justice Information Systems (CJIS) complian
 
 ## Next steps
 
-<a href="https://www.microsoft.com/en-us/TrustCenter/Compliance/CJIS"> Microsoft Trust Center - Criminal Justice Information Services web page</a>
-
-<a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government blog</a>
+- <a href="https://www.microsoft.com/en-us/TrustCenter/Compliance/CJIS"> Microsoft Trust Center - Criminal Justice Information Services web page</a>
+- <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government blog</a>
