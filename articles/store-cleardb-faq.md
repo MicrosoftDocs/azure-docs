@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="FAQ for ClearDB MySql databases with Azure App Service | Microsoft Azure"
 	description="Answers to common questions about using ClearDB MySQL databases with Azure App Service."
 	documentationCenter="php"
@@ -79,7 +79,7 @@ Use Basic or a higher pricing tier for Web Apps. For ClearDB, we recommend eithe
 
 ## How do I upgrade my ClearDB database from one plan to another?
 
-In the [Azure portal](https://portal.azure.com), you can scale up a ClearDB shared hosting database. Read this [article](https://azure.microsoft.com/en-us/documentation/articles/store-cleardb-faq/) to learn more. We currently don't support upgrade for ClearDB Premium clusters in the Azure portal.
+In the [Azure portal](https://portal.azure.com), you can scale up a ClearDB shared hosting database. Read this [article](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/) to learn more. We currently don't support upgrade for ClearDB Premium clusters in the Azure portal.
 
 ## I can’t see my ClearDB database in Azure portal?
 
