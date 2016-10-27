@@ -16,7 +16,7 @@
    ms.date="10/27/2016"
    ms.author="iainfou"/>
 
-# Opening ports to a VM in Azure using the Azure Portal
+# Opening ports to a VM in Azure using the Azure portal
 [AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Quick commands

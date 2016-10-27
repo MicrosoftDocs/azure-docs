@@ -46,7 +46,7 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName "myResourceGroup" `
     -Location "WestUS" -Name "myNetworkSecurityGroup" -SecurityRules $httprule
 ```
 
-Now let's assign your Network Security Group to a subnet. The following example assigns an existing virtual network named `myVnet` to the varible `$vnet`:
+Now let's assign your Network Security Group to a subnet. The following example assigns an existing virtual network named `myVnet` to the variable `$vnet`:
 
 ```powershell
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName "myResourceGroup" `
