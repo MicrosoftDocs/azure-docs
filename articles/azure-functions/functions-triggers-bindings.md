@@ -21,9 +21,9 @@
 # Azure Functions triggers and bindings developer reference
 
 
-This topic provides reference for triggers and bindings along with some of the advanced binding features you can use with your function apps. 
+This topic provides general reference for triggers and bindings. It includes some of the advanced binding features and syntax that is supported with all binding types.  
 
-If you are looking for information regarding how to configure and code specific types of triggers and bindings in Azure Functions, click on a trigger or binding listed below to learn more:
+If you are looking for detailed information around configuring and coding for specific types of triggers and bindings, click on a trigger or binding listed below:
 
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)] 
 
@@ -33,36 +33,96 @@ These articles assume that you've read the [Azure Functions developer reference]
 
 ## Overview
 
-Triggers are event responses used to trigger your custom code. This allows you to respond to events across Azure or on premise. Bindings represent the necessary meta data used to connect your code to the desired trigger or associated input or output data.
+Triggers are event responses used to trigger your custom code. They allow you to respond to events across the Azure platform or on premise. Bindings represent the necessary meta data used to connect your code to the desired trigger or associated input or output data.
 
-To get a better idea of the bindings you can integrate with your Azure Function app, refer to the table below.
+To get a better idea of the different bindings you can integrate with your Azure Function app, refer to the following table.
 
 [AZURE.INCLUDE [dynamic compute](../../includes/functions-bindings.md)]  
 
-Suppose you want to execute some code when a new item is dropped into an Azure Storage queue. You could use an Azure Queue trigger to do this. You would need the following binding information to monitor the queue: the storage account where the queue exists, the queue name, and a variable name that your code would use to refer to the new item that was dropped into the queue.  Here is an example queue trigger binding that could be used with provisioning new user accounts in a system.
+To better understand triggers and bindings in general, suppose you want to execute some code that when a new item is dropped into an Azure Storage queue. Azure Functions provides an Azure Queue trigger to support this. You would need, the following information to monitor the queue:
+ 
+- The storage account where the queue exists
+- The queue name 
+- A variable name that your code would use to refer to the new item that was dropped into the queue.  
+ 
+A queue trigger binding will contain this information for an Azure function. The *function.json* file for each function will contain all related bindings.  Here is an example *function.json* containing a queue trigger binding. 
 
-    {
-      "name": "myNewUserQueueItem",
-      "type": "queueTrigger",
-      "direction": "in",
-      "queueName": "queue-newusers",
-      "connection": "MY_STORAGE_ACCT_APP_SETTING"
-    }
+	{
+	  "bindings": [
+	    {
+	      "name": "myNewUserQueueItem",
+	      "type": "queueTrigger",
+	      "direction": "in",
+	      "queueName": "queue-newusers",
+	      "connection": "MY_STORAGE_ACCT_APP_SETTING"
+	    }
+	  ],
+	  "disabled": false
+	}
 
-Your code may want to send different types of output depending on how the new queue item is processed. For example, you might want to write a new record to an Azure Storage table.  To accomplish this you would setup an output binding that indicates the Storage connection of the table with the table name. The binding would also contain a variable name that you would use to refer to that table. Here is an example storage table output binding you might use. 
+Your code may send different types of output depending on how the new queue item is processed. For example, you might want to write a new record to an Azure Storage table.  To accomplish this you can setup an output binding to an Azure Storage table. Here is an example *function.json* that includes a storage table output binding that could be used with a queue trigger. 
 
-    {
-      "type": "table",
-      "name": "myOutputNewUserTable",
-      "tableName": "newUserTable",
-      "connection": "MY_TABLE_STORAGE_ACCT_APP_SETTING",
-      "direction": "out"
-    }
+
+	{
+	  "bindings": [
+	    {
+	      "name": "myNewUserQueueItem",
+	      "type": "queueTrigger",
+	      "direction": "in",
+	      "queueName": "queue-newusers",
+	      "connection": "MY_STORAGE_ACCT_APP_SETTING"
+	    },
+	    {
+	      "type": "table",
+	      "name": "myNewUserTableBinding",
+	      "tableName": "newUserTable",
+	      "connection": "MY_TABLE_STORAGE_ACCT_APP_SETTING",
+	      "direction": "out"
+	    }
+	  ],
+	  "disabled": false
+	}
+
+
+The following C# function responds to a new item being dropped into the queue and writes a new user entry into an Azure Storage table.
+
+	#r "Newtonsoft.Json"
+
+	using System;
+	using Newtonsoft.Json;
+
+	public static async Task Run(string myNewUserQueueItem, IAsyncCollector<Person> myNewUserTableBinding, 
+									TraceWriter log)
+	{
+	    // In this example the queue item is a JSON string representing an order that contains the name, 
+		// address and mobile number of the new customer.
+	    dynamic order = JsonConvert.DeserializeObject(myNewUserQueueItem);
+	
+	    await myNewUserTableBinding.AddAsync(
+	        new Person() { 
+	            PartitionKey = "Test", 
+	            RowKey = Guid.NewGuid().ToString(), 
+	            Name = order.name,
+	            Address = order.address,
+	            MobileNumber = order.mobileNumber }
+	        );
+	}
+	
+	public class Person
+	{
+	    public string PartitionKey { get; set; }
+	    public string RowKey { get; set; }
+	    public string Name { get; set; }
+	    public string Address { get; set; }
+	    public string MobileNumber { get; set; }
+	}
+
+For more code examples and more specific information regarding Azure storage types that are supported, see [Azure Functions triggers and bindings for Azure Storage](functions-bindings-storage.md)
 
 
 ## Advanced binding features for your code
 
-To use some of the more advanced binding features in the Azure Portal, click the **Advanced Editor** option on the **Integrate** tab of your function. This will allow you to edit the *function.json* directly in the portal.
+To use the more advanced binding features in the Azure Portal, click the **Advanced editor** option on the **Integrate** tab of your function. This will allow you to edit the *function.json* directly in the portal.
 
 #### Dynamic parameter binding 
 
@@ -220,44 +280,49 @@ Using this configuration, the function is now addressable with the following rou
 
 This allows the function code to support two parameters in the address, `category` and `id`. The following C# function code makes use of both parameters as an example.
 
-	public static Task<HttpResponseMessage> Run(
-	     HttpRequestMessage request, string category, int? id, TraceWriter log)
+	public static Task<HttpResponseMessage> Run(HttpRequestMessage request, string category, int? id, 
+													TraceWriter log)
 	{
-	    ...
+	    if (id == null)
+	       return  req.CreateResponse(HttpStatusCode.OK, $"All {category} items were requested.");
+	    else
+	       return  req.CreateResponse(HttpStatusCode.OK, $"{category} item with id = {id} has been requested.");
 	}
 
 Here is Node.js function code to use the same route parameters.
 
 	module.exports = function (context, req) {
+
 	    var category = context.bindingData.category;
 	    var id = context.bindingData.id;
 	
-	    ...
+	    if (!id) {
+	        context.res = {
+	            // status: 200, /* Defaults to 200 */
+	            body: "All " + category + " items were requested."
+	        };
+	    }
+	    else {
+	        context.res = {
+	            // status: 200, /* Defaults to 200 */
+	            body: category + " item with id = " + id + " was requested."
+	        };
+	    }
+	
+	    context.done();
 	} 
 
-By default, all function routes are prefixed with *api*. You can also customize this, or remove it, using the `http.routePrefix` property in your *function.json* file. The following example remove the *api* route prefix by using an empty string.
+By default, all function routes are prefixed with *api*. You can also customize or remove the prefix using the `http.routePrefix` property in your *host.json* file. The following example removes the *api* route prefix by using an empty string for the prefix in the *host.json* file.
 
 	{
 	  "http": {
 	    "routePrefix": ""
-	  },
-	  "bindings": [
-	    {
-	      "type": "httpTrigger",
-	      "name": "req",
-	      "direction": "in",
-	      "methods": [ "get" ],
-	      "route": "products/{category:alpha}/{id:int?}"
-	    },
-	    {
-	      "type": "http",
-	      "name": "res",
-	      "direction": "out"
-	    }
-	  ]
-	}
+	  }
+    }
 
-Using this configuration, the function is now addressable with the following route.
+For detailed information on how to update the *host.json* file for your function, See, [How to update function app files](functions-reference.md#fileupdate). 
+
+By adding this configuration, the function is now addressable with the following route.
 
 	http://<yourapp>.azurewebsites.net/products/electronics/357
 
