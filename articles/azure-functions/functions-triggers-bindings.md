@@ -39,10 +39,10 @@ To get a better idea of the different bindings you can integrate with your Azure
 
 [AZURE.INCLUDE [dynamic compute](../../includes/functions-bindings.md)]  
 
-To better understand triggers and bindings in general, suppose you want to execute some code that when a new item is dropped into an Azure Storage queue. Azure Functions provides an Azure Queue trigger to support this. You would need, the following information to monitor the queue:
+To better understand triggers and bindings in general, suppose you want to execute some code to process a new item dropped into an Azure Storage queue. Azure Functions provides an Azure Queue trigger to support this. You would need, the following information to monitor the queue:
  
-- The storage account where the queue exists
-- The queue name 
+- The storage account where the queue exists.
+- The queue name.
 - A variable name that your code would use to refer to the new item that was dropped into the queue.  
  
 A queue trigger binding contains this information for an Azure function. The *function.json* file for each function contains all related bindings.  Here is an example *function.json* containing a queue trigger binding. 
