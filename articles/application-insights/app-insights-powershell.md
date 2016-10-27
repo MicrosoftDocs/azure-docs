@@ -74,9 +74,9 @@ Install the Azure Powershell module on the machine where you want to run the scr
     This template will set up one availability test in addition to the main resource.
 
 
-2. Open [Azure Resource Manager](https://resources.azure.com/). Navigate down through subscriptions, resourceGroups, components, to your app resource. 
+2. Open [Azure Resource Manager](https://resources.azure.com/). Navigate down through `subscriptions/resourceGroups/<your resource group>/providers/Microsoft.Insights/components`, to your application resource. 
 
-    ![](./media/app-insights-powershell/01.png)
+    ![Navigation in Azure Resource Explorer](./media/app-insights-powershell/01.png)
 
     *Components* are the basic Application Insights resources for displaying applications. There are separate resources for the associated alert rules and availability web tests.
 
