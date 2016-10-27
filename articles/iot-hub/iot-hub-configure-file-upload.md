@@ -24,7 +24,7 @@ To use the [file upload functionality in IoT Hub][lnk-upload], you must first as
 
 ![][13]
 
-**Storage container**: Use the portal to select a blob container in a storage account in your current subscription to associate with your IoT Hub. If necessary, you can create a storage account on the **Storage accounts** blade and blob container on the **Containers** blade. IoT Hub automatically generates SAS URIs with write permissions to this blob container for devices to use when they upload files.
+**Storage container**: Use the Azure portal to select a blob container in an Azure Storage account in your current Azure subscription to associate with your IoT Hub. If necessary, you can create an Azure Storage account on the **Storage accounts** blade and blob container on the **Containers** blade. IoT Hub automatically generates SAS URIs with write permissions to this blob container for devices to use when they upload files.
 
 ![][14]
 
@@ -51,7 +51,7 @@ Follow these links to learn more about managing Azure IoT Hub:
 To further explore the capabilities of IoT Hub, see:
 
 - [Developer guide][lnk-devguide]
-- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 - [Secure your IoT solution from the ground up][lnk-securing]
 
 

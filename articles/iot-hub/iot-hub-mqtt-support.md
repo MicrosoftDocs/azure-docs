@@ -101,7 +101,7 @@ To learn more about the MQTT protocol, see the [MQTT documentation][lnk-mqtt-doc
 
 To learn more about planning your IoT Hub deployment, see:
 
-- [Supported devices][lnk-devices]
+- [Azure Certified for IoT device catalog][lnk-devices]
 - [Support additional protocols][lnk-protocols]
 - [Compare with Event Hubs][lnk-compare]
 - [Scaling, HA, and DR][lnk-scaling]
@@ -109,7 +109,7 @@ To learn more about planning your IoT Hub deployment, see:
 To further explore the capabilities of IoT Hub, see:
 
 - [Developer guide][lnk-devguide]
-- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [lnk-mqtt-org]: http://mqtt.org/
@@ -123,7 +123,7 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-sas-tokens]: iot-hub-devguide-security.md#using-sas-tokens-as-a-device
 [lnk-mqtt-devguide]: iot-hub-devguide-messaging.md#notes-on-mqtt-support
 
-[lnk-devices]: iot-hub-tested-configurations.md
+[lnk-devices]: https://catalog.azureiotsuite.com/
 [lnk-protocols]: iot-hub-protocol-gateway.md
 [lnk-compare]: iot-hub-compare-event-hubs.md
 [lnk-scaling]: iot-hub-scaling.md
