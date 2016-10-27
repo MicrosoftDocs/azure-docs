@@ -38,7 +38,7 @@
 8. In **Name** type `MyHandler`, then click **OK**.
 
 
-	![](./media/mobile-services-android-get-started-push/android-studio-create-class.png)
+	![](./media/app-service-mobile-android-configure-push/android-studio-create-class.png)
 
 
 9. In the MyHandler file, replace the class declaration with
