@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="10/27/2016"
 	ms.author="sumuth"/>
 
 # FAQ for ClearDB MySql databases with Azure App Service
@@ -100,10 +100,6 @@ Yes, Basic series databases can be upgraded in-place (Basic 60 through Basic 500
 ## When I migrate my resources from one subscription to another, does my ClearDB MySQL database get migrated as well? 
 
 When you perform resource migration across subscriptions, some [limitations](./app-service-web/app-service-move-resources.md) apply. A ClearDB MySQL database is a third party service and hence does not get migrated during Azure subscription migration. If you do not manage the migration of your MySQL database prior to migrating Azure resources, your ClearDB MySQL databases can be disabled. Manually migrate your databases first and then perform Azure subscription migration for your web app. 
-
-## Can I purchase Scalable WordPress with an Enterprise Agreement (EA) subscription?
-
-The process is the same for any subscription. Go to Azure Marketplace in the [Azure portal](https://portal.azure.com/), and select [Scalable WordPress](https://portal.azure.com/?feature.customportal=false#create/WordPress.ScalableWordPress) to start creating the app. Scalable WordPress only supports ClearDB Saturn and Jupiter pricing tiers, and your EA credits will go towards both your web application running on the Standard Web Apps pricing tier and the paid ClearDB (shared) MySQL database.[/marketplace/faq/](/marketplace/faq/) You will be billed against your EA each quarter for all Store purchases on a separate, consolidated invoice.
 
 ## Can I transfer a ClearDB database from a credit card subscription to an EA subscription?
 
