@@ -20,8 +20,7 @@
 
 The Azure Active Directory (Azure AD) v2.0 endpoint emits several types of security tokens in each [authentication flow](active-directory-v2-flows.md). This reference describes the format, security characteristics, and contents of each type of token.
 
-> [AZURE.NOTE]
-	The v2.0 endpoint does not support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+> [AZURE.NOTE]The v2.0 endpoint does not support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
 ## Types of tokens
 
@@ -49,7 +48,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 
 #### Claims in ID tokens
 | Name | Claim | Example value | Description |
-| ----------------------- | ------------------------------- | ------------ | ------------------------------- |
+| ----------------------- | --------------------- | ------------ | ------------------------------- |
 | Audience | `aud` | `6731de76-14a6-49ae-97bc-6eba6914391e` | Identifies the intended recipient of the token. In ID tokens, the audience is your app's Application ID, assigned to your app in the Microsoft Application Registration Portal. Your app should validate this value, and reject the token if the value does not match. |
 | Issuer | `iss` | `https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` | Identifies the security token service (STS) that constructs and returns the token, and the Azure AD tenant in which the user was authenticated. Your app should validate the issuer claim to ensure that the token came from the v2.0 endpoint. It also should use the GUID portion of the claim to restrict the set of tenants that can sign in to the app. The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 | Issued At | `iat` | `1452285331` | The time at which the token was issued, represented in epoch time. |
