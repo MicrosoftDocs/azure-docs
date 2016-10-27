@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Team Data Science Process Lifecycle 
+	pageTitle="Team Data Science Process Lifecycle | Microsoft Azure" 
 	description="An outline of the key components of the Team Data Science Team Lifecycle."  
 	services="machine-learning"
 	documentationCenter=""
