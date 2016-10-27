@@ -16,8 +16,8 @@
     ms.date="11/01/2016"
     ms.author="jotaub"/>
 
-# Get started with Service Bus queues
+# Get started with Relay Hybrid Connections
 
 [AZURE.INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-Content to follow!
+Content to follow...
