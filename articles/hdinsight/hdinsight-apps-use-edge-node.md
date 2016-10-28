@@ -69,17 +69,14 @@ In this section, you use a Resource Manager template to add an edge node to an e
 
 3. Configure the following properties:
 
-	- **Subscription**: Select an Azure subscription for the cluster.
+	- **Subscription**: Select an Azure subscription used for creating the cluster.
 	- **Resource group**: Select the resource group used for the existing HDInsight cluster.
 	- **Location**: Select the location of the existing HDInsight cluster.
 	- **Cluster Name**: Enter the name of an existing HDInsight cluster.
 	- **Edge Node Size**: Select one of the VM sizes.
 	- **Edge Node Prefix**: The default value is **new**.  Using the default value, the edge node name is **new-edgenode**.  You can customize the prefix from the portal. You can also customize the full name from the template.
 
-4. Click **OK** to save the changes.
-5. In **Resource group**, select a Resource Group.
-6. Click **Review legal terms**, and then click **Purchase**.
-7. Select **Pin to dashboard**, and then click **Create**.
+4. Check **I agree to the terms and conditions stated above**, and then click  **Purchase** to create the edge node.
 
 ## Add an edge node when creating a cluster
 
@@ -93,22 +90,25 @@ In this section, you use a Resource Manager template to create HDInsight cluster
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 3. Configure the following properties:
-		
-	- CLUSTERNAME: Enter a name for the new cluster to create.
-	- CLUSTERLOGINUSERNAME: Enter the Hadoop HTTP user name.  The default name is **admin**.
-	- CLUSTERLOGINPASSWORD: Enter the Hadoop HTTP user password.
-	- SSHUSERNAME: Enter the SSH user name. The default name is **sshuser**.
-	- SSHPASSWORD: Enter the SSH user password.
-	- LOCATION: Enter the location of the Resource Group name, the cluster, and the default storage account.
-	- CLUSTERTYPE: The default value is **hadoop**.
-	- CLUSTERWORKERNODECOUNT: The default value is 2.
-	- EDGENODESIZE: Select one of the VM sizes.
-	- EDGENODEPREFIX: The default value is **new**.  Using the default value, the edge node name is **new-edgenode**.  You can customize the prefix from the portal. You can also customize the full name from the template.
 
-4. Click **OK** to save the changes.
-5. In **Resource group**, enter a new Resource Group name.
-6. Click **Review legal terms**, and then click **Purchase**.
-7. Select **Pin to dashboard**, and then click **Create**. 
+	- **Subscription**: Select an Azure subscription used for creating the cluster.
+	- **Resource group**: Create a new resource group used for the cluster.
+	- **Location**: Select a location for the resource group.
+	- **Cluster Name**: Enter a name for the new cluster to create.
+	- **Cluster Login User Name**: Enter the Hadoop HTTP user name.  The default name is **admin**.
+	- **Cluster Login Password**: Enter the Hadoop HTTP user password.
+	- **Ssh User Name**: Enter the SSH user name. The default name is **sshuser**.
+	- **Ssh Password**: Enter the SSH user password.
+	- **Install Script Action**: Keep the default value for going through this tutorial.
+
+	Some values have been hardcoded in the template:
+
+	- Cluster type: The default value is **hadoop**.
+	- Cluster worker node count: The default value is 2.
+	- Edge node size: The default values is Standard_D3.
+	- Edge node name: The default value is new-edgenode. 
+
+4. Check **I agree to the terms and conditions stated above**, and then click  **Purchase** to create the cluster with the edge node.
 
 
 ## Access an edge node
