@@ -20,7 +20,7 @@
 
 # Understand your seller insights report
 
-**What are seller insights?**
+## What are seller insights?
 
 All VM and usage-based billing developer services publishers receive monthly reports from Microsoft, if their offers are generating usage.
 
