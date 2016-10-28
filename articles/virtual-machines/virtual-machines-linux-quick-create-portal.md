@@ -45,13 +45,14 @@ Click **Virtual Machines** in the **Marketplace** then **Ubuntu Server 14.04 LTS
 ## Enter VM options
 
 On the **Basics** page, enter:
-    - a name for the VM
-    - a username for the Admin User
-    - the Authentication Type set to **SSH public key**
-    - your SSH public Key as a string (from your `~/.ssh/` directory)
-    - a resource group name or select an existing group
 
-    and Click **OK** to continue and choose the VM size; it should look something like the following:
+- a name for the VM
+- a username for the Admin User
+- the Authentication Type set to **SSH public key**
+- your SSH public Key as a string (from your `~/.ssh/` directory)
+- a resource group name or select an existing group
+
+and Click **OK** to continue and choose the VM size; it should look something like the following:
 
     ![screen3](../media/virtual-machines-linux-quick-create-portal/screen3.png)
 
