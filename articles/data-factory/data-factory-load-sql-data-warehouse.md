@@ -99,7 +99,7 @@ This article provides step-by-step instructions for moving data into Azure SQL D
 
 With the prerequisite steps completed, we are now ready to configure the copy activity using the Copy Wizard.
 
-## Launch and use Copy Wizard
+## Launch Copy Wizard
 
 1.	Log in to the [Azure portal](https://portal.azure.com).
 2.	Click **+ NEW** from the top-left corner, click **Intelligence + analytics**, and click **Data Factory**. 
