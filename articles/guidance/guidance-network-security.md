@@ -18,7 +18,7 @@
    
 # Protecting the Cloud Boundary in Azure
 
-An on-premises network can be connected to a VNet in Azure by using an Azure VPN gateway. The network boundary between these two environments can expose areas of weakness in terms of security, and it is necessary to protect this boundary to block unauthorized requests. Cloud applications that are exposed to the public Internet require similar protection. <!-- mike: True but the considerations will be different in PaaS, e.g. you don't need a DMZ in App Services. Should we rephrase to limit it to IaaS? (Apps running on VMs in Azure?) -->  
+An on-premises network can be connected to a VNet in Azure by using an Azure VPN gateway. The network boundary between these two environments can expose areas of weakness in terms of security, and it is necessary to protect this boundary to block unauthorized requests. Cloud applications running on VMs in Azure that are exposed to the public Internet require similar protection.
 
 The patterns & practices group has created a set of reference architectures to address these scenarios. Each reference architecture demonstrates one approach to protecting the network boundary, and includes:
   		  
@@ -31,7 +31,7 @@ This article gives a summary of each reference architecture, and helps you to de
 
 ## Using a DMZ between Azure and on-premises datacenters
 
-You can create a DMZ (also known as a *perimeter network*) to filter traffic that crosses the cloud boundary as it attempts to access components and applications running in Azure. A DMZ consists of a set of highly available network virtual appliances (NVAs) that can perform tasks such as acting as a firewall, inspecting network packets, and denying access to suspicious requests. These NVAs are typically implemented as Azure VMs. Traffic enters the NVA from a network interface exposed as part of the *inbound NVA subnet*, and filtered traffic exits to the application through another network interface on the *outbound NVA subnet*. 
+You can create a DMZ (also known as a *perimeter network*) to filter traffic that crosses the cloud boundary as it attempts to access components and applications running in Azure. A DMZ in Azure consists of a set of network virtual appliances (NVAs) that can perform tasks such as acting as a firewall, inspecting network packets, and denying access to suspicious requests. These NVAs are implemented as Azure VMs. Traffic enters the NVA from a network interface exposed as part of the *inbound NVA subnet*, and filtered traffic exits to the application through another network interface on the *outbound NVA subnet*. 
 
 You can also implement user-defined routing (*forced tunnelling*) to direct outbound traffic from Azure intended for the Internet back through the on-premises network. You can then audit and log all Internet-bound traffic, which is a regulatory requirement of many commercial systems, and can help to prevent public disclosure of private information.
 
@@ -43,7 +43,7 @@ Benefits:
 
 - The ability to reuse security appliances commonly used by on-premises networks.
 
-- The ability to secure access to Azure at the point of the VPN gateway.
+- The ability to secure access to Azure at the point of the virtual network gateway.
 
 Considerations:
 
@@ -55,7 +55,7 @@ For detailed information about this architecture, see [Implementing a secure hyb
 
 ## Using a DMZ between Azure and the public Internet
 
-If your Azure web applications <!-- This could be confused with App Service we apps (PaaS), specify VM environment here --> are open to the Internet, you must ensure that all public access is protected. In this scenario, you can implement a DMZ that filters traffic received via a load balancer from a public IP address rather than the VPN gateway, as shown below: 
+If your Aapplications running on Azure are open to the Internet, you must ensure that all public access is protected. In this scenario, you can implement a DMZ that filters traffic received via a load balancer from a public IP address rather than the virtual network gateway. 
 
 [![1]][1]
 
@@ -67,7 +67,7 @@ Benefits:
 
 Considerations:
 
-- An external load balancer only provides high available for traffic ingress to the VNet.
+- An external load balancer only provides high availability for traffic ingress to the VNet.
 
 - Egress from the VNet is not highly available.
 
