@@ -43,11 +43,11 @@ To manage single sign-on settings, select **Single sign-on**.
 
 The **Single sign-on** blade begins with a **Mode** menu, which allows the single sign-on mode to be configured. The available options include:
 
-* **SAML-based sign on** - This option is available if the application supports full federated single sign-on with Azure Active Directory using the SAML 2.0 protocol. This
+* **SAML-based sign on** - This option is available if the application supports full federated single sign-on with Azure Active Directory using the SAML 2.0 protocol.
 
 * **Password-based sign on** - This option is available if Azure AD supports password form filling for this application.
 
-* **Linked sign on** - Formerly known as "Existing single sign-on", this option allows administrators to place a link to this application in their user's Azure AD Access Panel or Office 3645 application launcher.
+* **Linked sign on** - Formerly known as "Existing single sign-on", this option allows administrators to place a link to this application in their user's Azure AD Access Panel or Office 365 application launcher.
 
 For more information about these modes, see [How does single sign-on with Azure Active Directory work](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 

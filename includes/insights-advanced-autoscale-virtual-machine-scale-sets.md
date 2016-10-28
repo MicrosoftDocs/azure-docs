@@ -25,7 +25,7 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
 	| **Profile** | **Performance/metric based**    |
 	| Rule    | Service Bus Queue Message Count > x |
 	| Rule    | Service Bus Queue Message Count < y |
-	| Rule    | CPU%,< n                            |
+	| Rule    | CPU% > n                            |
 	| Rule    | CPU% < p                            |
 	| **Profile** | **Weekday morning hours (no rules)**    |
 	| **Profile** | **Product Launch day (no rules)**       |
