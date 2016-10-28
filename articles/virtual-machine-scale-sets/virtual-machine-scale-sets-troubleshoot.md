@@ -58,15 +58,15 @@ Some things to consider include:
 
     __Update:__ Azure autoscale has been enhanced to use a host based metrics pipeline which no longer requires a diagnostics extension to be installed. this means the next few paragraphs no longer apply if you create an autoscaling application using the new pipeline. Examples of Azure templates which have been converted to use the host pipeline include: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale, https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale. 
 
-   Using host based metrics for autoscale is better for the following reasons:
+    Using host based metrics for autoscale is better for the following reasons:
 
-- Fewer moving parts as no diagnostics extensions need to be installed.
-- Simpler templates. Just add insights autoscale rules to an existing scale set template.
-- More reliable reporting and faster launching of new VMs.
+    - Fewer moving parts as no diagnostics extensions need to be installed.
+    - Simpler templates. Just add insights autoscale rules to an existing scale set template.
+    - More reliable reporting and faster launching of new VMs.
 
    The only reasons you might want to keep using a diagnostic extension would be if you need memory diagnostics reporting/scaling. Host based metrics doesn't report memory.
 
-   With that in mind, only follow the rest of this article if you are still using diagnostic extensions for your autoscaling:
+    With that in mind, only follow the rest of this article if you are still using diagnostic extensions for your autoscaling.
 
     Autoscale in Azure Resource Manager can work (but no longer has to) by means of a VM extension called the Diagnostics Extension. It emits performance data to a storage account you define in the template. This data is then aggregated by the Azure Monitor service.
 
