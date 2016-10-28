@@ -48,7 +48,7 @@ Please note though the JSON file is a textual representation of the experiment g
 
 
 ## Versioning trained model
-A trained model in Azure ML is serialized into a format known as .iLearner file and stored in the Azure blob storage account associated with the workspace. One way to get hold of a copy of the iLearner file is through retraining API. This [article](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-retrain-models-programmatically/) explains in much more detail on how retraining API works. But the high-level steps are:
+A trained model in Azure ML is serialized into a format known as .iLearner file and stored in the Azure blob storage account associated with the workspace. One way to get hold of a copy of the iLearner file is through retraining API. This [article](machine-learning-retrain-models-programmatically/) explains in much more detail on how retraining API works. But the high-level steps are:
 
 1. Set up your training experiment.
 2. Add web service output port to the Train Model module, or the module that produces the trained model, such as Tune Model Hyperparameter or Create R Model module.
@@ -76,11 +76,11 @@ To version a classic web service, you can leverage the web service endpoint cons
 
 Over time, you may have many endpoints created in the same web service, each represents a point-in-time copy of the experiment containing the point-in-time version of the trained model. You can then use external logic to determine which endpoint to call, which effectively means selecting a version of the trained model for the scoring run.
 
-You can also create many identical web service endpoints, and then patch different versions of the .iLearner file to the endpoint to achieve similar effect. This [article](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-models-and-endpoints-with-powershell/) explains in more detail on how to accomplish that.
+You can also create many identical web service endpoints, and then patch different versions of the .iLearner file to the endpoint to achieve similar effect. This [article](machine-learning-create-models-and-endpoints-with-powershell/) explains in more detail on how to accomplish that.
 
 
 ### New web service
-If you are create new ARM based web service, endpoint construct is no longer available. Instead, you can generate WSD (web service definition) files, in JSON format, from your predictive experiment using the [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell commandlet, or using [*Explort-AzureRmMlWebservice*](https://msdn.microsoft.com/en-us/library/azure/mt767935.aspx) PowerShell commandlet from an arleady deployed ARM based web service. 
+If you are create new ARM based web service, endpoint construct is no longer available. Instead, you can generate WSD (web service definition) files, in JSON format, from your predictive experiment using the [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell commandlet, or using [*Export-AzureRmMlWebservice*](https://msdn.microsoft.com/en-us/library/azure/mt767935.aspx) PowerShell commandlet from an arleady deployed ARM based web service. 
 
 Once you have the exported WSD file and version control it. You can also deploy the WSD as a new web service in a different web service plan in a different Azure region. Just make sure you supply the proper storage account configuration as well as the new web service plan ID. To patch in different .iLearner files, you can modify the WSD file and update the location reference of the trained model, and deploy as a new web service.
 
