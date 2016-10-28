@@ -1,6 +1,6 @@
 <properties
-	pageTitle="What to do in the event of an Azure service disruption that impacts Azure Key Vault | Microsoft Azure"
-	description="Learn what to do in the event of an Azure service disruption that impacts Azure Key Vault."
+	pageTitle="What to do in the event of an Azure service disruption that affects Azure Key Vault | Microsoft Azure"
+	description="Learn what to do in the event of an Azure service disruption that affects Azure Key Vault."
 	services="key-vault"
 	documentationCenter=""
 	authors="adamglick"
