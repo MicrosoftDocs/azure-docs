@@ -1,21 +1,20 @@
 <properties
-	pageTitle="Azure Government documentation | Microsoft Azure"
-	description="This provides a comparison of features and guidance on developing applications for Azure Government."
-	services="Azure-Government"
-	cloud="gov"
-	documentationCenter=""
-	authors="VybavaRamadoss"
-	manager="asimm"
-	editor=""/>
-
-<tags	ms.service="multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="azure-government"
-	ms.date="10/20/2016"
-	ms.author="zakramer;vybavar"/>
-
+            pageTitle="Azure Government documentation | Microsoft Azure"
+            description="This provides a comparison of features and guidance on developing applications for Azure Government."
+            services="Azure-Government"
+            cloud="gov"
+            documentationCenter=""
+            authors="tsingh"
+            manager="asimm"
+            editor=""/>
+ 
+<tags    ms.service="multiple"
+            ms.devlang="na"
+            ms.topic="article"
+            ms.tgt_pltfrm="na"
+            ms.workload="azure-government"
+            ms.date="10/20/2016"
+            ms.author="zakramer;tsingh;divacc"/> 
 
 # Azure Government Marketplace
 For partners interested in publishing your offerings to the Azure Marketplace for Government, find the details below.
