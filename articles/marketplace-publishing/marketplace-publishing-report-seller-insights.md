@@ -15,7 +15,7 @@
    ms.workload="na"
    ms.date="10/03/2016"
    ms.author="v-jeana; hascipio"; v-dabosl/>
-   ms.date="10/27/2016"
+   ms.date="10/26/2016"
    ms.author="v-jeana; hascipio"/>
 
 # Understand your seller insights report
