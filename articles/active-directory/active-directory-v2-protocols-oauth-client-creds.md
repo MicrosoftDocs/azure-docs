@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Azure Active Directory v2.0 and the OAuth client credentials flow | Microsoft Azure"
+	pageTitle="Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow | Microsoft Azure"
 	description="Build web applications by using the Azure AD implementation of the OAuth 2.0 authentication protocol."
 	services="active-directory"
 	documentationCenter=""
@@ -22,7 +22,7 @@
 You can use the [OAuth 2.0 client credentials grant](http://tools.ietf.org/html/rfc6749#section-4.4), sometimes called *two-legged OAuth*, to access web-hosted resources by using the identity of an application. This type of grant commonly is used for server-to-server interactions that must run in the background, without immediate interaction with a user. These types of applications often are referred to as *daemons* or *service accounts*.
 
 > [AZURE.NOTE]
-	The v2.0 endpoint doesn't support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+The v2.0 endpoint doesn't support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
 In the more typical *three-legged OAuth*, a client application is granted permission to access a resource on behalf of a specific user. The permission is delegated from the user to the application, usually during the [consent](active-directory-v2-scopes.md) process. However, in the client credentials flow, permissions are granted directly to the application itself. When the app presents a token to a resource, the resource enforces that the app itself has authorization to perform an action, and not that the user has authorization.
 
@@ -50,7 +50,7 @@ Instead of using ACLs, you can use APIs to expose a set of application permissio
 - Read directory data.
 
 
-For more application permissions, go to [Microsoft Graph](https://graph.microsoft.io).
+For more information about application permissions, go to [Microsoft Graph](https://graph.microsoft.io).
 
 To use application permissions in your app, do the steps we discuss in the next sections.
 
@@ -64,7 +64,7 @@ To use application permissions in your app, do the steps we discuss in the next 
 
 Typically, when you build an application that uses application permissions, the app requires a page or view on which the admin approves the app's permissions. This page can be part of the app's sign-in flow, part of the app's settings, or it can be a dedicated "connect" flow. In many cases, it makes sense for the app to show this "connect" view only after a user has signed in with a work or school Microsoft account.
 
-If you sign the user in to the app, you can identify the organization to which the user belongs before you ask the user to approve the application permissions. Although not strictly necessary, it can help you create a more intuitive experience for your users. To sign the user in, follow our [v2.0 protocol tutorials](active-directory-v2-protocols.md).
+If you sign the user in to your app, you can identify the organization to which the user belongs before you ask the user to approve the application permissions. Although not strictly necessary, it can help you create a more intuitive experience for your users. To sign the user in, follow our [v2.0 protocol tutorials](active-directory-v2-protocols.md).
 
 #### Request the permissions from a directory admin
 
@@ -90,7 +90,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 | Parameter | Condition | Description |
 | ----------------------- | ------------------------------- | --------------- |
 | tenant | Required | The directory tenant that you want to request permission from. This can be in GUID or friendly name format. If you don't know which tenant the user belongs to and you want to let them sign in with any tenant, use `common`. |
-| client_id | Required | The Application ID that the ([Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) assigned to your app. |
+| client_id | Required | The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) assigned to your app. |
 | redirect_uri | Required | The redirect URI where you want the response to be sent for your app to handle. It must exactly match one of the redirect URIs that you registered in the portal, except that it must be URL encoded, and it can have additional path segments. |
 | state | Recommended | A value that is included in the request that also is returned in the token response. It can be a string of any content that you want. The state is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
 
