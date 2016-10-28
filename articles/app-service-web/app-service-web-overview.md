@@ -3,8 +3,8 @@
 	description="Learn how Azure App Service helps you develop and host web applications"
 	services="app-service\web"
 	documentationCenter=""
-	authors="jaime-espinosa"
-	manager="wpickett"
+	authors="cephalin"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="10/28/2016"
-	ms.author="rachelap"/>
+	ms.author="cephalin"/>
 
 # Web Apps overview
 
