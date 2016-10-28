@@ -16,7 +16,7 @@
   ms.date="09/30/2016"
   ms.author="elbutter"/>
 
-  # Query Azure SQL Data Warehouse (Visual Studio)
+  #Query Azure SQL Data Warehouse (SQL Server Management Studio)
 
 > [AZURE.SELECTOR]
 - [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
