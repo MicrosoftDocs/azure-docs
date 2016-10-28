@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2016"
+	ms.date="10/26/2016"
 	ms.author="kgremban"/>
 
 
@@ -51,7 +51,7 @@ To lower the exposure time of privileges and increase your visibility into their
 
 ## Attack detection
 
-[Azure Active Directory Identity Protection](active-directory-identityprotection.md) provides a consolidated view into risk events and potential vulnerabilities affecting your organization’s identities. Based on risk events, Identity Protection calculates a user risk level for each user, enabling you to configure risk-based policies to automatically protect the identities of your organization. These policies, along with other conditional access controls provided by Azure Active Directory and EMS, can automatically block the user or offer suggestions that include password resets and multi-factor authentication enforcement.
+[Azure Active Directory Identity Protection](../active-directory-identityprotection.md) provides a consolidated view into risk events and potential vulnerabilities affecting your organization’s identities. Based on risk events, Identity Protection calculates a user risk level for each user, enabling you to configure risk-based policies to automatically protect the identities of your organization. These policies, along with other conditional access controls provided by Azure Active Directory and EMS, can automatically block the user or offer suggestions that include password resets and multi-factor authentication enforcement.
 
 ![Azure AD Identity Protection][3]
 
@@ -65,16 +65,16 @@ With conditional access control, Azure Active Directory checks the specific cond
 
 ## Related articles
 
-- Enable [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
-- Enable [Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
-- Enable [Azure AD Identity Protection](active-directory-identityprotection.md)
-- Enable [conditional access controls](active-directory-conditional-access.md)
+- Enable [Azure Multi-Factor Authentication](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
+- Enable [Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md)
+- Enable [Azure AD Identity Protection](../active-directory-identityprotection.md)
+- Enable [conditional access controls](../active-directory-conditional-access.md)
 
 
 For more information on building a complete security roadmap, see the “Customer responsibilities and roadmap” section of the [Microsoft Cloud Security for Enterprise Architects](http://aka.ms/securecustomer) document. For more information on engaging Microsoft services to assist with any of these topics, contact your Microsoft representative or visit our [Cybersecurity solutions page](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 <!--Image references-->
-[1]: ./media/active-directory-privileged-identity-management-configure/Search_PIM.png
-[2]: ./media/active-directory-privileged-identity-management-configure/PIM_Dash.png
-[3]: ./media/active-directory-identityprotection/29.png
-[4]: ./media/active-directory-conditional-access/conditionalaccess-saas-apps.png
+[1]: ../media/active-directory-privileged-identity-management-configure/Search_PIM.png
+[2]: ../media/active-directory-privileged-identity-management-configure/PIM_Dash.png
+[3]: ../media/active-directory-identityprotection/29.png
+[4]: ../media/active-directory-conditional-access/conditionalaccess-saas-apps.png
