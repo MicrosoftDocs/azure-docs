@@ -47,9 +47,9 @@ Azure IoT Hub helps you connect, monitor, and manage millions of IoT assets. To 
     az login
     ```
 
-    All your available subscriptions are listed after a successful login.
+    All your available Azure subscriptions are listed after a successful login.
 
-2. Set the default subscription that you want to use by running the following command:
+2. Set the default Azure subscription that you want to use by running the following command:
 
     ```bash
     az account set -n {subscription id or name}
@@ -101,4 +101,4 @@ You've created an Azure IoT hub and registered your Pi with a device identity in
 
 ## Next Steps
 
-You're now ready to start Lesson 3 that begins with [Create an Azure function app and a storage account to process and store IoT hub messages](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md).
+You're now ready to start Lesson 3 that begins with [Create an Azure function app and an Azure Storage account to process and store IoT hub messages](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md).

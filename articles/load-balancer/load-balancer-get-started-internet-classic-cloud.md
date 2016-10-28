@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Get started creating an Internet facing load balancer in classic deployment model using for cloud services | Microsoft Azure"
    description="Learn how to create an Internet facing load balancer in classic deployment model for cloud services"
    services="load-balancer"
@@ -8,10 +8,10 @@
    editor=""
    tags="azure-service-management"
 />
-<tags  
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
@@ -28,7 +28,7 @@
 Cloud services are automatically configured with a load balancer and can be customized via the service model.
 
 ## Create a load balancer using the service definition file
- 
+
 You can leverage the Azure SDK for .NET 2.5 to update your cloud service. Endpoint settings for cloud services are made in the [service definition](https://msdn.microsoft.com/library/azure/gg557553.aspx).csdef file.
 
 The following example shows how a servicedefinition.csdef file for a cloud deployment is configured:
