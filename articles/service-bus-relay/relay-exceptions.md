@@ -50,7 +50,7 @@ The following table lists messaging exception types, and their causes, and notes
 
 [QuotaExceededException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.quotaexceededexception.aspx) indicates that a quota for a specific entity has been exceeded.
 
-For the Service Bus relay, this exception wraps the [System.ServiceModel.QuotaExceededException](https://msdn.microsoft.com/library/system.servicemodel.quotaexceededexception.aspx), indicating that the maximum number of listeners has been exceeded for this endpoint. This is indicated in the **MaximumListenersPerEndpoint** value of the exception message.
+For Relay, this exception wraps the [System.ServiceModel.QuotaExceededException](https://msdn.microsoft.com/library/system.servicemodel.quotaexceededexception.aspx), indicating that the maximum number of listeners has been exceeded for this endpoint. This is indicated in the **MaximumListenersPerEndpoint** value of the exception message.
 
 ## TimeoutException 
 
@@ -58,7 +58,7 @@ A [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.
 
 You should check the value of the [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) property, as hitting this limit can also cause a [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx).
 
-For the Service Bus relay, you might receive timeout exceptions when first opening a relay sender connection. There are two common causes for this exception:
+For Relay, you might receive timeout exceptions when first opening a relay sender connection. There are two common causes for this exception:
 
 1. The [OpenTimeout](https://msdn.microsoft.com/library/wcf.opentimeout.aspx) value might be too small (even a fraction of a second).
 2. The on-premises relay listener(s) may not be responsive (or might encounter firewall rules issues prohibiting the listeners from accepting new client connections), and the [OpenTimeout](https://msdn.microsoft.com/library/wcf.opentimeout.aspx) value is less than about 20 seconds.
@@ -77,7 +77,7 @@ There are two common causes for this error: incorrect configuration, or a transi
 	The operation timeout might be too small for the operational condition. The default value for the operation timeout in the client SDK is 60 seconds. Check to see if your code has the value set to something too small. Note that the condition of the network and CPU usage can affect the time it takes for a particular operation to complete, so the operation timeout should not be set to a very small value.
 
 2. **Transient service error**
-	Sometimes the Service Bus service can experience delays in processing requests; for example, during periods of high traffic. In such cases, you can retry your operation after a delay, until the operation is successful. If the same operation still fails after multiple attempts, please visit the [Azure service status site](https://azure.microsoft.com/status/) to see if there are any known service outages.
+	Sometimes Relay can experience delays in processing requests; for example, during periods of high traffic. In such cases, you can retry your operation after a delay, until the operation is successful. If the same operation still fails after multiple attempts, please visit the [Azure service status site](https://azure.microsoft.com/status/) to see if there are any known service outages.
 
 ## Next steps:
 
