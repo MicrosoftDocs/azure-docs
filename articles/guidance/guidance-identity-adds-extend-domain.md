@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Architecture Reference - IaaS: Extending Active Directory to Azure | Microsoft Azure"
+   pageTitle="Extending Active Directory Domain Services (AD DS) to Azure | Microsoft Azure"
    description="How to implement a secure hybrid network architecture with Active Directory authorization in Azure."
    services="guidance,vpn-gateway,expressroute,load-balancer,virtual-network,active-directory"
    documentationCenter="na"
@@ -14,24 +14,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/19/2016"
+   ms.date="10/27/2016"
    ms.author="telmos"/>
 
-# Extending Active Directory Directory Services (ADDS) to Azure
+# Extending Active Directory Domain Services (AD DS) to Azure
 
 [AZURE.INCLUDE [pnp-RA-branding](../../includes/guidance-pnp-header-include.md)]
 
-This article describes best practices for extending your Active Directory (AD) environment to Azure, to provide distributed authentication services by using [Active Directory Domain Services (AD DS)][active-directory-domain-services]. This architecture extends that described in the articles [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture] and [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access].
+This article describes best practices for extending your Active Directory (AD) environment to Azure to provide distributed authentication services using [Active Directory Domain Services (AD DS)][active-directory-domain-services]. This architecture extends that described in the articles [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture] and [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access].
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments.
 
-You use AD DS to authenticate identities. These identities can belong to users, computers, applications, or other resources that form part of a security domain. You can host AD DS on-premises, but in a hybrid scenario where elements of an application are located in Azure it can be more efficient to replicate this functionality and the AD repository to the cloud. This approach can help  reduce the latency caused by sending authentication and local authorization requests from the cloud back to AD DS running on-premises. 
+AD DS is used to authenticate user, computer, application, or other identities that are included in a security domain. AD DS can be hosted on-premises, but if your application is a hybrid in which some parts are implemented in Azure it may be more efficient to replicate this functionality and the AD repository in the cloud. This can reduce the latency caused by sending authentication and local authorization requests from the cloud back to AD DS running on-premises. 
 
 There are two ways to host your directory services in Azure:
 
-1. You can use [Azure Active Directory (AAD)][azure-active-directory] to create a new AD domain in the cloud and link it to an on-premises AD domain. Then setup [Azure AD Connect][azure-ad-connect] on-promises to replicate identities held in the the on-premises repository to the cloud. Note that the directory in the cloud is **not** an extension of the on-premises system, rather it's a copy that contains the same identities. Changes made to these identities on-premises will be copied to the cloud, but changes made in the cloud **will not** be replicated back to the on-premises domain. For example, password resets must be performed on-premises and use Azure AD Connect to copy the change to the cloud. Also, note that the same instance of AAD can be linked to more than one instance of AD DS; AAD will contain the identities of each AD repository to which it is linked.
+1. You can use [Azure Active Directory (AAD)][azure-active-directory] to create a new AD domain in the cloud and link it to an on-premises AD domain. Then setup [Azure AD Connect][azure-ad-connect] on-premises to replicate the on-premises repository to Azure.
 
-	AAD is useful for situations where the on-premises network and Azure virtual network hosting the cloud resources are not directly linked by using a VPN tunnel or ExpressRoute circuit. Although this solution is simple, it might not be suitable for systems where components could migrate across the on-premises/cloud boundary as this could require reconfiguration of AAD. Also, AAD only handles user authentication rather than computer authentication. Some applications and services, such as SQL Server, may require computer authentication in which case this solution is not appropriate.
+    > [AZURE.NOTE] Note that the directory in the cloud is a copy and not an extension of the on-premises system. Changes made to identities on-premises are copied to the cloud, but changes made in the cloud are not replicated back to the on-premises domain. For example, password resets must be performed on-premises and be copied to the cloud using Azure AD Connect. Also, note that the same instance of AAD can be linked to more than one instance of AD DS; AAD will contain the identities of each AD repository to which it is linked.
+
+    AAD is useful for situations in which the on-premises network and Azure virtual network hosting the cloud resources are not directly linked by a VPN tunnel or ExpressRoute circuit. Although this solution is simple, it might not be suitable for systems where components could migrate across the on-premises/cloud boundary as this could require reconfiguration of AAD. Also, AAD only handles user authentication rather than computer authentication. Some applications and services, such as SQL Server, may require computer authentication in which case this solution is not appropriate.
 
 2. You can deploy a VM running AD DS as a domain controller in Azure, extending your existing AD infrastructure from your on-premises datacenter. This approach is more common for scenarios where the on-premises network and Azure virtual network are connected by a VPN and/or ExpressRoute connection. This solution also supports bi-directional replication enabling you make changes in the cloud and on-premises, wherever it is most appropriate. Depending on your security requirements, the AD installation in the cloud can be:
 	- part of the same domain as that held on-premises
@@ -134,6 +136,10 @@ For more information, see [Active Directory FSMO roles in Windows][AD-FSMO-roles
 
 For this scenario, we recommend you avoid deploying FSMO roles to the domain controllers in Azure. 
 
+## Scalability considerations
+
+AD is automatically scalable for domain controllers that are part of the same domain. Requests are distributed across all controllers within a domain. You can add another domain controller, and it will synchronize automatically with the domain. Do not configure a separate load balancer to direct traffic to controllers within the domain. Ensure that all domain controllers have sufficient memory and storage resources to handle the domain database; ideally, make all domain controller VMs the same size.
+
 ## Availability considerations
 
 Create an availability set for the AD servers. Ensure that there are at least two servers in the set. The AD servers in the cloud should be domain controllers within the same domain. This will enable automatic replication between servers.
@@ -146,17 +152,13 @@ If all domain admin tasks are likely to be performed using the on-premises DCs, 
 
 To help minimize the vulnerability of individual user accounts, and to deter attempts to break-in, follow best practice for setting and maintaining users' passwords in AD. For more information, see [Best Practices for Enforcing Password Policies][best_practices_ad_password_policy]. Also, be careful to which groups you assign users. For example, do not make ordinary users members of the Enterprise Admins group, Schema Admins group, and Domain Admins group.
 
-## Scalability considerations
-
-AD is automatically scalable for domain controllers that are part of the same domain. Requests are distributed across all controllers within a domain. You can add another domain controller, and it will synchronize automatically with the domain. Do not configure a separate load balancer to direct traffic to controllers within the domain. Ensure that all domain controllers have sufficient memory and storage resources to handle the domain database; ideally, make all domain controller VMs the same size.
-
-## Management considerations
+## Manageability considerations
 
 Do not copy the VHD files of domain controllers instead of performing regular backups because restoring them can result in inconsistencies in state between domain controllers.
 
 Shut down and restart a VM that runs the domain controller role in Azure within the guest operating system instead of using the Shut Down option in the Azure Portal. Using the Azure Portal to shut down a VM causes the VM to be deallocated. This action resets the VM-GenerationID, which is undesirable for a domain controller. When the VM-GenerationID is reset, the invocationID of the AD repository is also reset, the RID pool is discarded, and SYSVOL is marked as non-authoritative.
 
-## Monitoring considerations
+### Monitoring considerations
 
 Failing to monitor and maintain a network of AD servers can result in problems such as:
 
@@ -458,7 +460,7 @@ Perform the following steps to build the sample solution:
 
 27. At the prompt in the bash shell window, press a key and wait while the script installs Directory Services and DNS on each of the AD VMs.
 
-28. When the prompt *Please login to each Azure AD server to verify that Directory Services has been configured successfully* appears, open a remote desktop connection from an on-premises machine to the jumpbox (*basename*-jb-vm), and then open another remote desktop connection from the jumpbox to the first AD server (*basename*-ad1-vm). Log in using the **DOMAIN_NAME**, **ADMIN_USER_NAME**, and **ADMIN_PASSWORD** that you specified in the azuredeploy.sh script. Using Server Manager, verify that the AD DS and DNS roles have both been added. Repeat this process for the second AD server (*basename*-ad2-vm).
+28. When the prompt *Please login to each Azure AD server to verify that Directory Services has been configured successfully* appears, open a remote desktop connection from an on-premises machine to the jumpbox (*basename*-jb-vm), and then open another remote desktop connection from the jumpbox to the first AD server (*basename*-ad1-vm). Log in using the `DOMAIN_NAME`, `ADMIN_USER_NAME`, and `ADMIN_PASSWORD` that you specified in the azuredeploy.sh script. Using Server Manager, verify that the AD DS and DNS roles have both been added. Repeat this process for the second AD server (*basename*-ad2-vm).
 
 29. At the prompt in the bash shell window, press a key. When the prompt *Press any key to set the Azure VNet DNS settings to point to the DNS in Azure* appears, press a key and allow the script to update the DNS settings for the VNet.
 
