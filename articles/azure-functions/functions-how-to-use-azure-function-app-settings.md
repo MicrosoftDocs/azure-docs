@@ -8,7 +8,6 @@
 	editor=""/>
 
 <tags
-	ms.assetID="3f31c00c-4e2a-44e5-9ca2-c0f285018d59"
 	ms.service="functions"
 	ms.workload="na"
 	ms.tgt_pltfrm="dotnet"
