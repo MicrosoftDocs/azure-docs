@@ -81,7 +81,7 @@ The diagram below provides a graphical representation of this website's architec
 
 #### Configure URL routing for Application Gateways
 
-An application gateway configured with a Path-based rule takes a path pattern of the request URL in addition to round robin distribution when choosing the backend pool. In this scenario, we are adding a path-based rule to direct any URL with "/images/\*" to the image server pool. For more details on configuring URL path-based routing for an application gateway, refer to [Create a Path-based rule for an Application Gateway](../application-gateway/application-gateway-create-url-route-portal,md).
+An application gateway configured with a Path-based rule takes a path pattern of the request URL in addition to round robin distribution when choosing the backend pool. In this scenario, we are adding a path-based rule to direct any URL with "/images/\*" to the image server pool. For more details on configuring URL path-based routing for an application gateway, refer to [Create a Path-based rule for an Application Gateway](../application-gateway/application-gateway-create-url-route-portal.md).
 
 ![web tier diagram](./media/traffic-manager-load-balancing-azure/web-tier-diagram.png)
 
