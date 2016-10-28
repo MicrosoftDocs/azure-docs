@@ -1,10 +1,10 @@
 ### Create a Node.js application
 
-1. Create a new JavaScript file called `sender.js`.
+- Create a new JavaScript file called `sender.js`.
 
 ### Add the Relay NPM package
 
-1. Run `npm install hyco-ws` from a Node command prompt in your project folder.
+- Run `npm install hyco-ws` from a Node command prompt in your project folder.
 
 ### Write some code to send messages
 

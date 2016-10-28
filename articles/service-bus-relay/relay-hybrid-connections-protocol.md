@@ -25,7 +25,7 @@ It supersedes the former, equally named “BizTalk Services” feature that was 
 
 This document describes the client-side interactions with the Hybrid Connections relay for connecting clients in listener and sender roles and how listeners accept new connections.
 
-## Interaction Model
+## Interaction model
 
 The Hybrid Connections relay connects two parties by providing a rendezvous point in the Azure cloud that both parties can discover and connect to from their own network’s perspective. That rendezvous point is called “Hybrid Connection” in this and other documentation, in the APIs, and also in the Azure Portal. The Hybrid Connections service endpoint will be referred to as “service” for the rest of this document.
 
@@ -37,7 +37,7 @@ Any relayed communication model has either party make outbound connections towar
 
 The programs on both sides of a connection are called “client”, since they are clients to the service. The client that waits for and accepts connections is the “listener” or said to be in the “listener role”. The client that initiates a new connection towards a listener via the service is called the “sender” or in the “sender role”.
 
-## Listener Interactions
+## Listener interactions
 
 The listener has four interactions with the service; all wire details are described later in this document in the reference section.
 
@@ -59,7 +59,7 @@ The security token that must be used to register the listener and maintain the c
 
 If the control channel stays idle for a long time, intermediaries on the way, such as load balancers or NATs may drop the TCP connection. The “ping” gesture avoids that by sending a small amount of data on the channel that reminds everyone on the network route that the connection is meant to be alive, and it also serves as a liveness test for the listener. If the ping fails, the control channel should be considered unusable and the listener should reconnect.
 
-## Sender Interaction
+## Sender interaction
 
 The sender only has a single interaction with the service, it connects.
 
@@ -67,23 +67,23 @@ The sender only has a single interaction with the service, it connects.
 
 The “connect” gesture opens a Web socket on the service, providing the name of the Hybrid Connection and an (optional, but required by default) security token conferring “Send” permission in the query string. The service will then interact with the listener in the way described above and have the listener create a rendezvous connection that will be joined with this Web socket. After the Web socket has been accepted, all further interactions on the Web socket will therefore be with a connected listener.
 
-## Interaction Summary
+## Interaction summary
 
 The result of this interaction model is that the sender client comes out of the handshake with a “clean” Web socket which is connected to a listener and that needs no further preambles or preparation. This allows practically any existing Web socket client implementation to readily take advantage of the Hybrid Connections service just by supplying a correctly constructed URL into their Web socket client layer.
 
 The rendezvous connection Web Socket that the listener obtains through the accept interaction is also clean and can be handed to any existing Web socket server implementation with some minimal extra abstraction that distinguishes between “accept” operations on their framework’s local network listeners and Hybrid Connections’ remote “accept” operations.
 
-## Protocol Reference
+## Protocol reference
 
 This section describes the details of the protocol interactions described above.
 
 All Web socket connections are made on port 443 as an upgrade from HTTPS 1.1, which is commonly abstracted by some Web socket framework or API. The description here is kept implementation neutral, without suggesting a specific framework.
 
-## Listener Protocol
+## Listener protocol
 
 The listener protocol consists of two connection gestures and three message operations.
 
-### Listener Control Channel Connection
+### Listener control channel connection
 
 The control channel is opened with creating a Web socket connection to:
 
@@ -118,7 +118,7 @@ If the Web socket connection is intentionally shut down by the service after it 
 | 1008      | The security token has expired and the authorization policy is therefore violated. |
 | 1011      | Something went wrong inside the service.                                           |
 
-### Accept Handshake 
+### Accept handshake 
 
 The accept notification is sent by the service to the listener over the previously established control channel as a JSON message in a Web socket text frame. There is no reply to this message.
 
@@ -148,7 +148,7 @@ The message contains a JSON object named “accept”, which defines the followi
 
 The address URL provided in the JSON message is used by the listener to establish the Web Socket for accepting or rejecting the sender socket.
 
-#### Accepting the Socket
+#### Accepting the socket
 
 To accept, the listener establishes a WebSocket connection to the provided address.
 
@@ -190,7 +190,7 @@ After the connection has been established, the server will shut down the Web soc
 | 1008      | The security token has expired and the authorization policy is therefore violated. |
 | 1011      | Something went wrong inside the service.                                           |
 
-#### Rejecting the Socket
+#### Rejecting the socket
 
 Rejecting the socket after inspecting the “accept” message requires a similar handshake so that the status code and status description communicating the reason for the rejection can flow back to the sender.
 
@@ -212,7 +212,7 @@ When completing correctly, this handshake will intentionally fail with an HTTP e
 | 403  | Forbidden      | The URL is not valid.               |
 | 500  | Internal Error | Something went wrong in the service |
 
-### Listener Token Renewal
+### Listener token renewal
 
 When the listener’s token is about to expire, it can replace it by sending a text frame message to the service via the established control channel. The message contains a JSON object named “renewToken”, which defines the following property at this time:
 

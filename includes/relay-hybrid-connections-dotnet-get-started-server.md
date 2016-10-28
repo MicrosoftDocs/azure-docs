@@ -1,6 +1,6 @@
 ### Create a console application
 
-1. Launch Visual Studio and create a new Console application.
+- Launch Visual Studio and create a new Console application.
 
 ### Add the Relay NuGet package
 
