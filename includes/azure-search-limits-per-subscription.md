@@ -5,7 +5,7 @@ Maximum service limits can be raised upon request. Contact Azure Support if you 
 Resource|Free|Basic|S1|S2|S3 |S3 HD <sup>1</sup>
 ---|---|---|---|----|---|----
 Maximum services |1 |12 |12  |6 |6 |6 
-Maximum scale in SU <sup>2</sup>|N/A <sup>3</sup>|3 SU <sup>4</sup> |36 SU|36 SU|36 SU|12 SU, 3 SU <sup>5</sup>
+Maximum scale in SU <sup>2</sup>|N/A <sup>3</sup>|3 SU <sup>4</sup> |36 SU|36 SU|36 SU|36 SU <sup>5</sup>
 
 <sup>1</sup> S3 HD does not support [indexers](../articles/search/search-indexer-overview.md) at this time. 
 
@@ -15,7 +15,7 @@ Maximum scale in SU <sup>2</sup>|N/A <sup>3</sup>|3 SU <sup>4</sup> |36 SU|36 SU
 
 <sup>4</sup> Basic has one fixed partition. At this tier, additional SUs are used for allocating more replicas for increased query workloads.
 
-<sup>5</sup> S3 HD has a different allocation structure in terms of allowable combinations. For replicas, you can have a maximum of 12. For partitions, the maximum is 3.
+<sup>5</sup> S3 HD has a different allocation structure in terms of allowable combinations. S3 HD has a maximum of 3 partitions and 12 replicas (at 3 x 12 = 36 search units), whereas regular S3 supports additional combinations of replicas and partitions (for example, 6 partitions and 6 replicas). S3 HD is capped at 3 partitions because the substantial increase in index limits (1,000 per partition; 3,000 per service) is at the upper bound of currently supported thresholds for index management.
 
 
 
