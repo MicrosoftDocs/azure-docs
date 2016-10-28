@@ -47,7 +47,7 @@ To complete this tutorial, you need the following:
 
 Node.js version 0.12.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
 
-An active Azure account. (If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].)
+An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
 [AZURE.INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
 
@@ -271,7 +271,7 @@ To continue getting started with IoT Hub and device management patterns such as 
 
 [Tutorial: How to do a firmware update][lnk-fwupdate]
 
-To continue getting started with IoT Hub, see [Getting started with the Gateway SDK][lnk-gateway-SDK].
+To continue getting started with IoT Hub, see [Getting started with the IoT Gateway SDK][lnk-gateway-SDK].
 
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-props]: iot-hub-node-node-twin-how-to-configure.md

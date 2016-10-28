@@ -35,11 +35,11 @@ In order to complete this tutorial, you need the following:
 
 + Microsoft Visual Studio 2015,
 
-+ An active Azure account. (If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].)
++ An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
 ## Associate an Azure Storage account to IoT Hub
 
-Because the simulated device uploads a file to an Azure Storage blob, you must have an [Azure Storage] account associated to IoT Hub. When you associate a storage account with an IoT hub, the hub can generate a SAS URI that a device can use to securely upload a file to a blob container. The IoT Hub service and the device SDKs coordinate the process that generates the SAS URI and makes it available to a device to use to upload a file.
+Because the simulated device uploads a file to a blob, you must have an [Azure Storage] account associated to IoT Hub. When you associate an Azure Storage account with an IoT hub, the hub can generate a SAS URI that a device can use to securely upload a file to a blob container. The IoT Hub service and the device SDKs coordinate the process that generates the SAS URI and makes it available to a device to use to upload a file.
 
 Follow the instructions in [Configure file uploads using the Azure portal][lnk-configure-upload] to associate an Azure Storage account to your IoT hub.
 
@@ -142,7 +142,7 @@ Now you are ready to run the applications.
 
 1. In Visual Studio, right-click your solution, and select **Set StartUp projects**. Select **Multiple startup projects**, then select the **Start** action for **ReadFileUploadNotification** and **SimulatedDevice**.
 
-2. Press **F5**. Both applications should start. You should see the upload completed in one console app and the upload notification message being received by the other console app. You can use the [Azure portal] or Visual Studio Server Explorer to check for the presence of the uploaded file in your storage account.
+2. Press **F5**. Both applications should start. You should see the upload completed in one console app and the upload notification message being received by the other console app. You can use the [Azure portal] or Visual Studio Server Explorer to check for the presence of the uploaded file in your Azure Storage account.
 
   ![][50]
 
@@ -157,7 +157,7 @@ In this tutorial, you learned how to leverage the file upload capabilities of Io
 
 To further explore the capabilities of IoT Hub, see:
 
-- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
 <!-- Images. -->
 
