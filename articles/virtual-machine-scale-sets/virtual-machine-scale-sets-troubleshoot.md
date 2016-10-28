@@ -64,7 +64,7 @@ Some things to consider include:
     - Simpler templates. Just add insights autoscale rules to an existing scale set template.
     - More reliable reporting and faster launching of new VMs.
 
-   The only reasons you might want to keep using a diagnostic extension would be if you need memory diagnostics reporting/scaling. Host based metrics doesn't report memory.
+    The only reasons you might want to keep using a diagnostic extension would be if you need memory diagnostics reporting/scaling. Host based metrics doesn't report memory.
 
     With that in mind, only follow the rest of this article if you are still using diagnostic extensions for your autoscaling.
 
