@@ -150,4 +150,4 @@ The resources below explain how to implement the architectures described in this
 [extending-adds]: ./guidance-identity-adds-extend-domain.md
 [adds-forest-in-azure]: ./guidance-identity-adds-resource-forest.md
 [adfs-in-azure]: ./guidance-identity-adfs.md
-[add]: https://azure.microsoft.com/services/active-directory/
+[aad]: https://azure.microsoft.com/services/active-directory/
