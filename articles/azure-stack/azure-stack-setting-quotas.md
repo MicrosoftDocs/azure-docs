@@ -46,7 +46,7 @@ plans can use all resources that are available in each plan.
 3.  Select the first service for which you want to create a quota. For an IaaS quota, follow these steps for the Compute, Network, and Storage services.
 In this example, we first create a quota for the Compute service. In the **Namespace** list, select the **Microsoft.Compute.Admin** namespace.
 
-    > ![Creating a new Compute quota](/articles/azure-stack/media/azure-stack-setting-quota/NewComputeQuota.PNG)
+    > ![Creating a new Compute quota](./media/azure-stack-setting-quota/NewComputeQuota.PNG)
 
 4.  Choose the location where the quota is defined (for example, 'local').
 
@@ -58,7 +58,7 @@ In this example, we first create a quota for the Compute service. In the **Names
     value that's associated with it. You can change these values or you can select the **Ok** button at the bottom of the blade to accept
     the defaults.
 
-    > ![Setting a Compute quota](/articles/azure-stack/media/azure-stack-setting-quota/SetQuotasBladeCompute.PNG)
+    > ![Setting a Compute quota](./media/azure-stack-setting-quota/SetQuotasBladeCompute.PNG)
 
 7.  After you have configured the values and clicked **Ok**, the **Quota
     Settings** item appears as **Configured**. Click **Ok** to
@@ -69,7 +69,7 @@ In this example, we first create a quota for the Compute service. In the **Names
 
 8.   After the quota set has been successfully created, you receive a second notification. The Compute service quota is now ready to be associated with a plan. Repeat these steps with the Network and Storage services, and you are ready to create an IaaS plan!
 
-    >   ![Notification upon quota creation success](/articles/azure-stack/media/azure-stack-setting-quota/QuotaSuccess.png)
+    >   ![Notification upon quota creation success](./media/azure-stack-setting-quota/QuotaSuccess.png)
 
 ## Compute quota types
 

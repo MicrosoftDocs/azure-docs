@@ -7,6 +7,6 @@
 
 4. In the app, type meaningful text, such as _Complete the tutorial_ and then click the 'Add' button. This sends a POST request to the Azure backend you deployed earlier. The backend inserts data from the request is into the TodoItem SQL table, and returns information about the newly stored items back to the mobile app. The mobile app displays this data in the list. 
 
-    ![](./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png)
+    ![](./media/app-service-mobile-android-quickstart/mobile-quickstart-startup-android.png)
 
 [Azure Portal]: https://portal.azure.com/

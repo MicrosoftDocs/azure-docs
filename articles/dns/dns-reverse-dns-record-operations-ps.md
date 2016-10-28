@@ -1,5 +1,5 @@
 <properties
-   pageTitle="How to manage reverse DNS records for your services using PowerShell in Resource Manager | Microsoft Azure"
+   pageTitle="Manage reverse DNS records for your Azure services using PowerShell | Microsoft Azure"
    description="How to manage reverse DNS records or PTR records for Azure services using PowerShell in Resource Manager"
    services="DNS"
    documentationCenter="na"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/05/2016"
+   ms.date="10/28/2016"
    ms.author="smalone" />
 
-# How to manage reverse DNS records for your services using PowerShell
+# How to manage reverse DNS records for your Azure services using Azure PowerShell
 
 [AZURE.INCLUDE [dns-reverse-dns-record-operations-arm-selectors-include.md](../../includes/dns-reverse-dns-record-operations-arm-selectors-include.md)]
 <BR>
@@ -66,4 +66,7 @@ You can remove a reverse DNS property from an existing Public IP Address using t
 	PS C:\> $pip.DnsSettings.ReverseFqdn = ""
 	PS C:\> Set-AzureRmPublicIpAddress -PublicIpAddress $pip
 
-[AZURE.INCLUDE [FAQ](../../includes/dns-reverse-dns-record-operations-faq-arm-include.md)]
+
+[AZURE.INCLUDE [FAQ1](../../includes/dns-reverse-dns-record-operations-faq-host-own-arpa-zone-include.md)]
+
+[AZURE.INCLUDE [FAQ2](../../includes/dns-reverse-dns-record-operations-faq-arm-include.md)]
