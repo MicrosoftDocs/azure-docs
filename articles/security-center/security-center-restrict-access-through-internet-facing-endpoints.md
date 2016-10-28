@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/26/2016"
+   ms.date="10/26/2016"
    ms.author="terrylan"/>
 
 # Restrict access through Internet-facing endpoints in Azure Security Center

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Script Action development with HDInsight | Microsoft Azure"
-	description="Learn how to customize Hadoop clusters with Script Action."
+	description="Learn how to customize Hadoop clusters with Script Action. Script Action can be used to install additional software running on a Hadoop cluster or to change the configuration of applications installed on a cluster."
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -17,14 +17,17 @@
 	ms.date="10/19/2016"
 	ms.author="jgao"/>
 
-# Develop Script Action scripts for HDInsight
+# Develop Script Action scripts for HDInsight Windows-based clusters
 
 Learn how to write Script Action scripts for HDInsight. For information on using Script Action scripts, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md). For the same article written for Linux-based HDInsight clusters, see [Develop Script Action scripts for HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
-Script Action can be used to install additional software running on a Hadoop cluster or to change the configuration of applications installed on a cluster. Script actions are scripts that run on the cluster nodes when HDInsight clusters are deployed, and they are executed once nodes in the cluster complete HDInsight configuration. A script action is executed under system admin account privileges and provides full access rights to the cluster nodes. Each cluster can be provided with a list of script actions to be executed in the order in which they are specified. 
+> [AZURE.NOTE] The information in this document is specific to Windows-based HDInsight clusters. For information on using script actions with Windows-based clusters, see [Script action development with HDInsight (Linux)](hdinsight-hadoop-script-actions-linux.md).
 
-> [AZURE.NOTE] If you experience the following error message: 
-> 
+
+Script Action can be used to install additional software running on a Hadoop cluster or to change the configuration of applications installed on a cluster. Script actions are scripts that run on the cluster nodes when HDInsight clusters are deployed, and they are executed once nodes in the cluster complete HDInsight configuration. A script action is executed under system admin account privileges and provides full access rights to the cluster nodes. Each cluster can be provided with a list of script actions to be executed in the order in which they are specified.
+
+> [AZURE.NOTE] If you experience the following error message:
+>
 >     System.Management.Automation.CommandNotFoundException; ExceptionMessage : The term 'Save-HDIFile' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
 > It is because you didn't include the helper methods.  See [Helper methods for custom scripts](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
 
@@ -79,11 +82,11 @@ For creating HDInsight clusters on Windows operating system, the Script Action i
 
 The script takes four parameters, the configuration file name, the property you want to modify, the value you want to set, and a description. For example:
 
-	hive-site.xml hive.metastore.client.socket.timeout 90 
+	hive-site.xml hive.metastore.client.socket.timeout 90
 
 These parameters will set the hive.metastore.client.socket.timeout value to 90 in the hive-site.xml file.  The default value is 60 seconds.
 
-This sample script can also be found at [https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1](https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1). 
+This sample script can also be found at [https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1](https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1).
 
 HDInsight provides several scripts to install additional components on HDInsight clusters:
 
@@ -111,12 +114,12 @@ Script Action helper methods are utilities that you can use while writing custom
 	$CONFIGACTIONMODULE = "C:\apps\dist\HDInsightUtilities.psm1";
 	$webclient = New-Object System.Net.WebClient;
 	$webclient.DownloadFile($CONFIGACTIONURI, $CONFIGACTIONMODULE);
-	
+
 	# (TIP) Import config action helper method module to make writing config action easy.
 	if (Test-Path ($CONFIGACTIONMODULE))
-	{ 
+	{
 		Import-Module $CONFIGACTIONMODULE;
-	} 
+	}
 	else
 	{
 		Write-Output "Failed to load HDInsightUtilities module, exiting ...";
@@ -208,7 +211,7 @@ In this example, you must ensure that the container 'somecontainer' in storage a
 To pass multiple parameters to the Add-AzureRmHDInsightScriptAction cmdlet, you need to format the string value to contain all parameters for the script. For example:
 
 	"-CertifcateUri wasbs:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
- 
+
 or
 
 	$parameters = '-Parameters "{0};{1};{2}"' -f $CertificateName,$certUriWithSasToken,$CertificatePassword

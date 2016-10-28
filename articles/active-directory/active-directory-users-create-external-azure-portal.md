@@ -41,8 +41,8 @@ This article explains how to add users either from other directories in Azure Ac
 5. Copy or otherwise note the generated user password so that you can provide it to the user after this process is complete.
 
 6. Optionally, select **Profile** to add the users first and last name, a job title, and a department name.
-
-		![Opening the user profile](./media/active-directory-users-create-external-azure-portal/create-users-user-profile.png)
+	
+    ![Opening the user profile](./media/active-directory-users-create-external-azure-portal/create-users-user-profile.png)
 
 	- Select **Groups** to add the user to one or more groups.
 

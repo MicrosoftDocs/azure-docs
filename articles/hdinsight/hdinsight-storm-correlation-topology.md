@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="09/27/2016"
+ ms.date="10/27/2016"
  ms.author="larryfr"/>
 
 # Correlate events over time with Storm and HBase on HDInsight
@@ -29,7 +29,7 @@ In this document, you will learn how to create a basic C# Storm topology that tr
 
 - Apache Storm on HDInsight cluster (Windows-based). This runs the Storm topology, which processes incoming data and stores it to HBase.
 
-    > [AZURE.IMPORTANT] While SCP.NET topologies are supported on Linux-based Storm clusters created after 10/20/2016, the HBase SDK for .NET package available as of 10/20/2016 does not work correctly on Linux.
+    > [AZURE.IMPORTANT] While SCP.NET topologies are supported on Linux-based Storm clusters created after 10/28/2016, the HBase SDK for .NET package available as of 10/28/2016 does not work correctly on Linux.
 
 - Apache HBase on HDInsight cluster (Linux or Windows-based). This is the data store for this example.
 

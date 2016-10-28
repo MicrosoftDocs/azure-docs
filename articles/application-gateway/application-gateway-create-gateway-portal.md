@@ -14,14 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/09/2016"
+   ms.date="10/25/2016"
    ms.author="gwallace" />
 
 # Create an application gateway by using the portal
-
-Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. 
-Application Gateway provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. 
-To find a complete list of supported features, visit [Application Gateway Overview](application-gateway-introduction.md)
 
 > [AZURE.SELECTOR]
 - [Azure portal](application-gateway-create-gateway-portal.md)
@@ -29,6 +25,10 @@ To find a complete list of supported features, visit [Application Gateway Overvi
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
 - [Azure CLI](application-gateway-create-gateway-cli.md)
+
+Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. 
+Application Gateway provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. 
+To find a complete list of supported features, visit [Application Gateway Overview](application-gateway-introduction.md)
 
 ## Scenario
 
@@ -65,7 +65,8 @@ Next fill out the basic information about the application gateway. When complete
 The information needed for the basic settings is:
 
 - **Name** - The name for the application gateway.
-- **SKU size** - This setting is the size of the application gateway, available options are (Small, Medium, and Large).
+- **Tier** - This is the tier of the application gateway. Two tiers are available, **WAF** and **Standard**. WAF enables the web application firewall feature.
+- **SKU size** - This setting is the size of the application gateway, available options are (**Small**, **Medium**, and **Large**). *Small is not available when WAF tier is chosen*
 - **Instance count** - The number of instances, this value should be a number between 2 and 10.
 - **Resource group** - The resource group to hold the application gateway, it can be an existing resource group or a new one.
 - **Location** - The region for the application gateway, it is the same location at the resource group. *The location is important as the virtual network and public IP must be in the same location as the gateway*.
@@ -141,9 +142,11 @@ Once the application gateway has been created, navigate to it in the portal to c
 
 ![Application Gateway resource view][10]
 
-These steps create a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. You can modify these settings to suit your deployment once the provisioning is successful. As described earlier, this process creates a default application gateway.  The next steps are to configure the application gateway by adding pool members, modifying settings, and adjusting rules in the gateway for it to work properly.
+These steps create a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. You can modify these settings to suit your deployment once the provisioning is successful.
 
 ## Next steps
+
+This scenario creates a default application gateway. The next steps are to configure the application gateway by adding pool members, modifying settings, and adjusting rules in the gateway for it to work properly.
 
 Learn how to create custom health probes by visiting [Create a custom health probe](application-gateway-create-probe-portal.md)
 
