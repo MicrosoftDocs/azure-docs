@@ -293,7 +293,7 @@ The [U-SQL catalog](data-lake-analytics-use-u-sql-catalog.md) is used to structu
 ## Use Azure Resource Manager groups
 
 Applications are typically made up of many components, for example a web app, database, database server, storage,
-and third-party services. Azure Resource Manager (ARM) enables you to work with the resources in your application 
+and third-party services. Azure Resource Manager enables you to work with the resources in your application 
 as a group, referred to as an Azure Resource Group. You can deploy, update, monitor, or delete all the 
 resources for your application in a single, coordinated operation. You use a template for deployment and that 
 template can work for different environments such as testing, staging, and production. You can clarify billing 
@@ -307,12 +307,12 @@ A Data Lake Analytics service can include the following components:
 - Additional Azure Data Lake Store accounts
 - Additional Azure Storage accounts
 
-You can create all these components under one ARM group to make them easier to manage.
+You can create all these components under one Resource Management group to make them easier to manage.
 
 ![Azure Data Lake Analytics account and storage](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
 
 A Data Lake Analytics account and the dependent storage accounts must be placed in the same Azure data center.
-The ARM group however can be located in a different data center.  
+The Resource Management group however can be located in a different data center.  
 
 
 
