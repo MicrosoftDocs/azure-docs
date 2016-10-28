@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/01/2016"
+	ms.date="10/28/2016"
 	ms.author="babanisa" />
 
 # What is Azure Relay?
@@ -61,4 +61,7 @@ WCF Relay is the legacy Relay offering that many customers may already use with 
 
 ## Next steps:
 
+- [Relay FAQ](relay-faq.md)
 - [Create a namespace](relay-create-namespace-portal.md)
+- [Get started with .NET](relay-hybrid-connections-dotnet-get-started.md)
+- [Get started with Node](relay-hybrid-connections-node-get-started.md)

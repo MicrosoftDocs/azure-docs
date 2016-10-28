@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="11/01/2016"
+    ms.date="10/28/2016"
     ms.author="sethm" />
 
 # Azure Relay Hybrid Connections Protocol
@@ -280,3 +280,10 @@ If the Web socket connection is intentionally shut down by the service after it 
 | 1001      | The Hybrid Connection path has been deleted or disabled.                           |
 | 1008      | The security token has expired and the authorization policy is therefore violated. |
 | 1011      | Something went wrong inside the service.                                           |
+
+## Next steps:
+
+- [Relay FAQ](relay-faq.md)
+- [Create a namespace](relay-create-namespace-portal.md)
+- [Get started with .NET](relay-hybrid-connections-dotnet-get-started.md)
+- [Get started with Node](relay-hybrid-connections-node-get-started.md)

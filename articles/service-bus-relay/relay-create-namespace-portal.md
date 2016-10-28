@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="multiple"
     ms.workload="na"
-    ms.date="11/01/2016"
+    ms.date="10/28/2016"
     ms.author="jotaub"/>
 
 # Create a Relay namespace using the Azure portal
@@ -29,3 +29,9 @@ A namespace is a common container for all your Relay components. Multiple Relays
 [AZURE.INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
 Congratulations! You have now created a Relay namespace.
+
+## Next steps:
+
+- [Relay FAQ](relay-faq.md)
+- [Get started with .NET](relay-hybrid-connections-dotnet-get-started.md)
+- [Get started with Node](relay-hybrid-connections-node-get-started.md)

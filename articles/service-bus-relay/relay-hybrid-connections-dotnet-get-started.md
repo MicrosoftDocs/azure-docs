@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="11/01/2016"
+    ms.date="10/28/2016"
     ms.author="jotaub"/>
 
 # Get started with Relay Hybrid Connections
@@ -75,3 +75,9 @@ To send messages to the Relay, we will write a C# console application using Visu
 ![running-applications](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
 Congratulations, you have created an end-to-end Hybrid Connections application.
+
+## Next steps:
+
+- [Relay FAQ](relay-faq.md)
+- [Create a namespace](relay-create-namespace-portal.md)
+- [Get started with Node](relay-hybrid-connections-node-get-started.md)

@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="11/01/2016"
+    ms.date="10/28/2016"
     ms.author="jotaub" />
 
 # Relay FAQ
@@ -110,3 +110,9 @@ Shared Access Signatures are an authentication mechanism based on SHA – 256 se
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
 [Relay exceptions]: relay-exceptions.md
 [Shared Access Signatures]: service-bus-sas-overview.md
+
+## Next steps:
+
+- [Create a namespace](relay-create-namespace-portal.md)
+- [Get started with .NET](relay-hybrid-connections-dotnet-get-started.md)
+- [Get started with Node](relay-hybrid-connections-node-get-started.md)
