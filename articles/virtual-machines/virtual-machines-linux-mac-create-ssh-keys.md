@@ -14,74 +14,100 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/06/2016"
+	ms.date="10/25/2016"
 	ms.author="v-livech"/>
 
 # Create SSH keys on Linux and Mac for Linux VMs in Azure
 
 With an SSH keypair you can create Virtual Machines on Azure that default to using SSH keys for authentication, eliminating the need for passwords to log in.  Passwords can be guessed and open your VMs up to relentless brute force attempts to guess your password. VMs created with Azure Templates or the `azure-cli` can include your SSH public key as part of the deployment, removing a post deployment configuration.  If you are connecting to a Linux VM from Windows, see [this document.](virtual-machines-linux-ssh-from-windows.md)
 
-## Quick Command Listing
+The article requires:
 
-In the following command examples, replace the values between &lt; and &gt; with the values from your own environment.  Start by changing directories, `cd ~/.ssh/` so that all your ssh keys are created in that directory.
+- an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)).
+
+- the [Azure CLI](../xplat-cli-install.md) logged in with `azure login`
+
+- the Azure CLI _must be in_ Azure Resource Manager mode `azure config mode arm`
+
+## Quick Commands
+
+In the following commands, replace the examples with your own choices.
+
+SSH keys are by default kept in the `.ssh` directory.  
 
 ```bash
-ssh-keygen -t rsa -b 2048 -C "<your_user@yourdomain.com>"
+cd ~/.ssh/
+```
+
+If you do not have a `~/.ssh` directory the `ssh-keygen` command will create it for you with the correct permissions.
+
+```bash
+ssh-keygen -t rsa -b 2048 -C "myusername@myserver"
 ```
 
 Enter the name of the file that is saved into the `~/.ssh/` directory:
 
 ```bash
-<azure_fedora_id_rsa>
+id_rsa
 ```
 
-Enter passphrase for azure_fedora_id_rsa:
+Enter passphrase for id_rsa:
 
 ```bash
-<correct horse battery staple>
+correct horse battery staple
+```
+
+There is now a `id_rsa` and `id_rsa.pub` SSH key pair in the `~/.ssh` directory.
+
+```bash
+ls -al ~/.ssh
 ```
 
 Add the newly created key to `ssh-agent` on Linux and Mac (also added to OSX Keychain):
 
 ```bash
 eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/azure_fedora_id_rsa
+ssh-add ~/.ssh/id_rsa
 ```
 
 Copy the SSH public key to your Linux Server:
 
 ```bash
-ssh-copy-id -i ~/.ssh/azure_fedora_id_rsa.pub <youruser@yourserver.com>
+ssh-copy-id -i ~/.ssh/id_rsa.pub myusername@myserver
 ```
 
 Test the login using keys instead of a password:
 
 ```bash
-ssh -o PreferredAuthentications=publickey -o PubkeyAuthentication=yes -i ~/.ssh/azure_fedora_id_rsa <youruser@yourserver.com>
+ssh -o PreferredAuthentications=publickey -o PubkeyAuthentication=yes -i ~/.ssh/id_rsa myusername@myserver
 Last login: Tue April 12 07:07:09 2016 from 66.215.22.201
 $
 ```
 
-## Introduction
+## Detailed Walkthrough
 
 Using SSH public and private keys is the easiest way to log in to your Linux servers. [Public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography) provides a much more secure way to log in to your Linux or BSD VM in Azure than passwords, which can be brute-forced far more easily. Your public key can be shared with anyone; but only you (or your local security infrastructure) possess your private key.  The SSH private key should have a [very secure password ](https://www.xkcd.com/936/) (source:[xkcd.com](https://xkcd.com)) to safeguard it.  This password is just to access the private SSH key and **is not** the user account password.  When you add a password to your SSH key, it encrypts the private key so that the private key is useless without the password to unlock it.  If an attacker stole your private key and that key did not have a password, they would be able to use that private key to log in to any servers that have the corresponding public key.  If a private key is password protected it cannot be used by that attacker, providing an additional layer of security for your infrastructure on Azure.
 
-
-
 This article creates *ssh-rsa* formatted key files, which are recommended for deployments on the Resource Manager.  *ssh-rsa* keys are required on the [portal](https://portal.azure.com) for both Classic and Resource Manager deployments.
-
 
 ## Create the SSH Keys
 
 Azure requires at least 2048-bit, ssh-rsa format public and private keys. To create the keys use `ssh-keygen`, which asks a series of questions and then writes a private key and a matching public key. When an Azure VM is created, the public key is copied to `~/.ssh/authorized_keys`.  SSH keys in `~/.ssh/authorized_keys` are used to challenge the client to match the corresponding private key on an SSH login connection.
 
-
 ## Using ssh-keygen
 
-This command creates a password secured (encrypted) SSH Keypair using 2048-bit RSA and it is commented to easily identify it.  Start by changing directories, `cd ~/.ssh/` so that all your ssh keys are created in that directory.
+This command creates a password secured (encrypted) SSH Keypair using 2048-bit RSA and it is commented to easily identify it.  
+
+Start by changing directories, so that all your ssh keys are created in that directory.
 
 ```bash
-ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
+cd ~/.ssh
+```
+
+If you do not have a `~/.ssh` directory the `ssh-keygen` command will create it for you with the correct permissions.
+
+```bash
+ssh-keygen -t rsa -b 2048 -C "myusername@myserver"
 ```
 
 _Command explained_
@@ -92,7 +118,7 @@ _Command explained_
 
 `-b 2048` = bits of the key
 
-`-C "ahmet@fedoraVMAzure"` = a comment appended to the end of the public key file to easily identify it.  Normally an email is used as the comment but you can use whatever works best for your infrastructure.
+`-C "myusername@myserver"` = a comment appended to the end of the public key file to easily identify it.  Normally an email is used as the comment but you can use whatever works best for your infrastructure.
 
 ### Using PEM keys
 
@@ -104,20 +130,18 @@ To create a PEM formatted key from an existing SSH public key:
 ssh-keygen -f ~/.ssh/id_rsa.pub -e > ~/.ssh/id_ssh2.pem
 ```
 
-## Walkthrough of ssh-keygen
-
-Each step explained in detail.  Start by changing to the `~/.ssh` directory and then run `ssh-keygen`.
+## Example of ssh-keygen
 
 ```bash
-ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
+ssh-keygen -t rsa -b 2048 -C "myusername@myserver"
 Generating public/private rsa key pair.
-Enter file in which to save the key (/home/ahmet/.ssh/id_rsa): azure_fedora_id_rsa
+Enter file in which to save the key (/home/myusername/.ssh/id_rsa): id_rsa
 Enter passphrase (empty for no passphrase):
 Enter same passphrase again:
-Your identification has been saved in azure_fedora_id_rsa.
-Your public key has been saved in azure_fedora_id_rsa.pub.
+Your identification has been saved in id_rsa.
+Your public key has been saved in id_rsa.pub.
 The key fingerprint is:
-14:a3:cb:3e:78:ad:25:cc:55:e9:0c:08:e5:d1:a9:08 ahmet@fedoraVMAzure
+14:a3:cb:3e:78:ad:25:cc:55:e9:0c:08:e5:d1:a9:08 myusername@myserver
 The key's randomart image is:
 +--[ RSA 2048]----+
 |        o o. .   |
@@ -134,14 +158,14 @@ The key's randomart image is:
 
 Saved key files:
 
-`Enter file in which to save the key (/home/ahmet/.ssh/id_rsa): azure_fedora_id_rsa`
+`Enter file in which to save the key (/home/myusername/.ssh/id_rsa): id_rsa`
 
 The key pair name for this article.  Having a key pair named **id_rsa** is the default and some tools might expect the **id_rsa** private key file name so having one is a good idea. The directory `~/.ssh/` is the default location for SSH key pairs and the SSH config file.
 
 ```bash
-ahmet@fedora$ ls -al ~/.ssh
--rw------- 1 ahmet staff  1675 Aug 25 18:04 azure_fedora_id_rsa
--rw-r--r-- 1 ahmet staff   410 Aug 25 18:04 azure_fedora_id_rsa.pub
+ls -al ~/.ssh
+-rw------- 1 myusername staff  1675 Aug 25 18:04 id_rsa
+-rw-r--r-- 1 myusername staff   410 Aug 25 18:04 rsa.pub
 ```
 A listing of the `~/.ssh` directory. `ssh-keygen` creates the `~/.ssh` directory if it is not present and also sets the correct ownership and file modes.
 
@@ -164,7 +188,7 @@ eval "$(ssh-agent -s)"
 Now add the private key to `ssh-agent` using the command `ssh-add`.
 
 ```bash
-ssh-add ~/.ssh/azure_fedora_id_rsa
+ssh-add ~/.ssh/id_rsa
 ```
 
 The private key password is now stored in `ssh-agent`.
@@ -193,7 +217,7 @@ vim ~/.ssh/config
 # Azure Keys
 Host fedora22
   Hostname 102.160.203.241
-  User ahmet
+  User myusername
 # ./Azure Keys
 # Default Settings
 Host *
@@ -216,11 +240,11 @@ This SSH config gives you sections for each server to enable each to have its ow
 
 `Hostname 102.160.203.241` = the IP address or DNS name for the server being accessed.
 
-`User git` = the remote user account to use.
+`User myusername` = the remote user account to use when logging into the server.
 
 `PubKeyAuthentication yes` = tells SSH you want to use an SSH key to log in.
 
-`IdentityFile /home/ahmet/.ssh/id_id_rsa` = the SSH private key and corresponding public key to use for authentication.
+`IdentityFile /home/myusername/.ssh/id_id_rsa` = the SSH private key and corresponding public key to use for authentication.
 
 
 ## SSH into Linux without a password
