@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/27/2016"
+	ms.date="10/28/2016"
 	ms.author="bradsev;hangzh;gokuma"/>
     
 # Team Data Science Process lifecycle 
 
-The Team Data Science Process (TDSP) provides a recommended lifecycle that you can use to structure the development your data science projects. The lifecycle outlines the steps that projects follow, from start to finish, when they are executed using the TDSP. If you are using another data science lifecycle, such as [CRISP-DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process) or your organization's own custom process, you can still use the TDSP in the context of those development lifecycles. 
+The Team Data Science Process (TDSP) provides a recommended lifecycle that you can use to structure the development of your data science projects. The lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed. If you are using another data science lifecycle, such as [CRISP-DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process) or your organization's own custom process, you can still use the task-based TDSP in the context of those development lifecycles. 
 
-This lifecycle has been designed for data science projects that are going ship as intelligent applications. They deploy machine learning or artificial intelligence models for predictive analytics. Exploratory data science projects and ad hoc or on-off analytics projects can also benefit from using this process, but in such cases some steps described may not be needed.    
+This lifecycle has been designed for data science projects that are intended to ship as part of intelligent applications. These applications deploy machine learning or artificial intelligence models for predictive analytics. Exploratory data science projects and ad hoc or on-off analytics projects can also benefit from using this process, but in such cases some steps described may not be needed.    
 
-Here is a visual representation of the TDSP lifecycle. 
+Here is a visual representation of the **Team Data Science Process lifecycle**. 
 
-![TDSP_LIFECYCLE](./media/data-science-process-overview/tdsp-lifecycle.png) 
+![TDSP-Lifecycle](./media/data-science-process-overview/tdsp-lifecycle.png) 
 
 The TDSP lifecycle is composed of five major stages that are executed iteratively. These include:
 
@@ -34,7 +34,7 @@ The TDSP lifecycle is composed of five major stages that are executed iterativel
 - **Deployment**
 - **Customer Acceptance**
 
-For each stage, we provide the following three kinds of information:
+For each stage, we provide the following information:
 
 -  **Goals**
 -  **How to do it**
@@ -44,30 +44,32 @@ For each stage, we provide the following three kinds of information:
 
 ### Goals
 
-* Specify each of the **model targets** to predict with a specific and unambiguous question, which can be used to drive the customer engagement.
-* Clearly specify the **data sources** of interest that the business has and whether you need to bring in ancillary data from other sources.
+* Specify the **key variables** that are to serve as the **model targets** and whose related metrics determine the success for the project.
+* Identify the relevant **data sources** that the business has access to and whether you need to bring in ancillary data from other sources.
 
 ### How to do it 
 
-There are two main aspects of this stage **Define Objectives** and **Identify data sources**.  You work with your customer and other stakeholders to identify and understand the business problems that can be addressed with predictive analytics. A central objective of this step is to identify the key **business variables** that the analysis needs to predict. These variables are referred to as the **model targets**. Sales forecast or the probability of an order being fraudulent are examples of such targets. An understanding of the data sources is also needed to address the objectives of the project from an analytical perspective. 
+There are two main tasks addressed in this stage: 
+
+- **Define Objectives**: You work with your customer and other stakeholders to identify and understand the business problems and ask questions that data science techniques can address and that solve your business problems.
+- **Identify data sources**: Find data that helps you address the objectives of the project.
 
 #### 1.1 Define Objectives
 
-1. Understand the customer business domain and business problems that need to be addressed. Figure out what the key variables for the business are, by which its success is defined and measured. Then determine how a data science analysis can be used to affect those key metrics.
-2. Define the project goals with 'sharp' questions. A fine description of what a sharp question is, and how you can ask it, can be found in this [article](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/). As per the article, here is a useful tip to ask a sharp question - "When choosing your question, imagine that you are approaching an oracle that can tell you anything in the universe, as long as the answer is a number or a name". Data science / machine learning is typically used to answer these five types of questions:
-	1. How much or how many? (regression)
-	2. Which category? (classification)
-	3. Which group? (clustering)
-	4. Is this weird? (anomaly detection)
-	5. Which option should be taken? (recommendation)
-
-3. Define the project team, the role, and responsibilities. Develop a high-level milestone plan that you iterate upon as more information is discovered.  
-
+1. A central objective of this step is to identify the key **business variables** that the analysis needs to predict. These variables are referred to as the **model targets** and the metrics associated with them are used to determine the success of the project. Sales forecast or the probability of an order being fraudulent are examples of such targets.
+2. Define the **project goals** by asking and refining "sharp" questions that are relevant and specific and unambiguous. Data science is the process of using names and numbers to answer such questions. "*When choosing your question, imagine that you are approaching an oracle that can tell you anything in the universe, as long as the answer is a number or a name*". For additional guidance, see the **Ask a Sharp Question** section of the [How to do Data Science](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/) blog.   Data science / machine learning is typically used to answer five types of questions:
+	- How much or how many? (regression)
+	- Which category? (classification)
+	- Which group? (clustering)
+	- Is this weird? (anomaly detection)
+	- Which option should be taken? (recommendation)
+3. Define the **project team** by specifying the roles and responsibilities of its members. Develop a high-level milestone plan that you iterate on as more information is discovered.  
 4. **Define success metrics**. The metrics must be SMART (**S**pecific, **M**easurable, **A**chievable, **R**elevant, and **T**ime-bound). For example: Achieve customer churn prediction accuracy of X% by the end of this 3-month project so that we can offer promotions to reduce churn. 
+
 
 #### 1.2 Identify Data Sources
 
-Identify data sources that contain known examples of answers to the sharp questions. Look for the following data:
+Identify data sources that contain known examples of answers to your sharp questions. Look for the following data:
 
 - Data that is **Relevant** to the question. Do we have measures of the target and features that are related to the target?
 
@@ -80,7 +82,7 @@ It is not uncommon, for example, to find that existing systems need to collect a
 
 The following are the deliverables in this stage:
 
-- **[Charter Document](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md)**: A standard template is provided in the TDSP project structure  definition. This is a living document that is updated throughout the project as new discoveries are made and as business requirements change. The key is to iterate upon this document with finer details as you progress through the discovery process. Be sure to keep the customer and stakeholders involved in the changes and clearly communicate the reasons for the change.  
+- [**Charter Document**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): A standard template is provided in the TDSP project structure  definition. This is a living document that is updated throughout the project as new discoveries are made and as business requirements change. The key is to iterate upon this document with finer details as you progress through the discovery process. Be sure to keep the customer and stakeholders involved in the changes and clearly communicate the reasons for the change.  
 
 -  [**Data Sources**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#raw-data-sources): This is part of the Data Report that is found in the TDSP project structure. It describes the sources for the raw data. In later stages, you fill in additional details like scripts to move the data to your analytic environment.  
 
