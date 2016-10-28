@@ -52,7 +52,7 @@ On the **Basics** page, enter:
 - your SSH public Key as a string (from your `~/.ssh/` directory)
 - a resource group name or select an existing group
 
-and Click **OK** to continue and choose the VM size; it should look something like the following:
+and Click **OK** to continue and choose the VM size; it should look something like the following screenshot:
 
 ![screen3](../media/virtual-machines-linux-quick-create-portal/screen3.png)
 
@@ -88,7 +88,7 @@ Open the Public IP addresses menu under the NIC settings
 
 ## SSH to the VM
 
-SSH into the public IP using your SSH public key.  From a Mac or Linux workstation you can SSH directly from the Terminal. If you are on a Windows workstation you will need to use PuTTY, MobaXTerm or Cygwin to SSH to Linux.  If you have not already, here is a doc that will get your Windows workstation ready to SSH to Linux.
+SSH into the public IP using your SSH public key.  From a Mac or Linux workstation, you can SSH directly from the Terminal. If you are on a Windows workstation, you need to use PuTTY, MobaXTerm or Cygwin to SSH to Linux.  If you have not already, here is a doc that gets your Windows workstation ready to SSH to Linux.
 
 [How to Use SSH keys with Windows on Azure](virtual-machines-linux-ssh-from-windows.md)
 
