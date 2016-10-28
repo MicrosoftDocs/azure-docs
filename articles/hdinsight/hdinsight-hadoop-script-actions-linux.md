@@ -1,6 +1,6 @@
 <properties
     pageTitle="Script action development with Linux-based HDInsight | Microsoft Azure"
-    description="Learn how to customize Linux-based HDInsight clusters with Script Action."
+    description="How to customize Linux-based HDInsight clusters with Script Action. Script actions are a way to customize Azure HDInsight clusters by specifying cluster configuration settings or installing additional services, tools, or other software on the cluster. "
     services="hdinsight"
     documentationCenter=""
     authors="Blackmist"
@@ -77,7 +77,7 @@ You can check the OS version by using `lsb_release`. The following code snippets
     fi
     ...
     if [[ $OS_VERSION == 16* ]]; then
-        echo "Using systemd configuration"	
+        echo "Using systemd configuration"
 		systemctl daemon-reload
 		systemctl stop webwasb.service    
 		systemctl start webwasb.service

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/03/2016"
+	ms.date="10/27/2016"
 	ms.author="rnagpal"/>
 
 # DocumentDB APIs and SDKs
@@ -46,6 +46,7 @@
   - Added support for name based requests when using direct connectivity.
   - Fixed to make ActivityId stay consistent across all request retries.
   - Fixed a bug related to the session cache when recreating a collection with the same name.
+  - Added Polygon and LineString DataTypes while specifying collection indexing policy for geo-fencing spatial queries.
   - Fixed issues with Java Doc for Java 1.8.
 
 ### <a name="1.8.1"/>[1.8.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.1)

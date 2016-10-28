@@ -136,7 +136,7 @@ First you need to verify that your Edison can connect to the SensorTag device.
     Discovery stopped
     ```
 
-7. Connect to your SensorTag device using its MAC address by entering **connect <MAC address>**. Note that the sample output below is abbreviated:
+7. Connect to your SensorTag device using its MAC address by entering **connect \<MAC address>**. Note that the sample output below is abbreviated:
     
     ```
     Attempting to connect to A0:E6:F8:B5:F6:00
