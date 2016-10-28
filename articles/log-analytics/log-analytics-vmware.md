@@ -58,7 +58,7 @@ Create a Linux operating system VM to receive all syslog data from the ESXi host
     Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
     ```
 
-6. Download and install the OMS Agent for Linux on the Linux server. See [documentation for OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) for more information.
+6. Download and install the OMS Agent for Linux on the Linux server. For more information, see the [Documentation for OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux).
 
 7. After the OMS Agent for Linux is installed, go to the  /etc/opt/microsoft/omsagent/sysconf/omsagent.d directory and copy the vmware_esxi.conf file to the /etc/opt/microsoft/omsagent/conf/omsagent.d directory and the change the owner/group and permissions of the file. For example:
 
@@ -175,7 +175,7 @@ After you’ve created your queries, you might want to use the queries to alert 
 ## Frequently asked questions
 
 ### What do I need to do on the ESXi host setting? What impact will it have on my current environment?
-The solution uses the native ESXi Host Syslog forwarding mechanism. You don't need any additional Microsoft software on the ESXi Host to capture the logs. It should have a very low impact to your existing environment. However, you do need to set syslog forwarding, which is ESXI functionality.
+The solution uses the native ESXi Host Syslog forwarding mechanism. You don't need any additional Microsoft software on the ESXi Host to capture the logs. It should have a low impact to your existing environment. However, you do need to set syslog forwarding, which is ESXI functionality.
 
 ### Do I need to restart my ESXi host?
 No. This process does not require a restart. Sometimes, vSphere does not properly update the syslog. In such a case, log on to the ESXi host and reload the syslog. Again, you don't have to restart the host, so this process isn't disruptive to your environment.
@@ -184,24 +184,24 @@ No. This process does not require a restart. Sometimes, vSphere does not properl
 Yes you can. You can use the ESXi Host Log Level settings in vSphere. Log collection is based on the *info* level. So, if you want to audit VM creation or deletion, you need to keep the *info* level on Hostd. For more information, see the [VMware Knowledge Base](https://kb.vmware.com/selfservice/microsites/search.do?&cmd=displayKC&externalId=1017658).
 
 ### Why is Hostd not providing data to OMS? My log setting is set to info.
-There was an ESXi host bug for the syslog timestamp. For more information, see the [VMware Knowlege Base](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2111202). After you apply the workaround, Hostd should function normally.
+There was an ESXi host bug for the syslog timestamp. For more information, see the [VMware Knowledge Base](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2111202). After you apply the workaround, Hostd should function normally.
 
 ### Can I have multiple ESXi hosts forwarding syslog data to a single VM with omsagent?
 Yes. You can have multiple ESXi hosts forwarding to a single VM with omsagent.
 
 ### Why don't I see data flowing into OMS?
 There can be multiple reasons:
-- The ESXi host is not correctly pushing data to the VM running omsagent. To test this, perform the following steps:
+- The ESXi host is not correctly pushing data to the VM running omsagent. To test, perform the following steps:
     1. To confirm, log on to the ESXi host using ssh and run the following command: `nc -z ipaddressofVM 1514`
     If this is not successful, vSphere settings in the Advanced Configuration are likely not correct. See [Configure syslog collection](#configure-syslog-collection) for information about how to set up the ESXi host for syslog forwarding.
     2. If syslog port connectivity is successful, but you don't still see any data, then reload the syslog on the ESXi host by using ssh to run the following command: ` esxcli system syslog reload`
 - The VM with OMS Agent is not set correctly. To test this, perform the following steps:
     1. OMS listens to the port 1514 and pushes data into OMS. To verify that it is open, run the following command: `netstat -a | grep 1514`
     2. You should see port `1514/tcp` open. If you do not, verify that the omsagent is installed correctly. If you do not see the port information, then the syslog port is not open on the VM.
-        1. Verify that the OMS Agent is running by using using `ps -ef | grep oms`. If it is not running,  start the process by running the command ` sudo /opt/microsoft/omsagent/bin/service_control start`
+        1. Verify that the OMS Agent is running by using `ps -ef | grep oms`. If it is not running, start the process by running the command ` sudo /opt/microsoft/omsagent/bin/service_control start`
         2. Open the `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` file.
         Verify that the proper user and group setting is valid, similar to: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
-        If the file does not exist or the user and group setting is wrong, you'll need to take corrective action by [Preparing a Linux server](#prepare-a-linux-server).
+        If the file does not exist or the user and group setting is wrong, take corrective action by [Preparing a Linux server](#prepare-a-linux-server).
 
 ## Next steps
 
