@@ -39,7 +39,7 @@ A given resource provider might enforce an authorization check based on a list o
 
 A common use case for such ACLs is test runners for a web application or web api.  The web api may only grant a subset of its full permissions to its various clients.  But in order to run end to end tests on the api, a test client is created that acquires tokens from the v2.0 endpoint and sends them to the api.  The api can then ACL the test client's Application ID for full access to the api's entire functionality.  Note that if you have such a list on your service, you should be sure to not only validate the caller's `appid`, but also validate that the `iss` of the token is trusted as well.
 
-This type of authorization is common for daemons and service accounts that need to access data owned by consumer users with personal Microsoft accounts.  For data owned by organizations, it's recommended that you acquire the necessary authorization via application perimssions.
+This type of authorization is common for daemons and service accounts that need to access data owned by consumer users with personal Microsoft accounts.  For data owned by organizations, it's recommended that you acquire the necessary authorization via application permissions.
 
 ### Application permissions
 Instead of using ACLs, APIs can expose a set of **application permissions** that can be granted to an application.  An application permission is granted to an application by an administrator of an organization, and can only be used to access data owned by that organization and its employees.  For example, the Microsoft Graph exposes several application permissions:
