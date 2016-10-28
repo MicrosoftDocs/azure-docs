@@ -15,12 +15,44 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/24/2016"
+   ms.date="10/28/2016"
    ms.author="tomfitz"/>
 
 # Troubleshoot common Azure deployment errors with Azure Resource Manager
 
-This topic describes how you can resolve some common Azure deployment errors you may encounter. If you need more information about what went wrong with your deployment, first see [View deployment operations](resource-manager-troubleshoot-deployments-portal.md) and then come back to this article for help with resolving the error. The sections in this topic list the error code you see.
+This topic describes how you can resolve some common Azure deployment errors you may encounter. There are two types of errors you can receive: validation errors and deployment errors. Before attempting a deployment, Resource Manager validates the template. If it determines an error, the deployment never starts. Validation errors arise from scenarios such as syntax errors in your template, or resources that would exceed your subscription quotas. Deployment errors arise from conditions that occur during the deployment process. Deployment errors return the code `DeploymentFailed`. However, this is a general code for deployment errors. The error code that actually helps you resolve the issue is usually one level below that error. The following image show the `RequestDisallowedByPolicy` error code that is more useful under the deployment error.
+
+![show error code](./media/resource-manager-common-deployment-errors/error-code.png)
+
+You can view deployment and validation errors in the activity log. The following image shows a deployment that passes validation but then fails deployment, and a deployment that fails validation.
+
+![show error code](./media/resource-manager-common-deployment-errors/show-activity-log.png)
+
+In some cases, the easiest way to troubleshoot your template is to test only parts of it. For example, suppose you are receiving an error that a resource cannot be found. Rather than dealing with an entire complicated template, simply return the part that may be causing your problem.
+
+    {
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"storageName": {
+			"type": "string"
+		},
+		"storageResourceGroup": {
+			"type": "string"
+		}
+	},
+	"variables": {},
+	"resources": [],
+	"outputs": {
+		"exampleOutput": {
+			"value": "[reference(resourceId('Microsoft.Storage/storageAccounts', parameters('storageName'), '2016-06-01'))]",
+			"type" : "string"
+		}
+	}
+    }
+
+
+The sections in this topic list the error code you see.
 
 ## Invalid template
 
