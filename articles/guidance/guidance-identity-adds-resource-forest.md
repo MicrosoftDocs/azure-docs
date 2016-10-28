@@ -29,7 +29,7 @@ An organization that runs Active Directory (AD) on-premises might have a forest 
 
 An organization that utilizes separate domains can take advantage of Azure by relocating one or more of these domains to the cloud. Alternatively, an organization might wish to keep all cloud resources logically distinct from those held on-premises, and store information about cloud resources in their own directory, in a domain also held in the cloud.
 
-You can implement Active Directory in Azure in several different ways, as described in the articles [Extending Active Directory to Azure][extending-ad-to-azure] and [Implementing Azure Active Directory][implementing-aad]. This document focuses on one specific scenario: creating a domain in the cloud that is distinct from any domains held on-premises, but that can have a trust relationship with on-premises domains. 
+You can implement Active Directory in Azure in several different ways, as described in the articles [Extending Active Directory to Azure][extending-ad-to-azure] and [Implementing Azure Active Directory][implementing-aad]. This document focuses on one specific scenario: creating a domain in the cloud that is distinct from any domains held on-premises, but that can have a trust relationship with on-premises domains.
 
 Typical use cases for this architecture include:
 
@@ -77,7 +77,7 @@ You can establish trusts at the forest level by [creating forest trusts][creatin
 
 Trusts can be unidirectional (one-way) or bidirectional (two-way):
 
-- A one-way trust enables users in one domain or forest (known as the *incoming* domain or forest) to access the resources held in another (the *outgoing* domain or forest). 
+- A one-way trust enables users in one domain or forest (known as the *incoming* domain or forest) to access the resources held in another (the *outgoing* domain or forest).
 
 - A two-way trust enables users in either domain or forest to access resources held in the other.
 
@@ -97,7 +97,7 @@ For AD-specific security considerations, see the *Security considerations* secti
 
 ## Availability considerations
 
-Implement at least two domain controllers for each domain. This enables automatic replication between servers. Create an availability set for the VMs acting as AD servers handling each domain. Ensure that there are at least two servers in the set. 
+Implement at least two domain controllers for each domain. This enables automatic replication between servers. Create an availability set for the VMs acting as AD servers handling each domain. Ensure that there are at least two servers in the set.
 
 Also, consider designating one or more servers in each domain as [standby operations masters][standby-operations-masters] in case connectivity to a server acting as an FSMO role fails.
 
@@ -107,11 +107,11 @@ AD is automatically scalable for domain controllers that are part of the same do
 
 ## Management and monitoring considerations
 
-For information about management and monitoring considerations, see the equivalent sections in [Extending Active Directory to Azure][extending-ad-to-azure]. 
+For information about management and monitoring considerations, see the equivalent sections in [Extending Active Directory to Azure][extending-ad-to-azure].
 
-For additional information, see [Monitoring Active Directory][monitoring_ad]. You can install tools such as [Microsoft Systems Center][microsoft_systems_center] on a monitoring server in the management subnet to help perform these tasks. 
+For additional information, see [Monitoring Active Directory][monitoring_ad]. You can install tools such as [Microsoft Systems Center][microsoft_systems_center] on a monitoring server in the management subnet to help perform these tasks.
 
-## Solution components
+## <a name="solutioncomponents"/>Solution components</a>
 
 A sample solution script, [Deploy-ReferenceArchitecture.ps1][solution-script], is available that you can use to implement the architecture that follows the recommendations described in this article. This script utilizes Azure Resource Manager templates. The templates are available as a set of fundamental building blocks, each of which performs a specific action such as creating a VNet or configuring an NSG. The purpose of the script is to orchestrate template deployment.
 
@@ -167,7 +167,7 @@ This script adds the IP addresses of the AD DS servers in the cloud (see the nex
 These components form the core of this architecture. They setup the infrastructure for the *treyresearch.com* domain and create the trust relationships with the on-premises *contoso.com* domain. The [**parameters/azure**][azure-folder] folder contains the following parameter files for configuring these components:
 
 - **[virtualNetwork.parameters.json][vnet-parameters]**. This file defines structure of the VNet for the VMs and other components in the cloud. It includes settings, such as the name, address space, subnets, and the addresses of any DNS servers required. The DNS addresses shown in this example reference the IP addresses of the on-premises DNS servers, and also the default Azure DNS server. Modify these addresses to reference your own DNS setup if you are not using the sample on-premises environment:
-	
+
 	```json
 	"virtualNetworkSettings": {
 	  "value": {
@@ -230,7 +230,7 @@ These components form the core of this architecture. They setup the infrastructu
 - **[virtualMachines-adds.parameters.json ][virtualmachines-adds-parameters]**. This file configures the VMs running ADDS in the cloud. The configuration consists of two VMs. Change the admin user name and password in the `virtualMachineSettings` section, and you can optionally modify the VM size to match the requirements of the domain:
 
 	For more information, see [Extending Active Directory to Azure][extending-ad-to-azure].
-	
+
 	```json
 	"virtualMachinesSettings": {
 	  "value": {
@@ -358,7 +358,7 @@ These components form the core of this architecture. They setup the infrastructu
 	````
 	You can modify the sizes and number of VMs in each tier according to your requirements.
 
-	The `loadBalancerSettings` section provides the description of the load balancer for these VMs. The load balancer passes traffic that appears on port 80 (HTTP) and port 443 (HTTPS) to one or other of the VMs. 
+	The `loadBalancerSettings` section provides the description of the load balancer for these VMs. The load balancer passes traffic that appears on port 80 (HTTP) and port 443 (HTTPS) to one or other of the VMs.
 
 	>[AZURE.NOTE] The rule for port 80 uses a TCP connection rather than HTTP. This is because the installation of IIS on the web tier is configured to support Windows Authentication only. Anonymous Authentication is disabled. Attempting to *ping* port 80 over an HTTP connection fails with a 401 (Unauthorized) error, whereas using a TCP connection just detects whether the port is active:
 
@@ -428,7 +428,7 @@ These components form the core of this architecture. They setup the infrastructu
 The configuration also uses the [outgoing-trust.ps1][outgoing-trust] script shown below to create a one-way outgoing trust with the *contoso.com* domain:
 
 ```powershell
-# prerequiste: 
+# prerequiste:
 # You need to first run incoming-trust.ps1 in ra-adtrust-onpremise-ad-vm1 (ip 192.168.0.4)
 # Then,
 # Run the following powershell script in ra-adtrust-ad-vm1 (ip 10.0.4.4)
@@ -499,7 +499,7 @@ To run the script that deploys the solution:
     |ra-adtrust-onpremise-rg|parameters\onpremise\connection.parameters.json<br /> parameters\onpremise\virtualMachines-adds.parameters.json<br />parameters\onpremise\virtualNetwork-adds-dns.parameters.json<br />parameters\onpremise\virtualNetwork.parameters.json<br />parameters\onpremise\virtualNetworkGateway.parameters.json<br />parameters\azure\virtualNetworkGateway.parameters.json
     |ra-adtrust-network-rg|parameters\onpremise\connection.parameters.json<br />parameters\azure\dmz-private.parameters.json<br />parameters\azure\dmz-public.parameters.json<br />parameters\azure\loadBalancer-biz.parameters.json<br />parameters\azure\loadBalancer-data.parameters.json<br />parameters\azure\loadBalancer-web.parameters.json<br />parameters\azure\virtualMachines-adds.parameters.json<br />parameters\azure\virtualMachines-mgmt.parameters.json<br />parameters\azure\virtualNetwork-adds-dns.parameters.json<br />parameters\azure\virtualNetwork.parameters.json<br />parameters\azure\virtualNetworkGateway.parameters.json (*two occurrences*)
 
-	Additionally, set the configuration for the on-premises and cloud components, as described in the [Solution Components][solution-components] section.
+	Additionally, set the configuration for the on-premises and cloud components, as described in the [Solution Components][#solutioncomponents] section.
 
 7. Open an Azure PowerShell window, move to the Scripts folder, and run the following command:
 
