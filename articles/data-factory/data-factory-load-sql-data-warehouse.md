@@ -63,7 +63,7 @@ This article shows you how to use Data Factory Copy Wizard to load 1 TB data fro
 	
 	This experiment loads data into Azure SQL Data Warehouse using `xlargerc` resource class
 
-	To achieve best possible throughput, copy needs to be performed using a SQL Data Warehouse user belonging to `xlargerc` resource class.  Learn how to do that by following Change a user resource class example.  Now we have created a user called newAdmin, which we use in the following steps.
+	To achieve best possible throughput, copy needs to be performed using a SQL Data Warehouse user belonging to `xlargerc` resource class.  Learn how to do that by following Change a user resource class example.  Now we have created a user called newAdmin, which we use later in the walkthrough.
 
 - Create destination table schema in Azure SQL Data Warehouse database, by running the following DDL statement:
 
@@ -95,12 +95,9 @@ This article shows you how to use Data Factory Copy Wizard to load 1 TB data fro
 With the prerequisite steps completed, we are now ready to configure the copy activity using the Copy Wizard.
 
 ## Step 1: Configure data loading schedule
-The first step is to configure the data loading schedule.  Choose **Run once now** as shown in the following image. 
+The first step is to configure the data loading schedule.  Choose **Run once now** as shown in the following image:
 
 ![Copy Wizard - Properties page](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
-<p class="footer" align="center">
-    **Pipeline properties**
-</p>
 
 ## Step 2: Configure source
 The images in this section show the steps to configure the source: Azure Blob containing the 1 TB TPC-H line item files.
@@ -178,7 +175,7 @@ Here are a few best practices for running your Azure SQL Data Warehouse database
 See [Best practices for Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-best-practices.md) for details. 
 
 ## Next steps
-- [Data Factory Copy Wizard](data-factory-copy-wizard.md) -  This article describes how to easily author a data ingestion pipeline using the Copy Wizard.
-- [Move Data by using Copy Activity](data-factory-data-movement-activities.md).  This article provides core reference documentation on how the Copy Activity works and the set of connectors it supports.
-- [Copy Activity performance and tuning guide](data-factory-copy-activity-performance.md).  This article contains the reference performance measurements and tuning guide.
+- [Data Factory Copy Wizard](data-factory-copy-wizard.md) - This article describes how to easily author a data ingestion pipeline using the Copy Wizard.
+- [Move Data by using Copy Activity](data-factory-data-movement-activities.md) - This article provides core reference documentation on how the Copy Activity works and the set of connectors it supports.
+- [Copy Activity performance and tuning guide](data-factory-copy-activity-performance.md) - This article contains the reference performance measurements and tuning guide.
 
