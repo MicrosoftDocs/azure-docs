@@ -1,29 +1,29 @@
-<properties 
-	pageTitle="Django and MySQL on Azure with Python Tools 2.2 for Visual Studio" 
-	description="Learn how to use the Python Tools for Visual Studio to create a Django web app that stores data in a MySQL database instance and deploy it to Azure App Service Web Apps." 
-	services="app-service\web" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+<properties
+	pageTitle="Django and MySQL on Azure with Python Tools 2.2 for Visual Studio"
+	description="Learn how to use the Python Tools for Visual Studio to create a Django web app that stores data in a MySQL database instance and deploy it to Azure App Service Web Apps."
+	services="app-service\web"
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
 	ms.devlang="python"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.date="07/07/2016"
 	ms.author="huvalo"/>
 
-# Django and MySQL on Azure with Python Tools 2.2 for Visual Studio 
+# Django and MySQL on Azure with Python Tools 2.2 for Visual Studio
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 In this tutorial, you'll use [Python Tools for Visual Studio] (PTVS) to create a simple polls web app using one of the PTVS sample templates. You'll learn how to use a MySQL service hosted on Azure, how to configure the web app to use MySQL, and how to publish the web app to [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 > [AZURE.NOTE] The information contained in this tutorial is also available in the following video:
-> 
+>
 > [PTVS 2.1: Django app with MySQL][video]
 
 See the [Python Developer Center] for more articles that cover development of Azure App Service Web Apps with PTVS using Bottle, Flask and Django web frameworks, with Azure Table Storage, MySQL, and SQL Database services. While this article focuses on App Service, the steps are similar when developing [Azure Cloud Services].
@@ -93,7 +93,7 @@ You can create a database with a free plan by following these steps.
 
 1. Log in to the [Azure Portal].
 
-1. At the Top of the navigation pane, click **NEW**, then click **Data + Storage**, and then click **MySQL Database**. 
+1. At the Top of the navigation pane, click **NEW**, then click **Data + Storage**, and then click **MySQL Database**.
 
 1. Configure the new MySQL database by creating a new resource group and select the appropriate location for it.
 
@@ -183,11 +183,11 @@ For more information, see the [Python Developer Center](/develop/python/).
 <!--External Link references-->
 
 [Azure Portal]: https://portal.azure.com
-[Python Tools for Visual Studio]: http://aka.ms/ptvs
+[Python Tools for Visual Studio]: https://www.visualstudio.com/vs/python/
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Python Tools 2.2 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
-[Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517191
 [Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
 [Remote Debugging on Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026

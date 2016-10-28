@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Editing textual runbooks in Azure Automation"
 	description="This article provides different procedures for working with PowerShell and PowerShell Workflow runbooks in Azure Automation using the textual editor."
 	services="automation"
@@ -6,7 +6,7 @@
 	authors="mgoedtel"
 	manager="stevenka"
 	editor="tysonn" />
-<tags 
+<tags
 	ms.service="automation"
 	ms.devlang="na"
 	ms.topic="article"
@@ -39,7 +39,7 @@ Use the following procedure to open a runbook for editing in the textual editor.
 ### To insert a cmdlet into a runbook
 
 2. In the Canvas of the textual editor, position the cursor where you want to place the cmdlet.
-3. Expand the **Cmdlets** node in the Library control. 
+3. Expand the **Cmdlets** node in the Library control.
 3. Expand the module containing the cmdlet you want to use.
 4. Right click the cmdlet to insert and select **Add to canvas**.  If the cmdlet has more than one parameter set, then the default set will be added.  You can also expand the cmdlet to select a different parameter set.
 4. The code for the cmdlet is inserted with its entire list of parameters.
@@ -48,7 +48,7 @@ Use the following procedure to open a runbook for editing in the textual editor.
 ### To insert code for a child runbook into a runbook
 
 2. In the Canvas of the textual editor, position the cursor where you want to place the code for the [child runbook](automation-child-runbooks.md).
-3. Expand the **Runbooks** node in the Library control. 
+3. Expand the **Runbooks** node in the Library control.
 3. Right click the runbook to insert and select **Add to canvas**.
 4. The code for the child runbook is inserted with any placeholders for any runbook parameters.
 5. Replace the placeholders with appropriate values for each parameter.
@@ -56,7 +56,7 @@ Use the following procedure to open a runbook for editing in the textual editor.
 ### To insert an asset into a runbook
 
 2. In the Canvas of the textual editor, position the cursor where you want to place the code for the child runbook.
-3. Expand the **Assets** node in the Library control. 
+3. Expand the **Assets** node in the Library control.
 4. Expand the node for the type of asset you want.
 3. Right click the asset to insert and select **Add to canvas**.  For [variable assets](automation-variables.md), select either **Add "Get Variable" to canvas** or **Add "Set Variable" to canvas** depending on whether you want to get or set the variable.
 4. The code for the asset is inserted into the runbook.
@@ -116,7 +116,7 @@ The following sample commands show how to retrieve the script for a runbook and 
     $automationAccountName = "MyAutomationAccount"
     $runbookName = "Sample-TestRunbook"
     $scriptPath = "c:\runbooks\Sample-TestRunbook.ps1"
-    
+
     $runbookDefinition = Get-AzureAutomationRunbookDefinition -AutomationAccountName $automationAccountName -Name $runbookName -Slot Draft
     $runbookContent = $runbookDefinition.Content
 
@@ -124,7 +124,7 @@ The following sample commands show how to retrieve the script for a runbook and 
 
 ### To Change the Contents of a Runbook Using Windows PowerShell
 
-The following sample commands show how to replace the existing contents of a runbook with the contents of a script file. Note that this is the same sample procedure as in [To import a runbook from a script file with Windows PowerShell](../automation-creating-or-importing-a-runbook#ImportRunbookScriptPS).
+The following sample commands show how to replace the existing contents of a runbook with the contents of a script file. Note that this is the same sample procedure as in [To import a runbook from a script file with Windows PowerShell](../automation-creating-importing-a-runbook#ImportRunbookScriptPS).
 
     $automationAccountName = "MyAutomationAccount"
     $runbookName = "Sample-TestRunbook"
