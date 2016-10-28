@@ -3,7 +3,7 @@
 	description="Learn how to configure Azure function app settings."
 	services=""
 	documentationCenter=".net"
-	authors="rachelap"
+	authors="rachelappel"
 	manager="erikre"
 	editor=""/>
 
