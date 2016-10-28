@@ -1,3 +1,4 @@
+
 <properties
 	pageTitle="DocumentDB Java API & SDK | Microsoft Azure"
 	description="Learn all about the Java API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Java SDK."
@@ -18,7 +19,8 @@
 
 # DocumentDB APIs and SDKs
 
-> [AZURE.SELECTOR]- [.NET](documentdb-sdk-dotnet.md)
+> [AZURE.SELECTOR]
+- [.NET](documentdb-sdk-dotnet.md)
 - [Node.js](documentdb-sdk-node.md)
 - [Java](documentdb-sdk-java.md)
 - [Python](documentdb-sdk-python.md)
