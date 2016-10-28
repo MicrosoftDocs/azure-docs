@@ -4,7 +4,7 @@
     services="application-gateway"
     documentationCenter="na"
     authors="georgewallace"
-    manager="carmonmills"
+    manager="carmonm"
     editor="tysonn"/>
 
 <tags

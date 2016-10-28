@@ -71,10 +71,10 @@ Virtual Private Network connections let multiple concurrent users connect from c
     
     ```PowerShell
     #Change the IP Address below to match your Azure Stack host
-    $hostIP = "10.224.132.6"
+    $hostIP = "<HostIP>"
 
     # Change password below to reference the password provided for administrator during Azure Stack installation
-    $Password = ConvertTo-SecureString "User@123!!" -AsPlainText -Force
+    $Password = ConvertTo-SecureString "<Admin Password>" -AsPlainText -Force
 
     # Add Azure Stack One Node host & CA to the trusted hosts on your client computer
     Set-Item wsman:\localhost\Client\TrustedHosts -Value $hostIP -Concatenate

@@ -2,7 +2,7 @@
 	pageTitle="Scale instance count manually or automatically | Microsoft Azure"
 	description="Learn how to scale your services Azure."
 	authors="rboucher"
-	manager=""
+	manager="carolz"
 	editor=""
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>

@@ -2,7 +2,7 @@
 	pageTitle="Enable monitoring and diagnostics in Microsoft Azure | Microsoft Azure "
 	description="Learn how to set up diagnostics for your resources in Azure."
 	authors="rboucher"
-	manager=""
+	manager="carolz"
 	editor=""
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>

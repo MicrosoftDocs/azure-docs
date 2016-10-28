@@ -2,7 +2,7 @@
 	pageTitle="Configure webhooks on Azure metric alerts | Microsoft Azure"
 	description="Reroute Azure alerts to other non-Azure systems."
 	authors="kamathashwin"
-	manager=""
+	manager="carolz"
 	editor=""
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>
