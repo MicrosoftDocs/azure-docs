@@ -3,7 +3,7 @@
    description="Learn how to create DNS zones for Azure DNS .This is a Step by step to get your first DNS zone created to start hosting your DNS domain using PowerShell."
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
 
 # Create a DNS zone using Powershell
 
@@ -23,9 +23,9 @@
 - [PowerShell](dns-getstarted-create-dnszone.md)
 - [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 
-This article will walk you through the steps to create a DNS zone by using PowerShell. You can also create a DNS zone using CLI or the Azure portal. 
+This article will walk you through the steps to create a DNS zone by using PowerShell. You can also create a DNS zone using CLI or the Azure portal.
 
-[AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)] 
+[AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
 ## <a name="tagetag"></a>About Etags and tags
 
@@ -56,9 +56,9 @@ Azure DNS PowerShell supports Tags on both zones and record sets specified using
 ## Before you begin
 
 Verify that you have the following items before beginning your configuration.
-	
+
 - An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-	
+
 - You'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets (1.0 or later). See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
 
 ## Step 1 - Sign in
@@ -71,7 +71,7 @@ Use the following sample to help you connect:
 
 Check the subscriptions for the account.
 
-	Get-AzureRmSubscription 
+	Get-AzureRmSubscription
 
 Specify the subscription that you want to use.
 
@@ -81,7 +81,7 @@ Specify the subscription that you want to use.
 
 Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. However, because all DNS resources are global, not regional, the choice of resource group location has no impact on Azure DNS.
 
-You can skip this step if you are using an existing resource group. 
+You can skip this step if you are using an existing resource group.
 
 	New-AzureRmResourceGroup -Name MyAzureResourceGroup -location "West US"
 
@@ -117,7 +117,7 @@ Creating a DNS zone also creates the following DNS records:
 
 - The *Start of Authority* (SOA) record. This is present at the root of every DNS zone.
 
-- The authoritative name server (NS) records. These show which name servers are hosting the zone. Azure DNS uses a pool of name servers, and so different name servers may be assigned to different zones in Azure DNS. See [delegate a domain to Azure DNS](dns-domain-delegation.md) for more information. 
+- The authoritative name server (NS) records. These show which name servers are hosting the zone. Azure DNS uses a pool of name servers, and so different name servers may be assigned to different zones in Azure DNS. See [delegate a domain to Azure DNS](dns-domain-delegation.md) for more information.
 
 To view these records, use `Get-AzureRmDnsRecordSet`:
 

@@ -2,7 +2,7 @@
     pageTitle="Get started with certificate based authentication on iOS | Microsoft Azure" 
     description="Learn how to configure certificate based authentication in solutions with iOS devices" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="MarkusVi"  
     documentationCenter="na" 
     manager="femila"/>
 <tags 
@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="08/02/2016" 
+    ms.date="10/21/2016" 
     ms.author="markvi" />
 
 
@@ -64,7 +64,7 @@ For all scenarios in this topic, the following tasks are required:
 | Word / Excel / PowerPoint | ![Check][1]  |
 | OneNote                   | ![Check][1]  |
 | OneDrive                  | ![Check][1]  |
-| Outlook                   | Coming soon  |
+| Outlook                   | ![Check][1]  |
 | Yammer                    | ![Check][1]  |
 | Skype for Business        | Coming soon  |
 

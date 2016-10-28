@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="06/22/2016"
+   ms.date="09/30/2016"
    ms.author="sstein"/>
 
-# SQL Database Advisor
+# SQL Database Advisor using the Azure portal
 
 > [AZURE.SELECTOR]
 - [SQL Database Advisor Overview](sql-database-advisor.md)
@@ -26,15 +26,15 @@ You can use the Azure SQL Database Advisor in the Azure portal to review and imp
 
 ## Viewing recommendations
 
-The recommendations page is where you view the top recommendations based on their potential impact to improve performance. You can also view the status of the historical operations. Select a recommendation or status to see it's details.
+The recommendations page is where you view the top recommendations based on their potential impact to improve performance. You can also view the status of the historical operations. Select a recommendation or status to see  more details.
 
 To view and apply recommendations, you need the correct [role-based access control](../active-directory/role-based-access-control-configure.md) permissions in Azure. **Reader**, **SQL DB Contributor** permissions are required to view recommendations, and **Owner**, **SQL DB Contributor** permissions are required to execute any actions; create or drop indexes and cancel index creation.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Click **BROWSE** > **SQL databases**, and select your database.
-5. Click **All settings** > **Recommendations** to view available **Recommendations** for the selected database.
+2. Click **More services** > **SQL databases**, and select your database.
+5. Click **Performance recommendation** to view available recommendations for the selected database.
 
-> [AZURE.NOTE] To get recommendations a database needs to have about a week of usage, and within that week there needs to be some activity. There also needs to be some consistent activity as well. The SQL Database Advisor can more easily optimize for consistent query patterns than it can for random spotty bursts of activity. If recommendations are not available, the **Recommendations** page should provide a message explaining why.
+> [AZURE.NOTE] To get recommendations a database needs to have about a day of usage, and there needs to be some activity. There also needs to be some consistent activity. The SQL Database Advisor can more easily optimize for consistent query patterns than it can for random spotty bursts of activity. If recommendations are not available, the **Performance recommendation** page should provide a message explaining why.
 
 ![Recommendations](./media/sql-database-advisor-portal/recommendations.png)
 
@@ -42,7 +42,7 @@ Here is an example of "Fix schema issue" recommendation in the Azure portal.
 
 ![Fix Schema Issue](./media/sql-database-advisor-portal/sql-database-advisor-schema-issue.png)
 
-Recommendations are sorted by their potential impact on performance into the following 4 categories:
+Recommendations are sorted by their potential impact on performance into the following four categories:
 
 | Impact | Description |
 | :--- | :--- |
@@ -69,21 +69,21 @@ If desired, you can add discarded items back to the **Recommendations** list:
 
 ## Applying recommendations
 
-SQL Database Advisor gives you full control over how recommendations are enabled using any of the 3 options below. 
+SQL Database Advisor gives you full control over how recommendations are enabled using any of the following three options: 
 
 - Apply individual recommendations one at a time.
 - Enable the advisor to automatically apply recommendations (currently applies to index recommendations only).
-- Manually run the recommended T-SQL script against your database to implement a recommendation.
+- To implement a recommendation manually, run the recommended T-SQL script against your database .
 
-Select any recommendation to view its details and then click **View script** to review the exact details of how the recommendation will be created.
+Select any recommendation to view its details and then click **View script** to review the exact details of how the recommendation is created.
 
-The database remains online while the advisor applies the recommendation -- using SQL Database Advisor will never take a database offline.
+The database remains online while the advisor applies the recommendation -- using SQL Database Advisor never takes a database offline.
 
 ### Apply an individual recommendation
 
 You can review and accept recommendations one at a time.
 
-1. On the **Recommendations** blade click a recommendation.
+1. On the **Recommendations** blade, click a recommendation.
 2. On the **Details** blade click **Apply**.
 
     ![Apply recommendation](./media/sql-database-advisor-portal/apply.png)
@@ -92,7 +92,7 @@ You can review and accept recommendations one at a time.
 
 You can set the SQL Database Advisor to implement recommendations automatically. As recommendations become available they will automatically be applied. As with all index operations managed by the service if the performance impact is negative the recommendation will be reverted.
 
-1. On the **Recommendations** blade click **Automate**:
+1. On the **Recommendations** blade, click **Automate**:
 
     ![Advisor settings](./media/sql-database-advisor-portal/settings.png)
 
@@ -130,7 +130,7 @@ Applying a recommendation might not happen instantaneously. The portal provides 
 | Reverting | The recommendation was applied, but has been deemed non-performant and is being automatically reverted. |
 | Reverted | The recommendation was reverted. |
 
-Click an in-process recommendation from the list to see it's details:
+Click an in-process recommendation from the list to see more details:
 
 ![Recommended Indexes](./media/sql-database-advisor-portal/operations.png)
 
@@ -165,7 +165,7 @@ SQL Database Advisor provides recommendations for improving SQL database perform
 Monitor your recommendations and continue to apply them to refine performance. Database workloads are dynamic and change continuously. SQL Database advisor will continue to monitor and provide recommendations that can potentially improve your database's performance. 
 
  - See [SQL Database Advisor](sql-database-advisor.md) for an overview of SQL Database Advisor.
- - See [Query Performance Insights](sql-database-query-performance.md) to learn about view the performance impact of your top queries.
+ - See [Query Performance Insights](sql-database-query-performance.md) to learn about viewing the performance impact of your top queries.
 
 ## Additional resources
 

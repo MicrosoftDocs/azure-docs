@@ -124,7 +124,7 @@ The following steps illustrate how to view or modify the parameters of an artifa
 
 An Azure Resource Manager template provides a declarative way to define a repeatable deployment. 
 The following steps explain how to save the Azure Resource Manager template for the VM being created.
-Once saved, you can use the Azure Resource Manager template to [deploy new VMs with Azure PowerShell](../resource-group-overview.md#template-deployment).
+Once saved, you can use the Azure Resource Manager template to [deploy new VMs with Azure PowerShell](../azure-resource-manager/resource-group-overview.md#template-deployment).
 
 1. On the **Virtual machine** blade, select **View ARM Template**.
 

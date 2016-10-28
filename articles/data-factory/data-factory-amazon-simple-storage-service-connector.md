@@ -3,7 +3,7 @@
 	description="Learn about how to move data from Amazon Simple Storage Service (S3) using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -13,14 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2016" 
-	ms.author="spelluru"/>
+	ms.date="10/24/2016" 
+	ms.author="jingwang"/>
 
 # Move data From Amazon Simple Storage Service using Azure Data Factory
 
 This article outlines how you can use the Copy Activity in an Azure data factory to move data to from Amazon Simple Storage Service (S3) to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article that presents a general overview of data movement, and a list of supported source/sink data stores with copy activity.  
 
 Data factory currently supports only moving data from Amazon S3 to other data stores, but not for moving data from other data stores to Amazon S3.
+
+## Required permissions
+
+To copy data from Amazon S3, make sure you have been granted below permissions:
+
+- **s3:GetObject** and **s3:GetObjectVersion** for Amazon S3 Object Operations
+- **s3:ListBucket** and **s3:ListAllMyBuckets** (used in copy wizard only) for Amazon S3 Bucket Operations 
+
+You can find the full list of Amazon S3 permisions with detail from [Specifying Permissions in a Policy](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
 ## Copy data wizard
 The easiest way to create a pipeline that copies data from Amazon S3 is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
@@ -223,8 +232,8 @@ The **typeProperties** section is different for each type of dataset and provide
 | key | The S3 object key. | String | No | 
 | prefix | Prefix for the S3 object key. Objects whose keys start with this prefix are selected. Applies only when key is empty. | String | No | 
 | version | The version of S3 object if S3 versioning is enabled. | String | No |  
-| format | The following format types are supported: **TextFormat**, **AvroFormat**, **JsonFormat**, and **OrcFormat**. Set the **type** property under format to one of these values. See [Specifying TextFormat](#specifying-textformat), [Specifying AvroFormat](#specifying-avroformat), [Specifying JsonFormat](#specifying-jsonformat), and [Specifying OrcFormat](#specifying-orcformat) sections for details. If you want to copy files as-is between file-based stores (binary copy), you can skip the format section in both input and output dataset definitions.| No
-| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, and **BZip2** and supported levels are: **Optimal** and **Fastest**. Currently, the compression settings are not supported for data in **AvroFormat** or **OrcFormat**. See [Compression support](#compression-support) section for more details.  | No |
+| format | The following format types are supported: **TextFormat**, **AvroFormat**, **JsonFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. See [Specifying TextFormat](#specifying-textformat), [Specifying AvroFormat](#specifying-avroformat), [Specifying JsonFormat](#specifying-jsonformat), [Specifying OrcFormat](#specifying-orcformat), and [Specifying ParquetFormat](#specifying-parquetformat) sections for details. If you want to copy files as-is between file-based stores (binary copy), you can skip the format section in both input and output dataset definitions.| No
+| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, and **BZip2** and supported levels are: **Optimal** and **Fastest**. Currently, the compression settings are not supported for data in **AvroFormat** or **OrcFormat**. For more information, see [Compression support](#compression-support) section.  | No |
 
 > [AZURE.NOTE] bucketName + key specifies the location of the S3 object where bucket is the root container for S3 objects and key is the full path to S3 object.
 

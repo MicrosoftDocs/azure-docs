@@ -159,7 +159,7 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 [documentdb]: https://azure.microsoft.com/en-us/documentation/services/documentdb/
 [polyglot-storage]: https://github.com/mspnp/azure-guidance/blob/master/Polyglot-Solutions.md
 [queue-storage]: ../storage/storage-dotnet-how-to-use-queues.md
-[queues-compared]: ../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md
+[queues-compared]: ../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md
 [resource-group]: ../resource-group-overview.md
 [sql-db]: https://azure.microsoft.com/en-us/documentation/services/sql-database/
 [sql-elastic]: ../sql-database/sql-database-elastic-scale-introduction.md

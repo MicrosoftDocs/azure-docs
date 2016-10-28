@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="10/17/2016"
 	ms.author="ccompy"/>
 
 
@@ -76,7 +76,7 @@ The database holds the information that defines the environment, as well as the 
 
 ### Network
 
-The VNet that is used with your ASE can be one that you made when you created the ASE or one that you made ahead of time. If you want your virtual network to be in a resource group that is separate from the one used for your ASE, then you need to make your virtual network separately from the ASE creation flow. If you create the subnet during ASE creation, it forces the ASE to be in the same resource group as the virtual network. 
+The VNet that is used with your ASE can be one that you made when you created the ASE or one that you made ahead of time. When you create the subnet during ASE creation, it forces the ASE to be in the same resource group as the virtual network. If you need the resource group used by your ASE to be different than that of your VNet, then you need to create your ASE using a resource manager template.
 
 There are some restrictions on the virtual network that is used for an ASE:
  

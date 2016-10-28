@@ -72,6 +72,8 @@ To facilitate HTTP triggers, there is also a web host which is designed to sit i
 
 When setting-up a project for deploying functions to a function app in Azure App Service, you can treat this folder structure as your site code. You can use existing tools like continuous integration and deployment, or custom deployment scripts for doing deploy time package installation or code transpilation.
 
+>[AZURE.NOTE] The `wwwroot` folder here is where your files will get deployed to. However, you must not include that folder in the files you deploy, which would end up with `wwwroot\wwwroot`. Instead, your `host.json` file and function folders should be directly at the root of what you deploy.
+
 ## <a id="fileupdate"></a> How to update function app files
 
 The function editor built into the Azure portal lets you update the *function.json* file and the code file for a function. To upload or update other files such as *package.json* or *project.json* or dependencies, you have to use other deployment methods.
@@ -145,6 +147,7 @@ Here is a table of all supported bindings.
 For more information, see the following resources:
 
 * [Azure Functions C# developer reference](functions-reference-csharp.md)
+* [Azure Functions F# developer reference](functions-reference-fsharp.md)
 * [Azure Functions NodeJS developer reference](functions-reference-node.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)
 * [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) on the Azure App Service team blog. A history of how Azure Functions was developed.

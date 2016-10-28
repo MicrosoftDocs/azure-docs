@@ -4,8 +4,8 @@ pageTitle="SCP.NET programming guide | Azure"
 description="Learn how to use SCP.NET to create .NET-based Storm topologies for use with Storm on HDInsight."
 services="hdinsight"
 documentationCenter=""
-authors="rperi"
-manager="paulettm"
+authors="raviperi"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -23,7 +23,7 @@ SCP is a platform to build real time, reliable, consistent and high performance 
 
 Not only the SCP project ported Storm on Windows but also the project added extensions and customization for the Windows ecosystem. The extensions include .NET developer experience, and libraries, the customization includes Windows-based deployment. 
 
-The extension and customization is done in such a way that we do not need to fork the OSS projects and we could leverage derived ecosystems built on top of Storm. 
+The extension and customization is done in such a way that we do not need to fork the OSS projects and we could leverage derived ecosystems built on top of Storm.
 
 ## Processing model 
 
@@ -201,19 +201,19 @@ Context provides a running environment to the application. Each ISCPPlugin insta
 
 The following interfaces are pertinent to a certain Context instance. The Context instance is created by SCP.NET platform and passed to the user code:
 
-	\* Declare the Output and Input Stream Schemas \*                
+	// Declare the Output and Input Stream Schemas
 
 	public void DeclareComponentSchema(ComponentStreamSchema schema);   
 
-	\* Emit tuple to default stream. \*
+	// Emit tuple to default stream.
 	public abstract void Emit(List<object> values);                   
 
-	\* Emit tuple to the specific stream. \*
+	// Emit tuple to the specific stream.
 	public abstract void Emit(string streamId, List<object> values);  
 
 For non-transactional spout supporting ack, the following method is provided:
 
-	\* for non-transactional Spout which supports ack \*
+	// for non-transactional Spout which supports ack
 	public abstract void Emit(string streamId, List<object> values, long seqId);  
 
 For non-transactional bolt supporting ack, it should explicitly `Ack()` or `Fail()` the tuple it received. And when emitting new tuple, it must also specify the anchors of the new tuple. The following methods are provided.

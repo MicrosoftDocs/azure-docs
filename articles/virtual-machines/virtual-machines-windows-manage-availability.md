@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/25/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # Manage the availability of virtual machines

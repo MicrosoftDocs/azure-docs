@@ -4,7 +4,7 @@
 	keywords="azure app service environment, virtual network, secure networking"
 	services="app-service" 
 	documentationCenter="" 
-	authors="yochay" 
+	authors="stefsch" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2016" 
+	ms.date="10/04/2016" 
 	ms.author="stefsch"/>
 
 # App Service Environment Documentation
@@ -40,7 +40,7 @@ Apps frequently need to access corporate resources such as internal databases an
 * [Scaling Apps in an App Service Environment](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
 * [Network Security and Architecture](../app-service-web/app-service-app-service-environment-network-architecture-overview.md)
 
-## How Tos
+## How To's
 
 [AZURE.INCLUDE [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
 

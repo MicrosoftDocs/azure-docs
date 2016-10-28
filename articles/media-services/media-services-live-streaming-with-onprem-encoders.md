@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Live streaming with on-premise encoders that create multi-bitrate streams" 
+	pageTitle="Live streaming with on-premise encoders that create multi-bitrate streams | Microsoft Azure" 
 	description="This topic describes how to set up a Channel that receives a multi-bitrate live stream from an on-premises encoder. The stream can then be delivered to client playback applications through one or more Streaming Endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Stream, MPEG DASH, HDS." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="10/12/2016" 
 	ms.author="cenkdin;juliako"/>
 
 #Live streaming with on-premise encoders that create multi-bitrate streams
@@ -65,7 +65,7 @@ The following steps describe tasks involved in creating common live streaming ap
 
 3. Create a program. 
 
-	When using the Azure Classic Portal, creating a program also creates an asset. 
+	When using the Azure portal, creating a program also creates an asset. 
 
 	When using .NET SDK or REST you need to create an asset and specify to use this asset when creating a Program. 
 1. Publish the asset associated with the program.   
@@ -167,7 +167,7 @@ You can get the preview URL when you create the channel. To get the URL, the cha
 
 Once the Channel starts ingesting data, you can preview your stream.
 
-Note that currently the preview stream can only be delivered in Fragmented MP4 (Smooth Streaming) format regardless of the specified input type. You can use the [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) player to test the Smooth Stream. You can also use a player hosted in the Azure Classic Portal to view your stream.
+Note that currently the preview stream can only be delivered in Fragmented MP4 (Smooth Streaming) format regardless of the specified input type. You can use the [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) player to test the Smooth Stream. You can also use a player hosted in the Azure portal to view your stream.
 
 
 ####Allowed IP Addresses
@@ -272,7 +272,7 @@ Choose **Portal**, **.NET**, **REST API** to see how to create and manage channe
 
 [Azure Media Services Fragmented MP4 Live Ingest Specification](media-services-fmp4-live-ingest-overview.md)
 
-[Delivering Live Streaming Events with Azure Media Services](media-services-live-streaming-workflow.md)
+[Delivering Live Streaming Events with Azure Media Services](media-services-overview.md)
 
 [Media Services Concepts](media-services-concepts.md)
 

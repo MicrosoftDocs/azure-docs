@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="09/26/2016"
 	ms.author="anwestg"/>
 	
 # Azure Stack Web Apps Overview
     
+> [AZURE.NOTE] The following information only applies to Azure Stack TP1 deployments.
+
 Azure Stack Web Apps is the first element of the Azure App Service offering brought to Azure Stack. The Azure Stack Web Apps installer will create an instance of each of the five required role types and will also create a file server. Although you can add more instances for each of the role types, remember that there is not much space for VMs in Technical Preview 1. The current capabilities for Azure Stack Web Apps are primarily foundation capabilities that are needed to manage the system and host web apps.
 
 ![Azure Stack App Service Web Apps in the Azure Stack Portal][1]
@@ -41,7 +43,7 @@ As is also true with the back end, Azure Stack Web Apps uses the same UI that Az
 - [Before you get started with Azure Stack Web Apps](azure-stack-webapps-before-you-get-started.md)
 - [Install the Web Apps Resource Provider](azure-stack-webapps-deploy.md)
 
-You can also try out other [platform as a service (PaaS) services](azure-stack-tools-paas-services.md), like the [SQL Server resource provider](azure-stack-sqlrp-deploy.md) and [MySQL resource provider](azure-stack-mysqlrp-deploy.md).
+You can also try out other [platform as a service (PaaS) services](azure-stack-tools-paas-services.md), like the [SQL Server resource provider](azure-stack-sql-rp-deploy-short.md) and [MySQL resource provider](azure-stack-mysql-rp-deploy-short.md).
 
 <!--Image references-->
 [1]: ./media/azure-stack-webapps-overview/AppService_Portal.png

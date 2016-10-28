@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="10/12/2016"
 	ms.author="juliako"/>
 
 
@@ -125,8 +125,7 @@ You should append "?api-version=2.x" to the end of the URI if you want to view t
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-  
-  [Azure Classic Portal]: http://manage.windowsazure.com/
+
 
 
 

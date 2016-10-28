@@ -1,7 +1,7 @@
 <properties
    pageTitle="Create an event processing function | Microsoft Azure"
    description="Use Azure Functions create a C# function that runs based on an event timer."
-   services="azure-functions"
+   services="functions"
    documentationCenter="na"
    authors="ggailey777"
    manager="erikre"
@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="06/05/2016"
+   ms.date="09/25/2016"
    ms.author="glenga"/>
    
 # Create an event processing Azure Function
@@ -44,7 +44,7 @@ A function app hosts the execution of your functions in Azure. Before you can cr
 
 	![Create a new timer-triggered function](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding.png)
 
-5. In  **Azure Storage Queue output**, click **select** next to **Storage account connection**, select the existing storage account or create a new one, then click **Save**. 
+5. In  **Azure Storage Queue output**, select an existing **Storage account connection**, or create a new one, then click **Save**. 
 
 	![Create a new timer-triggered function](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding-2.png)
 

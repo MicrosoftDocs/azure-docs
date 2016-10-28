@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Manage Hadoop clusters in HDInsight using the Azure Portal | Microsoft Azure"
+	pageTitle="Manage Hadoop clusters in HDInsight using the Azure portal | Microsoft Azure"
 	description="Learn how to administer HDInsight Service. Create an HDInsight cluster, open the interactive JavaScript console, and open the Hadoop command console."
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-    ms.date="06/28/2016"
+    ms.date="09/14/2016"
 	ms.author="jgao"/>
 
-# Manage Hadoop clusters in HDInsight by using the Azure Portal
+# Manage Hadoop clusters in HDInsight by using the Azure portal
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Using the [Azure Portal][azure-portal], you can create Hadoop clusters in Azure HDInsight, change Hadoop user password, and enable Remote Desktop Protocol (RDP) so you can access the Hadoop command console on the cluster.
+Using the [Azure portal][azure-portal], you can create Hadoop clusters in Azure HDInsight, change Hadoop user password, and enable Remote Desktop Protocol (RDP) so you can access the Hadoop command console on the cluster.
 
 The information in this article only applies to Window-based HDInsight clusters. For information on managing Linux-based clusters, click the tab selector above.
 
@@ -41,14 +41,14 @@ Before you begin this article, you must have the following:
 
 	- Click **New** from the left menu to create a new cluster:
 	
-		![new HDInsight cluster buttom](./media/hdinsight-administer-use-management-portal/azure-portal-new-button.png)
+		![new HDInsight cluster button](./media/hdinsight-administer-use-management-portal/azure-portal-new-button.png)
 	- Click **HDInsight Clusters** from the left menu.
 	
-		![Azure portal HDInsight cluster buttom](./media/hdinsight-administer-use-management-portal/azure-portal-hdinsight-button.png)
+		![Azure portal HDInsight cluster button](./media/hdinsight-administer-use-management-portal/azure-portal-hdinsight-button.png)
 
 	If **HDInsight** doesn't appear in the left menu, click **Browse**. 
 
-	![Azure portal Browse cluster buttom](./media/hdinsight-administer-use-management-portal/azure-portal-browse-button.png)
+	![Azure portal Browse cluster button](./media/hdinsight-administer-use-management-portal/azure-portal-browse-button.png)
 
 ##Create clusters
 
@@ -76,7 +76,7 @@ Installation of custom software on the cluster by using Remote Desktop Connectio
 
 	**Menu and essentials**:
 
-	![Azure portal hdinsight cluster essentials](./media/hdinsight-administer-use-management-portal/hdinsight-essentials.png)
+	![Azure portal HDInsight cluster essentials](./media/hdinsight-administer-use-management-portal/hdinsight-essentials.png)
 	
 	- To customize the menu, right-click anywhere on the menu, and then click **Customize**.
 	- **Settings** and **All Settings**: Displays the **Settings** blade for the cluster, which allows you to access detailed configuration information for the cluster.
@@ -143,7 +143,7 @@ See also [Pause/shut down clusters](#pauseshut-down-clusters).
 ##Scale clusters
 The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster.
 
->[AZURE.NOTE] Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See [List and show clusters](hdinsight-adminster-use-management-portal.md#list-and-show-clusters).
+>[AZURE.NOTE] Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See [List and show clusters](#list-and-show-clusters).
 
 The impact of changing the number of data nodes for each type of cluster supported by HDInsight:
 
@@ -175,7 +175,7 @@ The impact of changing the number of data nodes for each type of cluster support
 
 	The Storm web UI is available on the HDInsight cluster:
 
-	![hdinsight storm scale rebalance](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+	![HDInsight storm scale rebalance](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
 
 	Here is an example how to use the CLI command to rebalance the Storm topology:
 
@@ -193,7 +193,7 @@ The impact of changing the number of data nodes for each type of cluster support
 3. Click **Settings** from the top menu, and then click **Scale Cluster**.
 4. Enter **Number of Worker nodes**. The limit on the number of cluster node varies among Azure subscriptions. You can contact billing support to increase the limit.  The cost information will reflect the changes you have made to the number of nodes.
 
-	![hdinsight hadoop hbase storm spark scale](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
+	![HDInsight Hadoop HBase Storm Spark scale](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
 
 ##Pause/shut down clusters
 
@@ -221,7 +221,7 @@ An HDInsight cluster can have two user accounts. The HDInsight cluster user acco
 4. If **Cluster login** has been enabled, you must click **Disable**, and then click **Enable** before you can change the username and password..
 4. Change the **Cluster Login Name** and/or the **Cluster Login Password**, and then click **Save**.
 
-	![hdinsight change cluster user username password http user](./media/hdinsight-administer-use-management-portal/hdinsight.portal.change.username.password.png)
+	![HDInsight change cluster user username password http user](./media/hdinsight-administer-use-management-portal/hdinsight.portal.change.username.password.png)
 
 ##Grant/revoke access
 
@@ -233,7 +233,7 @@ HDInsight clusters have the following HTTP web services (all of these services h
 - Oozie
 - Templeton
 
-By default, these services are granted for access. You can revoke/grant the access from the Azure Portal.
+By default, these services are granted for access. You can revoke/grant the access from the Azure portal.
 
 >[AZURE.NOTE] By granting/revoking the access, you will reset the cluster user name and password.
 
@@ -246,19 +246,19 @@ By default, these services are granted for access. You can revoke/grant the acce
 6. For **Cluster Login Username** and **Cluster Login Password**, enter the new user name and password (respectively) for the cluster.
 7. Click **SAVE**.
 
-	![hdinsight grand remove http web service access](./media/hdinsight-administer-use-management-portal/hdinsight.portal.change.username.password.png)
+	![HDInsight grand remove http web service access](./media/hdinsight-administer-use-management-portal/hdinsight.portal.change.username.password.png)
 
 
 
 
 ##Find the default storage account
 
-Each HDInsight cluster has a default storage account. The default storage account and its keys for a cluster apears under **Settings**/**Properties**/**Azure Storage Keys**. See [List and show clusters](#list-and-show-clusters).
+Each HDInsight cluster has a default storage account. The default storage account and its keys for a cluster appears under **Settings**/**Properties**/**Azure Storage Keys**. See [List and show clusters](#list-and-show-clusters).
 
 	
 ##Find the resource group 
 
-In the ARM mode, each HDInsight cluster is created with an Azure resource group. The Azure resource group that a cluster belongs to appears in:
+In the Azure Resource Manager mode, each HDInsight cluster is created with an Azure resource group. The Azure resource group that a cluster belongs to appears in:
 
 - The cluster list has a **Resource Group** column.
 - Cluster **Essential** tile.  
@@ -272,29 +272,29 @@ The HDInsight Query console includes the following features:
 - **Getting started gallery**: To use the gallery , see [Learn Hadoop by using the Azure HDInsight Getting Started Gallery](hdinsight-learn-hadoop-use-sample-gallery.md).
 - **Hive Editor**: A GUI web interface for submitting Hive jobs.  See [Run Hive queries using the Query Console](hdinsight-hadoop-use-hive-query-console.md).
 
-	![hdinsight portal hive editor](./media/hdinsight-administer-use-management-portal/hdinsight-hive-editor.png)
+	![HDInsight portal hive editor](./media/hdinsight-administer-use-management-portal/hdinsight-hive-editor.png)
 
 - **Job history**: Monitor Hadoop jobs.  
 
-	![hdinsight portal job history](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
+	![HDInsight portal job history](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
 	Click **Query Name** to show the details including Job properties, **Job Query**, and **Job Output. You can also download both the query and the output to your workstation.
 
 - **File Browser**: Browse the default storage account and the linked storage accounts.
 
-	![hdinsight portal file browser browse](./media/hdinsight-administer-use-management-portal/hdinsight-file-browser.png)
+	![HDInsight portal file browser browse](./media/hdinsight-administer-use-management-portal/hdinsight-file-browser.png)
 
 	On the screenshot, the **<Account>** type indicates the item is an Azure storage account.  Click the account name to browse the files.
 	
 - **Hadoop UI**.
 
-	![hdinsight portal Hadoop UI](./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-ui.png)
+	![HDInsight portal Hadoop UI](./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-ui.png)
 	
 	From **Hadoop UI*, you can browse files, and check logs. 
 
 - **Yarn UI**.
 
-	![hdinsight portal YARN UI](./media/hdinsight-administer-use-management-portal/hdinsight-yarn-ui.png)
+	![HDInsight portal YARN UI](./media/hdinsight-administer-use-management-portal/hdinsight-yarn-ui.png)
 
 ##Run Hive queries
 

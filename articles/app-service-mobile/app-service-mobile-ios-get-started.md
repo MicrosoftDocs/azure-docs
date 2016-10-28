@@ -3,8 +3,8 @@
 	description="Follow this tutorial to get started with using Azure mobile app backends for iOS development in Objective-C or Swift"
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="krisragh"
-	manager="dwrede"
+	authors="ysxu"
+	manager="yochayk"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="08/17/2016"
-	ms.author="krisragh"/>
+	ms.date="10/01/2016"
+	ms.author="yuaxu"/>
 
 #Create an iOS app
 
@@ -38,9 +38,6 @@ To complete this tutorial, you need a Mac and [an Azure account](https://azure.m
 ## Step III: Download and run the iOS app
 
 [AZURE.INCLUDE [app-service-mobile-ios-run-app](../../includes/app-service-mobile-ios-run-app.md)]
-
-
-<!-- Images. -->
 
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/

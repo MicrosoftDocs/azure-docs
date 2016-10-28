@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="07/04/2016"
+     ms.date="09/23/2016"
      ms.author="dobett"/>
 
 # Tutorial: How to send cloud-to-device messages with IoT Hub and Node.js
@@ -32,22 +32,22 @@ This tutorial builds on [Get started with IoT Hub]. It shows you how to:
 
 You can find more information on cloud-to-device messages in the [IoT Hub Developer Guide][IoT Hub Developer Guide - C2D].
 
-At the end of this tutorial, you will run two Node.js console applications:
+At the end of this tutorial, you run two Node.js console applications:
 
 * **SimulatedDevice**, a modified version of the app created in [Get started with IoT Hub], which connects to your IoT hub and receives cloud-to-device messages.
 * **SendCloudToDeviceMessage**, which sends a cloud-to-device message to the simulated device through IoT Hub, and then receives its delivery acknowledgement.
 
 > [AZURE.NOTE] IoT Hub has SDK support for many device platforms and languages (including C, Java, and Javascript) through Azure IoT device SDKs. For step-by-step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [Azure IoT Developer Center].
 
-To complete this tutorial, you'll need the following:
+To complete this tutorial, you need the following:
 
-+ Node.js version 0.12.x or later. <br/> [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
++ Node.js version 0.10.x or later.
 
-+ An active Azure account. (If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].)
++ An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
 ## Receive messages on the simulated device
 
-In this section, you'll modify the simulated device application you created in [Get started with IoT Hub] to receive cloud-to-device messages from the IoT hub.
+In this section, you modify the simulated device application you created in [Get started with IoT Hub] to receive cloud-to-device messages from the IoT hub.
 
 1. Using a text editor, open the SimulatedDevice.js file.
 
@@ -75,13 +75,13 @@ In this section, you'll modify the simulated device application you created in [
     };
     ```
 
-    > [AZURE.NOTE] If you use HTTP/1 instead of AMQP as the transport, the **DeviceClient** instance checks for messages from IoT Hub infrequently (less than every 25 minutes). For more information about the differences between AMQP and HTTP/1 support, and IoT Hub throttling, see the [IoT Hub Developer Guide][IoT Hub Developer Guide - C2D].
+    > [AZURE.NOTE] If you use HTTP instead of MQTT or AMQP as the transport, the **DeviceClient** instance checks for messages from IoT Hub infrequently (less than every 25 minutes). For more information about the differences between MQTT, AMQP and HTTP support, and IoT Hub throttling, see the [IoT Hub Developer Guide][IoT Hub Developer Guide - C2D].
 
 ## Send a cloud-to-device message
 
-In this section, you'll create a Node.js console app that sends cloud-to-device messages to the simulated device app. You need the device Id of the device you added in the [Get started with IoT Hub] tutorial and the connection string for your IoT hub which you can find in the [Azure portal].
+In this section, you create a Node.js console app that sends cloud-to-device messages to the simulated device app. You need the device Id of the device you added in the [Get started with IoT Hub] tutorial. You also need the connection string for your IoT hub that you can find in the [Azure portal].
 
-1. Create a new empty folder called **sendcloudtodevicemessage**. In the **sendcloudtodevicemessage** folder, create a new package.json file using the following command at your command-prompt. Accept all the defaults:
+1. Create an empty folder called **sendcloudtodevicemessage**. In the **sendcloudtodevicemessage** folder, create a package.json file using the following command at your command-prompt. Accept all the defaults:
 
     ```
     npm init
@@ -104,7 +104,7 @@ In this section, you'll create a Node.js console app that sends cloud-to-device 
     var Message = require('azure-iot-common').Message;
     ```
 
-5. Add the following code to **SendCloudToDeviceMessage.js** file and replace the connection string placeholder value with the connection string for the IoT hub you created in the [Get started with IoT Hub] tutorial and the target device placeholder with the device id of the device you added in the [Get started with IoT Hub] tutorial:
+5. Add the following code to **SendCloudToDeviceMessage.js** file. Replace the connection string placeholder value with the connection string for the IoT hub you created in the [Get started with IoT Hub] tutorial. Replace the target device placeholder with the device id of the device you added in the [Get started with IoT Hub] tutorial:
 
     ```
     var connectionString = '{iot hub connection string}';
@@ -192,7 +192,7 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub Develope
 <!-- Links -->
 
 [Get started with IoT Hub]: iot-hub-node-node-getstarted.md
-[IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
+[IoT Hub Developer Guide - C2D]: iot-hub-devguide-messaging.md
 [IoT Hub Developer Guide]: iot-hub-devguide.md
 [Azure IoT Developer Center]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

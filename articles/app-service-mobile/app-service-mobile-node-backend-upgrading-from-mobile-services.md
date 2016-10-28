@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="adrianhall"
-	manager="ggailey"
+	manager="yochayk"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="08/11/2016"
+	ms.date="10/01/2016"
 	ms.author="adrianha"/>
 
 # Upgrade your existing Node.js Azure Mobile Service to App Service

@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="06/07/2016"
+    ms.date="09/27/2016"
     ms.author="sethm" />
 
 # Event Hubs quotas

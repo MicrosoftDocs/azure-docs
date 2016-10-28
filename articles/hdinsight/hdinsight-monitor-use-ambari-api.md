@@ -6,7 +6,7 @@
 	tags="azure-portal"
 	authors="mumian"
 	editor="cgronlun"
-	manager="paulettm"/>
+	manager="jhubbard"/>
 
 <tags
 	ms.service="hdinsight"

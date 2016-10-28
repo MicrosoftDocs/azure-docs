@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/11/2016"  
+	ms.date="10/10/2016"  
 	ms.author="milanga;juliako;"/>
  
 # Detect Motions with Azure Media Analytics

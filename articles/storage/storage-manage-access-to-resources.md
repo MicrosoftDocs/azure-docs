@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Manage anonymous read access to containers and blobs | Microsoft Azure" 
-	description="Learn how to make containers and blobs available for anonymous access, and how to access them programmatically." 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="carmonm" 
+<properties
+	pageTitle="Manage anonymous read access to containers and blobs | Microsoft Azure"
+	description="Learn how to make containers and blobs available for anonymous access, and how to access them programmatically."
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/07/2016"
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/18/2016"
 	ms.author="tamram"/>
 
 # Manage anonymous read access to containers and blobs
@@ -22,7 +22,7 @@
 
 By default, only the owner of the storage account may access storage resources within that account. For Blob storage only, you can set a container's permissions to permit anonymous read access to the container and its blobs, so that you can grant access to those resources without sharing your account key.
 
-Anonymous access is best for scenarios where you want certain blobs to always be available for anonymous read access. For finer-grained control, you can create a shared access signature, which enables you to delegate restricted access using different permissions and over a specified time interval. For more information about creating shared access signatures, see [Shared Access Signatures: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md).
+Anonymous access is best for scenarios where you want certain blobs to always be available for anonymous read access. For finer-grained control, you can create a shared access signature, which enables you to delegate restricted access using different permissions and over a specified time interval. For more information about creating shared access signatures, see [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 ## Grant anonymous users permissions to containers and blobs
 
@@ -47,11 +47,11 @@ You can set container permissions in the following ways:
 To set container permissions from the [Azure Portal](https://portal.azure.com), follow these steps:
 
 1. Navigate to the dashboard for your storage account.
-2. Select the container name from the list. Note that you must click to the right of the Name column to select the container name. Clicking the name drills down into the container to show its blobs.
-3. Select **Edit** from the toolbar.
-4. In the **Edit Container Metadata** dialog, select your desired level of permissions from the **Access** field, as shown in the screenshot below.
+2. Select the container name from the list. Clicking the name exposes the blobs in the chosen container
+3. Select **Access policy** from the toolbar.
+4. In the **Access type** field, select your desired level of permissions as shown in the screenshot below.
 
-	![Edit Container Metadata dialog](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-1.png)
+	![Edit Container Metadata dialog](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
 ### Setting container permissions programmatically using .NET
 
@@ -68,7 +68,7 @@ The following example sets the container's permissions to full public read acces
 
 ## Access containers and blobs anonymously
 
-A client that accesses containers and blobs anonymously can use constructors that do not require credentials. The following examples show a few different ways to reference Blob service resources anonymously. 
+A client that accesses containers and blobs anonymously can use constructors that do not require credentials. The following examples show a few different ways to reference Blob service resources anonymously.
 
 ### Create an anonymous client object
 
@@ -152,5 +152,5 @@ The following table shows which operations may be called by anonymous users when
 ## See Also
 
 - [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx)
-- [Shared access signatures: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md)
-- [Delegating Access with a Shared Access Signature](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
+- [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md)
+- [Delegating Access with a Shared Access Signature](https://msdn.microsoft.com/library/azure/ee395415.aspx)

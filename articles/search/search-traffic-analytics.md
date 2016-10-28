@@ -14,38 +14,38 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/19/2016" 
+	ms.date="09/23/2016" 
 	ms.author="betorres"
 />
 
 
 # Enabling and using Search Traffic Analytics
 
-Search traffic analytics is an Azure Search feature that lets you gain visibility into your search service and unlock insights about your users and their behavior. When you enable this feature, your search service data is copied to a storage account of your choosing. This data includes your search service logs and aggregated operational metrics which you can process and manipulate for further analysis.
+Search traffic analytics is an Azure Search feature that lets you gain visibility into your search service and unlock insights about your users and their behavior. When you enable this feature, your search service data is copied to a storage account of your choosing. This data includes your search service logs and aggregated operational metrics that, you can process and manipulate for further analysis.
 
 ## How to enable Search Traffic Analytics
 
-You will need a Storage account in the same region and subscription as your search service.
+You need a Storage account in the same region and subscription as your search service.
 
 > [AZURE.IMPORTANT] Standard charges apply for this storage account
 
-Once enabled, the data will start flowing into your storage account within 5-10 minutes into these 2 blob containers:
+You can enable search traffic analytics on the portal or via PowerShell. Once enabled, the data starts flowing into your storage account within 5-10 minutes into these two blob containers:
 
     insights-logs-operationlogs: search traffic logs
     insights-metrics-pt1m: aggregated metrics
 
 
-### 1. Using the portal
-Open your Azure Search service in the [Azure Portal](http://portal.azure.com). Under Settings, you will find the Search traffic analytics option. 
+### A. Using the portal
+Open your Azure Search service in the [Azure portal](http://portal.azure.com). Under Settings, find the Search traffic analytics option. 
 
 ![][1]
 
-Select this option and a new blade will open. Change the Status to **On**, select the Azure Storage account your data will be copied to, and choose the data you want to copy: Logs, Metrics or both. We recommend copying logs and metrics. 
-You have the option to set the retention policy for your data from 1 to 365 days. If you don't want to apply any retention policy and retain the data forever, set retention (days) to 0.
+Change the Status to **On**, select the Azure Storage account to use, and choose the data you want to copy: Logs, Metrics or both. We recommend copying logs and metrics. 
+You can set the retention policy for your data from 1 to 365 days. If you don't want to retain the data indefinitely, set retention (days) to 0.
 
 ![][2]
 
-### 2. Using PowerShell
+### B. Using PowerShell
 
 First, make sure you have the latest [Azure PowerShell cmdlets](https://github.com/Azure/azure-powershell/releases) installed.
 
@@ -64,14 +64,14 @@ Set-AzureRmDiagnosticSetting -ResourceId $SearchServiceResourceId StorageAccount
 
 The data is stored in Azure Storage blobs formatted as JSON.
 
-There will be one blob, per hour, per container.
+There is one blob, per hour, per container.
   
 Example path: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2015/m=12/d=25/h=01/m=00/name=PT1H.json`
 
 ### Logs
 
 The logs blobs contain your search service traffic logs.
-Each blob has one root object called **records** that contains an array of log objects
+Each blob has one root object called **records** that contains an array of log objects.
 Each blob has records on all the operation that took place during the same hour.
 
 ####Log schema
@@ -86,7 +86,7 @@ category |string |"OperationLogs" |constant
 resultType |string |"Success" |Possible values: Success or Failure 
 resultSignature |int |200 |HTTP result code 
 durationMS |int |50 |Duration of the operation in milliseconds 
-properties |object |see below |Object containing operation specific data
+properties |object |see the following table |Object containing operation-specific data
 
 ####Properties schema
 
@@ -124,12 +124,12 @@ Available metrics:
 |count |int |4 |The number of raw samples used to generate the metric |
 |timegrain |string |"PT1M" |The time grain of the metric in ISO 8601|
 
-All metrics are reported in one-minute intervals. This means that each of the metrics will expose the minimum, maximum and average values per minute.
+All metrics are reported in one-minute intervals. Every metric exposes minimum, maximum and average values per minute.
 
-In the case of the SearchQueriesPerSecond metric, minimum will be the lowest value for search queries per second that was registered during that minute; same applies to the maximum value. Average, will be the the aggregate across the entire minute. 
-Think about this scenario: during one minute you can have 1 second of very high load, which will be you maximum for SearchQueriesPerSecond, followed by 58 seconds of mid load, and then one second with only one query, which will be the minimum.
+For the SearchQueriesPerSecond metric, minimum is the lowest value for search queries per second that was registered during that minute. The same applies to the maximum value. Average, is the aggregate across the entire minute. 
+Think about this scenario during one minute: one second of high load that is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.
 
-For ThrottledSearchQueriesPercentage, minimum, maximum, average and total will all be the same value, which is the percentage of search queries that were throttled, based on the total number of search queries during one minute.
+For ThrottledSearchQueriesPercentage, minimum, maximum, average and total, all have the same value: the percentage of search queries that were throttled, from the total number of search queries during one minute.
 
 ## Analyzing your data
 
@@ -145,7 +145,7 @@ As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com
 
 #### Power BI Desktop
 
-[Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop): Explore your data and create your own visualizations for your data. We provide a starter query below to help you.
+[Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop): Explore your data and create your own visualizations for your data. See the starter query in the following section:
 
 1. Open a new PowerBI Desktop report
 2. Select Get Data -> More...
@@ -157,12 +157,12 @@ As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com
 	![][6]
 
 4. Enter the Name and Account Key of your storage account
-5. Select "insight-logs-operationlogs" and "insights-metrics-pt1m", then click on Edit
-6. The Query Editor will open, make sure "insight-logs-operationlogs" is selected on the left. Now open the Advanced Editor by selecting View -> Advanced Editor
+5. Select "insight-logs-operationlogs" and "insights-metrics-pt1m", then click Edit
+6. When the Query Editor opens, make sure "insight-logs-operationlogs" is selected on the left. Now open the Advanced Editor by selecting View -> Advanced Editor
 
 	![][7]
 
-7. Keep the first 2 lines and replace the rest with the following query:
+7. Keep the first two lines and replace the rest with the following query:
 
 	>     #"insights-logs-operationlogs" = Source{[Name="insights-logs-operationlogs"]}[Data],
 	>     #"Sorted Rows" = Table.Sort(#"insights-logs-operationlogs",{{"Date modified", Order.Descending}}),
@@ -193,7 +193,7 @@ As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com
 
 8. Click Done
 
-9. Select now "insights-metrics-pt1m" from the lest of queries on the left, and open the Advanced editor again. Keep the first 2 lines and replace the rest with the following query: 
+9. Select now "insights-metrics-pt1m" from the lest of queries on the left, and open the Advanced editor again. Keep the first two lines and replace the rest with the following query: 
 
 	>     #"insights-metrics-pt1m1" = Source{[Name="insights-metrics-pt1m"]}[Data],
 	>     #"Sorted Rows" = Table.Sort(#"insights-metrics-pt1m1",{{"Date modified", Order.Descending}}),

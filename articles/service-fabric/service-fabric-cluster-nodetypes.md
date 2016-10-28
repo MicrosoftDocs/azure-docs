@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/02/2016"
+   ms.date="09/09/2016"
    ms.author="chackdan"/>
 
 
 # The relationship between Service Fabric node types and Virtual Machine Scale Sets
 
-Virtual Machine Scale Sets are an Azure Compute resource you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in a Service Fabric cluster is setup as a separate VM Scale Set. Each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics.
+Virtual Machine Scale Sets are an Azure Compute resource you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in a Service Fabric cluster is set up as a separate VM Scale Set. Each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics.
 
 The following screen shot shows a cluster that has two node types: FrontEnd and BackEnd.  Each node type has five nodes each.
 
@@ -27,14 +27,14 @@ The following screen shot shows a cluster that has two node types: FrontEnd and 
 
 ## Mapping VM Scale Set instances to nodes
 
-As you can see above, the VM Scale Set instances start from instance 0 and then goes up. The numbering is reflected in the names. For example BackEnd_0 is instance 0 of the BackEnd VM Scale Set. This particular VM Scale Set has five instances, named BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 and BackEnd_4.
+As you can see above, the VM Scale Set instances start from instance 0 and then goes up. The numbering is reflected in the names. For example, BackEnd_0 is instance 0 of the BackEnd VM Scale Set. This particular VM Scale Set has five instances, named BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 and BackEnd_4.
 
-When you scale up a VM Scale Set a new instance is created. The new VM Scale Set instance name will typically be the VM Scale Set name + the next instance number. In our example, it will be BackEnd_5.
+When you scale up a VM Scale Set a new instance is created. The new VM Scale Set instance name will typically be the VM Scale Set name + the next instance number. In our example, it is BackEnd_5.
 
 
 ## Mapping VM scale set load balancers to each node type/VM Scale Set
 
-If you have deployed your cluster from the portal or have used the sample ARM template that we provided, then when you get a list of all resources under a Resource Group then you will see the load balancers for each VM Scale Set or node type.
+If you have deployed your cluster from the portal or have used the sample Resource Manager template that we provided, then when you get a list of all resources under a Resource Group then you will see the load balancers for each VM Scale Set or node type.
 
 The name would something like: **LB-&lt;NodeType name&gt;**. For example, LB-sfcluster4doc-0, as shown in this screenshot:
 
@@ -43,7 +43,7 @@ The name would something like: **LB-&lt;NodeType name&gt;**. For example, LB-sfc
 
 
 ## Remote connect to a VM Scale Set instance or a cluster node
-Every Node type that is defined in a cluster is setup as a separate VM Scale Set.  That means the node types can be scaled up or down independently and can be made of different VM SKUs. Unlike single instance VMs, the VM Scale Set instances do not get a virtual IP address of their own. So it can be a bit challenging when you are looking for an IP address and port that you can use to remote connect to a specific instance.
+Every Node type that is defined in a cluster is set up as a separate VM Scale Set.  That means the node types can be scaled up or down independently and can be made of different VM SKUs. Unlike single instance VMs, the VM Scale Set instances do not get a virtual IP address of their own. So it can be a bit challenging when you are looking for an IP address and port that you can use to remote connect to a specific instance.
 
 Here are the steps you can follow to discover them.
 
@@ -64,7 +64,7 @@ In **Settings**, click on **Inbound NAT rules**. This now gives you the IP addre
 
 Earlier in this document, I talked about how the VM Scale Set instances map to the nodes. We will use that to figure out the exact port.
 
-The ports are allocated in ascending order of the VM Scale Set instance. so in my example for the FrontEnd node type, the ports for each of the five instances will be the following. you now need to do the same mapping for your VM Scale Set instance.
+The ports are allocated in ascending order of the VM Scale Set instance. so in my example for the FrontEnd node type, the ports for each of the five instances are the following. you now need to do the same mapping for your VM Scale Set instance.
 
 |**VM Scale Set Instance**|**Port**|
 |-----------------------|--------------------------|
@@ -86,9 +86,9 @@ In the screenshot below I use Remote Desktop Connection to connect to the FrontE
 
 ### Before cluster deployment
 
-When you are setting up the cluster using an ARM template, you can specify the range in the **inboundNatPools**.
+When you are setting up the cluster using an Resource Manager template, you can specify the range in the **inboundNatPools**.
 
-Go to the resource definition for **Microsoft.Network/loadBalancers**. Under that you will find the description for **inboundNatPools**.  Replace the *frontendPortRangeStart* and *frontendPortRangeEnd* values.
+Go to the resource definition for **Microsoft.Network/loadBalancers**. Under that you find the description for **inboundNatPools**.  Replace the *frontendPortRangeStart* and *frontendPortRangeEnd* values.
 
 ![InboundNatPools][InboundNatPools]
 
@@ -102,7 +102,7 @@ Sign in to your Azure account. If this PowerShell command fails for some reason,
 Login-AzureRmAccount
 ```
 
-Run the following to get details on your load balancer and you will see the values for you will find the description for **inboundNatPools**:
+Run the following to get details on your load balancer and you see the values for the description for **inboundNatPools**:
 
 ```
 Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Network/loadBalancers -ResourceName <load balancer name>

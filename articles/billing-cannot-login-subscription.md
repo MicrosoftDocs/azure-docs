@@ -1,10 +1,10 @@
 <properties
-	pageTitle="I am unable to log in to manage my Azure subscription | Microsoft Azure"
-	description="Describes the troubleshoot information for some common Azure subscription login issues"
+	pageTitle="Can't sign in to Azure subscription | Microsoft Azure"
+	description="Describes how to troubleshoot some common Azure subscription login issues."
 	services=""
 	documentationCenter=""
 	authors="genlin"
-	manager="msmbaldwin"
+	manager="mbaldwin"
 	editor=""
 	tags="billing"
 	/>
@@ -15,43 +15,54 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="10/25/2016"
 	ms.author="genli"/>
 
-# I am unable to log in to manage my Azure subscription
+# I can't sign in to manage my Azure subscription
 
-> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly.
+This article guides you through some of the most common methods to resolve login issues.
 
-This article will help you troubleshoot some common causes of login issues.
+## Page hangs in the loading status
 
-## Which portal are you trying to access?
+If your internet browser page hangs, try each of the following steps until you can get to the [Azure portal](https://portal.azure.com).
 
-An Account Administrator can only access the [Account Center](https://account.windowsazure.com/) whereas Service Administrators (SA) and Co-Administrators (CA) only have access to the [Azure portal](https://portal.azure.com) or the [Azure classic portal](https://manage.windowsazure.com/).
+-	Refresh the page.
+-	Use a different Internet browser.
+-	If you’re using Microsoft Internet Explorer, browse to the Azure portal by using the InPrivate Browsing mode. 
 
-For more information about Azure administrator roles, see [How to add or change Azure administrator roles](billing-add-change-azure-subscription-administrator.md).
+	A.	Click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Safety** > **InPrivate Browsing**.
 
-## Is your subscription associated with a Microsoft account or Organizational account?
+	B.	Browse to the [Azure portal](https://portal.azure.com), and then sign in to the portal.
 
-Your Microsoft account is the email address you use, along with your password, to sign in to any Windows Live program or service, such as Outlook, Hotmail, MSN or OneDrive. You may set up a Microsoft account using any email address belonging to you, including your company email. Please see [www.microsoft.com/account](http://www.microsoft.com/account) for more details.
+## Error message "No subscriptions found”
 
-If your account is associated with an Organizational account, then please select the correct login option as shown below. For more information on using an Organizational account, see [Sign up for Azure as an organization](./active-directory/sign-up-organization.md):
+If your account doesn’t have sufficient permissions, you may see a **No subscription found** error message. Only an account administrator can get to the [Account Center](https://account.windowsazure.com/), not the service administrators (SA) or co-administrators (CA).
 
-![signin page](./media/billing-cannot-login-subscription/signin.png)
+**Scenario 1: Error message is received in the [Azure portal](https://portal.azure.com)**
 
-## Co-Admin: Are you using the correct account type to manage other accounts?
+To resolve this issue, [add the co-administrator or owner role](billing-add-change-azure-subscription-administrator.md) for the account.
 
-- If you are logged in with a Microsoft Account, you can only add other Microsoft Accounts as Co-administrators. This is a security requirement to prevent non-organizational accounts from discovering if certain accounts (e.g. janedoe@contoso.com) are valid accounts.
-- If you are logged in with an organizational account, you can add other organizational accounts in your organization as Co-administrators. For example, abby@contoso.com can add bob@contoso.com as a Service Administrator or Co-administrator, but cannot add john@notcontoso.com. Users logged in with organizational accounts can also add Microsoft Account users as Service Administrators or Co-administrators.
+**Scenario 2: Error message is received in the [Azure Account Center](https://account.windowsazure.com/Subscriptions)**
 
-Now that it is possible to log into Azure with an organizational account, here are the changes to Service Administrator (SA) and Co-administrator (CA) account requirements:
+Check whether the account that you used is the account administrator. To verify who the account administrator is, follow these steps:
 
-| Login Method| Add Microsoft Account as Co-Administrator or Service Administrator?  |Add organizational account in the same organization as Co-Administrator or Service Administrator? |Add organizational account in different organization as Co-Administrator or Service Administrator?
-| ------------- | ------------- |---------------|---------------|
-|Microsoft Account |Yes|No|No|
-|Organizational Account|Yes|Yes|No|
+1.	Sign in to the [Azure portal](https://portal.azure.com).
+2.	On the Hub menu, select **Subscription**.
+3.	Select the subscription that you want to check, and then select **Settings**.
+4.	Select **Properties**. The account administrator of the subscription is displayed in the **Account Admin** box.
 
-## Is there a problem with the Internet Browser?
+## You are automatically signed in as a different user
 
-Try deleting cache/cookies, using IE InPrivate Browsing mode and also using a different browser.
+This issue can occur if you're using more than one user account in an Internet browser.
 
-> [AZURE.NOTE] If you still have further questions, please [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly.
+To resolve the issue, try one of the following methods:
+
+-	Clear the cache and delete Internet cookies. In Internet Explorer, click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Internet Options** > **Delete**. Make sure that the check boxes for temporary files, cookies, password, and browsing history are selected, and then click Delete.
+
+-	Reset the Internet Explorer settings to revert any personal settings that you’ve made. Click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png)> **Internet Options** > **Advanced** >select the **Delete personal settings** box > **Reset**.
+
+-	Browse to the Azure portal in InPrivate Browsing mode. Click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Safety** > **InPrivate Browsing**.
+
+## Need help? Contact support. 
+
+If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly. 

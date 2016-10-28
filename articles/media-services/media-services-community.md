@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Media Services Community Overview"
+	pageTitle="Azure Media Services Community Overview | Microsoft Azure"
 	description="This Azure Media Services (AMS) community page discusses different ways you can get updates about AMS, see new videos and podcasts, ask questions and give feedback. "
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 # Azure Media Services Community  

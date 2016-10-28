@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="09/12/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager template functions
@@ -979,7 +979,7 @@ Or, retrieve the list with Azure CLI. The following example retrieves all the op
 
     azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains(\"list\"))"
 
-The resourceId can be specified by using the [resourceId function](./#resourceid) or by using the format **{providerNamespace}/{resourceType}/{resourceName}**.
+The resourceId can be specified by using the [resourceId function](#resourceid) or by using the format **{providerNamespace}/{resourceType}/{resourceName}**.
 
 The following example shows how to return the primary and secondary keys from a storage account in the outputs section.
 
@@ -1089,7 +1089,7 @@ The following example references a storage account in a different resource group
 		}
 	}
 
-The properties on the returned object vary by the resource type.
+The properties on the object returned from the **reference** function vary by resource type. To see the property names and values for a resource type, create a simple template that returns the object in the **outputs** section. If you have an existing resource of that type, your template just returns the object without deploying any new resources. If you do not have an existing resource of that type, your template deploys only that type and returns the object. Then, add those properties to other templates that need to dynamically retrieve the values during deployment. 
 
 <a id="resourcegroup" />
 ### resourceGroup

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/18/2016"
+   ms.date="09/14/2016"
    ms.author="subramar"/>
 
 
@@ -23,7 +23,7 @@
 
 Azure Service Fabric supports two different access control types for clients that are connected to a Service Fabric cluster: administrator and user. Access control allows the cluster administrator to limit access to certain cluster operations for different groups of users, making the cluster more secure.  
 
-Administrators have full access to management capabilities (including read/write capabilities). Users, by default, have only read access to management capabilities (for example, query capabilities), and the ability to resolve applications and services.
+**Administrators** have full access to management capabilities (including read/write capabilities). By default, **users** only have read access to management capabilities (for example, query capabilities), and the ability to resolve applications and services.
 
 You specify the two client roles (administrator and client) at the time of cluster creation by providing separate certificates for each. See [Service Fabric cluster security](service-fabric-cluster-security.md) for details on setting up a secure Service Fabric cluster.
 
@@ -31,7 +31,8 @@ You specify the two client roles (administrator and client) at the time of clust
 ## Default access control settings
 
 
-The administrator access control type has full access to all the FabricClient APIs. It can perform any read and write operation against the Service Fabric cluster, including the following:
+The administrator access control type has full access to all the FabricClient APIs. It can perform any reads and writes on the Service Fabric cluster, including the following operations:
+
 
 ### Application and service operations
 * **CreateService**: service creation 							
@@ -45,7 +46,7 @@ The administrator access control type has full access to all the FabricClient AP
 * **UnprovisionApplicationType**: application type unprovisioning 							
 * **MoveNextUpgradeDomain**: resuming application upgrades with an explicit update domain 							
 * **ReportUpgradeHealth**: resuming application upgrades with the current upgrade progress 							
-* **ReportHealth** : reporting health 							
+* **ReportHealth**: reporting health 							
 * **PredeployPackageToNode**: predeployment API							
 * **CodePackageControl**: restarting code packages 							
 * **RecoverPartition**: recovering a partition 							
@@ -72,7 +73,7 @@ The administrator access control type has full access to all the FabricClient AP
 * **ReportFault**: reporting fault 							
 * **FileContent**: image store client file transfer (external to cluster) 							
 * **FileDownload**: image store client file download initiation (external to cluster) 							
-* **InternalList**: image store client file list operation  (internal) 							
+* **InternalList**: image store client file list operation (internal) 							
 * **Delete**: image store client delete operation  							
 * **Upload**: image store client upload operation 							
 * **NodeControl**: starting, stopping, and restarting nodes 							
@@ -85,7 +86,7 @@ The administrator access control type has full access to all the FabricClient AP
 
 
 
-The user access control type is, by default, limited to the following operations. (The admin access control also has access to these operations).
+The user access control type is, by default, limited to the following operations: 
 
 * **EnumerateSubnames**: naming URI enumeration 							
 * **EnumerateProperties**: naming property enumeration 							
@@ -102,9 +103,11 @@ The user access control type is, by default, limited to the following operations
 * **ResetPartitionLoad**: resetting load for a failover unit 							
 * **ToggleVerboseServicePlacementHealthReporting**: toggling verbose service placement health reporting 							
 
+The admin access control also has access to the preceding operations.
+
 ## Changing default settings for client roles
 
-In the cluster manifest file, you can provide admin capabilities to the client if needed. You can change the defaults by going to the **Fabric Settings** option during [cluster creation](service-fabric-cluster-creation-via-portal.md),and providing the settings described above in the **name**, **admin**, **user**, and **value** fields.
+In the cluster manifest file, you can provide admin capabilities to the client if needed. You can change the defaults by going to the **Fabric Settings** option during [cluster creation](service-fabric-cluster-creation-via-portal.md), and providing the preceding settings in the **name**, **admin**, **user**, and **value** fields.
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Media Services quotas and limitation" 
+	pageTitle="Media Services quotas and limitation | Microsoft Azure" 
 	description="This topic describes quotas and limitations associated with Microsoft Azure Media Services." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 

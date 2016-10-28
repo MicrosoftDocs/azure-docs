@@ -3,7 +3,7 @@
     description="Learn how to debug SAML-based single sign-on to applications in Azure Active Directory " 
     services="active-directory" 
     authors="asmalser-msft"  
-    documentationCenter="na" manager="stevenpo"/>
+    documentationCenter="na" manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 

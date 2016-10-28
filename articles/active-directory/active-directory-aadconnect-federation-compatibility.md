@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/08/2016"
+	ms.date="09/12/2016"
 	ms.author="billmath"/>
 
 # Azure AD federation compatibility list
@@ -41,7 +41,7 @@ For information on how you can get your third-party identity provider listed her
 - [Centrify](#centrify) 
 - [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622) 
 - [SecureAuth IdP 7.2.0](#secureauth-idp-720) 
-- [CA SiteMinder 12.52](#ca-siteminder-1252) 
+- [CA SiteMinder 12.52](#ca-siteminder-1252-sp1-cumulative-release-4) 
 - [RadiantOne CFS 3.0](#radiantone-cfs-30) 
 - [Okta](#okta) 
 - [OneLogin](#onelogin) 
@@ -173,15 +173,15 @@ The following is the scenario support matrix for this single sign-on experience:
 
 For more information about SecureAuth, see [SecureAuth IdP](http://go.microsoft.com/?linkid=9845293).
 
-## CA SiteMinder 12.52 
+## CA SiteMinder 12.52 SP1 Cumulative Release 4
 CA SiteMinder Federation 12.52 implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
 
 The following is the scenario support matrix for this single sign-on experience: 
 
 | Client |Support  |Exceptions|
 | --------- | --------- |--------- |
-| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |Integrated Windows Authentication|
-| Rich client applications such as Lync, Office Subscription, CRM |  Supported |Integrated Windows Authentication|
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
+| Rich client applications such as Lync, Office Subscription, CRM |  Supported |None|
 | Email-rich clients such as Outlook and ActiveSync |  Supported |None|
 
 For more information about CA SiteMinder, see [CA SiteMinder Federation.](http://www.ca.com/us/products/ca-single-sign-on.html) 

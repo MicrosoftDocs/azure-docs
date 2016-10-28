@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Connect domain-joined devices to Azure AD for Windows 10 experiences
@@ -59,7 +59,7 @@ To enable conditional access, you can create Group Policy settings that allow ac
 
 Azure AD Connect will enable you to provision computers on-premises as device objects in the cloud. To deploy Azure AD Connect, refer to "Install Azure AD Connect" in the article [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md#install-azure-ad-connect).
 
- - If you followed a [custom installation for Azure AD Connect](active-directory-aadconnect-get-started-custom.md) (not the Express installation), then follow the procedure **Create a service connection point in on-premises Active Directory**, later in this step.
+ - If you followed a [custom installation for Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md) (not the Express installation), then follow the procedure **Create a service connection point in on-premises Active Directory**, later in this step.
  - If you have a federated configuration with Azure AD before installing Azure AD Connect (for example, if you have deployed Active Directory Federation Services (AD FS) before), then follow the **Configure AD FS claim rules** procedure, later in this step.
 
 #### Create a service connection point in on-premises Active Directory
@@ -123,24 +123,15 @@ Windows 10 computers will authenticate by using Windows Integrated authenticatio
 
 ### Step 2: Configure automatic device registration via Group Policy in Active Directory
 
-You can use Group Policy in Active Directory to configure your Windows 10 domain-joined devices to automatically register with Azure AD. To do this, use the following step-by-step instructions:
+You can use Group Policy in Active Directory to configure your Windows 10 domain-joined devices to automatically register with Azure AD.
 
-1. 	Open Server Manager and navigate to **Tools** > **Group Policy Management**.
-2.	From Group Policy Management, navigate to the domain node that corresponds to the domain in which you would like to enable Azure AD Join.
-3.	Right-click **Group Policy Objects**, and then select **New**. Give your Group Policy object a name, for example, Automatic Azure AD Join. Click **OK**.
-4.	Right-click your new Group Policy object, and then select **Edit**.
-5.	Navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Workplace Join**.
-6.	Right-click **Automatically workplace join client computers**, and then select **Edit**.
-7.	Select the **Enabled** option button, and then click **Apply**. Click **OK**.
-8.	Link the Group Policy object to a location of your choice. To enable this policy for all of the domain-joined Windows 10 devices at your organization, link the Group Policy object to the domain. For example:
- - A specific organizational unit (OU) in Active Directory where Windows 10 domain-joined computers will be located
- - A specific security group containing Windows 10 domain-joined computers that will be auto-registered with Azure AD
-
->[AZURE.NOTE]
-This Group Policy template has been renamed in Windows 10. If you are running the Group Policy tool from a Windows 10 computer, the policy will appear as: <br>
-**Register domain joined computers as devices**<br>
-The policy is in the following location:<br>
-***Computer Configuration/Policies/Administrative Templates/Windows Components/Device Registration***
+> [AZURE.NOTE]
+> For latest instructions on how to set up automatic device registration see, [How to set up automatic registration of Windows domain joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
+>
+> This Group Policy template has been renamed in Windows 10. If you are running the Group Policy tool from a Windows 10 computer, the policy will appear as: <br>
+> **Register domain joined computers as devices**<br>
+> The policy is in the following location:<br>
+> ***Computer Configuration/Policies/Administrative Templates/Windows Components/Device Registration***
 
 
 ## Additional information

@@ -4,7 +4,7 @@ description="DataFu is a collection of libraries for use with Hadoop. Learn how 
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags

@@ -4,7 +4,7 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/02/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using REST APIs
@@ -34,18 +34,8 @@ In this article, you will learn how to use WebHDFS REST APIs and Data Lake Store
 ## Prerequisites
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-- **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
-- **Create an Azure Active Directory Application**. There are two ways you can authenticate using Azure Active Direcotry - **interactive** and **non-interactive**. There are different prerequisites based on how you want to authenticate.
-	* **For interactive authentication** (used in this article) - In Azure Active Directory, you must create a **Native Client application**. Once you have created the application, retrieve the following values related to the application.
-		- Get **client ID** and **redirect URI** for the application
-		- Set delegated permissions
 
-	* **For non-interactive authentication** - In Azure Active Directory, you must create a **Web application**. Once you have created the application, retrieve the following values related to the application.
-		- Get **client ID**, **client secret**,  and **redirect URI** for the application
-		- Set delegated permissions
-		- Assign the Azure Active Directory application to a role. The role can be at the level of the scope at which you want to give permission to the Azure Active Directory application. For example, you can assign the application at the subscription level or at the level of a resource group. For instructions, see [Assign application to a role](../resource-group-create-service-principal-portal.md#assign-application-to-role). 
-
-	See [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md) for instructions on how to retrieve these values, set the permissions, and assign roles.
+- **Create an Azure Active Directory Application**. You use the Azure AD application to authenticate the Data Lake Store application with Azure AD. There are different approaches to authenticate with Azure AD, which are **end-user authentication** or **service-to-service authentication**. For instructions and more information on how to authenticate, see [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
 - [cURL](http://curl.haxx.se/). This article uses cURL to demonstrate how to make REST API calls against a Data Lake Store account.
 
@@ -53,7 +43,7 @@ In this article, you will learn how to use WebHDFS REST APIs and Data Lake Store
 
 You can use two approaches to authenticate using Azure Active Directory.
 
-### Interactive (user authentication)
+### End-user authentication (interactive)
 
 In this scenario, the application prompts the user to log in and all the operations are performed in the context of the user. Perform the following steps for interactive authentication.
 
@@ -61,9 +51,9 @@ In this scenario, the application prompts the user to log in and all the operati
 
 		https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<CLIENT-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
 
-	>[AZURE.NOTE] \<REDIRECT-URI> needs to be encoded for use in a URL. So, https://localhost, use `https%3A%2F%2Flocalhost`)
+	>[AZURE.NOTE] \<REDIRECT-URI> needs to be encoded for use in a URL. So, for https://localhost, use `https%3A%2F%2Flocalhost`)
 
-	For the purpose of this tutorial, you can replace the placeholder values in the URL above and paste it in a web browser's address bar. You will be redirected to authenticate using your Azure login. Once you succesfully log in, the response is displayed in the browser's address bar. The response will be in the following format:
+	For the purpose of this tutorial, you can replace the placeholder values in the URL above and paste it in a web browser's address bar. You will be redirected to authenticate using your Azure login. Once you successfully log in, the response is displayed in the browser's address bar. The response will be in the following format:
 		
 		http://localhost/?code=<AUTHORIZATION-CODE>&session_state=<GUID>
 
@@ -92,7 +82,7 @@ In this scenario, the application prompts the user to log in and all the operati
  
 For more information on interactive user authentication, see [Authorization code grant flow](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
-### Non-interactive
+### Service-to-service authentication (non-interactive)
 
 In this scenario, the the application provides its own credentials to perform the operations. For this, you must issue a POST request like the one shown below. 
 

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/14/2016"
+   ms.date="09/22/2016"
    ms.author="masashin"/>
 
 # Running Elasticsearch on Azure
@@ -25,87 +25,48 @@ This article is [part of a series](guidance-elasticsearch.md).
 
 ## Overview
 
-Elasticsearch is a highly scalable open-source search engine and database. It is suitable for situations that require fast analysis and discovery of information held in big datasets. Common scenarios include:
-
-- **Large-scale free text search**, where documents that match combinations of search terms can be quickly
-located and retrieved.
-
-- **Event logging**, where information can arrive from a variety of sources. The data may need to be 
-analyzed to ascertain how a chain of events has led to a specific conclusion.
-
-- **Storing data captured from remote devices and other sources**. The data could contain varying 
-information, but a common requirement is to present this information in a series of dashboards 
-to enable an operator to understand the state of the overall system. Applications can also use the
-information to make quick decisions about the flow of data and business operations that need to be
- performed as a result.
-
-- **Stock control**, where changes to inventory are recorded as goods are sold. Business systems can use this information to report stock levels to users, and reorder stock if the level of a product runs low. Analysts can examine the data for trends to help determine which products sell well under what circumstances.
-
-- **Financial** analysis, where market information arrives in near real-time. Dashboards can be generated that indicate the up-to-the-minute performance of various financial instruments which can then be used to help make buy/sell decisions.
-
 This document provides a brief introduction to the general structure of Elasticsearch and then 
-describes how you can implement an Elasticsearch cluster using Azure. The document focuses on best 
+describes how you can implement an Elasticsearch cluster using Azure. It touches on best 
 practices for deploying an Elasticsearch cluster, concentrating on the various functional performance 
 and management requirements of your system, and considering how your requirements should drive the
 configuration and topology that you select.
 
 > [AZURE.NOTE] This guidance assumes some basic familiarity with [Elasticsearch][].
 
-## The Structure of Elasticsearch
+## The structure of Elasticsearch 
 
 Elasticsearch is a document database highly optimized to act as a search engine. Documents are 
 serialized in JSON format. Data is held in indexes, implemented by using [Apache Lucene][], although 
 the details are abstracted from view and it is not necessary to fully understand Lucene in order to use
 Elasticsearch.
 
-### Clusters, Nodes, Indexes, and Shards
+### Clusters, nodes, indexes, and shards
 
 Elasticsearch implements a clustered architecture that uses sharding to distribute data across 
-multiple nodes, and replication to provide high availability.
+multiple nodes, and replication to provide high availability. Documents are stored in indexes. The user can specify which fields in a document are used to uniquely identify it within an index, or the system can generate a key field and values automatically. The index is used to physically organize documents and is the principal means for locating documents. 
 
-Documents are stored in indexes. The user can specify which fields in a document are used to uniquely 
-identify it within an index, or the system can generate a key field and values automatically. The index 
-is used to physically organize documents and is used as the principal means for locating documents. 
-Additionally, Elasticsearch automatically creates a set of additional structures acting as inverted 
-indexes over the remaining fields to enable fast lookup and perform analytics within a collection.
-
-An index comprises a set of shards. Documents are evenly dispersed across shards by using a hashing 
-mechanism based on the index key values and the number of shards in the index; once a document is 
-allocated to a shard it will not move from that shard unless its index key is changed. Elasticsearch 
-distributes shards across all available data nodes in a cluster; a single node may initially hold one or
-more shards that belong to the same index, but as new nodes are added to the cluster Elasticsearch 
-relocates shards to ensure a balanced load across the system. The same rebalancing applies when nodes 
-are removed.
+An index contains a set of shards. Documents are evenly dispersed across shards using a hashing 
+mechanism based on the index key values and the number of shards in the index. 
 
 Indexes can be replicated. In this case each shard in the index is copied. Elasticsearch ensures that
 each original shard for an index (referred to as a “primary shard”) and its replica always reside on
-different nodes.
+different nodes. When a document is added or modified, all write operations are performed on the primary shard first and
+then at each replica. 
 
-> [AZURE.NOTE] The number of shards in an index cannot be easily changed once the index has been created,
-> although replicas can be added.
-
-When a document is added or modified, all write operations are performed on the primary shard first and
-then at each replica. By default, this process is performed synchronously to help ensure consistency.
-Elasticsearch uses optimistic concurrency with versioning when writing data. Read operations can be
-satisfied by using either the primary shard or any of its replicas.
-
-The figure below shows the essential aspects of an Elasticsearch cluster comprising three nodes. An 
+The figure below shows the essential aspects of an Elasticsearch cluster containing three nodes. An 
 index has been created that consists of two primary shards with two replicas for each shard (six shards
 in all).
 
 ![](media/guidance-elasticsearch/general-cluster1.png)
 
-*A simple Elasticsearch cluster comprising two primary nodes and two sets of replicas*
+*A simple Elasticsearch cluster containing two primary nodes and two sets of replicas*
 
 In this cluster, primary shard 1 and primary shard 2 are located on separate nodes to help balance the
 load across them. The replicas are similarly distributed. If a single node fails, the remaining nodes
-have sufficient information to enable the system to continue functioning; if necessary, Elasticsearch
+have sufficient information to enable the system to continue functioning. If necessary, Elasticsearch
 will promote a replica shard to become a primary shard if the corresponding primary shard is unavailable.
-When a node starts running it can either initiate a new cluster (if it is the first node in the cluster),
-or join an existing cluster. The cluster to which a node belongs is determined by the `cluster.name`
-setting in the elasticsearch.yml file.
 
-### Node Roles
+### Node roles
 
 The nodes in an Elasticsearch cluster can perform the following roles:
 
@@ -121,68 +82,19 @@ and coordinating recovery after node failure. Multiple nodes can be configured a
 one will actually be elected to perform the master functions. If this node fails, another election
 takes place and one of the other eligible master nodes will be elected and take over.
 
-By default, Elasticsearch nodes perform all three roles (to enable you to build a complete working 
-cluster on a single machine for development and proof-of-concept purposes), but you can change their
-operations through the *node.data* and *node.master* settings in the *elasticsearch.yml* file, as follows:
-
-```yaml
-# Configuration for a data node
-node.data: true
-node.master: false
-```
-
-```yaml
-# Configuration for a client node
-node.data: false
-node.master: false
-```
-
-```yaml
-# Configuration for a master node
-node.data: false
-node.master: true
-```
-
 > [AZURE.NOTE] The elected master node is critical to the well-being of the cluster. The other nodes 
 > ping it regularly to ensure that it is still available. If the elected master node is also acting as 
 > a data node, there is a chance that the node can become busy and fail to respond to these pings. In
 > this situation, the master is deemed to have failed and one of the other master nodes is elected in its
 > place. 
-> 
-> If the original master is actually still available, the result could be a cluster with two
-> elected masters, resulting in a "split brain" problem which can lead to data corruption and other
-> issues. 
-> 
-> The document [Configuring Resilience and Recovery on Elasticsearch on Azure][]
-> describes how you should configure the cluster to reduce the chances of this from occurring. However,
-> ultimately it is a good strategy in a moderate to large cluster to use dedicated master nodes that 
-> takes no responsibility for managing data.
 
-The nodes in a cluster share information about the other nodes in the cluster (by [gossiping][]) and 
-which shards they contain. Client applications storing and fetching data can connect to any node in a
-cluster and requests will be transparently routed to the correct node. When a client application requests
-data from the cluster, the node that first receives the request is responsible for directing the
-operation, communicating with each relevant node to fetch the data and then aggregating the result before
-returning it to the client application. 
-
-Using client nodes to handle requests frees data nodes from performing this scatter/gather work, and
-enables them to spend their time serving data. You can prevent client applications from accidentally
-communicating with data nodes (causing them to act as client nodes) by disabling the HTTP transport for the data nodes:
-
-```yaml
-http.enabled: false
-```
-
-Data nodes can still communicate with other data nodes, client nodes, and dedicated master nodes on the
-same network by using Elasticsearch transport module (which uses TCP sockets to connect directly between
-nodes), but client applications can only connect to client nodes over HTTP. The figure below shows a
-topology comprising a mixture of dedicated master, client, and data nodes in an Elasticsearch cluster.
+ The figure below shows a topology containing a mixture of dedicated master, client, and data nodes in an Elasticsearch cluster.
 
 ![](media/guidance-elasticsearch/general-cluster2.png)
 
 *An Elasticsearch cluster showing different types of nodes*
 
-### Costs and Benefits of Using Client Nodes
+### Costs and benefits of using client nodes
 
 When an application submits a query to an Elasticsearch cluster, the node to which the application
 connects is responsible for directing the query process. The node forwards the request to each data node
@@ -196,21 +108,9 @@ data. The result is that many scenarios that involve complex queries and aggrega
 using dedicated client nodes. However, the impact of using dedicated client nodes will likely vary
 depending on your scenario, workload, and cluster size. 
 
-For example, data ingestion workloads might be
-less efficient by using client nodes due to the additional network "hop" that is required when storing
-data. In a 3-node cluster with 6 shards, if the system is not configured with dedicated client nodes,
-with all environmental factors and node loadings being equal, there is a 1/3 probability that an
-application storing or modifying data will connect directly to the most appropriate shard, removing the
-need to perform an additional network jump in 1/3 of cases. 
+> [AZURE.NOTE] Refer to [Tuning Data Aggregation and Query Performance for Elasticsearch on Azure][] for more information on the tuning process.
 
-On the other hand, workloads that perform complex aggregations could benefit from using dedicated 
-clients as a single node will take responsibility for each set of scatter/gather operations that 
-these operations perform. In a mixed workload environment, you should be prepared to run performance 
-tests to assess the impact of using client nodes on your specific workloads.
-
-> [AZURE.NOTE] Refer to the document [Tuning Data Aggregation and Query Performance for Elasticsearch on Azure][] for more information on this tuning process.
-
-### Connecting to a Cluster
+### Connecting to a cluster
 
 Elasticsearch exposes a series of REST APIs for building client applications and sending requests to a
 cluster. If you are developing applications using the .NET Framework, two higher levels APIs are
@@ -220,33 +120,14 @@ If you are building client applications using Java, you can use the [Node Client
 nodes dynamically and add them to the cluster. Creating client nodes dynamically is convenient if your
 system uses a relatively small number of long-lived connections. Client nodes created by using the Node
 API are provided with the cluster routing map (the details of which nodes contain which shards) by the
-master node; this information enables the Java application to connect directly to the appropriate nodes
+master node. This information enables the Java application to connect directly to the appropriate nodes
 when indexing or querying data, reducing the number of hops that may be necessary when using other APIs.
 
 The cost of this approach is the overhead of enrolling the client node into the cluster. If a large
 number of client nodes appear and disappear quickly, the impact of maintaining and distributing the
 cluster routing map can become significant.
 
-**Connection Load Balancing**
-
-Elasticsearch enables several mechanisms for implementing connection load balancing. The following list summarizes some common approaches:
-
-**Client-based load-balancing**: If you are building client applications using the Elasticsearch.Net or NEST APIs, you can use a connection pool to round-robin connection requests across nodes, helping to load-balance requests without the need for an external load-balancer. The following code snippet shows how to create an *ElasticsearchClient* object configured with the addresses of three nodes. Requests from the client application will be distributed across these nodes:
-
-```csharp
-// C#
-var node1 = new Uri("http://node1.example.com:9200");
-var node2 = new Uri("http://node2.example.com:9200");
-var node3 = new Uri("http://node3.example.com:9200");
-
-var connectionPool = new SniffingConnectionPool(new[] {node1, node2, node3});
-var config = new ConnectionConfiguration(connectionPool);
-var client = new ElasticsearchClient(config);
-```
-
-> [AZURE.NOTE] Similar functionality is available to Java applications through the [Transport Client API][].
-
-**Server-based load-balancing**: You can use a separate load balancer to distribute requests to nodes. This approach offers the advantage of address transparency; client applications do not have to be configured with the details of each node, making it easier to add, remove, or relocate nodes without modifying any client code. The figure below shows a configuration that uses a load balancer to route requests to a set of client nodes, although the same strategy can be used to connect directly to data nodes if client nodes are not used.
+The figure below shows a configuration that uses a load balancer to route requests to a set of client nodes, although the same strategy can be used to connect directly to data nodes if client nodes are not used.
 
 ![](media/guidance-elasticsearch/general-clientappinstances.png)
 
@@ -254,24 +135,9 @@ var client = new ElasticsearchClient(config);
 
 > [AZURE.NOTE] You can use the [Azure Load Balancer][] to expose the cluster to the public Internet, or
 > you can use an [internal load balancer][] if the client applications and cluster are contained entirely
-> within the same private virtual network (VNET).
+> within the same private virtual network (VNet).
 
-**Custom load balancing**: You can use [nginx][] as a reverse proxy server instead of the Azure Load Balancer. Nginx provides several load balancing methods, including round robin, least-connected (a request is routed to the destination with the fewest current connections), and hashing based on the IP address of the client.
-
-> [AZURE.NOTE] You can deploy an nginx server as an Azure VM. To maintain availability, you should create
-> at least two nginx servers in the same Azure availability set.
-
-You should consider the following points when determining whether to use load balancing, and which implementation to use:
-
-- Connecting to the same node to handle all requests for all instances of an application can cause that node to become a bottleneck. As the number of threads available in the node become exhausted, requests will be queued and may be rejected if the queue length becomes excessive (do not hard code the connection details of a single node in application code that may be deployed to many users).
-
-- The round-robin mechanism of the Elasticsearch.Net, NEST, and Transport Client APIs handle failed connection requests by retrying the connection against the next available node in the connection pool. A connection to an unresponsive node in the pool can be temporarily marked as *dead*; it may come back to life later, and the pool can ping the node to determine whether it has become active again.
-
-- The Azure load-balancer can transparently redirect requests to nodes based on a number of factors (client IP address, client port, destination IP address, destination port, protocol type). Following this strategy, an instance of a client application running on a given computer will most likely be directed to the same Elasticsearch node. Depending on the probe configuration of the load-balancer, if the Elasticsearch service fails on this node but the VM itself continues running, all connections to this node will timeout while connections by other client instances to other nodes may continue to succeed.
-
-- The Azure load-balancer can be configured to take a node out of rotation if it fails to respond appropriately to health probe requests performed by the load-balancer.
-
-### Node Discovery
+### Node discovery
 
 Elasticsearch is based on peer-to-peer communications, so discovering other nodes in a cluster is an
 important part in the lifecycle of a node. Node discovery enables new data nodes to be added dynamically
@@ -284,28 +150,17 @@ Elasticsearch node discovery is handled by using a discovery module. The discove
 that can be switched to use a different discovery mechanism. The default discovery module ([Zen][])
 causes a node to issue ping requests to find other nodes on the same network. If other nodes respond,
 they gossip to exchange information. A master node can then distribute shards to the new node (if it is a
-data node) and rebalance the cluster.
-
-The Zen discovery module also handles the master election process and the protocol for detecting node
-failure.
-
-Prior to Elasticsearch version 2.0, the Zen discovery module used multicast communications to allow nodes
-to contact each other. This makes it very easy to introduce a new node into a cluster, but can also cause
-security problems if another installation of Elasticsearch on the same network happens to use the same
-cluster name; the new installation is considered part of the same cluster and shards may be directed to
-nodes in this installation. 
+data node) and rebalance the cluster. The Zen discovery module also handles the master election process and the protocol for detecting node failure.
 
 Additionally, if you are running Elasticsearch nodes as Azure virtual
-machines (VMs), multicast messaging is not supported. For these reasons, you should configure the Zen
+machines (VMs), multicast messaging is not supported. For this reasons, you should configure the Zen
 discovery to use unicast messaging and provide a list of valid contact nodes in the elasticsearch.yml
 configuration file.
 
-> [AZURE.NOTE] With Elasticsearch 2.0 and later, multicast is no longer the default discovery mechanism.
-
-If you are hosting an Elasticsearch cluster within an Azure VNET, you can specify that the private
+If you are hosting an Elasticsearch cluster within an Azure virtual network, you can specify that the private
 DHCP-assigned IP addressed given to each VM in the cluster should remain allocated (static). You can
 configure Zen discovery unicast messaging using these static IP addresses. If you are using VMs with
-dynamic IP addresses, bear in mind that if a VM stops and restarts it could be allocated a new IP address
+dynamic IP addresses, keep in mind that if a VM stops and restarts it could be allocated a new IP address
 making discovery more difficult. To handle this scenario, you can swap the Zen discovery module for the
 [Azure Cloud Plugin][]. This plugin uses the Azure API to implement the discovery mechanism, which is
 based on Azure subscription information.
@@ -316,7 +171,7 @@ based on Azure subscription information.
 > clear text, so it is vitally important that you ensure this file is only accessible by the account
 > running the Elasticsearch service. 
 > 
-> Additionally, this approach may not be compatible with Azure Resource Manager (ARM) deployments. For
+> Additionally, this approach may not be compatible with Azure Resource Manager deployments. For
 > these reasons, it is recommended that you use static IP addresses for master nodes, and use these nodes
 > to implement Zen discovery unicast messaging across the cluster. In the following configuration 
 > (taken from the elasticsearch.yml file for a sample data node), the host IP addresses reference
@@ -327,14 +182,14 @@ discovery.zen.ping.multicast.enabled: false
 discovery.zen.ping.unicast.hosts: ["10.0.0.10","10.0.0.11","10.0.0.12"]
 ```
 
-## General System Guidelines
+## General system guidelines
 
 Elasticsearch can run on a variety of computers, ranging from a single laptop to a cluster of high-end
 servers. However, the more resources in terms of memory, computing power, and fast disks that are
 available the better the performance. The following sections summarize the basic hardware and software
 requirements for running Elasticsearch.
 
-### Memory Requirements
+### Memory requirements 
 
 Elasticsearch attempts to store data in-memory for speed. A production server hosting a node for a
 typical enterprise or moderate-sized commercial deployment on Azure should have between 14GB and 28GB of
@@ -347,7 +202,7 @@ such a system.
 **Allocate 50% of the available memory on a server to the Elasticsearch heap**. If you are using Linux set
 the ES_HEAP_SIZE environment variable before running Elasticsearch. Alternatively, if you are using
 Windows or Linux, you can specify memory size in the `Xmx` and `Xms` parameters when you start
-Elasticseach; set both of these parameters to the same value to avoid the Java Virtual Machine (JVM)
+Elasticseach. Set both of these parameters to the same value to avoid the Java Virtual Machine (JVM)
 resizing the heap at runtime. However, **do not allocate more than 30GB**. Use the remaining memory for the operating system file cache.
 
 > [AZURE.NOTE] Elasticsearch utilizes the Lucene library to create and manage indexes. Lucene structures
@@ -355,7 +210,7 @@ resizing the heap at runtime. However, **do not allocate more than 30GB**. Use t
 > performance.
 
 Note that the maximum optimal heap size for Java on a 64 bit machine is just above 30GB. Above this size
-Java switches to using an extended mechanism for referencing objects on the heap which increases the
+Java switches to using an extended mechanism for referencing objects on the heap, which increases the
 memory requirements for each object and reduces performance. 
 
 The default Java garbage collector (Concurrent Mark and Sweep) may also perform sub-optimally if the heap
@@ -372,7 +227,7 @@ bootstrap.mlockall: true
 
 This configuration setting causes the JVM to lock its memory and prevents it being swapped out by the operating system.
 
-### Disk and File System Requirements
+### Disk and file system requirements
 
 Use data disks backed by premium storage for storing shards. Disks should be sized to hold the maximum
 amount of data anticipated in your shards, although it is possible to add further disks later. You can
@@ -381,7 +236,7 @@ extend a shard across multiple disks on a node.
 > [AZURE.NOTE] Elasticsearch compresses the data for stored fields by using the LZ4 algorithm, and in
 > Elasticsearch 2.0 onwards you can change the compression type. You can switch the compression algorithm
 > to DEFLATE as used by the *zip* and *gzip* utilities. This compression technique can be more resource
-> intensive, but you should consider using it for cold indexes such as archived log data. This approach
+> intensive, but you should consider using it for archived log data. This approach 
 > can help to reduce index size.
 
 It is not essential that all nodes in a cluster have the same disk layout and capacity. However, a node
@@ -390,13 +245,13 @@ require increased processing power to handle this data. Consequently the node ca
 to other nodes, and this can, in turn, affect performance.
 
 If possible, use RAID 0 (striping). Other forms of RAID that implement parity and mirroring are 
-unnecessary as Elasticsearch provides its own HA solution in the form of replicas.
+unnecessary as Elasticsearch provides its own high availablility solution in the form of replicas.
 
 > [AZURE.NOTE] Prior to Elasticsearch 2.0.0, you could also implement striping at the software level by
 > specifying multiple directories in the *path.data* configuration setting. In Elasticsearch 2.0.0, this
 > form of striping is no longer supported. Instead, different shards may be allocated to different paths,
-> but all of the files in a single shard will be written to the same path. **If you require striping, you
-> should stripe data at the operating system or hardware level**.
+> but all of the files in a single shard will be written to the same path. If you require striping, you
+> should stripe data at the operating system or hardware level. 
 
 To maximize storage throughput, each **VM should have a dedicated premium storage account**.
 
@@ -406,24 +261,24 @@ operating system is configured to support an adequate number of open file descri
 sufficient memory is available). Note that the default configuration for many Linux distributions limits
 the number of open file descriptors to 1024, which is much too small.
 
-Elasticsearch uses a combination of memory mapped (mmap) IO and Java New IO (NIO) I/O to optimize
+Elasticsearch uses a combination of memory mapped (mmap) I/O and Java New I/O (NIO) to optimize
 concurrent access to data files and indexes. If you are using Linux, you should configure the operating
 system to ensure that there is sufficient virtual memory available with space for 256K memory map areas.
 
-> [AZURE.NOTE] Many Linux distributions default to using the Completely Fair Queuing (CFQ) scheduler when
+> [AZURE.NOTE] Many Linux distributions default to using the completely fair queuing (CFQ) scheduler when
 > arranging to write data to disk. This scheduler is not optimized for SSDs. Consider reconfiguring the
-> operating system to use either the NOOP scheduler or the Deadline scheduler, both of which are more
+> operating system to use either the NOOP scheduler or the deadline scheduler, both of which are more
 > effective for SSDs.
 
-### CPU Requirements
+### CPU requirements
 
 Azure VMs are available in a variety of CPU configurations, supporting between 1 and 32 cores. For a 
-data node, a good starting point is to consider a standard DS-series VM, and select either the DS3 (4
+data node, a good starting point is a standard DS-series VM, and select either the DS3 (4
 cores) or D4 (8 cores) SKUs. The DS3 also provides 14GB of RAM, while the DS4 includes 28GB. 
 
-The GS-series (for premium storage) and G-series (for standard storage) use Xeon E5 V3 processors which may be useful for workloads that are heavily compute-intensive, such as large-scale aggregations. For the latest information, visit [Sizes for Virtual Machines][].
+The GS-series (for premium storage) and G-series (for standard storage) use Xeon E5 V3 processors which may be useful for workloads that are heavily compute-intensive, such as large-scale aggregations. For the latest information, visit [Sizes for virtual machines][].
 
-### Network Requirements
+### Network requirements
 
 Elasticsearch requires a network bandwidth of between 1 and 10Gbps, depending on the size and volatility
 of the clusters that it implements. Elasticsearch migrates shards between nodes as more nodes are added
@@ -439,7 +294,7 @@ library and has dependencies on other Java libraries that are included in the El
 must install the Java 7 (update 55 or later) or Java 8 (update 20 or later) JVM to run Elasticsearch.
 
 > [AZURE.NOTE] Other than the *Xmx* and *Xms* memory parameters (specified as command line options to 
-> the Elasticsearch engine – see [Memory Requirements][]) do not modify the default JVM configuration
+> the Elasticsearch engine – see [Memory requirements][]) do not modify the default JVM configuration
 > settings. Elasticsearch has been designed using the defaults; changing them can cause Elasticsearch to
 > become detuned and perform poorly.
 
@@ -450,17 +305,17 @@ installing and configuring Elasticsearch on each one can be a time consuming and
 you are considering running Elasticsearch on Azure VMs, you have three options that can help to reduce the
 chances of errors.
 
-- Using Azure Resource Manager [template](https://azure.microsoft.com/marketplace/partners/elastic/elasticsearchelasticsearch/) in Azure marketplace. This template is created by Elastic. It allows you to add commercial enhancements such as Shield, Marvel, and Watcher etc.
+- Using the Azure Resource Manager [template](https://azure.microsoft.com/marketplace/partners/elastic/elasticsearchelasticsearch/) in Azure marketplace. This template is created by Elastic. It allows you to add commercial enhancements such as Shield, Marvel, Watcher, and so on.
 
-- Using Azure quickstart [template](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) to build the cluster. This template can create a cluster based on Windows Server 2012 or Ubuntu Linux 14.0.4. It allows you to use experimental features such as Azure File Storage. This template is used for the research and testing tasks in this document.
+- Using the Azure quickstart [template](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) to build the cluster. This template can create a cluster based on Windows Server 2012 or Ubuntu Linux 14.0.4. It allows you to use experimental features such as Azure File Storage. This template is used for the research and testing tasks in this document.
 
-- Using scripts which can be automated or run unattended. Scripts that can create and deploy an Elasticsearch cluster are available on the [GitHub repository][elasticsearch-scripts]
+- Using scripts that can be automated or run unattended. Scripts that can create and deploy an Elasticsearch cluster are available on the [GitHub repository][elasticsearch-scripts]
 
-## Cluster and Node Sizing and Scalability 
+## Cluster and node sizing and scalability 
 
 Elasticsearch enables a number of deployment topologies, designed to support differing requirements and levels of scale. This section discusses some common topologies, and describes the considerations for implementing clusters based on these topologies.
 
-### Elasticsearch Topologies
+### Elasticsearch topologies
 
 The figure below illustrates a starting point for designing an Elasticsearch topology for Azure:
 
@@ -468,21 +323,21 @@ The figure below illustrates a starting point for designing an Elasticsearch top
 
 *Suggested starting point for building an Elasticsearch cluster with Azure*
 
-This topology comprises six data nodes together with three client nodes and three master nodes (only one master node is elected, the other two are available for election should the elected master fail.) Each node is implemented as a separate VM. Azure web applications are directed to client nodes via a load balancer. 
+This topology contains six data nodes together with three client nodes and three master nodes (only one master node is elected, the other two are available for election should the elected master fail.) Each node is implemented as a separate VM. Azure web applications are directed to client nodes via a load balancer. 
 
-In this example, all nodes and the web applications reside in the same Azure VNET which effectively isolates them from the outside world. If the cluster needs to be available externally (possibly as part of a hybrid solution incorporating on-premises clients), then you can use the Azure Load Balancer to provide a public IP address, but you will need to take additional security precautions to prevent unauthorized access to the cluster. 
+In this example, all nodes and the web applications reside in the same virtual network which effectively isolates them from the outside world. If the cluster needs to be available externally (possibly as part of a hybrid solution incorporating on-premises clients), then you can use the Azure Load Balancer to provide a public IP address, but you will need to take additional security precautions to prevent unauthorized access to the cluster. 
 
-The optional "Jump Box" is a VM that is only available to administrators. This VM has a network connection to the Azure VNET, but also an outward facing network connection to permit administrator logon from an external network (this logon should be protected by using a strong password or certificate). An administrator can log on to the Jump Box, and then connect from there directly to any of the nodes in the cluster. 
+The optional "Jump Box" is a VM that is only available to administrators. This VM has a network connection to the virtual network, but also an outward facing network connection to permit administrator logon from an external network (this logon should be protected by using a strong password or certificate). An administrator can log on to the Jump Box, and then connect from there directly to any of the nodes in the cluster. 
 
-Alternative approaches include using a site-to-site VPN between an organization and the VNET, or using [ExpressRoute][] circuits to connect to the VNET. These mechanisms permit administrative access to the cluster without exposing the cluster to the public internet.
+Alternative approaches include using a site-to-site VPN between an organization and the virtual network, or using [ExpressRoute][] circuits to connect to the virtual network. These mechanisms permit administrative access to the cluster without exposing the cluster to the public internet.
 
 To maintain VM availability, the data nodes are grouped into the same Azure availability set. Similarly, the client nodes are held in another availability set and the master nodes are stored in a third availability set.
 
-This topology is relatively easy to scale out; simply add more nodes of the appropriate type and ensure that they are configured with the same cluster name in the elasticsearch.yml file. Client nodes also need to be added to the backend pool for the Azure load balancer.
+This topology is relatively easy to scale out, simply add more nodes of the appropriate type and ensure that they are configured with the same cluster name in the elasticsearch.yml file. Client nodes also need to be added to the backend pool for the Azure load balancer.
 
-**Geo-locating Clusters**
+**Geo-locating clusters**
 
-**Don’t spread nodes in a cluster across regions as this can impact the performance of inter-node communication** (see [Network Requirements][]). Geo-locating data close to users in different regions requires creating multiple clusters. In this situation, you need to consider how (or even whether) to synchronize clusters. Possible solutions include:
+**Don’t spread nodes in a cluster across regions as this can impact the performance of inter-node communication** (see [Network requirements][]). Geo-locating data close to users in different regions requires creating multiple clusters. In this situation, you need to consider how (or even whether) to synchronize clusters. Possible solutions include:
 
 [Tribe nodes][] are similar to a client node except that it can participate in multiple Elasticsearch
 clusters and view them all as one big cluster. Data is still managed locally by each cluster (updates are
@@ -494,7 +349,7 @@ be unique across all clusters. Therefore it is important that you consider how i
 you design clusters intended to be accessed from tribe nodes.
 
 Using this mechanism, each cluster can contain the data that is most likely to be accessed by local
-client applications, but these clients can still access and modify remote data albeit with possible
+client applications, but these clients can still access and modify remote data although with possible
 extended latency. The figure below shows an example of this topology. The tribe node in Cluster 1 is
 highlighted; the other clusters can also have tribe nodes although these are not shown on the diagram:
 
@@ -502,10 +357,10 @@ highlighted; the other clusters can also have tribe nodes although these are not
 
 *A client application accessing multiple clusters through a tribe node*
 
-In this example, the client application connects to the tribe node in Cluster 1 (co-located in the same region), but this node is configured to be able to access Cluster 2 and Cluster 3 which might be located in different regions. The client application can send requests that retrieve or modify data in any of the clusters.
+In this example, the client application connects to the tribe node in Cluster 1 (co-located in the same region), but this node is configured to be able to access Cluster 2 and Cluster 3, which might be located in different regions. The client application can send requests that retrieve or modify data in any of the clusters.
 
 > [AZURE.NOTE] Tribe nodes require multicast discovery to connect to clusters, which may present a
-> security concern. See the section [Node Discovery][] for more details.
+> security concern. See the section [Node discovery][] for more details.
 
 - Implementing geo-replication between clusters. In this approach, changes made at each cluster are
 propagated in near real-time to clusters located in other data centers. Third-party plugins are available
@@ -517,7 +372,7 @@ and then restore these snapshots in other clusters (snapshots can be stored in A
 have installed the [Azure Cloud Plugin][]). However, this solution does not work well for rapidly
 changing data or if data can be changed in more than one cluster.
 
-**Small-scale Topologies**
+**Small-scale topologies**
 
 Large-scale topologies comprising clusters of dedicated master, client, and data nodes might not be
 appropriate for every scenario. If you are building a small-scale production or development system,
@@ -540,31 +395,31 @@ below shows an example.
 
 *A development configuration running multiple Elasticsearch nodes on the same machine*
 
-Note that neither of these stand-alone configurations are recommended for a production environment as
+Note that neither of these standalone configurations are recommended for a production environment as
 they can cause contention unless your development machine has a significant amount of memory and several
-fast disks. Additionally, they do not provide any high availability guarantees; if the machine fails, all
+fast disks. Additionally, they do not provide any high availability guarantees. If the machine fails, all
 nodes are lost.
 
-### Scaling a Cluster and Data Nodes
+### Scaling a cluster and data nodes
 
 Elasticsearch can scale in two dimensions: vertically (using bigger, more powerful machines) and
 horizontally (spreading the load across machines).
 
-**Scaling Elasticsearch Data Nodes Vertically**
+**Scaling Elasticsearch data nodes vertically**
 
 If you are hosting an Elasticsearch cluster by using Azure VMs, each node can correspond to a VM. The
 limit of vertical scalability for a node is largely governed by the SKU of the VM and the overall
 restrictions applied to individual storage accounts and Azure subscriptions. 
 
-The page [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md) 
+The page [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md) 
 describes these limits in detail, but as far as building an Elasticsearch cluster is concerned, the items
 in the following list are the most pertinent. 
 
-- Each storage account is restricted to 20,000 IOPS; each VM in the cluster should leverage a 
+- Each storage account is restricted to 20,000 IOPS. Each VM in the cluster should leverage a 
 dedicated (preferably premium) storage account.
 
-- The number of data nodes in a VNET. If you are not using the Azure Resource Manager (ARM), there is a
-limit of 2048 VM instances per VNET. While this should prove sufficient for many cases, if you have a
+- The number of data nodes in a virtual network. If you are not using the Azure Resource Manager, there is a
+limit of 2048 VM instances per virtual network. While this should prove sufficient for many cases, if you have a
 very large configuration with thousands of nodes this could be a limitation.
 
 - Number of storage accounts per subscription per region. You can create up to 100 storage accounts per
@@ -582,21 +437,21 @@ or analyzing a large number of documents during data ingestion, for example).
 cluster. Fewer disks means that less data can be held, and performance can be reduced by having fewer
 disks available for striping.
 
-- The number of update domains / fault domains per availability set. If you create VMs using the ARM,
+- The number of update domains / fault domains per availability set. If you create VMs using the Azure Resource Manager,
 each availability set can be allocated up to 3 fault domains and 20 update domains. This limitation can
 impact the resilience of a large cluster that is subjected to frequent rolling updates.
 
-Additionally, you should probably not consider using VMs with more than 64GB of memory; as described in
-the section [Memory Requirements][], you should not allocate more than 30GB of RAM on each VM to the JVM
-and allow the operating system to utilize the remaining memory for I/O buffering:
+Additionally, you should probably not consider using VMs with more than 64GB of memory. As described in
+the section [Memory requirements][], you should not allocate more than 30GB of RAM on each VM to the JVM
+and allow the operating system to utilize the remaining memory for I/O buffering.
 
 With these restrictions in mind, you should always spread the virtual disks for the VMs in a cluster
 across storage accounts to reduce the chances of I/O throttling. In a very large cluster, you may need to
 redesign your logical infrastructure and split it into separate functional partitions. For example, you
 might need to split the cluster across subscriptions, although this process can lead to further
-complications because of the need to connect VNETs.
+complications because of the need to connect virtual networks.
 
-**Scaling an Elasticsearch Cluster Horizontally**
+**Scaling an Elasticsearch cluster horizontally**
 
 Internally within Elasticsearch, the limit of horizontal scalability is determined by the number of
 shards defined for each index. Initially, many shards can be allocated to the same node in a cluster, but
@@ -607,19 +462,19 @@ scale horizontally.
 As with vertical scaling, there are some issues that you should consider when contemplating implementing
 horizontal scaling, including:
 
-- The maximum number of VMs that you can connect in an Azure VNET. This can limit of horizontal
-scalability for a very large cluster. You can create a cluster of nodes that spans more than one VNET to
+- The maximum number of VMs that you can connect in an Azure virtual network. This can limit the horizontal
+scalability for a very large cluster. You can create a cluster of nodes that spans more than one virtual network to
 circumvent this limit, but this approach can lead to reduced performance due to the lack of locality of
 each node with its peers.
 
 - The number of disks per VM Size. Different series and SKUs support different numbers of attached disks.
-Additionally, you can also consider using the ephemeral storage included with the VM to provide a limit
+Additionally, you can also consider using the ephemeral storage included with the VM to provide a limited
 amount of faster data storage, although there are resiliency and recovery implications that you should
-consider (see the document Configuring, Testing, and Analyzing Elasticsearch Resilience and Recovery for
+consider (see [Configuring resilience and recovery on Elasticsearch on Azure][elasticsearch-resilience-recovery] for
 more information). The D-series, DS-series, Dv2-series, and GS-series of VMs use SSDs for ephemeral
 storage.
 
-You could consider using Azure Scale Sets to start and stop VMs as demands dictates (see [Automatically scale machines in a Virtual Machine Scale Set][] for the details). However, this approach might not be
+You could consider using [Virtual Machine Scale Sets][vmss] to start and stop VMs as demands dictates. However, this approach might not be
 appropriate for an Elasticsearch cluster for the following reasons:
 
 - This approach is best suited for stateless VMs. Each time you add or remove a node from an
@@ -635,7 +490,7 @@ changes in demand.
 - After scaling out, do you actually need to consider scaling back? Removing a VM from an Elasticsearch
 cluster can be a resource intensive process requiring that Elasticsearch recovers the shards and replicas
 that are located on that VM and recreates them on one or more of the remaining nodes. Removing several
-VMs at the same time could compromise the integrity of the cluster making recovery difficult. Furthermore,
+VMs at the same time could compromise the integrity of the cluster, making recovery difficult. Furthermore,
 many Elasticsearch implementations grow over time, but the nature of the data is such that it tends not
 to shrink in volume. It is possible to delete documents manually, and documents can also be configured
 with a TTL (time to live) after which they expire and get removed, but in most cases it is likely that
@@ -644,13 +499,12 @@ with a TTL (time to live) after which they expire and get removed, but in most c
  HTTP [Optimize][] API (Elasticsearch 2.0.0 and earlier) or the [Force Merge][] API (Elasticsearch 2.1.0
  and later) to perform defragmentation.
 
-### Determining the Number of Shards for an Index
+### Determining the number of shards for an index
 
 The number of nodes in a cluster can vary over time, but the number of shards in an index is fixed once
 the index has been created. To add or remove shards requires reindexing the data – a process of creating
 a new index with the required number of shards and then copying the data from the old index to the new
-(you can use aliases to insulate users from the fact that data has been reindexed – see the document
-[Tuning Data Aggregation and Query Performance for Elasticsearch on Azure][] for more details).
+(you can use aliases to insulate users from the fact that data has been reindexed – see [Tuning data aggregation and query performance for Elasticsearch on Azure][] for more details).
 Therefore, it is important to determine the number of shards that you are likely to require in advance of creating the first index in your cluster. You can perform the following steps to establish this number:
 
 - Create a single-node cluster using the same hardware configuration that you intend to deploy in
@@ -674,26 +528,26 @@ unacceptable), make a note of the volume of documents.
 calculate the required number of shards (you should include some margin of error in these calculations as
 extrapolation is not a precise science).
 
-> [AZURE.NOTE] Remember that each shard is implemented as a Lucene index that consumes memory, CPU power
+> [AZURE.NOTE] Remember that each shard is implemented as a Lucene index that consumes memory, CPU power,
 > and file handles. The more shards you have, the more of these resources you will require.
 
 Additionally, creating more shards may increase scalability (depending on your workloads and scenario)
 and can increase data ingestion throughput, but it might reduce the efficiency of many queries. By
 default, a query will interrogate every shard used by an index (you can use [custom routing][] to modify
-this behavior if you know on which shards the data you require is located).
+this behavior if you know which shards the data you require is located on). 
 
 Following this process can only generate an estimate for the number of shards, and the volume of
 documents expected in production might not be known. In this case, you should determine the initial
 volume (as above) and the predicted growth rate. Create an appropriate number of shards that can handle
 the growth of data for the period until you are willing to reindex the database. 
 
-Other strategies used for scenarios such as event management and logging include using rolling indexes;
-create a new index for the data ingested each day and access this index through an alias that is switched
+Other strategies used for scenarios such as event management and logging include using rolling indexes.
+Create a new index for the data ingested each day and access this index through an alias that is switched
 daily to point to the most recent index. This approach enables you to more easily age-out old data (you
 can delete indexes containing information that is no longer required) and keeps the volume of data
 manageable.
 
-Bear in mind that the number of nodes does not have to match the number of shards. For example, if you
+Keep in mind that the number of nodes does not have to match the number of shards. For example, if you
 create 50 shards, you can spread them across 10 nodes initially, and then add more nodes to scale the
 system out as the volume of work increases. Avoid creating an exceptionally large number of shards on a
 small number of nodes (1000 shards spread across 2 nodes, for example). Although the system could
@@ -723,23 +577,22 @@ In a production system, you should consider how to:
 - Protect the data from unauthorized access.
 - Meet regulatory requirements for commercial data security (if appropriate).
 
-### Securing Access to the Cluster
+### Securing access to the cluster
 
-Elasticsearch is a network service. The nodes in an Elasticsearch cluster listen for incoming client requests using HTTP, and communicate with each other using a TCP channel. You should take steps to prevent unauthorized clients or services from being able to send requests over both the HTTP and TCP paths. Consider the following items:
+Elasticsearch is a network service. The nodes in an Elasticsearch cluster listen for incoming client requests using HTTP, and communicate with each other using a TCP channel. You should take steps to prevent unauthorized clients or services from being able to send requests over both the HTTP and TCP paths. Consider the following items. 
 
-Define network security groups to limit the inbound and outbound network traffic for a VNET or VM to
+- Define network security groups to limit the inbound and outbound network traffic for a virtual network or VM to
 specific ports only.
 
-Change the default ports used for client web access (9200) and programmatic network access (9300). Use
+- Change the default ports used for client web access (9200) and programmatic network access (9300). Use
 a firewall to protect each node from malicious Internet traffic.
 
-Depending on the location and connectivity of clients, place the cluster on a private subnet with no
+- Depending on the location and connectivity of clients, place the cluster on a private subnet with no
 direct access to the Internet. If the cluster must be exposed outside the subnet, route all requests
 through a bastion server or proxy sufficiently hardened to protect the cluster.
 
-If you must provide direct access to nodes, use the Elasticsearch Jetty plugin to provide SSL
-connectivity, authentication, and connection logging. Alternatively, configure an nginx proxy server and
-configure HTTPS authentication.
+If you must provide direct access to nodes, use an [nginx](http://nginx.org/en/) proxy server configure and
+HTTPS authentication.
 
 > [AZURE.NOTE] Using a proxy server such as nginx, you can also restrict access to functionality. For
 > example, you can configure nginx to only allow requests to the \_search endpoint if you need to prevent
@@ -747,34 +600,34 @@ configure HTTPS authentication.
 
 If you require more comprehensive network access security, use the Shield or Search Guard plugins.
 
-### Identifying and Authenticating Users
+### Identifying and authenticating users
 
 All requests made by clients to the cluster should be authenticated. Additionally, you should prevent
-unauthorized nodes from joining the cluster as these can provide a backdoor into the system that bypass
+unauthorized nodes from joining the cluster as these can provide a backdoor into the system that bypasses
 authentication.
 
 Elasticsearch plugins are available that can perform different types of authentication, including:
 
-- **HTTP Basic Authentication**. Usernames and passwords are included in each. All requests should be
+- **HTTP basic authentication**. Usernames and passwords are included in each request. All requests must be
 encrypted by using SSL/TLS or an equivalent level of protection.
 
 - **LDAP and Active Directory integration**. This approach requires that clients are assigned roles
 in LDAP or AD groups.
 
-- **Native authentication** by using identities defined within the Elasticsearch cluster itself.
+- **Native authentication**. Uses identities defined within the Elasticsearch cluster itself.
 
-- **TLS authentication** within a cluster to authenticate all nodes.
+- **TLS authentication**. Use TLS authentication within a cluster to authenticate all nodes.
 
-- **IP filtering**, to prevent clients from unauthorized subnets from connecting, and also preventing nodes from these subnets joining the cluster.
+- **IP filtering**. Use IP filtering to prevent clients from unauthorized subnets from connecting, and also preventing nodes from these subnets joining the cluster.
 
-### Authorizing Client Requests
+### Authorizing client requests
 
-Authorization depends on the Elasticsearch plugin used to provide this service. For example, a plugin that provides Basic Authentication typically provides features that define the level of authentication, whereas a plugin that uses LDAP or AD will typically associate clients with roles, and then assign access rights to those roles. When using any given plugin, you should consider the following points:
+Authorization depends on the Elasticsearch plugin used to provide this service. For example, a plugin that provides basic authentication typically provides features that define the level of authentication, whereas a plugin that uses LDAP or AD will typically associate clients with roles, and then assign access rights to those roles. When using any plugin, you should consider the following points:
 
 - Do you need to restrict the operations that a client can perform? For example, should a client be able
 to monitor the status of the cluster, or create and delete indexes?
 
-- Should the client be restricted to specific indexes? This is useful in a multi-tenant situation where
+- Should the client be restricted to specific indexes? This is useful in a multitenant : No hyphen per style guide.>>situation where
 tenants may be assigned their own specific set of indexes, and these indexes should be inaccessible to
 other tenants.
 
@@ -795,15 +648,15 @@ references both indexes. Grant user A read access to the first index, grant user
 second index, and grant user C read access to both indexes through the alias. For more information, see
 [Faking Index per User with Aliases][].
 
-### Protecting the Cluster
+### Protecting the cluster
 
-The cluster can become vulnerable to misuse if it is not protected carefully:
+The cluster can become vulnerable to misuse if it is not protected carefully. 
 
 **Disable dynamic query scripting in Elasticsearch** queries as they can lead to security vulnerabilities. Use native scripts in preference to query scripting; a native script is an Elasticsearch plugin written in Java and compiled into a JAR file.
 
-Dynamic query scripting is now disabled by default; do not re-enable it unless you have a very good reason to do so.
+Dynamic query scripting is now disabled by default; do not reenable it unless you have a very good reason to do so.
 
-**Avoid exposing query-string searches to users**. Query-string searching allows users to perform
+**Avoid exposing query-string searches to users** as this type of searching allows users to perform
 resource-intensive queries unhindered. These searches could severely impact the performance of the
 cluster and can render the system open to DOS attacks. Additionally, query-string searching can expose
 potentially private information.
@@ -818,12 +671,12 @@ Avoid Search requests that attempt to load very large fields into memory (if a q
 
 - Searches that retrieve a large number of fields. These searches can exhaust memory by causing a vast amount of field data to be cached. By default, the field data cache is unlimited in size, but you can set the [indices.fielddata.cache.*](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html) properties in the elasticsearch.yml configuration file to limit the resources available. You can also configure the [field data circuit breaker][] to help prevent the cached data from a single field from exhausting memory, and the [request circuit breaker][] to stop individual queries from monopolizing memory. The cost of setting these parameters is the increased likelihood of some queries failing or timing out.
  
-> [AZURE.NOTE] Using [Doc Values][] can reduce the memory requirements of indexes by saving fielddata to
+> [AZURE.NOTE] Using [Doc Values][] can reduce the memory requirements of indexes by saving field data to
 > disk rather than loading it into memory. This can help to reduce the chances of memory exhaustion on a
 > node but with a reduction in speed.
 
-> [AZURE.NOTE] Elasticsearch always assumes that it has enough memory to perform its current workload. If
->  this is not the case, then the Elasticsearch service can crash. Elasticsearch provides endpoints that
+> Elasticsearch always assumes that it has enough memory to perform its current workload. If
+> this is not the case, then the Elasticsearch service can crash. Elasticsearch provides endpoints that
 > return information about resource usage (the HTTP [cat APIs][]), and you should monitor this
 > information carefully.
 
@@ -835,13 +688,13 @@ variation in field names can consume a lot of memory. For more information, see 
   
 The definition of a long-running or query intensive operation is highly scenario-specific. The workload typically expected by one cluster might have a completely different profile from the workload on another. Determining which operations are unacceptable requires significant research and testing of your applications.
 
-Be proactive; detect and stop malicious activities before they cause significant damage or data loss.
+Be proactive, detect and stop malicious activities before they cause significant damage or data loss.
 Consider using a security monitoring and notification system that can quickly detect unusual patterns of
 data access and raise alerts when, for example, user login requests fail, unexpected nodes join or leave
 the cluster, or operations are taking longer than expected. Tools that can perform these tasks include
 Elasticearch [Watcher][].
 
-### Protecting the Data
+### Protecting the data
 
 You can protect data inflight by using SSL/TLS, but Elasticsearch does not provide any built-in form of
 data encryption for information that is stored on disk. Remember that this information is held in
@@ -856,7 +709,7 @@ to identities other than the Elasticsearch service.
 > [AZURE.NOTE] Azure now supports disk encryption for Linux and Windows VMs. For more information, see
 > [Azure Disk Encryption for Windows and Linux IaaS VMs Preview][].
 
-### Meeting Regulatory Requirements
+### Meeting regulatory requirements
 
 Regulatory requirements are primarily concerned with auditing operations to maintain a history of events,
 and ensuring the privacy of these operations to help prevent them being monitored (and replayed) by an
@@ -880,7 +733,7 @@ Monitoring is important both at the operating system level and at the Elasticsea
 You can perform monitoring at the operating system level using operating-system specific tools. Under
 Windows, this includes items such as Performance Monitor with the appropriate performance counters, while
 under Linux you can use tools such as *vmstat*, *iostat*, and *top*. The key items to monitor at the
-operating system level include CPU utilization, disk I/O volumes, disk I/O wait times, network traffic.
+operating system level include CPU utilization, disk I/O volumes, disk I/O wait times, and network traffic.
 In a well-tuned Elasticsearch cluster, CPU utilization by the Elasticsearch process should be high, and
 disk I/O wait times should be minimal.
 
@@ -892,7 +745,7 @@ cluster, as well as providing detailed information for each index, as shown in t
 
 `GET _cluster/health?level=indices`
 
-The example output shown below was generated by using this API:
+The example output shown below was generated using this API:
 
 ```json
 {
@@ -936,7 +789,7 @@ The example output shown below was generated by using this API:
 
 This cluster contains two indexes named *systwo* and *sysfour*. Key statistics to monitor for each index are the status, active_shards, and unassigned_shards. The status should be green, the number of active_shards should reflect the number_of_shards and number_of_replicas, and unassigned_shards should be zero. 
 
-If the status is "red", then part of the index is missing or has become corrupt. You can verify this if the *active_shards* setting is less than *number_of_shards* - (*number_of_replicas* + 1) and unassigned_shards is non-zero. Note that a status of yellow indicates that an index is in a transitional state, either as the result of adding more replicas or shards being relocated. The status should switch to green when the transition has completed. 
+If the status is red, then part of the index is missing or has become corrupt. You can verify this if the *active_shards* setting is less than *number_of_shards* - (*number_of_replicas* + 1) and unassigned_shards is non-zero. Note that a status of yellow indicates that an index is in a transitional state, either as the result of adding more replicas or shards being relocated. The status should switch to green when the transition has completed. 
 
 If it stays yellow for an extended period or changes to red, you should look to see whether any significant I/O events (such as a disk or network failure) have occurred at the operating system level.
 
@@ -945,7 +798,7 @@ The \_nodes/stats API emits extensive information about each node in the cluster
 `GET _nodes/stats`
 
 The output generated includes details about how indexes are stored on each node (including the sizes and
-numbers of documents), time spent performing indexing, querying, searching, and merging, caching,
+numbers of documents), time spent performing indexing, querying, searching, merging, caching,
 operating system and process information, statistics about the JVM (including garbage collection
 performance), and thread pools. For more information, see [Monitoring Individual Nodes][].
 
@@ -956,24 +809,22 @@ following items:
 
 - If the bottleneck is due to a resource constraint, such as insufficient memory allocated to the JVM
 causing an excessive number of garbage collections, then consider allocating additional resources (in
-this case , configure the JVM to use more memory, up to 50% of the available storage on the node – see
-[Memory Requirements][]).
+this case, configure the JVM to use more memory, up to 50% of the available storage on the node – see
+[Memory requirements][]).
 
 - If the cluster is showing large I/O wait times and the merge statistics gathered for an index by using
-the \_node/stats API contain large values then the index is write-heavy. Revisit the points raised in the
-section [Optimizing Resources for Indexing Operations](guidance-elasticsearch-tuning-data-ingestion-performance.md#optimizing-resources-for-indexing-operations) to
+the \_node/stats API contain large values then the index is write-heavy. Revisit the points raised in [Optimizing resources for indexing operations](guidance-elasticsearch-tuning-data-ingestion-performance.md#optimizing-resources-for-indexing-operations) to
 tune indexing performance.
 
 - Throttle client applications that are performing data ingestion operations and determine the effect
 that this has on performance. If this approach shows significant improvement, then consider either
 retaining the throttle, or scaling out by spreading the load for write-heavy indexes across more nodes.
-For more information, see the document [Tuning Data Ingestion Performance for Elasticsearch on Azure][].
+For more information, see [Tuning data ingestion performance for Elasticsearch on Azure][].
 
 - If the searching statistics for an index indicate that queries are taking a long time then consider how
-the queries are optimized. Note that you can use the *query_time_in_millis* and *query_total* values reported by the search statistics to calculate a rough guide to query efficiency; the equation *query_time_in_millis* / *query_total* will give you an
-average time for each query.
+the queries are optimized. Note that you can use the *query_time_in_millis* and *query_total* values reported by the search statistics to calculate a rough guide to query efficiency; the equation *query_time_in_millis* / *query_total* will give you an average time for each query.
 
-### Tools for Monitoring Elasticsearch
+### Tools for monitoring Elasticsearch
 
 A variety of tools are available for performing everyday monitoring of Elasticsearch in production. These
 tools typically use the underlying Elasticsearch APIs to gather information and present the details in a
@@ -986,25 +837,21 @@ environment. The advantage of using Marvel with Kibana is that you can implement
 environment from the Elasticsearch cluster, enabling you to explore problems with Elasticsearch that
 might not be possible if the monitoring tools run as part of the Elasticsearch software. For example, if
 Elasticsearch repeatedly fails or is running very slowly, tools that run as Elasticsearch plugins will
-also be effected, making monitoring and diagnosis more difficult.
+also be affected, making monitoring and diagnosis more difficult.
 
 At the operating system level, you can use tools such as the Log Analytics feature of [Azure Operations Management Suite][] or [Azure Diagnostics with the Azure Portal][] to capture performance data for VMs
 hosting Elasticsearch nodes. Another approach is to use [Logstash][] to capture performance and log data,
 store this information in a separate Elasticsearch cluster (don't use the same cluster that you are using
  or your application), and then use Kibana to visualize the data. For more information, see [Microsoft Azure Diagnostics with ELK][].
 
-### Tools for Testing Elasticsearch Performance
+### Tools for testing Elasticsearch performance
 
 Other tools are available if you are benchmarking Elasticsearch or subjecting a cluster to performance
 testing. These tools are intended to be used in a development or test environment rather than production.
 A frequently-used example is [Apache JMeter][].
 
 JMeter was used to perform benchmarking and other load tests described in documents related to this
-guidance. The document [Creating a Performance Testing Environment for Elasticsearch on Azure][] describes in detail how JMeter was configured and used.
-
-## Next steps
-
-- [Elasticsearch: The Definitive Guide](https://www.elastic.co/guide/en/elasticsearch/guide/master/index.html)
+guidance. [Creating a performance testing environment for Elasticsearch on Azure][] describes in detail how JMeter was configured and used.
 
 [Running Elasticsearch on Azure]: guidance-elasticsearch-running-on-azure.md
 [Tuning Data Ingestion Performance for Elasticsearch on Azure]: guidance-elasticsearch-tuning-data-ingestion-performance.md
@@ -1017,7 +864,6 @@ guidance. The document [Creating a Performance Testing Environment for Elasticse
 
 [Apache JMeter]: http://jmeter.apache.org/
 [Apache Lucene]: https://lucene.apache.org/
-[Automatically scale machines in a Virtual Machine Scale Set]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-create.md
 [Azure Disk Encryption for Windows and Linux IaaS VMs Preview]: ../azure-security-disk-encryption.md
 [Azure Load Balancer]: ../load-balancer/load-balancer-overview.md
 [ExpressRoute]: ../expressroute/expressroute-introduction.md
@@ -1043,6 +889,7 @@ guidance. The document [Creating a Performance Testing Environment for Elasticse
 [Elasticsearch]: https://www.elastic.co/products/elasticsearch
 [Elasticsearch-Head]: https://mobz.github.io/elasticsearch-head/
 [Elasticsearch.Net & NEST]: http://nest.azurewebsites.net/
+[elasticsearch-resilience-recovery]: guidance-elasticsearch-configuring-resilience-and-recovery.md
 [Elasticsearch Snapshot and Restore module]: https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-snapshots.html
 [Faking Index per User with Aliases]: https://www.elastic.co/guide/en/elasticsearch/guide/current/faking-it.html
 [field data circuit breaker]: https://www.elastic.co/guide/en/elasticsearch/reference/current/circuit-breaker.html#fielddata-circuit-breaker
@@ -1064,5 +911,6 @@ guidance. The document [Creating a Performance Testing Environment for Elasticse
 [Shield]: https://www.elastic.co/products/shield
 [Transport Client API]: https://www.elastic.co/guide/en/elasticsearch/client/java-api/current/transport-client.html
 [tribe nodes]: https://www.elastic.co/blog/tribe-node
+[vmss]: https://azure.microsoft.com/documentation/services/virtual-machine-scale-sets/
 [Watcher]: https://www.elastic.co/products/watcher
 [Zen]: https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-discovery-zen.html

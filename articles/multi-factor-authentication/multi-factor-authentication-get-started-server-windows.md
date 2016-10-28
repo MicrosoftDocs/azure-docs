@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Windows Authentication and Azure Multi-Factor Authentication Server" 
-	description="This is the Azure Multi-factor authentication page that will assist in deploying Windows Authentication and Azure Multi-Factor Authentication Server." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Windows Authentication and Azure Multi-Factor Authentication Server"
+	description="This is the Azure Multi-factor authentication page that will assist in deploying Windows Authentication and Azure Multi-Factor Authentication Server."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Windows Authentication and Azure Multi-Factor Authentication Server
 
@@ -31,7 +31,7 @@ The Windows Authentication section allows the administrator to enable and config
 
 
 >[AZURE.NOTE]This feature is not supported to secure Terminal Services on Windows Server 2012 R2.
- 
+
 
 
 
@@ -47,5 +47,5 @@ The Windows Authentication section allows the administrator to enable and config
 7. Click Add… button.
 8. Select Single IP if you would like to skip a single IP address.
 9. Select IP Range if you would like to skip an entire IP range. Example 10.63.193.1-10.63.193.100.
-10. Select Subnet if you would like to specify a range of IPs using subnet notation. Enter the subnet's starting IP and pick the appropriate netmask from the drop-down list. 
+10. Select Subnet if you would like to specify a range of IPs using subnet notation. Enter the subnet's starting IP and pick the appropriate netmask from the drop-down list.
 11. Click the OK button.

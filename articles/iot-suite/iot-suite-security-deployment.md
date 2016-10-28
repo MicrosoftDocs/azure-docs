@@ -14,12 +14,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="07/20/2016"
+ ms.date="10/17/2016"
  ms.author="yurid"/>
 
 [AZURE.INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 
-## Next steps
+## See also
 
 You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
 

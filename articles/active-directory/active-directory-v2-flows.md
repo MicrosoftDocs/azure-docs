@@ -13,23 +13,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/30/2016"
 	ms.author="dastrock"/>
 
-# Types of the v2.0 endpoint
+# Types of apps for the v2.0 endpoint
 The v2.0 endpoint supports authentication for a variety of modern app architectures, all of which are based on the industry standard protocols [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) and/or [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow).  This doc briefly describes the types of apps you can build, independent of the language or platform you prefer.  It will help you understand the high level scenarios before you [jump right into the code](active-directory-appmodel-v2-overview.md#getting-started).
 
 > [AZURE.NOTE]
 	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
 ## The basics
-Every app that uses the v2.0 endpoint will need to be registered at [apps.dev.microsoft.com](https://apps.dev.microsoft.com).  The app registration process will collect & assign a few values to your app:
+Every app that uses the v2.0 endpoint will need to be registered at [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).  The app registration process will collect & assign a few values to your app:
 
 - An **Application Id** that uniquely identifies your app
 - A **Redirect URI** that can be used to direct responses back to your app
 - A few other scenario-specific values.  For more detail, learn how to [register an app](active-directory-v2-app-registration.md).
 
-Once registered, the app communicates with Azure AD my sending requests to the Azure Active Directory v2.0 endpoint.  We provide open source frameworks & libraries that take care of the details of these requests, or you can implement the authentication logic yourself by crafting requests to these endpoints:
+Once registered, the app communicates with Azure AD by sending requests to the Azure Active Directory v2.0 endpoint.  We provide open source frameworks & libraries that take care of the details of these requests, or you can implement the authentication logic yourself by crafting requests to these endpoints:
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
@@ -105,13 +105,17 @@ In this flow, the app receives tokens from the v2.0 authorize endpoint directly,
 
 To see this scenario in action, try out one of the single page app code samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
 
-## Current limitations
-These types of apps are not currently supported by the v2.0 endpoint, but are on the roadmap.  Additional limitations and restrictions for the v2.0 endpoint are described in the [v2.0 limitations article](active-directory-v2-limitations.md).
-
 ### Daemons/server side apps
 Apps that contain long running processes or that operate without the presence of a user also need a way to access secured resources, such as Web APIs.  These apps can authenticate and get tokens using the app's identity (rather than a user's delegated identity) using the OAuth 2.0 client credentials flow.
 
-The client credentials flow is not currently supported in the v2.0 endpoint.  To see how this flow works in the generally available Azure AD service, check out the [daemon code sample on GitHub](https://github.com/AzureADSamples/Daemon-DotNet).
+In this flow, the app obtains tokens by interacting directly with the `/token` endpoint:
+
+![Daemon App Swimlanes Image](../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
+
+To build a daemon app, see the client credentials documeenation in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section or refer to [this .NET sample app](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+
+## Current limitations
+These types of apps are not currently supported by the v2.0 endpoint, but are on the roadmap.  Additional limitations and restrictions for the v2.0 endpoint are described in the [v2.0 limitations article](active-directory-v2-limitations.md).
 
 ### Chained web APIs (on-behalf-of)
 Many architectures include a Web API that needs to call another downstream Web API, both secured by the v2.0 endpoint.  This scenario is common in native clients that have a Web API backend, which in turn calls a Microsoft Online service such as Office 365 or the Graph API.

@@ -12,16 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/01/2016" 
+	ms.date="10/19/2016" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
 
 *Application Insights is in preview.*
 
-Insert a few lines of code in your application to find out what users are doing with it, or to help diagnose issues. You can send telemetry from device and desktop apps, web clients, and web servers. 
-
-The Application Insights data collectors use this API to send standard telemetry such as page views and exception reports, but you can also use it to send your own custom telemetry.
+Insert a few lines of code in your application to find out what users are doing with it, or to help diagnose issues. You can send telemetry from device and desktop apps, web clients, and web servers. The [Visual Studio Application Insights](app-insights-overview.md) core telemetry API lets you send custom events and metrics, and your own versions of standard telemetry. This API is the same API that is used by the standard Application Insights data collectors.
 
 ## API summary
 
@@ -103,7 +101,8 @@ For example, in a game app, send an event whenever a user wins the game:
 
     telemetry.trackEvent("WinGame");
 
-Here, "WinGame" is the name that appears in the Application Insights portal. 
+
+### View your events in the Azure portal
 
 To see a count of your events, open a [Metric Explorer](app-insights-metrics-explorer.md) blade, add a new chart, and select Events.  
 
@@ -245,6 +244,36 @@ You can also call it yourself if you want to simulate requests in a context wher
 
 
 
+## Operation context
+
+Telemetry items can be associated together by attaching to them a common Operation ID. The standard request tracking module does this for exceptions and other events sent while processing an HTTP request. In [Search](app-insights-diagnostic-search.md) and [Analytics](app-insights-analytics.md), you can use the ID to easily find any events associated with the request. 
+
+The easiest way to set the ID is to set an operation context by using this pattern:
+
+    // Establish an operation context and associated telemetry item:
+    using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
+    {
+        // Telemetry sent in here will use the same operation ID.
+        ...
+        telemetry.TrackEvent(...); // or other Track* calls
+        ...
+        // Set properties of containing telemetry item - for example:
+        operation.Telemetry.ResponseCode = "200";
+        
+        // Optional: explicitly send telemetry item:
+        telemetry.StopOperation(operation);
+
+    } // When operation is disposed, telemetry item is sent.
+
+As well as setting an operation context, `StartOperation` creates a telemetry item of the type you specify, and sends it when you dispose the operation, or if you explicitly call `StopOperation`. If you use `RequestTelemetry` as the telemetry type, then its Duration is set to the timed interval between start and stop.
+
+Operation contexts can't be nested. If there is already an operation context, then its ID is associated with all the contained items, including the item created with StartOperation.
+
+In Search, the operation context is used to create the Related Items list:
+
+![Related items](./media/app-insights-api-custom-events-metrics/21.png)
+
+
 ## Track Exception
 
 Send exceptions to Application Insights: to [count them][metrics], as an indication of the frequency of a problem; and to [examine individual occurrences][diagnostic]. The reports include the stack traces.
@@ -352,7 +381,7 @@ Normally the SDK sends data at times chosen to minimize impact on the user. Howe
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
 
-Note that the function is asynchronous for in-memory channels, but synchronous if you choose to use the [persistent channel](app-insights-api-filtering-sampling.md#persistence-channel).
+Note that the function is asynchronous for the [server telemetry channel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/), but synchronous if you choose to use the in-memory channel or [persistent channel](app-insights-api-filtering-sampling.md#persistence-channel).
 
 
 ## Authenticated users
@@ -518,32 +547,6 @@ If it's more convenient, you can collect the parameters of an event in a separat
 
 > [AZURE.WARNING] Don't reuse the same telemetry item instance (`event` in this example) to call Track*() multiple times. This may cause telemetry to be sent with incorrect configuration.
 
-## Operation context
-
-When your web app receives an HTTP request, the Application Insights request tracking module assigns an ID to the request, and sets the same value as the current Operation ID. The operation ID is cleared when the response to the request is sent. Any tracking calls made during the operation are assigned the same operation ID (provided they use the default TelemetryContext). This allows you to correlate the events related to a particular request when you inspect them in the portal.
-
-![Related items](./media/app-insights-api-custom-events-metrics/21.png)
-
-If you are monitoring events not associated with an HTTP request, or if you aren't using the request tracking module - for example, if you are monitoring a backend process - then you can set your own operation context using this pattern:
-
-    // Establish an operation context and associated telemetry item:
-    using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
-    {
-        // Telemetry sent in here will use the same operation ID.
-        ...
-        telemetry.TrackEvent(...); // or other Track* calls
-        ...
-        // Set properties of containing telemetry item - for example:
-        operation.Telemetry.ResponseCode = "200";
-        
-        // Optional: explicitly send telemetry item:
-        telemetry.StopOperation(operation);
-
-    } // When operation is disposed, telemetry item is sent.
-
-As well as setting an operation context, `StartOperation` creates a telemetry item of the type you specify, and sends it when you dispose the operation, or if you explicitly call `StopOperation`. If you use `RequestTelemetry` as the telemetry type, then its Duration is set to the timed interval between start and stop.
-
-Operation contexts can't be nested. If there is already an operation context, then its ID is associated with all the contained items, including the item created with StartOperation.
 
 
 ## <a name="timed"></a> Timing events

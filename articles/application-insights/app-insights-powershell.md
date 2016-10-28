@@ -74,9 +74,9 @@ Install the Azure Powershell module on the machine where you want to run the scr
     This template will set up one availability test in addition to the main resource.
 
 
-2. Open [Azure Resource Manager](https://resources.azure.com/). Navigate down through subscriptions, resourceGroups, components, to your app resource. 
+2. Open [Azure Resource Manager](https://resources.azure.com/). Navigate down through `subscriptions/resourceGroups/<your resource group>/providers/Microsoft.Insights/components`, to your application resource. 
 
-    ![](./media/app-insights-powershell/01.png)
+    ![Navigation in Azure Resource Explorer](./media/app-insights-powershell/01.png)
 
     *Components* are the basic Application Insights resources for displaying applications. There are separate resources for the associated alert rules and availability web tests.
 
@@ -117,26 +117,7 @@ find | replace with
 `"myappname"` (lower case) | `"[toLower(parameters('appName'))]"`
 `"<WebTest Name=\"myWebTest\" ...`<br/>` Url=\"http://fabrikam.com/home\" ...>"`|`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]" `
 
-## If your app is an Azure web app
 
-Add this resource, or if a `siteextensions` resource is already there, parameterize it like this:
-
-```json
-    {
-      "apiVersion": "2014-06-01",
-      "name": "Microsoft.ApplicationInsights.AzureWebSites",
-      "type": "siteextensions",
-      "dependsOn": [
-        "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]",
-        "[resourceId('Microsoft.Web/Sites/config', parameters('siteName'), 'web')]",
-        "[resourceId('Microsoft.Web/sites/sourcecontrols', parameters('siteName'), 'web')]"
-      ],
-      "properties": { }
-    }
-
-```
-
-This resource deploys the Application Insights SDK to your Azure web app.
 
 ## Set dependencies between the resources
 

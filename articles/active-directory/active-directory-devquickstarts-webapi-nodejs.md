@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 # Getting Started With WEB-API for Node
@@ -28,9 +28,9 @@ In order to do this, you’ll need to:
 2. Set up your app to use Passport's azure-ad-passport plug-in.
 3. Configure a client application to call the To Do List Web API
 
-The code for this tutorial is maintained [on GitHub](https://github.com/Azure-Samples/active-directory-node-webapi). 
+The code for this tutorial is maintained [on GitHub](https://github.com/Azure-Samples/active-directory-node-webapi).
 
-> [AZURE.NOTE] This article does not cover how to implement sign-in, sign-up and profile management with Azure AD B2C.  It focuses on calling web APIs after the user is already authenticated.  If you haven't already, you should start with the [How to integrate with Azure Active Directory document](active-directory-how-to-integrate.md) to learn about the basics of Azure Active Directory.
+> [AZURE.NOTE] This article does not cover how to implement sign-in, sign-up and profile management with Azure AD B2C.  It focuses on calling web APIs after the user is already authenticated.  If you haven't already, you should start with the [How to integrate with Azure Active Directory document](./develop/active-directory-how-to-integrate.md) to learn about the basics of Azure Active Directory.
 
 
 We've released all of the source code for this running example in GitHub under an MIT license, so feel free to clone (or even better, fork!) and provide feedback and pull requests.
@@ -270,7 +270,7 @@ Create a `config.js` file in our favorite editor and add the following informati
      audience: 'your application URL',
     // you cannot have users from multiple tenants sign in to your server unless you use the common endpoint
   // example: https://login.microsoftonline.com/common/.well-known/openid-configuration
-     identityMetadata: 'https://login.microsoftonline.com/<your tenant id>/.well-known/openid-configuration', 
+     identityMetadata: 'https://login.microsoftonline.com/<your tenant id>/.well-known/openid-configuration',
      validateIssuer: true, // if you have validation on, you cannot have users from multiple tenants sign in to your server
      passReqToCallback: false,
      loggingLevel: 'info' // valid are 'info', 'warn', 'error'. Error always goes to stderr in Unix.
@@ -279,7 +279,7 @@ Create a `config.js` file in our favorite editor and add the following informati
 
 
 ```
-Save the file. 
+Save the file.
 
 ## 12. Add configuration to your server.js file
 
@@ -320,7 +320,7 @@ var log = bunyan.createLogger({
             stream: process.stderr,
             level: "error",
             name: "error"
-        }, 
+        },
         {
             stream: process.stdout,
             level: "warn",
@@ -337,7 +337,7 @@ var serverPort = process.env.PORT || 8080;
 var serverURI = (process.env.PORT) ? config.creds.mongoose_auth_mongohq : config.creds.mongoose_auth_local;
 ```
 
-Save the file. 
+Save the file.
 
 
 

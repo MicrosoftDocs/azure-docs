@@ -4,9 +4,9 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
-	tags="azure-portal"/>
+   tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/27/2016"
+   ms.date="10/27/2016"
    ms.author="larryfr"/>
 
 # Develop C# topologies for Apache Storm on HDInsight using Hadoop tools for Visual Studio
@@ -23,29 +23,31 @@ Learn how to create a C# Storm topology by using the HDInsight tools for Visual 
 
 You will also learn how to create hybrid topologies that use C# and Java components.
 
-[AZURE.INCLUDE [windows-only](../../includes/hdinsight-windows-only.md)]
+> [AZURE.IMPORTANT] While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to either a Linux or Windows-based HDInsight cluster. Only Linux-based clusters created after 10/28/2016 support SCP.NET topologies.
+>
+> To use a C# topology with a Linux-based cluster, you must update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or higher. The version of the package must also match the major version of Storm installed on HDInsight. For example, Storm on HDInsight versions 3.3 and 3.4 use Storm version 0.10.x, while HDInsight 3.5 uses Storm 1.0.x.
+> 
+> C# topologies on Linux-based clusters must use .NET 4.5, and use Mono to run on the HDInsight cluster. Most things will work, however you should check the [Mono Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
 
-##Prerequisites
+## Prerequisites
 
--	One of the following versions of Visual Studio
+- One of the following versions of Visual Studio
 
-	-	Visual Studio 2012 with [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
+    - Visual Studio 2012 with [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
-	-	Visual Studio 2013 with [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+    - Visual Studio 2013 with [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
 
-	-	Visual Studio 2015 or [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
+    - Visual Studio 2015 or [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
 
--	Azure SDK 2.5.1 or later
+- Azure SDK 2.9.5 or later
 
--	HDInsight Tools for Visual Studio: See [Get started using HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) to install and configure the HDInsight tools for Visual Studio.
+- HDInsight Tools for Visual Studio: See [Get started using HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) to install and configure the HDInsight tools for Visual Studio.
 
     > [AZURE.NOTE] HDInsight Tools for Visual Studio are not supported on Visual Studio Express
 
 -	Apache Storm on HDInsight cluster: See [Getting started with Apache Storm on HDInsight](hdinsight-apache-storm-tutorial-get-started.md) for steps to create a cluster.
 
-	> [AZURE.NOTE] Currently, the HDInsight Tools for Visual Studio do not support submitting a Storm topology to Linux-based clusters.
-
-##Templates
+## Templates
 
 The HDInsight Tools for Visual Studio provide the following templates::
 
@@ -66,39 +68,41 @@ The HDInsight Tools for Visual Studio provide the following templates::
 
 In the steps in this document, you will use the basic Storm Application project type to create a new topology.
 
-##Create a C# topology
+## Create a C# topology
 
-1.	If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see [Get started using HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+1. If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see [Get started using HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-2.	Open Visual Studio, select **File** > **New**, and then **Project**.
+2. Open Visual Studio, select **File** > **New**, and then **Project**.
 
-3.	From the **New Project** screen, expand **Installed** > **Templates**, and select **HDInsight**. From the list of templates, select **Storm Application**. At the bottom of the screen, enter **WordCount** as the name of the application.
+3. From the **New Project** screen, expand **Installed** > **Templates**, and select **HDInsight**. From the list of templates, select **Storm Application**. At the bottom of the screen, enter **WordCount** as the name of the application.
 
 	![image](./media/hdinsight-storm-develop-csharp-visual-studio-topology/new-project.png)
 
-4.	After the project has been created, you should have the following files:
+4. After the project has been created, you should have the following files:
 
-	-	**Program.cs**: This defines the topology for your project. Note that a default topology that consists of one spout and one bolt is created by default.
+	- **Program.cs**: This defines the topology for your project. Note that a default topology that consists of one spout and one bolt is created by default.
 
-	-	**Spout.cs**: An example spout that emits random numbers.
+	- **Spout.cs**: An example spout that emits random numbers.
 
-	-	**Bolt.cs**: An example bolt that keeps a count of numbers emitted by the spout.
+	- **Bolt.cs**: An example bolt that keeps a count of numbers emitted by the spout.
 
 	As part of project creation, the latest [SCP.NET packages](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/) will be downloaded from NuGet.
 
+    [AZURE.INCLUDE [scp.net version important](../../includes/hdinsight-storm-scpdotnet-version.md)]
+
 In the next sections, you will modify this project into a basic WordCount application.
 
-###Implement the spout
+### Implement the spout
 
-1.	Open **Spout.cs**. Spouts are used to read data in a topology from an external source. The main components for a spout are:
+1. Open **Spout.cs**. Spouts are used to read data in a topology from an external source. The main components for a spout are:
 
-	-	**NextTuple**: Called by Storm when the spout is allowed to emit new tuples.
+	- **NextTuple**: Called by Storm when the spout is allowed to emit new tuples.
 
-	-	**Ack** (transactional topology only): Handles acknowledgements initiated by other components in the topology for tuples sent from this spout. Acknowledging a tuple lets the spout know that it was processed successfully by downstream components.
+	- **Ack** (transactional topology only): Handles acknowledgements initiated by other components in the topology for tuples sent from this spout. Acknowledging a tuple lets the spout know that it was processed successfully by downstream components.
 
-	-	**Fail** (transactional topology only): Handles tuples that are fail-processing other components in the topology. This provides the opportunity to re-emit the tuple so that it can be processed again.
+	- **Fail** (transactional topology only): Handles tuples that are fail-processing other components in the topology. This provides the opportunity to re-emit the tuple so that it can be processed again.
 
-2.	Replace the contents of the **Spout** class with the following. This creates a spout that randomly emits a sentence into the topology.
+2. Replace the contents of the **Spout** class with the following. This creates a spout that randomly emits a sentence into the topology.
 
         private Context ctx;
         private Random r = new Random();
@@ -158,21 +162,21 @@ In the next sections, you will modify this project into a basic WordCount applic
     
     Take a moment to read through the comments to understand what this code does.
 
-###Implement the bolts
+### Implement the bolts
 
-1.	Delete the existing **Bolt.cs** file from the project.
+1. Delete the existing **Bolt.cs** file from the project.
 
-2.	In **Solution Explorer**, right-click the project and select **Add** > **New item**. From the list, select **Storm Bolt**, and enter **Splitter.cs** as the name. Repeat this to create a second bolt named **Counter.cs**.
+2. In **Solution Explorer**, right-click the project and select **Add** > **New item**. From the list, select **Storm Bolt**, and enter **Splitter.cs** as the name. Repeat this to create a second bolt named **Counter.cs**.
 
-	-	**Splitter.cs**: Implements a bolt that splits sentences into individual words and emits a new stream of words.
+	- **Splitter.cs**: Implements a bolt that splits sentences into individual words and emits a new stream of words.
 
-	-	**Counter.cs**: Implements a bolt that counts each word and emits a new stream of words and the count for each word.
+	- **Counter.cs**: Implements a bolt that counts each word and emits a new stream of words and the count for each word.
 
 	> [AZURE.NOTE] These bolts simply read and write to streams, but you can also use a bolt to communicate with sources such as a database or service.
 
-3.	Open **Splitter.cs**. Note that it has only one method by default: **Execute**. This is called when the bolt receives a tuple for processing. Here, you can read and process incoming tuples, and emit outbound tuples.
+3. Open **Splitter.cs**. Note that it has only one method by default: **Execute**. This is called when the bolt receives a tuple for processing. Here, you can read and process incoming tuples, and emit outbound tuples.
 
-4.	Replace the contents of the **Splitter** class with the following code:
+4. Replace the contents of the **Splitter** class with the following code:
 
         private Context ctx;
 
@@ -218,7 +222,7 @@ In the next sections, you will modify this project into a basic WordCount applic
 
 	Take a moment to read through the comments to understand what this code does.
 
-5.	Open **Counter.cs** and replace the class contents with the following:
+5. Open **Counter.cs** and replace the class contents with the following:
 
         private Context ctx;
 
@@ -272,7 +276,7 @@ In the next sections, you will modify this project into a basic WordCount applic
 
 	Take a moment to read through the comments to understand what this code does.
 
-###Define the topology
+### Define the topology
 
 Spouts and bolts are arranged in a graph, which defines how the data flows between components. For this topology, the graph is as follows:
 
@@ -282,7 +286,7 @@ Sentences are emitted from the spout, which are distributed to instances of the 
 
 Because word count is held locally in the Counter instance, we want to make sure that specific words flow to the same Counter bolt instance, so we have only one instance keeping track of a specific word. But for the Splitter bolt, it really doesn't matter which bolt receives which sentence, so we simply want to load balance sentences across those instances.
 
-Open **Program.cs**. The important method is **ITopologyBuilder**, which is used to define the topology that is submitted to Storm. Replace the contents of **ITopologyBuilder** with the following code to implement the topology described previously:
+Open **Program.cs**. The important method is **GetTopologyBuilder**, which is used to define the topology that is submitted to Storm. Replace the contents of **GetTopologyBuilder** with the following code to implement the topology described previously:
 
         // Create a new topology named 'WordCount'
         TopologyBuilder topologyBuilder = new TopologyBuilder("WordCount" + DateTime.Now.ToString("yyyyMMddHHmmss"));
@@ -341,37 +345,37 @@ Open **Program.cs**. The important method is **ITopologyBuilder**, which is used
 
 Take a moment to read through the comments to understand what this code does.
 
-##Submit the topology
+## Submit the topology
 
-1.	In **Solution Explorer**, right-click the project, and select **Submit to Storm on HDInsight**.
+1. In **Solution Explorer**, right-click the project, and select **Submit to Storm on HDInsight**.
 
 	> [AZURE.NOTE] If prompted, enter the login credentials for your Azure subscription. If you have more than one subscription, log in to the one that contains your Storm on HDInsight cluster.
 
-2.	Select your Storm on HDInsight cluster from the **Storm Cluster** drop-down list, and then select **Submit**. You can monitor if the submission is successful by using the **Output** window.
+2. Select your Storm on HDInsight cluster from the **Storm Cluster** drop-down list, and then select **Submit**. You can monitor if the submission is successful by using the **Output** window.
 
-3.	When the topology has been successfully submitted, the **Storm Topologies** for the cluster should appear. Select the **WordCount** topology from the list to view information about the running topology.
+3. When the topology has been successfully submitted, the **Storm Topologies** for the cluster should appear. Select the **WordCount** topology from the list to view information about the running topology.
 
 	> [AZURE.NOTE] You can also view **Storm Topologies** from **Server Explorer**: Expand **Azure** > **HDInsight**, right-click a Storm on HDInsight cluster, and then select **View Storm Topologies**.
 
 	Use the links for the spouts or bolts to view information about these components. A new window will be opened for each item selected.
 
-4.	From the **Topology Summary** view, click **Kill** to stop the topology.
+4. From the **Topology Summary** view, click **Kill** to stop the topology.
 
 	> [AZURE.NOTE] Storm topologies continue to run until they are deactivated, or the cluster is deleted.
 
-##Transactional topology
+## Transactional topology
 
 The previous topology is non-transactional. The components within the topology do not implement any functionality for replaying messages if processing fails by a component in the topology. For an example transactional topology, create a new project and select **Storm Sample** as the project type.
 
 Transactional topologies implement the following to support replay of data:
 
--	**Metadata caching**: The spout must store metadata about the data emitted so that the data can be retrieved and emitted again if a failure occurs. Because the data emitted by the sample is small, the raw data for each tuple is stored in a dictionary for replay.
+- **Metadata caching**: The spout must store metadata about the data emitted so that the data can be retrieved and emitted again if a failure occurs. Because the data emitted by the sample is small, the raw data for each tuple is stored in a dictionary for replay.
 
--	**Ack**: Each bolt in the topology can call `this.ctx.Ack(tuple)` to ack that it has successfully processed a tuple. When all bolts have acked the tuple, the `Ack` method of the spout is invoked. This allows the spout to remove cached data for replay because the data was completely processed.
+- **Ack**: Each bolt in the topology can call `this.ctx.Ack(tuple)` to ack that it has successfully processed a tuple. When all bolts have acked the tuple, the `Ack` method of the spout is invoked. This allows the spout to remove cached data for replay because the data was completely processed.
 
--	**Fail**: Each bolt can call `this.ctx.Fail(tuple)` to indicate that processing has failed for a tuple. The failure propagates to the `Fail` method of the spout, where the tuple can be replayed by using cached metadata.
+- **Fail**: Each bolt can call `this.ctx.Fail(tuple)` to indicate that processing has failed for a tuple. The failure propagates to the `Fail` method of the spout, where the tuple can be replayed by using cached metadata.
 
--	**Sequence ID**: When emitting a tuple, a sequence ID can be specified. This should be a value that identifies the tuple for replay (Ack and Fail) processing. For example, the spout in the **Storm Sample** project uses the following when emitting data:
+- **Sequence ID**: When emitting a tuple, a sequence ID can be specified. This should be a value that identifies the tuple for replay (Ack and Fail) processing. For example, the spout in the **Storm Sample** project uses the following when emitting data:
 
         this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new Values(sentence), lastSeqId);
 
@@ -379,19 +383,19 @@ Transactional topologies implement the following to support replay of data:
 
 As demonstrated in the **Storm Sample** project, whether a component is transactional can be set at run time, based on configuration.
 
-##Hybrid topology
+## Hybrid topology
 
 HDInsight tools for Visual Studio can also be used to create hybrid topologies, where some components are C# and others are Java.
 
 For an example hybrid topology, create a new project, and select **Storm Hybrid Sample**. This creates a fully commented sample that contains several topologies that demonstrate the following:
 
--	**Java spout** and **C# bolt**: Defined in **HybridTopology_javaSpout_csharpBolt**
+- **Java spout** and **C# bolt**: Defined in **HybridTopology_javaSpout_csharpBolt**
 
-	-	A transactional version is defined in **HybridTopologyTx_javaSpout_csharpBolt**
+	- A transactional version is defined in **HybridTopologyTx_javaSpout_csharpBolt**
 
--	**C# spout** and **Java bolt**: Defined in **HybridTopology_csharpSpout_javaBolt**
+- **C# spout** and **Java bolt**: Defined in **HybridTopology_csharpSpout_javaBolt**
 
-	-	A transactional version is defined in **HybridTopologyTx_csharpSpout_javaBolt**
+	- A transactional version is defined in **HybridTopologyTx_csharpSpout_javaBolt**
 
 		> [AZURE.NOTE] This version also demonstrates how to use Clojure code from a text file as a Java component.
 
@@ -401,23 +405,56 @@ To switch between the topology that is used when the project is submitted, simpl
 
 Consider the following when creating and submitting a hybrid topology:
 
--	**JavaComponentConstructor** must be used to create a new instance of the Java class for a spout or bolt.
+- **JavaComponentConstructor** must be used to create a new instance of the Java class for a spout or bolt.
 
--	**microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** should be used to serialize data in to or out of Java components from Java objects to JSON.
+- **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** should be used to serialize data in to or out of Java components from Java objects to JSON.
 
--	When submitting the topology to the server, you must use the **Additional configurations** option to specify the **Java File paths**. The path specified should be the directory that contains the JAR files that contain your Java classes.
+- When submitting the topology to the server, you must use the **Additional configurations** option to specify the **Java File paths**. The path specified should be the directory that contains the JAR files that contain your Java classes.
 
-###Azure Event Hubs
+### Azure Event Hubs
 
 SCP.Net version 0.9.4.203 introduces a new class and method specifically for working with the Event Hub Spout (a Java spout that reads from Event Hub.) When creating a topology that uses this spout, use the following methods:
 
--	**EventHubSpoutConfig** class: creates an object that contains the configuration for the spout component
+- **EventHubSpoutConfig** class: creates an object that contains the configuration for the spout component
 
--	**TopologyBuilder.SetEventHubSpout** method: adds the Event Hub Spout component to the topology
+- **TopologyBuilder.SetEventHubSpout** method: adds the Event Hub Spout component to the topology
 
 > [AZURE.NOTE] While these make it easier to work with the Event Hub Spout than other Java components, you must still use the CustomizedInteropJSONSerializer to serialize data produced by the spout.
 
-##How to update SCP.NET
+## <a id="configurationmanager"></a>Using ConfigurationManager
+
+Don't use ConfigurationManager to retreive configuration values from bolt and spout components; this will lead to a null pointer exception. Instead, the configuration for your project is passed into the Storm topology as a key/value pair in the topology context. Each component that relies on configuration values must retrieve them from the context during initialization.
+
+The following code demonstrates how to retrieve these values:
+
+    public class MyComponent : ISCPBolt
+    {
+        // To hold configuration information loaded from context
+        Configuration configuration;
+        ...
+        public MyComponent(Context ctx, Dictionary<string, Object> parms)
+        {
+            // Save a copy of the context for this component instance
+            this.ctx = ctx;
+            // If it exists, load the configuration for the component
+            if(parms.ContainsKey(Constants.USER_CONFIG))
+            {
+                this.configuration = parms[Constants.USER_CONFIG] as System.Configuration.Configuration;
+            }
+            // Retrieve the value of "Foo" from configuration
+            var foo = this.configuration.AppSettings.Settings["Foo"].Value;
+        }
+        ...
+    }
+
+If you use a `Get` method to return an instance of your component, you must ensure that it passes both the `Context` and `Dictionary<string, Object>` parameters to the constructor. The following example is a basic `Get` method that properly passes these values:
+
+    public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
+    {
+        return new MyComponent(ctx, parms);
+    }
+
+## How to update SCP.NET
 
 Recent releases of SCP.NET support package upgrade through NuGet. When a new update is available, you will receive an upgrade notification. To manually check for an upgrade, perform these steps:
 
@@ -430,27 +467,46 @@ Recent releases of SCP.NET support package upgrade through NuGet. When a new upd
 > 1. In **Solution Explorer**, right-click the project and select **Manage NuGet Packages**.
 > 2. Using the **Search** field, search for, and then add, **Microsoft.SCP.Net.SDK** to the project.
 
-##Troubleshooting
+## Troubleshooting
 
-###Test a topology locally
+### Null pointer exceptions
+
+When using a C# topology with a Linux-based HDInsight cluster, bolt and spout components that use ConfigurationManager to read configuration settings at runtime may return null pointer exceptions. This happens because the configuration for the loaded domain is not from the assembly that contains your project.
+
+The configuration for your project is passed into the Storm topology as a key/value pair in the topology context, and can be retrieved from the dictionary object that is passed to your components when they are initialized.
+
+The following example demonstrates loading the configuration values from the topology context, see the [ConfigurationManager](#configurationmanager) section of this document.
+
+### System.TypeLoadException
+
+When using a C# topology with a Linux-based HDInsight cluster, you may encounter the following error:
+
+    System.TypeLoadException: Failure has occurred while loading a type.
+
+This usually occurrs when you are using a binary that is not compatible with the version of .NET that mono supports.
+
+For Linux-based HDInsight clusters, you should make sure that your project uses binaries compiled for .NET 4.5.
+
+
+### Test a topology locally
 
 Although it is easy to deploy a topology to a cluster, in some cases, you may need to test a topology locally. Use the following steps to run and test the example topology in this tutorial locally in your development environment.
 
 > [AZURE.WARNING] Local testing only works for basic, C# only topologies. You should not use local testing for hybrid topologies or topologies that use multiple streams, as you will receive errors.
 
-1.	In **Solution Explorer**, right-click the project, and select **Properties**. In the project properties, change the **Output type** to **Console Application**.
+1. In **Solution Explorer**, right-click the project, and select **Properties**. In the project properties, change the **Output type** to **Console Application**.
 
 	![output type](./media/hdinsight-storm-develop-csharp-visual-studio-topology/outputtype.png)
 
 	> [AZURE.NOTE] Remember to change the **Output type** back to **Class Library** before you deploy the topology to a cluster.
 
-2.	In **Solution Explorer**, right-click the project, then select **Add** > **New Item**. Select **Class** and enter **LocalTest.cs** as the class name. Finally, click **Add**.
+2. In **Solution Explorer**, right-click the project, then select **Add** > **New Item**. Select **Class** and enter **LocalTest.cs** as the class name. Finally, click **Add**.
 
-3.	Open **LocalTest.cs** and add the following **using** statement at the top:
+3. Open **LocalTest.cs** and add the following **using** statement at the top:
 
         using Microsoft.SCP;
 
-4.	Use the following as the contents of the **LocalTest** class:
+4. Use the following as the contents of the **LocalTest** class:
 
         // Drives the topology components
         public void RunTestCase()
@@ -530,7 +586,7 @@ Although it is easy to deploy a topology to a cluster, in some cases, you may ne
 
 	Take a moment to read through the code comments. This code uses **LocalContext** to run the components in the development environment, and it persists the data stream between components to text files on the local drive.
 
-5.	Open **Program.cs** and add the following to the **Main** method:
+5. Open **Program.cs** and add the following to the **Main** method:
 
         Console.WriteLine("Starting tests");
         System.Environment.SetEnvironmentVariable("microsoft.scp.logPrefix", "WordCount-LocalTest");
@@ -549,9 +605,9 @@ Although it is easy to deploy a topology to a cluster, in some cases, you may ne
         Console.WriteLine("Tests finished");
         Console.ReadKey();
 
-6.	Save the changes, then click **F5** or select **Debug** > **Start Debugging** to start the project. A console window should appear, and log status as the tests progress. When **Tests finished** appears, press any key to close the window.
+6. Save the changes, then click **F5** or select **Debug** > **Start Debugging** to start the project. A console window should appear, and log status as the tests progress. When **Tests finished** appears, press any key to close the window.
 
-7.	Use **Windows Explorer** to locate the directory that contains your project, for example, **C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. In this directory, open **Bin**, and then click **Debug**. You should see the text files that were produced when the tests ran: sentences.txt, counter.txt, and splitter.txt. Open each text file and inspect the data.
+7. Use **Windows Explorer** to locate the directory that contains your project, for example, **C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. In this directory, open **Bin**, and then click **Debug**. You should see the text files that were produced when the tests ran: sentences.txt, counter.txt, and splitter.txt. Open each text file and inspect the data.
 
 	> [AZURE.NOTE] String data is persisted as an array of decimal values in these files. For example, \[[97,103,111]] in the **splitter.txt** file is the word 'and'.
 
@@ -559,7 +615,7 @@ Although testing a basic word count application locally is pretty trivial, the r
 
 > [AZURE.NOTE] Be sure to set the **Project type** back to **Class Library** before deploying to a Storm on HDInsight cluster.
 
-###Log information
+### Log information
 
 You can easily log information from your topology components by using `Context.Logger`. For example, the following will create an informational log entry:
 
@@ -569,19 +625,19 @@ Logged information can be viewed from the **Hadoop Service Log**, which is found
 
 > [AZURE.NOTE] The logs are stored in the Azure Storage account that is used by your cluster. If this is a different subscription than the one you are logged in to with Visual Studio, you need to log in to the subscription that contains the storage account to view this information.
 
-###View error information
+### View error information
 
 To view errors that have occurred in a running topology, use the following steps:
 
-1.	From **Server Explorer**, right-click the Storm on HDInsight cluster, and select **View Storm topologies**.
+1. From **Server Explorer**, right-click the Storm on HDInsight cluster, and select **View Storm topologies**.
 
-2.	For the **Spout** and **Bolts**, the **Last Error** column will have information on the last error that has occurred.
+2. For the **Spout** and **Bolts**, the **Last Error** column will have information on the last error that has occurred.
 
-3.	Select the **Spout Id** or **Bolt Id** for the component that has an error listed. On the details page that is displayed, additional error information will be listed in the **Errors** section at the bottom of the page.
+3. Select the **Spout Id** or **Bolt Id** for the component that has an error listed. On the details page that is displayed, additional error information will be listed in the **Errors** section at the bottom of the page.
 
-4.	To obtain more information, select a **Port** from the **Executors** section of the page to see the Storm worker log for the last few minutes.
+4. To obtain more information, select a **Port** from the **Executors** section of the page to see the Storm worker log for the last few minutes.
 
-##Next steps
+## Next steps
 
 Now that you have learned how to develop and deploy Storm topologies from the HDInsight tools for Visual Studio, learn how to [Process events from Azure Event Hub with Storm on HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md).
 
@@ -597,18 +653,18 @@ For more ways to work with HDInsight and more Storm on HDinsight samples, see th
 
 **Apache Storm on HDInsight**
 
--	[Deploy and monitor topologies with Apache Storm on HDInsight](hdinsight-storm-deploy-monitor-topology.md)
+- [Deploy and monitor topologies with Apache Storm on HDInsight](hdinsight-storm-deploy-monitor-topology.md)
 
--	[Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)
+- [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)
 
 **Apache Hadoop on HDInsight**
 
--	[Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
+- [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
--	[Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+- [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
 
--	[Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
+- [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
 **Apache HBase on HDInsight**
 
--	[Getting started with HBase on HDInsight](hdinsight-hbase-tutorial-get-started.md)
+- [Getting started with HBase on HDInsight](hdinsight-hbase-tutorial-get-started.md)

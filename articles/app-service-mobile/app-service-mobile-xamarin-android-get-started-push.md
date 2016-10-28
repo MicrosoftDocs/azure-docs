@@ -3,7 +3,7 @@
 	description="Learn how to use Azure App Service and Azure Notification Hubs to send push notifications to your Xamarin.Android app"
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="ggailey777"
+	authors="ysxu"
 	manager="erikre"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2016"
-	ms.author="glenga"/>
+	ms.date="10/12/2016"
+	ms.author="yuaxu"/>
 
 # Add push notifications to your Xamarin.Android app
 
@@ -22,27 +22,30 @@
 
 ##Overview
 
-In this tutorial, you add push notifications to the [Create a Xamarin.Android app] project so that every time a record is inserted, a push notification is sent. This tutorial is based on the [Create a Xamarin.Android app] tutorial, which you must complete first. If you do not use the downloaded quick start server project, you must add the push notification extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+
+In this tutorial, you add push notifications to the [Xamarin.Android quick start](app-service-mobile-windows-store-dotnet-get-started.md) project so that a push notification is sent to the device every time a record is inserted.
+
+If you do not use the downloaded quick start server project, you will need the push notification extension package. See [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) for more information.
+
 
 ##Prerequisites
 
 This tutorial requires the following:
 
 + An active Google account. You can sign up for a Google account at [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
++ [Google Cloud Messaging Client Component](http://components.xamarin.com/view/GCMClient/).
 
-+ [Google Cloud Messaging Client Component](http://components.xamarin.com/view/GCMClient/). You will add this component during the tutorial.
+##<a name="configure-hub"></a>Configure a Notification Hub
 
-##<a name="create-hub"></a>Create a Notification Hub
+[AZURE.INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
-[AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
+##<a id="register"></a>Enable Firebase Cloud Messaging
 
-##<a id="register"></a>Enable Google Cloud Messaging
+[AZURE.INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
-[AZURE.INCLUDE [Enable GCM](../../includes/mobile-services-enable-google-cloud-messaging.md)]
+##Configure Azure to send push requests
 
-##Configure the Mobile App backend to send push requests
-
-[AZURE.INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
+[AZURE.INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push-for-firebase.md)]
 
 ##<a id="update-server"></a>Update the server project to send push notifications
 
@@ -64,7 +67,7 @@ You can test the app by using a virtual device in the emulator. There are additi
 
 	![](./media/app-service-mobile-xamarin-android-get-started-push/google-apis-avd-settings.png)
 
-2. Add a Google account to the Android device by clicking **Apps** > **Settings** > **Add account**, then follow the prompts to use add an existing Google account to the device to create a new one.
+2. Add a Google account to the Android device by clicking **Apps** > **Settings** > **Add account**, then follow the prompts.
 
 	![](./media/app-service-mobile-xamarin-android-get-started-push/add-google-account.png)
 
@@ -74,7 +77,6 @@ You can test the app by using a virtual device in the emulator. There are additi
 
 
 <!-- URLs. -->
-[Xamarin.Android quickstart]: app-service-mobile-xamarin-android-get-started.md
-[Create a Xamarin.Android app]: app-service-mobile-xamarin-android-get-started.md
+[Xamarin.Android quick start]: app-service-mobile-xamarin-android-get-started.md
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/

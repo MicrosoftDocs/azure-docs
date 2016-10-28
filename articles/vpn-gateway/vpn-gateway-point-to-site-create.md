@@ -14,33 +14,37 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
+   ms.date="10/17/2016"
    ms.author="cherylmc"/>
 
 # Configure a Point-to-Site connection to a VNet using the classic portal
 
 > [AZURE.SELECTOR]
-- [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
-- [Portal - Classic](vpn-gateway-point-to-site-create.md)
+- [Resource Manager - Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+- [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Classic - Azure Portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+- [Classic - Classic Portal](vpn-gateway-point-to-site-create.md)
 
 A Point-to-Site (P2S) configuration lets you create a secure connection from an individual client computer to a virtual network. A P2S connection is useful when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network.
 
-This article walks you through creating a VNet with a Point-to-Site connection in the **classic deployment model** using the classic portal. Currently, you cannot create this configuration end-to-end in the Azure portal for the classic deployment model.
+This article walks you through creating a VNet with a Point-to-Site connection in the **classic deployment model** using the **classic portal**.
 
 Point-to-Site connections do not require a VPN device or a public-facing IP address to work. A VPN connection is established by starting the connection from the client computer. For more information about Point-to-Site connections, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#point-to-site-connections) and [Planning and Design](vpn-gateway-plan-design.md).
 
 
-**Deployment models and tools for Point-to-Site connections**
+### Deployment models and methods for P2S connections
 
-[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)] 
+[AZURE.INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] 
 
-**About Azure deployment models**
+The following table shows the two deployment models and available deployment methods for P2S configurations. When an article with configuration steps is available, we link directly to it from this table.
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-table-point-to-site-include.md)] 
+
+
+
+## Basic workflow
 
 ![Point-to-Site-diagram](./media/vpn-gateway-point-to-site-create/p2sclassic.png "point-to-site")
-
-## About creating a Point-to-Site connection
  
 The following steps walk you through the steps to create a secure Point-to-Site connection to a virtual network. 
 
@@ -60,7 +64,7 @@ The configuration for a Point-to-Site connection is broken down into four sectio
 2. In the lower left corner of the screen, click **New**. In the navigation pane, click **Network Services**, and then click **Virtual Network**. Click **Custom Create** to begin the configuration wizard.
 
 3. On the **Virtual Network Details** page, enter the following information, and then click the next arrow on the lower right.
-	- **Name**: Name your virtual network. For example, "VNet1". This is the name that you'll refer to when you deploy VMs to this VNet.
+	- **Name**: Name your virtual network. For example, 'VNet1'. This is the name that you'll refer to when you deploy VMs to this VNet.
 	- **Location**: The location is directly related to the physical location (region) where you want your resources (VMs) to reside. For example, if you want the VMs that you deploy to this virtual network to be physically located in East US, select that location. You can't change the region associated with your virtual network after you create it.
 
 4. On the **DNS Servers and VPN Connectivity** page, enter the following information, and then click the next arrow on the lower right.
@@ -102,7 +106,7 @@ In this section you will do the following:
 
 ### <a name="root"></a>Part 1: Obtain the .cer file for the root certificate
 
-If you are using an enterprise certificate system, obtain the .cer file for the root certificate that you want to use. In [Part 3](#createclientcert), you will generate the client certificates from the root certificate.
+If you are using an enterprise certificate system, obtain the .cer file for the root certificate that you want to use. In [Part 3](#createclientcert), you generate the client certificates from the root certificate.
 
 If you are not using an enterprise certificate solution, you'll need to generate a self-signed root certificate. For Windows 10 steps, you can refer to [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md). The article walks you through using makecert to generate a self-signed certificate, and then export the .cer file.
 

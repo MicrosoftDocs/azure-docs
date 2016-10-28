@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Integrating Data Lake Store with other Azure Services | Azure"
+   pageTitle="Integrating Data Lake Store with other Azure Services | Microsoft Azure"
    description="Understand how Data Lake Store integrates with other Azure services"
    documentationCenter=""
    services="data-lake-store"
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/02/2016"
+   ms.date="10/28/2016"
    ms.author="nitinme"/>
 
 # Integrating Data Lake Store with other Azure Services

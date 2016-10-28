@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Register data from Data Lake Store in Azure Data Catalog | Azure"
+   pageTitle="Register data from Data Lake Store in Azure Data Catalog | Microsoft Azure"
    description="Register data from Data Lake Store in Azure Data Catalog"
    services="data-lake-store,data-catalog" 
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/02/2016"
+   ms.date="10/28/2016"
    ms.author="nitinme"/>
 
 # Register data from Data Lake Store in Azure Data Catalog

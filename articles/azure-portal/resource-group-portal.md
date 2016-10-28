@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/23/2016" 
+	ms.date="09/12/2016" 
 	ms.author="tomfitz"/>
 
 # Manage Azure resources through portal
@@ -24,7 +24,7 @@
 - [Portal](resource-group-portal.md) 
 - [REST API](../resource-manager-rest-api.md)
 
-This topic shows how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](../resource-group-overview.md) to manage your Azure resources. To learn about deploying resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md).
+This topic shows how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) to manage your Azure resources. To learn about deploying resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md).
 
 Currently, not every service supports the portal or Resource Manager. For those services, you need to use the [classic portal](https://manage.windowsazure.com). For the status of each service, see [Azure portal availability chart](https://azure.microsoft.com/features/azure-portal/availability/).
 
@@ -94,7 +94,7 @@ When you select a resource, the resource blade presents default graphs and table
 
     ![dashboard](./media/resource-group-portal/create-dashboard.png)
 
-     To learn about working with dashboards, view the [Build Custom Dashboards in the Azure portal](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards) video. To learn about sharing access to a published dashboard, see [Share Azure dashboards](azure-portal-dashboard-share-access.md).
+     To learn about working with dashboards, see [Creating and sharing dashboards in the Azure portal](azure-portal-dashboards.md).
 
 ## Manage resources
 

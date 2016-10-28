@@ -3,8 +3,8 @@
 	description="Use this tutorial to learn how to manage Azure recovery services vaults and servers."
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
-	manager="jwhit"
+	authors="markgalioto"
+	manager="cfreeman"
 	editor="tysonn"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/19/2016"
+	ms.date="10/19/2016"
 	ms.author="jimpark; markgal"/>
 
 
@@ -23,7 +23,7 @@
 - [Resource Manager](backup-azure-manage-windows-server.md)
 - [Classic](backup-azure-manage-windows-server-classic.md)
 
-In this article you'll find an overview of the backup management tasks available through the Azure management portal and the Microsoft Azure Backup agent.
+In this article you'll find an overview of the backup management tasks available through the Azure portal and the Microsoft Azure Backup agent.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
@@ -60,7 +60,12 @@ From the top of the Dashboard:
 - Delete - If a recovery services vault is no longer being used, you can delete it to free up storage space. Delete is only enabled after all protected servers have been deleted from the vault.
 
 ![Backup dashboard tasks](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
-
+## Alerts for backups using Azure backup agent:
+| Alert Level  | Alerts sent |
+| ------------- | ------------- |
+| Critical | Backup failure, recovery failure  |
+| Warning  | Backup completed with warnings (when fewer than one hundred files are not backed up due to corruption issues, and more than one million files are successfully backed up)  |
+| Informational  | None  |
 ## Manage Backup alerts
 Click the **Backup Alerts** tile to open the **Backup Alerts** blade and manage alerts.
 
@@ -77,7 +82,7 @@ From the Backup Alerts blade, you:
 
 - Choose the appropriate information to include with your alerts.
 
-    ![Choose colunms](./media/backup-azure-manage-windows-server/choose-alerts-colunms.png)
+    ![Choose columns](./media/backup-azure-manage-windows-server/choose-alerts-colunms.png)
 
 - Filter alerts for severity, status and start/end times.
 
@@ -114,7 +119,7 @@ The Backup Items blade opens with the filter set to File-Folder where you see ea
 
 ![Backup items](./media/backup-azure-manage-windows-server/backup-item-list.png)
 
-If you click a specific backup items from the list, you see the essential details for that item.
+If you select a specific backup item from the list, you see the essential details for that item.
 
 >[AZURE.NOTE] From the **Settings** blade, you manage files and folders by selecting **Protected Items > Backup Items** and then selecting **File-Folders** from the drop down menu.
 
@@ -214,15 +219,15 @@ To enable throttling:
 
 1. In the **Backup agent**, click **Change Properties**.
 
-2. Select the **Enable internet bandwidth usage throttling for backup operations** checktile.
+2. On the **Throttling tab, select **Enable internet bandwidth usage throttling for backup operations**.
 
     ![Network throttling](./media/backup-azure-manage-windows-server/throttling-dialog.png)
 
-3. Once you have enabled throttling, specify the allowed bandwidth for backup data transfer during **Work hours** and **Non-work hours**.
+    Once you have enabled throttling, specify the allowed bandwidth for backup data transfer during **Work hours** and **Non-work hours**.
 
     The bandwidth values begin at 512 kilobytes per second (Kbps) and can go up to 1023 megabytes per second (Mbps). You can also designate the start and finish for **Work hours**, and which days of the week are considered Work days. The time outside of the designated Work hours is considered to be non-work hours.
 
-4. Click **OK**.
+3. Click **OK**.
 
 ## Manage exclusion settings
 
@@ -275,15 +280,28 @@ A1. There is at maximum delay of 15 mins between the backup job status reflected
 
 **Q.2 When a backup job fails, how long does it take to raise an alert?**
 
-A.2 An alert is raised within 5 mins of the Azure backup failure.
+A.2 An alert is raised within 20 mins of the Azure backup failure.
 
 **Q3. Is there a case where an email won’t be sent if notifications are configured?**
 
-A3. Below are the cases when the notification will not be sent in order to reduce the alert noise: 
+A3. Below are the cases when the notification will not be sent in order to reduce the alert noise:
 
    - If notifications are configured hourly and an alert is raised and resolved within the hour
    - Job is canceled.
-   - Second backup job failed becuase original backup job is in progress. 
+   - Second backup job failed because original backup job is in progress.
+
+## Troubleshooting Monitoring Issues
+
+**Issue:** Jobs and/or alerts from the Azure Backup agent do not appear in the portal.
+
+**Troubleshooting steps:** The process, ```OBRecoveryServicesManagementAgent```, sends the job and alert data to the Azure Backup service. Occasionally this process can become stuck or shutdown.
+
+1. To verify the process is not running, open **Task Manager** and check if the ```OBRecoveryServicesManagementAgent``` process is running.
+
+2. Assuming that the process is not running, open **Control Panel** and browse the list of services. Start or restart **Microsoft Azure Recovery Services Management Agent**.
+
+    For further information, browse the logs at:<br/>
+`<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*`. For example:<br/> `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`.
 
 ## Next steps
 - [Restore Windows Server or Windows Client from Azure](backup-azure-restore-windows-server.md)

@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/16/2016"
+	ms.date="09/29/2016"
 	ms.author="markusvi"/>
 
 
 
 # Identity synchronization and duplicate attribute resiliency
-Duplicate Attribute Resiliency is a feature in Azure Active Directory in order to eliminate friction caused by **UserPrincipalName** and **ProxyAddress** conflicts when running one of Microsoft’s synchronization tools.
+Duplicate Attribute Resiliency is a feature in Azure Active Directory that will eliminate friction caused by **UserPrincipalName** and **ProxyAddress** conflicts when running one of Microsoft’s synchronization tools.
 
-These two attributes are generally required to be unique across all **User**, **Group**, or **Contact** objects in a given Azure Active Directory directory.
+These two attributes are generally required to be unique across all **User**, **Group**, or **Contact** objects in a given Azure Active Directory tenant.
 
 > [AZURE.NOTE] Only Users can have UPNs.
 
@@ -43,13 +43,21 @@ To support this behavior a new attribute has been added to the User, Group, and 
 This is a multi-valued attribute that is used to store the conflicting attributes that would violate the uniqueness constraint should they be added normally. A background timer task has been enabled in Azure Active Directory that  runs every hour to look for duplicate attribute conflicts that have been resolved, and automatically removes the attributes in question from quarantine.
 
 ### Enabling Duplicate Attribute Resiliency
-The feature can be enabled by downloading the latest version of the Azure Active Directory PowerShell module and running:
+Duplicate Attribute Resiliency will be the new default behavior across all Azure Active Directory tenants. It will be on by default for all tenants that enabled synchronization for the first time on August 22nd, 2016 or later. Tenants that enabled sync prior to this date will have the feature enabled in batches. This rollout will begin in September 2016, and an email notification will be sent to each tenant's technical notification contact with the specific date when the feature will be enabled.
+
+Once Duplicate Attribute Resiliency has been turned on it cannot be disabled.
+
+To check if the feature is enabled for your tenant, you can do so by downloading the latest version of the Azure Active Directory PowerShell module and running:
+
+`Get-MsolDirSyncFeatures -Feature DuplicateUPNResiliency`
+
+`Get-MsolDirSyncFeatures -Feature DuplicateProxyAddressResiliency`
+
+If you would like to proactively enable the feature before it is turned on for your tenant, you can do so by downloading the latest version of the Azure Active Directory PowerShell module and running:
 
 `Set-MsolDirSyncFeature -Feature DuplicateUPNResiliency -Enable $true`
 
 `Set-MsolDirSyncFeature -Feature DuplicateProxyAddressResiliency -Enable $true`
-
-At present, UPN and ProxyAddress resiliency can be turned on and disabled individually. This behavior will change in the future and both will be enabled for all Azure AD directories and will not be able to disabled it.
 
 ## Identifying Objects with DirSyncProvisioningErrors
 There are currently two methods to identify objects that have these errors due to duplicate property conflicts, Azure Active Directory PowerShell and the Office 365 Admin Portal. There are plans to extend to additional portal based reporting in the future.
@@ -107,15 +115,6 @@ To do a broad string search use the **-SearchString** flag. This can be used ind
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -SearchString User`
 
-#### Sorted
-There are two flags that can be used to sort the results of a given query:
-
-1.	**SortField**: valid arguments include DisplayName and UserPrincipalName
-
-2.	**SortDirection**: valid arguments include Ascending and Descending
-
-`Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -SortField UserPrincipalName -SortDirection Ascending`
-
 #### In a limited quantity or all
 1. **MaxResults <Int>** can be used to limit the query to a specific number of values.
 
@@ -125,7 +124,7 @@ There are two flags that can be used to sort the results of a given query:
 
 ## Office 365 admin portal
 
-You can view directory synchronization errors in the Office 365 admin center. The report in the Office 365 portal only displays **User** objects that have these errors. It does not show info about conflicts between **Groups**, **Contacts** or **PublicFolders**.
+You can view directory synchronization errors in the Office 365 admin center. The report in the Office 365 portal only displays **User** objects that have these errors. It does not show info about conflicts between **Groups** and **Contacts**.
 
 
 ![Active Users](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/1234.png "Active Users")
@@ -149,7 +148,7 @@ None of these known issues causes data loss or service degradation. Several of t
 
 **Core behavior:**
 
-1. User with specific attribute configuration continues receiving export errors as opposed to attributes being quarantined.  
+1. Objects with specific attribute configurations continue to receive export errors as opposed to the duplicate attribute(s) being quarantined.  
 For example:
 
     a. New user is created in AD with a UPN of **Joe@contoso.com** and ProxyAddress **smtp:Joe@contoso.com**
@@ -158,27 +157,7 @@ For example:
 
     c. Upon export, a **ProxyAddress conflict** error is thrown instead of having the conflict attributes quarantined. The operation is retried upon each subsequent sync cycle, as it would have been before the resiliency feature was enabled.
 
-2. The timer task that looks for resolved duplicate attribute conflicts only compares UPN conflicts with other UPN conflicts. This causes the problem shown in step 4 of the following scenario:
-
-    a. **UserA@contoso.com** has a non-unique UPN due to another object's ProxyAddress also having that value.
-
-    b. UserA is given a temporary **MOERA UPN**, **UserA1234@contoso.onmicrosoft.com** and the real UPN value is quarantined (as expected).
-
-    c. The other conflicting object has the ProxyAddress removed later.
-
-    d. UserA's UPN is never fixed automatically; it must be updated manually.
-
-3. If two Groups are created on-premises with the same SMTP address, one fails to provision on the first attempt with a standard duplicate **ProxyAddress** error. However, the duplicate value is properly quarantined upon the next sync cycle.
-
-**PowerShell cmdlets**:
-
-1. **ImmutableId** / **LastDirSyncTime** are not displayed for the User object class.
-
-2. **SortField** and **SortDirection** flags do not affect results.
-
-3. Using the **PropertyValue** flag without adding the **PropertyName** flag throws an ambiguous error.
-
-4. **SearchString** flag returns extra results if run without the **PropertyValue** and **PropertyName** flags.
+2. If two Groups are created on-premises with the same SMTP address, one fails to provision on the first attempt with a standard duplicate **ProxyAddress** error. However, the duplicate value is properly quarantined upon the next sync cycle.
 
 **Office Portal Report**:
 
@@ -194,7 +173,15 @@ For example:
 
     d. The error message for **User B** should indicate that **User A** already has **User@contoso.com** as a UPN, but it shows **User B’s** own displayName.
 
-3. The report may only display detailed error information for users with **UPN** conflicts, not for those with **ProxyAddress** errors (still investigating whether this is consistent or environmental).
+
+
+**Identity synchronization error report**:
+
+The link for *steps on how to resolve this issue* is incorrect:  
+    ![Active Users](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/6.png "Active Users")  
+
+It should point to [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency).
+
 
 ## See also
 

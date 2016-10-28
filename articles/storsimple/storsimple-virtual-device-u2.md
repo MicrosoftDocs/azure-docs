@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/17/2016"
+   ms.date="09/23/2016"
    ms.author="alkohli" />
 
 # Deploy and manage a StorSimple virtual device in Azure
@@ -131,13 +131,15 @@ Make sure that you have the following information before you begin:
 
 Before performing these procedures, make sure that you have met the [Prerequisites for the virtual device](#prerequisites-for-the-virtual-device). 
 
-After you have created a virtual network, configured a StorSimple Manager service, and registered your physical StorSimple device with the service, you can use the following steps to create and configure a StorSimple virtual device.
+After you have created a virtual network, configured a StorSimple Manager service, and registered your physical StorSimple device with the service, you can use the following steps to create and configure a StorSimple virtual device. 
 
 ### Step 1: Create a virtual device
 
 Perform the following steps to create the StorSimple virtual device.
 
 [AZURE.INCLUDE [Create a virtual device](../../includes/storsimple-create-virtual-device-u2.md)]
+
+If the creation of the virtual device fails in this step, you may not have connectivity to the Internet. For more information, go to [troubleshoot Internet connectivity failures](#troubleshoot-internet-connectivity-errors) when creatig a virtual device.
 
 
 ### Step 2: Configure and register the virtual device
@@ -273,6 +275,19 @@ If you delete or shut down the virtual device, it will appear as **Offline** on 
 [AZURE.INCLUDE [Delete a virtual device](../../includes/storsimple-delete-virtual-device.md)]
 
    
+## Troubleshoot Internet connectivity errors 
+
+During the creation of a virtual device, if there is no connectivity to the Internet, the creation step will fail. To troubleshoot if the failure is because of Internet connectivity, perform the following steps in the Azure classic portal:
+
+1. Create a Windows server 2012 virtual machine in Azure. This virtual machine should use the same storage account, VNet and subnet as used by your virtual device. If you already have an existing Windows Server host in Azure using the same storage account, Vnet and subnet, you can also use it to troubleshoot the Internet connectivity.
+2. Remote log into the virtual machine created in the preceding step. 
+3. Open a command window inside the virtual machine (Win + R and then type `cmd`).
+4. Run the following cmd at the prompt.
+
+	`nslookup windows.net`
+
+5. If `nslookup` fails, then Internet connectivity failure is preventing the virtual device from registering to the StorSimple Manager service. 
+6. Make the required changes to your virtual network to ensure that the virtual device is able to access Azure sites such as “windows.net”.
 
 ## Next steps
 

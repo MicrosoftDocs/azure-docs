@@ -4,7 +4,7 @@
 	services=" "
 	documentationCenter=".net"
 	authors="rboucher"
-	manager=""
+	manager="carolz"
 	editor=""/>
 
 <tags
@@ -22,7 +22,7 @@ Microsoft Azure is Microsoft's application platform for the public cloud.  The g
 
 **How to read this article**
 
-Azure is growing all the time so it's easy to get overloaded.  The basic services are listed earlier in the paper. Start with just those, then go through the additional services. That doesn't mean you can't use just the additional services by themselves, but the basic services make up the core of an application running in Azure.
+Azure is growing all the time so it's easy to get overloaded.  Start with the basic services, which are listed first in this article, and then go on to additional services. That doesn't mean you can't use just the additional services by themselves, but the basic services make up the core of an application running in Azure.
 
 **Give feedback**
 
@@ -33,7 +33,7 @@ Your feedback is important. This article should give you an effective overview o
 
 Azure groups services into categories in the Management Portal and on various visual aids like the [What Is Azure Infographic](https://azure.microsoft.com/documentation/infographics/azure/) . The Management Portal is what you use to manage most (but not all) services in Azure.
 
-This paper will use a **different organization** to talk about services based on similar function, and to call out important sub-services that are part of larger ones.  
+This article will use a **different organization** to talk about services based on similar function, and to call out important sub-services that are part of larger ones.  
 
 ![Azure components](./media/fundamentals-introduction-to-azure/AzureComponentsIntroNew780.png)   
  *Figure: Azure provides Internet-accessible application services running in Azure datacenters.*
@@ -437,7 +437,7 @@ No matter what it's doing, code frequently needs to interact with other code.  I
 
 Queuing is a simple idea: One application places a message in a queue, and that message is eventually read by another application. If your application needs just this straightforward service, Azure Queues might be the best choice.
 
-Because of the way the Azure grew over time, Azure Storage Queues and Service Bus Queues provide similar queuing services. The reasons why you would want to use one over the other are covered in the fairly technical paper [<LINK>](http://msdn.microsoft.com/library/azure/hh767287.aspx "Azure Queues and Service Bus Queues - Compared and Contrasted").  In many scenarios, either will work.
+Because of the way the Azure grew over time, Azure Storage Queues and Service Bus Queues provide similar queuing services. The reasons why you would want to use one over the other are covered in the fairly technical paper [Azure Queues and Service Bus Queues - Compared and Contrasted](http://msdn.microsoft.com/library/azure/hh767287.aspx).  In many scenarios, either will work.
 
 **Queue Scenarios**
 

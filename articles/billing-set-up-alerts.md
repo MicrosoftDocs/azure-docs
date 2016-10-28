@@ -4,7 +4,7 @@
 	services=""
 	documentationCenter=""
 	authors="vikdesai"
-	manager="msmbaldwin"
+	manager="mbaldwin"
 	editor=""
 	tags="billing"
 	/>

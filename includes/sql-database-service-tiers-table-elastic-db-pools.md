@@ -1,6 +1,4 @@
 
-> [AZURE.IMPORTANT] * Elastic database share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database
-
 ### Basic elastic pool limits
 
 |   |  |
@@ -12,12 +10,17 @@
 | Max concurrent workers per pool | &nbsp;&nbsp;&nbsp;200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp;&nbsp;2400 |
 | Max concurrent logins per pool | &nbsp;&nbsp;&nbsp;200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp;&nbsp;2400 |
 | Max concurrent sessions per pool | 4800 &nbsp;9600 &nbsp; 19200 &nbsp; 28800 &nbsp; 28800 |
-| Max eDTUs per database | 5 |
-| Min eDTUs per database | 0,5 |
-| Max storage per database (GB)* | 2 |
+| Max eDTUs per database* | 5 |
+| Min eDTUs per database* | 0,5 |
+| Max storage per database (GB)** | 2 |
 | Point-in-time-restore | Any point last 7 days |
 | Disaster recovery | Active Geo-Replication |
 |||
+
+* Max and Min eDTU’s per database may be set to any of the listed values as long as the pool DTU size selected is at least as great as the max eDTUs per DB 
+
+** Elastic database share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database
+
 
 ### Standard elastic pool limits
 
@@ -30,12 +33,16 @@
 | Max concurrent workers per pool | &nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
 | Max concurrent logins per pool | &nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
 | Max concurrent sessions per pool | 4800 &nbsp; 9600 &nbsp;19200 &nbsp;28800 &nbsp;&nbsp; 28800 |
-| Max eDTUs per database | 10, 20, 50, 100 |
-| Min eDTUs per database | 0, 10, 20, 50, 100 |
-| Max storage per database (GB)* | 250 |
+| Max eDTUs per database* | 10, 20, 50, 100 |
+| Min eDTUs per database* | 0, 10, 20, 50, 100 |
+| Max storage per database (GB)** | 250 |
 | Point-in-time-restore | Any point last 35 days |
 | Disaster recovery | Active Geo-Replication |
+|||
 
+* Max and Min eDTU’s per database may be set to any of the listed values as long as the pool DTU size selected is at least as great as the max eDTUs per DB 
+
+** Elastic database share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database
 
 ### Premium elastic pool limits
 
@@ -48,9 +55,13 @@
 | Max concurrent workers per pool | &nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
 | Max concurrent logins per pool | &nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
 | Max concurrent sessions per pool | 4800 &nbsp; 9600 &nbsp;19200 &nbsp;28800 &nbsp;&nbsp; 28800 |
-| Max eDTUs per database | 125, 250, 500, 1000 |
-| Min eDTUs per database | 0, 125, 250, 500, 1000 |
-| Max storage per database (GB)* | 500 |
+| Max eDTUs per database* | 125, 250, 500, 1000 |
+| Min eDTUs per database* | 0, 125, 250, 500, 1000 |
+| Max storage per database (GB)** | 500 |
 | Point-in-time-restore | Any point last 35 days |
 | Disaster recovery | Active Geo-Replication |
+|||
 
+* Max and Min eDTU’s per database may be set to any of the listed values as long as the pool DTU size selected is at least as great as the max eDTUs per DB 
+
+** Elastic database share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database

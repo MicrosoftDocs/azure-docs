@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Near Real Time Proactive Diagnostics in Application Insights | Microsoft Azure" 
-	description="Alerts you to unusual failure patterns in your app, and provides diagnostic analysis. No configuration is needed." 
+	pageTitle="Proactive Failure Rate Diagnostics in Application Insights | Microsoft Azure" 
+	description="Alerts you to unusual changes in the rate of failed requests to your web app, and provides diagnostic analysis. No configuration is needed." 
 	services="application-insights" 
     documentationCenter=""
 	authors="yorac" 
@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/31/2016" 
+	ms.date="10/12/2016" 
 	ms.author="awills"/>
  
-# Proactive Failure Diagnostics
+# Proactive Failure Rate Diagnostics
 
-[Visual Studio Application Insights](app-insights-overview.md) automatically notifies you in near real time if your web app experiences an abnormal rise in failures. It detects an unusual rise in the rate of HTTP requests reported as failed. To help you triage and diagnose the problem, an analysis of the characteristics of failed requests and related telemetry is provided in the notification. There are also links to the Application Insights portal for further diagnosis. The feature needs no set-up or configuration, as it uses machine learning algorithms to predict the normal failure rate.
+[Visual Studio Application Insights](app-insights-overview.md) automatically notifies you in near real time if your web app experiences an abnormal rise in the rate of failures. It detects an unusual rise in the rate of HTTP requests reported as failed. These are usually those with response codes in the 400- and 500- ranges. To help you triage and diagnose the problem, an analysis of the characteristics of failed requests and related telemetry is provided in the notification. There are also links to the Application Insights portal for further diagnosis. The feature needs no set-up or configuration, as it uses machine learning algorithms to predict the normal failure rate.
 
 This feature works for Java and ASP.NET web apps, hosted in the cloud or on your own servers. It also works for any app that generates request telemetry - for example, if you have a worker role that calls [TrackRequest()](app-insights-api-custom-events-metrics.md#track-request). 
 
@@ -115,16 +115,16 @@ Or click **Proactive detection** to get straight to the most recent alert:
 
 ## What's the difference ...
 
-Proactive failure diagnostics complements other similar but distinct features of Application Insights. 
+Proactive failure rate diagnostics complements other similar but distinct features of Application Insights. 
 
 * [Metric Alerts](app-insights-alerts.md) are set by you and can monitor a wide range of metrics such as CPU occupancy, request rates,  page load times, and so on. You can use them to warn you, for example, if you need to add more resources. By contrast, proactive failure diagnostics cover a small range of critical metrics (currently only failed request rate), designed to notify you in near real time manner once your web app's failed request rate increases significantly compared to web app's normal behavior.
 
-    Proactive failure diagnostics automatically adjusts its threshold in response to prevailing conditions.
+    Proactive failure rate diagnostics automatically adjusts its threshold in response to prevailing conditions.
 
-    Proactive failure diagnostics start the diagnostic work for you. 
-* [Proactive anomaly diagnostics](app-insights-proactive-anomaly-diagnostics.md) also uses machine intelligence to discover unusual patterns in your metrics, and no configuration by you is required. But unlike Proactive failure diagnostics, the purpose of proactive anomaly diagnostics is to find segments of your usage manifold that might be badly served - for example, by specific pages on a specific type of browser. The analysis is performed daily, and if any result is found, it's likely to be much less urgent than an alert. By contrast, the analysis for proactive failure diagnostics is performed continuously on incoming telemetry, and you will be notified within minutes if server failure rates are greater than expected.
+    Proactive failure rate diagnostics start the diagnostic work for you. 
+* [Proactive performance diagnostics](app-insights-proactive-performance-diagnostics.md) also uses machine intelligence to discover unusual patterns in your metrics, and no configuration by you is required. But unlike Proactive failure rate diagnostics, the purpose of proactive performance diagnostics is to find segments of your usage manifold that might be badly served - for example, by specific pages on a specific type of browser. The analysis is performed daily, and if any result is found, it's likely to be much less urgent than an alert. By contrast, the analysis for proactive failure diagnostics is performed continuously on incoming telemetry, and you will be notified within minutes if server failure rates are greater than expected.
 
-## If you receive an Proactive failure diagnostics alert
+## If you receive an Proactive failure rate diagnostics alert
 
 *Why have I received this alert?*
 

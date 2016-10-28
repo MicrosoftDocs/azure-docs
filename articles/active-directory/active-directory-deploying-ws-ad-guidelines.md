@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/04/2016"
+   ms.date="09/27/2016"
    ms.author="femila"/>
 
 # Guidelines for deploying Windows Server Active Directory on Azure virtual machines
@@ -176,7 +176,7 @@ However, because Azure does not provide native, full-featured firewall capabilit
 
 The high-level steps to deploy AD FS in this case are as follows:
 
-1. Create a [virtual network with cross-premises connectivity](../vpn-gateway/vpn-gateway-cross-premises-options.md), using either a VPN or [ExpressRoute](http://azure.microsoft.com/services/expressroute/).
+1. Create a virtual network with cross-premises connectivity, using either a VPN or [ExpressRoute](http://azure.microsoft.com/services/expressroute/).
 
 2. Deploy domain controllers on the virtual network. This step is optional but recommended.
 

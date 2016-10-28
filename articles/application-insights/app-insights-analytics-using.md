@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Using Analytics - the powerful search tool of Application Insights | Microsoft Azure" 
-	description="Using the Analytics, 
-	             the powerful diagnostic search tool of Application Insights. " 
+	description="Using the Analytics, the powerful diagnostic search tool of Application Insights. " 
 	services="application-insights" 
     documentationCenter=""
 	authors="danhadari" 
@@ -13,8 +12,8 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/06/2016" 
-	ms.author="danha"/>
+	ms.date="10/21/2016" 
+	ms.author="awills"/>
 
 
 # Using Analytics in Application Insights
@@ -168,22 +167,16 @@ After you've run a query, you can download a .csv file. Click **Export, to Excel
 
 ## Export to Power BI
 
-1. Put the cursor in a query and choose **Export to Power BI**.
+Put the cursor in a query and choose **Export to Power BI**.
 
-    ![](./media/app-insights-analytics-using/240.png)
+![Export from Analytics to Power BI](./media/app-insights-analytics-using/240.png)
 
-    This downloads an M script file.
+You run the query in Power BI. You can set it to refresh on a schedule.
 
-3. Copy the M Language script into the Power BI Desktop advanced query editor.
- * Open the exported file.
- * In Power BI Desktop select: **Get Data, Blank Query, Advanced Editor** and paste the M Language script.
+With Power BI, you can create dashboards that bring together data from a wide variety of sources.
 
-    ![](./media/app-insights-analytics-using/250.png)
 
-4. Edit credentials if needed and now you can build your report.
-
-    ![](./media/app-insights-analytics-using/260.png)
-
+[Learn more about export to Power BI](app-insights-export-power-bi.md)
 
 
 

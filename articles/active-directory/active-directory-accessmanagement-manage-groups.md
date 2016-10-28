@@ -1,5 +1,4 @@
 <properties
-
 	pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
 	description="How to create and manage groups to manage Azure users using Azure Active Directory."
 	services="active-directory"
@@ -14,11 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2016"
+	ms.date="09/29/2016"
 	ms.author="curtand"/>
 
 
 # Managing groups in Azure Active Directory
+
+> [AZURE.SELECTOR]
+- [Azure portal](active-directory-groups-create-azure-portal.md)
+- [Azure classic portal](active-directory-accessmanagement-manage-groups.md)
+- [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+
 
 One of the features of Azure Active Directory (Azure AD) user management is the ability to create groups of users. You use a group to perform management tasks such as assigning licenses or permissions to a number of users at once. You can also use groups to assign access permission to
 
@@ -76,6 +81,8 @@ We'll describe tasks as performed in the Azure classic portal. For more informat
 ## How can I manage the membership of a group dynamically?
 
 In Azure AD, you can very easily set up a simple rule to determine which users are to be members of the group. A simple rule is one that makes only a single comparison. For example, if a group is assigned to a SaaS application, you can set up a rule to add users who have a job title of "Sales Rep." This rule then grants access to this SaaS application to all users with that job title in your directory.
+
+When any attributes of a user change, the system evaluates all dynamic group rules in a directory to see if the attribute change of the user would trigger any group adds or removes. If a user satisfies a rule on a group, they are added as a member to that group. If they no longer satisfy the rule of a group they are a member of, they are removed as a members from that group.
 
 > [AZURE.NOTE] You can set up a rule for dynamic membership on security groups or Office 365 groups. Nested group memberships aren't currently supported for group-based assignment to applications.
 >

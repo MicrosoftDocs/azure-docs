@@ -14,13 +14,7 @@ Use the following steps in the Azure portal to create an Azure SQL Database logi
 
 1. If you're not currently connected, connect to the [Azure portal](http://portal.azure.com).
 2. Click **New**, click **Data + Storage**, and then locate **SQL Database**.
-
-      ![SQL Database 1](./media/sql-database-get-started/sql-database-new-database-1.png)
-
 3. Click **SQL Database** to open the SQL Database blade.
-
-      ![New logical server](./media/sql-database-get-started/sql-database-new-database-2.png)
-
 5. Provide the values for the following server properties:
 
  - Server name
@@ -30,12 +24,8 @@ Use the following steps in the Azure portal to create an Azure SQL Database logi
  - Resource group (new or existing)
  - Location
 
-        ![New logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-4.png)
 
 6.  Click **Create**. In the notification area, you can see that deployment has started.
 
-       ![New logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-5.png)
-
 7. Wait for deployment to finish before continuing to the next step.
 
-       ![New logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-6.png)

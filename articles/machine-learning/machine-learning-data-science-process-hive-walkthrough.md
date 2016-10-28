@@ -4,7 +4,7 @@
 	services="machine-learning,hdinsight"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="hangzh;bradsev" />
 
 
 # The Team Data Science Process in action: using HDInsight Hadoop clusters
 
-In this walkthrough, we use the Team Data Science Process in an end-to-end scenario using an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore and feature engineer data from the publicly available [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset, and to down sample the data. Models of the data are built with Azure Machine Learning to handle binary and multiclass classification and regression predictive tasks.
+In this walkthrough, we use the [Team Data Science Process (TDSP)](data-science-process-overview.md) in an end-to-end scenario using an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore and feature engineer data from the publicly available [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset, and to down sample the data. Models of the data are built with Azure Machine Learning to handle binary and multiclass classification and regression predictive tasks.
 
 For a walkthrough that shows how to handle a larger (1 terabyte) dataset for a similar scenario using HDInsight Hadoop clusters for data processing, see [Team Data Science Process - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset](machine-learning-data-science-process-hive-criteo-walkthrough.md).
 
@@ -206,7 +206,7 @@ This Hive script creates two tables:
 * the "trip" table contains trip details of each ride (driver details, pickup time, trip distance and times)
 * the "fare" table contains fare details (fare amount, tip amount, tolls and surcharges).
 
-If you need any additional assistance with these procedures or want to investigate alternative ones, see the section [Submit Hive queries directly from the Hadoop Command Line ](machine-learning-data-science-process-hive-tables.md#submit).
+If you need any additional assistance with these procedures or want to investigate alternative ones, see the section [Submit Hive queries directly from the Hadoop Command Line ](machine-learning-data-science-move-hive-tables.md#submit).
 
 ## <a name="#load-data"></a>Load Data to Hive tables by partitions
 
@@ -436,10 +436,10 @@ A common objective of exploratory data analysis is to weed out invalid or bad re
 
 Here is the content of *sample\_hive\_quality\_assessment.hql* file for inspection.
 
-    	SELECT COUNT(*) FROM nyctaxidb.trip
-    	WHERE month=1
-    	AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND -30
-    	OR    CAST(pickup_latitude AS float) NOT BETWEEN 30 AND 90
+	    SELECT COUNT(*) FROM nyctaxidb.trip
+	    WHERE month=1
+	    AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND -30
+	    OR    CAST(pickup_latitude AS float) NOT BETWEEN 30 AND 90
 	    OR    CAST(dropoff_longitude AS float) NOT BETWEEN -90 AND -30
 	    OR    CAST(dropoff_latitude AS float) NOT BETWEEN 30 AND 90);
 
@@ -452,7 +452,7 @@ The *-S* argument included in this command suppresses the status screen printout
 
 ### Exploration: Binary class distributions of trip tips
 
-**Note:** This is typically a **Data Scientist** task.
+> [AZURE.NOTE] This is typically a **Data Scientist** task.
 
 For the binary classification problem outlined in the [Examples of prediction tasks](machine-learning-data-science-process-hive-walkthrough.md#mltasks) section, it is useful to know whether a tip was given or not. This distribution of tips is binary:
 
@@ -476,7 +476,7 @@ From the Hive directory prompt, run:
 
 ### Exploration: Class distributions in the multiclass setting
 
-**Note:** This is typically a **Data Scientist** task.
+> [AZURE.NOTE] This is typically a **Data Scientist** task.
 
 For the multiclass classification problem outlined in the [Examples of prediction tasks](machine-learning-data-science-process-hive-walkthrough.md#mltasks) section this data set also lends itself to a natural classification where we would like to predict the amount of the tips given. We can use bins to define tip ranges in the query. To get the class distributions for the various tip ranges, we use the *sample\_hive\_tip\_range\_frequencies.hql* file. Below are its contents.
 
@@ -497,7 +497,7 @@ Run the following command from Hadoop Command Line console:
 
 ### Exploration: Compute Direct Distance Between Two Longitude-Latitude Locations
 
-**Note:** This is typically a **Data Scientist** task.
+> [AZURE.NOTE] This is typically a **Data Scientist** task.
 
 Having a measure of the direct distance allows us to find out the discrepancy between it and the actual trip distance. We motivate this feature by pointing out that a passenger might be less likely to tip if they figure out that the driver has intentionally taken them by a much longer route.
 
@@ -543,14 +543,14 @@ To see the contents of a given file, say 000000\_0, we use Hadoop's `copyToLocal
 
 	hdfs dfs -copyToLocal wasb:///queryoutputdir/000000_0 C:\temp\tempfile
 
-**Warning:** `copyToLocal` can be very slow for large files, and is not recommended for use with them.  
+> [AZURE.WARNING] `copyToLocal` can be very slow for large files, and is not recommended for use with them.  
 
 A key advantage of having this data reside in an Azure blob is that we may explore the data within Azure Machine Learning using the [Import Data][import-data] module.
 
 
 ## <a name="#downsample"></a>Down sample data and build models in Azure Machine Learning
 
-**Note:** This is typically a **Data Scientist** task.
+> [AZURE.NOTE] This is typically a **Data Scientist** task.
 
 After the exploratory data analysis phase, we are now ready to down sample the data for building models in Azure Machine Learning. In this section, we show how to use a Hive query to down sample the data, which is then accessed from the [Import Data][import-data] module in Azure Machine Learning.
 
@@ -566,10 +566,10 @@ The query then down samples the data so that the query results can fit into the 
 
 Below are the contents of *sample\_hive\_prepare\_for\_aml\_full.hql* file that prepares data for model building in Azure Machine Learning.
 
-		set R = 3959;
-	    set pi=radians(180);
+        set R = 3959;
+        set pi=radians(180);
 
-		create table if not exists nyctaxidb.nyctaxi_downsampled_dataset (
+        create table if not exists nyctaxidb.nyctaxi_downsampled_dataset (
 
         medallion string,
         hack_license string,
@@ -624,7 +624,7 @@ Below are the contents of *sample\_hive\_prepare\_for\_aml\_full.hql* file that 
         t.pickup_latitude,
         t.dropoff_longitude,
         t.dropoff_latitude,
-		t.direct_distance,
+        t.direct_distance,
         f.payment_type,
         f.fare_amount,
         f.surcharge,
@@ -711,7 +711,7 @@ Some details on the [Import Data][import-data] module and the parameters to inpu
 
 **Azure container name** : This is the default container name for the cluster, and is typically the same as the cluster name. For a cluster called "abc123", this is just abc123.
 
-**Important Note:** **Any table we wish to query using the [Import Data][import-data] module in Azure Machine Learning must be an internal table.** A tip for determining if a table T in a database D.db is an internal table is as follows.
+> [AZURE.IMPORTANT] **Any table we wish to query using the [Import Data][import-data] module in Azure Machine Learning must be an internal table.** A tip for determining if a table T in a database D.db is an internal table is as follows.
 
 From the Hive directory prompt, issue the command :
 
@@ -788,7 +788,7 @@ b. For regression problems, we measure the accuracies of our prediction by looki
 
 We see that about the coefficient of determination is 0.709, implying about 71% of the variance is explained by our model coefficients.
 
-**Important note:** To learn more about Azure Machine Learning and how to access and use it, please refer to [What's Machine Learning?](machine-learning-what-is-machine-learning.md). A very useful resource for playing with a bunch of Machine Learning experiments on Azure Machine Learning is the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). The Gallery covers a gamut of experiments and provides a thorough introduction into the range of capabilities of Azure Machine Learning.
+> [AZURE.IMPORTANT] To learn more about Azure Machine Learning and how to access and use it, please refer to [What's Machine Learning?](machine-learning-what-is-machine-learning.md). A very useful resource for playing with a bunch of Machine Learning experiments on Azure Machine Learning is the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). The Gallery covers a gamut of experiments and provides a thorough introduction into the range of capabilities of Azure Machine Learning.
 
 ## License Information
 

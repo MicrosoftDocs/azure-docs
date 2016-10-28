@@ -26,7 +26,7 @@
 
 The SDK provides automatic collection of incoming HTTP request rates and responses, performance counters (CPU, memory, RPS), and unhandled exceptions. In addition, you can add custom calls to track dependencies, metrics, or other events.
 
-![Example performance monitoring charts](./media/app-insights-windows-services/10-perf.png)
+![Example performance monitoring charts](./media/app-insights-nodejs/10-perf.png)
 
 
 #### Before you start
@@ -40,7 +40,7 @@ You need:
 
 Sign in to the [Azure portal][portal], and create a new Application Insights resource. A [resource][roles] in Azure is an instance of a service. This resource is where telemetry from your app will be analyzed and presented to you.
 
-![Click New, Application Insights](./media/app-insights-windows-services/01-new-asp.png)
+![Click New, Application Insights](./media/app-insights-nodejs/01-new-asp.png)
 
 Choose Other as the application type. The choice of application type sets the default content of the resource blades and the properties visible in [Metrics Explorer][metrics].
 
@@ -48,7 +48,7 @@ Choose Other as the application type. The choice of application type sets the de
 
 The key identifies the resource, and you'll install it soon in the SDK to direct data to the resource.
 
-![Click Properties, select the key, and press ctrl+C](./media/app-insights-windows-services/02-props-asp.png)
+![Click Properties, select the key, and press ctrl+C](./media/app-insights-nodejs/02-props-asp.png)
 
 
 ## <a name="sdk"></a> Install the SDK in your application
@@ -84,7 +84,7 @@ Return to the [Azure portal](https://portal.azure.com) and browse to your Applic
 
 Look for data in the Overview page. At first, you'll just see one or two points. For example:
 
-![Click through to more data](./media/app-insights-windows-services/12-first-perf.png)
+![Click through to more data](./media/app-insights-nodejs/12-first-perf.png)
 
 Click through any chart to see more detailed metrics. [Learn more about metrics.][perf]
 
@@ -215,7 +215,7 @@ server.on("listening", () => {
 ## Next steps
 
 * [Monitor your telemetry in the portal](app-insights-dashboards.md)
-* [Write Analytics queries over your telemetry(app-insights-analytics-tour.md)
+* [Write Analytics queries over your telemetry](app-insights-analytics-tour.md)
 
 
 

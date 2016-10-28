@@ -4,7 +4,7 @@ description="Learn how to migrate from a Windows-based HDInsight cluster to a Li
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="07/25/2016"
+ms.date="10/28/2016"
 ms.author="larryfr"/>
 
 #Migrate from a Windows-based HDInsight cluster to a Linux-based cluster
@@ -22,7 +22,7 @@ While Windows-based HDInsight provides an easy way to use Hadoop in the cloud, y
 
 This document provides details on the differences between HDInsight on Windows and Linux, and guidance on how to migrate existing workloads to a Linux-based cluster.
 
-> [AZURE.NOTE] HDInsight clusters use Ubuntu long term support (LTS) as the operating system for the nodes in the cluster. HDInsight 3.3 and 3.4 clusters use Ubuntu 14.0.4 LTS; earlier versions of HDInsight used Ubuntu 12.04.05 LTS.
+> [AZURE.NOTE] HDInsight clusters use Ubuntu long term support (LTS) as the operating system for the nodes in the cluster. For information on the version of Ubuntu available with HDInsight, along with other component versioning information, see [HDInsight component versions](hdinsight-component-versioning.md).
 
 ## Migration tasks
 
@@ -106,7 +106,7 @@ The following table provides guidance on migrating server-side components that a
 | ----- | ----- |
 | **PowerShell** (server-side scripts, including Script Actions used during cluster creation) | Rewrite as Bash scripts. For Script Actions, see [Customize Linux-based HDInsight with Script Actions](hdinsight-hadoop-customize-cluster-linux.md) and [Script action development for Linux-based HDInsight](hdinsight-hadoop-script-actions-linux.md). |
 | **Azure CLI** (server-side scripts) | While the Azure CLI is available on Linux, it does not come pre-installed on the HDInsight cluster head nodes. If you need it for server-side scripting, see [Install the Azure CLI](../xplat-cli-install.md) for information on installing on Linux-based platforms. |
-| **.NET components** | .NET is not currently supported on Linux-based HDInsight clusters, but will be added in a future update. If you need to migrate now, you must rewrite your components in Java or Python. |
+| **.NET components** | .NET is not fully supported on Linux-based HDInsight clusters. Linux-based Storm on HDInsight clusters created after 10/28/2017 support C# Storm topologies using the SCP.NET framework. Additional support for .NET will be added in future updates. |
 | **Win32 components or other Windows-only technology** | Guidance depends on the component or technology; you may be able to find a version that is compatible with Linux, or you may need to find an alternate solution or rewrite this component. |
 
 ##Cluster creation
@@ -137,7 +137,7 @@ Bootstrap for Linux-based clusters does not provide this functionality. Instead,
 
 ### Virtual Networks
 
-Windows-based HDInsight clusters only work with Classic Virtual Networks, while Linux-based HDInsight clusters require Resource Manager Virtual Networks. If you have resources in a Classic Virtual Network that the Linux-HDInsight cluster must connect to, see [Connecting a Classic Virtual Network to a Resource Manager Virtual Network](../virtual-network/virtual-networks-arm-asm-s2s.md).
+Windows-based HDInsight clusters only work with Classic Virtual Networks, while Linux-based HDInsight clusters require Resource Manager Virtual Networks. If you have resources in a Classic Virtual Network that the Linux-HDInsight cluster must connect to, see [Connecting a Classic Virtual Network to a Resource Manager Virtual Network](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
 For more information on configuration requirements for using Azure Virtual Networks with HDInsight, see [Extend HDInsight capabilities by using a Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
@@ -203,7 +203,7 @@ The following chart provides guidance on migrating your Hive workloads.
 | ----- | ----- |
 | Storm Dashboard | The Storm Dashboard is not available. See [Deploy and Manage Storm topologies on Linux-based HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md) for ways to submit topologies |
 | Storm UI | The Storm UI is available at https://CLUSTERNAME.azurehdinsight.net/stormui |
-| Visual Studio to create, deploy, and manage C# or hybrid topologies | Linux-based clusters do not currently support .NET topologies; however, support will be added in a future update. If you need to migrate before this happens, you will need to re-implement your topologies in Java. See [Develop Java-based topologies](hdinsight-storm-develop-java-topology.md) for more information on creating Java-based topologies. |
+| Visual Studio to create, deploy, and manage C# or hybrid topologies | Visual Studio can be used to create, deploy, and manage C# (SCP.NET) or hybrid topologies on Linux-based Storm on HDInsight clusters created after 10/28/2017. |
 
 ##HBase
 

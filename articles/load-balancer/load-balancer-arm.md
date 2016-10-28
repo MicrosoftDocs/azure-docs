@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Resource Manager support for Load Balancer Preview | Microsoft Azure "
-   description="Using powershell for Load Balancer with Azure Resource Manager in preview. Using templates for load balancer"
+   pageTitle="Azure Resource Manager support for Load Balancer | Microsoft Azure "
+   description="Using powershell for Load Balancer with Azure Resource Manager. Using templates for load balancer"
    services="load-balancer"
    documentationCenter="na"
    authors="sdwheeler"
@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/25/2016"
+   ms.date="10/24/2016"
    ms.author="sewhee" />
 
 
-# Azure Resource Manager Support for Load Balancer
+# Using Azure Resource Manager Support with Azure Load Balancer
 
 Azure Resource Manager is the preferred management framework for services in Azure. Azure Load Balancer can be managed using Azure Resource Manager-based APIs and tools.
 
@@ -67,6 +67,6 @@ Get started with Azure Resource Manager cmdlets, command line tools, and REST AP
 
 ## Next steps
 
-You can also [get started creating an Internet facing load balancer](load-balancer-get-started-internet-arm-ps.md) and configure what type of [distribution mode](load-balancer-distribution-mode.md) for an especific load balancer network traffic behavior.
+You can also [get started creating an Internet facing load balancer](load-balancer-get-started-internet-arm-ps.md) and configure what type of [distribution mode](load-balancer-distribution-mode.md) for a specific load balancer network traffic behavior.
 
 Learn how to manage [idle TCP timeout settings for a load balancer](load-balancer-tcp-idle-timeout.md). This is important when your application needs to keep connections alive for servers behind a load balancer.

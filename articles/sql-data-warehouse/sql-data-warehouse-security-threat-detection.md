@@ -13,21 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="09/24/2016"
    ms.author="lodipalm;sonyama;barbkess"/>
 
 
 # Get started with threat detection
 
 > [AZURE.SELECTOR]
-- [Security Overview](sql-data-warehouse-overview-manage-security.md)
+- [Auditing](sql-data-warehouse-auditing-overview.md)
 - [Threat detection](sql-data-warehouse-security-threat-detection.md)
-- [Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
-- [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
-- [Auditing Overview](sql-data-warehouse-auditing-overview.md)
-- [Auditing downlevel clients](sql-data-warehouse-auditing-downlevel-clients.md)
-
-
 
 ## Overview
 

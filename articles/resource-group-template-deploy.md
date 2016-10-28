@@ -60,9 +60,9 @@ To learn more about options for deployment that might be better suited to your s
 
         Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
-3. Typically, when deploying a new template, you want to create a resource group to contain the resources. If you have an existing resource group that you wish to deploy to, you can skip this step and simply use that resource group. 
+3. Typically, when deploying a new template, you want to create a resource group to contain the resources. If you have an existing resource group that you wish to deploy to, you can skip this step and use that resource group. 
 
-     To create a resource group, provide a name and location for your resource group. 
+     To create a resource group, provide a name and location for your resource group. You need to provide a location for the resource group because the resource group stores metadata about the resources. For compliance reasons, you may want to specify where that metadata is stored. In general, we recommend that you specify a location where most of your resources will reside. Using the same location can simplify your template.
 
         New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
    

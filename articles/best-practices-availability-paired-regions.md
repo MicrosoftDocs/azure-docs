@@ -36,7 +36,7 @@ Figure 1 – Azure regional pair diagram
 | North America | North Central US | South Central US    |
 | North America | East US          | West US             |
 | North America | US East 2        | US Central          |
-|North America  | West US 2        | West Central US     |
+| North America | West US 2        | West Central US     |
 | Europe        | North Europe     | West Europe         |
 | Asia          | South East Asia  | East Asia           |
 | China         | East China       | North China         |
@@ -46,7 +46,7 @@ Figure 1 – Azure regional pair diagram
 | US Government | US Gov Iowa      | US Gov Virginia     |
 | India         | Central India    | South India         |
 | Canada        | Canada Central   | Canada East         |
-
+| UK            | UK West          | UK South            |
 
 Table 1 - Mapping of azure regional pairs
 

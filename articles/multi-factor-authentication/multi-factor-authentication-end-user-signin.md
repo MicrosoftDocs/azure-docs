@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Azure MFA Signin experience with Azure Multi-Factor Authentication" 
+<properties
+	pageTitle="Azure MFA Signin experience with Azure Multi-Factor Authentication"
 	description="This page will provide you guidance on where to go to see the various signin methods available with Azure MFA."
-	keywords="user authentication, sign-in experience, sign-in with mobile phone, sign-in with office phone" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	keywords="user authentication, sign-in experience, sign-in with mobile phone, sign-in with office phone"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/22/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="kgremban"/>
 
 # The sign in experience with Azure Multi-Factor Authentication
 > [AZURE.NOTE]  The following documentation provided on this page shows a typical sign-in experience.  For help with signing in see [Having trouble with Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
@@ -27,7 +27,7 @@ Depending on how you sign in and use multi-factor authentication, your experienc
 
 
 What are you doing?|Description
-:------------- | :------------- | 
+:------------- | :------------- |
 [Signing in with mobile or office phone](#signing-in-with-mobile-or-office-phone) | This is what you can expect from signing in using your mobile or office phone.
 [Signing in with the Microsoft Authenticator app using notification](#signing-in-with-the-microsoft-authenticator-app-using-notification) | This is what you can expect using the Microsoft Authenticator app with notifications.
 [Signing in with the Microsoft Authenticator app using verification code](#signing-in-with-the-microsoft-authenticator-app-using-verification-code)|This is what you can expect using the Microsoft Authenticator thapp with a verification code.
@@ -104,5 +104,3 @@ The following section will show you how to sign in with an alternate method when
 ![Use alternate method](./media/multi-factor-authentication-end-user-signin-alt/alt.png)
 
 - Choose an alternate method and sign in.
-
- 

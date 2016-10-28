@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2016" 
+	ms.date="09/13/2016" 
 	ms.author="robb"/>
 
 #Application Architecture on Microsoft Azure
@@ -27,22 +27,18 @@ Microsoft patterns & practices has published the book [Cloud Design Patterns](ht
 
 ##Microsoft architecture certification course
 
-Microsoft just released a new architecture course supporting Microsoft certification exam 70-534. It's [available for free on EDX.ORG](https://www.edx.org/course/architecting-microsoft-azure-solutions-microsoft-dev205x).  It uses the new [3D Blueprint Visio Template](#3d-blueprint-visio-template). 
+Microsoft created an architecture course supporting Microsoft certification exam 70-534. It's [available for free on EDX.ORG](https://www.edx.org/course/architecting-microsoft-azure-solutions-microsoft-dev205x).  It uses the [3D Blueprint Visio Template](#3d-blueprint-visio-template). 
 
 ![Microsoft Architecture certification course](./media/architecture-overview/EDXCourse.png)
 
 
-##Microsoft architecture Blueprints
+##Microsoft Solutions
 
-Microsoft publishes a set of high level [architecture blueprints](http://aka.ms/azblueprints) showing how to build specific types of systems using Microsoft products. 
+Microsoft publishes a set of high level [solution architectures](http://aka.ms/azblueprints) showing how to build specific types of systems using Microsoft products. 
 
-Each blueprint includes a
+Previously, Microsoft published a set of blueprints showing example architectures. Those have been replaced by the solution architectures mentioned previously and the blueprint link has been redirected to point to them. If you need access to the previous blueprints materials for some reason, please email [CnESymbols@microsoft.com](mailto:CnESymbols@microsoft.com) with your request.   
 
-- Flat **2D Visio** 2003-based file that you can download and modify 
-- Colorful **3D perspective PDF** file to introduce the blueprint to less technical audiences
-- **Video** that walks through the 3D version. 
-
-The Blueprints use the [Cloud and Enterprise Symbol Set](#symbol-and-icon-sets).   
+The blueprints and solution architectures diagrams both use parts of the [Cloud and Enterprise Symbol Set](#Drawing-symbol-and-icon-sets).   
 
 ![Microsoft Architecture Blueprint 3D diagram](./media/architecture-overview/BluePrintThumb.jpg)
 
@@ -50,7 +46,7 @@ The Blueprints use the [Cloud and Enterprise Symbol Set](#symbol-and-icon-sets).
 
 ##3D Blueprint Visio template
 
-The 3D versions of the [Microsoft Architecture Blueprints](http://aka.ms/azblueprints) were initially created in a non-Microsoft tool. A new Visio 2013 (and later) template shipped on Aug 5, 2015 as part of a [Microsoft Architecture certification course distributed on EDX.ORG](#microsoft-architecture-certification-course). 
+The 3D versions of the now defunct [Microsoft Architecture Blueprints](http://aka.ms/azblueprints) were initially created in a non-Microsoft tool. A Visio 2013 (and later) template shipped on Aug 5, 2015 as part of a [Microsoft Architecture certification course distributed on EDX.ORG](#microsoft-architecture-certification-course).
 
 The template is also available outside the course. 
 
@@ -58,17 +54,16 @@ The template is also available outside the course.
 - Download the [Microsoft 3d Blueprint Visio Template](http://aka.ms/3DBlueprintTemplate)
 - Download the [Cloud and Enterprise Symbols](#drawing-symbol-and-icon-sets) to use with the 3D template. 
 
-Email us at [CnESymbols@microsoft.com](mailto:CnESymbols@microsoft.com) for specific questions not answered by the training materials or to give feedback. Usability is one of the primary goals of the template so let us know what's good and what gets in the way.
+Email us at [CnESymbols@microsoft.com](mailto:CnESymbols@microsoft.com) for specific questions not answered by the training materials or to give feedback. The template is no longer under active development, but it is still useful and relevant because it can use any PNG or the [Cloud and Enterprise Symbols](#drawing-symbol-and-icon-sets), which are updated.  
 
 ![Microsoft 3D Blueprint Visio Template](./media/architecture-overview/3DBlueprintVisioTemplate.jpg)
-
 
 
 ##Drawing symbol and icon sets 
 
 [View the Visio and symbols training video](http://aka.ms/CnESymbolsVideo) and then [download the Cloud and Enterprise Symbol set](http://aka.ms/CnESymbols) to help create technical materials that describe Azure, Windows Server, SQL Server and more. You can use the symbols in architecture diagrams, training materials, presentations, datasheets, infographics, whitepapers and even 3rd party books if the book trains people to use Microsoft products. However, they are not meant for use in user interfaces.
 
-The CnE symbols are in Visio and PNG formats. Additional instructions on how to use the PNGs in PowerPoint are included in the set. 
+The CnE symbols are in Visio, SVG, and PNG format. Additional instructions on how to use easily use the symbols in PowerPoint are included in the set. 
 
 The symbol set ships quarterly and is updated as new services are released. 
 
@@ -77,7 +72,6 @@ Additional symbols for Microsoft Office and related technologies are available i
 **Feedback:** If you've used the CnE symbols, fill out the short 5 question [survey](http://aka.ms/azuresymbolssurveyv2) or email us at [CnESymbols@microsoft.com](mailto:CnESymbols@microsoft.com) for specific questions and issues. We’d like to know what you think, including positive feedback so we know to continue to invest time in them. 
 
 ![Cloud and Enterprise Symbol/Icon set](./media/architecture-overview/CnESymbols.png)
-
 
 ##Architecture Infographics
 

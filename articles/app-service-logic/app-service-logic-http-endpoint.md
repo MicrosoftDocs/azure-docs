@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/10/2016"
+   ms.date="10/18/2016"
    ms.author="jehollan"/>
 
 
@@ -37,7 +37,7 @@ The first step is to add a trigger to your Logic app definition that can receive
 After you save your Logic App definition, a callback URL will be generated similar to this one:
  
 ``` text
-https://prod-03.eastus.logic.azure.com:443/workflows/080cb66c52ea4e9cabe0abf4e197deff/triggers/myendpointtrigger?...
+https://prod-03.eastus.logic.azure.com:443/workflows/080cb66c52ea4e9cabe0abf4e197deff/triggers/myendpointtrigger?*signature*...
 ```
 
 This URL contains a SAS key in the query parameters used for authentication.
@@ -51,6 +51,10 @@ Or, by calling:
 ``` text
 POST https://management.azure.com/{resourceID of your logic app}/triggers/myendpointtrigger/listCallbackURL?api-version=2015-08-01-preview
 ```
+
+### Security for the trigger URL
+
+Logic App callback URLs are generated securely using a Shared Access Signature.  The signature is passed through as a query parameter, and must be validated before the logic app will fire.  It is generated through a unique combination of a secret key per logic app, the trigger name, and the operation being performed.  Unless someone has access to the secret logic app key, they would not be able to generate a valid signature.
 
 ## Calling the Logic app trigger's endpoint
 

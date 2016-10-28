@@ -13,12 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
-	ms.author="femila"/>
+	ms.date="09/21/2016"
+	ms.author="Markvi"/>
 
 # Configure automatic device registration for Windows 8.1 domain joined devices
 
 You can use an Active Directory Group Policy to configure your Windows 8.1 domain joined devices to automatically register with Azure AD. To configure the Group Policy, you must have at least one domain joined Windows Server 2012 R2 or Windows 8.1 machine with the Group Policy Management feature installed. Once this Group Policy is enabled for your domain, any domain user that logs into the machine will be automatically and silently registered with a device object in Azure AD. There will be one device object in Azure AD for every registered user of the physical device.Be sure to read through and complete the prerequisites from the Automatic Device Registration with Azure Active Directory for Windows Domain-Joined Devices.
+
+>[AZURE.NOTE]
+ For latest instructions on how to set up automatic device registration see, [How to setup automatic registration of Windows domain joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
+
+
 
 ## Configure the Group Policy for your Windows 8.1 domain joined devices
 

@@ -4,7 +4,7 @@
    services="multiple"
    documentationCenter=".net"
    authors="sbtron"
-   manager=""
+   manager="douge"
    editor="" />
 <tags
    ms.service="application-insights"

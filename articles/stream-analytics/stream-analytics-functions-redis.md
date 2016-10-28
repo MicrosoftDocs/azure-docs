@@ -4,7 +4,7 @@
 	keywords="data stream, redis cache, service bus queue"
 	services="stream-analytics"
 	authors="ryancrawcour"
-	manager="paulettm"
+	manager="jhubbard"
     documentationCenter=""
 	/>
 
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="08/09/2016"
+	ms.date="09/26/2016"
 	ms.author="ryancraw"/>
 
 # How to store data from Azure Stream Analytics in an Azure Redis Cache using Azure Functions
@@ -206,6 +206,7 @@ You can also see the following resources:
 
 - [Azure Functions developer reference](../azure-functions/functions-reference.md)
 - [Azure Functions C# developer reference](../azure-functions/functions-reference-csharp.md)
+- [Azure Functions F# developer reference](../azure-functions/functions-reference-fsharp.md)
 - [Azure Functions NodeJS developer reference](../azure-functions/functions-reference.md)
 - [Azure Functions triggers and bindings](../azure-functions/functions-triggers-bindings.md)
 - [How to monitor Azure Redis Cache](../redis-cache/cache-how-to-monitor.md)
@@ -214,6 +215,6 @@ To stay up-to-date on all the latest news and features, follow [@AzureStreaming]
 
 
 [fraud-detection]: stream-analytics-real-time-fraud-detection.md
-[servicebus-getstarted]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
+[servicebus-getstarted]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 [use-rediscache]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md
 [functions-getstarted]: ../azure-functions/functions-create-first-azure-function.md

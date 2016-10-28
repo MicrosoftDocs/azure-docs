@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="python" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2016" 
+	ms.date="09/12/2016" 
 	ms.author="huvalo;bradsev" />
 
 
@@ -44,7 +44,7 @@ It has a dependency on the following packages:
  - python-dateutil
  - pandas
 
-We recommend using a Python distribution such as [Anaconda](http://continuum.io/downloads#all) or [Canopy](https://store.enthought.com/downloads/), which come with Python, IPython and the three packages  listed above installed. Although IPython is not strictly required, it is a great environment for manipulating and visualizing data interactively.
+We recommend using a Python distribution such as [Anaconda](http://continuum.io/downloads#all) or [Canopy](https://store.enthought.com/downloads/), which come with Python, IPython and the three packages listed above installed. Although IPython is not strictly required, it is a great environment for manipulating and visualizing data interactively.
 
 
 ###<a name="installation"></a>How to install the Azure Machine Learning Python client library
@@ -70,33 +70,35 @@ From the Studio web interface, you can generate code snippets that include all t
 
 ### <a name="security"></a>Security for data access
 
-The code snippets provided by Studio for use with the Python client library includes your workspace id and authorization token. These provide full access to your workspace and must be protect, like a password.
+The code snippets provided by Studio for use with the Python client library includes your workspace id and authorization token. These provide full access to your workspace and must be protected, like a password.
 
 For security reasons, the code snippet functionality is only available to users that have their role set as **Owner** for the workspace. Your role is displayed in Azure Machine Learning Studio on the **USERS** page under **Settings**.
 
 ![Security][security]
 
-If your role is not set as **Owner**, you can either request to be re-invited as an owner, or ask the owner of the workspace to provide you with the code snippet.
+If your role is not set as **Owner**, you can either request to be reinvited as an owner, or ask the owner of the workspace to provide you with the code snippet.
 
 To obtain the authorization token, you can do one of the following:
 
-1. Ask for a token from an owner. Owners can access their authorization tokens from the Settings page of their workspace in Studio. Select **Settings** from the left pane and click on **AUTHORIZATION TOKENS** to see the primary and secondary tokens.  Although either the primary or the secondary authorization tokens can be used in the code snippet, it is recommended that owners only share the secondary authorization tokens.
+
+
+- Ask for a token from an owner. Owners can access their authorization tokens from the Settings page of their workspace in Studio. Select **Settings** from the left pane and click **AUTHORIZATION TOKENS** to see the primary and secondary tokens.  Although either the primary or the secondary authorization tokens can be used in the code snippet, it is recommended that owners only share the secondary authorization tokens.
 
 ![](./media/machine-learning-python-data-access/ml-python-access-settings-tokens.png)
 
-2. Ask to be promoted to role of owner.  To do this, a current owner of the workspace needs to first remove you from the workspace then re-invite you to it as an owner.
+- Ask to be promoted to role of owner.  To do this, a current owner of the workspace needs to first remove you from the workspace then re-invite you to it as an owner.
 
-Once developers have obtained the workspace id and authorization token, they will be able to access the workspace using the code  snippet regardless of their role.
+Once developers have obtained the workspace id and authorization token, they are able to access the workspace using the code snippet regardless of their role.
 
-Authorization tokens are managed on the **AUTHORIZATION TOKENS** page under **SETTINGS**. You can regenerate them, but this procedure will revoke access to the previous token.
+Authorization tokens are managed on the **AUTHORIZATION TOKENS** page under **SETTINGS**. You can regenerate them, but this procedure revokes access to the previous token.
 
 ### <a name="accessingDatasets"></a>Access datasets from a local Python application
 
-1. In Machine Learning Studio, click on **DATASETS** in the navigation bar on the left.
+1. In Machine Learning Studio, click **DATASETS** in the navigation bar on the left.
 
 2. Select the dataset you would like to access. You can select any of the datasets from the **MY DATASETS** list or from the **SAMPLES** list.
 
-3. From the bottom toolbar, click on **Generate Data Access Code**. Note that this button will be disabled if the data is in a format incompatible with the Python client library.
+3. From the bottom toolbar, click **Generate Data Access Code**. If the data is in a format incompatible with the Python client library, this button is disabled.
 
 	![Datasets][datasets]
 
@@ -104,7 +106,7 @@ Authorization tokens are managed on the **AUTHORIZATION TOKENS** page under **SE
 
 	![Access Code][dataset-access-code]
 
-5. Paste the code into the notebook of you local Python application.
+5. Paste the code into the notebook of your local Python application.
 
 	![Notebook][ipython-dataset]
 
@@ -128,7 +130,7 @@ Some of the modules, such as the [Split][split] module, output to a format named
 
 ![Dataset Format][dataset-format]
 
-You'll need to use a conversion module, such as [Convert to CSV][convert-to-csv], to get an output into a supported format.
+You need to use a conversion module, such as [Convert to CSV][convert-to-csv], to get an output into a supported format.
 
 ![GenericCSV Format][csv-format]
 
@@ -144,13 +146,13 @@ The following steps show an example that creates an experiment, runs it and acce
 
 5. Save the experiment, run it, and wait for it to finish running.
 
-6. Click on the output node on the [Convert to CSV][convert-to-csv] module.
+6. Click the output node on the [Convert to CSV][convert-to-csv] module.
 
-7. A context menu will appear, select **Generate Data Access Code**.
+7. When the context menu appears, select **Generate Data Access Code**.
 
 	![Context Menu][experiment]
 
-8. A window will appear. Select the code snippet and copy it to your clipboard.
+8. Select the code snippet and copy it to your clipboard from the window that appears.
 
 	![Access Code][intermediate-dataset-access-code]
 
@@ -243,7 +245,7 @@ You can also just open a stream to the contents:
 
 ### Create a new dataset
 
-The Python client library allow you to upload datasets from your Python program. These datasets will be available for use in your workspace.
+The Python client library allows you to upload datasets from your Python program. These datasets are then available for use in your workspace.
 
 If you have your data in a Pandas DataFrame, use the following code:
 
@@ -267,7 +269,7 @@ If your data is already serialized, you can use:
         description='my description'
     )
 
-The Python client library are able to serialize a Pandas DataFrame to the following formats (constants for these are in the `azureml.DataTypeIds` class):
+The Python client library is able to serialize a Pandas DataFrame to the following formats (constants for these are in the `azureml.DataTypeIds` class):
 
  - PlainText
  - GenericCSV
@@ -278,7 +280,7 @@ The Python client library are able to serialize a Pandas DataFrame to the follow
 
 ### Update an existing dataset
 
-If you try to upload a new dataset with a name that matches an existing dataset, you'll get a conflict error.
+If you try to upload a new dataset with a name that matches an existing dataset, you should get a conflict error.
 
 To update an existing dataset, you first need to get a reference to the existing dataset:
 
@@ -343,9 +345,9 @@ You can optionally set a new name by specifying a value for the `name` parameter
     print(ws.datasets['existing dataset v2'].name) # 'existing dataset v2'
     print(ws.datasets['existing dataset'].name)    # IndexError
 
-The `data_type_id`, `name` and `description` parameters are all optional, and default to their previous value. The `dataframe` parameter is always required.
+The `data_type_id`, `name` and `description` parameters are optional and default to their previous value. The `dataframe` parameter is always required.
 
-If your data is already serialized, use `update_from_raw_data` instead of `update_from_dataframe`. It works similarly, you just pass in `raw_data` instead of  `dataframe`.
+If your data is already serialized, use `update_from_raw_data` instead of `update_from_dataframe`. If you just pass in `raw_data` instead of  `dataframe`, it works in a similar way.
 
 
 

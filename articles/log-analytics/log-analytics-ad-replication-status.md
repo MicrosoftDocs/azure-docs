@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/08/2016"
+	ms.date="10/10/2016"
 	ms.author="banders"/>
 
 # Active Directory Replication Status solution in Log Analytics
@@ -45,8 +45,9 @@ If you don’t want to connect any of your domain controllers directly to OMS, y
 1.	Verify that the computer is a member of the domain that you wish to monitor using the AD Replication Status solution.
 2.	[Connect the Windows computer to OMS](log-analytics-windows-agents.md) or [connect it using your existing Operations Manager environment to OMS](log-analytics-om-agents.md), if it is not already connected.
 3.	On that computer, set the following registry key:
-    - Key: **HKLM\SOFTWARE\Microsoft\AzureOperationalInsights\Assessments_Targets**
-    - Value: **ADReplication**
+    - Key: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
+    - Value: **IsTarge**
+    - Value Data: **true**
 
     >[AZURE.NOTE]These changes will not take effect until your restart the Microsoft Monitoring Agent service (HealthService.exe).
 

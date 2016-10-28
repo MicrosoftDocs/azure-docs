@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/20/2016"
+	ms.date="10/10/2016"
 	ms.author="iainfou"/>
 
 #Install MongoDB on a Windows VM
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] To install and configure MongoDB using the Resource Manager deployment model, see [this article](virtual-machines-windows-classic-install-mongodb.md).
 
-[MongoDB][MongoDB] is a popular open-source, high-performance NoSQL database.  This article guides you through creating a new Windows Server virtual machine (VM) using the [Azure classic portal][AzurePortal], creating and attaching a data disk to the VM, and then installing and configuring MongoDB. If have an existing VM in Azure that you would like to use, you can jump straight to [installing and configuring MongoDB](#install-and-run-mongo-on-win2k8-vm).
+[MongoDB][MongoDB] is a popular open-source, high-performance NoSQL database. This article guides you through creating a Windows Server virtual machine (VM) using the [Azure classic portal][AzurePortal]. You then create and attach a data disk to the VM before installing and configuring MongoDB. If you have an existing VM in Azure that you would like to use, you can jump straight to [installing and configuring MongoDB](#install-and-run-mongodb-on-the-virtual-machine).
 
 
 ## Create a virtual machine running Windows Server
@@ -33,7 +33,7 @@ Follow these instructions to create a virtual machine.
 > [AZURE.NOTE] You can add an endpoint for MongoDB while creating the virtual machine, and configure it as follows: name it as **Mongo**, use **TCP** as the protocol, and set both the public and private ports to **27017**.
 
 ## Attach a data disk
-To provide storage for the virtual machine, attach a data disk and then initialize it so that Windows can use it. You can either attach an existing disk if you already have data you want to use, or attach an empty disk.
+To provide storage for the virtual machine, attach a data disk and then initialize it so that Windows can use it. If you already have a data disk, you can attach that existing disk, or you can attach an empty disk.
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="DocumentDB Node.js API & SDK | Microsoft Azure" 
-	description="Learn all about the Node.js API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Node.js SDK." 
-	services="documentdb" 
-	documentationCenter="nodejs" 
-	authors="rnagpal" 
-	manager="jhubbard" 
+<properties
+	pageTitle="DocumentDB Node.js API & SDK | Microsoft Azure"
+	description="Learn all about the Node.js API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Node.js SDK."
+	services="documentdb"
+	documentationCenter="nodejs"
+	authors="rnagpal"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="08/09/2016" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="10/03/2016"
 	ms.author="rnagpal"/>
 
 # DocumentDB APIs and SDKs
@@ -41,6 +41,11 @@
 
 ##Release notes
 
+###<a name="1.10.0"/>1.10.0</a>
+
+- Added support for cross partition parallel queries.
+- Added support for TOP/ORDER BY queries for partitioned collections.
+
 ###<a name="1.9.0"/>1.9.0</a>
 
 - Added retry policy support for throttled requests. (Throttled requests receive a request rate too large exception, error code 429.) By default, DocumentDB retries nine times for each request when error code 429 is encountered, honoring the retryAfter time in the response header. A fixed retry interval time can now be set as part of the RetryOptions property on the ConnectionPolicy object if you want to ignore the retryAfter time returned by server between the retries. DocumentDB now waits for a maximum of 30 seconds for each request that is being throttled (irrespective of retry count) and returns the response with error code 429. This time can also be overriden in the RetryOptions property on ConnectionPolicy object.
@@ -59,7 +64,7 @@
 
 ###<a name="1.6.0"/>1.6.0</a>
 
-- Implemented [partitioned collections](documentdb-partition-data.md) and [user-defined performance levels](documentdb-performance-levels.md). 
+- Implemented [partitioned collections](documentdb-partition-data.md) and [user-defined performance levels](documentdb-performance-levels.md).
 
 ###<a name="1.5.6"/>1.5.6</a>
 
@@ -91,7 +96,7 @@
 
 ### <a name="1.4.0"/>1.4.0</a>
 
-- Implement Upsert. New upsertXXX methods on documentClient. 
+- Implement Upsert. New upsertXXX methods on documentClient.
 
 ### <a name="1.3.0"/>1.3.0</a>
 
@@ -110,7 +115,7 @@
 ### <a name="1.2.0"/>1.2.0</a>
 
 - Added support for GeoSpatial index.
-- Validates id property for all resources. Ids for resources cannot contain ?, /, #, &#47;&#47;, characters or end with a space. 
+- Validates id property for all resources. Ids for resources cannot contain ?, /, #, &#47;&#47;, characters or end with a space.
 - Adds new header "index transformation progress" to ResourceResponse.
 
 ### <a name="1.1.0"/>1.1.0</a>
@@ -138,17 +143,18 @@
 ## Release & Retirement Dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
-New features and functionality and optimizations are only added to the current SDK, as such it is  recommend that you always upgrade to the latest SDK version as early as possible. 
+New features and functionality and optimizations are only added to the current SDK, as such it is  recommend that you always upgrade to the latest SDK version as early as possible.
 
 Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 > [AZURE.WARNING]
-All versions of the Azure DocumentDB SDK for Node.js prior to version **1.0.0** will be retired on **February 29, 2016**. 
+All versions of the Azure DocumentDB SDK for Node.js prior to version **1.0.0** will be retired on **February 29, 2016**.
 
 <br/>
 
-| Version | Release Date | Retirement Date 
+| Version | Release Date | Retirement Date
 | ---	  | ---	         | ---
+| [1.10.0](#1.10.0) | October 03, 2016 |---
 | [1.9.0](#1.9.0) | July 07, 2016 |---
 | [1.8.0](#1.8.0) | June 14, 2016 |---
 | [1.7.0](#1.7.0) | April 26, 2016 |---
@@ -182,4 +188,4 @@ All versions of the Azure DocumentDB SDK for Node.js prior to version **1.0.0** 
 
 ## See also
 
-To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) service page. 
+To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) service page.

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create ContentKeys with REST" 
+	pageTitle="Create ContentKeys with REST | Microsoft Azure" 
 	description="Learn how to create content keys that provide secure access to Assets." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 

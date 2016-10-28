@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="10/24/2016"
 	ms.author="genemi"/>
 
 
@@ -106,7 +106,7 @@ The upgrade to V12 cannot run if Geo-Replication is active on your database. You
 After the upgrade completes you can configure your database to again use Geo-Replication.
 
 
-### Client on an Azure VM
+### Open ports on an Azure VM for client connectivity
 
 
 If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open the following port ranges on the VM:
@@ -137,12 +137,11 @@ There are three portals for Azure, and each has different abilities regarding SQ
  - Can *not* upgrade your V11 database to V12.
 
 
-- (http://*yourservername*.database.windows.net)<br/>
-Azure SQL Database Classic Portal:
+- (http://*yourservername*.database.windows.net)<br/>Azure SQL Database Classic Portal:
  - Can*not* manage V12 servers.
 
 
-We encourage you to connect to your Azure SQL databases with Visual Studio 2013 (VS2013). VS2013 can be used for tasks such as the following:
+We encourage you to connect to your Azure SQL databases with Visual Studio 2015 (VS2015). VS2015 can be used for tasks such as the following:
 
 
 - To run a Transact-SQL statement.
@@ -150,10 +149,10 @@ We encourage you to connect to your Azure SQL databases with Visual Studio 2013 
 - To develop a database, either online or offline.
 
 
-You can instead connect with [Visual Studio Community 2013](https://www.visualstudio.com/en-us/news/vs2013-community-vs.aspx/), which is a free and full-featured version of VS2013.
+Or instead, for free you can download [Visual Studio Community 2015](https://www.visualstudio.com/vs/community/), which is a full-featured version of VS2015.
 
 
-In the older Azure Classic Portal, on the database page, you can click **Open in Visual Studio** to launch VS2013 on your computer for connection to your Azure SQL Database.
+In the older Azure Classic Portal, on the database page, you can click **Open in Visual Studio** to launch VS2015 on your computer for connection to your Azure SQL Database.
 
 
 For another alternative, you can use SQL Server Management Studio (SSMS) 2014 with [CU6](http://support.microsoft.com/kb/3031047/) to connect to Azure SQL Database. More details are on this blog post:<br/>[Client tooling updates for Azure SQL Database](https://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/).
@@ -192,11 +191,11 @@ You can export or import a V12 database by using the [Azure Portal](https://port
 
 
 - SQL Server Management Studio (SSMS)
-- Visual Studio 2013
+- Visual Studio 2015
 - Data-Tier Application Framework (DacFx)
 
 
-However, to use the tools, you must first install their latest updates to ensure they support the new V12 features:
+However, to use the tools, you must first have or install their latest updates to ensure they support the new V12 features:
 
 
 - [Cumulative Update 6 for SQL Server Management Studio 2014](http://support2.microsoft.com/kb/3031047)

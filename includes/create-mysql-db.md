@@ -1,10 +1,10 @@
-This guide will show you how to use [ClearDB] to create a MySQL database from the [Azure Store] and  how to create a MySQL database as a linked resource when you create a [Azure Web Site][waws] . [ClearDB] is a fault-tolerant database-as-a-service provider that allows you to run and manage MySQL databases in Azure datacenters and connect to them from any application.  
+This guide will show you how to use [ClearDB] to create a MySQL database from the Azure Store and  how to create a MySQL database as a linked resource when you create a [Azure Web Site][waws] . [ClearDB] is a fault-tolerant database-as-a-service provider that allows you to run and manage MySQL databases in Azure datacenters and connect to them from any application.  
 
 > [AZURE.NOTE] When you create a MySQL database as part of the Website creation process, you can only create a free database. Creating a MySQL database from the Azure Store allows you to create a free database or choose from paid options.
 
 ## How to: Create a MySQL database from the Azure Store
 
-To create a MySQL database from the [Azure Store], do the following:
+To create a MySQL database from the Azure Store, do the following:
 
 1. Log in to the [Azure Management Portal][portal].
 2. Click **+NEW** at the bottom of the page, then select **MARKETPLACE**.
@@ -69,6 +69,5 @@ To create a MySQL database as a linked resource when you create a [Azure Web Sit
 
 [ClearDB]: http://www.cleardb.com/
 [waws]: /documentation/services/web-sites/
-[Azure Store]: ../articles/store.md
 [portal]: http://manage.windowsazure.com
 [configure]: ../articles/app-service-web/web-sites-configure.md

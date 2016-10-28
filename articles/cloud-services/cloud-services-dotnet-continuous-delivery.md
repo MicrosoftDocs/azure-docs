@@ -97,7 +97,7 @@ information about command-line parameters and MSBuild, see [MSBuild Command Line
     Optionally, you can specify the project name as an MSBuild
     parameter. If not specified, the current directory is used. For more
     information about MSBuild command line options, see [MSBuild Command
-    Line Reference](1).
+    Line Reference](https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx).
 
 4.  Locate the output. By default, this command creates a directory in
     relation to the root folder for the project, such as

@@ -3,7 +3,7 @@
    description="Learn how to import and export a DNS zone file to Azure DNS by using Azure CLI"
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
 
 # Import and export a DNS zone file using the Azure CLI
 
@@ -23,7 +23,7 @@ This article will walk you through how to import and export DNS zone files for A
 
 ## Introduction to DNS zone migration
 
-A DNS zone file is a text file that contains details of every Domain Name System (DNS) record in the zone. It follows a standard format, making it suitable for transferring DNS records between DNS systems. Using a zone file is a quick, reliable, and convenient way to transfer a DNS zone into or out of Azure DNS.  
+A DNS zone file is a text file that contains details of every Domain Name System (DNS) record in the zone. It follows a standard format, making it suitable for transferring DNS records between DNS systems. Using a zone file is a quick, reliable, and convenient way to transfer a DNS zone into or out of Azure DNS.
 
 Azure DNS supports importing and exporting zone files by using the Azure command-line interface (CLI). The Azure CLI is a cross-platform command-line tool used for managing Azure services. It is available for the Windows, Mac, and Linux platforms from the [Azure downloads page](https://azure.microsoft.com/downloads/). Cross-platform support is particularly important for importing and exporting zone files, because the most common name server software, [BIND](https://www.isc.org/downloads/bind/), typically runs on Linux.
 
@@ -43,7 +43,7 @@ Zone files downloaded from GoDaddy have a slightly nonstandard format. You need 
 ## Import a DNS zone file into Azure DNS
 
 
-Importing a zone file will create a new zone in Azure DNS if one does not already exist. If the zone already exists, the record sets in the zone file must be merged with the existing record sets. 
+Importing a zone file will create a new zone in Azure DNS if one does not already exist. If the zone already exists, the record sets in the zone file must be merged with the existing record sets.
 
 ### Merge behavior
 
@@ -69,7 +69,7 @@ The following notes provide additional technical details about the zone import p
 
 - The `$INCLUDE` and `$GENERATE` directives are not supported.
 
-- These record types are supported: A, AAAA, CNAME, MX, NS, SOA, SRV, and TXT.  
+- These record types are supported: A, AAAA, CNAME, MX, NS, SOA, SRV, and TXT.
 
 - The SOA record is created automatically by Azure DNS when a zone is created. When you import a zone file, all SOA parameters are taken from the zone file *except* the `host` parameter. This parameter uses the value provided by Azure DNS. This is because this parameter must refer to the primary name server provided by Azure DNS.
 
@@ -88,7 +88,7 @@ Values:
 - `<zone name>` is the name of the zone.
 - `<zone file name>` is the path/name of the zone file to be imported.
 
-If a zone with this name does not exist in the resource group, it will be created for you. If the zone already exists, the imported record sets will be merged with existing record sets. To overwrite the existing record sets, use the `--force` option. 
+If a zone with this name does not exist in the resource group, it will be created for you. If the zone already exists, the imported record sets will be merged with existing record sets. To overwrite the existing record sets, use the `--force` option.
 
 To verify the format of a zone file without actually importing it, use the `--parse-only` option.
 
@@ -149,12 +149,12 @@ To verify the DNS zone after you import the file, you can use any one of the fol
     	data:Name server domain name : ns4-01.azure-dns.info
     	data:
     	info:network dns record-set show command OK
-    
+
     	C:\> nslookup www.contoso.com ns1-01.azure-dns.com
-    
+
     	Server: ns1-01.azure-dns.com
     	Address:  40.90.4.1
-    
+
     	Name:www.contoso.com
     	Addresses:  134.170.185.46
     	134.170.188.221
@@ -173,7 +173,7 @@ Values:
 - `<zone name>` is the name of the zone.
 - `<zone file name>` is the path/name of the zone file to be exported.
 
-As with the zone import, you first need to sign in, choose your subscription, and configure the Azure CLI to use Resource Manager mode. 
+As with the zone import, you first need to sign in, choose your subscription, and configure the Azure CLI to use Resource Manager mode.
 
 ### To export a zone file
 

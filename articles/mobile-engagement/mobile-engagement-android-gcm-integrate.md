@@ -4,7 +4,7 @@
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
-	manager="dwrede"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/19/2016"
+	ms.date="10/10/2016"
 	ms.author="piyushjo" />
 
 #How to Integrate GCM with Mobile Engagement
@@ -33,8 +33,6 @@ GCM payloads pushed to the SDK always contain the `azme` key in the data object.
 ##Create a Google Cloud Messaging project with API key
 
 [AZURE.INCLUDE [mobile-engagement-enable-Google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
-
-> [AZURE.IMPORTANT] **Project Number** is not to be confused with **Project ID**.
 
 ##SDK integration
 

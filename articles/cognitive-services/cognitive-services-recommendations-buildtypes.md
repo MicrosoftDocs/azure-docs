@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Quick start guide: Machine Learning Recommendations API | Microsoft Azure"
+	pageTitle="Build Types and Model Quality: Recommendations API | Microsoft Azure"
 	description="Azure Machine Learning Recommendations--quick start guide"
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="09/20/2016"
 	ms.author="luisca"/>
 
 #  Build types and model quality #

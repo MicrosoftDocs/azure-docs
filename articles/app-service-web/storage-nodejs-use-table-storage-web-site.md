@@ -55,7 +55,7 @@ Create an Azure storage account. The app will use this account to store the to-d
 
 1.  Log into the [Azure Portal](https://portal.azure.com/).
 
-2. Click the **New** icon on the bottom left of the portal, then click **Data + Storage** > **Storage**. Give the storage account a unique name and create a new [resource group](../resource-group-overview.md) for it.
+2. Click the **New** icon on the bottom left of the portal, then click **Data + Storage** > **Storage**. Give the storage account a unique name and create a new [resource group](../azure-resource-manager/resource-group-overview.md) for it.
 
   	![New Button](./media/storage-nodejs-use-table-storage-web-site/configure-storage.png)
 
@@ -590,7 +590,7 @@ To publish the app, commit the code files to Git and then push to azure/master.
 
 ## Next steps
 
-While the steps in this article describe using the Table Service to store information, you can also use MongoDB. See [Node.js web app with MongoDB] for more information.
+While the steps in this article describe using the Table Service to store information, you can also use [MongoDB](https://mlab.com/azure/). 
 
 ## Additional resources
 
@@ -610,7 +610,6 @@ While the steps in this article describe using the Table Service to store inform
 [for free]: http://windowsazure.com
 [Git remote]: http://git-scm.com/docs/git-remote
 
-[Node.js web app with MongoDB]: web-sites-nodejs-store-data-mongodb.md
 [Azure CLI]: ../xplat-cli-install.md
 
 [azure]: https://github.com/Azure/azure-sdk-for-node

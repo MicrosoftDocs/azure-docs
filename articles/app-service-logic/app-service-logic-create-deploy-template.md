@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="05/25/2016"
+   ms.date="10/18/2016"
    ms.author="jehollan"/>
 
 # Create a logic app deployment template
@@ -34,7 +34,9 @@ To make a template for a logic app to use with resource group deployments, you n
 
 ## Create a logic app deployment template
 
-A few tools can assist you as you create a logic app deployment template. You can author by hand, that is, by using the resources already discussed here to create parameters as needed. Another option is to use a [logic app template creator](https://github.com/jeffhollan/LogicAppTemplateCreator) PowerShell module. This open-source module first evaluates the logic app and any connections that it is using, and then generates template resources with the necessary parameters for deployment. For example, if you have a logic app that receives a message from an Azure Service Bus queue and adds data to an Azure SQL database, the tool will preserve all of the orchestration logic and parameterize the SQL and Service Bus connection strings so that they can be set at deployment.
+The easiest way to have a valid logic app deployment template is to use the [Visual Studio Tools for Logic Apps](./app-service-logic-deploy-from-vs.md).  The Visual Studio tools generate a valid deployment template that can be used across any subscription or location.
+
+A few other tools can assist you as you create a logic app deployment template. You can author by hand, that is, by using the resources already discussed here to create parameters as needed. Another option is to use a [logic app template creator](https://github.com/jeffhollan/LogicAppTemplateCreator) PowerShell module. This open-source module first evaluates the logic app and any connections that it is using, and then generates template resources with the necessary parameters for deployment. For example, if you have a logic app that receives a message from an Azure Service Bus queue and adds data to an Azure SQL database, the tool will preserve all of the orchestration logic and parameterize the SQL and Service Bus connection strings so that they can be set at deployment.
 
 >[AZURE.NOTE] Connections must be within the same resource group as the logic app.
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/21/2016" 
+	ms.date="09/06/2016" 
 	ms.author="rclaus"/>
 
 
@@ -24,7 +24,7 @@ It's a common scenario to use software RAID on Linux virtual machines in Azure t
 
 
 ## Attaching data disks
-Two or more empty data disks will typically be needed to configure a RAID device.  The primary reason for creating a RAID device is to improve performance of your disk IO.  Based on your IO needs, you can choose to attach disks that are stored in our Standard Storage, with up to 500 IO/ps per disk or our Premium storage with up to 5000 IO/ps per disk. This article will not go into detail on how to provision and attach data disks to a Linux virtual machine.  Please see the Microsoft Azure article [attach a disk](virtual-machines-linux-add-disk.md) for detailed instructions on how to attach an empty data disk to a Linux virtual machine on Azure.
+Two or more empty data disks are needed to configure a RAID device.  The primary reason for creating a RAID device is to improve performance of your disk IO.  Based on your IO needs, you can choose to attach disks that are stored in our Standard Storage, with up to 500 IO/ps per disk or our Premium storage with up to 5000 IO/ps per disk. This article does not go into detail on how to provision and attach data disks to a Linux virtual machine.  See the Microsoft Azure article [attach a disk](virtual-machines-linux-add-disk.md) for detailed instructions on how to attach an empty data disk to a Linux virtual machine on Azure.
 
 
 ## Install the mdadm utility
@@ -44,7 +44,7 @@ Two or more empty data disks will typically be needed to configure a RAID device
 
 
 ## Create the disk partitions
-In this example we will create a single disk partition on /dev/sdc. The new disk partition will then be called /dev/sdc1.
+In this example, we create a single disk partition on /dev/sdc. The new disk partition will be called /dev/sdc1.
 
 1. Start fdisk to begin creating partitions
 
@@ -72,12 +72,12 @@ In this example we will create a single disk partition on /dev/sdc. The new disk
 
 		Partition number (1-4): 1
 
-5. Select the starting point of the new partition, or just press `<enter>` to accept the default to place the partition at the beginning of the free space on the drive:
+5. Select the starting point of the new partition, or press `<enter>` to accept the default to place the partition at the beginning of the free space on the drive:
 
 		First cylinder (1-1305, default 1):
 		Using default value 1
 
-6. Select the size of the partition, for example type '+10G' to create a 10 gigabyte partition. Or, just press `<enter>` create a single partition that spans the entire drive:
+6. Select the size of the partition, for example type '+10G' to create a 10 gigabyte partition. Or, press `<enter>` create a single partition that spans the entire drive:
 
 		Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
 		Using default value 1305
@@ -96,14 +96,14 @@ In this example we will create a single disk partition on /dev/sdc. The new disk
 
 ## Create the RAID array
 
-1. The following example will "stripe" (RAID level 0) three partitions located on three separate data disks (sdc1, sdd1, sde1).  After running this command a new RAID device called **/dev/md127** will be created. Also note that if these data disks we previously part of another defunct RAID array it may be necessary to add the `--force` parameter to the `mdadm` command:
+1. The following example will "stripe" (RAID level 0) three partitions located on three separate data disks (sdc1, sdd1, sde1).  After running this command a new RAID device called **/dev/md127** is created. Also note that if these data disks we previously part of another defunct RAID array it may be necessary to add the `--force` parameter to the `mdadm` command:
 
 		# sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
 		  /dev/sdc1 /dev/sdd1 /dev/sde1
 
 2. Create the file system on the new RAID device
 
-	**CentOS, Oracle Linux, SLES 12, openSUSE and Ubuntu**
+	**CentOS, Oracle Linux, SLES 12, openSUSE, and Ubuntu**
 
 		# sudo mkfs -t ext4 /dev/md127
 
@@ -121,7 +121,7 @@ In this example we will create a single disk partition on /dev/sdc. The new disk
 
 ## Add the new file system to /etc/fstab
 
-**Caution:** Improperly editing the /etc/fstab file could result in an unbootable system. If unsure, please refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the /etc/fstab file is created before editing.
+**Caution:** Improperly editing the /etc/fstab file could result in an unbootable system. If unsure, refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the /etc/fstab file is created before editing.
 
 1. Create the desired mount point for your new file system, for example:
 
@@ -147,7 +147,7 @@ In this example we will create a single disk partition on /dev/sdc. The new disk
 
 		# sudo mount -a
 
-	If this command results in an error message please check the syntax in the /etc/fstab file.
+	If this command results in an error message, please check the syntax in the /etc/fstab file.
 
 	Next run the `mount` command to ensure the file system is mounted:
 
@@ -159,7 +159,7 @@ In this example we will create a single disk partition on /dev/sdc. The new disk
 
 	**fstab configuration**
 
-	Many distributions include either the `nobootwait` or `nofail` mount parameters that may be added to the /etc/fstab file. These parameters allow for failures when mounting a particular file system and allow the Linux system to continue to boot even if it is unable to properly mount the RAID file system. Please refer to your distribution's documentation for more information on these parameters.
+	Many distributions include either the `nobootwait` or `nofail` mount parameters that may be added to the /etc/fstab file. These parameters allow for failures when mounting a particular file system and allow the Linux system to continue to boot even if it is unable to properly mount the RAID file system. Refer to your distribution's documentation for more information on these parameters.
 
 	Example (Ubuntu):
 

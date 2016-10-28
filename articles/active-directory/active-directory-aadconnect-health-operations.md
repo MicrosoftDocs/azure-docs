@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="karavar"
-	manager="stevenpo"
+	manager="samueld"
 	editor="curtand"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2016"
+	ms.date="10/18/2016"
 	ms.author="vakarand"/>
 
 # Azure AD Connect Health Operations
@@ -61,9 +61,9 @@ Azure AD Connect Health for AD FS & Azure AD Connect (Sync):
 
 Azure AD Connect Health for AD DS:
 
-1. Open the Domain Controllers dashboard. 
+1. Open the Domain Controllers dashboard.
 2. Select the domain controller to be removed.
-3. Click on the "Delete Selected" button from the action bar. 
+3. Click on the "Delete Selected" button from the action bar.
 4. Confirm the action to delete the server.
 5. Click on the "Delete" button.
 

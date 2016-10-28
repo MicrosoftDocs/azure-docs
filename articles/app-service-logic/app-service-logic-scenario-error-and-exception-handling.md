@@ -4,7 +4,7 @@
     keywords=""
     services="logic-apps"
     authors="hedidin"
-    manager=""
+    manager="anneta"
     editor=""
     documentationCenter=""/>
 

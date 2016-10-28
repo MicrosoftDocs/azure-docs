@@ -2,7 +2,7 @@ Caches can be accessed in the [Azure portal](https://portal.azure.com) using the
 
 ![Azure Redis Cache Browse Blade](media/redis-cache-browse/redis-cache-browse.png)
 
-Click **Browse > Redis Caches** to view your caches. If you have recently browsed to a Redis Cache, you can click **Redis Caches** directly from the list without clicking **Browse**.
+To view your caches, click **More services > Redis Caches**. If you have recently browsed to a Redis Cache, you can click **Redis Caches** directly from the list without clicking **More services**.
 
 Select the desired cache to view the properties for that cache.
 

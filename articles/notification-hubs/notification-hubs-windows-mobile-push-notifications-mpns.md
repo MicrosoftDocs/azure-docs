@@ -4,7 +4,7 @@
 	services="notification-hubs"
 	documentationCenter="windows"
     keywords="push notification,push notification,windows phone push"
-	authors="wesmc7777"
+	authors="ysxu"
 	manager="erikre"
 	editor="erikre"/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/29/2016"
-	ms.author="wesmc"/>
+	ms.date="10/03/2016"
+	ms.author="yuaxu"/>
 
 # Sending push notifications with Azure Notification Hubs on Windows Phone
 
@@ -216,7 +216,7 @@ Learn more about how to use Notification Hubs in [Notification Hubs Guidance].
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [MPNS authenticated mode]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Use Notification Hubs to send breaking news]: notification-hubs-windows-phone-send-breaking-news.md
+[Use Notification Hubs to send breaking news]: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
 [toast catalog]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [tile catalog]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hubs - Windows Phone Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp

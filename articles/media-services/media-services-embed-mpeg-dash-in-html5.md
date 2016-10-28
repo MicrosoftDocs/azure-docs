@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Embedding a MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js" 
+	pageTitle="Embedding a MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js | Microsoft Azure" 
 	description="This topic demonstrates how to embed an MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js." 
 	authors="Juliako" 
 	manager="erikre" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 
@@ -41,8 +41,8 @@ Initializing the player can be completed in just a handful of lines of JavaScrip
 
 ##Creating the HTML Page
 
-The first step is to create a standard HTML page containing the <video> element, save this file as basicPlayer.html, as the following example illustrates:
-	
+The first step is to create a standard HTML page containing the **video** element, save this file as basicPlayer.html, as the following example illustrates:
+
 	<!DOCTYPE html>
 	<html>
 	  <head><title>Adaptive Streaming in HTML5</title></head>

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016"
+	ms.date="10/11/2016"
 	ms.author="adegeo"/>
 
 # Certificates overview for Azure Cloud Services
@@ -66,6 +66,9 @@ $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLoc
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
+
+>[AZURE.NOTE] If you want to use the certificate with an IP address instead of a domain, use the IP address in the -DnsName parameter.
+
 
 If you want to use this [certificate with the management portal](../azure-api-management-certs.md), export it to a **.cer** file:
 

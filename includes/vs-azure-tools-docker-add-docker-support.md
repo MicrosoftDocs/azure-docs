@@ -2,7 +2,7 @@
 
     ![Add Docker Support context menu](media/vs-azure-tools-docker-add-docker-support/docker-support-context-menu.png)
 
-1. Adding Docker support to an ASP.NET 5 web project results in the addition of several Docker-related
+1. Adding Docker support to an ASP.NET Core web project results in the addition of several Docker-related
 files being added to the project, including Docker-Compose files, deployment Windows PowerShell scripts, and Docker property files. 
 
     ![Docker files added to project](media/vs-azure-tools-docker-add-docker-support/docker-files-added.png)
@@ -11,5 +11,5 @@ files being added to the project, including Docker-Compose files, deployment Win
 > and restart Visual Studio for the value to take effect.
 > 
 > ```
-> <DockerMachineName Condition="'$(DockerMachineName)'=="></DockerMachineName>
+> <DockerMachineName Condition="'$(DockerMachineName)'=='' "></DockerMachineName>
 > ```

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="barbkess"
 	manager="jhubbard"
-	editor=""/>
+	editor="MightyPen"/>
 
 <tags
 	ms.service="sql-data-warehouse"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/21/2016"
+	ms.date="10/05/2016"
 	ms.author="barbkess"/>
 
 
@@ -23,14 +23,22 @@ This topic lists every topic that applies directly to the **SQL Data Warehouse**
 
 
 
-## Updated articles
 
-This section lists articles which were updated recently, where the update was big or significant. For each updated article, a rough snippet of the added markdown text is displayed. The articles were updated within the date range of **2016-07-26** to **2016-08-21**.
+## New
 
-| &nbsp; | Article | Updated text, snippet |
+| &nbsp; | Title | Description |
 | --: | :-- | :-- |
-| 1 | [Concurrency and workload management in SQL Data Warehouse](sql-data-warehouse-develop-concurrency.md) | ** Queries which honor concurrency limits** Most queries are governed by resource classes. These queries must fit inside both the concurrent query and concurrency slot thresholds. An end user cannot choose to exclude a query from the concurrency slot model. To reiterate, the following statements do **honor** resource classes: / INSERT-SELECT / UPDATE / DELETE / SELECT (when querying user tables) / ALTER INDEX REBUILD / ALTER INDEX REORGANIZE / ALTER TABLE REBUILD / CREATE INDEX / CREATE CLUSTERED COLUMNSTORE INDEX / CREATE TABLE AS SELECT (CTAS) / Data loading / Data movement operations conducted by the Data Movement Service (DMS) ** Query exceptions to concurrency limits**  |
-| 2 | [Migration to Premium Storage Details](sql-data-warehouse-migrate-to-premium-storage.md) | With the change to Premium Storage, we have also increased the number of database blob files in the underlying architecture of your Data Warehouse.  If you encounter any performance issues, we recommend that you rebuild your Clustered Columnstore Indexes using the script below.  This will force some of your existing data to the additional blobs.  If you take no action, the data will naturally redistribute over time as you load more data into your Data Warehouse tables. **Pre-requisites:** 1.	Data Warehouse should run with 1,000 DWUs or higher (see  scale compute power   ) 2.	User executing the script should be in the  mediumrc role    or higher 	1.	To add a user to this role, execute the following: 		1.	````EXEC sp_addrolemember 'xlargerc', 'MyUser'```` ````sql /------------------------------------------------------------------------------ /- Step 1: Create Table to control Index Rebuild /- Run as user in mediumrc or higher /------------------------------------------------------------ |
+| 1 | [SQL Data Warehouse backups](sql-data-warehouse-backups.md) | Learn about SQL Data Warehouse built-in database backups that enable you to restore an Azure SQL Data Warehouse to a restore point or a different geographical region. |
+
+
+## Updated articles, SQL Data Warehouse
+
+This section lists articles which were updated recently, where the update was big or significant. For each updated article, a rough snippet of the added markdown text is displayed. The articles were updated within the date range of **2016-08-22** to **2016-10-05**.
+
+| &nbsp; | Article | Updated text, snippet | Updated when |
+| --: | :-- | :-- | :-- |
+| 2 | [Load data from Azure blob storage into SQL Data Warehouse (PolyBase)](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) | /- To track bytes and files SELECT  r.command,  s.request_id,  r.status,  count(distinct input_name) as nbr_files,  sum(s.bytes_processed)/1024/1024 as gb_processed FROM  sys.dm_pdw_exec_requests r  inner join sys.dm_pdw_dms_external_work s  on r.request_id = s.request_id WHERE  r. label  = 'CTAS : Load  cso . DimProduct  '  OR r. label  = 'CTAS : Load  cso . FactOnlineSales  ' GROUP BY  r.command,  s.request_id,  r.status ORDER BY  nbr_files desc,  gb_processed desc;  | 2016-09-07 |
+| 3 | [SQL Data Warehouse restore](sql-data-warehouse-restore-database-overview.md) | ** Can I restore a paused data warehouse?** To restore a data warehouse that is paused, you need to first bring it back online. Once the data warehouse is back online, you have seven days of restore points to choose from. ** Restore to a geo-redundant region** If you are using the geo-redundant storage, you can restore the data warehouse to your paired data center in a different geographical region. The data warehouse is restored from the last daily backup. ** Restore timeline** You can restore a database to any restore point within the last seven days. Snapshots start every four to eight hours and are available for seven days. When a snapshot is older than seven days, it expires and its restore point is no longer available. ** Restore costs** The storage charge for the restored data warehouse is billed at the Azure Premium Storage rate. If you pause a restored data warehouse, you are charged for storage at the Azure Premium Storage rate. The advantage of pausing is you are not charge | 2016-09-29 |
 
 
 
@@ -40,17 +48,16 @@ This section lists articles which were updated recently, where the update was bi
 
 | &nbsp; | Title | Description |
 | --: | :-- | :-- |
-| 3 | [Authentication to Azure SQL Data Warehouse](sql-data-warehouse-authentication.md) | Azure Active Directory (AAD) and SQL Server authentication to Azure SQL Data Warehouse. |
-| 4 | [Best practices for Azure SQL Data Warehouse](sql-data-warehouse-best-practices.md) | Recommendations and best practices you should know as you develop solutions for Azure SQL Data Warehouse. These will help you be successful. |
-| 5 | [Drivers for Azure SQL Data Warehouse](sql-data-warehouse-connection-strings.md) | Connection strings and drivers for SQL Data Warehouse |
-| 6 | [Connect to Azure SQL Data Warehouse](sql-data-warehouse-connect-overview.md) | Connection overview for connecting to Azure SQL Data Warehouse |
-| 7 | [Analyze data with Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md) | Use Azure Machine Learning to build a predictive machine learning model based on data stored in Azure SQL Data Warehouse. |
-| 8 | [Query Azure SQL Data Warehouse (sqlcmd)](sql-data-warehouse-get-started-connect-sqlcmd.md) | Querying Azure SQL Data Warehouse with the sqlcmd Command-line Utility. |
-| 9 | [Create a SQL Data Warehouse database by using Transact-SQL (TSQL)](sql-data-warehouse-get-started-create-database-tsql.md) | Learn how to create an Azure SQL Data Warehouse with TSQL |
-| 10 | [How to create a support ticket for SQL Data Warehouse](sql-data-warehouse-get-started-create-support-ticket.md) | How to create a support ticket in Azure SQL Data Warehouse. |
-| 11 | [Load Data with Azure Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md) | Learn to load data with Azure Data Factory |
-| 12 | [Load data with PolyBase in SQL Data Warehouse](sql-data-warehouse-get-started-load-with-polybase.md) | Learn what PolyBase is and how to use it for data warehousing scenarios. |
-| 13 | [Create a New Logical Server](sql-data-warehouse-get-started-new-server.md) | Learn how to create an Azure SQL Data Warehouse in the Azure Portal |
+| 4 | [Authentication to Azure SQL Data Warehouse](sql-data-warehouse-authentication.md) | Azure Active Directory (AAD) and SQL Server authentication to Azure SQL Data Warehouse. |
+| 5 | [Best practices for Azure SQL Data Warehouse](sql-data-warehouse-best-practices.md) | Recommendations and best practices you should know as you develop solutions for Azure SQL Data Warehouse. These will help you be successful. |
+| 6 | [Drivers for Azure SQL Data Warehouse](sql-data-warehouse-connection-strings.md) | Connection strings and drivers for SQL Data Warehouse |
+| 7 | [Connect to Azure SQL Data Warehouse](sql-data-warehouse-connect-overview.md) | How to find the server name and connection string for your to Azure SQL Data Warehouse |
+| 8 | [Analyze data with Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md) | Use Azure Machine Learning to build a predictive machine learning model based on data stored in Azure SQL Data Warehouse. |
+| 9 | [Query Azure SQL Data Warehouse (sqlcmd)](sql-data-warehouse-get-started-connect-sqlcmd.md) | Querying Azure SQL Data Warehouse with the sqlcmd Command-line Utility. |
+| 10 | [Create a SQL Data Warehouse database by using Transact-SQL (TSQL)](sql-data-warehouse-get-started-create-database-tsql.md) | Learn how to create an Azure SQL Data Warehouse with TSQL |
+| 11 | [How to create a support ticket for SQL Data Warehouse](sql-data-warehouse-get-started-create-support-ticket.md) | How to create a support ticket in Azure SQL Data Warehouse. |
+| 12 | [Load Data with Azure Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md) | Learn to load data with Azure Data Factory |
+| 13 | [Load data with PolyBase in SQL Data Warehouse](sql-data-warehouse-get-started-load-with-polybase.md) | Learn what PolyBase is and how to use it for data warehousing scenarios. |
 | 14 | [Create an Azure SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) | Learn how to create an Azure SQL Data Warehouse in the Azure portal |
 | 15 | [Create SQL Data Warehouse using PowerShell](sql-data-warehouse-get-started-provision-powershell.md) | Create SQL Data Warehouse by using PowerShell |
 | 16 | [Visualize data with Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md) | Visualize SQL Data Warehouse data with Power BI |
@@ -90,7 +97,7 @@ This section lists articles which were updated recently, where the update was bi
 | 36 | [Monitor your workload using DMVs](sql-data-warehouse-manage-monitor.md) | Learn how to monitor your workload using DMVs. |
 | 37 | [Manage databases in Azure SQL Data Warehouse](sql-data-warehouse-overview-manage.md) | Overview of managing SQL Data Warehouse databases. Includes management tools, DWUs and scale-out performance, troubleshooting query performance, establishing good security policies, and restoring a database from data corruption or from a regional outage. |
 | 38 | [Monitor user queries in Azure SQL Data Warehouse](sql-data-warehouse-overview-manage-user-queries.md) | Overview of the considerations, best practices, and tasks for monitoring user queries in Azure SQL Data Warehouse |
-| 39 | [Restore an Azure SQL Data Warehouse (Overview)](sql-data-warehouse-restore-database-overview.md) | Overview of the database restore options for recovering a database in Azure SQL Data Warehouse. |
+| 39 | [SQL Data Warehouse restore](sql-data-warehouse-restore-database-overview.md) | Overview of the database restore options for recovering a database in Azure SQL Data Warehouse. |
 | 40 | [Restore an Azure SQL Data Warehouse (Portal)](sql-data-warehouse-restore-database-portal.md) | Azure portal tasks for restoring an Azure SQL Data Warehouse. |
 | 41 | [Restore an Azure SQL Data Warehouse (PowerShell)](sql-data-warehouse-restore-database-powershell.md) | PowerShell tasks for restoring an Azure SQL Data Warehouse. |
 | 42 | [Restore an Azure SQL Data Warehouse (REST API)](sql-data-warehouse-restore-database-rest-api.md) | REST API tasks for restoring an Azure SQL Data Warehouse. |
@@ -180,8 +187,8 @@ This section lists articles which were updated recently, where the update was bi
 | --: | :-- | :-- |
 | 78 | [SQL Data Warehouse -  Downlevel clients support for auditing and Dynamic Data Masking](sql-data-warehouse-auditing-downlevel-clients.md) | Learn about SQL Data Warehouse downlevel clients support for data auditing |
 | 79 | [Auditing in Azure SQL Data Warehouse](sql-data-warehouse-auditing-overview.md) | Get started with auditing in Azure SQL Data Warehouse |
-| 80 | [Get started with Transparent Data Encryption (TDE) in SQL Data Warehouse](sql-data-warehouse-encryption-tde.md) | Get started with Transparent Data Encryption (TDE) in SQL Data Warehouse |
-| 81 | [Get started with Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde-tsql.md) | Get started with SQL Data Warehouse Transparent Data Encryption (TDE) TSQL |
+| 80 | [Get started with Transparent Data Encryption (TDE) in SQL Data Warehouse](sql-data-warehouse-encryption-tde.md) | Transparent Data Encryption (TDE) in SQL Data Warehouse |
+| 81 | [Get started with Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde-tsql.md) | Transparent Data Encryption (TDE) in SQL Data Warehouse (T-SQL) |
 | 82 | [Secure a database in SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md) | Tips for securing a database in Azure SQL Data Warehouse for developing solutions. |
 
 

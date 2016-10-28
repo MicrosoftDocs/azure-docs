@@ -13,10 +13,16 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
+   ms.date="10/26/2016"
    ms.author="ryanwi"/>
 
-# Create your first Azure Service Fabric application in Visual Studio
+
+# Create your first Azure Service Fabric application
+
+> [AZURE.SELECTOR]
+- [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
+- [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
+- [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 
 The Service Fabric SDK includes an add-in for Visual Studio that provides templates and tools for creating, deploying, and debugging Service Fabric applications. This topic walks you through the process of creating your first application in Visual Studio.
 
@@ -68,9 +74,9 @@ Now that you have an application, try running it.
 
 1. Press F5 in Visual Studio to deploy the application for debugging.
 
-	>[AZURE.NOTE] Deploying takes a while the first time, as Visual Studio is creating a local cluster for development. A local cluster runs the same platform code that you will build on in a multi-machine cluster, just on a single machine. The cluster creation status displays in the Visual Studio output window.
+	>[AZURE.NOTE] Deploying takes a while the first time, as Visual Studio is creating a local cluster for development. A local cluster runs the same platform code that you build on in a multi-machine cluster, just on a single machine. The cluster creation status displays in the Visual Studio output window.
 
-	When the cluster is ready, you will get a notification from the local cluster system tray manager application included with the SDK.
+	When the cluster is ready, you get a notification from the local cluster system tray manager application included with the SDK.
 
 	![Local cluster system tray notification][4]
 
@@ -84,7 +90,7 @@ Now that you have an application, try running it.
 
 	![Diagnostic events viewer detail][6]
 
-	The local cluster contains five nodes hosted on a single machine. It mimics a five-node cluster, where nodes are on distinct machines. Let's take down one of the nodes on the local cluster in order to simulate the loss of a machine while exercising the Visual Studio debugger at the same time.
+	The local cluster contains five nodes hosted on a single machine. It mimics a five-node cluster, where nodes are on distinct machines. Let's take down one of the nodes on the local cluster to simulate the loss of a machine while exercising the Visual Studio debugger at the same time.
 
     >[AZURE.NOTE] The application diagnostic events emitted by the project template use the included `ServiceEventSource` class. For more information, see [How to monitor and diagnose services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
@@ -92,7 +98,7 @@ Now that you have an application, try running it.
 
 	![Breakpoint in stateful service RunAsync method][7]
 
-5. Right-click the Local Cluster Manager system tray app and choose **Manage Local Cluster** in order to launch Service Fabric Explorer.
+5. Right-click the Local Cluster Manager system tray app and choose **Manage Local Cluster** to launch Service Fabric Explorer.
 
     ![Launch Service Fabric Explorer from the Local Cluster Manager][systray-launch-sfx]
 
@@ -106,9 +112,17 @@ Now that you have an application, try running it.
 
 	Momentarily, you should see your breakpoint hit in Visual Studio as the computation you were doing on one node seamlessly fails over to another.
 
-8. Return to the Diagnostic Events Viewer and observe the messages. Note that the counter has continued incrementing, even though the events are actually coming from a different node.
+8. Return to the Diagnostic Events Viewer and observe the messages. The counter has continued incrementing, even though the events are actually coming from a different node.
 
     ![Diagnostic events viewer after failover][diagnostic-events-viewer-detail-post-failover]
+
+## Switch cluster mode
+
+By default, the local development cluster is configured to run as a 5 node cluster, which is useful for debugging services deployed across multiple nodes. Deploying an application to the 5 node development cluster can take some time, however. If you want to iterate code changes quickly, without running your app on 5 nodes, you can switch the development cluster to 1-Node mode. To run your code on a cluster with one node, right-click on the Local Cluster Manager in the system tray and select **Switch Cluster Mode -> 1 Node**.  
+
+![Switch cluster mode][switch-cluster-mode]
+
+When you change cluster mode the development cluster resets and all applications provisioned or running on the cluster are removed.
 
 ## Cleaning up
 
@@ -116,7 +130,7 @@ Now that you have an application, try running it.
 
   1. To shut down the cluster but keep the application data and traces, click **Stop Local Cluster** in the system tray app.
 
-  2. To delete the cluster entirely, click **Remove Local Cluster** in the system tray app. Note that this option will result in another slow deployment the next time you press F5 in Visual Studio. Delete the cluster only if you don't intend to use the local cluster for some time or if you need to reclaim resources.
+  2. To delete the cluster entirely, click **Remove Local Cluster** in the system tray app. This option will result in another slow deployment the next time you press F5 in Visual Studio. Delete the cluster only if you don't intend to use the local cluster for some time or if you need to reclaim resources.
 
 ## Next steps
 
@@ -138,3 +152,4 @@ Now that you have an application, try running it.
 [systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
+[switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png

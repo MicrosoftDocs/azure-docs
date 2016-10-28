@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"  />
 
 <tags
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2016"
-	ms.author="gokuma;bradsev" />
+	ms.date="09/12/2016"
+	ms.author="bradsev" />
 
 # Provision the Linux Data Science Virtual Machine
 
 The Linux Data Science Virtual Machine is an Azure virtual machine that comes with a collection of pre-installed tools. These tools are commonly used for doing data analytics and machine learning. The key software components included are:
 
-- Microsoft R Open
+- Microsoft R Server Developer Edition
 - Anaconda Python distribution (versions 2.7 and 3.5), including popular data analysis libraries
-- Jupyter Notebook (R, Python)
+- JupyterHub - a multiuser Jupyter notebook server supporting R, Python, Julia kernels
 - Azure Storage Explorer
 - Azure command-line interface (CLI) for managing Azure resources
 - PostgresSQL Database
@@ -45,7 +45,7 @@ Data scientists use various tools to complete these tasks. It can be quite time 
 
 The Linux Data Science Virtual Machine can ease this burden substantially. Use it to jump-start your analytics project. It enables you to work on tasks in various languages, including R, Python, SQL, Java, and C++. Eclipse provides an IDE to develop and test your code that is easy to use. The Azure SDK included in the VM allows you to build your applications by using various services on Linux for the Microsoft cloud platform. In addition, you have access to other languages like Ruby, Perl, PHP, and node.js that are also pre-installed.
 
-There are no software charges for this data science VM image. You pay only the Azure hardware usage fees that are assessed based on the size of the virtual machine that you provision with the VM image. More details on the compute fees can be found on the [Azure Marketplace partner program site](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linuxdsvm/).
+There are no software charges for this data science VM image. You pay only the Azure hardware usage fees that are assessed based on the size of the virtual machine that you provision with the VM image. More details on the compute fees can be found on the [VM listing page on the Azure Marketplace ](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
 
 
 ## Prerequisites
@@ -64,7 +64,7 @@ Here are the steps to create an instance of the Linux Data Science Virtual Machi
 2.	 Click **Create** (at the bottom) to bring up the wizard.![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
 3.	 The following sections provide the inputs for each of the steps in the wizard (enumerated on the right of the preceding figure) used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
 
-  a. **Basics**:
+  	a. **Basics**:
 
   - **Name**: Name of your data science server you are creating.
   - **User Name**: First account sign-in ID.
@@ -73,21 +73,21 @@ Here are the steps to create an instance of the Linux Data Science Virtual Machi
   - **Resource Group**: You can create a new one or use an existing group.
   - **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data, or is closest to your physical location for fastest network access.
 
-  b. **Size**:
+  	b. **Size**:
 
   - Select one of the server types that meets your functional requirement and cost constraints. Select **View All** to see more choices of VM sizes.
 
-  c. **Settings**:
+  	c. **Settings**:
 
   - **Disk Type**: Choose **Premium** if you prefer a solid state drive (SSD). Otherwise, choose **Standard**.
   - **Storage Account**: You can create a new Azure storage account in your subscription, or use an existing one in the same location that was chosen on the **Basics** step of the wizard.
   - **Other parameters**: In most cases, you just use the default values. To consider non-default values, hover over the informational link for help on the specific fields.
 
-  d. **Summary**:
+  	d. **Summary**:
 
   - Verify that all information you entered is correct.
 
-  e. **Buy**:
+  	e. **Buy**:
 
   - To start the provisioning, click **Buy**. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step.
 
@@ -341,6 +341,7 @@ You can exit Rattle and R. Now you can modify the generated R script, or use it 
 ## Next steps
 Here's how you can continue your learning and exploration:
 
+* The [Data science on the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-walkthrough.md) walkthrough shows you how to perform several common data science tasks with the Linux Data Science VM provisioned here. 
 * Explore the various data science tools on the data science VM by trying out the tools described in this article. You can also run *dsvm-more-info* on the shell within the virtual machine for a basic introduction and pointers to more information about the tools installed on the VM.  
 * Learn how to build end-to-end analytical solutions systematically by using the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 * Visit the [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) for machine learning and data analytics samples that use the Cortana Analytics Suite.

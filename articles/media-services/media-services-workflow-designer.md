@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Create Advanced Encoding Workflows with Workflow Designer" 
+	pageTitle="Create Advanced Encoding Workflows with Workflow Designer | Microsoft Azure" 
 	description="Learn about how to create advanced encoding workflows with Workflow Designer." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,johndeu,anilmur" 
-	manager="dwrede" 
+	authors="anilmur" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="09/15/2016"
+	ms.author="juliako;johndeu;anilmur"/>
 
 
 #Create Advanced Encoding Workflows with Workflow Designer
@@ -76,8 +76,9 @@ Day 3 video covers:
 > [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-3]
 
 
+## Next step
 
-##Media Services learning paths
+Review Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

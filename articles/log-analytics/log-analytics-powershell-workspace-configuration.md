@@ -18,7 +18,7 @@
 
 # Manage Log Analytics using PowerShell
 
-You can use the [Log Analytics PowerShell cmdlets](http://msdn.microsoft.com/library/mt188224.aspx) to perform various functions in Log Analytics from a command line or as part of a script.  Examples of the tasks you can perform with PowerShell include:
+You can use the [Log Analytics PowerShell cmdlets](https://msdn.microsoft.com/library/mt188224(v=azure.300\).aspx) to perform various functions in Log Analytics from a command line or as part of a script.  Examples of the tasks you can perform with PowerShell include:
 
 + Create a workspace
 + Add or remove a solution
@@ -33,7 +33,7 @@ You can use the [Log Analytics PowerShell cmdlets](http://msdn.microsoft.com/lib
 + Configure log analytics to index data collected using Azure diagnostics
 
 
-This article provides two code samples that illustrate some of the functions that you can perform from PowerShell.  You can refer to the [Log Analytics PowerShell cmdlet reference](http://msdn.microsoft.com/library/mt188224.aspx) for other functions.
+This article provides two code samples that illustrate some of the functions that you can perform from PowerShell.  You can refer to the [Log Analytics PowerShell cmdlet reference](https://msdn.microsoft.com/library/mt188224(v=azure.300\).aspx) for other functions.
 
 > [AZURE.NOTE] Log Analytics was previously called Operational Insights, which is why it is the name used in the cmdlets.
 

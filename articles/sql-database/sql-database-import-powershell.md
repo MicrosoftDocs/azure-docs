@@ -67,7 +67,7 @@ The blob name is the name of an existing BACPAC file that you want to create the
     $StorageKey = "primaryaccesskey"
 
 
-Running the [Get-Credential](https://msdn.microsoft.com/library/hh849815.aspx) cmdlet opens a window asking for your user name and password. Enter the admin login and password for the SQL Database server ($ServerName from above), and not the user name and password for your Azure account.
+Running the [Get-Credential](https://msdn.microsoft.com/library/azure/hh849815(v=azure.300\).aspx) cmdlet opens a window asking for your user name and password. Enter the admin login and password for the SQL Database server ($ServerName from above), and not the user name and password for your Azure account.
 
     $credential = Get-Credential
 
@@ -81,7 +81,7 @@ This command submits an import database request to the service. Depending on the
 
 ## Monitor the progress of the operation
 
-After running [New-AzureRmSqlDatabaseImport](https://msdn.microsoft.com/library/mt707793.aspx), you can check the status of the request by running the [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/mt707794.aspx).
+After running [New-AzureRmSqlDatabaseImport](https://msdn.microsoft.com/library/azure/mt707793(v=azure.300\).aspx), you can check the status of the request by running the [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/azure/mt707794(v=azure.300\).aspx).
 
     Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
 

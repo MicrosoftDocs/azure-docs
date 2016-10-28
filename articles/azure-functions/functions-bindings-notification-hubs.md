@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="08/19/2016"
+	ms.date="10/27/2016"
 	ms.author="wesmc"/>
 
 # Azure Functions Notification Hub output binding
@@ -26,9 +26,11 @@ This article explains how to configure and code Azure Notification Hub bindings 
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
-Your functions can send push notifications using a configured Azure Notification Hub with a very few lines of code. However, the notification hub must be configured for the Platform Notifications Services (PNS) you want to use. For more information on configuring an Azure Notification Hub and developing a client applications that register to receive notifications, see [Getting started with Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) and click your target client platform at the top.
+Your functions can send push notifications using a configured Azure Notification Hub with a few lines of code. However, the Azure Notification Hub must be configured for the Platform Notifications Services (PNS) you want to use. For more information on configuring an Azure Notification Hub and developing a client applications that register to receive notifications, see [Getting started with Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) and click your target client platform at the top.
 
-## function.json for Azure Notification Hub output binding
+The notifications you send can be native notifications or template notifications. Native notifications target a specific notification platform as configured in the `platform` property of the output binding. A template notification can be used to target multiple platforms.   
+
+## Notification hub output binding properties
 
 The function.json file provides the following properties:
 
@@ -38,6 +40,13 @@ The function.json file provides the following properties:
 - `hubName` : Name of the notification hub resource in the Azure portal.
 - `connection` : This connection string must be an **Application Setting** connection string set to the *DefaultFullSharedAccessSignature* value for your notification hub.
 - `direction` : must be set to *"out"*. 
+- `platform` : The platform property indicates the notification platform your notification targets. Must be one of the following values:
+	- `template` : This is the default platform if the platform property is omitted from the output binding. Template notifications can be used to target any platform configured on the Azure Notification Hub. For more information on using templates in general to send cross platform notifications with an Azure Notification Hub, see [Templates](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+	- `apns` : Apple Push Notification Service. For more information on configuring the notification hub for APNS and receiving the notification in a client app, see [Sending push notifications to iOS with Azure Notification Hubs](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md) 
+	- `adm` : [Amazon Device Messaging](https://developer.amazon.com/device-messaging). For more information on configuring the notification hub for ADM and receiving the notification in a Kindle app, see [Getting Started with Notification Hubs for Kindle apps](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md) 
+	- `gcm` : [Google Cloud Messaging](https://developers.google.com/cloud-messaging/). Firebase Cloud Messaging, which is the new version of GCM, is also supported. For more information on configuring the notification hub for GCM/FCM and receiving the notification in an Android client app, see [Sending push notifications to Android with Azure Notification Hubs](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md)
+	- `wns` : [Windows Push Notification Services](https://msdn.microsoft.com/en-us/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview) targeting Windows platforms. Windows Phone 8.1 and later is also supported by WNS. For more information on configuring the notification hub for WNS and receiving the notification in a Universal Windows Platform (UWP) app, see [Getting started with Notification Hubs for Windows Universal Platform Apps](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
+	- `mpns` : [Microsoft Push Notification Service](https://msdn.microsoft.com/en-us/library/windows/apps/ff402558.aspx). This platform supports Windows Phone 8 and earlier Windows Phone platforms. For more information on configuring the notification hub for MPNS and receiving the notification in a Windows Phone app, see [Sending push notifications with Azure Notification Hubs on Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md)
  
 Example function.json:
 
@@ -49,15 +58,16 @@ Example function.json:
 	      "tagExpression": "",
 	      "hubName": "my-notification-hub",
 	      "connection": "MyHubConnectionString",
+		  "platform": "gcm",
 	      "direction": "out"
 	    }
 	  ],
 	  "disabled": false
 	}
 
-## Azure Notification Hub connection string setup
+## Notification hub connection string setup
 
-To use a Notification hub output binding you must configure the connection string for the hub. You can do this on the *Integrate* tab by simply selecting your notification hub or creating a new one. 
+To use a Notification hub output binding, you must configure the connection string for the hub. This can be done on the *Integrate* tab by selecting your notification hub or creating a new one. 
 
 You can also manually add a connection string for an existing hub by adding a connection string for the *DefaultFullSharedAccessSignature* to your notification hub. This connection string provides your function access permission to send notification messages. The *DefaultFullSharedAccessSignature* connection string value can be accessed from the **keys** button in the main blade of your notification hub resource in the Azure portal. To manually add a connection string for your hub, use the following steps: 
 
@@ -65,10 +75,114 @@ You can also manually add a connection string for an existing hub by adding a co
 
 2. In the **Settings** blade, click **Application Settings**.
 
-3. Scroll down to the **Connection strings** section, and add an named entry for *DefaultFullSharedAccessSignature* value for you notification hub. Change the type to **Custom**.
+3. Scroll down to the **Connection strings** section, and add a named entry for *DefaultFullSharedAccessSignature* value for your notification hub. Change the type to **Custom**.
 4. Reference your connection string name in the output bindings. Similar to **MyHubConnectionString** used in the example above.
 
-## Azure Notification Hub code example for a Node.js timer trigger 
+## Native notification examples
+
+#### APNS native notifications with C# queue triggers
+
+This example shows how to use types defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) to send a native APNS notification. 
+
+	#r "Microsoft.Azure.NotificationHubs"
+	#r "Newtonsoft.Json"
+	
+	using System;
+	using Microsoft.Azure.NotificationHubs;
+	using Newtonsoft.Json;
+	
+	public static async Task Run(string myQueueItem, IAsyncCollector<Notification> notification, TraceWriter log)
+	{
+	    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+	
+		// In this example the queue item is a new user to be processed in the form of a JSON string with 
+		// a "name" value.
+		//
+		// The JSON format for a native APNS notification is ...
+		// { "aps": { "alert": "notification message" }}  
+
+	    log.Info($"Sending APNS notification of a new user");	
+	    dynamic user = JsonConvert.DeserializeObject(myQueueItem);	
+	    string apnsNotificationPayload = "{\"aps\": {\"alert\": \"A new user wants to be added (" + 
+											user.name + ")\" }}";
+	    log.Info($"{apnsNotificationPayload}");
+	    await notification.AddAsync(new AppleNotification(apnsNotificationPayload));	    
+	}
+
+#### GCM native notifications with C# queue triggers
+
+This example shows how to use types defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) to send a native GCM notification. 
+
+	#r "Microsoft.Azure.NotificationHubs"
+	#r "Newtonsoft.Json"
+	
+	using System;
+	using Microsoft.Azure.NotificationHubs;
+	using Newtonsoft.Json;
+	
+	public static async Task Run(string myQueueItem, IAsyncCollector<Notification> notification, TraceWriter log)
+	{
+	    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+	
+		// In this example the queue item is a new user to be processed in the form of a JSON string with 
+		// a "name" value.
+		//
+		// The JSON format for a native GCM notification is ...
+		// { "data": { "message": "notification message" }}  
+
+	    log.Info($"Sending GCM notification of a new user");	
+	    dynamic user = JsonConvert.DeserializeObject(myQueueItem);	
+	    string gcmNotificationPayload = "{\"data\": {\"message\": \"A new user wants to be added (" + 
+											user.name + ")\" }}";
+	    log.Info($"{gcmNotificationPayload}");
+	    await notification.AddAsync(new GcmNotification(gcmNotificationPayload));	    
+	}
+
+#### WNS native notifications with C# queue triggers
+
+This example shows how to use types defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) to send a native WNS toast notification. 
+
+	#r "Microsoft.Azure.NotificationHubs"
+	#r "Newtonsoft.Json"
+	
+	using System;
+	using Microsoft.Azure.NotificationHubs;
+	using Newtonsoft.Json;
+	
+	public static async Task Run(string myQueueItem, IAsyncCollector<Notification> notification, TraceWriter log)
+	{
+	    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+	
+		// In this example the queue item is a new user to be processed in the form of a JSON string with 
+		// a "name" value.
+		//
+		// The XML format for a native WNS toast notification is ...
+		// <?xml version="1.0" encoding="utf-8"?>
+		// <toast>
+		// 	 <visual>
+		//     <binding template="ToastText01">
+		//       <text id="1">notification message</text>
+		//     </binding>
+		//   </visual>
+		// </toast>
+
+	    log.Info($"Sending WNS toast notification of a new user");	
+	    dynamic user = JsonConvert.DeserializeObject(myQueueItem);	
+	    string wnsNotificationPayload = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+										"<toast><visual><binding template=\"ToastText01\">" +
+											"<text id=\"1\">" + 
+												"A new user wants to be added (" + user.name + ")" + 
+											"</text>" +
+										"</binding></visual></toast>";
+
+	    log.Info($"{wnsNotificationPayload}");
+	    await notification.AddAsync(new WindowsNotification(wnsNotificationPayload));	    
+	}
+
+
+## Template notification examples
+
+#### Template example for Node.js timer triggers 
 
 This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `location` and `message`.
 
@@ -87,10 +201,17 @@ This example sends a notification for a [template registration](../notification-
 	    context.done();
 	};
 
-## Azure Notification Hub code example for a C# queue trigger
+#### Template example for F# timer triggers
 
-This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `message`.
+This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `location` and `message`.
 
+	let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
+	    notification = dict [("location", "Redmond"); ("message", "Hello from F#!")]
+
+
+#### Template example using an out parameter 
+
+This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains a `message` place holder in the template.
 
 	using System;
 	using System.Threading.Tasks;
@@ -109,7 +230,32 @@ This example sends a notification for a [template registration](../notification-
 	    return templateProperties;
 	}
 
-This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `message` using a valid JSON string.
+#### Template example with asynchronous function
+
+If you are using asynchronous code, out parameters are not allowed. In this case use `IAsyncCollector` to return your template notification. The following code is an asynchronous example of the code above. 
+
+	using System;
+	using System.Threading.Tasks;
+	using System.Collections.Generic;
+	
+	public static async Task Run(string myQueueItem, IAsyncCollector<IDictionary<string,string>> notification, TraceWriter log)
+	{
+	    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+	
+	    log.Info($"Sending Template Notification to Notification Hub");
+	    await notification.AddAsync(GetTemplateProperties(myQueueItem));    
+	}
+	
+	private static IDictionary<string, string> GetTemplateProperties(string message)
+	{
+	    Dictionary<string, string> templateProperties = new Dictionary<string, string>();
+	    templateProperties["user"] = "A new user wants to be added : " + message;
+	    return templateProperties;
+	}
+
+#### Template example using JSON 
+
+This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains a `message` place holder in the template using a valid JSON string.
 
 	using System;
 	 
@@ -119,23 +265,13 @@ This example sends a notification for a [template registration](../notification-
 		notification = "{\"message\":\"Hello from C#. Processed a queue item!\"}";
 	}
 
-## Azure Notification Hub queue trigger C# code example using Notification type
 
-This example shows how to use the `Notification` type that is defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). In order to use this type, and the library, you must upload a *project.json* file for your function app. The project.json file is a JSON text file which will look similar to the follow:
+#### Template example using Notification Hubs library types
 
-	{
-	  "frameworks": {
-	    ".NETFramework,Version=v4.6": {
-	      "dependencies": {
-	        "Microsoft.Azure.NotificationHubs": "1.0.4"
-	      }
-	    }
-	  }
-	}
+This example shows how to use types defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). 
 
-For more information on uploading your project.json file, see [uploading a project.json file](functions-reference.md#fileupdate).
 
-Example code:
+	#r "Microsoft.Azure.NotificationHubs"
 
 	using System;
 	using System.Threading.Tasks;
@@ -146,6 +282,7 @@ Example code:
 	   log.Info($"C# Queue trigger function processed: {myQueueItem}");
 	   notification = GetTemplateNotification(myQueueItem);
 	}
+
 	private static TemplateNotification GetTemplateNotification(string message)
 	{
 	    Dictionary<string, string> templateProperties = new Dictionary<string, string>();

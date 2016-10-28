@@ -2,7 +2,7 @@
 	pageTitle="Offline Data Sync in Azure Mobile Apps | Microsoft Azure"
 	description="Conceptual reference and overview of the offline data sync feature for Azure Mobile Apps"
 	documentationCenter="windows"
-	authors="wesmc7777"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""
 	services="app-service\mobile"/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="06/28/2016"
-	ms.author="wesmc"/>
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>
 
 # Offline Data Sync in Azure Mobile Apps
 

@@ -1,10 +1,11 @@
 <properties
-	pageTitle="What do I do if my Azure subscription is disabled? | Microsoft Azure"
-	description="Describes the reasons and resolution for Azure subscription becomes disabled"
+	pageTitle="Reactivate disabled Azure subscription | Microsoft Azure"
+	description="Describes when you might have an Azure subscription disabled and how to reactivate it."
+	keywords="azure subscription disabled"
 	services=""
 	documentationCenter=""
 	authors="genlin"
-	manager="msmbaldwin"
+	manager="mbaldwin"
 	editor=""
 	tags="billing"
 	/>
@@ -15,62 +16,58 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
+	ms.date="10/04/2016"
 	ms.author="genli"/>
 
-# What do I do if my Azure subscription is disabled?
+# Why is my Azure subscription disabled and how do I reactivate it?
 
-> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+You might have your Azure subscription disabled because you reached your spending limit, have an overdue bill, hit your credit card limit, or because the subscription was canceled by the account administrator. See what issue applies to you and follow the steps in this article to get your subscription reactivated. 
 
-If your Azure subscription becomes disabled, you can use the steps in this article to re-enable it. Your Azure subscription can become disabled for the following reasons.
+## You reached your spending limit
 
-## You have reached your spending limit
+When your usage exhausts the monthly amounts included with your subscription, we disable your service for the remainder of that billing month. Your service is disabled to protect you from accidentally incurring charges for usage beyond the amount included with your subscription. You can remove the spending limit and [set up billing alerts for your Microsoft Azure subscriptions](billing-set-up-alerts.md) to help you monitor and manage billing activity for your Azure accounts.
 
-To protect you from accidentally incurring charges for usage beyond the included offer amount, we have introduced the [spending limit](https://azure.microsoft.com/pricing/spending-limits/) feature. When your usage exhausts the monthly amounts included in your offer, we will disable your service for the remainder of that billing month. You can opt to remove the spending limit to avoid this and [set up billing alerts for your Microsoft Azure subscriptions](billing-set-up-alerts.md) to help you monitor and manage billing activity for your Azure accounts.
-
-Here is how you can remove your Spending Limit:
+To remove your spending limit,
 
 1. Log in to the [Azure Account Center](https://account.windowsazure.com/Home/Index).
 
-2. Click on **Subscriptions**.
+2. Click **Subscriptions**.
 
 3. Select a subscription.
 
-4. If you see *Subscription reached the Spending Limit and has been disabled to prevent charges*, click on it.
+4. Click **Subscription reached the Spending Limit and has been disabled to prevent charges**.
 
-	Alternatively, click **Remove spending limit** in the **Subscription Status** area.
+	If you don't see that option, click **Remove spending limit** in the subscription **Status** area.
 
-5. Select one of the following options that is appropriate for you：
+5. Select one of the following options:
 
 |Option|Effect|
 |------|------|
-|Remove spending limit indefinitely|Removes the spending limit without turning it on automatically at the start of the next billing period.|
-|Remove spending limit for the current billing period|Removes the spending limit so that it turns back on automatically at the start of the next billing period.|
+|Remove spending limit indefinitely|Removes the spending limit until you turn it back on.|
+|Remove spending limit for the current billing period|Removes the spending limit but the spending limit restarts for the next billing period.|
 
->[AZURE.NOTE] If you are using a Free Trial subscription, removing the spending limit will convert your subscription to Pay-As-You-Go at the end of the Free Trial.
+If you have a Free Trial subscription and you remove the spending limits, your subscription converts to Pay-As-You-Go at the end of the free trial.
 
 ## Your bill is past due
 
-Pay your outstanding balance in full. To do this, see the article [Why have you received a notification that your Azure subscription has a past due balance?](billing-azure-subscription-past-due-balance.md#what-can-you-do-to-resolve-the-issue)
+Pay your outstanding balance in full. See the article [Why have you received a notification that your Azure subscription has a past due balance?](billing-azure-subscription-past-due-balance.md#what-can-you-do-to-resolve-the-issue)
 
 ## The bill exceeds your credit card limit
 
-To resolve this issue, use one of the following method:
+To resolve this issue, [switch to a different credit card](billing-how-to-change-credit-card.md). Or if you're representing a business, you can [switch to pay by invoice](https://azure.microsoft.com/pricing/invoicing/).
 
-- [Switch to a different credit card](billing-how-to-change-credit-card.md).
-- If you are a business, you can [switch to the invoice method of payment](https://azure.microsoft.com/pricing/invoicing/).
+## The subscription was canceled by the Account Administrator
 
-## How to re-enable your subscription
+If you're the account administrator, reactivate your Pay-As-You-Go subscription by using the following steps: 
 
-To re-enable a disabled subscription, you must create a support ticket: sign into the [Azure portal](https://portal.azure.com/), select **Help + support**>**New support request**.
+1. Log in to the [Azure Account Center](https://account.windowsazure.com/Home/Index).
+2. Select the canceled subscription.
+3. Click **Reactivate**.
 
-![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
+![Screenshot that shows reactivate links on the right pane.](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
 
-If you cannot access the portal, submit a support request from the Azure Support web site or from the Azure Accounts Center:
+For other subscription types, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to have your subscription reactivated.
 
- * To submit a support ticket from the [Azure Support web site](https://azure.microsoft.com/support/options/), click **Get support**.
- * To submit a support ticket from the [Azure Account Center](https://account.windowsazure.com/Subscriptions), select a subscription, and then click **Contact Microsoft Support**.
+## Need help? Contact support.
+If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly. 
 
-For more information, see [How to Create a Support Ticket for Azure Billing and Subscription Issues](billing-how-to-create-billing-support-ticket.md).
-
-> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

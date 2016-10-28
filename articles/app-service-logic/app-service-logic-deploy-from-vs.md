@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/26/2016"
+	ms.date="10/18/2016"
 	ms.author="jehollan"/> 
 	
 # Build and Deploy Logic Apps in Visual Studio
@@ -28,6 +28,7 @@ Below are the steps to install and configure the Visual Studio tools for Logic A
 
 - [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 - [Latest Azure SDK](https://azure.microsoft.com/downloads/) (2.9.1 or greater)
+- [Azure PowerShell] (https://github.com/Azure/azure-powershell#installation)
 - Access to the web when using the embedded designer
 
 ### Install Visual Studio tools for Logic Apps

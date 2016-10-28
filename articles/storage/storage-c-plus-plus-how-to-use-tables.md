@@ -3,8 +3,8 @@
 	description="Store structured data in the cloud using Azure Table storage, a NoSQL data store."
     services="storage"
     documentationCenter=".net"
-    authors="tamram"
-    manager="carmonm"
+    authors="dineshmurthy"
+    manager="jahogg"
     editor="tysonn"/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="07/26/2016"
+	ms.date="10/18/2016"
     ms.author="dineshm"/>
 
 # How to use Table storage from C++

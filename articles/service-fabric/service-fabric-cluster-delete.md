@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Delete a cluster and its’ resources | Microsoft Azure"
+   pageTitle="Delete an Azure cluster and its resources | Microsoft Azure"
    description="Learn how to completely delete a Service Fabric cluster either deleting the resource group containing the cluster or by selectively deleting resources."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,12 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/04/2016"
+   ms.date="09/09/2016"
    ms.author="chackdan"/>
 
-# Delete a Service Fabric cluster and the resources it uses
+# Delete a Service Fabric cluster on Azure and the resources it uses
 
-A Service Fabric cluster is made up of many other Azure resources in addition to the cluster resource itself. So in order to completely delete a Service Fabric cluster you also need to delete all the resources it is made of. You have two options to do this: either delete the resource group that the cluster is in (which deletes the cluster resource and any other resources in the resource group) or specifically delete the cluster resource and it's associated resources (but not other resources in the resource group).
+A Service Fabric cluster is made up of many other Azure resources in addition to the cluster resource itself. So to completely delete a Service Fabric cluster you also need to delete all the resources it is made of.
+You have two options: Either delete the resource group that the cluster is in (which deletes the cluster resource and any other resources in the resource group) or specifically delete the cluster resource and it's associated resources (but not other resources in the resource group).
 
 >[AZURE.NOTE] Deleting the cluster resource **does not** delete all the other resources that your Service Fabric cluster is composed of.
 
@@ -38,14 +39,14 @@ Login-AzureRmAccount
 Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 ```
 
-You will get a prompt to confirm the deletion if you did not use the *-Force* option. On confirmation the RG and all the resources it contains will be deleted.
+You will get a prompt to confirm the deletion if you did not use the *-Force* option. On confirmation the RG and all the resources it contains are deleted.
 
 ### Delete a resource group in the Azure portal  
 
 1. Login to the [Azure portal](https://portal.azure.com).
 2. Navigate to the Service Fabric cluster you want to delete.
 3. Click on the Resource Group name on the cluster essentials page.
-4. This will bring up the **Resource Group Essentials** page.
+4. This brings up the **Resource Group Essentials** page.
 5. Click **Delete**.
 6. Follow the instructions on that page to complete the deletion of the resource group.
 
@@ -56,13 +57,13 @@ You will get a prompt to confirm the deletion if you did not use the *-Force* op
 
 If your resource group has only resources that are related to the Service Fabric cluster you want to delete, then it is easier to delete the entire resource group. If you want to selectively delete the resources one-by-one in your resource group, then follow these steps.
 
-If you deployed your cluster using the portal or using one of the Service Fabric ARM templates from the template gallery, then all the resources that the cluster uses are tagged with the following two tags. You can use them to decide which resources you want to delete.
+If you deployed your cluster using the portal or using one of the Service Fabric Resource Manager templates from the template gallery, then all the resources that the cluster uses are tagged with the following two tags. You can use them to decide which resources you want to delete.
 
-***Tag#1 :*** Key = clusterName , Value = 'name of the cluster'
+***Tag#1:*** Key = clusterName, Value = 'name of the cluster'
 
-***Tag#2 :*** Key = resourceName , Value = ServiceFabric
+***Tag#2:*** Key = resourceName, Value = ServiceFabric
 
-### Delete specific resources in the Azure Portal
+### Delete specific resources in the Azure portal
 
 1. Login to the [Azure portal](https://portal.azure.com).
 2. Navigate to the Service Fabric cluster you want to delete.

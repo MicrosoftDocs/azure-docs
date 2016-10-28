@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Configure MPIO on StorSimple Linux host| Microsoft Azure"
    description="Configure MPIO on StorSimple connected to a Linux host running CentOS 6.6"
    services="storsimple"
@@ -6,13 +6,13 @@
    authors="alkohli"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/21/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # Configure MPIO on a StorSimple host running CentOS
@@ -23,7 +23,7 @@ This procedure is applicable to all the models of StorSimple 8000 series devices
 
 >[AZURE.NOTE] This procedure cannot be used for a StorSimple virtual device. For more information, see how to configure host servers for your virtual device.
 
-## About multipathing 
+## About multipathing
 
 The multipathing feature allows you to configure multiple I/O paths between a host server and a storage device. These I/O paths are physical SAN connections that can include separate cables, switches, network interfaces, and controllers. Multipathing aggregates the I/O paths, to configure a new device that is associated with all of the aggregated paths.
 
@@ -34,7 +34,7 @@ The purpose of multipathing is two-fold:
 - **Load balancing**: Depending on the configuration of your storage device, it can improve the performance by detecting loads on the I/O paths and dynamically rebalancing those loads.
 
 
-### About multipathing components 
+### About multipathing components
 
 Multipathing in Linux consists of kernel components and user-space components as tabulated below.
 
@@ -43,13 +43,13 @@ Multipathing in Linux consists of kernel components and user-space components as
 1. **User-space**: These are *multipath-tools* that manage multipathed devices by instructing the device-mapper multipath module what to do. The tools consist of:
 
 	- **Multipath**: lists and configures multipathed devices.
-		
+
 	- **Multipathd**: daemon that executes multipath and monitors the paths.
-	
+
 	- **Devmap-name**: provides a meaningful device-name to udev for devmaps.
- 
+
 	- **Kpartx**: maps linear devmaps to device partitions to make multipath maps partitionable.
-	
+
 	- **Multipath.conf**: configuration file for multipath daemon that is used to overwrite the built-in configuration table.
 
 ### About the multipath.conf configuration file
@@ -96,9 +96,9 @@ This section details the configuration prerequisites for CentOS server and your 
       	UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
      	RX packets:36536 errors:0 dropped:0 overruns:0 frame:0
       	TX packets:6312 errors:0 dropped:0 overruns:0 carrier:0
-      	collisions:0 txqueuelen:1000 
+      	collisions:0 txqueuelen:1000
       	RX bytes:13994127 (13.3 MiB)  TX bytes:645654 (630.5 KiB)
-    
+
     	eth1  Link encap:Ethernet  HWaddr 00:15:5D:A2:33:42  
       	inet addr:10.126.162.66  Bcast:10.126.163.255  Mask:255.255.252.0
       	inet6 addr: 2001:4898:4010:3012:215:5dff:fea2:3342/64 Scope:Global
@@ -106,16 +106,16 @@ This section details the configuration prerequisites for CentOS server and your 
       	UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
       	RX packets:25962 errors:0 dropped:0 overruns:0 frame:0
       	TX packets:11 errors:0 dropped:0 overruns:0 carrier:0
-      	collisions:0 txqueuelen:1000 
+      	collisions:0 txqueuelen:1000
       	RX bytes:2597350 (2.4 MiB)  TX bytes:754 (754.0 b)
-    
+
     	loLink encap:Local Loopback  
       	inet addr:127.0.0.1  Mask:255.0.0.0
       	inet6 addr: ::1/128 Scope:Host
       	UP LOOPBACK RUNNING  MTU:65536  Metric:1
       	RX packets:12 errors:0 dropped:0 overruns:0 frame:0
       	TX packets:12 errors:0 dropped:0 overruns:0 carrier:0
-      	collisions:0 txqueuelen:0 
+      	collisions:0 txqueuelen:0
       	RX bytes:720 (720.0 b)  TX bytes:720 (720.0 b)
 
 
@@ -124,7 +124,7 @@ This section details the configuration prerequisites for CentOS server and your 
 	1. Log on as `root` into your CentOS host.
 
 	1. Install the *iSCSI-initiator-utils*. Type:
-		
+
 		`yum install iscsi-initiator-utils`
 
 
@@ -140,9 +140,9 @@ This section details the configuration prerequisites for CentOS server and your 
 
 
 	1. To verify that that it was properly setup, run the command:
-	
+
 		`chkconfig --list | grep iscsi`
-	
+
 		A sample output is shown below.
 
 			iscsi   0:off   1:off   2:on3:on4:on5:on6:off
@@ -167,10 +167,10 @@ Your StorSimple device should have:
 
 	1. Log into the classic portal for your StorSimple device.
 
-	1. Select your StorSimple Manager service, click **Devices** and choose the specific StorSimple device. Click **Configure** and verify the network interface settings. A screenshot with two iSCSI-enabled network interfaces is shown below. Here DATA 2 and DATA 3, both 10 GbE interfaces are enabled for iSCSI. 
-	
+	1. Select your StorSimple Manager service, click **Devices** and choose the specific StorSimple device. Click **Configure** and verify the network interface settings. A screenshot with two iSCSI-enabled network interfaces is shown below. Here DATA 2 and DATA 3, both 10 GbE interfaces are enabled for iSCSI.
+
 		![MPIO StorsSimple DATA 2 config](./media/storsimple-configure-mpio-on-linux/IC761347.png)
-	
+
 		![MPIO StorSimple DATA 3 Config](./media/storsimple-configure-mpio-on-linux/IC761348.png)
 
 		In the **Configure** page
@@ -200,14 +200,14 @@ As shown in the preceding figure:
 - Your StorSimple device is in an active-passive configuration with two controllers.
 
 - Two SAN switches are connected to your device controllers.
- 
+
 - Two iSCSI initiators are enabled on your StorSimple device.
- 
+
 - Two network interfaces are enabled on your CentOS host.
 
 The above configuration will yield 4 separate paths between your device and the host if the host and data interfaces are routable.
 
->[AZURE.IMPORTANT] 
+>[AZURE.IMPORTANT]
 >
 >- We recommend that you do not mix 1 GbE and 10 GbE network interfaces for multipathing. When using two network interfaces, both the interfaces should be the identical type.
 >- On your StorSimple device, DATA0, DATA1, DATA4 and DATA5 are 1 GbE interfaces whereas DATA2 and DATA3 are 10 GbE network interfaces.|
@@ -223,14 +223,14 @@ The multipath-supported devices can be automatically discovered and configured.
 1. Initialize `/etc/multipath.conf` file. Type:
 
 	 `Copy mpathconf --enable`
-	
+
 	The above command will create a `sample/etc/multipath.conf` file.
 
 
 1. Start multipath service. Type:
 
     ``Copy service multipathd start``
-	
+
 	You will see the following output:
 
 	`Starting multipathd daemon:`
@@ -285,9 +285,9 @@ This load-balancing algorithm uses all the available multipaths to the active co
 
 
 
-> [AZURE.NOTE] 
+> [AZURE.NOTE]
 > The most common values of `path_grouping_policy` include:
-	
+
 > - failover = 1 path per priority group
 > - multibus = all valid paths in 1 priority group
 
@@ -311,7 +311,7 @@ This load-balancing algorithm uses all the available multipaths to the active co
 
 
 	1. Discover your StorSimple device. Type:
-		
+
 		`iscsiadm -m discovery -t sendtargets -p  <IP address of network interface on the device>:<iSCSI port on StorSimple device>`
 
 		The output when IP address for DATA0 is 10.126.162.25 and port 3260 is opened on the StorSimple device for outbound iSCSI traffic is as shown below:
@@ -342,7 +342,7 @@ This load-balancing algorithm uses all the available multipaths to the active co
 
 		If you see only one host interface and two paths here, then you need to enable both the interfaces on host for iSCSI. You can follow the [detailed instructions in Linux documentation](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
-	
+
 	1. A volume is exposed to the CentOS server from the StorSimple device. For more information, see [Step 6: Create a volume](storsimple-deployment-walkthrough.md#step-6-create-a-volume) via the Azure classic portal on your StorSimple device.
 
 	1. Verify the available paths. Type:
@@ -358,7 +358,7 @@ This load-balancing algorithm uses all the available multipaths to the active co
     		  `- 6:0:0:1 sdd 8:48 active undef running
 
 		The following example shows the output for two network interfaces on a StorSimple device connected to two host network interfaces with four available paths.
-		
+
 		    mpathb (36486fd27a23feba1b096226f11420f6b) dm-2 MSFT,STORSIMPLE 8100
     		size=100G features='0' hwhandler='0' wp=rw
     		`-+- policy='round-robin 0' prio=0 status=active
@@ -377,7 +377,7 @@ This section provides some helpful tips if you run into any issues during multip
 Q. I do not see the changes in `multipath.conf` file taking effect.
 
 A. If you have made any changes to the `multipath.conf` file, you will need to restart the multipathing service. Type the following command:
-    
+
     service multipathd restart
 
 Q. I have enabled two network interfaces on the StorSimple device and two network interfaces on the host. When I list the available paths, I see only two paths. I expected to see four available paths.
@@ -386,28 +386,28 @@ A. Make sure that the two paths are on the same subnet and routable. If the netw
 
 Q. When I list available paths, I do not see any output.
 
-A. Typically, not seeing any multipathed paths suggests a problem with the multipathing daemon, and it’s most likely that any problem here lies in the `multipath.conf` file. 
+A. Typically, not seeing any multipathed paths suggests a problem with the multipathing daemon, and it’s most likely that any problem here lies in the `multipath.conf` file.
 
 It would also be worth checking that you can actually see some disks after connecting to the target, as no response from the multipath listings could also mean you don’t have any disks.
 
-- Use the following command to rescan the SCSI bus: 
- 
+- Use the following command to rescan the SCSI bus:
+
 	`$ rescan-scsi-bus.sh `(part of sg3_utils package)
- 
+
 - Type the following commands:
 
 	`$ dmesg | grep sd*`
- 
+
 - Or
 
 	`$ fdisk –l`
- 
+
 	These will return details of recently added disks.
-  
+
 - To determine whether it is a StorSimple disk, use the following commands:
- 
-	`cat /sys/block/<DISK>/device/model` 
- 
+
+	`cat /sys/block/<DISK>/device/model`
+
 	This will return a string, which will determine if it’s a StorSimple disk.
 
 A less likely but possible cause could also be stale iscsid pid. Use the following command to log off from the iSCSI sessions:
@@ -467,22 +467,22 @@ For more information, go to [use troubleshooting interactive command for multipa
 |Type|Command|Description|
 |---|---|---|
 |**iSCSI**|`service iscsid start`|Start iSCSI service|
-||`service iscsid stop`|Stop iSCSI service|
-||`service iscsid restart`|Restart iSCSI service|
-||`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|Discover available targets on the specified address|
-||`iscsiadm -m node --login -T <TARGET_IQN>`|Log in to the iSCSI target|
-||`iscsiadm -m node --logout -p <Target_IP>`|Log out from the iSCSI target|
-||`cat /etc/iscsi/initiatorname.iscsi`|Print iSCSI initiator name|
-||`iscsiadm –m session –s <sessionid> -P 3`|Check the state of the iSCSI session and volume discovered on the host|
-||`iscsi –m session`|Shows all the iSCSI sessions established between the host and the StorSimple device|
+|&nbsp;|`service iscsid stop`|Stop iSCSI service|
+|&nbsp;|`service iscsid restart`|Restart iSCSI service|
+|&nbsp;|`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|Discover available targets on the specified address|
+|&nbsp;|`iscsiadm -m node --login -T <TARGET_IQN>`|Log in to the iSCSI target|
+|&nbsp;|`iscsiadm -m node --logout -p <Target_IP>`|Log out from the iSCSI target|
+|&nbsp;|`cat /etc/iscsi/initiatorname.iscsi`|Print iSCSI initiator name|
+|&nbsp;|`iscsiadm –m session –s <sessionid> -P 3`|Check the state of the iSCSI session and volume discovered on the host|
+|&nbsp;|`iscsi –m session`|Shows all the iSCSI sessions established between the host and the StorSimple device|
 | | | |
 |**Multipathing**|`service multipathd start`|Start multipath daemon|
-||`service multipathd stop`|Stop multipath daemon|
-||`service multipathd restart`|Restart multipath daemon|
-||`chkconfig multipathd on` </br> OR </br> `mpathconf –with_chkconfig y`|Enable multipath daemon to start at boot time|
-||`multipathd –k`|Start the interactive console for troubleshooting|
-||`multipath –l`|List multipath connections and devices|
-||`mpathconf --enable`|Create a sample mulitpath.conf file in `/etc/mulitpath.conf`|
+|&nbsp;|`service multipathd stop`|Stop multipath daemon|
+|&nbsp;|`service multipathd restart`|Restart multipath daemon|
+|&nbsp;|`chkconfig multipathd on` </br> OR </br> `mpathconf –with_chkconfig y`|Enable multipath daemon to start at boot time|
+|&nbsp;|`multipathd –k`|Start the interactive console for troubleshooting|
+|&nbsp;|`multipath –l`|List multipath connections and devices|
+|&nbsp;|`mpathconf --enable`|Create a sample mulitpath.conf file in `/etc/mulitpath.conf`|
 ||||
 
 ## Next steps
@@ -491,4 +491,3 @@ As you are configuring MPIO on Linux host, you may also need to refer to the fol
 
 - [Setting up MPIO on CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Linux Training Guide](http://linux-training.be/files/books/LinuxAdm.pdf)
-

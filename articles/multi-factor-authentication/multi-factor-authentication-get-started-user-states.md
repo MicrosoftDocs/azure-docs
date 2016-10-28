@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Microsoft Azure Multi-Factor Authentication User States" 
-	description="Learn about user states in Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Microsoft Azure Multi-Factor Authentication User States"
+	description="Learn about user states in Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # User States in Azure Multi-Factor Authentication
 
 User accounts in Azure Multi-Factor Authentication have the following three distinct states:
 
-State | Description |Non-browser apps affected| Notes 
+State | Description |Non-browser apps affected| Notes
 :-------------: | :-------------: |:-------------: |:-------------: |
 Disabled | The default state for a new user not enrolled in multi-factor authentication.|No|The user is not using multi-factor authentication.
 Enabled |The user has been enrolled in multi-factor authentication.|No.  They continue to work until the registration process is completed.|The user is enabled but has not completed the registration process. They will be prompted to complete the process at next sign-in.
@@ -52,7 +52,7 @@ A users state changes depending on whether or not it has been setup for MFA and 
 6.  This will open a new browser tab.  Find the user that you wish to enable for multi-factor authentication. You may need to change the view at the top. Ensure that the status is **disabled.**
 ![Enable user](./media/multi-factor-authentication-get-started-cloud/enable1.png)
 7.  Place a **check** in the box next to their name.
-7.  On the right, click **Enable**. 
+7.  On the right, click **Enable**.
 ![Enable user](./media/multi-factor-authentication-get-started-cloud/user1.png)
 8.  Click **enable multi-factor auth**.
 ![Enable user](./media/multi-factor-authentication-get-started-cloud/enable2.png)
@@ -70,7 +70,7 @@ A users state changes depending on whether or not it has been setup for MFA and 
 ![Click Directory](./media/multi-factor-authentication-get-started-cloud/manage1.png)
 6.  This will open a new browser tab.  Find the user that you wish to disable. You may need to change the view at the top. Ensure that the status is either **enabled** or **enforced.**
 7.  Place a **check** in the box next to their name.
-7.  On the right, click **Disable**. 
+7.  On the right, click **Disable**.
 ![Disable user](./media/multi-factor-authentication-get-started-user-states/userstate2.png)
 8.  You will be prompted to confirm this.  Click **Yes**.
 ![Disable user](./media/multi-factor-authentication-get-started-user-states/userstate3.png)

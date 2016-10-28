@@ -3,7 +3,7 @@
 	description="Learn how to use MongoChef with a DocumentDB account with protocol support for MongoDB, now available for preview." 
 	keywords="mongochef"
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/25/2016" 
-	ms.author="stbaro"/>
+	ms.author="anhoh"/>
 
 # Use MongoChef with a DocumentDB account with protocol support for MongoDB
 
@@ -128,6 +128,5 @@ To create a database, collection, and documents using MongoChef, perform the fol
 ## Next steps
 
 - Explore DocumentDB with protocol support for MongoDB [samples](documentdb-mongodb-samples.md).
-- Read about the DocumentDB with protocol support for MongoDB [preview development guidelines](documentdb-mongodb-guidelines.md).
 
  

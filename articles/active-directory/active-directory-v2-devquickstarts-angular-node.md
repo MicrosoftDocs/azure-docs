@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 
@@ -42,7 +42,7 @@ git clone https://github.com/AzureADSamples/SinglePageApp-AngularJS-NodeJS.git
 
 ## Register an app
 
-First, create an app in the [App Registration Portal](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
+First, create an app in the [App Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
 
 - Add the **Web** platform for your app.
 - Enter the correct **Redirect URI**. The default for this sample is `http://localhost:8080`.

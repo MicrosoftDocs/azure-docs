@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Connecting to Media Services Account using REST API" 
+	pageTitle="Connecting to Media Services Account using REST API | Microsoft Azure" 
 	description="This topic demonstrates how to connect to Media Services uisng REST API." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 

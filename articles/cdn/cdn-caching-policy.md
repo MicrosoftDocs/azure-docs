@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako"/>
  
 #CDN Caching Policy in Media Services Extension
@@ -34,7 +34,7 @@ Azure Media Services provides [integrated CDN](https://azure.microsoft.com/updat
 
 You can use Azure Management portal or Azure Media Services APIs to configure cache header values.
 
-1. To configure cache headers using management portal please refer to [How to Manage Streaming Endpoints](../media-services/media-services-manage-origins.md) section Configuring the Streaming Endpoint.
+1. To configure cache headers using management portal please refer to [How to Manage Streaming Endpoints](../media-services/media-services-portal-manage-streaming-endpoints.md) section Configuring the Streaming Endpoint.
 2. Azure Media Services REST API, [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx#StreamingEndpointCacheControl).
 3. Azure Media Services .NET SDK, [StreamingEndpointCacheControl Properties](http://go.microsoft.com/fwlink/?LinkId=615302).
 

@@ -11,13 +11,13 @@
 <tags
    ms.service="load-balancer"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
+   ms.date="10/24/2016"
    ms.author="sewhee" />
 
-# Get started creating an Internal load balancer in the Azure portal
+# Create an Internal load balancer in the Azure portal
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
 
@@ -27,14 +27,13 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
-
 ## Get started creating an Internal load balancer using Azure portal
 
-To create an internal load balancer from the Azure portal, follow the steps below.
+Use the following steps to create an internal load balancer from the Azure Portal.
 
-1. From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
+1. Open a browser, navigate to the [Azure portal](http://portal.azure.com), and sign in with your Azure account.
 2. In the upper left hand side of the screen, click **New** > **Networking** > **Load balancer**.
-3. In the **Create load balancer** blade, type a **Name** for your load balancer.
+3. In the **Create load balancer** blade, enter a **Name** for your load balancer.
 4. Under **Scheme**, click **Internal**.
 5. Click **Virtual network**, and then select the virtual network where you want to create the load balancer.
 
@@ -58,29 +57,29 @@ You need to configure first a back-end address pool and a probe before configuri
 1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer you created above.
 2. In the **Settings** blade, click **Backend pools**.
 3. In the **Backend address pools** blade, click **Add**.
-4. In the **Add backend pool** blade, type a **Name** for the backend pool, and then click **OK**.
+4. In the **Add backend pool** blade, enter a **Name** for the backend pool, and then click **OK**.
 
 ### Step 2: Configure a probe
 
 1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer you created above.
 2. In the **Settings** blade, click **Probes**.
 3. In the **Probes**  blade, click **Add**.
-4. In the **Add probe** blade, type a **Name** for the probe.
+4. In the **Add probe** blade, enter a **Name** for the probe.
 5. Under **Protocol**, select **HTTP** (for web sites) or **TCP** (for other TCP based applications).
 6. Under **Port**, specify the port to use when accessing the probe.
 7. Under **Path** (for HTTP probes only), specify the path to use as a probe.
 8. Under **Interval** specify how frequently to probe the application.
-9. Under **Unhealthy threshold**, specify how many attempts should fail before the backend VM is marked as unhealthy.
-10. click **OK** to create probe.
+9. Under **Unhealthy threshold**, specify how many attempts should fail before the backend virtual machine is marked as unhealthy.
+10. Click **OK** to create probe.
 
 ### Step 3: Configure load balancing rules
 
 1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer you created above.
 2. In the **Settings** blade, click **Load balancing rules**.
 3. In the **Load balancing rules** blade, click **Add**.
-4. In the **Add load balancing rule** blade, type a **Name** for the rule.
+4. In the **Add load balancing rule** blade, enter a **Name** for the rule.
 5. Under **Protocol**, select **HTTP** (for web sites) or **TCP** (for other TCP based applications).
-6. Under **Port**, specify the port clients connect to int he load balancer.
+6. Under **Port**, specify the port clients connect to in the load balancer.
 7. Under **Backend port**, specify the port to be used in the backend pool (usually, the load balancer port and the backend port are the same).
 8. Under **Backend pool**, select the backend pool you created above.
 9. Under **Session persistence**, select how you want sessions to persist.

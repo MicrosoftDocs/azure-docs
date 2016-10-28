@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="06/27/2016"
+	ms.date="09/13/2016"
 	ms.author="spelluru"/>
 
 # Data profile data sources
@@ -22,11 +22,11 @@
 
 **Microsoft Azure Data Catalog** is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data sources. In other words, **Azure Data Catalog** is all about helping people discover, understand, and use data sources, and helping organizations to get more value from their existing data. When a data source is registered with **Azure Data Catalog**, its metadata is copied and indexed by the service, but the story doesn’t end there.
 
-**Azure Data Catalog** examines the data from supported data sources in your catalog and collects statistics and information about that data. This is called **Data Profiling**. It's easy to include a profile of your data assets. When you register a data asset, choose **Include Data Profile** in the data source registration tool.
+The **Data Profiling** feature of **Azure Data Catalog** examines the data from supported data sources in your catalog and collects statistics and information about that data. It's easy to include a profile of your data assets. When you register a data asset, choose **Include Data Profile** in the data source registration tool.
 
 ## What is Data Profiling
 
-Data profiling examines the data in the data source being registered, and collects statistics and information about that data. During data source discovery, these statistics can help users determine the suitability of the data to solve their business problem.
+Data profiling examines the data in the data source being registered, and collects statistics and information about that data. During data source discovery, these statistics can help you determine the suitability of the data to solve their business problem.
 
 <!-- In [How to discover data sources](data-catalog-how-to-discover.md), you learn about **Azure Data Catalog's** extensive search capabilities including searching for data assets that have a profile. See [How to include a data profile when registering a data source](#howto). -->
 
@@ -58,9 +58,9 @@ To learn more about how to register data sources, see [How to register data sour
 
 
 ## Filtering on data assets that include data profiles
-To discover data assets that include a data profile, you can include **has:tableDataProfiles** or **has:columnsDataProfiles** as one of your search terms.
+To discover data assets that include a data profile, you can include `has:tableDataProfiles` or `has:columnsDataProfiles` as one of your search terms.
 
-> [AZURE.NOTE] Selecting **Include Data Profile** in the data source registration tool will include both table- and column-level profile information, but the Data Catalog API allows data assets to be registered with only one set of profile information included.
+> [AZURE.NOTE] Selecting **Include Data Profile** in the data source registration tool includes both table and column-level profile information. However, the Data Catalog API allows data assets to be registered with only one set of profile information included.
 
 ## Viewing data profile information
 
@@ -84,7 +84,7 @@ A data profile in **Azure Data Catalog** shows table and column profile informat
 - Minimum, maximum, average, and standard deviation for column values
 
 ## Summary
-Data profiling provides statistics and information about registered data assets to help users determine the suitability of the data to solve  business problems. Along with annotating, and documenting data sources, data profiles can give users a deeper understanding of your data.
+Data profiling provides statistics and information about registered data assets to help you determine the suitability of the data to solve business problems. Along with annotating, and documenting data sources, data profiles can give users a deeper understanding of your data.
 
 
 ## See Also

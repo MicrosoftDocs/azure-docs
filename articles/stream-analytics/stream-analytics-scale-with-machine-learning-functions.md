@@ -5,7 +5,7 @@
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 />
 
@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/27/2016"
+	ms.date="09/26/2016"
 	ms.author="jeffstok"
 />
 
@@ -56,7 +56,7 @@ The query is a simple fully partitioned query followed by the **sentiment** func
     WITH subquery AS (
         SELECT text, sentiment(text) as result from input
     )
-    
+
     Select text, result.[Score]
     Into output
     From subquery
@@ -80,18 +80,16 @@ Assume the latency of the sentiment analysis Machine Learning web service is 200
 
 Below is a table for the throughput of the Stream Analytics job for different SUs and batch sizes (in number of events per second).
 
-| SU |   |   |   | batch size (ML latency) |   |
+| batch size (ML latency)  | 500 (200ms) | 1,000 (200ms) | 5,000 (250ms) | 10,000 (300ms) | 25,000 (500ms) |
 |--------|-------------------------|---------------|---------------|----------------|----------------|
-|   |   |   |   |   |   |
-|   | 500 (200ms) | 1,000 (200ms) | 5,000 (250ms) | 10,000 (300ms) | 25,000 (500ms) |
-| 1 SU | 2,500 | 5,000 | 20,000 | 30,000 | 50,000 |
-| 3 SUs | 2,500 | 5,000 | 20,000 | 30,000 | 50,000 |
-| 6 SUs | 2,500 | 5,000 | 20,000 | 30,000 | 50,000 |
-| 12 SUs | 5,000 | 10,000 | 40,000 | 60,000 | 100,000 |
-| 18 SUs | 7,500 | 15,000 | 60,000 | 90,000 | 150,000 |
-| 24 SUs | 10,000 | 20,000 | 80,000 | 120,000 | 200,000 |
-| … | … | … | … | … | … |
-| 60 SUs | 25,000 | 50,000 | 200,000 | 300,000 | 500,000 |
+| **1 SU** | 2,500 | 5,000 | 20,000 | 30,000 | 50,000 |
+| **3 SUs** | 2,500 | 5,000 | 20,000 | 30,000 | 50,000 |
+| **6 SUs** | 2,500 | 5,000 | 20,000 | 30,000 | 50,000 |
+| **12 SUs** | 5,000 | 10,000 | 40,000 | 60,000 | 100,000 |
+| **18 SUs** | 7,500 | 15,000 | 60,000 | 90,000 | 150,000 |
+| **24 SUs** | 10,000 | 20,000 | 80,000 | 120,000 | 200,000 |
+| **…** | … | … | … | … | … |
+| **60 SUs** | 25,000 | 50,000 | 200,000 | 300,000 | 500,000 |
 
 By now, you should already have a good understanding of how Machine Learning functions in Stream Analytics work. You likely also understand that Stream Analytics jobs “pull” data from data sources and each “pull” returns a batch of events for the Stream Analytics job to process. How does this pull model impact the Machine Learning web service requests?
 

@@ -13,26 +13,26 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/02/2016"
+   ms.date="09/20/2016"
    ms.author="yurid"/>
  
 # Getting started with Operations Management Suite Security and Audit Solution
 This document helps you get started quickly with Operations Management Suite (OMS) Security and Audit solution capabilities by guiding you through each option.
 
 ## What is OMS?
-Microsoft Operations Management Suite (OMS) is Microsoft's cloud based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. For more information about OMS, read the article [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
+Microsoft Operations Management Suite (OMS) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. For more information about OMS, read the article [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
 
 ## OMS Security and Audit dashboard
 
-The OMS Security and Audit solution provides a comprehensive view into your organization’s IT security posture with built-in search queries for notable issues that require your attention. The **Security and Audit** dashboard is the home screen for everything related to security in OMS. It provides high-level insight into the security state of your computers. It also includes the ability to view all events from the past 24 hours, seven days or any other custom time frame. To access the **Security and Audit** dashboard, follow the steps below:
+The OMS Security and Audit solution provides a comprehensive view into your organization’s IT security posture with built-in search queries for notable issues that require your attention. The **Security and Audit** dashboard is the home screen for everything related to security in OMS. It provides high-level insight into the security state of your computers. It also includes the ability to view all events from the past 24 hours, 7 days, or any other custom time frame. To access the **Security and Audit** dashboard, follow these steps:
 
 1. In the **Microsoft Operations Management Suite** main dashboard click **Settings** tile in the left.
 2. In the **Settings** blade, under **Solutions** click **Security and Audit** option.
-3. The **Security and Audit** dashboard will appear as shown below:
+3. The **Security and Audit** dashboard will appear:
 
 	![OMS Security and Audit dashboard](./media/oms-security-getting-started/oms-getting-started-fig1-ga.png)
 
-If you are accessing this dashboard for the first time and you don’t have devices monitored by OMS, the tiles will not be populated with data obtained from the agent. Once you install the agent, it can take some time to populate, therefore what you see initially may be missing some data as they are still uploading to the cloud.  In this case it will be normal to see some tiles without tangible information. Read [Connect Windows computers directly to OMS](https://technet.microsoft.com/library/mt484108.aspx) for more information on how to install OMS agent in a Windows system and [Connect Linux computers to OMS](https://technet.microsoft.com/library/mt622052.aspx) for more information on how to perform this task in a Linux system.
+If you are accessing this dashboard for the first time and you don’t have devices monitored by OMS, the tiles will not be populated with data obtained from the agent. Once you install the agent, it can take some time to populate, therefore what you see initially may be missing some data as they are still uploading to the cloud.  In this case, it is normal to see some tiles without tangible information. Read [Connect Windows computers directly to OMS](https://technet.microsoft.com/library/mt484108.aspx) for more information on how to install OMS agent in a Windows system and [Connect Linux computers to OMS](https://technet.microsoft.com/library/mt622052.aspx) for more information on how to perform this task in a Linux system.
 
 > [AZURE.NOTE] The agent will collect the information based on the current events that are enabled, for instance computer name, IP address and user name. However no document/files, database name or private data are collected.   
 
@@ -41,9 +41,10 @@ Solutions are a collection of logic, visualization and data acquisition rules th
 The OMS Security and Audit dashboard is organized in four major categories:
 
 - **Security Domains**: in this area you will be able to further explore security records over time, access malware assessment, update assessment, network security, identity and access information, computers with security events and quickly have access to Azure Security Center dashboard.
-- **Notable Issues**: this option will allow you to quickly identify the amount of active issues and the severity of these issues.
+- **Notable Issues**: this option will allow you to quickly identify the number of active issues and the severity of these issues.
+- **Detections (Preview)**: enables you to identify attack patterns by visualizing security alerts as they take place against your resources.
 - **Threat Intelligence**: enables you to identify attack patterns by visualizing the total number of servers with outbound malicious IP traffic, the malicious threat type and a map that shows where these IPs are coming from. 
-- **Common security queries**: this option provides you a list of the most common security queries that you can use to monitor your environment. When you click in one of those queries, it will open the Search blade with the results for that query.
+- **Common security queries**: this option provides you a list of the most common security queries that you can use to monitor your environment. When you click in one of those queries, it opens the **Search** blade with the results for that query.
 
 > [AZURE.NOTE] for more information on how OMS keeps your data secure, read How OMS secures your data.
 
@@ -61,7 +62,7 @@ When you click on this tile, the **Search** blade will open, showing a query res
 
 ![Security records over time](./media/oms-security-getting-started/oms-getting-started-fig3.JPG)
 
-The search result is divided in two panes: the left pane gives you a breakdown of the amount of security events that were found, the computers in which these events were found, the amount of accounts that were discovered in these computers and the types of activities. The right pane provides you the total results and a chronological view of the security events with the computer’s name and event activity. You can also click **Show More** to view more details about this event, such as the event data, the event ID and the event source.
+The search result is divided in two panes: the left pane gives you a breakdown of the number of security events that were found, the computers in which these events were found, the number of accounts that were discovered in these computers and the types of activities. The right pane provides you the total results and a chronological view of the security events with the computer’s name and event activity. You can also click **Show More** to view more details about this event, such as the event data, the event ID and the event source.
 
 > [AZURE.NOTE] for more information about OMS search query, read [OMS search reference](https://technet.microsoft.com/library/mt450427.aspx).
 
@@ -71,7 +72,7 @@ This option enables you to quickly identify computers with insufficient protecti
 
 ![malware assessment](./media/oms-security-getting-started/oms-getting-started-fig4-ga.png)
 
-Just like any other live tile available in OMS Dashboard  , when you click on it, the **Search** blade will open with the query result. For this option, if you click in the **Not Reporting** option under **Protection Status**, you will have the query result that shows this single entry that contains the computer’s name and its rank, as shown below:
+Just like any other live tile available in OMS Dashboard, when you click on it, the **Search** blade will open with the query result. For this option, if you click in the **Not Reporting** option under **Protection Status**, you will have the query result that shows this single entry that contains the computer’s name and its rank, as shown below:
 
 ![search result](./media/oms-security-getting-started/oms-getting-started-fig5.png)
 
@@ -81,7 +82,7 @@ If you click in the computer’s name, you will have the chronological view of t
 
 ### Update assessment 
 
-This option enables you to quickly determine the overall exposure to potential security problems, and whether or how critical these updates are for your environment. OMS Security and Audit solution only provides the visualization of these updates, the real data comes from [System Updates Solutions](https://technet.microsoft.com/library/mt484096.aspx), which is a different module within OMS. Here an example of the updates:
+This option enables you to quickly determine the overall exposure to potential security problems, and whether or how critical these updates are for your environment. OMS Security and Audit solution only provide the visualization of these updates, the real data comes from [System Updates Solutions](https://technet.microsoft.com/library/mt484096.aspx), which is a different module within OMS. Here an example of the updates:
 
 ![system updates](./media/oms-security-getting-started/oms-getting-started-fig6.png)
 
@@ -93,13 +94,13 @@ Identity should be the control plane for your enterprise, protecting your identi
 
 > [AZURE.NOTE] currently the data is based only on Security Events login data (event ID 4624) in the future Office365 logins and Azure AD data will also be included.
 
-By monitoring your identity activities you will be able to take proactive actions before an incident takes place or reactive actions to stop an attack attempt. The **Identity and Access** dashboard provides you an overview of your identity state, including the amount of failed attempts to logon, the user’s account that were used during those attempts, accounts that were locked out, accounts with changed or reset password and currently amount of accounts that are logged in. 
+By monitoring your identity activities you will be able to take proactive actions before an incident takes place or reactive actions to stop an attack attempt. The **Identity and Access** dashboard provides you an overview of your identity state, including the number of failed attempts to log on, the user’s account that were used during those attempts, accounts that were locked out, accounts with changed or reset password and currently number of accounts that are logged in. 
 
 When you click in the **Identity and Access** tile you will see the following dashboard:
 
 ![identity and access](./media/oms-security-getting-started/oms-getting-started-fig7-ga.png)
 
-The information available in this dashboard can immediately assist you to identify a potential suspicious activity. For example, there are 338 attempts to logon as **Administrator** and 100% of these attempts failed. This can be caused by a brute force attack against this account. If you click on this account you will obtain more information that can assist you to determine the target resource for this potential attack:
+The information available in this dashboard can immediately assist you to identify a potential suspicious activity. For example, there are 338 attempts to log on as **Administrator** and 100% of these attempts failed. This can be caused by a brute force attack against this account. If you click on this account you will obtain more information that can assist you to determine the target resource for this potential attack:
 
 ![search results](./media/oms-security-getting-started/oms-getting-started-fig8.JPG)
 
@@ -107,7 +108,7 @@ The detailed report provides important information about this event, including: 
 
 ### Computers
 
-This tile can be used to access all computers that actively have security events. When you click in this tile you will see the list of computers with security events and the amount of events on each computer:
+This tile can be used to access all computers that actively have security events. When you click in this tile you will see the list of computers with security events and the number of events on each computer:
 
 ![Computers](./media/oms-security-getting-started/oms-getting-started-fig9.JPG)
 
@@ -123,11 +124,21 @@ The main intent of this group of options is to provide a quick view of the issue
 
 ![Notable issues](./media/oms-security-getting-started/oms-getting-started-fig10.JPG)
 
-You can see that these issues were already covered in different areas of the **Security Domains** group, which reinforces the intent of this view: visualize the most important issues in your environment from a single place. 
+You can see that these issues were already covered in different areas of the **Security Domains** group, which reinforces the intent of this view: visualize the most important issues in your environment from a single place.
+
+## Detections (Preview)
+
+The main intent of this option is to allow IT to quickly identify potential threats to their environment via and the severity of this threat.
+
+![Threat Intel](./media/oms-security-getting-started/oms-getting-started-fig12.png)
+
+This option can also be used during an incident response investigation to perform the assessment and obtain more information about the attack.
+
+> [AZURE.NOTE] For more information on how to use OMS for Incident Response, watch [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703).
 
 ## Threat Intelligence
 
-The new threat intelligence section of the Security and Audit solution visualizes the possible attack patterns in several ways: the total number of servers with outbound malicious IP traffic, the malicious threat type and a map that shows where these IPs are coming from  . You can interact with the map and click on the IPs for more information.
+The new threat intelligence section of the Security and Audit solution visualizes the possible attack patterns in several ways: the total number of servers with outbound malicious IP traffic, the malicious threat type and a map that shows where these IPs are coming from. You can interact with the map and click on the IPs for more information.
 
 Yellow pushpins on the map indicate incoming traffic from malicious IPs. It is not uncommon for servers that are exposed to the internet to see incoming malicious traffic, but we recommend reviewing these attempts to make sure none of them was successful. These indicators are based on IIS logs, WireData and Windows Firewall logs.  
 
@@ -140,12 +151,12 @@ The list of common security queries available can be useful for you to rapidly a
 - All Security Activities
 - Security Activities on the computer "computer01.contoso.com" (replace with your own computer name)
 - Security Activities on the computer "computer01.contoso.com" for account "Administrator" (replace with your own computer and account names)
-- Logon Activity by Computer
+- Log on Activity by Computer
 - Accounts who terminated Microsoft antimalware on any computer
 - Computers where the Microsoft antimalware process was terminated
 - Computers where "hash.exe" was executed (replace with different process name)
 - All Process names that were executed
-- Logon Activity by Account
+- Log on Activity by Account
 - Accounts who remotely logged on the computer "computer01.contoso.com" (replace with your own computer name)
 
 ## See also

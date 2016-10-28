@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 #  Add sign-in to an Android app using a third-party library with Graph API using the v2.0 endpoint
@@ -32,7 +32,7 @@ The v2.0 endpoint does not support all Azure Active Directory scenarios and feat
 
 
 ## Download the code from GitHub
-The code for this tutorial is maintained [on GitHub](git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git).  To follow along, you can  [download the app's skeleton as a .zip](git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git/archive/skeleton.zip) or clone the skeleton:
+The code for this tutorial is maintained [on GitHub](https://github.com/Azure-Samples/active-directory-android-native-oidcandroidlib-v2).  To follow along, you can  [download the app's skeleton as a .zip](https://github.com/Azure-Samples/active-directory-android-native-oidcandroidlib-v2/archive/skeleton.zip) or clone the skeleton:
 
 ```
 git clone --branch skeleton git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git
@@ -45,7 +45,7 @@ git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.g
 ```
 
 ## Register an app
-Create a new app at the [Application registration portal](https://apps.dev.microsoft.com), or follow the detailed steps at [How to register an app with the v2.0 endpoint](active-directory-v2-app-registration.md).  Make sure to:
+Create a new app at the [Application registration portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), or follow the detailed steps at [How to register an app with the v2.0 endpoint](active-directory-v2-app-registration.md).  Make sure to:
 
 - Copy the **Application Id** that's assigned to your app because you'll need it soon.
 - Add the **Mobile** platform for your app.

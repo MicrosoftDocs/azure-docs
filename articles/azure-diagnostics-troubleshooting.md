@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="10/04/2016"
 	ms.author="robb"/>
 
 
@@ -21,17 +21,28 @@
 Troubleshooting information relevant to using Azure Diagnostics. For more information on Azure diagnostics, see [Azure Diagnostics Overview](azure-diagnostics.md#cloud-services).
 
 ## Azure Diagnostics is not Starting
-Diagnostics is comprised of two components: A guest agent plugin and the monitoring agent.
 
-In a Cloud Service role, log files for the guest agent plugin are located in the file:
+Diagnostics is comprised of two components: A guest agent plugin and the monitoring agent. You can check the log files **DiagnosticsPluginLauncher.log** and **DiagnosticsPlugin.log** for information on why diagnostics fails to start.  
+  
+In a Cloud Service role, log files for the guest agent plugin are located in: 
 
-	*%SystemDrive%\ WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<DiagnosticsVersion>*\CommandExecution.log
+``` 
+C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.6.3.0\ 
+``` 
 
-In an Azure Virtual Machine, log files for the guest agent plugin are located in the file:
+In an Azure Virtual Machine, log files for the guest agent plugin are located in: 
 
-		C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\CommandExecution.log
+``` 
+C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.6.3.0\Logs\ 
+``` 
+ 
+The last line of the log files will contain the exit code.  
 
-The following error codes are returned by the plugin:
+``` 
+DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] DiagnosticPlugin exited with code 0 
+``` 
+
+The plugin returns the following exit codes:
 
 Exit Code|Description
 ---|---

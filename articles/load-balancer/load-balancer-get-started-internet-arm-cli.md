@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Create an Internet facing load balancer in Resource Manager using the Azure CLI | Microsoft Azure"
    description="Learn how to create an Internet facing load balancer in Resource Manager using the Azure CLI"
    services="load-balancer"
@@ -11,13 +11,13 @@
 <tags
    ms.service="load-balancer"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
+   ms.date="10/24/2016"
    ms.author="sewhee" />
 
-# Get started creating an internal load balancer using the Azure CLI
+# Creating an internal load balancer using the Azure CLI
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
@@ -68,7 +68,7 @@ For more information see [Azure Resource Manager support for Load Balancer](load
 
         azure network public-ip create -g NRPRG -n NRPPublicIP -l eastus -d loadbalancernrp -a static -i 4
 
-    >[AZURE.IMPORTANT] The load balancer will use the domain label of the public IP as its FQDN. This a change from classic deployment, which uses the cloud service as the load balancer FQDN.
+    >[AZURE.IMPORTANT] The load balancer will use the domain label of the public IP as its FQDN. This a change from classic deployment, which uses the cloud service as the load balancer Fully Qualified Domain Name (FQDN).
     >In this example, the FQDN is *loadbalancernrp.eastus.cloudapp.azure.com*.
 
 ## Create a load balancer
@@ -79,7 +79,7 @@ The following command creates a load balancer named *NRPlb* in the *NRPRG* resou
 
 ## Create a front-end IP pool and a backend address pool
 
-This example creates the front-end IP pool that receives the incoming network traffic on the load balancer and the backend IP pool where the front-end pool sends the load balanced network traffic.
+This example demonstrates how to create the front-end IP pool that receives the incoming network traffic on the load balancer and the backend IP pool where the front-end pool sends the load balanced network traffic.
 
 1. Create a front-end IP pool associating the public IP created in the previous step and the load balancer.
 
@@ -102,16 +102,8 @@ This example creates the following items.
 
 1. Create the NAT rules.
 
-        azure network lb inbound-nat-rule create -g nrprg -l nrplb -n ssh1 -p tcp -f 21 -b 22
-        azure network lb inbound-nat-rule create -g nrprg -l nrplb -n ssh2 -p tcp -f 23 -b 22
-
-    Parameters:
-    * **-g** - resource group name
-    * **-l** - load balancer name
-    * **-n** - name of the resource whether is nat rule, probe or LB rule.
-    * **-p** - protocol (it can be TCP or UDP)
-    * **-f** - front-end port to be used (The probe command uses -f to define the probe path)
-    * **-b** - back-end port to be used
+        azure network lb inbound-nat-rule create --resource-group nrprg --lb-name nrplb --name ssh1 --protocol tcp --frontend-port 21 --backend-port 22
+        azure network lb inbound-nat-rule create --resource-group nrprg --lb-name nrplb --name ssh2 --protocol tcp --frontend-port 23 --backend-port 22
 
 2. Create a load balancer rule.
 
@@ -119,15 +111,7 @@ This example creates the following items.
 
 3. Create a health probe.
 
-        azure network lb probe create -g nrprg -l nrplb -n healthprobe -p "http" -o 80 -f healthprobe.aspx -i 15 -c 4
-
-    Parameters:
-    * **-g** - resource group
-    * **-l** - name of the load balancer set
-    * **-n** - name of the health probe
-    * **-p** - protocol used by health probe
-    * **-i** - probe interval in seconds
-    * **-c** - number of checks
+        azure network lb probe create --resource-group nrprg --lb-name nrplb --name healthprobe --protocol "http" --port 80 --path healthprobe.aspx --interval 15 --count 4
 
 4. Check your settings.
 
@@ -200,16 +184,7 @@ You need to create NICs (or modify existing ones) and associate them to NAT rule
 
 1. Create a NIC named *lb-nic1-be*, and associate it with the *rdp1* NAT rule, and the *NRPbackendpool* back-end address pool.
 
-        azure network nic create -g nrprg -n lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet -d "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool" -e "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" eastus
-
-    Parameters:
-
-    * **-g** - resource group name
-    * **-n** - name for the NIC resource
-    * **--subnet-name** - name of the subnet
-    * **--subnet-vnet-name** - name of the virtual network
-    * **-d** - ID of the back-end pool resource - starts with /subscription/{subscriptionID/resourcegroups/<resourcegroup-name>/providers/Microsoft.Network/loadbalancers/<load-balancer-name>/backendaddresspools/<name-of-the-backend-pool>
-    * **-e** - ID of the NAT rule to be associated to the NIC resource - starts with /subscriptions/####################################/resourceGroups/<resourcegroup-name>/providers/Microsoft.Network/loadBalancers/<load-balancer-name>/inboundNatRules/<nat-rule-name>
+        azure network nic create --resource-group nrprg --name lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" eastus
 
     Expected output:
 
@@ -239,7 +214,7 @@ You need to create NICs (or modify existing ones) and associate them to NAT rule
 
 2. Create a NIC named *lb-nic2-be*, and associate it with the *rdp2* NAT rule, and the *NRPbackendpool* back-end address pool.
 
-        azure network nic create -g nrprg -n lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet -d "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool" -e "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" eastus
+        azure network nic create --resource-group nrprg --name lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" eastus
 
 3. Create a virtual machine (VM) named *web1*, and associate it with the NIC named *lb-nic1-be*. A storage account called *web1nrp* was created before running the command below.
 
@@ -278,26 +253,13 @@ You need to create NICs (or modify existing ones) and associate them to NAT rule
 
 You can add rules referencing an existing load balancer. In the next example, a new load balancer rule is added to an existing load balancer **NRPlb**
 
-    azure network lb rule create -g nrprg -l nrplb -n lbrule2 -p tcp -f 8080 -b 8051 -t frontendnrppool -o NRPbackendpool
-
-Parameters:
-
-* **-g** - resource group name
-* **-l** - load balancer name
-* **-n** - load balancer rule name
-* **-p** - protocol
-* **-f** - front-end port
-* **-b** - back-end port
-* **-t** - front-end pool name
-* **-b** - back-end pool name
+    azure network lb rule create --resource-group nrprg --lb-name nrplb --name lbrule2 --protocol tcp --frontend-port 8080 --backend-port 8051 --frontend-ip-name frontendnrppool --backend-address-pool-name NRPbackendpool
 
 ## Delete a load balancer
 
 Use the following command to remove a load balancer:
 
-    azure network lb delete -g nrprg -n nrplb
-
-Where **nrprg** is the resource group and **nrplb** the load balancer name.
+    azure network lb delete --resource-group nrprg --name nrplb
 
 ## Next steps
 

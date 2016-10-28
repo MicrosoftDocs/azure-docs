@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Widevine License Template Overview" 
+	pageTitle="Widevine license template overview | Microsoft Azure" 
 	description="This topic gives an overview of a Widevine license template that used to configure Widevine licenses." 
 	authors="juliako" 
 	manager="erikre" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
-#Widevine License Template Overview
+#Widevine license template overview
 
 ##Overview
 

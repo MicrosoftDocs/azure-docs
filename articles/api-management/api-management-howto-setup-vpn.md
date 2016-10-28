@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2016"
+	ms.date="10/25/2016"
 	ms.author="antonba"/>
 
 # How to setup VPN connections in Azure API Management
@@ -24,7 +24,7 @@ API Management's VPN support allows you to connect your API Management gateway t
 
 ## <a name="enable-vpn"> </a>Enable VPN connections
 
->VPN connectivity is only available in the **Premium** tier. To switch to it, open your API Management service in the [Azure Classic Portal][] and then open the **Scale** tab. Under the **General** section select the Premium tier and click Save.
+>VPN connectivity is only available in the **Premium** and **Developer** tiers. To switch to it, open your API Management service in the [Azure Classic Portal][] and then open the **Scale** tab. Under the **General** section select the Premium tier and click Save.
 
 To enable VPN connectivity, open your API Management service in the [Azure Classic Portal][] and switch to the **Configure** tab. 
 

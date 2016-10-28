@@ -3,7 +3,7 @@
 	description="Learn how to easily upgrade your Mobile Services application to an App Service Mobile App"
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="mattchenderson"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/25/2016"
-	ms.author="mahender"/>
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>
 
 # Upgrade your existing .NET Azure Mobile Service to App Service
 

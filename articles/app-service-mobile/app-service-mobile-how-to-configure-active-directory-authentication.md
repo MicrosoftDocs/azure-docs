@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/22/2016"
+	ms.date="10/01/2016"
 	ms.author="mahender"/>
 
 # How to configure your App Service application to use Azure Active Directory login

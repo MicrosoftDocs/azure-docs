@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Overview of Azure Data Lake Store | Azure"
+   pageTitle="Overview of Azure Data Lake Store | Microsoft Azure"
    description="Understand what is Azure Data Lake Store and the value it provides over other data stores"
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/02/2016"
+   ms.date="10/28/2016"
    ms.author="nitinme"/>
 
 # Overview of Azure Data Lake Store

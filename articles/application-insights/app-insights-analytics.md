@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Analytics - the powerful search tool of Application Insights | Microsoft Azure" 
-	description="Overview of Analytics, 
-	             the powerful diagnostic search tool of Application Insights. " 
+	description="Overview of Analytics, the powerful diagnostic search tool of Application Insights. " 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -13,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/25/2016" 
+	ms.date="07/26/2016" 
 	ms.author="awills"/>
 
 

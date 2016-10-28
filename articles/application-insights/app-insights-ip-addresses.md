@@ -104,6 +104,8 @@ Open ports 80 (http) and 443 (https) for incoming traffic from these addresses:
 207.46.98.159
 207.46.98.160
 207.46.98.162
+207.46.98.169
+207.46.98.170
 207.46.98.171
 207.46.98.172
 213.199.178.54
@@ -136,6 +138,8 @@ Open ports 80 (http) and 443 (https) for incoming traffic from these addresses:
 65.55.244.44
 65.55.244.46
 65.55.244.47
+65.55.82.77
+65.55.82.78
 65.55.82.81
 65.55.82.84
 65.55.82.85
@@ -158,6 +162,8 @@ Open ports 80 (http) and 443 (https) for incoming traffic from these addresses:
 94.245.72.45
 94.245.72.46
 94.245.72.49
+94.245.72.52
+94.245.72.53
 94.245.78.40
 94.245.78.41
 94.245.78.42
@@ -166,6 +172,7 @@ Open ports 80 (http) and 443 (https) for incoming traffic from these addresses:
 94.245.82.33
 94.245.82.37
 94.245.82.38
+
 
 ```  
 

@@ -80,10 +80,6 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
     Recommended naming conventions for Azure resources.
 
-- [Resiliency guidance][ResiliencyOvervew]
-
-     How to build applications on the Azure platform that can recover from failures and continue to function. Describes a structure approach for achieving resiliency, from design and implementation, to deployment and operations.
-
 - [Retry General guidance][RetryGeneralGuidance] 
 
     Discussion of the general concepts for handling transient faults.
@@ -116,14 +112,30 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
     This guidance is an exploration of common anti-patterns that impede apps from scaling under load. It includes samples demonstrating eight anti-patterns and a [performance analysis primer](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md) and a guide for [assessing performance against key metrics](https://github.com/mspnp/performance-optimization/blob/master/Assessing-System-Performance-Against-KPI.md).
 
-## Reference Architectures
+## Reference architectures
 
 Our reference architectures are arranged by scenario.
 Each individual architecture offers recommended practices and prescriptive steps, and an executable component that embodies the recommendations.
 
 The current library of reference architectures is available at [http://aka.ms/architecture](http://aka.ms/architecture).
 
+## Resiliency guidance
 
+These topics describe how to design applications that are resilient to failure in a distributed cloud environment.   
+
+- [Resiliency overview][ResiliencyOvervew]
+
+     How to build applications on the Azure platform that can recover from failures and continue to function. Describes a structured approach to achieve resiliency,from design to implementation, deployment, and operations.
+
+- [Resiliency checklist][resiliency-checklist]
+
+    A checklist of recommendations that will help you plan for a variety of failure modes that could occur.
+
+- [Failure mode analysis][resiliency-fma] 
+
+    Failure mode analysis (FMA) is a process for building resiliency into a system, by identifying possible failure points. As a starting point for your FMA process,this article contains a catalog of potential failure modes and their mitigations. 
+
+<!-- links -->
 
 [AzureAD]: https://azure.microsoft.com/documentation/services/active-directory/
 
@@ -137,7 +149,6 @@ The current library of reference architectures is available at [http://aka.ms/ar
 [CachingGuidance]: ../best-practices-caching.md
 [DataPartitioningGuidance]: ../best-practices-data-partitioning.md
 [MonitoringandDiagnosticsGuidance]: ../best-practices-monitoring.md
-[ResiliencyOvervew]: guidance-resiliency-overview.md
 [RetryGeneralGuidance]: ../best-practices-retry-general.md
 [RetryServiceSpecificGuidance]: ../best-practices-retry-service-specific.md
 [RetryPolicies]: Retry-Policies.md
@@ -158,3 +169,9 @@ The current library of reference architectures is available at [http://aka.ms/ar
 [ref-arch-n-tier-linux]: guidance-compute-n-tier-vm-linux.md
 [ref-arch-multi-dc-windows]: guidance-compute-multiple-datacenters.md
 [ref-arch-multi-dc-linux]: guidance-compute-multiple-datacenters-linux.md
+
+<!-- resiliency -->
+[resiliency-fma]: guidance-resiliency-failure-mode-analysis.md
+[resiliency-checklist]: guidance-resiliency-checklist.md
+[ResiliencyOvervew]: guidance-resiliency-overview.md
+

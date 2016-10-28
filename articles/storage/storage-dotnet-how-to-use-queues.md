@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="07/26/2016"
-	ms.author="gusapost"/>
+	ms.date="10/12/2016"
+	ms.author="robinsh"/>
 
 # Get started with Azure Queue storage using .NET
 
@@ -52,7 +52,7 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 
 Add the following `using` statements to the top of the `program.cs` file:
 
-	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+	using Microsoft.Azure; // Namespace for CloudConfigurationManager
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 
@@ -307,7 +307,7 @@ to learn about more complex storage tasks.
 - View more feature guides to learn about additional options for storing data in Azure.
     - [Get started with Azure Table storage using .NET](storage-dotnet-how-to-use-tables.md) to store structured data.
     - [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md) to store unstructured data.
-    - [How to use Azure SQL Database in .NET applications](sql-database-dotnet-how-to-use.md) to store relational data.
+    - [Connect to SQL Database by using .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md) to store relational data.
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409

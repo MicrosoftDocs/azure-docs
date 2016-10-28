@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/18/2016"
+   ms.date="09/14/2016"
    ms.author="subramar"/>
 
 # Specify resources in a service manifest
@@ -24,7 +24,7 @@ The service manifest allows resources that are used by the service to be declare
 
 ## Endpoints
 
-When an endpoint resource is defined in the service manifest, Service Fabric assigns ports from the reserved application port range if an explicit port isn't specified (e.g., look at the endpoint *ServiceEndpoint1* below). Additionally, services can also request a specific port in a resource. Service replicas running on different cluster nodes can be assigned different port numbers, while replicas of the same service running on the same node share the same port. Such ports can be used by the service replicas for various purposes such as replication, listening for client requests, etc.
+When an endpoint resource is defined in the service manifest, Service Fabric assigns ports from the reserved application port range when a port isn't specified explicitly. For example, look at the endpoint *ServiceEndpoint1* specified in the manifest snippet provided after this paragraph. Additionally, services can also request a specific port in a resource. Service replicas running on different cluster nodes can be assigned different port numbers, while replicas of a service running on the same node share the port. The service replicas can then use these ports as needed for replication and listening for client requests.
 
 ```xml
 <Resources>
@@ -90,12 +90,12 @@ HTTP endpoints are automatically ACL'd by Service Fabric.
 
 ## Example: specifying an HTTPS endpoint for your service
 
-The HTTPS protocol provides server authentication and is also used for encrypting client-server communication. To enable this on your Service Fabric service, when you're defining the service, specify the protocol in the *Resources -> Endpoints -> Endpoint* section of the service manifest, as shown earlier for the endpoint *ServiceEndpoint3*.
+The HTTPS protocol provides server authentication and is also used for encrypting client-server communication. To enable HTTPS on your Service Fabric service, specify the protocol in the *Resources -> Endpoints -> Endpoint* section of the service manifest, as shown earlier for the endpoint *ServiceEndpoint3*.
 
->[AZURE.NOTE] A service’s protocol cannot be changed during application upgrade, since this would be a breaking change.
+>[AZURE.NOTE] A service’s protocol cannot be changed during application upgrade without it constituting a breaking change.
 
 
-Here is an example ApplicationManifest that you need to set for HTTPS. (You will need to provide the thumbprint for your certificate.) The EndpointRef is a reference to EndpointResource in ServiceManifest, for which you set the HTTPS protocol. You can add more than one Endpointcertificate.  
+Here is an example ApplicationManifest that you need to set for HTTPS. The thumbprint for your certificate must be provided. The EndpointRef is a reference to EndpointResource in ServiceManifest, for which you set the HTTPS protocol. You can add more than one EndpointCertificate.  
 
 ```
 <?xml version="1.0" encoding="utf-8"?>

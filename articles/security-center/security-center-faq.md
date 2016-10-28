@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2016"
+   ms.date="10/27/2016"
    ms.author="terrylan"/>
 
 # Azure Security Center frequently asked questions (FAQ)
@@ -35,7 +35,7 @@ Security Center is offered in two tiers: Free and Standard.
 
 The Free tier enables you to set security policies and receive security alerts, incidents, and recommendations that guide you through the process of configuring needed controls. With the Free tier you can also monitor the security state of your Azure resources and partner solutions integrated with your Azure subscription.
 
-The Standard tier provides the Free tier features plus advanced detections: threat intelligence, behavioral analysis, crash analysis, and anomaly detection. A free 90-day trial of the Standard tier is available. To upgrade, select Pricing Tier in the [security policy](security-center-policies.md#setting-security-policies-for-subscriptions). See the [pricing page](https://azure.microsoft.com/pricing/details/security-center/) to learn more.
+The Standard tier provides the Free tier features plus advanced detections: threat intelligence, behavioral analysis, crash analysis, and anomaly detection. A free 90-day trial of the Standard tier is available. To upgrade, select Pricing Tier in the [security policy](security-center-policies.md#setting-security-policies-for-subscriptions). See [Security Center pricing](security-center-pricing.md) to learn more.
 
 ## Data collection
 
@@ -121,10 +121,10 @@ If you need to:
 ### Which Azure resources are monitored by Azure Security Center?
 Azure Security Center monitors the following Azure resources:
 
-- Virtual machines (including Cloud Services)
+- Virtual machines (VMs) (including [Cloud Services](../cloud-services/cloud-services-choose-me.md))
 - Azure Virtual Networks
 - Azure SQL service
-- Partner solutions integrated with your Azure subscription such as a web application firewall
+- Partner solutions integrated with your Azure subscription such as a web application firewall on VMs and on [App Service Environment](../app-service/app-service-app-service-environments-readme.md)
 
 ## Virtual Machines
 
@@ -139,11 +139,12 @@ Supported Windows VMs:
 
 Supported Linux VMs:
 
-- Ubuntu versions 12.04, 14.04, 15.10, 16.04
+- Ubuntu versions 12.04, 14.04, 16.04
 - Debian versions 7, 8
 - CentOS versions 6.\*, 7.*
 - Red Hat Enterprise Linux (RHEL) versions 6.\*, 7.*
 - SUSE Linux Enterprise Server (SLES) versions 11.\*, 12.*
+- Oracle Linux versions 6.\*, 7.*
 
 VMs running in a cloud service are also supported. Only cloud services web and worker roles running in production slots are monitored. To learn more about cloud service, see [Cloud Services overview](../cloud-services/cloud-services-choose-me.md).
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory Domain Services preview: Administration Guide | Microsoft Azure"
+	pageTitle="Azure Active Directory Domain Services: Join a RHEL VM to a managed domain | Microsoft Azure"
 	description="Join a Red Hat Enterprise Linux virtual machine to Azure AD Domain Services"
 	services="active-directory-ds"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/31/2016"
+	ms.date="10/02/2016"
 	ms.author="maheshu"/>
 
 # Join a Red Hat Enterprise Linux 7 virtual machine to a managed domain
@@ -26,7 +26,7 @@ Perform the following steps to provision a RHEL 7 virtual machine using the Azur
 
     ![Azure portal dashboard](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-dashboard.png)
 
-2. Click **New** on the left pane and type **Red Hat** into the search bar as shown in the below screenshot. Entries for Red Hat Enterprise Linux appear in the search results. Click on **Red Hat Enterprise Linux 7.2**.
+2. Click **New** on the left pane and type **Red Hat** into the search bar as shown in the following screenshot. Entries for Red Hat Enterprise Linux appear in the search results. Click **Red Hat Enterprise Linux 7.2**.
 
     ![Select RHEL in results](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-find-rhel-image.png)
 
@@ -42,7 +42,7 @@ Perform the following steps to provision a RHEL 7 virtual machine using the Azur
 
     ![Create VM - basic details](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-basic-details.png)
 
-6. Click **Optional Configuration**. This should open up a pane titled **Optional config**. In the **Optional config** pane, click **Network**.
+6. Click **Optional Configuration**. In the **Optional config** pane, click **Network**.
 
     ![Create VM - configure virtual network](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-configure-vnet.png)
 
@@ -74,7 +74,7 @@ The RHEL 7.2 virtual machine has been provisioned in Azure. The next task is to 
 **Connect to the RHEL 7.2 virtual machine**
 Follow the instructions in the article [How to log on to a virtual machine running Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md).
 
-The rest of the steps below assume you are using PuTTY as the SSH client to connect to the RHEL virtual machine. For more information, see the [PuTTY Download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+The rest of the steps assume you use the PuTTY SSH client to connect to the RHEL virtual machine. For more information, see the [PuTTY Download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 1. Open the PuTTY program.
 
@@ -82,7 +82,7 @@ The rest of the steps below assume you are using PuTTY as the SSH client to conn
 
     ![PuTTY connect](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-connect.png)
 
-3. Log on to the virtual machine using the local administrator credentials you had specified when the virtual machine was created. In this example, we were using the local administrator account 'mahesh'.
+3. Log on to the virtual machine using the local administrator credentials you specified when the virtual machine was created. In this example, we used the local administrator account "mahesh".
 
     ![PuTTY login](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-login.png)
 
@@ -90,7 +90,7 @@ The rest of the steps below assume you are using PuTTY as the SSH client to conn
 ## Install required packages on the Linux virtual machine
 After connecting to the virtual machine, the next task is to install packages required for domain join on the virtual machine. Perform the following steps:
 
-1. **Install realmd:** The realmd package is used for domain join. In your PuTTY terminal, type the following command.
+1. **Install realmd:** The realmd package is used for domain join. In your PuTTY terminal, type the following command:
 
     sudo yum install realmd
 
@@ -100,7 +100,7 @@ After connecting to the virtual machine, the next task is to install packages re
 
     ![realmd installed](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-realmd-installed.png)
 
-3. **Install sssd:** The realmd package depends on sssd to perform domain join operations. In your PuTTY terminal, type the following command.
+3. **Install sssd:** The realmd package depends on sssd to perform domain join operations. In your PuTTY terminal, type the following command:
 
     sudo yum install sssd
 
@@ -110,7 +110,7 @@ After connecting to the virtual machine, the next task is to install packages re
 
     ![realmd installed](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-sssd-installed.png)
 
-4. **Install kerberos:** In your PuTTY terminal, type the following command.
+4. **Install kerberos:** In your PuTTY terminal, type the following command:
 
     sudo yum install krb5-workstation krb5-libs
 
@@ -124,7 +124,7 @@ After connecting to the virtual machine, the next task is to install packages re
 ## Join the Linux virtual machine to the managed domain
 Now that the required packages are installed on the Linux virtual machine, the next task is to join the virtual machine to the managed domain.
 
-1. Discover the AAD Domain Services managed domain. In your PuTTY terminal, type the following command.
+1. Discover the AAD Domain Services managed domain. In your PuTTY terminal, type the following command:
 
     sudo realm discover CONTOSO100.COM
 
@@ -140,7 +140,7 @@ Now that the required packages are installed on the Linux virtual machine, the n
 
     Ensure that you specify the domain name in capital letters, else kinit fails.
 
-3. Join the machine to the domain. In your PuTTY terminal, type the following command. Ensure that you specify the same user as that specified in the step above ('kinit').
+3. Join the machine to the domain. In your PuTTY terminal, type the following command. Specify the same user you specified in the preceding step ('kinit').
 
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'
 
@@ -164,7 +164,7 @@ You can quickly verify whether the machine has been successfully joined to the m
 
     id
 
-A sample output of these commands is shown below.
+A sample output of these commands follows:
 
 ![Verify domain join](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-verify-domain-join.png)
 

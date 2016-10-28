@@ -14,29 +14,32 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
+   ms.date="10/14/2016"
    ms.author="cherylmc"/>
 
 # Create a VNet with a Site-to-Site connection using PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
-- [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Classic - Classic Portal](vpn-gateway-site-to-site-create.md)
 
-This article walks you through creating a virtual network and a Site-to-Site VPN connection to your on-premises network using the **Azure Resource Manager deployment model**. Site-to-Site connections can be used for cross-premises and hybrid configurations.
+This article walks you through creating a virtual network and a Site-to-Site VPN gateway connection to your on-premises network using the Azure Resource Manager deployment model. Site-to-Site connections can be used for cross-premises and hybrid configurations.
 
 ![Site-to-Site diagram](./media/vpn-gateway-create-site-to-site-rm-powershell/s2srmps.png "site-to-site") 
 
 
-### Deployment models and tools for Site-to-Site connections
+### Deployment models and methods for Site-to-Site connections
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[AZURE.INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] 
 
-[AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
+The following table shows the currently available deployment models and methods for Site-to-Site configurations. When an article with configuration steps is available, we link directly to it from this table. 
 
-If you want to connect VNets together, but are not creating a connection to an on-premises location, see [Configure a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md).
+[AZURE.INCLUDE [site-to-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
+#### Additional configurations
+
+If you want to connect VNets together, but are not creating a connection to an on-premises location, see [Configure a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md). If you want to add a Site-to-Site connection to a VNet that already has a connection, see [Add a S2S connection to a VNet with an existing VPN gateway connection](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
 
 ## Before you begin
 
@@ -51,7 +54,7 @@ Verify that you have the following items before beginning configuration.
 - The latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
 
 
-## 1. Connect to your subscription 
+## <a name="Login"></a>1. Connect to your subscription 
 
 Make sure you switch to PowerShell mode to use the Resource Manager cmdlets. For more information, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
 
@@ -67,9 +70,9 @@ Specify the subscription that you want to use.
 
 	Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 
-## 2. Create a virtual network and a gateway subnet
+## <a name="VNet"></a>2. Create a virtual network and a gateway subnet
 
-The examples use a gateway subnet of /28. While it's possible to create a gateway subnet as small as /29, we don't recommend this. We recommend creating a gateway subnet /27 or larger (/26, /25, etc.) in order to accommodate additional feature requirements. 
+The examples use a gateway subnet of /28. While it is possible to create a gateway subnet as small as /29, we recommend that you create a larger subnet that includes more addresses by selecting at least /28 or /27. This will allow for enough addresses to accommodate possible additional configurations that you may want in the future.
 
 If you already have a virtual network with a gateway subnet that is /29 or larger, you can jump ahead to [Add your local network gateway](#localnet).
 
@@ -142,17 +145,17 @@ To add a local network gateway with multiple address prefixes:
 Sometimes your local network gateway prefixes change. The steps you take to modify your IP address prefixes depend on whether you have created a VPN gateway connection. See the [Modify IP address prefixes for a local network gateway](#modify) section of this article.
 
 
-## 4. Request a public IP address for the VPN gateway
+## <a name="PublicIP"></a>4. Request a public IP address for the VPN gateway
 
 Next, request a public IP address to be allocated to your Azure VNet VPN gateway. This is not the same IP address that is assigned to your VPN device; rather it's assigned to the Azure VPN gateway itself. You can't specify the IP address that you want to use. It is dynamically allocated to your gateway. You use this IP address when configuring your on-premises VPN device to connect to the gateway.
 
 The Azure VPN gateway for the Resource Manager deployment model currently only supports public IP addresses by using the Dynamic Allocation method. However, this does not mean the IP address will change. The only time the Azure VPN gateway IP address changes is when the gateway is deleted and re-created. The gateway public IP address won't change across resizing, resetting, or other internal maintenance/upgrades of your Azure VPN gateway.
 
-Use the following PowerShell sample.
+Use the following PowerShell sample:
 
 	$gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
 
-## 5. Create the gateway IP addressing configuration
+## <a name="GatewayIPConfig"></a>5. Create the gateway IP addressing configuration
 
 The gateway configuration defines the subnet and the public IP address to use. Use the following sample to create your gateway configuration.
 
@@ -160,7 +163,7 @@ The gateway configuration defines the subnet and the public IP address to use. U
 	$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 	$gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id 
 
-## 6. Create the virtual network gateway
+## <a name="CreateGateway"></a>6. Create the virtual network gateway
 
 In this step, you create the virtual network gateway. Creating a gateway can take a long time to complete. Often 45 minutes or more. 
 
@@ -175,15 +178,15 @@ Use the following values:
 		-Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
 		-VpnType RouteBased -GatewaySku Standard
 
-## 7. Configure your VPN device
+## <a name="ConfigureVPNDevice"></a>7. Configure your VPN device
 
-At this point, you need the public IP address of the virtual network gateway for configuring your on-premises VPN device. Work with your device manufacturer for specific configuration information. Additionally, refer to the [VPN Devices](vpn-gateway-about-vpn-devices.md) for more information.
+At this point, you need the public IP address of the virtual network gateway for configuring your on-premises VPN device. Work with your device manufacturer for specific configuration information. You can refer to the [VPN Devices](vpn-gateway-about-vpn-devices.md) for more information.
 
 To find the public IP address of your virtual network gateway, use the following sample:
 
 	Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg
 
-## 8. Create the VPN connection
+## <a name="CreateConnection"></a>8. Create the VPN connection
 
 Next, create the Site-to-Site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values with your own. The shared key must match the value you used for your VPN device configuration. Notice that the `-ConnectionType` for Site-to-Site is *IPsec*. 
 

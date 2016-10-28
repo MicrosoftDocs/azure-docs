@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Reference in Analytics in Application Insights | Microsoft Azure" 
-	description="Reference for statements in Analytics, 
-	             the powerful search tool of Application Insights. " 
+	description="Reference for statements in Analytics, the powerful search tool of Application Insights. " 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -13,40 +12,40 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
+	ms.date="10/27/2016" 
 	ms.author="awills"/>
 
 # Reference for Analytics
 
 [Analytics](app-insights-analytics.md) is the powerful search feature of 
 [Application Insights](app-insights-overview.md). These pages describe the
- Analytics query lanquage.
+ Analytics query language.
 
 > [AZURE.NOTE] [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) if your app isn't sending data to Application Insights yet.
 
 ## Index
 
 
-**Let and set** [let](#let-clause) | [set](#set-clause)
+**Let** [let](#let-clause)
 
 
-**Queries and operators** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
+**Queries and operators** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
 
 **Aggregations** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
 **Scalars** [Boolean Literals](#boolean-literals) | [Boolean operators](#boolean-operators) | [Casts](#casts) | [Scalar comparisons](#scalar-comparisons) | [gettype](#gettype) | [hash](#hash) | [iff](#iff) | [isnotnull](#isnotnull) | [isnull](#isnull) | [notnull](#notnull) | [toscalar](#toscalar)
 
-**Numbers** [Arithmetic operators](#arithmetic-operators) | [Numeric literals](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+**Numbers** [Arithmetic operators](#arithmetic-operators) | [Numeric literals](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [gamma](#gamma) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 **Date and time** [Date and time expressions](#date-and-time-expressions) | [Date and time literals](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
-**String** [GUIDs](#guids) | [Obfuscated String Literals](#obfuscated-string-literals) | [String Literals](#string-literals) | [String comparisons](#string-comparisons) | [countof](#countof) | [extract](#extract) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper)
+**String** [GUIDs](#guids) | [Obfuscated String Literals](#obfuscated-string-literals) | [String Literals](#string-literals) | [String comparisons](#string-comparisons) | [countof](#countof) | [extract](#extract) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty)| [parseurl](#parseurl) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper)
 
 **Arrays, objects and dynamic** [Array and object literals](#array-and-object-literals) | [Dynamic object functions](#dynamic-object-functions) | [Dynamic objects in let clauses](#dynamic-objects-in-let-clauses) | [JSON Path expressions](#json-path-expressions) | [Names](#names) | [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [todynamic](#todynamic) | [treepath](#treepath)
 
 
 
-## Let and set
+## Let
 
 ### let clause
 
@@ -101,30 +100,6 @@ Self-join:
       on session_id
     | extend duration = stop - start 
 
-### Set clause
-
-The set clause sets an option for the duration of the query. Query options control how a query executes and returns results. They can be Boolean flags (off by default), or have some integer value. A query may contain zero, one, or more set statements. Set statements affect only the tabular expression statements that trail them in program order.
-
-    set OptionName [= OptionValue] ; query
-
-
-|Name | Implication if set to true
-|---|---
-|querytrace| Increases the level of debug traces generated by a query. 
-|noexecute| Disables the actual execution of the query (just query planning phase is run). 
-|perftrace| Enables performance tracing. 
-|notruncation| Disables result-set truncation. 
-|truncationmaxsize| Limit query result data size (In Bytes). 
-|truncationmaxrecords| Limit query result record number. 
-|nostreaming |Disables result-set streaming. 
-
-**Example**
-
-```
-
-    set querytrace;
-    requests | take 100
-```
 
 ## Queries and operators
 
@@ -1069,7 +1044,7 @@ This more efficient version produces the same result. It filters each table befo
 
 ### where operator
 
-     T | where fruit=="apple"
+     requests | where resultCode==200
 
 Filters a table to the subset of rows that satisfy a predicate.
 
@@ -1102,7 +1077,7 @@ To get the fastest performance:
 **Example**
 
 ```AIQL
-Traces
+traces
 | where Timestamp > ago(1h)
     and Source == "Kuskus"
     and ActivityId == SubActivityIt 
@@ -1113,6 +1088,26 @@ and come from the Source called "Kuskus", and have two columns of the same value
 
 Notice that we put the comparison between two columns last, as it can't utilize the index and forces a scan.
 
+
+### where-in operator
+
+    requests | where resultCode !in (200, 201)
+
+    requests | where resultCode in (403, 404)
+
+**Syntax**
+
+    T | where col in (expr1, expr2, ...)
+    T | where col !in (expr1, expr2, ...)
+
+**Arguments**
+
+* `col`: A column in the table.
+* `expr1`...: A list of scalar expressions.
+
+Use `in` is used to include only rows in which `col` is equal to one of the expressions `expr1...`.
+
+Use `!in` to include only rows in which `col` is not equal to any of the expressions `expr1...`.  
 
 
 ## Aggregations
@@ -1698,7 +1693,7 @@ The evaluated argument. If the argument is a table, returns the first column of 
 
 ## Numbers
 
-[abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) |[log](#log) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) 
+[abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [gamma](#gamma) |[log](#log) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) 
 | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 ### Numeric literals
@@ -1787,10 +1782,25 @@ with a bucket size of 1 second:
     exp10(v) // 10 raised to the power v
 
 
-
 ### floor
 
 An alias for [`bin()`](#bin).
+
+### gamma
+
+The [gamma function](https://en.wikipedia.org/wiki/Gamma_function)
+
+**Syntax**
+
+    gamma(x)
+
+**Arguments**
+
+* *x:* A real number
+
+For positive integers, `gamma(x) == (x-1)!` For example, `gamma(5) == 4 * 3 * 2 * 1`.
+
+See also [loggamma](#loggamma).
 
 
 ### log
@@ -1801,6 +1811,20 @@ An alias for [`bin()`](#bin).
 
 
 `v` should be a real number > 0. Otherwise, null is returned.
+
+### loggamma
+
+
+The natural logarithm of the absolute value of the [gamma function](#gamma).
+
+**Syntax**
+
+    loggamma(x)
+
+**Arguments**
+
+* *x:* A real number
+
 
 ### rand
 
@@ -2121,7 +2145,7 @@ The integer result represents the week number by the ISO 8601 standard. The firs
 
 ## String
 
-[countof](#countof) | [extract](#extract) | [extractjson](#extractjson)  | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [tostring](#tostring) | [toupper](#toupper)
+[countof](#countof) | [extract](#extract) | [extractjson](#extractjson)  | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [parseurl](#parseurl) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [tostring](#tostring) | [toupper](#toupper)
 
 
 ### String Literals
@@ -2299,7 +2323,36 @@ Indicates whether the argument is an empty string or isnull.
     T | where isempty(fieldName) | count
 
 
+### parseurl
 
+Split a URL into its parts.
+
+**Syntax**
+
+    parseurl(urlstring)
+
+**Arguments**
+
+* *urlstring:* A URL.
+
+**Returns**
+
+An object containing the parts as strings.
+
+**Example**
+
+    parseurl("http://user:pass@contoso.com/icecream/buy.aspx?a=1&b=2#tag")
+
+    {
+    "Scheme" : "http",
+    "Host" : "contoso.com",
+    "Port" : "80",
+    "Path" : "/icecream/buy.aspx",
+    "Username" : "user",
+    "Password" : "pass",
+    "Query Parameters" : {"a":"1","b":"2"},
+    "Fragment" : "tag"
+    }
 
 ### replace
 
@@ -2438,7 +2491,7 @@ Converts a string to upper case.
 
 [literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses)
 <br/>
-[arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+[arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic) | [zip](#zip)
 
 
 Here's the result of a query on an Application Insights exception. The value in `details` is an array.
@@ -2747,6 +2800,24 @@ An array of path expressions.
     =>       ["['listProperty']","['listProperty'][0]","['listProperty'][0]['x']"]
 
 Note that "[0]" indicates the presence of an array, but does not specify the index used by a specific path.
+
+### zip
+
+    zip(list1, list2, ...)
+
+Combines a set of lists into one list of tuples.
+
+* `list1...`: A list of values
+
+**Examples**
+
+    zip(parsejson('[1,3,5]'), parsejson('[2,4,6]'))
+    => [ [1,2], [3,4], [5,6] ]
+
+    
+    zip(parsejson('[1,3,5]'), parsejson('[2,4]'))
+    => [ [1,2], [3,4], [5,null] ]
+
 
 ### Names
 

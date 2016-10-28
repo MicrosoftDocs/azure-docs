@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Directory integration between Azure Multi-Factor Authentication and Active Directory" 
-	description="This is the Azure Multi-factor authentication page that describes how to integrate the Azure Multi-Factor Authentication Server with Active Directory so you can synchronize the directories." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Directory integration between Azure Multi-Factor Authentication and Active Directory"
+	description="This is the Azure Multi-factor authentication page that describes how to integrate the Azure Multi-Factor Authentication Server with Active Directory so you can synchronize the directories."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Directory integration between Azure MFA Server and Active Directory
 
-The Directory Integration section allows you to configure the server to integrate with Active Directory or another LDAP directory.  It allows you to configure attributes to match the directory schema and set up automatic synchronization of users. 
+The Directory Integration section allows you to configure the server to integrate with Active Directory or another LDAP directory.  It allows you to configure attributes to match the directory schema and set up automatic synchronization of users.
 
 ## Settings
 By default, the Azure Multi-Factor Authentication Server is configured to import or synchronize users from Active Directory.  The tab allows you to override the default behavior and to bind to a different LDAP directory, an ADAM directory, or specific Active Directory domain controller.  It also provides for the use of LDAP Authentication to proxy LDAP or for LDAP Bind as a RADIUS target, pre-authentication for IIS Authentication, or primary authentication for User Portal.  The following table describes the individual settings.
@@ -126,7 +126,7 @@ The **Remove** button allows the administrator to delete one or more synchroniza
 
 >[AZURE.WARNING]Once a synchronization item record has been removed, it cannot be recovered. You will need to re-add the synchronization item record if you deleted it by mistake.
 
-The synchronization item or synchronization items have been removed from Multi-Factor Auth Server.  The Multi-Factor Auth Server service will no longer process the synchronization items. 
+The synchronization item or synchronization items have been removed from Multi-Factor Auth Server.  The Multi-Factor Auth Server service will no longer process the synchronization items.
 
 The Move Up and Move Down buttons allow the administrator to change the order of the synchronization items.  The order is important since the same user may be a member of more than one synchronization item (e.g. a container and a security group).  The settings applied to the user during synchronization will come from the first synchronization item in the list to which the user is associated.  Therefore, the synchronization items should be put in priority order.
 

@@ -1,11 +1,11 @@
 <properties
    pageTitle="The 5 data science questions - Data Science for Beginners | Microsoft Azure"
    description="Get a quick introduction to data science from Data Science for Beginners, five short videos that start with The 5 Questions Data Science Answers."
-   keywords="doing data science,introduction to data science,data science for beginners, types of questions,data science questions, data science algorithms"
+   keywords="doing data science,data science beginners,data science for beginners, types of questions,data science questions, data science video"
    services="machine-learning"
    documentationCenter="na"
-   authors="brohrer-ms"
-   manager="paulettm"
+   authors="cjgronlund"
+   manager="jhubbard"
    editor="cjgronlund"/>
 
 <tags
@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/24/2016"
-   ms.author="cgronlun;brohrer;garye"/>
+   ms.date="10/20/2016"
+   ms.author="cgronlun;garye"/>
 
 # Data Science for Beginners video 1: The 5 questions data science answers
 
-Get a quick introduction to data science from *Data Science for Beginners* in five short videos. This video series is helpful if you're interested in doing data science - or work with people who do data science - and you want to start with some basic concepts.
+Get a quick introduction to data science from *Data Science for Beginners* in five short videos from a top data scientist. These videos are basic but useful, whether you're interested in doing data science or you work with data scientists.
 
-This first video is about the kinds of questions that data science can answer. Data science predicts answers to questions using a number or category. To get the most out of the series, watch them in order. [Go to the list of videos](#other-videos-in-this-series)
+This first video is about the kinds of questions that data science can answer. To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-series-the-5-questions-data-science-answers]
 
@@ -87,7 +87,7 @@ If you have a credit card, you’ve already benefitted from anomaly detection. Y
 This question can be useful in lots of ways. For instance:
 
   *	If you have a car with pressure gauges, you might want to know: Is this pressure gauge reading normal?
-  *	If you're monitoring the internet you’d want to know: Is this message from the internet typical?
+  *	If you're monitoring the internet, you’d want to know: Is this message from the internet typical?
 
 Anomaly detection flags unexpected or unusual events or behaviors. It gives clues where to look for problems.
 
@@ -105,7 +105,7 @@ Regression algorithms make numerical predictions, such as:
   *	What will the temperature be next Tuesday?  
   *	What will my fourth quarter sales be?
 
-They help answer any question that can asks for a number.
+They help answer any question that asks for a number.
 
 ## Question 4: How is this organized? uses clustering algorithms
 
@@ -113,7 +113,7 @@ Now the last two questions are a bit more advanced.
 
 Sometimes you want to understand the structure of a data set - How is this organized? For this question, you don’t have examples that you already know outcomes for.
 
-There are a lot of ways to tease out the structure of data. One approach is clustering. It separates data into natural "clumps," for easier interpretation. With clustering there is no one right answer.
+There are a lot of ways to tease out the structure of data. One approach is clustering. It separates data into natural "clumps," for easier interpretation. With clustering, there is no one right answer.
 
 ![Clustering algorithms: How is this organized?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-clustering-algorithms.png)
 
@@ -148,5 +148,5 @@ So that's it - The 5 questions data science can answer.
 
 ## Next steps
 
-  * [Try your first data science experiment with Azure Machine Learning](machine-learning-create-experiment.md)
+  * [Try a first data science experiment with Machine Learning Studio](machine-learning-create-experiment.md)
   * [Get an introduction to Machine Learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)

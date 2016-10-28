@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="08/08/2016"
+    ms.date="09/22/2016"
     ms.author="magoedte" />
 
 # Forward job status and job streams from Automation to Log Analytics (OMS)
@@ -80,6 +80,41 @@ To confirm the script configured your Automation account and OMS wokspace succes
 
     This will return the storage insight for the specified OMS workspace.  We want to confirm the storage insight for the  Automation account we specified earlier exists and the **State** object shows a value of **OK**.<br> ![Results from Get-AzureRmOperationalInsightsStorageInsights cmdlet](media/automation-manage-send-joblogs-log-analytics/automation-posh-getstorageinsights-results.png).
 
+
+## Log Analytics records
+
+Automation creates two types of records in the OMS repository.
+
+### Job Logs
+
+Property | Description|
+----------|----------|
+Time | Date and time when the runbook job executed.|
+resourceId | Specifies the resource type in Azure.  For Automation, the value is the Automation account associated with the runbook.|
+operationName | Specifies the type of operation performed in Azure.  For Automation, the value will be Job.|
+resultType | The status of the runbook job.  Possible values are:<br>- Started<br>- Stopped<br>- Suspended<br>- Failed<br>- Succeeded|
+resultDescription | Describes the runbook job result state.  Possible values are:<br>- Job is started<br>- Job Failed<br>- Job Completed|
+CorrelationId | GUID that is the Correlation Id of the runbook job.|
+Category | Classification of the type of data.  For Automation, the value is JobLogs.|
+RunbookName | The name of the runbook.|
+JobId | GUID that is the Id of the runbook job.|
+Caller |  Who initiated the operation.  Possible values are either an email address or system for scheduled jobs.|
+
+### Job Streams
+Property | Description|
+----------|----------|
+Time | Date and time when the runbook job executed.|
+resourceId | Specifies the resource type in Azure.  For Automation, the value is the Automation account associated with the runbook.|
+operationName | Specifies the type of operation performed in Azure.  For Automation, the value will be Job.|
+resultType | The status of the runbook job.  Possible values are:<br>- InProgress|
+resultDescription | Includes the output stream from the runbook.|
+CorrelationId | GUID that is the Correlation Id of the runbook job.|
+Category | Classification of the type of data.  For Automation, the value is JobStreams.|
+RunbookName | The name of the runbook.|
+JobId | GUID that is the Id of the runbook job.|
+Caller | Who initiated the operation.  Possible values are either an email address or system for scheduled jobs.| 
+StreamType | The type of job stream. Possible values are:<br>-Progress<br>- Output<br>- Warning<br>- Error<br>- Debug<br>- Verbose|
+
 ## Viewing Automation Logs in Log Analytics 
 
 Now that you have started sending your Automation job logs to Log Analytics, let’s see what you can do with these logs inside OMS.   
@@ -117,6 +152,7 @@ Finally, you may want to visualize your job history over time.  You can use this
 
 `Category=JobLogs NOT(ResultType="started") | measure Count() by ResultType interval 1day`  
 <br> ![OMS Historical Job Status Chart](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
+
 
 ## Summary
 

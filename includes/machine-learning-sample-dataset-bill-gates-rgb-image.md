@@ -1,1 +1,0 @@
-Publicly-available image file converted to CSV data.<p> </p>The code for converting the image is provided in the <strong>Color quantization using K-Means clustering</strong> model detail page.

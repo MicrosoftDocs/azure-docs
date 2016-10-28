@@ -3,7 +3,7 @@
 	description="Learn about how to securely connect to backend resources from an App Service Environment." 
 	services="app-service" 
 	documentationCenter="" 
-	authors="ccompy" 
+	authors="stefsch" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/11/2016" 
+	ms.date="10/04/2016" 
 	ms.author="stefsch"/>	
 
 # Securely Connecting to Backend Resources from an App Service Environment #

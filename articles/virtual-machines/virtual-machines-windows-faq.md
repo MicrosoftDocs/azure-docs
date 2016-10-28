@@ -69,7 +69,7 @@ Yes. For instructions, see [How to expand the OS drive of a Virtual Machine in a
 
 ## Can I copy or clone an existing Azure VM?
 
-Yes. For instructions, see [How to create a copy of a Windows virtual machine in the Resource Manager deployment model](virtual-machines-windows-specialized-image.md).
+Yes. For instructions, see [How to create a copy of a Windows virtual machine in the Resource Manager deployment model](virtual-machines-windows-vhd-copy.md).
 
 ## Why am I not seeing Canada Central and Canada East regions through Azure Resource Manager?
 
@@ -131,7 +131,6 @@ Passwords must be 8 - 123 characters in length and meet 3 out of the following 4
 
 The following passwords are not allowed:
 
-The following passwords are not allowed
 <table>
 	<tr>
 		<td style="text-align:center">abc@123</td><td style="text-align:center">P@$$w0rd</td><td style="text-align:center">P@ssw0rd</td><td style="text-align:center">P@ssword123</td><td style="text-align:center">Pa$$word</td>

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/12/2016"
+   ms.date="10/10/2016"
    ms.author="maroche"/>
 
 # How to save searches and pin data assets
@@ -55,6 +55,13 @@ Selecting “Rename” will prompt the user to enter a new name for the saved se
 Selecting “Delete” will prompt the user for confirmation, and will then remove the saved search from the user’s list.
 
 Selecting “Save as Default” will mark the chosen saved search as the default search for the user. If the user performs an “empty” search from the Azure Data Catalog home page, the user’s default search will be executed. In addition, the search marked as default will appear at the top of the saved search list.
+
+### Organizational saved searches
+
+Every user can save searches for their own use. Data Catalog administrators can also save searches for all users within the organization. When saving a search, administrators are presented with an option to share the saved search within the company. If this option is selected, the saved search will be included in the list of available searches for all users.
+
+ ![Organizational saved searches](./media/data-catalog-how-to-save-pin/08-organizational-saved-search.png)
+
 
 ## Pinned data assets
 

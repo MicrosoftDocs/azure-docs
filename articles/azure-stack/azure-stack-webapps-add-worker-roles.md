@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2016"
+	ms.date="09/26/2016"
 	ms.author="kathm"/>
 
 #   Web Apps: Adding more web worker roles
+
+> [AZURE.NOTE] The following information only applies to Azure Stack TP1 deployments.
 
 This document provides instructions about how to scale Web Apps web worker roles. It contains steps for creating additional web worker roles to support web apps offerings of any size.
 

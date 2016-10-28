@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Get started with the IoT Hub Gateway SDK | Microsoft Azure"
-	description="Azure IoT Hub Gateway SDK walkthrough using Linux to illustrate key concepts you should understand when you use the Azure IoT Hub Gateway SDK."
+	description="This Azure IoT Gateway SDK walkthrough uses Linux to illustrate key concepts you should understand when you use the Azure IoT Gateway SDK."
 	services="iot-hub"
 	documentationCenter=""
 	authors="chipalost"
@@ -13,11 +13,11 @@
      ms.topic="get-started-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="04/20/2016"
-     ms.author="cstreet"/>
+     ms.date="08/25/2016"
+     ms.author="andbuc"/>
 
 
-# IoT Gateway SDK (beta) - Get started using Linux
+# Azure IoT Gateway SDK (beta) - Get started using Linux
 
 [AZURE.INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
@@ -59,6 +59,13 @@ Before you get started, you must [set up your development environment][lnk-setup
           "module name" : "hello_world",
           "module path" : "./build/modules/hello_world/libhello_world_hl.so",
           "args" : null
+        }
+      ],
+      "links" :
+      [
+        {
+          "source": "hello_world",
+          "sink": "logger_hl"
         }
       ]
     }

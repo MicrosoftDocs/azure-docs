@@ -74,10 +74,16 @@ To set up email notifications for alerts
 5. In the **Severity** dialog, choose one or more levels that you want to trigger email notification.
 
 6. Click **Save**.
+### What alert types are available for Azure IaaS VM backup?
+| Alert Level  | Alerts sent |
+| ------------- | ------------- |
+| Critical | Backup failure, recovery failure  |
+| Warning  | None |
+| Informational  | None  |
 
 ### Are there situations where email isn't sent even if notifications are configured?
 
-There are situations where an alert is not sent, even though the notifications have been properly configured. In the following situations email notifications are not sent:
+There are situations where an alert is not sent, even though the notifications have been properly configured. In the following situations email notifications are not sent to avoid alert noise:
 
 - If notifications are configured to Hourly Digest, and an alert is raised and resolved within the hour.
 - The job is canceled.
@@ -207,7 +213,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 Event-based alerts are subject to the following limitations:
 
 1. Alerts are triggered on all virtual machines in the Recovery Services vault. You cannot customize the alert for a subset of virtual machines in a Recovery Services vault.
-2. This feature is in Preview. [Learn more](../azure-portal/insights-powershell-samples.md#create-alert-rules)
+2. This feature is in Preview. [Learn more](../monitoring-and-diagnostics/insights-powershell-samples.md#create-alert-rules)
 3. Alerts are sent from "alerts-noreply@mail.windowsazure.com". Currently you can't modify the email sender.
 
 
@@ -227,6 +233,6 @@ Event logs enable great post-mortem and audit support for the backup operations.
 - Update policy
 - Cancel job
 
-For a broad explanation of events, operations, and audit logs across the Azure services, see the article, [View events and audit logs](../azure-portal/insights-debugging-with-events.md).
+For a broad explanation of events, operations, and audit logs across the Azure services, see the article, [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md).
 
 For information on re-creating a virtual machine from a recovery point, check out [Restore Azure VMs](backup-azure-restore-vms.md). If you need information on protecting your virtual machines, see [First look: Back up VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md). Learn about the management tasks for VM backups in the article, [Manage Azure virtual machine backups](backup-azure-manage-vms.md).

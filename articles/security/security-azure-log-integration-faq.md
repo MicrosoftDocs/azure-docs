@@ -77,7 +77,7 @@ Error:
 See:
 
 - [Audit operations with Resource Manager](../resource-group-audit.md)
-- [List the management events in a subscription in Azure Insights REST API](https://msdn.microsoft.com/library/azure/dn931934.aspx)
+- [List the management events in a subscription in Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931934.aspx)
 
 ## Where can I find details on Azure Security Center alerts?
 
@@ -112,6 +112,8 @@ The following example is a configuration where only EventID 4624 and EventId 462
     Set-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName log3121 -StorageAccountKey <storage key>
 
 After making changes, check the storage account to ensure that the correct events are collected.
+
+If you have questions about Azure Log Integration, please send an email to [AzSIEMteam@microsoft.com] (mailto:AzSIEMteam@microsoft.com)
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png

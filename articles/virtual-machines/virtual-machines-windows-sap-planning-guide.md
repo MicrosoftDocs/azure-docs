@@ -1,19 +1,19 @@
 <properties
    pageTitle="SAP NetWeaver on Windows virtual machines (VMs) – Planning and Implementation Guide | Microsoft Azure"
    description="SAP NetWeaver on Windows virtual machines (VMs) – Planning and Implementation Guide"
-   services="virtual-machines-windows,virtual-network,storage"
-   documentationCenter="saponazure"
+   services="virtual-machines-windows"
+   documentationCenter=""
    authors="MSSedusch"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
 <tags
    ms.service="virtual-machines-windows"
    ms.devlang="NA"
-   ms.topic="campaign-page"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
-   ms.workload="na"
+   ms.workload="infrastructure-services"
    ms.date="08/18/2016"
    ms.author="sedusch"/>
 
@@ -259,8 +259,8 @@
 [virtual-machines-linux-agent-user-guide-command-line-options]:virtual-machines-linux-agent-user-guide.md#command-line-options
 [virtual-machines-linux-capture-image]:virtual-machines-linux-capture-image.md
 [virtual-machines-linux-capture-image-capture]:virtual-machines-linux-capture-image.md#capture-the-vm
-[virtual-machines-windows-capture-image]:virtual-machines-windows-capture-image.md
-[virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture]:virtual-machines-windows-capture-image.md#prepare-the-vm-for-image-capture
+[virtual-machines-windows-capture-image]:virtual-machines-windows-create-vm-generalized.md
+[virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture]:virtual-machines-windows-create-vm-generalized.md
 [virtual-machines-linux-configure-lvm]:virtual-machines-linux-configure-lvm.md
 [virtual-machines-linux-configure-raid]:virtual-machines-linux-configure-raid.md
 [virtual-machines-linux-classic-create-upload-vhd-step-1]:virtual-machines-linux-classic-create-upload-vhd.md#step-1-prepare-the-image-to-be-uploaded

@@ -21,7 +21,7 @@ Create an IoT hub for your simulated device to connect to. The following steps s
 
     ![New IoT hub status][3]
 
-5. When the IoT hub has been created successfully, click the new tile for your IoT hub in the portal to open the blade for the new IoT hub. Make a note of the **Hostname**, and then click **Shared access policies**.
+5. When the IoT hub has been created successfully, click the new tile for your IoT hub in the Azure portal to open the blade for the new IoT hub. Make a note of the **Hostname**, and then click **Shared access policies**.
 
     ![New IoT hub blade][4]
 
@@ -41,4 +41,4 @@ Create an IoT hub for your simulated device to connect to. The following steps s
 [lnk-resource-groups]: ../articles/azure-portal/resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
-[lnk-access-control]: ../articles/iot-hub/iot-hub-devguide.md#accesscontrol
+[lnk-access-control]: ../articles/iot-hub/iot-hub-devguide-security.md

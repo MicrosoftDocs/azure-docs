@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="07/29/2016"
+   ms.date="10/19/2016"
    ms.author="vturecek"/>
 
 # Get started: Service Fabric Web API services with OWIN self-hosting
@@ -203,7 +203,7 @@ using System.Threading.Tasks;
 
 namespace WebService
 {
-    public class OwinCommunicationListener : ICommunicationListener
+    internal class OwinCommunicationListener : ICommunicationListener
     {
         public void Abort()
         {
@@ -229,7 +229,7 @@ The ICommunicationListener interface provides three methods to manage a communic
 To get started, add private class members for things the listener will need to function. These will be initialized through the constructor and used later when you set up the listening URL.
 
 ```csharp
-public class OwinCommunicationListener : ICommunicationListener
+internal class OwinCommunicationListener : ICommunicationListener
 {
     private readonly ServiceEventSource eventSource;
     private readonly Action<IAppBuilder> startup;
@@ -427,7 +427,7 @@ In this implementation example, both CloseAsync and Abort simply stop the web se
 
 ## Start the web server
 
-You're now ready to create and return an instance of OwinCommunicationListener to start the web server. Back in the Service class (Service.cs), override the `CreateServiceInstanceListeners()` method:
+You're now ready to create and return an instance of OwinCommunicationListener to start the web server. Back in the Service class (WebService.cs), override the `CreateServiceInstanceListeners()` method:
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()

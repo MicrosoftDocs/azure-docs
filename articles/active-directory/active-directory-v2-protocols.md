@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # v2.0 Protocols - OAuth 2.0 & OpenID Connect
 
-the v2.0 endpoint can use Azure AD for identity-as-a-service with industry standard protocols, OpenID Connect and OAuth 2.0.  While the service is standard compliant, there can be subtle differences between any two implementations of these protocols.  The information here will be useful if you choose to write your code by directly sending & handling HTTP requests or use a 3rd party open source library, rather than using one of our open source libraries.
+The v2.0 endpoint can use Azure AD for identity-as-a-service with industry standard protocols, OpenID Connect and OAuth 2.0.  While the service is standards-compliant, there can be subtle differences between any two implementations of these protocols.  The information here will be useful if you choose to write your code by directly sending & handling HTTP requests or use a 3rd party open source library, rather than using one of our open source libraries.
 <!-- TODO: Need link to libraries above -->
 
 > [AZURE.NOTE]
@@ -36,13 +36,13 @@ In nearly all OAuth & OpenID Connect flows, there are four parties involved in t
 
 
 ## App Registration
-Every app that uses the v2.0 endpoint will need to be registered at [apps.dev.microsoft.com](https://apps.dev.microsoft.com) before it can interact using OAuth or OpenID Connect.  The app registration process will collect & assign a few values to your app:
+Every app that uses the v2.0 endpoint will need to be registered at [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) before it can interact using OAuth or OpenID Connect.  The app registration process will collect & assign a few values to your app:
 
 - An **Application Id** that uniquely identifies your app
 - A **Redirect URI** or **Package Identifier** that can be used to direct responses back to your app
 - A few other scenario-specific values.
 
-For more detail, learn how to [register an app](active-directory-v2-app-registration.md).
+For more details, learn how to [register an app](active-directory-v2-app-registration.md).
 
 ## Endpoints
 Once registered, the app communicates with Azure AD by sending requests to the v2.0 endpoint:
@@ -76,7 +76,7 @@ check out [the types of apps you can build with the v2.0](active-directory-v2-fl
 - [Build Mobile and Native Application with OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
 - [Build Web Apps with Open ID Connect](active-directory-v2-protocols-oidc.md)
 - [Build Single Page Apps with the OAuth 2.0 Implicit Flow](active-directory-v2-protocols-implicit.md)
-- Build Daemons or Server Side Processes with the OAuth 2.0 Client Credentials Flow (coming soon)
+- [Build Daemons or Server Side Processes with the OAuth 2.0 Client Credentials Flow](active-directory-v2-protocols-oauth-client-creds.md)
 - Get tokens in a Web API with the OAuth 2.0 On Behalf Of Flow (coming soon)
 
 <!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) --> 
