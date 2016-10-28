@@ -30,16 +30,21 @@ The requirements are:
 
 - [SSH public and private key files](virtual-machines-linux-mac-create-ssh-keys.md)
 
+## Sign in
 
-1. Signed into the Azure portal with your Azure account identity, click **+ New** in the upper left corner:
+Signed into the Azure portal with your Azure account identity, click **+ New** in the upper left corner:
 
     ![screen1](../media/virtual-machines-linux-quick-create-portal/screen1.png)
 
-2. Click **Virtual Machines** in the **Marketplace** then **Ubuntu Server 14.04 LTS** from the **Featured Apps** images list.  Verify at the bottom that the deployment model is `Resource Manager` and then click **Create**.
+## Choose VM
+
+Click **Virtual Machines** in the **Marketplace** then **Ubuntu Server 14.04 LTS** from the **Featured Apps** images list.  Verify at the bottom that the deployment model is `Resource Manager` and then click **Create**.
 
     ![screen2](../media/virtual-machines-linux-quick-create-portal/screen2.png)
 
-3. On the **Basics** page, enter:
+## Enter VM options
+
+On the **Basics** page, enter:
     - a name for the VM
     - a username for the Admin User
     - the Authentication Type set to **SSH public key**
@@ -50,27 +55,39 @@ The requirements are:
 
     ![screen3](../media/virtual-machines-linux-quick-create-portal/screen3.png)
 
-4. Choose the **DS1** size, which installs Ubuntu on a Premium SSD, and click **Select** to configure settings.
+## Choose VM size
+
+Choose the **DS1** size, which installs Ubuntu on a Premium SSD, and click **Select** to configure settings.
 
     ![screen4](../media/virtual-machines-linux-quick-create-portal/screen4.png)
 
-5. In **Settings**, leave the defaults for Storage and Network values, and click **OK** to view the summary.  Notice the disk type has been set to Premium SSD by choosing DS1, the **S** notates SSD.
+## Storage and network
+
+In **Settings**, leave the defaults for Storage and Network values, and click **OK** to view the summary.  Notice the disk type has been set to Premium SSD by choosing DS1, the **S** notates SSD.
 
     ![screen5](../media/virtual-machines-linux-quick-create-portal/screen5.png)
 
-6. Confirm the settings for your new Ubuntu VM, and click **OK**.
+## Confirm VM settings and launch
+
+Confirm the settings for your new Ubuntu VM, and click **OK**.
 
     ![screen6](../media/virtual-machines-linux-quick-create-portal/screen6.png)
 
-7. Open the Portal Dashboard and in **Network interfaces** choose your NIC
+## Find the VM NIC
+
+Open the Portal Dashboard and in **Network interfaces** choose your NIC
 
     ![screen7](../media/virtual-machines-linux-quick-create-portal/screen7.png)
 
-8. Open the Public IP addresses menu under the NIC settings
+## Find the public IP
+
+Open the Public IP addresses menu under the NIC settings
 
     ![screen8](../media/virtual-machines-linux-quick-create-portal/screen8.png)
 
-9. SSH into the public IP using your SSH public key
+## SSH to the VM
+
+SSH into the public IP using your SSH public key
 
 ```
 ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
