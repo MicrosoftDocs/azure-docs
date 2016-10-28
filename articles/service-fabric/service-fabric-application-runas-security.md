@@ -260,10 +260,10 @@ You use the **DefaultRunAsPolicy** section to specify a default user account for
   <DefaultRunAsPolicy UserRef="MyDefaultAccount"/>
 </Policies>
 ~~~
-### Using an Active Directory domain group or user
-For Service Fabric installed on Windows Server with the standalone installer you, can run the service under the credentials for an Active Directory user or group account. Note that this is Active Directory on-premises within your domain and is not with Azure Active Directory (Azure AD). By using a domain user or group, you can then access other resources in the domain (for example, file shares) that have been granted permissions.
+### Use an Active Directory domain group or user
+For an instance of Service Fabric that was installed on Windows Server by using the standalone installer, you can run the service under the credentials for an Active Directory user or group account. Note that this is Active Directory on-premises within your domain and is not with Azure Active Directory (Azure AD). By using a domain user or group, you can then access other resources in the domain (for example, file shares) that have been granted permissions.
 
-The following example shows an Active Directory user called *TestUser* with their domain password encrypted using a certificate called *MyCert*. You can use the `Invoke-ServiceFabricEncryptText` Powershell command to create the secret cipher text. See this article [Managing secrets in Service Fabric applications](service-fabric-application-secret-management.md) for details on how. The private key of the certificate to decrypt the password must be deployed to the local machine in an out-of-band method (in Azure this is via the Resource Manager). Then, when Service Fabric deploys the service package to the machine, it is able to decrypt the secret and along with the user name, authenticate with Active Directory to run under those credentials.
+The following example shows an Active Directory user called *TestUser* with their domain password encrypted by using a certificate called *MyCert*. You can use the `Invoke-ServiceFabricEncryptText` PowerShell command to create the secret cipher text. See [Managing secrets in Service Fabric applications](service-fabric-application-secret-management.md) for details. The private key of the certificate to decrypt the password must be deployed to the local machine in an out-of-band method (in Azure this is via the Resource Manager). Then, when Service Fabric deploys the service package to the machine, it is able to decrypt the secret and, along with the user name, authenticate with Active Directory (along with the user name) to run under those credentials.
 
 ~~~
 <Principals>
@@ -281,8 +281,8 @@ The following example shows an Active Directory user called *TestUser* with thei
 ~~~
 
 
-## Assign SecurityAccessPolicy for HTTP and HTTPS endpoints
-If you apply a RunAs policy to a service, and service manifest declares endpoint resources with the HTTP protocol, you must specify a **SecurityAccessPolicy** to ensure that ports allocated to these endpoints are correctly access-control listed for the RunAs user account that the service runs under. Otherwise, **http.sys** does not have access to the service, and you get failures with calls from the client. The followin example applies the Customer3 account to an endpoint called **ServiceEndpointName**, giving it full access rights.
+## Assign a security access policy for HTTP and HTTPS endpoints
+If you apply a RunAs policy to a service and the service manifest declares endpoint resources with the HTTP protocol, you must specify a **SecurityAccessPolicy** to ensure that ports allocated to these endpoints are correctly access-control listed for the RunAs user account that the service runs under. Otherwise, **http.sys** does not have access to the service, and you get failures with calls from the client. The following example applies the Customer3 account to an endpoint called **ServiceEndpointName**, which gives it full access rights.
 
 ~~~
 <Policies>
