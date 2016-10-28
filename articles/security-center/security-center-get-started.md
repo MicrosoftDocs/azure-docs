@@ -91,7 +91,7 @@ You can configure security policies for your Azure subscriptions and resource gr
 1.	Return to the **Security Center** blade and select the **Security alerts** tile. The **Security alerts** blade opens and displays a list of alerts. The Security Center analysis of your security logs and network activity generates these alerts. Alerts from integrated partner solutions are included.
 ![Security alerts in Azure Security Center][7]
 
-> [AZURE.NOTE] Security alerts are only available if the Standard tier of Security Center is enabled. A 90 day free trial of the Standard tier is available. See [Next steps](#next-steps) for information on how to get the Standard tier.
+    > [AZURE.NOTE] Security alerts are only available if the Standard tier of Security Center is enabled. A 90 day free trial of the Standard tier is available. See [Next steps](#next-steps) for information on how to get the Standard tier.
 
 2.	Select an alert to view additional information. In this example, let's select **Modified system binary discovered**. This opens blades that provide additional details about the alert.
 ![Security alert details in Azure Security Center][8]
