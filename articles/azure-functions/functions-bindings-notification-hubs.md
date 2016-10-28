@@ -30,7 +30,7 @@ Your functions can send push notifications using a configured Azure Notification
 
 The notifications you send can be native notifications or template notifications. Native notifications target a specific notification platform as configured in the `platform` property of the output binding. A template notification can be used to target multiple platforms.   
 
-## Azure Notification Hub output binding properties
+## Notification hub output binding properties
 
 The function.json file provides the following properties:
 
@@ -65,7 +65,7 @@ Example function.json:
 	  "disabled": false
 	}
 
-## Azure Notification Hub connection string setup
+## Notification hub connection string setup
 
 To use a Notification hub output binding, you must configure the connection string for the hub. This can be done on the *Integrate* tab by selecting your notification hub or creating a new one. 
 
