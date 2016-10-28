@@ -101,7 +101,6 @@ This scenario assumes you have a resource group called *RG1* within which there 
 		$IPConfig1     = New-AzureRmNetworkInterfaceIpConfig -Name $IPConfigName1 -Subnet $Subnet -PublicIpAddress $PIP1 -Primary
 
 	Note the *-Primary* switch. When you assign multiple IP configurations to a NIC, one configuration must be assigned as the *Primary*. If you don't know the name of an existing public IP address resource, enter the following command:
-
 		Get-AzureRMPublicIPAddress |Format-Table Name, Location, IPAddress, IpConfiguration
 
 	If the **IPConfiguration** column has no value in the output returned, the public IP address resource is not associated with an existing NIC and can be used. If the list is blank, or there are no available public IP address resources, you can create one using the **New-AzureRmPublicIPAddress** command.
@@ -142,8 +141,7 @@ This scenario assumes you have a resource group called *RG1* within which there 
 
 		$nic.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
 
-9. <a name="os"></a>Manually add all the secondary private IP addresses (IP addresses with *False* in the **Primary** column from the output in the previous step) to the TCP/IP configuration in the operating system. The private IP address assigned to *IPConfig-1* in step 5 is automatically assigned to the operating system via Azure DHCP, because it's the *Primary* configuration.
-
+9. <a name="os"></a>Manually add all the private IP addresses (including the primary) to the TCP/IP configuration in the operating system. 
 
 **Windows**
 
