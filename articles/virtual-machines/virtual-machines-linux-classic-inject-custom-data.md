@@ -19,6 +19,6 @@
 
 #Injecting custom data into an Azure virtual machine
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] For information on using the Custom Script Extension with the Resource Manager model, see [here](virtual-machines-linux-extensions-customscript.md).
 
 [AZURE.INCLUDE [virtual-machines-common-classic-inject-custom-data](../../includes/virtual-machines-common-classic-inject-custom-data.md)]
