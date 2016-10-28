@@ -37,76 +37,76 @@ Start with regenerating secondary storage key. By default, the secondary key is 
 
 Update Media Services to use the secondary storage access key. You can use one of the following two methods to synchronize the regenerated storage key with Media Services.
 
-- Use the Azure Classic Portal: select your Media Service account, and click on the “MANAGE KEYS” icon on the bottom of the portal window. Depending on which storage key you want for the Media Services to synchronize with, select the synchronize primary key or synchronize secondary key button. In this case, use the secondary key.
+- Use the Azure portal: To find the Name and Key values, go to the Azure portal and select your account. The Settings window appears on the right. In the Settings window, select Keys. Depending on which storage key you want for the Media Services to synchronize with, select the synchronize primary key or synchronize secondary key button. In this case, use the secondary key.
 
 - Use Media Services management REST API.
 
 The following code example shows how to construct the https://endpoint/*subscriptionId*/services/mediaservices/Accounts/*accountName*/StorageAccounts/*storageAccountName*/Key request in order to synchronize the specified storage key with Media Services. In this case, the secondary storage key value is used. For more information, see [How to: Use Media Services Management REST API](http://msdn.microsoft.com/library/azure/dn167656.aspx).
- 
+	
 	public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
 	{
-	    var clientCert = GetCertificate(CertThumbprint);
-	
-	    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(string.Format("{0}/{1}/services/mediaservices/Accounts/{2}/StorageAccounts/{3}/Key",
-	        Endpoint, SubscriptionId, mediaServicesAccount, storageAccountName));
-	    request.Method = "PUT";
-	    request.ContentType = "application/json; charset=utf-8";
-	    request.Headers.Add("x-ms-version", "2011-10-01");
-	    request.Headers.Add("Accept-Encoding: gzip, deflate");
-	    request.ClientCertificates.Add(clientCert);
-	
-	
-	    using (var streamWriter = new StreamWriter(request.GetRequestStream()))
-	    {
-	        streamWriter.Write("\"");
-	        streamWriter.Write(storageAccountKey);
-	        streamWriter.Write("\"");
-	        streamWriter.Flush();
-	    }
-	
-	    using (var response = (HttpWebResponse)request.GetResponse())
-	    {
-	        string jsonResponse;
-	        Stream receiveStream = response.GetResponseStream();
-	        Encoding encode = Encoding.GetEncoding("utf-8");
-	        if (receiveStream != null)
-	        {
-	            var readStream = new StreamReader(receiveStream, encode);
-	            jsonResponse = readStream.ReadToEnd();
-	        }
-	    }
+		var clientCert = GetCertificate(CertThumbprint);
+		
+		HttpWebRequest request = (HttpWebRequest)WebRequest.Create(string.Format("{0}/{1}/services/mediaservices/Accounts/{2}/StorageAccounts/{3}/Key",
+		Endpoint, SubscriptionId, mediaServicesAccount, storageAccountName));
+		request.Method = "PUT";
+		request.ContentType = "application/json; charset=utf-8";
+		request.Headers.Add("x-ms-version", "2011-10-01");
+		request.Headers.Add("Accept-Encoding: gzip, deflate");
+		request.ClientCertificates.Add(clientCert);
+		
+		
+		using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+		{
+			streamWriter.Write("\"");
+			streamWriter.Write(storageAccountKey);
+			streamWriter.Write("\"");
+			streamWriter.Flush();
+		}
+		
+		using (var response = (HttpWebResponse)request.GetResponse())
+		{
+			string jsonResponse;
+			Stream receiveStream = response.GetResponseStream();
+			Encoding encode = Encoding.GetEncoding("utf-8");
+			if (receiveStream != null)
+			{
+				var readStream = new StreamReader(receiveStream, encode);
+				jsonResponse = readStream.ReadToEnd();
+			}
+		}
 	}
 
 After this step, update existing locators (that have dependency on the old storage key) as shown in the following step.
 
 >[AZURE.NOTE]Wait for 30 minutes before performing any operations with Media Services (for example, creating new locators) in order to prevent any impact on pending jobs.
 
-##Step 3: Update locators 
+##Step 3: Update locators
 
->[AZURE.NOTE]When rolling storage access keys, you need to make sure to update your existing locators so there is no interruption in your streaming service. 
+>[AZURE.NOTE]When rolling storage access keys, you need to make sure to update your existing locators so there is no interruption in your streaming service.
 
-Wait at least 30 minutes after synchronizing the new storage key with AMS. Then, you can recreate your OnDemand locators so they take dependency on the specified storage key and maintain the existing URL.  
+Wait at least 30 minutes after synchronizing the new storage key with AMS. Then, you can recreate your OnDemand locators so they take dependency on the specified storage key and maintain the existing URL.
 
-Note that when you update (or recreate) a SAS locator, the URL will always change. 
+Note that when you update (or recreate) a SAS locator, the URL will always change.
 
->[AZURE.NOTE] To make sure you preserve the existing URLs of your OnDemand locators, you need to delete the existing locator and create a new one with the same ID. 
- 
+>[AZURE.NOTE] To make sure you preserve the existing URLs of your OnDemand locators, you need to delete the existing locator and create a new one with the same ID.
+
 The .NET example below shows how to recreate a locator with the same ID.
-	
-	private static ILocator RecreateLocator(CloudMediaContext context, ILocator locator)
-	{
-	    // Save properties of existing locator.
-	    var asset = locator.Asset;
-	    var accessPolicy = locator.AccessPolicy;
-	    var locatorId = locator.Id;
-	    var startDate = locator.StartTime;
-	    var locatorType = locator.Type;
-	    var locatorName = locator.Name;
-	
-	    // Delete old locator.
-	    locator.Delete();
-	
-	    if (locator.ExpirationDateTime <= DateTime.UtcNow)
+
+private static ILocator RecreateLocator(CloudMediaContext context, ILocator locator)
+{
+// Save properties of existing locator.
+var asset = locator.Asset;
+var accessPolicy = locator.AccessPolicy;
+var locatorId = locator.Id;
+var startDate = locator.StartTime;
+var locatorType = locator.Type;
+var locatorName = locator.Name;
+
+// Delete old locator.
+locator.Delete();
+
+if (locator.ExpirationDateTime <= DateTime.UtcNow)
 	    {
 	        throw new Exception(String.Format(
 	            "Cannot recreate locator Id={0} because its locator expiration time is in the past",

@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="jhubbard" 
+	manager="jhubbard"
 	editor="cgronlun"  />
 
 <tags
@@ -16,7 +16,7 @@
 	ms.date="09/13/2016"
 	ms.author="bradsev" />
 
-# Explore data in Hive tables with Hive queries 
+# Explore data in Hive tables with Hive queries
 
 This document provides sample Hive scripts that are used to explore data in Hive tables in an HDInsight Hadoop cluster.
 
@@ -80,5 +80,3 @@ This article assumes that you have:
 ## Additional query scripts for taxi trip data scenarios
 
 Examples of queries that are specific to [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) scenarios are also provided in [Github repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). These queries already have data schema specified and are ready to be submitted to run.
-
- 

@@ -3,8 +3,8 @@
 	description="Describes how to use Hudson with Azure Blob storage as a repository for build artifacts."
 	services="storage"
 	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
+	authors="dineshmurthy"
+	manager="jahogg"
 	editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/11/2016" 
-	ms.author="dinesh;robmcm"/>
+	ms.date="10/18/2016" 
+	ms.author="dinesh"/>
 
 # Using Azure Storage with a Hudson Continuous Integration solution
 

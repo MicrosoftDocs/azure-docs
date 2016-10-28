@@ -667,5 +667,5 @@ In many cases, batch processes can generate reports according to a defined sched
 - [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), and [HDInsight](https://azure.microsoft.com/services/hdinsight/)
 - [How to use Service Bus queues](./service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
 - [SQL Server business intelligence in Azure Virtual Machines](./virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md)
-- [Receive alert notifications](./azure-portal/insights-receive-alert-notifications.md) and [Track service health](./azure-portal/insights-service-health.md)
+- [Receive alert notifications](./monitoring-and-diagnostics/insights-receive-alert-notifications.md) and [Track service health](./monitoring-and-diagnostics/insights-service-health.md)
 - [Application Insights](./application-insights/app-insights-overview.md)

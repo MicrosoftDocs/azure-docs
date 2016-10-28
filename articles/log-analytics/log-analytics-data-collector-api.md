@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/29/2016"
+	ms.date="10/26/2016"
 	ms.author="bwren"/>
 
 
@@ -30,7 +30,7 @@ The next two tables list the attributes that are required for each request to th
 | Attribute | Property |
 |:--|:--|
 | Method | POST |
-| URI | https://<WorkspaceID>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
+| URI | https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
 | Content type | application/json |
 
 ### Request URI parameters
@@ -46,7 +46,7 @@ The next two tables list the attributes that are required for each request to th
 | Authorization | The authorization signature. Later in the article, you can read about how to create an HMAC-SHA256 header. |
 | Log-Type | Specify the record type of the data that is being submitted. Currently, the log type supports only alpha characters. It does not support numerics or special characters. |
 | x-ms-date | The date that the request was processed, in RFC 1123 format. |
-| time-generated-field | You can specify that the message’s timestamp field be used as the **TimeGenerated** field to reflect the actual timestamp from the message data. If this field isn’t specified, the default for **TimeGenerated** is the time that the message is ingested. If you specify a message field, it should follow the ISO 8601 format YYYY-MM-DDThh:mm:ssZ. |
+| time-generated-field | The name of a field in the data that contains the timestamp of the data item. If you specify a field then its contents are used for **TimeGenerated**. If this field isn’t specified, the default for **TimeGenerated** is the time that the message is ingested. The contents of the message field should follow the ISO 8601 format YYYY-MM-DDThh:mm:ssZ. |
 
 
 ## Authorization
@@ -153,6 +153,15 @@ If you then submitted the following entry, before the record type was created, L
 
 ![Sample record 4](media/log-analytics-data-collector-api/record-04.png)
 
+
+## Data limits
+There are some constraints around the data posted to the Log Analytics Data collection API.
+
+- Maximum of 30 MB per post to Log Analytics Data Collector API. This is a size limit for a single post. If the data from a single post that exceeds 30 MB, you should split the data up to smaller sized chunks and send them concurrently. 
+- Maximum of 32 KB limit for field values. If the field value is greater than 32 KB, the data will be truncated. 
+- Recommended maximum number of fields for a given type is 50. This is a practical limit from a usability and search experience perspective.  
+
+
 ## Return codes
 
 The HTTP status code 202 means that the request has been accepted for processing, but processing has not yet finished. This indicates that the operation completed successfully.
@@ -204,8 +213,8 @@ $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 # Specify the name of the record type that you'll be creating
 $LogType = "MyRecordType"
 
-# Specify a time in the format YYYY-MM-DDThh:mm:ssZ to specify a created time for the records
-$TimeStampField = ""
+# Specify a field with the created time for the records
+$TimeStampField = "DateValue"
 
 
 # Create two records with the same set of properties to create
@@ -399,7 +408,7 @@ def build_signature(customer_id, shared_key, date, content_length, method, conte
     string_to_hash = method + "\n" + str(content_length) + "\n" + content_type + "\n" + x_headers + "\n" + resource
     bytes_to_hash = bytes(string_to_hash).encode('utf-8')  
     decoded_key = base64.b64decode(shared_key)
-    encoded_hash = base64.b64encode(hmac.new(decoded_key, string_to_hash, digestmod=hashlib.sha256).digest())
+    encoded_hash = base64.b64encode(hmac.new(decoded_key, bytes_to_hash, digestmod=hashlib.sha256).digest())
     authorization = "SharedKey {}:{}".format(customer_id,encoded_hash)
     return authorization
 

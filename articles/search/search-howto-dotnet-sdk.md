@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="08/15/2016"
+   ms.date="10/06/2016"
    ms.author="brjohnst"/>
 
 # How to use Azure Search from a .NET Application
@@ -340,8 +340,8 @@ You may be wondering how the Azure Search .NET SDK is able to upload instances o
 
 The first thing to notice is that each public property of `Hotel` corresponds to a field in the index definition, but with one crucial difference: The name of each field starts with a lower-case letter ("camel case"), while the name of each public property of `Hotel` starts with an upper-case letter ("Pascal case"). This is a common scenario in .NET applications that perform data-binding where the target schema is outside the control of the application developer. Rather than having to violate the .NET naming guidelines by making property names camel-case, you can tell the SDK to map the property names to camel-case automatically with the `[SerializePropertyNamesAsCamelCase]` attribute.
 
-> [AZURE.NOTE] The Azure Search .NET SDK uses the [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) library to serialize and deserialize your custom model objects to and from JSON. You can customize this serialization if needed. You can find more details [here](search-dotnet-sdk-migration.md#WhatsNew).
-
+> [AZURE.NOTE] The Azure Search .NET SDK uses the [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) library to serialize and deserialize your custom model objects to and from JSON. You can customize this serialization if needed. For more details, see [Custom Serialization with JSON.NET](#JsonDotNet).
+ 
 The second important thing about the `Hotel` class are the data types of the public properties. The .NET types of  these properties map to their equivalent field types in the index definition. For example, the `Category` string property maps to the `category` field, which is of type `Edm.String`. There are similar type mappings between `bool?` and `Edm.Boolean`, `DateTimeOffset?` and `Edm.DateTimeOffset`, etc. The specific rules for the type mapping are documented with the `Documents.Get` method on [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx).
 
 This ability to use your own classes as documents works in both directions; You can also retrieve search results and have the SDK automatically deserialize them to a type of your choice, as we will see in the next section.
@@ -357,6 +357,17 @@ This is not just a hypothetical concern: Imagine a scenario where you add a new 
     Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
 
 For this reason, we recommend that you use nullable types in your model classes as a best practice.
+
+<a name="JsonDotNet"></a>
+#### Custom Serialization with JSON.NET
+
+The SDK uses JSON.NET for serializing and deserializing documents. You can customize serialization and deserialization if needed by defining your own `JsonConverter` or `IContractResolver` (see the [JSON.NET documentation](http://www.newtonsoft.com/json/help/html/Introduction.htm) for more details). This can be useful when you want to adapt an existing model class from your application for use with Azure Search, and other more advanced scenarios. For example, with custom serialization you can:
+
+ - Include or exclude certain properties of your model class from being stored as document fields.
+ - Map between property names in your code and field names in your index.
+ - Create custom attributes that can be used for both mapping properties to document fields as well as creating the corresponding index definition.
+
+You can find examples of implementing custom serialization in the unit tests for the Azure Search .NET SDK on GitHub. A good starting point is [this folder](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Search/Search.Tests/Tests/Models). It contains classes that are used by the custom serialization tests.
 
 ### Searching for documents in the index
 

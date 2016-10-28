@@ -48,6 +48,6 @@ These links will be useful for exploring the platform in depth:
 - [v2.0 Token Reference](active-directory-v2-tokens.md)
 - [v2.0 Library Reference](active-directory-v2-libraries.md)
 - [Scopes and Consent in the v2.0 endpoint](active-directory-v2-scopes.md)
-- [The Microsoft App Registration Portal](https://apps.dev.microsoft.com)
+- [The Microsoft App Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)
 - [Office 365 REST API Reference](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [The Microsoft Graph](https://graph.microsoft.io)

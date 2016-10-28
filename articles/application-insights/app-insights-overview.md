@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/18/2016" 
+	ms.date="10/15/2016" 
 	ms.author="awills"/>
  
 # Application Insights - introduction
@@ -61,6 +61,31 @@ Diagnostic and analytic tools:
 * Diagnostic search on instances of requests, exceptions, custom events, log traces, page views, dependency and AJAX calls. 
 * Analytics - a powerful query language over your telemetry
 * Dashboards - compose the charts you need to monitor all your app components.
+
+## How do I use it?
+
+### Monitor
+
+Install Application Insights in your web app, set up availability web tests, and:
+
+* Set up a dashboard for your team room to keep an eye on load, responsiveness, and the performance of your dependencies, page loads, and AJAX calls. 
+* Discover which are the slowest and most failing requests.
+* Watch Live Stream when you deploy a new release, to know immediately about any degradation.
+
+### Diagnose
+
+When you receive an alert or discover a problem:
+
+* Correlate failures with exceptions, dependency calls and traces.
+* Examine stack dumps and trace logs.
+
+### Assess
+
+Measure the effectiveness of each new feature that you deploy.
+
+* Plan to measure how customers use new UX or business features.
+* Write custom telemetry into your code to log usage.
+* Base each development cycle on hard evidence from telemetry.
 
 
 ## Get started
@@ -199,7 +224,7 @@ If you're using Visual Studio to develop your app, you'll find several Applicati
 
 The Search window shows events that have been logged. (If you signed in to Azure when you set up Application Insights, you'll be able to search the same events in the portal.)
 
-![Right-click the project and choose Application Insights, Search](./media/app-insights-visual-studio/34.png)
+![Right-click the project and choose Application Insights, Search](./media/app-insights-overview/34.png)
 
 The free text search works on any fields in the events. For example, search for part of the URL of a page; or the value of a property such as client city; or specific words in a trace log.
 
@@ -208,7 +233,7 @@ Click any event to see its detailed properties.
 You can also open the Related Items tab to help diagnose failed requests or exceptions.
 
 
-![](./media/app-insights-visual-studio/41.png)
+![](./media/app-insights-overview/41.png)
 
 
 
@@ -216,7 +241,7 @@ You can also open the Related Items tab to help diagnose failed requests or exce
 
 The Diagnostics Hub (in Visual Studio 2015 or later) shows the Application Insights server telemetry as it's generated. This works even if you opted only to install the SDK, without connecting it to a resource in the Azure portal.
 
-![Open the Diagnostic Tools window and inspect the Application Insights events.](./media/app-insights-visual-studio/31.png)
+![Open the Diagnostic Tools window and inspect the Application Insights events.](./media/app-insights-overview/31.png)
 
 
 ### Exceptions
@@ -226,11 +251,11 @@ If you have [set up exception monitoring](app-insights-asp-net-exceptions.md), e
 Click an exception to get a stack trace. If the code of the app is open in Visual Studio, you can click through from the stack trace to the relevant line of the code.
 
 
-![Exception stack trace](./media/app-insights-visual-studio/17.png)
+![Exception stack trace](./media/app-insights-overview/17.png)
 
 In addition, in the Code Lens line above each method, you'll see a count of the exceptions logged by Application Insights in the past 24h.
 
-![Exception stack trace](./media/app-insights-visual-studio/21.png)
+![Exception stack trace](./media/app-insights-overview/21.png)
 
 
 ### Local monitoring
@@ -257,7 +282,7 @@ Choose **Explore Telemetry Trends** from the Application Insights toolbar button
 
 To find anomalies in your data, choose one of the anomaly options under the "View Type" dropdown. The filtering options at the bottom of the window make it easy to hone in on specific subsets of your telemetry.
 
-![Trends](./media/app-insights-visual-studio/51.png)
+![Trends](./media/app-insights-overview/51.png)
 
 
 ## Releasing a new build
@@ -266,7 +291,7 @@ To find anomalies in your data, choose one of the anomaly options under the "Vie
 
 Live Metrics Stream shows you your application metrics right at this very moment, with a near real time latency of 1 second. This is extremely useful when you’re releasing a new build and want to make sure that everything is working as expected, or investigating an incident in real time.
 
-![In the Overview blade, click Live Stream](./media/app-insights-metrics-explorer/live-stream.png)
+![In the Overview blade, click Live Stream](./media/app-insights-overview/live-stream.png)
 
 Unlike Metrics Explorer, Live Metrics Stream displays a fixed set of metrics. The data persists only for as long as it's on the chart, and is then discarded. 
 
@@ -274,7 +299,7 @@ Unlike Metrics Explorer, Live Metrics Stream displays a fixed set of metrics. Th
 
 [Release annotations](app-insights-annotations.md) on metrics charts show where you deployed a new build. They make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Visual Studio Team Services build system](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs), and you can also [create them from PowerShell](#create-annotations-from-powershell).
 
-![Example of annotations with visible correlation with server response time](./media/app-insights-annotations/00.png)
+![Example of annotations with visible correlation with server response time](./media/app-insights-overview/00.png)
 
 Release annotations are a feature of the cloud-based build and release service of Visual Studio Team Services. 
 
@@ -286,11 +311,11 @@ Application Insights offers three types of alert, which are delivered by email.
 
 ### Proactive diagnostics 
 
-[Proactive diagnostics](app-insights-nrt-proactive-diagnostics.md)** is automatically set up - you don't have to configure it. Provided your site has enough traffic, you'll get an email if there's a rise in failed requests that is unusual for the time of day or request rate. The alert contains diagnostic information. 
+[Proactive diagnostics](app-insights-proactive-failure-diagnostics.md) is automatically set up - you don't have to configure it. Provided your site has enough traffic, you'll get an email if there's a rise in failed requests that is unusual for the time of day or request rate. The alert contains diagnostic information. 
 
 Here's a sample alert. 
 
-![Sample Intelligent Alert showing cluster analysis around failure](./media/app-insights-nrt-proactive-diagnostics/010.png)
+![Sample Intelligent Alert showing cluster analysis around failure](./media/app-insights-overview/proactive-alert.png)
 
 A second type of proactive detection discovers correlations between failures and factors such as location, client OS, or browser type.
 
@@ -298,23 +323,22 @@ A second type of proactive detection discovers correlations between failures and
 
 You can configure [metric alerts](app-insights-alerts.md) to tell you when any metric crosses a threshold value for some period - such as failure counts, memory, or page views.
 
-![In Metrics Explorer, choose Alert rules, Add Alert](./media/app-insights-metrics-explorer/appinsights-413setMetricAlert.png)
+![In Metrics Explorer, choose Alert rules, Add Alert](./media/app-insights-overview/appinsights-413setMetricAlert.png)
 
 ### Availability
 
 [Availability web tests](app-insights-monitor-web-app-availability.md) send requests to your site from our servers at various locations around the world. They tell you when your site is unavailable on the internet, or responding slowly. 
 
-![Web test example](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
+![Web test example](./media/app-insights-overview/appinsights-10webtestresult.png)
 
 ## Export
 
 There are several ways you can get your telemetry data out of the Application Insights portal:
 
 * [Continuous Export](app-insights-export-telemetry.md) is ideal if you want to keep large parts of your telemetry for longer than the standard retention period.
-* [The Export button](app-insights-metrics-explorer.md#export-to-excel) at the top of a metrics or search blade lets you transfer tables and charts to an Excel spreadsheet. 
-* [Analytics](app-insights-analytics.md) provides a powerful query  language for telemetry, and also can export results.
-* The Data Access REST API can be used to search for and extract data. It can run Analytics queries.
-* If you're looking to [explore your data in Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), you can do that without using Continuous Export.
+* [Metrics](app-insights-metrics-explorer.md#export-to-excel)  tables, search results, and [Analytics](app-insights-analytics.md) results can all be exported to an Excel spreadsheet. 
+* The Data Access REST API can be used to search for and extract data, including running Analytics queries. The API is currently in private preview. [Learn about joining the preview](https://visualstudio.uservoice.com/forums/357324-application-insights/suggestions/4999529-make-data-accessible-via-apis-for-custom-processin).
+* You can export [Analytics queries to Power BI](app-insights-export-power-bi.md) dashboards and view the results in Power BI visualizations, which can be automatically refreshed.
 
 ![Viewing data in Power BI](./media/app-insights-overview/210.png)
  

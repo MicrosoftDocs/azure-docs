@@ -13,12 +13,12 @@
    	ms.tgt_pltfrm="na"
    	ms.devlang="na"
    	ms.topic="article"
-   	ms.date="09/22/2016"
+   	ms.date="10/04/2016"
    	ms.author="v-donglo"/>
 
 # Deploy a new web service
 
-Microsoft Azure Machine learning now provides web services that are based on [Azure Resource Manager](../resource-group-overview.md) allowing for new billing plan options and deploying your web service to multiple regions.
+Microsoft Azure Machine learning now provides web services that are based on [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) allowing for new billing plan options and deploying your web service to multiple regions.
 
 The general workflow to deploy a web service using Microsoft Azure Machine Learning Web Services is:
 

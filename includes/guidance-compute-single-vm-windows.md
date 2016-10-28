@@ -6,9 +6,12 @@ We don't recommend using a single VM for production workloads, because there is 
 
 ## Architecture diagram
 
-Provisioning a VM in Azure involves more moving parts than just the VM itself. There are compute, networking, and storage elements.  
+Provisioning a VM in Azure involves more moving parts than just the VM itself. There are compute, networking, and storage elements.
+
+> A Visio document that includes this architecture diagram is available for download at the [Microsoft download center][visio-download]. This diagram is on the "Compute - single VM page.
 
 ![[0]][0]
+
 
 - **Resource group.** A [_resource group_][resource-manager-overview] is a container that holds related resources. Create a resource group to hold the resources for this VM.
 
@@ -32,313 +35,144 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 ## Recommendations
 
+Azure offers many different resources and resource types, so this reference architecture can be provisioned many different ways. We have provided an Azure Resource Manager template to install the reference architecture that follows these recommendations. If you choose to create your own reference architecture you should follow these recommendations unless you have a specific requirement that a recommendation does not fit.
+
 ### VM recommendations
 
-- We recommend the DS- and GS-series, unless you have a specialized workload such as high-performance computing. For details, see [Virtual machine sizes][virtual-machine-sizes]. When moving an existing workload to Azure, start with the VM size that's the closest match to your on-premise servers. Then measure the performance of your actual workload with respect to CPU, memory, and disk input/output operations per second (IOPS), and adjust the size if needed. Also, if you need multiple NICs, be aware of the NIC limit for each size.  
+We recommend the DS- and GS-series because these machine sizes support [Premium Storage][premium-storage]. Select one of these machine sizes unless you have a specialized workload such as high-performance computing. For details, see [Virtual machine sizes][virtual-machine-sizes]. When moving an existing workload to Azure, start with the VM size that's the closest match to your on-premise servers. Then measure the performance of your actual workload with respect to CPU, memory, and disk input/output operations per second (IOPS), and adjust the size if needed. Also, if you need multiple NICs, be aware of the NIC limit for each size.  
 
-- When you provision the VM and other resources, you must specify a location. Generally, choose a location closest to your internal users or customers. However, not all VM sizes may be available in all locations. For details, see [Services by region][services-by-region]. To list the VM sizes available in a given location, run the following Azure command-line interface (CLI) command:
+When you provision the VM and other resources, you must specify a location. Generally, choose a location closest to your internal users or customers. However, not all VM sizes may be available in all locations. For details, see [Services by region][services-by-region]. To list the VM sizes available in a given location, run the following Azure command-line interface (CLI) command:
 
-    ```
+```
     azure vm sizes --location <location>
-    ```
+```
 
-- For information about choosing a published VM image, see [Navigate and select Azure virtual machine images][select-vm-image].
+For information about choosing a published VM image, see [Navigate and select Azure virtual machine images][select-vm-image].
 
 ### Disk and storage recommendations
 
-- For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid state drives (SSDs). Cost is based on the size of the provisioned disk. IOPS and throughput also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). 
+For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid state drives (SSDs). Cost is based on the size of the provisioned disk. IOPS and throughput also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). 
 
-- One storage account can support 1 to 20 VMs.
+One storage account can support 1 to 20 VMs.
 
-- Add one or more data disks. When you create a new VHD, it is unformatted. Log into the VM to format the disk.
+Add one or more data disks. When you create a new VHD, it is unformatted. Log into the VM to format the disk.
 
-- If you have a large number of data disks, be aware of the total I/O limits of the storage account. For more information, see [Virtual Machine Disk Limits][vm-disk-limits].
+If you have a large number of data disks, be aware of the total I/O limits of the storage account. For more information, see [Virtual Machine Disk Limits][vm-disk-limits].
 
-- For best performance, create a separate storage account to hold diagnostic logs. A standard locally redundant storage (LRS) account is sufficient for diagnostic logs.
+For best performance, create a separate storage account to hold diagnostic logs. A standard locally redundant storage (LRS) account is sufficient for diagnostic logs.
 
-- When possible, install applications on a data disk, not the OS disk. However, some legacy applications might need to install components on the C: drive. In that case, you can [resize the OS disk][resize-os-disk] using PowerShell.
+When possible, install applications on a data disk, not the OS disk. However, some legacy applications might need to install components on the C: drive. In that case, you can [resize the OS disk][resize-os-disk] using PowerShell.
 
 ### Network recommendations
 
-- The public IP address can be dynamic or static. The default is dynamic.
+The public IP address can be dynamic or static. The default is dynamic.
 
-    - Reserve a [static IP address][static-ip] if you need a fixed IP address that won't change &mdash; for example, if you need to create an A record in DNS, or need the IP address to be whitelisted.
+- Reserve a [static IP address][static-ip] if you need a fixed IP address that won't change &mdash; for example, if you need to create an A record in DNS, or need the IP address to be whitelisted.
 
-    - You can also create a fully qualified domain name (FQDN) for the IP address. You can then register a [CNAME record][cname-record] in DNS that points to the FQDN. For more information, see [Create a Fully Qualified Domain Name in the Azure portal][fqdn].
+- You can also create a fully qualified domain name (FQDN) for the IP address. You can then register a [CNAME record][cname-record] in DNS that points to the FQDN. For more information, see [Create a Fully Qualified Domain Name in the Azure portal][fqdn].
 
-- All NSGs contain a set of [default rules][nsg-default-rules], including a rule that blocks all inbound Internet traffic. The default rules cannot be deleted, but other rules can override them. To enable Internet traffic, create rules that allow inbound traffic to specific ports &mdash; for example, port 80 for HTTP.  
+All NSGs contain a set of [default rules][nsg-default-rules], including a rule that blocks all inbound Internet traffic. The default rules cannot be deleted, but other rules can override them. To enable Internet traffic, create rules that allow inbound traffic to specific ports &mdash; for example, port 80 for HTTP.  
 
-- To enable RDP, add an NSG rule that allows inbound traffic to TCP port 3389.
+To enable RDP, add an NSG rule that allows inbound traffic to TCP port 3389.
 
 ## Scalability considerations
 
-- You can scale a VM up or down by [changing the VM size][vm-resize]. 
+You can scale a VM up or down by [changing the VM size][vm-resize]. 
 
-- To scale out horizontally, put two or more VMs into an availability set behind a load balancer. For details, see [Running multiple Windows VMs on Azure][multi-vm].
+To scale out horizontally, put two or more VMs into an availability set behind a load balancer. For details, see [Running multiple Windows VMs on Azure][multi-vm].
 
 ## Availability considerations
 
-- As noted above, there is no SLA for a single VM. To get the SLA, you must deploy multiple VMs into an availability set.
+As noted above, there is no SLA for a single VM. To get the SLA, you must deploy multiple VMs into an availability set.
 
-- Your VM may be affected by [planned maintenance][planned-maintenance] or [unplanned maintenance][manage-vm-availability]. You can use [VM reboot logs][reboot-logs] to determine whether a VM reboot was caused by planned maintenance.
+Your VM may be affected by [planned maintenance][planned-maintenance] or [unplanned maintenance][manage-vm-availability]. You can use [VM reboot logs][reboot-logs] to determine whether a VM reboot was caused by planned maintenance.
 
-- VHDs are backed by [Azure Storage][azure-storage], which is replicated for durability and availability.
+VHDs are backed by [Azure Storage][azure-storage], which is replicated for durability and availability.
 
-- To protect against accidental data loss during normal operations (for example, because of user error), you should also implement point-in-time backups, using [blob snapshots][blob-snapshot] or another tool.
+To protect against accidental data loss during normal operations (for example, because of user error), you should also implement point-in-time backups, using [blob snapshots][blob-snapshot] or another tool.
 
 ## Manageability considerations
 
-- **Resource groups.** Put tightly-coupled resources that share the same life cycle into a same [resource group][resource-manager-overview]. Resource groups allow you to deploy and monitor resources as a group and roll up billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments. Give resources meaningful names. That makes it easier to locate a specific resource and understand its role. See [Recommended Naming Conventions for Azure Resources][naming conventions].
+**Resource groups.** Put tightly-coupled resources that share the same life cycle into a same [resource group][resource-manager-overview]. Resource groups allow you to deploy and monitor resources as a group and roll up billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments. Give resources meaningful names. That makes it easier to locate a specific resource and understand its role. See [Recommended Naming Conventions for Azure Resources][naming conventions].
 
-- **VM diagnostics.** Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose a boot failure if your VM gets into a non-bootable state. For more information, see [Enable monitoring and diagnostics][enable-monitoring]. Use the [Azure Log Collection][log-collector] extension to collect Azure platform logs and upload them to Azure storage.   
+**VM diagnostics.** Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose a boot failure if your VM gets into a non-bootable state. For more information, see [Enable monitoring and diagnostics][enable-monitoring]. Use the [Azure Log Collection][log-collector] extension to collect Azure platform logs and upload them to Azure storage.   
 
-    The following CLI command enables diagnostics:
+The following CLI command enables diagnostics:
 
-    ```text
+```
     azure vm enable-diag <resource-group> <vm-name>
-     ```
+```
 
-- **Stopping a VM.** Azure makes a distinction between "Stopped" and "Deallocated" states. You are charged when the VM status is "Stopped". You are not charged when the VM deallocated.
+**Stopping a VM.** Azure makes a distinction between "Stopped" and "Deallocated" states. You are charged when the VM status is "Stopped". You are not charged when the VM deallocated.
 
-    Use the following CLI command to deallocate a VM:
+Use the following CLI command to deallocate a VM:
 
-    ```text
+```
     azure vm deallocate <resource-group> <vm-name>
-    ```
+```
 
-    The **Stop** button in the Azure portal also deallocates the VM. However, if you shut down through the OS while logged in, the VM is stopped but _not_ deallocated, so you will still be charged.
+The **Stop** button in the Azure portal also deallocates the VM. However, if you shut down through the OS while logged in, the VM is stopped but _not_ deallocated, so you will still be charged.
 
-- **Deleting a VM.** If you delete a VM, the VHDs are not deleted. That means you can safely delete the VM without losing data. However, you will still be charged for storage. To delete the VHD, delete the file from [blob storage][blob-storage].
+**Deleting a VM.** If you delete a VM, the VHDs are not deleted. That means you can safely delete the VM without losing data. However, you will still be charged for storage. To delete the VHD, delete the file from [blob storage][blob-storage].
 
-  To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as the VM. 
+To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as the VM. 
 
 ## Security considerations
 
-- Use [Azure Security Center][security-center] to get a central view of the security state of your Azure resources. Security Center monitors potential security issues such as system updates, antimalware, and provides a comprehensive picture of the security health of your deployment. 
+Use [Azure Security Center][security-center] to get a central view of the security state of your Azure resources. Security Center monitors potential security issues such as system updates, antimalware, and provides a comprehensive picture of the security health of your deployment. 
 
-    - Security Center is configured per Azure subscription. Enable security data collection as described in [Use Security Center].
+- Security Center is configured per Azure subscription. Enable security data collection as described in [Use Security Center].
 
-    - When data collection is enabled, Security Center automatically scans any VMs created under that subscription.
+- When data collection is enabled, Security Center automatically scans any VMs created under that subscription.
 
-- **Patch management.** If enabled, Security Center checks whether security and critical updates are missing. Use [Group Policy settings][group-policy] on the VM to enable automatic system updates.
+**Patch management.** If enabled, Security Center checks whether security and critical updates are missing. Use [Group Policy settings][group-policy] on the VM to enable automatic system updates.
 
-- **Antimalware.** If enabled, Security Center checks whether antimalware software is installed. You can also use Security Center to install antimalware software from inside the Azure portal.
+**Antimalware.** If enabled, Security Center checks whether antimalware software is installed. You can also use Security Center to install antimalware software from inside the Azure portal.
 
-- Use [role-based access control][rbac] (RBAC) to control access to the Azure resources that you deploy. RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some roles are specific to particular Azure resource types. For example, the Virtual Machine Contributor role can restart or deallocate a VM, reset the administrator password, create a new VM, and so forth. Other [built-in RBAC roles][rbac-roles] that might be useful for this reference architecture include [DevTest Labs User][rbac-devtest] and [Network Contributor][rbac-network]. A user can be assigned to multiple roles, and you can create custom roles for even more fine-grained permissions.
+Use [role-based access control][rbac] (RBAC) to control access to the Azure resources that you deploy. RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some roles are specific to particular Azure resource types. For example, the Virtual Machine Contributor role can restart or deallocate a VM, reset the administrator password, create a new VM, and so forth. Other [built-in RBAC roles][rbac-roles] that might be useful for this reference architecture include [DevTest Labs User][rbac-devtest] and [Network Contributor][rbac-network]. A user can be assigned to multiple roles, and you can create custom roles for even more fine-grained permissions.
 
-    > [AZURE.NOTE] RBAC does not limit the actions that a user logged into a VM can perform. Those permissions are determined by the account type on the guest OS.   
+> [AZURE.NOTE] RBAC does not limit the actions that a user logged into a VM can perform. Those permissions are determined by the account type on the guest OS.   
 
-- To reset the local administrator password, run the `vm reset-access` Azure CLI command.
+To reset the local administrator password, run the `vm reset-access` Azure CLI command.
 
-    ```text
+```
     azure vm reset-access -u <user> -p <new-password> <resource-group> <vm-name>
-    ```
+```
 
-- Use [audit logs][audit-logs] to see provisioning actions and other VM events.
+Use [audit logs][audit-logs] to see provisioning actions and other VM events.
 
-- Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks. 
-
-## Solution components
-
-A sample solution script, [Deploy-ReferenceArchitecture.ps1][solution-script], is available that you can use to implement the architecture that follows the recommendations described in this article. This script utilizes [Resource Manager][ARM-Templates] templates. The templates are available as a set of fundamental building blocks, each of which performs a specific action such as creating a VNet or configuring an NSG. The purpose of the script is to orchestrate template deployment.
-
-The templates are parameterized, with the parameters held in separate JSON files. You can modify the parameters in these files to configure the deployment to meet your own requirements. You do not need to amend the templates themselves. Note that you must not change the schemas of the objects in the parameter files.
-
-When you edit the templates, create objects that follow the naming conventions described in [Recommended Naming Conventions for Azure Resources][naming conventions].
-
-The script references the following parameter files to build the VM and the surrounding infrastructure:
-
-- **[virtualNetwork.parameters.json][vnet-parameters]**. This file defines the VNet settings, such as the name, address space, subnets, and the addresses of any DNS servers required. Note that subnet addresses must be subsumed by the address space of the VNet.
-
-	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/windows/virtualNetwork.parameters.json#L4-L21 -->
-	```json
-  "parameters": {
-    "virtualNetworkSettings": {
-      "value": {
-        "name": "ra-single-vm-vnet",
-        "resourceGroup": "ra-single-vm-rg",
-        "addressPrefixes": [
-          "172.17.0.0/16"
-        ],
-        "subnets": [
-          {
-            "name": "ra-single-vm-sn",
-            "addressPrefix": "172.17.0.0/24"
-          }
-        ],
-        "dnsServers": [ ]
-      }
-    }
-  }
-	```
-
-- **[networkSecurityGroups.parameters.json][nsg-parameters]**. This file contains the definitions of NSGs and NSG rules. The `name` parameter in the `virtualNetworkSettings` block specifies the VNet to which the NSG is attached. The `subnets` parameter in the `networkSecurityGroupSettings` block identifies any subnets which apply the NSG rules in the VNet. These should be items defined in the **virtualNetwork.parameters.json** file.
-
-	Note that the default security rule shown in the example enables a user to connect to the VM through a remote desktop (RDP) connection. You can open additional ports (or deny access through specific ports) by adding further items to the `securityRules` array.
-
-	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/windows/networkSecurityGroups.parameters.json#L4-L36 -->
-	```json
-  "parameters": {
-    "virtualNetworkSettings": {
-      "value": {
-        "name": "ra-single-vm-vnet",
-        "resourceGroup": "ra-single-vm-rg"
-      }
-    },
-    "networkSecurityGroupsSettings": {
-      "value": [
-        {
-          "name": "ra-single-vm-nsg",
-          "subnets": [
-            "ra-single-vm-sn"
-          ],
-          "networkInterfaces": [
-          ],
-          "securityRules": [
-            {
-              "name": "RDPAllow",
-              "direction": "Inbound",
-              "priority": 100,
-              "sourceAddressPrefix": "*",
-              "destinationAddressPrefix": "*",
-              "sourcePortRange": "*",
-              "destinationPortRange": "3389",
-              "access": "Allow",
-              "protocol": "Tcp"
-            }
-          ]
-        }
-      ]
-    }
-  }
-	```
-
-- **[virtualMachineParameters.json][vm-parameters]**. This file defines the settings for the VM itself, including the name and size of the VM, the security credentials for the admin user, the disks to be created, and the storage accounts to hold these disks.
-
-	You must specify an image in the `imageReference` section. The values shown below create a VM with the latest build of Windows Server 2012 R2 Datacenter. You can use the following Azure CLI command to obtain a list of all available Windows images in a region (the example uses the westus region):
-
-	```text
-	azure vm image list westus MicrosoftWindowsServer WindowsServer
-	```
-
-	The `subnetName` parameter in the `nics` section specifies the subnet for the VM. Similarly, the `name` parameter in the `virtualNetworkSettings` identifies the VNet to use. These values should be the name of a subnet and VNet defined in the **virtualNetwork.parameters.json** file. 
-
-	You can create multiple VMs either sharing a storage account or with their own storage accounts by modifying the settings in the `buildingBlockSettings` section. If you create multiple VMs, you must also specify the name of an availability set to use or create in the `availabilitySet` section.
-
-	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/windows/virtualMachine.parameters.json#L4-L64 -->
-	```json
-   "parameters": {
-    "virtualMachinesSettings": {
-      "value": {
-        "namePrefix": "ra-single-vm",
-        "computerNamePrefix": "cn",
-        "size": "Standard_DS1_v2",
-        "osType": "windows",
-        "adminUsername": "testuser",
-        "adminPassword": "AweS0me@PW",
-        "sshPublicKey": "",
-        "osAuthenticationType": "password",
-        "nics": [
-          {
-            "isPublic": "true",
-            "subnetName": "ra-single-vm-sn",
-            "privateIPAllocationMethod": "dynamic",
-            "publicIPAllocationMethod": "dynamic",
-            "enableIPForwarding": false,
-            "dnsServers": [
-            ],
-            "isPrimary": "true"
-          }
-        ],
-        "imageReference": {
-          "publisher": "MicrosoftWindowsServer",
-          "offer": "WindowsServer",
-          "sku": "2012-R2-Datacenter",
-          "version": "latest"
-        },
-        "dataDisks": {
-          "count": 2,
-          "properties": {
-            "diskSizeGB": 128,
-            "caching": "None",
-            "createOption": "Empty"
-          }
-        },
-        "osDisk": {
-          "caching": "ReadWrite"
-        },
-        "extensions": [ ],
-        "availabilitySet": {
-          "useExistingAvailabilitySet": "No",
-          "name": ""
-        }
-      }
-    },
-    "virtualNetworkSettings": {
-      "value": {
-        "name": "ra-single-vm-vnet",
-        "resourceGroup": "ra-single-vm-rg"
-      }
-    },
-    "buildingBlockSettings": {
-      "value": {
-        "storageAccountsCount": 1,
-        "vmCount": 1,
-        "vmStartIndex": 0
-      }
-    }
-  }
-	```
+Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks. 
 
 ## Solution deployment
 
-The solution assumes the following prerequisites:
+A [deployment][github-folder] for a reference architecture that demonstrates these best practices is available. This reference architecture includes a virtual network (VNet), network security group (NSG), and a single virtual machine (VM).
 
-- You have an existing Azure subscription in which you can create resource groups.
+There are several ways to deploy this reference architecture. The easiest way is to follow the following steps: 
 
-- You have downloaded and installed the most recent build of Azure PowerShell. See [here][azure-powershell-download] for instructions.
+1. Right click the button below and select either "Open link in new tab" or "Open link in new window".  
+[![Deploy to Azure](../articles/guidance/media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-single-vm%2Fazuredeploy.json)
 
-To run the script that deploys the solution:
+2. Once the link has opened in the Azure portal, you must enter values for some of the settings: 
+    - The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-single-vm-rg` in the text box.
+    - Select the region from the **Location** drop down box.
+    - Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
+    - Select the **Os Type** from the drop down box, **windows**.
+    - Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
+    - Click on the **Purchase** button.
 
-1. Create a folder that contains subfolders named `Scripts` and `Templates`.
+3. Wait for the deployment to complete.
 
-2. In the Templates folder, create another subfolder named Windows.
+4. The parameter files  include a hard-coded administrator user name and password, and it is highly recommended that you immediately change both. Click on the VM named `ra-single-vm0 `in the Azure Portal. Then, click on **Reset password** in the **Support + troubleshooting** blade. Select **Reset password** in the **Mode** dropdown box, then select a new **User name** and **Password**. Click the **Update** button to persist the new user name and password.
 
-3. Download the [Deploy-ReferenceArchitecture.ps1][solution-script] file to the Scripts folder.
+For information on additional ways to deploy this reference architecture, see the readme file in the [guidance-single-vm][github-folder]] Github folder. 
 
-4. Download the following files to Templates/Windows folder:
+## Customize the deployment
 
-	- [virtualNetwork.parameters.json][vnet-parameters]
-
-	- [networkSecurityGroups.parameters.json][nsg-parameters]
-
-	- [virtualMachineParameters.json][vm-parameters]
-
-5. Edit the Deploy-ReferenceArchitecture.ps1 file in the Scripts folder, and change the following line to specify the resource group that should be created or used to hold the VM and resources created by the script:
-
-	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/Deploy-ReferenceArchitecture.ps1#L37 -->
-	```powershell
-	$resourceGroupName = "ra-single-vm-rg"
-	```
-6. Edit each of the JSON files in the Templates/Windows folder to set the parameters for the virtual network, NSG, and VM, as described in the Solution Components section above.
-
-	>[AZURE.NOTE] Make sure that you set the `resourceGroup` parameter in the `virtualNetworkSettings` section of the virtualMachineParameters.json file to be the same as the one you specified in the Deploy-ReferenceArchitecture.ps1 script file.
-
-7. Open a PowerShell window, move to the Scripts folder, and run the following command:
-
-	```powershell
-	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Windows
-	```
-
-	Replace `<subscription id>` with your Azure subscription ID.
-
-	For `<location>`, specify an Azure region, such as `eastus` or `westus`.
-
-8. When the script has completed, use the Azure portal to verify that the network, NSG, and VM have been created successfully.
+If you need to change the deployment to match your needs, follow the instructions in the [readme][github-folder]. 
 
 ## Next steps
 
-In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy two or more instances in an availability set. For more information, see [Running multiple VMs on Azure][multi-vm].
+In order for the [SLA for Virtual   Machines][vm-sla] to apply, you must deploy two or more instances in an availability set. For more information, see [Running multiple VMs on Azure][multi-vm].
 
 <!-- links -->
 
@@ -352,8 +186,9 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/virtual-machines/virtual-machines-windows-about-disks-vhds.md
 [disk-encryption]: ../articles/security/azure-security-disk-encryption.md
-[enable-monitoring]: ../articles/azure-portal/insights-how-to-use-diagnostics.md
+[enable-monitoring]: ../articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-windows-portal-create-fqdn.md
+[github-folder]: http://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm
 [group-policy]: https://technet.microsoft.com/en-us/library/dn595129.aspx
 [log-collector]: https://azure.microsoft.com/en-us/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
 [manage-vm-availability]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md
@@ -372,7 +207,7 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [Resize-VHD]: https://technet.microsoft.com/en-us/library/hh848535.aspx
 [Resize virtual machines]: https://azure.microsoft.com/en-us/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md
-[resource-manager-overview]: ../articles/resource-group-overview.md
+[resource-manager-overview]: ../articles/azure-resource-manager/resource-group-overview.md
 [security-center]: https://azure.microsoft.com/en-us/services/security-center/
 [select-vm-image]: ../articles/virtual-machines/virtual-machines-windows-cli-ps-findimage.md
 [services-by-region]: https://azure.microsoft.com/en-us/regions/#services
@@ -380,13 +215,10 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
 [Use Security Center]: ../articles/security-center/security-center-get-started.md#use-security-center
 [virtual-machine-sizes]: ../articles/virtual-machines/virtual-machines-windows-sizes.md
+[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
-[ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
-[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/Deploy-ReferenceArchitecture.ps1
-[vnet-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/windows/virtualNetwork.parameters.json
-[nsg-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/windows/networkSecurityGroups.parameters.json
-[vm-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/windows/virtualMachine.parameters.json
-[azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Single Windows VM architecture in Azure"
+[readme]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm
+[blocks]: https://github.com/mspnp/template-building-blocks

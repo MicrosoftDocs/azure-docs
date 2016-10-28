@@ -1,10 +1,10 @@
 <properties
    pageTitle="Predict an answer with a simple model - regression model | Microsoft Azure"
-   description="How to create a simple model to predict the price of a diamond in Data Science for Beginners video 4. Includes a basic linear regression with target data."                                  
-   keywords="create a model,simple model,simple data model,price prediction,simple regression model"
+   description="How to create a simple regression model to predict a price in Data Science for Beginners video 4. Includes a linear regression with target data."                                  
+   keywords="create a model,simple model,price prediction,simple regression model"
    services="machine-learning"
    documentationCenter="na"
-   authors="brohrer-ms"
+   authors="cjgronlund"
    manager="jhubbard"
    editor="cjgronlund"/>
 
@@ -14,16 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2016"
-   ms.author="cgronlun;brohrer;garye"/>
+   ms.date="10/20/2016"
+   ms.author="cgronlun;garye"/>
 
 # Predict an answer with a simple model
 
 ## Video 4: Data Science for Beginners series
 
-Learn how to create a simple model to predict the price of a diamond in Data Science for Beginners video 4. We'll draw a regression model with target data.
+Learn how to create a simple regression model to predict the price of a diamond in Data Science for Beginners video 4. We'll draw a regression model with target data.
 
-To get the most out of the series, watch them in order. [Go to the list of videos](#other-videos-in-this-series)
+To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-series-predict-an-answer-with-a-simple-model]
 
@@ -138,5 +138,5 @@ Be sure to check out the other videos in "Data Science for Beginners" from Micro
 
 ## Next steps
 
-  * [Try your first data science experiment with Azure Machine Learning](machine-learning-create-experiment.md)
+  * [Try a first data science experiment with Machine Learning Studio](machine-learning-create-experiment.md)
   * [Get an introduction to Machine Learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)

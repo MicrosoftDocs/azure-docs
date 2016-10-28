@@ -31,7 +31,35 @@ separated values (CSV) file. To go through the same tutorial using other support
 
 Before you begin this tutorial, you must have the following items:
 
-- **A Data Lake Analytics account**. To create one, see [Manage Data Lake Analytics accounts](data-lake-analytics-get-started-portal.md#manage-accounts).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+
+##Create Data Lake Analytics account
+
+You must have a Data Lake Analytics account before you can run any jobs.
+
+Each Data Lake Analytics account has an [Azure Data Lake Store]() account dependency.  This account is referred
+as the default Data Lake Store account.  You can create the Data Lake Store account beforehand or when you create 
+your Data Lake Analytics account. In this tutorial, you will create the Data Lake Store account with the Data Lake Analytics 
+account.
+
+**To create a Data Lake Analytics account**
+
+1. Sign on to the [Azure portal](https://portal.azure.com).
+2. Click **New**, click **Intelligence + analytics**, and then click **Data Lake Analytics**.
+3. Type or select the following values:
+
+    ![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
+
+	- **Name**: Name the Data Lake Analytics account.
+	- **Subscription**: Choose the Azure subscription used for the Analytics account.
+	- **Resource Group**. Select an existing Azure Resource Group or create a new one. Azure Resource Manager enables you to work with the resources in your application as a group. For more information, see [Azure Resource Manager Overview](resource-group-overview.md). 
+	- **Location**. Select an Azure data center for the Data Lake Analytics account. 
+	- **Data Lake Store**: Each Data Lake Analytics account has a dependent Data Lake Store account. The Data Lake Analytics account and the dependent Data Lake Store account must be located in the same Azure data center. Follow the instruction to create a new Data Lake Store account, or select an existing one.
+
+8. Click **Create**. It takes you to the portal home screen. A new tile is added to the StartBoard with the label showing "Deploying Azure Data Lake Analytics". It takes a few moments to create a Data Lake Analytics account. When the account is created, the portal opens the account on a new blade.
+
+After a Data Lake Analytics account is created, you can add additional Data Lake Store accounts and Azure Storage 
+accounts. For instructions, see [Manage Data lake Analytics account data sources](data-lake-analytics-manage-use-portal.md#manage-account-data-sources).
 
 ##Prepare source data
 
@@ -110,7 +138,7 @@ After you have prepared the source data, you can start developing a U-SQL script
 3. Click **Submit Job** from the top.   
 4. Wait until the job status is changed to **Succeeded**. You can see the job took about one minute to complete.
     
-    In case the job failed, see [Monitor and troubleshoot Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorials.md).
+    In case the job failed, see [Monitor and troubleshoot Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
 
 5. At the bottom of the blade, click the **Output** tab, and then click **SearchLog-from-Data-Lake.csv**. You can preview, download, rename, and delete the output file.
 

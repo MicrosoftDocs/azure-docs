@@ -1,9 +1,9 @@
 <properties
 	pageTitle="DocumentDB Document Explorer, to view JSON | Microsoft Azure"
 	description="Learn about the DocumentDB Document Explorer, an Azure Portal tool to view JSON, edit, create, and upload JSON documents with DocumentDB, a NoSQL document database."
-    keywords="view json"
+        keywords="view json"
 	services="documentdb"
-	authors="AndrewHoh"
+	authors="kirillg"
 	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/30/2016"
-	ms.author="anhoh"/>
+	ms.author="kirillg"/>
 
 # View, edit, create, and upload JSON documents using DocumentDB Document Explorer
 
@@ -27,7 +27,9 @@ Note that Document Explorer is not enabled on DocumentDB accounts with protocol 
 
 1. In the Azure portal, in the Jumpbar, click **DocumentDB (NoSQL)**. If **DocumentDB (NoSQL)** is not visible, click **More Services** and then click **DocumentDB (NoSQL)**.
 
-2. In the resource menu, click **Document Explorer**. 
+2. Select the account name. 
+
+3. In the resource menu, click **Document Explorer**. 
  
 	![Screenshot of the Document Explorer command](./media/documentdb-view-JSON-document-explorer/documentexplorercommand.png)
 

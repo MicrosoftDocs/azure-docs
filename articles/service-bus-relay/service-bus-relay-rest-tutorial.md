@@ -1,13 +1,13 @@
 <properties
     pageTitle="Service Bus REST tutorial using relayed messaging | Microsoft Azure"
     description="Build a simple Service Bus relay host application that exposes a REST-based interface."
-    services="service-bus-relay"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" />
 <tags
-    ms.service="service-bus-relay"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
@@ -597,7 +597,7 @@ After building the solution, do the following to run the application:
 
 Now that you've built an application that uses the Service Bus relay service, see the following articles to learn more about relayed messaging:
 
-- [Azure Service Bus architectural overview](../service-bus/service-bus-fundamentals-hybrid-solutions.md#relays)
+- [Azure Service Bus architectural overview](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
 
 - [How to Use the Service Bus Relay Service](service-bus-dotnet-how-to-use-relay.md)
 

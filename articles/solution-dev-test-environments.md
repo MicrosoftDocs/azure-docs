@@ -28,7 +28,7 @@ When you provision development and test environments in Microsoft Azure, you onl
 
 Three development and testing environments are shown above.  Each has web application and SQL database resources, which are specified in a template file.  The names of the application and database in each environment are different, and are specified in unique parameter files for each environment.  
 
-If you're not familiar with Azure Resource Manager concepts, it's recommended that you read the [Azure Resource Manager Overview](resource-group-overview.md) article before reading this article.
+If you're not familiar with Azure Resource Manager concepts, it's recommended that you read the [Azure Resource Manager Overview](azure-resource-manager/resource-group-overview.md) article before reading this article.
 
 You may want to first go through the steps in this article as listed without reading any of the referenced articles to quickly gain some experience using Azure Resource Manager templates. After you've been through the steps once, you'll be able to get answers to most of the questions that arose your first time through by experimenting further with the steps and by reading the referenced articles.
 
@@ -75,7 +75,7 @@ Though you'll probably want the *same* Azure resources created in each environme
 
 4. Using any text or JSON editor, edit the Test environment parameter file you created in Step 3, replacing the the values listed to the right of the parameter values in the file with the *values* listed to the right of the **parameters** below:
  - **siteName**: *TestApp1TestApp*
- - **hostingPlanName**: *TestApp1TestPla*n
+ - **hostingPlanName**: *TestApp1TestPlan*
  - **siteLocation**: *Central US*
  - **serverName**: *testapp1testsrv*
  - **serverLocation**: *Central US*
@@ -134,7 +134,7 @@ The table below lists the default values for these parameters specified in the t
 | **requestedServiceObjectiveName** | S0 | S1 |
 
 ## Create environments
-All Azure resources must be created within an [Azure Resource Group](resource-group-overview.md). Resource groups enable you to group Azure resources so they can be managed collectively.  [Permissions](./active-directory/role-based-access-built-in-roles.md) can be assigned to resource groups such that specific people within your organization can create, modify, delete, or view them and the resources within them.  Alerts and billing information for resources in the Resource Group can be viewed in the [Azure Portal](https://portal.azure.com). Resource groups are created in an Azure [region](https://azure.microsoft.com/regions/).  In this article, all resources are created in the Central US region. When you start creating actual environments, you'll choose the region that best meets your requirements. 
+All Azure resources must be created within an [Azure Resource Group](azure-resource-manager/resource-group-overview.md). Resource groups enable you to group Azure resources so they can be managed collectively.  [Permissions](./active-directory/role-based-access-built-in-roles.md) can be assigned to resource groups such that specific people within your organization can create, modify, delete, or view them and the resources within them.  Alerts and billing information for resources in the Resource Group can be viewed in the [Azure Portal](https://portal.azure.com). Resource groups are created in an Azure [region](https://azure.microsoft.com/regions/).  In this article, all resources are created in the Central US region. When you start creating actual environments, you'll choose the region that best meets your requirements. 
 
 Create resource groups for each environment using any of the methods below.  All methods will achieve the same outcome.
 

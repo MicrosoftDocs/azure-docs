@@ -3,7 +3,7 @@
 	description="Learn about the DocumentDB Script Explorer, an Azure Portal tool to manage DocumentDB server-side programming artifacts including stored procedures, triggers, and user-defined functions."
 	keywords="javascript editor"
 	services="documentdb"
-	authors="AndrewHoh"
+	authors="kirillg"
 	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/30/2016"
-	ms.author="anhoh"/>
+	ms.author="kirillg"/>
 
 # Create and run stored procedures, triggers, and user-defined functions using the DocumentDB Script Explorer
 

@@ -47,7 +47,7 @@ To complete this tutorial, you need the following:
 
 Node.js version 0.12.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
 
-An active Azure account. (If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].)
+An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
 [AZURE.INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
 
@@ -64,7 +64,7 @@ In this section, you create a Node.js console app that responds to a direct meth
 2. At your command-prompt in the **simDevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
 
     ```
-    npm install azure-iot-device azure-iot-device-mqtt --save
+    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
     ```
 
 3. Using a text editor, create a new **simDevice.js** file in the **simDevice** folder.
@@ -91,11 +91,11 @@ In this section, you create a Node.js console app that responds to a direct meth
     var onLockDoor = function(request, response) {
         
         // Respond the cloud app for the direct method
-        response.end(200, function(err) {
-            if (!!err) {
+        response.send(200, function(err) {
+            if (!err) {
                 console.error('An error occured when sending a method response:\n' + err.toString());
             } else {
-                console.error('Response to method \'' + request.methodName + '\' sent successfully.');
+                console.log('Response to method \'' + request.methodName + '\' sent successfully.');
             }
         });
         
@@ -133,7 +133,7 @@ In this section, you create a Node.js console app that initiates a remote lockDo
 2. At your command-prompt in the **scheduleJobService** folder, run the following command to install the **azure-iothub** Device SDK package and **azure-iot-device-mqtt** package:
 
     ```
-    npm install azure-iot-hub --save
+    npm install azure-iothub@dtpreview uuid --save
     ```
     
 3. Using a text editor, create a new **scheduleJobService.js** file in the **scheduleJobService** folder.
@@ -151,6 +151,7 @@ In this section, you create a Node.js console app that initiates a remote lockDo
 
     ```
     var connectionString = '{iothubconnectionstring}';
+    var deviceArray = ['myDeviceId'];
     var startTime = new Date();
     var maxExecutionTimeInSeconds =  3600;
     var jobClient = JobClient.fromConnectionString(connectionString);
@@ -188,7 +189,7 @@ In this section, you create a Node.js console app that initiates a remote lockDo
     var methodJobId = uuid.v4();
     console.log('scheduling Device Method job with id: ' + methodJobId);
     jobClient.scheduleDeviceMethod(methodJobId,
-                                'SELECT * FROM devices',
+                                deviceArray,
                                 methodParams,
                                 startTime,
                                 maxExecutionTimeInSeconds,
@@ -222,7 +223,7 @@ In this section, you create a Node.js console app that initiates a remote lockDo
 
     console.log('scheduling Twin Update job with id: ' + twinJobId);
     jobClient.scheduleTwinUpdate(twinJobId,
-                                'SELECT * FROM devices',
+                                deviceArray,
                                 twinPatch,
                                 startTime,
                                 maxExecutionTimeInSeconds,
@@ -270,7 +271,7 @@ To continue getting started with IoT Hub and device management patterns such as 
 
 [Tutorial: How to do a firmware update][lnk-fwupdate]
 
-To continue getting started with IoT Hub, see [Getting started with the Gateway SDK][lnk-gateway-SDK].
+To continue getting started with IoT Hub, see [Getting started with the IoT Gateway SDK][lnk-gateway-SDK].
 
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-props]: iot-hub-node-node-twin-how-to-configure.md

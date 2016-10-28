@@ -102,20 +102,21 @@ You can associate different NSGs to a VM (or NIC, depending on the deployment mo
 
 - **Inbound traffic**
 	1. NSG applied to subnet. 
-	
-           If subnet NSG has a matching rule to deny traffic, packet will be dropped here.
+
+	If subnet NSG has a matching rule to deny traffic, packet will be dropped here.
 	2. NSG applied to NIC (Resource Manager) or VM (classic). 
-	   
-           If VM\NIC NSG has a matching rule to deny traffic, packet will be dropped at VM\NIC, although subnet NSG has a matching rule to allow traffic.
+
+	If VM\NIC NSG has a matching rule to deny traffic, packet will be dropped at VM\NIC, although subnet NSG has a matching rule to allow traffic.
+
 - **Outbound traffic**
 	1. NSG applied to NIC (Resource Manager) or VM (classic). 
-	  
-           If VM\NIC NSG has a matching rule to deny traffic, packet will be dropped here.
-	2. NSG applied to subnet.
-	   
-           If subnet NSG has a matching rule to deny traffic, packet will be dropped here, although VM\NIC NSG has a matching rule to allow traffic.
 
-	![NSG ACLs](./media/virtual-network-nsg-overview/figure2.png)
+	If VM\NIC NSG has a matching rule to deny traffic, packet will be dropped here.
+	2. NSG applied to subnet.
+	
+	If subnet NSG has a matching rule to deny traffic, packet will be dropped here, although VM\NIC NSG has a matching rule to allow traffic.
+
+		![NSG ACLs](./media/virtual-network-nsg-overview/figure2.png)
 
 >[AZURE.NOTE] Although you can only associate a single NSG to a subnet, VM, or NIC; you can associate the same NSG to as many resources as you want.
 

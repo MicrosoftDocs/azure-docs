@@ -3,7 +3,7 @@
 	description="This article does a technical deep dive on platform-supported migration of resources from classic to Azure Resource Manager"
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="mahthi"
+	authors="singhkays"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/18/2016"
+	ms.date="10/12/2016"
 	ms.author="kasing"/>
 
 # Technical deep dive on platform-supported migration from classic to Azure Resource Manager

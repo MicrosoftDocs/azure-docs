@@ -20,7 +20,8 @@
 
 [AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure portal. To see management topics using other tools, click the tab selector on the top of the page.
+Learn how to manage Azure Data Lake Analytics accounts, account data sources, users, and jobs using the Azure portal. To see management topics using other tools, click the tab selector on the top of the page.
+
 
 **Prerequisites**
 
@@ -75,6 +76,7 @@ accounts. For instructions, see [Manage Data lake Analytics account data sources
 2. Click **Delete** from the button menu on the top of the blade.
 3. Type the account name, and then click **Delete**.
 
+
 Deleting a Data Lake Analytics account does not delete the dependent Data Lake Store accounts. For instructions of deleting
 Data Lake Storage accounts, see [Delete Data Lake Store account](data-lake-store-get-started-portal.md#delete-azure-data-lake-store-account).
 
@@ -122,7 +124,7 @@ created a Data Lake Analytics account, you can add additional Data Lake Store ac
 
 - Open the Data Lake Analytics account that you want to manage. For instructions, see [Access Data Lake Analytics accounts](#access-adla-account). The default Data Lake store is shown in **Essential**:
 
-	![Azure Data Lake Analytics add data source](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-default-adl-storage-account.png)
+	![Azure Data Lake Analytics adds data source](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-default-adl-storage-account.png)
 
 **To add additional data sources**
 
@@ -206,7 +208,9 @@ For information on creating Azure Active Directory users and security groups, Se
 <!-- ################################ -->
 ## Manage jobs
 
-You must have a Data Lake Analytics account before you can run any jobs.  For more information, see [Manage Data Lake Analytics accounts](#manage-data-lake-analytics-accounts).
+
+You must have a Data Lake Analytics account before you can run any U-SQL jobs.  For more information, see [Manage Data Lake Analytics accounts](#manage-data-lake-analytics-accounts).
+
 
 <a name="create-job"></a>**To create a job**
 
@@ -279,7 +283,7 @@ The [U-SQL catalog](data-lake-analytics-use-u-sql-catalog.md) is used to structu
 1. Open the Analytics account that you want to manage. For instructions, see 
 [Access Data Lake Analytics accounts](#access-adla-account).
 2. Click **Data Explorer** from the top menu.
-3. Expand **Catalog**, expand **master**, expand **Tables**, or **Table-valued Functions**, or **Assemblies**. The following screenshot shows one table-valued function.
+3. Expand **Catalog**, expand **master**, expand **Tables, or **Table Valued Functions**, or **Assemblies**. The following screenshot shows one table valued function.
 
 	![Azure Data Lake Analytics data explorer storage account](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-explore-catalog.png)
 
@@ -294,7 +298,7 @@ as a group, referred to as an Azure Resource Group. You can deploy, update, moni
 resources for your application in a single, coordinated operation. You use a template for deployment and that 
 template can work for different environments such as testing, staging, and production. You can clarify billing 
 for your organization by viewing the rolled-up costs for the entire group. For more information, see [Azure 
-Resource Manager Overview](../resource-group-overview.md). 
+Resource Manager Overview](../azure-resource-manager/resource-group-overview.md). 
 
 A Data Lake Analytics service can include the following components:
 

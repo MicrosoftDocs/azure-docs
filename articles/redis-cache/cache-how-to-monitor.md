@@ -126,7 +126,7 @@ To add or remove metrics from the chart, click the checkbox beside the name of t
 
 ![Edit chart][redis-cache-edit-chart]
 
-When you click **Save** your changes will persist until you leave the **Metric** blade. When you come back later, you'll see the original metric and time range again. For more information on customizing charts, see [Monitor service metrics](../azure-portal/insights-how-to-customize-monitoring.md).
+When you click **Save** your changes will persist until you leave the **Metric** blade. When you come back later, you'll see the original metric and time range again. For more information on customizing charts, see [Monitor service metrics](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
 To view the metrics for a specific time period on a chart, hover the mouse over one of the specific bars or points on the chart that corresponds to the desired time, and the metrics for that interval are displayed.
 
@@ -167,7 +167,7 @@ The **Operations** section on the **Redis Cache** blade has **Events** and **Ale
 
 To see a list of recent cache operations, click the **Events** chart to display the **Events** blade. Examples of operations include retrieving and regenerating access keys, and the activation and resolution of alert rules. For more information about each event, click the event in the **Events** blade.
 
-For more information on events, see [View events and audit logs](../azure-portal/insights-debugging-with-events.md).
+For more information on events, see [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md).
 
 The **Alert rules** section displays the count of alerts for the cache instance. An alert rule enables you to monitor your cache instance and receive an email whenever a certain metric value reaches the threshold defined in the rule. 
 
@@ -211,7 +211,7 @@ When an alert rule is activated, an email is sent depending on the configuration
 
 An alert rule is considered to be resolved when the alert condition no longer evaluates to true. Once the alert rule condition is resolved, the alert icon is replaced with a check mark. For details on alert activations and resolutions, click the **Events** part on the **Redis Cache** blade to view the events on the **Events** blade.
 
-For more information about alerts in Azure, see [Receive alert notifications](../azure-portal/insights-receive-alert-notifications.md).
+For more information about alerts in Azure, see [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
 ## Metrics on the Redis Cache blade
 

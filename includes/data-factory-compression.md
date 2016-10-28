@@ -1,7 +1,7 @@
 ### Compression support  
-Processing large data sets can cause I/O and network bottlenecks. Therefore, compressed data in stores can not only speed up data transfer across the network and save disk space, but also bring significant performance improvements in processing big data. At this time, compression is supported for file-based data stores such as Azure Blob or On-premises File System.  
+Processing large data sets can cause I/O and network bottlenecks. Therefore, compressed data in stores can not only speed up data transfer across the network and save disk space, but also bring significant performance improvements in processing big data. Currently, compression is supported for file-based data stores such as Azure Blob or On-premises File System.  
 
-> [AZURE.NOTE] Compression settings are not supported for data in the **AvroFormat** at this time. 
+> [AZURE.NOTE] Compression settings are not supported for data in the **AvroFormat**, **OrcFormat**, or **ParquetFormat**. 
 
 To specify compression for a dataset, use the **compression** property in the dataset JSON as in the following example:   
 
@@ -25,16 +25,16 @@ To specify compression for a dataset, use the **compression** property in the da
 	  	}  
 	}  
  
-Note that the **compression** section has two properties:  
+The **compression** section has two properties:  
   
 - **Type:** the compression codec, which can be **GZIP**, **Deflate** or **BZIP2**.  
 - **Level:** the compression ratio, which can be **Optimal** or **Fastest**. 
 	- **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed. 
 	- **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete. 
 	
-	See [Compression Level](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) topic for more information. 
+	For more information, see [Compression Level](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) topic. 
 
-Suppose the above sample dataset is used as the output of a copy activity, the copy activity will compresses the output data with GZIP codec using optimal ratio and then write the compressed data into a file named pagecounts.csv.gz in the Azure Blob Storage.   
+Suppose the above sample dataset is used as the output of a copy activity, the copy activity compresses the output data with GZIP codec using optimal ratio and then write the compressed data into a file named pagecounts.csv.gz in the Azure Blob Storage.   
 
 When you specify compression property in an input dataset JSON, the pipeline can read compressed data from the source and when you specify the property in an output dataset JSON, the copy activity can write compressed data to the destination. Here are a few sample scenarios: 
 

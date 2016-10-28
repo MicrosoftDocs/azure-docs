@@ -56,7 +56,6 @@ Now that you've built a working application that creates an Event Hub and sends 
 
 - A complete [sample application that uses Event Hubs][].
 - The [Scale out Event Processing with Event Hubs][] sample.
-- A [queued messaging solution][] using Service Bus queues.
 - [Event Hubs overview][]
 
 <!-- Images. -->
@@ -68,5 +67,3 @@ Now that you've built a working application that creates an Event Hub and sends 
 [Event Hubs overview]: event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[queued messaging solution]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
- 

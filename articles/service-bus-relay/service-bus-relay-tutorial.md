@@ -1,13 +1,13 @@
 <properties 
     pageTitle="Service Bus Relay tutorial | Microsoft Azure"
     description="Build a Service Bus client application and service using Service Bus Relay."
-    services="service-bus-relay"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="tysonn" />
 <tags 
-    ms.service="service-bus-relay"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
@@ -762,8 +762,8 @@ This tutorial showed how to build a Service Bus client application and service u
 To learn more about Service Bus, see the following topics.
 
 - [Service Bus messaging overview](../service-bus-messaging/service-bus-messaging-overview.md)
-- [Service Bus fundamentals](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-- [Service Bus architecture](../service-bus/service-bus-architecture.md)
+- [Service Bus fundamentals](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
+- [Service Bus architecture](../service-bus-messaging/service-bus-architecture.md)
 
 [Azure classic portal]: http://manage.windowsazure.com
 

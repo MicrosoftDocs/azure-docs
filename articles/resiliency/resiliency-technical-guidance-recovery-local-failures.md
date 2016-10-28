@@ -162,12 +162,6 @@ Applications that are built on Azure benefit from platform capabilities to recov
 
 To mitigate against a temporary outage of Azure Service Bus, consider creating a durable client-side queue. This temporarily uses an alternate, local storage mechanism to store messages that cannot be added to the Service Bus queue. The application can decide how to handle the temporarily stored messages after the service is restored. For more information, see [Best practices for performance improvements using Service Bus brokered messaging](../service-bus-messaging/service-bus-performance-improvements.md) and [Service Bus (disaster recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
 
-###Mobile Services
-
-There are two availability considerations for Azure Mobile Services. First, regularly back up the SQL database that's associated with your mobile service. Second, back up the mobile service scripts. For more information, see [Recover your mobile service in the event of a disaster](../mobile-services/mobile-services-disaster-recovery.md).
-
-If Mobile Services experiences a temporary outage, you might have to temporarily use an alternate Azure datacenter. For more information, see [Mobile Services (disaster recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
-
 ###HDInsight
 
 The data that's associated with Azure HDInsight is stored by default in Azure Blob storage. Azure Storage specifies high-availability and durability properties for Blob storage. The multiple-node processing that's associated with Hadoop MapReduce jobs occurs on a transient Hadoop Distributed File System (HDFS) that is provisioned when HDInsight needs it. Results from a MapReduce job are also stored by default in Azure Blob storage, so that the processed data is durable and remains highly available after the Hadoop cluster is deprovisioned. For more information, see [HDInsight (disaster recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).

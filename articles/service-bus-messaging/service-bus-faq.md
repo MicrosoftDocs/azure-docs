@@ -1,13 +1,13 @@
 <properties 
     pageTitle="Service Bus FAQ | Microsoft Azure"
     description="Answers some frequently-asked questions about Azure Service Bus."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
-    authors="justinconway"
-    manager=""
+    authors="sethmanheim"
+    manager="timlt"
     editor="" />
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
@@ -34,7 +34,7 @@ This article answers some frequently-asked questions about Microsoft Azure Servi
 
 ### What is a Service Bus namespace?
 
-A [namespace](../service-bus/service-bus-create-namespace-portal.md) provides a scoping container for addressing Service Bus resources within your application. Creating one is necessary to use Service Bus and will be one of the first steps in getting started.
+A [namespace](service-bus-create-namespace-portal.md) provides a scoping container for addressing Service Bus resources within your application. Creating one is necessary to use Service Bus and will be one of the first steps in getting started.
 
 ### What is an Azure Service Bus queue?
 
@@ -102,7 +102,7 @@ In general, billable messages are calculated for relays using the same method as
 
 Sending a message to a Service Bus relay is treated as a "full through" send to the relay listener that receives the message, rather than a send to the Service Bus relay followed by a delivery to the relay listener. Therefore, a request-reply style service invocation (of up to 64 KB) against a relay listener will result in two billable messages: one billable message for the request and one billable message for the response (assuming the response is also \<= 64 KB). This differs from using a queue to mediate between a client and a service. In the latter case, the same request-reply pattern would require a request send to the queue, followed by a dequeue/delivery from the queue to the service, followed by a response send to another queue, and a dequeue/delivery from that queue to the client. Using the same (\<= 64 KB) size assumptions throughout, the mediated queue pattern would thus result in four billable messages, twice the number billed to implement the same pattern using relay. Of course, there are benefits to using queues to achieve this pattern, such as durability and load leveling. These benefits may justify the additional expense.
 
-Relays that are opened using the netTCPRelay WCF binding treat messages not as individual messages but as a stream of data flowing through the system. In other words, only the sender and listener have visibility into the framing of the individual messages sent/received using this binding. Thus, for relays using the netTCPRelay bindng, all data is treated as a stream for the purpose of calculating billable messages. In this case, Service Bus will calculate the total amount of data sent or received via each individual relay on a 5-minute basis and divide that total by 64 KB in order to determine the number of billable messages for the relay in question during that time period.
+Relays that are opened using the netTCPRelay WCF binding treat messages not as individual messages but as a stream of data flowing through the system. In other words, only the sender and listener have visibility into the framing of the individual messages sent/received using this binding. Thus, for relays using the netTCPRelay binding, all data is treated as a stream for the purpose of calculating billable messages. In this case, Service Bus will calculate the total amount of data sent or received via each individual relay on a 5-minute basis and divide that total by 64 KB in order to determine the number of billable messages for the relay in question during that time period.
 
 ### Does Service Bus charge for storage?
 
@@ -126,6 +126,10 @@ As with other services on Azure, Service Bus enforces a set of specific quotas t
 #### Queue/topic size
 
 You specify the maximum queue or topic size upon creation of the queue or topic. This quota can have a value of 1, 2, 3, 4, or 5 GB. If the maximum size is reached, additional incoming messages will be rejected and an exception will be received by the calling code.
+
+#### Naming restrictions
+
+A Service Bus namespace name can only be between 6-50 characters in length. The character count limit for each queue, topic, or subscription is between 1-50 characters.
 
 #### Number of concurrent connections
 
@@ -198,13 +202,13 @@ To learn more about Service Bus messaging, see the following topics.
 - [Introducing Azure Service Bus Premium messaging (blog post)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Introducing Azure Service Bus Premium messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [Service Bus messaging overview](service-bus-messaging-overview.md)
-- [Azure Service Bus architecture overview](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+- [Azure Service Bus architecture overview](service-bus-fundamentals-hybrid-solutions.md)
 - [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 
 [Best practices for performance improvements using Service Bus brokered messaging]: service-bus-performance-improvements.md
-[Best practices for insulating applications against Service Bus outages and disasters]: ../service-bus/service-bus-outages-disasters.md
+[Best practices for insulating applications against Service Bus outages and disasters]: service-bus-outages-disasters.md
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
-[Quotas overview]: ../service-bus/service-bus-quotas.md
-[here]: ../service-bus/service-bus-powershell-how-to-provision.md#migrate-a-namespace-to-another-azure-subscription
-[Exceptions overview]: ../service-bus/service-bus-messaging-exceptions.md
-[Shared Access Signatures]: ../service-bus/service-bus-sas-overview.md
+[Quotas overview]: service-bus-quotas.md
+[here]: service-bus-powershell-how-to-provision.md#migrate-a-namespace-to-another-azure-subscription
+[Exceptions overview]: service-bus-messaging-exceptions.md
+[Shared Access Signatures]: service-bus-sas-overview.md

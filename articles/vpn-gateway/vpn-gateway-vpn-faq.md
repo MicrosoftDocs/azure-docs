@@ -195,7 +195,7 @@ A VPN gateway is fundamentally a multi-homed device with one NIC tapping into th
 
 ### More information about gateway types, requirements, and throughput
 
-For more information, see [About VPN Gateway Settings](vpn-gateway-about-vpn gateway-settings.md).
+For more information, see [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md).
 
 ## Multi-Site and VNet-to-VNet connectivity
 

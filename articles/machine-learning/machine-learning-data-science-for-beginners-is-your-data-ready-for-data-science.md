@@ -1,10 +1,10 @@
 <properties
    pageTitle="Is your data ready for data science? Data evaluation | Microsoft Azure"
    description="Learn the 4 criteria for data to be ready for data science. Data Science for Beginners video 2 has concrete examples to help with basic data evaluation."
-   keywords="data evaluation,relevant data,evaluate data,prepare data,data criteria,data ready"
+   keywords="relevant data,evaluate data,prepare data,data criteria,data ready"
    services="machine-learning"
    documentationCenter="na"
-   authors="brohrer-ms"
+   authors="cjgronlund"
    manager="jhubbard"
    editor="cjgronlund"/>
 
@@ -14,17 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2016"
-   ms.author="cgronlun;brohrer;garye"/>
+   ms.date="10/20/2016"
+   ms.author="cgronlun;garye"/>
 
 
 # Is your data ready for data science?
 
 ## Video 2: Data Science for Beginners series
 
-Learn about evaluating your data to make sure it meets basic criteria to be ready for data science.
+Learn how to evaluate your data to make sure it meets basic criteria to be ready for data science.
 
-To get the most out of the series, watch them in order. [Go to the list of videos](#other-videos-in-this-series)
+To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-series-is-your-data-ready-for-data-science]
 
@@ -42,7 +42,7 @@ To get the most out of the series, watch them in order. [Go to the list of video
 
 Welcome to "Is your data ready for data science?" the second video in the series *Data Science for Beginners*.  
 
-Before data science can give you the answers you want, you have to give it some high quality raw materials to work with. Just like making a pizza, the better the ingredients you start with, the better the final product.
+Before data science can give you the answers you want, you have to give it some high-quality raw materials to work with. Just like making a pizza, the better the ingredients you start with, the better the final product.
 
 ## Criteria for data
 
@@ -65,7 +65,7 @@ Look at the table on the left. We met seven people outside of Boston bars, measu
 
 This is all perfectly legitimate data. It’s only fault is that it isn’t relevant. There's no obvious relationship between these numbers. If I gave you the current price of milk and the Red Sox batting average, there's no way you could guess my blood alcohol content.
 
-Now look at the table on the right. This time we measured each person’s body mass and counted the number of drinks they’ve had.  The numbers in each row are now relevant to each other. If I gave you my body mass and the number of margaritas I've had, you could make a guess at my blood alcohol content.
+Now look at the table on the right. This time we measured each person’s body mass and counted the number of drinks they’ve had.  The numbers in each row are now relevant to each other. If I gave you my body mass and the number of Margaritas I've had, you could make a guess at my blood alcohol content.
 
 ## Do you have connected data?
 
@@ -73,7 +73,7 @@ The next ingredient is connected data.
 
 ![Connected data vs. disconnected data - data criteria, data ready](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-connected-vs-disconnected-data.png)
 
-Here is some relevant data on the quality of hamburgers: grill temperature, patty weight and rating in the local food magazine. But notice the gaps in the table on the left.
+Here is some relevant data on the quality of hamburgers: grill temperature, patty weight, and rating in the local food magazine. But notice the gaps in the table on the left.
 
 Most data sets are missing some values. It's common to have holes like this and there are ways to work around them. But if there's too much missing, your data begins to look like Swiss cheese.
 
@@ -83,11 +83,11 @@ The table on the right, though, is full and complete - an example of connected d
 
 ## Is your data accurate?
 
-The next ingredient we need is accuracy. Here are 4 targets that we’d like to hit with arrows.
+The next ingredient we need is accuracy. Here are four targets that we’d like to hit with arrows.
 
 ![Accurate data vs. inaccurate data - data criteria](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-inaccurate-vs-accurate-data.png)
 
-Look at the target in the upper-right. We’ve got a tight grouping right around the bullseye. That, of course, is accurate. Oddly, in the language of data science, our performance on the target right below it is also considered accurate.
+Look at the target in the upper right. We’ve got a tight grouping right around the bullseye. That, of course, is accurate. Oddly, in the language of data science, our performance on the target right below it is also considered accurate.
 
 If you were to map out the center of these arrows, you'd see that it's very close to the bullseye. The arrows are spread out all around the target, so they're considered imprecise, but they're centered around the bullseye, so they're considered accurate.
 
@@ -107,14 +107,14 @@ When you have barely enough strokes, you can see just enough to make some broad 
 
 As you add more data, the picture becomes clearer and you can make more detailed decisions. Now I can look at the three hotels on the left bank. You know, I really like the architectural features of the one in the foreground. I’ll stay there, on the third floor.
 
-With data that's relevant, connected, accurate, and enough, we have all the ingredients we need to do some high quality data science.
+With data that's relevant, connected, accurate, and enough, we have all the ingredients we need to do some high-quality data science.
 
-Be sure to check out the other 4 videos in *Data Science for Beginners* from Microsoft Azure Machine Learning.
+Be sure to check out the other four videos in *Data Science for Beginners* from Microsoft Azure Machine Learning.
 
 
 
 
 ## Next steps
 
-  * [Try your first data science experiment with Azure Machine Learning](machine-learning-create-experiment.md)
+  * [Try a first data science experiment with Machine Learning Studio](machine-learning-create-experiment.md)
   * [Get an introduction to Machine Learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)

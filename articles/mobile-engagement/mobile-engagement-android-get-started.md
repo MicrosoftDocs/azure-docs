@@ -33,7 +33,7 @@ It also requires the [Mobile Engagement Android SDK](https://aka.ms/vq9mfn).
 
 ## Set up Mobile Engagement for your Android app
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ## Connect your app to the Mobile Engagement backend
 

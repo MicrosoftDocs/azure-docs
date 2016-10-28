@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-You can reset the local administrator password or reset the Remote Desktop service configuration if you can't connect to a Windows virtual machine. You can use either the Azure portal or the VM Access extension in Azure PowerShell to reset the password. If you are using PowerShell, make sure you have the latest PowerShell module installed on your work computer and are signed in to your Azure subscription. For detailed steps, read [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+If you can't connect to a Windows virtual machine (VM), you can reset the local administrator password or reset the Remote Desktop service configuration. You can use either the Azure portal or the VM Access extension in Azure PowerShell to reset the password. If you are using PowerShell, make sure you have the latest PowerShell module installed on your work computer and are signed in to your Azure subscription. For detailed steps, read [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 > [AZURE.TIP] You can check the version of PowerShell that you have installed by using `Import-Module Azure, AzureRM; Get-Module Azure, AzureRM | Format-Table Name, Version`
 
@@ -46,7 +46,7 @@ Create your local administrator account credentials by using the following comma
 
 	$cred=Get-Credential
 
-If you type a different name than the current account, the following VMAccess extension command renames the local administrator account, assigns the password to that account, and issues a Remote Desktop log off. If the local administrator account is disabled, the VMAccess extension enables it.
+If you type a different name than the current account, the following VMAccess extension command renames the local administrator account, assigns the password to that account, and issues a Remote Desktop logoff event. If the local administrator account is disabled, the VMAccess extension enables it.
 
 Use the VM access extension to set the new credentials as follows:
 
@@ -126,16 +126,18 @@ To reset the Remote Desktop service configuration, run the following command:
 
 The VMAccess extension runs two commands on the virtual machine:
 
-a. `netsh advfirewall firewall set rule group="Remote Desktop" new enable=Yes`
+- `netsh advfirewall firewall set rule group="Remote Desktop" new enable=Yes`
 
 This command enables the built-in Windows Firewall group that allows incoming Remote Desktop traffic, which uses TCP port 3389.
 
-b. `Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0`
+- `Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0`
 
 This command sets the fDenyTSConnections registry value to 0, enabling Remote Desktop connections.
 
 
-## Additional resources
+## Next steps
+
+If the Azure VM access extension does not respond and you are unable to reset the password, you can [reset the local Windows password offline](virtual-machines-windows-reset-local-password-without-agent.md). This method is a more advanced process and requires you to connect the virtual hard disk of the problematic VM to another VM. Follow the steps documented in this article first, and only attempt the offline password reset method as a last resort.
 
 [Azure VM extensions and features](virtual-machines-windows-extensions-features.md)
 

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Fail back VMware virtual machines and physical servers from Azure to VMware (legacy) | Microsoft Azure" 
    description="This article describes how to fail back a VMware virtual machine that's been replicated to Azure with Azure Site Recovery." 
    services="site-recovery" 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="storage-backup-recovery" 
-   ms.date="07/08/2016"
+   ms.date="10/05/2016"
    ms.author="ruturajd@microsoft.com"/>
 
 # Fail back VMware virtual machines and physical servers from Azure to VMware with Azure Site Recovery (legacy)

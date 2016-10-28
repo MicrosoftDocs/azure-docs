@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/24/2016"
+	ms.date="10/24/2016"
 	ms.author="awills"/>
 
 
@@ -24,31 +24,35 @@ You can instrument a live web app with Visual Studio Application Insights, witho
 
 ![sample charts](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
-You have a choice of three ways to apply Application Insights to your .NET web applications:
+You have a choice of three routes to apply Application Insights to your .NET web applications:
 
 * **Build time:** [Add the Application Insights SDK][greenbrown] to your web app code. 
 * **Run time:** Instrument your web app on the server, as described below, without rebuilding and redeploying the code.
 * **Both:** Build the SDK into your web app code, and also apply the run-time extensions. Get the best of both options. 
 
-Here's a summary of what you get in each way:
+Here's a summary of what you get by each route:
 
 ||Build time|Run time|
 |---|---|---|
 |Requests & exceptions|Yes|Yes|
 |[More detailed exceptions](app-insights-asp-net-exceptions.md)||Yes|
 |[Dependency diagnostics](app-insights-asp-net-dependencies.md)|On .NET 4.6+|Yes|
-|[System performance counters](app-insights-web-monitor-performance.md#system-performance-counters)||IIS or Azure cloud service, not Azure web app|
+|[System performance counters](app-insights-performance-counters.md)||IIS or Azure cloud service, not Azure web app|
 |[API for custom telemetry][api]|Yes||
 |[Trace log integration](app-insights-asp-net-trace-logs.md)|Yes||
 |[Page view & user data](app-insights-javascript.md)|Yes||
 |No need to rebuild code|No||
 
 
-
-
 ## Instrument your web app at run time
 
 You need a [Microsoft Azure](http://azure.com) subscription.
+
+### If your app is an Azure web app or Cloud Service
+
+* Select Application Insights on the app's control panel in Azure. 
+
+    [Learn more](app-insights-azure.md).
 
 ### If your app is hosted on your IIS server
 
@@ -85,24 +89,6 @@ You need a [Microsoft Azure](http://azure.com) subscription.
 After you complete the wizard, you can re-configure the agent whenever you want. You can also use this if you installed the agent but there was some trouble with the initial setup.
 
 ![Click the Application Insights icon on the task bar](./media/app-insights-monitor-performance-live-website-now/appinsights-033-aicRunning.png)
-
-
-### If your app runs as an Azure Web App
-
-1. In the [Azure portal](https://portal.azure.com), create an Application Insights resource with type ASP.NET. This will be where your application telemetry will be stored, analyzed and displayed.
-
-    ![Add, Application Insights. Select ASP.NET type.](./media/app-insights-monitor-performance-live-website-now/01-new.png)
-     
-2. Now open the control blade of your Azure Web App, open **Tools > Performance Monitoring** add the Application Insights extension.
-
-    ![In your web app, Tools, Extensions, Add, Application Insights](./media/app-insights-monitor-performance-live-website-now/05-extend.png)
-
-    Select the Application Insights resource you just created.
-
-
-### If it's an Azure cloud services project
-
-[Add scripts to web and worker roles](app-insights-cloudservices.md).
 
 
 ## View performance telemetry
@@ -189,7 +175,7 @@ IIS support is: IIS 7, 7.5, 8, 8.5
 
 ## Automation with PowerShell
 
-You can start and stop monitoring by using PowerShell.
+You can start and stop monitoring by using PowerShell on your IIS server.
 
 First import the Application Insights module:
 
@@ -253,29 +239,6 @@ Find out which apps are being monitored:
 
 * Downloads the latest Application Insights SDK to the server.
 
-## Azure template
-
-If the web app is in Azure and you create your resources using an Azure Resource Manager template, you can configure Application Insights by adding this to the resources node:
-
-    {
-      resources: [
-        /* Create Application Insights resource */
-        {
-          "apiVersion": "2015-05-01",
-          "type": "microsoft.insights/components",
-          "name": "nameOfAIAppResource",
-          "location": "centralus",
-          "kind": "web",
-          "properties": { "ApplicationId": "nameOfAIAppResource" },
-          "dependsOn": [
-            "[concat('Microsoft.Web/sites/', myWebAppName)]"
-          ]
-        }
-       ]
-     } 
-
-* `nameOfAIAppResource` - a name for the Application Insights resource
-* `myWebAppName` - the id of the web app
 
 ## <a name="next"></a>Next steps
 

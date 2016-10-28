@@ -13,32 +13,32 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="08/08/2016"
+   ms.date="10/27/2016"
    ms.author="iainfou"/>
 
-# Opening ports to a VM in Azure using the Azure Portal
+# Opening ports to a VM in Azure using the Azure portal
 [AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Quick commands
 You can also [perform these steps using Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md).
 
-First, create your Network Security Group. Select a resource group in the portal, click 'Add', then search for and select 'Network Security Group':
+First, create your Network Security Group. Select a resource group in the portal, click **Add**, then search for and select 'Network security group':
 
 ![Add a Network Security Group](./media/virtual-machines-windows-nsg-quickstart-portal/add-nsg.png)
 
-Enter a name for your Network Security Group and select a location:
+Enter a name for your Network Security Group, select or create a resource group, and select a location. Click **Create** when finished:
 
 ![Create a Network Security Group](./media/virtual-machines-windows-nsg-quickstart-portal/create-nsg.png)
 
-Select your new Network Security Group. You now create an inbound rule:
+Select your new Network Security Group. Select 'Inbound security rules', then click the **Add** button to create a rule:
 
 ![Add an inbound rule](./media/virtual-machines-windows-nsg-quickstart-portal/add-inbound-rule.png)
 
-Provide a name for your new rule. Port 80 is already entered by default. This blade is where you would change the source, protocol, and destination when adding additional rules to your Network Security Group:
+Provide a name for your new rule. Port 80 is already entered by default. This blade is where you would change the source, protocol, and destination when adding additional rules to your Network Security Group. Click **OK** to create the rule:
 
 ![Create an inbound rule](./media/virtual-machines-windows-nsg-quickstart-portal/create-inbound-rule.png)
 
-Your final step is to associate your Network Security Group with a subnet or a specific network interface. Let's associate the Network Security Group with a subnet:
+Your final step is to associate your Network Security Group with a subnet or a specific network interface. Let's associate the Network Security Group with a subnet. Select 'Subnets', then click **Associate**:
 
 ![Associate a Network Security Group with a subnet](./media/virtual-machines-windows-nsg-quickstart-portal/associate-subnet.png)
 
@@ -59,6 +59,6 @@ If you need to use port-forwarding to map a unique external port to an internal 
 ## Next steps
 In this example, you created a simple rule to allow HTTP traffic. You can find information on creating more detailed environments in the following articles:
 
-- [Azure Resource Manager overview](../resource-group-overview.md)
+- [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)
 - [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)
 - [Azure Resource Manager Overview for Load Balancers](../load-balancer/load-balancer-arm.md)

@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="guyinacube"
-	manager="mblythe"
+	manager="erikre"
 	editor="monicar" 
 	tags="azure-service-management"/>
 <tags 
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/13/2016"
+	ms.date="10/04/2016"
 	ms.author="asaxton" />
 
 # Use PowerShell to Create an Azure VM With a Native Mode Report Server

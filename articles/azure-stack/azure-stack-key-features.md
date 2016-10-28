@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/26/2016"
+	ms.date="10/25/2016"
 	ms.author="helaw"/>
 
 # Key features and concepts in Azure Stack
@@ -25,16 +25,16 @@ If you’re new to Microsoft Azure Stack, these terms and feature descriptions m
 There are two varieties of users for Microsoft Azure Stack, the service administrator and the tenant (customer).
 
 -  A **service administrator** can configure and manage resource providers, tenant offers, plans, services, quotas, and pricing.
--  A **tenant** purchases (or acquires) services that the service administrator offers. Tenants can provision, monitor, and manage services that they have subscribed to, such as Web Apps, Storage, and Virtual Machines.
+-  A **tenant** acquires (or purchases) services that the service administrator offers. Tenants can provision, monitor, and manage services that they have subscribed to, such as Web Apps, Storage, and Virtual Machines.
 
 
 ## Portal
 
-The primary method of interacting with Microsoft Azure Stack is the portal.
+The primary methods of interacting with Microsoft Azure Stack is the portal and PowerShell.
 
 ![](media/azure-stack-key-features/image3.png)
 
-The Microsoft Azure Stack portal, which is consistent with the Azure portal, is a web page that provides a self-service experience for both service administrators and tenants with role-based access control (RBAC) to resources and cloud capacity, enabling quick application and service development and deployment.
+The Microsoft Azure Stack portal is an instance of the Azure portal running on your servers. It is a web site that provides a self-service experience for both service administrators and tenants with role-based access control (RBAC) to resources and cloud capacity, enabling quick application and service development and deployment.
 
 ## Regions, services, plans, offers, and subscriptions
 
@@ -49,7 +49,7 @@ Azure Stack regions are a basic element of scale and management.  An organizatio
 
 ### Services
 
-Microsoft Azure Stack enables providers to deliver a wide variety of applications and services, such as virtual machines, SQL Server databases, SharePoint, Exchange, and more.
+Microsoft Azure Stack enables providers to deliver a wide variety of services and applications, such as virtual machines, SQL Server databases, SharePoint, Exchange, and more.
 
 ### Plans
 
@@ -59,7 +59,7 @@ Each service added to a plan can be configured with quota settings to help you m
 
 When composing an offer, the service administrator can include **base plans**. These base plans are included by default when a tenant subscribes to that offer. As soon as a user subscribes (and the subscription is created), the user has access to all the resource providers specified in those base plans (with the corresponding quotas).
 
-The service administrator can also include **add-on plans** in an offer. Add-on plans are not included by default in the subscription. Add-on plans are additional plans (quotas) available in an offer that a subscription owner can add to their subscription.
+The service administrator can also include **add-on plans** in an offer. Add-on plans are not included by default in the subscription. Add-on plans are additional plans (quotas) available in an offer that a subscription owner can add to their subscriptions.
 
 ### Offers
 
@@ -75,13 +75,11 @@ Subscriptions help providers organize access and use of cloud resources and serv
 
 ## Azure Resource Manager
 
-By using Azure Resource Manager, you can work with your infrastructure resources in bulk, instead of individually. It’s a single access point that you can use to deploy, manage, and monitor your solution components, such as virtual machines, storage accounts, web apps, and databases. For full information and guidance, see the [Azure Resource Manager overview](../resource-group-overview.md).
+By using Azure Resource Manager, you can work with your infrastructure resources in a template-based, declaritive model.   It provides a single interface that you can use to deploy, manage, and monitor your solution components, such as virtual machines, storage accounts, web apps, and databases. For full information and guidance, see the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
 ### Resource groups
 
-Resource groups are collections of resources, services, and applications—and each resource has a type, such as virtual machines, virtual networks, public IPs, storage accounts, and websites. Each resource must be in a resource group and so resource groups help organize resources, such as applications and virtual networks. As a tenant, it’s ultimately the use of resources that you are billed for.
-
-Tenants who use a plan and its services create resource groups to collect and manage an application’s resources.
+Resource groups are collections of resources, services, and applications—and each resource has a type, such as virtual machines, virtual networks, public IPs, storage accounts, and websites. Each resource must be in a resource group and so resource groups help logically organize resources, such as by workload or location.
 
 Here are some important things to consider when defining a resource group:
 
@@ -100,6 +98,8 @@ Here are some important things to consider when defining a resource group:
 -   A resource can be linked to a resource in another resource group when the two resources must interact with each other but they do not share the same lifecycle. For example, multiple apps must connect to a database, but that database must not be updated or deleted at the same pace as the apps.
 
 -   In Microsoft Azure Stack, resources such as plans and offers are also managed in resource groups.
+
+-   You can redeploy a resource group.  This is useful for testing or development purposes.  
 
 ### Azure Resource Manager templates
 

@@ -3,7 +3,7 @@
 	description="Learn how you can use the Hadoop Streaming Activity in an Azure data factory to run Hadoop Streaming programs on an on-demand/your own HDInsight cluster." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="sharonlo101" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/20/2016" 
-	ms.author="spelluru"/>
+	ms.author="shlo"/>
 
 # Hadoop Streaming Activity
 > [AZURE.SELECTOR]

@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/19/2016"
-   ms.author="nepeters"/>
+   ms.author="timlt"/>
 
 # Container management through the web UI
 

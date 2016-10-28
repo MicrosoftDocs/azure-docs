@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Consume a Machine Learning web service | Microsoft Azure"
-	description="Once a machine learning service is deployed, the RESTFul web service that is made available can be consumed either as request-response service or as a batch execution service."
+	pageTitle="Consume a Machine Learning Web service | Microsoft Azure"
+	description="Once a machine learning service is deployed, the RESTFul Web service that is made available can be consumed either as request-response service or as a batch execution service."
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -13,67 +13,116 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="08/19/2016"
+	ms.date="10/04/2016"
 	ms.author="garye" />
 
 
-# How to consume an Azure Machine Learning web service that has been deployed from a Machine Learning experiment
+# How to consume an Azure Machine Learning Web service that has been deployed from a Machine Learning experiment
 
 ## Introduction
 
-When deployed as a web service, Azure Machine Learning experiments provide a REST API that can be consumed by a wide range of devices and platforms. This is because the simple REST API accepts and responds with JSON formatted messages. The Azure Machine Learning portal provides code that can be used to call the web service in R, C#, and Python. But these services can be called with any programming language and from any device that satisfies three criteria:
+When deployed as a Web service, Azure Machine Learning experiments provide a REST API and JSON formatted messages that can be consumed by a wide range of devices and platforms. The Azure Machine Learning portal provides code that can be used to call the Web service in R, C#, and Python. 
+
+Services can be called with any programming language and from any device that satisfies three criteria:
 
 * Has a network connection
 * Has SSL capabilities to perform HTTPS requests
-* Has the ability to parse JSON (by hand or support libraries)
-
-This means the services can be consumed from web applications, mobile applications, custom desktop applications and even from within Excel.
+* Can parse JSON (by hand or support libraries)
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]  
 
-An Azure Machine Learning web service can be consumed in two different ways, either as a request-response service or as a batch execution service. In each scenario the functionality is provided through the RESTFul web service that is made available for consumption once the experiment has been deployed. Deploying a Machine Learning web service in Azure with an Azure web service end-point, where the service is automatically scaled based on usage, you can avoid upfront and ongoing costs for hardware resources.
+An Azure Machine Learning Web service can be consumed in two ways, either as a request-response service or as a Batch Execution Service. In each scenario, the functionality is provided through the RESTFul Web service that is made available for consumption once you deploy the experiment.
 
-> [AZURE.TIP] For a simple way to create a web app to access your predictive web service, see [Consume an Azure Machine Learning web service with a web app template](machine-learning-consume-web-service-with-web-app-template.md).
+> [AZURE.TIP] For a simple way to create a web app to access your predictive Web service, see [Consume an Azure Machine Learning Web service with a web app template](machine-learning-consume-web-service-with-web-app-template.md).
 
 <!-- When this article gets published, fix the link and uncomment
-For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
+For more information on how to manage Azure Machine Learning Web service endpoints using the REST API, see **Azure machine learning Web service endpoints**.
 -->
 
-For information about how to create and deploy an Azure Machine Learning web service, see [Deploy an Azure Machine Learning web service][publish]. For a step-by-step walkthrough of creating a Machine Learning experiment and deploying it, see [Develop a predictive solution by using Azure Machine Learning][walkthrough].
-
-[publish]: machine-learning-publish-a-machine-learning-web-service.md
-[walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
-
+For information about how to create and deploy an Azure Machine Learning Web service, see [Deploy an Azure Machine Learning Web service][publish]. For a step-by-step walkthrough of creating a Machine Learning experiment and deploying it, see [Develop a predictive solution by using Azure Machine Learning][walkthrough].
 
 ## Request-Response Service (RRS)
 
-A Request-Response Service (RRS) is a low-latency, highly scalable web service used to provide an interface to the stateless models that have been created and deployed from an Azure Machine Learning Studio experiment. It enables scenarios where the consuming application expects a response in real-time.
+A Request-Response Service (RRS) is a low-latency, highly scalable Web service used to provide an interface to the stateless models that have been created and deployed from an Azure Machine Learning Studio experiment. It enables scenarios where the consuming application expects a response in real time.
 
 RRS accepts a single row, or multiple rows, of input parameters and can generate a single row, or multiple rows, as output. The output row(s) can contain multiple columns.
 
-An example for RRS is validating the authenticity of an application. Hundreds to millions of installations of an application can be expected in this case. When the application starts up, it makes a call to the RRS service with the relevant input. The application then receives a validation response from the service that either allows or blocks the application from performing.
+An example for RRS is validating the authenticity of an application. Hundreds to millions of installations of an application can be expected in this case. When the application starts up, it calls the RRS service with the relevant input. The application then receives a validation response from the service that either allows or blocks the application from performing.
 
 
 ## Batch Execution Service (BES)
 
-A Batch Execution Service (BES) is a service that handles high volume, asynchronous, scoring of a batch of data records. The input for the BES contains a batch of records from a variety of sources, such as blobs, tables in Azure, SQL Azure, HDInsight (results of a Hive Query, for example), and HTTP sources. The output for the BES contains the results of the scoring. Results are output to a file in Azure blob storage and data from the storage endpoint is returned in the response.
+A Batch Execution Service (BES) is a service that handles high volume, asynchronous, scoring of a batch of data records. The input for the BES contains a batch of records from various sources, such as blobs, tables in Azure, SQL Azure, HDInsight (results of a Hive Query, for example), and HTTP sources. The output for the BES contains the results of the scoring. Results are output to a file in Azure blob storage and data from the storage endpoint is returned in the response.
 
 A BES would be useful when responses are not needed immediately, such as for regularly scheduled scoring for individuals or internet of things (IOT) devices.
 
 ## Examples
-To show how both RRS and BES work, we use an example Azure web service. This service would be used in an IOT (Internet Of Things) scenario. To keep it simple, our device only sends up one value, `cog_speed`, and gets a single answer back.
 
-There are four pieces of information that are needed to call either the RRS or BES service. This information is readily available from the service pages in [Azure Machine Learning Studio](https://studio.azureml.net) once the experiment has been deployed. Click on the WEB SERVICES tab at the left of the screen and you will see the deployed services. Click a service to find the following links and information for both RRS and BES:
+To show how both RRS and BES work, we use an example Azure Web service. This service would be used in an IOT (Internet Of Things) scenario. To keep it simple, our device only sends up one value, `cog_speed`, and gets a single answer back.
 
-1.	The service **API key**, available on the services Dashboard
-2.	The service **request URI**, available on the API help page for the chosen service
-3.	The expected API **request headers** and **body**, available on the API help page for the chosen service
-4.	The expected API **response headers** and **body**, available on the API help page for the chosen service
+Once the experiment has been deployed, there are four pieces of information that we need to call either the RRS or BES service.
 
-In the two examples below, the C# language is used to illustrate the code needed and the targeted platform is a Windows 8 desktop.
+* The service **API key** or **Primary key**
+* The service **request URI**
+* The expected API **request headers** and **body**
+* The expected API **response headers** and **body**
+
+The manner in which you find this information depends on what type of service you deployed: A New Web service or a Classic Web Service.
+
+### Information location in the Azure Machine Learning Web Services portal 
+
+To find the needed information:
+
+1. Sign in to the [Azure Machine Learning Web Services][webservicesportal] portal.
+2. Click **Web Services** or **Classic Web Services**.
+3. Click the Web service with which you working. 
+4. If you are working with a Classic Web Service, click the endpoint you are working with.
+
+The information is located on these pages:
+
+* The **Primary key** is available on the **Consume** page
+* The **request URI** is available on the **Consume** page 
+* The expected API **request headers**, **response headers**, and **body** are available on the **Swagger API** page
+
+### Information locations in Machine Learning Studio (Classic Web service only)
+
+You can find the needed information from two locations: Machine Learning Studio or the Azure Machine Learning Web Services portal.
+
+To find the needed information in Machine Learning studio:
+
+1. Sign in to [Machine Learning Studio][mlstudio].
+2. On the left of the screen, click **WEB SERVICES**.
+3. Click the Web service with which you are working. 
+
+The information is located on these pages:
+
+* The **API key** is available on the service **Dashboard** 
+* The **request URI** is available on the API help page
+* The expected API **request headers**, **response headers**, and **body** are available on the API help page
+
+
+To access the API help page, click either the **REQUEST/RESPONSE** or **BATCH EXECUTION** link as appropriate to your task.
+
+To find the needed information on the Azure Machine Learning Web Services portal:
+
+1. Sign in to the [Azure Machine Learning Web Services][webservicesportal] portal.
+2. Click **Classic Web Services**.
+3. Click the Web service with which you are working. 
+4. Click the endpoint with which you are working.
+
+The information is located on these pages:
+
+* The **Primary key** is available on the **Consume** page
+* The **request URI** is available on the **Consume** page 
+* The expected API **request headers**, **response headers**, and **body** are available on the **Swagger API** page
+
+In the two examples below, the C# language is used to illustrate the code needed.
 
 ### RRS Example
-Click **REQUEST/RESPONSE** under **API HELP PAGE** on the service Dashboard to view the API help page. On this page, aside from the URI, you will find input and output definitions and code samples. The API input, for this service specifically, is shown below and is the payload of the API call.
+
+
+
+The following sample request shows the API input the payload for the API call of our sample service. For a Classic Web service, you can find payload samples on the **API help page** or on the **Swagger API** page of the Machine Learning Web Services portal. For a New Web service, you can find payload samples on the **Swagger API** page of the Machine Learning Web Services portal.
 
 **Sample Request**
 
@@ -97,7 +146,7 @@ Click **REQUEST/RESPONSE** under **API HELP PAGE** on the service Dashboard to v
 	}
 
 
-Similarly, the API response for this service is also shown below.
+Similarly, the following sample shows the API response for the service.
 
 **Sample Response**
 
@@ -125,7 +174,7 @@ Similarly, the API response for this service is also shown below.
 	  "GlobalParameters": {}
 	}
 
-Towards the bottom of the help page you will find the code examples. Below is the code sample for the C# implementation.
+The following is the code sample for the C# implementation. For a Classic Web service, you can find code samples at the bottom of the **API help page** or at the bottom of the **Consume** page. For a New Web service, you can find code samples at the bottom of the **Consume** page.
 
 **Sample Code in C#**
 
@@ -171,7 +220,7 @@ Towards the bottom of the help page you will find the code examples. Below is th
 	                    GlobalParameters = new Dictionary<string, string>() { }
 	                };
 
-	                const string apiKey = "abc123"; // Replace this with the API key for the web service
+	                const string apiKey = "abc123"; // Replace this with the API key for the Web service
 	                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", apiKey);
 
 	                client.BaseAddress = new Uri("https://ussouthcentral.services.azureml.net/workspaces/<workspace id>/services/<service id>/execute?api-version=2.0&details=true");
@@ -201,7 +250,7 @@ Towards the bottom of the help page you will find the code examples. Below is th
 
 **Sample Code in Java**
 
-The following sample code  shows how to construct a REST API request in Java.  It assumes that variables (apikey and apiurl) has necessary API details and the variable jsonBody has a correct JSON object as expected by the REST API to make a successful prediction. You can download the full code from github - [https://github.com/nk773/AzureML_RRSApp](https://github.com/nk773/AzureML_RRSApp). This Java sample requires [apache http client library](https://hc.apache.org/downloads.cgi).
+The following sample code shows how to construct a REST API request in Java. It assumes that the variables (apikey and apiurl) have the necessary API details and the variable jsonBody has a correct JSON object as expected by the REST API. You can download the full code from github - [https://github.com/nk773/AzureML_RRSApp](https://github.com/nk773/AzureML_RRSApp). This Java sample requires [apache http client library](https://hc.apache.org/downloads.cgi).
 
 	/**
 	 * Download full code from github - [https://github.com/nk773/AzureML_RRSApp](https://github.com/nk773/AzureML_RRSApp)
@@ -252,6 +301,7 @@ The following sample code  shows how to construct a REST API request in Java.  I
  
 
 ### BES Example
+
 Unlike the RRS service, the BES service is asynchronous. This means that the BES API is simply queuing up a job to be executed, and the caller polls the job's status to see when it has completed. Here are the operations currently supported for batch jobs:
 
 1. Create (submit) a batch job
@@ -261,19 +311,19 @@ Unlike the RRS service, the BES service is asynchronous. This means that the BES
 
 **1. Create a Batch Execution Job**
 
-When creating a batch job for your Azure Machine Learning service endpoint, you can specify several parameters that will define this batch execution:
+When you create a batch job for your Azure Machine Learning service, you can specify several parameters that define the batch execution:
 
-* **Input**: represents a blob reference where the batch job's input is stored.
-* **GlobalParameters**: represents the set of global parameters you can define for their experiment. An Azure Machine Learning experiment can have both required and optional parameters that customize the service's execution, and the caller is expected to provide all required parameters, if applicable. These parameters are specified as a collection of key-value pairs.
-* **Outputs**: if the service has defined one or more outputs, the caller can redirect any of them to an Azure blob location. This allows you to save the service's output(s) in a preferred location and under a predictable name, otherwise the output blob name is randomly generated. 
+* **Input**: Represents a blob reference where the batch job's input is stored.
+* **GlobalParameters**: Represents the set of global parameters that you can define for their experiment. An Azure Machine Learning experiment can have both required and optional parameters that customize the service's execution, and the caller is expected to provide all required parameters, if applicable. These parameters are specified as a collection of key-value pairs.
+* **Outputs**: If the service has defined one or more outputs, the caller can redirect any of them to an Azure blob location. By setting this parameter, you can save the output of the service in a preferred location and under a predictable name, otherwise the output blob name is randomly generated. 
 
-    Note that the service expects the output content, based on its type, to be saved as supported formats:
+    The service expects the output content, based on its type, to be saved as supported formats:
   - dataset outputs: can be saved as **.csv, .tsv, .arff**
-  - trained model outputs: can be saved as **.ilearner**
+  - trained model outputs: Must be saved as **.ilearner**
 
-  Output location overrides are specified as a collection of *<output name, blob reference>* pairs, where the *output name* is the user defined name for a specific output node (also shown on the service's API help page), and *blob reference* is a reference to an Azure blob location to which the output is to be redirected.
+	You specify the Output location overrides as a collection of output name, or blob reference pairs. The *output name* is the user-defined name for a specific output node, and *blob reference* is a reference to an Azure blob location to which the output is redirected. The *output name* is shown on the service's API help page.
 
-All these job creation parameters can be optional depending on the nature of your service. For example, services with no input node defined do not require passing in an *Input* parameter. Likewise, the output location override feature is completely optional, as outputs will otherwise be stored in the default storage account that was set up for your Azure Machine Learning workspace. Below, we show a sample request payload, as passed to the REST API, for a service where only the input information is provided:
+All the job creation parameters are optional depending on the nature of your service. For example, services with no input node defined do not require passing in an *Input* parameter. Likewise, the output location override feature is optional, as outputs are otherwise stored in the default storage account that was set up for your Azure Machine Learning workspace. The following sample request payloads for a service where only the input information is provided:
 
 **Sample Request**
 
@@ -289,7 +339,7 @@ All these job creation parameters can be optional depending on the nature of you
 	  "GlobalParameters": null
 	}
 
-The response to the batch job creation API is the unique job ID that was associated to your job. This ID is very important because it provides the only means for you to reference this job in the system for other operations.  
+The response to the batch job creation API is the unique job ID that is associated with your job. This ID is important since it provides the only means for you to reference this job in the system for other operations.  
 
 **Sample Response**
 
@@ -297,11 +347,11 @@ The response to the batch job creation API is the unique job ID that was associa
 
 **2. Start a Batch Execution Job**
 
-Creating a batch job registers it within the system and places it in a *Not started* state. To actually schedule the job for execution, you call the **start** API described on the service endpoint's API help page and provide the job ID obtained when the job was created.
+When you Create a batch job it is registered in the system and places it in a *Not started* state. To actually schedule the job for execution, you call the **start** API described on the service endpoint's API help page or the Web service's Swagger API page, and provide the job ID obtained when the job was created.
 
 **3. Get the Status of a Batch Execution Job**
 
-You can poll the status of your asynchronous batch job at any time by passing the job's ID to the GetJobStatus API. The API response will contain an indicator of the job's current state, as well as the actual results of the batch job if it has completed successfully. In the case of an error, more information about the actual reasons behind the failure are returned in the *Details* property, as shown here:
+You can poll the status of your asynchronous batch job at any time by passing the job's ID to the *GetJobStatus* API. The API response contains an indicator of the job's current state and the results of the batch job indicating whether it has completed successfully. If there is an error, more information about the actual reason behind the failure is returned in the *Details* property, as shown here:
 
 **Response Payload**
 
@@ -316,10 +366,11 @@ You can poll the status of your asynchronous batch job at any time by passing th
 * Not started
 * Running
 * Failed
-* Cancelled
+* Canceled
 * Finished
 
-The *Results* property is populated only if the job has completed successfully (it is **null** otherwise). Upon the job has completed, and if the service has at least one output node defined, the results will be returned as a collection of *[output name, blob reference]* pairs, where the blob reference is a SAS read-only reference to the blob containing the actual result.
+The *Results* property is populated when the job has successfully completed (it is **null** otherwise.) 
+Once the job has completed, and if the service has at least one output node defined, the results are returned as a collection of *[output name, blob reference]* pairs, where the blob reference is a SAS read-only reference to the blob containing the result.
 
 **Sample Response**
 
@@ -347,17 +398,15 @@ The *Results* property is populated only if the job has completed successfully (
 
 **4. Cancel a Batch Execution Job**
 
-A running batch job can be cancelled at any time by calling the designated CancelJob API and passing in the job's id. This would be done for various reasons such as that the job is taking too long to complete.
-
-
+You can cancel a running batch job at any time by calling the designated *CancelJob* API and passing in the job's id. You might cancel for various reasons such as the job is taking too long to complete.
 
 #### Using the BES SDK
 
-The [BES SDK Nugget package](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) provides functions that simplify calling BES to score in batch mode. To install the Nuget package, in Visual Studio in the **Tools** menu, select **Nuget Package Manager** and click **Package Manager Console**.
+The [BES SDK Nuget package](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) provides functions that simplify calling BES to score in batch mode. To install the Nuget package, in Visual Studio in the **Tools** menu, select **Nuget Package Manager** and click **Package Manager Console**.
 
-Azure Machine Learning experiments that are deployed as web services can include web service input modules. This means that they expect the input to be provided through the web service call in the form of a reference to a blob location. There is also the option of not using a web service input module and using an **Import Data** module instead. In this case, the **Import Data** module typically would read from a SQL DB using a query at run time to get the data. Web service parameters can be used to dynamically point to other servers or tables, etc. The SDK supports both of these patterns.
+Azure Machine Learning experiments that are deployed as Web services can include Web service input modules. This means that input to the Web service is provided through a Web service call in the form of a reference to a blob location. There is also the option of not using a Web service input module and using an **Import Data** module instead. In this case, the **Import Data** module reads from a data source, such as a SQL DB using a query at run time. Web service parameters can be used to dynamically point to other servers or tables, etc. The SDK supports both of these patterns.
 
-The code sample below demonstrates how you can submit and monitor a batch job against an Azure Machine Learning service endpoint using the BES SDK. Note the comments for details on the settings and calls.
+The following code sample demonstrates how to submit and monitor a batch job against an Azure Machine Learning service using the BES SDK. The comments contain details on the settings and calls.
 
 #### **Sample Code**
 
@@ -385,7 +434,7 @@ The code sample below demonstrates how you can submit and monitor a batch job ag
 
 	        static async Task InvokeBatchExecutionService()
 	        {
-	            // First collect and fill in the URI and access key for your web service endpoint.
+	            // First collect and fill in the URI and access key for your Web service endpoint.
 	            // These are available on your service's API help page.
 	            var endpointUri = "https://ussouthcentral.services.azureml.net/workspaces/YOUR_WORKSPACE_ID/services/YOUR_SERVICE_ENDPOINT_ID/";
 	            string accessKey = "YOUR_SERVICE_ENDPOINT_ACCESS_KEY";
@@ -488,7 +537,8 @@ The code sample below demonstrates how you can submit and monitor a batch job ag
 	}
 
 #### Sample code in Java for BES
-The Batch execution service REST API takes the JSON consisting of a reference to an input sample csv and a output sample csv as shown below and creates a job in the Azure ML to do the batch predictions. You can view the full code in [Github](https://github.com/nk773/AzureML_BESApp/tree/master/src/azureml_besapp). This Java sample requires [apache http client library](https://hc.apache.org/downloads.cgi). 
+
+The Batch execution service REST API takes the JSON consisting of a reference to an input sample csv and an output sample csv, as shown in the following sample, and creates a job in the Azure ML to do the batch predictions. You can view the full code in [Github](https://github.com/nk773/AzureML_BESApp/tree/master/src/azureml_besapp). This Java sample requires [apache http client library](https://hc.apache.org/downloads.cgi). 
 
 
 	{ "GlobalParameters": {}, 
@@ -501,7 +551,7 @@ The Batch execution service REST API takes the JSON consisting of a reference to
 	} 
 
 
-#####Create a BES job	
+##### Create a BES job	
 	    
 	    /**
 	     * Call REST API to create a job to Azure ML 
@@ -550,7 +600,8 @@ The Batch execution service REST API takes the JSON consisting of a reference to
 	    
 	    }
 	    
-#####Start a previously created BES job	        
+##### Start a previously created BES job	    
+    
 	    /**
 	     * Call REST API for starting prediction job previously submitted 
 	     * 
@@ -590,7 +641,7 @@ The Batch execution service REST API takes the JSON consisting of a reference to
 	            return e.toString();
 	        }
 	    }
-#####Cancel a previously created BES job
+##### Cancel a previously created BES job
 	    
 	    /**
 	     * Call REST API for canceling the batch job 
@@ -631,8 +682,16 @@ The Batch execution service REST API takes the JSON consisting of a reference to
 	        }
 	    }
 	    
-###Other programming environments
-You can also generate the code in many other languages using a swagger document from the API help page and following the directions provided at [swagger.io](http://swagger.io/) site. Go to the [swagger.io](http://swagger.io/swagger-codegen/) and follow the instructions to download swagger code, java and apache mvn. Here is the summary of instructions on setting up swagger for other programming environments.
+### Other programming environments
+
+You can also generate the code in many other languages following the directions provided at [swagger.io](http://swagger.io/) site. For a Classic Web service you can get the swagger document:
+
+* From the API help page 
+* By calling Get API Document for Endpoint, found on the Swagger API page of Machine Learning Web Services portal. 
+
+Go to the [swagger.io](http://swagger.io/swagger-codegen/) and follow the instructions to download swagger code, java, and apache mvn. 
+
+The following list is the summary of instructions on setting up swagger for other programming environments.
 
 * Make sure Java 7 or higher is installed
 * Install apache mvn (On ubuntu, you can use *apt-get install mvn*)
@@ -654,7 +713,7 @@ Now you can use any of the swagger tools. Here are the instructions to generate 
 	fb62b56f29fc4ba4b8a8f900c9b89584/services/26a3afce1767461ab6e73d5a206fbd62/swagger.json\
 	 -l java -o /home/username/sample
 
-* Combine values in the fields host, basePath and "/swagger.json" in the sample of a swagger [API help page](https://management.azureml.net/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/apidocument) shown below to construct swagger URL used in the command line above
+* Combine values in the fields host, basePath and "/swagger.json" in the sample of a swagger [API help page](https://management.azureml.net/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/apidocument) shown below to construct swagger URL used in the preceding command line.
 
 **Sample API Help Page**
 
@@ -663,8 +722,8 @@ Now you can use any of the swagger tools. Here are the instructions to generate 
 	  "swagger": "2.0",
 	  "info": {
 	    "version": "2.0",
-	    "title": "Sample 5: Binary Classification with Web Service: Adult Dataset [Predictive Exp.]",
-	    "description": "No description provided for this web service.",
+	    "title": "Sample 5: Binary Classification with Web service: Adult Dataset [Predictive Exp.]",
+	    "description": "No description provided for this Web service.",
 	    "x-endpoint-name": "default"
 	  },
 	  "host": "ussouthcentral.services.azureml.net:443",
@@ -681,6 +740,14 @@ Now you can use any of the swagger tools. Here are the instructions to generate 
 	  "paths": {
 	    "/swagger.json": {
 	      "get": {
-	        "summary": "Get swagger API document for the web service",
+	        "summary": "Get swagger API document for the Web service",
 	        "operationId": "getSwaggerDocument",
 	        
+<!-- Relative Links -->
+
+[publish]: machine-learning-publish-a-machine-learning-web-service.md
+[walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
+
+<!-- External Links -->
+[webservicesportal]: https://services.azureml.net/
+[mlstudio]: https://studio.azureml.net

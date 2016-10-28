@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/26/2016"
+	ms.date="10/17/2016"
 	ms.author="mimig"/>
 
 # How to perform DocumentDB global database replication using the Azure portal
@@ -31,8 +31,8 @@ DocumentDB is available in most [Azure regions] [azureregions]. After selecting 
 
 1. In the [Azure portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB Accounts**.
 2. In the **DocumentDB Account** blade, select the database account to modify.
-3. In the account blade, click **Add/Remove Regions** from the menu.
-4. In the **Add/Remove Regions** blade, select the regions to add or remove, and then click **OK**. There is a cost to adding regions, see the [pricing page](https://azure.microsoft.com/pricing/details/documentdb/) or the [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md) article for more information.
+3. In the account blade, click **Replicate data globally** from the menu.
+4. In the **Replicate data globally** blade, select the regions to add or remove, and then click **Save**. There is a cost to adding regions, see the [pricing page](https://azure.microsoft.com/pricing/details/documentdb/) or the [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md) article for more information.
 
     ![Click the regions in the map to add or remove them][1]
 

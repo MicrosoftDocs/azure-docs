@@ -1,14 +1,14 @@
 <properties
 	pageTitle=".NET multi-tier application | Microsoft Azure"
 	description="A .NET tutorial that helps you develop a multi-tier app in Azure that uses Service Bus queues to communicate between tiers."
-	services="service-bus-messaging"
+	services="service-bus"
 	documentationCenter=".net"
 	authors="sethmanheim"
 	manager="timlt"
 	editor=""/>
 
 <tags
-	ms.service="service-bus-messaging"
+	ms.service="service-bus"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"

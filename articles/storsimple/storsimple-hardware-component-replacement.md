@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/22/2016"
+   ms.date="10/11/2016"
    ms.author="alkohli" />
 
 # StorSimple hardware component replacement
@@ -76,7 +76,7 @@ The primary enclosure and the EBOD enclosure differ in their I/O modules. Additi
 |Components|# Present|Plug-in module?| Replacement procedure
 |:---------|:--------|:--------------|:---------------------|
 |Chassis|1|No| [Replace the chassis on your StorSimple device](storsimple-chassis-replacement.md) |
-|EBOD controllers|2|Yes| [Replace an EBOD controller on your StorSimple device](storsimple-EBOD-controller-replacement.md) |
+|EBOD controllers|2|Yes| [Replace an EBOD controller on your StorSimple device](storsimple-ebod-controller-replacement.md) |
 |580W Power and Cooling Modules (PCMs)|2|Yes| [Replace a Power and Cooling Module on your StorSimple device](storsimple-power-cooling-module-replacement.md) |
 |Disk drives|12|Yes| [Replace a disk drive on your StorSimple device](storsimple-disk-drive-replacement.md) |
 

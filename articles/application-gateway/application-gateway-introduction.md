@@ -9,23 +9,19 @@
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/26/2016"
+   ms.date="10/25/2016"
    ms.author="gwallace"/>
 
 # Application Gateway overview
 
 ## What is Application Gateway
 
-Microsoft Azure Application Gateway provides an Application Delivery Controller (ADC) as a service, providing many layer 7 load balancing capabilities. In simple terms, it works by accepting traffic and based on rules that are defined with it, routes the traffic to the appropriate back-end instances.
+Microsoft Azure Application Gateway provides Application Delivery Controller (ADC) as a service, offering various layer 7 load balancing capabilities for your application. It allows customers to optimize web farm productivity by offloading CPU intensive SSL termination to the Application Gateway. It also provides other Layer 7 routing capabilities including round robin distribution of incoming traffic, cookie based session affinity, URL path based routing and ability to host multiple websites behind a single Application Gateway. Application Gateway also has a web application firewall (WAF) that protects your application against most of the OWASP top 10 common web vulnerabilities. Application Gateway can be configured as internet facing gateway, internal only gateway or a combination of both. Application Gateway is fully Azure managed, scalable and highly available. It provides rich set of diagnostics and logging capabilities for better manageability. Application gateway works with virtual machines, cloud services and internal or external facing web applications.
 
-Application load balancing enables IT administrators and developers to create routing rules for network traffic based on the HTTP protocol.  The Application Gateway service is highly available and metered. For the SLA and pricing, refer to the [SLA](https://azure.microsoft.com/support/legal/sla/) and [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/) pages.
-
-The Application Gateway applies the routing rules to HTTP traffic, providing layer 7 (HTTP) load balancing. When you create an application gateway, an endpoint (VIP) is associated and used as public IP for ingress network traffic. 
-Azure provides layer 4 load balancing through Azure load balancer working at the transport level (TCP/UDP) and having all incoming network traffic being load balanced to the Application Gateway service. 
-The Application Gateway routes the HTTP traffic based on its configuration whether it's a virtual machine, cloud service, or an external IP address.
+Application Gateway is a dedicated virtual appliance for your application and comprises of multiple worker instances for scalability and high availability. When you create an application gateway, an endpoint (public VIP or internal ILB IP) is associated and used for ingress network traffic. This VIP or ILB IP is provided by Azure Load Balancer working at the transport level (TCP/UDP) and having all incoming network traffic being load balanced to the Application Gateway worker instances. The Application Gateway then routes the HTTP/HTTPS traffic based on its configuration whether it's a virtual machine, cloud service, internal or an external IP address. For the SLA and pricing, refer to the [SLA](https://azure.microsoft.com/support/legal/sla/) and [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/) pages.
 
 ## Features
 
@@ -36,19 +32,24 @@ Application Gateway currently supports layer 7 application delivery with the fol
 - **Cookie-based session affinity** - This feature is useful when you want to keep a user session on the same back-end. By using gateway managed cookies, the Application Gateway is able to direct subsequent traffic from a user session to the same back-end for processing. This feature is important in cases where session state is saved locally on the back-end server for a user session.
 - **[Secure Sockets Layer (SSL) offload](application-gateway-ssl-arm.md)** - This feature takes the costly task of decrypting HTTPS traffic off your web servers. By terminating the SSL connection at the Application Gateway and forwarding the request to server un-encrypted, the web server is unburdened by the decryption.  Application Gateway re-encrypts the response before sending it back to the client. This feature is useful in scenarios where the back-end is located in the same secured virtual network as the Application Gateway in Azure.
 - **[End to End SSL](application-gateway-backend-ssl.md)** - Application Gateway supports end to end encryption of traffic. Application Gateway does this by terminating the SSL connection at the application gateway. The gateway then applies the routing rules to the traffic, re-encrypts the packet, and forwards the packet to the appropriate backend based on the routing rules defined. Any response from the web server goes through the same process back to the end user.
-- **[URL-based content routing](application-gateway-url-route-overview.md)** - This feature provides the capability to use different back-end servers for different traffic. Traffic for a folder on the web server or for a CDN could be routed to a different back-end, reducing unneeded load on backends that don't server specific content.
+- **[URL-based content routing](application-gateway-url-route-overview.md)** - This feature provides the capability to use different back-end servers for different traffic. Traffic for a folder on the web server or for a CDN could be routed to a different back-end, reducing unneeded load on backends that don't serve specific content.
 - **[Multi-site routing](application-gateway-multi-site-overview.md)** - Application gateway allows for you to consolidate up to 20 websites on a single application gateway.
 - **[Websocket support](application-gateway-websocket.md)** - Another great feature of Application Gateway is the native support for Websocket.
-- **[Health monitoring](application-gateway-probe-overview.md)** - Application gateway provides default health monitoring of backend resources as well as custom probes to monitor for more specific scenarios.
+- **[Health monitoring](application-gateway-probe-overview.md)** - Application gateway provides default health monitoring of backend resources and custom probes to monitor for more specific scenarios.
 
 ## Benefits
 
-HTTP layer 7 load balancing is useful for:
+Application Gateway is useful for:
 
 - Applications that require requests from the same user/client session to reach the same back-end virtual machine. Examples of these applications would be shopping cart apps and web mail servers.
 - Applications that want to free web server farms from SSL termination overhead.
 - Applications, such as a content delivery network, that requires multiple HTTP requests on the same long-running TCP connection to be routed or load balanced to different back-end servers.
 - Applications that support websocket traffic
+- Protecting web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks.
+
+Application Gateway load balancing as an Azure-managed service allows the provisioning of a layer 7 load balancer behind the Azure software load balancer. Traffic manager can be used to complete the scenario as seen in the following image. Where Traffic Manager provides redirection and availability, load balancer provides in region scalability and availability, and application gateway provides cross region layer 7 load balancing.
+
+![asdasd](./media/application-gateway-introduction/tm-lb-ag-scenario.png)
 
 [AZURE.INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
@@ -56,7 +57,9 @@ HTTP layer 7 load balancing is useful for:
 
 Application Gateway is currently offered in three sizes: Small, Medium, and Large. Small instance sizes are intended for development and testing scenarios.
 
-You can create up to 50 application gateways per subscription, and each application gateway can have up to 10 instances each. Each application gateway can consist of 10 http listeners. Application Gateway load balancing as an Azure-managed service allows the provisioning of a layer 7 load balancer behind the Azure software load balancer. 
+There are currently two skus for Application Gateway: WAF and Standard.
+
+You can create up to 50 application gateways per subscription, and each application gateway can have up to 10 instances each. Each application gateway can consist of 20 http listeners. For a complete list of application gateway limits visit the [Service Limits](../azure-subscription-service-limits.md#application-gateway) page.
 
 The following table shows an average performance throughput for each application gateway instance:
 
@@ -65,11 +68,11 @@ The following table shows an average performance throughput for each application
 | 6K | 7.5 Mbps | 13 Mbps | 50 Mbps |
 |100K | 35 Mbps | 100 Mbps| 200 Mbps |
 
->[AZURE.NOTE] These values are approximate values for an application gateway throughput. The actual throughput depends on various environment details, such as average page size, location of back-end instances, and processing time to serve a page.
+>[AZURE.NOTE] These values are approximate values for an application gateway throughput. The actual throughput depends on various environment details, such as average page size, location of back-end instances, and processing time to serve a page. For exact performance numbers, you should run your own tests, these values are only provided for capacity planning guidance.
 
 ## Health monitoring
 
-Azure Application Gateway automatically monitors the health of the back-end instances through basic or custom health probes. For more information, see [Application Gateway health monitoring overview](application-gateway-probe-overview.md).
+Azure Application Gateway automatically monitors the health of the back-end instances through basic or custom health probes. By using health probes, this ensures that only healthy hosts respond to traffic. For more information, see [Application Gateway health monitoring overview](application-gateway-probe-overview.md).
 
 ## Configuring and managing
 

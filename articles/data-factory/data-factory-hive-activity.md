@@ -3,7 +3,7 @@
 	description="Learn how you can use the Hive Activity in an Azure data factory to run Hive queries on an on-demand/your own HDInsight cluster." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="sharonlo101" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2016" 
-	ms.author="spelluru"/>
+	ms.date="10/11/2016" 
+	ms.author="shlo"/>
 
 # Hive Activity
 > [AZURE.SELECTOR]

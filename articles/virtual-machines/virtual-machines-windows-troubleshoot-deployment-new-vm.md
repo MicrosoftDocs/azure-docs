@@ -55,7 +55,7 @@ To resolve both these errors, use [Add-AzureRmVhd to upload the original VHD](ht
 
 **Resolution**
 
-To resolve both these errors, delete the current image from the portal, and [recapture it from the current VHDs](virtual-machines-windows-capture-image.md) with the same setting as that for the OS (generalized/specialized).
+To resolve both these errors, delete the current image from the portal, and [recapture it from the current VHDs](virtual-machines-windows-vhd-copy.md) with the same setting as that for the OS (generalized/specialized).
 
 ## Issue: Custom/gallery/marketplace image; allocation failure
 This error arises in situations when the new VM request is pinned to a cluster that either cannot support the VM size being requested, or does not have available free space to accommodate the request.

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/14/2016"
+   ms.date="10/10/2016"
    ms.author="ganesr;cherylmc"/>
 
 # Create and modify an ExpressRoute circuit
@@ -290,7 +290,7 @@ You can disable the ExpressRoute premium add-on for your existing circuit by usi
 
 ### To update the ExpressRoute circuit bandwidth
 
-Check the [ExpressRoute FAQ](expressroute-faqs.md) for supported bandwidth options for your provider. You can pick any size that is greater than the size of your existing circuit.
+Check the [ExpressRoute FAQ](expressroute-faqs.md) for supported bandwidth options for your provider. You can pick any size that is greater than the size of your existing circuit as long as the physical port (on which your circuit is created) allows.
 
 >[AZURE.IMPORTANT] You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth will require you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
 
@@ -308,6 +308,17 @@ After you decide what size you need, you can use the following command to resize
 	Status                           : Enabled
 
 Your circuit will have been sized up on the Microsoft side. You must contact your connectivity provider to update configurations on their side to match this change. Note that we will start billing you for the updated bandwidth option from this point on.
+
+If you see the following error when increasing the circuit bandwidth, it means there is no sufficient bandwidth left on the physical port where your existing circuit is created. You have to delete this circuit and create a new circuit of the size you need. 
+
+	Set-AzureDedicatedCircuitProperties : InvalidOperation : Insufficient bandwidth available to perform this circuit
+	update operation
+	At line:1 char:1
+	+ Set-AzureDedicatedCircuitProperties -ServiceKey ********************* ...
+	+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	    + CategoryInfo          : CloseError: (:) [Set-AzureDedicatedCircuitProperties], CloudException
+	    + FullyQualifiedErrorId : Microsoft.WindowsAzure.Commands.ExpressRoute.SetAzureDedicatedCircuitPropertiesCommand
+	
 
 ## Deprovisioning and deleting an ExpressRoute circuit
 

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Deploy an existing executable to Azure Service Fabric | Microsoft Azure"
-   description="Walkthrough on how to package an existing application as a guest executable, so it can be deployed on an Azure Service Fabric cluster"
+   description="Walkthrough on how to package an existing application as a guest executable, so it can be deployed to a Service Fabric cluster"
    services="service-fabric"
    documentationCenter=".net"
    authors="msfussell"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="09/22/2016"
+   ms.date="10/22/2016"
    ms.author="msfussell;mikhegn"/>
 
 # Deploy a guest executable to Service Fabric
@@ -27,7 +27,7 @@ In this article, we cover the steps to package a guest executable and deploy it 
 
 There are several advantages that come with running a guest executable in a Service Fabric cluster:
 
-- High availability. Applications that run in Service Fabric are mode highly available. Service Fabric ensures that instances of an application are running.
+- High availability. Applications that run in Service Fabric are made highly available. Service Fabric ensures that instances of an application are running.
 - Health monitoring. Service Fabric health monitoring detects if an application is running and provides diagnostics information if there is a failure.   
 - Application lifecycle management. Besides providing upgrades with no downtime, Service Fabric provides automatic rollback to the previous version if there is a bad health event reported during an upgrade.    
 - Density. You can run multiple applications in a cluster, which eliminates the need for each application to run on its own hardware.

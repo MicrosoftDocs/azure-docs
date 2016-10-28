@@ -5,3 +5,4 @@
 - [PHP](../articles/service-bus/service-bus-php-how-to-use-queues.md)
 - [Python](../articles/service-bus/service-bus-python-how-to-use-queues.md)
 - [Ruby](../articles/service-bus/service-bus-ruby-how-to-use-queues.md)
+- [REST](../articles/service-bus-brokered-tutorial-rest.md)

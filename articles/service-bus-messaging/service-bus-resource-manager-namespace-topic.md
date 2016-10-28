@@ -1,19 +1,19 @@
 <properties
     pageTitle="Create a Service Bus namespace with topic and subscription using an Azure Resource Manager template | Microsoft Azure"
     description="Create a Service Bus namespace with topic and subscription using Azure Resource Manager template"
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="tbd"
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="07/11/2016"
+    ms.date="10/14/2016"
     ms.author="sethm;shvija"/>
 
 # Create a Service Bus namespace with topic and subscription using an Azure Resource Manager template
@@ -31,7 +31,7 @@ For the complete template, see the [Service Bus namespace with topic and subscri
 >-    [Create a Service Bus namespace](service-bus-resource-manager-namespace.md)
 >-    [Create an Event Hubs namespace with an Event Hub and consumer group](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md)
 >
->To check for the latest templates, visit the [Azure Quickstart Templates][] gallery and search for Service Bus.
+>To check for the latest templates, visit the [Azure Quickstart Templates][] gallery and search for "Service Bus."
 
 ## What will you deploy?
 
@@ -148,8 +148,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 
 Now that you've created and deployed resources using Azure Resource Manager, learn how to manage these resources by viewing these articles:
 
-- [Manage Azure Service Bus using Azure Automation](../service-bus/service-bus-automation-manage.md)
-- [Manage Service Bus with PowerShell](../service-bus/service-bus-powershell-how-to-provision.md)
+- [Manage Service Bus with PowerShell](service-bus-powershell-how-to-provision.md)
 - [Manage Service Bus resources with the Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 
 

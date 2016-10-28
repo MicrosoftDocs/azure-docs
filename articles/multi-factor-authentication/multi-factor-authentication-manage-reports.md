@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Azure Multi-Factor Authentication Reports"
 	description="This describes how to use the Azure Multi-Factor Authentication feature - reports."
 	services="multi-factor-authentication"
@@ -45,5 +45,5 @@ Queued|Lists reports queued for processing and their status. A link to download 
 
 **Additional Resources**
 
-* [For Users](multi-factor-authentication-end-user.md)
+* [For Users](./end-user/multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication on MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)

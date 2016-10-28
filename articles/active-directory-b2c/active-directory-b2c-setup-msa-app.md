@@ -4,7 +4,7 @@
 	services="active-directory-b2c"
 	documentationCenter=""
 	authors="swkrish"
-	manager="msmbaldwin"
+	manager="mbaldwin"
 	editor="bryanla"/>
 
 <tags
@@ -22,7 +22,7 @@
 
 To use Microsoft account as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create a Microsoft account application and supply it with the right parameters. You need a Microsoft account to do this. If you don’t have one, you can get it at [https://www.live.com/](https://www.live.com/).
 
-1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com) and sign in with your Microsoft account credentials.
+1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) and sign in with your Microsoft account credentials.
 2. Click **Add an app**.
 
     ![Microsoft account - Add a new app](./media/active-directory-b2c-setup-msa-app/msa-add-new-app.png)

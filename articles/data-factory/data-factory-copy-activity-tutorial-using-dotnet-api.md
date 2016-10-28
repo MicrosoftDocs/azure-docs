@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="09/16/2016" 
+	ms.date="10/27/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Create a pipeline with Copy Activity using .NET API
@@ -23,6 +23,7 @@
 - [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 - [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
@@ -101,25 +102,29 @@ You should have following four values from these steps:
 	6. Select **C:\ADFGetStarted** for the Location.
 	7. Click **OK** to create the project.
 2. Click **Tools**, point to **Nuget Package Manager**, and click **Package Manager Console**.
-3.	In the **Package Manager Console**, execute the following commands one-by-one. 
-
-		Install-Package Microsoft.Azure.Management.DataFactories
-		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
+3.	In the **Package Manager Console**, do the following steps: 
+	1.	Run the following command to install Data Factory package: `Install-Package Microsoft.Azure.Management.DataFactories`		
+	2.	Run the following command to install Azure Active Directory package (you use Active Directory API in the code): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
 6. Add the following **appSetttings** section to the **App.config** file. These settings are used by the helper method: **GetAuthorizationHeader**. 
 
 	Replace values for **&lt;Application ID&gt;**, **&lt;Password&gt;**, **&lt;Subscription ID&gt;**, and **&lt;tenant ID&gt;** with your own values. 
 
-		<appSettings>
-		    <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
-		    <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
-		    <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
+		<?xml version="1.0" encoding="utf-8" ?>
+		<configuration>
+    		<startup> 
+        		<supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
+    		</startup>
+			<appSettings>
+    			<add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+	    		<add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
+			    <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
 
-		    <!-- Replace the following values with your own -->
-    		<add key="ApplicationId" value="<Application ID>" />
-    		<add key="Password" value="<Password>" />    
-		    <add key="SubscriptionId" value= "Subscription ID" />
-    		<add key="ActiveDirectoryTenantId" value="tenant ID" />
-		</appSettings>
+			    <add key="ApplicationId" value="your application ID" />
+		    	<add key="Password" value="Password you used while creating the AAD application" />
+			    <add key="SubscriptionId" value= "Subscription ID" />
+			    <add key="ActiveDirectoryTenantId" value="Tenant ID" />
+			</appSettings>
+		</configuration>
 6. Add the following **using** statements to the source file (Program.cs) in the project.
 
 		using System.Threading;
@@ -450,7 +455,7 @@ You should have following four values from these steps:
 	- Linked service: **LinkedService_AzureStorage** 
 	- Dataset: **DatasetBlobSource** and **DatasetBlobDestination**.
 	- Pipeline: **PipelineBlobSample** 
-18. Verify that an output file is created in the "**apifactoryoutput**" folder in the **adftutorial** container.
+18. Verify that the two employee records are created in the "**emp**" table in the specified Azure SQL database.
 
 ## Next Steps
 

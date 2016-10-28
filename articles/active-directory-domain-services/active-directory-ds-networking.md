@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/20/2016"
+	ms.date="10/18/2016"
 	ms.author="maheshu"/>
 
 # Networking considerations for Azure AD Domain Services
@@ -27,7 +27,7 @@ The following guidelines help you select a virtual network to use with Azure AD 
 
 - Azure AD Domain Services **cannot be enabled in virtual networks created using Azure Resource Manager**.
 
-- You can connect a Resource Manager-based virtual network to a classic virtual network in which Azure AD Domain Services is enabled. Thereafter, you can use Azure AD Domain Services in the Resource Manager-based virtual network.
+- You can connect a Resource Manager-based virtual network to a classic virtual network in which Azure AD Domain Services is enabled. Thereafter, you can use Azure AD Domain Services in the Resource Manager-based virtual network. For more information, see the [Network connectivity](active-directory-ds-networking.md#network-connectivity) section.
 
 - **Regional Virtual Networks**: If you plan to use an existing virtual network, ensure that it is a regional virtual network.
 
@@ -57,23 +57,45 @@ The following guidelines help you select a virtual network to use with Azure AD 
 
 
 ## Network Security Groups and subnet design
-[Network security group (NSG)](../virtual-network/virtual-networks-nsg.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating an NSG directly to that VM.
-
-> [AZURE.NOTE] **Deploy Azure AD Domain Services to a separate dedicated subnet within your Azure virtual network. Do not apply NSG to that dedicated subnet. Do not enable Azure AD Domain Services in the gateway subnet of your virtual network.**
+A [Network Security Group (NSG)](../virtual-network/virtual-networks-nsg.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating an NSG directly to that VM.
 
 ![Recommended subnet design](./media/active-directory-domain-services-design-guide/vnet-subnet-design.png)
 
-> [AZURE.WARNING] When you associate an NSG with a subnet in which Azure AD Domain Services is enabled, you may disrupt Microsoft's ability to service and manage the domain. Additionally, synchronization between your Azure AD tenant and your managed domain is disrupted. **The SLA does not apply to deployments where an NSG has been applied to the subnet in which Azure AD Domain Services is enabled.**
+
+### Best practices for choosing a subnet
+- Deploy Azure AD Domain Services to a **separate dedicated subnet** within your Azure virtual network.
+
+- Do not apply NSGs to the dedicated subnet for your managed domain. If you must apply NSGs to the dedicated subnet, ensure you **do not block the ports required to service and manage your domain**.
+
+- Do not overly restrict the number of IP addresses available within the dedicated subnet for your managed domain. This restriction prevents the service from making two domain controllers available for your managed domain.
+
+- **Do not enable Azure AD Domain Services in the gateway subnet** of your virtual network.
+
+
+> [AZURE.WARNING] When you associate an NSG with a subnet in which Azure AD Domain Services is enabled, you may disrupt Microsoft's ability to service and manage the domain. Additionally, synchronization between your Azure AD tenant and your managed domain is disrupted. **The SLA does not apply to deployments where an NSG has been applied that blocks Azure AD Domain Services from updating and managing your domain.**
+
+
+### Ports required for Azure AD Domain Services
+The following ports are required for Azure AD Domain Services to service and maintain your managed domain. Ensure that these ports are not blocked for the subnet in which you have enabled your managed domain.
+
+| Port number | Purpose |
+|---|---|
+| 443 | Synchronization with your Azure AD tenant |
+| 3389 | Management of your domain |
+| 5986 | Management of your domain |
+| 636 | Secure LDAP (LDAPS) access to your managed domain |
+
 
 
 ## Network connectivity
 An Azure AD Domain Services managed domain can be enabled only within a single classic virtual network in Azure. Virtual networks created using Azure Resource Manager are not supported.
 
+
 ### Scenarios for connecting Azure networks
 Connect Azure virtual networks to use the managed domain in any of the following deployment scenarios:
 
 #### Use the managed domain in more than one Azure classic virtual network
-You can connect other Azure classic virtual networks to the Azure classic virtual network in which you have enabled Azure AD Domain Services. This connection enables you to use the managed domain with your workloads deployed in other virtual networks.
+You can connect other Azure classic virtual networks to the Azure classic virtual network in which you have enabled Azure AD Domain Services. This VPN connection enables you to use the managed domain with your workloads deployed in other virtual networks.
 
 ![Classic virtual network connectivity](./media/active-directory-domain-services-design-guide/classic-vnet-connectivity.png)
 
