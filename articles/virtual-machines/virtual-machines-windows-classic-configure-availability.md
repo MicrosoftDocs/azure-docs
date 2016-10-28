@@ -25,4 +25,4 @@
 
 ## Next steps
 
-For additonal articles about classic deployments, see [Technical articles for Windows VMs in the classic deployment model](virtual-machines-windows-index.md).
+For additional articles about classic deployments, see [Technical articles for Windows VMs in the classic deployment model](virtual-machines-windows-index.md).

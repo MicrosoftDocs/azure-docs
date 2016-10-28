@@ -26,4 +26,4 @@
 
 ## Next steps 
 
-For additonal articles about classic deployments, see [Linux and open-source computing on Azure](virtual-machines-linux-opensource-links.md).
+For additional articles about classic deployments, see [Linux and open-source computing on Azure](virtual-machines-linux-opensource-links.md).

@@ -314,9 +314,9 @@ Note the file size used for this testing is 30GB and 1GB respectively, with RAID
 
 	mysqlslap -p0ps.123 --concurrency=2 --iterations=1 --number-int-cols=10 --number-char-cols=10 -a --auto-generate-sql-guid-primary --number-of-queries=10000 --auto-generate-sql-load-type=write –engine=innodb,misam
 
-**The configuration setting for default and optmization is as follows:**
+**The configuration setting for default and optimization is as follows:**
 
-|Parameters	|Default	|optmization
+|Parameters	|Default	|Optimization
 |-----------|-----------|-----------
 |**innodb_buffer_pool_size**	|None	|7G
 |**innodb_log_file_size**	|5M	|512M
