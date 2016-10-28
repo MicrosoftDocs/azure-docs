@@ -40,7 +40,7 @@
                 wss.send(input, null);
             });
 
-            console.log('Started client interval. Press any key to stop.');
+            console.log('Started client interval.');
             wss.on('close', function () {
                 console.log('stopping client interval');
                 process.exit();
@@ -71,7 +71,7 @@
                 wss.send(input, null);
             });
 
-            console.log('Started client interval. Press any key to stop.');
+            console.log('Started client interval.');
             wss.on('close', function () {
                 console.log('stopping client interval');
                 process.exit();
