@@ -18,28 +18,28 @@
 
 # Scopes, permissions, and consent in the Azure Active Directory v2.0 endpoint
 
-Apps that integrate with Azure Active Directory (Azure AD) follow an authorization model in which users can control how an app can access their data. The v2.0 implementation of this authorization model has been updated, and it changes how an app must interact with Azure AD. This article covers the basic concepts of this authorization model, including scopes, permissions, and consent.
+Apps that integrate with Azure Active Directory (Azure AD) follow an authorization model that gives users control over how an app can access their data. The v2.0 implementation of the authorization model has been updated, and it changes how an app must interact with Azure AD. This article covers the basic concepts of this authorization model, including scopes, permissions, and consent.
 
 > [AZURE.NOTE]
 	The v2.0 endpoint does not support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
 ## Scopes and permissions
 
-Azure AD implements the [OAuth 2.0](active-directory-v2-protocols.md) authorization protocol. OAuth 2.0 is a method through which a third-party app can access web-hosted resources on behalf of a user. Any web-hosted resource that integrates with Azure AD has a resource identifier, or *App ID URI*. For example, some of Microsoft's web-hosted resources include:
+Azure AD implements the [OAuth 2.0](active-directory-v2-protocols.md) authorization protocol. OAuth 2.0 is a method through which a third-party app can access web-hosted resources on behalf of a user. Any web-hosted resource that integrates with Azure AD has a resource identifier, or *Application ID URI*. For example, some of Microsoft's web-hosted resources include:
 
 - The Office 365 Unified Mail API: `https://outlook.office.com`
 - The Azure AD Graph API: `https://graph.windows.net`
 - Microsoft Graph: `https://graph.microsoft.com`
 
-The same is true for any third-party resources that have integrated with Azure AD. Any of these resources also can define a set of permissions that can be used to divide up the functionality of that resource into smaller chunks. As an example, [Microsoft Graph](https://graph.microsoft.io) has defined permissions to do the following:
+The same is true for any third-party resources that have integrated with Azure AD. Any of these resources also can define a set of permissions that can be used to divide the functionality of that resource into smaller chunks. As an example, [Microsoft Graph](https://graph.microsoft.io) has defined permissions to do the following tasks, among others:
 
 - Read a user's calendar
 - Write to a user's calendar
 - Send mail as a user
 
-By defining these types of permissions, the resource has fine-grained control over its data and how it is exposed to the outside world. A third-party app can request these permissions from an app user. The app user must approve the permissions before the app can act on the user's behalf. By chunking the resource's functionality into smaller permission sets, third-party apps can be built to request only the specific permissions that they need to perform their duty. App users can know exactly how an app will use their data, so they can be more confident that the app is not behaving with malicious intent.
+By defining these types of permissions, the resource has fine-grained control over its data and how the data is exposed. A third-party app can request these permissions from an app user. The app user must approve the permissions before the app can act on the user's behalf. By chunking the resource's functionality into smaller permission sets, third-party apps can be built to request only the specific permissions that they need to perform their function. App users can know exactly how an app will use their data, and they can be more confident that the app is not behaving with malicious intent.
 
-In Azure AD and OAuth, these permissions are called *scopes*. They also sometimes are referred to as *oAuth2Permissions*. A scope is represented in Azure AD as a string value. Continuing with Microsoft Graph example, the scope value for each permission is:
+In Azure AD and OAuth, these types of permissions are called *scopes*. They also sometimes are referred to as *oAuth2Permissions*. A scope is represented in Azure AD as a string value. Continuing with the Microsoft Graph example, the scope value for each permission is:
 
 - Read a user's calendar by using `Calendar.Read`
 - Write to a user's calendar by using `Mail.ReadWrite`
@@ -49,19 +49,19 @@ An app can request these permissions by specifying the scopes in requests to the
 
 ## OpenID Connect scopes
 
-The v2.0 implementation of OpenID Connect has a few well-defined scopes that do not apply to a specific resource. These scopes are `openid`, `email`, `profile`, and `offline_access`.
+The v2.0 implementation of OpenID Connect has a few well-defined scopes that do not apply to a specific resource: `openid`, `email`, `profile`, and `offline_access`.
 
 ### openid
 
-If an app performs sign-in by using [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow), it must request the `openid` scope. The `openid` scope shows on the work account consent page as the "Sign you in" permission, and on the personal Microsoft account consent page as the "View your profile and connect to apps and services using your Microsoft account" permission. With this permission, an app can receive a unique identifier for the user in the form of the `sub` claim. It also gives the app access to the user info endpoint. The `openid` scope can be used at the v2.0 token endpoint to acquire ID tokens, which can be used to secure HTTP calls between different components of an app.
+If an app performs sign-in by using [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow), it must request the `openid` scope. The `openid` scope shows on the work account consent page as the "Sign you in" permission, and on the personal Microsoft account consent page as the "View your profile and connect to apps and services using your Microsoft account" permission. With this permission, an app can receive a unique identifier for the user in the form of the `sub` claim. It also gives the app access to the UserInfo endpoint. The `openid` scope can be used at the v2.0 token endpoint to acquire ID tokens, which can be used to secure HTTP calls between different components of an app.
 
 ### email
 
-The `email` scope can be used with the `openid` scope and any others. It gives the app access to the user's primary email address in the form of the `email` claim. The `email` claim will only be included in tokens if an email address is associated with the user account, which is not always the case. If using the `email` scope, your app should be prepared to handle the case in which the `email` claim does not exist in the token.
+The `email` scope can be used with the `openid` scope and any others. It gives the app access to the user's primary email address in the form of the `email` claim. The `email` claim is included in a token only if an email address is associated with the user account, which is not always the case. If it uses the `email` scope, your app should be prepared to handle a case in which the `email` claim does not exist in the token.
 
 ### profile
 
-The `profile` scope can be used with the `openid` scope and any others. It gives the app access to a substantial amount of information about the user. The information it can access includes, but is not limited to, the user's given name, surname, preferred username, and object ID. For a complete list of the profile claims available in the id_tokens parameter for a specific user, see the [v2.0 token reference](active-directory-v2-tokens.md).
+The `profile` scope can be used with the `openid` scope and any others. It gives the app access to a substantial amount of information about the user. The information it can access includes, but is not limited to, the user's given name, surname, preferred username, and object ID. For a complete list of the profile claims available in the id_tokens parameter for a specific user, see the [v2.0 tokens reference](active-directory-v2-tokens.md).
 
 ### offline_access
 
@@ -94,13 +94,13 @@ After the user enters their credentials, the v2.0 endpoint checks for a matching
 
 ![Work account consent](../media/active-directory-v2-flows/work_account_consent.png)
 
-When the user approves the permission, the consent is recorded so the user doesn't have to consent again on subsequent account sign-ins.
+When the user approves the permission, the consent is recorded so that the user doesn't have to consent again on subsequent account sign-ins.
 
 ## Requesting consent for an entire tenant
 
 Often, when an organization purchases a license or subscription for an application, the organization wants to fully provision the application for its employees. As part of this process, an administrator can grant consent for the application to act on behalf of any employee. If the admin grants consent for the entire tenant, the organization's employees won't see a consent page for the application.
 
-To request consent for all users in a tenant, your app can use the *admin consent endpoint*.
+To request consent for all users in a tenant, your app can use the admin consent endpoint.
 
 ## Admin-restricted scopes
 
@@ -112,7 +112,7 @@ Some high-privilege permissions in the Microsoft ecosystem can be set to *admin-
 
 Although a consumer user might grant an application access to this kind of data, organizational users are restricted from granting access to the same set of sensitive company data. If your application requests access to one of these permissions from an organizational user, the user receives an error message that says they are not authorized to consent to your app's permissions.
 
-If your app requires access to admin-restricted scopes for organizations, you should request them directly from a company administrator, also by using the *admin consent endpoint*, described next.
+If your app requires access to admin-restricted scopes for organizations, you should request them directly from a company administrator, also by using the admin consent endpoint*, described next.
 
 When an administrator grants these permissions via the admin consent endpoint, consent is granted for all users in the tenant.
 
@@ -126,11 +126,11 @@ If you follow these steps, your app can gather permissions for all users in a te
 2. Locate the **Microsoft Graph Permissions** section, and then add the permissions that your app requires.
 3. Make sure you **Save** the app registration.
 
-### Recommended: Sign in the user
+### Recommended: Sign the user in to your app
 
 Typically, when you build an application that uses the admin consent endpoint, the app needs a page or view in which the admin can approve the app's permissions. This page can be part of the app's sign-up flow, part of the app's settings, or it can be a dedicated "connect" flow. In many cases, it makes sense for the app to show this "connect" view only after a user has signed in with a work or school Microsoft account.
 
-In your app, when you sign in the user, you can identify the organization to which the admin belongs before asking them to approve the necessary permissions. Although not strictly necessary, it can help you create a more intuitive experience for your organizational users. To sign the user in, follow our [v2.0 protocol tutorials](active-directory-v2-protocols.md).
+When you sign the user in to your app, you can identify the organization to which the admin belongs before asking them to approve the necessary permissions. Although not strictly necessary, it can help you create a more intuitive experience for your organizational users. To sign the user in, follow our [v2.0 protocol tutorials](active-directory-v2-protocols.md).
 
 ### Request the permissions from a directory admin
 
@@ -178,7 +178,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 
 #### Error response
-If the admin does not approve the permissions for your application, the failed response looks like this:
+If the admin does not approve the permissions for your app, the failed response looks like this:
 
 ```
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
