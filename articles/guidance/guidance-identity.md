@@ -18,7 +18,7 @@
    
 # Extending on-premises identity to Azure
 
-In most enterprise systems based on Windows, you will use Active Directory (AD) to provide identity management services to your applications. AD works well in an on-premises environment, but when you extend your network infrastructure to the cloud you have some important decisions to make concerning how to manage identity. Should you expand your on-premises domains to incorporate VMs in the cloud? Should you create new domains in the cloud, and if so, how? Should you implement your own forest in the cloud or should you use Azure Active Directory (Azure AD)?
+In most enterprise systems based on Windows, you will use Active Directory (AD) to provide identity management services to your applications. When you extend your network infrastructure to the cloud you have some important decisions to make concerning how to manage identity. Should you expand your on-premises domains to incorporate VMs in the cloud? Should you create new domains in the cloud? Should you implement your own forest in the cloud or use [Azure Active Directory][aad] (Azure AD)?
 
 The patterns & practices group has created a set of reference architectures to address these scenarios. Each reference architecture demonstrates one approach to managing on-premises identities in Azure, and includes:
   		  
@@ -56,7 +56,7 @@ For detailed information about this architecture, see [Implementing Azure Active
 
 ## Using Active Directory in Azure joined to an on-premises forest
 
-An organization might need to use features that are provided by AD Directory Services (AD DS) but are not currently implemented by Azure AD. You can host AD DS on-premises, but in a hybrid scenario where elements of an application are located in Azure, it can be more efficient to replicate this functionality and the AD repository to the cloud. This approach can help  reduce the latency caused by sending authentication and local authorization requests from the cloud back to AD DS running on-premises. 
+An organization might need to use features that are provided by AD Domain Services (AD DS) but are not currently implemented by Azure AD. You can host AD DS on-premises, but in a hybrid scenario where elements of an application are located in Azure, it can be more efficient to replicate this functionality and the AD repository to the cloud. This approach can help reduce the latency caused by sending authentication and local authorization requests from the cloud back to AD DS running on-premises. 
 
 [![1]][1]
 
@@ -70,7 +70,7 @@ Benefits:
 
 - There is no need to manage a separate AD forest; the domain in the cloud can belong to the on-premises forest.
 
-- You can apply group policy defined by on-premises GPO objects to the domain in the cloud.
+- You can apply group policy defined by on-premises Group Policy Objects to the domain in the cloud.
 
 Considerations:
 
@@ -92,19 +92,19 @@ Benefits:
 
 - You can implement on-premises identities and separate Azure-only identities.
 
-- There is no need to replicate from the on-premises AD forest to Azure, reducing the effects of network latency.
+- There is no need to replicate from the on-premises AD forest to Azure.
 
 Considerations:
 
-- Authentication for on-premises identities in the cloud performs extra network *hops* to the on-premises AD servers.
+- Authentication for on-premises identities in the cloud performs extra network hops to the on-premises AD servers.
 
 - You must deploy your own AD DS servers and forest in the cloud, and establish the appropriate trust relationships between forests.
 
-For detailed information about this architecture, see [Creating a Active Directory Directory Services (ADDS) resource forest in Azure][adds-forest-in-azure].
+For detailed information about this architecture, see [Creating a Active Directory Directory Services (AD DS) resource forest in Azure][adds-forest-in-azure].
 
 ## Using Active Directory Federation Services (AD FS) with Azure
 
-AD FS can run on-premises, but in a hybrid scenario where applications are located in Azure, it can be more efficient to implement this functionality in the cloud, as shown below.
+AD FS can run on-premises, but in a hybrid scenario where applications are located in Azure, it can be more efficient to implement this functionality in the cloud.
 
 [![3]][3]
 
@@ -150,3 +150,4 @@ The resources below explain how to implement the architectures described in this
 [extending-adds]: ./guidance-identity-adds-extend-domain.md
 [adds-forest-in-azure]: ./guidance-identity-adds-resource-forest.md
 [adfs-in-azure]: ./guidance-identity-adfs.md
+[add]: https://azure.microsoft.com/services/active-directory/
