@@ -48,7 +48,7 @@ Please note though the JSON file is a textual representation of the experiment g
 
 
 ## Versioning trained model
-A trained model in Azure ML is serialized into a format known as .iLearner file and stored in the Azure blob storage account associated with the workspace. One way to get hold of a copy of the iLearner file is through retraining API. This [article](machine-learning-retrain-models-programmatically) explains in much more detail on how retraining API works. But the high-level steps are:
+A trained model in Azure ML is serialized into a format known as .iLearner file and stored in the Azure blob storage account associated with the workspace. One way to get hold of a copy of the iLearner file is through retraining API. This [article](machine-learning-retrain-models-programmatically.md) explains in much more detail on how retraining API works. But the high-level steps are:
 
 1. Set up your training experiment.
 2. Add web service output port to the Train Model module, or the module that produces the trained model, such as Tune Model Hyperparameter or Create R Model module.
