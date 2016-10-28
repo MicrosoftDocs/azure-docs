@@ -1,4 +1,3 @@
-
 <properties
 	pageTitle="Applications that use conditional access rules in Azure Active Directory | Microsoft Azure"
 	description="With conditional access control, Azure Active Directory checks for specific conditions when it authenticates the user, and to allow application access."
@@ -16,7 +15,6 @@
     ms.workload="identity"
 	ms.date="10/26/2016"
 	ms.author="markvi"/>
-
 
 # Applications that use conditional access rules in Azure Active Directory
 
@@ -53,14 +51,13 @@ The following applications support conditional access for Office 365 and other A
 
 Currently, you must use other methods to block access to apps that do not use modern authentication. Access rules for apps that don't use modern authentication are not enforced by conditional access. This primarily is a consideration for Exchange and SharePoint access. Most earlier versions of apps use older access control protocols.
 
-## Office 365 SharePoint Online
-
+### Control access in Office 365 SharePoint Online
 You can disable legacy protocols for SharePoint access by using the Set-SPOTenant cmdlet. Use this cmdlet to prevent Office clients that use non-modern authentication protocols from accessing SharePoint Online resources.
 
 **Example command**:
     `Set-SPOTenant -LegacyAuthProtocolsEnabled $false`
 
-## Office 365 Exchange Online
+### Control access in Office 365 Exchange Online
 
 Exchange offers two main categories of protocols. Review the following options, and then select the policy that is right for your organization.
 
@@ -68,38 +65,38 @@ Exchange offers two main categories of protocols. Review the following options, 
 -	**Legacy protocols**. You can block legacy protocols with AD FS. This blocks access to older Office clients, such as Office 2013 without modern authentication enabled, and earlier versions of Office.
 
 
-### Example AD FS rules
+### Use AD FS to block legacy protocol
 
-You can use the following rules to block legacy protocol access at the AD FS level. Choose from two common configurations.
+You can use the following example rules to block legacy protocol access at the AD FS level. Choose from two common configurations.
 
-### Option 1: Allow Exchange ActiveSync, and allow legacy apps, but only on the intranet
+#### Option 1: Allow Exchange ActiveSync, and allow legacy apps, but only on the intranet
 
 By applying the following three rules to the AD FS relying party trust for Microsoft Office 365 Identity Platform, Exchange ActiveSync traffic, and browser and modern authentication traffic, have access. Legacy apps are blocked from the extranet.
 
-Rule 1
+##### Rule 1
 
-    `@RuleName = “Allow all intranet traffic”
+    @RuleName = “Allow all intranet traffic”
 	c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "true"]
-	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");`
+	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
-Rule 2
+##### Rule 2
 
     @RuleName = “Allow Exchange ActiveSync ”
 	c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value == "Microsoft.Exchange.ActiveSync"]
 	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
-Rule 3
+##### Rule 3
 
 	@RuleName = “Allow extranet browser and browser dialog traffic”
 	c1:[Type == " http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] &&
 	c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
 	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
-### Option 2: Allow Exchange ActiveSync, and block legacy apps
+#### Option 2: Allow Exchange ActiveSync, and block legacy apps
 
 By applying the following three rules to the AD FS relying party trust for Microsoft Office 365 Identity Platform, Exchange ActiveSync traffic, and browser and modern authentication traffic, have access. Legacy apps are blocked from any location.
 
-Rule 1
+##### Rule 1
 
     @RuleName = “Allow all intranet traffic only for browser and modern authentication clients”
 	c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "true"] &&
@@ -107,14 +104,14 @@ Rule 1
 	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 
-Rule 2
+##### Rule 2
 
     @RuleName = “Allow Exchange ActiveSync”
 	c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value == "Microsoft.Exchange.ActiveSync"]
 	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 
-Rule 3
+##### Rule 3
 
     @RuleName = “Allow extranet browser and browser dialog traffic”
 	c1:[Type == " http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] &&
