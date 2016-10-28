@@ -52,11 +52,8 @@ Run your experiment.
 
 Next, you must deploy the training experiment as a web service that produces a trained model and model evaluation results.  
 
-At the bottom of the experiment canvas, click **Set Up Web Service**, and then select **Deploy Web Service [New]**. The Azure Machine Learning Web Services portal opens to the Deploy Web Service page. Type a name for your web service, choose a payment plan, and then click **Deploy**. You can only use the Batch Execution method for creating trained models.
+At the bottom of the experiment canvas, click **Set Up Web Service**, and then select **Deploy Web Service [New]**. The Azure Machine Learning Web Services portal opens to the **Deploy Web Service** page. Type a name for your web service, choose a payment plan, and then click **Deploy**. You can only use the Batch Execution method for creating trained models.
 
-After running your experiment, the resulting workflow should be similar to the following:
-
-![Resulting workflow after run][4]
 
 ## Retrain the model with new data by using BES
 
@@ -65,15 +62,15 @@ For this example, we're using C# to create the retraining application. You can a
 To call the retraining APIs:
 
 1. Create a C# console application in Visual Studio (**New** > **Project** > **Windows Desktop** > **Console Application**).
-2.	Sign in to the Machine Learning Web Service portal.
+2.	Sign in to the Machine Learning Web Services portal.
 3.	Click the web service that you're working with.
 2.	Click **Consume**.
-3.	At the bottom of the Consume page, in the **Sample Code** section, click **Batch**.
+3.	At the bottom of the **Consume** page, in the **Sample Code** section, click **Batch**.
 5.	Copy the sample C# code for batch execution and paste it into the Program.cs file. Make sure that the namespace remains intact.
 
 Add the NuGet package Microsoft.AspNet.WebApi.Client, as specified in the comments. To add the reference to Microsoft.WindowsAzure.Storage.dll, you might first need to install the [client library for Azure Storage services](https://www.nuget.org/packages/WindowsAzure.Storage).
 
-The following screenshot shows the Consume page in the Azure Machine Learning Web Services portal.
+The following screenshot shows the **Consume** page in the Azure Machine Learning Web Services portal.
 
 ![Consume page][1]
 
@@ -89,7 +86,10 @@ In the **Basic consumption info** section of the **Consume** page, locate the pr
 
 The BES sample code uploads a file from a local drive (for example, "C:\temp\CensusIpnput.csv") to Azure Storage, processes it, and writes the results back to Azure Storage.  
 
-To update the Azure Storage information, you must retrieve the Storage account name, key, and container information for your Storage account from the Azure classic portal, and then update the corresponding values in the code.
+To update the Azure Storage information, you must retrieve the storage account name, key, and container information for your storage account from the Azure classic portal, and then update the correspondi
+After running your experiment, the resulting workflow should be similar to the following:
+
+![Resulting workflow after run][4]ng values in the code.
 
 1. Sign in to the Azure classic portal.
 1. In the left navigation column, click **Storage**.
@@ -101,7 +101,7 @@ To update the Azure Storage information, you must retrieve the Storage account n
 
 Locate the *StorageAccountName*, *StorageAccountKey*, and *StorageContainerName* declarations, and update the values that you saved from the classic portal.
 
-    const string StorageAccountName = "mystorageacct"; // Replace this with your Azure Storage Account name
+    const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
     const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key
     const string StorageContainerName = "mycontainer"; // Replace this with your Azure Storage container name
 
