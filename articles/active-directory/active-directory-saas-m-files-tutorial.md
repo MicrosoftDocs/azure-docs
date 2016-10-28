@@ -213,7 +213,7 @@ In this section, you create a test user in the classic portal called Britta Simo
 
 ### Creating a M-Files test user
 
-In this section, you create a user called Britta Simon in M-Files. In this section, you create a user called Britta Simon in M-Files. If you don't know how to create a user in M-Files, please contact M-Files support at <support@m-files.com>.
+In this section, you create a user called Britta Simon in M-Files. If you don't know how to create a user in M-Files, please contact M-Files support at <support@m-files.com>.
 
 ### Assigning the Azure AD test user
 
