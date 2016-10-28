@@ -136,7 +136,7 @@ Click through to an occurrence of a failed request, and look at its associated e
 
 ## Analytics
 
-You can track dependencies in the [Analytics query language](#app-insights-analytics.md). Here are some examples.
+You can track dependencies in the [Analytics query language](app-insights-analytics.md). Here are some examples.
 
 * Find any failed dependency calls:
 
