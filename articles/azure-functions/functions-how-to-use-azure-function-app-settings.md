@@ -8,12 +8,12 @@
 	editor=""/>
 
 <tags
-	ms.assetID="9a0dd308-74c3-447c-9d78-7b7321c7a875"
-	ms.service=""
+	ms.assetID="3f31c00c-4e2a-44e5-9ca2-c0f285018d59"
+	ms.service="functions"
 	ms.workload="na"
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
-	ms.topic=""
+	ms.topic="article"
 	ms.date="10/28/2016"
 	ms.author="rachelap"/>
 
