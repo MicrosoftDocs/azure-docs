@@ -4,7 +4,7 @@
 	services="mobile-engagement"
 	documentationCenter="Mobile"
 	authors="piyushjo"
-	manager=""
+	manager="erikre"
 	editor="" />
 
 <tags

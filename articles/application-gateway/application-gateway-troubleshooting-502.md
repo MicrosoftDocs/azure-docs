@@ -110,7 +110,7 @@ Custom health probes allow additional flexibility to the default probing behavio
 |Probe property| Description|
 |---|---|
 | Name | Name of the probe. This name is used to refer to the probe in back-end HTTP settings. |
-| Protocol | Protocol used to send the probe. HTTP is the only valid protocol. |
+| Protocol | Protocol used to send the probe. The probe will use the protocol defined in the back-end HTTP settings |
 | Host |  Host name to send the probe. Applicable only when multi-site is configured on Application Gateway. This is different from VM host name.  |
 | Path | Relative path of the probe. The valid path starts from '/'. The probe is sent to \<protocol\>://\<host\>:\<port\>\<path\> |
 | Interval | Probe interval in seconds. This is the time interval between two consecutive probes.|
@@ -122,7 +122,6 @@ Custom health probes allow additional flexibility to the default probing behavio
 
 Validate that the Custom Health Probe is configured correctly as the preceding table. In addition to the preceding troubleshooting steps, also ensure the following:
 
-- Ensure that the Protocol is set to HTTP only. HTTPS is not currently supported.
 - Ensure that the probe is correctly specified as per the [guide](application-gateway-create-probe-ps.md).
 - If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe.
 - Ensure that a call to http://\<host\>:\<port\>\<path\> returns an HTTP result code of 200.

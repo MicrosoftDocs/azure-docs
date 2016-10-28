@@ -62,6 +62,7 @@ Limitations
 * You may not upgrade existing VMs to use IPv6 addresses. You must deploy new VMs.
 * A single IPv6 address can be assigned to a single network interface in each VM.
 * The public IPv6 addresses cannot be assigned to a VM. They can only be assigned to a load balancer.
+* You cannot configure the reverse DNS lookup for your public IPv6 addresses.
 * The VMs with the IPv6 addresses cannot be members of an Azure Cloud Service. They can be connected to an Azure Virtual Network (VNet) and communicate with each other over their IPv4 addresses.
 * Private IPv6 addresses can be deployed on individual VMs in a resource group but cannot be deployed into a resource group via Scale Sets.
 * Azure VMs cannot connect over IPv6 to other VMs, other Azure services, or on-premises devices. They can only communicate with the Azure load balancer over IPv6. However, they can communicate with these other resources using IPv4.

@@ -36,7 +36,7 @@ Install the Azure Command-Line Interface (Azure CLI). If you meet any problems, 
 ## 2.1.3 What you need
 
 - An Ubuntu computer with Internet connection
-- An active Azure subscription. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/)
+- An active Azure subscription. If you don't have an account, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes.
 
 ## 2.1.4 Install the Azure CLI
 

@@ -32,7 +32,7 @@ One of the biggest challenges facing IoT projects is how to reliably and securel
 
 In addition to the requirements above, any IoT solution must also deliver scale, security, and reliability. The resulting set of connectivity requirements is hard and time-consuming to implement using traditional technologies such as web containers and messaging brokers. Azure IoT Hub and the IoT Device SDKs make it easier to implement solutions that meet these requirements.
 
-A device can communicate directly with a cloud gateway endpoint, or if the device cannot use any of the communications protocols that the cloud gateway supports, it can connect through an intermediate gateway. For example, the [IoT Hub protocol gateway][lnk-protocol-gateway] can perform protocol translation if devices cannot use any of the protocols that IoT Hub supports.
+A device can communicate directly with a cloud gateway endpoint, or if the device cannot use any of the communications protocols that the cloud gateway supports, it can connect through an intermediate gateway. For example, the [Azure IoT protocol gateway][lnk-protocol-gateway] can perform protocol translation if devices cannot use any of the protocols that IoT Hub supports.
 
 ### Data processing and analytics
 

@@ -83,13 +83,13 @@ In this lesson, you send messages from Pi to your hub. You also create an Azure 
 
 Complete Lesson 1 and Lesson 2 before you start this lesson.
 
-### Create an Azure function app and storage account
+### Create an Azure function app and Azure Storage account
 
-Use an Azure Resource Manager template to create an Azure function app and a storage account.
+Use an Azure Resource Manager template to create an Azure function app and an Azure Storage account.
 
 *Estimated time to complete: 10 minutes*
 
-Go to [Create an Azure function app and storage account](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md).
+Go to [Create an Azure function app and Azure storage account](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md).
 
 ### Run a sample application to send device-to-cloud messages
 
@@ -100,6 +100,7 @@ Deploy and run a sample application to your Raspberry Pi 3 device that sends mes
 Go to [Run a sample application to send device-to-cloud messages](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md).
 
 ### Read messages persisted in Azure Storage
+
 Monitor the device-to-cloud messages as they are written to Azure Storage.
 
 *Estimated time to complete: 5 minutes*

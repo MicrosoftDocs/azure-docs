@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Azure Insights: Azure Insights PowerShell quick start samples. | Microsoft Azure"
-	description="Azure Insights quick start sample PowerShell commands can help you quickly access Azure Insights monitoring features."
+	pageTitle="Azure Monitor PowerShell quick start samples. | Microsoft Azure"
+	description="Use PowerShell to access Azure Monitor features such as autoscale, alerts, webhooks and searching Activity logs."
 	authors="kamathashwin"
-	manager=""
+	manager="carolz"
 	editor=""
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>
@@ -13,38 +13,40 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/30/2016"
+	ms.date="10/26/2016"
 	ms.author="ashwink"/>
 
-# Azure Insights PowerShell quick start samples
+# Azure Monitor PowerShell quick start samples
 
-This article shows you sample PowerShell commands to help you quickly access Azure Insights monitoring features. Azure Insights allows you to AutoScale Cloud Services, Virtual Machines, and Web Apps and to send alert notifications or call web URLs based on values of configured telemetry data.  
+This article shows you sample PowerShell commands to help you access Azure Monitor features. Azure Monitor allows you to AutoScale Cloud Services, Virtual Machines, and Web Apps and to send alert notifications or call web URLs based on values of configured telemetry data.
+
+>[AZURE.NOTE] Azure Monitor is the new name for what was called "Azure Insights" until Sept 25th, 2016. However, the namespaces and thus the commands below still contain the "insights".
 
 ## Set up PowerShell
 If you haven't already, set up PowerShell to run on your computer. For more information, see [How to Install and Configure PowerShell](../powershell-install-configure.md) .
 
 ## Examples in this article
 
-The examples in the article illustrate how you can use Azure Insights cmdlets. You can also review the entire list of Azure Insights (monitoring) PowerShell cmdlets at [Azure Insights Cmdlets](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx).
+The examples in the article illustrate how you can use Azure Monitor cmdlets. You can also review the entire list of Azure Monitor PowerShell cmdlets at [Azure Monitor (Insights) Cmdlets](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx).
 
 
 ## Sign in and use subscriptions
 
 First, log into your Azure subscription.
 
-```
+```PowerShell
 Login-AzureRmAccount
 ```
 
 This requires you to sign in. Once you do, your Account, TenantId and default Subscription Id are displayed. All the Azure cmdlets work in the context of your default subscription. To view the list of subscriptions you have access to, use the following command.
 
-```
+```PowerShell
 Get-AzureRmSubscription
 ```
 
 To change your working context to a different subscription, use the following command.
 
-```
+```PowerShell
 Set-AzureRmContext -SubscriptionId <subscriptionid>
 ```
 
@@ -54,37 +56,37 @@ Use the `Get-AzureRmLog` cmdlet.  Below are some common examples.
 
 Get log entries from this time/date to present:
 
-```
+```PowerShell
 Get-AzureRmLog -StartTime 2016-03-01T10:30
 ```
 
 Get log entries between a time/date range:
 
-```
+```PowerShell
 Get-AzureRmLog -StartTime 2015-01-01T10:30 -EndTime 2015-01-01T11:30
 ```
 
 Get log entries from a specific resource group:
 
-```
+```PowerShell
 Get-AzureRmLog -ResourceGroup 'myrg1'
 ```
 
 Get log entries from a specific resource provider between a time/date range:
 
-```
+```PowerShell
 Get-AzureRmLog -ResourceProvider 'Microsoft.Web' -StartTime 2015-01-01T10:30 -EndTime 2015-01-01T11:30
 ```
 
 Get all log entries with a specific caller:
 
-```
+```PowerShell
 Get-AzureRmLog -Caller 'myname@company.com'
 ```
 
 The following command retrieves the last 1000 events from the audit log:
 
-```
+```PowerShell
 Get-AzureRmLog -MaxEvents 1000
 ```
 
@@ -93,15 +95,15 @@ Get-AzureRmLog -MaxEvents 1000
 >[AZURE.NOTE] `Get-AzureRmLog` only provides 15 days of history. Using the **-MaxEvents** parameter allows you to query the last N events, beyond 15 days. To access events older than 15 days, use the REST API or SDK (C# sample using the SDK). If you do not include **StartTime**, then the default value is **EndTime** minus one hour. If you do not include **EndTime**, then the default value is current time. All times are in UTC.
 
 ## Retrieve alerts history
-To view all alert events, you can query the Azure Resource Manager (ARM) logs using the following examples.
+To view all alert events, you can query the Azure Resource Manager logs using the following examples.
 
-```
+```PowerShell
 Get-AzureRmLog -Caller "Microsoft.Insights/alertRules" -DetailedOutput -StartTime 2015-03-01
 ```
 
 To view the history for a specific alert rule, you can use the `Get-AzureRmAlertHistory` cmdlet, passing in the resource ID of the alert rule.
 
-```
+```PowerShell
 Get-AzureRmAlertHistory -ResourceId /subscriptions/s1/resourceGroups/rg1/providers/microsoft.insights/alertrules/myalert -StartTime 2016-03-1 -Status Activated
 ```
 
@@ -113,19 +115,19 @@ All of the following commands act on a Resource Group named "montest".
 
 View all the properties of the alert rule:
 
-```
+```PowerShell
 Get-AzureRmAlertRule -Name simpletestCPU -ResourceGroup montest -DetailedOutput
 ```
 
 Retrieve all alerts on a resource group:
 
-```
+```PowerShell
 Get-AzureRmAlertRule -ResourceGroup montest
 ```
 
 Retrieve all alert rules set for a target resource. For example, all alert rules set on a VM.
 
-```
+```PowerShell
 Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
 ```
 
@@ -158,25 +160,25 @@ The following table describes the parameters and values used to create an alert 
 
 Create an Email action
 
-```
+```PowerShell
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
 ```
 
 Create a Webhook action
 
-```
+```PowerShell
 $actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://example.com?token=mytoken
 ```
 
 Create the alert rule on the CPU% metric on a classic VM
 
-```
+```PowerShell
 Add-AzureRmMetricAlertRule -Name vmcpu_gt_1 -Location "East US" -ResourceGroup myrg1 -TargetResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.ClassicCompute/virtualMachines/my_vm1 -MetricName "Percentage CPU" -Operator GreaterThan -Threshold 1 -WindowSize 00:05:00 -TimeAggregationOperator Average -Actions $actionEmail, $actionWebhook -Description "alert on CPU > 1%"
 ```
 
 Retrieve the alert rule
 
-```
+```PowerShell
 Get-AzureRmAlertRule -Name vmcpu_gt_1 -ResourceGroup myrg1 -DetailedOutput
 ```
 
@@ -190,25 +192,25 @@ In this scenario, you'll send email when a website is successfully started in my
 
 Setup an email rule
 
-```
+```PowerShell
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
 ```
 
 Setup a webhook rule
 
-```
+```PowerShell
 $actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://example.com?token=mytoken
 ```
 
 Create the rule on the event
 
-```
+```PowerShell
 Add-AzureRmLogAlertRule -Name superalert1 -Location "East US" -ResourceGroup myrg1 -OperationName microsoft.web/sites/start/action -Status Succeeded -TargetResourceGroup abhingrgtest123 -Actions $actionEmail, $actionWebhook
 ```
 
 Retrieve the alert rule
 
-```
+```PowerShell
 Get-AzureRmAlertRule -Name superalert1 -ResourceGroup myrg1 -DetailedOutput
 ```
 
@@ -217,13 +219,13 @@ The `Add-AlertRule` cmdlet allows various other parameters. More information, se
 ## Get a list of available metrics for alerts
 You can use the `Get-AzureRmMetricDefinition` cmdlet to view the list of all metrics for a specific resource.
 
-```
+```PowerShell
 Get-AzureRmMetricDefinition -ResourceId <resource_id>
 ```
 
 The following example generates a table with the metric Name and the Unit for it.
 
-```
+```PowerShell
 Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
@@ -245,37 +247,37 @@ The following examples show you how you can create an Autoscale setting for a VM
 
 First, create a rule to scale-out, with an instance count increase .
 
-```
+```PowerShell
 $rule1 = New-AzureRmAutoscaleRule -MetricName "\Processor(_Total)\% Processor Time" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 0.01 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Increase -ScaleActionScaleType ChangeCount -ScaleActionValue 1
 ```		
 
 Next, create a rule to scale-in, with an instance count decrease.
 
-```
+```PowerShell
 $rule2 = New-AzureRmAutoscaleRule -MetricName "\Processor(_Total)\% Processor Time" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 2 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Decrease -ScaleActionScaleType ChangeCount -ScaleActionValue 1
 ```
 
 Then, create a profile for the rules.
 
-```
+```PowerShell
 $profile1 = New-AzureRmAutoscaleProfile -DefaultCapacity 2 -MaximumCapacity 10 -MinimumCapacity 2 -Rules $rule1,$rule2 -Name "My_Profile"
 ```
 
 Create a webhook property.
 
-```
+```PowerShell
 $webhook_scale = New-AzureRmAutoscaleWebhook -ServiceUri "https://example.com?mytoken=mytokenvalue"
 ```
 
 Create the notification property for the autoscale setting, including email and the webhook that you created previously.
 
-```
+```PowerShell
 $notification1= New-AzureRmAutoscaleNotification -CustomEmails ashwink@microsoft.com -SendEmailToSubscriptionAdministrators SendEmailToSubscriptionCoAdministrators -Webhooks $webhook_scale
 ```
 
 Finally, create the autoscale setting to add the profile that you created above.
 
-```
+```PowerShell
 Add-AzureRmAutoscaleSetting -Location "East US" -Name "MyScaleVMSSSetting" -ResourceGroup big2 -TargetResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -AutoscaleProfiles $profile1 -Notifications $notification1
 ```
 
@@ -284,13 +286,13 @@ For more information about managing Autoscale settings, see [Get-AutoscaleSettin
 ## Autoscale history
 The following example shows you how you can view recent autoscale and alert events. Use the audit log search to view the Autoscale history.
 
-```
+```PowerShell
 Get-AzureRmLog -Caller "Microsoft.Insights/autoscaleSettings" -DetailedOutput -StartTime 2015-03-01
 ```
 
 You can use the `Get-AzureRmAutoScaleHistory` cmdlet to retrieve AutoScale history.
 
-```
+```PowerShell
 Get-AzureRmAutoScaleHistory -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/microsoft.insights/autoscalesettings/myScaleSetting -StartTime 2016-03-15 -DetailedOutput
 ```
 
@@ -301,20 +303,20 @@ You can use the `Get-Autoscalesetting` cmdlet to retrieve more information about
 
 The following example shows details about all autoscale settings in the resource group 'myrg1'.
 
-```
+```PowerShell
 Get-AzureRmAutoscalesetting -ResourceGroup myrg1 -DetailedOutput
 ```
 
 The following example shows details about all autoscale settings in the resource group 'myrg1' and specifically the autoscale setting named 'MyScaleVMSSSetting'.
 
-```
+```PowerShell
 Get-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting -DetailedOutput
 ```
 
 ### Remove an autoscale setting
 You can use the `Remove-Autoscalesetting` cmdlet to delete an autoscale setting.
 
-```
+```PowerShell
 Remove-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 ```
 
@@ -327,13 +329,13 @@ To fetch your existing log profiles, use the `Get-AzureRmLogProfile` cmdlet.
 
 ### Add a log profile without data retention
 
-```
+```PowerShell
 Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia
 ```
 
 ### Remove a log profile
 
-```
+```PowerShell
 Remove-AzureRmLogProfile -name my_log_profile_s1
 ```
 
@@ -341,14 +343,14 @@ Remove-AzureRmLogProfile -name my_log_profile_s1
 
 You can specify the **-RetentionInDays** property with the number of days, as a positive integer, where the data is retained.
 
-```
+```PowerShell
 Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
 ```
 
 ### Add log profile with retention and EventHub
 In addition to routing your data to storage account, you can also stream it to an Event Hub. Note that in this preview release and the storage account configuration is mandatory but Event Hub configuration is optional.
 
-```
+```PowerShell
 Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
 ```
 
@@ -357,30 +359,30 @@ Many Azure services provide additional logs and telemetry, including Azure Netwo
 
 ### Get diagnostic setting
 
-```
+```PowerShell
 Get-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Logic/workflows/andy0315logicapp
 ```
 
 Disable diagnostic setting
 
-```
+```PowerShell
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Logic/workflows/andy0315logicapp -StorageAccountId /subscriptions/s1/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/mystorageaccount -Enable $false
 ```
 
 Enable diagnostic setting without retention
 
-```
+```PowerShell
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Logic/workflows/andy0315logicapp -StorageAccountId /subscriptions/s1/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/mystorageaccount -Enable $true
 ```
 
 Enable diagnostic setting with retention
 
-```
+```PowerShell
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Logic/workflows/andy0315logicapp -StorageAccountId /subscriptions/s1/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/mystorageaccount -Enable $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
 Enable diagnostic setting with retention for a specific log category
 
-```
+```PowerShell
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/sakteststorage -Categories NetworkSecurityGroupEvent -Enable $true -RetentionEnabled $true -RetentionInDays 90
 ```

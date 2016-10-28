@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/03/2016"
+   ms.date="10/25/2016"
    ms.author="kipandya"/>
    
 # Developing with multi-region DocumentDB accounts
@@ -49,9 +49,9 @@ The current write and read endpoints are available in DocumentClient.WriteEndpoi
     string accountKey = Properties.Settings.Default.GlobalDatabaseKey;
 
     //Setting read region selection preference 
-    connectionPolicy.PreferredLocations.Add("West US"); // first preference
-    connectionPolicy.PreferredLocations.Add("East US"); // second preference
-    connectionPolicy.PreferredLocations.Add("North Europe"); // third preference
+    connectionPolicy.PreferredLocations.Add(LocationNames.WestUS); // first preference
+    connectionPolicy.PreferredLocations.Add(LocationNames.EastUS); // second preference
+    connectionPolicy.PreferredLocations.Add(LocationNames.NorthEurope); // third preference
 
     // initialize connection
     DocumentClient docClient = new DocumentClient(

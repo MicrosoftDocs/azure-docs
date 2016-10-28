@@ -158,7 +158,7 @@ iothub-explorer help
 
 ### Azure portal
 
-A full CLI experience helps you create and manage all your Azure resources. You might also want to use the [Microsoft Azure portal](../azure-portal-overview.md) to help provision, manage, and debug your Azure resources.
+A full CLI experience helps you create and manage all your Azure resources. You might also want to use the [Azure portal](../azure-portal-overview.md) to help provision, manage, and debug your Azure resources.
 
 ## Azure Storage issues
 

@@ -31,7 +31,7 @@ To complete this tutorial you need the following:
 
 + Node.js version 0.10.x or later.
 
-+ An active Azure account. (If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].)
++ An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
 [AZURE.INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
 
@@ -199,7 +199,7 @@ In this section, you create a Node.js console app that connects to your hub as *
     ![][3]
 
 ## Next steps
-In this tutorial, you configured a new IoT hub in the portal, and then created a device identity in the hub's identity registry. You added device meta-data as tags from a back-end application, and wrote a simulated device app to report device connectivity information in the device twin. You also learned how to query this information using the IoT Hub SQL-like query language.
+In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the hub's identity registry. You added device meta-data as tags from a back-end application, and wrote a simulated device app to report device connectivity information in the device twin. You also learned how to query this information using the IoT Hub SQL-like query language.
 
 Use the following resources to learn how to:
 
