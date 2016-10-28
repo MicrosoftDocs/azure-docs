@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/27/2016" 
+	ms.date="10/27/2016" 
 	ms.author="rnagpal"/>
 
 # DocumentDB APIs and SDKs 
@@ -45,6 +45,7 @@
 
   - Added direct connectivity support for partitioned collections.
   - Improved performance for the Bounded Staleness consistency level.
+  - Added Polygon and LineString DataTypes while specifying collection indexing policy for geo-fencing spatial queries.
   - Added LINQ support for StringEnumConverter, IsoDateTimeConverter and UnixDateTimeConverter while translating predicates.
   - Various SDK bug fixes.
 

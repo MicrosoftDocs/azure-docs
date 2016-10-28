@@ -52,7 +52,7 @@ The credential is used by the elastic query to connect to your remote databases.
     SECRET = '<password>'
     [;]
  
-**Note**    Ensure that the *"\<username\>"* does not include any *"@servername"* suffix. 
+>[AZURE.NOTE] Make sure that the *"\<username\>"* does not include any *"@servername"* suffix. 
 
 ## 1.2 Create external data sources
 
