@@ -59,6 +59,8 @@ This public preview is currently only available in the following regions
 
 Web app on Linux is only supported in Dedicated App Service Plans and does not have a Free or Shared tier. Also, app service plans for regular and Linux web apps are mutually exclusive, so you cannot create a Linux web app in a non-Linux app service plan.
 
+Web app on Linux must be created in a resource group that does not contain non-Linux web apps in the same region.
+
 Due to the lack of overlapped recycling of the web apps, customers should expect a small downtime in the event of a web app got restarted. 
 
 ## Next Steps ##

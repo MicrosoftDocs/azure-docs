@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How do I ... in Application Insights" 
+	pageTitle="How do I ... in Application Insights | Microsoft Azure" 
 	description="FAQ in Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -153,7 +153,7 @@ There are several different methods of setting the Application Version property.
 #### Dashboard with metrics from multiple apps
 
 * In [Metric Explorer](app-insights-metrics-explorer.md), customize your chart and save it as a favorite. Pin it to the Azure dashboard.
-* 
+
 
 #### Dashboard with data from other sources and Application Insights
 
@@ -163,10 +163,6 @@ Or
 
 * Use SharePoint as your dashboard, displaying data in SharePoint web parts. [Use continuous export and Stream Analytics to export to SQL](app-insights-code-sample-export-sql-stream-analytics.md).  Use PowerView to examine the database, and create a SharePoint web part for PowerView.
 
-
-### Complex filtering, segmentation and joins
-
-* [Use continuous export and Stream Analytics to export to SQL](app-insights-code-sample-export-sql-stream-analytics.md).  Use PowerView to examine the database.
 
 <a name="search-specific-users"></a>
 ### Filter out anonymous or authenticated users
@@ -239,6 +235,6 @@ Among the metrics you can show in metrics explorer are a set of system performan
 ### To display more performance counters
 
 * First, [add a new chart](app-insights-metrics-explorer.md) and see if the counter is in the basic set that we offer.
-* If not, [add the counter to the set collected by the performance counter module](app-insights-web-monitor-performance.md#system-performance-counters).
+* If not, [add the counter to the set collected by the performance counter module](app-insights-performance-counters.md).
 
 

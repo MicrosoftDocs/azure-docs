@@ -3,7 +3,7 @@
 	description="This article walks through the platform-supported migration of resources from classic to Azure Resource Manager"
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="mahthi"
+	authors="singhkays"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -15,11 +15,11 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="mahthi"/>
+	ms.author="kasing"/>
 
 # Platform-supported migration of IaaS resources from classic to Azure Resource Manager
 
-In this article, we describe how we're enabling migration of infrastructure as a service (IaaS) resources from the Classic to Resource Manager deployment models. You can read more about [Azure Resource Manager features and benefits](../resource-group-overview.md). We detail how to connect resources from the two deployment models that coexist in your subscription by using virtual network site-to-site gateways. 
+In this article, we describe how we're enabling migration of infrastructure as a service (IaaS) resources from the Classic to Resource Manager deployment models. You can read more about [Azure Resource Manager features and benefits](../azure-resource-manager/resource-group-overview.md). We detail how to connect resources from the two deployment models that coexist in your subscription by using virtual network site-to-site gateways. 
 
 ## Goal for migration
 

@@ -22,7 +22,7 @@
 
 [Virtual Machine Scale Sets (VMSS)](virtual-machine-scale-sets-overview.md) can be used with the [Azure Desired State Configuration (DSC)](../virtual-machines/virtual-machines-windows-extensions-dsc-overview.md) extension handler. VMSS provides a way to deploy and manage large numbers of virtual machines, and can elastically scale in and out in response to load. DSC is used to configure the VMs as they come online so they are running the production software.
 
-## Differences Between Deploying to VM and VMSS
+## Differences between deploying to VM and VMSS
 
 The underlying template structure for VMSS is slightly different from a single VM. Specifically, a single VM deploys extensions under the "virtualMachines" node. There is an entry of type "extensions" where DSC is added to the template
 
@@ -48,7 +48,7 @@ The underlying template structure for VMSS is slightly different from a single V
                   "settings": {
                       "configuration": {
                           "url": "[concat(parameters('_artifactsLocation'), '/', variables('dscExtensionArchiveFolder'), '/', variables('dscExtensionArchiveFileName'))]",
-                          "script": "dscExtension.ps1",
+                          "script": "DscExtension.ps1",
                           "function": "Main"
                       },
                       "configurationArguments": {
@@ -73,8 +73,8 @@ A VMSS node has a "properties" section with the "VirtualMachineProfile", "extens
                     "properties": {
                         "publisher": "Microsoft.Powershell",
                         "type": "DSC",
-                        "typeHandlerVersion": "2.9",
-                        "autoUpgradeMinorVersion": true,
+                        "typeHandlerVersion": "2.20",
+                        "autoUpgradeMinorVersion": false,
                         "forceUpdateTag": "[parameters('DscExtensionUpdateTagVersion')]",
                         "settings": {
                             "configuration": {
@@ -99,8 +99,7 @@ A VMSS node has a "properties" section with the "VirtualMachineProfile", "extens
 The behavior for VMSS is identical to the behavior for a single VM. When a new VM is created, it is automatically provisioned with the DSC extension. If a newer version of the WMF is required by the extension, the VM reboots before coming online. Once it is online, it downloads the DSC configuration .zip and provision it on the VM. More details can be found in [the Azure DSC Extension Overview](../virtual-machines/virtual-machines-windows-extensions-dsc-overview.md).
 
 ## Next steps ##
-Examine the [Azure Resource Manager template for the DSC extension](../virtual-machines/virtual-machines-windows-extensions-dsc-template.md
-).
+Examine the [Azure Resource Manager template for the DSC extension](../virtual-machines/virtual-machines-windows-extensions-dsc-template.md).
 
 Learn how the [DSC extension securely handles credentials](../virtual-machines/virtual-machines-windows-extensions-dsc-credentials.md). 
 

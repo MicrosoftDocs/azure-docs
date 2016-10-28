@@ -1,14 +1,14 @@
 <properties
     pageTitle="Create a Service Bus namespace using a Resource Manager template | Microsoft Azure"
     description="Use Azure Resource Manager template to create a Service Bus namespace"
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="tbd"
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
@@ -142,8 +142,7 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 
 Now that you've created and deployed resources using Azure Resource Manager, learn how to manage these resources by reading these articles:
 
-- [Manage Azure Service Bus using Azure Automation](../service-bus/service-bus-automation-manage.md)
-- [Manage Service Bus with PowerShell](../service-bus/service-bus-powershell-how-to-provision.md)
+- [Manage Service Bus with PowerShell](service-bus-powershell-how-to-provision.md)
 - [Manage Service Bus resources with the Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 
   [Authoring Azure Resource Manager templates]: ../resource-group-authoring-templates.md

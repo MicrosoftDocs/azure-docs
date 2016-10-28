@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Upgrade a Service Fabric cluster | Microsoft Azure"
+   pageTitle="Upgrade an Azure Service Fabric cluster | Microsoft Azure"
    description="Upgrade the Service Fabric code and/or configuration that runs a Service Fabric cluster, including setting cluster update mode, upgrading certificates, adding application ports, doing OS patches, and so on. What can you expect when the upgrades are performed?"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,13 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/22/2016"
+   ms.date="10/10/2016"
    ms.author="chackdan"/>
 
 
-# Upgrade a Service Fabric cluster
+# Upgrade an Azure Service Fabric cluster
 
-An Azure Service Fabric cluster is a resource that you own, but is partly managed by Microsoft. This article describes what is managed automatically and what you can configure yourself.
+> [AZURE.SELECTOR]
+- [Azure Cluster](service-fabric-cluster-upgrade.md)
+- [Standalone Cluster](service-fabric-cluster-upgrade-windows-server.md)
+
+For any modern system, designing for upgradability is key to achieving long-term success of your product. An Azure Service Fabric cluster is a resource that you own, but is partly managed by Microsoft. This article describes what is managed automatically and what you can configure yourself.
 
 ## Controlling the fabric version that runs on your Cluster
 
@@ -27,7 +31,7 @@ You can set your cluster to receive automatic fabric upgrades, when Microsoft re
 
 You do this by setting the "upgradeMode" cluster configuration on the portal or using Resource Manager at the time of creation or later on a live cluster 
 
->[AZURE.NOTE] Make sure to keep your cluster running a supported fabric version always. As and when we announce the release of a new version of service fabric, the previous version is marked for end of life after a minimum of 60 days from that date. The new releases are announced [on the service fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/ ). The new release is available to choose then. 
+>[AZURE.NOTE] Make sure to keep your cluster running a supported fabric version always. As and when we announce the release of a new version of service fabric, the previous version is marked for end of support after a minimum of 60 days from that date. the  The new releases are announced [on the service fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/ ). The new release is available to choose then. 
 
 14 days prior to the expiry of the release your cluster is running, a health event is generated that puts your cluster into a warning health state. The cluster remains in a warning state until you upgrade to a supported fabric version.
 
@@ -69,10 +73,10 @@ Once you have fixed the issues that resulted in the rollback, you need to initia
 
 Run the following command, and you should get an output similar to this.
 
-"supportExpiryUtc" tells your when a given release is expiring or has expired. The latest release does not have a valid date - it will have a value of "9999-12-31T23:59:59.9999999", which just means that the expiry date is not yet set.
+"supportExpiryUtc" tells your when a given release is expiring or has expired. The latest release does not have a valid date - it has a value of "9999-12-31T23:59:59.9999999", which just means that the expiry date is not yet set.
 
 ```REST
-GET https://<endpoint>/subscriptions/{{subscriptionid}}/providers/Microsoft.ServiceFabric/locations/{locationname}/clusterversions?api-version=2016-09-01
+GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/clusterVersions?api-version= 2016-09-01
 
 Output:
 {
@@ -115,7 +119,7 @@ Output:
 
 ## Fabric upgrade behavior when the cluster Upgrade Mode is Automatic
 
-Microsoft maintains the fabric code and configuration that runs in a cluster. We perform automatic monitored upgrades to the software on an as-needed basis. These upgrades could be code, configuration, or both. To make sure that your application suffers no impact or minimal impact due to these upgrades, we perform the upgrades in the following phases:
+Microsoft maintains the fabric code and configuration that runs in an Azure cluster. We perform automatic monitored upgrades to the software on an as-needed basis. These upgrades could be code, configuration, or both. To make sure that your application suffers no impact or minimal impact due to these upgrades, we perform the upgrades in the following phases:
 
 ### Phase 1: An upgrade is performed by using all cluster health policies
 

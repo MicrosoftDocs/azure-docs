@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/08/2016"
-	ms.author="micurd;tamram"/>
+	ms.author="micurd"/>
 
 # How to use Blob Storage from Xamarin
 

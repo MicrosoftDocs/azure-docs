@@ -1,13 +1,13 @@
 <properties 
     pageTitle="Service Bus paired namespaces | Microsoft Azure"
     description="Paired namespace implementation details and cost"
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" /> 
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"

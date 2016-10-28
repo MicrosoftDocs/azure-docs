@@ -149,7 +149,7 @@ Delete Data Lake Analytics account will not delete the dependent Data Lake Stora
 
 Data Lake Analytics currently supports the following data sources:
 
-- [Azure Data Lake Storage](data-lake-storage-overview.md)
+- [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
 - [Azure Storage](storage-introduction.md)
 
 When you create an Analytics account, you must designate an Azure Data Lake Storage account to be the default 
@@ -323,7 +323,7 @@ as a group, referred to as an Azure Resource Group. You can deploy, update, moni
 resources for your application in a single, coordinated operation. You use a template for deployment and that 
 template can work for different environments such as testing, staging and production. You can clarify billing 
 for your organization by viewing the rolled-up costs for the entire group. For more information, see [Azure 
-Resource Manager Overview](../resource-group-overview.md). 
+Resource Manager Overview](../azure-resource-manager/resource-group-overview.md). 
 
 A Data Lake Analytics service can include the following components:
 

@@ -123,7 +123,7 @@ By following these steps, your app will be able to gather permissions for all us
 
 #### Request the permissions in the app registration portal
 
-- Navigate to your application in [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or [create an app](active-directory-v2-app-registration.md) if you haven't already.
+- Navigate to your application in [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), or [create an app](active-directory-v2-app-registration.md) if you haven't already.
 - Locate the **Microsoft Graph Permissions** section and add the permissions that your app requires.
 - Make sure to **Save** the app registration
 
@@ -157,7 +157,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 | Parameter | | Description |
 | ----------------------- | ------------------------------- | --------------- |
 | tenant | required | The directory tenant that you want to request permission from.  Can be provided in guid or friendly name format. |
-| client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) assigned your app. |
+| client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) assigned your app. |
 | redirect_uri | required | The redirect_uri where you want the response to be sent for your app to handle.  It must exactly match one of the redirect_uris you registered in the portal. |
 | state | recommended | A value included in the request that will also be returned in the token response.  It can be a string of any content that you wish.  The state is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
 

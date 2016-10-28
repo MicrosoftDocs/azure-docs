@@ -118,7 +118,7 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 | Storage | Queue name | Storage account | 3-63 | Lower case | Alphanumeric and dash | `<service short name>-<context>-<num>` | `awesomeservice-messages-001` |
 | Storage | Table name | Storage account | 3-63 |Case insensitive | Alphanumeric | `<service short name>-<context>` | `awesomeservice-logs` |
 | Storage | File name | Storage account | 3-63 | Lower case | Alphanumeric | `<variable based on blob usage>` | `<variable based on blob usage>` |
-| Networking | Virtual Network (VNet) | Resource Group | 2-80 | Case-insensitive | Alphanumeric, dash, underscore, and period | `<service short name>-[section]-vnet` | `profx-vnet` |
+| Networking | Virtual Network (VNet) | Resource Group | 2-64 | Case-insensitive | Alphanumeric, dash, underscore, and period | `<service short name>-[section]-vnet` | `profx-vnet` |
 | Networking | Subnet | Parent VNet | 2-80 | Case-insensitive | Alphanumeric, underscore, dash, and period | `<role>-subnet` | `gateway-subnet` |
 | Networking | Network Interface | Resource Group | 1-80 | Case-insensitive | Alphanumeric, dash, underscore, and period | `<vmname>-<num>nic` | `profx-sql1-1nic` |
 | Networking | Network Security Group | Resource Group | 1-80 | Case-insensitive | Alphanumeric, dash, underscore, and period | `<service short name>-<context>-nsg` | `profx-app-nsg` |

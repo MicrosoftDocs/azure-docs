@@ -2,7 +2,7 @@
 	pageTitle="Run a Hadoop job using DocumentDB and HDInsight | Microsoft Azure"
 	description="Learn how to run a simple Hive, Pig, and MapReduce job with DocumentDB and Azure HDInsight."
 	services="documentdb"
-	authors="AndrewHoh"
+	authors="dennyglee"
 	manager="jhubbard"
 	editor="mimig"
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="java"
 	ms.topic="article"
 	ms.date="09/20/2016"
-	ms.author="anhoh"/>
+	ms.author="denlee"/>
 
 #<a name="DocumentDB-HDInsight"></a>Run a Hadoop job using DocumentDB and HDInsight
 

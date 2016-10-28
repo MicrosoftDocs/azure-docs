@@ -4,7 +4,7 @@
     keywords="data pipeline, data driven workflow"
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="sharonlo101" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article"
 	ms.date="09/12/2016" 
-	ms.author="spelluru"/>
+	ms.author="shlo"/>
 
 # Pipelines and Activities in Azure Data Factory
 This article helps you understand pipelines and activities in Azure Data Factory and use them to construct end-to-end data-driven workflows for your data movement and data processing scenarios.  

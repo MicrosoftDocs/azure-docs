@@ -51,7 +51,7 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 
 ####	Track Service health
 
-Microsoft Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal](https://portal.azure.com/). For more information, see [Track service health](../azure-portal/insights-service-health.md).
+Microsoft Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal](https://portal.azure.com/). For more information, see [Track service health](../monitoring-and-diagnostics/insights-service-health.md).
 
 ####	Monitor your web app
 
@@ -70,7 +70,7 @@ Some of the metrics that you might want to monitor for your web app are
 For more information, see:
 
 -	[Monitor Web Apps in Azure App Service](web-sites-monitor.md)
--	[Receive alert notifications](../azure-portal/insights-receive-alert-notifications.md)
+-	[Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 <a name="collect" />
 ### 2. Collect data

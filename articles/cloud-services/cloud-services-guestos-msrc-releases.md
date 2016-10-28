@@ -3,8 +3,8 @@
    description="The list of updates applied to Guest OS releases" 
    services="cloud-services" 
    documentationCenter="na" 
-   authors="yuemlu" 
-   manager="timlt" 
+   authors="raiye" 
+   manager="markkie" 
    editor=""/>
 
 <tags
@@ -19,6 +19,22 @@
 # Azure Guest OS 
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in. 
+
+## October Guest OS 
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-118 | [3192887] | Cumulative Security Update for Internet Explorer | 4.37, 3.44, 2.56 | Oct 11, 2016 |
+| MS16-120 | [3192884] | Security Update for Microsoft Graphics Component| 4.37, 3.44, 2.56 | Oct 11, 2016 |
+| MS16-123 | [3192892] | Security Update for Kernel-Mode Drivers | 4.37, 3.44, 2.56 | Oct 11, 2016 |
+| MS16-124 | [3193227] | Security Update for Windows Registry | 4.37, 3.44, 2.56 | Oct 11, 2016 |
+| MS16-126 | [3196067] | Security Update for Microsoft Internet Messaging API | 2.56 | Oct 11, 2016 |
+| MS16-101 | [3178465] | Security Update for Windows Authentication Methods | 4.37, 3.44, 2.56 | Oct 11, 2016 |
+|  | [3182203] | September 2016 time zone change for Novosibirsk |  4.37, 3.44, 2.56 | Oct 11, 2016 |
+|  | [3185278] | September 2016 update rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 | 2.56 | Oct 11, 2016 |
+|  | [3185280] | September 2016 update rollup for Windows Server 2012 | 3.44 | Oct 11, 2016 |
+|  | [3185279] | September 2016 update rollup for Windows 8.1 and Windows Server 2012 R2 | 4.37 | Oct 11, 2016 |
+[//]: # " |  | [3194798] | Cumulative update for Windows 10 Version 1607 and Windows Server 2016 | 5.2 | Oct 11, 2016 |"
 
 ## September Guest OS 
 
@@ -367,6 +383,18 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A         | [3007054][3007054]  | PIN-protected printing option always shows when you print a document within a Windows Store application in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 | N/A         | [2999802][2999802]  | Solid lines instead of dotted lines are printed in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 | N/A         | [2896881][2896881]  | Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
+
+[3192887]: http://support.microsoft.com/kb/3192887
+[3192884]: http://support.microsoft.com/kb/3192884
+[3192892]: http://support.microsoft.com/kb/3192892
+[3193227]: http://support.microsoft.com/kb/3193227
+[3196067]: http://support.microsoft.com/kb/3196067
+[3178465]: http://support.microsoft.com/kb/3178465
+[3182203]: http://support.microsoft.com/kb/3182203
+[3185278]: http://support.microsoft.com/kb/3185278
+[3185280]: http://support.microsoft.com/kb/3185280
+[3185279]: http://support.microsoft.com/kb/3185279
+[3194798]: http://support.microsoft.com/kb/3194798
 
 [3183038]: http://support.microsoft.com/kb/3183038
 [3185848]: http://support.microsoft.com/kb/3185848

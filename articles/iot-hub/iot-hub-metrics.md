@@ -18,7 +18,7 @@
 
 # Introduction to diagnostic metrics
 
-Diagnostic metrics give you better data about the state of the Azure resources in your subscription. Metrics enable you to assess the overall health of the service and the devices connected to it. User-facing statistics are important because they help you see what is going on with your IoT hub and help root-cause issues without needing to contact Azure support.
+Diagnostic metrics give you better data about the state of the Azure resources in your Azure subscription. Metrics enable you to assess the overall health of the service and the devices connected to it. User-facing statistics are important because they help you see what is going on with your IoT hub and help root-cause issues without needing to contact Azure support.
 
 You can enable diagnostic metrics from the Azure portal.
 
@@ -30,7 +30,7 @@ You can enable diagnostic metrics from the Azure portal.
 
     ![][1]
 
-3. Configure your diagnostics by setting the status to **On** and selecting a storage account to store the diagnostics data. Check **Metrics**, and then press **Save**. Note that the storage account must be created ahead of time and that you are charged separately for storage. You can also choose to send your diagnostics data to an Event Hubs endpoint.
+3. Configure your diagnostics by setting the status to **On** and selecting an Azure Storage account to store the diagnostics data. Check **Metrics**, and then press **Save**. Note that the Azure Storage account must be created ahead of time and that you are charged separately for storage. You can also choose to send your diagnostics data to an Event Hubs endpoint.
 
     ![][2]
 
@@ -61,7 +61,7 @@ Now that you’ve seen an overview of diagnostic metrics, follow this link to le
 To further explore the capabilities of IoT Hub, see:
 
 - [Developer guide][lnk-devguide]
-- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
 <!-- Links and images -->
 [1]: media/iot-hub-metrics/enable-metrics-1.png

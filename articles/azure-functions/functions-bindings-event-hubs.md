@@ -15,21 +15,22 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="08/22/2016"
+	ms.date="10/17/2016"
 	ms.author="wesmc"/>
 
 # Azure Functions Event Hub bindings
 
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-This article explains how to configure and code [Azure Event Hub](../event-hubs/event-hubs-overview.md) bindings for Azure Functions. Azure functions supports trigger and output bindings for Azure Event Hubs.
+This article explains how to configure and code [Azure Event Hub](../event-hubs/event-hubs-overview.md) bindings for Azure Functions. Azure functions support trigger and output bindings for Azure Event Hubs.
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
+If you are new to Azure Event Hubs, see the [Azure Event Hub overview](../event-hubs/event-hubs-overview.md).
 
 ## Azure Event Hub trigger binding
 
-An Azure Event Hub trigger can be used to respond to an event sent to an event hub event stream. You must have read access to the event hub to setup a trigger binding.
+An Azure Event Hub trigger can be used to respond to an event sent to an event hub event stream. You must have read access to the event hub to set up a trigger binding.
 
 #### function.json for Event Hub trigger binding
 
@@ -39,6 +40,7 @@ The *function.json* file for an Azure Event Hub trigger specifies the following 
 - `name` : The variable name used in function code for the event hub message. 
 - `direction` : Must be set to *in*. 
 - `path` : The name of the event hub.
+- `consumerGroup` : This is an optional property used to set the [consumer group](../event-hubs-overview.md#consumer-groups) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. 
 - `connection` : The name of an app setting that contains the connection string to the namespace that the event hub resides in. Copy this connection string by clicking the **Connection Information** button for the namespace, not the event hub itself.  This connection string must have at least read permissions to activate the trigger.
 
 		{
@@ -131,7 +133,7 @@ The following F# example function code demonstrates writing an event to an Event
 
 #### Azure Event Hub Node.js code example for output binding
  
-The following Node.js example function code demonstrates writing a event to an Event Hub event stream. This example represents the Event Hub output binding shown above applied to a Node.js timer trigger.  
+The following Node.js example function code demonstrates writing an event to an Event Hub event stream. This example represents the Event Hub output binding shown above applied to a Node.js timer trigger.  
  
 	module.exports = function (context, myTimer) {
 	    var timeStamp = new Date().toISOString();

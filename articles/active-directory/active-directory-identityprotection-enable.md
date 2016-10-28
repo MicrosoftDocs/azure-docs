@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2016"
+	ms.date="10/12/2016"
 	ms.author="markvi"/>
 
 # Enabling Azure Active Directory Identity Protection 
@@ -29,7 +29,7 @@ This topics shows how to enable Azure Active Directory Identity Protection.
 ## Steps to enable Azure Active Directory Identity Protection 
 
 
-1. [Sign-on](https://ms.portal.azure.com/) to your Azure portal as administrator. 
+1. [Sign-on](https://ms.portal.azure.com/) to your Azure portal as global administrator. 
 
 1. In the Azure portal, click **Marketplace**.
 

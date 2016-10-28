@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="08/30/2016"
-   ms.author="andkjell"/>
+   ms.author="billmath"/>
 
 # Generic SQL Connector step-by-step
 This topic is a step-by-step guide. It creates a simple sample HR database and use it for importing some users and their group membership.

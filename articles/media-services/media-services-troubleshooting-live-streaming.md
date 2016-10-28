@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/26/2016"  
+	ms.date="10/12/2016"  
 	ms.author="juliako"/>
 
 #Troubleshooting guide for live streaming
@@ -75,7 +75,7 @@ This section gives suggestions on how to troubleshoot problems related to on-pre
 	
 
 
->[AZURE.NOTE] If after following the troubleshooting steps you still cannot successfully stream, submit a support ticket using the Azure Classic Portal.
+>[AZURE.NOTE] If after following the troubleshooting steps you still cannot successfully stream, submit a support ticket using the Azure portal.
 
 ##Media Services learning paths
 

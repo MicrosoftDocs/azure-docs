@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/08/2016"
+   ms.date="10/20/2016"
    ms.author="mwasson"/>
 
 # Running a Windows VM on Azure

@@ -2,7 +2,7 @@
 	pageTitle="Request Units in DocumentDB | Microsoft Azure" 
 	description="Learn about how to understand, specify, and estimate request unit requirements in DocumentDB." 
 	services="documentdb" 
-	authors="mimig1" 
+	authors="syamkmsft" 
 	manager="jhubbard" 
 	editor="mimig" 
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="06/29/2016" 
-	ms.author="mimig"/>
+	ms.author="syamk"/>
 
 #Request Units in DocumentDB
 Now available: DocumentDB [request unit calculator](https://www.documentdb.com/capacityplanner). Learn more in [Estimating your throughput needs](documentdb-request-units.md#estimating-throughput-needs).

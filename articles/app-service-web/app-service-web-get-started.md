@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/09/2016" 
+	ms.date="10/13/2016" 
 	ms.author="cephalin"
 />
 	
@@ -31,77 +31,48 @@ You will:
 - See your code running live in production.
 - Update your web app the same way you would [push Git commits](https://git-scm.com/docs/git-push).
 
-## Prerequisites
-
 >[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
 
-- [Install Git](http://www.git-scm.com/downloads). Verify that your installation is successful by running `git --version` from a new Windows command prompt, 
-PowerShell window, Linux shell, or OS X terminal.
-- Get a Microsoft Azure account. If you don't have an account, you can 
+## Prerequisites
+
+- [Git](http://www.git-scm.com/downloads).
+- [Azure CLI](../xplat-cli-install.md).
+- A Microsoft Azure account. If you don't have an account, you can 
 [sign up for a free trial](/pricing/free-trial/?WT.mc_id=A261C142F) or 
 [activate your Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
-
 
 >[AZURE.NOTE] You can [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) without an Azure account. Create a starter app and play with
 it for up to an hour--no credit card required, no commitments.
 
-<a name="create"></a>
-## Create a web app
+## Deploy a web app
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
+Let's deploy a web app to Azure App Service.
 
-2. From the left menu, click **New** > **Web + Mobile** > **Web App**.
+1. Open a new Windows command prompt, PowerShell window, Linux shell, or OS X terminal. Run `git --version` and `azure --version` to verify that Git and Azure CLI
+are installed on your machine.
 
-    ![start creating your first web app in Azure](./media/app-service-web-get-started/create-web-app-portal.png)
+    ![Test installation of CLI tools for your first web app in Azure](./media/app-service-web-get-started/1-test-tools.png)
 
-3. In the app creation blade, use the following settings for your new app:
+    If you haven't installed the tools, see [Prerequisites](#Prerequisites) for download links.
 
-    - **App name**: Type a unique name.
-    - **Resource group**: Select **Create new** and give the resource group a name.
-    - **App Service plan/Location**: Click it to configure, then click **Create New** to set the name, location, and 
-    pricing tier of the App Service plan. Feel free to use the **Free** pricing tier.
+3. Log in to Azure like this:
 
-    When you're done, your app creation blade should look like this:
+        azure login
 
-    ![configure your first web app in Azure](./media/app-service-web-get-started/create-web-app-settings.png)
+    Follow the help message to continue the login process.
 
-3. Click **Create** at the bottom. You can click the **Notification** icon at the top to see the progress.
+    ![Log in to Azure to create your first web app](./media/app-service-web-get-started/3-azure-login.png)
 
-    ![app creation notification for your first web app in Azure](./media/app-service-web-get-started/create-web-app-started.png)
+4. Change Azure CLI into ASM mode, then set the deployment user for App Service. You will deploy code using the credentials later.
 
-4. When deployment is finished, you should see this notification message. Click the message to open your deployment's blade.
+        azure config mode asm
+        azure site deployment user set --username <username> --pass <password>
 
-    ![deployment finished message for your first web app in Azure](./media/app-service-web-get-started/create-web-app-finished.png)
-
-5. In the **Deployment succeeded** blade, click the **Resource** link to open your new web app's blade.
-
-    ![resource link for your first web app in Azure](./media/app-service-web-get-started/create-web-app-resource.png)
-
-## Deploy code to your web app
-
-Now, let's deploy some code to Azure using Git.
-
-5. In the web app blade, scroll down to **Deployment options** or search for it, then click it. 
-
-    ![deployment options for your first web app in Azure](./media/app-service-web-get-started/deploy-web-app-deployment-options.png)
-
-6. Click **Choose Source** > **Local Git Repository** > **OK**.
-
-7. Back in the web app blade, click **Deployment credentials**.
-
-8. Set your deployment credentials and click **Save**.
-
-7. Back in the web app blade, scroll down to **Properties** or search for it, then click it. Next to **Git URL**, click the **Copy** button.
-
-    ![properties blade for your first web app in Azure](./media/app-service-web-get-started/deploy-web-app-properties.png)
-
-    You're now ready to deploy your code with Git.
-
-1. In your command-line terminal, change to a working directory (`CD`) and clone the sample app like this:
+1. Change to a working directory (`CD`) and clone the sample app like this:
 
         git clone <github_sample_url>
 
-    ![Clone the app sample code for your first web app in Azure](./media/app-service-web-get-started/html-git-clone.png)
+    ![Clone the app sample code for your first web app in Azure](./media/app-service-web-get-started/2-clone-sample.png)
 
     For *&lt;github_sample_url>*, use one of the following URLs, depending on the framework that you like:
 
@@ -112,27 +83,38 @@ Now, let's deploy some code to Azure using Git.
     - Java: [https://github.com/Azure-Samples/app-service-web-java-get-started.git](https://github.com/Azure-Samples/app-service-web-java-get-started.git)
     - Python (Django): [https://github.com/Azure-Samples/app-service-web-python-get-started.git](https://github.com/Azure-Samples/app-service-web-python-get-started.git)
 
-2. Change to the repository of your sample app. For example, 
+2. Change to the repository of your sample app. For example:
 
         cd app-service-web-html-get-started
 
-3. Configure the Git remote for your Azure app its Git URL, which you copied from the Portal a few steps ago.
+4. Create the App Service app resource in Azure with a unique app name and the deployment user you configured earlier. When you're prompted, specify the number of the desired region.
 
-        git remote add azure <giturlfromportal>
+        azure site create <app_name> --git --gitusername <username>
 
-4. Deploy your sample code to your Azure app like you would push any code with Git:
+    ![Create the Azure resource for your first web app in Azure](./media/app-service-web-get-started/4-create-site.png)
+
+    Your app is created in Azure now. Also, your current directory is Git-initialized and connected to the new App Service app as a Git remote.
+    You can browse to the app URL (http://&lt;app_name>.azurewebsites.net) to see the beautiful default HTML page, but let's actually get your code there now.
+
+4. Deploy your sample code to your Azure app like you would push any code with Git. When prompted, use the password you configured earlier.
 
         git push azure master
 
-    ![Push code to your first web app in Azure](./media/app-service-web-get-started/html-git-push.png)    
+    ![Push code to your first web app in Azure](./media/app-service-web-get-started/5-push-code.png)
 
-    If you used one of the language frameworks, you'll see different output. This is because `git push` not only puts code in Azure, but also triggers deployment tasks
+    If you used one of the language frameworks, you'll see different output. `git push` not only puts code in Azure, but also triggers deployment tasks
     in the deployment engine. If you have any package.json
     (Node.js) or requirements.txt (Python) files in your project (repository) root, or if you have a packages.config file in your ASP.NET project, the deployment
     script restores the required packages for you. You can also [enable the Composer extension](web-sites-php-mysql-deploy-use-git.md#composer) to automatically process composer.json files
     in your PHP app.
 
-That's it! Your code is now running live in Azure. In your browser, navigate to http://*&lt;appname>*.azurewebsites.net to see it in action. 
+Congratulations, you have deployed your app to Azure App Service.
+
+## See your app running live
+
+To see your app running live in Azure, run this command from any directory in your repository:
+
+    azure site browse
 
 ## Make updates to your app
 

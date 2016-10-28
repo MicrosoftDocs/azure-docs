@@ -13,19 +13,19 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="08/02/2016"
+ ms.date="10/17/2016"
  ms.author="yurid"/>
  
 [AZURE.INCLUDE [iot-security-architecture](../../includes/iot-security-architecture.md)]
 
 
-## Next steps
+## See also
 
 To learn more about securing your IoT solution see, [Secure your IoT deployment][lnk-security-deployment]
 
 To further explore the capabilities of IoT Hub, see:
 
-- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
 [lnk-security-deployment]: iot-hub-security-deployment.md
 

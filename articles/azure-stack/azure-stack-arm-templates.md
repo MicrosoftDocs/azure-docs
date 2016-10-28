@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/26/2016"
+	ms.date="10/25/2016"
 	ms.author="helaw"/>
 
 # Use Azure Resource Manager templates in Azure Stack
 
-Azure Resource Manager templates deploy and provision all of the resources for your application in a single, coordinated operation. You define the resources for the application and how it will be deployed.
+Azure Resource Manager templates deploy and provision all of the resources for your application in a single, coordinated operation. You define the resources for the application and how it will be deployed.  You can also redeploy templates to make changes to the resources in the resource group.
 
 These templates can be deployed with the Microsoft Azure Stack portal, PowerShell, the command line, and Visual Studio.
 
@@ -89,5 +89,5 @@ To cancel a running template deployment, use the `Stop-AzureRmResourceGroupDeplo
 
 [Deploy templates with the portal](azure-stack-deploy-template-portal.md)
 
-[Azure Resource Manager overview](../resource-group-overview.md)
+[Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)
 

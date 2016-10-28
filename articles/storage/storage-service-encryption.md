@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/16/2016"
-	ms.author="lakasa;robinsh"/>
+	ms.author="robinsh"/>
 
 # Azure Storage Service Encryption for Data at Rest
 

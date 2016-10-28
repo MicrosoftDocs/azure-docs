@@ -3,7 +3,7 @@
 	description="Learn about modeling data for DocumentDB, a NoSQL document database." 
 	keywords="modeling data"
 	services="documentdb" 
-	authors="mimig1" 
+	authors="kiratp" 
 	manager="jhubbard" 
 	editor="mimig1" 
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/05/2016" 
-	ms.author="mimig"/>
+	ms.author="kipandya"/>
 
 #Modeling data in DocumentDB#
 While schema-free databases, like Azure DocumentDB, make it super easy to embrace changes to your data model you should still spend some time thinking about your data. 

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/06/2016"
+	ms.date="10/12/2016"
 	ms.author="adpick"/>
 
 # Understand your Azure external service charges
@@ -29,65 +29,73 @@ This article explains the billing of external services in Azure. External servic
 
 ## What are Azure external services?
 
-External services used to be called Azure Marketplace. Generally, they're services published by third-parties available for Azure. For example, ClearDB and SendGrid are external services that you can purchase in Azure.
+External services used to be called Azure Marketplace. Generally, they're services published by third-parties available for Azure. For example, ClearDB and SendGrid are external services that you can purchase in Azure, but are not published by Microsoft.
 
 ### Identify external services
 
-When you provision a new external service or resource, you'll see a warning about it:
+When you provision a new external service or resource, a warning is shown:
 
 ![Marketplace purchase warning](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
 
->[AZURE.NOTE] Usually external services are published by companies that are not Microsoft, but sometimes Microsoft products are also categorized as external services.
+>[AZURE.NOTE] External services are published by companies that are not Microsoft, but sometimes Microsoft products are also categorized as external services.
 
 ### External services are billed separately
 
 External services are treated as individual orders within your Azure subscription. The billing period for each service is set when you purchase the service. Not to be confused with the billing period of the subscription under which you purchased it. You also receive separate bills and your credit card is charged separately.
 
-### Different external services are biilled differently
+### Each external service has a different billing model
 
-You need a credit card for Azure external services. If your subscription uses invoice pay, you are not able to buy them. Some services are billed in a pay-as-you-go fashion while others use a monthly-based payment model. Keep this in mind when you're buying external services.
+Some services are billed in a pay-as-you-go fashion while others use a monthly based payment model. You need a credit card for Azure external services, you can't buy external services with invoice pay.
 
 ### You can't use monthly free credits for external services
 
-If you are using an azure subscription that includes [free credit](https://azure.microsoft.com/pricing/spending-limits/), this credit can't be applied to external service bills. You must have a credit card associated with your subscription to purchase external services, and this is the card that is charged.
+If you are using an Azure subscription that includes [free credits](https://azure.microsoft.com/pricing/spending-limits/), they can't be applied to external service bills. Use a credit card to purchase external services.
 
 ## View external service spending and history
 
 You can view a list of the external services that are on each subscription within the [Azure portal](https://portal.azure.com/): 
 
-1. Navigate to the [Billing blade](https://portal.azure.com/?flight=1#blade/Microsoft_Azure_Billing/BillingBlade).
+1. Sign in to the [Azure portal](https://portal.azure.com/) and [navigate to the **Billing** blade](https://portal.azure.com/?flight=1#blade/Microsoft_Azure_Billing/BillingBlade).
+
+	![Select Billing in the Hub menu](./media/billing-understand-your-azure-marketplace-charges/billing-button.png) 
   
-2. Select a subscription.
+2. In the **Subscription costs** section, select the subscription that you want to view. 
    
-	![use the external services command](./media/billing-understand-your-azure-marketplace-charges/external-service-command.png)
+	![Select a subscription in the billing blade](./media/billing-understand-your-azure-marketplace-charges/select-sub.png)
 
-3. Click **External Services** to view each of your external service orders, the publisher name, service tier you bought, name you gave the resource, and the current order status.
+3. Click **External services**.
 
-	![Select a subscription](./media/billing-understand-your-azure-marketplace-charges/external-service-blade.png)
+	![Click External Services in the subscription blade](./media/billing-understand-your-azure-marketplace-charges/external-service-blade.png)
 
-4. From here, you can view past bill amounts including the tax breakdown.
+4. You should see each of your external service orders, the publisher name, service tier you bought, name you gave the resource, and the current order status. Select an external service to see past bills.
 
-	![view external services billing history](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png)
+	![Select an external service](./media/billing-understand-your-azure-marketplace-charges/external-service-blade2.png)
+
+5. From here, you can view past bill amounts including the tax breakdown.
+
+	![View external services billing history](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png)
 
 ## Manage payment methods for external service orders
 
 Update your payment methods for external service orders from the [Account Center](https://account.windowsazure.com/).
 
-> [AZURE.NOTE] If you purchased your subscription with a work or school account you should [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to make changes to your payment instrument
+> [AZURE.NOTE] If you purchased your subscription with a Work or School account you should [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to make changes to your payment method.
 
-1. To update your payment method click **Change payment method** on the right side of the [page](https://account.windowsazure.com/Store).
+1. Sign in to the [Account Center](https://account.windowsazure.com/) and [navigate to the **marketplace** tab](https://account.windowsazure.com/Store)
+
+	![Select marketplace in the account center](./media/billing-understand-your-azure-marketplace-charges/select-marketplace.png)
+
+2. Select the external service you want to manage
+
+	![Select the external service you want to manage](./media/billing-understand-your-azure-marketplace-charges/select-ext-service.png)
+
+3. Click **Change payment method** on the right side of the page. This link brings you to a different portal to manage your payment method.
     
-    ![Order summary](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
+    ![Order summary](./media/billing-understand-your-azure-marketplace-charges/change-payment.PNG)
 
-2. This link brings you to a different portal where you are able to make changes to your preferred payment method.
+4. Click **Edit info** and follow instructions to update your payment information.
 
-3. Click **Change how you pay**.
-
-    ![Subscriptions](./media/billing-understand-your-azure-marketplace-charges/subscriptions.jpg)
-
-4. Select the payment method you want to change to. The **Pay with** option allows you to select your credit card. The **Add a new way to pay** option allows you to add a new credit card.
-
-    ![Change payment method](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
+    ![Select edit info](./media/billing-understand-your-azure-marketplace-charges/edit-info.png)
     
 ## Cancel an external service order
 

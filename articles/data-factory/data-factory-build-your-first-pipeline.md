@@ -5,7 +5,7 @@
 	keywords="azure data factory tutorial, hadoop cluster, hadoop hive"
 	documentationCenter=""
 	authors="spelluru"
-	manager=""
+	manager="jhubbard"
 	editor=""/>
 
 <tags

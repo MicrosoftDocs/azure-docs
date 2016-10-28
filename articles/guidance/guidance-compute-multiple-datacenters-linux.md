@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Running VMs in multiple datacenters for high availability | Reference Architecture | Microsoft Azure"
-   description="How to deploy VMs in multiple datacenters on Azure for high availability and resiliency."
+   pageTitle="Running Linux VMs in multiple regions for high availability | Reference Architecture | Microsoft Azure"
+   description="How to deploy VMs in multiple regions on Azure for high availability and resiliency."
    services=""
    documentationCenter="na"
    authors="MikeWasson"
@@ -14,52 +14,56 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/12/2016"
+   ms.date="10/21/2016"
    ms.author="mwasson"/>
 
-# Running VMs in multiple datacenters on Azure for high availability
+# Running Linux VMs in multiple regions for high availability
 
 [AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 > [AZURE.SELECTOR]
-- [Running VMs in multiple datacenters (Linux)](guidance-compute-multiple-datacenters-linux.md)
-- [Running VMs in multiple datacenters (Windows)](guidance-compute-multiple-datacenters.md)
+- [Running Linux VMs in multiple regions for high availability](guidance-compute-multiple-datacenters-linux.md)
+- [Running Windows VMs in multiple regions for high availability](guidance-compute-multiple-datacenters.md)
 
 In this article, we recommend a set of practices to run Linux virtual machines (VMs) in multiple Azure regions, to achieve availability and a robust disaster recovery infrastructure.
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource groups] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
 
-A multi-datacenter architecture can provide higher availability than deploying to a single datacenter. If a regional outage affects the primary datacenter, you can use [Traffic Manager][traffic-manager] to fail over to the secondary datacenter. This architecture can also help if an individual subsystem of the application fails.
+A multi-region architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use [Traffic Manager][traffic-manager] to fail over to the secondary region. This architecture can also help if an individual subsystem of the application fails.
 
 There are several general approaches to achieving high availability across data centers:   
   
-- Active/passive with hot standby. Traffic goes to one datacenter, while the other waits on standby. VMs in the secondary datacenter are allocated and running at all times.
+- Active/passive with hot standby. Traffic goes to one region, while the other waits on standby. VMs in the secondary region are allocated and running at all times.
 
-- Active/passive with cold standby. The same, but VMs in the secondary datacenter are not allocated until needed for failover. This approach costs less to run, but will generally have longer down time during a failure.
+- Active/passive with cold standby. The same, but VMs in the secondary region are not allocated until needed for failover. This approach costs less to run, but will generally have longer down time during a failure.
 
-- Active/active. Both datacenters are active, and requests are load balanced between them. If one data center becomes unavailable, it is taken out of rotation.
+- Active/active. Both regions are active, and requests are load balanced between them. If one data center becomes unavailable, it is taken out of rotation.
 
 This architecture focuses on active/passive with hot standby, using Traffic Manager for failover. Note that you could deploy a small number of VMs for hot standby and then scale out as needed.
 
 ## Architecture diagram
 
-The following diagram builds on the architecture shown in [Adding reliability to an N-tier architecture on Azure](guidance-compute-n-tier-vm-linux.md).
+The following diagram builds on the architecture shown in [Adding reliability to an N-tier architecture on Azure](guidance-compute-n-tier-vm-linux.md). 
+
+> A Visio document that includes this architecture diagram is available for download at the [Microsoft download center][visio-download]. This diagram is on the "Compute - multi region (Linux) page.
 
 ![[0]][0]
 
-- **Primary and secondary datacenters**. This architecture uses two datacenters to achieve higher availability. One is the primary datacenter. During normal operations, network traffic is routed to the primary datacenter. But if that becomes unavailable, traffic is routed to the secondary datacenter.
+- **Primary and secondary regions**. This architecture uses two regions to achieve higher availability. One is the primary region. During normal operations, network traffic is routed to the primary region. But if that becomes unavailable, traffic is routed to the secondary region.
 
-- **[Azure Traffic Manager][traffic-manager]** routes incoming requests to the primary datacenter. If that datacenter becomes unavailable, Traffic Manager fails over to the secondary datacenter. For more information, see the section [Configuring Traffic Manager](#configuring-traffic-manager).
+- **[Azure Traffic Manager][traffic-manager]** routes incoming requests to the primary region. If that region becomes unavailable, Traffic Manager fails over to the secondary region. For more information, see the section [Configuring Traffic Manager](#configuring-traffic-manager).
 
-- **Resource groups**. Create separate [resource groups][resource groups] for the primary datacenter, the secondary datacenter, and for Traffic Manager. This gives you the flexibility to manage each datacenter as a single collection of resources. For example, you could redeploy one datacenter, without taking down the other one. [Link the resource groups][resource-group-links], so that you can run a query to list all the resources for the application.
+- **Resource groups**. Create separate [resource groups][resource groups] for the primary region, the secondary region, and for Traffic Manager. This gives you the flexibility to manage each region as a single collection of resources. For example, you could redeploy one region, without taking down the other one. [Link the resource groups][resource-group-links], so that you can run a query to list all the resources for the application.
 
-- **VNets**. Create a separate VNet for each datacenter. Make sure the address spaces do not overlap.
+- **VNets**. Create a separate VNet for each region. Make sure the address spaces do not overlap.
 
 - **Apache Cassandra** deployed in data centers across Azure regions. Cassandra data centers are deployed in different Azure regions for high availability. Within each region, nodes are configured in rack-aware mode with fault and upgrade domains, for resiliency inside the region.
 
 ## Recommendations
 
-### Datacenters and regional pairing
+Azure offers many different resources and resource types, so this reference architecture can be provisioned many different ways. We have provided an Azure Resource Manager template to install the reference architecture that follows these recommendations. If you choose to create your own reference architecture follow these recommendations unless you have a specific requirement that a recommendation does not fit.
+
+### Regional pairing
 
 Each Azure region is paired with another region within the same geography. In general, choose regions from the same regional pair (for example, East US 2 and US Central). Benefits of doing so include:
 
@@ -75,9 +79,9 @@ However, make sure that both regions support all of the Azure services needed fo
 
 Consider the following points when configuring traffic manager for your scenario:
 
-- **Routing.** Traffic Manager supports several [routing algorithms][tm-routing]. For the scenario described in this article, use _priority_ routing (formerly called _failover_ routing). With this setting, Traffic Manager sends all requests to the primary datacenter, unless the primary datacenter becomes unreachable. At that point, it automatically fails over to the secondary datacenter. See [Configure Failover routing method][tm-configure-failover].
+- **Routing.** Traffic Manager supports several [routing algorithms][tm-routing]. For the scenario described in this article, use _priority_ routing (formerly called _failover_ routing). With this setting, Traffic Manager sends all requests to the primary region, unless the primary region becomes unreachable. At that point, it automatically fails over to the secondary region. See [Configure Failover routing method][tm-configure-failover].
 
-- **Health probe.** Traffic Manager uses an HTTP (or HTTPS) [probe][tm-monitoring] to monitor the availability of each datacenter. The probe checks for an HTTP 200 response for a specified URL path. As a best practice, create an endpoint that reports the overall health of the application, and use this endpoint for the health probe. Otherwise, the probe might report a "healthy" endpoint when critical parts of the application are actually failing. For more information,see [Health Endpoint Monitoring Pattern][health-endpoint-monitoring-pattern].
+- **Health probe.** Traffic Manager uses an HTTP (or HTTPS) [probe][tm-monitoring] to monitor the availability of each region. The probe checks for an HTTP 200 response for a specified URL path. As a best practice, create an endpoint that reports the overall health of the application, and use this endpoint for the health probe. Otherwise, the probe might report a "healthy" endpoint when critical parts of the application are actually failing. For more information,see [Health Endpoint Monitoring Pattern][health-endpoint-monitoring-pattern].
 
 When Traffic Manager fails over, there is a period of time when clients cannot reach the application, which can be several minutes. Two factors affect the total duration:
 
@@ -89,7 +93,7 @@ For details, see [About Traffic Manager Monitoring][tm-monitoring].
 
 If Traffic Manager fails over, we recommend performing a manual failback, rather than automatically failing back. Verify that all application subsystems are healthy first. Otherwise, you can create a situation where the application flips back and forth between data centers.
 
-By default, Traffic Manager automatically fails back. To prevent this, manually lower the priority of the primary datacenter after a failover event. For example, suppose the primary datacenter is priority 1 and the secondary is priority 2. After a failover, set the primary datacenter to priority 3, to prevent automatic failback. When you are ready to switch back, update the priority to 1.
+By default, Traffic Manager automatically fails back. To prevent this, manually lower the priority of the primary region after a failover event. For example, suppose the primary region is priority 1 and the secondary is priority 2. After a failover, set the primary region to priority 3, to prevent automatic failback. When you are ready to switch back, update the priority to 1.
 
 The following Azure CLI command updates the priority:
 
@@ -105,7 +109,7 @@ azure network traffic-manager  endpoint set --resource-group <resource-group> --
     --name <traffic-manager-name> --type AzureEndpoints --status Disabled
 ```    
 
-Depending on the cause of a failover, you might need to redploy the resources within a datacenter. Before failing back, perform an operational readiness test. The test should verify things like:
+Depending on the cause of a failover, you might need to redploy the resources within a region. Before failing back, perform an operational readiness test. The test should verify things like:
 
 - VMs are configured correctly. (All required software is installed, IIS is running, etc.)
 
@@ -129,7 +133,7 @@ We recommend [DataStax Enterprise][datastax] for production use. For more inform
 
 ## Availability considerations
 
-With a complex N-tier app, you may not need to replicate the entire application in the secondary datacenter. Instead, you might just replicate a critical subsystem that is needed to support business continuity.
+With a complex N-tier app, you may not need to replicate the entire application in the secondary region. Instead, you might just replicate a critical subsystem that is needed to support business continuity.
 
 Traffic Manager is a possible failure point in the system. If the service fails, clients cannot access your application during the downtime. Review the [Traffic Manager SLA][tm-sla], and determine whether using Traffic Manager alone meets your business requirements for high availability. If not, consider adding another traffic management solution as a failback. If the Azure Traffic Manager service fails, change your CNAME records in DNS to point to the other traffic management service. (This step must be performed manually, and your application will be unavailable until the DNS changes are propagated.)
 
@@ -137,7 +141,7 @@ For the Cassandra cluster, the failover scenarios to consider depend on the cons
 
 ## Manageability considerations
 
-When you update your deployment, update one datacenter at a time, to reduce the chance of a global failure from an incorrect configuration or an error in the application.
+When you update your deployment, update one region at a time, to reduce the chance of a global failure from an incorrect configuration or an error in the application.
 
 Test the resiliency of the system to failures. Here are some common failure scenarios to test:
 
@@ -159,7 +163,7 @@ Measure the recovery times and verify they meet your business requirements. Test
 
 ## Next steps
 
-- This series has focused on pure cloud deployments. Enterprise scenarios often require a hybrid network, connecting an on-premises network with an Azure virtual network. To learn how to build such a hybrid network, see [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][hybrid-vpn].
+This series has focused on pure cloud deployments. Enterprise scenarios often require a hybrid network, connecting an on-premises network with an Azure virtual network. To learn how to build such a hybrid network, see [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][hybrid-vpn].
 
 <!-- Links -->
 
@@ -173,7 +177,7 @@ Measure the recovery times and verify they meet your business requirements. Test
 [health-endpoint-monitoring-pattern]: https://msdn.microsoft.com/library/dn589789.aspx
 [hybrid-vpn]: guidance-hybrid-network-vpn.md
 [regional-pairs]: ../best-practices-availability-paired-regions.md
-[resource groups]: ../resource-group-overview.md
+[resource groups]: ../azure-resource-manager/resource-group-overview.md
 [resource-group-links]: ../resource-group-link-resources.md
 [services-by-region]: https://azure.microsoft.com/en-us/regions/#services
 [ssl-client-node]: http://docs.datastax.com/en/cassandra/2.0/cassandra/security/secureSSLClientToNode_t.html
@@ -184,6 +188,7 @@ Measure the recovery times and verify they meet your business requirements. Test
 [tm-routing]: ../traffic-manager/traffic-manager-routing-methods.md
 [tm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/traffic-manager/v1_0/
 [traffic-manager]: https://azure.microsoft.com/en-us/services/traffic-manager/
+[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [vnet-dns]: ../virtual-network/virtual-networks-manage-dns-in-vnet.md
 [vnet-to-vnet]: ../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [vpn-gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md

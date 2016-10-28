@@ -55,7 +55,7 @@ Create an Azure storage account. The app will use this account to store the to-d
 
 1.  Log into the [Azure Portal](https://portal.azure.com/).
 
-2. Click the **New** icon on the bottom left of the portal, then click **Data + Storage** > **Storage**. Give the storage account a unique name and create a new [resource group](../resource-group-overview.md) for it.
+2. Click the **New** icon on the bottom left of the portal, then click **Data + Storage** > **Storage**. Give the storage account a unique name and create a new [resource group](../azure-resource-manager/resource-group-overview.md) for it.
 
   	![New Button](./media/storage-nodejs-use-table-storage-web-site/configure-storage.png)
 

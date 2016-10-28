@@ -11,10 +11,10 @@
 <tags
   ms.service="load-balancer"
   ms.devlang="na"
-  ms.topic="article"
+  ms.topic="get-started-article"
   ms.tgt_pltfrm="na"
   ms.workload="infrastructure-services"
-  ms.date="08/31/2016"
+   ms.date="10/24/2016"
   ms.author="sewhee" />
 
 # <a name="get-started"></a>Creating an Internet-facing load balancer in Resource Manager by using PowerShell
@@ -29,7 +29,7 @@
 
 ## Deploying the solution by using Azure PowerShell
 
-The following procedures show how to create an Internet-facing load balancer by using Azure Resource Manager with PowerShell. With Azure Resource Manager, each resource is created and configured individually, and then put together to create a resource.
+The following procedures explain how to create an Internet-facing load balancer by using Azure Resource Manager with PowerShell. With Azure Resource Manager, each resource is created and configured individually, and then put together to create a load balancer.
 
 You must create and configure the following objects to deploy a load balancer:
 

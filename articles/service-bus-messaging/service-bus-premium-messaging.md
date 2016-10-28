@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Service Bus Premium and Standard Messaging pricing tiers overview | Microsoft Azure"
 	description="Service Bus Premium and Standard Messaging"
-	services="service-bus-messaging"
+	services="service-bus"
 	documentationCenter=".net"
 	authors="djrosanova"
 	manager="timlt"
 	editor=""/>
 
 <tags
-	ms.service="service-bus-messaging"
+	ms.service="service-bus"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -55,5 +55,4 @@ To learn more about Service Bus messaging, see the following topics.
 - [Introducing Azure Service Bus Premium messaging (blog post)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Introducing Azure Service Bus Premium messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [Service Bus messaging overview](service-bus-messaging-overview.md)
-- [Azure Service Bus architectural overview](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
 - [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)

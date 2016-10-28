@@ -19,7 +19,7 @@
 
 # Analyze Azure diagnostic logs using Log Analytics
 
-Log Analytics can collect the logs for the following Azure services that write [Azure diagnostic logs](../azure-portal/monitoring-overview-of-diagnostic-logs.md) to blob storage in JSON format:
+Log Analytics can collect the logs for the following Azure services that write [Azure diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) to blob storage in JSON format:
 
 + Automation (Preview)
 + Key Vault (Preview)
@@ -66,7 +66,7 @@ foreach ($resource in $resources) {
 ```
 
 
-For some resources, it is possible to perform the preceding configuration from the Azure portal using the steps described in [Overview of Azure diagnostic logs](../azure-portal/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
+For some resources, it is possible to perform the preceding configuration from the Azure portal using the steps described in [Overview of Azure diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
 
 ## Configure Log Analytics to collect Azure diagnostic logs
 

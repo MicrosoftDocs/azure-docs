@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/27/2016"
+	ms.date="10/17/2016"
 	ms.author="femila"/>
 
 # Using Windows 10 devices in your workplace
@@ -125,7 +125,7 @@ Domain join continues to work as it always has. However, to get the Azure AD ben
 - A policy that allows access to "domain-joined" devices if you want to be able to restrict access for some devices.
 - System Center Configuration Manager version 1509 for Technical Preview, to enable rules for requiring compliant devices. (See the TechNet documentation and blog post).
 
-For more information about domain join in Windows 10, see <link-to-DJ-in-Win10-deployment-guide>.
+For more information about domain join in Windows 10, see [Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md)
 
 ## Requirements for using BYOD and "Add a work or school account"
 
@@ -159,6 +159,7 @@ The following vendor products integrate with Azure AD for unified enrollment and
 - Citrix Xenmobile
 - Lightspeed Mobile Manager
 - SOTI on-premises mobile device management
+- MobileIron
 
 ### What about Workplace Join in Windows 10?
 Workplace Join was used in Windows 8.1 to enable BYOD. In Windows 10, BYOD is enabled via "Add a work or school account" as explained earlier in this document. For organizations that don’t integrate their mobile device management with Azure AD, users can enroll the device into management manually via **Settings** > **Accounts** > **Work access**.

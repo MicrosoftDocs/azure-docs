@@ -20,6 +20,7 @@
 # Configure a VNet-to-VNet connection for Resource Manager using PowerShell
 
 > [AZURE.SELECTOR]
+- [Resource Manager - Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 - [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 - [Classic - Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 
@@ -28,15 +29,13 @@ This article walks you through the steps to create a connection between VNets in
 
 ![v2v diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
+### Deployment models and methods for VNet-to-VNet connections
 
-### Deployment models and methods for VNet-to-VNet
+[AZURE.INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
+The following table shows the currently available deployment models and methods for VNet-to-VNet configurations. When an article with configuration steps is available, we link directly to it from this table.
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
-
-A VNet-to-VNet connection can be configured in both deployment models and by using several different tools. We update the following table as new articles and additional tools become available for this configuration. When an article is available, we link directly to it from the table.<br><br>
-
-[AZURE.INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)] 
+[AZURE.INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
 #### VNet peering
 
@@ -478,7 +477,8 @@ In this example, because the gateways are in the different subscriptions, we've 
 
 [AZURE.INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-[AZURE.INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
+
+[AZURE.INCLUDE [verify connection powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)] 
 
 
 ## Next steps

@@ -4,7 +4,7 @@
 	services=""
 	documentationCenter=""
 	authors="genlin"
-	manager="msmbaldwin"
+	manager="mbaldwin"
 	editor=""
 	tags="billing,top-support-issue"/>
 
@@ -19,13 +19,13 @@
 
 # Switch your Azure subscription to another offer
 
-As a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) customer, you might be able to switch your Azure subscription to another offer in the [Account Center](https://account.windowsazure.com/Subscriptions). For example, you can use this feature to take advantage of the [monthly credits for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). If you're on [Free Trial](https://azure.microsoft.com/free/), learn how to [upgrade to Pay-As-You-Go](billing-buy-sign-up-azure-subscription.md#upgrade-azure-free-trial-to-pay-as-you-go).
+As a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) customer, you might be able to switch your Azure subscription to another offer in the [Account Center](https://account.windowsazure.com/Subscriptions). For example, you can use this feature to take advantage of the [monthly credits for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). If you're on [Free Trial](https://azure.microsoft.com/free/), learn how to [upgrade to Pay-As-You-Go](billing-upgrade-azure-subscription.md).
 
 #### What's supported:
 
 | From                                                              | To                                                                                      |
 |-------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
-| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)              |                  |
+| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)              |
 | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)          |
 | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)     |
 | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)                      |
@@ -44,19 +44,19 @@ As a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) customer,
 
 3.	Click **Switch to another offer**. The button is only available if you're on Pay-As-You-Go and done with your first billing period.
 
-	![siwtchbutton](./media/billing-how-to-switch-azure-offer/switchbutton.png)
+	![Notice the Switch offer button on the right side of the page](./media/billing-how-to-switch-azure-offer/switchbutton.png)
 	
 4.  **Select the offer you want** from the list of offers your subscription can be switched to. This list varies based on the memberships that your account is associated with. If nothing is available, check the [list of available offers you can switch to](#whats-supported) and make sure you have the right memberships. 
 
-	![selectoffer](./media/billing-how-to-switch-azure-offer/selectoffer.png)
+	![Select an offer that you want to switch to](./media/billing-how-to-switch-azure-offer/selectoffer.png)
 
 5.	Depending on the offer you’re switching to, you may see a note about the impact of switching. Go through this list carefully and follow the instructions before you proceed.
 
-	![thingstonote](./media/billing-how-to-switch-azure-offer/thingstonote.png)
+	![Review the notes](./media/billing-how-to-switch-azure-offer/thingstonote.png)
 
 6.	You can rename your subscription. By default, we set it to the new offer name. Click **Switch Offer** to complete the process.
 
-	![confirmpage](./media/billing-how-to-switch-azure-offer/confirmpage.png)
+	![Click the green button](./media/billing-how-to-switch-azure-offer/confirmpage.png)
 
 7.	Success! Your subscription is now switched to the new offer.
 
@@ -66,7 +66,7 @@ You might not see **Switch to another offer** if:
 
 - You're not on [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/). Currently only Pay-As-You-Go subscriptions can be switched to another offer.
 
-	- If you're on [Free Trial](https://azure.microsoft.com/free/), learn how to [upgrade to Pay-As-You-Go](billing-buy-sign-up-azure-subscription.md#upgrade-azure-free-trial-to-pay-as-you-go).
+	- If you're on [Free Trial](https://azure.microsoft.com/free/), learn how to [upgrade to Pay-As-You-Go](billing-upgrade-azure-subscription.md).
 
 	- To switch offer from a different subscription, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
@@ -92,7 +92,7 @@ On the day you switch, an invoice is generated for all outstanding charges. Then
 
 ## Can I migrate from Pay-As-You-Go to [Cloud Solution Provider](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) or [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
 
-We currently don't support offer switch to CSP or EA in the Accounts Center. To move your existing subscription into EA, have your enrollment admin add your account into the EA. Then, you receive an invitation email. When you follow the instructions to accept the invitation, your subscriptions is automatically moved under the Enterprise Agreement. There is no option to move an existing subscription into CSP today.
+We currently don't support offer switch to CSP or EA in the Accounts Center. To move your existing subscription into EA, have your enrollment admin add your account into the EA. Then, you receive an invitation email. When you follow the instructions to accept the invitation, your subscriptions are automatically moved under the Enterprise Agreement. To migrate to CSP, see [Azure Subscription Migration to CSP](https://blogs.technet.microsoft.com/hybridcloudbp/2016/08/26/azure-subscription-migration-to-csp/).
 
 ## Next steps
 

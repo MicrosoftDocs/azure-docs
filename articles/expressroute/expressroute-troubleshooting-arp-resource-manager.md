@@ -18,7 +18,7 @@
 #ExpressRoute Troubleshooting guide - Getting ARP tables in the Resource Manager deployment model
 
 > [AZURE.SELECTOR]
-[PowerShell - Resource Manager](expressroute-troubleshooting-arp-resourcemanager.md)
+[PowerShell - Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
 [PowerShell - Classic](expressroute-troubleshooting-arp-classic.md)
 
 This article walks you through the steps to learn the ARP tables for your ExpressRoute circuit. 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/10/2016"
+	ms.date="10/24/2016"
 	ms.author="cabailey"/>
 
 # Get started with Azure Key Vault #
@@ -188,17 +188,17 @@ If you want to authorize that same application to read secrets in your vault, ru
 
 For added assurance, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are FIPS 140-2 Level 2 validated. If this requirement doesn't apply to you, skip this section and go to [Delete the key vault and associated keys and secrets](#delete).
 
-To create these HSM-protected keys, you must have a [vault subscription that supports HSM-protected keys](https://azure.microsoft.com/pricing/free-trial/).  In addition, this functionality is not available for Azure China.
+To create these HSM-protected keys, you must use the [Azure Key Vault Premium service tier to support HSM-protected keys](https://azure.microsoft.com/pricing/free-trial/). In addition, note that this functionality is not available for Azure China.
 
 
-When you create the vault, add the **-SKU** parameter:
+When you create the key vault, add the **-SKU** parameter:
 
 
 	New-AzureRmKeyVault -VaultName 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -SKU 'Premium'
 
 
 
-You can add software-protected keys (as shown earlier) and HSM-protected keys to this vault. To create an HSM-protected key, set the **-Destination** parameter to 'HSM':
+You can add software-protected keys (as shown earlier) and HSM-protected keys to this key vault. To create an HSM-protected key, set the **-Destination** parameter to 'HSM':
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -Destination 'HSM'
 

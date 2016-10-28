@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/18/2016"
+    ms.date="10/17/2016"
     ms.author="spelluru"/>
 
 # Process large-scale datasets using Data Factory and Batch

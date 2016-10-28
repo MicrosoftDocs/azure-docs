@@ -15,24 +15,53 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2016"
-	ms.author="femila;markvi"/>
+	ms.date="10/11/2016"
+	ms.author="markvi"/>
 
 
 # Enable Microsoft Windows Hello for Business in your organization
 
-After connecting Windows 10 domain-joined devices with Azure Active Directory (Azure AD), do the following to enable Microsoft Windows Hello for Business in your organization.
+After [connecting Windows 10 domain-joined devices with Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md), do the following to enable Microsoft Windows Hello for Business in your organization:
 
-## Deploy System Center Configuration Manager Current Branch 
+1. Deploy System Center Configuration Manager  
+
+2. Configure policy settings
+
+3. Configure the certificate profile  
+
+
+
+
+## Deploy System Center Configuration Manager 
+
 To deploy user certificates based on Windows Hello for Business keys, you need the following:
 
-- **System Center Configuration Manager Current Branch**. You need to install version 1606 or better. For more information, see the [Documentation for System Center Configuration Manager](https://technet.microsoft.com/library/mt346023.aspx) and [System Center Configuration Manager Team Blog](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx).
-- **Public key infrastructure (PKI)**: To enable Microsoft Windows Hello for Business by using user certificates, you must have a PKI in place. If you don’t have one, or you don’t want to use it for user certificates, you can do this:
- - **Deploy a domain controller**: Deploy a new domain controller that has Windows Server 2016 build 10551 (or newer) installed, and follow the steps to [install a replica domain controller in an existing domain](https://technet.microsoft.com/library/jj574134.aspx) or to [install a new Active Directory forest, if you're creating a new environment](https://technet.microsoft.com/library/jj574166). (The ISOs are available for download on [Signiant Media Exchange](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true).)
+- **System Center Configuration Manager Current Branch** - You need to install version 1606 or better. For more information, see the [Documentation for System Center Configuration Manager](https://technet.microsoft.com/library/mt346023.aspx) and [System Center Configuration Manager Team Blog](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx).
+- **Public key infrastructure (PKI)** - To enable Microsoft Windows Hello for Business by using user certificates, you must have a PKI in place. If you don’t have one, or you don’t want to use it for user certificates, you can deploy a new domain controller that has Windows Server 2016 build 10551 (or better) installed. Follow the steps to [install a replica domain controller in an existing domain](https://technet.microsoft.com/library/jj574134.aspx) or to [install a new Active Directory forest, if you're creating a new environment](https://technet.microsoft.com/library/jj574166). (The ISOs are available for download on [Signiant Media Exchange](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true).)
 
-## Configure Microsoft Windows Hello for Business via Group Policy in Active Directory
 
- You can use Group Policy in Windows Server Active Directory to configure your Windows 10 domain-joined devices to provision Windows Hello for Business user credentials on user sign-in to Windows:
+## Configure policy settings
+
+To configure the Microsoft Windows Hello for Business policy settings, you have two options:
+
+- Group Policy in Active Directory 
+- The System Center Configuration Manager 
+
+
+Using Group Policy in Active Directory is the recommended method to configure Microsoft Windows Hello for Business policy settings. 
+
+
+
+Using System Center Configuration Manager is the preferred method when you also use it to deploy certificates. 
+This scenario:
+
+- Ensures compatibility with the newer deployment scenarios
+- Requires on the client side Windows 10 Version 1607 or better.
+
+### Configure Microsoft Windows Hello for Business via group policy in Active Directory
+
+ 
+**Steps**:
 
 1. 	Open Server Manager, and navigate to **Tools** > **Group Policy Management**.
 2.	From Group Policy Management, navigate to the domain node that corresponds to the domain in which you want to enable Azure AD Join.
@@ -46,9 +75,11 @@ To deploy user certificates based on Windows Hello for Business keys, you need t
  - A specific security group that contains Windows 10 domain-joined computers that will be automatically registered with Azure AD
 
 
-## Configure Windows Hello for Business using System Center Configuration Manager
+### Configure Windows Hello for Business using System Center Configuration Manager
 
-You can only use the System Center Configuration Manager to deploy Windows Hello for Business policies for Windows 10 Version 1607. Please start winver on your Windows 10 computer if you need to lookup the version of your Windows 10 computer. 
+
+**Steps**:
+
 
 1. Open the **System Center Configuration Manager**, and then navigate to **Assets & Compliance > Compliance Settings > Company Resource Access > Windows Hello for Business Profiles**.
 
@@ -81,7 +112,7 @@ You can only use the System Center Configuration Manager to deploy Windows Hello
 
 	b. As **Use a Trusted Platform Module (TPM)**, select **Required**. 
 
-	c. As **Authentication method", select **Certificate-based**.
+	c. As **Authentication method**, select **Certificate-based**.
 
 	d. Click **Next**.
 
@@ -98,8 +129,7 @@ You can only use the System Center Configuration Manager to deploy Windows Hello
 
 
 
-## Configure the certificate profile to use the Windows Hello for Business enrollment certificate in Configuration Manager
-
+## Configure the certificate profile 
 
 If you are using certificate-based authentication for on-premises authentication, you need to configure and deploy a certificate profile. This task requires you to set up an NDES server and Certificate Registration Point site role in the System Center Configuration Manager. For more details, see the [Prerequisites for Certificate Profiles in Configuration Manager](https://technet.microsoft.com/library/dn261205.aspx).
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="07/19/2016"
+   ms.date="10/12/2016"
    ms.author="v-six" />
 
 # Default TEMP folder size is too small on a cloud service web/worker role

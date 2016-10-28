@@ -39,8 +39,8 @@ The IoT Hub device identity registry exposes the following operations:
 * Retrieve device identity by ID
 * Delete device identity
 * List up to 1000 identities
-* Export all identities to blob storage
-* Import identities from blob storage
+* Export all identities to Azure blob storage
+* Import identities from Azure blob storage
 
 All these operations can use optimistic concurrency, as specified in [RFC7232][lnk-rfc7232].
 
@@ -65,16 +65,16 @@ You can disable devices by updating the **status** property of an identity in th
 
 ## Import and export device identities
 
-You can export device identities in bulk from an IoT hub's identity registry, by using asynchronous operations on the [IoT Hub Resource Provider endpoint][lnk-endpoints]. Exports are long-running jobs that use a customer-supplied blob container to save device identity data read from the identity registry.
+You can export device identities in bulk from an IoT hub's identity registry, by using asynchronous operations on the [IoT Hub resource provider endpoint][lnk-endpoints]. Exports are long-running jobs that use a customer-supplied blob container to save device identity data read from the identity registry.
 
-You can import device identities in bulk to an IoT hub's identity registry, by using asynchronous operations on the [IoT Hub Resource Provider endpoint][lnk-endpoints]. Imports are long-running jobs that use data in a customer-supplied blob container to write device identity data into the device identity registry.
+You can import device identities in bulk to an IoT hub's identity registry, by using asynchronous operations on the [IoT Hub resource provider endpoint][lnk-endpoints]. Imports are long-running jobs that use data in a customer-supplied blob container to write device identity data into the device identity registry.
 
-- For detailed information about the import and export APIs, see [Azure IoT Hub - Resource Provider APIs][lnk-resource-provider-apis].
+- For detailed information about the import and export APIs, see [IoT Hub resource provider REST APIs][lnk-resource-provider-apis].
 - To learn more about running import and export jobs, see [Bulk management of IoT Hub device identities][lnk-bulk-identity].
 
 ## Device provisioning
 
-The device data that a given IoT solution stores depends on the specific requirements of that solution. But, as a minimum, a solution must store device identities and authentication keys. Azure IoT Hub includes an identity registry that can store values for each device such as IDs, authentication keys, and status codes. A solution can use other Azure services such as tables, blobs, or Azure DocumentDB to store any additional device data.
+The device data that a given IoT solution stores depends on the specific requirements of that solution. But, as a minimum, a solution must store device identities and authentication keys. Azure IoT Hub includes an identity registry that can store values for each device such as IDs, authentication keys, and status codes. A solution can use other Azure services such as Azure table storage, Azure blob storage, or Azure DocumentDB to store any additional device data.
 
 *Device provisioning* is the process of adding the initial device data to the stores in your solution. To enable a new device to connect to your hub, you must add a new device ID and keys to the IoT Hub identity registry. As part of the provisioning process, you might need to initialize device-specific data in other solution stores.
 
@@ -90,9 +90,11 @@ A more complex implementation could include the information from [operations mon
 
 > [AZURE.NOTE] If an IoT solution needs the device connection state solely to determine whether to send cloud-to-device messages, and messages are not broadcast to large sets of devices, a much simpler pattern to consider is to use a short Expiry time. This achieves the same result as maintaining a device connection state registry using the heartbeat pattern, while being significantly more efficient. It is also possible, by requesting message acknowledgements, to be notified by IoT Hub of which devices are able to receive messages and which are not online or are failed.
 
-## Reference
+## Reference topics:
 
-### Device identity properties
+The following reference topics provide you with more information about the devcie identity registry.
+
+## Device identity properties
 
 Device identities are represented as JSON documents with the following properties.
 
@@ -112,7 +114,7 @@ Device identities are represented as JSON documents with the following propertie
 
 > [AZURE.NOTE] Connection state can only represent the IoT Hub view of the status of the connection. Updates to this state may be delayed, depending on network conditions and configurations.
 
-### Additional reference material
+## Additional reference material
 
 Other reference topics in the Developer Guide include:
 

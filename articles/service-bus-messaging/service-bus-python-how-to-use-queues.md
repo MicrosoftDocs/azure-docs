@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="How to use Service Bus queues with Python | Microsoft Azure" 
 	description="Learn how to use Azure Service Bus queues from Python." 
-	services="service-bus-messaging" 
+	services="service-bus" 
 	documentationCenter="python" 
 	authors="sethmanheim" 
 	manager="timlt" 
 	editor=""/>
 
 <tags 
-	ms.service="service-bus-messaging" 
+	ms.service="service-bus" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
