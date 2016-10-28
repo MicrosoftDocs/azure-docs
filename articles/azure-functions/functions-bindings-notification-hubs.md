@@ -30,7 +30,7 @@ Your functions can send push notifications using a configured Azure Notification
 
 The notifications you send can be native notifications or template notifications. Native notifications target a specific notification platform as configured in the `platform` property of the output binding. A template notification can be used to target multiple platforms.   
 
-## function.json for Azure Notification Hub output binding
+## Azure Notification Hub output binding properties
 
 The function.json file provides the following properties:
 
@@ -78,8 +78,9 @@ You can also manually add a connection string for an existing hub by adding a co
 3. Scroll down to the **Connection strings** section, and add a named entry for *DefaultFullSharedAccessSignature* value for your notification hub. Change the type to **Custom**.
 4. Reference your connection string name in the output bindings. Similar to **MyHubConnectionString** used in the example above.
 
+## Native notification examples
 
-## APNS native notifications with C# queue triggers
+#### APNS native notifications with C# queue triggers
 
 This example shows how to use types defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) to send a native APNS notification. 
 
@@ -108,7 +109,7 @@ This example shows how to use types defined in the [Microsoft Azure Notification
 	    await notification.AddAsync(new AppleNotification(apnsNotificationPayload));	    
 	}
 
-## GCM native notifications with C# queue triggers
+#### GCM native notifications with C# queue triggers
 
 This example shows how to use types defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) to send a native GCM notification. 
 
@@ -137,7 +138,7 @@ This example shows how to use types defined in the [Microsoft Azure Notification
 	    await notification.AddAsync(new GcmNotification(gcmNotificationPayload));	    
 	}
 
-## WNS native notifications with C# queue triggers
+#### WNS native notifications with C# queue triggers
 
 This example shows how to use types defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) to send a native WNS toast notification. 
 
@@ -178,7 +179,10 @@ This example shows how to use types defined in the [Microsoft Azure Notification
 	    await notification.AddAsync(new WindowsNotification(wnsNotificationPayload));	    
 	}
 
-## Template example for Node.js timer triggers 
+
+## Template Notification Examples
+
+#### Template example for Node.js timer triggers 
 
 This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `location` and `message`.
 
@@ -197,7 +201,7 @@ This example sends a notification for a [template registration](../notification-
 	    context.done();
 	};
 
-## Template example for F# timer triggers
+#### Template example for F# timer triggers
 
 This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `location` and `message`.
 
@@ -205,7 +209,7 @@ This example sends a notification for a [template registration](../notification-
 	    notification = dict [("location", "Redmond"); ("message", "Hello from F#!")]
 
 
-## Template example using an out parameter 
+#### Template example using an out parameter 
 
 This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains a `message` place holder in the template.
 
@@ -226,7 +230,7 @@ This example sends a notification for a [template registration](../notification-
 	    return templateProperties;
 	}
 
-## Template example with asynchronous function
+#### Template example with asynchronous function
 
 If you are using asynchronous code, out parameters are not allowed. In this case use `IAsyncCollector` to return your template notification. The following code is an asynchronous example of the code above. 
 
@@ -249,7 +253,7 @@ If you are using asynchronous code, out parameters are not allowed. In this case
 	    return templateProperties;
 	}
 
-## Template example using JSON 
+#### Template example using JSON 
 
 This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains a `message` place holder in the template using a valid JSON string.
 
@@ -262,7 +266,7 @@ This example sends a notification for a [template registration](../notification-
 	}
 
 
-## Template example using Notification Hubs library types
+#### Template example using Notification Hubs library types
 
 This example shows how to use types defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). 
 
