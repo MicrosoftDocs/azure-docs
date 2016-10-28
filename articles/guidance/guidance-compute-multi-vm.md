@@ -85,13 +85,55 @@ Create one storage account for diagnostic logs. This storage account can be shar
 
 ## Scalability considerations
 
-The load balancer takes incoming network requests and distributes them across the NICs in the back-end address pool. To scale horizontally, add more VM instances to the availability set (or deallocate VMs to scale down). 
+There are two options for scaling out VMs in Azure: 
+
+- Use a load balancer to distribute network traffic across a set of VMs. To scale out, provision additional VMs and put them behind the load balancer. 
+
+- Use [Virtual Machine Scale Sets][vmss]. A scale set contains a speficied number of identical VMs behind a load balancer. VM scale sets support autoscaling based on performance metrics. As the load on the VMs increases, additional VMs are automatically added to the load balancer. 
+
+The next sections compare these two options.
+
+### Load balancer without VM scale sets
+
+A load balancer takes incoming network requests and distributes them across the NICs in the back-end address pool. To scale horizontally, add more VM instances to the availability set (or deallocate VMs to scale down). 
 
 For example, suppose you're running a web server. You would add a load balancer rule for port 80 and/or port 443 (for SSL). When a client sends an HTTP request, the load balancer picks a back-end IP address using a [hashing algorithm][load balancer hashing] that includes the source IP address. In that way, client requests are distributed across all the VMs. 
 
 > [AZURE.TIP] When you add a new VM to an availability set, make sure to create a NIC for the VM, and add the NIC to the back-end address pool on the load balancer. Otherwise, Internet traffic won't be routed to the new VM.
 
 Each Azure subscription has default limits in place, including a maximum number of VMs per region. You can increase the limit by filing a support request. For more information, see [Azure subscription and service limits, quotas, and constraints][subscription-limits].  
+
+### VM scale sets 
+
+VM scale sets help you to deploy and manage a set of identical VMs. With all VMs configured the same, VM scale sets support true autoscale, without pre-provisioning VMs, making it easier to build large-scale services targeting big compute, big data, and containerized workloads. 
+
+For more information about VM scale sets, see [Virtual Machine Scale Sets Overview][vmss].
+
+Considerations for using VM scale sets:
+
+- Consider scale sets if you need to quickly scale out VMs, or need to autoscale. 
+
+- Currently, scale sets do not support data disks. The options for storing data are Azure file storage, the OS drive, the Temp drive, or an external store, such as Azure Storage. 
+
+- All VM instances within a scale set automatically belong to the same availability set, with 5 fault domains and 5 update domains.
+
+- By default, scale sets use "overprovisioning," which means the scale set initially provisions more VMs than you ask for, then deletes the extra VMs. This improves the overall success rate when provisioning the VMs. 
+
+- We recommend no more then than 20 VMs per storage account with overprovisioning enabled, or no more than 40 VMs with overprovisioning disabled.  
+
+- You can find Resource Manager templates for deploying scale sets in the [Azure Quickstart Templates][vmss-quickstart].
+
+- There are two basic ways to configure VMs deployed in a scale set: Create a custom image, or use extensions to configure the VM after it is provisioned.
+
+    - A scale set built on a custom image must create all OS disk VHDs within one storage account. 
+
+    - With custom images, you need to keep the image up to date.
+
+    - With extensions, it can take longer for a newly provisioned VM to spin up.
+
+For additional considerations, see [Designing VM Scale Sets For Scale][vmss-design].
+
+> [AZURE.TIP]  When using any auto-scale solution, test it with production-level work loads well in advance. 
 
 ## Availability considerations
 
@@ -178,5 +220,8 @@ Placing several VMs behind a load balancer is a building block for creating mult
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [vm-disk-limits]: ../azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_2/
+[vmss]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
+[vmss-design]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview.md
+[vmss-quickstart]: https://azure.microsoft.com/documentation/templates/?term=scale+set
 [VM-sizes]: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/
 [0]: ./media/blueprints/compute-multi-vm.png "Architecture of a multi-VM solution on Azure comprising an availability set with two VMs and a load balancer"
