@@ -42,13 +42,13 @@ Also note that if you delete the experiment, all snapshot of that experiment is 
 
 
 ### Export/import experiment in JSON format
-Even though the run history snapshots keep an immutable version of the experiment in the ML Studio every time it is submitted to run, sometimes you still want to save a local copy of the experiment, and maybe check it into your favorite source control system, such as Team Foundation Server, and later on recreate an experiment from that local file. You can use [Azure ML PowerShell](http://aka.ms/amlps) commandlet [*Export-AmlExperimentGraph*](http://mit.edu) and [*Import-AmlExperimentGraph*](http://www.com) to accomplish that.
+Even though the run history snapshots keep an immutable version of the experiment in the ML Studio every time it is submitted to run, sometimes you still want to save a local copy of the experiment, and maybe check it into your favorite source control system, such as Team Foundation Server, and later on recreate an experiment from that local file. You can use [Azure ML PowerShell](http://aka.ms/amlps) commandlet [*Export-AmlExperimentGraph*](https://github.com/hning86/azuremlps#export-amlexperimentgraph) and [*Import-AmlExperimentGraph*](https://github.com/hning86/azuremlps#import-amlexperimentgraph) to accomplish that.
 
 Please note though the JSON file is a textual representation of the experiment graph, which may includes reference to assets in the workspace such as dataset or trained models. But it does NOT contain serialized version of such assets. So if you attempt to import the JSON document back into the workspace, those referenced assets must already exist with the same asset IDs referenced in the experiment, otherwise you will not be able to access the imported experiment.
 
 
 ## Versioning trained model
-A trained model in Azure ML is serialized into a format known as .iLearner file and stored in the Azure blob storage account associated with the workspace. One way to get hold of a copy of the iLearner file is through retraining API. This [article](machine-learning-retrain-models-programmatically/) explains in much more detail on how retraining API works. But the high-level steps are:
+A trained model in Azure ML is serialized into a format known as .iLearner file and stored in the Azure blob storage account associated with the workspace. One way to get hold of a copy of the iLearner file is through retraining API. This [article](machine-learning-retrain-models-programmatically) explains in much more detail on how retraining API works. But the high-level steps are:
 
 1. Set up your training experiment.
 2. Add web service output port to the Train Model module, or the module that produces the trained model, such as Tune Model Hyperparameter or Create R Model module.
@@ -76,7 +76,7 @@ To version a classic web service, you can leverage the web service endpoint cons
 
 Over time, you may have many endpoints created in the same web service, each represents a point-in-time copy of the experiment containing the point-in-time version of the trained model. You can then use external logic to determine which endpoint to call, which effectively means selecting a version of the trained model for the scoring run.
 
-You can also create many identical web service endpoints, and then patch different versions of the .iLearner file to the endpoint to achieve similar effect. This [article](machine-learning-create-models-and-endpoints-with-powershell/) explains in more detail on how to accomplish that.
+You can also create many identical web service endpoints, and then patch different versions of the .iLearner file to the endpoint to achieve similar effect. This [article](machine-learning-create-models-and-endpoints-with-powershell.md) explains in more detail on how to accomplish that.
 
 
 ### New web service
