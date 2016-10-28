@@ -47,9 +47,7 @@ To see more or fewer counters, [edit the charts](app-insights-metrics-explorer.m
 
 ## If it's an Azure web app ...
 
-If your app runs as an Azure web app, go to the Azure control panel for the app or VM, and add the Application Insights extension. In **Tools**, open **Performance monitoring** and configure **Application Insights**. When prompted, choose the Application Insights resource you already created.
-
-![Extend in Azure](./media/app-insights-asp-net-more/05-extend.png)
+If your app runs as an Azure web app, go to the Azure control panel for the app or VM, and open the Application Insights blade. 
 
 ### What do you get?
 
