@@ -47,7 +47,7 @@ This article provides step-by-step instructions for moving data into Azure SQL D
 
 	Refer to [Create an Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision/) for detailed instructions on how to create a SQL Data Warehouse database.  To get the best possible load performance into SQL Data Warehouse using Polybase, we choose maximum number of Data Warehouse Units (DWUs) allowed in the Performance setting, which is 6,000 DWUs.
 
-	> [ACOM.NOTE] 
+	> [AZURE.NOTE] 
 	> When loading from Azure Blob, the data loading performance is directly proportional to the number of DWUs you configure on the SQL Data Warehouse:
 	> 
 	> Loading 1 TB into 1,000 DWU SQL Data Warehouse takes 87min (~200MBps throughput)
