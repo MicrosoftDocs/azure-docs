@@ -70,9 +70,9 @@ For details on configuring specific authentication providers, see
 
 ## CORS
 
-Normally, for security reasons, calls to your hosts (domains) from external sources, such as Ajax calls from a browser, are not allowed. Otherwise, malicious code could be sent to and executed on the backend. The safest route then is to blacklist all sources of code, except for a few of your own trusted ones. You can configure which sources you will accept call from in Azure functions by configuring Cross-Origin Resource Sharing (CORS). CORS allows you to list domains that are the source of JavaScript that can call functions in your Azure Function App. 
+Normally, for security reasons, calls to your hosts (domains) from external sources, such as Ajax calls from a browser, are not allowed. Otherwise, malicious code could be sent to and executed on the backend. The safest route then is to blacklist all sources of code, except for a few of your own trusted ones. You can configure which sources you accept calls from in Azure functions by configuring Cross-Origin Resource Sharing (CORS). CORS allows you to list domains that are the source of JavaScript that can call functions in your Azure Function App. 
 
-1. To configure CORS, Click the  **Configure CORS** link. 
+1. To configure CORS, Click the **Configure CORS** link. 
 
 2. Enter domain(s) that you want to whitelist.
 
@@ -82,7 +82,7 @@ Normally, for security reasons, calls to your hosts (domains) from external sour
 
 Allow clients to more easily consume your HTTP-triggered functions.
 
-1. To setup an API, click **Configure API metadata**. 
+1. To set up an API, click **Configure API metadata**. 
 
 2. Enter the URL that points to a Swagger json file.
 
