@@ -203,7 +203,7 @@ The following chart provides guidance on migrating your Hive workloads.
 | ----- | ----- |
 | Storm Dashboard | The Storm Dashboard is not available. See [Deploy and Manage Storm topologies on Linux-based HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md) for ways to submit topologies |
 | Storm UI | The Storm UI is available at https://CLUSTERNAME.azurehdinsight.net/stormui |
-| Visual Studio to create, deploy, and manage C# or hybrid topologies | Linux-based Storm on HDInsight clusters created after 10/28/2017 support C# (SCP.NET) Storm topologies. |
+| Visual Studio to create, deploy, and manage C# or hybrid topologies | Visual Studio can be used to create, deploy, and manage C# (SCP.NET) or hybrid topologies on Linux-based Storm on HDInsight clusters created after 10/28/2017. |
 
 ##HBase
 
