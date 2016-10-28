@@ -56,7 +56,7 @@ Some things to consider include:
 
 - Is the Diagnostic extension working and emitting performance data?
 
-    __Update:__ Azure autoscale has been enhanced to use a host based metrics pipeline which no longer requires a diagnostics extension to be installed. this means the next few paragraphs no longer apply if you create an autoscaling application using the new pipeline. Examples of Azure templates which have been converted to use the host pipeline include: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale, https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale. 
+    __Update:__ Azure autoscale has been enhanced to use a host based metrics pipeline which no longer requires a diagnostics extension to be installed. This means the next few paragraphs no longer apply if you create an autoscaling application using the new pipeline. Examples of Azure templates which have been converted to use the host pipeline include: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale, https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale. 
 
     Using host based metrics for autoscale is better for the following reasons:
 
