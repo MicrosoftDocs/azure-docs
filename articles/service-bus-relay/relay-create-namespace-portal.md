@@ -18,7 +18,7 @@
 
 # Create a Relay namespace using the Azure portal
 
-A namespace is a common container for all your Relay components. Multiple Relays can reside in a single namespace, and namespaces often serve as application containers. There are currently two different ways to create a Service Bus namespace.
+A namespace is a common container for all your Relay components. Multiple Relays can reside in a single namespace, and namespaces often serve as application containers. There are currently two different ways to create a Relay namespace.
 
 1.	Azure portal (this article)
 
