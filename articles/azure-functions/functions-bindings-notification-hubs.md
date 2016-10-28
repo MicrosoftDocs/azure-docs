@@ -180,7 +180,7 @@ This example shows how to use types defined in the [Microsoft Azure Notification
 	}
 
 
-## Template Notification Examples
+## Template notification examples
 
 #### Template example for Node.js timer triggers 
 
