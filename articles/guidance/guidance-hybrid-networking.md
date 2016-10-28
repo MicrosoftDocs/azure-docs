@@ -20,7 +20,13 @@
 
 Many organizations have an existing on-premises infrastructure that they wish to integrate with Azure. This enables organizations to migrate existing applications to the cloud, and also to take advantage of the scalability, availability, security, and other enterprise features that Azure offers for new applications. The key part of this scenario is understanding how to establish a secure and robust network connection between your organization and Azure.
 
-This article describes some common options for meeting the challenges posed by this scenario, and helps you determine which solution will best meet your needs based on your requirements.
+The patterns & practices group has created a set of reference architectures to address these scenarios. Each reference architecture demonstrates one approach to creating hybrid networks with Azure, and includes:
+
+- Recommendations and best practices.
+- Considerations for availability, security, scalability, and manageability.
+- An Azure Resource Manager template that you can modify and deploy.
+
+This article gives a summary of each reference architecture, and helps you to decide which solution will best meet your needs.
 
 ## Using a virtual private network connection
 
@@ -28,29 +34,29 @@ You can use [Azure VPN Gateway][azure-vpn-gateway] to create a virtual private n
 
 [![0]][0]
 
-This architecture is suitable for hybrid applications with the following characteristics:
+This architecture is suitable for hybrid applications <!-- mike: is "hybrid appication" and standard term? (This may be a question for the PM :-) --> with the following characteristics:
 
-- Parts of the application run on-premises while others run in Azure.
+- Parts of the application run on-premises while others run in Azure. <!-- mike: I think we could omit this one, because we're already talking about hybrid network apps. --> 
 
 - The traffic between on-premises hardware and the cloud is likely to be light, or it is beneficial to trade slightly extended latency for the flexibility and processing power of the cloud.
 
-- The extended network constitutes a closed system. There is no direct path from the Internet to the Azure VNet.
+- The extended network constitutes a closed system. There is no direct path from the Internet to the Azure VNet. <!-- Is this not true for the other architectures? -->
 
-- Users connect to the on-premises network to use the services hosted in Azure. The bridge between the on-premises network and the services running in Azure is transparent to users.
+- Users connect to the on-premises network to use the services hosted in Azure. The bridge between the on-premises network and the services running in Azure is transparent to users. <!-- Not true for ExpressRoute? -->
 
-Benefits of using a VPN connection:
+Benefits:
 
 - Simple to configure.
 
-- Microsoft guarantee 99.9% availability for each VPN Gateway. Note that this SLA only covers the VPN gateway, and not your network connection to the gateway.
+- Microsoft guarantee 99.9% availability for each VPN Gateway. Note that this SLA only covers the VPN gateway, and not your network connection to the gateway.  <!-- mike: Do any of the other solutions here have a lower SLA? i.e., is this point relevant when deciding among the solutions here?  --> 
 
-Points to consider when using a VPN connection:
+Considerations:
 
 - Requires an on-premises VPN device.
 
 - A VPN connection over Azure VPN Gateway currently supports a maximum of 200 Mbps bandwidth. You may need to partition your Azure virtual network across multiple VPN connections if you expect to exceed this throughput.
 
-For detailed information, read [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][hybrid-network-vpn].
+For detailed information about this architecture, see [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][hybrid-network-vpn].
 
 ## Using an Azure ExpressRoute connection
 
@@ -58,11 +64,11 @@ ExpressRoute connections are high bandwidth network connections that use a priva
 
 [![1]][1]
 
-Typical use cases for this architecture include:
+This architecture is suitable for hybrid applications with the following characteristics:
 
-- Hybrid applications where workloads are distributed between an on-premises network and Azure.
+- Hybrid applications where workloads are distributed between an on-premises network and Azure. <!-- remove this one? Context is already hybrid networks -->
 
-- Applications running large-scale, mission-critical workloads that require a high degree of scalability.
+- Applications running large-scale, mission-critical workloads that require a high degree of scalability. 
 
 - Large-scale backup and restore facilities for data that must be saved off-site.
 
@@ -70,11 +76,14 @@ Typical use cases for this architecture include:
 
 - Using Azure as a disaster-recovery site.
 
+<!-- I can sort of see how these uses cases derive from the list of benefits. Maybe we should list benefits/considerations first? -->
+
+
 Benefits of using an ExpressRoute connections:
 
 - Much higher bandwidth available; up to 10 Gbps depending on the connectivity provider.
 
-- Supports dynamic scaling of bandwidth to help reduce costs during periods of lower demand. Note that not all connectivity providers have this option.
+- Supports dynamic scaling of bandwidth to help reduce costs during periods of lower demand. However, not all connectivity providers have this option.
 
 - May allow your organization direct access to national clouds, depending on the connectivity provider.
 
@@ -86,11 +95,11 @@ Considerations for using an ExpressRoute connection:
 
 - Requires high bandwidth routers on-premises.
 
-For information on how to configure an ExpressRoute connection, see [Implementing a hybrid network architecture with Azure ExpressRoute][hybrid-network-expressroute].
+For detailed information about this architecture, see [Implementing a hybrid network architecture with Azure ExpressRoute][hybrid-network-expressroute].
 
 ## Using Azure VPN Gateway to provide a failover connection for Azure ExpressRoute
 
-Any network can suffer outages. If you are running mission critical services in Azure, you will require a fallback position, possibly with reduced bandwidth. For example, you can provide a VPN connection alongside an ExpressRoute circuit. Under normal circumstances, the traffic flows between the on-premises network and an Azure virtual network through the ExpressRoute connection.  If there is a loss of connectivity in the ExpressRoute circuit, traffic will be routed through an IPSec VPN tunnel instead.
+Any network can suffer outages. If you are running mission critical services in Azure, you will require a fallback position <!-- option? -->, possibly with reduced bandwidth. For example, you can provide a VPN connection alongside an ExpressRoute circuit. Under normal circumstances, the traffic flows between the on-premises network and an Azure virtual network through the ExpressRoute connection.  If there is a loss of connectivity in the ExpressRoute circuit, traffic will be routed through an IPSec VPN tunnel instead.
 
 [![2]][2]
 
@@ -100,11 +109,11 @@ Benefits of using a failover VPN connection:
 
 Considerations for using a failover VPN connection:
 
-- Complex to configure. You need to set up a VPN connection and an ExpressRoute circuit.
+- Complex to configure. You need to set up both a VPN connection and an ExpressRoute circuit.
 
 - Requires redundant hardware (VPN appliances), and a redundant Azure VPN Gateway connection for which you pay charges.
 
-The document [Implementing a highly available hybrid network architecture][hybrid-network-expressroute-failover] describes how to implement this approach in more detail.
+For detailed information about this architecture, see [Implementing a highly available hybrid network architecture][hybrid-network-expressroute-failover].
 
 ## Next steps
 
